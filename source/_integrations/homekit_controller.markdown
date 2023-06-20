@@ -79,17 +79,26 @@ HomeKit IP accessories for these device types may work with some caveats:
 
 HomeKit controller will poll your devices, but it will also automatically enable push updates for accessories that support it.
 
-## Bluetooth device support
+## Adding a HomeKit device through Bluetooth
 
-HomeKit Controller will automatically discover Bluetooth devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. Bluetooth devices may take significantly longer to pair than IP devices. Battery-powered devices may require pressing a button on the device to wake it before pairing can be successful.
+1. Power up your HomeKit controller device.
+   * If your Home Assistant server device does not natively support Bluetooth, you can use a Bluetooth proxy. 
+     * A proxy can also be helpful if your Home Assistant device is too far away from the device you are trying to pair.
+   * If you have Bluetooth enabled, it should be discovered under **{% my integrations title="Settings > Devices & Services" %}**.
+1. On the HomeKit integration, select **Configure**.
+1. To pair the device, enter the HomeKit pairing code. The code is on the device itself or the packaging. 
+   * Select **Finish**. 
+1. The HomeKit controller now automatically discovers Bluetooth devices (if the [Bluetooth](/integrations/bluetooth) integration is enabled).  
+   * Bluetooth devices may take significantly longer to pair than IP devices. 
+   * To pair a battery-powered device, you may need to press a button on the device to wake it.
 
 ## Adding a HomeKit controller device to a Thread network
 
 ### Prerequisites
 
 * Make sure your HomeKit device supports Thread. This is indicated by the Thread label on the packaging.
-* **Bluetooth support**: HomeKit devices are joined using Bluetooth. If your Home Assistant server device does not support Bluetooth, you can use a Bluetooth proxy.
-* **Thread network**: In order to use HomeKit over Thread you need a working border router. 
+* Make sure HomeKit controller has been [joined using Bluetooth](#adding-a-homekit-device-through-bluetooth). 
+* **Thread network**: In order to use HomeKit over Thread, you need a working border router. 
     * Make sure your Home Assistant device is on the same network (LAN) as the border router. 
     * If you have a Home Assistant Yellow or SkyConnect, you can enable multiprotocol to set up an Open Thread border router and with that a Thread network. 
       * Documentation on [enabling multiprotocol on Yellow](https://yellow.home-assistant.io/guides/enable-multiprotocol/)
@@ -98,12 +107,7 @@ HomeKit Controller will automatically discover Bluetooth devices once the [Bluet
 
 ### To add a HomeKit controller device to a Thread network
 
-1. Power up your HomeKit controller device.
-   * If you have Bluetooth enabled, it should be discovered under **{% my integrations title="Settings > Devices & Services" %}**.
-1. On the HomeKit integration, select **Configure**.
-1. To pair the device, enter the HomeKit pairing code. The code is on the device itself or the packaging. 
-   * Select **Finish**. 
-1. To open the device configuration page, on the integration, select the **device**.
+1. To open the device configuration page, on the **HomeKit** integration, select the **device**.
 1. Under **Diagnostic**, you can see the **Thread Status** as **Disabled**.
     ![Device configuration page](/images/integrations/homekit_controller/homekit_controller_add_02.png)
 1. To enable Thread, under **Configuration**, select **Press**. This will provision the preferred Thread credentials.
