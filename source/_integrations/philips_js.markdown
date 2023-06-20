@@ -25,7 +25,6 @@ ha_integration_type: integration
 The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.
 
 If your TV responds to `http://IP_ADDRESS_OF_TV:1925/system` then this integration can be used. In the response, you should also be able to see the version of the API the TV uses (`"api_version":{"Major":6...`).
-
 For older TVs follow instructions on how to activate the API and if your model is supported [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices will have JSON-interface running on port 1925. This is true at least for some models before year 2011.
 
 Also, note that version 6 of the API needs to be authenticated by a PIN code displayed on your TV.
@@ -136,9 +135,9 @@ The integration exposes a single light entity to control the mode of the ambilig
 When the light entity is turned on, it is controlling the ambilights, when it is turned off the TV is in control of the ambilight in its standard video-based fashion.
 
 Limits:
-- The integration does not expose current ambilight measured values since it would
+ - The integration does not expose current ambilight measured values since it would
 overload the event bus in Home Assistant.
-- There is no support to control the standard, non-expert, styles of the TV.
+ - There is no support to control the standard, non-expert, styles of the TV.
 
 #### Ambilight+Hue
 
