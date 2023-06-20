@@ -111,7 +111,8 @@ HomeKit controller will poll your devices, but it will also automatically enable
 1. Under **Diagnostic**, you can see the **Thread Status** as **Disabled**.
     ![Device configuration page](/images/integrations/homekit_controller/homekit_controller_add_02.png)
 1. To enable Thread, under **Configuration**, select **Press**. This will provision the preferred Thread credentials.
-   * The status has now changed to **Child**. 
+   * The status has now changed: 
+     * Depending on the device type, the mesh size and health, the Thread status can be **Child**, **Router**, or **Leader**. 
      ![Thread status](/images/integrations/homekit_controller/homekit_controller_add_02.png)
    * That's it. Your controller device now communicates via Thread.
 
