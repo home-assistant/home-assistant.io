@@ -89,6 +89,7 @@ HomeKit controller will poll your devices, but it will also automatically enable
      * A proxy can also be helpful if your Home Assistant device is too far away from the device you are trying to pair.
    * If you have Bluetooth enabled, it should be discovered under **{% my integrations title="Settings > Devices & Services" %}**.
 1. On the HomeKit integration, select **Configure**.
+1. ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
 1. To pair the device, enter the HomeKit pairing code. The code is on the device itself or the packaging. 
    * Select **Finish**. 
 1. The HomeKit controller now automatically discovers Bluetooth devices (if the [Bluetooth](/integrations/bluetooth) integration is enabled).  
