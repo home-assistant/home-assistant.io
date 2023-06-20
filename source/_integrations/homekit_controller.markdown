@@ -81,6 +81,9 @@ HomeKit controller will poll your devices, but it will also automatically enable
 
 ## Adding a HomeKit device through Bluetooth
 
+1. If your device has been used with Thread before, or is still paired with iOS, reset the device.
+   * HomeKit devices can only be paired to a single controller at once. 
+   * If it has been in a Thread network before, the device might remember the Thread credentials of a different network. A reset fixes that.
 1. Power up your HomeKit controller device.
    * If your Home Assistant server device does not natively support Bluetooth, you can use a Bluetooth proxy. 
      * A proxy can also be helpful if your Home Assistant device is too far away from the device you are trying to pair.
