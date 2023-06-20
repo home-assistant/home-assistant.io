@@ -40,7 +40,7 @@ You can import the button shortcut multiple times to create versions for differe
 
 ## Multiple servers
 
-The Assist shortcut works also if you have configured multiple Home Assistant servers. By default it will prompt you to pick the server to sent the command too. This is not very hands-off, and so you can update the shortcut to point at a specific server. You will need to import the shortcuts multiple times, once for each server.
+The Assist shortcut works also if you have configured multiple Home Assistant servers. By default it will prompt you to pick the server to sent the command to. This is not very hands-off, and so you can update the shortcut to point at a specific server. You will need to import the shortcuts multiple times, once for each server.
 
 Open the shortcuts app and edit each Assist shortcut. The text in quotes will be shown in the language of your device.
 
