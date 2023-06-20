@@ -5,6 +5,7 @@ ha_category:
   - Light
   - Media Player
   - Remote
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.34
 ha_codeowners:
@@ -17,6 +18,7 @@ ha_platforms:
   - media_player
   - remote
   - switch
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -141,3 +143,8 @@ overload the event bus in Home Assistant.
 
 Some TV's allow you to sync the processed ambilight color data to your Philips Hue bridge. This will make your Hue lights sync with the TV ambilight without the need to purchase a Hue Play HDMI Sync Box.
 The integration exposes a "Ambilight+Hue" switch entity when your TV supports it which enables you to toggle this.
+
+## Sensor
+
+Some newer OS version support live TV recording functions via the API.\
+For those TV's this integration supports the time of the next scheduled recording.
