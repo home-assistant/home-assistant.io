@@ -96,7 +96,7 @@ HomeKit controller will poll your devices, but it will also automatically enable
    * Bluetooth devices may take significantly longer to pair than IP devices. 
    * To pair a battery-powered device, you may need to press a button on the device to wake it.
 
-## Adding a HomeKit controller device to a Thread network
+## Adding a HomeKit controller device to a Thread network via Home Assistant
 
 ### Prerequisites
 
@@ -107,7 +107,6 @@ HomeKit controller will poll your devices, but it will also automatically enable
     * If you have a Home Assistant Yellow or SkyConnect, you can enable multiprotocol to set up an Open Thread border router and with that a Thread network. 
       * Documentation on [enabling multiprotocol on Yellow](https://yellow.home-assistant.io/guides/enable-multiprotocol/)
       * Documentation on [enabling multiprotocol on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-multiprotocol/)
-    * Other devices, such as an Apple HomePod mini or Apple TV, cannot currently be used as border routers. They do not communicate their Thread credentials an can therefore not be integrated.
 
 ### To add a HomeKit controller device to a Thread network
 
