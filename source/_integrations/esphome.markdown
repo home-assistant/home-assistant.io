@@ -5,6 +5,7 @@ featured: true
 ha_category:
   - DIY
   - Update
+  - Alarm Control Panel
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_domain: esphome
 ha_zeroconf: true
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - camera
