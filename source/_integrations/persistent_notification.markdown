@@ -33,12 +33,15 @@ An example of a persistent_notification trigger in YAML:
 ```yaml
 automation:
   - trigger:
-    - platform: persistent_notification
-      # Optional. Possible values: added, removed
-      update_type: added
-      # Optional.
-      notification_id: invalid_config
+      - platform: persistent_notification
+        # Optional. Possible values: added, removed, updated, current
+        update_type:
+          - added
+          - removed
+        # Optional.
+        notification_id: invalid_config
 ```
+
 See [Automation Trigger Variables: Persistent Notification](/docs/automation/templating/#persistent-notification) 
 for additional trigger data available for conditions or actions.
 

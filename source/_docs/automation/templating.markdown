@@ -151,7 +151,7 @@ These are the properties available for a [Persistent Notification trigger](/docs
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `persistent_notification`
-| `trigger.update_type` | Type of persistent notification update `added` or `removed`.
+| `trigger.update_type` | Type of persistent notification update `added`, `removed`, `current` or `updated`.
 | `trigger.notification` | Notification object that triggered the persistent_notification trigger.
 | `trigger.notification.notification_id` | The notification ID
 | `trigger.notification.title` | Title of the notification
