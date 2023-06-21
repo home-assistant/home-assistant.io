@@ -152,7 +152,7 @@ These properties are available for a [Persistent Notification trigger](/docs/aut
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `persistent_notification`
 | `trigger.update_type` | Type of persistent notification update `added`, `removed`, `current` or `updated`.
-| `trigger.notification` | Notification object that triggered the persistent_notification trigger.
+| `trigger.notification` | Notification object that triggered the persistent notification trigger.
 | `trigger.notification.notification_id` | The notification ID
 | `trigger.notification.title` | Title of the notification
 | `trigger.notification.message` | Message of the notification
