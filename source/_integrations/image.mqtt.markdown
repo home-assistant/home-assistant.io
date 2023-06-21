@@ -11,9 +11,10 @@ ha_domain: mqtt
 The `mqtt` image platform allows you to integrate the content of an image file sent through MQTT into Home Assistant as an image.
 The `image` platform is a simplified version of the `camera` platform that only accepts images.
 Every time a message under the `topic` in the configuration is received, the image displayed in Home Assistant will also be updated. Messages received on `topic` should contain the full contents of an image file, for example, a JPEG image, without any additional encoding or metadata.
-An alternative setup is where `topic` receives a valid URL of a new picture to show.
 
 This can be used with an application or a service capable of sending images through MQTT.
+
+An alternative setup is to use the `from_url_topic` option to receive an image URL for a new picture to show.
 
 ## Configuration
 
@@ -136,8 +137,8 @@ entity_category:
   required: false
   type: string
   default: None
-from_url:
-  description: If set to `true`, a valid message with an image URL is expected at `topic`. A `valid` template can be used to extract the URL from the message. The `content_type` will be derived from the image when it is downloaded. If set to `false`, the message received at `topic` is to be expected to be binary or `b64` encoded content of a valid image. Ensure the `content_type` type option is set to the corresponding content type.
+from_url_topic:
+  description: The MQTT topic to subscribe to receive the an image URL. A `value_template` template can be used to extract the URL from the message. The `content_type` will be derived from the image when it is downloaded. This option cannot be used together with the `topic` option.
   required: false
   type: boolean
   default: false
@@ -146,7 +147,7 @@ icon:
   required: false
   type: icon
 image_encoding:
-  description: The encoding of the image payloads received. Set to `"b64"` to enable base64 decoding of image payload. If not set, the image payload must be raw binary data. This setting only applies in cases where `from_url` is set to `false`.
+  description: The encoding of the image payloads received. Set to `"b64"` to enable base64 decoding of image payload. If not set, the image payload must be raw binary data.
   required: false
   type: string
   default: None
@@ -167,7 +168,7 @@ object_id:
   required: false
   type: string
 topic:
-  description: The MQTT topic to subscribe to to receive the image payload or the URL of the image to be downloaded. See also `from_url` option.
+  description: The MQTT topic to subscribe to receive the image payload of the image to be downloaded. Ensure the `content_type` type option is set to the corresponding content type. This option cannot be used together with the `from_url_topic` option.
   required: true
   type: string
 unique_id:
@@ -175,7 +176,28 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the image `url` from a message received at `topic`. This option is only applicable when the `from_url` option is set to `true`.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the image `url` from a message received at `from_url_topic`.
   required: false
   type: template
 {% endconfiguration %}
+
+### Example receiving images from from a URL
+
+Add the configuration below to your `configuration.yaml`.
+
+To test it publish an image URL to the topic from the console:
+
+```shell
+mosquitto_pub -h <mqtt_broker> -t mynas/status/url -m "https://design.home-assistant.io/images/logo.png"
+```
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  image:
+    - from_url_topic: mynas/status/url
+```
+
+{% endraw %}
