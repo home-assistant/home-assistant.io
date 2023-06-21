@@ -68,6 +68,13 @@ action:
     notification_id: "1234"
 ```
 
+The service `persistent_notification.dismiss_all` allows you to remove all notifications by script or automation.
+
+```yaml
+action:
+  service: persistent_notification.dismiss_all
+```
+
 ### Markdown support
 
 The message attribute supports the [Markdown formatting syntax](https://daringfireball.net/projects/markdown/syntax). Some examples are:
