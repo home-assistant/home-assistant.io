@@ -26,7 +26,8 @@ ha_integration_type: helper
 ---
 
 The Switch as X integrations lets you convert any Home Assistant switch into
-a Home Assistant Light, Cover, Fan, Lock, or Siren.
+a Home Assistant Light, Cover, Fan, Lock, or Siren entity. You can also change the
+orientation of a switch by selecting 'inverse'.
 
 In Home Assistant's world, a wall plug is a switch. And while that is correct
 for a wall plug in general, those plugs are often used with e.g, a light
