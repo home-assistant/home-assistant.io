@@ -21,7 +21,7 @@ The `persistent_notification` integration can be used to show a notification on 
 ## Automation
 
 Persistent Notification [Triggers](/docs/automation/trigger) enable automations to be
-triggered when `persistent_notification`s are `added` or `removed`.
+triggered when `persistent_notification`s are updated. This can be limited to a specific notification by providing an ID for `notification_id`, or when this value is omitted the automation will trigger for any notification ID. If no `update_type` is provided, the automation will trigger for any of the following update types: `added`, `removed`, `updated`, `current`. By providing one or more of these values to the `update_type` option, the automation triggers only on these events.
 Review the [Automating Home Assistant](/getting-started/automation/)
 getting started guide on automations or the [Automation](/docs/automation/)
 documentation for full details.
