@@ -68,7 +68,7 @@ action:
     notification_id: "1234"
 ```
 
-The service `persistent_notification.dismiss_all` allows you to remove all notifications by script or automation.
+The service `persistent_notification.dismiss_all` allows you to remove all notifications.
 
 ```yaml
 action:
