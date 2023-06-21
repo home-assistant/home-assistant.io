@@ -156,7 +156,7 @@ These are the properties available for a [Persistent Notification trigger](/docs
 | `trigger.notification.notification_id` | The notification ID
 | `trigger.notification.title` | Title of the notification
 | `trigger.notification.message` | Message of the notification
-| `trigger.notification.created_ad` | DateTime object indicating when the notification was created.
+| `trigger.notification.created_at` | DateTime object indicating when the notification was created.
 
 ### Webhook
 
