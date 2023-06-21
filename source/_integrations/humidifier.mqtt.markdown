@@ -67,6 +67,14 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+current_humidity_template:
+  description: A template with which the value received on `current_humidity_topic` will be rendered.
+  required: false
+  type: template
+current_humidity_topic:
+  description: The MQTT topic on which to listen for the current humidity. A `"None"` value received will reset the current humidity. Empty values (`'''`) will be ignored.
+  required: false
+  type: string
 command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic`.
   required: false
@@ -202,7 +210,7 @@ payload_reset_humidity:
   type: string
   default: 'None'
 payload_reset_mode:
-  description: A special payload that resets the `mode` state attribute to `None` when received at the `mode_state_topic`.
+  description: A special payload that resets the `mode` state attribute to `None` when received at the `mode_state_topic`. When received at `current_humidity_topic` it will reset the current humidity state.
   required: false
   type: string
   default: 'None'
@@ -291,6 +299,7 @@ mqtt:
       device_class: "humidifier"
       state_topic: "bedroom_humidifier/on/state"
       command_topic: "bedroom_humidifier/on/set"
+      current_humidity_topic: "bedroom_humidifier/humidity/current"
       target_humidity_command_topic: "bedroom_humidifier/humidity/set"
       target_humidity_state_topic: "bedroom_humidifier/humidity/state"
       mode_state_topic: "bedroom_humidifier/mode/state"
