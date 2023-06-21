@@ -34,7 +34,7 @@ theme:
   type: string
 current_humidity_sensor:
   required: false
-  description: Sensor for the current humidity.
+  description: Sensor for the current humidity. Overrides current_humidity attribute.
   type: string
 {% endconfiguration %}
 
