@@ -137,7 +137,7 @@ entity_category:
   type: string
   default: None
 from_url:
-  description: If set to `true` a valid message with an image URL is expected at `topic`. A `valid` template can be used to extract the URL from the message. The `content_type` will be derived from image when it is downloaded. If set to `false`, the message receive at `topic` is to be expected the binary or `b64` encoded content of a valid image. Ensure the `content_type` type option is set to the corresponding content type.
+  description: If set to `true`, a valid message with an image URL is expected at `topic`. A `valid` template can be used to extract the URL from the message. The `content_type` will be derived from the image when it is downloaded. If set to `false`, the message received at `topic` is to be expected to be binary or `b64` encoded content of a valid image. Ensure the `content_type` type option is set to the corresponding content type.
   required: false
   type: boolean
   default: false
