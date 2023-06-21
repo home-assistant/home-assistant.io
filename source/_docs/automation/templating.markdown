@@ -146,7 +146,7 @@ These are the properties available for a [Time Pattern trigger](/docs/automation
 
 ### Persistent Notification
 
-These are the properties available for a [Persistent Notification trigger](/docs/automation/trigger/#persistent-notification-trigger).
+These properties are available for a [Persistent Notification trigger](/docs/automation/trigger/#persistent-notification-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
