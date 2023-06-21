@@ -81,15 +81,15 @@ HomeKit controller will poll your devices, but it will also automatically enable
 
 ## Adding a HomeKit device through Bluetooth
 
-You can add a HomeKit device to Home Assistant via Bluetooth.
+You can add a HomeKit device to Home Assistant via [Bluetooth](/integrations/bluetooth).
 
 ### Prerequisites
 
-- If your Home Assistant instance does not natively support Bluetooth, use a Bluetooth proxy. 
+- If your Home Assistant instance does not natively support Bluetooth, use an ESPHome Bluetooth proxy. 
   - A proxy can also be helpful if your Home Assistant device is too far away from the device you are trying to pair.
 - If your HomeKit device has been used with Thread before, or is still paired with iOS, reset the device.
    - HomeKit devices can only be paired to a single controller at once. 
-   - If it has been in a Thread network before, the device might remember the Thread credentials of a different network. A reset fixes that.
+   - If it has been in a Thread network before, the device might remember the Thread credentials of a different network. A reset makes sure the device is not connected to any Thread network.
 
 ## To add a HomeKit device through Bluetooth
 
@@ -98,10 +98,9 @@ You can add a HomeKit device to Home Assistant via Bluetooth.
 1. On the HomeKit integration, select **Configure**.
      ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
 1. To pair the device, enter the HomeKit pairing code. The code is on the device itself or the packaging. 
-   - Select **Finish**. 
-1. The HomeKit device now automatically discovers other Bluetooth devices (if the [Bluetooth](/integrations/bluetooth) integration is enabled).  
-   - Bluetooth devices may take significantly longer to pair than IP devices. 
    - To pair a battery-powered device, you may need to press a button on the device to wake it.
+   - Bluetooth devices may take significantly longer to pair than IP devices.
+   - Select **Finish**. 
 
 ## Adding a HomeKit device to a Thread network via Home Assistant
 
@@ -115,14 +114,15 @@ This section describes how to add it via Home Assistant.
 ### Prerequisites
 
 - A HomeKit device which supports Thread. This is indicated by the Thread label on the packaging.
-- Make sure HomeKit controller has been [joined using Bluetooth](#adding-a-homekit-device-through-bluetooth). 
+- Make sure the HomeKit device has been [joined using Bluetooth](#adding-a-homekit-device-through-bluetooth). 
 - **Thread network**: In order to use HomeKit over Thread, you need a working border router. 
     - Make sure your Home Assistant device is on the same network (LAN) as the border router.
+    - Make sure the Thread network you'd like to use is known by Home Assistant and marked as **Preferred network** in the Thread configuration.
     - If you have a Home Assistant Yellow or SkyConnect, you can enable multiprotocol to set up an Open Thread border router and with that a Thread network. 
       - Documentation on [enabling multiprotocol on Yellow](https://yellow.home-assistant.io/guides/enable-multiprotocol/)
       - Documentation on [enabling multiprotocol on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-multiprotocol/)
 
-### To add a HomeKit  device to a Thread network via Home Assistant
+### To add a HomeKit device to a Thread network via Home Assistant
 
 1. To open the device configuration page, on the **HomeKit** integration, select the **device**.
 1. Under **Diagnostic**, you can see the **Thread Status** as **Disabled**.
