@@ -23,4 +23,4 @@ This integration requires PrusaLink v2. If you have the Prusa MINI, you need to 
 
 {% include integrations/config_flow.md %}
 
-To obtain the API key, on your printer navigate to **Settings** > **Network** > **PrusaLink**. It will then be shown at the bottom of the screen.
+To obtain the API key, on your printer, navigate to **Settings** > **Network** > **PrusaLink**. It will then be shown at the bottom of the screen.
