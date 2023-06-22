@@ -23,7 +23,7 @@ Go to the [Incoming Webhook App](https://app.energyid.eu/integrations/WebhookIn)
 
 The URL will look something like this:
 
-```
+```html
 https://app.energyid.eu/integrations/WebhookIn/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
