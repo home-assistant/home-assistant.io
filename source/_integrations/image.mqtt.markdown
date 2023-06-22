@@ -73,7 +73,7 @@ availability_topic:
   required: false
   type: string
 content_type:
-  description: The content type of the image received on `topic`. This option is only applicable when the `from_url` option is set to `false`. When `from_url` option is set to `true`, the content type is derived when downloading the image.
+  description: The content type of and image data message received on `topic`. This option cannot be used with the `from_url_topic` because the content type is derived when downloading the image.
   required: false
   type: string
   default: image/jpeg
