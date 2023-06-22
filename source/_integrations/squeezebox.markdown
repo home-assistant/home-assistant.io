@@ -20,7 +20,11 @@ The Squeezebox integration allows you to control a [Logitech Squeezebox](https:/
 {% include integrations/config_flow.md %}
 
 <div class='note'>
-This platform uses the web interface of the Logitech Media Server to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser. Originally, this platform used the telnet interface, which defaults to 9090. If you previously specified the port in your configuration file, you will likely need to update it.
+This platform uses the web interface of the Logitech Media Server to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
+</div>
+
+<div class='note'>
+The integration now supports Logitech Media Servers behind an https reverse proxy. Please note that Logitech Media Server only natively supports http traffic, so do not select the `https` option unless you have configured such a reverse proxy. Remember you will likely need to update the port from the default as well.
 </div>
 
 The Logitech Transporter which have two digital inputs can be activated using a script. The following example turns on the Transporter and activates the toslink input interface:
