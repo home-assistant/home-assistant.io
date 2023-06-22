@@ -892,6 +892,32 @@ automation:
 See the [Calendar](/integrations/calendar/) integration for more details on event triggers and the
 additional event data available for use by an automation.
 
+## Sentence trigger
+
+A sentence trigger fires when [Assist](https://www.home-assistant.io/voice_control/) matches a sentence from a voice assistant, such as [ESPHome](https://www.home-assistant.io/voice_control/thirteen-usd-voice-remote/) or an [analog phone](https://www.home-assistant.io/voice_control/worlds-most-private-voice-assistant/).
+
+Sentences are allowed to use some basic [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) like optional and alternative words. For example, "[it's] party time" will match "party time" and "it's party time".
+
+```yaml
+automation:
+  trigger:
+    - platform: conversation
+      command:
+        - "[it's] party time"
+        - "happy (new year | birthday)"
+```
+
+The sentences matched by this trigger will be:
+
+- party time
+- it's party time
+- happy new year
+- happy birthday
+
+Punctuation and casing are ignored, so "It's PARTY TIME!!!" will also match.
+
+Different voice assistants may return different text for numbers, dates, times, or unusual words. You may need to use [Assist's debug view](https://www.home-assistant.io/voice_control/troubleshooting/) to determine which sentences to include in your trigger.
+
 ## Multiple triggers
 
 It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, [processing](#what-are-triggers) of your automation rule begins.
