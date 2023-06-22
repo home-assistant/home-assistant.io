@@ -107,10 +107,10 @@ You can add a HomeKit device to Home Assistant via [Bluetooth](/integrations/blu
 
 There are two methods to add a HomeKit device to a Thread network:
 
-- via Home Assistant
+- via Home Assistant's preferred Thread network
 - via [Apple Thread border router](#adding-a-homekit-device-to-home-assistant-via-apple-thread-border-router)
 
-This section describes how to add it via Home Assistant.
+This section describes how to add it via Home Assistant's preferred Thread network.
 
 ### Prerequisites
 
@@ -138,7 +138,7 @@ This section describes how to add it via Home Assistant.
 
 There are two methods to add a HomeKit device to a Thread network:
 
-- via [Home Assistant](#adding-a-homekit-device-to-a-thread-network-via-home-assistant)
+- via [Home Assistant's preferred Thread network](#adding-a-homekit-device-to-a-thread-network-via-home-assistant)
 - via Apple Thread border router
 
 This section describes how to add a HomeKit device using an Apple Thread border router device such as a HomePod mini.
@@ -148,7 +148,7 @@ This section describes how to add a HomeKit device using an Apple Thread border 
 - An Apple device that can act as a Thread border router, such as a HomePod mini.
 - A HomeKit device which supports Thread. This is indicated by the Thread label on the packaging.
 - Make sure your Home Assistant instance is on the same network (LAN) as the border router.
-- Make sure the HomeKit device has been paired in the Apple Home app (using an iOS app).
+- Make sure the HomeKit device has been paired in the Apple Home app (using the iOS Home app).
 
 ### To add a HomeKit device to Home Assistant via Apple Thread border router
 
