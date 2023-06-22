@@ -107,6 +107,10 @@ The motion detection sensitivity can be adjusted using the "Detection sensitivit
 
 A light entity will be added to cameras + light combos. You can turn it on/off and set the brightness.
 
+### Image Entity
+
+The image entity represents the last detected event from a camera and provides a visual representation of the event within Home Assistant.
+
 ## Troubleshooting
 
 - `authentication failed`: The authentication requires an EZVIZ account with two-step verification disabled. Google, Facebook, TikTok, or other Oauth-based accounts will not work.
