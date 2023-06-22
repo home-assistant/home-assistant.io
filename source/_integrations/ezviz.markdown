@@ -109,7 +109,7 @@ A light entity will be added to cameras + light combos. You can turn it on/off a
 
 ### Image Entity
 
-The image entity represents the last detected event from a camera and provides a visual representation of the event within Home Assistant.
+The image entity represents the last detected event from a camera and visually represents the event within Home Assistant.
 
 ## Troubleshooting
 
