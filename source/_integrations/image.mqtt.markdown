@@ -138,8 +138,8 @@ entity_category:
   type: string
   default: None
 from_url_topic:
-  description: The MQTT topic to subscribe to receive the an image URL. A `value_template` template can be used to extract the URL from the message. The `content_type` will be derived from the image when it is downloaded. This option cannot be used together with the `topic` option.
-  required: false
+  description: The MQTT topic to subscribe to receive the an image URL. A `value_template` template can be used to extract the URL from the message. The `content_type` will be derived from the image when it is downloaded. This option cannot be used together with the `topic` option, but at least one of these options is required.
+  required: exclusive
   type: boolean
   default: false
 icon:
@@ -168,8 +168,8 @@ object_id:
   required: false
   type: string
 topic:
-  description: The MQTT topic to subscribe to receive the image payload of the image to be downloaded. Ensure the `content_type` type option is set to the corresponding content type. This option cannot be used together with the `from_url_topic` option.
-  required: true
+  description: The MQTT topic to subscribe to receive the image payload of the image to be downloaded. Ensure the `content_type` type option is set to the corresponding content type. This option cannot be used together with the `from_url_topic` option. But at least one of these option is required.
+  required: exclusive
   type: string
 unique_id:
   description: An ID that uniquely identifies this image. If two images have the same unique ID Home Assistant will raise an exception.
