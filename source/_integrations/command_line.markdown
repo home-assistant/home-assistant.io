@@ -191,7 +191,7 @@ command_line:
           required: false
           type: device_class
         state_class:
-          description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+          description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will display the value based on the **Number Format** defined in the user profile.  It will also influence the graphical presentation in the history visualization as a continuous value."
           required: false
           type: string
     switch:
