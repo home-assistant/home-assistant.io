@@ -159,7 +159,7 @@ It's now possible to say "engage all lights in the bedroom", which will turn on 
 
 ## Service `conversation.process`
 
-You can send a 
+Send a message to a conversation agent for processing.
 
 | Service data attribute | Optional | Description      |
 |------------------------|----------|------------------|
