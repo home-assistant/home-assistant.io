@@ -17,24 +17,3 @@ This procedure shows you how to create a text-to-speech {% term action %}. For t
 1. Your text-to-speech action is now ready to be used in your script or automation.
     ![Enter text to be spoken](/images/assist/tts_action.png)
 1. Save your action.
-1. If you want, you can edit this service in YAML.
-
-    ```yaml
-    service: media_player.play_media
-    target:
-      entity_id: media_player.m5stack_atom_echo_a61920
-    data:
-      media_content_id: media-source://tts/tts.piper?message=Your+coffee+is+ready%21+Enjoy.
-      media_content_type: provider
-    metadata:
-      title: Your coffee is ready! Enjoy.
-      thumbnail: https://brands.home-assistant.io/_/tts/logo.png
-      media_class: app
-      children_media_class: null
-      navigateIds:
-          - {}
-          - media_content_type: app
-            media_content_id: media-source://tts
-          - media_content_type: provider
-            media_content_id: media-source://tts/tts.piper?message=Your+coffee+is+ready%21+Enjoy.
-    ```

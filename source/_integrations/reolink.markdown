@@ -171,6 +171,7 @@ The following models have been tested and confirmed to work:
 - C2 Pro
 - E1 Zoom
 - E1 Outdoor
+- E1 Outdoor Pro
 - RLC-410
 - RLC-410W
 - RLC-411
@@ -204,6 +205,7 @@ However, these cameras can work with this integration through an NVR in which th
 
 - E1 Pro
 - E1
+- Reolink Lumus
 
 ## Initial Setup
 

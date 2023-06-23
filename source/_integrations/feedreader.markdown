@@ -101,6 +101,6 @@ EVENT_FEEDREADER = "feedreader"
 hass.bus.listen(EVENT_FEEDREADER, event_listener)
 ```
 
-To get started developing custom components, please refer to the [developers](/developers) documentation
+To get started developing custom integrations, please refer to the [developers](/developers) documentation
 
 For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/config/packages/hasspodcast.yaml).

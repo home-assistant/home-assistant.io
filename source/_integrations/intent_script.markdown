@@ -18,7 +18,7 @@ The `intent_script` integration allows users to configure actions and responses 
 intent_script:
   GetTemperature:  # Intent type
     speech:
-      text: We have {{ states.sensor.temperature }} degrees
+      text: We have {{ states('sensor.temperature') }} degrees
     action:
       service: notify.notify
       data:

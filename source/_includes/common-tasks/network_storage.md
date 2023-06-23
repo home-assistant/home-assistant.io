@@ -9,6 +9,14 @@ To list all your currently connected network storages, go to **{% my storage tit
   You need to update to Home Assistant Operating System 10.2 before you can use this feature.
 </div>
 
+{% else %}
+
+<div class='note'>
+
+  You need to make sure you run a supported Home Assistant Supervised installation with the latest version of the [os-agent](https://github.com/home-assistant/os-agent). Make sure that your supervisor uses [slave bind propagation](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation) for the data volume.
+
+</div>
+
 {% endif %}
 
 <p class='img'>
@@ -40,14 +48,14 @@ To list all your currently connected network storages, go to **{% my storage tit
 Name:
   description: This is the name that will be used for the mounted directory on your system.
 Usage:
-  description: Here, you select how the target should be used.
+  description: Here, you select how the target should be used. [See usage types below](#usage-types)
 Server:
   description: The IP/hostname of the server running NFS/CIFS.
-Protocol:
+"Protocol<sup>3</sup>":
   description: The service the server is using for the network storage.
 "[NFS]<sup>1</sup> Remote share path":
   description: The path used to connect to the remote storage server.
-"[CIFS]<sup>2</sup> Username":
+"[CIFS]<sup>2</sup> Username<sup>4</sup>":
   description: The username to use when connecting to the storage server.
 "[CIFS]<sup>2</sup> Password":
   description: The password to use when connecting to the storage server.
@@ -55,8 +63,21 @@ Protocol:
   description: The share to connect to on the storage server.
 {% endconfiguration_basic %}
 
-<sup>1</sup> _Options prefixed with `[NFS]` is only available for NFS targets._<br>
-<sup>2</sup> _Options prefixed with `[CIFS]` is only available for CIFS targets._
+<sup>1</sup> _Options prefixed with `[NFS]` are only available for NFS targets._<br>
+<sup>2</sup> _Options prefixed with `[CIFS]` are only available for CIFS targets._<br>
+<sup>3</sup> _For the `CIFS` option, only version 2.1+ is supported._<br>
+<sup>4</sup> _Guest access is not supported. You need to supply a username and password to access the share._<br>
+
+##### Usage types
+
+{% configuration_basic "hassio.network_share.usage" %}
+Backup:
+  description: This will become a target.  You can use it in service calls or when manually creating a backup. The first storage you add of this type becomes your new default target. If you want to change the default target, [check out the documentation below](#change-default-backup-location).
+Media:
+  description: A new directory with the name you gave your network storage will be created under `/media`. This directory can be accessed by Home Assistant and add-ons.
+Share:
+  description: A new directory with the name you gave your network storage will be created under `/share`.  This directory can be accessed by Home Assistant and add-ons.
+{% endconfiguration_basic %}
 
 ### Change default backup location
 
