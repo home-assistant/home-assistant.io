@@ -133,7 +133,8 @@ Examples may include things like upcoming calendar events for the next week or d
 
 Templates can also be used for handling response data. The service call can specify
 `response_variable` which is the name a [variable](https://www.home-assistant.io/docs/scripts/#variables)
-that will contain the response data.
+that will contain the response data. This example calls a service and sets the response is stored in
+the variable `agenda`
 
 {% raw %}
 
@@ -142,12 +143,38 @@ service: calendar.list_events
 target:
   entity_id: calendar.school
 data:
-  # XXX: populate when calendar API is settled
-response_variable: "agenda"
+  duration:
+    hours: 24
+response_variable: agenda
 ```
 
 {% endraw %}
 
+You may then use the response data in the variable `agenda` in another action
+in the same script. The example below sends a notification using the response
+data.
+
+<div class='note'>
+The service call data fields depend on which notification service is used.
+</div>
+
+{% raw %}
+
+```yaml
+service: notify.gmail_com
+data:
+  target: gduser1@workspacesamples.dev
+  title: Daily agenda for {{ now().date() }}
+  message: >-
+    Your agenda for today:
+    <p>
+    {% for event in agenda.events %}
+    {{ event.start}}: {{ event.summary }}<br>
+    {% endfor %}
+    </p>
+```
+
+{% endraw %}
 
 ### `homeassistant` services
 
