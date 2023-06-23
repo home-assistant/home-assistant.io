@@ -46,14 +46,23 @@ sensor:
 
 Make sure that you don't post your username, password, API key, access token or other [secrets](/docs/configuration/secrets/).
 
-### Traceback (if applicable)
+### Diagnostics information
 
-If things go wrong there will be a so-called traceback or an error message in other words in your log. Please include this. It starts with **Traceback** and can contain information where the error was triggered in the code.
+Consider uploading [the diagnostics file](docs/configuration/troubleshooting/#debug-logs-and-diagnostics) along with your issue report to allow faster triaging and pinpointing the issue.
+The information contained in the generated diagnostics file is redacted to avoid any sensitive information while still remaining useful for developers to fix the issue.
+
+### Traceback and log information (if applicable)
+
+If things go wrong, there will be a so-called traceback or an error message [in your log](https://my.home-assistant.io/redirect/logs/). Please include this. It starts with **Traceback** and can contain information about where the error was triggered in the code.
 
 ```bash
 Traceback (most recent call last):
 ...
 ```
+
+In some cases, it is also necessary to [enable debug logging](docs/configuration/troubleshooting/#debug-logs-and-diagnostics) to get detailed logs to triage an issue.
+Enabling this will instruct Home Assistant to log a lot of fine-grained information about the integration. This is helpful for debugging and fixing the issue.
+In contrast to the diagnostics information, debug logs are not automatically redacted.  Make sure to include only the parts you think are relevant to the issue.
 
 ### Additional information
 
