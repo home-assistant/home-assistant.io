@@ -213,3 +213,53 @@ input_select:
 ```
 
 {% endraw %}
+
+Example of `input_select` being used to display the name associated to a numeric state.
+For example, the wallbox *DomBusEVSE* outputs the entity `sensor.evstate` with the following numeric values:
+
+1 -> Car disconnected  
+2 -> Car connected  
+3 -> Charging   
+4 -> Charging + Ventilation req.  
+....  
+
+The following example shows how to create an `input_selector` helper and an automation that updates it when `sensor.evstate` changes: the automation create a list/array *slist* within all options of the input_selector, the variable *item* corresponding to the evse state, and set the input_selector option to *slist[item]*.
+
+{% raw %}
+```yaml
+# define the input_select helper that shows the status name associated to sensor.evstate numeric status
+# the following lines go into configuration.yaml file
+input_select:
+  evstatename:
+    name: EVStateName
+    options:
+    - Off
+    - Disconnected
+    - Connected
+    - Charging
+    - Charging+Vent
+    - Alarm EV
+    - Alarm Power Outage
+    - Alarm Welded
+    initial: Disconnected
+
+# define an automation that update evstatename when sensor.evstate changes
+# the following lines go into automations.yaml file
+# in action, it creates a list variable within all options of the input_select.evstatename
+# and a variable corresponding to the sensor.evstate, then set the proper option for input_select.evstatename
+# it's really simple and works perfect.
+- id: "evstatenameautomation"
+  alias: "Automation that updates EVStateName entity/helper when EVState changes"
+  trigger:
+  - platform: state
+    entity_id: sensor.evstate
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.evstatename
+        option: >
+          {% set slist = state_attr('input_select.evstatename','options') %}
+          {% set item = states.sensor.evstate.state|int %}
+          {{slist[item]}}
+```
+{% endraw %}
