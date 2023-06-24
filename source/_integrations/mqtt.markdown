@@ -188,6 +188,21 @@ For reading all messages sent on the topic `homeassistant` to a broker running o
 mosquitto_sub -h 127.0.0.1 -v -t "homeassistant/#"
 ```
 
+## MQTT Entities and the `entity_id` generated
+
+Every MQTT entity is assigned a unique `entity_id`. If `unique_id` is configured, you can change the entity_id and store the changes in the Entity Registry. The `entity_id` is generated when an item is loaded the first time, if the entity has a `unique_id` set, then the `entity_id` will be stored.
+
+If `object_id` is set, then this will be used to generate the `entity_id`.
+If for example we have configured a `sensor`, and we have set `object_id` to `test` then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will a append it with a suffix to make it unique, for example `sensor.test_2`.
+
+If `object_id` is not set, then the `entity_id` will be based on the name, the device name or both. If for example the MQTT items `name` is set to `attic` and the `name` under the `device` key is set `temperature`, the default `entity_id` becomes `sensor.attic_temperature`. In case both `name` and device `name` are set to `test`, the default `entity_id` will be `sensor.test`.
+
+<div class='note'>
+
+When the `name` is set under the device key, the entity's default name will not be assigned, bit it will inherit the device name instead.
+
+</div>
+
 ## MQTT Discovery
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
