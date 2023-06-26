@@ -40,3 +40,9 @@ works_with:
 This integration allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).
 
 {% include integrations/config_flow.md %}
+
+## Home Assistant service calls
+
+ESPHome devices can make service calls to any [Home Assistant service](https://esphome.io/components/api.html#homeassistant-service-action). This functionality is not enabled by default for newly configured device, but can be turned on the options flow on a per device basis.
+
+{% include integrations/option_flow.md %}
