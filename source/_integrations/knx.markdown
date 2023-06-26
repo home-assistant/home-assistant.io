@@ -16,6 +16,7 @@ ha_category:
   - Sensor
   - Switch
   - Text
+  - Time
   - Weather
 ha_release: 0.24
 ha_iot_class: Local Push
@@ -40,6 +41,7 @@ ha_platforms:
   - sensor
   - switch
   - text
+  - time
   - weather
 ha_config_flow: true
 ha_integration_type: hub
@@ -64,6 +66,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Text](#text)
+- [Time](#time)
 - [Weather](#weather)
 
 {% include integrations/config_flow.md %}
@@ -1768,6 +1771,63 @@ entity_category:
   default: None
 {% endconfiguration %}
 
+## Time
+
+The KNX time platform allows to send time values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
+
+<div class='note'>
+
+Time entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Times having a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+<div class='note'>
+
+The `day` filed of the time telegram will always be set to 0 (`no day`).
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  time:
+    - name: "Time"
+      address: "0/0/2"
+      state_address: "0/0/2"
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address new values will be sent to.
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus.
+  required: false
+  type: [string, list]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  required: false
+  type: [boolean, string, integer]
+  default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
+
 ## Weather
 
 The KNX weather platform is used as an interface to KNX weather stations.
@@ -1853,9 +1913,9 @@ address_humidity:
   required: false
   type: [string, list]
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus.
+  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
   required: false
-  type: boolean
+  type: [boolean, string, integer]
   default: true
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
