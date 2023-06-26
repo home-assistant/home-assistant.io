@@ -1804,11 +1804,11 @@ name:
   required: false
   type: string
 address:
-  description: Group address new values will be sent to.
+  description: Group address new values will be sent to. *DPT 10.001*
   required: true
   type: [string, list]
 state_address:
-  description: Group address for retrieving the state from the KNX bus.
+  description: Group address for retrieving the state from the KNX bus. *DPT 10.001*
   required: false
   type: [string, list]
 respond_to_read:
