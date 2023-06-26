@@ -13,9 +13,9 @@ Quick links:
 
 Automations based on a blueprint need to be configured. What needs to be configured differs on each blueprint.
 
-1. To create your first automation based on a blueprint, go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**. 
+1. To create your first automation based on a blueprint, go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
 1. Find the blueprint that you want to use and select **Create Automation**.
-   - This opens the automation editor with the blueprint selected. 
+   - This opens the automation editor with the blueprint selected.
 1. Give it a name and configure the blueprint.
 1. Select the blue **Save Automation** button in the bottom right corner.
 
@@ -25,18 +25,18 @@ Done! If you want to revisit the configuration values, go to **{% my blueprints 
 
 Home Assistant can import blueprints from the Home Assistant forums, GitHub, and GitHub gists.
 
-1. To import a blueprint, first [find a blueprint you want to import][blueprint-forums]. 
+1. To import a blueprint, first [find a blueprint you want to import][blueprint-forums].
    - If you just want to practice importing, you can use this URL:
 
       ```text
       https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/motion_light.yaml
       ```
 
-1. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**. 
+1. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
 1. Select the blue **{% my blueprint_import blueprint="https://github.com/home-assistant/core/blob/master/homeassistant/components/automation/blueprints/motion_light.yaml" %}** button in the bottom right.
-   - A new dialog will pop-up asking you for the URL. 
+   - A new dialog will pop-up asking you for the URL.
 1. Enter the URL and select **Preview**.
-   - This will load the blueprint and show a preview in the import dialog. 
+   - This will load the blueprint and show a preview in the import dialog.
    - You can change the name and finish the import.
 
 The blueprint can now be used for creating automations.
