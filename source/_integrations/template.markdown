@@ -46,7 +46,7 @@ Sensor, binary sensor, button, image, number and select template entities are de
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-## State-based template binary sensors, buttons, iamges, numbers, selects and sensors
+## State-based template binary sensors, buttons, images, numbers, selects and sensors
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
