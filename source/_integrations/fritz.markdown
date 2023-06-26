@@ -20,6 +20,7 @@ ha_platforms:
   - button
   - device_tracker
   - diagnostics
+  - image
   - sensor
   - switch
   - update
@@ -34,6 +35,7 @@ There is support for the following platform types within Home Assistant:
 - **Device tracker** - presence detection by looking at connected devices.
 - **Binary sensor** - connectivity status.
 - **Button** - reboot, reconnect, firmware_update.
+- **Image** - show QR code of guest wifi
 - **Sensor** - external IP address, uptime and network monitors.
 - **Switch** - call deflection, port forward, parental control and Wi-Fi networks.
 - **Update** - firmware status of the device.
