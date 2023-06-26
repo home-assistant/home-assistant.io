@@ -10,11 +10,11 @@ ha_domain: mqtt
 
 The `mqtt` image platform allows you to integrate the content of an image file sent through MQTT into Home Assistant as an image.
 The `image` platform is a simplified version of the `camera` platform that only accepts images.
-Every time a message under the `topic` in the configuration is received, the image displayed in Home Assistant will also be updated. Messages received on `topic` should contain the full contents of an image file, for example, a JPEG image, without any additional encoding or metadata.
+Every time a message under the `image_topic` in the configuration is received, the image displayed in Home Assistant will also be updated. Messages received on `image_topic` should contain the full contents of an image file, for example, a JPEG image, without any additional encoding or metadata.
 
 This can be used with an application or a service capable of sending images through MQTT.
 
-An alternative setup is to use the `from_url_topic` option to receive an image URL for a new picture to show.
+An alternative setup is to use the `url_topic` option to receive an image URL for a new picture to show.
 
 ## Configuration
 
@@ -73,7 +73,7 @@ availability_topic:
   required: false
   type: string
 content_type:
-  description: The content type of and image data message received on `topic`. This option cannot be used with the `from_url_topic` because the content type is derived when downloading the image.
+  description: The content type of and image data message received on `image_topic`. This option cannot be used with the `from_url_topic` because the content type is derived when downloading the image.
   required: false
   type: string
   default: image/jpeg
@@ -128,7 +128,7 @@ enabled_by_default:
   type: boolean
   default: true
 encoding:
-  description: The encoding of the payloads received. Set to `""` to disable decoding of incoming payload. Use `image_encoding` to enable `Base64` decoding on `topic`.
+  description: The encoding of the payloads received. Set to `""` to disable decoding of incoming payload. Use `image_encoding` to enable `Base64` decoding on `image_topic`.
   required: false
   type: string
   default: "utf-8"
@@ -137,11 +137,6 @@ entity_category:
   required: false
   type: string
   default: None
-from_url_topic:
-  description: The MQTT topic to subscribe to receive the an image URL. A `value_template` template can be used to extract the URL from the message. The `content_type` will be derived from the image when it is downloaded. This option cannot be used together with the `topic` option, but at least one of these options is required.
-  required: exclusive
-  type: boolean
-  default: false
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -175,10 +170,15 @@ unique_id:
   description: An ID that uniquely identifies this image. If two images have the same unique ID Home Assistant will raise an exception.
   required: false
   type: string
-value_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the image `url` from a message received at `from_url_topic`.
+url_template:
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the image URL from a message received at `url_topic`.
   required: false
   type: template
+url_topic:
+  description: The MQTT topic to subscribe to receive the an image URL. A `url_template` option can be used to extract the URL from the message. The `content_type` will be derived from the image when it is downloaded. This option cannot be used together with the `image_topic` option, but at least one of these options is required.
+  required: exclusive
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Example receiving images from from a URL
