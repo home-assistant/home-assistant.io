@@ -55,7 +55,7 @@ api_secret:
   type: string
   required: true
 timeout:
-  description: Configure how long before the OPNSense Client times out requests.
+  description: Configure the OPNSense Client timeout in seconds.
   type: integer
   required: false
   default: 20
