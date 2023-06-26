@@ -146,7 +146,7 @@ image_encoding:
   default: None
 image_topic:
   description: The MQTT topic to subscribe to receive the image payload of the image to be downloaded. Ensure the `content_type` type option is set to the corresponding content type.
-  required: required
+  required: true
   type: string
 json_attributes_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`.
