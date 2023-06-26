@@ -24,6 +24,7 @@ An automation can be triggered by an event, a certain entity state, at a given t
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
 - [Calendar trigger](#calendar-trigger)
+- [Sentence trigger](#sentence-trigger)
 - [Multiple triggers](#multiple-triggers)
 - [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
 
@@ -894,17 +895,17 @@ additional event data available for use by an automation.
 
 ## Sentence trigger
 
-A sentence trigger fires when [Assist](https://www.home-assistant.io/voice_control/) matches a sentence from a voice assistant, such as [ESPHome](https://www.home-assistant.io/voice_control/thirteen-usd-voice-remote/) or an [analog phone](https://www.home-assistant.io/voice_control/worlds-most-private-voice-assistant/).
+A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). 
 
-Sentences are allowed to use some basic [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) like optional and alternative words. For example, "[it's] party time" will match "party time" and "it's party time".
+Sentences are allowed to use some basic [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) like optional and alternative words. For example, `[it's ]party time` will match both "party time" and "it's party time".
 
 ```yaml
 automation:
   trigger:
     - platform: conversation
       command:
-        - "[it's] party time"
-        - "happy (new year | birthday)"
+        - "[it's ]party time"
+        - "happy (new year|birthday)"
 ```
 
 The sentences matched by this trigger will be:
@@ -915,8 +916,6 @@ The sentences matched by this trigger will be:
 - happy birthday
 
 Punctuation and casing are ignored, so "It's PARTY TIME!!!" will also match.
-
-Different voice assistants may return different text for numbers, dates, times, or unusual words. You may need to use [Assist's debug view](https://www.home-assistant.io/voice_control/troubleshooting/) to determine which sentences to include in your trigger.
 
 ## Multiple triggers
 
