@@ -19,7 +19,7 @@ An automation can be triggered by an event, a certain entity state, at a given t
 - [Template trigger](#template-trigger)
 - [Time trigger](#time-trigger)
 - [Time pattern trigger](#time-pattern-trigger)
-- [Persistent Notification trigger](#persistent-notification-trigger)
+- [Persistent notification trigger](#persistent-notification-trigger)
 - [Webhook trigger](#webhook-trigger)
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
@@ -778,7 +778,7 @@ Do not prefix numbers with a zero - using `'01'` instead of `'1'` for example wi
 
 </div>
 
-## Persistent Notification trigger
+## Persistent notification trigger
 
 Persistent notification triggers are fired when a `persistent_notification` is `added` or `removed` that matches the configuration options.
 
@@ -786,7 +786,7 @@ Persistent notification triggers are fired when a `persistent_notification` is `
 automation:
   trigger:
     - platform: persistent_notification
-      update_type: 
+      update_type:
         - added
         - removed
       notification_id: invalid_config
