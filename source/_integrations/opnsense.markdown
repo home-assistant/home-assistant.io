@@ -54,6 +54,11 @@ api_secret:
   description: The API secret used to authenticate with your OPNsense API endpoint.
   type: string
   required: true
+timeout:
+  description: Configure how long before the OPNSense Client times out requests.
+  type: integer
+  required: false
+  default: 20
 verify_ssl:
   description: Set to true to enable the validation of the OPNsense API SSL.
   type: boolean
