@@ -238,11 +238,6 @@ image:
   required: true
   type: map
   keys:
-    content_type:
-      description: The content type of the image.
-      required: false
-      type: template
-      default: `image/jpeg`
     url:
       description: The URL on which the image is served.
       required: true
