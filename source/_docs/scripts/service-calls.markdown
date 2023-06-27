@@ -132,7 +132,7 @@ is typically used for data that is dynamic or large and which may not be suited 
 Examples of service response data are upcoming calendar events for the next week or detailed driving directions.
 
 Templates can also be used for handling response data. The service call can specify
-a `response_variable`. This is the [variable](https://www.home-assistant.io/docs/scripts/#variables)
+a `response_variable`. This is the [variable](/docs/scripts/#variables)
 that contains the response data. You can define any name for your `response_variable`. This example calls a service and stores the response in 
 the variable called `agenda`.
 
