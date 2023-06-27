@@ -65,7 +65,7 @@ apparent_temperature_template:
   required: false
   type: template
 temperature_unit:
-  description: Unit for temperature_template output. Valid options are °C, °F and K.
+  description: Unit for temperature_template output. Valid options are °C, °F, and K.
   required: false
   type: string
 humidity_template:
@@ -93,7 +93,7 @@ wind_gust_speed_template:
   required: false
   type: template
 wind_speed_unit:
-  description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, in/h.
+  description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
   required: false
   type: string
 wind_bearing_template:
