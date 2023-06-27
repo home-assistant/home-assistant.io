@@ -127,14 +127,14 @@ data: >
 
 ### Use templates to handle response data
 
-Some services may respond with data that can be used in automations. Services response data
-is typically used for data that is dynamic or large which may not be appropriate for entity state.
-Examples may include things like upcoming calendar events for the next week or detailed driving directions.
+Some services may respond with data that can be used in automation. This data is called _service response data_. Services response data
+is typically used for data that is dynamic or large and which may not be suited for use for entity state.
+Examples of service response data are upcoming calendar events for the next week or detailed driving directions.
 
 Templates can also be used for handling response data. The service call can specify
-`response_variable` which is the name a [variable](https://www.home-assistant.io/docs/scripts/#variables)
-that will contain the response data. This example calls a service and sets the response is stored in
-the variable `agenda`
+a `response_variable`. This is the [variable](https://www.home-assistant.io/docs/scripts/#variables)
+that contains the response data. You can define any name for your `response_variable`. This example calls a service and stores the response in 
+the variable called `agenda`.
 
 {% raw %}
 
@@ -155,7 +155,7 @@ in the same script. The example below sends a notification using the response
 data.
 
 <div class='note'>
-The service call data fields depend on which notification service is used.
+Which data fields can be used in a service call depends on the type of notification service that is used.
 </div>
 
 {% raw %}
@@ -163,8 +163,8 @@ The service call data fields depend on which notification service is used.
 ```yaml
 service: notify.gmail_com
 data:
-  target: gduser1@workspacesamples.dev
-  title: Daily agenda for {{ now().date() }}
+  target: "gduser1@workspacesamples.dev"
+  title: "Daily agenda for {{ now().date() }}"
   message: >-
     Your agenda for today:
     <p>
