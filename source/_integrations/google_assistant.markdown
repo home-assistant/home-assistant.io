@@ -298,11 +298,11 @@ Some of these devices may not display correctly in the Google Home app, such as 
 
 ### Secure Devices
 
-Certain devices are considered secure, including anything in the `lock` domain, `alarm_control_panel` domain and `covers` with device types `door`, `garage` or `gate`.
+Certain devices are considered secure. This includes devices in the `lock` domain, the `alarm_control_panel` domain, as well as `covers` with device types `door`, `garage`, or `gate`.
 
-By default these cannot be opened by Google Assistant unless a `secure_devices_pin` is set up. To allow opening, set the `secure_devices_pin` to something and you will be prompted to speak the pin when opening the device. Closing or locking these devices does not require a pin.
+By default, secure devices cannot be opened by Google Assistant unless a `secure_devices_pin` code is set up. To allow opening, set the `secure_devices_pin` to something. You will then be prompted to speak the pin when opening the device. Closing or locking these devices does not require a pin.
 
-For the Alarm Control Panel if a code is set it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to `false` the system will arm without prompting for the pin.
+If a code is set for the Alarm Control Panel, it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to `false`, the system will arm without prompting for the pin.
 
 ### Room/Area support
 
