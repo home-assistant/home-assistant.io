@@ -7,7 +7,6 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.18
 ha_codeowners:
-  - '@bendavid'
   - '@thecode'
 ha_domain: webostv
 ha_config_flow: true

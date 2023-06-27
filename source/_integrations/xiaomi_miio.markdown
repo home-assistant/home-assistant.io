@@ -219,12 +219,12 @@ Supported devices:
 | Air Purifier 2S        | zhimi.airpurifier.mc1  | |
 | Air Purifier Super     | zhimi.airpurifier.sa1  | |
 | Air Purifier Super 2   | zhimi.airpurifier.sa2  | |
-| Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
+| Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | AC-M6-SC |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
 | Air Purifier 3C        | zhimi.airpurifier.mb4  | |
 | Air Purifier ZA1       | zhimi.airpurifier.za1  | |
-| Air Purifier 4         | zhimi.airp.mb5         | |
-| Air Purifier 4 PRO     | zhimi.airp.vb4         | |
+| Air Purifier 4         | zhimi.airp.mb5         | AC-M16-SC |
+| Air Purifier 4 PRO     | zhimi.airp.vb4         | AC-M15-SC |
 | Air Fresh A1           | dmaker.airfresh.a1     | MJXFJ-150-A1 |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
 | Air Fresh VA4          | zhimi.airfresh.va4     | |
@@ -371,6 +371,51 @@ Switch                  | Description
 Child Lock              | Turn on/off the child lock
 Learn Mode              | Turn on/off the learn mode
 LED                     | Turn on/off the LED
+
+
+### Air Purifier MA2 (zhimi.airpurifier.ma2)
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Favorite)
+- Attributes (fan platform)
+  - `extra_features`
+  - `turbo_mode_supported`
+  - `button_pressed`
+  - `preset_modes`
+  - `preset_mode`
+  - `sleep_time`
+  - `sleep_mode_learn_count`
+  - `use_time`
+  - `sleep_mode`
+  - `friendly_name`
+  - `supported_features`
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Level          | Set the favorite level
+
+- Sensor entities
+
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Temperature             | The current temperature measured                               | True
+Illuminance             | The current illuminance meassured on top of the device 0-200lux| True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+Learn Mode              | Turn on/off the learn mode
+LED                     | Turn on/off the LED
+
 
 ### Air Purifier 2S (zhimi.airpurifier.mc1)
 
@@ -1590,6 +1635,15 @@ automation:
           segments: [1, 1]
 ```
 
+### Buttons
+
+Button                  | Description
+----------------------- | ------------------------------------------
+Reset Main Brush        | Resets main brush remaining lifespan
+Reset Side Brush        | Resets side brush remaining lifespan
+Reset Filter            | Resets filter remaining lifespan
+Reset Sensor Dirty      | Resets sensor dirtiness (remaining time before needs to be cleaned)
+
 ### Sensors
 
 {% configuration_basic %}
@@ -1615,7 +1669,7 @@ Sensor Dirty Left*:
 Current Clean Time:
   description: The current cleaning time of the vacuum. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
 Current Clean Area:
-  description: The current area that has been cleaned. If the vacuum is not cealning, this sensor will have the same value as the "Last Clean Area" sensor.
+  description: The current area that has been cleaned. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Area" sensor.
 Last Clean Area*:
   description: The last cleaned area in square meters
 Last Clean Duration*:

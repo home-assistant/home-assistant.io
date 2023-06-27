@@ -65,8 +65,31 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     <img src='/images/integrations/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
 3. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App. If you don't see this option, go to the `Test` tab instead, click on the `Settings` button in the top right below the header, and ensure `On device testing` is enabled (if it isn't, enable it).
-4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
-5. Add services in the Google Home App (Note that app versions may be slightly different.)
+
+4. Go to [Google Cloud Platform](https://console.cloud.google.com/).
+    1. Go to `Select a project`.
+    2. In the window that popped up, select your newly created project from step 1.
+    3. Go to the menu and select `APIs and Services`and next `Credentials`.
+    4. In the Credentials view, select `Create credentials` and next `Service account`.
+        1. `Service account name`: Give your account a self-selected name.
+        2. Click `Create`.
+        3. `Select a role`: `Service Accounts` and `Service Account Token Creator`.
+        4. Click `Continue`.
+        5. Click on `Done`.
+    5. Under `Service Accounts` there should now be an account called [name from 4.1]@[projectname].iam.gserviceaccount.com.
+    6. Click on the pencil button of that service account.
+    7. Go to `Keys` and `ADD KEY`.
+    8. Create a private key, make sure it is in JSON format.
+    9. This will start a download of a JSON file. 
+        1. Rename the file to `SERVICE_ACCOUNT.JSON`.
+        2. Add this file to your config-folder. This will be the same folder as your `configuration.yaml`.
+    12. Go back to [Google Cloud Platform](https://console.cloud.google.com/) and click `Close`.
+    13. Then click `SAVE`.
+    14. Go to the `Search products and resources` and search for `Homegraph API` and select it.
+    15. Enable the HomeGraph API.
+
+5. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
+6. Add services in the Google Home App (note that app versions may be slightly different).
     1. Open the Google Home app.
     2. Click the `+` button on the top left corner, click `Set up device`, in the "Set up a device" screen click "Works with Google". You should have `[test] <Action Name>` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
 
@@ -246,22 +269,25 @@ entity_config:
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
 - alarm_control_panel (arm/disarm)
+- button (scene)
 - camera (streaming, requires compatible camera)
-- group (on/off)
-- input_boolean (on/off)
-- input_select (option/setting/mode/value)
-- scene (on)
-- script (on)
-- switch (on/off)
+- climate (temperature setting, hvac_mode)
+- cover (on/off/set position)
 - fan (on/off/speed percentage/preset mode)
+- group (on/off)
+- humidifier (humidity setting/on/off/mode)
+- input_boolean (on/off)
+- input_button
+- input_select (option/setting/mode/value)
 - light (on/off/brightness/rgb color/color temp)
 - lock
-- cover (on/off/set position)
 - media_player (on/off/set volume (via set volume)/source (via set input source)/control playback)
-- climate (temperature setting, hvac_mode)
-- vacuum (dock/start/stop/pause)
+- scene (on)
+- script (on)
+- select
 - sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
-- humidifier (humidity setting/on/off/mode)
+- switch (on/off)
+- vacuum (dock/start/stop/pause)
 
 <div class='note'>
 

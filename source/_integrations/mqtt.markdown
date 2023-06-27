@@ -23,6 +23,7 @@ ha_platforms:
   - diagnostics
   - fan
   - humidifier
+  - light
   - lock
   - number
   - scene
@@ -31,7 +32,10 @@ ha_platforms:
   - siren
   - switch
   - text
+  - tag
   - update
+  - vacuum
+  - water_heater
 ha_integration_type: integration
 ha_quality_scale: gold
 ---
@@ -65,7 +69,11 @@ The Mosquitto project runs a [public broker](https://test.mosquitto.org). This i
 
 MQTT broker settings are configured when the MQTT integration is first set up and can be changed later if needed.
 
-Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, click on "Configure" on the integration page in the UI, then "Re-configure MQTT".
+Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, follow these steps:
+
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. On the MQTT integration, select the cogwheel. 
+1. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
 
@@ -76,6 +84,12 @@ If you experience an error message like `Failed to connect due to exception: [SS
 ### Advanced broker configuration
 
 Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication and enabling TLS validation of the brokers certificate for. To access the advanced settings, open the MQTT broker settings, switch on `Advanced options` and click `Next`. The advanced options will be shown by default if there are advanced settings active already.
+
+<div class='note info'>
+
+Advanced broker options are accessible only when advanced mode is enabled (see user settings), or when advanced broker settings are configured already.
+
+</div>
 
 #### Alternative client ID
 
@@ -100,7 +114,7 @@ With a secure broker connection it is possible to use a client certificate for a
 
 #### Using WebSockets as transport
 
-You can select `websockets` as transport method if your MQTT broker supports it. When you select `websockets` and click `NEXT` you will be able to add a WebSockets path (default = `/` and WebSockets headers (optional). The target WebSockets URI: `ws://{broker}:{port}{WebSockets path}` is built with `broker`, `port` and `ws_path` (WebSocket path) settings.
+You can select `websockets` as transport method if your MQTT broker supports it. When you select `websockets` and click `NEXT`, you will be able to add a WebSockets path (default = `/`) and WebSockets headers (optional). The target WebSockets URI: `ws://{broker}:{port}{WebSockets path}` is built with `broker`, `port` and `ws_path` (WebSocket path) settings.
 To configure the WebSocketS headers supply a valid JSON dictionary string. E.g. `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
 
 <div class='note'>
@@ -111,7 +125,12 @@ A configured client certificate will only be active if broker certificate valida
 
 ## Configure MQTT options
 
-To change the settings, click on "Configure" in the integration page in the UI, then "Re-configure MQTT". Click `NEXT` to open the MQTT options page.
+To change the settings, follow these steps:
+
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. On the MQTT integration, select the cogwheel. 
+1. Select **Configure**, then **Re-configure MQTT**.
+1. To open the MQTT options page, select **Next**.
 
 ### Discovery options
 
@@ -131,13 +150,17 @@ MQTT Birth and Last Will messages can be customized or disabled from the UI. To 
 The `mosquitto` broker package ships commandline tools (often as `*-clients` package) to send and receive MQTT messages. For sending test messages to a broker running on `localhost` check the example below:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"
+mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
 ```
 
-Another way to send MQTT messages manually is to use the "MQTT" integration in the frontend. Choose "Settings" on the left menu, click "Devices & Services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
+Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Choose "Settings" on the left menu, click "Devices & Services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
+
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. On the Mosquitto broker integration, select the cogwheel, then select **Configure**.
+1. Enter something similar to the example below into the **topic** field under **Publish a packet**. Select **Publish**.
 
 ```bash
-   home-assistant/switch/1/power
+   homeassistant/switch/1/power
 ```
 
 and in the Payload field
@@ -146,23 +169,23 @@ and in the Payload field
    ON
 ```
 
-In the "Listen to a topic" field, type `#` to see everything, or "home-assistant/switch/#" to just follow a published topic, then press "START LISTENING". The messages should appear similar to the text below:
+In the "Listen to a topic" field, type `#` to see everything, or "homeassistant/switch/#" to just follow a published topic, then press "START LISTENING". The messages should appear similar to the text below:
 
 ```bash
-Message 23 received on home-assistant/switch/1/power/stat/POWER at 12:16 PM:
+Message 23 received on homeassistant/switch/1/power/stat/POWER at 12:16 PM:
 ON
 QoS: 0 - Retain: false
-Message 22 received on home-assistant/switch/1/power/stat/RESULT at 12:16 PM:
+Message 22 received on homeassistant/switch/1/power/stat/RESULT at 12:16 PM:
 {
     "POWER": "ON"
 }
 QoS: 0 - Retain: false
 ```
 
-For reading all messages sent on the topic `home-assistant` to a broker running on localhost:
+For reading all messages sent on the topic `homeassistant` to a broker running on localhost:
 
 ```bash
-mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
+mosquitto_sub -h 127.0.0.1 -v -t "homeassistant/#"
 ```
 
 ## MQTT Discovery
@@ -180,6 +203,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Device Trigger](/integrations/device_trigger.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
 - [Climate/HVAC](/integrations/climate.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -193,6 +217,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Tag Scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Water Heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
@@ -209,6 +234,7 @@ The discovery topic needs to follow a specific format:
 <discovery_prefix>/<component>/[<node_id>/]<object_id>/config
 ```
 
+- `<discovery_prefix>`: The Discovery Prefix defaults to `homeassistant`. This prefix can be [changed](#discovery-options).
 - `<component>`: One of the supported MQTT components, eg. `binary_sensor`.
 - `<node_id>` (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 - `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
@@ -273,10 +299,15 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'cod_arm_req':         'code_arm_required',
     'cod_dis_req':         'code_disarm_required',
     'cod_trig_req':        'code_trigger_required',
+    'cont_type':           'content_type',
     'curr_temp_t':         'current_temperature_topic',
     'curr_temp_tpl':       'current_temperature_template',
     'dev':                 'device',
     'dev_cla':             'device_class',
+    'dir_cmd_t':           'direction_command_topic',
+    'dir_cmd_tpl':         'direction_command_template',
+    'dir_stat_t':          'direction_state_topic',
+    'dir_val_tpl':         'direction_value_template',
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
     'e':                   'encoding',
@@ -303,16 +334,13 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'fan_mode_stat_t':     'fan_mode_state_topic',
     'frc_upd':             'force_update',
     'g_tpl':               'green_template',
-    'hold_cmd_tpl':        'hold_command_template',
-    'hold_cmd_t':          'hold_command_topic',
-    'hold_stat_tpl':       'hold_state_template',
-    'hold_stat_t':         'hold_state_topic',
     'hs_cmd_t':            'hs_command_topic',
     'hs_cmd_tpl':          'hs_command_template',
     'hs_stat_t':           'hs_state_topic',
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
     'img_e':               'image_encoding',
+    'img_t':               'image_topic',
     'init':                'initial',
     'hum_cmd_t':           'target_humidity_command_topic',
     'hum_cmd_tpl':         'target_humidity_command_template',
@@ -366,6 +394,8 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'pl_cln_sp':           'payload_clean_spot',
     'pl_cls':              'payload_close',
     'pl_disarm':           'payload_disarm',
+    'pl_dir_fwd':          'payload_direction_forward',
+    'pl_dir_rev':          'payload_direction_reverse',
     'pl_home':             'payload_home',
     'pl_inst':             'payload_install',
     'pl_lock':             'payload_lock',
@@ -466,7 +496,6 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'tilt_clsd_val':       'tilt_closed_value',
     'tilt_cmd_t':          'tilt_command_topic',
     'tilt_cmd_tpl':        'tilt_command_template',
-    'tilt_inv_stat':       'tilt_invert_state',
     'tilt_max':            'tilt_max',
     'tilt_min':            'tilt_min',
     'tilt_opnd_val':       'tilt_opened_value',
@@ -477,13 +506,11 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     't':                   'topic',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
+    'url_t':               'url_topic',
+    'url_tpl':             'url_template',
     'val_tpl':             'value_template',
     'whit_cmd_t':          'white_command_topic',
     'whit_scl':            'white_scale',
-    'whit_val_cmd_t':      'white_value_command_topic',
-    'whit_val_scl':        'white_value_scale',
-    'whit_val_stat_t':     'white_value_state_topic',
-    'whit_val_tpl':        'white_value_template',
     'xy_cmd_t':            'xy_command_topic',
     'xy_cmd_tpl':          'xy_command_template',
     'xy_stat_t':           'xy_state_topic',
@@ -514,15 +541,19 @@ The following software has built-in support for MQTT discovery:
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
 - [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
+- [EMS-ESP32 (and EMS-ESP)](https://github.com/emsesp/EMS-ESP32)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
+- [Nuki Hub](https://github.com/technyon/nuki_hub)
+- [Nuki Smart Lock 3.0 Pro](https://support.nuki.io/hc/articles/12947926779409-MQTT-support), [more info](https://developer.nuki.io/t/mqtt-api-specification-v1-3/17626)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
 - [SpeedTest-CLI MQTT](https://github.com/adorobis/speedtest-CLI2mqtt)
+- [SwitchBot-MQTT-BLE-ESP32](https://github.com/devWaves/SwitchBot-MQTT-BLE-ESP32)
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
 - [Teleinfo MQTT](https://fmartinou.github.io/teleinfo2mqtt) (starting with 3.0.0)
 - [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
@@ -530,7 +561,7 @@ The following software has built-in support for MQTT discovery:
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
-- [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
+- [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
 - [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 
 ### Discovery examples
@@ -658,6 +689,7 @@ For most components it is also possible to manual set up MQTT items in `configur
 - [Device Tracker](/integrations/device_tracker.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/imahe.mqtt/)
 - [Climate/HVACs](/integrations/climate.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -670,6 +702,7 @@ For most components it is also possible to manual set up MQTT items in `configur
 - [Text](/integrations/text.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Water Heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
@@ -747,7 +780,7 @@ script:
 
 ## Publish & Dump services
 
-The MQTT integration will register the service `mqtt.publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload.
+The MQTT integration will register the service `mqtt.publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that will be rendered to generate the payload.
 
 ### Service `mqtt.publish`
 
@@ -765,14 +798,14 @@ You must include either `topic` or `topic_template`, but not both. If providing 
 </p>
 
 ```yaml
-topic: home-assistant/light/1/command
+topic: homeassistant/light/1/command
 payload: on
 ```
 
 {% raw %}
 
 ```yaml
-topic: home-assistant/light/1/state
+topic: homeassistant/light/1/state
 payload_template: "{{ states('device_tracker.paulus') }}"
 ```
 
@@ -781,7 +814,7 @@ payload_template: "{{ states('device_tracker.paulus') }}"
 {% raw %}
 
 ```yaml
-topic_template: "home-assistant/light/{{ states('sensor.light_active') }}/state"
+topic_template: "homeassistant/light/{{ states('sensor.light_active') }}/state"
 payload_template: "{{ states('device_tracker.paulus') }}"
 ```
 
@@ -792,7 +825,7 @@ If you want to send JSON using the YAML editor then you need to format/escape
 it properly. Like:
 
 ```yaml
-topic: home-assistant/light/1/state
+topic: homeassistant/light/1/state
 payload: "{\"Status\":\"off\", \"Data\":\"something\"}"`
 ```
 
@@ -825,7 +858,7 @@ data:
 Example of how to use `qos` and `retain`:
 
 ```yaml
-topic: home-assistant/light/1/command
+topic: homeassistant/light/1/command
 payload: on
 qos: 2
 retain: true

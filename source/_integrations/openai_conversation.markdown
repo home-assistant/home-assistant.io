@@ -1,5 +1,5 @@
 ---
-title: OpenAI conversation agent
+title: OpenAI Conversation
 description: Instructions on how to integrate OpenAI as a conversation agent
 ha_category:
   - Voice
@@ -47,3 +47,7 @@ Top P:
   description: An alternative to temperature, top_p determines the proportion of the most likely word choices the model should consider when generating text. A higher top_p means the model will only consider the most likely words, while a lower top_p means a wider range of words, including less likely ones, will be considered. For more information, see the [OpenAI Completion API Reference](https://platform.openai.com/docs/api-reference/completions/create#completions/create-top_p).
 
 {% endconfiguration_basic %}
+
+### Talking to Super Mario over the phone
+
+You can use an OpenAI Conversation integration to [talk to Super Mario over a classic landline phone](/voice_control/worlds-most-private-voice-assistant/).

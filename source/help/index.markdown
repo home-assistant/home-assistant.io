@@ -91,4 +91,4 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 [twitter]: https://twitter.com/home_assistant
 [facebook]: https://www.facebook.com/homeassistantio
 [reddit]: https://reddit.com/r/homeassistant
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: /join-chat

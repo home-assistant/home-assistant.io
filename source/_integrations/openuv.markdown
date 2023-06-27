@@ -28,8 +28,7 @@ trained medical professional.
 
 ## Generating an API Key
 
-To generate an API key,
-[simply log in to the OpenUV website](https://www.openuv.io/auth/google).
+To generate an API key, simply log in at [the OpenUV website](https://www.openuv.io/).
 
 {% include integrations/config_flow.md %}
 
@@ -193,4 +192,3 @@ provided by OpenUV. So, this strategy is followed:
 
 If you receive a re-authentication notification and are certain that your key has merely
 reached its daily call limit, you can safely ignore it.
-

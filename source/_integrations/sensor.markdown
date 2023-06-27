@@ -7,7 +7,7 @@ ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: sensor
 ha_codeowners:
-  - "@home-assistant/core"
+  - '@home-assistant/core'
 ha_integration_type: entity
 ---
 
@@ -33,6 +33,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
 - **duration**: Duration in d, h, min, or s
 - **energy**: Energy in Wh, kWh, MWh, MJ, or GJ
+- **energy_storage**: Stored energy in Wh, kWh, MWh, MJ, or GJ
 - **enum**: Has a limited set of (non-numeric) states
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
 - **gas**: Gasvolume in m³, ft³ or CCF
@@ -46,8 +47,8 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **nitrous_oxide**: Concentration of Nitrous Oxide in µg/m³
 - **ozone**: Concentration of Ozone in µg/m³
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
-- **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
+- **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **power_factor**: Power factor (unitless), unit may be `None` or %
 - **power**: Power in W or kW
 - **precipitation**: Accumulated precipitation in cm, in or mm
@@ -61,8 +62,10 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **temperature**: Temperature in °C, °F or K
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
+- **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
 - **voltage**: Voltage in V, mV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
+- **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
 - **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph

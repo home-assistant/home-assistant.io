@@ -120,20 +120,18 @@ Use `route back` if your tunneling server is located on a different network.
 
 ### KNX Secure
 
-The KNX integration currently supports IP secure tunneling.
-IP secure via routing and data secure are currently not supported.
-
-In order to use IP Secure you will have to chose "Tunneling" -> "TCP with IP Secure" in the config flow.
+The KNX integration supports IP Secure and Data Secure .
 
 You can configure the IP Secure credentials either manually or by providing a `.knxkeys` file, which you can obtain by exporting the keyring in ETS as seen in the screenshot below.
+Data Secure credentials are always sourced from a `.knxkeys` file. You can import or update the Keyring file from the integrations settings.
+
+For Data Secure, please make sure that all secured group addresses you want to use in Home Assistant are assigned to a tunnel of your interface or a dummy device in ETS and all participating devices are updated accordingly.
 
 ![Export Keyring in ETS5](/images/integrations/knx/export_keyring_ets.png)
 
-The `.knxkeys` file has to be placed in `config/.storage/knx/yourfile.knxkeys`.
-
 If you decide to configure IP Secure manually you will need the user ID, the user password and the device authentication password.
 
-The user id 0 is reserved and the user id 1 is used for management tasks, thus you will need to specify a user id that is 2 or higher according to the tunneling channel you would like to use. 
+The user id 0 is reserved and the user id 1 is used for management tasks, thus you will need to specify a user id that is 2 or higher according to the tunneling channel you would like to use.
 
 The following screenshot will show how you can get the device authentication password in ETS.
 
@@ -173,7 +171,7 @@ type:
 Every telegram that matches an address pattern with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
 
 - `data` contains the raw payload data (e.g., 1 or "[12, 55]").
-- `destination` the KNX group address the telegram is sent to as string (e.g., "1/2/3).
+- `destination` the KNX group address the telegram is sent to as string (e.g., "1/2/3").
 - `direction` the direction of the telegram as string ("Incoming" / "Outgoing").
 - `source` the KNX individual address of the sender as string (e.g., "1.2.3").
 - `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.
@@ -1058,15 +1056,15 @@ individual_colors:
       type: map
       required: false
 color_temperature_address:
-  description: KNX group address for setting the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
+  description: KNX group address for setting the color temperature of the light. *DPT 5.001, 7.600 or 9 based on color_temperature_mode*
   required: false
   type: [string, list]
 color_temperature_state_address:
-  description: KNX group address for retrieving the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
+  description: KNX group address for retrieving the color temperature of the light. *DPT 5.001, 7.600 or 9 based on color_temperature_mode*
   required: false
   type: [string, list]
 color_temperature_mode:
-  description: Color temperature group address data type. `absolute` color temperature in Kelvin. *color_temperature_address -> DPT 7.600*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
+  description: Color temperature group address data type. `absolute` for color temperature in Kelvin (2 byte unsigned integer). *color_temperature_address -> DPT 7.600*. `absolute_float` for color temperature represented in 2 byte float. *color_temperature_address -> DPT 9*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
   required: false
   type: string
   default: absolute
@@ -1881,6 +1879,7 @@ logger:
     xknx.log: debug  # provides general information (connection, etc.)
     xknx.telegram: debug  # logs telegrams before they are being processed or sent
     xknx.cemi: debug  # logs incoming and outgoing CEMI frames
+    xknx.data_secure: debug  # logs Data Secure relevant information
     xknx.ip_secure: debug  # logs IP Secure relevant information
     xknx.knx: debug  # logs incoming and outgoing KNX/IP frames
     xknx.raw_socket: warning  # logs incoming UDP/TCP frames in raw hex format at socket level

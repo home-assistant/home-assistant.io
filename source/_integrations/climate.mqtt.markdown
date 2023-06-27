@@ -88,7 +88,7 @@ current_humidity_template:
   required: false
   type: template
 current_humidity_topic:
-  description: The MQTT topic on which to listen for the current humidity.
+  description: The MQTT topic on which to listen for the current humidity. A `"None"` value received will reset the current humidity. Empty values (`'''`) will be ignored. 
   required: false
   type: string
 current_temperature_template:
@@ -96,7 +96,7 @@ current_temperature_template:
   required: false
   type: template
 current_temperature_topic:
-  description: The MQTT topic on which to listen for the current temperature.
+  description: The MQTT topic on which to listen for the current temperature. A `"None"` value received will reset the current temperature. Empty values (`'''`) will be ignored.
   required: false
   type: string
 device:
@@ -181,10 +181,9 @@ fan_modes:
   default: ['auto', 'low', 'medium', 'high']
   type: list
 initial:
-  description: Set the initial target temperature.
+  description: Set the initial target temperature. The default value depends on the temperature unit and will be 21° or 69.8°F.
   required: false
   type: integer
-  default: 21
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -203,7 +202,7 @@ max_humidity:
   type: integer
   default: 99
 max_temp:
-  description: Maximum set point available.
+  description: Maximum set point available. The default value depends on the temperature unit, and will be 35°C or 95°F.
   type: float
   required: false
 min_humidity:
@@ -212,7 +211,7 @@ min_humidity:
   type: integer
   default: 30
 min_temp:
-  description: Minimum set point available.
+  description: Minimum set point available. The default value depends on the temperature unit, and will be 7°C or 44.6°F.
   type: float
   required: false
 mode_command_template:
@@ -220,7 +219,7 @@ mode_command_template:
   required: false
   type: template
 mode_command_topic:
-  description: The MQTT topic to publish commands to change the HVAC operation mode. Use with `mode_command_template` if you only want to publish the power state.
+  description: The MQTT topic to publish commands to change the HVAC operation mode. Use `power_command_topic` if you only want to publish the power state.
   required: false
   type: string
 mode_state_template:
@@ -261,15 +260,23 @@ payload_not_available:
   type: string
   default: offline
 payload_off:
-  description: The payload that represents disabled state.
+  description: The payload sent to turn off the device.
   required: false
   type: string
   default: "OFF"
 payload_on:
-  description: The payload that represents enabled state.
+  description: The payload sent to turn the device on.
   required: false
   type: string
   default: "ON"
+power_command_template:
+  description: A template to render the value sent to the `power_command_topic` with. The `value` parameter is the payload set for `payload_on` or `payload_off`.
+  required: false
+  type: template
+power_command_topic:
+  description: The MQTT topic to publish commands to change the HVAC power state. Sends the payload configured with `payload_on` if the climate is turned on via the `climate.turn_on`, or the payload configured with `payload_off` if the climate is turned off via the `climate.turn_off` service. The climate device reports it's state back via `mode_command_topic`. Note that when this option is used in `optimistic` mode, service `climate.turn_on` will send a the message configured with `payload_on` to the device but will not update the state of the climate.
+  required: false
+  type: string
 precision:
   description: The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`.
   required: false
@@ -290,7 +297,7 @@ preset_mode_state_topic:
 preset_mode_value_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the `preset_mode` value from the payload received on `preset_mode_state_topic`.
   required: false
-  type: string
+  type: template
 preset_modes:
   description: List of preset modes this climate is supporting. Common examples include `eco`, `away`, `boost`, `comfort`, `home`, `sleep` and `activity`.
   required: false
@@ -336,13 +343,13 @@ target_humidity_command_topic:
   required: false
   type: string
 target_humidity_state_topic:
-  description: The MQTT topic subscribed to receive the target humidity. If this is not set, the target humidity works in optimistic mode (see below).
+  description: The MQTT topic subscribed to receive the target humidity. If this is not set, the target humidity works in optimistic mode (see below). A `"None"` value received will reset the target humidity. Empty values (`'''`) will be ignored.
   required: false
   type: string
 target_humidity_state_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value for the climate `target_humidity` state.
   required: false
-  type: string
+  type: template
 temperature_command_template:
   description: A template to render the value sent to the `temperature_command_topic` with.
   required: false
@@ -360,7 +367,7 @@ temperature_high_command_topic:
   required: false
   type: string
 temperature_high_state_template:
-  description: A template to render the value received on the `temperature_high_state_topic` with.
+  description: A template to render the value received on the `temperature_high_state_topic` with. A `"None"` value received will reset the temperature high set point. Empty values (`'''`) will be ignored.
   required: false
   type: template
 temperature_high_state_topic:
@@ -376,7 +383,7 @@ temperature_low_command_topic:
   required: false
   type: string
 temperature_low_state_template:
-  description: A template to render the value received on the `temperature_low_state_topic` with.
+  description: A template to render the value received on the `temperature_low_state_topic` with. A `"None"` value received will reset the temperature low set point. Empty values (`'''`) will be ignored.
   required: false
   type: template
 temperature_low_state_topic:
@@ -388,7 +395,7 @@ temperature_state_template:
   required: false
   type: template
 temperature_state_topic:
-  description: The MQTT topic to subscribe for changes in the target temperature. If this is not set, the target temperature works in optimistic mode (see below).
+  description: The MQTT topic to subscribe for changes in the target temperature. If this is not set, the target temperature works in optimistic mode (see below). A `"None"` value received will reset the temperature set point. Empty values (`'''`) will be ignored.
   required: false
   type: string
 temperature_unit:
@@ -467,6 +474,7 @@ mqtt:
         - "eco"
         - "sleep"
         - "activity"
+      power_command_topic: "study/ac/power/set"
       preset_mode_command_topic: "study/ac/preset_mode/set"
       mode_command_topic: "study/ac/mode/set"
       mode_command_template: "{{ value if value=="off" else "on" }}"

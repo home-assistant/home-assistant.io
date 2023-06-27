@@ -23,7 +23,7 @@ The setup requires an API Token created with `Zone:Zone:Read` and `Zone:DNS:Edit
 
 An easy way to create this is to start with the "Edit zone DNS" template then add `Zone:Zone:Read` to the permissions.
 
-[Cloudflare API Tokens Guide](https://developers.cloudflare.com/api/tokens/create)
+[Cloudflare API Tokens Guide](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/)
 
 {% include integrations/config_flow.md %}
 

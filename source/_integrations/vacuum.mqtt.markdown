@@ -72,7 +72,7 @@ availability_topic:
 battery_level_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the battery level of the vacuum. This is required if `battery_level_topic` is set.
   required: false
-  type: string
+  type: template
 battery_level_topic:
   description: The MQTT topic subscribed to receive battery level values from the vacuum.
   required: false
@@ -80,15 +80,15 @@ battery_level_topic:
 charging_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the charging state of the vacuum. This is required if `charging_topic` is set.
   required: false
-  type: string
+  type: template
 charging_topic:
   description: The MQTT topic subscribed to receive charging state values from the vacuum.
   required: false
   type: string
 cleaning_template:
-  description: Defines a [template](/topics/templating/) to define the cleaning state of the vacuum. This is required if `cleaning_topic` is set.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the cleaning state of the vacuum. This is required if `cleaning_topic` is set.
   required: false
-  type: string
+  type: template
 cleaning_topic:
   description: The MQTT topic subscribed to receive cleaning state values from the vacuum.
   required: false
@@ -98,9 +98,9 @@ command_topic:
   required: false
   type: string
 docked_template:
-  description: Defines a [template](/topics/templating/) to define the docked state of the vacuum. This is required if `docked_topic` is set.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the docked state of the vacuum. This is required if `docked_topic` is set.
   required: false
-  type: string
+  type: template
 docked_topic:
   description: The MQTT topic subscribed to receive docked state values from the vacuum.
   required: false
@@ -121,9 +121,9 @@ entity_category:
   type: string
   default: None
 error_template:
-  description: Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum. This is required if `error_topic` is set.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define potential error messages emitted by the vacuum. This is required if `error_topic` is set.
   required: false
-  type: string
+  type: template
 error_topic:
   description: The MQTT topic subscribed to receive error messages from the vacuum.
   required: false
@@ -133,9 +133,9 @@ fan_speed_list:
   required: false
   type: [string, list]
 fan_speed_template:
-  description: Defines a [template](/topics/templating/) to define the fan speed of the vacuum. This is required if `fan_speed_topic` is set.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the fan speed of the vacuum. This is required if `fan_speed_topic` is set.
   required: false
-  type: string
+  type: template
 fan_speed_topic:
   description: The MQTT topic subscribed to receive fan speed values from the vacuum.
   required: false

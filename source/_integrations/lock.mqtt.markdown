@@ -193,7 +193,7 @@ payload_open:
   type: string
   default: OPEN
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level of the state topic. It will also be used for messages published to command topic.
   required: false
   type: integer
   default: 0
@@ -238,7 +238,7 @@ unique_id:
 value_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a state value from the payload.
   required: false
-  type: string
+  type: template
 {% endconfiguration %}
 
 <div class='note warning'>
