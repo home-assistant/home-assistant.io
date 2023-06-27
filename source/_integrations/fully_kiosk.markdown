@@ -96,7 +96,7 @@ You can use the service `fully_kiosk.set_config` to change the many configuratio
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `device_id` | no | Device ID (or list of device IDs) to load the URL on.
-| `key` | no | The configuration parameter key. The list of available keys can be found in the Fully Kiosk Browser remote admin panel by clicking the 'Show keys' button.
+| `key` | no | The configuration parameter key. The list of available keys can be found in the Fully Kiosk Browser remote admin panel by clicking the **Show keys** button.
 | `value` | no | The value to set the configuration parameter to.
 
 Example:
