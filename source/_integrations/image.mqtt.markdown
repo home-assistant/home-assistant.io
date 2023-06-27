@@ -14,6 +14,8 @@ Every time a message under the `image_topic` in the configuration is received, t
 
 This can be used with an application or a service capable of sending images through MQTT.
 
+An alternative setup is to use the `url_topic` option to receive an image URL for a new picture to show.
+
 ## Configuration
 
 <a id='new_format'></a>
@@ -71,7 +73,7 @@ availability_topic:
   required: false
   type: string
 content_type:
-  description: The content type of and image data message received on `image_topic`.
+  description: The content type of and image data message received on `image_topic`. This option cannot be used with the `from_url_topic` because the content type is derived when downloading the image.
   required: false
   type: string
   default: image/jpeg
@@ -145,8 +147,8 @@ image_encoding:
   type: string
   default: None
 image_topic:
-  description: The MQTT topic to subscribe to receive the image payload of the image to be downloaded. Ensure the `content_type` type option is set to the corresponding content type.
-  required: true
+  description: The MQTT topic to subscribe to receive the image payload of the image to be downloaded. Ensure the `content_type` type option is set to the corresponding content type. This option cannot be used together with the `url_topic` option. But at least one of these option is required.
+  required: exclusive
   type: string
 json_attributes_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`.
@@ -168,4 +170,34 @@ unique_id:
   description: An ID that uniquely identifies this image. If two images have the same unique ID Home Assistant will raise an exception.
   required: false
   type: string
+url_template:
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the image URL from a message received at `url_topic`.
+  required: false
+  type: template
+url_topic:
+  description: The MQTT topic to subscribe to receive an image URL. A `url_template` option can extract the URL from the message. The `content_type` will be derived from the image when downloaded. This option cannot be used together with the `image_topic` option, but at least one of these options is required.
+  required: exclusive
+  type: boolean
+  default: false
 {% endconfiguration %}
+
+### Example receiving images from from a URL
+
+Add the configuration below to your `configuration.yaml`.
+
+To test it publish an image URL to the topic from the console:
+
+```shell
+mosquitto_pub -h <mqtt_broker> -t mynas/status/url -m "https://design.home-assistant.io/images/logo.png"
+```
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  image:
+    - from_url_topic: mynas/status/url
+```
+
+{% endraw %}
