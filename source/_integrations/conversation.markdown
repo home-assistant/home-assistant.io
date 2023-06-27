@@ -159,9 +159,16 @@ It's now possible to say "engage all lights in the bedroom", which will turn on 
 
 ## Service `conversation.process`
 
+Send a message to a conversation agent for processing.
+
 | Service data attribute | Optional | Description      |
 |------------------------|----------|------------------|
-| `text`                 | yes      | Transcribed text |
+| `text`                 | no      | Transcribed text |
+| `language`                 | yes      | Language of the text |
+| `agent_id`                 | yes      | ID of conversation agent to use |
+
+This service is able to return a response value. The response is the same response as for the
+[`/api/conversation/process` API](https://developers.home-assistant.io/docs/intent_conversation_api#conversation-response).
 
 ## Service `conversation.reload`
 

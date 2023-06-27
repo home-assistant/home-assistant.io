@@ -1056,15 +1056,15 @@ individual_colors:
       type: map
       required: false
 color_temperature_address:
-  description: KNX group address for setting the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
+  description: KNX group address for setting the color temperature of the light. *DPT 5.001, 7.600 or 9 based on color_temperature_mode*
   required: false
   type: [string, list]
 color_temperature_state_address:
-  description: KNX group address for retrieving the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
+  description: KNX group address for retrieving the color temperature of the light. *DPT 5.001, 7.600 or 9 based on color_temperature_mode*
   required: false
   type: [string, list]
 color_temperature_mode:
-  description: Color temperature group address data type. `absolute` color temperature in Kelvin. *color_temperature_address -> DPT 7.600*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
+  description: Color temperature group address data type. `absolute` for color temperature in Kelvin (2 byte unsigned integer). *color_temperature_address -> DPT 7.600*. `absolute_float` for color temperature represented in 2 byte float. *color_temperature_address -> DPT 9*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
   required: false
   type: string
   default: absolute

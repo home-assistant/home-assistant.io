@@ -203,6 +203,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Device Trigger](/integrations/device_trigger.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
 - [Climate/HVAC](/integrations/climate.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -298,6 +299,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'cod_arm_req':         'code_arm_required',
     'cod_dis_req':         'code_disarm_required',
     'cod_trig_req':        'code_trigger_required',
+    'cont_type':           'content_type',
     'curr_temp_t':         'current_temperature_topic',
     'curr_temp_tpl':       'current_temperature_template',
     'dev':                 'device',
@@ -338,6 +340,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
     'img_e':               'image_encoding',
+    'img_t':               'image_topic',
     'init':                'initial',
     'hum_cmd_t':           'target_humidity_command_topic',
     'hum_cmd_tpl':         'target_humidity_command_template',
@@ -503,6 +506,8 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     't':                   'topic',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
+    'url_t':               'url_topic',
+    'url_tpl':             'url_template',
     'val_tpl':             'value_template',
     'whit_cmd_t':          'white_command_topic',
     'whit_scl':            'white_scale',
@@ -684,6 +689,7 @@ For most components it is also possible to manual set up MQTT items in `configur
 - [Device Tracker](/integrations/device_tracker.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/imahe.mqtt/)
 - [Climate/HVACs](/integrations/climate.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
