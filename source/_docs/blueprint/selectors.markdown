@@ -267,8 +267,9 @@ assist_pipeline:
 
 ## Backup location selector
 
-This can only be used on an installation with a Supervisor. For installations
-that do not have that, an error will be displayed.
+This can only be used on an installation with a Supervisor (Operating System or
+Supervised). For installations of type Home Assistant Core or Container, an error
+will be displayed.
 
 The backup location selector shows a list of places a backup could go, depending
 on what you have configured in [storage](https://my.home-assistant.io/redirect/storage/).
@@ -276,7 +277,7 @@ on what you have configured in [storage](https://my.home-assistant.io/redirect/s
 ![Screenshot of an assist pipeline selector](/images/blueprints/selector-backup-location.png)
 
 The output of this selector is the name of the selected network storage. It may
-also be the value `/backup`, if the user choose to use the local data disk option
+also be the value `/backup`, if the user chooses to use the local data disk option
 instead of one of the configured network storage locations.
 
 ## Boolean selector
