@@ -25,4 +25,4 @@ The KNX integration in Home Assistant allows users to use the power of Home Assi
 
 Home Assistant introduced the KNX integration in [Home Assistant 0.24](/blog/2016/07/16/sqlalchemy-knx-join-simplisafe/) in July 2016. Since its introduction 7 years ago, the community has continued to evolve it. The development is currently led by [marvin-w](https://github.com/marvin-w) and [farmio](https://github.com/farmio), who brought the integration to a platinum quality level.
 
-It's a thrilling time with organizations like KNX prioritizing seamless Home Assistant integration and working directly with integration developers. We can’t be more happy with where things are heading.
+It's a thrilling time with organizations like KNX prioritizing seamless Home Assistant integration and working directly with integration developers. We couldn’t be more happy with where things are heading.
