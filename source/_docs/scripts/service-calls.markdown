@@ -127,8 +127,8 @@ data: >
 
 ### Use templates to handle response data
 
-Some services may respond with data that can be used in automation. This data is called _service response data_. Services response data
-is typically used for data that is dynamic or large and which may not be suited for use for entity state.
+Some services may respond with data that can be used in automation. This data is called _service response data_. Service response data
+is typically used for data that is dynamic or large and which may not be suited for use in entity state.
 Examples of service response data are upcoming calendar events for the next week or detailed driving directions.
 
 Templates can also be used for handling response data. The service call can specify
