@@ -109,4 +109,4 @@ The following attributes can be placed inside `data` for extended functionality.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID.
+| `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID. |
