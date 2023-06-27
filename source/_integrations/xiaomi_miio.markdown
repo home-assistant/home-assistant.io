@@ -1635,6 +1635,15 @@ automation:
           segments: [1, 1]
 ```
 
+### Buttons
+
+Button                  | Description
+----------------------- | ------------------------------------------
+Reset Main Brush        | Resets main brush remaining lifespan
+Reset Side Brush        | Resets side brush remaining lifespan
+Reset Filter            | Resets filter remaining lifespan
+Reset Sensor Dirty      | Resets sensor dirtiness (remaining time before needs to be cleaned)
+
 ### Sensors
 
 {% configuration_basic %}
