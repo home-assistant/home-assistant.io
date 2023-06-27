@@ -37,10 +37,10 @@ compensation:
     unit_of_measurement: dB
     # Ensure that the sensor's value will not have a state lower than -80.0
     # when the source sensors value is less than 0.2
-    lower_limit: True
+    lower_limit: true
     # Ensure that the sensor's value will not have a state greater than 0.0
     # when the source sensors value is greater than 1.0
-    upper_limit: True
+    upper_limit: true
     data_points:
       - [0.2, -80.0]
       - [1.0, 0.0]
