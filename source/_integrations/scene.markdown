@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: scene
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red.
@@ -146,6 +146,11 @@ Create a new scene without having to configure it by calling the `scene.create` 
 You need to pass a `scene_id` in lowercase and with underscores instead of spaces. You also may want to specify the entities in the same format as when configuring the scene. You can also take a snapshot of the current state by using the `snapshot_entities` parameter. In this case, you have to specify the `entity_id` of all entities you want to take a snapshot of. `entities` and `snapshot_entities` can be combined but you have to use at least one of them.
 
 If the scene was previously created by `scene.create`, it will be overwritten. If the scene was created by YAML, nothing happens but a warning in your log files.
+
+### Video Tutorial
+This video tutorial explains how scenes work and how you can utilize scenes on the fly.
+
+<lite-youtube videoid="JW9PC6ptXcM" videotitle="Scenes on Steroids in Home Assistant - How To - Tutorial" posterquality="maxresdefault"></lite-youtube>
 
 ```yaml
 # Example automation using entities

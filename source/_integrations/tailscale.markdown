@@ -16,7 +16,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_quality_scale: platinum
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Tailscale integration integrates the [Tailscale](https://www.tailscale.com) API

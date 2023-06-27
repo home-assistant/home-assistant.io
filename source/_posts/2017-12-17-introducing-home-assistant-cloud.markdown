@@ -76,7 +76,7 @@ We have a lot of ideas! We are not going to make any promises but here are some 
 - Google Home / Google Assistant Smart Home skill
 - Allow easy linking of other cloud services to Home Assistant. No more local juggling with OAuth flows. For example, link your Fitbit account and the Fitbit component will show up in Home Assistant.
 - Encrypted backups of your Hass.io data
-- Text to speech powered by AWS Polly
+- Text-to-speech powered by AWS Polly
 - Generic HTTP cloud endpoint for people to send messages to their local instance. This will allow people to build applications on top of the Home Assistant cloud.
 - IFTTT integration
 - Alexa shopping list integration
@@ -102,4 +102,4 @@ The plan is to hire developers to work fulltime on Home Assistant. We have grown
 _For more background on these topics, check out [HASS Podcast 15](https://hasspodcast.io/ha015/)._
 
 [1]: https://nolanlawson.com/2017/03/05/what-it-feels-like-to-be-an-open-source-maintainer/
-[2]: https://www.kennethreitz.org/essays/the-reality-of-developer-burnout
+[2]: https://kennethreitz.org/essays/2017/01/05/the-reality-of-developer-burnout

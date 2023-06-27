@@ -27,7 +27,8 @@ The QNAP integration will add the following sensors:
 - Drives: smart status, usage
 - Network: bandwidth, status
 
+### QNAP device support
 
-### SSL and Self-signed certificates
-If your QNAP device uses self-signed certificates, set the `verify_ssl` option to `false`. If you configured your device to accept SSL-only connections, please also check that you set `port` accordingly, or you might get an `SSL: WRONG_VERSION_NUMBER` error.
+This integration works with most (but not all) QNAP devices. A complete, up-to-date [list of compatible devices can be found here](https://github.com/colinodell/python-qnapstats#device-support).
 
+If your QNAP device is running QTS 5, make sure you log into the device's web interface (with the same account you've configured in Home Assistant) and complete any agreements, warnings, wizards, setup, etc. as the QNAP API may block requests until those are completed.

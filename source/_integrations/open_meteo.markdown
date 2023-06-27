@@ -12,7 +12,7 @@ ha_domain: open_meteo
 ha_platforms:
   - diagnostics
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Open-Meteo integration integrates the free weather forecast from

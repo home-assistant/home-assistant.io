@@ -22,6 +22,7 @@ The integration will accept the following commands from your Alarm Panel via the
 - `ARM_AWAY`
 - `ARM_NIGHT`
 - `ARM_VACATION`
+- `ARM_CUSTOM_BYPASS`
 
 When the state of the manual alarm changes, Home Assistant will publish one of the following states to the `state_topic`:
 
@@ -30,6 +31,7 @@ When the state of the manual alarm changes, Home Assistant will publish one of t
 - 'armed_away'
 - 'armed_night'
 - 'armed_vacation'
+- 'armed_custom_bypass'
 - 'pending'
 - 'triggered'
 
@@ -93,7 +95,7 @@ disarm_after_trigger:
   required: false
   type: boolean
   default: false
-armed_home/armed_away/armed_night/armed_vacation/disarmed/triggered:
+armed_home/armed_away/armed_night/armed_vacation/armed_custom_bypass/disarmed/triggered:
   description: State specific settings
   required: false
   type: list
@@ -155,6 +157,11 @@ payload_arm_vacation:
   required: false
   type: string
   default: ARM_VACATION
+payload_arm_custom_bypass:
+  description: The payload to set armed-custom bypass mode on this Alarm Panel.
+  required: false
+  type: string
+  default: ARM_CUSTOM_BYPASS
 {% endconfiguration %}
 
 ## Examples
@@ -197,6 +204,7 @@ To change the state of the alarm, publish one of the following messages to the `
  - `ARM_AWAY`
  - `ARM_NIGHT`
  - `ARM_VACATION`
+ - `ARM_CUSTOM_BYPASS`
 
 To receive state updates from HA, subscribe to the `state_topic`. Home Assistant will publish a new message whenever the state changes:
 
@@ -205,5 +213,6 @@ To receive state updates from HA, subscribe to the `state_topic`. Home Assistant
  - `armed_away`
  - `armed_night`
  - `armed_vacation`
+ - `armed_custom_bypass`
  - `pending`
  - `triggered`

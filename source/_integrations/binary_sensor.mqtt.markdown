@@ -20,6 +20,7 @@ Stateless devices such as buttons, remote controls etc are better represented by
 
 The `mqtt` binary sensor platform optionally supports a list of  `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT sensor device goes offline (i.e., publishes `payload_not_available` to an `availability` topic), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability` topic is defined, Home Assistant will consider the MQTT device to be `available` and will display its state.
 
+<a id='new_format'></a>
 To use an MQTT binary sensor in your installation,
 add the following to your `configuration.yaml` file:
 
@@ -29,25 +30,6 @@ mqtt:
   binary_sensor:
     - state_topic: "home-assistant/window/contact"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `binary_sensor` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-binary_sensor:
-  - platform: mqtt
-    state_topic: "home-assistant/window/contact"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:
@@ -87,7 +69,7 @@ availability_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this binary sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this binary sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/device_registry_index/). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -132,7 +114,8 @@ device:
       required: false
       type: string
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend. The `device_class` can be `null`.
+  default: None
   required: false
   type: string
 enabled_by_default:
@@ -146,7 +129,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://developers.home-assistant.io/docs/core/entity/#generic-properties) of the entity.
   required: false
   type: string
   default: None
@@ -218,9 +201,9 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that returns a string to be compared to `payload_on`/`payload_off` or an empty string, in which case the MQTT message will be removed. Available variables: `entity_id`. Remove this option when 'payload_on' and 'payload_off' are sufficient to match your payloads (i.e no pre-processing of original message is required)."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that returns a string to be compared to `payload_on`/`payload_off` or an empty string, in which case the MQTT message will be removed. Remove this option when `payload_on` and `payload_off` are sufficient to match your payloads (i.e no pre-processing of original message is required)."
   required: false
-  type: string
+  type: template
 {% endconfiguration %}
 
 ## Examples

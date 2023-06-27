@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Climate
   - Fan
+  - Light
   - Number
   - Sensor
   - Switch
@@ -18,6 +19,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - fan
+  - light
   - number
   - sensor
   - switch
@@ -45,11 +47,22 @@ The following controllable entities are available:
 
 ### Fan
 
-- **Fan** - If your unit is equipped with a fan - this entry will be present. There are 4 fan speeds (1-4), with 0 being off.
+If your unit is equipped with a fan - this entry will be present. There are 5 possible fan control values:
+
+- `0%` - Off
+- `25%` - Quiet
+- `50%` - Low
+- `75%` - Medium
+- `100%` - High
 
 ### Climate
 
 - **Thermostat** - This entity will be present if your unit has thermostatic control.
+
+
+### Light
+
+The integration provides a light entity if the unit is equipped with lights.
 
 ### Number
 
@@ -105,6 +118,18 @@ The following is a description of the various diagnostic error sensors and what 
 ### Troubleshooting
 
 The IFT module can suffer a variety of issues that will render it inoperable. Some of these have been confirmed by the manufacturer and some appear to be random. There are two paths to try when attempting to reset the module:
+
+#### Enabling Debugging
+
+To turn on debug logging modify your `configuration.yaml` file in the `/config` directory and add the following:
+
+
+```yaml
+logger:
+  logs:
+   homeassistant.components.intellifire: debug
+   intellifire4py: debug
+```
 
 #### Issue a Soft Reset
 

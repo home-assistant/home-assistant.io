@@ -10,7 +10,7 @@ ha_category:
 ha_release: 0.37
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@JonGilmore'
+  - '@cdheiser'
 ha_domain: lutron
 ha_platforms:
   - binary_sensor
@@ -57,6 +57,12 @@ password:
 <div class='note'>
 
 It is recommended to assign a static IP address to your main repeater. This ensures that it won't change IP addresses, so you won't have to change the `host` if it reboots and comes up with a different IP address.
+
+</div>
+
+<div class='note'>
+
+If you are using RadioRA2 software version 12 or later, the default `lutron` user with password `integration` is not configured by default. To configure a new telnet user, go to **Settings** > **Integration** in your project and add a new telnet login. Once configured, use the transfer tab to push your changes to the RadioRA2 main repeater(s).
 
 </div>
 

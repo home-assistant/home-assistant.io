@@ -12,12 +12,13 @@ ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
 ha_platforms:
+  - diagnostics
   - lock
   - sensor
 ha_integration_type: integration
 ---
 
-This integration retrieves vehicle information and actuates remote services provided by [Subaru STARLINK](https://www.subaru.com/engineering/starlink/safety-security.html) (currently only available in USA and Canada).
+This integration retrieves vehicle information and actuates remote services provided by [Subaru STARLINK](https://www.subaru.com/subaru-starlink/starlink-safety-and-security.html) (currently only available in USA and Canada).
 
 This integration requires a telematics equipped Subaru and an active vehicle subscription to the Subaru STARLINK service. Before using this integration, you must first register and have login credentials to [MySubaru](https://www.mysubaru.com).
 

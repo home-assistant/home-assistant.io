@@ -2,6 +2,7 @@
 title: Freebox
 description: Instructions on how to integrate Freebox routers into Home Assistant.
 ha_category:
+  - Camera
   - Network
   - Presence Detection
   - Sensor
@@ -15,6 +16,7 @@ ha_config_flow: true
 ha_domain: freebox
 ha_platforms:
   - button
+  - camera
   - device_tracker
   - sensor
   - switch
@@ -22,13 +24,14 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/).
+The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/freebox/).
 
 There is currently support for the following device types within Home Assistant:
 
 * [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
 * [Device tracker](#presence-detection) for connected devices
 * [Switch](#switch) to control Wi-Fi
+* [Camera](#camera)
 
 {% include integrations/config_flow.md %}
 
@@ -79,6 +82,8 @@ The first time Home Assistant will connect to your Freebox, you will need to aut
 
 To make the Wi-Fi switch and the reboot service working you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
+To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme et maison connectée" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+
 ### Supported routers
 
 Only the routers with Freebox OS are supported:
@@ -90,7 +95,7 @@ Only the routers with Freebox OS are supported:
 
 ## Presence Detection
 
-This platform offers presence detection by keeping track of the devices connected to a [Freebox](https://www.free.fr/) router.
+This platform offers presence detection by keeping track of the devices connected to a [Freebox](https://www.free.fr/freebox/) router.
 
 ### Notes
 
@@ -111,6 +116,9 @@ The monitored metrics are:
 * Upload and download rates (in KB/s)
 * Free partition space of used disks
 * Number of missed calls
+
+## Camera
+Cameras are only available in Freebox V7 (also known as Freebox Delta).
 
 ## Service
 

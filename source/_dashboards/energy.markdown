@@ -67,6 +67,21 @@ The gas consumption graph card shows the amount of gas consumed per source.
 type: energy-gas-graph
 ```
 
+## Water consumption graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/water-graph.png' alt='Screenshot of the water consumption graph card'>
+  Screenshot of the water consumption graph card.
+</p>
+
+The water consumption graph card shows the amount of water consumed per source.
+
+#### Example
+
+```yaml
+type: energy-water-graph
+```
+
 ## Energy distribution
 
 <p class='img'>
@@ -141,6 +156,20 @@ The carbon consumed gauge card represents how much of the energy consumed by you
 #### Example
 ```yaml
 type: energy-carbon-consumed-gauge
+```
+
+## Self-sufficiency gauge
+
+<p class='img'>
+  <img src='/images/dashboards/energy/self-sufficiency-gauge.png' alt='Screenshot of the self-sufficiency gauge card'>
+  Screenshot of the self-sufficiency gauge card.
+</p>
+
+The self-sufficiency gauge represents how self-sufficient your home is. If you rely on grid imports, this value decreases. You can increase this value by adding more solar capacity or battery storage.
+
+#### Example
+```yaml
+type: energy-self-sufficiency-gauge
 ```
 
 ## Devices energy graph

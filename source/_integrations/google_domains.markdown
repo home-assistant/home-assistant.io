@@ -9,7 +9,7 @@ ha_iot_class: Cloud Polling
 ha_integration_type: integration
 ---
 
-With the Google Domains integration you can keep your Google Domains record up to date.
+With the Google Domains integration you can keep your Google Domains **dynamic** DNS record up to date. To setup a dynamic domain name using Goole Domains, refer to the [_Use Dynamic DNS_ section in the Google support documentation](https://support.google.com/domains/answer/6147083).
 
 ## Configuration
 
@@ -25,15 +25,15 @@ google_domains:
 
 {% configuration %}
   domain:
-    description: Your FQDN.
+    description: Your fully qualified domain name (FQDN) that you have chosen for your Home Assistant server.
     required: true
     type: string
   username:
-    description: The generated username for this DDNS record.
+    description: The generated username for this Dynamic DNS record. See your [Google Domains record](https://support.google.com/domains/answer/6147083) for details.
     required: true
     type: string
   password:
-    description: The generated password for this DDNS record.
+    description: The generated password for this Dynamic DNS record. See your [Google Domains record](https://support.google.com/domains/answer/6147083) for details.
     required: true
     type: string
   timeout:

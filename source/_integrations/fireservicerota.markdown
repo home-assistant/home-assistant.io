@@ -63,6 +63,7 @@ This is the main entity of the integration containing the incident message as it
 | `longitude` | The Longitude of the incident.|
 | `address_type` | Type of address, e.g. `home`.|
 | `formatted_address` | Address in string format.|
+| `task_ids` | ID(s) of appliance(s) or task(s).|
 
 ### Duty Binary Sensor
 
@@ -103,7 +104,7 @@ The following attributes are available:
 With Automation you can configure one or more of the following useful actions:
 
 1. Sound an alarm and/or switch on lights when an emergency incident is received.
-1. Use text to speech to play incident details via a media player while getting dressed.
+1. Use text-to-speech to play incident details via a media player while getting dressed.
 1. Respond with a response acknowledgment using a door-sensor when leaving the house or by pressing a button to let your teammates know you are underway.
 1. Cast a FireServiceRota dashboard to a Chromecast device. (this requires a Nabu Casa subscription)
 
