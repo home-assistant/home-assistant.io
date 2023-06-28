@@ -91,8 +91,6 @@ There are some downsides of disabling **Subscribe to device local push updates**
 
 **Register for device long-press events**: WeMo wall switches and dimmers will notify Home Assistant when the button on the device is held for more than 2 seconds. This feature is enabled by default in Home Assistant (see [below](#long-press-events-and-triggers)). If this feature causes issues for your device, it can be disabled by deselecting the **Register for device long-press events** option.
 
-**Seconds to wait between polling the device**: When Home Assistant detects that Local Polling is needed, or when the **Subscribe to device local push updates** option is disabled, this option will control how frequently the device is polled for state updates. Increasing this value may be a good idea if your device has a poor Wi-Fi connection, so polling happens less frequently. The minimum value is 10 seconds.
-
 ## Emulated devices
 
 Various software that emulate WeMo devices often use alternative ports. Static configuration should include the port value:
