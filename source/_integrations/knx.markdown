@@ -1779,13 +1779,13 @@ The KNX time platform allows to send time values to the KNX bus and update its s
 
 Time entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
-Times having a `state_address` configured request their current state from the KNX bus.
+Times having a `state_address` configured, request their current state from the KNX bus.
 
 </div>
 
 <div class='note'>
 
-The `day` filed of the time telegram will always be set to 0 (`no day`).
+The `day` field of the time telegram will always be set to 0 (`no day`).
 
 </div>
 
