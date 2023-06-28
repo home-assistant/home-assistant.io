@@ -889,7 +889,7 @@ The following integrations are also no longer available as of this release:
 
 [@bdraco]: https://github.com/bdraco
 [#94363]: https://github.com/home-assistant/core/pull/94363
-[Big Ass Fans integration]: /integations/baf
+[Big Ass Fans integration]: /integrations/baf
 
 ## All changes
 
