@@ -1230,7 +1230,7 @@ The KNX number platform allows to send generic numeric values to the KNX bus and
 
 Number entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
-Numbers having a `state_address` configured request their current state from the KNX bus.
+Numbers that have a `state_address` configured request their current state from the KNX bus.
 
 </div>
 
@@ -1342,7 +1342,7 @@ The KNX select platform allows the user to define a list of values that can be s
 
 Select entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
-Selects having a `state_address` configured request their current state from the KNX bus.
+Selects that have a `state_address` configured request their current state from the KNX bus.
 
 </div>
 
@@ -1746,7 +1746,7 @@ device_class:
 The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
 
 Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-Switches having a `state_address` configured request their current state from the KNX bus.
+Switches that have a `state_address` configured request their current state from the KNX bus.
 
 ## Text
 
@@ -1756,7 +1756,7 @@ The KNX text platform allows to send text values to the KNX bus and update its s
 
 Text entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
-Texts having a `state_address` configured request their current state from the KNX bus.
+Texts that have a `state_address` configured request their current state from the KNX bus.
 
 </div>
 
@@ -1818,7 +1818,7 @@ The KNX time platform allows to send time values to the KNX bus and update its s
 
 Time entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
-Times having a `state_address` configured, request their current state from the KNX bus.
+Times that have a `state_address` configured request their current state from the KNX bus.
 
 </div>
 
