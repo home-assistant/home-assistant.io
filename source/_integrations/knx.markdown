@@ -390,7 +390,7 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. Following values are valid
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
 
     - `true` equivalent to "expire 60" (default)
 
@@ -1413,7 +1413,7 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. Following values are valid
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
 
     - `true` equivalent to "expire 60" (default)
 
@@ -1478,7 +1478,7 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. Following values are valid
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
 
     - `true` equivalent to "expire 60" (default)
 
@@ -1856,7 +1856,7 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. Following values are valid
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
 
     - `true` equivalent to "expire 60" (default)
 
@@ -1965,7 +1965,7 @@ address_humidity:
   required: false
   type: [string, list]
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. Following values are valid
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
 
     - `true` equivalent to "expire 60" (default)
 
