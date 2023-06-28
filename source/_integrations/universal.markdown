@@ -71,7 +71,7 @@ children:
   description: Ordered list of child media players that this entity will control.
   required: false
   type: list
-active_children_template:
+active_child_template:
   description: "A [template](/docs/configuration/templating/) that will allow to select (override) active child. Must return the `entity_id` of the child that will be selected as active, or `None` to use the default behavior."
   required: false
   type: template
@@ -103,7 +103,7 @@ unique_id:
 
 The Universal Media Player will primarily imitate one of its `children`. The Universal Media Player will control the first child on the list that is active (not idle/off). The Universal Media Player will also inherit its state from the first active child if a `state_template` is not provided. Entities in the `children:` list must be media players, but the state template can contain any entity.
 
-Using `active_children_template` will allow you to specify an active children entity if the default behavior is not suitable for your task. Template must return the `entity_id` of the child that will be selected as active, or `None` to return the default behavior.
+Using `active_child_template` will allow you to specify an active entity if the default behavior is not suitable for your task. Template must return the `entity_id` of the child that will be selected as active, or `None` to return the default behavior.
 
 It is recommended that the command `turn_on`, the command `turn_off`, and the attribute `state` all be provided together. The `state` attribute indicates if the media player is on or off. If `state` indicates the media player is off, this status will take precedence over the states of the children. If all the children are idle/off and `state` is on, the Universal Media Player's state will be on. If not provided, the `toggle` command will delegate to `turn_on` or `turn_off` based on the `state`.
 
@@ -329,7 +329,7 @@ media_player:
 
 ### Override active children
 
-This example shows how you can use `active_children_template`:
+This example shows how you can use `active_child_template`:
 
 {% raw %}
 
@@ -341,7 +341,7 @@ media_player:
     children:
       - media_player.sony_tv_cast
       - media_player.sony_tv_psk
-    active_children_template: >
+    active_child_template: >
       {% if is_state_attr('media_player.sony_tv_cast', 'app_name', 'TV') %}
          media_player.sony_tv_psk
       {% else %}
