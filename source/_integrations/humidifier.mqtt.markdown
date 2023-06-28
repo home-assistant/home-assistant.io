@@ -31,6 +31,16 @@ mqtt:
 ```
 
 {% configuration %}
+action_template:
+  description: A template to render the value received on the `action_topic` with.
+  required: false
+  type: template
+action_topic:
+  description: >-
+    The MQTT topic to subscribe for changes of the current action.
+    Valid values: `off`, `humidifying`, `drying`, `idle`
+  required: false
+  type: string
 availability:
   description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
   required: false
@@ -298,6 +308,7 @@ mqtt:
     - name: "Bedroom humidifier"
       device_class: "humidifier"
       state_topic: "bedroom_humidifier/on/state"
+      action_topic: "bedroom_humidifier/action"
       command_topic: "bedroom_humidifier/on/set"
       current_humidity_topic: "bedroom_humidifier/humidity/current"
       target_humidity_command_topic: "bedroom_humidifier/humidity/set"
