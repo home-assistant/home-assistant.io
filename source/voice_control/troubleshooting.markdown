@@ -6,7 +6,7 @@ This section lists a few steps that may help you troubleshoot issues with Assist
 
 ## View debug information
 
-1. Go to **Settings** > **Voice assistants**.
+1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
 1. From the list of assistants, select your assistant.
    ![Select your assistant](/images/assist/assistant-select.png)
 1. In the dialog, select **Debug**.
@@ -25,9 +25,20 @@ This section lists a few steps that may help you troubleshoot issues with Assist
 ![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-02.png)
 1. Check if it worked.
 ![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-03.png)
-   * If the phrase does not work, try a variant. For example, if *Turn off the light* doesn't work, try: *Turn off the lights in the kitchen*.
-   * Check if your phrase is [supported](/voice_control/builtin_sentences/).
-   * Make sure you are using the name of the area as it is defined in Home Assistant. If you have a room called *bathroom*, the phrase *Turning on the lights in the bath* won’t work.
+
+## If the phrase did not work, even without voice
+
+1. Try a variant. For example, if *Turn off the light* doesn't work, try: *Turn off the lights in the kitchen*.
+1. Check if the phrase is [supported](/voice_control/builtin_sentences/).
+1. Check if the devices are exposed to Assist.
+   * Under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, open the **Expose** tab.
+   * If you do not see the device in the list, select **Expose entities** and add the device.
+1. If the phrase includes an area, make sure the device is added to that area.
+   * Under **{% my integrations title="Settings > Devices & Services" %}**, on the integration, select devices.
+   * From the list of devices, select the device of interest.
+   * In the top right corner, select the pencil item.
+   * Add the device to that area.
+1. Make sure you are using the name of the area exactly as it is defined in Home Assistant.
 
 ## I do not see any assistant
 
