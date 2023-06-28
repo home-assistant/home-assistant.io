@@ -26,7 +26,9 @@ If you have not set up voice control yet, set up the hardware first. For instruc
 1. To test the automation, go to **Overview** and in the top right corner, open Assist.
    - Enter one of the sentences.
 1. If it did not work out, checkout the [troubleshooting](/voice_control/troubleshooting/) section.
-   - One of the causes could be that the device your targeting has not been exposed to Assist. 
+   - One of the causes could be that the device you're targeting has not been exposed to Assist.
+1. Pick up your voice control device and speak the custom sentence.
+   - Your automation should now be triggered.
 
 ## Setting up custom sentences in configuration.yaml
 
