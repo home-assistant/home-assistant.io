@@ -284,7 +284,7 @@ To enable the HomeKit integration in Home Assistant, add the following to your c
 homekit:
 ```
 
-After Home Assistant has started, the entities (depending on the filter) are exposed to HomeKit if they are [supported](#supported-components). To add them:
+After Home Assistant has started, the entities (depending on the filter) are exposed to HomeKit if they are [supported](#supported-integrations). To add them:
 
 1. Open the Home Assistant frontend. A new card will display the pairing QR code and the `pin code` as seen in the example below. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the lower-left of the Home Assistant UI.
 2. Open the Apple `Home` app.
@@ -346,7 +346,7 @@ To add a single entity in accessory mode:
 
 ## Configure Filter
 
-By default, all entities except categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
+By default, all entities except categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -387,11 +387,11 @@ If you have a firewall configured on your Home Assistant system, make sure you o
 - UDP: 5353
 - TCP: 21063 (or the configured/used `port` in the integration settings).
 
-## Supported Components
+## Supported integrations
 
 The following integrations are currently supported:
 
-| Component | Type Name | Description |
+| Integration | Type Name | Description |
 | --------- | --------- | ----------- |
 | alarm_control_panel | SecuritySystem | All security systems. |
 | automation / input_boolean / remote / scene / script / vacuum | Switch | All represented as switches. |
@@ -573,7 +573,7 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 
 #### Pairing hangs - no error
 
-1. Make sure that you don't try to add more than 150 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repository, so we can resolve it.
+1. Make sure that you don't try to add more than 150 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit integration. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repository, so we can resolve it.
 2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge connected to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
 
 ### Issues during normal use
@@ -584,7 +584,7 @@ Multiple users have reported that iOS 12 and earlier devices will spontaneously 
 
 #### My entity doesn't show up
 
-Check if the domain of your entity is [supported](#supported-components). If it is, check your [filter](#configure-filter) settings. Make sure the spelling is correct, especially if you use `include_entities`.
+Check if the domain of your entity is [supported](#supported-integrations). If it is, check your [filter](#configure-filter) settings. Make sure the spelling is correct, especially if you use `include_entities`.
 
 #### HomeKit doesn't work on second Home Assistant instance
 

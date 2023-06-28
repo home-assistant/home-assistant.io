@@ -253,11 +253,11 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 This button will only be visible within the Home Assistant Companion App (so not in the browser) and your device meets all requirements for Matter support.
 
 - For iOS, minimum version is iOS 16 (minimal 16.3 is preferred) and the most recent version of the HA companion app.
-- For Android, minimum version is 8.1 and the most recent version of both the Google Home app and the (full) HA Companion app, downloaded from the app store.
+- For Android, minimum version is 8.1 and the most recent version of the (full) HA Companion app, downloaded from the Play Store.
 
 ### When I'm trying to commission using the Android app, I get an error stating "Matter is currently unavailable"
 
-See above, make sure your device meets all requirements to support Matter. Update Android to the latest version and the Google Home and Home Assistant Companion app. To quickly verify if your device meets all requirements to support Matter, on your Android device, go to **Settings** > **Google** > **Devices & Sharing**. There should be an entry there for **Matter devices**.
+See above, make sure your device meets all requirements to support Matter. Update Android to the latest version and the Home Assistant Companion app. To quickly verify if your device meets all requirements to support Matter, on your Android device, go to **Settings** > **Google** > **Devices & Sharing**. There should be an entry there for **Matter devices**.
 
 Some users have reported that uninstalling and reinstalling the Google Home app fixed this issue for them.
 Also see this [extended troubleshooting guide](https://developers.home.google.com/matter/verify-services) from Google.

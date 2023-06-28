@@ -14,8 +14,8 @@ ha_integration_type: integration
 ---
 
 [QVR Pro](https://www.qnap.com/en/software/qvr-pro) allows you to create 
-an independent and expandable surveillance environment on your QNAP NAS.  The 
-`qvr_pro` component allows you to view your QVR Pro channels in Home Assistant.
+an independent and expandable surveillance environment on your QNAP NAS. The 
+`qvr_pro` integration allows you to view your QVR Pro channels in Home Assistant.
 
 Currently, only cameras are supported by this integration.
 

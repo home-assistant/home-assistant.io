@@ -127,6 +127,7 @@ device:
     that at least provide one device that matches the given conditions. Can be
     either a object or a list of object.
   type: list
+  required: false
   keys:
     integration:
       description: >

@@ -1,6 +1,7 @@
 ---
 title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
+featured: true
 ha_category:
   - Binary Sensor
   - Button

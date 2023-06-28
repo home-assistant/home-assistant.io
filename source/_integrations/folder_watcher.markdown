@@ -1,6 +1,6 @@
 ---
 title: Folder Watcher
-description: Component for monitoring changes within the filesystem.
+description: Integration for monitoring changes within the filesystem.
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling

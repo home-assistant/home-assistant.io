@@ -170,6 +170,7 @@ The following models have been tested and confirmed to work:
 - C2 Pro
 - E1 Zoom
 - E1 Outdoor
+- E1 Outdoor Pro
 - RLC-410
 - RLC-410W
 - RLC-411
@@ -203,18 +204,37 @@ However, these cameras can work with this integration through an NVR in which th
 
 - E1 Pro
 - E1
+- Reolink Lumus
 
 ## Initial Setup
 
-You'll need to configure your new camera/doorbell for your network. If you're using a wired LAN, this is simple enough. Simply plug it in and let it use DHCP to set itself up. Once it's recognized by your network, you can access its configuration with a web browser.
+A brand new Reolink camera first needs to be connected to the network and initialized. During initialization, the credentials for the camera need to be set.
+There are serveral ways to achieve this.
 
-If you prefer to use Wi-Fi, especially if you want to restrict it to a local IoT network, [here's a quick way to get it connected](https://www.reddit.com/r/reolink/comments/hjn5be/how_to_connect_wifi_without_an_app/). Simply create a QR code with the following XML string:
+### Reolink app/client
+
+The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/). Follow the on-screen instructions.  In Home Assistant, use the credentials you just configured in the Reolink app/client.
+
+### Web browser
+
+When your camera has a LAN port (most Wi-Fi cameras also have a LAN port), first connect the camera to your network using a LAN cable.
+Find the IP address of the camera (for example by checking in your router) and go to the IP address in a web browser.
+Follow the on-screen instructions to first setup the credentials (use the same credentials in Home Assistant).
+If it is a Wi-Fi camera, go to **settings** (gear icon) > **Network** and fill in your Wi-Fi SSID and password. After that you can disconnect the LAN cable and the camera will automatically switch to the Wi-Fi connection.
+Now set up the Reolink Home Assistant integration using the credentials you just specified.
+
+### QR code
+
+You can also connect a Wi-Fi camera using a self-made QR code. Once connected, follow the instructions under **Web browser**.
+Create a QR code using ISO-8859-1 character encoding (not UTF-8) with the following XML string:
 
     <QR><S>ssid</S><P>password</P><C>last4</C></QR>
 
-Use the `ssid` and `password` of your IoT network. The `last4` is the last 4 digits of the QR code used for the Reolink setup. It's printed under the QR code. You can also scan the QR code and grab the last 4 digits.
+Use the `ssid` and `password` of your Wi-Fi network.
+The `last4` are the last 4 digits of the QR code which is printed (on the underside) of the camera itself.
+Normally, the digits are printed directly under the QR code. Alternatively, you could scan the QR code and grab the last 4 digits.
 
-Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and attach.
+Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and connect to your Wi-Fi.
 
 ## Troubleshooting
 
@@ -222,3 +242,4 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 - Ensure at least one of the HTTP/HTTPS ports is enabled in the [windows](https://reolink.com/software-and-manual/)/web client under `Settings`->`Network`->`Advanced`->`Port Settings`, see [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 - Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
+- Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.

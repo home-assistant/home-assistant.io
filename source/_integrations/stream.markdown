@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: system
 ---
 
-The stream integration provides a way to proxy live streams through Home Assistant. Most users should not need to configure anything or interface with the component directly since it is an internal component used by the [camera integration](/integrations/camera).
+The stream integration provides a way to proxy live streams through Home Assistant. Most users should not need to configure anything or interface with the integration directly since it is an internal integration used by the [camera integration](/integrations/camera).
 
 ## Configuration
 

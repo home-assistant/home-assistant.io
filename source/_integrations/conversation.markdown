@@ -62,7 +62,7 @@ To teach Home Assistant how to handle the custom `CustomOutsideHumidity` {% term
 intent_script:
   CustomOutsideHumidity:
     speech:
-      text: "It is currently {{ states("sensor.outside_humidity") }} percent humidity outside."
+      text: "It is currently {{ states('sensor.outside_humidity') }} percent humidity outside."
 ```
 
 {% endraw %}
