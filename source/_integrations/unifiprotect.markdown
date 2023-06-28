@@ -104,10 +104,10 @@ use has.
 1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. **Note**: This **must** be done from
     the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the
     UniFi Protect app.
-2. In the upper right corner, click on _Add User_.
-3. Fill out the fields for your user. Be sure the role you assign to the user grants them access to at least one or
-    more UniFi Protect devices.
-4. Click _Add_ in the bottom right.
+2. Go to **Admins** from the left hand side menu or [ip address]/admins/users e.g. 192.168.1.1/admins/users
+3. Click on **Add New Admin**.
+4. Select **Full Management** for the role. Uncheck **Allow Remote Access** and fill out the fields for your user.
+5. Click **Add** in the bottom right.
 
 ![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
 
