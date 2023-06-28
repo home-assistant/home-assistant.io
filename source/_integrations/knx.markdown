@@ -390,7 +390,20 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. Following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1400,7 +1413,20 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. Following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1452,7 +1478,20 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. Following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1817,7 +1856,20 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. Following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1913,7 +1965,20 @@ address_humidity:
   required: false
   type: [string, list]
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. Following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
   type: [boolean, string, integer]
   default: true
