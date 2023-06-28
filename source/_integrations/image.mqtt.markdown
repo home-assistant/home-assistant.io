@@ -3,7 +3,7 @@ title: "MQTT Image"
 description: "Instructions on how to use an MQTT image message as an Image within Home Assistant."
 ha_category:
   - Image
-ha_release: 2023.7.0
+ha_release: 2023.7
 ha_iot_class: Configurable
 ha_domain: mqtt
 ---
