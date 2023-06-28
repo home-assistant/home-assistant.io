@@ -32,18 +32,18 @@ On the [LOQED personal access token website](https://integrations.production.loq
 
 {% details "Generate access token" %}
 
-1. Login with your LOQED App e-mail address (you need to be admin)
-2. Tap on "Create"
-3. Give your personal access token a name (this will not be used further on, but we recommend something like "Home Assistant" to be able to recognize it as used by Home Assistant)
-4. Tap on Save
-5. Store the access token somewhere you can easily copy/paste from as you'll need them in the next step (and it will only be shown once). Note that you can use this token for setting up multiple locks.
+1. Login with your LOQED App e-mail address (you need to be an admin).
+2. Select **Create**.
+3. Give your personal access token a name (this will not be used further on, but we recommend something like "Home Assistant" to recognize it as used by Home Assistant).
+4. Select **Save**.
+5. Store the access token somewhere you can easily copy/paste from, as you'll need them in the next steps (and it will only be shown once). Note: that you can use this token for setting up multiple locks.
    {% enddetails %}
 
 {% include integrations/config_flow.md %}
 
-Home Assistant should automatically detect your lock when your Home Assistant runs on the same network as your lock. In that case you only need to provide the selected API key when you configure the integration.
+Home Assistant should automatically detect your lock when your Home Assistant runs on the same network as your lock. In that case, you only need to provide the selected API key when configuring the integration.
 
-You can also set up a lock manually when for some reason it is not automatically detected. In that case you need to provide both the API Key from the previous step and the name of the Lock as it is known in the LOQED companion app.
+You can also set up a lock manually when for some reason, it is not automatically detected. In that case, you need to provide both the API Key from the previous step and the name of the Lock, as it is known in the LOQED companion app.
 
 ## Services
 
@@ -51,10 +51,10 @@ Please see the default [lock integration page](/integrations/lock/) for the serv
 
 ## De-installation in Loqed
 
-First remove the integration from Home Assistant. This will take care of removing any configuration made on the lock itself for Home Assistant.
+First, remove the integration from Home Assistant. This will remove any configuration made on the lock itself for Home Assistant.
 
 On [LOQED personal access token website](https://integrations.production.loqed.com/personal-access-tokens), please follow the following steps:
 
-- Login with your LOQED App e-mail address (you need to be admin)
-- Tap delete on the Personal Access Token you used when creating this integration.
+1. Login with your LOQED App e-mail address (you need to be admin).
+2. Select **delete** on the Personal Access Token you used when creating this integration.
 
