@@ -45,6 +45,8 @@ ha_integration_type: integration
 
 The [HomeKit](https://developer.apple.com/apple-home/) controller integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
 
+# Adding a HomeKit device
+
 There are different methods to add a HomeKit device to Home Assistant:
 
 - [via Ethernet or Wi-Fi](#adding-a-homekit-device-via-ethernet-or-wi-fi)
@@ -98,7 +100,7 @@ You can add a HomeKit [compatible device](#supported-devices) to Home Assistant 
    - HomeKit devices can only be paired to a single controller at once.
    - If it has been in a Thread network before, the device might remember the Thread credentials of a different network. A reset makes sure the device is not connected to any Thread network.
 
-## To add a HomeKit device through Bluetooth
+### To add a HomeKit device through Bluetooth
 
 1. Power up your HomeKit device.
    - If you have Bluetooth enabled, the device should be discovered under **{% my integrations title="Settings > Devices & Services" %}**.
