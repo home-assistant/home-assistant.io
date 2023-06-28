@@ -70,14 +70,33 @@ The following controls are available:
 
 ## Services
 
+**Service `change_location`**
+
+You can use the service `fully_kiosk.change_location` to have the tablet open the specified partial URL _without_ reloading the page. This service is ideal for changing Home Assistant dashboards.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | no | Device ID (or list of device IDs) to load the URL on.
+| `url` | no | The partial URL to load.
+
+Example:
+
+```yaml
+service: fully_kiosk.change_location
+data:
+  url: "/dashboard/0"
+target:
+  device_id: a674c90eca95eca91f6020415de07713
+```
+
 **Service `load_url`**
 
 You can use the service `fully_kiosk.load_url` to have the tablet open the specified URL.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `device_id` | yes | Device ID (or list of device IDs) to load the URL on.
-| `url` | yes | The URL to load.
+| `device_id` | no | Device ID (or list of device IDs) to load the URL on.
+| `url` | no | The URL to load.
 
 Example:
 
@@ -95,8 +114,8 @@ You can use the service `fully_kiosk.start_application` to have the tablet launc
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `device_id` | yes | Device ID (or list of device IDs) to load the URL on.
-| `application` | yes | The package name of the app to load.
+| `device_id` | no | Device ID (or list of device IDs) to load the URL on.
+| `application` | no | The package name of the app to load.
 
 Example:
 
