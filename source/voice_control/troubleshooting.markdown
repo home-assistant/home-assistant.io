@@ -40,6 +40,15 @@ This section lists a few steps that may help you troubleshoot issues with Assist
    * Add the device to that area.
 1. Make sure you are using the name of the area exactly as it is defined in Home Assistant.
 
+## If the phrase worked with Assist, but not with voice
+
+1. [Open the debug view](#view-debug-information).
+1. If you see that speech-to-text failed:
+   - Go back to your voice assistant.
+   - Under **Speech-to-text**, check if there are multiple variants supported for your language.
+   - Try out different language variants. It could be that recognition works better with one of the variants.
+
+
 ## I do not see any assistant
 
 If under {% my voice_assistants title="**Settings** > **Voice assistants**" %} you do not see any assistants, you are not using the default configuration. The image below shows the **Assist** section. 
