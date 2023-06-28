@@ -12,7 +12,7 @@ This is the easiest method to get started with custom sentences for automations.
 
 If you have not set up voice control yet, set up the hardware first. For instructions, refer to one of the following tutorials:
 
-- [World's most private voice assistant](/voice_control/worlds-most-private-voice-assistant/): Using an old phone.
+- [World's most private voice assistant](/voice_control/worlds-most-private-voice-assistant/): Using a phone.
 - [$13 voice remote for Home Assistant](/voice_control/thirteen-usd-voice-remote/): Using a button with speaker and mic.
 
 ### To add a custom sentence to trigger an automation
