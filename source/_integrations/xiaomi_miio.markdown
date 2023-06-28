@@ -190,13 +190,13 @@ device_tracker:
 
 {% configuration %}
 host:
-description: The IP address of your miio device.
-required: true
-type: string
+  description: The IP address of your miio device.
+  required: true
+  type: string
 token:
-description: The API token of your miio device.
-required: true
-type: string
+  description: The API token of your miio device.
+  required: true
+  type: string
 {% endconfiguration %}
 
 ## Xiaomi Air Purifier, Air Humidifier and Standing Fan
@@ -1247,36 +1247,36 @@ remote:
 
 {% configuration %}
 host:
-description: The IP of your remote.
-required: true
-type: string
+  description: The IP of your remote.
+  required: true
+  type: string
 token:
-description: The API token of your remote.
-required: true
-type: string
+  description: The API token of your remote.
+  required: true
+  type: string
 name:
-description: The name of your remote.
-required: false
-type: string
+  description: The name of your remote.
+  required: false
+  type: string
 slot:
-description: The slot used to save learned command.
-required: false
-type: integer
-default: 1
+  description: The slot used to save learned command.
+  required: false
+  type: integer
+  default: 1
 timeout:
-description: Timeout for learning a new command.
-required: false
-type: integer
-default: 30
+  description: Timeout for learning a new command.
+  required: false
+  type: integer
+  default: 30
 commands:
-description: A list of commands
-required: false
-type: map
-keys:
-command:
-description: A list of commands as [raw (learned command)](/integrations/xiaomi_miio/#raw) or [pronto hex code](/integrations/xiaomi_miio/#pronto-hex-code).
-required: true
-type: list
+  description: A list of commands
+  required: false
+  type: map
+  keys:
+    command:
+      description: A list of commands as [raw (learned command)](/integrations/xiaomi_miio/#raw) or [pronto hex code](/integrations/xiaomi_miio/#pronto-hex-code).
+      required: true
+      type: list
 {% endconfiguration %}
 
 ### Full Configuration
@@ -1649,41 +1649,41 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 {% configuration_basic %}
 
 DnD Start*:
-description: The timestamp when the next DnD (Do not disturb) period will start
+  description: The timestamp when the next DnD (Do not disturb) period will start
 DnD End*:
-description: The timestamp when the current or next DnD (Do not disturb) period will end
+  description: The timestamp when the current or next DnD (Do not disturb) period will end
 Total duration*:
-description: The total cleaning duration in seconds
+  description: The total cleaning duration in seconds
 Total Clean Area*:
-description: The total cleaning area in square meters
+  description: The total cleaning area in square meters
 Total Clean Count*:
-description: The total amount of times a clean cycle has been ran
+  description: The total amount of times a clean cycle has been ran
 Total Dust Collection Count*:
-description: The total amount of dust that has been collected
+  description: The total amount of dust that has been collected
 Filter Left*:
-description: How long the filter can be used in seconds
+  description: How long the filter can be used in seconds
 Main Brush Left*:
-description: How long the main brush can be used in seconds
+  description: How long the main brush can be used in seconds
 Sensor Dirty Left*:
-description: How long the sensor can be used in seconds
+  description: How long the sensor can be used in seconds
 Current Clean Time:
-description: The current cleaning time of the vacuum. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
+  description: The current cleaning time of the vacuum. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
 Current Clean Area:
-description: The current area that has been cleaned. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Area" sensor.
+  description: The current area that has been cleaned. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Area" sensor.
 Last Clean Area*:
-description: The last cleaned area in square meters
+  description: The last cleaned area in square meters
 Last Clean Duration\*:
-description: The last clean duration in seconds
+  description: The last clean duration in seconds
 Last Clean End:
-description: The last clean end time as a timestamp
+  description: The last clean end time as a timestamp
 Last Clean Start:
-description: The last clean start time as a timestamp
+  description: The last clean start time as a timestamp
 Mop Attached**:
-description: If the mop is attached
+  description: If the mop is attached
 Water Box Attached**:
-description: If the watter box is attached
+  description: If the watter box is attached
 Water Shortage\*\*:
-description: If the water box is low on water
+  description: If the water box is low on water
 
 {% endconfiguration_basic %}
 
