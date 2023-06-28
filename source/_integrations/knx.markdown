@@ -1261,7 +1261,7 @@ name:
   required: false
   type: string
 address:
-  description: Group address new values will be sent to.
+  description: The group address to which new values will be sent.
   required: true
   type: [string, list]
 state_address:
@@ -1383,7 +1383,7 @@ name:
   required: false
   type: string
 address:
-  description: Group address new values will be sent to.
+  description: The group address to which new values will be sent.
   required: true
   type: [string, list]
 state_address:
@@ -1781,7 +1781,7 @@ name:
   required: false
   type: string
 address:
-  description: Group address new values will be sent to.
+  description: The group address to which new values will be sent.
   required: true
   type: [string, list]
 state_address:
@@ -1843,7 +1843,7 @@ name:
   required: false
   type: string
 address:
-  description: Group address new values will be sent to. *DPT 10.001*
+  description: The group address to which new values will be sent. *DPT 10.001*
   required: true
   type: [string, list]
 state_address:
