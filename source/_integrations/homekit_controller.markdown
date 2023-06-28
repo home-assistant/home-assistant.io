@@ -49,10 +49,10 @@ The [HomeKit](https://developer.apple.com/apple-home/) controller integration al
 
 There are different methods to add a HomeKit device to Home Assistant:
 
-- [via Ethernet or Wi-Fi](#adding-a-homekit-device-via-ethernet-or-wi-fi)
-- [via Bluetooth](#adding-a-homekit-device-through-bluetooth)
-- [onto a Thread network via Home Assistant](#adding-a-homekit-device-to-a-thread-network-via-home-assistant)
-- [onto a Thread network via Apple Thread border router](#adding-a-homekit-device-via-apple-thread-border-router)
+- [via Ethernet or Wi-Fi](#adding-a-homekit-device-via-ethernet-or-wi-fi): Requires the pairing code
+- [via Bluetooth](#adding-a-homekit-device-through-bluetooth): Requires the pairing code
+- [onto a Thread network via Home Assistant](#adding-a-homekit-device-to-a-thread-network-via-home-assistant): No pairing code required
+- [onto a Thread network via Apple Thread border router](#adding-a-homekit-device-via-apple-thread-border-router): No pairing code required
 
 ## Adding a HomeKit device via Ethernet or Wi-Fi
 
@@ -61,11 +61,13 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
 ### Prerequisites
 
 1. If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`] to your configuration file.
-1. Power up your device.
-1. If your device is in your network but is paired with an Apple device via HomeKit, reset the device.
+1. Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
+   - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
+2. Power up your device.
+3. If your device is in your network but is paired with an Apple device via HomeKit, reset the device.
    - Otherwise you won't be able to pair it with Home Assistant.
    - HomeKit devices can only be paired to a single controller at once.
-2. If your device is not already in your network, join the device to your network:
+4. If your device is not already in your network, join the device to your network:
    - Follow the instructions of the manufacturer on how to join the device to the network
    - If you do not have the instructions, or the device is HomeKit only:
      - Pair it with the Apple Home app (using the iOS Home app).
@@ -79,14 +81,14 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
      - It adds the device in your network. It stays in the network even after you removed it from the app.
      - Removing the device from the app opens it up for pairing with Home Assistant.
 
-2. The device should have been discovered under **{% my integrations title="Settings > Devices & Services" %}**.
-3. On the HomeKit integration, select **Configure**.
+1. The device should have been discovered under **{% my integrations title="Settings > Devices & Services" %}**.
+1. On the HomeKit integration, select **Configure**.
      
      ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
-4. Enter your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
+1. Enter your HomeKit pairing code.
    - Add the device to a room and **Finish**.
    - The device should now be added to your Home Assistant instance.
-5. Once Home Assistant is configured to work with the device, you can export it back to Siri and Apple Home with the [`HomeKit`](/integrations/homekit/) integration.
+1. Once Home Assistant is configured to work with the device, you can export it back to Siri and Apple Home with the [`HomeKit`](/integrations/homekit/) integration.
 
 ## Adding a HomeKit device through Bluetooth
 
@@ -94,6 +96,8 @@ You can add a HomeKit [compatible device](#supported-devices) to Home Assistant 
 
 ### Prerequisites
 
+- Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
+   - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 - If your Home Assistant instance does not natively support Bluetooth, use an ESPHome Bluetooth proxy.
   - A proxy can also be helpful if your Home Assistant device is too far away from the device you are trying to pair.
 - If your HomeKit device has been used with Thread before, or is still paired with iOS, reset the device.
@@ -107,7 +111,7 @@ You can add a HomeKit [compatible device](#supported-devices) to Home Assistant 
 1. On the HomeKit integration, select **Configure**.
      
      ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
-1. To pair the device, enter the HomeKit pairing code. The code is on the device itself or on the packaging.
+1. To pair the device, enter the HomeKit pairing code.
    - To pair a battery-powered device, you may need to press a button on the device to wake it.
    - Bluetooth devices may take significantly longer to pair than IP devices.
    - Add the device to a room and **Finish**.
