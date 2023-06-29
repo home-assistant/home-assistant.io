@@ -219,7 +219,7 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 
 ### TP-Link Tapo P125M (power plug)
 
-- Look for the M addition in the model name, a device without the M (regular P125) is not Matter compliant.
+- TP-Link Tapo P125MLook for the M addition in the model name, a device without the M (regular P125) is not Matter compliant.
 - This device is available in the US only.
 
 [TP-Link Tapo P125M on Amazon](https://amzn.to/3RILJah)
@@ -236,7 +236,10 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 
 - Realize that you are an early adopter, both on the hardware side and on the software (controller) side so you may run into compatibility issues or features that are still missing. Report any issues you may find and help out others if you find a workaround or tested a device.
 
-- Make sure IPv6 (multicast) traffic travels freely from your network to the Home Assistant host. There is no requirement to have an IPv6-enabled internet connection or DHCPv6 server. However, IPv6 support has to be enabled (it's enabled by default on Home Assistant OS).
+- Make sure IPv6 (multicast) traffic travels freely from your network to the Home Assistant host. There is no requirement to have an IPv6-enabled internet connection or DHCPv6 server. However, IPv6 support has to be enabled (it's enabled by default on Home Assistant OS). 
+
+- See more advanced recommendations to host and network configuration in the [readme of the matter server repository](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md).
+
 
 ### I do not see the button "Commission using the Companion app"
 
