@@ -22,7 +22,6 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - '@briis'
   - '@AngellusMortis'
   - '@bdraco'
 ha_domain: unifiprotect

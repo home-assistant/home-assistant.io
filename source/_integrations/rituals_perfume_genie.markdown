@@ -12,6 +12,7 @@ ha_category:
   - Switch
 ha_codeowners:
   - '@milanmeu'
+  - '@frenck'
 ha_domain: rituals_perfume_genie
 ha_platforms:
   - binary_sensor

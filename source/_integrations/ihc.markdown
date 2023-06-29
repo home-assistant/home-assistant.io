@@ -59,7 +59,7 @@ auto_setup:
   type: boolean
   default: true
 info:
-  description: Shows the IHC "name", "note" and "position" attributes of each component. This will make it easier to identify the IHC products within Home Assistant.
+  description: Shows the IHC "name", "note" and "position" attributes of each integration. This will make it easier to identify the IHC products within Home Assistant.
   required: false
   type: boolean
   default: true
@@ -85,7 +85,7 @@ See the manual of each device type for configuration options.
 
 ## Binary Sensor
 
-Before you can use the IHC Binary Sensor platform, you must setup the IHC Component.
+Before you can use the IHC Binary Sensor platform, you must setup the IHC integration.
 
 When auto setup is enabled the following products will be found in the IHC project and setup as binary sensors:
 
@@ -154,7 +154,7 @@ The resource id should be an id of a boolean IHC resource. For more information 
 
 ## Sensor
 
-Before you can use the IHC Sensor platform, you must setup the IHC Component.
+Before you can use the IHC Sensor platform, you must setup the IHC integration.
 
 When auto setup is enabled the following products will be found in the IHC project and setup as sensors:
 
@@ -212,7 +212,7 @@ The resource id should be a IHC float resource. For more information about IHC r
 
 ## Light
 
-Before you can use the IHC Light platform, you must setup the IHC Component.
+Before you can use the IHC Light platform, you must setup the IHC integration.
 
 When auto setup is enabled the following products will be found in the IHC project and setup as light devices:
 
@@ -265,7 +265,7 @@ light:
       required: false
       type: integer
     name:
-      description: The name of the component
+      description: The name of the integration
       required: false
       type: string
     note:
@@ -282,7 +282,7 @@ In the example above 12345 is ihc resource id and "tablelight" is the name. The 
 
 ## Switch
 
-Before you can use the IHC Switch platform, you must setup the IHC Component.
+Before you can use the IHC Switch platform, you must setup the IHC integration.
 
 When auto setup is enabled the following products will be found in the ihc project and setup as switch devices:
 
@@ -323,7 +323,7 @@ switch:
       required: false
       type: integer
     name:
-      description: The name of the component
+      description: The name of the integration
       required: false
       type: string
     note:

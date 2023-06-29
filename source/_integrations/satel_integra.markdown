@@ -34,7 +34,7 @@ The library currently doesn't support encrypted connection to your alarm, so you
 
 A list of all partition, zone and output IDs can be acquired by running DloadX program and connecting to your alarm.
 
-For the Binary Sensor check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zones. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor components."
+For the Binary Sensor, check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zones. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor integrations."
 
 ## Configuration
 

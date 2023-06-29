@@ -57,6 +57,7 @@ Please note, device names configured in the SwitchBot app are not transferred in
 - [Humidifier (WoHumi)](https://eu.switch-bot.com/products/switchbot-smart-humidifier)
 - Light Strip (WoStrip)
 - [Meter](https://switch-bot.com/pages/switchbot-meter)/[Meter Plus 70BB](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
+- [Indoor/Outdoor Meter](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) (WoIOSensorTH)
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)

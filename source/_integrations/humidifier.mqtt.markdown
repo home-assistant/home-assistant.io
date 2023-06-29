@@ -31,6 +31,16 @@ mqtt:
 ```
 
 {% configuration %}
+action_template:
+  description: A template to render the value received on the `action_topic` with.
+  required: false
+  type: template
+action_topic:
+  description: >-
+    The MQTT topic to subscribe for changes of the current action.
+    Valid values: `off`, `humidifying`, `drying`, `idle`
+  required: false
+  type: string
 availability:
   description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
   required: false
@@ -67,6 +77,14 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+current_humidity_template:
+  description: A template with which the value received on `current_humidity_topic` will be rendered.
+  required: false
+  type: template
+current_humidity_topic:
+  description: The MQTT topic on which to listen for the current humidity. A `"None"` value received will reset the current humidity. Empty values (`'''`) will be ignored.
+  required: false
+  type: string
 command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic`.
   required: false
@@ -76,7 +94,7 @@ command_topic:
   required: true
   type: string
 device:
-  description: "Information about the device this humidifier is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this humidifier is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -202,7 +220,7 @@ payload_reset_humidity:
   type: string
   default: 'None'
 payload_reset_mode:
-  description: A special payload that resets the `mode` state attribute to `None` when received at the `mode_state_topic`.
+  description: A special payload that resets the `mode` state attribute to `None` when received at the `mode_state_topic`. When received at `current_humidity_topic` it will reset the current humidity state.
   required: false
   type: string
   default: 'None'
@@ -290,7 +308,9 @@ mqtt:
     - name: "Bedroom humidifier"
       device_class: "humidifier"
       state_topic: "bedroom_humidifier/on/state"
+      action_topic: "bedroom_humidifier/action"
       command_topic: "bedroom_humidifier/on/set"
+      current_humidity_topic: "bedroom_humidifier/humidity/current"
       target_humidity_command_topic: "bedroom_humidifier/humidity/set"
       target_humidity_state_topic: "bedroom_humidifier/humidity/state"
       mode_state_topic: "bedroom_humidifier/mode/state"
