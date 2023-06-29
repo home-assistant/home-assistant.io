@@ -120,7 +120,7 @@ We have two brand new service to play with:
 - {% my developer_call_service service="conversation.process" %} - This
   service allows you to ask Assist a command or question, and get a response
   back.
-- {% my developer_call_service service="conversation.process" %} - This service
+- {% my developer_call_service service="calendar.list_events" %} - This service
   allows you to ask Home Assistant for a list of events on your calendar.
 
 If you combine those in an automation, in the morning, you could ask
@@ -430,7 +430,7 @@ Sources:
 
 {% enddetails %}
 
-Automations and scripts are awesome! They can add a lot of confort to your
+Automations and scripts are awesome! They can add a lot of comfort to your
 home, but they have a weird quirk. If they have an error, they would just
 disappear from Home Assistant.
 
@@ -660,22 +660,6 @@ removed from your YAML configuration files.
 
 {% enddetails %}
 
-{% details "Brottsplatskartan" %}
-
-The previously deprecated YAML configuration of the Brottsplatskartan
-integration has been removed.
-
-Brottsplatskartan is now configured via the UI. Any existing YAML
-configuration has been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@gjohansson-ST] - [#94101]) ([documentation](/integrations/brottsplatskartan))
-
-[@gjohansson-ST]: https://github.com/gjohansson-ST
-[#94101]: https://github.com/home-assistant/core/pull/94101
-
-{% enddetails %}
-
 {% details "Conversation" %}
 
 When using the Assist shortcut on iOS, it will now always talk to Home Assistant
@@ -763,22 +747,6 @@ the `select_source` service will still be possible using the old source names.
 
 {% enddetails %}
 
-{% details "qBittorrent" %}
-
-The previously deprecated YAML configuration of the qBittorrent
-integration has been removed.
-
-qBittorrent is now configured via the UI. Any existing YAML
-configuration has been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@gjohansson-ST] - [#93548]) ([documentation](/integrations/qbittorrent))
-
-[@gjohansson-ST]: https://github.com/gjohansson-ST
-[#93548]: https://github.com/home-assistant/core/pull/93548
-
-{% enddetails %}
-
 {% details "SMHI" %}
 
 The attribute `cloudiness` has been replaced by the attribute `cloud_coverage`.
@@ -805,38 +773,6 @@ removed from your YAML configuration files.
 
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [#94106]: https://github.com/home-assistant/core/pull/94106
-
-{% enddetails %}
-
-{% details "Snapcast" %}
-
-The previously deprecated YAML configuration of the Snapcast
-integration has been removed.
-
-Snapcast is now configured via the UI. Any existing YAML
-configuration has been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@gjohansson-ST] - [#93547]) ([documentation](/integrations/snapcast))
-
-[@gjohansson-ST]: https://github.com/gjohansson-ST
-[#93547]: https://github.com/home-assistant/core/pull/93547
-
-{% enddetails %}
-
-{% details "Workday" %}
-
-The previously deprecated YAML configuration of the Workday
-integration has been removed.
-
-Workday is now configured via the UI. Any existing YAML
-configuration has been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@gjohansson-ST] - [#94102]) ([documentation](/integrations/workday))
-
-[@gjohansson-ST]: https://github.com/gjohansson-ST
-[#94102]: https://github.com/home-assistant/core/pull/94102
 
 {% enddetails %}
 
@@ -889,7 +825,7 @@ The following integrations are also no longer available as of this release:
 
 [@bdraco]: https://github.com/bdraco
 [#94363]: https://github.com/home-assistant/core/pull/94363
-[Big Ass Fans integration]: /integations/baf
+[Big Ass Fans integration]: /integrations/baf
 
 ## All changes
 
