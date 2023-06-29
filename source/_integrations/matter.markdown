@@ -85,23 +85,6 @@ For communicating with Matter devices, the Home Assistant integration runs its o
 
 The only supported configuration (for now) for the Matter integration is by running the officially provided Home Assistant Matter add-on. Running the [Matter server](https://github.com/home-assistant-libs/python-matter-server) by any other means is at your own risk and is currently not officially supported.
 
-## Current state of the integration
-
-While the support for Matter is evolving, we will regularly update the Matter integration with new features or device support. Because it might be hard to track what's supported and what's not, we list the current state here and try to update this information regularly.
-
-Supported platforms (device types):
-
-- Binary sensor: We have so far tested door/window sensors and motion sensors, but others will probably work too.
-- Climate: Support for thermostat devices is in development now.
-- Cover: Has been implemented, but support for a tilt feature is still missing.
-- Lights: All features (in the Matter specification) should be supported, including color control, etc.
-- Locks: Basic lock control has been implemented, but not all devices and features are supported yet.
-- Sensor: We have tested Illuminance and temperature sensors, but others will probably work too.
-- Switch: Powerplugs should work (note: no support for energy metering yet in Matter).
-
-Note that a single Matter device can exist on multiple platforms. For example, a Motion sensor also has a temperature sensor and an illuminance sensor on board.
-
-If you own a (bridged) Matter device and you are missing controls for this device, create an issue on [GitHub](https://github.com/home-assistant/home-assistant.io) and make sure to post your Integration diagnostics there. In some cases, we can easily extend the existing platform support based on your diagnostics dump.
 
 ## Adding Matter devices to Home Assistant
 
@@ -242,7 +225,7 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 
 - To use Thread devices you will need a Thread Network with at least one Thread Border Router in your network nearby the Thread device(s). Apple users need for example the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub V2. Use the Thread integration in Home Assistant to diagnose your Thread network(s).
 
-- Start simple and work from there, keep your network easy and add for example an ESP32 test device. Once that works, move on to the next step or more devices.
+- Start simple and work from there, keep your network simple and add for example an ESP32 test device. Once that works, move on to the next step or more devices.
 
 - Realize that you are an early adopter, both on the hardware side and on the software (controller) side so you may run into compatibility issues or features that are still missing. Report any issues you may find and help out others if you find a workaround or tested a device.
 
@@ -266,4 +249,4 @@ Also see this [extended troubleshooting guide](https://developers.home.google.co
 
 The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use Wi-Fi (including Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use Thread must be joined to Thread networks for which there is at least one border router connected to the Home Assistant LAN.
 
-Investigate your network topology if you experience any issues with discovering devices (like the initial commission keeps failing) or if devices become unavailable randomly. For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nicely with enterprise networking solutions like VLANs, Multicast filtering, and IGMP snooping. Try to keep your network as simple and flat as possible to avoid issues.
+Investigate your network topology if you experience any issues with discovering devices (like the initial commission keeps failing) or if devices become unavailable randomly. For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nicely with enterprise networking solutions like VLANs, Multicast filtering, and (malfunctioning) IGMP snooping. Try to keep your network as simple and flat as possible to avoid issues.
