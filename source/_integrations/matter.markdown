@@ -195,7 +195,6 @@ Did you test a device that is not listed below? It would be greatly appreciated 
 - You need to enable Matter support/firmware in the Aqara app.
 - You will need an Aqara (cloud) account and the app before you can use Matter.
 - See [this Aqara landingpage](https://www.aqara.com/en/article-1583275073188196352.html) for more information, including what devices are bridged.
-- Thermostat devices (climate platform) are not supported yet (but are currently in development).
 - Device events, for example for the wall rockers and Cube, are not supported.
 
 ### Eve Energy (power plug), Eve Door & Window (contact sensor), Eve Motion (motion sensor)
