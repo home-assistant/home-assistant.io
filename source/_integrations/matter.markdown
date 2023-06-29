@@ -203,6 +203,16 @@ The Philips Hue V2 bridge supports Matter since a recent update. You can enable 
 - Device events for example for dimmer remotes are not supported.
 - Only basic control of lights is supported, no scenes, events, effects etc.
 
+### Switchbot Hub 2
+
+Switchbot has released a (beta) firmware update to enable Matter support on their Hub 2, effectively bridging (some of the) devices on the Hub 2, such as curtain motors into Matter. The Switchbot Hub 2 is a Matter bridge device. 
+
+- You need to enable the Matter bridge support in the Switchbot app, copy the code and use that to commission the Hub to HA (or use a second device to scan the QR code).
+- Device support is limited, you bridge specific devices to Matter by adding them as "Secondary device" in the app. Note that not all switchbot devices can be bridged.
+- Enabling Matter support does not convert the actual swiotchbot devices into matter devices, those still need to be within the (bluetooth) range of the Hub.
+- Bridged Switchbot devices show up with a rather weird/technical name in Home Assistant. This is a known issue we've reported to Switchbot.
+
+
 ### Tasmota
 
 Tasmota supports Matter over IP on all ESP32 based devices (in experimental phase). Follow the [instructions](https://tasmota.github.io/docs/Matter/).
