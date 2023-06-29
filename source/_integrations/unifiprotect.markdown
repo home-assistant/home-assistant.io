@@ -104,7 +104,7 @@ use has.
 1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. **Note**: This **must** be done from
     the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the
     UniFi Protect app.
-2. Go to **Admins** from the left hand side menu or [IP address]/admins/users e.g. 192.168.1.1/admins/users
+2. Go to **Admins** from the left hand side menu or [IP address]/admins/users e.g. 192.168.1.1/admins/users.
 3. Click on **Add New Admin**.
 4. Select **Full Management** for the role. Uncheck **Allow Remote Access** and fill out the fields for your user.
 5. Click **Add** in the bottom right.
