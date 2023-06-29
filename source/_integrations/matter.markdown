@@ -16,6 +16,7 @@ ha_codeowners:
 ha_domain: matter
 ha_platforms:
   - binary_sensor
+  - climate
   - cover
   - diagnostics
   - light
@@ -92,7 +93,7 @@ While the support for Matter is evolving, we will regularly update the Matter in
 Supported platforms (device types):
 
 - Binary sensor: We have so far tested door/window sensors and motion sensors, but others will probably work too.
-- Climate: Support for thermostat devices is in development now.
+- Climate: Support for thermostat devices has been added but availability of actual devices is limited.
 - Cover: Has been implemented, but support for a tilt feature is still missing.
 - Lights: All features (in the Matter specification) should be supported, including color control, etc.
 - Locks: Basic lock control has been implemented, but not all devices and features are supported yet.
