@@ -143,9 +143,6 @@ This method will allow you to share a device that was added to Google Home to Ho
 
 <lite-youtube videoid="-B4WWevd2JI" videotitle="Share Matter device from Google Home to Home Assistant"></lite-youtube>
 
-<p class='note'>
-At this time it is not yet possible to share a device from Home Assistant to another platform. This feature should be added after the Matter SDK 1.1 is released.
-</p>
 
 ## Experiment with Matter using a ESP32 dev board
 
@@ -192,14 +189,14 @@ Did you test a device that is not listed below? It would be greatly appreciated 
 [Eve Door & Window on Amazon](https://amzn.to/3RIU6ml)
 [Eve Motion on Amazon](https://amzn.to/3jDujiP)
 
-### Nanoleaf Matter bulbs and Lightstrips
+### Nanoleaf (Essentials) Matter bulbs and Lightstrips
 
 - Although the products work great once commissioned, multiple users have reported that commissioning them can be a bit difficult and requires some patience and multiple resets or optimizations to your home network.
 - Check the [Nanoleaf Matter infopage](https://nanoleaf.me/en-EU/integration/matter/) for all supported products and instructions.
 
 ### Philips Hue (V2) Bridge
 
-The Philips Hue V2 bridge supports Matter since a recent update (the beta program closed, it is now officially available). You can enable Matter support from the Hue app after which you can commission it to Home Assistant and other fabrics.
+The Philips Hue V2 bridge supports Matter since a recent update. You can enable Matter support from the Hue app after which you can commission it to Home Assistant and other fabrics.
 
 - Binding the Hue bridge to Home Assistant does not make sense because you will lose functionality over the default Hue integration in Home Assistant, such as button press events and (dynamic) scenes.
 - You will need a Hue/Signify (cloud) account and the app before you can use Matter.
