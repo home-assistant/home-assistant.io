@@ -225,7 +225,7 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 
 ### TP-Link Tapo P125M (power plug)
 
-- TP-Link Tapo P125MLook for the M addition in the model name, a device without the M (regular P125) is not Matter compliant.
+- Look for the _M_ addition in the model name. A device without the M (regular P125) is not Matter compliant.
 - This device is available in the US only.
 
 [TP-Link Tapo P125M on Amazon](https://amzn.to/3RILJah)
