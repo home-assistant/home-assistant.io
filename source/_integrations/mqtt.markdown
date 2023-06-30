@@ -587,7 +587,7 @@ Delete the sensor by sending an empty message:
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
 
-Note: the Configuration topic prefix must be 'homeassistant' (or another if you changed the default). However, the State topic prefix does not need to be 'homeassistant'. It is common for the State topic prefix to indicate which device or script sent the MQTT message, for example 'my_esp_device', 'rtl_433', or 'my_python_script'.
+Note: the Configuration topic prefix must be `homeassistant` (or another if you changed the default). However, the State topic prefix does not need to be `homeassistant`. It is common for the State topic prefix to indicate which device or script sent the MQTT message, for example 'my_esp_device', 'rtl_433', or 'my_python_script'.
 
 #### Creating a device with two sensor entities (temperature and humidity sensor)
 
@@ -639,13 +639,13 @@ Notes:
 - Don't forget to publish configuration messages with 'retain' set to true.
 - If publishing the configuration payload via the Home Assistant MQTT integration (Settings > Devices and Services > core-mosquitto > Configure), be sure to tick 'Allow template'.
 
-#### Using a script to create a device with multiple sensor entities (rtl_433 and door/window sensors)
+#### Using a script to create a device with multiple sensor entities (door/window sensors)
 
 With a [`script`](/integrations/script/) the user can automate sending multiple configuration messages to create a device with multiple entities. 
 
 In the following example, a device will be created to represent the state of a Honeywell Security Model 5816 Door and window Contact Sensor. A separate application called RTL_433 has been configured to receive 345MHz RF transmissions from the physical device, decode, and transmit an MQTT message with state payload.
 
-The following command will run rtl_433 and publish mqtt payload messages:
+The following command will run rtl_433 and publish MQTT messages:
 `rtl_433 -f 345M -F "mqtt://MY_HA_SERVER_IP:1883,user=MY_MQTT_USER,pass=MY_MQTT_PASSWORD,events=rtl_433[/model][/id]"`
 
 The state topic for sensor 181554 would be: `rtl_433/Honeywell-Security/181554`
@@ -674,7 +674,7 @@ Create the scripts.yaml file, and paste in the following script:
 
 {% details "Script" %}
 
-```
+```yaml
 create_sensors:
   alias: "Create sensors via MQTT Discovery"
   sequence:
