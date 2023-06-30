@@ -242,7 +242,7 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 
 - Realize that you are an early adopter, both on the hardware side and on the software (controller) side so you may run into compatibility issues or features that are still missing. Report any issues you may find and help out others if you find a workaround or tested a device.
 
-- Make sure IPv6 (multicast) traffic travels freely from your network to the Home Assistant host. There is no requirement to have an IPv6-enabled internet connection or DHCPv6 server. However, IPv6 support has to be enabled (it's enabled by default on Home Assistant OS). 
+- Make sure IPv6 (multicast) traffic travels freely from your network to the Home Assistant host. There is no requirement to have an IPv6-enabled internet connection or DHCPv6 server. However, IPv6 support has to be enabled on Home Assistant. Go to **{% my network title="Settings > System > Network" %}**, and make sure **IPv6** is set to **Automatic** or **static**, depending on your network setup. If you're unsure, use **Automatic**.
 
 - See more advanced recommendations to host and network configuration in the [readme of the matter server repository](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md).
 
