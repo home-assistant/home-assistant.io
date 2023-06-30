@@ -209,7 +209,7 @@ The Philips Hue V2 bridge supports Matter. You can enable Matter support in the 
 - Device events for example for dimmer remotes are not supported.
 - Only basic control of lights is supported, no scenes, events, effects etc.
 
-### Switchbot Hub 2
+### SwitchBot Hub 2
 
 SwitchBot has released a (beta) firmware update to enable Matter support on their Hub 2.  The SwitchBot Hub 2 is a Matter bridge device. It is bridging some of the devices, such as curtain motors, into Matter.
 
