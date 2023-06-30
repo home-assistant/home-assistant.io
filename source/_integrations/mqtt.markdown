@@ -188,18 +188,23 @@ For reading all messages sent on the topic `homeassistant` to a broker running o
 mosquitto_sub -h 127.0.0.1 -v -t "homeassistant/#"
 ```
 
-## MQTT Entities and the `entity_id` generated
+## MQTT Entities and their entity_id
 
-Every MQTT entity is assigned a unique `entity_id`. If `unique_id` is configured, you can change the entity_id and store the changes in the Entity Registry. The `entity_id` is generated when an item is loaded the first time, if the entity has a `unique_id` set, then the `entity_id` will be stored.
+For every configured MQTT entity Home Assistant automatically assigns a unique `entity_id`. If the `unique_id` option is configured, you can change the `entity_id` after creation, and the changes are stored in the Entity Registry. The `entity_id` is generated when an item is loaded the first time.
 
-If `object_id` is set, then this will be used to generate the `entity_id`.
+If the `object_id` option is set, then this will be used to generate the `entity_id`.
 If for example we have configured a `sensor`, and we have set `object_id` to `test` then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will a append it with a suffix to make it unique, for example `sensor.test_2`.
 
-If `object_id` is not set, then the `entity_id` will be based on the name, the device name or both. If for example the MQTT items `name` is set to `attic` and the `name` under the `device` key is set `temperature`, the default `entity_id` becomes `sensor.attic_temperature`. In case both `name` and device `name` are set to `test`, the default `entity_id` will be `sensor.test`.
+If `object_id` is not set, then the default `entity_id` will be based on the `name` option, the `name` option under the `device` key or both.
+If for example the MQTT items `name` is set to `temperature` and the `name` under the `device` key is set `attic`, the default `entity_id` becomes `sensor.attic_temperature`.
 
 <div class='note'>
 
-When the `name` is set under the device key, the entity's default name will not be assigned, bit it will inherit the device name instead.
+When an MQTT entity configuration has a `device` mapping and the `name` option is set, `has_entity_name` will be set to `True`.
+
+When the `name` is set under the device key, the entity's default name will not be be used, because the device name is used instead.
+
+More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#entity-naming).
 
 </div>
 
