@@ -593,7 +593,7 @@ Note: the Configuration topic prefix must be `homeassistant` (or another if you 
 
 In the following example, a device will be created with two sensor entities representing temperature and humidity measurements. Sensor entities can be represented by an [MQTT Sensor](/integrations/sensor.mqtt/).
 
-To set up a any device with multiple entities, a Configuration topic must be published for each entity. Each entity must include a 'unique_id' property qhich is unique entity, and a 'device' property which includes a device 'identifiers' property which is unique to the device.
+To set up a any device with multiple entities, a Configuration topic must be published for each entity. Each Configuration topic must include a "unique_id" property which is unique to the entity being created, and a "device" property which includes a device "identifiers" property which is unique to the device.
 
 A user, script, or device would send its configuration as JSON payload to the Configuration topic. After the first message to `config`, then the device may send MQTT messages with new sensor measurements in the form of a JSON payload.
 
@@ -638,6 +638,14 @@ Notes:
 - The configuration topic must be unique for each entity. In this example the configuration topic 'object_id' combines the device name, serial number, and sensor id to form a unique topic.
 - Don't forget to publish configuration messages with 'retain' set to true.
 - If publishing the configuration payload via the Home Assistant MQTT integration (Settings > Devices and Services > core-mosquitto > Configure), be sure to tick 'Allow template'.
+
+Delete this example device and entities:
+- Configuration topic 1: `homeassistant/sensor/my_custom_sensor_001_temperature/config`
+- Configuration payload 1: (empty)
+- Configuration topic 2: `homeassistant/sensor/my_custom_sensor_001_humidity/config`
+- Configuration payload 2: (empty)
+- The messages must be published 'retain' set to true. Do not tick 'Allow template'.
+- If using mosquitto_pub, see previous example.
 
 #### Using a script to create a device with multiple sensor entities (door/window sensors)
 
