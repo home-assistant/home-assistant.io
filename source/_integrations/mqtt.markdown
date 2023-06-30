@@ -559,44 +559,225 @@ The following software has built-in support for MQTT discovery:
 
 ### Discovery examples
 
-#### Motion detection (binary sensor)
+#### Creating a single sensor entity (motion detection binary sensor)
 
-A motion detection device which can be represented by a [binary sensor](/integrations/binary_sensor.mqtt/) for your garden would send its configuration as JSON payload to the Configuration topic. After the first message to `config`, then the MQTT messages sent to the state topic will update the state in Home Assistant.
+In the following example, a single entity will be created representing the state of a motion detection sensor. The motion detection sensor has only 2 states, therefore it can be represented by an [MQTT Binary Sensor](/integrations/binary_sensor.mqtt/).
+
+A user, script, or device would send its configuration as JSON payload to the Configuration topic. After the first message to `config`, then the MQTT messages sent to the state topic will update the motion detection sensor state in Home Assistant.
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
-- State topic: `homeassistant/binary_sensor/garden/state`
-- Payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}`
+- Configuration payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}`
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
-To create a new sensor manually.
+To create a new sensor manually:
 
 ```bash
 mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
 ```
 
-Update the state.
+Update the state:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ON
 ```
 
-Delete the sensor by sending an empty message.
+Delete the sensor by sending an empty message:
 
  ```bash
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
 
-For more details please refer to the [MQTT testing section](/integrations/mqtt/#testing-your-setup).
+Note: the Configuration topic prefix must be 'homeassistant' (or another if you changed the default). However, the State topic prefix does not need to be 'homeassistant'. It is common for the State topic prefix to indicate which device or script sent the MQTT message, for example 'my_esp_device', 'rtl_433', or 'my_python_script'.
 
-#### Sensors
+#### Creating a device with two sensor entities (temperature and humidity sensor)
 
-Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
+In the following example, a device will be created with two sensor entities representing temperature and humidity measurements. Sensor entities can be represented by an [MQTT Sensor](/integrations/sensor.mqtt/).
 
-- Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}" }`
-- Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
-- Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
+To set up a any device with multiple entities, a Configuration topic must be published for each entity. Each entity must include a 'unique_id' property qhich is unique entity, and a 'device' property which includes a device 'identifiers' property which is unique to the device.
+
+A user, script, or device would send its configuration as JSON payload to the Configuration topic. After the first message to `config`, then the device may send MQTT messages with new sensor measurements in the form of a JSON payload.
+
+Set up a device with two sensor entities:
+
+- Configuration topic 1: `homeassistant/sensor/my_custom_sensor_001_temperature/config`
+- Configuration payload 1:
+```json
+{
+    "name": "My Custom Sensor 001 Temperature",
+    "unique_id": "my_custom_sensor_001_temperature",
+    "state_topic": "my_state_topic/my_custom_sensor/001",
+    "value_template": {% raw %} "{{ value_json.temperature }}" {% endraw %},
+    "device": {
+        "identifiers": ["my_custom_sensor_001"],
+        "name": "My Custom Sensor 001",
+        "model": "My Model Number",
+        "manufacturer": "My Manufacturer ID"
+    }
+}
+```
+- Configuration topic 2: `homeassistant/sensor/my_custom_sensor_001_humidity/config`
+- Configuration payload 2: 
+```json
+{
+    "name": "My Custom Sensor 001 Humidity",
+    "unique_id": "my_custom_sensor_001_humidity",
+    "state_topic": "my_state_topic/my_custom_sensor/001",
+    "value_template": {% raw %} "{{ value_json.humidity }}" {% endraw %},
+    "device": {
+        "identifiers": ["my_custom_sensor_001"],
+        "name": "My Custom Sensor 001",
+        "model": "My Model Number",
+        "manufacturer": "My Manufacturer ID"
+    }
+}
+```
+- State topic: `my_state_topic/my_custom_sensor/001`
+- State payload: `{ "temperature": 23.20, "humidity": 43.70 }`
+
+Notes:
+- The configuration topic must be unique for each entity. In this example the configuration topic 'object_id' combines the device name, serial number, and sensor id to form a unique topic.
+- Don't forget to publish configuration messages with 'retain' set to true.
+- If publishing the configuration payload via the Home Assistant MQTT integration (Settings > Devices and Services > core-mosquitto > Configure), be sure to tick 'Allow template'.
+
+#### Using a script to create a device with multiple sensor entities (rtl_433 and door/window sensors)
+
+With a [`script`](/integrations/script/) the user can automate sending multiple configuration messages to create a device with multiple entities. 
+
+In the following example, a device will be created to represent the state of a Honeywell Security Model 5816 Door and window Contact Sensor. A separate application called RTL_433 has been configured to receive 345MHz RF transmissions from the physical device, decode, and transmit an MQTT message with state payload.
+
+The following command will run rtl_433 and publish mqtt payload messages:
+`rtl_433 -f 345M -F "mqtt://MY_HA_SERVER_IP:1883,user=MY_MQTT_USER,pass=MY_MQTT_PASSWORD,events=rtl_433[/model][/id]"`
+
+The state topic for sensor 181554 would be: `rtl_433/Honeywell-Security/181554`
+The state payload for sensor 181554 would be:
+```json
+{
+    "time": "2023-06-27 01:02:18",
+    "model": "Honeywell-Security",
+    "id": 181554,
+    "channel": 8,
+    "event": 160,
+    "state": "open",
+    "contact_open": 1,
+    "reed_open": 1,
+    "alarm": 0,
+    "tamper": 0,
+    "battery_ok": 1,
+    "heartbeat": 0
+}
+```
+
+The next step is to [split up configuration](/docs/configuration/splitting_configuration/) to keep things neat. Add the following line to configuration.yaml:
+`script: !include scripts.yaml`
+
+Create the scripts.yaml file, and paste in the following script:
+
+{% details "Script" %}
+
+```
+create_sensors:
+  alias: "Create sensors via MQTT Discovery"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: homeassistant/sensor/dw181554reed/config
+        retain: true
+        payload: >
+          {
+            "name": "DW181554 Reed",
+            "unique_id": "dw181554_reed",
+            "state_topic": "rtl_433/Honeywell-Security/181554",
+            "value_template": {% raw %}"{{ value_json.reed_open }}"{% endraw %},
+            "device": {
+                "identifiers": ["dw181554"],
+                "name": "DW181554",
+                "model": "Model 5816",
+                "manufacturer": "Honeywell Security"
+            }
+          }
+
+    - service: mqtt.publish
+      data:
+        topic: homeassistant/sensor/dw181554tamper/config
+        retain: true
+        payload: >
+          {
+            "name": "DW181554 Tamper",
+            "unique_id": "dw181554_tamper",
+            "state_topic": "rtl_433/Honeywell-Security/181554",
+            "value_template": {% raw %}"{{ value_json.tamper }}"{% endraw %},
+            "device": {
+                "identifiers": ["dw181554"],
+                "name": "DW181554",
+                "model": "Model 5816",
+                "manufacturer": "Honeywell Security"
+            }
+          }
+
+    - service: mqtt.publish
+      data:
+        topic: homeassistant/sensor/dw181554contact/config
+        retain: true
+        payload: >
+          {
+            "name": "DW181554 Contact",
+            "unique_id": "dw181554_contact",
+            "state_topic": "rtl_433/Honeywell-Security/181554",
+            "value_template": {% raw %}"{{ value_json.contact_open }}"{% endraw %},
+            "device": {
+                "identifiers": ["dw181554"],
+                "name": "DW181554",
+                "model": "Model 5816",
+                "manufacturer": "Honeywell Security"
+            }
+          }
+
+    - service: mqtt.publish
+      data:
+        topic: homeassistant/sensor/dw181554battery/config
+        retain: true
+        payload: >
+          {
+            "name": "DW181554 Battery",
+            "unique_id": "dw181554_battery",
+            "state_topic": "rtl_433/Honeywell-Security/181554",
+            "value_template": {% raw %}"{{ value_json.battery_ok }}"{% endraw %},
+            "device": {
+                "identifiers": ["dw181554"],
+                "name": "DW181554",
+                "model": "Model 5816",
+                "manufacturer": "Honeywell Security"
+            }
+          }
+
+    - service: mqtt.publish
+      data:
+        topic: homeassistant/sensor/dw181554heartbeat/config
+        retain: true
+        payload: >
+          {
+            "name": "DW181554 Heartbeat",
+            "unique_id": "dw181554_heartbeat",
+            "state_topic": "rtl_433/Honeywell-Security/181554",
+            "value_template": {% raw %}"{{ value_json.heartbeat }}"{% endraw %},
+            "device": {
+                "identifiers": ["dw181554"],
+                "name": "DW181554",
+                "model": "Model 5816",
+                "manufacturer": "Honeywell Security"
+            }
+          }
+```
+
+{% enddetails %}
+
+This script will create a device which shows the state of reed_open, tamper, contact_open, heartbeat, and battery_ok.
+
+Reload scripts by going to Developer Tools, scroll down and select Scripts.
+
+Navigate to Settings > Automation & Scenes > Scripts and run the new script.
+
+A new device will be created immediately and listed under the MQTT Integration. The device entities will display 'unknown' until the first state payload is received. 
 
 #### Entities with command topics
 
