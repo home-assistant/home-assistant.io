@@ -49,7 +49,7 @@ This integration may also work with [JBL](https://www.jblsynthesis.com/products/
 
 ## Power state
 
-Arcam receivers turn off their network port when in standby, the component will try to reconnect to the receiver every 5 seconds. This means powering on the first zone is not possible over the built-in network connection. 
+Arcam receivers turn off their network port when in standby, the integration will try to reconnect to the receiver every 5 seconds. This means powering on the first zone is not possible over the built-in network connection. 
 
 Note: Some newer models offer the ability to configure the device to keep the network port active when in standby mode. This can be found under **HDMI Settings** > **HDMI Bypass & IP**. Enabling **HDMI & IP On** will allow full power control from Home Assistant.
 

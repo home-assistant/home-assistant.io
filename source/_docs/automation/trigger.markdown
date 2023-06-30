@@ -31,6 +31,11 @@ An automation can be triggered by an event, a certain entity state, at a given t
 
 All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (i.e., several triggers of different types that should all turn some entity on).
 
+### Video Tutorial
+This video tutorial explains how trigger IDs work.
+
+<lite-youtube videoid="fE_MYcXYwMI" videotitle="How to use Trigger IDs in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
+
 ```yaml
 automation:
   trigger:
@@ -520,7 +525,7 @@ If for your use case this is undesired, you could consider using the automation 
 
 Fires when the sun is setting or rising, i.e., when the sun elevation reaches 0°.
 
-An optional time offset can be given to have it fire a set time before or after the sun event (e.g.,  45 minutes before sunset). A negative value makes it fire before sunrise or sunset, a positive value afterwards. The offset needs to be specified in a hh:mm:ss format.
+An optional time offset can be given to have it fire a set time before or after the sun event (e.g.,  45 minutes before sunset). A negative value makes it fire before sunrise or sunset, a positive value afterwards. The offset needs to be specified in number of seconds, or in a hh:mm:ss format.
 
 <div class='note'>
 
@@ -872,7 +877,7 @@ If you would like to use a device trigger for an automation that is not managed 
 ## Calendar trigger
 
 Calendar trigger fires when a [Calendar](/integrations/calendar/) event starts or ends, allowing
-much more flexible automations that using the Calendar entity state which only supports a single
+for much more flexible automations than using the Calendar entity state which only supports a single
 event start at a time.
 
 An optional time offset can be given to have it fire a set time before or after the calendar event (e.g., 5 minutes before event start).

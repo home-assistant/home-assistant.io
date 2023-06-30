@@ -1689,7 +1689,7 @@ Water Shortage**:
 
 ### Attributes
 
-The vacuums from the `xiaomi` platform does not expose additional attributes other the ones provided by [the `vacuum` component](/integrations/vacuum/#attributes),
+The vacuums from the `xiaomi` platform does not expose additional attributes other the ones provided by [the `vacuum` integration](/integrations/vacuum/#attributes),
 
 ### Example on how to clean a specific room
 

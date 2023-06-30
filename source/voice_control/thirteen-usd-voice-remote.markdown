@@ -29,7 +29,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
       <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
-   * **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/media-players/blob/main/m5stack-atom-echo.yaml).
+   * **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/firmware/blob/main/voice-assistant/m5stack-atom-echo.yaml).
 
 1. Connect the ATOM Echo to your computer.
    * In the popup window, view the available ports.
@@ -55,16 +55,17 @@ Before you can use this device with Home Assistant, you need to install a bit of
    ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
 1. To add the newly discovered device, select the ATOM Echo from the list.
    * Add your ATOM Echo to a room and select **Finish**. 
-2. You should now see the **ESPHome** integration.
+1. You should now see the **ESPHome** integration.
    ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
-3. Select the cogwheel. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
+1. Select the cogwheel. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
    ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-new-03.png)
    * Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply. 
-4. Congratulations! You can now voice control Home Assistant using a button with build-in microphone. Now give some commands.
+1. Congratulations! You can now voice control Home Assistant using a button with a built-in microphone. Now give some commands.
 
 ## Controlling Home Assistant over the ATOM Echo
 
-1. Press and hold the button on your ATOM Echo.
+1. Press and hold the flat button with rounded shape on your ATOM Echo.
+   * The rectangular button on the side is the reset button. Do not press that one.
    * The LED should light up in blue.
 1. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
       * Make sure you’re using the area name exactly as you defined it in Home Assistant.

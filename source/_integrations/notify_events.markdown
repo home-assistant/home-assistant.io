@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 ## Description
 
-The [Notify.Events service](https://notify.events/) is a platform for the **notify** component. 
+The [Notify.Events service](https://notify.events/) is a platform for the **notify** integration. 
 
 This platform allows you to quickly configure the distribution of messages between different recipients, no matter how they are used to receiving notifications: 
 

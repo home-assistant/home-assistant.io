@@ -18,7 +18,7 @@ Amazon Alexa provides a Smart Home API for richer home automation control withou
 
 It takes considerable effort to configure. Your Home Assistant instance must be accessible from the Internet, and you need to create an Amazon Developer account and an Amazon Web Services (AWS) account. An easier solution is to use [Home Assistant Cloud](/integrations/cloud/).
 
-The [Emulated Hue integration][emulated-hue-component] provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
+The [Emulated Hue integration](/integrations/emulated-hue) provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
 
 <div class='note'>
 
@@ -39,7 +39,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
   - [Test the Lambda Function](#test-the-lambda-function)
 - [Configure the Smart Home Service Endpoint](#configure-the-smart-home-service-endpoint)
 - [Account Linking](#account-linking)
-- [Alexa Smart Home Component Configuration](#alexa-smart-home-component-configuration)
+- [Alexa Smart Home Integration Configuration](#alexa-smart-home-integration-configuration)
 - [Supported Platforms](#supported-platforms)
   - [Alarm Control Panel](#alarm-control-panel)
     - [Arming](#arming)
@@ -169,7 +169,7 @@ Next you need create a Lambda function.
 
 ### Test the Lambda Function
 
-Now, you have created the Lambda function, but before you can test it, you have to set up the necessary aspects of your Home Assistant configuration. Put the following minimal configuration into your `configuration.yaml` file. It will expose all of your supported devices and automations to Alexa. It is strongly recommended to check the [configuration section](#alexa-smart-home-component-configuration) and setup control of which devices and entities are exposed.
+Now, you have created the Lambda function, but before you can test it, you have to set up the necessary aspects of your Home Assistant configuration. Put the following minimal configuration into your `configuration.yaml` file. It will expose all of your supported devices and automations to Alexa. It is strongly recommended to check the [configuration section](#alexa-smart-home-integration-configuration) and setup control of which devices and entities are exposed.
 
 ```yaml
 alexa:
@@ -259,7 +259,7 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
   - If not, ask Alexa to `Discover Devices`
 - Now, you can ask Alexa from your Echo or the Alexa App, _"Alexa, turn on bedroom light"_ 🎉
 
-## Alexa Smart Home Component Configuration
+## Alexa Smart Home Integration Configuration
 
 Example configuration:
 
@@ -425,7 +425,7 @@ alexa:
 
 {% include common-tasks/filters.md %}
 
-See the [troubleshooting](#troubleshooting) if for issues setting up the integration.
+See the [troubleshooting](#troubleshooting) if you're experiencing issues setting up the integration.
 
 ### Alexa Display Categories <!-- omit in toc -->
 
@@ -456,7 +456,7 @@ The following integrations are currently supported:
   - [Test the Lambda Function](#test-the-lambda-function)
 - [Configure the Smart Home Service Endpoint](#configure-the-smart-home-service-endpoint)
 - [Account Linking](#account-linking)
-- [Alexa Smart Home Component Configuration](#alexa-smart-home-component-configuration)
+- [Alexa Smart Home Integration Configuration](#alexa-smart-home-integration-configuration)
 - [Supported Platforms](#supported-platforms)
   - [Alarm Control Panel](#alarm-control-panel)
     - [Arming](#arming)
@@ -1105,7 +1105,7 @@ logger:
 ```
 
 [alexa-dev-console]: https://developer.amazon.com/alexa/console/ask
-[emulated-hue-component]: /integrations/emulated_hue/
+[emulated-hue-integration]: /integrations/emulated_hue/
 [generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token
 [alexa-display-categories]: https://developer.amazon.com/docs/alexa/device-apis/alexa-discovery.html#display-categories
 [alexa-supported-locales]: https://developer.amazon.com/docs/alexa/device-apis/list-of-interfaces.html
