@@ -202,7 +202,7 @@ Did you test a device that is not listed below? It would be greatly appreciated 
 
 ### Philips Hue (V2) Bridge
 
-The Philips Hue V2 bridge supports Matter since a recent update. You can enable Matter support from the Hue app after which you can commission it to Home Assistant and other fabrics.
+The Philips Hue V2 bridge supports Matter. You can enable Matter support in the Hue app. You can then commission it to Home Assistant and other fabrics.
 
 - Binding the Hue bridge to Home Assistant does not make sense because you will lose functionality over the default Hue integration in Home Assistant, such as button press events and (dynamic) scenes.
 - You will need a Hue/Signify (cloud) account and the app before you can use Matter.
