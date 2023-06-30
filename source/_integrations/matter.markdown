@@ -213,7 +213,7 @@ The Philips Hue V2 bridge supports Matter. You can enable Matter support in the 
 
 SwitchBot has released a (beta) firmware update to enable Matter support on their Hub 2.  The SwitchBot Hub 2 is a Matter bridge device. It is bridging some of the devices, such as curtain motors, into Matter.
 
-- You need to enable the Matter bridge support in the Switchbot app, copy the code and use that to commission the Hub to HA (or use a second device to scan the QR code).
+- To use Matter, in the SwitchBot app, enable Matter bridge support. Then, copy the code and use that to commission the Hub to Home Assistant. Another option is to use a second device to scan the QR code.
 - Device support is limited, you bridge specific devices to Matter by adding them as "Secondary device" in the app. Note that not all switchbot devices can be bridged.
 - Enabling Matter support does not convert the actual swiotchbot devices into matter devices, those still need to be within the (bluetooth) range of the Hub.
 - Bridged Switchbot devices show up with a rather weird/technical name in Home Assistant. This is a known issue we've reported to Switchbot.
