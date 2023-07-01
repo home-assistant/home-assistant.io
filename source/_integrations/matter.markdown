@@ -87,7 +87,7 @@ For communicating with Matter devices, the Home Assistant integration runs its o
 
 It is recommended to run the Matter add-on on Home Assistant OS. This is currently the best-supported option. 
 
-If you run Home Assistant in a container, you can run a docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that github page.
+If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
 
 Running Matter on a Home Assistant Core installation is not supported.
 
@@ -214,9 +214,9 @@ The Philips Hue V2 bridge supports Matter. You can enable Matter support in the 
 SwitchBot has released a (beta) firmware update to enable Matter support on their Hub 2.  The SwitchBot Hub 2 is a Matter bridge device. It is bridging some of the devices, such as curtain motors, into Matter.
 
 - To use Matter, in the SwitchBot app, enable Matter bridge support. Then, copy the code and use that to commission the Hub to Home Assistant. Another option is to use a second device to scan the QR code.
-- Device support is limited, you bridge specific devices to Matter by adding them as "Secondary device" in the app. Note that not all switchbot devices can be bridged.
-- Enabling Matter support does not convert the actual swiotchbot devices into matter devices, those still need to be within the (bluetooth) range of the Hub.
-- Bridged Switchbot devices show up with a rather weird/technical name in Home Assistant. This is a known issue we've reported to Switchbot.
+- Device support is limited. You bridge specific devices to Matter by adding them as **Secondary device** in the app. Note that not all SwitchBot devices can be bridged.
+- Enabling Matter support does not convert the actual SwitchBot devices into matter devices. Those still need to be within the Bluetooth range of the hub.
+- Bridged SwitchBot devices appear with a rather technical name in Home Assistant. This is a known issue.
 
 
 ### Tasmota
@@ -234,7 +234,7 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 
 ### General recommendations
 
-- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Not using Home Assistant OS is at your own risk. We do provide some [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) on how to run the Matter Server as a docker container. The documentation includes a description of the host and networking requirements. 
+- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Not using Home Assistant OS is at your own risk. We do provide some [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) on how to run the Matter Server as a Docker container. The documentation includes a description of the host and networking requirements. 
 
 - To use Thread devices you will need a Thread Network with at least one Thread Border Router in your network nearby the Thread device(s). Apple users need for example the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub V2. Use the Thread integration in Home Assistant to diagnose your Thread network(s).
 
