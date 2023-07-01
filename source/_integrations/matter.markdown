@@ -234,7 +234,7 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 
 ### General recommendations
 
-- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS (version 10 and above) because of kernel patches to solve routing issues. Not using HAOS (and thus the official Matter add-on) is at your own risk but we do provide tips and tricks how to run the Matter Server as docker container yourself, including all requirements to the host and networking on the [matter server repository](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md)
+- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Not using Home Assistant OS is at your own risk. We do provide some [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) on how to run the Matter Server as a docker container. The documentation includes a description of the host and networking requirements. 
 
 - To use Thread devices you will need a Thread Network with at least one Thread Border Router in your network nearby the Thread device(s). Apple users need for example the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub V2. Use the Thread integration in Home Assistant to diagnose your Thread network(s).
 
