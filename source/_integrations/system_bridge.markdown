@@ -137,3 +137,18 @@ data:
   bridge: "deviceid"
   text: "Hello"
 ```
+
+### Service `system_bridge.power`
+
+Sends power command to the server.
+
+{% my developer_call_service service="system_bridge.power" title="Show service in your Home Assistant instance." %}
+
+```yaml
+service: system_bridge.power
+data:
+  bridge: "deviceid"
+  state: "sleep"
+```
+
+State can be `sleep` `hibernate` `restart` `shutdown` `lock` `logout`
