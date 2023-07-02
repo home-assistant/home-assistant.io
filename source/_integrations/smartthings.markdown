@@ -10,6 +10,7 @@ ha_category:
   - Hub
   - Light
   - Lock
+  - Media Player
   - Scene
   - Sensor
   - Switch
@@ -26,6 +27,7 @@ ha_platforms:
   - fan
   - light
   - lock
+  - media_player
   - scene
   - sensor
   - switch
@@ -130,6 +132,7 @@ SmartThings represents devices as a set of [capabilities](https://developer-prev
 - [Fan](#fan)
 - [Light](#light)
 - [Lock](#lock)
+- [Media Player](#media-player)
 - [Sensor](#sensor)
 - [Scene](#scene)
 - [Switch](#switch)
@@ -215,6 +218,10 @@ The SmartThings Light platform lets you control devices that have light-related 
 ### Lock
 
 The SmartThings Lock platform lets you control devices that have the [`lock`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#lock) capability, showing current lock status and supporting lock and unlock commands.
+
+### Media Player
+
+The SmartThings Media Player platform lets you control devices that have media player capabilities, such as TVs and sound bars. This allows you to do many things depending on the device capabilities, such as: power it on, off, set the volume, increase it, decrease it, mute, select the input source, ...
 
 ### Sensor
 
