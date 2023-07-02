@@ -98,14 +98,14 @@ code_trigger_required:
 command_template:
   description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) used for the command payload. Available variables: `action` and `code`."
   required: false
-  type: string
+  type: template
   default: action
 command_topic:
   description: The MQTT topic to publish commands to change the alarm state.
   required: true
   type: string
 device:
-  description: "Information about the device this alarm panel is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this alarm panel is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:

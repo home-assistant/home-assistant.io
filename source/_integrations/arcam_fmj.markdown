@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `arcam_fmj` integration allows you to control [Arcam FMJ Receivers](https://www.arcam.co.uk/range/fmj.htm) from Home Assistant.
+The `arcam_fmj` integration allows you to control [Arcam Receivers and Processors](https://www.arcam.co.uk/range/fmj.htm) from Home Assistant.
 
 Supported devices:
 
@@ -40,12 +40,21 @@ Supported devices:
 - SA 20
 - SA 30
 - SR 250
+- ST 60
+
+This integration may also work with [JBL](https://www.jblsynthesis.com/products/electronics/) and [AudioControl](https://www.audiocontrol.com/home-audio/) receivers and processors as they share the same firmware as Arcam.
+
+- SDP-55/58
 
 {% include integrations/config_flow.md %}
 
 ## Power state
 
-Arcam FMJ receivers turn off their network port when in standby, the component will try to reconnect to the receiver every 5 seconds. This means powering on the first zone is not possible over the built-in network connection. Two options for complete power control exists: IR or Serial gateway.
+Arcam receivers turn off their network port when in standby, the integration will try to reconnect to the receiver every 5 seconds. This means powering on the first zone is not possible over the built-in network connection. 
+
+Note: Some newer models offer the ability to configure the device to keep the network port active when in standby mode. This can be found under **HDMI Settings** > **HDMI Bypass & IP**. Enabling **HDMI & IP On** will allow full power control from Home Assistant.
+
+Two other options for complete power control exists: IR or Serial gateway.
 
 ### IR command
 

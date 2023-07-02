@@ -22,7 +22,6 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - '@briis'
   - '@AngellusMortis'
   - '@bdraco'
 ha_domain: unifiprotect
@@ -50,15 +49,15 @@ The UniFi Protect integration adds support for retrieving Camera feeds and Senso
 
 This Integration supports all UniFi OS Consoles that can run UniFi Protect. Currently, this includes:
 
-* Any UniFi Protect Network Video Recorder (**UNVR** or **UNVRPRO**)
-* Any UniFi "Dream" device (**UDMPRO**, **UDR**, or **UDMSE**), _except the base UniFi Dream Machine/UDM_
-* UniFi Cloud Key Gen2 Plus (**UCKP**) firmware version v2.0.24+
+* Any UniFi Protect Network Video Recorder (**[UNVR](https://store.ui.com/collections/unifi-protect-nvr/products/unvr)** or **[UNVRPRO](https://store.ui.com/collections/unifi-protect-nvr/products/unvr-pro)**)
+* Any UniFi "Dream" device (**[UDMPRO](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/udm-pro)**, **[UDR](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-router)**, or **[UDMSE](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-machine-se)**), _except the base UniFi Dream Machine/UDM_
+* UniFi Cloud Key Gen2 Plus (**[UCKP](https://store.ui.com/collections/unifi-protect-nvr/products/unifi-cloudkey-plus)**) firmware version v2.0.24+
 
-UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware `v2.0.24` or newer.
+UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware `[v2.0.24](https://community.ui.com/releases/UniFi-Cloud-Key-Firmware-2-0-24/b6684f1e-8542-4660-bc0b-74e0634448e8)` or newer.
 
 ### Software Support
 
-The absolute **minimal** software version is `v1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
+The absolute **minimal** software version is `[v1.20.0](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011)` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
 
 #### About UniFi Early Access
 
@@ -71,18 +70,18 @@ Using Early Access versions will likely cause your UniFi Protect integration to 
 
 #### Downgrading UniFi Protect
 
-In the event you accidentally upgrade to an Early Access version of UniFi Protect you can downgrade to a stable version by either [restoring a backup](https://help.ui.com/hc/en-us/articles/360008976393-UniFi-Backups-and-Migration) or by manually downgrading your UniFi Protect.
+In the event you accidentally upgrade to an Early Access version of UniFi Protect you can downgrade to a stable version by either [restoring a backup](https://help.ui.com/hc/articles/360008976393) or by manually downgrading your UniFi Protect.
 
 ##### Manually Downgrade
 
-Manually downgrading comes with its own risks and it is not recommended unless you do not have a backup available. Some Protect versions cannot be downgraded from (like `v2.0` to `v1.21`). To downgrade, you can access your [UniFi OS Console via SSH](https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V) and then do the following:
+Manually downgrading comes with its own risks and it is not recommended unless you do not have a backup available. Some Protect versions cannot be downgraded from (like `v2.0` to `v1.21`). To downgrade, you can access your [UniFi OS Console via SSH](https://help.ui.com/hc/articles/204909374) and then do the following:
 
 ```bash
-# run this command first _only_ if you are on a 1.x firmware of the UDM Pro
-# it is not needed for the UDM SE, UNVR, etc.
+# Run this command first _only_ if you are on a 1.x firmware of the UDM Pro.
+# It is not needed for the UDM SE, UNVR, etc.
 unifi-os shell
 
-# downgrade UniFi Protect
+# Downgrade UniFi Protect.
 apt-get update
 apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0~beta.5 -y
 ```
@@ -91,7 +90,7 @@ You can replace `2.0.0~beta.5` with whatever version of UniFi Protect you want t
 
 <div class='note'>
 
-If you want to downgrade to another Early Access version, you must have [Remote Access enabled](https://help.ui.com/hc/en-us/articles/115012240067-UniFi-How-to-enable-remote-access) and have the Early Access release channel enabled.
+If you want to downgrade to another Early Access version, you must have [Remote Access enabled](https://help.ui.com/hc/articles/115012240067) and have the Early Access release channel enabled.
 
 </div>
 
@@ -108,13 +107,13 @@ use has.
 2. In the upper right corner, click on _Add User_.
 3. Fill out the fields for your user. Be sure the role you assign to the user grants them access to at least one or
     more UniFi Protect devices.
-4. Click _Add_ in the bottom Right.
+4. Click _Add_ in the bottom right.
 
 ![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
 
 ### Camera Streams
 
-The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure
+The integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure
 you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just
 check that this is done. To check and enable the feature:
 
@@ -145,8 +144,8 @@ and in many cases, get a read-only sensor instead of an editable switch/select/n
 
 **Smart Detections**: The following cameras have Smart Detections:
 
-* All "AI" series cameras. This includes the AI 360 and the AI Bullet.
-* All "G4" series cameras. This includes the G4 Doorbell, G4 Bullet, G4 Pro and G4 Instant.
+* All "AI" series cameras. This includes the [AI 360](https://store.ui.com/collections/unifi-protect/products/unifi-protect-ai-360) and the [AI Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-ai-bullet).
+* All "G4" series cameras. This includes the [G4 Doorbell](https://store.ui.com/collections/unifi-protect/products/uvc-g4-doorbell), [G4 Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-g4-bullet), [G4 Pro](https://store.ui.com/collections/unifi-protect/products/uvc-g4-pro) and [G4 Instant](https://store.ui.com/collections/unifi-protect/products/camera-g4-instant).
 
 G3 Series cameras do _not_ have Smart detections.
 

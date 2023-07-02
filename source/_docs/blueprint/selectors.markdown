@@ -18,24 +18,33 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Attribute selector](#attribute-selector)
+- [Assist pipeline selector](#assist-pipeline-selector)
+- [Backup location selector](#backup-location-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
 - [Config entry selector](#config-entry-selector)
+- [Constant selector](#constant-selector)
 - [Date selector](#date-selector)
-- [Date & time selector](#date--time-selector)
+- [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
 - [Icon selector](#icon-selector)
+- [Language selector](#language-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
@@ -118,6 +127,7 @@ device:
     that at least provide one device that matches the given conditions. Can be
     either a object or a list of object.
   type: list
+  required: false
   keys:
     integration:
       description: >
@@ -168,6 +178,12 @@ entity:
         with a single device_class, or a list of string device_class to limit
         the selection to.
       type: [device_class, list]
+      required: false
+    supported_features:
+      description: >
+        Limits the list of areas to areas that have entities with a certain
+        supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+      type: list
       required: false
 multiple:
   description: >
@@ -238,15 +254,41 @@ The output of this selector is the selected attribute key (not the translated or
 prettified name shown in the frontend).
 For example: `next_dawn`.
 
+## Assist pipeline selector
+
+The assist pipeline selector shows all available assist pipelines (assistants) of which one can be selected.
+
+![Screenshot of an assist pipeline selector](/images/blueprints/selector-assist-pipeline.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+assist_pipeline:
+```
+
+## Backup location selector
+
+This can only be used on an installation with a Supervisor (Operating System or
+Supervised). For installations of type Home Assistant Core or Container, an error
+will be displayed.
+
+The backup location selector shows a list of places a backup could go, depending
+on what you have configured in [storage](https://my.home-assistant.io/redirect/storage/).
+
+![Screenshot of an assist pipeline selector](/images/blueprints/selector-backup-location.png)
+
+The output of this selector is the name of the selected network storage. It may
+also be the value `/backup`, if the user chooses to use the local data disk option
+instead of one of the configured network storage locations.
+
 ## Boolean selector
 
 The boolean selector shows a toggle that allows the user to turn on or off
-the selected option. The input's value will contain the boolean value of that
-toggle as a boolean value, being `true` or `false`.
+the selected option.
 
 ![Screenshot of a boolean selector](/images/blueprints/selector-boolean.png)
 
-The boolean selector can be incredibly useful for adding feature switches
+The boolean selector is suitable for adding feature switches
 to, for example, blueprints.
 
 This selector does not have any other options; therefore, it only has its key.
@@ -255,7 +297,7 @@ This selector does not have any other options; therefore, it only has its key.
 boolean:
 ```
 
-The output of this selector is `true` when the toggle was on, `false` otherwise.
+The output of this selector is `true` when the toggle is on, `false` otherwise.
 
 ## Color temperature selector
 
@@ -304,6 +346,24 @@ integration:
 {% endconfiguration %}
 
 The output of this selector is the entry ID of the config entry, for example, `6b68b250388cbe0d620c92dd3acc93ec`.
+
+## Constant selector
+
+The constant selector shows a toggle that allows the user to enable the selected option.
+This is similar to the [boolean selector](#boolean-selector), the difference
+is that the constant selector has no value when it's not enabled.
+
+![Screenshot of a constant selector](/images/blueprints/selector-constant.png)
+
+The selector's value must be configured, and optionally, a label.
+
+```yaml
+boolean:
+  value: true
+  label: Enabled
+```
+
+The output of this selector is the configured value when the toggle is on, it has not output otherwise.
 
 ## Date selector
 
@@ -383,11 +443,17 @@ entity:
       required: false
     device_class:
       description: >
-        Limits the list of entities to entities that have a certain device
+        Limits the list of devices to devices that have entities with a certain device
         class(es), for example, `motion` or `window`. Can be either a string
         with a single device_class, or a list of string device_class to limit
         the selection to.
       type: [device_class, list]
+      required: false
+    supported_features:
+      description: >
+        Limits the list of devices to devices that have entities with a certain
+        supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+      type: list
       required: false
 filter:
   description: >
@@ -517,8 +583,7 @@ include_entities:
 filter:
   description: >
     When filter options are provided, the entities are limited by entities
-    that at least match the given conditions. Can be either a object or a list of object.
-    Can be either a object or a list of object.
+    that at least match the given conditions. Can be either an object or a list of objects.
   type: list
   required: false
   keys:
@@ -544,6 +609,12 @@ filter:
         for example, `motion` or `window`. Can be either a string with a single device_class,
         or a list of string device_class to limit the selection to.
       type: [device_class, list]
+      required: false
+    supported_features:
+      description: >
+        Limits the list of entities to entities that have a certain
+        supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+      type: list
       required: false
 multiple:
   description: >
@@ -603,6 +674,38 @@ placeholder:
 
 The output of this selector is a string containing the selected icon,
 for example: `mdi:bell`.
+
+## Language selector
+
+The language selector allows a user to pick a language from a list of languages.
+
+![Screenshot of an language selector](/images/blueprints/selector-language.png)
+
+```yaml
+language:
+```
+
+{% configuration entity %}
+languages:
+  description: A list of languages to pick from, this should be RFC 5646 languages codes.
+  type: list
+  default: The available languages in the Home Assistant frontend
+  required: false
+native_name:
+  description: >
+    Should the name of the languages be shown in the language of the user, or in the language itself.
+  type: boolean
+  default: false
+  required: false
+no_sort:
+  description: >
+    Should the options be sorted by name, if set to true, the order of the provided languages is kept.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is a RFC 5646 language code.
 
 ## Location selector
 

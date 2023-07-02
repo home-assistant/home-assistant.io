@@ -69,7 +69,7 @@ availability_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this binary sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this binary sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/device_registry_index/). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -114,7 +114,8 @@ device:
       required: false
       type: string
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend. The `device_class` can be `null`.
+  default: None
   required: false
   type: string
 enabled_by_default:
@@ -128,7 +129,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://developers.home-assistant.io/docs/core/entity/#generic-properties) of the entity.
   required: false
   type: string
   default: None
@@ -202,7 +203,7 @@ unique_id:
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that returns a string to be compared to `payload_on`/`payload_off` or an empty string, in which case the MQTT message will be removed. Remove this option when `payload_on` and `payload_off` are sufficient to match your payloads (i.e no pre-processing of original message is required)."
   required: false
-  type: string
+  type: template
 {% endconfiguration %}
 
 ## Examples

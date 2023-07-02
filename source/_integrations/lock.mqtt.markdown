@@ -82,7 +82,7 @@ command_topic:
   required: true
   type: string
 device:
-  description: 'Information about the device this lock is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
+  description: 'Information about the device this lock is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
   required: false
   type: map
   keys:
@@ -238,7 +238,7 @@ unique_id:
 value_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a state value from the payload.
   required: false
-  type: string
+  type: template
 {% endconfiguration %}
 
 <div class='note warning'>

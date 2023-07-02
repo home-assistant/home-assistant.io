@@ -84,7 +84,7 @@ command_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this siren is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this siren is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -216,7 +216,7 @@ state_topic:
 state_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's state from the `state_topic`. To determine the siren's state result of this template will be compared to `state_on` and `state_off`. Alternatively `value_template` can be used to render to a valid JSON payload."
   required: false
-  type: string
+  type: template
 support_duration:
   description: Set to `true` if the MQTT siren supports the `duration` service turn on parameter and enables the `duration` state attribute.
   required: false

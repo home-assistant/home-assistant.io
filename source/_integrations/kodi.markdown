@@ -390,3 +390,74 @@ data:
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+## Keypress events
+
+key presses of keyboards/remotes can be overwritten in Kodi and configured to send an event to Home Assistant, which can then be used in automations to, for instance, turn up/down the volume of a TV/receiver.
+
+A keypress can be overwritten in Kodi by using the [Kodi keymap XML](https://kodi.wiki/view/Keymap) or from within the Kodi GUI using the [Keymap Editor add-on](https://kodi.wiki/view/Add-on:Keymap_Editor).
+
+An example of the Kodi keymap configuration using XML, which will overwrite the volume_up/volume_down buttons and instead send an event to HomeAssistant:
+
+```xml
+<keymap>
+  <global>
+    <keyboard>
+      <volume_up>NotifyAll("KodiLivingroom", "OnKeyPress", {"key":"volume_up"})</volume_up>
+      <volume_down>NotifyAll("KodiLivingroom", "OnKeyPress", {"key":"volume_down"})</volume_down>
+    </keyboard>
+  </global>
+</keymap>
+```
+
+The `"KodiLivingroom"` can be set to any value and will be present in the event data as the `"sender"`
+The `"OnKeyPress"` is needed to identify the event in Home Assistant, do not change this.
+The `{"key":"volume_up"}` can contain any JSON which will be present in the event data under the `"data"` key, normally this is used to identify which key was pressed.
+
+For possible keyboard key names, see: https://kodi.wiki/view/List_of_keynames
+For other actions, see: https://kodi.wiki/view/Keymap#Keynames
+
+For the example above, when the volume up key is pressed, an event in Home Assistant will be fired that looks like this:
+```yaml
+event_type: kodi_keypress
+data:
+  type: keypress
+  device_id: 72e5g0ay5621f5d719qd8cydj943421a
+  entity_id: media_player.kodi_livingroom
+  sender: KodiLivingroom
+  data:
+    key: volume_up
+```
+
+A example of a automation to turn up/down the volume of a receiver using the event:
+
+{% raw %}
+
+```yaml
+alias: Kodi keypress
+mode: parallel
+max: 10
+trigger:
+  - platform: event
+    event_type: kodi_keypress
+    event_data:
+      entity_id: media_player.kodi_livingroom
+action:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{trigger.event.data.data.key=='volume_up'}}"
+        sequence:
+          - service: media_player.volume_up
+            target:
+              entity_id: media_player.receiver
+      - conditions:
+          - condition: template
+            value_template: "{{trigger.event.data.data.key=='volume_down'}}"
+        sequence:
+          - service: media_player.volume_down
+            target:
+              entity_id: media_player.receiver
+```
+
+{% endraw %}

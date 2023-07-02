@@ -5,7 +5,9 @@ ha_category:
   - Media Player
 ha_release: 0.39
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_domain: openhome
+ha_ssdp: true
 ha_codeowners:
   - '@bazwilliams'
 ha_platforms:
@@ -13,15 +15,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `openhome` platform allows you to connect an [Openhome Compliant Renderer](http://openhome.org/) to Home Assistant such as a [Linn Products Ltd](https://www.linn.co.uk) HiFi streamer. It will allow you to control media playback, volume, source and see the current playing item. Openhome devices should be discovered by using [the discovery component](/integrations/discovery/), their device names are taken from the name of the room configured on the device.
+The Linn / OpenHome integration allows you to connect an [Openhome Compliant Renderer](http://openhome.org/) to Home Assistant such as a [Linn Products Ltd](https://www.linn.co.uk) HiFi streamer. It will allow you to control media playback, volume, source and see the current playing item.
 
-### Example `configuration.yaml` entry
-
-```yaml
-discovery:
-media_player:
-  - platform: openhome
-```
+{% include integrations/config_flow.md %}
 
 ### Example local audio playback action
 
