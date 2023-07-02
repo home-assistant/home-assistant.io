@@ -19,11 +19,13 @@ An automation can be triggered by an event, a certain entity state, at a given t
 - [Template trigger](#template-trigger)
 - [Time trigger](#time-trigger)
 - [Time pattern trigger](#time-pattern-trigger)
+- [Persistent notification trigger](#persistent-notification-trigger)
 - [Webhook trigger](#webhook-trigger)
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
 - [Calendar trigger](#calendar-trigger)
+- [Sentence trigger](#sentence-trigger)
 - [Multiple triggers](#multiple-triggers)
 - [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
 
@@ -782,6 +784,22 @@ Do not prefix numbers with a zero - using `'01'` instead of `'1'` for example wi
 
 </div>
 
+## Persistent notification trigger
+
+Persistent notification triggers are fired when a `persistent_notification` is `added` or `removed` that matches the configuration options.
+
+```yaml
+automation:
+  trigger:
+    - platform: persistent_notification
+      update_type:
+        - added
+        - removed
+      notification_id: invalid_config
+```
+
+See the [Persistent Notification](/integrations/persistent_notification/) integration for more details on event triggers and the additional event data available for use by an automation.
+
 ## Webhook trigger
 
 Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger.
@@ -896,6 +914,30 @@ automation:
 
 See the [Calendar](/integrations/calendar/) integration for more details on event triggers and the
 additional event data available for use by an automation.
+
+## Sentence trigger
+
+A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). 
+
+Sentences are allowed to use some basic [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) like optional and alternative words. For example, `[it's ]party time` will match both "party time" and "it's party time".
+
+```yaml
+automation:
+  trigger:
+    - platform: conversation
+      command:
+        - "[it's ]party time"
+        - "happy (new year|birthday)"
+```
+
+The sentences matched by this trigger will be:
+
+- party time
+- it's party time
+- happy new year
+- happy birthday
+
+Punctuation and casing are ignored, so "It's PARTY TIME!!!" will also match.
 
 ## Multiple triggers
 

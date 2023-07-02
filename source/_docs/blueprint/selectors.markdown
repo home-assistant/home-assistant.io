@@ -18,8 +18,10 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Attribute selector](#attribute-selector)
 - [Assist pipeline selector](#assist-pipeline-selector)
+- [Backup location selector](#backup-location-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
 - [Config entry selector](#config-entry-selector)
@@ -27,18 +29,22 @@ The following selectors are currently available:
 - [Date selector](#date-selector)
 - [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
 - [Icon selector](#icon-selector)
 - [Language selector](#language-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
@@ -259,6 +265,21 @@ This selector does not have any other options; therefore, it only has its key.
 ```yaml
 assist_pipeline:
 ```
+
+## Backup location selector
+
+This can only be used on an installation with a Supervisor (Operating System or
+Supervised). For installations of type Home Assistant Core or Container, an error
+will be displayed.
+
+The backup location selector shows a list of places a backup could go, depending
+on what you have configured in [storage](https://my.home-assistant.io/redirect/storage/).
+
+![Screenshot of an assist pipeline selector](/images/blueprints/selector-backup-location.png)
+
+The output of this selector is the name of the selected network storage. It may
+also be the value `/backup`, if the user chooses to use the local data disk option
+instead of one of the configured network storage locations.
 
 ## Boolean selector
 
