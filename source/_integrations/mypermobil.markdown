@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The MyPermobil allows you to view various sensors with information about your wheelchair, such as battery status, distance traveled, number of seating adjustments, etc.
+The MyPermobil integration allows you to view various sensors with information about your wheelchair, such as battery status, distance traveled, number of seating adjustments, etc.  The values of the sensors may be delayed by several minutes and should not be relied on for any crucial applications.
 
 {% include integrations/config_flow.md %}
 
@@ -46,7 +46,7 @@ A number indicating how many hours the battery needs until it is fully charged. 
 
 ### Distance Left
 
-The distance the wheelchair can travel on its current charge. The unit of distance is the same as you have selected in your MyPermobil account. This figure is an estimate and should not be relied upon.
+The distance the wheelchair can travel on its current charge. The unit of measurement is the same as you have selected in your MyPermobil account. This figure is an estimate and should not be relied upon.
 
 ### Indoor Drive Time
 
