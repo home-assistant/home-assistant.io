@@ -57,6 +57,19 @@
   aliases:
     - automations
 
+- term: Backup
+  definition: >-
+    Home Assistant has built-in functionality to create files containing a copy of
+    your configuration. This can be used to restore your Home Assistant as well
+    as migrate to a new system. The backup feature is available on some installation
+    types.
+  link: /integrations/backup/
+  excerpt: >-
+    Home Assistant has built-in functionality to create files containing a copy of
+    your configurations. This is available on certain installation types.
+  aliases:
+    - backups
+
 - term: Binary sensor
   definition: >-
     A binary sensor returns information about things that only have two states -
@@ -72,6 +85,8 @@
     Conditions are an optional part of an automation that will prevent an
     action from firing if they are not met.
   link: /docs/scripts/conditions/
+  aliases:
+    - conditions
 
 - term: Cover
   definition: >-
@@ -146,11 +161,15 @@
   link: /docs/configuration/state_object/
   excerpt: >
     An entity represents a sensor, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a device or a service.
+  aliases:
+    - entities
 
 - term: Event
   definition: >-
     An event is when something happens.
   link: /docs/configuration/events/
+  aliases:
+    - events
 
 - term: Frontend
   definition: >-
@@ -227,6 +246,17 @@
   aliases:
     - integrations
 
+- term: Intent
+  definition: >-
+    Intent is a term used with voice assistants. The intent is what Home Assistant thinks you want it to do when it extracts a command from your voice or text utterance. Currently, the following intents are supported out of the box: HassTurnOn, HassTurnOff, HassGetState, and HassLightSet.
+
+    These intents allow you to turn things on or off, inquire about a state, or change the brightness or color of a light.
+  excerpt: >
+    Intent is a term used with voice assistants. The intent is what Home Assistant thinks you want it to do when it extracts a command from your voice or text utterance.
+  link: https://developers.home-assistant.io/docs/intent_builtin
+  aliases:
+    - Intents
+
 - term: Lovelace
   definition: >-
     Lovelace is the original code name of the UI that is now known as
@@ -267,6 +297,20 @@
     other integrations.
   link: /docs/configuration/platform_options/
 
+- term: Reload
+  definition: >-
+    Applies the changes made to the Home Assistant configuration files. Changes
+    are normally automatically updated. However, changes made outside of the front
+    end will not be reflected in Home Assistant and require a reload.
+    To perform a manual reload, go to **Settings** > **System** >
+    **Restart Home Assistant** (top right) > **Quick reload**. More granular
+    reload options are available in *YAML configuration reloading* section
+    in **Developer tools** > **YAML**.
+  excerpt: >
+    Applies the changes made to Home Assistant configuration files. Changes are normally
+    automatically updated. However, changes made outside of the front
+    end will not be reflected in Home Assistant and require a reload.
+
 - term: Scene
   definition: >-
     Scenes capture the states you want certain entities to be. For example,
@@ -279,6 +323,8 @@
     Scripts are components that allow users to specify a sequence of actions
     to be executed by Home Assistant when turned on.
   link: /docs/scripts/
+  aliases:
+    - scripts
 
 - term: Sensor
   definition: >-
@@ -318,8 +364,9 @@
     A service carries out one specific task, for example: turn on the light in the 
     living room. A service has targets and data and can be called by actions, a 
     dashboard, or via voice command.
-
   link: /docs/scripts/service-calls/
+  aliases:
+    - services
 
 - term: State
   definition: |-
@@ -360,7 +407,7 @@
 
 - term: TTS
   definition: >-
-    TTS (text to speech) allows Home Assistant to talk to you.
+    TTS (text-to-speech) allows Home Assistant to talk to you.
   link: /integrations/tts/
 
 - term: Variables

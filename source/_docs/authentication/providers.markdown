@@ -197,7 +197,7 @@ For now, meta variables are only respected the first time a particular user is a
 This is a legacy feature for backwards compatibility and will be dropped in a future release. You should move to one of the other auth providers.
 </div>
 
-Activating this auth provider will allow you to authenticate with the API password set in the HTTP component.
+Activating this auth provider will allow you to authenticate with the API password set in the HTTP integration.
 
 ```yaml
 homeassistant:

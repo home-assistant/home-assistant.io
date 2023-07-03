@@ -3,19 +3,21 @@ title: Matter (BETA)
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
   - Cover
   - Light
   - Lock
   - Sensor
   - Switch
-ha_release: "2022.12"
+ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - "@home-assistant/matter"
+  - '@home-assistant/matter'
 ha_domain: matter
 ha_platforms:
   - binary_sensor
+  - climate
   - cover
   - diagnostics
   - light
@@ -92,7 +94,7 @@ While the support for Matter is evolving, we will regularly update the Matter in
 Supported platforms (device types):
 
 - Binary sensor: We have so far tested door/window sensors and motion sensors, but others will probably work too.
-- Climate: Support for thermostat devices is in development now.
+- Climate: Support for thermostat devices has been added but availability of actual devices is limited.
 - Cover: Has been implemented, but support for a tilt feature is still missing.
 - Lights: All features (in the Matter specification) should be supported, including color control, etc.
 - Locks: Basic lock control has been implemented, but not all devices and features are supported yet.
@@ -194,7 +196,6 @@ Did you test a device that is not listed below? It would be greatly appreciated 
 - You need to enable Matter support/firmware in the Aqara app.
 - You will need an Aqara (cloud) account and the app before you can use Matter.
 - See [this Aqara landingpage](https://www.aqara.com/en/article-1583275073188196352.html) for more information, including what devices are bridged.
-- Thermostat devices (climate platform) are not supported yet (but are currently in development).
 - Device events, for example for the wall rockers and Cube, are not supported.
 
 ### Eve Energy (power plug), Eve Door & Window (contact sensor), Eve Motion (motion sensor)
@@ -223,6 +224,10 @@ The Philips Hue V2 bridge supports Matter since a recent update (the beta progra
 - Device events for example for dimmer remotes are not supported.
 - Only basic control of lights is supported, no scenes, events, effects etc.
 
+### Tasmota
+
+Tasmota supports Matter over IP on all ESP32 based devices (in experimental phase). Follow the [instructions](https://tasmota.github.io/docs/Matter/).
+
 ### TP-Link Tapo P125M (power plug)
 
 - Look for the M addition in the model name, a device without the M (regular P125) is not Matter compliant.
@@ -249,11 +254,11 @@ The Philips Hue V2 bridge supports Matter since a recent update (the beta progra
 This button will only be visible within the Home Assistant Companion App (so not in the browser) and your device meets all requirements for Matter support.
 
 - For iOS, minimum version is iOS 16 (minimal 16.3 is preferred) and the most recent version of the HA companion app.
-- For Android, minimum version is 8.1 and the most recent version of both the Google Home app and the (full) HA Companion app, downloaded from the app store.
+- For Android, minimum version is 8.1 and the most recent version of the (full) HA Companion app, downloaded from the Play Store.
 
 ### When I'm trying to commission using the Android app, I get an error stating "Matter is currently unavailable"
 
-See above, make sure your device meets all requirements to support Matter. Update Android to the latest version and the Google Home and Home Assistant Companion app. To quickly verify if your device meets all requirements to support Matter, on your Android device, go to **Settings** > **Google** > **Devices & Sharing**. There should be an entry there for **Matter devices**.
+See above, make sure your device meets all requirements to support Matter. Update Android to the latest version and the Home Assistant Companion app. To quickly verify if your device meets all requirements to support Matter, on your Android device, go to **Settings** > **Google** > **Devices & Sharing**. There should be an entry there for **Matter devices**.
 
 Some users have reported that uninstalling and reinstalling the Google Home app fixed this issue for them.
 Also see this [extended troubleshooting guide](https://developers.home.google.com/matter/verify-services) from Google.

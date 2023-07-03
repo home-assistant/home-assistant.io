@@ -20,7 +20,7 @@ The integration currently only has access to that one document that is created d
 ## Prerequisites
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
-These credentials are the same as the ones for [Nest](/integrations/nest) and [Google Mail](/integrations/google_mail).
+These credentials are the same as the ones for [Nest](/integrations/nest), [YouTube](/integrations/youtube) and [Google Mail](/integrations/google_mail).
 These are not the same as the one for [Google Calendar](/integrations/google).
 If you have already set up the correct credentials, you can do step 1 and then skip to step 13 on the below instructions.
 
@@ -71,6 +71,11 @@ The integration setup will next give you instructions to enter the [Application 
 ## Troubleshooting
 
 If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
+
+### Video Tutorial
+This video tutorial explains how to set up the Google Sheets integration and how you can add data from Home Assistant to a Google Sheet.
+
+<lite-youtube videoid="hgGMgoxLYwo" videotitle="How to use Google Sheets in Home Assistant - TUTORIAL" posterquality="maxresdefault"></lite-youtube>
 
 ### Service `google_sheets.append_sheet`
 

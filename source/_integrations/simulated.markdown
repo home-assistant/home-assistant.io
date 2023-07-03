@@ -1,6 +1,6 @@
 ---
 title: Simulated
-description: Component for simulating a numerical sensor.
+description: Integration for simulating a numerical sensor.
 ha_category:
   - Sensor
   - Utility

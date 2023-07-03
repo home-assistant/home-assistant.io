@@ -10,7 +10,7 @@ This is an advanced feature of Home Assistant. You'll need a basic understanding
 
 Templating is a powerful feature that allows you to control information going into and out of the system. It is used for:
 
-- Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [Alexa](/integrations/alexa/) component.
+- Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [Alexa](/integrations/alexa/) integration.
 - Process incoming data from sources that provide raw data, like [MQTT](/docs/configuration/templating/#using-templates-with-the-mqtt-integration), [`rest` sensor](/integrations/rest/) or the [`command_line` sensor](/integrations/sensor.command_line/).
 - [Automation Templating](/docs/automation/templating/).
 
