@@ -100,7 +100,7 @@ Other bulbs may also work, but with limited color temperature range (2700-5000).
 
 ### Plugs
 
-- KP125M (supported via [Matter](/integrations/matter/), but without energy monitoring features)
+- KP125M (supported via [Matter](/integrations/matter/#tp-link-tapo-p125m-power-plug), but without energy monitoring features)
 
 ### Random Effect - Service `tplink.random_effect`
 
