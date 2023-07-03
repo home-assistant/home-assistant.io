@@ -3,6 +3,7 @@ title: Matter (BETA)
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
   - Cover
   - Light
   - Lock
