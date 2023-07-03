@@ -63,12 +63,12 @@ tap_action:
       default: "false"
     pipeline_id:
       required: false
-      description: "Assist pipeline id to use when `action` defined as `assist`"
+      description: "Assist pipeline id to use when the `action` is defined as `assist`"
       type: string
       default: none
     start_listening:
       required: false
-      description: "If supported, listen for voice commands when opening the assist dialog when `action` defined as `assist`"
+      description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
       type: boolean
       default: none
 {% endconfiguration %}
@@ -120,12 +120,12 @@ hold_action:
       default: "false"
     pipeline_id:
       required: false
-      description: "Assist pipeline id to use when `action` defined as `assist`"
+      description: "Assist pipeline id to use when the `action` is defined as `assist`"
       type: string
       default: none
     start_listening:
       required: false
-      description: "If supported, listen for voice commands when opening the assist dialog when `action` defined as `assist`"
+      description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
       type: boolean
       default: none
 {% endconfiguration %}
@@ -177,12 +177,12 @@ double_tap_action:
       default: "false"
     pipeline_id:
       required: false
-      description: "Assist pipeline id to use when `action` defined as `assist`"
+      description: "Assist pipeline id to use when the `action` is defined as `assist`"
       type: string
       default: none
     start_listening:
       required: false
-      description: "If supported, listen for voice commands when opening the assist dialog when `action` defined as `assist`"
+      description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
       type: boolean
       default: none
 {% endconfiguration %}
