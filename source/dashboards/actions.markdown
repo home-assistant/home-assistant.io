@@ -33,7 +33,7 @@ tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `assist`, `none`)"
       type: string
       default: "`toggle` (some cards overwrite default to `more-info` if the provided entity cannot be toggled)"
     navigation_path:
@@ -61,6 +61,16 @@ tap_action:
       description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
       type: [boolean, map]
       default: "false"
+    pipeline_id:
+      required: false
+      description: "Assist pipeline id to use when `action` defined as `assist`"
+      type: string
+      default: none
+    start_listening:
+      required: false
+      description: "If supported, listen for voice commands when opening the assist dialog when `action` defined as `assist`"
+      type: boolean
+      default: none
 {% endconfiguration %}
 
 ## Hold Action
@@ -80,7 +90,7 @@ hold_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `assist`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
@@ -108,6 +118,16 @@ hold_action:
       description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
       type: [boolean, map]
       default: "false"
+    pipeline_id:
+      required: false
+      description: "Assist pipeline id to use when `action` defined as `assist`"
+      type: string
+      default: none
+    start_listening:
+      required: false
+      description: "If supported, listen for voice commands when opening the assist dialog when `action` defined as `assist`"
+      type: boolean
+      default: none
 {% endconfiguration %}
 
 ## Double-Tap Action
@@ -127,7 +147,7 @@ double_tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `assist`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
@@ -155,6 +175,16 @@ double_tap_action:
       description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
       type: [boolean, map]
       default: "false"
+    pipeline_id:
+      required: false
+      description: "Assist pipeline id to use when `action` defined as `assist`"
+      type: string
+      default: none
+    start_listening:
+      required: false
+      description: "If supported, listen for voice commands when opening the assist dialog when `action` defined as `assist`"
+      type: boolean
+      default: none
 {% endconfiguration %}
 
 ## Options For Confirmation
