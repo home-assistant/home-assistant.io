@@ -37,7 +37,7 @@ With this integration you can select various sources to get a version from.
     description: This will check the website you are reading this on to find the latest version.
 
   "Docker Hub":
-    description: This will check the latest tag published to Docker Hub based on the channel and image you choose.
+    description: This will check the latest tag published to Docker Hub based on the channel you choose.
 
   "Python Package Index (PyPI)":
     description: This will check PyPI for the latest published package.
