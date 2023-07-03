@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `zodiac` integration tracks the current zodiac sign.
+The Zodiac integration tracks the current zodiac sign.
 
 {% include integrations/config_flow.md %}
 
