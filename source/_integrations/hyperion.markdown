@@ -58,13 +58,8 @@ a global switch (see Advanced Entities).
 
 ## Effects
 
-The effect list is dynamically pulled from the Hyperion server. The following
-extra effects will be available:
-
-- 'Boblight Server': Use a 'Boblight Server' configured in Hyperion.
-- 'Platform Capture': Use a 'Platform Capture' grabber that is configured in Hyperion.
-- 'USB Capture': Use a 'USB Capture' device that is configured in Hyperion.
-- 'Solid': Use a solid color only.
+The effect list is dynamically pulled from the Hyperion server. Additionally, there
+will be a 'Solid' effect to switch (back) to showing a solid color only.
 
 ## Hyperion Camera
 
