@@ -20,5 +20,4 @@ This section will provide guides to some common tasks and information which you 
 {% include common-tasks/data_disk.md %}
 {% include common-tasks/flashing_n2_otg.md %}
 {% include common-tasks/enable_i2c.md %}
-{% include common-tasks/enable_entities.md %}
 
