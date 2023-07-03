@@ -188,17 +188,71 @@ For reading all messages sent on the topic `homeassistant` to a broker running o
 mosquitto_sub -h 127.0.0.1 -v -t "homeassistant/#"
 ```
 
-## MQTT Entities and their entity_id
+## MQTT Entities and their entity_id and name
 
 For every configured MQTT entity Home Assistant automatically assigns a unique `entity_id`. If the `unique_id` option is configured, you can change the `entity_id` after creation, and the changes are stored in the Entity Registry. The `entity_id` is generated when an item is loaded the first time.
 
 If the `object_id` option is set, then this will be used to generate the `entity_id`.
 If for example we have configured a `sensor`, and we have set `object_id` to `test` then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will a append it with a suffix to make it unique, for example `sensor.test_2`.
+Example:
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  sensor:
+    - state_topic: "home/bedroom/temperature"
+      unique_id: "brtemp01"
+      name: "temperature"
+      object_id: "test"
+```
 
 If `object_id` is not set, then the default `entity_id` will be based on the `name` option, the `name` option under the `device` key or on the `device_class` of the entity.
-If for example the MQTT items `name` is set to `humidity` and the `name` under the `device` key is set `attic`, the default `entity_id` becomes `sensor.attic_humidity`.
+If for example the MQTT items `name` is set to `humidity` and the `name` under the `device` key is set `Attic`, the default `entity_id` becomes `sensor.attic_humidity`.
 
-If the `device_class` option is set, it is not needed to set the entity's `name`, in that case the entity name follows the name of the `device_class`.
+Example:
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  sensor:
+    - state_topic: "home/bedroom/temperature"
+      unique_id: "brtemp01"
+      name: "humidity"
+      device:
+        - name: "Attic"
+          identifiers:
+            - dev001
+```
+
+If the `device_class` option is set, it is not needed to set the entity's `name`, in that case the entity name follows the name of the `device_class`, this name supports translations. In the following example the entity `name` becomes `Bedroom Temperature`:
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  sensor:
+    - state_topic: "home/bedroom/temperature"
+      unique_id: "brtemp01"
+      device_class: temperature
+      device:
+        - name: "Bedroom"
+          identifiers:
+            - dev001
+```
+
+In the following example without a `device_class` the entity `name` will become `Bedroom temperature`:
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  sensor:
+    - state_topic: "home/bedroom/temperature"
+      unique_id: "brtemp01"
+      name: "temperature"
+      device:
+        - name: "Bedroom"
+          identifiers:
+            - dev001
+```
 
 <div class='note'>
 
