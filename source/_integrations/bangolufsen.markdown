@@ -4,7 +4,7 @@ description: Instructions on how to integrate Bang & Olufsen devices into Home A
 ha_category:
   - Media Player
   - Multimedia
-ha_release: 2023.6.0
+ha_release: 2023.8
 ha_iot_class: Local Push
 ha_domain: bangolufsen
 ha_platforms:
