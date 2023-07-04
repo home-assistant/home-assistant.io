@@ -63,23 +63,22 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
 1. If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`](/integrations/zeroconf/) to your configuration file.
 1. Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
    - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
-2. Power up your device.
-3. If your device is in your network but is paired with an Apple device via HomeKit, reset the device.
+1. Power up your device.
+1. If your device is in your network but is paired with an Apple device via HomeKit, reset the device.
    - Otherwise you won't be able to pair it with Home Assistant.
    - HomeKit devices can only be paired to a single controller at once.
-4. If your device is not already in your network, join the device to your network:
+1. If your device is not already in your network, join the device to your network:
    - Follow the instructions of the manufacturer on how to join the device to the network
    - If you do not have the instructions, or the device is HomeKit only:
      - Pair it with the Apple Home app (using the iOS Home app).
+     - After it has been paired with the Apple Home app, remove the device from the app again.
+     - Do not reset the device.
+     **Result**: Adding the device to the Home app and then removing it again has two effects:
+       - It adds the device to your network. It stays in the network even after you removed it from the app.
+       - Removing the device from the app opens it up for pairing with Home Assistant.
 
 
 ### To add a HomeKit device via Ethernet or Wi-Fi
-
-1. If you paired your device with the Apple Home app in a previous step, remove the device from the app now.
-   - Do not reset the device.
-   - Adding the device to the Home app and then removing it again has two effects:
-     - It adds the device in your network. It stays in the network even after you removed it from the app.
-     - Removing the device from the app opens it up for pairing with Home Assistant.
 
 1. The device should have been discovered under **{% my integrations title="Settings > Devices & Services" %}**.
 1. On the HomeKit integration, select **Configure**.
