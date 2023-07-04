@@ -342,7 +342,7 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 
 The `konnected` binary sensor allows you to monitor wired door sensors, window sensors, motion sensors, smoke detectors, CO detectors, glass-break sensors, water leak sensors or any other simple wired open/close circuit attached to a NodeMCU ESP8266 Wi-Fi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
 
-This integration supports all of the built-in device classes of the generic [Binary Sensor](/integrations/binary_sensor/) component.
+This integration supports all of the built-in device classes of the generic [Binary Sensor](/integrations/binary_sensor/) integration.
 
 ## Switch
 

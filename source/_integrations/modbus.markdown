@@ -1180,5 +1180,6 @@ and restart Home Assistant, reproduce the problem, and include the log in the is
  - [Modbus Climate](#configuring-platform-climate)
  - [Modbus Cover](#configuring-platform-cover)
  - [Modbus Fan](#configuring-platform-fan)
+ - [Modbus Light](#configuring-platform-light)
  - [Modbus Sensor](#configuring-platform-sensor)
  - [Modbus Switch](#configuring-platform-switch)

@@ -163,6 +163,10 @@ Performance testing used the following hardware:
 
 ### Known working adapters
 
+<div class='note'>
+Known working adapters list adapters that do not meet high-performance requirements but will generally work. These adapters vary widely in performance and may take as long as thirty seconds or more to establish a connection. These adapters may also miss advertisements such as button presses or temperature updates.
+</div>
+
 #### Realtek RTL8761BU adapters
 
 <div class='note warning'>
@@ -250,6 +254,21 @@ The following remote adapters are supported:
   - Multiple active connections: not supported
 
 ## Troubleshooting
+
+### Improving connection times
+
+The connection time and performance vary greatly based on the Bluetooth adapter and interference. The below adapters are listed from best-performing to worst-performing:
+
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#passive-scanning)
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [USB High performance adapter](#known-working-high-performance-adapters) with active scanning
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#passive-scanning)
+- [Onboard high performance adapter](#cypress-based-adapters) with active scanning
+- [Known working adapters](#known-working-adapters) with [passive scanning](#passive-scanning)
+- [Known working adapters](#known-working-adapters) with active scanning
 
 ### Integrations that require exclusive use of the Bluetooth Adapter
 

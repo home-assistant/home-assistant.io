@@ -68,7 +68,7 @@ automation:
 
 {% details "Notes for Home Assistant Core Installations" %}
 
-If you have issues running this component, you may require `libxml2-dev` and `libxmlsec1-dev` packages. To install these on Raspbian, run the command:
+If you have issues running this integration, you may require `libxml2-dev` and `libxmlsec1-dev` packages. To install these on Raspbian, run the command:
 
 ```bash
 sudo apt install libxml2-dev libxmlsec1-dev

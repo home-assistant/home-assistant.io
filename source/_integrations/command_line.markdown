@@ -57,7 +57,7 @@ command_line:
           description: Let you overwrite the name of the device.
           required: false
           type: string
-          default: "*name* from the device"
+          default: "Binary Command Sensor"
         payload_on:
           description: The payload that represents enabled state.
           required: false
@@ -168,6 +168,7 @@ command_line:
           description: Name of the command sensor.
           required: false
           type: string
+          default: "Command Sensor"
         unique_id:
           description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
           required: false
@@ -185,6 +186,14 @@ command_line:
           required: false
           type: integer
           default: 60
+        device_class:
+          description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+          required: false
+          type: device_class
+        state_class:
+          description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will display the value based on the **Number Format** defined in the user profile."
+          required: false
+          type: string
     switch:
       description: Switch platform.
       required: false
@@ -240,6 +249,8 @@ To use your Command binary sensor in your installation, add the following to you
 command_line:
   - binary_sensor:
       command: "cat /proc/sys/net/ipv4/ip_forward"
+  - binary_sensor:
+      command: "echo 1"
 ```
 {% endraw%}
 
@@ -288,6 +299,8 @@ To enable it, add the following lines to your `configuration.yaml`:
 command_line:
   - sensor:
       command: SENSOR_COMMAND
+  - sensor:
+      command: SENSOR_COMMAND_2
 ```
 {% endraw%}
 
@@ -317,7 +330,7 @@ A note on `name` for `cover` and `switch`:
   
 The use of `friendly_name` and `object_id` has been deprecated and the slugified `name` will also be used as identifier.
 
-Use `unique_id` to enable changing the name from the UI if required to use `name` as identifier object as required.
+Use `unique_id` to enable changing the name from the UI and if required, use the slugified `name` as identifier.
 
 </div>
 
@@ -593,7 +606,7 @@ command_line:
       command_state: curl http://ip_address/api/sensors/27/
       value_template: >
         {{value_json.config.on}}
-      icon_template: >
+      icon: >
         {% if value_json.config.on == true %} mdi:toggle-switch
         {% else %} mdi:toggle-switch-off
         {% endif %}
