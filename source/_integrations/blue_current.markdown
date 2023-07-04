@@ -21,7 +21,7 @@ The Blue Current integration allows you to connect to your blue current account 
 
 ## Prerequisites
 
-1. Log in to the [Blue Current driver portal](https://mijn.bluecurrent.nl/).
+1. Log in to the [Blue Current driver portal](https://my.bluecurrent.nl/).
 2. Goto settings and enable developer mode.
 3. Generate an API token.
 
