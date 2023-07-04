@@ -55,6 +55,6 @@ To get an idea of the specific sentences that are supported for your language, y
         * () mean alternative elements.
         * [] mean optional elements.
         * <> mean an expansion rule. The view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml)   file.
-        * The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice_control/intent-recognition/template-sentence-syntax).
+        * The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/).
 
 

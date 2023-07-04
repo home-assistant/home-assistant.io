@@ -404,7 +404,7 @@ An automation to cast stored movie clips to a TV as they arrive.
 
 ### Debug Logging
 
-To enable debug logging for both the component and the underlying client library,
+To enable debug logging for both the integration and the underlying client library,
 enable the following in your `configuration.yaml` and then restart:
 
 ```yaml

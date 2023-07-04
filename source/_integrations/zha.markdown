@@ -51,21 +51,21 @@ ZHA uses an open-source Python library implementing a hardware-independent Zigbe
 
 There is currently support for the following device types within Home Assistant:
 
-- Alarm Control Panel
-- Binary Sensor
-- Button
-- Climate (beta)
-- Cover
-- Fan
-- Light
-- Lock
-- Number (i.e. analog output)
-- Select
-- Sensor
-- Siren
-- Switch
+- [Alarm Control Panel](/integrations/alarm_control_panel/)
+- [Binary Sensor](/integrations/binary_sensor/)
+- [Button](/integrations/button/)
+- [Climate](/integrations/climate/) (beta)
+- [Cover](/integrations/cover/)
+- [Fan](/integrations/fan/)
+- [Light](/integrations/light/)
+- [Lock](/integrations/lock/)
+- [Number](/integrations/number/) (i.e. analog output)
+- [Select](/integrations/select/)
+- [Sensor](/integrations/sensor/)
+- [Siren](/integrations/siren/)
+- [Switch](/integrations/switch/)
 
-There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created. As well as support for binding/unbinding (i.e. bind a remote to a lightbulb or group).
+There is also support for Zigbee grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a Zigbee group in the ZHA integration before the group entity is created. As well as support for [binding and unbinding (i.e. bind a remote to a lightbulb or group)](#binding-and-unbinding).
 
 ## Introduction
 
@@ -232,7 +232,7 @@ custom_quirks_path:
 
 ### OTA firmware updates
 
-ZHA component has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
+The ZHA integration has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
 
 Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE/OSRAM, SALUS/Computime, and INOVELLI devices. Support for OTA updates from other manufacturers could be supported in the future if they publish their firmware images publicly.
 
@@ -554,7 +554,7 @@ When reporting issues, please provide the following information in addition to i
 
 ### Debug logging
 
-To enable debug logging for ZHA component and radio libraries, add the following [logger](/integrations/logger/) configuration to `configuration.yaml`:
+To enable debug logging for the ZHA integration and radio libraries, add the following [logger](/integrations/logger/) configuration to `configuration.yaml`:
 
 ```yaml
 logger:

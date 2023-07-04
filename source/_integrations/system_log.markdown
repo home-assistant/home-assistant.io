@@ -59,7 +59,7 @@ Errors and warnings are posted as the event `system_log_event`, so it is possibl
 | `source`    | File that triggered the error, e.g., `core.py` or `media_player/yamaha.py`. |
 | `exception` | Full stack trace if available, an empty string otherwise.                   |
 | `message`   | Descriptive message of the error, e.g., "Error handling request".           |
-| `name`      | Name of the component, e.g., `homeassistant.components.device_tracker`      |
+| `name`      | Name of the integration, e.g., `homeassistant.components.device_tracker`      |
 | `timestamp` | Unix timestamp with as a double, e.g., 1517241010.237416.                   |
 
 Live examples of these events can be found in the Home Assistant log file (`home-assistant.log`) or by just looking in the system log. An example could, for instance, look like this:

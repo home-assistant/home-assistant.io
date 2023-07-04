@@ -96,6 +96,12 @@ See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kas
 
 Other bulbs may also work, but with limited color temperature range (2700-5000). If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
 
+## Unsupported devices
+
+### Plugs
+
+- KP125M (supported via [Matter](/integrations/matter/#tp-link-tapo-p125m-power-plug), but without energy monitoring features)
+
 ### Random Effect - Service `tplink.random_effect`
 
 The light strips allow setting a random effect.

@@ -25,7 +25,7 @@ The following selectors are currently available:
 - [Config entry selector](#config-entry-selector)
 - [Constant selector](#constant-selector)
 - [Date selector](#date-selector)
-- [Date & time selector](#date--time-selector)
+- [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
@@ -121,6 +121,7 @@ device:
     that at least provide one device that matches the given conditions. Can be
     either a object or a list of object.
   type: list
+  required: false
   keys:
     integration:
       description: >
