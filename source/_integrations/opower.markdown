@@ -57,18 +57,18 @@ For gas:
 
 ## Energy
 
-Because utilities only release usage/cost data with a 48 hour delay, the integration inserts data into statistic objects. At the initial setup the integration pulls historical monthly usage/cost since the account activation, daily usage/cost for the past 3 years and for electricity hourly usage/cost for the past 2 months. After the initial setup the integration keeps pulling hourly data for electricity and daily data for gas for the past 30 days to allow for any corrections in the data from the utilities.
+Because utilities only release usage/cost data with a 48-hour delay, the integration inserts data into statistic objects. At the initial setup, the integration pulls historical monthly usage/cost since the account activation, daily usage/cost for the past 3 years, and for electricity hourly usage/cost for the past 2 months. After the initial setup, the integration keeps pulling hourly data for electricity and daily data for gas for the past 30 days to allow for any corrections in the data from the utilities.
 
-In the configuration of the energy dashboard (Settings > Dashboards > Energy):
+In the configuration of the energy dashboard (**{% my energy title="Settings > Dashboards > Energy" %}**):
 
 For electricity:
 
-1. Click on add consumption for the Electricity grid.
-2. Select 'Opower {utility name} elec {account number} consumption' for the consumed energy.
-3. Select 'Opower {utility name} elec {account number} cost' for the entity with the total costs.
+1. Select **Add consumption for the Electricity grid**.
+2. Select **Opower {utility name} elec {account number} consumption** for the consumed energy.
+3. Select **Opower {utility name} elec {account number} cost** for the entity with the total costs.
 
 For gas:
 
-1. Click on add gas source for the Gas Consumption.
-2. Select 'Opower {utility name} gas {account number} consumption' for the gas usage.
-3. Select 'Opower {utility name} gas {account number} cost' for the entity with the total costs.
+1. Select **Add gas source for the Gas Consumption**.
+2. Select **Opower {utility name} gas {account number} consumption** for the gas usage.
+3. Select **Opower {utility name} gas {account number} cost** for the entity with the total costs.
