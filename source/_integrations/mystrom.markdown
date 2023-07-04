@@ -1,12 +1,13 @@
 ---
 title: myStrom
-description: Instructions on how to integrate myStrom WiFi Bulbs into Home Assistant.
+description: Instructions on how to integrate myStrom WiFi Switches and Bulbs into Home Assistant.
 ha_category:
   - Binary Sensor
   - Light
   - Switch
 ha_release: 0.43
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
 ha_domain: mystrom
@@ -17,43 +18,18 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/) WiFi Bulbs.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Light](#light)
+- [Lights and switches](#lights-and-switches)
 - [Binary Sensor](#binary-sensor)
   - [Setup of myStrom Buttons](#setup-of-mystrom-buttons)
-- [Switch](#switch)
-  - [Setup](#setup)
 
-## Light
+## Lights and switches
 
-To use your myStrom WiFi Bulb in your installation, add the following to your `configuration.yaml` file:
+The myStrom integration allows you to control your [myStrom](https://mystrom.ch/) WiFi Bulbs and WiFi Switches. Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
 
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: mystrom
-    host: IP_ADDRESS
-    mac: MAC_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: "The IP address of your myStrom WiFi Bulb, e.g., `192.168.1.32`."
-  required: true
-  type: string
-mac:
-  description: "The MAC address of your myStrom WiFi Bulb, e.g., `5AAC8CA542F3`."
-  required: true
-  type: string
-name:
-  description: The name to use when displaying this bulb.
-  required: false
-  type: string
-  default: myStrom Bulb
-{% endconfiguration %}
+{%include integrations/config_flow.md %}
 
 Check if you are able to access the light located at `IP_ADRRESS`. The details about your light is provided as a JSON response.
 
@@ -155,35 +131,3 @@ The command-line tool [`mystrom`](https://github.com/fabaff/python-mystrom) is a
 
 If you have set [`login_attempts_threshold`](/integrations/http/) and forget to include the `api_password` for an action and that action is triggered then after the threshold is reached will the button no longer work because it is banned. See [IP filtering and banning](/integrations/http/#ip-filtering-and-banning) about how to revert the banning.
 
-## Switch
-
-The `mystrom` switch platform allows you to control the state of your [myStrom](https://mystrom.ch/) switches.
-
-### Setup
-
-Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
-
-<p class='img'>
-  <img src='/images/integrations/mystrom/switch-advanced.png' />
-</p>
-
-To use your myStrom switch in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: mystrom
-    host: IP_ADRRESS
-```
-
-{% configuration %}
-host:
-  description: "The IP address of your myStrom switch, e.g., `192.168.1.32`."
-  required: true
-  type: string
-name:
-  description: The name to use when displaying this switch.
-  required: false
-  type: string
-  default: myStrom Switch
-{% endconfiguration %}

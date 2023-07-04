@@ -86,12 +86,12 @@ To access a camera which is only available via HTTP, you must turn off SSL verif
 
 ### Live stream
 
-To access a camera that has both a snapshot and live stream URL, utilizing the [stream](/integrations/stream/) component.
+To access a camera that has both a snapshot and live stream URL, utilizing the [stream](/integrations/stream/) integration.
 
 - Still Image URL: `http://194.218.96.92/jpg/image.jpg`
 - Stream Source: `rtsp://user:pass@194.218.96.92:554`
 
-If a camera only has a live stream URL and no snapshot URL, the [stream](/integrations/stream/) component can also generate still images from the live stream URL.
+If a camera only has a live stream URL and no snapshot URL, the [stream](/integrations/stream/) integration can also generate still images from the live stream URL.
 
 - Stream Source: `rtsp://user:pass@194.218.96.92:554`
 

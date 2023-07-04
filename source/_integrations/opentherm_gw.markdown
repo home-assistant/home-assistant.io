@@ -33,8 +33,6 @@ This integration will add a single `climate` entity to Home Assistant for each c
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
 </div>
 
-# Configuration
-
 {% include integrations/config_flow.md %}
 
 The following configuration options are available:

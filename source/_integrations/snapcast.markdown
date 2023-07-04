@@ -20,7 +20,7 @@ The Snapcast integration allows you to control [Snapcast](https://github.com/bad
 
 ## Services
 
-The snapcast components provides a few services registered under the media_player component.
+The snapcast integration provides a few services registered under the media_player integration.
 
 ### Service `snapcast.snapshot`
 
