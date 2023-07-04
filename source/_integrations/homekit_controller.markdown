@@ -60,14 +60,14 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
 
 ### Prerequisites
 
-1. If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`](/integrations/zeroconf/) to your configuration file.
-1. Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
+- If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`](/integrations/zeroconf/) to your configuration file.
+- Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
    - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
-1. Power up your device.
-1. If your device is in your network but is paired with an Apple device via HomeKit, reset the device.
+- Make sure your device is powered up.
+- If your device is in your network but is paired with an Apple device via HomeKit, reset the device.
    - Otherwise you won't be able to pair it with Home Assistant.
    - HomeKit devices can only be paired to a single controller at once.
-1. If your device is not already in your network, join the device to your network:
+- If your device is not already in your network, join the device to your network:
    - Follow the instructions of the manufacturer on how to join the device to the network
    - If you do not have the instructions, or the device is HomeKit only:
      - Pair it with the Apple Home app (using the iOS Home app).
