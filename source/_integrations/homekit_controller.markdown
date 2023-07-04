@@ -49,10 +49,10 @@ The [HomeKit](https://developer.apple.com/apple-home/) controller integration al
 
 There are different methods to add a HomeKit device to Home Assistant:
 
-- [via Ethernet or Wi-Fi](#adding-a-homekit-device-via-ethernet-or-wi-fi): Requires the pairing code
-- [via Bluetooth](#adding-a-homekit-device-through-bluetooth): Requires the pairing code
-- [onto a Thread network via Home Assistant](#adding-a-homekit-device-to-a-thread-network-via-home-assistant): No pairing code required
-- [onto a Thread network via Apple Thread border router](#adding-a-homekit-device-via-apple-thread-border-router): No pairing code required
+- [via Ethernet or Wi-Fi](#adding-a-homekit-device-via-ethernet-or-wi-fi)
+- [via Bluetooth](#adding-a-homekit-device-through-bluetooth)
+  - [migrate to a Thread network via Home Assistant](#adding-a-homekit-device-to-a-thread-network-via-home-assistant)
+  - [migrate to Thread network via Apple Thread border router](#adding-a-homekit-device-via-apple-thread-border-router)
 
 ## Adding a HomeKit device via Ethernet or Wi-Fi
 
@@ -60,7 +60,7 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
 
 ### Prerequisites
 
-1. If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`] to your configuration file.
+1. If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`](/integrations/zeroconf/) to your configuration file.
 1. Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
    - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 2. Power up your device.
