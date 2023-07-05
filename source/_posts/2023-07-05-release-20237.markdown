@@ -493,13 +493,14 @@ We welcome the following new integrations in this release:
   Monitor your Renson ventilation system.
 - **[Image]**, added by [@emontnemery]<br />
   A new entity type that is like a camera, but specifically for images.
-- **[LOQED Touch Smart Lock]**, added by [@cpolhout]<br />
+- **[LOQED Touch Smart Lock]**, added by [@cpolhout] and [@mikewoudenberg]<br />
   Control your LOQED smart lock.
 
 [@cpolhout]: https://github.com/cpolhout
 [@emontnemery]: https://github.com/emontnemery
 [@jimmyd-be]: https://github.com/jimmyd-be
 [@jpbede]: https://github.com/jpbede
+[@mikewoudenberg]: https://github.com/mikewoudenberg
 [@tkdrob]: https://github.com/tkdrob
 [Discovergy]: /integrations/discovergy
 [Dremel 3D Printer]: /integrations/dremel_3d_printer
