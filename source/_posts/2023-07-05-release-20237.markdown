@@ -48,7 +48,7 @@ Enjoy the release!
 - [Copy 'n paste support in dashboards](#copy-n-paste-support-in-dashboards)
 - [New script dialog](#new-script-dialog)
 - [Select timezone to use/display](#select-timezone-to-usedisplay)
-- [Iteration on the integrations dashboard](#iteration-on-the-integrations-dashboard)
+- [Iteration of the integrations dashboard](#iteration-of-the-integrations-dashboard)
 - [Reducing the risk of running into breaking changes](#reducing-the-risk-of-running-into-breaking-changes)
 - [Unavailable automations and scripts](#unavailable-automations-and-scripts)
 - [Lightning fast Bluetooth proxies](#lightning-fast-bluetooth-proxies)
@@ -296,32 +296,21 @@ choose to use the timezone that your Home Assistant server is in. The
 Home Assistant frontend will adjust all off the date & times to the
 selected timezone.
 
-## Iteration on the integrations dashboard
+## Iteration of the integrations dashboard
 
-{% details "TODO" %}
+In the last release, we introduced new [integrations dashboard & pages](/blog/2023/06/07/release-20236/#integrations-dashboard--pages),
+which many of you really liked. Yet, there has been some feedback, and we
+have been working on improving it.
 
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
+The main goal was to make it feel less busy, more familiar and consistent with
+all other UI you see in Home Assistant.
 
-{% enddetails %}
-
-Last release we introduced new [integrations dashboards & pages](/blog/2023/06/07/release-20236/#integrations-dashboard--pages),
-which was very well received. Yet, there has been some feedback on the
-dashboard, and we have been working on improving it.
-
-The main goal, was to make it feel less busy and more familiar and consistent
-with all other UI elements.
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5662298/249429574-eb6f4e82-2845-47f0-b488-4ddc8572bcfc.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-07/integration-dashboard-improvements.png' alt='Screenshot showing the latest updates and tweaks made to the integrations dashboard, making it less busy.'>
 
 The cards shown are now more consistent with the rest of Home Assistant and the
-full header item is now clickable. The cog, device and service items
-have been removed and the indicators for custom integrations and cloud services
-are no longer overlapping the logos.
+full integration name and logo is now clickable. The cog, device and service
+items have been removed, and the indicators for custom integrations
+and cloud services are no longer overlap the logos.
 
 ## Reducing the risk of running into breaking changes
 
