@@ -79,7 +79,7 @@ Calling a service in an automation or script was a one-way communication
 to control your devices and services. For example, turn on a light, or make
 an announcement on your speakers.
 
-So, what is the use of a service responding data? Well, it could be used to
+So, what is the use of a service responding with data? Well, it could be used to
 ask for information from a device or service. For example, you could ask
 Home Assistant which events are on your calendar today and use the
 answer from that service call to create a notification or announcement.
@@ -123,7 +123,7 @@ We are continuing to improve the entity dialogs. This time, we have reworked
 the entity dialog for locks. It looks great!
 
 It looks similar to the entity dialog for the switch, but it has a few
-extra features like asking for a unlock code and has a beautiful animation
+extra features like asking for an unlock code and has a beautiful animation
 when it is (un)locking.
 
 <img class="no-shadow" src='/images/blog/2023-07/entity-dialog-lock.gif' alt='Screen recording demonstrating the new lock entity dialog.'>
@@ -144,14 +144,14 @@ room vacuum to start cleaning up the mess.
 ## Open assist action
 
 Another one for the Year of the Voice, a brand new action for use in dashboard
-cards, has been added: The Assist action!
+cards, has been added: the Assist action!
 
-<img class="no-shadow" src='/images/blog/2023-07/assist-action.png' alt='Screenshot of the new sentence trigger that can be used with automations.'>
+<img class="no-shadow" src='/images/blog/2023-07/assist-action.png' alt='Screenshot showing the new Assist action available in dashboard cards.'>
 
 With this action, you can directly open Assist from your dashboards using,
 for example, a button and even make Assist listen right away.
 
-<img class="no-shadow" src='/images/blog/2023-07/assist-action.gif' alt='Screenshot of the new sentence trigger that can be used with automations.'>
+<img class="no-shadow" src='/images/blog/2023-07/assist-action.gif' alt='Screen recording of the new Assist action in use. Shows the normal action and the action that start listening immediately.'>
 <br /><br />
 There are quite a few cases where this action can be useful. For example, if
 you have a tablet mounted on the wall, you can use this action to open Assist
@@ -159,7 +159,7 @@ and start listening immediately using a single button touch.
 
 ## Image entities
 
-There is a brand new entity type in town: The [image entity](/integrations/image/).
+There is a brand new entity type in town: the [image entity](/integrations/image/).
 
 The image entity is very similar to the [camera entity](/integrations/camera/),
 but instead of providing a live stream, it provides a single image. For example,
@@ -167,7 +167,7 @@ a QR code that provides the Wi-Fi credentials for your guest network, a weather
 map, an image of the last motion detected by your camera, or just the cute cat
 picture of the day!
 
-<img class="no-shadow" src='/images/blog/2023-07/image-entity.png' alt='Screenshot of an new image entity more information dialog, showing a QR code in the image.'>
+<img class="no-shadow" src='/images/blog/2023-07/image-entity.png' alt='Screenshot of a new image entity more information dialog, showing a QR code in the image.'>
 
 While the camera entity provided similar functionality, we wanted to make an
 entity tailored for these specific use cases. An image entity is much
@@ -185,7 +185,7 @@ The energy dashboard has a new gauge, added by [@TillFleisch]: Self-sufficiency.
 This gauge tells you how self-sufficient your home is. The more you take from
 the grid, the more the value will decrease.
 
-<img class="no-shadow" src='/images/blog/2023-07/self-sufficiency.png' alt='Screenshot showing the latest updates and tweaks made to the integrations dashboard, making it less busy.'>
+<img class="no-shadow" src='/images/blog/2023-07/self-sufficiency.png' alt='Screenshot showing the energy dashboard featuring the new self-sufficiency gauge.'>
 
 Increasing this value can be done by lowering your consumption from the grid,
 for example, by using the washing machine when the sun is shining and solar
@@ -249,7 +249,7 @@ all other UI you see in Home Assistant.
 The cards shown are now more consistent with the rest of Home Assistant and the
 full integration name and logo is now clickable. The cog, device and service
 items have been removed, and the indicators for custom integrations
-and cloud services are no longer overlap the logos.
+and cloud services are no longer overlapping the logos.
 
 ## Unavailable automations and scripts
 
@@ -293,7 +293,7 @@ A great way to extend the range of Bluetooth for your Home Assistant set up
 is by using [Bluetooth proxies](https://esphome.github.io/bluetooth-proxies/).
 These Bluetooth proxies are now even faster! Like... really fast! 🚀
 
-You can expect to see an 40-80% decrease in network traffic between
+You can expect to see a 40-80% decrease in network traffic between
 Home Assistant and the proxy device. It now bundles and sends multiple
 Bluetooth advertisements in bulk, instead of sending them one by one.
 
@@ -314,8 +314,8 @@ experience. This also affects startup time, which is now blazing fast (from
 minutes to seconds).
 
 Changes to connected Matter bridges are now instantly detected, so when adding
-a new device to a bridge (like, for example, a connected Aqara M2 hub) it will
-show up immediately.
+a new device to a bridge (like, for example, a connected Aqara M2 hub) the device
+will show up immediately.
 
 Last but most certainly not least: The Matter integration now supports
 climate devices! 🎉
@@ -610,11 +610,13 @@ This also means `power_command_topic` is no longer deprecated.
 
 {% details "MusicCast" %}
 
-If you have any automation depending on the `source` state attribute of the
-media player entity, you will have to update these, because we want to show
-more user friendly values such as "Net Radio" instead of net_radio. Calling
-the `select_source` service will still be possible using the old source names.
+The values for the `source` attribute have changed. We wanted to show more user
+friendly values for the `source` attribute, such as "Net Radio" instead
+of "net_radio".
 
+If you have any automation depending on the `source` state attribute of the
+media player entity, you will have to update these. Calling the `select_source`
+service will still be possible using the old source names.
 ([@micha91] - [#74954]) ([documentation](/integrations/yamaha_musiccast))
 
 [@micha91]: https://github.com/micha91
@@ -697,7 +699,7 @@ The following integrations are also no longer available as of this release:
 
 - **SenseME** has been removed. Big Ass Fans changed the protocol in a newer
   firmware in April 2022. The [Big Ass Fans integration] can be used
-  as a replacement, after updating the latest firmware.
+  as a replacement, after updating to the latest firmware.
   ([@bdraco] - [#94363])
 
 [@bdraco]: https://github.com/bdraco
