@@ -346,11 +346,11 @@ The output of this selector is the configured value when the toggle is on, it ha
 
 ## Conversation agent selector
 
-The conversation agent selector allows to pick a conversation agent.
+The conversation agent selector allows picking a conversation agent.
 
 ![Screenshot of a conversation agent selector](/images/blueprints/selector-conversation-agent.png)
 
-The selector has 1 option, `language`. This filters the conversation agents shown to the agents that support a specific lamnguage.
+The selector has 1 option, `language`. This filters the conversation agents shown, depending on the language.
 
 ```yaml
 conversation_agent:
@@ -359,7 +359,7 @@ conversation_agent:
 
 {% configuration conversation_agent %}
 language:
-  description: Limits the list of selectable conversations to agents that support the specified language.
+  description: Limits the list of conversation agents to those supporting the specified language.
   type: string
   required: false
 {% endconfiguration %}
