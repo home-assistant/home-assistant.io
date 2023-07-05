@@ -42,17 +42,18 @@ Enjoy the release!
 
 - [Services call can now respond](#services-call-can-now-respond)
 - [New entity dialog for Locks](#new-entity-dialog-for-locks)
-- [Open assist action](#open-assist-action)
 - [Sentence trigger](#sentence-trigger)
+- [Open assist action](#open-assist-action)
 - [Image entities](#image-entities)
+- [Energy dashboard: Self-sufficiency](#energy-dashboard-self-sufficiency)
 - [Copy 'n paste support in dashboards](#copy-n-paste-support-in-dashboards)
-- [New script dialog](#new-script-dialog)
 - [Select the timezone to use/display](#select-the-timezone-to-usedisplay)
 - [Iteration of the integrations dashboard](#iteration-of-the-integrations-dashboard)
-- [Reducing the risk of running into breaking changes](#reducing-the-risk-of-running-into-breaking-changes)
 - [Unavailable automations and scripts](#unavailable-automations-and-scripts)
+- [New script dialog](#new-script-dialog)
 - [Lightning fast Bluetooth proxies](#lightning-fast-bluetooth-proxies)
 - [Matter updates](#matter-updates)
+- [Reducing the risk of running into breaking changes](#reducing-the-risk-of-running-into-breaking-changes)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -146,6 +147,19 @@ when it is (un)locking.
 
 <img class="no-shadow" src='/images/blog/2023-07/entity-dialog-lock.gif' alt='Screen recording demonstrating the new lock entity dialog.'>
 
+## Sentence trigger
+
+Our [Assist](/voice_control/) is getting more and more powerful! This time,
+we have added a new trigger to our automation editor that allows you to
+trigger an automation when a sentence is said to the default Assist conversation
+agent. 🤯
+
+<img class="no-shadow" src='/images/blog/2023-07/sentence-trigger.png' alt='Screenshot of the new sentence trigger that can be used with automations.'>
+
+Creating an automation based on something that is said, has never been easier.
+In the above screenshot, just mentioning "what a mess" will send out the living
+room vacuum to start cleaning up the mess.
+
 ## Open assist action
 
 {% details "TODO" %}
@@ -174,19 +188,6 @@ be useful for use on a wall mounted tablet, for example.
   <source src="https://user-images.githubusercontent.com/5878303/244458907-5ef1b244-bef4-47bc-b180-74be2dc18c38.mp4" type="video/mp4">
 </video>
 
-## Sentence trigger
-
-Our [Assist](/voice_control/) is getting more and more powerful! This time,
-we have added a new trigger to our automation editor that allows you to
-trigger an automation when a sentence is said to the default Assist conversation
-agent. 🤯
-
-<img class="no-shadow" src='/images/blog/2023-07/sentence-trigger.png' alt='Screenshot of the new sentence trigger that can be used with automations.'>
-
-Creating an automation based on something that is said, has never been easier.
-In the above screenshot, just mentioning "what a mess" will send out the living
-room vacuum to start cleaning up the mess.
-
 ## Image entities
 
 There is a brand new entity type in town: The [image entity](/integrations/image/).
@@ -207,6 +208,10 @@ our camera entities focused on providing actual camera feeds.
 Support for this brand new entity has been added to the [AVM Fritz!Box Tools](/integrations/fritz/)
 (for guest network access), and the [MQTT](/integrations/mqtt/) and
 [Template](/integrations/template/) integrations if you want to build your own.
+
+## Energy dashboard: Self-sufficiency
+
+<img class="no-shadow" src='/images/blog/2023-07/self-sufficiency.png' alt='Screenshot showing the latest updates and tweaks made to the integrations dashboard, making it less busy.'>
 
 ## Copy 'n paste support in dashboards
 
@@ -254,25 +259,6 @@ on the number and you can input a new position for the card!
 
 [@karwosts]: https://github.com/karwosts
 
-## New script dialog
-
-When you create a new automation, you’ll get a nice dialog where you can create
-a new one from scratch or use one of your imported blueprints
-as a starting point.
-
-[@karwosts] has now added the same dialog to our script editor! 🎉
-
-<img class="no-shadow" src='/images/blog/2023-07/new-script-dialog.png' alt='Screenshot of the dialog shown when creating a new script, allowing you to select blueprints as well.'>
-
-Being able to set up scripts from Blueprints is great, as combined with the
-brand new [service response](#services-call-can-now-respond) feature, these
-become a lot more powerful and a lot more useful for sharing!
-
-You can find new script Blueprints for you to use in the
-[Blueprint Exchange on our community forum](https://community.home-assistant.io/tags/c/blueprints-exchange/53/script?ascending=false&order=views).
-
-[@karwosts]: https://github.com/karwosts
-
 ## Select the timezone to use/display
 
 You can now select which timezone the Home Assistant interface should use
@@ -301,25 +287,6 @@ full integration name and logo is now clickable. The cog, device and service
 items have been removed, and the indicators for custom integrations
 and cloud services are no longer overlap the logos.
 
-## Reducing the risk of running into breaking changes
-
-Breaking changes, nobody loves them, but they are sometimes necessary to move
-forward. We try to keep them to an absolute minimum, but sometimes they are
-inevitable.
-
-However, we do want to reduce the risk of running into them. Therefore we have
-adopted [a new policy for deprecating YAML integration configuration options][adr].
-
-We now require that a YAML configuration option is deprecated for at least 6
-months before being removed. This means you won’t be running into
-a hard-breaking change if you skip a release or two.
-
-To improve this further, if possible, an automatic migration is now required
-and an issue in the repairs dashboard will be raised if the deprecation applies
-to your configuration.
-
-[adr]: https://github.com/home-assistant/architecture/blob/master/adr/0021-YAML-integration-configuration-deprecation-policy.md
-
 ## Unavailable automations and scripts
 
 Automations and scripts are awesome! They can add a lot of comfort to your
@@ -336,6 +303,26 @@ Selecting such an automation will show you the details of the error message
 so you know what is going on and what to fix.
 
 <img class="no-shadow" src='/images/blog/2023-07/broken-automation-details.png' alt='Screenshot showing the automation editor displaying a broken automation, including the error message on what is wrong.'>
+
+## New script dialog
+
+When you create a new automation, you’ll get a nice dialog where you can create
+a new one from scratch or use one of your imported blueprints
+as a starting point.
+
+[@karwosts] has now added the same dialog to our script editor! 🎉
+
+<img class="no-shadow" src='/images/blog/2023-07/new-script-dialog.png' alt='Screenshot of the dialog shown when creating a new script, allowing you to select blueprints as well.'>
+
+Being able to set up scripts from Blueprints is great, as combined with the
+brand new [service response](#services-call-can-now-respond) feature, these
+become a lot more powerful and a lot more useful for sharing!
+
+You can find new script Blueprints for you to use in the
+[Blueprint Exchange on our community forum](https://community.home-assistant.io/tags/c/blueprints-exchange/53/script?ascending=false&order=views).
+
+[@karwosts]: https://github.com/karwosts
+
 
 ## Lightning fast Bluetooth proxies
 
@@ -377,6 +364,26 @@ Sources:
 - If one or more nodes are unavailable, it will no longer hold up subscriptions and interviews for other devices.
 - Climate support has been added **(NOTE: pending merge, unsure...)**
 
+## Reducing the risk of running into breaking changes
+
+Breaking changes, nobody loves them, but they are sometimes necessary to move
+forward. We try to keep them to an absolute minimum, but sometimes they are
+inevitable.
+
+However, we do want to reduce the risk of running into them. Therefore we have
+adopted [a new policy for deprecating YAML integration configuration options][adr].
+
+We now require that a YAML configuration option is deprecated for at least 6
+months before being removed. This means you won’t be running into
+a hard-breaking change if you skip a release or two.
+
+To improve this further, if possible, an automatic migration is now required
+and an issue in the repairs dashboard will be raised if the deprecation applies
+to your configuration.
+
+[adr]: https://github.com/home-assistant/architecture/blob/master/adr/0021-YAML-integration-configuration-deprecation-policy.md
+
+
 ## Other noteworthy changes
 
 {% details "TODO" %}
@@ -412,6 +419,8 @@ noteworthy changes this release:
   area sensors and switches to control DnD mode. Thanks!
 - You can now dismiss all [persistent notifications] at one using the new
   dismiss all service added by [@Petro31]!
+
+- Sensirion BLE now support the SHT4x and SHT3x sensors, thanks [@akx]!
 
 [@dougiteixeira]: https://github.com/dougiteixeira
 [@grahambrown11]: https://github.com/grahambrown11
