@@ -293,31 +293,29 @@ You can find new script Blueprints for you to use in the
 
 [@karwosts]: https://github.com/karwosts
 
-
 ## Lightning fast Bluetooth proxies
 
-{% details "TODO" %}
+A great way to extend the range of Bluetooth for your Home Assistant set up,
+is by using [Bluetooth proxies](https://esphome.github.io/bluetooth-proxies/).
+These Bluetooth proxies are now even faster! Like... really fast! 🚀
 
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
+You can expect to see an 40-80% decrease in network traffic between
+Home Assistant and the proxy device. It now bundles and sends multiple
+Bluetooth advertisements in bulk, instead of sending them one by one.
 
-- Add support for ESPHome raw bluetooth advertisements ([@bdraco] - [#94138]) ([esphome docs]) (noteworthy)
-- Bump bluetooth-data-tools to 1.2.0 ([@bdraco] - [#94696]) ([esphome docs]) ([bluetooth docs]) ([led_ble docs]) ([ld2410_ble docs]) (dependency) (noteworthy)
+Another large contributor to the speed increase is that the processing of the
+advertisements is now done in Home Assistant instead of on the proxy device.
+A win-win; it is faster this way and contributes to making the ESP device more
+stable and reliable.
 
-{% enddetails %}
-
-Bluetooth proxies are now even faster! Like... really fast!
-When using the latest ESPHome and this release of Home Assistant, it will
-be so much faster that we should actually recommend using over an native
-Bluetooth stick.
+For this to work, you need [ESPHome 2023.6.0](https://esphome.io) or later.
 
 ## Matter updates
 
 Quite a few significant changes have been made to the Matter integration.
 
 The biggest change can be found in the way subscriptions are handled. Especially
-on larger (thread) networks, this will result in a much faster and more reliable
+on larger (Thread) networks, this will result in a much faster and more reliable
 experience. This also affects startup time, which is now blazing fast (from
 minutes to seconds).
 
@@ -334,8 +332,8 @@ A Nest Thermostat connected as a Matter climate device.
 </p>
 
 This means if you have a [Nest Thermostat](https://support.google.com/googlenest/answer/9246551?sjid=11501903403631214779-EU)
-with the latest firmware, you can now use it directly with Home Assistant,
-entirely local without clouds!
+(not the E or learning ones) with the latest firmware, you can now use it
+directly with Home Assistant, entirely local without clouds!
 
 ## Reducing the risk of running into breaking changes
 
