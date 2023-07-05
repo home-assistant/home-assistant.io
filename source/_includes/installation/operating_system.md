@@ -217,9 +217,6 @@ If you are running an older Windows version or have a stricter network configura
 ### Download the appropriate image
 
 - [VirtualBox][vdi] (.vdi)
-{% if page.installation_type == 'macos' %}
-- [KVM][qcow2] (.qcow2)
-{% endif %}
 {% if page.installation_type == 'windows' or page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
 - [Vmware Workstation][vmdk] (.vmdk)
@@ -238,7 +235,6 @@ Follow this guide if you already are running a supported virtual machine hypervi
 {% if page.installation_type == 'macos' %}
 - If VirtualBox is not supported on your Mac, and you have experience using virtual machines, you can try running the Home Assistant Operating system on [UTM](https://mac.getutm.app/). 
 {% endif %}
-
 
 ### Create the virtual machine
 
@@ -277,7 +273,7 @@ _All these can be extended if your usage calls for more resources._
     ```
 
     </div>
-
+{% unless page.installation_type == 'macos' %}
 - title: KVM (virt-manager)
   content: |
     1. Create a new virtual machine in `virt-manager`.
@@ -319,6 +315,7 @@ _All these can be extended if your usage calls for more resources._
     Note that this configuration (bus 003, device 003) is just an example, your dongle could be on another bus and/or with another device ID. 
     Please check the correct IDs of your USB dongle with `lsusb`.
     </div>
+{% endunless %}
 
 {% if page.installation_type == 'windows' or page.installation_type == 'linux' %}
 
