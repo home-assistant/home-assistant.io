@@ -28,5 +28,6 @@ Currently supported services are:
 - `stop`
 - `return_to_base`
 - `locate`
+- `set_fan_speed`
 
 If `pause` does not work for you, then it is not supported by your vacuum. The `stop` service will provide similar functionality.
