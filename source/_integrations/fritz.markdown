@@ -19,12 +19,12 @@ ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
   - button
-  - image
   - device_tracker
   - diagnostics
   - sensor
   - switch
   - update
+  - image
 ha_ssdp: true
 ha_integration_type: integration
 ---

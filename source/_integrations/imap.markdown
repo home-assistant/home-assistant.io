@@ -10,7 +10,6 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_codeowners:
-  - '@engrbm87'
   - '@jbouwh'
 ha_config_flow: true
 ---

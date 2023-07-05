@@ -36,6 +36,7 @@ ha_platforms:
   - update
   - vacuum
   - water_heater
+  - image
 ha_integration_type: integration
 ha_quality_scale: gold
 ---

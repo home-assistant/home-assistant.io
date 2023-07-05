@@ -14,6 +14,7 @@ ha_codeowners:
   - '@Lash-L'
 ha_domain: roborock
 ha_platforms:
+  - diagnostics
   - select
   - sensor
   - switch
