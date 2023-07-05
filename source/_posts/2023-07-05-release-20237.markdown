@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2023.7: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2023.7."
-date: 2023-06-28 00:00:00
+title: "2023.7: Responding services"
+description: "Services can now respond with data, new dialog for lock, sentence triggers, fewer breaking changes, Bluetooth proxies are now the fastest option, copy 'n paste in dashboards, brand new image entities, an dashboard action to open assist, climate support for Matter, and more!"
+date: 2023-07-05 00:00:00
 date_formatted: "July 5, 2023"
 author: Franck Nijhof
 author_twitter: frenck
