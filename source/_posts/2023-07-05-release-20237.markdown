@@ -162,31 +162,19 @@ room vacuum to start cleaning up the mess.
 
 ## Open assist action
 
-{% details "TODO" %}
+Another one for the Year of the Voice, a brand new action for use in dashboard
+cards, has been added: The Assist action!
 
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
+<img class="no-shadow" src='/images/blog/2023-07/assist-action.png' alt='Screenshot of the new sentence trigger that can be used with automations.'>
 
-* Open assist from dashboard (#16829) @piitaya
+With this action, you can directly open Assist from your dashboards using,
+for example, a button and even make Assist listen right away.
 
-{% enddetails %}
-
-For the Year of the Voice, a brand new action for use in dashboard cards has
-been added: The Assist action!
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/245445999-985c3a54-c951-40ad-9655-8c835ee6f578.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
-
-With this brand new action, you can open Assist from your dashboards using, for
-example, a button and even make Assist start listening right away. This can
-be useful for use on a wall mounted tablet, for example.
-
-<video width="640" height="600" controls>
-  <source src="https://user-images.githubusercontent.com/5878303/244458907-5ef1b244-bef4-47bc-b180-74be2dc18c38.mp4" type="video/mp4">
-</video>
+<img class="no-shadow" src='/images/blog/2023-07/assist-action.gif' alt='Screenshot of the new sentence trigger that can be used with automations.'>
+<br /><br />
+There are quite a few cases where this action can be useful. For example, if
+you have a tablet mounted on the wall, you can use this action to open Assist
+and start listening immediately using a single button touch.
 
 ## Image entities
 
