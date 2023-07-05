@@ -147,18 +147,6 @@ the larger part of this feature!
 
 ## New entity dialog for Locks
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Sources:
-
-- Add more info lock (#15995) @piitaya
-
-{% enddetails %}
-
 We are continuing to improve the entity dialogs. This time, we have reworked
 a new dialog for locks. It looks great!
 
@@ -166,9 +154,7 @@ It looks similar to the entity dialog for the switch, but it has a few
 extra features like asking for a unlock code and has a beautiful animation
 when it is (un)locking.
 
-<video width="640" height="600" controls>
-  <source src="https://user-images.githubusercontent.com/5878303/247215337-e2ee7fc4-b26f-420c-89cf-ca825d38027f.mp4" type="video/mp4">
-</video>
+<img class="no-shadow" src='/images/blog/2023-07/entity-dialog-lock.gif' alt='Screen recording demonstrating the new lock entity dialog.'>
 
 ## Open assist action
 
