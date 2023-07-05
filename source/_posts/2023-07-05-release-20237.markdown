@@ -15,36 +15,26 @@ og_image: /images/blog/2023-07/social.png
 
 <a href='/integrations/#version/2023.7'><img src='/images/blog/2023-07/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-These are the beta release notes for Home Assistant Core 2023.7 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/UI/dashboards:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
-
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
 Home Assistant Core 2023.7! 🎉
 
-Thanks for helping out testing the beta! ❤️
+The previous release was a big one, and this one is no different!
 
-Enjoy the (beta) release!
+This release brings in a change to Home Assistant, which we consider to be one
+of the biggest game changers of the past years: Services can now respond with
+data! 🤯
+
+It is such a fundamental change, which will allow for many new use cases and
+opens the gates for endless possibilities. I'm so excited about this one!
+
+But that is not all; there is a lot more in store for you! Some of my favorites:
+The Bluetooth proxies are now lightning fast, copy 'n paste in dashboards, a new
+sentence trigger, and I love that an broken automation no longer disappears
+in thin air but now shows up in the UI marked as problematic.
+
+All-in-all, a great release packed with many new features and a lot of
+quality-of-life improvements.
+
+Enjoy the release!
 
 ../Frenck
 
