@@ -344,25 +344,28 @@ Bluetooth stick.
 
 ## Matter updates
 
-{% details "TODO" %}
+Quite a few significant changes have been made to the Matter integration.
 
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
+The biggest change can be found in the way subscriptions are handled. Especially
+on larger (thread) networks, this will result in a much faster and more reliable
+experience. This also affects startup time, which is now blazing fast (from
+minutes to seconds).
 
-Sources:
+Changes to connected Matter bridges are now instantly detected, so when adding
+a new device to a bridge (like, for example, a connected Aqara M2 hub) will
+show up immediately.
 
-- Change subscription logic for Matter devices ([@marcelveldt] - [#95387]) ([matter docs]) (dependency) (noteworthy)
+Last but most certainly not least: The Matter integration now supports
+climate devices! 🎉
 
-{% enddetails %}
+<p class='img'>
+<img src='/images/blog/2023-07/matter-climate-nest-thermostat.png'></a>
+A Nest Thermostat connected as a Matter climate device.
+</p>
 
-- Subscriptions are now optimized for larger (thread) networks, this improves speed and reliability.
-- Startup time (especially with a large number of nodes) is now blazing fast (from minutes to seconds)
-- Even faster state updates
-- Changes to bridges are now instantly detected (e.g. adding a new bridged device or removing one)
-- Better logging of all activity
-- If one or more nodes are unavailable, it will no longer hold up subscriptions and interviews for other devices.
-- Climate support has been added **(NOTE: pending merge, unsure...)**
+This means if you have a [Nest Thermostat](https://support.google.com/googlenest/answer/9246551?sjid=11501903403631214779-EU)
+with the latest firmware, you can now use it directly with Home Assistant,
+entirely local without clouds!
 
 ## Reducing the risk of running into breaking changes
 
