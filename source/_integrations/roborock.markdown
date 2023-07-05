@@ -51,7 +51,7 @@ We are working on adding a lot of features to the core integration. We have reve
 
 ### How can I clean a specific room?
 We plan to make the process simpler in the future, but for now, it is a multi-step process.
-1) Make sure to first name the rooms in the Android app, otherwise they won't show up in the debug log.
+1) Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
 2) Enable debug logging for this integration and reload it.
 3) Search your logs for 'Got home data' and then find the attribute rooms.
 4) Write the rooms down; they have a name and 6 digit ID.
