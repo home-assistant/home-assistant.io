@@ -199,7 +199,19 @@ Support for this brand new entity has been added to the [AVM Fritz!Box Tools](/i
 
 ## Energy dashboard: Self-sufficiency
 
+The energy dashboard as a new gauge, added by [@TillFleisch]: Self-sufficiency.
+
+This gauge tells you how self-sufficient your home is. The more you take from
+the grid, the more the value will decrease.
+
 <img class="no-shadow" src='/images/blog/2023-07/self-sufficiency.png' alt='Screenshot showing the latest updates and tweaks made to the integrations dashboard, making it less busy.'>
+
+Increasing this value can be done by lowering your consumption from the grid,
+for example, by using a washing machine when the sun is shining or by creating
+automations that turn off devices when solar production is low. Another more
+drastic way is by adding more solar panels or battery storage.
+
+[@TillFleisch]: https://github.com/TillFleischmann
 
 ## Copy 'n paste support in dashboards
 
