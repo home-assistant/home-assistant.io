@@ -51,12 +51,13 @@ There are different methods to add a HomeKit device to Home Assistant:
 
 - [via Ethernet or Wi-Fi](#adding-a-homekit-device-via-ethernet-or-wi-fi)
 - [via Bluetooth](#adding-a-homekit-device-through-bluetooth)
-  - [migrate to a Thread network via Home Assistant](#adding-a-homekit-device-to-a-thread-network-via-home-assistant)
-  - [migrate to Thread network via Apple Thread border router](#adding-a-homekit-device-via-apple-thread-border-router)
+- via Thread
+  - [by using Home Assistant’s preferred Thread network](#adding-a-homekit-device-to-a-thread-network-via-home-assistant)
+  - [by using Apple Thread border router](#adding-a-homekit-device-via-apple-thread-border-router)
 
 ## Adding a HomeKit device via Ethernet or Wi-Fi
 
-The HomeKit controller integration automatically detects HomeKit [compatible devices](#supported-devices) that are ready to pair if the [`zeroconf`](/integrations/zeroconf/) integration is enabled. The `zeroconf` is enabled by default on new installations via the [`default_config`](/integrations/default_config/) integration.
+The HomeKit controller integration automatically detects HomeKit [compatible devices](#supported-devices) on your network when they are ready to pair.
 
 ### Prerequisites
 
@@ -64,7 +65,7 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
 - Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
    - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 - Make sure your device is powered up.
-- If your device is in your network but is paired with an Apple device via HomeKit, reset the device.
+- If your device is in your network but is paired with an Apple device via HomeKit, remove the device from the Apple Home app.
    - Otherwise you won't be able to pair it with Home Assistant.
    - HomeKit devices can only be paired to a single controller at once.
 - If your device is not already in your network, join the device to your network:
