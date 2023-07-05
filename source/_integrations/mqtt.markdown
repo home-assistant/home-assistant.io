@@ -219,9 +219,9 @@ mqtt:
       unique_id: "brtemp01"
       name: "humidity"
       device:
-        - name: "Attic"
-          identifiers:
-            - dev001
+        name: "Attic"
+        identifiers:
+          - dev001
 ```
 
 If the `device_class` option is set, it is not needed to set the entity's `name`, in that case the entity name follows the name of the `device_class`, this name supports translations. In the following example the entity `name` becomes `Bedroom Temperature`:
@@ -234,9 +234,9 @@ mqtt:
       unique_id: "brtemp01"
       device_class: temperature
       device:
-        - name: "Bedroom"
-          identifiers:
-            - dev001
+        name: "Bedroom"
+        identifiers:
+          - dev001
 ```
 
 In the following example without a `device_class` the entity `name` will become `Bedroom temperature`:
@@ -249,9 +249,9 @@ mqtt:
       unique_id: "brtemp01"
       name: "temperature"
       device:
-        - name: "Bedroom"
-          identifiers:
-            - dev001
+        name: "Bedroom"
+        identifiers:
+          - dev001
 ```
 
 <div class='note'>
