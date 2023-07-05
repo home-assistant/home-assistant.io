@@ -50,6 +50,7 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2023.6.1 - June 8](#release-202361---june-8)
 - [Release 2023.6.2 - June 14](#release-202362---june-14)
+- [Release 2023.6.3 - June 23](#release-202363---june-23)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -604,6 +605,110 @@ The following integrations are now available via the Home Assistant UI:
 [zha docs]: /integrations/zha/
 [zwave_js docs]: /integrations/zwave_js/
 
+## Release 2023.6.3 - June 23
+
+- Register Fully Kiosk services regardless of setup result ([@mheath] - [#88647]) ([fully_kiosk docs])
+- Fortios device tracker updates ([@kimfrellsen] - [#92331]) ([fortios docs])
+- Handle LastFM unavailable ([@joostlek] - [#94456]) ([lastfm docs])
+- Handle Insteon events correctly ([@teharris1] - [#94549]) ([insteon docs])
+- Fix unit for Habitica text sensors ([@atudor2] - [#94550]) ([habitica docs])
+- Bump minimum typing_extensions to 4.6.3 ([@freeDom-] - [#94587]) (dependency)
+- Fix glances raid plugin data ([@freeDom-] - [#94597]) ([glances docs])
+- Make YouTube select lower quality thumbnails ([@joostlek] - [#94652]) ([youtube docs])
+- Add strings for YouTube reauthentication ([@joostlek] - [#94655]) ([youtube docs])
+- Fix bluetooth tracker asyncio usage ([@d03n3rfr1tz3] - [#94695]) ([bluetooth_tracker docs])
+- Fix zwave_js trigger event reattach logic ([@raman325] - [#94702]) ([zwave_js docs])
+- Fix warning from rapt_ble caused by payload version 2 ([@sairon] - [#94718]) ([rapt_ble docs])
+- Fix Totalconnect BinarySensorDeviceClass logic ([@austinmroczek] - [#94772]) ([totalconnect docs])
+- Bump HAP-python to 4.7.0 ([@bdraco] - [#94812]) ([homekit docs]) (dependency)
+- Bump bthome to 2.12.0 ([@Ernst79] - [#94822]) ([bthome docs]) (dependency)
+- Update aioairzone to v0.6.4 ([@Noltari] - [#94873]) ([airzone docs]) (dependency)
+- Bump ical to 4.5.4 ([@allenporter] - [#94894]) ([local_calendar docs])
+- Fix Meteo France blocked config entry when weather alert API fails ([@Quentame] - [#94911]) ([meteo_france docs])
+- Add error handling to hassio issues ([@epenet] - [#94951]) ([hassio docs])
+- Bump Matter Server to 3.5.1: some small fixes and stability improvements ([@marcelveldt] - [#94985]) ([matter docs]) (dependency)
+- Fix zwave_js device diagnostics dump ([@raman325] - [#94999]) ([zwave_js docs])
+- Bump bimmer_connected to 0.13.7 ([@rikroe] - [#95017]) ([bmw_connected_drive docs]) (dependency)
+- Fix goodwe midnight error ([@hmmbob] - [#95041]) ([goodwe docs])
+- Fix removal of orphaned Matter devices ([@marcelveldt] - [#95044]) ([matter docs])
+- Fix KNX device trigger passing info data ([@farmio] - [#95076]) ([knx docs])
+
+[#88647]: https://github.com/home-assistant/core/pull/88647
+[#92331]: https://github.com/home-assistant/core/pull/92331
+[#94158]: https://github.com/home-assistant/core/pull/94158
+[#94288]: https://github.com/home-assistant/core/pull/94288
+[#94456]: https://github.com/home-assistant/core/pull/94456
+[#94549]: https://github.com/home-assistant/core/pull/94549
+[#94550]: https://github.com/home-assistant/core/pull/94550
+[#94587]: https://github.com/home-assistant/core/pull/94587
+[#94597]: https://github.com/home-assistant/core/pull/94597
+[#94621]: https://github.com/home-assistant/core/pull/94621
+[#94652]: https://github.com/home-assistant/core/pull/94652
+[#94655]: https://github.com/home-assistant/core/pull/94655
+[#94695]: https://github.com/home-assistant/core/pull/94695
+[#94702]: https://github.com/home-assistant/core/pull/94702
+[#94718]: https://github.com/home-assistant/core/pull/94718
+[#94772]: https://github.com/home-assistant/core/pull/94772
+[#94812]: https://github.com/home-assistant/core/pull/94812
+[#94822]: https://github.com/home-assistant/core/pull/94822
+[#94873]: https://github.com/home-assistant/core/pull/94873
+[#94894]: https://github.com/home-assistant/core/pull/94894
+[#94911]: https://github.com/home-assistant/core/pull/94911
+[#94951]: https://github.com/home-assistant/core/pull/94951
+[#94985]: https://github.com/home-assistant/core/pull/94985
+[#94999]: https://github.com/home-assistant/core/pull/94999
+[#95017]: https://github.com/home-assistant/core/pull/95017
+[#95041]: https://github.com/home-assistant/core/pull/95041
+[#95044]: https://github.com/home-assistant/core/pull/95044
+[#95076]: https://github.com/home-assistant/core/pull/95076
+[@Ernst79]: https://github.com/Ernst79
+[@Noltari]: https://github.com/Noltari
+[@Quentame]: https://github.com/Quentame
+[@allenporter]: https://github.com/allenporter
+[@atudor2]: https://github.com/atudor2
+[@austinmroczek]: https://github.com/austinmroczek
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@d03n3rfr1tz3]: https://github.com/d03n3rfr1tz3
+[@epenet]: https://github.com/epenet
+[@farmio]: https://github.com/farmio
+[@freeDom-]: https://github.com/freeDom-
+[@frenck]: https://github.com/frenck
+[@hmmbob]: https://github.com/hmmbob
+[@joostlek]: https://github.com/joostlek
+[@kimfrellsen]: https://github.com/kimfrellsen
+[@marcelveldt]: https://github.com/marcelveldt
+[@mheath]: https://github.com/mheath
+[@raman325]: https://github.com/raman325
+[@rikroe]: https://github.com/rikroe
+[@sairon]: https://github.com/sairon
+[@teharris1]: https://github.com/teharris1
+[accuweather docs]: /integrations/accuweather/
+[aemet docs]: /integrations/aemet/
+[airthings docs]: /integrations/airthings/
+[airthings_ble docs]: /integrations/airthings_ble/
+[airzone docs]: /integrations/airzone/
+[bluetooth_tracker docs]: /integrations/bluetooth_tracker/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[bthome docs]: /integrations/bthome/
+[fortios docs]: /integrations/fortios/
+[fully_kiosk docs]: /integrations/fully_kiosk/
+[glances docs]: /integrations/glances/
+[goodwe docs]: /integrations/goodwe/
+[habitica docs]: /integrations/habitica/
+[hassio docs]: /integrations/hassio/
+[homekit docs]: /integrations/homekit/
+[insteon docs]: /integrations/insteon/
+[knx docs]: /integrations/knx/
+[lastfm docs]: /integrations/lastfm/
+[local_calendar docs]: /integrations/local_calendar/
+[matter docs]: /integrations/matter/
+[meteo_france docs]: /integrations/meteo_france/
+[rapt_ble docs]: /integrations/rapt_ble/
+[totalconnect docs]: /integrations/totalconnect/
+[youtube docs]: /integrations/youtube/
+[zwave_js docs]: /integrations/zwave_js/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -1063,7 +1168,7 @@ be safely deleted.
 
 ---
 
-If you have zwave_js cover entities already and your device supports Window 
+If you have zwave_js cover entities already and your device supports Window
 Covering CC, you may see newly created cover entities. The old cover entities
 can safely be deleted, but all customizations must be reapplied to the
 new entities.

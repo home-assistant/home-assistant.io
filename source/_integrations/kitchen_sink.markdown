@@ -12,6 +12,7 @@ ha_iot_class: Calculated
 ha_platforms:
   - lock
   - sensor
+  - image
 ha_integration_type: integration
 ---
 

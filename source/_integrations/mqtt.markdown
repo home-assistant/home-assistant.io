@@ -35,6 +35,8 @@ ha_platforms:
   - tag
   - update
   - vacuum
+  - water_heater
+  - image
 ha_integration_type: integration
 ha_quality_scale: gold
 ---
@@ -202,6 +204,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Device Trigger](/integrations/device_trigger.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
 - [Climate/HVAC](/integrations/climate.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -215,6 +218,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Tag Scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Water Heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
@@ -296,6 +300,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'cod_arm_req':         'code_arm_required',
     'cod_dis_req':         'code_disarm_required',
     'cod_trig_req':        'code_trigger_required',
+    'cont_type':           'content_type',
     'curr_temp_t':         'current_temperature_topic',
     'curr_temp_tpl':       'current_temperature_template',
     'dev':                 'device',
@@ -336,6 +341,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
     'img_e':               'image_encoding',
+    'img_t':               'image_topic',
     'init':                'initial',
     'hum_cmd_t':           'target_humidity_command_topic',
     'hum_cmd_tpl':         'target_humidity_command_template',
@@ -501,6 +507,8 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     't':                   'topic',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
+    'url_t':               'url_topic',
+    'url_tpl':             'url_template',
     'val_tpl':             'value_template',
     'whit_cmd_t':          'white_command_topic',
     'whit_scl':            'white_scale',
@@ -565,16 +573,18 @@ A motion detection device which can be represented by a [binary sensor](/integra
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
-- Payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}`
+- Configuration payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
-To create a new sensor manually.
+It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together.
+
+To create a new sensor manually:
 
 ```bash
-mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}'
 ```
 
-Update the state.
+Update the state:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ON
@@ -593,9 +603,9 @@ For more details please refer to the [MQTT testing section](/integrations/mqtt/#
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
 - Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}" }`
+- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}","unique_id": "temp01ae",  "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" }}`
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
+- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}","unique_id": "hum01ae", "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" } }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
 
 #### Entities with command topics
@@ -605,15 +615,15 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
-- Payload:  `{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}`
+- Payload:  `{"name": "Irrigation", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}`
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 ```bash
 mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
-  -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}'
+  -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}}'
 ```
 
-Set the state.
+Set the state:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/set" -m ON
@@ -652,7 +662,6 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
 
 #### Use object_id to influence the entity id
 
-
 The entity id is automatically generated from the entity's name. All MQTT integrations optionally support providing an `object_id` which will be used instead if provided.
 
 - Configuration topic: `homeassistant/sensor/device1/config`
@@ -682,6 +691,7 @@ For most integrations, it is also possible to manually set up MQTT items in `con
 - [Device Tracker](/integrations/device_tracker.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/imahe.mqtt/)
 - [Climate/HVACs](/integrations/climate.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -694,6 +704,7 @@ For most integrations, it is also possible to manually set up MQTT items in `con
 - [Text](/integrations/text.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Water Heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 

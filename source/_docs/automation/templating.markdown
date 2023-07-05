@@ -144,6 +144,20 @@ These are the properties available for a [Time Pattern trigger](/docs/automation
 | `trigger.platform` | Hardcoded: `time_pattern`
 | `trigger.now` | DateTime object that triggered the time_pattern trigger.
 
+### Persistent Notification
+
+These properties are available for a [Persistent Notification trigger](/docs/automation/trigger/#persistent-notification-trigger).
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `persistent_notification`
+| `trigger.update_type` | Type of persistent notification update `added`, `removed`, `current`, or `updated`.
+| `trigger.notification` | Notification object that triggered the persistent notification trigger.
+| `trigger.notification.notification_id` | The notification ID
+| `trigger.notification.title` | Title of the notification
+| `trigger.notification.message` | Message of the notification
+| `trigger.notification.created_at` | DateTime object indicating when the notification was created.
+
 ### Webhook
 
 These are the properties available for a [Webhook trigger](/docs/automation/trigger/#webhook-trigger).

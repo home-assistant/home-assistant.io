@@ -58,7 +58,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
         3. Authorization URL: `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`. (Replace `[YOUR HOME ASSISTANT URL:PORT]` with your values.)
         4. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`. (Replace `[YOUR HOME ASSISTANT URL:PORT]` with your values.)
            Select **Next**, then **Next** again.
-    6. In the **Configure your client** **Scopes** textbox, type `email` and select **Add scope**, then type **name** and select **Add scope** again.
+    6. In the **Configure your client** **Scopes** textbox, type `email` and select **Add scope**, then type `name` and select **Add scope** again.
     7. Do **NOT** check **Google to transmit clientID and secret via HTTP basic auth header**.
     8. Select **Next**, then select **Save**.
 
@@ -72,7 +72,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     3. Go to the menu and select **APIs and Services** and next **Credentials**.
     4. In the **Credentials** view, select **Create credentials** and next **Service account**.
         1. **Service account name**: Give your account a self-selected name.
-        2. Select **Create**.
+        2. Select **Create and Continue**.
         3. **Select a role**: **Service Accounts** and **Service Account Token Creator**.
         4. Select **Continue**.
         5. Select **Done**.
@@ -106,7 +106,7 @@ If you want to allow other household users to control the devices:
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Select **Test** on the top of the page, then select **Simulator** located to the page left, then click the three little dots (more) icon in the upper right corner of the console.
 3. Select **Manage user access**. This redirects you to the Google Cloud Platform IAM permissions page.
-4. Select **ADD** at the top of the page.
+4. Select **GRANT ACCESS** at the top of the page.
     1. Enter the email address of the user you want to add.
     2. Select **Select a role** and choose **Project** > **Viewer**.
     3. Select **SAVE**.
@@ -298,11 +298,11 @@ Some of these devices may not display correctly in the Google Home app, such as 
 
 ### Secure Devices
 
-Certain devices are considered secure, including anything in the `lock` domain, `alarm_control_panel` domain and `covers` with device types `door`, `garage` or `gate`.
+Certain devices are considered secure. This includes devices in the `lock` domain, the `alarm_control_panel` domain, as well as `covers` with device types `door`, `garage`, or `gate`.
 
-By default these cannot be opened by Google Assistant unless a `secure_devices_pin` is set up. To allow opening, set the `secure_devices_pin` to something and you will be prompted to speak the pin when opening the device. Closing or locking these devices does not require a pin.
+By default, secure devices cannot be opened by Google Assistant unless a `secure_devices_pin` code is set up. To allow opening, set the `secure_devices_pin` to something. You will then be prompted to speak the pin when opening the device. Closing or locking these devices does not require a pin.
 
-For the Alarm Control Panel if a code is set it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to `false` the system will arm without prompting for the pin.
+If a code is set for the Alarm Control Panel, it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to `false`, the system will arm without prompting for the pin.
 
 ### Room/Area support
 

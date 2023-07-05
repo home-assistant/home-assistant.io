@@ -3,6 +3,7 @@ title: ESPHome
 description: Support for ESPHome devices using the native ESPHome API.
 featured: true
 ha_category:
+  - Alarm Control Panel
   - DIY
   - Update
 ha_release: 0.85
@@ -11,9 +12,11 @@ ha_config_flow: true
 ha_codeowners:
   - '@OttoWinter'
   - '@jesserockz'
+  - '@bdraco'
 ha_domain: esphome
 ha_zeroconf: true
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - camera
@@ -38,3 +41,9 @@ works_with:
 This integration allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).
 
 {% include integrations/config_flow.md %}
+
+## Home Assistant service calls
+
+ESPHome devices can make service calls to any [Home Assistant service](https://esphome.io/components/api.html#homeassistant-service-action). This functionality is not enabled by default for newly configured device, but can be turned on the options flow on a per device basis.
+
+{% include integrations/option_flow.md %}

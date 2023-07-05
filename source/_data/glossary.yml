@@ -374,7 +374,7 @@
 
     State changes can be used as the source of triggers. The current state can be used in conditions.
     
-  link: /docs/scripts/configuration/state_object/
+  link: /docs/configuration/state_object/
   excerpt: >
     The state holds the information of interest of an entity, for example, if a light is on or off. Each entity has exactly one state and the state only holds one value at a time. However, entities can store attributes related to that state such as brightness, color, or a unit of measurement.
 

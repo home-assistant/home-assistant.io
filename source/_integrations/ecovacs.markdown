@@ -79,6 +79,34 @@ logger:
 
 The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Deebot vacuums.
 
+### Vacuum services
+
+The `ecovacs` vacuum platform does not support eithor of the services `vacuum.pause` or `vacuum.start`, it supports the following services instead.
+
+#### Service `vacuum.turn_on`
+
+Start a new cleaning task.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
+
+#### Service `vacuum.turn_off`
+
+Stop the current cleaning task and return to the dock.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
+
+#### Service `vacuum.start_pause`
+
+Start, pause or resume a cleaning task.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
+
 ### Integration lifespan
 
 The remaining lifespan of components on your Deebot vacuum will be reported as attributes on the vacuum entity. The value will be a whole number representing the percentage of life remaining.

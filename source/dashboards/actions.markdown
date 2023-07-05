@@ -33,27 +33,27 @@ tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `assist`, `none`)"
       type: string
       default: "`toggle` (some cards overwrite default to `more-info` if the provided entity cannot be toggled)"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g., `media_player.media_play_pause`) when the `action` is defined as `call-service`"
       type: string
       default: none
     data:
       required: false
-      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when the `action` is defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -61,6 +61,16 @@ tap_action:
       description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
       type: [boolean, map]
       default: "false"
+    pipeline_id:
+      required: false
+      description: "Assist pipeline id to use when the `action` is defined as `assist`"
+      type: string
+      default: none
+    start_listening:
+      required: false
+      description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
+      type: boolean
+      default: none
 {% endconfiguration %}
 
 ## Hold Action
@@ -80,27 +90,27 @@ hold_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `assist`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g., `media_player.media_play_pause`) when the `action` is defined as `call-service`"
       type: string
       default: none
     data:
       required: false
-      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when the `action` is defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -108,6 +118,16 @@ hold_action:
       description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
       type: [boolean, map]
       default: "false"
+    pipeline_id:
+      required: false
+      description: "Assist pipeline id to use when the `action` is defined as `assist`"
+      type: string
+      default: none
+    start_listening:
+      required: false
+      description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
+      type: boolean
+      default: none
 {% endconfiguration %}
 
 ## Double-Tap Action
@@ -127,27 +147,27 @@ double_tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `assist`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g., `media_player.media_play_pause`) when the `action` is defined as `call-service`"
       type: string
       default: none
     data:
       required: false
-      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when the `action` is defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -155,6 +175,16 @@ double_tap_action:
       description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
       type: [boolean, map]
       default: "false"
+    pipeline_id:
+      required: false
+      description: "Assist pipeline id to use when the `action` is defined as `assist`"
+      type: string
+      default: none
+    start_listening:
+      required: false
+      description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
+      type: boolean
+      default: none
 {% endconfiguration %}
 
 ## Options For Confirmation
