@@ -40,7 +40,7 @@ Enjoy the release!
 
 <!--more-->
 
-- [Services call can now respond](#services-call-can-now-respond)
+- [Services can now respond](#services-can-now-respond)
 - [New entity dialog for Locks](#new-entity-dialog-for-locks)
 - [Sentence trigger](#sentence-trigger)
 - [Open assist action](#open-assist-action)
@@ -67,69 +67,50 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 <lite-youtube videoid="r0DLyU-4nWo" videotitle="Home Assistant 2023.7 Release Party"></lite-youtube>
 
-## Services call can now respond
+## Services can now respond
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Sources:
-
-- Add support for services to return data ([@allenporter] - [#94401]) ([google docs]) ([calendar docs]) (noteworthy)
-- Allow scripts to capture service response data in variables ([@allenporter] - [#94757]) (noteworthy)
-- Add return value to conversation.process service ([@balloob] - [#94740]) ([conversation docs]) (noteworthy)
-- Add service response data for listing calendar events ([@allenporter] - [#94759]) ([calendar docs]) (noteworthy)
-- Add service response support to dev tools (#17044) @bramkragten
-- Add response variable support to service action (#17046) @bramkragten
-- Add response UI to stop action (#17045) @bramkragten
-
-{% enddetails %}
-
-Services now can respond with data! 🎉
+Services can now respond with data! 🎉
 
 Yes, you read that right! This advanced feature is a huge step forward for
-Home Assistant and will allow for a lot of new possibilities.
+Home Assistant and will allow for a lot of new possibilities. It is one of the
+biggest fundamental changes to Home Assistant made in the past years.
 
-So, normally, calling a service in an automation or script, is a one-way
-communication to control your devices and services. For example, turning on a
-light, or play an announcement on your speakers.
+Calling a service in an automation or script was a one-way communication
+to control your devices and services. For example, turn on a light, or make
+an announcement on your speakers.
 
 So, what is the use of a service responding data? Well, it could be used to
 ask for information from a device or service. For example, you could ask
-Home Assistant which events are on your calendar today, and and use the
+Home Assistant which events are on your calendar today and use the
 answer from that service call to create a notification or announcement.
 
-<p class='img'>
-<img src='https://media.discordapp.net/attachments/427516175237382144/1123597217622663278/CleanShot_2023-06-28_at_14.53.44.png?width=2422&height=1462'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-07/service-response-example.png' alt='Screenshot showing a response to a service call in the Home Assistant developers tools, listing waste pickup calendar events.'>
 
-We have two brand new service to play with:
+In this release, we have included two brand-new services to play with service responses:
 
 - {% my developer_call_service service="conversation.process" %} - This
-  service allows you to ask Assist a command or question, and get a response
+  service allows you to ask Assist a command or question and get a response
   back.
 - {% my developer_call_service service="calendar.list_events" %} - This service
-  allows you to ask Home Assistant for a list of events on your calendar.
+  enables you to ask Home Assistant for a list of events on your calendar.
 
 If you combine those in an automation, in the morning, you could ask
-Home Assistant for todays calendar events, add things like weather information,
-send it to ChatGPT using the conversation proceess and ask it to summerize it,
-and send a notification to your phone with the result.
+Home Assistant for today's calendar events, add things like weather information,
+send it to ChatGPT using the conversation process, and ask it to summarize it
+and use that response to send a notification to your phone.
 
-[@allenporter] has put this all togther in this Blueprint to play with:
+[@allenporter] has put this all together for you in
+[this Blueprint](/blueprints/blog/2023-07/notify_agent_agenda.yaml):
 
-<https://gist.github.com/allenporter/e70d9eb090c7dbdd593cf526e07b4abe>
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/blog/2023-07/notify_agent_agenda.yaml" %}
 
 This is just one example, but the possibilities are endless! It is exciting
-to see what other creative use cases and new services with response will
+to see what other creative use cases and new services with responses will
 be added in the future!
 
-This feature is also added to scripts! So, you can make your scripts
-respond and use that script response in your automations. This is a great way
-to make your scripts more dynamic and flexible.
+[This feature is also added to scripts!](/docs/scripts#stopping-a-script-sequence)
+So, you can make your scripts respond and use that response in your automations.
+This is a great way to make your scripts more dynamic and flexible.
 
 A special thanks to [@allenporter], who has been responsible for building out
 the larger part of this feature!
@@ -426,7 +407,7 @@ noteworthy changes this release:
 [@Shulyaka]: https://github.com/Shulyaka
 [@vingerha]: https://github.com/vingerha
 [Apple TV]: /integrations/apple_tv/
-[compensation integration]: /integrations/componsation/
+[compensation integration]: /integrations/compensation/
 [deep links]: /integrations/apple_tv/#launching-apps
 [Derivative]: /integrations/derivative/
 [ESPHome]: /integrations/esphome/
