@@ -51,7 +51,6 @@ Below is an example for setting up the integration to connect to your Microsoft 
   - Password: Your password
   - Charset: `US-ASCII`
 
-
 <div class="note">
 Note that Yahoo also requires the character set `US-ASCII`.
 </div>
