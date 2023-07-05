@@ -279,7 +279,7 @@ as a starting point.
 <img class="no-shadow" src='/images/blog/2023-07/new-script-dialog.png' alt='Screenshot of the dialog shown when creating a new script, allowing you to select blueprints as well.'>
 
 Being able to set up scripts from Blueprints is great, as combined with the
-brand new [service response](#services-call-can-now-respond) feature, these
+brand new [service response](#services-can-now-respond) feature, these
 become a lot more powerful and a lot more useful for sharing!
 
 You can find new script Blueprints for you to use in the
@@ -314,7 +314,7 @@ experience. This also affects startup time, which is now blazing fast (from
 minutes to seconds).
 
 Changes to connected Matter bridges are now instantly detected, so when adding
-a new device to a bridge (like, for example, a connected Aqara M2 hub) will
+a new device to a bridge (like, for example, a connected Aqara M2 hub) it will
 show up immediately.
 
 Last but most certainly not least: The Matter integration now supports
