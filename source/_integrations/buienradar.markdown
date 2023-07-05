@@ -37,7 +37,7 @@ The `buienradar` camera platform uses [buienradar.nl](https://buienradar.nl/) as
 Internally, this integration uses the radar map image as [documented](https://www.buienradar.nl/overbuienradar/gratis-weerdata) on buienradar.nl.
 The downloaded image is cached to prevent Home Assistant from making a new request to buienradar.nl multiple times a minute when Home Assistant checks for new stills from the camera.
 
-The camera entity is added disabled by default and should first be enabled before it starts reading the camera images.
+The camera entity is disabled by default and should be [enabled](/common-tasks/general/#enabling-entities) before it reads the camera images. 
 
 ## Sensor
 
