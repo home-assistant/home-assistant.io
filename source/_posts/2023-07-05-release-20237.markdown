@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2023.7: Responding services"
-description: "Services can now respond with data, new dialog for lock, sentence triggers, fewer breaking changes, Bluetooth proxies are now the fastest option, copy 'n paste in dashboards, brand new image entities, an dashboard action to open assist, climate support for Matter, and more!"
+description: "Services can now respond with data, a new dialog for lock, sentence triggers, fewer breaking changes, Bluetooth proxies are now the fastest option, copy 'n paste in dashboards, brand new image entities, a dashboard action to open assist, climate support for Matter, and more!"
 date: 2023-07-05 00:00:00
 date_formatted: "July 5, 2023"
 author: Franck Nijhof
@@ -176,30 +176,16 @@ be useful for use on a wall mounted tablet, for example.
 
 ## Sentence trigger
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Sources:
-
-- Sentence trigger ([@synesthesiam] - [#94613]) ([conversation docs]) (noteworthy)
-- Add UI for conversation trigger (#17037) @bramkragten
-
-{% enddetails %}
-
 Our [Assist](/voice_control/) is getting more and more powerful! This time,
 we have added a new trigger to our automation editor that allows you to
 trigger an automation when a sentence is said to the default Assist conversation
 agent. 🤯
 
-<p class='img'>
-<img src='https://media.discordapp.net/attachments/427516175237382144/1123602503330701422/CleanShot_2023-06-28_at_15.14.55.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-07/sentence-trigger.png' alt='Screenshot of the new sentence trigger that can be used with automations.'>
 
-Creating an automation based on something that was said, has never been easier.
+Creating an automation based on something that is said, has never been easier.
+In the above screenshot, just mentioning "what a mess" will send out the living
+room vacuum to start cleaning up the mess.
 
 ## Image entities
 
