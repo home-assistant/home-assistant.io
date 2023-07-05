@@ -67,7 +67,7 @@ The integration provides a light entity if the unit is equipped with lights.
 ### Number
 
 - **Flame height:** Valid flame height vales are `1-5`.
-- **Sleep timer:** `0` will disable the sleep timer. Valid values are `1-180` minutes.
+- **Sleep timer:** `0` will disable the sleep timer. A value in the range of `1-180` minutes will enable the sleep timer and automatically turn off the appliance once that time has elapsed.
 
 ### Sensor Types
 
