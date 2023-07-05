@@ -47,7 +47,7 @@ Enjoy the release!
 - [Image entities](#image-entities)
 - [Copy 'n paste support in dashboards](#copy-n-paste-support-in-dashboards)
 - [New script dialog](#new-script-dialog)
-- [Select timezone to use/display](#select-timezone-to-usedisplay)
+- [Select the timezone to use/display](#select-the-timezone-to-usedisplay)
 - [Iteration of the integrations dashboard](#iteration-of-the-integrations-dashboard)
 - [Reducing the risk of running into breaking changes](#reducing-the-risk-of-running-into-breaking-changes)
 - [Unavailable automations and scripts](#unavailable-automations-and-scripts)
@@ -273,28 +273,17 @@ You can find new script Blueprints for you to use in the
 
 [@karwosts]: https://github.com/karwosts
 
-## Select timezone to use/display
-
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Sources:
-
-- Allow to show times in the UI in the timezone of the server (#16799) @bramkragten
-
-{% enddetails %}
+## Select the timezone to use/display
 
 You can now select which timezone the Home Assistant interface should use
-in your user profile. This is useful if you are traveling or if you have
-family members in different timezones.
+in your user profile. Useful when traveling or when you, for example,
+manage an instance for a relative in a different time zone.
 
-You can select to use the timezone of your current location, or you can
-choose to use the timezone that your Home Assistant server is in. The
-Home Assistant frontend will adjust all off the date & times to the
-selected timezone.
+<img class="no-shadow" src='/images/blog/2023-07/choose-used-timezone-in-ui.png' alt='Screenshot showing a new option in the user profile, that allows you to choose if you want Home Assistant to use the server or your current timezone.'>
+
+You choose to use the timezone of your current location, use the timezone that
+your Home Assistant server is in. The Home Assistant frontend will adjust all
+of the date & times to the selected timezone.
 
 ## Iteration of the integrations dashboard
 
