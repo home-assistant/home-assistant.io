@@ -34,7 +34,7 @@ This integration uses the last 6 digits of the serial number.
 
 ## Supported Devices
 
-- Wave Gen. 1
+- Wave gen. 1
 - Wave Radon
 - Wave Mini
 - Wave Plus
