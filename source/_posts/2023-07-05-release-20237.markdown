@@ -293,28 +293,20 @@ on the number and you can input a new position for the card!
 
 ## New script dialog
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-{% enddetails %}
-
-When you create a new automation, you'll get a nice dialog shown where you can
-choose to create a new automation from scratch, or use one of your imported
-blueprints as a starting point.
+When you create a new automation, you’ll get a nice dialog where you can create
+a new one from scratch or use one of your imported blueprints
+as a starting point.
 
 [@karwosts] has now added the same dialog to our script editor! 🎉
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/32912880/246427640-34640dd1-9636-4a05-adb2-80a44874a9f5.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-07/new-script-dialog.png' alt='Screenshot of the dialog shown when creating a new script, allowing you to select blueprints as well.'>
 
 Being able to set up scripts from Blueprints is great, as combined with the
 brand new [service response](#services-call-can-now-respond) feature, these
 become a lot more powerful and a lot more useful for sharing!
+
+You can find new script Blueprints for you to use in the
+[Blueprint Exchange on our community forum](https://community.home-assistant.io/tags/c/blueprints-exchange/53/script?ascending=false&order=views).
 
 [@karwosts]: https://github.com/karwosts
 
