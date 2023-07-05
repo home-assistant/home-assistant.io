@@ -325,16 +325,6 @@ are no longer overlapping the logos.
 
 ## Reducing the risk of running into breaking changes
 
-{% details "TODO" %}
-
-- Decide if we should keep this?
-  Maybe add it as an intro to the breaking changes section?
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-{% enddetails %}
-
 Breaking changes, nobody loves them, but they are sometimes necessary to move
 forward. We try to keep them to an absolute minimum, but sometimes they are
 inevitable.
@@ -343,14 +333,12 @@ However, we do want to reduce the risk of running into them. Therefore we have
 adopted [a new policy for deprecating YAML integration configuration options][adr].
 
 We now require that a YAML configuration option is deprecated for at least 6
-months before it is removed. This means, if you skip a release or two, you won't
-be running into a hard breaking change.
+months before being removed. This means you won’t be running into
+a hard-breaking change if you skip a release or two.
 
-To even improve on this further, if possible, an automatic migration is required
+To improve this further, if possible, an automatic migration is now required
 and an issue in the repairs dashboard will be raised if the deprecation applies
 to your configuration.
-
-Hopefully this helps reducing the frustration of running into breaking changes.
 
 [adr]: https://github.com/home-assistant/architecture/blob/master/adr/0021-YAML-integration-configuration-deprecation-policy.md
 
