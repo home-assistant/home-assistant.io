@@ -1,5 +1,5 @@
 ---
-title: HomeKit
+title: HomeKit Bridge
 description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
 featured: true
 ha_category:
@@ -253,13 +253,18 @@ homekit:
               type: integer
               default: 1316
             video_codec:
-              description: Only for `camera` entities. FFmpeg video codec for transcoding. `copy` option reduces CPU load when video source already encoded with `H264` (MPEG4). `h264_omx` option is only available with custom FFmpeg builds and enables GPU Hardware acceleration on Raspberry Pi.
+              description: Only for `camera` entities. FFmpeg video codec for transcoding. `copy` option reduces CPU load when video source is already encoded with `H264` (MPEG4). `h264_v4l2m2m` can be used with supported hardware, e.g., the Raspberry Pi, to offload encoding to hardware. The `h264_omx` option is only available with custom FFmpeg builds and enables GPU Hardware acceleration on Raspberry Pi.
               required: false
               type: string
               default: libx264
-              available options: copy, libx264, h264_omx
+              available options: copy, libx264, h264_v4l2m2m, h264_omx
+            video_profile_names:
+              description: Only for `camera` entities. FFmpeg video profile names for transcoding, only relevant if `video_codec` isn't `copy`. Some encoders, e.g., the Raspberry Pi's `h264_v4l2m2m`, don't use the standard `["baseline", "main", "high"]` profile names but expects `["0", "2", "4"]` instead. Use this option to override the default names, if needed.
+              required: false
+              type: list
+              default: ["baseline", "main", "high"]
             audio_codec:
-              description: Only for `camera` entities. FFmpeg audio codec for transcoding. `copy` option reduces CPU load when audio source already encoded with `libopus`.
+              description: Only for `camera` entities. FFmpeg audio codec for transcoding. `copy` option reduces CPU load when audio source is already encoded with `libopus`.
               required: false
               type: string
               default: libopus
@@ -279,7 +284,7 @@ To enable the HomeKit integration in Home Assistant, add the following to your c
 homekit:
 ```
 
-After Home Assistant has started, the entities (depending on the filter) are exposed to HomeKit if they are [supported](#supported-components). To add them:
+After Home Assistant has started, the entities (depending on the filter) are exposed to HomeKit if they are [supported](#supported-integrations). To add them:
 
 1. Open the Home Assistant frontend. A new card will display the pairing QR code and the `pin code` as seen in the example below. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the lower-left of the Home Assistant UI.
 2. Open the Apple `Home` app.
@@ -313,7 +318,7 @@ The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique
 
 ### Multiple HomeKit instances
 
-If you create a HomeKit integration via the UI (i.e., **Settings** -> **Devices & Services**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the `configuration.yaml` file will result in another instance of HomeKit running on a different port.
+If you create a HomeKit integration via the UI (i.e., **Settings** > **Devices & Services**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the `configuration.yaml` file will result in another instance of HomeKit running on a different port.
 
 It is recommended to only edit a HomeKit instance in the UI that was created in the UI, and likewise, only edit a HomeKit instance in YAML that was created in YAML.
 
@@ -323,7 +328,7 @@ When exposing a Camera, Activity based remote (a `remote` that supports activiti
 
 To quickly add all accessory mode entities in the UI:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings >> Devices & Services" domain=page.ha_domain %}**).
+1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings > Devices & Services" domain=page.ha_domain %}**).
 2. Select `media_player`, `remote`, `lock`, and `camera` domains.
 3. Complete the flow as normal.
 4. Additional HomeKit entries for each entity that must operate in accessory mode will be created for each entity that does not already have one.
@@ -332,7 +337,7 @@ To quickly add all accessory mode entities in the UI:
 
 To add a single entity in accessory mode:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings >> Devices & Services" domain=page.ha_domain %}**)
+1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings > Devices & Services" domain=page.ha_domain %}**)
 2. Before pairing the bridge, access the options for the bridge.
 3. Change the mode to `accessory`
 4. Select the entity.
@@ -341,7 +346,7 @@ To add a single entity in accessory mode:
 
 ## Configure Filter
 
-By default, all entities except categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
+By default, all entities except categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -382,11 +387,11 @@ If you have a firewall configured on your Home Assistant system, make sure you o
 - UDP: 5353
 - TCP: 21063 (or the configured/used `port` in the integration settings).
 
-## Supported Components
+## Supported integrations
 
 The following integrations are currently supported:
 
-| Component | Type Name | Description |
+| Integration | Type Name | Description |
 | --------- | --------- | ----------- |
 | alarm_control_panel | SecuritySystem | All security systems. |
 | automation / input_boolean / remote / scene / script / vacuum | Switch | All represented as switches. |
@@ -419,7 +424,7 @@ The following integrations are currently supported:
 
 # Device Triggers
 
-Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Settings >> Devices & Services" %}**. To use this feature, Advanced Mode must be enabled in your user profile.
+Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Settings > Devices & Services" %}**. To use this feature, Advanced Mode must be enabled in your user profile.
 
 Bridged device triggers are represented as a single press button on stateless programmable switches. This allows a HomeKit automation to run when a device trigger fires. Because the Apple Home app currently only shows the number of the button and not the name, users may find it easier to identify the name of the button in the `Eve for HomeKit` app.
 
@@ -544,7 +549,7 @@ Remember that the iOS device needs to be in the same local network as the Home A
 
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - Docker
 
-Set `network_mode: host` in your `docker-compose.yaml`. If you have further problems this [issue](https://github.com/home-assistant/home-assistant/issues/15692) might help.
+Set `network_mode: host` in your `docker-compose.yaml`. If you have further problems this [issue](https://github.com/home-assistant/core/issues/15692) might help.
 
 You can also try to use `avahi-daemon` in reflector mode together with the option `advertise_ip`, see above.
 
@@ -568,7 +573,7 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 
 #### Pairing hangs - no error
 
-1. Make sure that you don't try to add more than 150 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repository, so we can resolve it.
+1. Make sure that you don't try to add more than 150 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit integration. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repository, so we can resolve it.
 2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge connected to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
 
 ### Issues during normal use
@@ -579,7 +584,7 @@ Multiple users have reported that iOS 12 and earlier devices will spontaneously 
 
 #### My entity doesn't show up
 
-Check if the domain of your entity is [supported](#supported-components). If it is, check your [filter](#configure-filter) settings. Make sure the spelling is correct, especially if you use `include_entities`.
+Check if the domain of your entity is [supported](#supported-integrations). If it is, check your [filter](#configure-filter) settings. Make sure the spelling is correct, especially if you use `include_entities`.
 
 #### HomeKit doesn't work on second Home Assistant instance
 
@@ -587,7 +592,7 @@ To use the HomeKit integration with multiple different Home Assistant instances 
 
 #### Specific entity doesn't work
 
-Although we try our best, some entities don't work with the HomeKit integration yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works, unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component:%20homekit)
+Although we try our best, some entities don't work with the HomeKit integration yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works, unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [core/issues/new](https://github.com/home-assistant/core/issues/new)
 
 If you have any iOS 12.x devices signed into your iCloud account, media player entities with `device_class: tv` may trigger this condition. Filtering the entity or signing the iOS 12.x device out of iCloud should resolve the issue after restarting other devices.
 
@@ -621,7 +626,7 @@ Ensure that the [`ffmpeg`](/integrations/ffmpeg) integration is configured corre
 
 #### Camera streaming is unstable or slow 
 
-If your camera supports native H.264 streams, Home Assistant can avoid converting the video stream, which is an expensive operation. To enable native H.264 streaming when configured via YAML, change the `video_codec` to `copy`. To allow native H.264 streaming when setting up HomeKit via the UI, go to **Settings** -> **Devices & Services** in the UI, click **Options** for your HomeKit Bridge, and check the box for your camera on the `Cameras that support native H.264 streams` screen.
+If your camera supports native H.264 streams, Home Assistant can avoid converting the video stream, which is an expensive operation. To enable native H.264 streaming when configured via YAML, change the `video_codec` to `copy`. To allow native H.264 streaming when setting up HomeKit via the UI, go to **Settings** > **Devices & Services** in the UI, click **Options** for your HomeKit Bridge, and check the box for your camera on the `Cameras that support native H.264 streams` screen.
 
 #### Multiple camera streams
 

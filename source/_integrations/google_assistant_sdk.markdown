@@ -98,15 +98,19 @@ If commands don't work try removing superfluous words such as "the". E.g. "play 
 
 If broadcasting doesn't work, make sure: the speakers aren't in do not disturb mode, the Home Assistant server is in the same network as the speakers, and IPv6 is disabled in the router.
 
+The easiest way to check if the integration is working is to check [My Google Activity](https://myactivity.google.com/myactivity) for the issued commands and their responses.
+
 ## Limitations/known issues
 
-Multiple Google accounts are not supported.
-
-Limitations of the underlying library are listed [here](https://github.com/tronikos/gassist_text#limitationsknown-issues) (media playback, routines, and personal results are not working).
+- Multiple Google accounts are not supported.
+- Personal results are not supported yet since that requires creating an OAuth client ID of the Desktop app.
+- If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity), the integration is working fine. If the commands don't have the expected outcome, don't open an issue in the Home Assistant Core project or the [underlying library](https://github.com/tronikos/gassist_text). You should instead report the issue directly to Google [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
+  - Media playback commands (other than play news, play podcast, play white noise, or play rain sounds) don't work.
+  - Routines don't work.
 
 ## Configuration
 
-On the configure page, you can set the language code of the interactions with Google Assistant. If not configured, the integration picks one based on Home Assistant's configured language and country. Supported languages are listed [here](https://developers.google.com/assistant/sdk/reference/rpc/languages)
+On the configure page, you can set the language code of the interactions with Google Assistant. If not configured, the integration picks one based on Home Assistant's configured language and country. Supported languages are listed [here](https://developers.google.com/assistant/sdk/reference/rpc/languages).
 
 ## Services
 

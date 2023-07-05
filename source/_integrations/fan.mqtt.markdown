@@ -75,7 +75,7 @@ command_topic:
   required: true
   type: string
 device:
-  description: "Information about the device this fan is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this fan is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -160,6 +160,22 @@ optimistic:
   required: false
   type: boolean
   default: "`true` if no state topic defined, else `false`."
+direction_command_template:
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `direction_command_topic`.
+  required: false
+  type: template
+direction_command_topic:
+  description: The MQTT topic to publish commands to change the direction state.
+  required: false
+  type: string
+direction_state_topic:
+  description: The MQTT topic subscribed to receive direction state updates.
+  required: false
+  type: string
+direction_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value from the direction."
+  required: false
+  type: template
 oscillation_command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `oscillation_command_topic`.
   required: false
@@ -309,6 +325,9 @@ mqtt:
     - name: "Bedroom Fan"
       state_topic: "bedroom_fan/on/state"
       command_topic: "bedroom_fan/on/set"
+      direction_state_topic: "bedroom_fan/direction/state"
+      direction_command_topic: "bedroom_fan/direction/set"
+      oscillation_command_topic: "bedroom_fan/oscillation/set"
       oscillation_state_topic: "bedroom_fan/oscillation/state"
       oscillation_command_topic: "bedroom_fan/oscillation/set"
       percentage_state_topic: "bedroom_fan/speed/percentage_state"
@@ -343,6 +362,8 @@ mqtt:
     - name: "Bedroom Fan"
       command_topic: "bedroom_fan/on/set"
       command_template: "{ state: '{{ value }}'}"
+      direction_command_template: "{{ iif(value == 'forward', 'fwd', 'rev') }}"
+      direction_value_template: "{{ iif(value == 'fwd', 'forward', 'reverse') }}"
       oscillation_command_topic: "bedroom_fan/oscillation/set"
       oscillation_command_template: "{ oscillation: '{{ value }}'}"
       percentage_command_topic: "bedroom_fan/speed/percentage"
@@ -355,6 +376,21 @@ mqtt:
         -  "whoosh"
         -  "eco"
         -  "breeze"
+```
+
+{% endraw %}
+
+This example shows how to configure a fan that doesn't use `forward` and `backward` as directions.
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml with direction templates
+mqtt:
+  fan:
+    - name: "Bedroom Fan"
+      direction_command_template: "{{ iif(value == 'forward', 'fwd', 'rev') }}"
+      direction_value_template: "{{ iif(value == 'fwd', 'forward', 'reverse') }}"
 ```
 
 {% endraw %}

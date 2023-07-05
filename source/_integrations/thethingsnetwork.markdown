@@ -52,7 +52,7 @@ Access keys
 
 ## Configuration
 
-To enable this component, add the following lines to your `configuration.yaml`:
+To enable this integration, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -76,7 +76,7 @@ access_key:
 
 The `thethingsnetwork` sensor platform allows you to get data from a [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/).
 
-This platform requires that the [The Things Network component](#configuration) is set up and the [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/) as well.
+This platform requires that the [The Things Network integration](#configuration) is set up and the [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/) as well.
 
 ### Prerequisites
 

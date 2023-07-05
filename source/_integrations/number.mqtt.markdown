@@ -61,7 +61,7 @@ command_topic:
   required: true
   type: string
 device:
-  description: "Information about the device this Number is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this Number is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -106,7 +106,8 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/number/#device-class) of the number.
+  description: The [type/class](/integrations/number/#device-class) of the number. The `device_class` can be `null`.
+  default: None
   required: false
   type: device_class
   default: None
@@ -194,7 +195,8 @@ unique_id:
   required: false
   type: string
 unit_of_measurement:
-  description: Defines the unit of measurement of the sensor, if any.
+  description: Defines the unit of measurement of the sensor, if any. The `unit_of_measurement` can be `null`.
+  Default: None
   required: false
   type: string
 value_template:
