@@ -73,6 +73,12 @@ There are three attributes available on the SwitchBot entity to give you more in
 
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
+## Troubleshooting
+
+### Slow connection times
+
+Move the device closer, or replace the Bluetooth adapter with a faster one. See [Improving connection times](/integrations/bluetooth/#improving-connection-times) for more information.
+
 ## SwitchBot Lock
 
 The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
