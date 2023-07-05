@@ -189,37 +189,24 @@ room vacuum to start cleaning up the mess.
 
 ## Image entities
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Sources:
-
-- Add Guest WiFi QR-Code image entity to AVM Fritz!Tools ([@mib1185] - [#95282]) ([fritz docs]) ([fritzbox_callmonitor docs]) (new-platform) (noteworthy)
-- Add mqtt image platform ([@jbouwh] - [#94769]) ([mqtt docs]) (new-platform) (noteworthy)
-- Add image platform to the template integration ([@emontnemery] - [#94928]) ([template docs]) ([image docs]) (noteworthy)
-- Add support for image entity (#16877) @bramkragten
-
-{% enddetails %}
-
-There is a brand new entity type in town: [Image entities](/integrations/image/).
+There is a brand new entity type in town: The [image entity](/integrations/image/).
 
 The image entity is very similar to the [camera entity](/integrations/camera/),
 but instead of providing a live stream, it provides a single image. For example,
-a QR-code that provides the WiFi credentials for your guest network, a weather
+a QR code that provides the Wi-Fi credentials for your guest network, a weather
 map, an image of the last motion detected by your camera, or just the cute cat
 picture of the day!
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/247602059-8f3a322e-3e29-48a4-8b84-47dc22c9a878.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-07/image-entity.png' alt='Screenshot of an new image entity more information dialog, showing a QR code in the image.'>
 
-Support for this brand new entity has been added to the [AVM Fritz!Box Tools](/integrations/fritz/),
-for guest network access, and the [MQTT integration](/integrations/mqtt/) and
-[Template integration](/integrations/template/) if you want to build your own.
+While the camera entity provided similar functionality, we wanted to make an
+entity tailored for these specific use cases. An image entity is much
+more lightweight and efficient compared to the camera entity. Also, this keeps
+our camera entities focused on providing actual camera feeds.
+
+Support for this brand new entity has been added to the [AVM Fritz!Box Tools](/integrations/fritz/)
+(for guest network access), and the [MQTT](/integrations/mqtt/) and
+[Template](/integrations/template/) integrations if you want to build your own.
 
 ## Copy 'n paste support in dashboards
 
