@@ -383,55 +383,67 @@ to your configuration.
 
 [adr]: https://github.com/home-assistant/architecture/blob/master/adr/0021-YAML-integration-configuration-deprecation-policy.md
 
-
 ## Other noteworthy changes
-
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-- Last minute ones added?
-- Go over list again, might have missed something
-
-- **Note**: Changes processed up to PR 95432
-
-{% enddetails %}
 
 There are much more easter bunnies in this release; here are some of the other
 noteworthy changes this release:
 
-- The HomeKit Controller integration has been renamed to [HomeKit Device],
-  this make it more clear that the integration is to integrate HomeKit devices
+- You can now use network storages that have guest access enabled, and support
+  for older Samba versions has been added. Thanks, [@ludeeus]!
+- When accessing the UI of an add-on via the sidebar that hasn't been
+  started yet, it will now ask if you want to start it. Nice,
+  [@mdegat01] and [@bramkragten]!
+- The HomeKit Controller integration has been renamed to [HomeKit Device];
+  this makes it clearer that the integration is to integrate HomeKit devices
   into Home Assistant.
 - [ESPHome] now has support for Alarm Control Panels! Thanks [@grahambrown11]!
+- [@Petro31] added support for setting upper and lower limits on the
+  [compensation integration]. Cool!
 - [Humidifiers] now have an attribute for the current humidity, thanks [@Shulyaka]!
   [@jbouwh] updated the [Google Assistant] integration to support this. Additionally,
   he added support to the [Xiaomi Miio], [HomeKit Device], [Tuya] and [MQTT] integrations.
   Awesome!
-- The [Apple TV] integration now supports launching apps with [deeplinks]!
+- [@piitaya] updated all existing Humidier cards to work with the above change,
+  and adjusted them to be more in line with the existing climate cards. Nice! 
+- The [weather entity] now supports more (forecast) attributes. It added support
+  for apparent temperature, dew point, cloud coverage, and wind gust speed;
+  Thanks, [@gjohansson-ST], [@vingerha], and [@bieniu]!
+- The [Apple TV] integration now supports launching apps with [deep links]!
   Thanks [@michalmo]!
 - [@dougiteixeira] adjusted the [Derivative], [Riemann sum integral],
-  [Threshold] and [Utility Meter] helper to add the helper to the source device.
+  [Threshold], and [Utility Meter] helper to add the helper to the source device.
   This makes them show up on the device page of the device the helper is using.
   Nice work!
-- The [MQTT][mqtt_water_heater] integration has now support for water heaters,
+- [Sensirion BLE] now supports the SHT4x and SHT3x sensors, thanks [@akx]!
+- The [MQTT][mqtt_water_heater] integration now has support for water heaters,
   thanks [@hookedonunix]!
-- [@Lash-L] keept on improving the [Roborock] integration and added cleaning
-  area sensors and switches to control DnD mode. Thanks!
-- You can now dismiss all [persistent notifications] at one using the new
+- [@Lash-L] kept improving the [Roborock] integration and added cleaning area
+  sensors and switches to control DnD mode. Thanks!
+- We have a new trigger that allows automations to trigger on the creation,
+  deletion, or update of [persistent notifications]! Thanks, [@RoboMagus]!
+- You can now dismiss all [persistent notifications] at once using the new
   dismiss all service added by [@Petro31]!
 
-- Sensirion BLE now support the SHT4x and SHT3x sensors, thanks [@akx]!
-
+[@akx]: https://github.com/akx
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
 [@dougiteixeira]: https://github.com/dougiteixeira
+[@gjohansson-ST]: https://github.com/gjohansson-ST
 [@grahambrown11]: https://github.com/grahambrown11
 [@hookedonunix]: https://github.com/hookedonunix
 [@jbouwh]: https://github.com/jbouwh
 [@Lash-L]: https://github.com/Lash-L
+[@ludeeus]: https://github.com/ludeeus
+[@mdegat01]: https://github.com/mdegat01
 [@michalmo]: https://github.com/michalmo
 [@Petro31]: https://github.com/Petro31
+[@piitaya]: https://github.com/piitaya
+[@RoboMagus]: https://github.com/RoboMagus
 [@Shulyaka]: https://github.com/Shulyaka
+[@vingerha]: https://github.com/vingerha
 [Apple TV]: /integrations/apple_tv/
-[deeplinks]: /integrations/apple_tv/#launching-apps
+[compensation integration]: /integrations/componsation/
+[deep links]: /integrations/apple_tv/#launching-apps
 [Derivative]: /integrations/derivative/
 [ESPHome]: /integrations/esphome/
 [Google Assistant]: /integrations/google_assistant/
@@ -442,35 +454,12 @@ noteworthy changes this release:
 [persistent notifications]: /integrations/persistent_notification/
 [Riemann sum integral]: /integrations/integration/
 [Roborock]: /integrations/roborock/
+[Sensirion BLE]: /integrations/sensirion_ble/
 [Threshold]: /integrations/threshold/
 [Tuya]: /integrations/tuya/
 [Utility Meter]: /integrations/utility_meter/
+[weather entity]: /integrations/weather
 [Xiaomi Miio]: /integrations/xiaomi_miio/
-
-Still to process:
-
-- Add optional limits to compensation sensors (@Petro31 - #85886)
-
-- Samba shares mounts now work with guests mounts
-- Samba version 1 mounts now work
-
-- Device automations now use entity registry IDs instead of entity IDs
-- Add set_config service to Fully Kiosk Browser integration (@cgarwood - #95318)
-- Update humidifier Ui with current humidity and action (#17072) @piitaya
-- Add basic assist dev tools (#17062) @piitaya
-- Ingress: offer to start addon on ingress page (#16458) @bramkragten
-- Align humidifier thermostat card (#17054) @piitaya
-- Add persistent_notification trigger (#16967) @RoboMagus
-- Allow continue_on_error in the UI action editor (#16834) @karwosts
-
-- Implement Apparent temperature in Weather entity component ([@gjohansson-ST] - [#95070])
-- Implement dew point in weather entity component ([@gjohansson-ST] - [#95072])
-- Implement Cloud coverage in Weather entity component ([@gjohansson-ST] - [#95068])
-- Implement Wind Gust speed in Weather entity component ([@gjohansson-ST] - [#95065])
-- Add humidity to weather forecast ([@vingerha] - [#95064])
-- Add new properties to the weather entity in Accuweather integration ([@bieniu] - [#95110])
-- Use new attributes in Met ([@gjohansson-ST] - [#95099])
-- Add new attributes into Template Weather ([@gjohansson-ST] - [#95100])
 
 ## New integrations
 
