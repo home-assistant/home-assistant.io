@@ -52,7 +52,7 @@ Below is an example for setting up the integration to connect to your Microsoft 
   - Charset: `US-ASCII`
 
 <div class="note">
-Note that Yahoo also requires the character set `US-ASCII`.
+Yahoo also requires the character set `US-ASCII`.
 </div>
 
 ### Selecting an alternate SSL cipher list or disable SSL verification (advanced mode)
