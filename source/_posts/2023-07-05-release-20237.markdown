@@ -203,47 +203,29 @@ Support for this brand new entity has been added to the [AVM Fritz!Box Tools](/i
 
 ## Copy 'n paste support in dashboards
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Sources:
-
-- Show card positions in edit dashboard mode (#17055) @karwosts
-- Support cut/copy/paste in dashboard UI editor (#16707) @karwosts
-
-{% enddetails %}
-
 In the previous release, [@karwosts] added the amazing [copy 'n paste feature](/blog/2023/06/07/release-20236/#copy-n-paste-support-in-the-automation-editor)
 to our automation and script editors. This release, he is back with the same
 feature for our dashboards!
 
-You can now cut, copy, and paste cards between your dashboards, views and
+You can now cut, copy, and paste cards between your dashboards, views, and
 even inside other nested cards. This makes it a lot easier to reorganize your
 dashboards!
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/32912880/242464648-bc2dd476-9acf-4ccf-a615-668f7dd949f1.gif'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-07/cut-and-paste-card.png' alt='Screenshot showing the new cut and paste options available in the overflow menu of dashboards.'>
 
-To make it even easier to reorganize your dashboards, it is mandatory to
-understand the order of the cards across the differnt columns in your view.
-So, a positional number is now shown when the your are in edit mode.
+Just like with automations, select the card you want to cut or copy, and
+when adding a new card to your dashboard, you will see a new option to paste.
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/32912880/249232766-b1a35c7c-d596-4cab-83dc-67502b1a3c58.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+When reorganizing your dashboards that use a masonry layout, it is mandatory to 
+understand the order of the cards across the different columns in your view.
+To make that easier we now show a positional number on the card when
+your dashboard is in edit mode.
 
-Added bonus: Who needs drag 'n drop when you've got click 'n ...teleport? Click
-on the number and you can input a new position for the card!
+Added bonus: Who needs drag 'n drop when you've got click 'n ...teleport?
+Just kidding, of course; however, teleporting already makes things a lot easier!
+Click on the positional number to enter a new position for the card.
 
-<video width="640" height="600" controls>
-  <source src="https://cdn.discordapp.com/attachments/717500797684023327/1123631077819433020/CleanShot_2023-06-28_at_16.52.10.mp4" type="video/mp4">
-</video>
+<img class="no-shadow" src='/images/blog/2023-07/dashboard-teleport.gif' alt='Screen recording demonstrating clicking the positional number, provides a way to move a card to a different position.'>
 
 [@karwosts]: https://github.com/karwosts
 
