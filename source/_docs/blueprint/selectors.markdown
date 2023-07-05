@@ -24,6 +24,7 @@ The following selectors are currently available:
 - [Color temperature selector](#color-temperature-selector)
 - [Config entry selector](#config-entry-selector)
 - [Constant selector](#constant-selector)
+- [Conversation agent selector](#conversation-agent-selector)
 - [Date selector](#date-selector)
 - [Date & time selector](#date--time-selector)
 - [Device selector](#device-selector)
@@ -342,6 +343,28 @@ boolean:
 ```
 
 The output of this selector is the configured value when the toggle is on, it has not output otherwise.
+
+## Conversation agent selector
+
+The conversation agent selector allows to pick a conversation agent.
+
+![Screenshot of a conversation agent selector](/images/blueprints/selector-conversation-agent.png)
+
+The selector has 1 option, `language`. This filters the conversation agents shown to the agents that support a specific lamnguage.
+
+```yaml
+conversation_agent:
+  language: en
+```
+
+{% configuration conversation_agent %}
+language:
+  description: Limits the list of selectable conversations to agents that support the specified language.
+  type: string
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the ID of the conversation agent.
 
 ## Date selector
 
