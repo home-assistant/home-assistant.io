@@ -32,9 +32,8 @@ There is currently support for the following device types within Home Assistant:
 * [Device tracker](#presence-detection) for connected devices
 * [Switch](#switch) to control Wi-Fi
 * [Camera](#camera)
-* [Alarm control panel](#alarm)
 * [Binary sensors](#binary)
-*  
+  
 
 {% include integrations/config_flow.md %}
 
@@ -122,9 +121,6 @@ The monitored metrics are:
 
 ## Camera
 Cameras are only available in Freebox V7 (also known as Freebox Delta).
-
-## Alarm
-This platform offers you the Freebox alarm control panel.
 
 ## Binary
 This platform offers you sensors to monitor:
