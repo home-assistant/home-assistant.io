@@ -568,7 +568,7 @@ A motion detection device which can be represented by a [binary sensor](/integra
 - Configuration payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
-It is also a good idea to add a `unique_id` to allow changes to then entity and a `device` mapping so we can group all sensors of a device together.
+It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together.
 
 To create a new sensor manually:
 
