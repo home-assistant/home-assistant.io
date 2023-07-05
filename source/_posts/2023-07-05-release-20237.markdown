@@ -28,8 +28,8 @@ opens the gates for endless possibilities. I'm so excited about this one!
 
 But that is not all; there is a lot more in store for you! Some of my favorites:
 The Bluetooth proxies are now lightning fast, copy 'n paste in dashboards, a new
-sentence trigger, and I love that an broken automation no longer disappears
-in thin air but now shows up in the UI marked as problematic.
+sentence trigger, and I love that a broken automation no longer disappears
+into thin air but now shows up in the UI marked as problematic.
 
 All-in-all, a great release packed with many new features and a lot of
 quality-of-life improvements.
@@ -120,7 +120,7 @@ the larger part of this feature!
 ## New entity dialog for Locks
 
 We are continuing to improve the entity dialogs. This time, we have reworked
-a new dialog for locks. It looks great!
+the entity dialog for locks. It looks great!
 
 It looks similar to the entity dialog for the switch, but it has a few
 extra features like asking for a unlock code and has a beautiful animation
@@ -231,9 +231,9 @@ manage an instance for a relative in a different time zone.
 
 <img class="no-shadow" src='/images/blog/2023-07/choose-used-timezone-in-ui.png' alt='Screenshot showing a new option in the user profile, that allows you to choose if you want Home Assistant to use the server or your current timezone.'>
 
-You choose to use the timezone of your current location, use the timezone that
-your Home Assistant server is in. The Home Assistant frontend will adjust all
-of the date & times to the selected timezone.
+You can choose to use the timezone of your current location, or use the timezone
+that your Home Assistant server is in. The Home Assistant frontend will adjust
+all of the date & times to the selected timezone.
 
 ## Iteration of the integrations dashboard
 
@@ -254,8 +254,8 @@ and cloud services are no longer overlap the logos.
 ## Unavailable automations and scripts
 
 Automations and scripts are awesome! They can add a lot of comfort to your
-home, making your home automation feel like magic. But they have a weird quirk;
-If you made an error in their configuration, they would just disappear
+home, making your home automation feel like magic. But they have a weird quirk:
+if you made an error in their configuration, they would just disappear
 from Home Assistant. 😞
 
 This is no longer the case! 😀 If an automation or script has an error, it will
@@ -289,7 +289,7 @@ You can find new script Blueprints for you to use in the
 
 ## Lightning fast Bluetooth proxies
 
-A great way to extend the range of Bluetooth for your Home Assistant set up,
+A great way to extend the range of Bluetooth for your Home Assistant set up
 is by using [Bluetooth proxies](https://esphome.github.io/bluetooth-proxies/).
 These Bluetooth proxies are now even faster! Like... really fast! 🚀
 
@@ -350,7 +350,7 @@ to your configuration.
 
 ## Other noteworthy changes
 
-There are much more easter bunnies in this release; here are some of the other
+There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
 - You can now use network storages that have guest access enabled, and support
@@ -368,7 +368,7 @@ noteworthy changes this release:
   [@jbouwh] updated the [Google Assistant] integration to support this. Additionally,
   he added support to the [Xiaomi Miio], [HomeKit Device], [Tuya] and [MQTT] integrations.
   Awesome!
-- [@piitaya] updated all existing Humidier cards to work with the above change,
+- [@piitaya] updated all existing Humidifier cards to work with the above change,
   and adjusted them to be more in line with the existing climate cards. Nice! 
 - The [weather entity] now supports more (forecast) attributes. It added support
   for apparent temperature, dew point, cloud coverage, and wind gust speed;
