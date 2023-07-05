@@ -636,11 +636,33 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking changes
 
-{% details "TODO" %}
+{% details "Home Assistant Container (Docker)" %}
 
-**Note**: Breaking changes processed up to PR 74954
+If you use the Home Assistant Container installation method, for example, using
+Docker, please make sure you are using our official (multi-platform) images.
 
-- Add breaking change (more of a nice) for Docker locations / advise.
+The correct and preferred image to use for our stable releases is:
+
+- `ghcr.io/home-assistant/home-assistant:stable`
+
+Although not the preferred location by the Home Assistant project, the image
+is also available on DockerHub:
+
+- `homeassistant/home-assistant:stable`
+
+The reason for mentioning this in this breaking change section is that we have
+seen usage of our internal, intermediate, platform build images. These images
+are not meant for use directly, and using the above listed images is strongly
+recommended.
+
+As of this release, we no longer publish our intermediate platform images to
+DockerHub. This means that if you are using these images, you will no longer
+receive updates. Please use the above-listed images instead.
+
+([@pvizeli] - [#95236])
+
+[@pvizeli]: https://github.com/pvizeli
+[#95236]: https://github.com/home-assistant/core/pull/95236
 
 {% enddetails %}
 
@@ -810,7 +832,9 @@ If you are a custom integration developer and want to learn about breaking
 changes and new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
+- [Changes to entity naming](https://developers.home-assistant.io/blog/2023/06/28/entity-name-changes)
 - [Service Call API changes](https://developers.home-assistant.io/blog/2023/06/14/service-calls)
+- [Service call description filters](https://developers.home-assistant.io/blog/2023/06/28/service-description-filters)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
