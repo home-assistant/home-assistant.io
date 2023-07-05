@@ -228,7 +228,7 @@ Example:
 
 ## Development / Testing with your own client ID
 
-To enable the Netatmo component with your own development credentials, you have
+To enable the Netatmo integration with your own development credentials, you have
 to declare a new application in the [Netatmo Developer Page](https://dev.netatmo.com/).
 
 Sign in using your username and password from your regular Netatmo account.

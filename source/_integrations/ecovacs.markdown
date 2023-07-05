@@ -62,7 +62,7 @@ The library that talks to the Ecovacs servers is in a very early state and still
 
 Please see the [py-sucks library documentation](https://github.com/mib1185/py-sucks) for some more information about what has been tested, and check out the GitHub issues to see if the issue you're having is known or being worked on.
 
-If you have an issue with the Ecovacs component, please file a [GitHub Issue](https://github.com/home-assistant/home-assistant/issues) and include your Home Assistant logs in the report. To get full debug output from both the Ecovacs integration and the underlying `sucks` library, place this in your `configuration.yaml` file:
+If you have an issue with the Ecovacs integration, please file a [GitHub Issue](https://github.com/home-assistant/home-assistant/issues) and include your Home Assistant logs in the report. To get full debug output from both the Ecovacs integration and the underlying `sucks` library, place this in your `configuration.yaml` file:
 
 ```yaml
 logger:
@@ -79,7 +79,35 @@ logger:
 
 The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Deebot vacuums.
 
-### Component Lifespans
+### Vacuum services
+
+The `ecovacs` vacuum platform does not support eithor of the services `vacuum.pause` or `vacuum.start`, it supports the following services instead.
+
+#### Service `vacuum.turn_on`
+
+Start a new cleaning task.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
+
+#### Service `vacuum.turn_off`
+
+Stop the current cleaning task and return to the dock.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
+
+#### Service `vacuum.start_pause`
+
+Start, pause or resume a cleaning task.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
+
+### Integration lifespan
 
 The remaining lifespan of components on your Deebot vacuum will be reported as attributes on the vacuum entity. The value will be a whole number representing the percentage of life remaining.
 

@@ -88,7 +88,7 @@ current_humidity_template:
   required: false
   type: template
 current_humidity_topic:
-  description: The MQTT topic on which to listen for the current humidity. A `"None"` value received will reset the current temperature. Empty values (`'''`) will be ignored. 
+  description: The MQTT topic on which to listen for the current humidity. A `"None"` value received will reset the current humidity. Empty values (`'''`) will be ignored. 
   required: false
   type: string
 current_temperature_template:
@@ -96,11 +96,11 @@ current_temperature_template:
   required: false
   type: template
 current_temperature_topic:
-  description: The MQTT topic on which to listen for the current temperature. A `"None"` value received will reset the current humidity. Empty values (`'''`) will be ignored.
+  description: The MQTT topic on which to listen for the current temperature. A `"None"` value received will reset the current temperature. Empty values (`'''`) will be ignored.
   required: false
   type: string
 device:
-  description: 'Information about the device this HVAC device is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
+  description: 'Information about the device this HVAC device is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
   required: false
   type: map
   keys:

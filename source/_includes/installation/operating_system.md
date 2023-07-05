@@ -232,6 +232,9 @@ After downloading, decompress the image. If the image comes in a ZIP file, for e
 
 Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines, we recommend installing Home Assistant OS directly on a [Home Assistant Yellow](/installation/yellow), a [Raspberry Pi](/installation/raspberrypi), or an [ODROID](/installation/odroid).
 
+{% if page.installation_type == 'macos' %}
+- If VirtualBox is not supported on your Mac, and you have experience using virtual machines, you can try running the Home Assistant Operating system on [UTM](https://mac.getutm.app/). 
+{% endif %}
 
 ### Create the virtual machine
 

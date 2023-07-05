@@ -13,11 +13,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `Ombi` integration monitors data from your [Ombi](https://ombi.io) instance.
+The Ombi integration monitors data from your [Ombi](https://ombi.io) instance.
 
 ## Setup
 
-This component needs to authenticate to your Ombi instance with either a user `password` or an `api_key`.
+This integration needs to authenticate to your Ombi instance with either a user `password` or an `api_key`.
 
 To find your `api_key` open the Ombi web interface. Navigate to **Settings** and then to **Ombi**, you should then be able to see your `api_key`.
 

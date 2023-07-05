@@ -1,6 +1,6 @@
 ---
-title: Google Translate Text-to-Speech
-description: Instructions on how to setup Google Translate Text-to-Speech with Home Assistant.
+title: Google Translate text-to-speech
+description: Instructions on how to setup Google Translate text-to-speech with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.35
@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `google_translate` text-to-speech platform uses the unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices. Contrary to what the name suggests, the integration only does text-to-speech and does not translate messages sent to it.
+The `google_translate` text-to-speech platform uses the unofficial [Google Translate text-to-speech engine](https://translate.google.com/) to read a text with natural sounding voices. Contrary to what the name suggests, the integration only does text-to-speech and does not translate messages sent to it.
 
 ## Configuration
 
@@ -36,7 +36,7 @@ tld:
   default: "`com`"
 {% endconfiguration %}
 
-Check the [complete list of supported languages](https://translate.google.com/intl/en_ALL/about/languages/) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
+Check the [complete list of supported languages](https://cloud.google.com/translate/docs/languages) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
 Use the 2-digit language code which you can find at the end of the URL when you click on the language name. 
 
 Check the [complete list of supported tld](https://www.google.com/supported_domains) for allowed TLD values. This is used to force the dialect used when multiple fall into the same 2-digit language code(i.e., *US, UK, AU*)

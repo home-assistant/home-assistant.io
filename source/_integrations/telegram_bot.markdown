@@ -31,9 +31,12 @@ Send a notification.
 | `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
+| `resize_keyboard`         |      yes | True/false for resizing the keyboard vertically for optimal fit. Defaults to False. |
+| `one_time_keyboard`       |      yes | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
-| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %} |
+| `reply_to_message_id`     |      yes | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %} |
 
 ### Service `telegram_bot.send_photo` 
 
@@ -52,9 +55,11 @@ Send a photo.
 | `disable_notification`     |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
 | `timeout`                 |      yes | Timeout for sending photo in seconds. Will help with timeout errors (poor internet connection, etc) |
+| `resize_keyboard`         |      yes | True/false for resizing the keyboard vertically for optimal fit. Defaults to False. |
+| `one_time_keyboard`       |      yes | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
-| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %} |
 
 ### Service `telegram_bot.send_video`
 
@@ -73,6 +78,8 @@ Send a video.
 | `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
 | `timeout`                 |      yes | Timeout for sending video in seconds. Will help with timeout errors (poor internet connection, etc) |
+| `resize_keyboard`         |      yes | True/false for resizing the keyboard vertically for optimal fit. Defaults to False. |
+| `one_time_keyboard`       |      yes | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
@@ -93,9 +100,11 @@ Send an animation.
 | `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
 | `timeout`                 |      yes | Timeout for sending video in seconds. Will help with timeout errors (poor internet connection, etc) |
+| `resize_keyboard`         |      yes | True/false for resizing the keyboard vertically for optimal fit. Defaults to False. |
+| `one_time_keyboard`       |      yes | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
-| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %} |
 
 ### Service `telegram_bot.send_voice`
 
@@ -113,9 +122,11 @@ Send a voice message.
 | `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
 | `timeout`                 |      yes | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc) |
+| `resize_keyboard`         |      yes | True/false for resizing the keyboard vertically for optimal fit. Defaults to False. |
+| `one_time_keyboard`       |      yes | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
-| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %} |
 
 ### Service `telegram_bot.send_sticker`
 
@@ -133,9 +144,11 @@ Send a sticker.
 | `disable_notification`     |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
 | `timeout`                 |      yes | Timeout for sending photo in seconds. Will help with timeout errors (poor internet connection, etc) |
+| `resize_keyboard`         |      yes | True/false for resizing the keyboard vertically for optimal fit. Defaults to False. |
+| `one_time_keyboard`       |      yes | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
-| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %} |
 
 ### Service `telegram_bot.send_document`
 
@@ -154,9 +167,11 @@ Send a document.
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
 | `timeout`                 |      yes | Timeout for sending document in seconds. Will help with timeout errors (poor internet connection, etc) |
+| `resize_keyboard`         |      yes | True/false for resizing the keyboard vertically for optimal fit. Defaults to False. |
+| `one_time_keyboard`       |      yes | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
-| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %} |
 
 ### Service `telegram_bot.send_location`
 
@@ -168,9 +183,11 @@ Send a location.
 | `longitude`               |       no | The longitude to send.  |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
+| `resize_keyboard`         |      yes | True/false for resizing the keyboard vertically for optimal fit. Defaults to False. |
+| `one_time_keyboard`       |      yes | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
-| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %} |
 
 ### Service `telegram_bot.send_poll`
 
