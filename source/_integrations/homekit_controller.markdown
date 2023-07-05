@@ -74,9 +74,11 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
      - Pair it with the Apple Home app (using the iOS Home app).
      - After it has been paired with the Apple Home app, remove the device from the app again.
      - Do not reset the device.
-     **Result**: Adding the device to the Home app and then removing it again has two effects:
-       - It adds the device to your network. It stays in the network even after you removed it from the app.
-       - Removing the device from the app opens it up for pairing with Home Assistant.
+
+
+Adding the device to the Home app and then removing it again has two effects:
+ - It adds the device to your network. It stays in the network even after you removed it from the app.
+ - Removing the device from the app opens it up for pairing with Home Assistant.
 
 
 ### To add a HomeKit device via Ethernet or Wi-Fi
