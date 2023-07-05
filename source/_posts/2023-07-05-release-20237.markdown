@@ -322,38 +322,20 @@ to your configuration.
 
 ## Unavailable automations and scripts
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Sources:
-
-- Set automations which fail validation unavailable ([@emontnery] - [#94856]) ([automation docs]) (noteworthy)
-- Set scripts which fail validation unavailable ([@emontnemery] - [#95381]) ([script docs]) (noteworthy)
-- Show if script is unavailable and why (#17051) @bramkragten
-- Show if automation is unavailable and why (#17048) @bramkragten
-
-{% enddetails %}
-
 Automations and scripts are awesome! They can add a lot of comfort to your
-home, but they have a weird quirk. If they have an error, they would just
-disappear from Home Assistant.
+home, making your home automation feel like magic. But they have a weird quirk;
+If you made an error in their configuration, they would just disappear
+from Home Assistant. 😞
 
-This is no longer the case! If an automation or script has an error, it will
-now show up as unavailable in the UI. Selecting such an automation will show
-you the error message, so you know what is going on and what to fix.
+This is no longer the case! 😀 If an automation or script has an error, it will
+now show up as unavailable, accompanied by a red confused automation robot.
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5662298/249156623-34640e20-daa9-4608-9348-dc35ca6e1732.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-07/broken-automation.png' alt='Screenshot showing the list of automations, with one broken automation in that list.'>
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5662298/249156585-6ca2a73f-724f-49bc-9cff-66f2a1df7da5.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+Selecting such an automation will show you the details of the error message
+so you know what is going on and what to fix.
+
+<img class="no-shadow" src='/images/blog/2023-07/broken-automation-details.png' alt='Screenshot showing the automation editor displaying a broken automation, including the error message on what is wrong.'>
 
 ## Lightning fast Bluetooth proxies
 
