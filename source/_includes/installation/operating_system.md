@@ -290,7 +290,7 @@ _All these can be extended if your usage calls for more resources._
 - title: KVM (virt-install)
   content: |
     ```bash
-    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi
+    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --import --graphics none --boot uefi
     ```
     <div class="note info">
     If you have a USB dongle to attach, you need to add the option `--hostdev busID.deviceId`. You can discover these IDs via the `lsusb` command.
@@ -310,7 +310,7 @@ _All these can be extended if your usage calls for more resources._
     You can recognize the Sonoff dongle at `Bus 003 Device 003`. So the command to install the VM will become:
 
     ```bash
-    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi --hostdev 003.003
+    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --import --graphics none --boot uefi --hostdev 003.003
     ```
     Note that this configuration (bus 003, device 003) is just an example, your dongle could be on another bus and/or with another device ID. 
     Please check the correct IDs of your USB dongle with `lsusb`.
