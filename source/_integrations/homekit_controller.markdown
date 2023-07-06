@@ -65,17 +65,15 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
 - Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
    - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 - Make sure your device is powered up.
-- Make sure the device is on your network, but not paired with another HomeKit controller. Depending on the device you need to go through a different set of steps:
-  - If your device is not already in your network: **Join** the device to your network:
+- Make sure the device is on your network, but not paired with another HomeKit controller. Depending on the device, you need to follow a different set of steps:
+  - If your device is not already in your network: Join the device to your network:
     - Follow the instructions of the manufacturer on how to join the device to the network
-    - If the device is HomeKit only, simply pair it with the Apple Home app, then follow the next bullet point.
+    - If the device is HomeKit only, pair it with the Apple Home app, then follow the next step.
   - If your device is in your network but is paired with an Apple device via HomeKit: **Remove** the device from the Apple Home app.
     - Otherwise you won't be able to pair it with Home Assistant.
-  - **Note:** Adding the device to the Home app and then removing it again has two effects:
+  - **Explanation:** Adding the device to the Home app and then removing it again has two effects:
     - It adds the device to your network. It stays in the network even after you removed it from the app.
     - Removing the device from the app opens it up for pairing with Home Assistant. HomeKit devices can only be paired to a single controller at once.
-
-
 
 
 ### To add a HomeKit device via Ethernet or Wi-Fi
@@ -85,7 +83,7 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
      
      ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
 1. Enter your HomeKit pairing code.
-   - Add the device to a room and **Finish**.
+   - Add the device to a room and select **Finish**.
    - The device should now be added to your Home Assistant instance.
 1. Once Home Assistant is configured to work with the device, you can export it back to Siri and Apple Home with the [`HomeKit`](/integrations/homekit/) integration.
 
