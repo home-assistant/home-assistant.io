@@ -56,6 +56,7 @@ Enjoy the release!
 - [Reducing the risk of running into breaking changes](#reducing-the-risk-of-running-into-breaking-changes)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
+- [Release 2023.7.1 - July 6](#release-202371---july-6)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
@@ -210,7 +211,7 @@ dashboards!
 Just like with automations, select the card you want to cut or copy, and
 when adding a new card to your dashboard, you will see a new option to paste.
 
-When reorganizing your dashboards that use a masonry layout, it is mandatory to 
+When reorganizing your dashboards that use a masonry layout, it is mandatory to
 understand the order of the cards across the different columns in your view.
 To make that easier we now show a positional number on the card when
 your dashboard is in edit mode.
@@ -369,7 +370,7 @@ noteworthy changes this release:
   he added support to the [Xiaomi Miio], [HomeKit Device], [Tuya] and [MQTT] integrations.
   Awesome!
 - [@piitaya] updated all existing Humidifier cards to work with the above change,
-  and adjusted them to be more in line with the existing climate cards. Nice! 
+  and adjusted them to be more in line with the existing climate cards. Nice!
 - The [weather entity] now supports more (forecast) attributes. It added support
   for apparent temperature, dew point, cloud coverage, and wind gust speed;
   Thanks, [@gjohansson-ST], [@vingerha], and [@bieniu]!
@@ -452,6 +453,71 @@ We welcome the following new integrations in this release:
 [Image]: /integrations/image
 [LOQED Touch Smart Lock]: /integrations/loqed
 [Renson]: /integrations/renson
+
+## Release 2023.7.1 - July 6
+
+- Fix not including device_name in friendly name if it is None ([@jbouwh] - [#95485])
+- Handle integrations with empty services or failing to load during service description enumeration ([@bdraco] - [#95911])
+- Update frontend to 20230705.1 ([@bramkragten] - [#95913]) ([frontend docs])
+- Make SwitchBot no_devices_found message more helpful ([@bdraco] - [#95916]) ([switchbot docs])
+- Migrate bracketed IP addresses in ZHA config entry ([@puddly] - [#95917]) ([zha docs])
+- Use device name for Nuki ([@joostlek] - [#95941]) ([nuki docs])
+- Add explicit device naming for Tuya sensors ([@joostlek] - [#95944]) ([tuya docs])
+- Fix entity name for Flick Electric ([@joostlek] - [#95947]) ([flick_electric docs])
+- Fix matter exception NoneType in set_brightness for optional min/max level values ([@neocolis] - [#95949]) ([matter docs])
+- Fix grouping feature for MusicCast ([@micha91] - [#95958]) ([yamaha_musiccast docs])
+- Bump pyrainbird to 2.1.0 ([@allenporter] - [#95968]) ([rainbird docs])
+- Add missing qnap translation ([@emontnemery] - [#95969]) ([qnap docs])
+- Set correct `response` value in service description when `async_set_service_schema` is used ([@bramkragten] - [#95985]) ([script docs])
+- Explicitly use device name as entity name for Xiaomi fan and humidifier ([@jpbede] - [#95986]) ([xiaomi_miio docs])
+- Make script services always respond when asked ([@bramkragten] - [#95991]) ([script docs])
+- Fix state of slimproto players ([@marcelveldt] - [#96000]) ([slimproto docs])
+
+[#95485]: https://github.com/home-assistant/core/pull/95485
+[#95908]: https://github.com/home-assistant/core/pull/95908
+[#95911]: https://github.com/home-assistant/core/pull/95911
+[#95913]: https://github.com/home-assistant/core/pull/95913
+[#95916]: https://github.com/home-assistant/core/pull/95916
+[#95917]: https://github.com/home-assistant/core/pull/95917
+[#95941]: https://github.com/home-assistant/core/pull/95941
+[#95944]: https://github.com/home-assistant/core/pull/95944
+[#95947]: https://github.com/home-assistant/core/pull/95947
+[#95949]: https://github.com/home-assistant/core/pull/95949
+[#95958]: https://github.com/home-assistant/core/pull/95958
+[#95968]: https://github.com/home-assistant/core/pull/95968
+[#95969]: https://github.com/home-assistant/core/pull/95969
+[#95985]: https://github.com/home-assistant/core/pull/95985
+[#95986]: https://github.com/home-assistant/core/pull/95986
+[#95991]: https://github.com/home-assistant/core/pull/95991
+[#96000]: https://github.com/home-assistant/core/pull/96000
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@marcelveldt]: https://github.com/marcelveldt
+[@micha91]: https://github.com/micha91
+[@neocolis]: https://github.com/neocolis
+[@puddly]: https://github.com/puddly
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[flick_electric docs]: /integrations/flick_electric/
+[frontend docs]: /integrations/frontend/
+[matter docs]: /integrations/matter/
+[nuki docs]: /integrations/nuki/
+[qnap docs]: /integrations/qnap/
+[rainbird docs]: /integrations/rainbird/
+[script docs]: /integrations/script/
+[slimproto docs]: /integrations/slimproto/
+[switchbot docs]: /integrations/switchbot/
+[tuya docs]: /integrations/tuya/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[yamaha_musiccast docs]: /integrations/yamaha_musiccast/
+[zha docs]: /integrations/zha/
 
 ## Integrations now available to set up from the UI
 
