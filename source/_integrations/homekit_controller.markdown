@@ -65,15 +65,15 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
 - Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
    - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 - Make sure your device is powered up.
-- If your device is in your network but is paired with an Apple device via HomeKit, remove the device from the Apple Home app.
-   - Otherwise you won't be able to pair it with Home Assistant.
-   - HomeKit devices can only be paired to a single controller at once.
-- If your device is not already in your network, join the device to your network:
-   - Follow the instructions of the manufacturer on how to join the device to the network
-   - If you do not have the instructions, or the device is HomeKit only:
-     - Pair it with the Apple Home app (using the iOS Home app).
-     - After it has been paired with the Apple Home app, remove the device from the app again.
-     - Do not reset the device.
+- Make sure the device is on your network, but not paired with another HomeKit controller. Depending on the device you need to go through a different set of steps:
+  - If your device is not already in your network: **Join** the device to your network:
+    - Follow the instructions of the manufacturer on how to join the device to the network
+    - If the device is HomeKit only, simply pair it with the Apple Home app, then follow the next bullet point.
+  - If your device is in your network but is paired with an Apple device via HomeKit: **Remove** the device from the Apple Home app.
+    - Otherwise you won't be able to pair it with Home Assistant.
+  - **Note:** Adding the device to the Home app and then removing it again has two effects:
+    - It adds the device to your network. It stays in the network even after you removed it from the app.
+    - Removing the device from the app opens it up for pairing with Home Assistant. HomeKit devices can only be paired to a single controller at once.
 
 
 Adding the device to the Home app and then removing it again has two effects:
