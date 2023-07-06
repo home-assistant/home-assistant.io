@@ -73,8 +73,8 @@ MQTT broker settings are configured when the MQTT integration is first set up an
 Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-2. Select the MQTT integration.
-3. Select **Configure**, then **Re-configure MQTT**.
+1. Select the MQTT integration.
+1. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
 
