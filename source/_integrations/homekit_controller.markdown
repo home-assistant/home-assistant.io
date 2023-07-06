@@ -68,7 +68,7 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
 - Make sure the device is on your network, but not paired with another HomeKit controller. Depending on the device, you need to follow a different set of steps:
   - If your device is not already in your network: Join the device to your network:
     - Follow the instructions of the manufacturer on how to join the device to the network
-    - If the device is HomeKit only, pair it with the Apple Home app, then follow the next step.
+    - If the device is HomeKit only (for example the Koogeek LS1 light strip), pair it with the Apple Home app, then follow the next step.
   - If your device is in your network but is paired with an Apple device via HomeKit: **Remove** the device from the Apple Home app.
     - Otherwise you won't be able to pair it with Home Assistant.
   - **Explanation:** Adding the device to the Home app and then removing it again has two effects:
@@ -203,12 +203,7 @@ There is currently support for the following device types (also called *domains*
 
 </div>
 
-HomeKit IP accessories for these device types may work with some caveats:
-
-- If the device is Wi-Fi based and has no physical controls or screen then you may need an Apple HomeKit device like an iPhone or iPad to get the accessory onto your Wi-Fi network. For example, for a Koogeek LS1 you must add the accessory to HomeKit on your iOS device, then remove it from the iOS device. This leaves the LS1 in an unpaired state but still on your Wi-Fi. Home Assistant can then find it and pair with it.
-- You need to know the HomeKit PIN. There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
-
-The integration will poll your devices, but it will also automatically enable push updates for accessories that support it.
+The integration will enable push updates. Devices that connect through Wi-Fi or Ethernet may fall back to only polling if the connection is unstable.
 
 ## 'Stateless' switches and sensors
 
