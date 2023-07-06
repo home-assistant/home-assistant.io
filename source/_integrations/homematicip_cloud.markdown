@@ -189,6 +189,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Wired Switch Actuator – 8x channels (*HMIPW-DRS8*)
   * Switch Actuator for DIN rail mount – 4x channels (*HMIP-DRSI4*)
   * Switch Actuator for DIN rail mount – 1x channels (*HMIP-DRSI1*)
+  * Switch Actuator - 2x channels (*HmIP-BS2*)
 
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)

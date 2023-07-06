@@ -57,7 +57,7 @@ To run a Z-Wave network, you need the following elements:
 
 ### Setting up a Z-Wave JS server
 
-The easiest way to get started is by using the built-in Z-Wave JS add-on in Home Assistant.
+If you are running Home Assistant Operating System or Home Assistant Supervised, the easiest way to get started is by using the built-in Z-Wave JS add-on in Home Assistant.
 
 For other ways to setup a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
 
@@ -99,7 +99,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 ### Adding a new device to the Z-Wave network
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-1. In the Z-Wave integration, select the cogwheel, then select **Configure**.
+1. Select the Z-Wave integration. Then select **Configure**.
 1. Select **Add device**.
    * The Z-Wave controller is now in inclusion mode.
 1. If your device supports SmartStart (700 series controller), select **Scan QR code** and scan the QR code on your device.
@@ -118,7 +118,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 ### Removing a device from the Z-Wave network
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-1. In the Z-Wave integration, select the cogwheel, then select **Configure**.
+1. Select the **Z-Wave** integration. Then, select **Configure**.
 1. Select **Remove device**, then **Start exclusion**.
    * The Z-Wave controller is now in exclusion mode.
 1. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
@@ -131,8 +131,8 @@ The Z-Wave integration provides several special entities, some of which are avai
 ### Entities available for every Z-Wave device
 
 1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device.  The sensor is disabled by default.  The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
-2. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` service.
-3. **Controller/node statistics** sensors: Z-Wave JS collects statistics about communications between [nodes](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) and the [controller](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot). The statistics can be used to troubleshoot RF issues in your environment. These statistics are available in the network configuration and device info panels. But they are also available as sensors which are disabled by default.
+1. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` service.
+1. **Controller/node statistics** sensors: Z-Wave JS collects statistics about communications between [nodes](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) and the [controller](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot). The statistics can be used to troubleshoot RF issues in your environment. These statistics are available in the network configuration and device info panels. But they are also available as sensors which are disabled by default.
 
 ### Conditional entities
 
@@ -861,7 +861,7 @@ If the interview is complete, then the device does not yet have a device file fo
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-1. On the **Z-Wave** integration, select the cogwheel, then select the three dots.
+1. Select the **Z-Wave** integration. Then, select the three dots.
 1. From he dropdown menu, select **Download diagnostics**.
 
 ### Interference issues
@@ -873,7 +873,7 @@ Many users have reported issues with interference when the USB stick was directl
 Z-Wave JS writes details to its logs. To access these logs, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-1. On the **Z-Wave** integration, select the cogwheel, then select **Configure**.
+1. Select the **Z-Wave** integration. Then, select **Configure**.
 1. Open the **Logs** tab.
 1. Make sure to keep this browser tab open. Otherwise the logging is not active.
 

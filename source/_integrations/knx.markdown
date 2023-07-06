@@ -17,6 +17,7 @@ ha_category:
   - Sensor
   - Switch
   - Text
+  - Time
   - Weather
 ha_release: 0.24
 ha_iot_class: Local Push
@@ -42,6 +43,7 @@ ha_platforms:
   - switch
   - text
   - weather
+  - time
 ha_config_flow: true
 ha_integration_type: hub
 ---
@@ -65,6 +67,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Text](#text)
+- [Time](#time)
 - [Weather](#weather)
 
 {% include integrations/config_flow.md %}
@@ -386,7 +389,20 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1057,15 +1073,15 @@ individual_colors:
       type: map
       required: false
 color_temperature_address:
-  description: KNX group address for setting the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
+  description: KNX group address for setting the color temperature of the light. *DPT 5.001, 7.600 or 9 based on color_temperature_mode*
   required: false
   type: [string, list]
 color_temperature_state_address:
-  description: KNX group address for retrieving the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
+  description: KNX group address for retrieving the color temperature of the light. *DPT 5.001, 7.600 or 9 based on color_temperature_mode*
   required: false
   type: [string, list]
 color_temperature_mode:
-  description: Color temperature group address data type. `absolute` color temperature in Kelvin. *color_temperature_address -> DPT 7.600*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
+  description: Color temperature group address data type. `absolute` for color temperature in Kelvin (2 byte unsigned integer). *color_temperature_address -> DPT 7.600*. `absolute_float` for color temperature represented in 2 byte float. *color_temperature_address -> DPT 9*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
   required: false
   type: string
   default: absolute
@@ -1207,13 +1223,13 @@ type:
 
 ## Number
 
-The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
+The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
 <div class='note'>
 
 Number entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
-Numbers having a `state_address` configured request their current state from the KNX bus.
+Numbers that have a `state_address` configured request their current state from the KNX bus.
 
 </div>
 
@@ -1244,7 +1260,7 @@ name:
   required: false
   type: string
 address:
-  description: Group address new values will be sent to.
+  description: The group address to which new values will be sent.
   required: true
   type: [string, list]
 state_address:
@@ -1319,13 +1335,13 @@ entity_category:
 
 ## Select
 
-The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus with its current state.
+The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus.
 
 <div class='note'>
 
 Select entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
-Selects having a `state_address` configured request their current state from the KNX bus.
+Selects that have a `state_address` configured request their current state from the KNX bus.
 
 </div>
 
@@ -1366,7 +1382,7 @@ name:
   required: false
   type: string
 address:
-  description: Group address new values will be sent to.
+  description: The group address to which new values will be sent.
   required: true
   type: [string, list]
 state_address:
@@ -1396,7 +1412,20 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1448,7 +1477,20 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1703,17 +1745,17 @@ device_class:
 The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
 
 Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-Switches having a `state_address` configured request their current state from the KNX bus.
+Switches that have a `state_address` configured request their current state from the KNX bus.
 
 ## Text
 
-The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
+The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
 <div class='note'>
 
 Text entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
-Texts having a `state_address` configured request their current state from the KNX bus.
+Texts that have a `state_address` configured request their current state from the KNX bus.
 
 </div>
 
@@ -1738,7 +1780,7 @@ name:
   required: false
   type: string
 address:
-  description: Group address new values will be sent to.
+  description: The group address to which new values will be sent.
   required: true
   type: [string, list]
 state_address:
@@ -1760,6 +1802,76 @@ mode:
   required: false
   type: string
   default: text
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
+
+## Time
+
+The KNX time platform allows to send time values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+
+<div class='note'>
+
+Time entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Times that have a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+<div class='note'>
+
+The `day` field of the time telegram will always be set to 0 (`no day`).
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  time:
+    - name: "Time"
+      address: "0/0/2"
+      state_address: "0/0/2"
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: The group address to which new values will be sent. *DPT 10.001*
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus. *DPT 10.001*
+  required: false
+  type: [string, list]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
+  required: false
+  type: [boolean, string, integer]
+  default: true
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -1852,9 +1964,22 @@ address_humidity:
   required: false
   type: [string, list]
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus.
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
-  type: boolean
+  type: [boolean, string, integer]
   default: true
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
