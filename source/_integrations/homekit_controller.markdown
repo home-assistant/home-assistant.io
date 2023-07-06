@@ -76,9 +76,6 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
     - Removing the device from the app opens it up for pairing with Home Assistant. HomeKit devices can only be paired to a single controller at once.
 
 
-Adding the device to the Home app and then removing it again has two effects:
- - It adds the device to your network. It stays in the network even after you removed it from the app.
- - Removing the device from the app opens it up for pairing with Home Assistant.
 
 
 ### To add a HomeKit device via Ethernet or Wi-Fi
