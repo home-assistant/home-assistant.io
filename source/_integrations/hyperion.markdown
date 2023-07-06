@@ -151,11 +151,9 @@ To capture the screen on a USB capture device, when playing something on a media
       entity_id: media_player.plex
       to: "playing"
   action:
-    - service: light.turn_on
+    - service: switch.turn_on
       target:
-        entity_id: light.hyperion
-      data:
-        effect: "USB Capture"
+        entity_id: switch.[instance]_component_usb_capture
 ```
 
 To toggle the LED device together with the light entity in order to turn light output on or off for all sources. In this example both entities are turned on together, create another automation with the values reversed for turning both off:
