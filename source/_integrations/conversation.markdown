@@ -167,7 +167,7 @@ Send a message to a conversation agent for processing.
 | `language`                 | yes      | Language of the text |
 | `agent_id`                 | yes      | ID of conversation agent to use |
 
-This service is able to return a response value. The response is the same response as for the
+This service is able to [return a response value](https://www.home-assistant.io/docs/scripts/service-calls/#use-templates-to-handle-response-data). The response is the same response as for the
 [`/api/conversation/process` API](https://developers.home-assistant.io/docs/intent_conversation_api#conversation-response).
 
 ## Service `conversation.reload`
