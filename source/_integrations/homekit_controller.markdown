@@ -61,7 +61,7 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
 
 ### Prerequisites
 
-- If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`](/integrations/zeroconf/) to your configuration file.
+- If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`](/integrations/zeroconf/) to your `configuration.yaml` file.
 - Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
    - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 - Make sure your device is powered up.
@@ -73,7 +73,7 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
     - Otherwise you won't be able to pair it with Home Assistant.
   - **Explanation:** Adding the device to the Home app and then removing it again has two effects:
     - It adds the device to your network. It stays in the network even after you removed it from the app.
-    - Removing the device from the app opens it up for pairing with Home Assistant. HomeKit devices can only be paired to a single controller at once.
+    - Removing the device from the app opens it up for pairing with Home Assistant's HomeKit Controller integration directly. HomeKit devices can only be paired to a single controller at once.
 
 
 ### To add a HomeKit device via Ethernet or Wi-Fi
