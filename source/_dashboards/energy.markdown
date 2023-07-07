@@ -137,7 +137,7 @@ type: energy-grid-neutrality-gauge
   Screenshot of the Solar consumed gauge card.
 </p>
 
-The solar consumed gauge represents how much of the solar energy was not used by your home and was returned to the grid. If you frequently return a lot, try to conserve this energy by installing a battery or buying an electric car to charge.
+The solar consumed gauge represents how much of the solar energy was used by your home and was not returned to the grid. If you frequently return a lot, try to conserve this energy by installing a battery or buying an electric car to charge.
 
 #### Example
 ```yaml
