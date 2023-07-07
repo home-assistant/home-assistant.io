@@ -114,3 +114,15 @@ Event 0 fired 9:53 AM:
     }
 }
 ```
+
+## Statistics
+
+A list of long-term statistic entities will be shown. Some may not be working and will show a **Fix Issue** link. Clicking on this will give a description of the issue and may give you an option to fix the problem.
+
+![Statistics issue message](/images/docs/developer-tools/statistics_issue.png)
+
+Another use of the {% my developer_statistics title="statistics developer tool" %} is to correct any rogue measurements. Click the
+<svg width="24" height="24" viewBox="0 0 24 24"><path d="M22,13V22H2V19L22,13M21.68,7.06L16.86,4.46L17.7,7.24L7.58,10.24C6.63,8.95 4.82,8.67 3.53,9.62C2.24,10.57 1.96,12.38 2.91,13.67C3.85,14.97 5.67,15.24 6.96,14.29C7.67,13.78 8.1,12.97 8.14,12.09L18.26,9.09L19.1,11.87L21.68,7.06Z" /></svg>
+icon, next to the statistic you'd like to adjust search for the incorrect datapoint by date & time and adjust the value.
+
+![Screenshot showing adjusting the long-term statistic history value](/images/blog/2022-04/adjust-statistics.png)
