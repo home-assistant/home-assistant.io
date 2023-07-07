@@ -48,7 +48,7 @@ See [Schedules](#schedules) section below for details on how to configure schedu
 
 Event names will be prefixed by `doorbird_devicename`. For example, the example event `somebody_pressed_the_button` for the device 'Driveway Gate' will be seen in Home Assistant as `doorbird_driveway_gate_somebody_pressed_the_button`. This is to prevent conflicts with other events.
 
-See [Automation Example](#automation_example) section below for details on how to use the event names in an automation.
+See [Automation Example](#automation-example) section below for details on how to use the event names in an automation.
 
 <div class="note info">
 Events will not be received in Home Assistant until a schedule is defined via the DoorBird app.
