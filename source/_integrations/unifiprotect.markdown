@@ -257,37 +257,37 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 
 Sets the default doorbell message. This will be the message that is automatically selected when a message "expires".
 
-| Service data attribute | Optional | Description                                                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances.  |
-| `message`              | No       | The default message for your Doorbell. Must be less than 30 characters.                                      |
+| Service data attribute | Optional | Description                                                                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
+| `message`              | No       | The default message for your Doorbell. Must be less than 30 characters.                                     |
 
 ### Service unifiprotect.add_doorbell_text
 
 Adds a new custom message for Doorbells.
 
-| Service data attribute | Optional | Description                                                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances.  |
-| `message`              | No       | New custom message to add for Doorbells. Must be less than 30 characters.                                    |
+| Service data attribute | Optional | Description                                                                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
+| `message`              | No       | New custom message to add for Doorbells. Must be less than 30 characters.                                   |
 
 ### Service unifiprotect.remove_doorbell_text
 
 Removes an existing message for Doorbells.
 
-| Service data attribute | Optional | Description                                                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances.  |
-| `message`              | No       | Existing custom message to remove for Doorbells.                                                             |
+| Service data attribute | Optional | Description                                                                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
+| `message`              | No       | Existing custom message to remove for Doorbells.                                                            |
 
 ### Service unifiprotect.set_chime_paired_doorbells
 
 Use to set the paired doorbell(s) with a smart chime.
 
-| Service data attribute | Optional | Description                                                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                          |
-| `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all.      |
+| Service data attribute | Optional | Description                                                                                             |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                     |
+| `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all. |
 
 ## Views
 
@@ -295,9 +295,9 @@ The integration provides two proxy views to proxy media content from your Home A
 
 These URLs work great when trying to send notifications. Home Assistant will automatically sign the URLs and make them safe for external consumption if used in an automation or [notify service](/integrations/notify/).
 
-| View URL                                                     | Description                                        |
-| ------------------------------------------------------------ | -------------------------------------------------- |
-| `/api/unifiprotect/thumbnail/{nvr_id}/{event_id}`            | Proxies a JPEG event thumbnail from UniFi Protect. |
+| View URL                                                     | Description                                                                                                                                                            |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/api/unifiprotect/thumbnail/{nvr_id}/{event_id}`            | Proxies a JPEG event thumbnail from UniFi Protect.                                                                                                                     |
 | `/api/unifiprotect/video/{nvr_id}/{camera_id}/{start}/{end}` | Proxies a MP4 video clip from UniFi Protect for a specific camera. Start and end must be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html). |
 
 `nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect integration. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any entity provided by the UniFi Protect integration that can be reversed to a UniFi Protect camera (i.e., an entity ID of a detected object sensor).
@@ -306,7 +306,7 @@ These URLs work great when trying to send notifications. Home Assistant will aut
 
 ### Delay in Video Feed
 
-The default settings on the stream integration will give you a 5-15+ second delay. You can reduce this delay to 1-3 seconds, by enabling [LL-HLS in the stream integration](/integrations/stream/#ll-hls). You will also want to put an HTTP/2 reserve proxy in front of Home Assistant so you can have connection pooling. If you do not add a reverse proxy, you may start to get "Waiting for Websocket..." messages while trying to view too many camera streams at once. One way to do this is using the official NGINX Proxy Add-on:
+The default settings on the stream integration will give you a 5-15+ second delay. You can reduce this delay to 1-3 seconds, by enabling [LL-HLS in the stream integration](/integrations/stream/#ll-hls). You will also want to put an HTTP/2 reserve proxy in front of Home Assistant so you can have connection pooling. If you do not add a reverse proxy, you may start to get "Waiting for WebSocket..." messages while trying to view too many camera streams at once. One way to do this is using the official NGINX Proxy Add-on:
 
 {% my supervisor_addon addon="core_nginx_proxy" badge %}
 
