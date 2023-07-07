@@ -11,7 +11,19 @@ var remarkrc = {
     plugins: [
         ["frontmatter"],
         ["lint-fenced-code-flag"],
-        ["lint-no-shell-dollars"]
+        ["lint-no-shell-dollars"],
+        [
+            "remark-lint-prohibited-strings",
+            [
+                { no: "[Hh]ome [Aa]ss?s?istant", yes: "Home Assistant" },
+                { no: "[Ww]eb[Ss]ocket", yes: "WebSocket" },
+                { no: "Github", yes: "GitHub" },
+                { no: "https://www.home-assistant.io/", yes: "/", ignoreNextTo: [ "\"", "\"" ]},
+                { no: "Speech-[Tt]o-Text", yes: "Speech-to-text" },
+                { no: "Text-[Tt]o-Speech", yes: "Text-to-speech" },
+            ]
+        ]
+
     ]
 };
 
