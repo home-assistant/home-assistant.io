@@ -689,11 +689,11 @@ automation:
 
 The Entity ID of an [Input Datetime](/integrations/input_datetime/).
 
-has_date | has_time | Description
--|-|-
-`true` | `true` | Will fire at specified date & time.
-`true` | `false` | Will fire at midnight on specified date.
-`false` | `true` | Will fire once a day at specified time.
+| has_date | has_time | Description                              |
+| -------- | -------- | ---------------------------------------- |
+| `true`   | `true`   | Will fire at specified date & time.      |
+| `true`   | `false`  | Will fire at midnight on specified date. |
+| `false`  | `true`   | Will fire once a day at specified time.  |
 
 {% raw %}
 
@@ -941,7 +941,7 @@ Punctuation and casing are ignored, so "It's PARTY TIME!!!" will also match.
 
 ## Multiple triggers
 
-It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, [processing](#what-are-triggers) of your automation rule begins.
+It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, processing of your automation rule begins.
 
 ```yaml
 automation:
@@ -956,7 +956,7 @@ automation:
 
 ## Multiple Entity IDs for the same Trigger
 
-It is possible to specify multiple entities for the same trigger. To do so add multiple entities using a nested list. The trigger will fire and start, [processing](#what-are-triggers) your automation each time the trigger is true for any entity listed.
+It is possible to specify multiple entities for the same trigger. To do so add multiple entities using a nested list. The trigger will fire and start, processing your automation each time the trigger is true for any entity listed.
 
 ```yaml
 automation:
