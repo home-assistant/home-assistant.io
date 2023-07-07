@@ -30,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Prerequisites
 
-In order to set up the Hydrawise integration, you must first obtain an API Key.
+To set up the Hydrawise integration, you must first obtain an API Key.
 
 1. Log in at [https://app.hydrawise.com](https://app.hydrawise.com).
 2. Go to 'Account Details' under the 'My Account' menu (in the upper-right hand corner).
