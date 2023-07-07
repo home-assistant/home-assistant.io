@@ -163,7 +163,7 @@ To toggle the LED device together with the light entity in order to turn light o
   trigger:
     - platform: state
       entity_id:
-        - light.ambilight
+        - light.hyperion
       from: "off"
       to: "on"
   condition:
