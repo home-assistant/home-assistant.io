@@ -648,7 +648,9 @@ the backup was initiated (`%Y-%m-%d %H:%M:%S`, for example,
 
 The behavior of Hyperion lights has changed:
 
-Turning off the light entity will only clear the priority you have configured during the integration setup. Other HA-independent light sources in Hyperion might still be active and cause light to be emitted. To turn the light output off entirely regardless of active light sources, you can enable the `switch.[instance]_led_device` entity that acts as a global switch. Subsequently, external effects unrelated to the Hyperion light source (such as USB capture) have been removed from the light entity. To control them, enable the respective disabled-by-default switch entity.
+Turning off the light entity will only clear the priority you have configured during the integration setup. Other Home Assistant independent light sources in Hyperion might still be active and cause light to be emitted. If you want to turn the light off entirely, regardless of active light sources, you can enable the `switch.[instance]_led_device` entity that acts as a global switch. 
+
+External effects that are unrelated to the Hyperion light source (such as USB capture) have been removed from the light entity. To control them, enable the respective disabled-by-default switch entity.
 
 ([@Sab44 ] - [#80478]) ([documentation](/integrations/hyperion))
 
