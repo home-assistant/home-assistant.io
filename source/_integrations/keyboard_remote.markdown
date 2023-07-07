@@ -9,7 +9,7 @@ ha_codeowners:
   - '@bendavid'
   - '@lanrat'
 ha_domain: keyboard_remote
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Receive signals from a keyboard and use it as a remote control.

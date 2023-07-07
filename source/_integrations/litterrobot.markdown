@@ -24,6 +24,7 @@ ha_platforms:
   - switch
   - update
   - vacuum
+  - time
 ha_integration_type: hub
 ---
 

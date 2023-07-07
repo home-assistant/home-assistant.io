@@ -13,9 +13,9 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.51
 ha_codeowners:
-  - "@rytilahti"
-  - "@syssi"
-  - "@starkillerOG"
+  - '@rytilahti'
+  - '@syssi'
+  - '@starkillerOG'
 ha_domain: xiaomi_miio
 ha_config_flow: true
 ha_zeroconf: true

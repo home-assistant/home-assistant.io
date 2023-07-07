@@ -57,7 +57,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
    * Add your ATOM Echo to a room and select **Finish**. 
 1. You should now see the **ESPHome** integration.
    ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
-1. Select the cogwheel. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
+1. Select the **ESPHome** integration. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
    ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-new-03.png)
    * Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply. 
 1. Congratulations! You can now voice control Home Assistant using a button with a built-in microphone. Now give some commands.

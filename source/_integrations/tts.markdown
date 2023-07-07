@@ -6,8 +6,8 @@ ha_category:
   - Text-to-speech
 ha_release: 0.35
 ha_codeowners:
-  - "@home-assistant/core"
-  - "@pvizeli"
+  - '@home-assistant/core'
+  - '@pvizeli'
 ha_domain: tts
 ha_quality_scale: internal
 ha_platforms:

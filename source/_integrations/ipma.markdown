@@ -11,6 +11,7 @@ ha_codeowners:
   - '@abmantis'
 ha_domain: ipma
 ha_platforms:
+  - sensor
   - weather
 ha_integration_type: integration
 ---
