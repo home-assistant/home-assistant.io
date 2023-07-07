@@ -917,7 +917,7 @@ additional event data available for use by an automation.
 
 ## Sentence trigger
 
-A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). 
+A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). Sentence triggers only work with Home Assistant Assist. External conversation agents such as OpenAI or Google Generative AI cannot be used for sentence triggers.
 
 Sentences are allowed to use some basic [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) like optional and alternative words. For example, `[it's ]party time` will match both "party time" and "it's party time".
 
