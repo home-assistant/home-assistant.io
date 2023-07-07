@@ -4,7 +4,6 @@ description: Instructions on how to integrate Template Sensors into Home Assista
 ha_category:
   - Binary Sensor
   - Button
-  - Cover
   - Image
   - Number
   - Select
