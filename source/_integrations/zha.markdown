@@ -431,7 +431,7 @@ Follow this guide if you have a Zigbee Home Assistant (ZHA) network running and 
   - If your old Zigbee coordinator is a deCONZ (ConBee/RaspBee) radio adapter, make sure it is running [firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later.
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}** and select the ZHA integration. Then select **Configure**.
-1. Inside the ZHA integration, under "Network Settings", select "MIGRATE RADIO".
+1. Under **Network settings**, select **Migrate radio**.
 2. "Reconfigure ZHA" will start, informing that ZHA will start and asking if you want to continue, select "SUBMIT".
 3. Under "Migrate or re-configure" select "Migrate to a new radio".
 4. "Migrate to a new radio" will inform you that an automatic backup will be performed and that your old Zigbee Coordinator radio will be then reset before the backup is automatically restored, select "SUBMIT".
