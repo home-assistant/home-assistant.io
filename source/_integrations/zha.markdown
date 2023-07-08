@@ -432,7 +432,7 @@ Follow this guide if you have a Zigbee Home Assistant (ZHA) network running and 
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}** and select the ZHA integration. Then select **Configure**.
 1. Under **Network settings**, select **Migrate radio**.
-2. "Reconfigure ZHA" will start, informing that ZHA will start and asking if you want to continue, select "SUBMIT".
+1. Reconfiguration of ZHA will start. Select **Submit**.
 3. Under "Migrate or re-configure" select "Migrate to a new radio".
 4. "Migrate to a new radio" will inform you that an automatic backup will be performed and that your old Zigbee Coordinator radio will be then reset before the backup is automatically restored, select "SUBMIT".
 5. "Unplug your old radio" will inform you that your old Zigbee Coordinator radio has been reset and you can now plug in your new Zigbee Coordinator radio adapter, (to avoid interference it is recommended to follow the best practices of using a USB extension cable and connecting it to a USB 2.0 port or via a powered USB 2.0 hub). You may now also choose to either unplug your old Zigbee Coordinator radio adapter or keep your old radio plugged in if that radio was a combined Z-Wave and Zigbee radio, like the HUSBZB-1 adapter, as then only the Zigbee radio part of it was reset. Confirm that the Zigbee Coordinator radio adapter is properly connected by selecting "SUBMIT".
