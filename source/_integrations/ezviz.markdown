@@ -45,15 +45,15 @@ You can also change the camera options should you need to access a high or low r
 
 ### Integration Entity Options
 
-**Request Timeout (seconds)**
+`Request Timeout (seconds)`:
 
-The `Request Timeout` option determines the duration Home Assistant waits for data from the EZVIZ API before giving up. This timeout is specified in seconds. If the API response takes longer than the specified timeout, Home Assistant will stop waiting and assume the request has failed. Adjust this value according to your network conditions and the responsiveness of the EZVIZ API. A higher timeout may be necessary for slower connections or when accessing cameras over the internet.
+This option determines the duration Home Assistant waits for data from the EZVIZ API before giving up. This timeout is specified in seconds. If the API response takes longer than the specified timeout, Home Assistant will stop waiting and assume the request has failed. Adjust this value according to your network conditions and the responsiveness of the EZVIZ API. A higher timeout may be necessary for slower connections.
 
 Example: If you set the "Request Timeout" to 30 seconds (Default option), Home Assistant will wait up to 30 seconds for a response from the EZVIZ API before timing out.
 
 Please note, this only works on the main EZVIZ cloud entity.
 
-**Arguments passed to ffmpeg for cameras**
+`Arguments passed to ffmpeg for cameras`:
 
 This option allows you to define additional parameters for capturing footage from your EZVIZ cameras. While camera resolution and codec settings are typically configured in the "Ezviz Studio" desktop application, you can use this option to select the desired stream or substream for capturing the footage.
 
