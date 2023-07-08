@@ -55,11 +55,11 @@ Please note, this only works on the main EZVIZ cloud entity.
 
 **Arguments passed to ffmpeg for cameras**
 
-The `Arguments passed to ffmpeg for cameras` option allows you to define additional parameters for capturing footage from your EZVIZ cameras using ffmpeg. While camera resolution and codec settings are typically configured in the "Ezviz Studio" desktop application, you can use this option to select the desired stream or substream for capturing the footage.
+This option allows you to define additional parameters for capturing footage from your EZVIZ cameras. While camera resolution and codec settings are typically configured in the "Ezviz Studio" desktop application, you can use this option to select the desired stream or substream for capturing the footage.
 
-To choose the appropriate stream or substream, specify the corresponding channel path in the "Arguments passed to ffmpeg for cameras" field. The channel path identifies the specific stream or substream of the camera.
+To choose the appropriate stream or substream, specify the corresponding channel path in the `Arguments passed to ffmpeg for cameras` field. The channel path identifies the specific stream or substream of the camera.
 
-Example: If you want to use the camera's substream, you can specify the channel path as "/Streaming/Channels/102" in the "Arguments passed to ffmpeg for cameras" field. Alternatively, if you prefer the main stream, use "/Streaming/Channels/101". You can also configure multiple stream/substream options based on your camera's capabilities and resource requirements.
+Example: If you want to use the camera's substream, you can specify the channel path as `/Streaming/Channels/102`. Alternatively, if you prefer the main stream, use `/Streaming/Channels/101`. You can also configure multiple stream/substream options based on your camera's capabilities and resource requirements.
 
 Cameras typically default to the main stream if this is invalid or not spesified.
 
