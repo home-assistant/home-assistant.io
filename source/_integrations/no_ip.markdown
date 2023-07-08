@@ -4,41 +4,18 @@ description: Keep your computer registered with the NO-IP.com dynamic DNS.
 ha_category:
   - Network
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_release: 0.57
 ha_domain: no_ip
 ha_integration_type: integration
 ---
 
-With the `no_ip` integration you can keep your current IP address in sync with your [NO-IP.com](https://www.noip.com)  hostname or domain.  
+With the No-IP integration, you can keep your current IP address in sync with your [No-IP.com](https://www.noip.com) hostname or domain.
 
-Note that it does not confirm your hostname (as is required periodically for free domain names); you will still need to do that manually.
+Please note that the integration does not automatically confirm your hostname (which is required periodically for free domain names). You will still need to do that manually.
 
-To use the integration in your installation, add the following to your `configuration.yaml` file:
+Additionally, you have the flexibility to customize the timeout duration (default: 10 seconds) and the update interval (default: 5 minutes) according to your preferences.
 
-```yaml
-# Example configuration.yaml entry
-no_ip:
-  domain: subdomain.domain.com
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
+{% include integrations/config_flow.md %}
 
-{% configuration %}
-  domain:
-    description: Your fully qualified domain name (FQDN).
-    required: true
-    type: string
-  username:
-    description: The generated username for this DDNS record.
-    required: true
-    type: string
-  password:
-    description: The generated password for this DDNS record.
-    required: true
-    type: string
-  timeout:
-    description: Timeout (in seconds) for the API calls.
-    required: false
-    type: integer
-    default: 10
-{% endconfiguration %}
+{% include integrations/option_flow.md %}
