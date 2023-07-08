@@ -448,7 +448,7 @@ Follow this guide if you have a Zigbee Home Assistant (ZHA) network running and 
 1. Finally, a **Success!** message should pop up with information that all options were successfully saved. 
  - Select **Finish** to confirm. 
 
-The migration process is complete, however, be aware that you now need to be a little patient you will not be able to control all your existing Zigbee devices until they rejoined the Zigbee network again. Normally, they will usually rejoin within a couple of hours, but you be able to manually accelerate the rejoin process by power-cycling your Zigbee devices that do not connect fast enough on their own.
+The migration process is complete. However, be aware that you will not be able to control all your existing Zigbee devices until they rejoined the Zigbee network again. Normally, they will rejoin within a couple of hours. You can accelerate the rejoin process by power-cycling your Zigbee devices.
 
 ## Troubleshooting
 
