@@ -51,6 +51,8 @@ The `Request Timeout` option determines the duration Home Assistant waits for da
 
 Example: If you set the "Request Timeout" to 30 seconds (Default option), Home Assistant will wait up to 30 seconds for a response from the EZVIZ API before timing out.
 
+Please note, this only works on the main EZVIZ cloud entity.
+
 **Arguments passed to ffmpeg for cameras**
 
 The `Arguments passed to ffmpeg for cameras` option allows you to define additional parameters for capturing footage from your EZVIZ cameras using ffmpeg. While camera resolution and codec settings are typically configured in the "Ezviz Studio" desktop application, you can use this option to select the desired stream or substream for capturing the footage.
@@ -60,6 +62,8 @@ To choose the appropriate stream or substream, specify the corresponding channel
 Example: If you want to use the camera's substream, you can specify the channel path as "/Streaming/Channels/102" in the "Arguments passed to ffmpeg for cameras" field. Alternatively, if you prefer the main stream, use "/Streaming/Channels/101". You can also configure multiple stream/substream options based on your camera's capabilities and resource requirements.
 
 Cameras typically default to the main stream if this is invalid or not spesified.
+
+Please note, this only works on the camera entities.
 
 ### Service `ezviz.alarm_sound`
 
