@@ -445,7 +445,8 @@ Follow this guide if you have a Zigbee Home Assistant (ZHA) network running and 
   - Selecting this option is required for the migration process to complete successfully. 
   - From this point onwards, you should not operate the old stick in the same area unless you change the Zigbee IEEE address on it. 
   - If you do not migrate the Zigbee IEEE address from your old Zigbee Coordinator radio, then you will have to re-join/re-pair many of your devices in order to keep them working. 
-10. Final message of "Success!" should pop up with information that all options were successfully saved. Select "FINISH" to confirm. 
+1. Finally, a **Success!** message should pop up with information that all options were successfully saved. 
+ - Select **Finish** to confirm. 
 
 The migration process is complete, however, be aware that you now need to be a little patient you will not be able to control all your existing Zigbee devices until they rejoined the Zigbee network again. Normally, they will usually rejoin within a couple of hours, but you be able to manually accelerate the rejoin process by power-cycling your Zigbee devices that do not connect fast enough on their own.
 
