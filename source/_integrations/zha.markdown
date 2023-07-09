@@ -445,7 +445,7 @@ Follow this guide if you have a Zigbee Home Assistant (ZHA) network running and 
     - If that radio was a combined Z-Wave and Zigbee radio, like the HUSBZB-1 adapter, then only the Zigbee radio part of it was reset. Confirm that the Zigbee Coordinator radio adapter is properly connected and select **Submit**.
 1.  You now need to start the backup restore process. 
     - If your new Zigbee Coordinator radio adapter was automatically discovered by the Zigbee Home Automation (ZHA) integration, then select **Configure**.  
-    - If not, then you might first have to restart the radio migration flow. Under "*Network Settings**, select **Migrate radio** > **Reconfigure ZHA** > **Migrate to a new radio**.
+    - If not, then you might first have to restart the radio migration flow. Under **Network Settings**, select **Migrate radio** > **Reconfigure ZHA** > **Migrate to a new radio**.
 1. Under **Network Formation**, select **Restore and automatic backup**.
 1. Under **Restore Automation Backup**, choose the latest automatic backup and select **Submit**.
 1. Under **Overwrite Radio IEEE Address**, select the **Permanently replace the radio IEEE address** and select **Submit**. Overwriting the IEEE address may take a while. Wait. 
