@@ -424,7 +424,6 @@ Within ZHA is possible to use this backup and restore feature to migrate between
 Follow this guide if you have a Zigbee Home Assistant (ZHA) network running and want to migrate from one Zigbee coordinator radio adapter to another Zigbee coordinator radio adapter.
 
 ### Prerequisites
-### To migrate to a new Zigbee coordinator radio inside ZHA
 
 - Your old Zigbee Coordinator radio adapter is used in the ZHA integration (not in deCONZ or MQTT)
 - It is of radio type ezsp (Silicon Labs EmberZnet), znp (Texas Instruments Z-Stack ZNP), or deCONZ (ConBee/RaspBee from dresden elektronik).
