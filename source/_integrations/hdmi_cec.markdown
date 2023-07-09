@@ -18,6 +18,12 @@ The `hdmi_cec` integration provides services that allow selecting the active dev
 
 ## CEC Setup
 
+### Home Assistant OS
+
+To test if hdmi-CEC will work on your Home Assistant OS installation you can use the official "CEC Scanner" Add-on. Run this add-on to discover if your hardware has HDMI-CEC capabilities and which devices are connected. Do not have this add-on `Start on boot` as it will interfere with the integration. 
+
+Once you've run the add-on you can use the resulting scan information to configure the integration.
+
 ### Adapter
 
 The computer running Home Assistant must support CEC, and of course be connected via HDMI to a device also supporting CEC. You can purchase a [USB CEC adapter](https://www.pulse-eight.com/p/104/usb-hdmi-cec-adapter) to add support if necessary. Note that all Raspberry Pi models support CEC natively.
