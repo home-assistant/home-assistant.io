@@ -107,3 +107,32 @@ In this example we are using the entity ID of a zone as the origin and the frien
 If you plan to use [Waze's live map](https://developers.google.com/waze/iframe/)
 in a dashboard [iframe](/dashboards/iframe/), then use
 [https://embed.waze.com/iframe](https://embed.waze.com/iframe) and not the live map URL itself.
+
+## Services
+
+You can use services to directly trigger updates and use the result in your scripts and automations.
+
+### Service `waze_travel_time.update_travel_time`
+
+This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+with duration, distance etc.
+
+{% raw %}
+```yaml
+service: waze_travel_time.update_travel_time
+target:
+  entity_id:
+    - sensor.waze_travel_time
+response_variable: route_info
+```
+{% endraw %}
+
+The response data contains these fields:
+
+| Response data | Description | Example |
+| ---------------------- | ----------- | -------- |
+| `duration` | The duration of the route. | 15.75
+| `distance` | The distance of the route. | 15.319
+| `route` | A summary of the streets taken. | Best-L3482 - Wiesbadener Landstraße Wiesbaden
+| `origin` | The origin of the route. | 50.00983447806922, 8.26175456263938
+| `destination` | The destination of the route. | 50.079697003437985, 8.370921332176888
