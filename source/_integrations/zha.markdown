@@ -429,7 +429,10 @@ Follow this guide if you have a Zigbee Home Assistant (ZHA) network running and 
 - Your old Zigbee Coordinator radio adapter is used in the ZHA integration (not in deCONZ or MQTT)
 - It is of radio type ezsp (Silicon Labs EmberZnet), znp (Texas Instruments Z-Stack ZNP), or deCONZ (ConBee/RaspBee from dresden elektronik).
   - If your old Zigbee coordinator is a deCONZ (ConBee/RaspBee) radio adapter, make sure it is running [firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later.
+
+
 ### To migrate to a new Zigbee coordinator radio inside ZHA
+
 1. Go to **{% my integrations title="Settings > Devices & Services" %}** and select the ZHA integration. Then select **Configure**.
 1. Under **Network settings**, select **Migrate radio**.
 1. Reconfiguration of ZHA will start. Select **Submit**.
