@@ -9,7 +9,7 @@ From the UI, choose **{% my config %}** which is located in the sidebar, then cl
 
 ![Create automation dialogue box](/images/docs/automation-editor/create-automation.png)
 
-Click on the **Add Trigger** button and select **Nurmeric state**.
+Click on the **Add Trigger** button and select **Numeric state**.
 
 ![Add trigger](/images/docs/automation-editor/add-trigger-to-automation.png)
 

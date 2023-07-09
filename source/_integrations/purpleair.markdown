@@ -27,6 +27,8 @@ Add Sensor:
   description: Track an additional sensor.
 Remove Sensor:
   description: Untrack a sensor.
+Settings:
+  description: Configure additional settings (e.g., show/hide sensor icons on the map).
 {% endconfiguration_basic %}
 
 ## Creating an AQI Rating from Raw Particulate Data
@@ -94,7 +96,8 @@ guidelines.
 {% raw %}
 
 ```yaml
-sensor:
+template:
+  - sensor:
     - name: "Local Outdoor Air Quality"
       state: >
         {% set pm2_5_avg = states("sensor.average_outdoor_pm2_5_24h") | int %}

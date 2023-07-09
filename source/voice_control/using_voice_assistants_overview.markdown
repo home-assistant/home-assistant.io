@@ -7,9 +7,9 @@ We can now turn speech into text and text back into speech. Wake word detection 
 
 The video below provides a good overview of what is currently possible with voice assistants. It shows you the following:
 
-* How to voice-control devices using the Assist button, an [analog phone](/projects/worlds-most-private-voice-assistant/), or an [ATOM Echo](/projects/thirteen-usd-voice-remote/).
-* How to [expose devices to Assist](/docs/assist/voice_remote_expose_devices/). 
-* How to set up a [local voice assistant](/docs/assist/voice_remote_local_assistant/). 
+* How to voice-control devices using the Assist button, an [analog phone](/voice_control/worlds-most-private-voice-assistant/), or an [ATOM Echo](/voice_control/thirteen-usd-voice-remote/).
+* How to [expose devices to Assist](/voice_control/voice_remote_expose_devices/). 
+* How to set up a [local voice assistant](/voice_control/voice_remote_local_assistant/). 
 * The video also shows the differences in processing speed. It compares:
   * Home Assistant Cloud versus local processing,
   * local processing on more or less powerful hardware.

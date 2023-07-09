@@ -51,21 +51,21 @@ ZHA uses an open-source Python library implementing a hardware-independent Zigbe
 
 There is currently support for the following device types within Home Assistant:
 
-- Alarm Control Panel
-- Binary Sensor
-- Button
-- Climate (beta)
-- Cover
-- Fan
-- Light
-- Lock
-- Number (i.e. analog output)
-- Select
-- Sensor
-- Siren
-- Switch
+- [Alarm Control Panel](/integrations/alarm_control_panel/)
+- [Binary Sensor](/integrations/binary_sensor/)
+- [Button](/integrations/button/)
+- [Climate](/integrations/climate/) (beta)
+- [Cover](/integrations/cover/)
+- [Fan](/integrations/fan/)
+- [Light](/integrations/light/)
+- [Lock](/integrations/lock/)
+- [Number](/integrations/number/) (i.e. analog output)
+- [Select](/integrations/select/)
+- [Sensor](/integrations/sensor/)
+- [Siren](/integrations/siren/)
+- [Switch](/integrations/switch/)
 
-There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created. As well as support for binding/unbinding (i.e. bind a remote to a lightbulb or group).
+There is also support for Zigbee grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a Zigbee group in the ZHA integration before the group entity is created. As well as support for [binding and unbinding (i.e. bind a remote to a lightbulb or group)](#binding-and-unbinding).
 
 ## Introduction
 
@@ -232,7 +232,7 @@ custom_quirks_path:
 
 ### OTA firmware updates
 
-ZHA component has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
+The ZHA integration has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
 
 Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE/OSRAM, SALUS/Computime, and INOVELLI devices. Support for OTA updates from other manufacturers could be supported in the future if they publish their firmware images publicly.
 
@@ -287,7 +287,7 @@ zha:
 
 Note! The best practice is to not change the Zigbee channel from the ZHA default. Also, the related troubleshooting segments mentioned in the tip above will, among other things, inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee, then it is usually better to first only try changing and setting a static Wi-Fi channel on your Wi-Fi router or all your Wi-Fi access points (instead of just changing to another Zigbee channel).
 
-MetaGeek Support has a good reference article about channel selection for [Zigbee and WiFi coexistance]([https://support.metageek.com/hc/en-Ti](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence)).
+MetaGeek Support has a good reference article about channel selection for [Zigbee and WiFi coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
 
 The Zigbee specification standards divide the 2.4&nbsp;GHz ISM radio band into 16 Zigbee channels (i.e. distinct radio frequencies for Zigbee). For all Zigbee devices to be able to communicate, they must support the same Zigbee channel (i.e. Zigbee radio frequency) that is set on the Zigbee Coordinator as the channel to use for its Zigbee network. Not all Zigbee devices support all Zigbee channels. Channel support usually depends on the age of the hardware and firmware, as well as on the device's power ratings.
 
@@ -386,8 +386,9 @@ Tip! It is highly recommended that you read through the two segments under the t
 
 **To add a new Zigbee device:**
 
-1. Go to the **Integrations** panel, find the **Zigbee Home Automation** integration that was added by the configuration steps above, and select **Configure**.
-1. Click on the plus button at the bottom right corner to start a scan for new devices.
+1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+1. On the **Zigbee Home Automation** integration select the cogwheel, the select **Configure**.
+1. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
 1. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
 1. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
@@ -395,7 +396,7 @@ Tip! It is highly recommended that you read through the two segments under the t
 
 Most mains-powered devices, e.g., many always-powered wall plugs or light bulbs in your Zigbee network will automatically act as a Zigbee router device (sometimes also referred to as a Zigbee "signal repeater" or "range extender"). 
 
-Because Zigbee should use a "[wireless mesh network]"(https://en.wikipedia.org/wiki/Wireless_mesh_network) to be effective, you will need to add Zigbee router devices to increase the number of Zigbee devices that can be used in your Zigbee network, both in the total number of devices that can be added as well as the total range and coverage of the network. Some Zigbee router devices do a much better job at routing and repeating Zigbee signals and messages than some other devices. You should not have a setup where Zigbee router devices (e.g. light bulbs) are often powered-off.  Zigbee router devices are meant to be always available.
+Because Zigbee should use a [wireless mesh network](https://en.wikipedia.org/wiki/Wireless_mesh_network) to be effective, you will need to add Zigbee router devices to increase the number of Zigbee devices that can be used in your Zigbee network, both in the total number of devices that can be added as well as the total range and coverage of the network. Some Zigbee router devices do a much better job at routing and repeating Zigbee signals and messages than some other devices. You should not have a setup where Zigbee router devices (e.g. light bulbs) are often powered-off.  Zigbee router devices are meant to be always available.
 
 All Zigbee coordinator firmware will only allow you to directly connect a certain amount of devices. That limit is set for two reasons; firstly, to not overload the Zigbee coordinator, and secondly, to encourage your Zigbee network to quickly begin to utilize a "[mesh networking](https://en.wikipedia.org/wiki/Mesh_networking)" topology instead of only a "[star network](https://en.wikipedia.org/wiki/Star_network)" topology.
 
@@ -548,12 +549,12 @@ When reporting issues, please provide the following information in addition to i
 
 1. Debug logs for the issue, see [debug logging](#debug-logging)
 2. Model of Zigbee radio being used
-3. If issue is related to a specific Zigbee device, provide both "Zigbee Device Signature" and "Diagnostics" information.
-  * Both the "Zigbee Device Signature" and "Diagnostics" information can be found by clicking **Settings** -> **Devices & Services** -> **Zigbee Home Automation** (click **Configure**) -> **Devices** (pick your device) -> Click "**Zigbee Device Signature**" and "**Download Diagnostics**" respectively.
+3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
+  * Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & Services**" %}. On the **Zigbee Home Automation** integration, select the cogwheel. Then, select **Configure** > **Devices** (pick your device). Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
 
 ### Debug logging
 
-To enable debug logging for ZHA component and radio libraries, add the following [logger](/integrations/logger/) configuration to `configuration.yaml`:
+To enable debug logging for the ZHA integration and radio libraries, add the following [logger](/integrations/logger/) configuration to `configuration.yaml`:
 
 ```yaml
 logger:
