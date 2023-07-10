@@ -122,3 +122,16 @@ Allow you to see test Home Assistant's Assist handle a sentence. The sentence wo
 If no match is found, then Assist is unable to interpret the sentence. Vice versa, a matched intent would give information on how it would act. The below example shows the sentence that was entered *what lights are on in the office*. Assist found a matching intent. At a high level, it matched the *HassGetState* intent, entities matching the domain (lights) which have the state on and in the office area. The targets are the narrowed down entities in scope.
 
 ![Example use of assist developer tools](/images/docs/developer-tools/Assist.png)
+
+## Statistics
+
+The **Statistics** tab shows a list of long-term statistic entities. If the long term statistics is not working for an entity, a **Fix Issue** link is shown. Select it to view a description of the issue. There might also be an option to fix the issue.
+
+![Statistics issue message](/images/docs/developer-tools/statistics_issue.png)
+
+Another use of the {% my developer_statistics title="statistics developer tool" %} is to correct any measurements. Select the
+<svg width="24" height="24" viewBox="0 0 24 24"><path d="M22,13V22H2V19L22,13M21.68,7.06L16.86,4.46L17.7,7.24L7.58,10.24C6.63,8.95 4.82,8.67 3.53,9.62C2.24,10.57 1.96,12.38 2.91,13.67C3.85,14.97 5.67,15.24 6.96,14.29C7.67,13.78 8.1,12.97 8.14,12.09L18.26,9.09L19.1,11.87L21.68,7.06Z" /></svg>
+icon. Use date & time to search for the incorrect data point and adjust the value.
+
+![Screenshot showing adjusting the long-term statistic history value](/images/blog/2022-04/adjust-statistics.png)
+
