@@ -154,13 +154,13 @@ a new pop-up asking for a radio type. In the pop-up:
 
 - Radio Type
 
-| Radio Type | Zigbee Radio Hardware |
-| ------------- | ------------- |
-| `ezsp`  | Silicon Labs EmberZNet protocol (e.g., Home Assistant SkyConnect, Elelabs, HUSBZB-1, Telegesis) |
-| `deconz` | dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II) |
-| `znp` | Texas Instruments (e.g., CC253x, CC26x2, CC13x2) |
-| `zigate` | ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi) |
-| `xbee` | Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3) |
+| Radio Type | Zigbee Radio Hardware                                                                           |
+| ---------- | ----------------------------------------------------------------------------------------------- |
+| `ezsp`     | Silicon Labs EmberZNet protocol (e.g., Home Assistant SkyConnect, Elelabs, HUSBZB-1, Telegesis) |
+| `deconz`   | dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II)                            |
+| `znp`      | Texas Instruments (e.g., CC253x, CC26x2, CC13x2)                                                |
+| `zigate`   | ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi)                            |
+| `xbee`     | Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3)                    |
 
 - Submit
 
@@ -191,22 +191,22 @@ If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path c
 
 Some devices can be auto-discovered, which can simplify the ZHA setup process. The following devices have been tested with discovery and offer a quick setup experience:
 
-| Device | Discovery Method | Identifier |
-| -------| ---------------- | ---------- |
-| [ITead SONOFF Zigbee 3.0 USB Dongle Plus V2 Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/) | USB | 1A86:55D4 |
-| [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-P" (CC2652P variant)](https://itead.cc/product/sonoff-zigbee-3-0-usb-dongle-plus/) | USB | 10C4:EA60 |
-| [Bitron Video/SMaBiT BV AV2010/10](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/) | USB | 10C4:8B34 |
-| [ConBee II](https://phoscon.de/conbee2) | USB | 1CF1:0030 |
-| [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) | USB | 10C4:8A2A |
-| [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/) | USB | 10C4:EA60 |
-| [ZigStar Stick (CC2652 + CH340B variant)](https://zig-star.com/projects/zigbee-stick-v4/) | USB | 1A86:7523 |
-| [Tube’s EFR32 Pro Ethernet/Serial Coordinator](https://www.tubeszb.com/) | USB| 10C4:EA60 |
-| [ZigStar Coordinators](https://zig-star.com/) | USB| 1A86:7523 |
-| [SMLIGHT SLZB-06 POE Zigbee LAN WiFi USB Adapter](https://smlight.tech/product/slzb-06/) | Zeroconf | slzb-06.local. |
-| [ZigStar LAN/POE Coordinators](https://zig-star.com/projects/zigbee-gw-lan/) | Zeroconf | zigstargw.local. |
-| [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2.local. |
-| [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2_poe.local. |
-| [Tube's EFR32 Based Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_efr32.local. |
+| Device                                                                                                                                      | Discovery Method | Identifier                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------ |
+| [ITead SONOFF Zigbee 3.0 USB Dongle Plus V2 Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)        | USB              | 1A86:55D4                      |
+| [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-P" (CC2652P variant)](https://itead.cc/product/sonoff-zigbee-3-0-usb-dongle-plus/) | USB              | 10C4:EA60                      |
+| [Bitron Video/SMaBiT BV AV2010/10](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/)                                        | USB              | 10C4:8B34                      |
+| [ConBee II](https://phoscon.de/conbee2)                                                                                                     | USB              | 1CF1:0030                      |
+| [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)                                         | USB              | 10C4:8A2A                      |
+| [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/)                                                                      | USB              | 10C4:EA60                      |
+| [ZigStar Stick (CC2652 + CH340B variant)](https://zig-star.com/projects/zigbee-stick-v4/)                                                   | USB              | 1A86:7523                      |
+| [Tube’s EFR32 Pro Ethernet/Serial Coordinator](https://www.tubeszb.com/)                                                                    | USB              | 10C4:EA60                      |
+| [ZigStar Coordinators](https://zig-star.com/)                                                                                               | USB              | 1A86:7523                      |
+| [SMLIGHT SLZB-06 POE Zigbee LAN WiFi USB Adapter](https://smlight.tech/product/slzb-06/)                                                    | Zeroconf         | slzb-06.local.                 |
+| [ZigStar LAN/POE Coordinators](https://zig-star.com/projects/zigbee-gw-lan/)                                                                | Zeroconf         | zigstargw.local.               |
+| [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                              | Zeroconf         | tube_zb_gw_cc2652p2.local.     |
+| [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                              | Zeroconf         | tube_zb_gw_cc2652p2_poe.local. |
+| [Tube's EFR32 Based Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                                       | Zeroconf         | tube_zb_gw_efr32.local.        |
 
 Additional devices in the [Known working Zigbee radio modules](#known-working-zigbee-radio-modules) list may be discoverable, however, only devices that have been confirmed discoverable are listed above.
 
@@ -316,19 +316,19 @@ To add new devices to the network, call the `permit` service on the `zha` domain
 
 This service opens network for joining new devices.
 
-|  Data | Optional | Description |
-| ---- | ---- | ----------- |
-| `duration` |  yes | For how long to allow new devices to join, default 60s
-| `ieee` | yes | allow new devices to join via an existing device
+| Data       | Optional | Description                                            |
+| ---------- | -------- | ------------------------------------------------------ |
+| `duration` | yes      | For how long to allow new devices to join, default 60s |
+| `ieee`     | yes      | allow new devices to join via an existing device       |
 
 To join a new device using an install code (ZB3 devices) use the following data attributes (must use parameters only
 from the same group:
 
-|  Data | Parameter Group | Description |
-| ---- | ---- | ----------- |
-| `src_ieee` | install_code | The IEEE address of the joining ZB3 device. Use with `install_code`
-| `install_code` | install_code | Install Code of the joining device. Use with `src_ieee`
-| `qr_code` | qr_code | QR code containing IEEE and Install Code of the joining ZB3 device
+| Data           | Parameter Group | Description                                                         |
+| -------------- | --------------- | ------------------------------------------------------------------- |
+| `src_ieee`     | install_code    | The IEEE address of the joining ZB3 device. Use with `install_code` |
+| `install_code` | install_code    | Install Code of the joining device. Use with `src_ieee`             |
+| `qr_code`      | qr_code         | QR code containing IEEE and Install Code of the joining ZB3 device  |
 
 <div class='note'>
   Currently `qr_code` supports QR Install Codes from:
@@ -343,42 +343,42 @@ from the same group:
 
 This service removes an existing device from the network. You can find the IEEE address of the device on the device card of Zigbee devices. An example of an IEEE address data parameter format is `00:0d::6f:00:05:7d:2d:34`.
 
-|  Data | Optional | Description |
-| ---- | ---- | ----------- |
-| `ieee` | no | IEEE address of the device to remove
+| Data   | Optional | Description                          |
+| ------ | -------- | ------------------------------------ |
+| `ieee` | no       | IEEE address of the device to remove |
 
 ### Service `zha.set_lock_user_code`
 
 This service sets a lock code on a Zigbee lock.
 
-|  Data | Optional | Description |
-| --------- | ---- | ----------- |
-| `code_slot` | no | Which lock code slot to store the code. Ex. 1-32 will work for Kwikset 954
-| `user_code` | no | Code to set on the lock. Ex. Kwikset accepts numbers 4-8 digits in length
+| Data        | Optional | Description                                                                |
+| ----------- | -------- | -------------------------------------------------------------------------- |
+| `code_slot` | no       | Which lock code slot to store the code. Ex. 1-32 will work for Kwikset 954 |
+| `user_code` | no       | Code to set on the lock. Ex. Kwikset accepts numbers 4-8 digits in length  |
 
 ### Service `zha.clear_lock_user_code`
 
 This service clears a lock code from a Zigbee lock.
 
-|  Data | Optional | Description |
-| --------- | ---- | ----------- |
-| `code_slot` | no | Which lock code slot to clear
+| Data        | Optional | Description                   |
+| ----------- | -------- | ----------------------------- |
+| `code_slot` | no       | Which lock code slot to clear |
 
 ### Service `zha.enable_lock_user_code`
 
 This service enables a lock code on a Zigbee lock.
 
-|  Data | Optional | Description |
-| --------- | ---- | ----------- |
-| `code_slot` | no | Which lock code slot to enable
+| Data        | Optional | Description                    |
+| ----------- | -------- | ------------------------------ |
+| `code_slot` | no       | Which lock code slot to enable |
 
 ### Service `zha.disable_lock_user_code`
 
 This service disables a lock code on a Zigbee lock.
 
-|  Data | Optional | Description |
-| --------- | ---- | ----------- |
-| `code_slot` | no | Which lock code slot to disable
+| Data        | Optional | Description                     |
+| ----------- | -------- | ------------------------------- |
+| `code_slot` | no       | Which lock code slot to disable |
 
 ## Adding devices
 
@@ -505,7 +505,7 @@ For example, interference from USB 3.x ports, unshielded USB 3.x devices, and no
 
 Zigbee also uses [mesh networking topology](https://en.wikipedia.org/wiki/Mesh_networking), which means that most mains-powered devices are a "Zigbee Router" that can act as a signal repeater and range extended by transmitting data over long distances by passing data messages through the Zigbee network mesh of intermediate devices to reach more distant Zigbee devices. Thus to have a healthy Zigbee network, you need many Zigbee Router devices relatively close to each other in order to achieve good coverage and range.
 
-##### Actions to optimize Zigbee Coordinator radio hardware
+#### Actions to optimize Zigbee Coordinator radio hardware
 
 Common root causes of unreliable performance are often seen with outdated Zigbee Coordinator radio adapter hardware, limited by obsolete chips, bad antenna designs, or old/buggy firmware. You can improve most Zigbee setups by using a good Zigbee Coordinator radio adapter and maintaining it.
 
@@ -522,7 +522,7 @@ Common root causes of unreliable performance are often seen with outdated Zigbee
 
 While using an older Zigbee Coordinator radio adapter hardware might work, using obsolete hardware and/or old firmware can prevent reliable operation. It is also generally a good idea to upgrade Zigbee Coordinator firmware before troubleshooting any further if and when run into problems with devices. 
 
-##### Actions to avoid or workaround EMI/EMF/RMI interference
+#### Actions to avoid or workaround EMI/EMF/RMI interference
 
 Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to all types of EMI/EMF/RMI you should always try to optimize the placement of the Zigbee Coordinator and avoid known sources of interference.
 
