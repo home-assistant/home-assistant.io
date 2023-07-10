@@ -12,6 +12,7 @@ var remarkrc = {
     ["frontmatter"],
     ["lint-fenced-code-flag"],
     ["lint-no-shell-dollars"],
+    ["remark-lint-heading-style", "atx"],
     [
       "remark-lint-prohibited-strings",
       [
