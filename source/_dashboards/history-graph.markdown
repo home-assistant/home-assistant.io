@@ -36,7 +36,7 @@ entities:
   type: list
 hours_to_show:
   required: false
-  description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
+  description: Hours to show in graph. Can have a fractional part. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
   type: integer
   default: 24
 title:
