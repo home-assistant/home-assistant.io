@@ -29,15 +29,15 @@ This integration uses Roon Core, a Roon application that runs on a machine on yo
 
 ## Services
 
-#### Service `media_player.play_media`
+### Service `media_player.play_media`
 
 Roon uses a path based on the roon browser hierarchy to specify which media to play. You can find this by using the media browser, or by following the examples below. If roon can't follow the path you will find an error in the log that will show which part of the path roon could not follow, and the possibilities at that point.
 
-| Service data attribute | Optional | Description                                                                                                                                                            |
-| -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.                                                                                                                       |
-| `media_content_id`     |       no | A path to specify the media you want to play, see examples below.                   |
-| `media_content_type`   |       no | Only `music` is supported  |
+| Service data attribute | Optional | Description                                                             |
+| ---------------------- | -------- | ----------------------------------------------------------------------- |
+| `entity_id`            | yes      | Target a specific media player. To target all media players, use `all`. |
+| `media_content_id`     | no       | A path to specify the media you want to play, see examples below.       |
+| `media_content_type`   | no       | Only `music` is supported                                               |
 
  For example to play the album Harvest by Neil Young you should set `media_content_id` to `Library/Artists/Neil Young/Harvest` and to play BBC Radio 4 you would set `media_content_id` to `My Live Radio/BBC Radio 4`
 
@@ -45,7 +45,7 @@ Roon uses a path based on the roon browser hierarchy to specify which media to p
 
 Transfer playback from one player to another.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | id of the source player.
-| `transfer_id` | no | id of the destination player.
+| Service data attribute | Optional | Description                   |
+| ---------------------- | -------- | ----------------------------- |
+| `entity_id`            | yes      | id of the source player.      |
+| `transfer_id`          | no       | id of the destination player. |

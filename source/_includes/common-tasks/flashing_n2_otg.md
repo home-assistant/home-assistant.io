@@ -4,7 +4,7 @@ Home Assistant can be flashed to an ODROID-N2+ by connecting the device directly
 
 _All these instructions work the same for the ODROID-N2 (non-plus version)._
 
-#### What you will need
+### What you will need
 
 To flash your eMMC using Petitboot and OTG-USB, you will need the following items:
 
@@ -13,7 +13,7 @@ To flash your eMMC using Petitboot and OTG-USB, you will need the following item
 - USB 2.0 to micro-USB cable
 - If your board came in a Home Assistant Blue: No.2 hex key to open the case
 
-#### Enabling SPI boot mode
+### Enabling SPI boot mode
 
 To enable the SPI boot mode:
 
@@ -30,7 +30,7 @@ To enable the SPI boot mode:
 1. Connect a USB keyboard and a monitor (using HDMI) to your ODROID-N2+.
 1. Plug in the power cable to power on the ODROID-N2+.
 
-#### Enabling USB drive mode
+### Enabling USB drive mode
 
 After The ODROID-N2+ is set to SPI boot mode and powered on, it boots into a terminal. To enable the USB drive mode:
 
@@ -59,7 +59,7 @@ This will configure the ODROID-N2+ and OTG to act as a memory card reader:
    ums /dev/mmcblk0
    ```
 
-#### Flashing Home Assistant
+### Flashing Home Assistant
 
 1. Connect the ODROID-N2+ to your PC via the micro-USB port at the front of the ODROID-N2+. 
 1. When the ODROID-N2 is recognized as a USB connected storage device, you can flash the eMMC with [Etcher](https://www.balena.io/etcher/).
