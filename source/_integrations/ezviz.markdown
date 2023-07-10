@@ -43,6 +43,28 @@ Your cameras will now show under integration options as "discovered devices". Pl
 
 You can also change the camera options should you need to access a high or low res stream. Generally, though it will just work without any modification to options.
 
+### Integration Entity Options
+
+`Request Timeout (seconds)`:
+
+- This option determines the duration Home Assistant waits for data from the EZVIZ API before giving up. This timeout is specified in seconds. If the API response takes longer than the specified timeout, Home Assistant will stop waiting and assume the request has failed. Adjust this value according to your network conditions and the responsiveness of the EZVIZ API. A higher timeout may be necessary for slower connections.
+
+- Example: If you set the **Request Timeout** to 30 seconds (default option), Home Assistant will wait up to 30 seconds for a response from the EZVIZ API before timing out.
+
+- Please note this only works on the main EZVIZ cloud entity.
+
+`Arguments passed to ffmpeg for cameras`:
+
+- This option allows you to define additional parameters for capturing footage from your EZVIZ cameras. While camera resolution and codec settings are typically configured in the "Ezviz Studio" desktop application, you can use this option to select the desired stream or substream for capturing the footage.
+
+- To choose the appropriate stream or substream, specify the corresponding channel path in the `Arguments passed to ffmpeg for cameras` field. The channel path identifies the specific stream or substream of the camera.
+
+- Example: If you want to use the camera's substream, you can specify the channel path as `/Streaming/Channels/102`. Alternatively, if you prefer the main stream, use `/Streaming/Channels/101`. You can also configure multiple stream/substream options based on your camera's capabilities and resource requirements.
+
+- Cameras typically default to the main stream if this is invalid or not specified.
+
+- Please note this only works on the camera entities.
+
 ### Service `ezviz.alarm_sound`
 
 If your EZVIZ camera supports warning sounds, you can use this service to set the intensity.
