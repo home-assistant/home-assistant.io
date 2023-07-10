@@ -43,9 +43,9 @@ Country code must be given according to [holidays](https://pypi.org/project/holi
 
 Subdivision code must be given according to [holidays](https://pypi.org/project/holidays/) notation.
 
-Add holidays will only take dates formatted with `YYYY-MM-DD`.
+Add holidays will only take dates formatted with `YYYY-MM-DD` or a date range formatted with `YYYY-MM-DD,YYYY-MM-DD`.
 
-Remove holidays will take dates formatted with `YYYY-MM-DD` or partial of name, for example, `christmas` will exclude `Christmas Day`.
+Remove holidays will take dates formatted with `YYYY-MM-DD`, a date range formatted with `YYYY-MM-DD,YYYY-MM-DD` or partial of name, for example, `christmas` will exclude `Christmas Day`.
 
 The offset can be used to see if future days are workdays. For example, put `1` to see if tomorrow is a workday.
 
