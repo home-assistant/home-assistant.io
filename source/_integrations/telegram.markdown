@@ -28,7 +28,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
    * Then, enter `/start`. 
    * The bot will return your chat ID and the user name.
 1. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot):
-   * Paste this into your configuration file:
+   * Paste this into your [configuration file](/docs/configuration/):
    * Replace the `api_key` and the `allowed_chat_ids` with your data.
   
       ```yaml
@@ -51,6 +51,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
           name: "sarah"
           chat_id: 44441111
       ```
+    * Restart Home Assistant.
 
 1. From the conversation with BotFather, select the link to open a chat with your new bot.
 1. In the chat with the new bot, enter `/start`.
