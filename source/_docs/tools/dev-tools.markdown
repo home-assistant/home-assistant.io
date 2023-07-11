@@ -117,9 +117,14 @@ Event 0 fired 9:53 AM:
 
 ## Assist
 
-Allow you to see test Home Assistant's Assist handle a sentence. The sentence would typically use speech to text like other voice assistants.
+The **Assist** tab lets you see how Home Assistant's Assist processes a sentence.
 
-If no match is found, then Assist is unable to interpret the sentence. Vice versa, a matched intent would give information on how it would act. The below example shows the sentence that was entered *what lights are on in the office*. Assist found a matching intent. At a high level, it matched the *HassGetState* intent, entities matching the domain (lights) which have the state on and in the office area. The targets are the narrowed down entities in scope.
+If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*. 
+- Assist found a matching intent: *HassGetState*.
+- It found entities matching the domain: *lights*.
+- The lights have the state *on*.
+- The lights are in the area *office*. 
+- The targets are the narrowed-down entities in scope.
 
 ![Example use of assist developer tools](/images/docs/developer-tools/Assist.png)
 
