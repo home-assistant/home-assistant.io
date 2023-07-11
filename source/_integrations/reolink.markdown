@@ -54,9 +54,16 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI pet detection
 - AI face detection
 
-These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
+These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
+The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used. The `Event Connection` sensor shows the current method beeing used.
+As a extra redundancy these sensors are polled every 60 seconds together with the update of all other entities.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
+If the `Event Connection` sensor does not show `ONVIF push` and you wish to reduce the latency, see the troubleshooting section.
+
+## General notes for all entities
+
+Entities listed below that have a * behind their name are disabled by default. To enable them go to settings->devices->reolink->device->+x enties not shown, click the entity you want to enable, settings (gear) -> enable.
 
 ## Number entities
 
@@ -154,6 +161,13 @@ Depending on the supported features of the camera, light entities are added for:
 When the floodlight entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the "Floodlight mode" select entity.
 
 When IR light entity is OFF always OFF, when ON IR LEDs will be on when the camera is in night vision mode, see the "Day night mode" select entity.
+
+## Sensor entities
+
+Depending on the supported features of the camera, sensor entities are added for:
+
+- WiFi signal*
+- Event Connection (ONVIF push, ONVIF long poll, Fast poll)*
 
 ## Update entity
 
