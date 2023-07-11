@@ -15,11 +15,11 @@ This is the legacy discovery integration for Home Assistant. It's use is no long
 
 This integration is limited to detect:
 
- * [Bluesound speakers](/integrations/bluesound)
- * [Bose Soundtouch speakers](/integrations/soundtouch)
- * [Enigma2 media player](/integrations/enigma2)
- * [SABnzbd downloader](/integrations/sabnzbd)
- * [Yamaha media player](/integrations/yamaha)
+- [Bluesound speakers](/integrations/bluesound)
+- [Bose Soundtouch speakers](/integrations/soundtouch)
+- [Enigma2 media player](/integrations/enigma2)
+- [SABnzbd downloader](/integrations/sabnzbd)
+- [Yamaha media player](/integrations/yamaha)
 
 To load this integration, add the following lines to your `configuration.yaml` file:
 
@@ -44,12 +44,12 @@ enable:
 
 Valid values for ignore are:
 
- * `bluesound`: Bluesound speakers
- * `bose_soundtouch`: Bose Soundtouch speakers
- * `enigma2`: Enigma2 media players
- * `lg_smart_device`: LG Soundbars
- * `sabnzbd`: SABnzbd downloader
- * `yamaha`: Yamaha media player
+- `bluesound`: Bluesound speakers
+- `bose_soundtouch`: Bose Soundtouch speakers
+- `enigma2`: Enigma2 media players
+- `lg_smart_device`: LG Soundbars
+- `sabnzbd`: SABnzbd downloader
+- `yamaha`: Yamaha media player
 
 ## Troubleshooting
 

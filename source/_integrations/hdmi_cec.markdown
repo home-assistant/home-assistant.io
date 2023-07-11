@@ -62,13 +62,13 @@ If after symlinking and adding `hdmi_cec:` to your configuration you are getting
 
 ## Testing your installation
 
-* Login to Raspberry Pi
+- Login to Raspberry Pi
 
 ```bash
 ssh pi@your_raspberry_pi_ip
 ```
 
-* at the command line type:
+- at the command line type:
 
 ```bash
 echo scan | cec-client -s -d 1
@@ -76,7 +76,7 @@ echo scan | cec-client -s -d 1
 
 Note: to use this command you have to install cec-utils package. In Debian based should be: ```sudo apt install cec-utils```
 
-* This will give you the list of devices that are on the bus
+- This will give you the list of devices that are on the bus
 
 ```bash
 opening a connection to the CEC adapter...
@@ -258,5 +258,5 @@ value is ignored.
 
 ## Useful References
 
-* [CEC overview](https://kwikwai.com/knowledge-base/the-hdmi-cec-bus/)
-* [CEC-o-matic](https://www.cec-o-matic.com/)
+- [CEC overview](https://kwikwai.com/knowledge-base/the-hdmi-cec-bus/)
+- [CEC-o-matic](https://www.cec-o-matic.com/)

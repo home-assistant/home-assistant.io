@@ -25,9 +25,9 @@ This section lists a few steps that may help you troubleshoot issues with Assist
 ![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-02.png)
 1. Check if it worked.
 ![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-03.png)
-   * If the phrase does not work, try a variant. For example, if *Turn off the light* doesn't work, try: *Turn off the lights in the kitchen*.
-   * Check if your phrase is [supported](/voice_control/builtin_sentences/).
-   * Make sure you are using the name of the area as it is defined in Home Assistant. If you have a room called *bathroom*, the phrase *Turning on the lights in the bath* won’t work.
+   - If the phrase does not work, try a variant. For example, if *Turn off the light* doesn't work, try: *Turn off the lights in the kitchen*.
+   - Check if your phrase is [supported](/voice_control/builtin_sentences/).
+   - Make sure you are using the name of the area as it is defined in Home Assistant. If you have a room called *bathroom*, the phrase *Turning on the lights in the bath* won’t work.
 
 ## I do not see any assistant
 
