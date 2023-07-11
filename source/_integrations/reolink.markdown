@@ -200,7 +200,7 @@ The following models have been tested and confirmed to work:
 - Reolink TrackMix ([PoE](https://reolink.pxf.io/OrmZBW) and [Wi-Fi](https://reolink.pxf.io/XYXRyX))
 - Reolink Video Doorbell ([PoE](https://reolink.pxf.io/3edaAM) and [Wi-Fi](https://reolink.pxf.io/4PWA5n))
 
-*These models are discontinued and not sold anymore.
+*These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
 
 The model links above are affiliate links, by purchasing products through these links, you will help the devolpment of this integration.
 
