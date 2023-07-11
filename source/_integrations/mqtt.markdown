@@ -215,8 +215,8 @@ Example:
 # Example configuration.yaml entry
 mqtt:
   sensor:
-    - state_topic: "home/bedroom/temperature"
-      unique_id: "brtemp01"
+    - state_topic: "home/bedroom/humidity"
+      unique_id: "brhum01"
       name: "humidity"
       device:
         name: "Attic"
@@ -239,15 +239,15 @@ mqtt:
           - dev001
 ```
 
-In the following example without a `device_class` the entity `name` will become `Bedroom temperature`:
+In the following example without a `device_class` the entity `name` will become `Bedroom some sensor`:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
   sensor:
-    - state_topic: "home/bedroom/temperature"
-      unique_id: "brtemp01"
-      name: "temperature"
+    - state_topic: "home/bedroom/sensor"
+      unique_id: "brsensor01"
+      name: "some sensor"
       device:
         name: "Bedroom"
         identifiers:
@@ -256,9 +256,7 @@ mqtt:
 
 <div class='note'>
 
-When an MQTT entity configuration has a `device` mapping and the `name` option is set, `has_entity_name` will be set to `True`.
-
-When the `name` is set under the device key, the entity's default name will not be be used, because the device name is used instead.
+So when an MQTT entity configuration has a `device` mapping, `has_entity_name` will be set to `True` and the entity's `friendly_name` and `entity_id` will constructed from the device `name` and entity `name`, in other cases `has_entity_name` will be set to False and the  friendly name will be set to the entity `name`.
 
 More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#entity-naming).
 
