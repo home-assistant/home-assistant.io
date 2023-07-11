@@ -166,37 +166,43 @@ The latest firmware can be downloaded from the [Reolink download center](https:/
 
 The following models have been tested and confirmed to work:
 
-- C1 Pro
-- C2 Pro
-- CX410
-- E1 Zoom
-- E1 Outdoor
-- E1 Outdoor Pro
-- RLC-410
-- RLC-410W
-- RLC-411
-- RLC-420
-- RLC-510A
-- RLC-511
-- RLC-511W
-- RLC-520
-- RLC-520A
-- RLC-522
-- RLC-810A
-- RLC-811A
-- RLC-81PA
-- RLC-820A
-- RLC-822A
-- RLC-823A
-- RLC-833A
-- RLC-1224A
-- RLN8-410 NVR
-- RLN16-410 NVR
-- RLN36 NVR
-- Reolink Duo 2 WiFi
-- Reolink Duo Floodlight PoE
-- Reolink TrackMix (PoE and Wi-Fi)
-- Reolink Video Doorbell (PoE and Wi-Fi)
+- C1 Pro*
+- C2 Pro*
+- [CX410](https://reolink.pxf.io/bamgZv)
+- [E1 Zoom](https://reolink.pxf.io/nL2Za7)
+- [E1 Outdoor](https://reolink.pxf.io/Y9yvXR)
+- [E1 Outdoor PoE](https://reolink.pxf.io/KjZvrx)
+- [E1 Outdoor Pro](https://reolink.pxf.io/R56Nzg)
+- RLC-410*
+- [RLC-410W](https://reolink.pxf.io/0ZdM0J)
+- RLC-411*
+- RLC-420*
+- [RLC-510A](https://reolink.pxf.io/rQ21VG)
+- RLC-511*
+- RLC-511W*
+- [RLC-511WA](https://reolink.pxf.io/q42LrY)
+- RLC-520*
+- [RLC-520A](https://reolink.pxf.io/anW9BR)
+- RLC-522*
+- [RLC-810A](https://reolink.pxf.io/g1WevA)
+- [RLC-811A](https://reolink.pxf.io/1rWMa9)
+- [RLC-81PA](https://reolink.pxf.io/oqygjO)
+- [RLC-820A](https://reolink.pxf.io/nL2Z9A)
+- [RLC-822A](https://reolink.pxf.io/6egQBq)
+- [RLC-823A](https://reolink.pxf.io/Ormv6W)
+- [RLC-833A](https://reolink.pxf.io/21WLG7)
+- [RLC-1224A](https://reolink.pxf.io/eKA2vO)
+- [RLN8-410 NVR](https://reolink.pxf.io/xkNj01)
+- [RLN16-410 NVR](https://reolink.pxf.io/MmNVnq)
+- [RLN36 NVR](https://reolink.pxf.io/xkNvE1)
+- [Reolink Duo 2 WiFi](https://reolink.pxf.io/AWEQ0o)
+- [Reolink Duo Floodlight PoE](https://reolink.pxf.io/GmZkXm)
+- Reolink TrackMix ([PoE](https://reolink.pxf.io/OrmZBW) and [Wi-Fi](https://reolink.pxf.io/XYXRyX))
+- Reolink Video Doorbell ([PoE](https://reolink.pxf.io/3edaAM) and [Wi-Fi](https://reolink.pxf.io/4PWA5n))
+
+*These models are discontinued and not sold anymore.
+
+The model links above are affiliate links, by purchasing products through these links, you will help the devolpment of this integration.
 
 Battery-powered cameras are not yet supported.
 
