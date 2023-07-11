@@ -60,7 +60,7 @@ For list of Reolink products that support ONVIF see the [Reolink Support Site](h
 
 ## General notes for all entities
 
-Entities listed below that have a * behind their name are disabled by default. To enable them go to settings->devices->reolink->device->+x enties not shown, click the entity you want to enable, settings (gear) -> enable.
+Entities listed below that have a * behind their name are disabled by default. To enable them go to settings->devices->select the reolink device->+x enties not shown, click the entity you want to enable, settings (gear) -> enable.
 
 ## Number entities
 
