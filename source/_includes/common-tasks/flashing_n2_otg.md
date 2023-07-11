@@ -18,17 +18,17 @@ To flash your eMMC using Petitboot and OTG-USB, you will need the following item
 To enable the SPI boot mode:
 
 1. Power off the ODROID-N2+ by unplugging the power cable.
-1. Remove the case.
+2. Remove the case.
 
    ![Photo of the removed case](/images/hassio/screenshots/case-removed.jpg)
 
-1. Locate the toggle for boot mode and switch it from MMC to SPI.
+3. Locate the toggle for boot mode and switch it from MMC to SPI.
 
    ![Photo of the SPI toggle switch](/images/hassio/screenshots/toggle_spi.jpg)
    
-1. Connect the ODROID-N2+ directly to your computer via the USB-OTG port located on the front of the board.
-1. Connect a USB keyboard and a monitor (using HDMI) to your ODROID-N2+.
-1. Plug in the power cable to power on the ODROID-N2+.
+4. Connect the ODROID-N2+ directly to your computer via the USB-OTG port located on the front of the board.
+5. Connect a USB keyboard and a monitor (using HDMI) to your ODROID-N2+.
+6. Plug in the power cable to power on the ODROID-N2+.
 
 ### Enabling USB drive mode
 
@@ -46,13 +46,13 @@ You can safely ignore this message and proceed with the installation
 
 </div>
 
-1. Use the following command at the console to confirm the storage device node:
+2. Use the following command at the console to confirm the storage device node:
 
    ```bash
    ls /dev/mmc*
    ```
 
-1. Set the storage device on the ODROID-N2+ as a mass storage device using the `ums` command (USB Mass storage mode).
+3. Set the storage device on the ODROID-N2+ as a mass storage device using the `ums` command (USB Mass storage mode).
 This will configure the ODROID-N2+ and OTG to act as a memory card reader:
 
    ```bash
@@ -62,18 +62,18 @@ This will configure the ODROID-N2+ and OTG to act as a memory card reader:
 ### Flashing Home Assistant
 
 1. Connect the ODROID-N2+ to your PC via the micro-USB port at the front of the ODROID-N2+. 
-1. When the ODROID-N2 is recognized as a USB connected storage device, you can flash the eMMC with [Etcher](https://www.balena.io/etcher/).
+2. When the ODROID-N2 is recognized as a USB connected storage device, you can flash the eMMC with [Etcher](https://www.balena.io/etcher/).
    - Use the latest stable version of Home Assistant OS for the [ODROID-N2+](https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos['odroid-n2']}}/haos_odroid-n2-{{site.data.version_data.hassos['odroid-n2']}}.img.xz) (haos_odroid-n2-{{site.data.version_data.hassos['odroid-n2']}}.img.xz).
 
-1. When the flash process is complete, disconnect the ODROID-N2+ from your PC.
+3. When the flash process is complete, disconnect the ODROID-N2+ from your PC.
    - Remove the power cable.
    - Remove the USB and HDMI cables.
    - Make sure to toggle the boot mode switch back to MMC.
 
-1. Put the ODROID back in its case.
-1. Connect your ODROID-N2+ to your network with an Ethernet cable and plug in power.
+4. Put the ODROID back in its case.
+5. Connect your ODROID-N2+ to your network with an Ethernet cable and plug in power.
 
-1. If your router supports mDNS, you can reach your installation at `http://homeassistant.local:8123`. 
+6. If your router supports mDNS, you can reach your installation at `http://homeassistant.local:8123`. 
    - If your network doesn’t support mDNS, you’ll have to use the IP address of your ODROID-N2+ instead of `homeassistant.local`. For example, `http://192.168.0.9:8123`. 
    - You should be able to find the IP address of your ODROID-N2+ from the admin interface of your router.
-1. Continue with [onboarding](/getting-started/onboarding/).
+7. Continue with [onboarding](/getting-started/onboarding/).

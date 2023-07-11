@@ -387,10 +387,10 @@ Tip! It is highly recommended that you read through the two segments under the t
 **To add a new Zigbee device:**
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-1. Select the **Zigbee Home Automation** integration. Then, select **Configure**.
-1. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
-1. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
-1. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
+2. Select the **Zigbee Home Automation** integration. Then, select **Configure**.
+3. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
+4. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
+5. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
 ### Using router devices to add more devices
 

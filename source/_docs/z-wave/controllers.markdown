@@ -134,7 +134,7 @@ This procedure has been tested with the following modules:
 
 1. Make sure the module is properly seated on the Home Assistant Yellow. 
    ![Aeotec Z-Pi 7 on Home Assistant Yellow](/images/docs/z-wave/zpi-7-yellow.jpg).
-1. Carefully [close the case](https://yellow.home-assistant.io/guides/add-ssd-existing-installation/#reassembling-top-part) and power up Home Assistant Yellow.
-1. Follow the procedure on [setting up a Z-Wave JS server](/integrations/zwave_js/#setting-up-a-z-wave-js-server).
+2. Carefully [close the case](https://yellow.home-assistant.io/guides/add-ssd-existing-installation/#reassembling-top-part) and power up Home Assistant Yellow.
+3. Follow the procedure on [setting up a Z-Wave JS server](/integrations/zwave_js/#setting-up-a-z-wave-js-server).
    1. In step 2, follow the manual setup steps to install the Z-Wave integration.
-   1. in Step 4, you will be prompted to choose a **Device path**. Choose **ttyAMA0**.
+   2. in Step 4, you will be prompted to choose a **Device path**. Choose **ttyAMA0**.

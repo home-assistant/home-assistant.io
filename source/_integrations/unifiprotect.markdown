@@ -119,10 +119,10 @@ you can stream your camera in Home Assistant. This may already be enabled by def
 check that this is done. To check and enable the feature:
 
 1. Open UniFi Protect and click on _Devices_.
-1. Select the camera you want to ensure can stream in UniFi Protect.
-1. Click the _Settings_ tab in the top right.
-1. Expand the _Advanced_ section at the bottom.
-1. Enable a minimum 1 stream out of the 3 available. The Stream with the Highest resolution is the default enabled one.
+2. Select the camera you want to ensure can stream in UniFi Protect.
+3. Click the _Settings_ tab in the top right.
+4. Expand the _Advanced_ section at the bottom.
+5. Enable a minimum 1 stream out of the 3 available. The Stream with the Highest resolution is the default enabled one.
 
 {% include integrations/config_flow.md %}
 

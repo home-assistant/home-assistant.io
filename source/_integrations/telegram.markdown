@@ -24,10 +24,10 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
   - Follow the instructions on screen and give your bot a name.
   - BotFather will give you a link to your new bot and an HTTP API token.
      - Store the token somewhere safe.
-1. To get a chat ID, send any message to the [GetIDs bot](https://t.me/getidsbot).
+2. To get a chat ID, send any message to the [GetIDs bot](https://t.me/getidsbot).
   - Then, enter `/start`. 
   - The bot will return your chat ID and the user name.
-1. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot):
+3. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot):
   - Paste this into your [configuration file](/docs/configuration/):
   - Replace the `api_key` and the `allowed_chat_ids` with your data.
   
@@ -40,7 +40,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
             - 44441111
       ```
 
-1. Create a notifier:
+4. Create a notifier:
   - Paste this into your configuration file: 
   - Replace the `name` and the `chat_id` with your data.
   
@@ -53,9 +53,9 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
       ```
     - Restart Home Assistant.
 
-1. From the conversation with BotFather, select the link to open a chat with your new bot.
-1. In the chat with the new bot, enter `/start`.
-1. Test the service:
+5. From the conversation with BotFather, select the link to open a chat with your new bot.
+6. In the chat with the new bot, enter `/start`.
+7. Test the service:
   - Go to [**Developer tools** > **Services** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
   - Paste this into the YAML file:
   - Replace the `service` and the `message` with your data.
@@ -67,8 +67,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
       ```
   - Select **Call service**. You should now get a message.
 
-1. You can do more with this. Check out the configuration descriptions and examples below.
-
+8. You can do more with this. Check out the configuration descriptions and examples below.
 
 ## Methods to retrieve a `chat_id`
 

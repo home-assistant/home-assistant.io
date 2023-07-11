@@ -23,15 +23,15 @@ The `logi_circle` implementation allows you to integrate your [Logi Circle](http
 1. Navigate to the [Circle OAuth2 Client Request Form](https://docs.google.com/forms/d/184FUILJ10rVxotyOQR5DAiu6GcCbK31AZszUdzT1ybs).
 2. Fill out your contact name and e-mail address.
 3. For the User Visible Client Name, specify "Home Assistant"
-3. Request the following scopes:
+4. Request the following scopes:
     - `circle:activities`
     - `circle:accessories`
     - `circle:live_image`
     - `circle:live`
     - `circle:notifications`
     - `circle:summaries`
-4. Request the `authorization_code` grant type.
-5. For the redirect URI, specify your Home Assistant URL followed by `/api/logi_circle`. For example, if your Home Assistant URL is `https://abc123.ui.nabu.casa`, then request `https://abc123.ui.nabu.casa/api/logi_circle`. The redirect URI must meet the following criteria:
+5. Request the `authorization_code` grant type.
+6. For the redirect URI, specify your Home Assistant URL followed by `/api/logi_circle`. For example, if your Home Assistant URL is `https://abc123.ui.nabu.casa`, then request `https://abc123.ui.nabu.casa/api/logi_circle`. The redirect URI must meet the following criteria:
  - The URL must be HTTPS with a SSL certificate issued by a trusted CA (i.e., trusted by normal browsers).
  - At the time you submit your request to Logitech, you need to demonstrate that you have exclusive control of the fully qualified domain name in your redirect URI. An active Home Assistant instance at the redirect URI will suffice. If you don't want to expose your Home Assistant instance publicly, you may also place a static page at the redirect URI with a short message that you will manage redirection of the authorization token to your local Home Assistant instance. Free static hosts that issue subdomains for hosting (e.g., Netlify) are permitted.
  - As the redirect URI must be public facing, no local/reserved TLDs are permitted (eg. .local, .localhost, .example, etc. are not allowed).
