@@ -3,19 +3,22 @@ title: "Developer Tools"
 description: "Description of the Developer Tools."
 ---
 
-The frontend contains a section called "Developer Tools".
+The frontend contains a section called **Developer Tools**.
 
 <p class='img'>
 <img src='/images/screenshots/developer-tools.png' />
 Screenshot of Home Assistant's Developer Tools.
 </p>
 
-| Section |Description |
-| ------- |----- |
-| States | Sets the representation of an entity |
-| Services | Calls services from integrations |
-| Events | Fires events |
-| Templates | Renders templates |
+| Section    |Description                                                          |
+| ---------- |---------------------------------------------------------------------|
+| YAML       | Lets you validate the configuration and trigger a reload or restart |
+| States     | Sets the representation of an entity                                |
+| Services   | Calls services from integrations                                    |
+| Template   | Renders templates                                                   |
+| Events     | Fires events                                                        |
+| Statistics | Shows a list of long-term statistic entities                        |
+| Assist     | Lets you see how Home Assistant Assist processes a sentence         |
 
 ## What can I do with Developer Tools?
 
