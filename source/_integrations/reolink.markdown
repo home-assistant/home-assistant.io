@@ -102,7 +102,7 @@ Depending on the supported features of the camera, button entities are added for
 - PTZ calibrate
 - Guard go to
 - Guard set current position
-- Reboot*
+- Restart*
 
 PTZ left, right, up and down will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
 
