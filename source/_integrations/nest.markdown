@@ -271,15 +271,15 @@ This feature is enabled by the following permissions:
 
 All cameras have motion and person triggers, however only some support capturing snapshots for events. The table below summarizes the [Supported SDM API features](https://developers.google.com/nest/device-access/supported-devices) for each device.
 
-| Device | Live Stream | Triggers / Events | Media Source<br> for Triggers / Events |
-| ------ | :---------: | :------: | :--------------------: |
-| Nest Cam (indoor, wired)<br>Nest Cam (outdoor, battery) | WebRTC | Motion<br>Person | N/A |
-| Nest Cam Indoor<br>Nest Cam IQ Indoor<br>Nest Cam IQ Outdoor<br>Nest Cam Outdoor | RTSP<br>Recording | Motion<br>Person<br>Sound | Snapshot (jpg) |
-| Nest Cam with floodlight | WebRTC | Motion<br>Person | N/A |
-| Nest Doorbell (battery) | WebRTC | Motion<br>Person<br>Chime | Clip Preview (mp4, gif) |
-| Nest Doorbell (wired, 1st gen) | RTSP<br>Recording | Motion<br>Person<br>Sound<br>Chime | Snapshot (jpg) |
-| Nest Doorbell (wired, 2nd gen) | WebRTC | Motion<br>Person<br>Chime | Clip Preview (mp4, gif) |
-| Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br> | Snapshot (jpg) |
+| Device                                                                           |    Live Stream    |         Triggers / Events          | Media Source<br> for Triggers / Events |
+| -------------------------------------------------------------------------------- | :---------------: | :--------------------------------: | :------------------------------------: |
+| Nest Cam (indoor, wired)<br>Nest Cam (outdoor, battery)                          |      WebRTC       |          Motion<br>Person          |                  N/A                   |
+| Nest Cam Indoor<br>Nest Cam IQ Indoor<br>Nest Cam IQ Outdoor<br>Nest Cam Outdoor | RTSP<br>Recording |     Motion<br>Person<br>Sound      |             Snapshot (jpg)             |
+| Nest Cam with floodlight                                                         |      WebRTC       |          Motion<br>Person          |                  N/A                   |
+| Nest Doorbell (battery)                                                          |      WebRTC       |     Motion<br>Person<br>Chime      |        Clip Preview (mp4, gif)         |
+| Nest Doorbell (wired, 1st gen)                                                   | RTSP<br>Recording | Motion<br>Person<br>Sound<br>Chime |             Snapshot (jpg)             |
+| Nest Doorbell (wired, 2nd gen)                                                   |      WebRTC       |     Motion<br>Person<br>Chime      |        Clip Preview (mp4, gif)         |
+| Nest Hub Max                                                                     | RTSP<br>Recording |   Motion<br>Person<br>Sound<br>    |             Snapshot (jpg)             |
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
 
@@ -309,9 +309,9 @@ This is an example of what the `nest_event` payload looks like for a Device Trig
 }
 ```
 
-* `device_id`: The Home Assistant device identifier for the camera
-* `nest_event_id`: is an opaque identifier that can be used with the Media Source Attachments described below for supported cameras.
-* `zones`: Zones triggering the event if available. Zones are configured in the Google Home App, though not supported by all cameras. Events in the area outside of a named zone will be an empty zone name.
+- `device_id`: The Home Assistant device identifier for the camera
+- `nest_event_id`: is an opaque identifier that can be used with the Media Source Attachments described below for supported cameras.
+- `zones`: Zones triggering the event if available. Zones are configured in the Google Home App, though not supported by all cameras. Events in the area outside of a named zone will be an empty zone name.
 
 {% enddetails %}
 
@@ -336,9 +336,9 @@ The table above describes which devices support event image snapshots or 10-fram
 
 The Media Source APIs can be used in [Companion App Attachments](https://companion.home-assistant.io/docs/notifications/notification-attachments) for Notifications as actions for Device Triggers above like *Doorbell Pressed*. You will need to be familiar with both the Media Sources supported for your camera, as well as the media capabilities of the companion apps.
 
-* `/api/nest/event_media/DEVICE_ID/EVENT_ID`: Media for the event, which supports image snapshots (jpg) or clip previews (mp4) depending on the camera type.
+- `/api/nest/event_media/DEVICE_ID/EVENT_ID`: Media for the event, which supports image snapshots (jpg) or clip previews (mp4) depending on the camera type.
 
-* `/api/nest/event_media/DEVICE_ID/EVENT_ID/thumbnail`: A thumbnail preview of the media, which supports image snapshots (jpg) or clip previews (gif) depending on the camera type.
+- `/api/nest/event_media/DEVICE_ID/EVENT_ID/thumbnail`: A thumbnail preview of the media, which supports image snapshots (jpg) or clip previews (gif) depending on the camera type.
 
 You can use the event payload fields `device_id` and `event_id` in an [automation](/getting-started/automation/) to send a notification from an [actions](/getting-started/automation-action/) as shown in the examples below.
 

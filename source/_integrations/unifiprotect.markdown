@@ -22,8 +22,8 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - '@AngellusMortis'
-  - '@bdraco'
+  - "@AngellusMortis"
+  - "@bdraco"
 ha_domain: unifiprotect
 ha_platforms:
   - binary_sensor
@@ -49,9 +49,9 @@ The UniFi Protect integration adds support for retrieving Camera feeds and Senso
 
 This Integration supports all UniFi OS Consoles that can run UniFi Protect. Currently, this includes:
 
-* Any UniFi Protect Network Video Recorder (**[UNVR](https://store.ui.com/collections/unifi-protect-nvr/products/unvr)** or **[UNVRPRO](https://store.ui.com/collections/unifi-protect-nvr/products/unvr-pro)**)
-* Any UniFi "Dream" device (**[UDMPRO](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/udm-pro)**, **[UDR](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-router)**, or **[UDMSE](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-machine-se)**), _except the base UniFi Dream Machine/UDM_
-* UniFi Cloud Key Gen2 Plus (**[UCKP](https://store.ui.com/collections/unifi-protect-nvr/products/unifi-cloudkey-plus)**) firmware version v2.0.24+
+- Any UniFi Protect Network Video Recorder (**[UNVR](https://store.ui.com/collections/unifi-protect-nvr/products/unvr)** or **[UNVRPRO](https://store.ui.com/collections/unifi-protect-nvr/products/unvr-pro)**)
+- Any UniFi "Dream" device (**[UDMPRO](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/udm-pro)**, **[UDR](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-router)**, or **[UDMSE](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-machine-se)**), _except the base UniFi Dream Machine/UDM_
+- UniFi Cloud Key Gen2 Plus (**[UCKP](https://store.ui.com/collections/unifi-protect-nvr/products/unifi-cloudkey-plus)**) firmware version v2.0.24+
 
 UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware `[v2.0.24](https://community.ui.com/releases/UniFi-Cloud-Key-Firmware-2-0-24/b6684f1e-8542-4660-bc0b-74e0634448e8)` or newer.
 
@@ -66,6 +66,7 @@ The absolute **minimal** software version is `[v1.20.0](https://community.ui.com
 **Early Access releases are not supported by Home Assistant.**
 
 Using Early Access versions will likely cause your UniFi Protect integration to break unexpectedly.
+
 </div>
 
 #### Downgrading UniFi Protect
@@ -102,8 +103,8 @@ but it is not required. The entities that are created will automatically adjust 
 use has.
 
 1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. **Note**: This **must** be done from
-    the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the
-    UniFi Protect app.
+   the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the
+   UniFi Protect app.
 2. Go to **Admins** from the left hand side menu or [IP address]/admins/users e.g. 192.168.1.1/admins/users.
 3. Click on **Add New Admin**.
 4. Select **Full Management** for the role. Uncheck **Allow Remote Access** and fill out the fields for your user.
@@ -144,8 +145,8 @@ and in many cases, get a read-only sensor instead of an editable switch/select/n
 
 **Smart Detections**: The following cameras have Smart Detections:
 
-* All "AI" series cameras. This includes the [AI 360](https://store.ui.com/collections/unifi-protect/products/unifi-protect-ai-360) and the [AI Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-ai-bullet).
-* All "G4" series cameras. This includes the [G4 Doorbell](https://store.ui.com/collections/unifi-protect/products/uvc-g4-doorbell), [G4 Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-g4-bullet), [G4 Pro](https://store.ui.com/collections/unifi-protect/products/uvc-g4-pro) and [G4 Instant](https://store.ui.com/collections/unifi-protect/products/camera-g4-instant).
+- All "AI" series cameras. This includes the [AI 360](https://store.ui.com/collections/unifi-protect/products/unifi-protect-ai-360) and the [AI Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-ai-bullet).
+- All "G4" series cameras. This includes the [G4 Doorbell](https://store.ui.com/collections/unifi-protect/products/uvc-g4-doorbell), [G4 Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-g4-bullet), [G4 Pro](https://store.ui.com/collections/unifi-protect/products/uvc-g4-pro) and [G4 Instant](https://store.ui.com/collections/unifi-protect/products/camera-g4-instant).
 
 G3 Series cameras do _not_ have Smart detections.
 
@@ -153,41 +154,41 @@ G3 Series cameras do _not_ have Smart detections.
 
 Each UniFi Protect camera will get a device in Home Assistant with the following:
 
-* **Camera** - A camera for each camera channel and RTSP(S) combination found for each camera (up to 7). Only the highest resolution RTSPS camera entity will be enabled by default.
-  * If your camera is a G4 Doorbell Pro, an additional camera entity will be added for the Package Camera. The Package Camera entity will _not_ have streaming capabilities regardless of whether RTSPS is enabled on the channel or not. This is due to the Package Camera having a very low FPS that does not make it compatible with HLS streaming.
-* **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](/integrations/tts/#service-say).
-* **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
-* **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
-  * There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected.
-* **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
-  * configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
-  * configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
-  * configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
-* **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
+- **Camera** - A camera for each camera channel and RTSP(S) combination found for each camera (up to 7). Only the highest resolution RTSPS camera entity will be enabled by default.
+  - If your camera is a G4 Doorbell Pro, an additional camera entity will be added for the Package Camera. The Package Camera entity will _not_ have streaming capabilities regardless of whether RTSPS is enabled on the channel or not. This is due to the Package Camera having a very low FPS that does not make it compatible with HLS streaming.
+- **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](/integrations/tts/#service-say).
+- **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
+- **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
+  - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected.
+- **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
+  - configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
+  - configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
+  - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
+- **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
 
 ### UniFi Protect Floodlights
 
 Each UniFi Protect floodlight will get a device in Home Assistant with the following:
 
-* **Light** - A light entity will be added for each floodlight device. The light entity will let you control turning on or off your light as well as adjust the brightness of your floodlight.
-* **Sensors** - Sensors are provided for data provided from floodlight devices. Sensors include "Is Dark" and "Motion Detected".
-* **Device Configuration** - Floodlights will get configuration controls for the PIR Motion Sensitivity, the Auto-shutoff Duration after detected motion, and Status Light switch
-* **Button** - A disabled by default button is added for each floodlight device. The button will let you reboot your floodlight device.
+- **Light** - A light entity will be added for each floodlight device. The light entity will let you control turning on or off your light as well as adjust the brightness of your floodlight.
+- **Sensors** - Sensors are provided for data provided from floodlight devices. Sensors include "Is Dark" and "Motion Detected".
+- **Device Configuration** - Floodlights will get configuration controls for the PIR Motion Sensitivity, the Auto-shutoff Duration after detected motion, and Status Light switch
+- **Button** - A disabled by default button is added for each floodlight device. The button will let you reboot your floodlight device.
 
 ### UniFi Protect Smart Sensors
 
 UniFi Protect smart sensors are a bit different than normal sensors. They are a multi-sensor that can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, an alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
 
-* **Sensors** - A sensor is provided for each major function of the smart sensor device:
-  * **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
-  * **Motion Detection** - A motion detection sensor will be available if the mount type is not set to "Leak" and motion detection is enabled.
-  * **Light Level** - A light level sensor will be available if the mount type is not set to "Leak" and the light sensor is enabled.
-  * **Humidity** - A humidity sensor will be available if the mount type is not set to "Leak" and the humidity sensor is enabled.
-  * **Temperature** - A temperature sensor will be available if the mount type is not set to "Leak" and the temperature sensor is enabled.
-  * **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
-  * **Tamper** - A binary sensor to detect tampering.
-* **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
-* **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
+- **Sensors** - A sensor is provided for each major function of the smart sensor device:
+  - **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
+  - **Motion Detection** - A motion detection sensor will be available if the mount type is not set to "Leak" and motion detection is enabled.
+  - **Light Level** - A light level sensor will be available if the mount type is not set to "Leak" and the light sensor is enabled.
+  - **Humidity** - A humidity sensor will be available if the mount type is not set to "Leak" and the humidity sensor is enabled.
+  - **Temperature** - A temperature sensor will be available if the mount type is not set to "Leak" and the temperature sensor is enabled.
+  - **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
+  - **Tamper** - A binary sensor to detect tampering.
+- **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
+- **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
 
 #### Tamper Sensor
 
@@ -197,30 +198,30 @@ Once the tamper sensor is triggered, it stays active until manually cleared. A b
 
 Each UniFi Protect viewer will get a device in Home Assistant with the following:
 
-* **Liveview Select** - A select control will be added for each viewer device that will allow you to select which liveview is being displayed on the viewer.
-* **Button** - A disabled by default button is added for each viewer device. The button will let you reboot your viewer device.
+- **Liveview Select** - A select control will be added for each viewer device that will allow you to select which liveview is being displayed on the viewer.
+- **Button** - A disabled by default button is added for each viewer device. The button will let you reboot your viewer device.
 
 ### UniFi Protect DoorLock
 
 Each UniFi Protect door lock will get a device in Home Assistant with the following:
 
-* **Lock** - A lock control will be added to lock and unlock your door lock device.
-* **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
-* **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
+- **Lock** - A lock control will be added to lock and unlock your door lock device.
+- **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
+- **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
 
 ### UniFi Protect Smart Chime
 
 Each UniFi Protect smart chime will get a device in Home Assistant with the following:
 
-* **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
-* **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
+- **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
+- **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
 
 ### NVR
 
 Your main UniFi Protect NVR device also gets a number of diagnostics sensors that can be used for tracking the state of your UniFi Protect system:
 
-* **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
-* **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
+- **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
+- **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
 ## Media Source
 
@@ -234,10 +235,10 @@ The media source is split into 5 folders/levels:
 2. Camera Selector - either lets you select all cameras or a specific camera to view events for.
 3. Event Selector - either lets you select all events or a specific event type to view events for.
 4. Time Selector - filters events for a given time range:
-   * Last 24 Hours
-   * Last 7 Days
-   * Last 30 Days
-   * By Month since start of recording - selecting a month lets you either view the whole month or a specific date
+   - Last 24 Hours
+   - Last 7 Days
+   - Last 30 Days
+   - By Month since start of recording - selecting a month lets you either view the whole month or a specific date
 5. Event Selector - lets you select the specific event for playback
 
 Since the media browser does not have any pagination or filtering, all of the events must be loaded into memory. As a result, the number of events loaded at once is truncated to 10,000 by default. The number of events will be listed at "10000 (TRUNCATED)" if the event count was truncated. You can raise or lower the limit of the number of events that can be loaded using the Config Entry Options.

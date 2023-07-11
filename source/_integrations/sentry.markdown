@@ -31,7 +31,7 @@ Follow these steps to get the DSN:
 1. Select **Create project**.
 1. Fill out the **Give your project a name** and **choose Assign a Team** fields and select the **Create project** button.
 1. Select the **Get your DSN** link in top of the page.
-   * Your DSN is now visible and looks like <https://sdasdasdasdsadsadas@sentry.io/sdsdfsdf>
+   - Your DSN is now visible and looks like <https://sdasdasdasdsadsadas@sentry.io/sdsdfsdf>
 
 {% include integrations/config_flow.md %}
 
