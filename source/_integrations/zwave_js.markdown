@@ -51,9 +51,9 @@ The Z-Wave integration allows you to control a Z-Wave network via the [Z-Wave JS
 
 To run a Z-Wave network, you need the following elements:
 
-* A [supported Z-Wave controller](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). First-time user? For recommendations on what to buy, go [here](#which-z-wave-controller-should-i-buy).
-* A running Z-Wave JS server.
-* An installed Z-Wave integration in Home Assistant.
+- A [supported Z-Wave controller](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). First-time user? For recommendations on what to buy, go [here](#which-z-wave-controller-should-i-buy).
+- A running Z-Wave JS server.
+- An installed Z-Wave integration in Home Assistant.
 
 ### Setting up a Z-Wave JS server
 
@@ -65,32 +65,32 @@ Follow these steps:
 
 1. Open the Home Assistant user interface.
 1. Plug the Z-Wave dongle into the device running Home Assistant.
-   * Most likely, your dongle will be recognized automatically. On the user interface, you will be asked if you want to set up this device with the Z-Wave JS add-on. Select **Submit**.
-   * If your dongle is not recognized, follow these steps:
+   - Most likely, your dongle will be recognized automatically. On the user interface, you will be asked if you want to set up this device with the Z-Wave JS add-on. Select **Submit**.
+   - If your dongle is not recognized, follow these steps:
 
 {% details "Manual setup steps" %}
 Use this My button:
 
 {% my config_flow_start badge domain="zwave_js" %}, or follow these steps:
 
-* Browse to your Home Assistant instance.
-* Go to **{% my integrations title="Settings > Devices & Services" %}**.
-* In the bottom right, select the
+- Browse to your Home Assistant instance.
+- Go to **{% my integrations title="Settings > Devices & Services" %}**.
+- In the bottom right, select the
   **{% my config_flow_start icon domain="zwave_js" %}** button.
-* From the list, select **Z-Wave**.
-* Follow the instructions on screen to complete the setup.
+- From the list, select **Z-Wave**.
+- Follow the instructions on screen to complete the setup.
 
 {% enddetails %}
 
 3. Wait for the installation to complete.
 1. You are prompted for network security keys.
-   * If you are using Z-Wave for the first time, leave all the fields empty and select **Submit**. The system will generate network security keys for you.
-   * If this Z-Wave dongle has already been paired with secure devices, you need to enter the previously used network key as the S0 network key. S2 security keys will be automatically generated for you.
-   * Make sure that you keep a backup of these keys in a safe place in case you need to move your Z-Wave dongle to another device. Copy and paste them somewhere safe.
+   - If you are using Z-Wave for the first time, leave all the fields empty and select **Submit**. The system will generate network security keys for you.
+   - If this Z-Wave dongle has already been paired with secure devices, you need to enter the previously used network key as the S0 network key. S2 security keys will be automatically generated for you.
+   - Make sure that you keep a backup of these keys in a safe place in case you need to move your Z-Wave dongle to another device. Copy and paste them somewhere safe.
 1. Wait for the Z-Wave JS add-on to start up.
 1. Once the installation is complete, the **Device info** of the Z-Wave controller is shown.
-   * You successfully installed the Z-Wave integration and the Z-Wave JS add-on.
-   * You can now [add](/integrations/zwave_js/#adding-a-new-device-to-the-z-wave-network) devices to the Z-Wave network.
+   - You successfully installed the Z-Wave integration and the Z-Wave JS add-on.
+   - You can now [add](/integrations/zwave_js/#adding-a-new-device-to-the-z-wave-network) devices to the Z-Wave network.
 
 <p class='note'>
 While your Z-Wave mesh is permanently stored on your dongle, the additional metadata is not. When the Z-Wave integration starts up the first time, it will interview your entire Z-Wave network. Depending on the number of devices paired with the Z-Wave dongle, this can take a while. You can speed up this process by manually waking up your battery-powered devices. Most of the time, this is a button press on those devices (see their manual). It is not necessary to exclude and re-include devices from the mesh.
@@ -101,14 +101,14 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
 1. Select the Z-Wave integration. Then select **Configure**.
 1. Select **Add device**.
-   * The Z-Wave controller is now in inclusion mode.
+   - The Z-Wave controller is now in inclusion mode.
 1. If your device supports SmartStart (700 series controller), select **Scan QR code** and scan the QR code on your device.
 1. If your device does not support SmartStart, set the device in inclusion mode. Refer to the device manual to see how this is done.
-   * If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
+   - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
 1. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
 1. If the controller fails to add/find your device, cancel the inclusion process.
-   * In some cases, it might help to first [remove](/integrations/zwave_js/#removing-a-device-from-the-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
-   * Another approach would be to factory reset the device. Refer to the device manual to see how this is done.
+   - In some cases, it might help to first [remove](/integrations/zwave_js/#removing-a-device-from-the-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
+   - Another approach would be to factory reset the device. Refer to the device manual to see how this is done.
 
 **Important:**
 
@@ -120,7 +120,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
 1. Select the **Z-Wave** integration. Then, select **Configure**.
 1. Select **Remove device**, then **Start exclusion**.
-   * The Z-Wave controller is now in exclusion mode.
+   - The Z-Wave controller is now in exclusion mode.
 1. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
 1. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
 
@@ -150,18 +150,18 @@ The following features can be accessed from the integration configuration panel:
 
 ![Z-Wave integration configuration panel](/images/integrations/z-wave/z-wave-integration-config-panel.png)
 
-* **Add device:** Allows you to pre-provision a SmartStart device or start the inclusion process for adding a new device to your network.
-* **Remove device:** Starts the exclusion process for removing a device from your network.
-* **Heal network:** Forces your network to rediscover routes to the controller from each device. This is useful when devices or the controller have moved to a new location, or if you are having significant problems with your network, but it also generates a lot of network traffic and should be used sparingly.
-* **[Controller statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot):** Provides statistics about communication between the controller and other devices, allowing you to troubleshoot your network's RF quality.
-* **Third-party data opt-in/out:** Allows you to opt-in or out of telemetry that the Z-Wave JS project collects to help inform development decisions, influence manufacturers, etc. This telemetry is disabled by default and has to be opted in to be activated.
+- **Add device:** Allows you to pre-provision a SmartStart device or start the inclusion process for adding a new device to your network.
+- **Remove device:** Starts the exclusion process for removing a device from your network.
+- **Heal network:** Forces your network to rediscover routes to the controller from each device. This is useful when devices or the controller have moved to a new location, or if you are having significant problems with your network, but it also generates a lot of network traffic and should be used sparingly.
+- **[Controller statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot):** Provides statistics about communication between the controller and other devices, allowing you to troubleshoot your network's RF quality.
+- **Third-party data opt-in/out:** Allows you to opt-in or out of telemetry that the Z-Wave JS project collects to help inform development decisions, influence manufacturers, etc. This telemetry is disabled by default and has to be opted in to be activated.
 
 ### Integration menu
 
 Some features can be accessed from the menu of integration itself. As they are not specific to Z-Wave, they are not described here in detail.
 ![Z-Wave integration configuration panel](/images/integrations/z-wave/z-wave-integration-menu.png)
 
-* **[Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics):** Exports a JSON file describing the entities of all devices registered with this integration.
+- **[Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics):** Exports a JSON file describing the entities of all devices registered with this integration.
 
 ### Device panel
 
@@ -169,13 +169,13 @@ The following features can be accessed from the device panel of a Z-Wave device:
 
 ![Z-Wave device panel](/images/integrations/z-wave/z-wave-device-info.png)
 
-* **Configure:** Provides an easy way to look up and update configuration parameters for the device. While there is an existing service for setting configuration parameter values, this UI may sometimes be quicker to use for one-off changes.
-* **Re-interview:** Forces the device to go through the interview process again so that Z-Wave-JS can discover all of its capabilities. Can be helpful if you don't see all the expected entities for your device.
-* **Heal:** Forces the device to rediscover its optimal route back to the controller. Use this if you think you are experiencing unexpected delays or RF issues with your device. Your device may be less responsive during this process.
-* **Remove failed:** Forces the controller to remove the device from the controller. Can be used when a device has failed and it can't go through the normal exclusion process.
-* **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot):** Provides statistics about communication between this device and the controller, allowing you to troubleshoot RF issues with the device.
-* **Update:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (controllers and devices with the Firmware Update Metadata Command Class).
-* **Download diagnostics:** Exports a JSON file describing the entities of this specific device.
+- **Configure:** Provides an easy way to look up and update configuration parameters for the device. While there is an existing service for setting configuration parameter values, this UI may sometimes be quicker to use for one-off changes.
+- **Re-interview:** Forces the device to go through the interview process again so that Z-Wave-JS can discover all of its capabilities. Can be helpful if you don't see all the expected entities for your device.
+- **Heal:** Forces the device to rediscover its optimal route back to the controller. Use this if you think you are experiencing unexpected delays or RF issues with your device. Your device may be less responsive during this process.
+- **Remove failed:** Forces the controller to remove the device from the controller. Can be used when a device has failed and it can't go through the normal exclusion process.
+- **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot):** Provides statistics about communication between this device and the controller, allowing you to troubleshoot RF issues with the device.
+- **Update:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (controllers and devices with the Firmware Update Metadata Command Class).
+- **Download diagnostics:** Exports a JSON file describing the entities of this specific device.
 
 ## Services
 
@@ -842,9 +842,9 @@ Your device might not send automatic status updates to the controller. While the
 
 Z-Wave does not automatically poll devices on a regular basis. Polling can quickly lead to network congestion and should be used very sparingly and only where necessary.
 
-* We provide a `zwave_js.refresh_value` service to allow you to manually poll a value, for example from an automation that only polls a device when there is motion in that same room. If you **really** need polling, you can enable this in Z-Wave JS UI but not in the official add-on.
+- We provide a `zwave_js.refresh_value` service to allow you to manually poll a value, for example from an automation that only polls a device when there is motion in that same room. If you **really** need polling, you can enable this in Z-Wave JS UI but not in the official add-on.
 
-* Z-Wave JS UI allows you to configure scheduled polling on a per-value basis, which you can use to keep certain values updated. It also allows you to poll individual values on-demand from your automations, which should be preferred over blindly polling all the time if possible.
+- Z-Wave JS UI allows you to configure scheduled polling on a per-value basis, which you can use to keep certain values updated. It also allows you to poll individual values on-demand from your automations, which should be preferred over blindly polling all the time if possible.
 
 <div class='note warning'>
 Polling should only be used as a last resort. You must use it with care and accept the negative impact on your network. Z-Wave is a very low speed network and poll requests can easily flood your network and slow down your commands.

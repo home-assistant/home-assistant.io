@@ -30,9 +30,9 @@ tts:
 
 API key obtaining process described in corresponding documentation:
 
-* [Text-to-speech](https://cloud.google.com/text-to-speech/docs/quickstart-protocol)
-* [Speech-to-text](https://cloud.google.com/speech-to-text/docs/quickstart-protocol)
-* [Geocoding](https://developers.google.com/maps/documentation/geocoding/start)
+- [Text-to-speech](https://cloud.google.com/text-to-speech/docs/quickstart-protocol)
+- [Speech-to-text](https://cloud.google.com/speech-to-text/docs/quickstart-protocol)
+- [Geocoding](https://developers.google.com/maps/documentation/geocoding/start)
 
 Basic instruction for all APIs:
 
@@ -43,9 +43,9 @@ Basic instruction for all APIs:
 5. Enable needed Cloud API visiting one of the links below or [APIs library](https://console.cloud.google.com/apis/library), selecting your `Project` from the dropdown list and clicking the `Continue` button:
 
 
-    * [Text-to-speech](https://console.cloud.google.com/flows/enableapi?apiid=texttospeech.googleapis.com)
-    * [Speech-to-text](https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com)
-    * [Geocoding](https://console.cloud.google.com/flows/enableapi?apiid=geocoding-backend.googleapis.com)
+    - [Text-to-speech](https://console.cloud.google.com/flows/enableapi?apiid=texttospeech.googleapis.com)
+    - [Speech-to-text](https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com)
+    - [Geocoding](https://console.cloud.google.com/flows/enableapi?apiid=geocoding-backend.googleapis.com)
 6. Set up authentication:
 
     1. Visit [this link](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
@@ -67,7 +67,7 @@ Basic instruction for all APIs:
 The Cloud text-to-speech API is priced monthly based on the amount of characters to synthesize into audio sent to the service.
 
 | Feature                       | Monthly free tier         | Paid usage                        |
-|-------------------------------|---------------------------|-----------------------------------|
+| ----------------------------- | ------------------------- | --------------------------------- |
 | Standard (non-WaveNet) voices | 0 to 4 million characters | $4.00 USD / 1 million characters  |
 | WaveNet voices                | 0 to 1 million characters | $16.00 USD / 1 million characters |
 
