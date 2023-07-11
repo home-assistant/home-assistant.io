@@ -202,7 +202,7 @@ The following models have been tested and confirmed to work:
 
 *These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
 
-The model links above are affiliate links, by purchasing products through these links, you will help the devolpment of this integration.
+The model links above are affiliate links, by purchasing products through these links, you will help the development of this integration.
 
 Battery-powered cameras are not yet supported.
 
