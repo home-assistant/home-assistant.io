@@ -95,9 +95,9 @@ The integration will automatically discover Bluetooth devices once the [Bluetoot
 
 1. Power up your HomeKit device.
    - If you have Bluetooth enabled, the device should be discovered under **{% my integrations title="Settings > Devices & Services" %}**.
-1. Under **{% my integrations title="Settings > Devices & Services" %}**, on the HomeKit integration, select **Configure**.
+2. Under **{% my integrations title="Settings > Devices & Services" %}**, on the HomeKit integration, select **Configure**.
    ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
-1. To pair the device, enter the HomeKit pairing code. The code is on the device itself or the packaging.
+3. To pair the device, enter the HomeKit pairing code. The code is on the device itself or the packaging.
    - To pair a battery-powered device, you may need to press a button on the device to wake it.
    - Bluetooth devices may take significantly longer to pair than IP devices.
    - Add the device to a room and **Finish**.
@@ -125,9 +125,9 @@ This section describes how to add it via Home Assistant's preferred Thread netwo
 ### To add a HomeKit device to a Thread network via Home Assistant
 
 1. To open the device configuration page, on the **HomeKit** integration, select the **device**.
-1. Under **Diagnostic**, you can see the **Thread Status** as **Disabled**.
+2. Under **Diagnostic**, you can see the **Thread Status** as **Disabled**.
    ![Device configuration page](/images/integrations/homekit_controller/homekit_controller_add_02.png)
-1. To enable Thread, under **Configuration**, select **Press**. This will provision the preferred Thread credentials.
+3. To enable Thread, under **Configuration**, select **Press**. This will provision the preferred Thread credentials.
    - The status has now changed:
      - Depending on the device type, the mesh size and health, the Thread status can be **Child**, **Router**, or **Leader**.
        ![Thread status](/images/integrations/homekit_controller/homekit_controller_add_02.png)
@@ -155,16 +155,16 @@ This section describes how to add a HomeKit device using an Apple Thread border 
    - This leaves the Thread network details on the HomeKit device.
    - The device will be automatically discovered by the HomeKit controller integration in Home Assistant.
    - It will appear as a discovered device over Thread.
-1. Under **{% my integrations title="Settings > Devices & Services" %}**, on the HomeKit integration, select **Configure**.
+2. Under **{% my integrations title="Settings > Devices & Services" %}**, on the HomeKit integration, select **Configure**.
 
    ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
 
-1. To pair the device, enter the HomeKit pairing code. The code is on the device itself or the packaging.
+3. To pair the device, enter the HomeKit pairing code. The code is on the device itself or the packaging.
    - To pair a battery-powered device, you may need to press a button on the device to wake it.
    - Bluetooth devices may take significantly longer to pair than IP devices.
    - Add the device to a room and **Finish**.
-1. To open the device configuration page, on the **HomeKit** integration, select the **device**.
-1. Under **Diagnostic**, check the status:
+4. To open the device configuration page, on the **HomeKit** integration, select the **device**.
+5. Under **Diagnostic**, check the status:
    - Depending on the device type, the mesh size and health, the Thread status can be **Child**, **Router**, or **Leader**.
      ![Thread status](/images/integrations/homekit_controller/homekit_controller_add_02.png)
    - That's it. Your HomeKit device now communicates via Thread.
