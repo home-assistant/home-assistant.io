@@ -115,19 +115,6 @@ Event 0 fired 9:53 AM:
 }
 ```
 
-## Assist
-
-The **Assist** tab lets you see how Home Assistant's Assist processes a sentence.
-
-If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*. 
-- Assist found a matching intent: *HassGetState*.
-- It found entities matching the domain: *lights*.
-- The lights have the state *on*.
-- The lights are in the area *office*. 
-- The targets are the narrowed-down entities in scope.
-
-![Example use of assist developer tools](/images/docs/developer-tools/Assist.png)
-
 ## Statistics
 
 The **Statistics** tab shows a list of long-term statistic entities. If the long term statistics is not working for an entity, a **Fix Issue** link is shown. Select it to view a description of the issue. There might also be an option to fix the issue.
@@ -140,3 +127,15 @@ icon. Use date & time to search for the incorrect data point and adjust the valu
 
 ![Screenshot showing adjusting the long-term statistic history value](/images/blog/2022-04/adjust-statistics.png)
 
+## Assist
+
+The **Assist** tab lets you see how Home Assistant's Assist processes a sentence.
+
+If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*. 
+- Assist found a matching intent: *HassGetState*.
+- It found entities matching the domain: *lights*.
+- The lights have the state *on*.
+- The lights are in the area *office*. 
+- The targets are the narrowed-down entities in scope.
+
+![Example use of assist developer tools](/images/docs/developer-tools/Assist.png)
