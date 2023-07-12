@@ -246,7 +246,7 @@ The following remote adapters are supported:
 
 - [ESPHome](https://esphome.github.io/bluetooth-proxies/)
   - Bluetooth advertisement listening: ESPHome ESP32 device with firmware 2022.8.2 or later
-  - Bluetooth advertisement bundling: ESPHome ESP32 device with firmware 2022.6.0 or later
+  - Bluetooth advertisement bundling: ESPHome ESP32 device with firmware 2023.6.0 or later
   - Single active connection: ESPHome ESP32 device with firmware 2022.9.3 or later
   - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
 - [Shelly](/integrations/shelly/)
