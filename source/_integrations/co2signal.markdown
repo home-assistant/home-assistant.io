@@ -19,7 +19,7 @@ The `Electricity Maps` sensor platform (formerly known as CO2Signal) queries the
 
 ## Prerequisites
 
-To configure and use this integration, you need to obtain a free API key from Electricity Maps by signing up on the [Electricity Maps API Portal](https://api-portal.electricitymaps.com/) and subscribing to their [Free Tier](https://api-portal.electricitymaps.com/subscription/sub_aykig83a6qqm24j3/overview) product.
+To configure and use this integration, you need to obtain a free API key from Electricity Maps by signing up to the Free Tier product on the [Electricity Maps API Portal](https://electricitymaps.com/free-tier).
 
 {% include integrations/config_flow.md %}
 
