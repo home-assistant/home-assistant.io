@@ -201,7 +201,6 @@ layout: null
 # Renamed integrations
 /integrationss/air_pollutants /integrations/air_quality
 /integrations/climacell /integrations/tomorrowio
-/integrations/co2signal /integrations/electricity_maps
 /integrations/generic_ip_camera /integrations/generic
 /integrations/google /integrations/google_translate
 /integrations/input_slider /integrations/input_number
