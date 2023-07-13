@@ -18,7 +18,7 @@ ha_integration_type: integration
 ---
 
 The `workday` binary sensor indicates whether the current day is a workday or not. It allows specifying which days of the week will count as workdays and also
-uses the Python module [holidays](https://pypi.org/project/holidays/) to incorporate information about region-specific public holidays. 
+uses the Python module [holidays](https://pypi.org/project/holidays/) to incorporate information about region-specific public holidays.
 
 This can be used to make automations that act differently on weekdays vs weekends. For example, you could make your bedroom lights turn on (gently) at 7 in the morning if it is a weekday, but wait until 11 if it is a weekend day.
 
@@ -42,6 +42,8 @@ Watch how the `holiday` keyword is used. Your first instinct might be adding it 
 Country code must be given according to [holidays](https://pypi.org/project/holidays/) notation.
 
 Subdivision code must be given according to [holidays](https://pypi.org/project/holidays/) notation.
+
+Language must be given according to [holidays](https://pypi.org/project/holidays/) notation.
 
 Add holidays will only take dates formatted with `YYYY-MM-DD`.
 
