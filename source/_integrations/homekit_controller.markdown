@@ -79,13 +79,13 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
 ### To add a HomeKit device via Ethernet or Wi-Fi
 
 1. The device should have been discovered under **{% my integrations title="Settings > Devices & Services" %}**.
-1. On the HomeKit integration, select **Configure**.
+2. On the HomeKit integration, select **Configure**.
      
      ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
-1. Enter your HomeKit pairing code.
+3. Enter your HomeKit pairing code.
    - Add the device to a room and select **Finish**.
    - The device should now be added to your Home Assistant instance.
-1. Once Home Assistant is configured to work with the device, you can export it back to Siri and Apple Home with the [`HomeKit`](/integrations/homekit/) integration.
+4. Once Home Assistant is configured to work with the device, you can export it back to Siri and Apple Home with the [`HomeKit`](/integrations/homekit/) integration.
 
 ## Adding a HomeKit device through Bluetooth
 
