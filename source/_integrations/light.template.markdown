@@ -105,11 +105,6 @@ light:
         required: false
         type: template
         default: optimistic
-      white_value_template:
-        description: Defines a template to get the white value of the light.
-        required: false
-        type: template
-        default: optimistic
       color_template:
         description: Defines a template to get the color of the light. Must render a tuple (hue, saturation)
         required: false
@@ -150,31 +145,27 @@ light:
         type: template
         default: true
       turn_on:
-        description: Defines an action to run when the light is turned on.
+        description: Defines an action to run when the light is turned on. May receive variables `brightness` and/or `transition`.
         required: true
         type: action
       turn_off:
-        description: Defines an action to run when the light is turned off.
+        description: Defines an action to run when the light is turned off. May receive variable `transition`.
         required: true
         type: action
       set_level:
-        description: Defines an action to run when the light is given a brightness command. The script will only be called if the `turn_on` call only has brightness, and optionally transition.
+        description: Defines an action to run when the light is given a brightness command. The script will only be called if the `turn_on` call only has brightness, and optionally transition. Receives variables `brightness` and optionally `transition`.
         required: false
         type: action
       set_temperature:
-        description: Defines an action to run when the light is given a color temperature command.
-        required: false
-        type: action
-      set_white_value:
-        description: Defines an action to run when the light is given a white value command.
+        description: Defines an action to run when the light is given a color temperature command. Receives variable `color_temp`. May also receive variables `brightness` and/or `transition`.
         required: false
         type: action
       set_color:
-        description: Defines an action to run when the light is given a color command.
+        description: Defines an action to run when the light is given a color command. Receives variables `h`, `s`, and `hs` (which is equivalent to `(h, s)`). May also receive variables `brightness` and/or `transition`.
         required: false
         type: action
       set_effect:
-        description: Defines an action to run when the light is given an effect command.
+        description: Defines an action to run when the light is given an effect command. Receives variable `effect`. May also receive variables `brightness` and/or `transition`.
         required: inclusive
         type: action
 {% endconfiguration %}
@@ -205,9 +196,9 @@ In this section you will find some real-life examples of how to use this light.
 ### Theater Volume Control
 
 This example shows a light that is actually a home theater's volume. This
-component gives you the flexibility to provide whatever you'd like to send as
+integration gives you the flexibility to provide whatever you'd like to send as
 the payload to the consumer including any scale conversions you may need to
-make; the [Media Player component](/integrations/media_player/) needs a floating
+make; the [Media Player integration](/integrations/media_player/) needs a floating
 point percentage value from `0.0` to `1.0`.
 
 {% raw %}

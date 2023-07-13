@@ -53,7 +53,7 @@ We recommend using `unicast` for communication. To enable this, enter the local 
 
 ## Shelly device configuration (generation 2)
 
-Generation 2 devices use the `RPC` protocol to communicate with the integration. Battery powered devices need manual outbound websocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound websocket** and check the box **Enable Outbound Websocket**, under server enter the following address:
+Generation 2 devices use the `RPC` protocol to communicate with the integration. Battery powered devices need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
 
 `ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 
@@ -207,7 +207,13 @@ Shelly device relays are added to Home Assistant by default as `switch` entities
 
 ## Consumption type (generation 2)
 
-Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **CONSUMPTION TYPE** value is set to `Lights`.
+Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **EXTERNAL CONSUMPTION TYPE** value is set to `light`.
+
+<div class="note">
+
+Firmware 1.0.0 or later is required.
+
+</div>
 
 ## Light transition
 

@@ -33,7 +33,7 @@ Home Assistant is integrated with the following devices through [https://mytotal
 
 - Thermostats
   - Every thermostat is exposed as a climate entity
-  - Known working devices: [TH6320R1004](https://customer.resideo.com/en-US/Pages/Product.aspx?cat=HonECC%2520Catalog&pid=TH6320R1004/U), [RTH9585WF1004](https://www.honeywellhome.com/us/en/products/air/thermostats/wifi-thermostats/wifi-color-touchscreen-thermostat-rth9585wf1004-u/)
+  - Known working devices: [TH6320R1004](https://customer.resideo.com/en-US/Pages/Product.aspx?cat=HonECC%2520Catalog&pid=TH6320R1004/U), [RTH9585WF1004](https://www.honeywellhome.com/us/en/products/air/thermostats/wifi-thermostats/wifi-color-touchscreen-thermostat-rth9585wf1004-u/), [RTH6580WF](https://www.honeywellhome.com/us/en/products/air/thermostats/wifi-thermostats/wifi-7-day-programmable-thermostat-rth6580wf1001-u1/)
 - Sensors
   - A Temperature sensor entity.
   - A Humidity sensor entity.

@@ -194,3 +194,62 @@ data:
   end_date_time: "{{ now() + timedelta(minutes=1) }}"
 ```
 {% endraw %}
+
+
+### Service `calendar.list_events`
+
+This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+with calendar events within a date range.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `start_date_time` | yes | Return active events after this time (exclusive). When not set, defaults to now. | 2019-03-10 20:00:00
+| `end_date_time` | yes | Return active events before this time (exclusive). Cannot be used with 'duration'. | 2019-03-10 23:00:00
+| `duration` | yes | Return active events from start_date_time until the specified duration. | `days: 2`
+
+<div class='note'>
+
+Use only one of `end_date_time` or `duration`.
+
+</div>
+
+
+{% raw %}
+```yaml
+service: calendar.list_events
+target:
+  entity_id: calendar.school
+data:
+  duration:
+    hours: 24
+response_variable: agenda
+```
+{% endraw %}
+
+The response data field `events` is a list of events with these fields:
+
+| Response data | Description | Example |
+| ---------------------- | ----------- | -------- |
+| `summary` | The title of the event. | Bowling
+| `description` | The description of the event. | Birthday bowling
+| `start` | The date or date time the event starts. | 2019-03-10 20:00:00
+| `end` | The date or date time the event ends (exclusive). | 2019-03-10 23:00:00
+| `location` | The location of the event. | Bowling center
+
+This example uses a template with response data in another service call:
+
+{% raw %}
+```yaml
+service: notify.gmail_com
+data:
+  target: gduser1@workspacesamples.dev
+  title: Daily agenda for {{ now().date() }}
+  message: >-
+    Your agenda for today:
+    <p>
+    {% for event in agenda.events %}
+    {{ event.start}}: {{ event.summary }}<br>
+    {% endfor %}
+    </p>
+```
+{% endraw %}

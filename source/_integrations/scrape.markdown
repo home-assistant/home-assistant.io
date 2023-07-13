@@ -163,7 +163,7 @@ In this section you find some real-life examples of how to use this sensor. Ther
 
 ### Home Assistant
 
-The current release Home Assistant is published on [https://www.home-assistant.io/](/)
+The current release Home Assistant is published on [homepage](/)
 
 {% raw %}
 
@@ -181,7 +181,7 @@ scrape:
 
 ### Available implementations
 
-Get the counter for all our implementations from the [Component overview](/integrations/) page.
+Get the counter for all our implementations from the integrations page under {% my integrations title="**Settings** > **Devices & Services**" %}.
 
 {% raw %}
 

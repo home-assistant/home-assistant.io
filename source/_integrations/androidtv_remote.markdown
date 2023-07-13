@@ -1,23 +1,26 @@
 ---
 title: Android TV Remote
-description: Instructions on how to integrate Android TV remotes into Home Assistant.
+description: Instructions on how to integrate Android TV Remote into Home Assistant.
 ha_category:
+  - Media Player
   - Remote
 ha_release: 2023.5
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@tronikos'
+  - '@Drafteed'
 ha_quality_scale: platinum
 ha_domain: androidtv_remote
 ha_zeroconf: true
 ha_platforms:
   - diagnostics
+  - media_player
   - remote
 ha_integration_type: device
 ---
 
-The Android TV Remote integration allows you to control an Android TV device by sending [commands](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt) and launching apps. For this to work, the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices.
+The Android TV Remote integration allows you to control an Android TV and launching apps. For this to work the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices.
 
 For a quick introduction on how to get started with Android TV Remote, check out this video:
 
@@ -25,21 +28,17 @@ For a quick introduction on how to get started with Android TV Remote, check out
 
 {% include integrations/config_flow.md %}
 
-## Entity
+## Media player
 
-This integration adds a `remote` entity which turns on/off the Android TV device.
-The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
+This integration adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](https://www.home-assistant.io/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](https://www.home-assistant.io/integrations/universal/) integration.
 
-## Services
+Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels.
 
-You can use the `remote.turn_off`, `remote.turn_on`, `remote.toggle`,  and `remote.send_command` services from the [remote](/integrations/remote/) platform.
+### Launching apps
 
-For a list of the most common commands that you can send to the Android TV via `remote.send_command`, see: [TvKeys](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt).
-For a full list, see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
+You can pass any URL to the device to open it in the built-in browser. Using `Deep Links` you can launch some applications.
 
-If `activity` is specified in `remote.turn_on`, it will open the specified URL in the associated app.
-
-Examples of URLs to pass as activity for some popular apps:
+Examples of some `Deep Links` for popular applications:
 
 | App | URL |
 | --- | --- |
@@ -47,6 +46,132 @@ Examples of URLs to pass as activity for some popular apps:
 | Netflix | https://www.netflix.com/title
 | Prime Video | https://app.primevideo.com
 | Disney+ | https://www.disneyplus.com
+
+Examples:
+
+```yaml
+# Launch the Netflix app
+service: media_player.play_media
+data:
+  media_content_type: url
+  media_content_id: https://www.netflix.com/title
+target:
+  entity_id: media_player.living_room_tv
+```
+
+```yaml
+# Open a specific YouTube video:
+service: media_player.play_media
+data:
+  media_content_type: url
+  media_content_id: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+target:
+  entity_id: media_player.living_room_tv
+```
+
+### Switch channels
+
+You can pass the channel number to switch the channel. The channel number must be an integer.
+
+Example:
+
+```yaml
+# Change channel to number 15:
+service: media_player.play_media
+data:
+  media_content_type: channel
+  media_content_id: 15
+target:
+  entity_id: media_player.living_room_tv
+```
+
+## Remote
+
+The remote allows you to send key commands to your Android TV device with the `remote.send_command` service.
+The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
+
+{% details "List of the most common commands" %}
+
+Navigation:
+- DPAD_UP
+- DPAD_DOWN
+- DPAD_LEFT
+- DPAD_RIGHT
+- DPAD_CENTER
+- BUTTON_A
+- BUTTON_B
+- BUTTON_X
+- BUTTON_Y
+
+Volume Control:
+- VOLUME_DOWN
+- VOLUME_UP
+- VOLUME_MUTE
+- MUTE
+
+Media Control:
+- MEDIA_PLAY_PAUSE
+- MEDIA_PLAY
+- MEDIA_PAUSE
+- MEDIA_NEXT
+- MEDIA_PREVIOUS
+- MEDIA_STOP
+- MEDIA_RECORD
+- MEDIA_REWIND
+- MEDIA_FAST_FORWARD
+
+TV Control:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- DEL
+- ENTER
+- CHANNEL_UP
+- CHANNEL_DOWN
+- F1
+- F2
+- F3
+- F4
+- F5
+- F6
+- F7
+- F8
+- F9
+- F10
+- F11
+- F12
+- TV
+- PROG_RED
+- PROG_GREEN
+- PROG_YELLOW
+- PROG_BLUE
+
+Other:
+- BUTTON_MODE
+- EXPLORER
+- MENU
+- INFO
+- GUIDE
+- TV_TELETEXT
+- CAPTIONS
+- DVR
+- MEDIA_AUDIO_TRACK
+- SETTINGS
+- SEARCH
+- ASSIST
+
+{% enddetails %}
+
+For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
+
+If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app. See [Launching apps section](#launching-apps).
 
 Examples of service calls:
 
@@ -87,7 +212,7 @@ target:
   entity_id: remote.living_room_tv
 ```
 
-## Dashboard example
+### Dashboard example
 
 You have to manually create buttons in Lovelace to send commands to the Android TV device or launch apps on it.
 
