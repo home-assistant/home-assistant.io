@@ -21,6 +21,7 @@ More than 175 utilities use Opower. Currently only the following ones are suppor
 
 - Pacific Gas & Electric (PG&E)
 - Puget Sound Energy (PSE)
+- Evergy
 - Exelon subsidiaries
   - Atlantic City Electric
   - Baltimore Gas and Electric (BGE)
