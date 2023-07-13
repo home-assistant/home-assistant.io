@@ -168,6 +168,7 @@ The following models have been tested and confirmed to work:
 
 - C1 Pro
 - C2 Pro
+- CX410
 - E1 Zoom
 - E1 Outdoor
 - E1 Outdoor Pro

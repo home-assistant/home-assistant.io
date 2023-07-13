@@ -51,7 +51,7 @@ So, keep an eye on our social media for the announcement.
 - [Compact header](#compact-header)
 - [Script and automation YAML editor](#script-and-automation-yaml-editor)
 - [Xbox integration](#xbox-integration)
-- [Counters & Timers available as helpers in the UI](#counters--timers-available-as-helpers-in-the-ui)
+- [Counters \& Timers available as helpers in the UI](#counters--timers-available-as-helpers-in-the-ui)
 - [Native types support for templates (Beta)](#native-types-support-for-templates-beta)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -738,8 +738,7 @@ Options are now set through the UI (global options/add device/remove device/chan
 
 For newly added or detected devices, `device_class` cannot be set.
 
-Instead, it should be set by customizing entities:
-<https://www.home-assistant.io/docs/configuration/customizing-devices/>
+Instead, it should be set by [customizing entities](/docs/configuration/customizing-devices/).
 
 The debug key is removed as option for the integration. Instead, log level
 for the library can be set by configuring the logger (see below).
