@@ -63,9 +63,9 @@ The SSL cipher list and verify SSL are advanced settings. The options are availa
 
 </div>
 
-### Enforce polling
+### Enable IMAP-Push
 
-If you are using an unreliable imap service that drops the connection periodically and causing issues, you might want to enforce polling, even if the IMAP service claims it can do IMAP-Push.
+IMAP-Push is enabled by default if your IMAP server supports it. If you are using an unreliable imap service that drops the connection periodically and causing issues, you might consider to turn off IMAP-Push. This will fallback to polling the IMAP server.
 
 <div class='note info'>
 
