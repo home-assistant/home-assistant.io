@@ -65,5 +65,6 @@ Example of device class icons.
 </p>
 
 - **None**: Generic button. This is the default and doesn't need to be set.
+- **identify**: The button is used to identify a device.
 - **restart**: The button restarts the device.
 - **update**: The button updates the software of the device.

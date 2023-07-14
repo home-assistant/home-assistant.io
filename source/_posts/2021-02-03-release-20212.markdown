@@ -256,13 +256,13 @@ Screenshot of the text selectors.
 Screenshot of the object selector, giving a YAML input field.
 </p>
 
-## Cloud Text to Speech settings
+## Cloud text-to-speech settings
 
-Nabu Casa has been offering an amazing text to speech service for a while now,
+Nabu Casa has been offering an amazing text-to-speech service for a while now,
 yet it was hard to find, and even harder to setup and use.
 
 To fix this, a new settings UI has been added where you can select the default
-language and gender to use for the text to speech service, so you no longer have
+language and gender to use for the text-to-speech service, so you no longer have
 to attach that to every service call. You can find it in the Home Assistant Cloud
 panel.
 

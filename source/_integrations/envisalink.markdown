@@ -28,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor: Emulates an alphanumeric keypad attached to the alarm panel
 - Alarm Control Panel: Reports on partition status, and can be used to arm/disarm the system
 
-This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
+This is a fully event-based integration. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 
 As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant. For example, a newer Z-Wave/Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 
@@ -112,7 +112,7 @@ panic_type:
   default: Police
   type: string
 zones:
-  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. Zone numbers correspond to the zone numbers configured on your alarm system and must be in the range of 1 to 64. For each zone, at least a name must be given. For more information about the visual representation of a zone, take a look at the [Binary Sensor](/integrations/binary_sensor/#device-class) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
+  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. Zone numbers correspond to the zone numbers configured on your alarm system and must be in the range of 1 to 64. For each zone, at least a name must be given. For more information about the visual representation of a zone, take a look at the [Binary Sensor](/integrations/binary_sensor/#device-class) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor integrations.*"
   required: false
   type: integer
   keys:

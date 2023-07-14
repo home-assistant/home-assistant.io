@@ -4,6 +4,7 @@ description: Integrate EZVIZ camera within Home Assistant.
 ha_release: 0.107
 ha_category:
   - Camera
+  - Update
 ha_iot_class: Cloud Polling
 ha_domain: ezviz
 ha_codeowners:
@@ -13,6 +14,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - camera
+  - light
   - number
   - select
   - sensor
@@ -24,9 +26,17 @@ ha_integration_type: integration
 The `ezviz` sensor platform uses the ezvizlife.com API to interact with the devices.
 It also exposes an RTSP stream, by using the local camera IPs (so the device hosting Home Assistant has to be able to access the local IP of the cameras).
 
-As there is no official documentation for the API, the component retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).
+As there is no official documentation for the API, the integration retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).
 
 The password for each camera is usually written near the QR code. This could be underneath the device or in the user manual. It is usually referred to as the camera "verification code".
+
+The local RTSP server on your camera needs to be enabled. To do that:
+
+- Open the EZVIZ mobile app.
+- Select the profile icon.
+- Navigate to **Settings** > **LAN Live View** > **Start Scanning**.
+- Select your camera.
+- Select the gear-like icon in the top-right corner > **Local Server Settings** > **enable RTSP**.
 
 {% include integrations/config_flow.md %}
 
@@ -105,6 +115,10 @@ The motion detection sensitivity can be adjusted using the "Detection sensitivit
 ### Warning sound
 
 If your camera supports motion detection warning sounds, you can use this entity to select the level.
+
+### Light entity
+
+A light entity will be added to cameras + light combos. You can turn it on/off and set the brightness.
 
 ## Troubleshooting
 
