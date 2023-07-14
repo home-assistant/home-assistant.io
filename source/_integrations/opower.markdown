@@ -19,8 +19,6 @@ The Opower integration allows you to get energy information from utilities that 
 
 More than 175 utilities use Opower. Currently only the following ones are supported:
 
-- Pacific Gas & Electric (PG&E)
-- Puget Sound Energy (PSE)
 - Evergy
 - Exelon subsidiaries
   - Atlantic City Electric
@@ -29,6 +27,8 @@ More than 175 utilities use Opower. Currently only the following ones are suppor
   - Delmarva Power
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
+- Pacific Gas & Electric (PG&E)
+- Puget Sound Energy (PSE)
 
 To add this integration to your installation, you will need your login username and password for your utility website. Two-factor authentication is not supported.
 
