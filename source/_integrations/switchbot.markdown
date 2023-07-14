@@ -73,6 +73,7 @@ There are three attributes available on the SwitchBot entity to give you more in
 ## SwitchBot Options
 
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
+- `Close direction` (Blind Tilt only): Which direction to close to when `close_cover_tilt` is called.
 
 ## SwitchBot Lock
 
