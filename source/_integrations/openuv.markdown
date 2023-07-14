@@ -34,19 +34,19 @@ To generate an API key, log in at [the OpenUV website](https://www.openuv.io/).
 
 ## Sensors
 
-| Name | Type | Value |
-|------|------|-------|
-| Current Ozone Level | Sensor | ozone level in du (Dobson Units) |
-| Current UV Index | Sensor | UV Index (numerical value) |
-| Current UV Level | Sensor | UV Level (as literal) |
-| Max UV Index | Sensor | max UV Index for the day (at solar noon) |
-| Protection Window | Binary Sensor | whether sunblock protection should be used |
-| Skin Type 1 Safe Exposure Time | Sensor | the amount of time [Fitzpatrick skin type 1](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
-| Skin Type 2 Safe Exposure Time | Sensor | the amount of time [Fitzpatrick skin type 2](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
-| Skin Type 3 Safe Exposure Time | Sensor | the amount of time [Fitzpatrick skin type 3](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
-| Skin Type 4 Safe Exposure Time | Sensor | the amount of time [Fitzpatrick skin type 4](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
-| Skin Type 5 Safe Exposure Time | Sensor | the amount of time [Fitzpatrick skin type 5](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
-| Skin Type 6 Safe Exposure Time | Sensor | the amount of time [Fitzpatrick skin type 6](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
+| Name                           | Type          | Value                                                                                                                       |
+| ------------------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Current Ozone Level            | Sensor        | ozone level in du (Dobson Units)                                                                                            |
+| Current UV Index               | Sensor        | UV Index (numerical value)                                                                                                  |
+| Current UV Level               | Sensor        | UV Level (as literal)                                                                                                       |
+| Max UV Index                   | Sensor        | max UV Index for the day (at solar noon)                                                                                    |
+| Protection Window              | Binary Sensor | whether sunblock protection should be used                                                                                  |
+| Skin Type 1 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 1](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
+| Skin Type 2 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 2](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
+| Skin Type 3 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 3](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
+| Skin Type 4 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 4](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
+| Skin Type 5 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 5](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
+| Skin Type 6 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 6](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
 
 ## Updating Data
 
@@ -63,16 +63,16 @@ query the API for new data after it initially loads. To request new data, the
 
 Note that in the case of UV and ozone data, selecting any one of:
 
-* Current Ozone Level
-* Current UV Index
-* Current UV Level
-* Max UV Index
-* Skin Type 1 Safe Exposure Time
-* Skin Type 2 Safe Exposure Time
-* Skin Type 3 Safe Exposure Time
-* Skin Type 4 Safe Exposure Time
-* Skin Type 5 Safe Exposure Time
-* Skin Type 6 Safe Exposure Time
+- Current Ozone Level
+- Current UV Index
+- Current UV Level
+- Max UV Index
+- Skin Type 1 Safe Exposure Time
+- Skin Type 2 Safe Exposure Time
+- Skin Type 3 Safe Exposure Time
+- Skin Type 4 Safe Exposure Time
+- Skin Type 5 Safe Exposure Time
+- Skin Type 6 Safe Exposure Time
 
 ...as the target for the `homeassistant.update_entity` service will update the data for
 _all_ of these entities.
@@ -87,9 +87,9 @@ The Protection Window binary sensor will be `on` when sunblock protection should
 By default, this occurs anytime the UV index is above 3.5. This behavior can be
 configured via the config entry options within the UI. Two parameters are given:
 
-* `Starting UV index for the protection window`: the UV index that, when passed, indicates
+- `Starting UV index for the protection window`: the UV index that, when passed, indicates
   protection should be utilized
-* `Ending UV index for the protection window`: the UV index that, when passed, indicates
+- `Ending UV index for the protection window`: the UV index that, when passed, indicates
   protection is no longer required
 
 ## Examples of Updating Data

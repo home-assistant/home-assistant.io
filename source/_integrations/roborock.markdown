@@ -14,6 +14,7 @@ ha_codeowners:
   - '@Lash-L'
 ha_domain: roborock
 ha_platforms:
+  - diagnostics
   - select
   - sensor
   - switch
@@ -25,7 +26,7 @@ The Roborock integration allows you to control your [Roborock](https://us.roboro
 
 This integration requires a cloud connection to set up the device, but it communicates with the device entirely over your home network.
 
-Once you log in with your Roborock account, the integration will automatically discover your Roborock devices and get the needed information to communicate locally with them. Please ensure your Home Assistant instance can communicate with the local IP of your device. We recommend setting a static IP for your Roborock Vacuum to help prevent future issues.
+Once you log in with your Roborock account, the integration will automatically discover your Roborock devices and get the needed information to communicate locally with them. Please ensure your Home Assistant instance can communicate with the local IP of your device. We recommend setting a static IP for your Roborock Vacuum to help prevent future issues. The device communicates on port 58867. Depending on your firewall, you may need to allow communication from Home Assistant to your vacuum on that port.
 
 {% include integrations/config_flow.md %}
 
@@ -41,7 +42,7 @@ As of right now - no. When the vacuum is disconnected from the internet, it will
 If you can add your device to the Roborock app - it is supported. However, some older vacuums like the Roborock S5 must be connected using the Mi Home app and can be set up in Home Assistant through the [Xiaomi Miio](/integrations/xiaomi_miio/) integration.
 
 ### What features will you support?
-We are working on adding a lot of features to the core integration. We have reverse-engineered over 100 commands. The following are some of the functionalities we plan to add to Home Assistant Core. We ask that you are patient with us as we add them.
+We are working on adding a lot of features to the core integration. We have reverse-engineered over [100 commands](https://python-roborock.readthedocs.io/en/latest/api_commands.html). The documentation is currently very bare-bones, and we are looking for users to help us make it more complete. The following are some of the functionalities we plan to add to Home Assistant Core. We ask that you are patient with us as we add them.
 - Selective room cleaning
 - Dock controls
 - Manual vacuum remote control
@@ -51,13 +52,14 @@ We are working on adding a lot of features to the core integration. We have reve
 
 ### How can I clean a specific room?
 We plan to make the process simpler in the future, but for now, it is a multi-step process.
-1) Enable debug logging for this integration and reload it.
-2) Search your logs for 'Got home data' and then find the attribute rooms.
-3) Write the rooms down; they have a name and 6 digit ID.
-4) Go to **Developer Tools** > **Services** > **Vacuum: Send Command**. Select your vacuum as the entity and 'get_room_mapping' as the command.
-5) Go back to your logs and look at the response to `get_room_mapping`. This is a list of the 6-digit IDs you saw earlier to 2-digit IDs. In your original list of room names and 6-digit IDs, replace the 6-digit ID with its pairing 2-digit ID.
-6) Now, you have the 2-digit ID that your vacuum uses to describe a room.
-7) Go back to **Developer Tools** > **Services** > **Vacuum: Send Command** then type `app_segment_clean` as your command and 'segments' with a list of the 2-digit IDs you want to clean. Then, add  `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
+1. Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
+2. [Enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) for this integration and reload it.
+3. Search your logs for 'Got home data' and find the attribute rooms.
+4. Write the rooms down; they have a name and 6 digit ID.
+5. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %}. Select your vacuum as the entity and `get_room_mapping` as the command.
+6. Go back to your logs and look at the response to `get_room_mapping`. This is a list of the 6-digit IDs you saw earlier to 2-digit IDs. In your original list of room names and 6-digit IDs, replace the 6-digit ID with its pairing 2-digit ID.
+7. Now, you have the 2-digit ID that your vacuum uses to describe a room.
+8. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 
 Example:
 ```yaml

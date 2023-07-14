@@ -17,14 +17,14 @@ The `cisco_webex_teams` notification platform allows you to deliver rich notific
 
 To use this notification platform you will need an app (bot) token. To obtain a token visit [Cisco Webex for Developers](https://developer.webex.com/).
 
-* Detailed instructions can be found in the section titled **Creating a Webex Teams Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
+- Detailed instructions can be found in the section titled **Creating a Webex Teams Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
 
 You also need to specify the `room_id` that you wish to post messages into. The `room_id` can be found in one of two ways:
 
 1. Logging in at [Cisco Webex for Developers](https://developer.webex.com/) and navigate to `Documentation`>`API Reference`>`Messages` and select List Messages, or
 2. Log into the web client at [teams.webex.com](https://teams.webex.com/),
-    * select the room (or create a new room),
-    * then copying the room ID from the URL.
+    - select the room (or create a new room),
+    - then copying the room ID from the URL.
 
 <div class='note'>
 
@@ -118,23 +118,23 @@ Here are the automations for the above screenshot:
 
 The following is a list of the allowed html tags and attributes:
 
-Tag | More Info
---- | ---
-`<@personEmail:email@examplecompany.com>` | Used to tag another Webex Team user by email address.
-`<a>`  | Defines a hyperlink. Allows attribute `href`.
-`<blockquote>`  | Defines a section that is quoted from another source. Allows attribute `class` with allowed values `danger`, `warning`, `info`, `primary`, `secondary`.
-`<b>` | Defines bold text.
-`<strong>`  | Defines important text.
-`<i>`  | Defines italic text.
-`<em>` | Defines emphasized text.
-`<pre>` | Defines preformatted text.
-`<code>` | Defines a piece of computer code.
-`<br>` | Defines a single line break.
-`<p>` | Defines a paragraph.
-`<ul>` | Defines an unordered list.
-`<ol>` | Defines an ordered list.
-`<li>` | Defines a list item.
-`<h1>` to `<h3>` | Defines HTML headings.
+| Tag                                       | More Info                                                                                                                                               |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<@personEmail:email@examplecompany.com>` | Used to tag another Webex Team user by email address.                                                                                                   |
+| `<a>`                                     | Defines a hyperlink. Allows attribute `href`.                                                                                                           |
+| `<blockquote>`                            | Defines a section that is quoted from another source. Allows attribute `class` with allowed values `danger`, `warning`, `info`, `primary`, `secondary`. |
+| `<b>`                                     | Defines bold text.                                                                                                                                      |
+| `<strong>`                                | Defines important text.                                                                                                                                 |
+| `<i>`                                     | Defines italic text.                                                                                                                                    |
+| `<em>`                                    | Defines emphasized text.                                                                                                                                |
+| `<pre>`                                   | Defines preformatted text.                                                                                                                              |
+| `<code>`                                  | Defines a piece of computer code.                                                                                                                       |
+| `<br>`                                    | Defines a single line break.                                                                                                                            |
+| `<p>`                                     | Defines a paragraph.                                                                                                                                    |
+| `<ul>`                                    | Defines an unordered list.                                                                                                                              |
+| `<ol>`                                    | Defines an ordered list.                                                                                                                                |
+| `<li>`                                    | Defines a list item.                                                                                                                                    |
+| `<h1>` to `<h3>`                          | Defines HTML headings.                                                                                                                                  |
 
 {% configuration %}
 name:

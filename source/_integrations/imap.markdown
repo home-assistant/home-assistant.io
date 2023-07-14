@@ -10,7 +10,6 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_codeowners:
-  - '@engrbm87'
   - '@jbouwh'
 ha_config_flow: true
 ---
@@ -37,18 +36,25 @@ If you’re going to use Gmail, you need to create an [App Password](https://sup
 
 By default, this integration will count unread emails. By configuring the search string, you can count other results, for example:
 
-* `ALL` to count all emails in a folder
-* `FROM`, `TO`, `SUBJECT` to find emails in a folder (see [IMAP RFC for all standard options](https://tools.ietf.org/html/rfc3501#section-6.4.4))
-* [Gmail's IMAP extensions](https://developers.google.com/gmail/imap/imap-extensions) allow raw Gmail searches, like `X-GM-RAW "in: inbox older_than:7d"` to show emails older than one week in your inbox. Note that raw Gmail searches will ignore your folder configuration and search all emails in your account!
+- `ALL` to count all emails in a folder
+- `FROM`, `TO`, `SUBJECT` to find emails in a folder (see [IMAP RFC for all standard options](https://tools.ietf.org/html/rfc3501#section-6.4.4))
+- [Gmail's IMAP extensions](https://developers.google.com/gmail/imap/imap-extensions) allow raw Gmail searches, like `X-GM-RAW "in: inbox older_than:7d"` to show emails older than one week in your inbox. Note that raw Gmail searches will ignore your folder configuration and search all emails in your account!
+
 
 ### Selecting a charset supported by the imap server
 
-Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US_ASCII` as charset:
+Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US-ASCII` as charset:
   - Server: `outlook.office365.com`
   - Port: `993`
   - Username: Your full email address
   - Password: Your password
   - Charset: `US-ASCII`
+
+<div class="note">
+
+Yahoo also requires the character set `US-ASCII`.
+
+</div>
 
 ### Selecting an alternate SSL cipher list or disable SSL verification (advanced mode)
 
@@ -66,6 +72,7 @@ The SSL cipher list and verify SSL are advanced settings. The options are availa
 ### Troubleshooting
 
 Email providers may limit the number of reported emails. The number may be less than the limit (10,000 at least for Yahoo) even if you set the `IMAP search` to reduce the number of results. If you are not getting expected events and cleaning your Inbox or the configured folder is not desired, set up an email filter for the specific sender to go into a new folder. Then create a new config entry or modify the existing one with the desired folder.
+
 
 ### Using events
 

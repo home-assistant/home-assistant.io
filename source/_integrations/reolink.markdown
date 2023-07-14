@@ -135,14 +135,13 @@ Depending on the supported features of the camera, switch entities are added for
 - Auto focus
 - Guard return
 - Doorbell button sound
-
-Depending on the supported features of the NVR/host, global switch entities are added for:
-
 - Record
 - Push notifications
 - Buzzer on event
 - Email on event
 - FTP upload
+
+For NVRs, a global switch for Record, Push, Buzzer, Email, and FTP will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
 
 ## Light entities
 
@@ -169,6 +168,7 @@ The following models have been tested and confirmed to work:
 
 - C1 Pro
 - C2 Pro
+- CX410
 - E1 Zoom
 - E1 Outdoor
 - E1 Outdoor Pro

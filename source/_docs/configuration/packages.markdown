@@ -74,17 +74,18 @@ Integrations inside packages can only specify platform entries using configurati
 
 ## Create a packages folder
 
-One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in a YAML file. This entry in your `configuration.yaml` will load all packages:
+One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory, you can store any number of packages in a YAML file. This entry in your `configuration.yaml` will load all YAML-files in this _packages_ folder and its subfolders:
 
 ```yaml
 homeassistant:
   packages: !include_dir_named packages
 ```
 
-This uses the concept splitting the configuration and will include all files in a directory with the keys representing the filenames.
-See the documentation about [splitting the configuration](/docs/configuration/splitting_configuration/) for more information about `!include_dir_named` and other include statements that might be helpful. The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than across several.
+The benefit of this approach is to pull all configurations required to integrate a system into one file&mdash;rather than keeping them spread across several files.
+You can use other `!include` methods for packages; for example `!include_dir_merge_named`. However, unlike `!include_dir_merge_named`, the `!include_dir_named` method uses the same indentation as the 'configuration.yaml'. This means that you can copy and paste elements from the config file. With `!include_dir_named`, the file name is used as the package name. File names must be unique.
 
-The following example allows to have subfolders in the `packages` folder, which could make managing multiple packages easier by grouping:
+With the `!include_dir_merge_named` method, the package name has to be included in the file. The configuration below then needs to be indented accordingly. This means you cannot directly copy and paste from the configuration file.
+
 
 ```yaml
 homeassistant:
@@ -101,6 +102,7 @@ subsystem1_functionality1:
   ...
   automation:
 ```
+
 
 ## Customizing entities with packages
 

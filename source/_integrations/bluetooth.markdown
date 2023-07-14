@@ -163,6 +163,10 @@ Performance testing used the following hardware:
 
 ### Known working adapters
 
+<div class='note'>
+Known working adapters list adapters that do not meet high-performance requirements but will generally work. These adapters vary widely in performance and may take as long as thirty seconds or more to establish a connection. These adapters may also miss advertisements such as button presses or temperature updates.
+</div>
+
 #### Realtek RTL8761BU adapters
 
 <div class='note warning'>
@@ -242,14 +246,33 @@ The following remote adapters are supported:
 
 - [ESPHome](https://esphome.github.io/bluetooth-proxies/)
   - Bluetooth advertisement listening: ESPHome ESP32 device with firmware 2022.8.2 or later
+  - Bluetooth advertisement bundling: ESPHome ESP32 device with firmware 2023.6.0 or later
   - Single active connection: ESPHome ESP32 device with firmware 2022.9.3 or later
   - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
 - [Shelly](/integrations/shelly/)
   - Bluetooth advertisement listening: Shelly v2 device with firmware 12.0 or later
+  - Bluetooth advertisement bundling: not supported
   - Single active connection: not supported
   - Multiple active connections: not supported
 
+Bluetooth advertisement bundling reduces traffic between Home Assistant and the proxy, significantly improving performance and reducing the time that Bluetooth and WiFi compete for air time for devices that share a radio.
+
 ## Troubleshooting
+
+### Improving connection times
+
+The connection time and performance vary greatly based on the Bluetooth adapter and interference. The below adapters are listed from best-performing to worst-performing:
+
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#passive-scanning)
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [USB High performance adapter](#known-working-high-performance-adapters) with active scanning
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#passive-scanning)
+- [Onboard high performance adapter](#cypress-based-adapters) with active scanning
+- [Known working adapters](#known-working-adapters) with [passive scanning](#passive-scanning)
+- [Known working adapters](#known-working-adapters) with active scanning
 
 ### Integrations that require exclusive use of the Bluetooth Adapter
 

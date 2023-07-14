@@ -159,6 +159,7 @@ source/_integrations/digital_loggers.markdown @esev
 source/_integrations/digital_ocean.markdown @fabaff
 source/_integrations/discogs.markdown @thibmaek
 source/_integrations/discord.markdown @tkdrob
+source/_integrations/discovergy.markdown @jpbede
 source/_integrations/discovery.markdown @home-assistant/core
 source/_integrations/dlink.markdown @tkdrob
 source/_integrations/dlna_dmr.markdown @StevenLooman @chishm
@@ -167,6 +168,7 @@ source/_integrations/dnsip.markdown @gjohansson-ST
 source/_integrations/doorbird.markdown @oblogic7 @bdraco @flacjacket
 source/_integrations/dooya.markdown @starkillerOG
 source/_integrations/dormakaba_dkey.markdown @emontnemery
+source/_integrations/dremel_3d_printer.markdown @tkdrob
 source/_integrations/dsmr.markdown @Robbie1221 @frenck
 source/_integrations/dsmr_reader.markdown @depl0y @glodenox
 source/_integrations/dunehd.markdown @bieniu
@@ -205,7 +207,7 @@ source/_integrations/epsonworkforce.markdown @ThaStealth
 source/_integrations/eq3btsmart.markdown @rytilahti
 source/_integrations/escea.markdown @lazdavila
 source/_integrations/esera_onewire.markdown @garbled1 @epenet
-source/_integrations/esphome.markdown @OttoWinter @jesserockz
+source/_integrations/esphome.markdown @OttoWinter @jesserockz @bdraco
 source/_integrations/eufylife_ble.markdown @bdr99
 source/_integrations/evil_genius_labs.markdown @balloob
 source/_integrations/evohome.markdown @zxdavb
@@ -258,7 +260,7 @@ source/_integrations/gios.markdown @bieniu
 source/_integrations/github.markdown @timmo001 @ludeeus
 source/_integrations/glances.markdown @engrbm87
 source/_integrations/goalzero.markdown @tkdrob
-source/_integrations/gogogate2.markdown @vangorra @bdraco
+source/_integrations/gogogate2.markdown @vangorra
 source/_integrations/goodwe.markdown @mletenay @starkillerOG
 source/_integrations/google.markdown @allenporter
 source/_integrations/google_assistant.markdown @home-assistant/cloud
@@ -319,6 +321,7 @@ source/_integrations/iaqualink.markdown @flz
 source/_integrations/ibeacon.markdown @bdraco
 source/_integrations/icloud.markdown @Quentame @nzapponi
 source/_integrations/ign_sismologia.markdown @exxamalte
+source/_integrations/image.markdown @home-assistant/core
 source/_integrations/image_processing.markdown @home-assistant/core
 source/_integrations/image_upload.markdown @home-assistant/core
 source/_integrations/imap.markdown @jbouwh
@@ -395,6 +398,7 @@ source/_integrations/logbook.markdown @home-assistant/core
 source/_integrations/logger.markdown @home-assistant/core
 source/_integrations/logi_circle.markdown @evanjd
 source/_integrations/lookin.markdown @ANMalko @bdraco
+source/_integrations/loqed.markdown @mikewoudenberg
 source/_integrations/luci.markdown @mzdrale
 source/_integrations/luftdaten.markdown @fabaff @frenck
 source/_integrations/lupusec.markdown @majuss
@@ -443,7 +447,7 @@ source/_integrations/msteams.markdown @peroyvind
 source/_integrations/mullvad.markdown @meichthys
 source/_integrations/mutesync.markdown @currentoor
 source/_integrations/my.markdown @home-assistant/core
-source/_integrations/myq.markdown @bdraco @ehendrix23
+source/_integrations/myq.markdown @ehendrix23
 source/_integrations/mysensors.markdown @MartinHjelmare @functionpointer
 source/_integrations/mystrom.markdown @fabaff
 source/_integrations/nam.markdown @bieniu
@@ -545,6 +549,7 @@ source/_integrations/pvpc_hourly_pricing.markdown @azogue
 source/_integrations/qbittorrent.markdown @geoffreylagaisse
 source/_integrations/qingping.markdown @bdraco @skgsergio
 source/_integrations/qld_bushfire.markdown @exxamalte
+source/_integrations/qnap.markdown @disforw
 source/_integrations/qnap_qsw.markdown @Noltari
 source/_integrations/quadrafire.markdown @jeeftor
 source/_integrations/quantum_gateway.markdown @cisasteelersfan
@@ -567,6 +572,7 @@ source/_integrations/recorder.markdown @home-assistant/core
 source/_integrations/rejseplanen.markdown @DarkFox
 source/_integrations/remote.markdown @home-assistant/core
 source/_integrations/renault.markdown @epenet
+source/_integrations/renson.markdown @jimmyd-be
 source/_integrations/reolink.markdown @starkillerOG
 source/_integrations/repairs.markdown @home-assistant/core
 source/_integrations/repetier.markdown @MTrab @ShadowBr0ther
@@ -605,7 +611,6 @@ source/_integrations/search.markdown @home-assistant/core
 source/_integrations/season.markdown @frenck
 source/_integrations/select.markdown @home-assistant/core
 source/_integrations/sense.markdown @kbickar
-source/_integrations/senseme.markdown @mikelawrence @bdraco
 source/_integrations/sensibo.markdown @andrey-git @gjohansson-ST
 source/_integrations/sensirion_ble.markdown @akx
 source/_integrations/sensor.markdown @home-assistant/core
@@ -736,6 +741,7 @@ source/_integrations/tts.markdown @home-assistant/core @pvizeli
 source/_integrations/tuya.markdown @Tuya @zlinoliver @frenck
 source/_integrations/twentemilieu.markdown @frenck
 source/_integrations/twinkly.markdown @dr1rrb @Robbie1221
+source/_integrations/twitch.markdown @joostlek
 source/_integrations/ubiwizz.markdown @imicknl @vlebourl @tetienne @nyroDev
 source/_integrations/ukraine_alarm.markdown @PaulAnnekov
 source/_integrations/unifi.markdown @Kane610

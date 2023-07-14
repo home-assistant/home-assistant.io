@@ -36,30 +36,30 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 
 1. Download and install the Raspberry Pi Imager on your computer as described under [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/). 
    ![Install Raspberry Pi Imager](/images/installation/rpi_imager.png)
-1. Open the Raspberry Pi Imager.
+2. Open the Raspberry Pi Imager.
     ![Open Raspberry Pi Imager](/images/installation/rpi-imager-start.png)
-1. Choose the operating system:
+3. Choose the operating system:
    1. Select **Choose OS**.
-   1. Select **Other specific-purpose OS** > **Home assistants and home automation** > **Home Assistant**.
-   1. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3 or RPi&nbsp;4).
+   2. Select **Other specific-purpose OS** > **Home assistants and home automation** > **Home Assistant**.
+   3. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3 or RPi&nbsp;4).
     ![Choose the operating system](/images/installation/rpi-ha.gif)
-1. Choose the storage:
+4. Choose the storage:
    1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.
-   1. Select your SD card.
+   2. Select your SD card.
     ![Select the storage](/images/installation/rpi-select-sd-card.png)
-1. Write the installer onto the SD card:
+5. Write the installer onto the SD card:
    1. To start the process, select **Write**.
-   1. Wait for the Home Assistant OS to be written to the SD card.
+   2. Wait for the Home Assistant OS to be written to the SD card.
     ![Select write](/images/installation/rpi-select-write.png)
-1. Eject the SD card.
+6. Eject the SD card.
 
 ### Start up your Raspberry Pi
 
 1. Insert the SD card into your Raspberry Pi.
-1. Plug in an Ethernet cable that is connected to the network.
-1. Connect the power supply to start up the device.
+2. Plug in an Ethernet cable that is connected to the network.
+3. Connect the power supply to start up the device.
 
-1. In the browser of your desktop system, within a few minutes you will be able to reach your new Home Assistant at <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
+4. In the browser of your desktop system, within a few minutes you will be able to reach your new Home Assistant at <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
 
 <div class="note">
 If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your Raspberry Pi’s IP address).
@@ -79,11 +79,11 @@ With the Home Assistant Operating System installed and accessible, you can now c
 Use this procedure if Raspberry Pi Imager is not supported by your platform.
 
 1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.
-1. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
-1. Select **Flash from URL**.
+2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
+3. Select **Flash from URL**.
 ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 
-1. Copy the correct URL for the Raspberry Pi 3 or 4 (Note: there are 2 different links below!):
+4. Copy the correct URL for the Raspberry Pi 3 or 4 (Note: there are 2 different links below!):
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
 
@@ -101,13 +101,13 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 
 1. Paste the URL for the image into Balena Etcher and select **OK**.
 ![Screenshot of the Etcher software showing the URL bar with a URL pasted in.](/images/installation/etcher2.png)
-1. When Balena Etcher has downloaded the image, select **Select target**.
+2. When Balena Etcher has downloaded the image, select **Select target**.
 ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
-1. Select the SD card you want to use for your installation.
+3. Select the SD card you want to use for your installation.
 ![Screenshot of the Etcher software showing teh targets available.](/images/installation/etcher4.png)
-1. Select **Flash!** to start writing the image.
+4. Select **Flash!** to start writing the image.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-1. Once Balena Etcher has finished writing the image, you will see a confirmation.
+5. Once Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 

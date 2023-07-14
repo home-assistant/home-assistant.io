@@ -16,8 +16,8 @@ ha_integration_type: service
 
 The YouTube integration allows you to connect YouTube channels to Home Assistant.
 For every channel you add, it will create sensors for:
-* Subscriber count
-* The latest uploaded video
+- Subscriber count
+- The latest uploaded video
 
 ## Prerequisites
 

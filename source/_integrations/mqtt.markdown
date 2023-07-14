@@ -35,6 +35,8 @@ ha_platforms:
   - tag
   - update
   - vacuum
+  - water_heater
+  - image
 ha_integration_type: integration
 ha_quality_scale: gold
 ---
@@ -71,8 +73,8 @@ MQTT broker settings are configured when the MQTT integration is first set up an
 Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-1. On the MQTT integration, select the cogwheel. 
-1. Select **Configure**, then **Re-configure MQTT**.
+2. Select the MQTT integration.
+3. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
 
@@ -127,9 +129,9 @@ A configured client certificate will only be active if broker certificate valida
 To change the settings, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-1. On the MQTT integration, select the cogwheel. 
-1. Select **Configure**, then **Re-configure MQTT**.
-1. To open the MQTT options page, select **Next**.
+2. Select the MQTT integration.
+3. Select **Configure**, then **Re-configure MQTT**.
+4. To open the MQTT options page, select **Next**.
 
 ### Discovery options
 
@@ -155,8 +157,8 @@ mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
 Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Choose "Settings" on the left menu, click "Devices & Services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-1. On the Mosquitto broker integration, select the cogwheel, then select **Configure**.
-1. Enter something similar to the example below into the **topic** field under **Publish a packet**. Select **Publish**.
+2. Select the Mosquitto broker integration, then select **Configure**.
+3. Enter something similar to the example below into the **topic** field under **Publish a packet**. Select **Publish**.
 
 ```bash
    homeassistant/switch/1/power
@@ -191,7 +193,7 @@ mosquitto_sub -h 127.0.0.1 -v -t "homeassistant/#"
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
 
-{% details "Entity components supported by MQTT discovery" %}
+{% details "Entity integrations supported by MQTT discovery" %}
 
 - [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
@@ -202,6 +204,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Device Trigger](/integrations/device_trigger.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
 - [Climate/HVAC](/integrations/climate.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -215,6 +218,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Tag Scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Water Heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
@@ -232,7 +236,7 @@ The discovery topic needs to follow a specific format:
 ```
 
 - `<discovery_prefix>`: The Discovery Prefix defaults to `homeassistant`. This prefix can be [changed](#discovery-options).
-- `<component>`: One of the supported MQTT components, eg. `binary_sensor`.
+- `<component>`: One of the supported MQTT integrations, eg. `binary_sensor`.
 - `<node_id>` (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 - `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 
@@ -242,7 +246,7 @@ Best practice for entities with a `unique_id` is to set `<object_id>` to `unique
 
 #### Discovery payload
 
-The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the component's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
+The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
 
 Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
@@ -296,6 +300,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'cod_arm_req':         'code_arm_required',
     'cod_dis_req':         'code_disarm_required',
     'cod_trig_req':        'code_trigger_required',
+    'cont_type':           'content_type',
     'curr_temp_t':         'current_temperature_topic',
     'curr_temp_tpl':       'current_temperature_template',
     'dev':                 'device',
@@ -336,6 +341,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
     'img_e':               'image_encoding',
+    'img_t':               'image_topic',
     'init':                'initial',
     'hum_cmd_t':           'target_humidity_command_topic',
     'hum_cmd_tpl':         'target_humidity_command_template',
@@ -501,6 +507,8 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     't':                   'topic',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
+    'url_t':               'url_topic',
+    'url_tpl':             'url_template',
     'val_tpl':             'value_template',
     'whit_cmd_t':          'white_command_topic',
     'whit_scl':            'white_scale',
@@ -565,16 +573,18 @@ A motion detection device which can be represented by a [binary sensor](/integra
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
-- Payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}`
+- Configuration payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
-To create a new sensor manually.
+It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together.
+
+To create a new sensor manually:
 
 ```bash
-mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}'
 ```
 
-Update the state.
+Update the state:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ON
@@ -593,9 +603,9 @@ For more details please refer to the [MQTT testing section](/integrations/mqtt/#
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
 - Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}" }`
+- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}","unique_id": "temp01ae",  "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" }}`
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
+- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}","unique_id": "hum01ae", "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" } }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
 
 #### Entities with command topics
@@ -605,15 +615,15 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
-- Payload:  `{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}`
+- Payload:  `{"name": "Irrigation", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}`
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 ```bash
 mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
-  -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}'
+  -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}}'
 ```
 
-Set the state.
+Set the state:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/set" -m ON
@@ -652,8 +662,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
 
 #### Use object_id to influence the entity id
 
-
-The entity id is automatically generated from the entity's name. All MQTT components optionally support providing an `object_id` which will be used instead if provided.
+The entity id is automatically generated from the entity's name. All MQTT integrations optionally support providing an `object_id` which will be used instead if provided.
 
 - Configuration topic: `homeassistant/sensor/device1/config`
 - Example configuration payload:
@@ -670,9 +679,9 @@ In the example above, the entity_id will be `sensor.my_super_device` instead of 
 
 ## Manual configured MQTT items
 
-For most components it is also possible to manual set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
+For most integrations, it is also possible to manually set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
 
-{% details "MQTT components that support setup via YAML" %}
+{% details "MQTT integrations that support setup via YAML" %}
 
 - [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
@@ -682,6 +691,7 @@ For most components it is also possible to manual set up MQTT items in `configur
 - [Device Tracker](/integrations/device_tracker.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/imahe.mqtt/)
 - [Climate/HVACs](/integrations/climate.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -694,6 +704,7 @@ For most components it is also possible to manual set up MQTT items in `configur
 - [Text](/integrations/text.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Water Heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
@@ -705,7 +716,7 @@ The MQTT integration supports templating. Read more [about using templates with 
 
 ## MQTT Notifications
 
-The MQTT notification support is different than for the other [notification](/integrations/notify/) components. It is a service. This means you need to provide more details when calling the service.
+The MQTT notification support is different than for the other [notification](/integrations/notify/) integrations. It is a service. This means you need to provide more details when calling the service.
 
 **Call Service** section from **Developer Tools** -> **Services** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
@@ -775,14 +786,14 @@ The MQTT integration will register the service `mqtt.publish` which allows publi
 
 ### Service `mqtt.publish`
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `topic` | no | Topic to publish payload to.
-| `topic_template` | no | Template to render as topic to publish payload to.
-| `payload` | yes | Payload to publish.
-| `payload_template` | yes | Template to render as payload value.
-| `qos` | yes | Quality of Service to use. (default: 0)
-| `retain` | yes | If message should have the retain flag set. (default: false)
+| Service data attribute | Optional | Description                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------ |
+| `topic`                | no       | Topic to publish payload to.                                 |
+| `topic_template`       | no       | Template to render as topic to publish payload to.           |
+| `payload`              | yes      | Payload to publish.                                          |
+| `payload_template`     | yes      | Template to render as payload value.                         |
+| `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
+| `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
 <p class='note'>
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
@@ -859,10 +870,10 @@ retain: true
 
 Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `topic` | no | Topic to dump. Can contain a wildcard (`#` or `+`).
-| `duration` | yes | Duration in seconds that we will listen for messages. Default is 5 seconds.
+| Service data attribute | Optional | Description                                                                 |
+| ---------------------- | -------- | --------------------------------------------------------------------------- |
+| `topic`                | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
+| `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
 
 ```yaml
 topic: openzwave/#

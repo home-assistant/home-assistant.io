@@ -19,11 +19,13 @@ An automation can be triggered by an event, a certain entity state, at a given t
 - [Template trigger](#template-trigger)
 - [Time trigger](#time-trigger)
 - [Time pattern trigger](#time-pattern-trigger)
+- [Persistent notification trigger](#persistent-notification-trigger)
 - [Webhook trigger](#webhook-trigger)
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
 - [Calendar trigger](#calendar-trigger)
+- [Sentence trigger](#sentence-trigger)
 - [Multiple triggers](#multiple-triggers)
 - [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
 
@@ -525,7 +527,7 @@ If for your use case this is undesired, you could consider using the automation 
 
 Fires when the sun is setting or rising, i.e., when the sun elevation reaches 0°.
 
-An optional time offset can be given to have it fire a set time before or after the sun event (e.g.,  45 minutes before sunset). A negative value makes it fire before sunrise or sunset, a positive value afterwards. The offset needs to be specified in a hh:mm:ss format.
+An optional time offset can be given to have it fire a set time before or after the sun event (e.g.,  45 minutes before sunset). A negative value makes it fire before sunrise or sunset, a positive value afterwards. The offset needs to be specified in number of seconds, or in a hh:mm:ss format.
 
 <div class='note'>
 
@@ -687,11 +689,11 @@ automation:
 
 The Entity ID of an [Input Datetime](/integrations/input_datetime/).
 
-has_date | has_time | Description
--|-|-
-`true` | `true` | Will fire at specified date & time.
-`true` | `false` | Will fire at midnight on specified date.
-`false` | `true` | Will fire once a day at specified time.
+| has_date | has_time | Description                              |
+| -------- | -------- | ---------------------------------------- |
+| `true`   | `true`   | Will fire at specified date & time.      |
+| `true`   | `false`  | Will fire at midnight on specified date. |
+| `false`  | `true`   | Will fire once a day at specified time.  |
 
 {% raw %}
 
@@ -781,6 +783,22 @@ automation 3:
 Do not prefix numbers with a zero - using `'01'` instead of `'1'` for example will result in errors.
 
 </div>
+
+## Persistent notification trigger
+
+Persistent notification triggers are fired when a `persistent_notification` is `added` or `removed` that matches the configuration options.
+
+```yaml
+automation:
+  trigger:
+    - platform: persistent_notification
+      update_type:
+        - added
+        - removed
+      notification_id: invalid_config
+```
+
+See the [Persistent Notification](/integrations/persistent_notification/) integration for more details on event triggers and the additional event data available for use by an automation.
 
 ## Webhook trigger
 
@@ -877,7 +895,7 @@ If you would like to use a device trigger for an automation that is not managed 
 ## Calendar trigger
 
 Calendar trigger fires when a [Calendar](/integrations/calendar/) event starts or ends, allowing
-much more flexible automations that using the Calendar entity state which only supports a single
+for much more flexible automations than using the Calendar entity state which only supports a single
 event start at a time.
 
 An optional time offset can be given to have it fire a set time before or after the calendar event (e.g., 5 minutes before event start).
@@ -897,9 +915,33 @@ automation:
 See the [Calendar](/integrations/calendar/) integration for more details on event triggers and the
 additional event data available for use by an automation.
 
+## Sentence trigger
+
+A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). Sentence triggers only work with Home Assistant Assist. External conversation agents such as OpenAI or Google Generative AI cannot be used to trigger automations.
+
+Sentences are allowed to use some basic [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) like optional and alternative words. For example, `[it's ]party time` will match both "party time" and "it's party time".
+
+```yaml
+automation:
+  trigger:
+    - platform: conversation
+      command:
+        - "[it's ]party time"
+        - "happy (new year|birthday)"
+```
+
+The sentences matched by this trigger will be:
+
+- party time
+- it's party time
+- happy new year
+- happy birthday
+
+Punctuation and casing are ignored, so "It's PARTY TIME!!!" will also match.
+
 ## Multiple triggers
 
-It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, [processing](#what-are-triggers) of your automation rule begins.
+It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, processing of your automation rule begins.
 
 ```yaml
 automation:
@@ -914,7 +956,7 @@ automation:
 
 ## Multiple Entity IDs for the same Trigger
 
-It is possible to specify multiple entities for the same trigger. To do so add multiple entities using a nested list. The trigger will fire and start, [processing](#what-are-triggers) your automation each time the trigger is true for any entity listed.
+It is possible to specify multiple entities for the same trigger. To do so add multiple entities using a nested list. The trigger will fire and start, processing your automation each time the trigger is true for any entity listed.
 
 ```yaml
 automation:
