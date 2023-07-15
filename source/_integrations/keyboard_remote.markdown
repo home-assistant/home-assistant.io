@@ -35,12 +35,12 @@ emulate_key_hold:
   type: boolean
   default: false
 emulate_key_hold_delay:
-  description:  Number of milliseconds to wait before sending first emulated key hold event
+  description:  Number of seconds to wait before sending first emulated key hold event
   required: false
   type: float
   default: 0.250
 emulate_key_hold_repeat:
-  description:  Number of milliseconds to wait before sending subsequent emulated key hold event
+  description:  Number of seconds to wait before sending subsequent emulated key hold event
   required: false
   type: float
   default: 0.033
