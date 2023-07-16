@@ -3,6 +3,7 @@ title: "Template Switch"
 description: "Instructions on how to integrate Template Switches into Home Assistant."
 ha_category:
   - Switch
+  - Template
 ha_release: 0.13
 ha_iot_class: Local Push
 ha_quality_scale: internal
