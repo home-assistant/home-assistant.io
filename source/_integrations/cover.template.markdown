@@ -3,6 +3,7 @@ title: "Template Cover"
 description: "Instructions on how to integrate Template Covers into Home Assistant."
 ha_category:
   - Cover
+  - Template
 ha_release: 0.48
 ha_iot_class: Local Push
 ha_quality_scale: internal
