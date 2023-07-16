@@ -3,6 +3,7 @@ title: "Template Fan"
 description: "Instructions how to setup the Template fans within Home Assistant."
 ha_category:
   - Fan
+  - Template
 ha_release: 0.69
 ha_iot_class: Local Push
 ha_quality_scale: internal
