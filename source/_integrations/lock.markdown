@@ -3,6 +3,7 @@ title: Lock
 description: Instructions on how to setup your locks with Home Assistant.
 ha_category:
   - Lock
+  - Template
 ha_release: 0.9
 ha_quality_scale: internal
 ha_domain: lock
