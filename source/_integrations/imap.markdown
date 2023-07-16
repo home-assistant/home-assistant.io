@@ -65,7 +65,7 @@ The SSL cipher list and verify SSL are advanced settings. The options are availa
 
 ### Enable IMAP-Push
 
-IMAP-Push is enabled by default if your IMAP server supports it. If you are using an unreliable imap service that drops the connection periodically and causing issues, you might consider to turn off IMAP-Push. This will fallback to polling the IMAP server.
+IMAP-Push is enabled by default if your IMAP server supports it. If you use an unreliable IMAP service that periodically drops the connection and causes issues, you might consider turning off IMAP-Push. This will fall back to polling the IMAP server.
 
 <div class='note info'>
 
