@@ -100,7 +100,7 @@
     <ul class='divided'>
     {%- for domain in page.domain -%}
       <li>
-        <a href='/integrations/{{ domain | slugify }}'>{{ domain | replace ("_", " ") }}</a>
+        <a href='/integrations/{{ domain | slugify }}'>{{ domain | replace("_", " ") }}</a>
       </li>
     {%- endfor -%}
     </ul>
