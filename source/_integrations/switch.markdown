@@ -3,6 +3,7 @@ title: Switch
 description: Instructions on how to set up your switches with Home Assistant.
 ha_category:
   - Switch
+  - Template
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: switch
