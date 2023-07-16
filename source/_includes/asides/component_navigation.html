@@ -94,13 +94,13 @@
   {%- endif -%}
 
   
-  {%- if page.ha_domain -%}
+  {%- if page.ha_platforms.first -%}
     <div class='section'>
-    <h1 class="title delta">Domains</h1>
+    <h1 class="title delta">Platforms</h1>
     <ul class='divided'>
-    {%- for domain in page.domain -%}
+    {%- for platform in page.ha_platforms -%}
       <li>
-        <a href='/integrations/{{ domain | slugify }}'>{{ domain | replace: "_", " " }}</a>
+        <a href='/integrations/{{ platform | slugify }}'>{{ platform | replace: "_", " " }}</a>
       </li>
     {%- endfor -%}
     </ul>
