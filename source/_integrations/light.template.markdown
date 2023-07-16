@@ -3,6 +3,7 @@ title: "Template Light"
 description: "Instructions on how to integrate Template Lights into Home Assistant."
 ha_category:
   - Light
+  - Template
 ha_release: 0.46
 ha_iot_class: Local Push
 ha_quality_scale: internal
