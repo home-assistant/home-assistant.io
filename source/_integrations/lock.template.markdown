@@ -3,6 +3,7 @@ title: "Template Lock"
 description: "Instructions on how to integrate Template Locks into Home Assistant."
 ha_category:
   - Lock
+  - Template
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_quality_scale: internal
