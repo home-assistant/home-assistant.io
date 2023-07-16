@@ -93,4 +93,18 @@
     </div>
   {%- endif -%}
 
+  
+  {%- if page.ha_domain.first -%}
+    <div class='section'>
+    <h1 class="title delta">Domains</h1>
+    <ul class='divided'>
+    {%- for domain in page.domain -%}
+      <li>
+        <a href='/integrations/#{{ domain | slugify }}'>{{ domain }}</a>
+      </li>
+    {%- endfor -%}
+    </ul>
+    </div>
+  {%- endif -%}
+  
 </section>
