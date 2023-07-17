@@ -2,6 +2,7 @@
 title: Sensor
 description: Instructions on how to setup your sensors with Home Assistant.
 ha_category:
+  - Base Platform
   - Sensor
 ha_release: 0.7
 ha_quality_scale: internal

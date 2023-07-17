@@ -2,6 +2,7 @@
 title: Humidifier
 description: Instructions on how to set up humidity control devices within Home Assistant.
 ha_category:
+  - Base Platform
   - Humidifier
 ha_release: '0.112'
 ha_domain: humidifier

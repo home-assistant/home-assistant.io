@@ -2,6 +2,7 @@
 title: Fan
 description: Instructions on how to setup Fan devices within Home Assistant.
 ha_category:
+  - Base Platform
   - Fan
 ha_release: 0.27
 ha_quality_scale: internal

@@ -2,6 +2,7 @@
 title: Climate
 description: Instructions on how to setup climate control devices within Home Assistant.
 ha_category:
+  - Base Platform
   - Climate
 ha_release: 0.19
 ha_quality_scale: internal

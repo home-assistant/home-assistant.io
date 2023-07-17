@@ -2,6 +2,7 @@
 title: Siren
 description: Instructions on how to set up siren devices within Home Assistant.
 ha_category:
+  - Base Platform
   - Siren
 ha_release: '2021.8'
 ha_domain: siren

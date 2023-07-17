@@ -2,6 +2,7 @@
 title: Image
 description: Instructions on how to integrate images within Home Assistant.
 ha_category:
+  - Base Platform
   - Image
 ha_release: 2023.7
 ha_quality_scale: internal

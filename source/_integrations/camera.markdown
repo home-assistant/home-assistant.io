@@ -2,6 +2,7 @@
 title: Camera
 description: Instructions on how to integrate cameras within Home Assistant.
 ha_category:
+  - Base Platform
   - Camera
   - Media Source
 ha_release: 0.7

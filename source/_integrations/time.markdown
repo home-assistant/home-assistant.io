@@ -2,6 +2,7 @@
 title: Time
 description: Instructions on how to set up time entities within Home Assistant.
 ha_category:
+  - Base Platform
   - Time
 ha_release: '2022.12'
 ha_domain: time

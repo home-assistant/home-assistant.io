@@ -2,6 +2,7 @@
 title: Date
 description: Instructions on how to set up date entities within Home Assistant.
 ha_category:
+  - Base Platform
   - Date
 ha_release: '2023.6'
 ha_domain: date

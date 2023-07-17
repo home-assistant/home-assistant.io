@@ -7,7 +7,8 @@ ha_codeowners:
   - '@pvizeli'
 ha_domain: stt
 ha_quality_scale: internal
-ha_category: []
+ha_category:
+  - Base Platform
 ha_integration_type: entity
 ---
 

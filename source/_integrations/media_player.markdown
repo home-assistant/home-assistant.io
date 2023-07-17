@@ -2,6 +2,7 @@
 title: Media Player
 description: Instructions on how to setup your media players with Home Assistant.
 ha_category:
+  - Base Platform
   - Media Player
 ha_release: 0.7
 ha_quality_scale: internal

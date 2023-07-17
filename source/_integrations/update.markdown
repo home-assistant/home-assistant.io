@@ -1,7 +1,8 @@
 ---
 title: Update
 description: Instructions on how to use update entities with Home Assistant.
-ha_category: []
+ha_category:
+  - Base Platform
 ha_release: 2022.4
 ha_quality_scale: internal
 ha_domain: update

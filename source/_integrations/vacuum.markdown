@@ -5,6 +5,7 @@ ha_release: 0.51
 ha_domain: vacuum
 ha_quality_scale: internal
 ha_category:
+  - Base Platform
   - Vacuum
 ha_codeowners:
   - '@home-assistant/core'

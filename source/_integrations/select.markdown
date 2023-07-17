@@ -2,6 +2,7 @@
 title: Select
 description: Instructions on how to manage your Select entities with Home Assistant.
 ha_category:
+  - Base Platform
   - Select
 ha_release: 2021.7
 ha_quality_scale: internal

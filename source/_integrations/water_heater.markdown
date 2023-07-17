@@ -4,7 +4,8 @@ description: Instructions on how to setup water heater devices within Home Assis
 ha_release: 0.81
 ha_domain: water_heater
 ha_quality_scale: internal
-ha_category: []
+ha_category:
+  - Base Platform
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity

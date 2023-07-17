@@ -2,6 +2,7 @@
 title: Number
 description: Instructions on how to manage your Number entities with Home Assistant.
 ha_category:
+  - Base Platform
   - Number
 ha_release: 2020.12
 ha_quality_scale: internal

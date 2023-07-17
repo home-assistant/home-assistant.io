@@ -2,6 +2,7 @@
 title: Light
 description: Instructions on how to setup your lights with Home Assistant.
 ha_category:
+  - Base Platform
   - Light
 ha_release: pre 0.7
 ha_quality_scale: internal

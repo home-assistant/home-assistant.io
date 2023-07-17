@@ -2,6 +2,7 @@
 title: Text
 description: Instructions on how to set up text entities within Home Assistant.
 ha_category:
+  - Base Platform
   - Text
 ha_release: '2022.12'
 ha_domain: text
