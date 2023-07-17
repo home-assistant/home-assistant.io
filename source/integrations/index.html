@@ -102,7 +102,7 @@ var allComponents = [
       {% assign platforms = "" | split: ',' %}
       {%- if component.ha_category -%}      
         {%- for ha_platform in component.ha_platforms -%}
-          {% capture platform %}"platform-{{ ha_platform | slugify | downcase }}"{% endcapture %}
+          {% capture platform %}"{{ ha_platform | slugify | downcase }}"{% endcapture %}
           {% assign platforms = platforms | push: platform %}
         {%- endfor -%}
       {% endif -%}
