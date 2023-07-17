@@ -136,7 +136,7 @@ allComponents.pop(); // remove placeholder element at the end
         title_normalized_dedashed = title_normalized.replace(/[-_]/g, " ");
 
         allComponents[i].titleLC = title;
-        allComponents[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain} ${platforms}`;
+        allComponents[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain}`;
       }
 
       // sort the components alphabetically
