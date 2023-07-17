@@ -108,7 +108,7 @@ var allComponents = [
       {% endif -%}
       {% assign categories = "" | split: ',' %}
       {%- for ha_category in component.ha_category -%}
-        {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
+        {% capture category %}"platform-{{ ha_category | slugify | downcase }}"{% endcapture %}
         {% assign categories = categories | push: category %}
       {%- endfor -%}
       {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], platforms: [{{platforms|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", ha_brand: "{{component.ha_brand}}"},
