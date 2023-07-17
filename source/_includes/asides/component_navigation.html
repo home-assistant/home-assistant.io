@@ -100,7 +100,7 @@
     <ul class='divided'>
     {%- for platform in page.ha_platforms -%}
       <li>
-        <a href='/integrations/{{ platform | slugify }}'>{{ platform | replace: "_", " " | upcase }}</a>
+        <a href='/integrations/{{ platform | slugify }}'>{{ platform | replace: "_", " " | capitalize }}</a>
       </li>
     {%- endfor -%}
     </ul>
