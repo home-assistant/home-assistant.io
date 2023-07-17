@@ -99,19 +99,19 @@ var allComponents = [
       {%- assign sliced_version = component.ha_release | split: '.' -%}
       {%- assign minor_version = sliced_version[1]|plus: 0 -%}
       {%- assign major_version = sliced_version[0]|plus: 0 -%}
+      {% assign platforms = "" | split: ',' %}
+      {%- if component.ha_category -%}      
+        {%- for ha_platform in component.ha_platforms -%}
+          {% capture platform %}"{{ ha_platform | slugify | downcase }}"{% endcapture %}
+          {% assign platforms = platforms | push: platform %}
+        {%- endfor -%}
+      {% endif -%}
       {% assign categories = "" | split: ',' %}
       {%- for ha_category in component.ha_category -%}
         {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
         {% assign categories = categories | push: category %}
       {%- endfor -%}
-      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", ha_brand: "{{component.ha_brand}}"},
-    {% endif -%}
-    {%- if component.ha_category -%}      
-      {% assign platforms = "" | split: ',' %}
-      {%- for ha_platform in component.ha_platforms -%}
-        {% capture platform %}"{{ ha_platform | slugify | downcase }}"{% endcapture %}
-        {% assign platforms = platforms | push: platform %}
-      {%- endfor -%}
+      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], platforms: [{{platforms|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", ha_brand: "{{component.ha_brand}}"},
     {% endif -%}
   {%- endfor -%}
   false
@@ -194,7 +194,8 @@ allComponents.pop(); // remove placeholder element at the end
           filter = function (comp) {
             return (
               comp.search.indexOf(search) !== -1 ||
-              comp.cat.find((c) => c.includes("#")) != undefined
+              comp.cat.find((c) => c.includes("#")) != undefined ||
+              comp.platforms.find((c) => c.includes("#")) != undefined
             );
           };
 
@@ -216,7 +217,10 @@ allComponents.pop(); // remove placeholder element at the end
           // regular filter categories
           search = hash.substring(1);
           filter = function (comp) {
-            return comp.cat.includes(search);
+            return (
+              comp.cat.includes(search) ||
+              comp.platforms.includes(search)
+            );
           };
         }
 
