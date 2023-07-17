@@ -102,13 +102,13 @@ var allComponents = [
       {% assign platforms = "" | split: ',' %}
       {%- if component.ha_category -%}      
         {%- for ha_platform in component.ha_platforms -%}
-          {% capture platform %}"{{ ha_platform | slugify | downcase }}"{% endcapture %}
+          {% capture platform %}"platform-{{ ha_platform | slugify | downcase }}"{% endcapture %}
           {% assign platforms = platforms | push: platform %}
         {%- endfor -%}
       {% endif -%}
       {% assign categories = "" | split: ',' %}
       {%- for ha_category in component.ha_category -%}
-        {% capture category %}"platform-{{ ha_category | slugify | downcase }}"{% endcapture %}
+        {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
         {% assign categories = categories | push: category %}
       {%- endfor -%}
       {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], platforms: [{{platforms|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", ha_brand: "{{component.ha_brand}}"},
