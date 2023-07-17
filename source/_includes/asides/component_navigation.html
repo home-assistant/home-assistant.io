@@ -94,30 +94,17 @@
   {%- endif -%}
 
   
-  {%- if "Base Platform" in page.ha_category -%}
+  {%- if page.ha_platforms.first -%}
     <div class='section'>
-    <h1 class="title delta">Base Platform</h1>
+    <h1 class="title delta">Implemented Platforms</h1>
     <ul class='divided'>
     {%- for platform in page.ha_platforms -%}
       <li>
-        <a href='/integrations/#{{ domain | slugify }}'>{{ domain | replace: "_", " " | capitalize }}</a>
+        <a href='/integrations/#{{ platform | slugify }}'>{{ platform | replace: "_", " " | capitalize }}</a>
       </li>
     {%- endfor -%}
     </ul>
     </div>
-  {% else %}
-    {%- if page.ha_platforms.first -%}
-      <div class='section'>
-      <h1 class="title delta">Implemented Platforms</h1>
-      <ul class='divided'>
-      {%- for platform in page.ha_platforms -%}
-        <li>
-          <a href='/integrations/#{{ platform | slugify }}'>{{ platform | replace: "_", " " | capitalize }}</a>
-        </li>
-      {%- endfor -%}
-      </ul>
-      </div>
-    {%- endif -%}
   {%- endif -%}
   
 </section>
