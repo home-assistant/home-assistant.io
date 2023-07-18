@@ -153,7 +153,7 @@ last_reset_value_template:
   required: false
   type: template
 name:
-  description: The name of the MQTT sensor. Can be set to `None` if only the device name is relevant.
+  description: The name of the MQTT sensor. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Sensor

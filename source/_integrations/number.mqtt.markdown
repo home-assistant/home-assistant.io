@@ -154,7 +154,7 @@ mode:
   type: string
   default: '"auto"'
 name:
-  description: The name of the Number. Can be set to `None` if only the device name is relevant.
+  description: The name of the Number. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
 object_id:

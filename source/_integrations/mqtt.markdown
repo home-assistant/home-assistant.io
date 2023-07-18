@@ -224,7 +224,7 @@ mqtt:
           - dev001
 ```
 
-If the `device_class` option is set, it is not needed to set the entity's `name`, in that case the entity name follows the name of the `device_class`, this name supports translations. In the following example the entity `name` becomes `Bedroom Temperature`:
+If the `device_class` option is set, it is not needed to set the entity's `name`, in that case the entity name follows the name of the `device_class`, this name supports translations. In the following example the entity `friendly_name` becomes `Bedroom Temperature`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -239,7 +239,7 @@ mqtt:
           - dev001
 ```
 
-In the following example without a `device_class` the entity `name` will become `Bedroom some sensor`:
+In the following example without a `device_class` the entity `friendly_name` will become `Bedroom some sensor`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -254,13 +254,26 @@ mqtt:
           - dev001
 ```
 
-<div class='note'>
-
 So when an MQTT entity configuration has a `device` mapping, `has_entity_name` will be set to `True` and the entity's `friendly_name` and `entity_id` will constructed from the device `name` and entity `name`, in other cases `has_entity_name` will be set to False and the  friendly name will be set to the entity `name`.
 
-More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#entity-naming).
+The entity `name` option can also be set to `null`. This will set the entity name to `None` and `has_entity_name` to `True`. The entity `friendly_name` will only inherit the device name.
 
-</div>
+In the example below the default `entity_id` will be `sensor.bedroom` and the `friendly_name` will be "Bedroom":
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  - sensor:
+      state_topic: "home/bedroom/sensor"
+      unique_id: "brsensor01"
+      name: null
+      device:
+        name: "Bedroom"
+        identifiers:
+          - dev001
+```
+
+More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#entity-naming).
 
 ## MQTT Discovery
 

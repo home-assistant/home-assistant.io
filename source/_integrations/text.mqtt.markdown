@@ -150,7 +150,7 @@ mode:
   type: string
   default: text
 name:
-  description: The name of the text entity. Can be set to `None` if only the device name is relevant.
+  description: The name of the text entity. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: "MQTT Text"

@@ -157,7 +157,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the cover. Can be set to `None` if only the device name is relevant.
+  description: The name of the cover. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Cover

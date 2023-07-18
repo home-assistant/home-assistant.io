@@ -147,8 +147,8 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
-name: Can be set to `None` if only the device name is relevant.
-  description: The name to use when displaying this switch.
+name:
+  description: The name to use when displaying this switch. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Switch
