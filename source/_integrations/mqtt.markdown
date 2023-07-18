@@ -199,8 +199,8 @@ Example:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  sensor:
-    - state_topic: "home/bedroom/temperature"
+  - sensor:
+      state_topic: "home/bedroom/temperature"
       unique_id: "brtemp01"
       name: "temperature"
       object_id: "test"
@@ -214,8 +214,8 @@ Example:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  sensor:
-    - state_topic: "home/bedroom/humidity"
+  - sensor:
+      state_topic: "home/bedroom/humidity"
       unique_id: "brhum01"
       name: "humidity"
       device:
@@ -229,8 +229,8 @@ If the `device_class` option is set, it is not needed to set the entity's `name`
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  sensor:
-    - state_topic: "home/bedroom/temperature"
+  - sensor:
+      state_topic: "home/bedroom/temperature"
       unique_id: "brtemp01"
       device_class: temperature
       device:
@@ -244,8 +244,8 @@ In the following example without a `device_class` the entity `name` will become 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  sensor:
-    - state_topic: "home/bedroom/sensor"
+  - sensor:
+      state_topic: "home/bedroom/sensor"
       unique_id: "brsensor01"
       name: "some sensor"
       device:
