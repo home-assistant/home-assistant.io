@@ -16,6 +16,7 @@ ha_platforms:
   - camera
   - light
   - number
+  - select
   - sensor
   - switch
   - update
@@ -110,6 +111,10 @@ Trigger device OTA firmware update process for latest stable version.
 ### Motion Detection Sensitivity
 
 The motion detection sensitivity can be adjusted using the "Detection sensitivity" Number entity. It's important to note that this entity fetches information from the device and will not update if your battery-powered camera is in sleep mode, as this measure is implemented to preserve battery life and prevent excessive drainage.
+
+### Warning sound
+
+If your camera supports motion detection warning sounds, you can use this entity to select the level.
 
 ### Light entity
 
