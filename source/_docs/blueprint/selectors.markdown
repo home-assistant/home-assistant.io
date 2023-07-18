@@ -1229,7 +1229,13 @@ installed in Home Assistant.
 theme:
 ```
 
-This selector does not have any other options; therefore, it only has its key.
+{% configuration theme %}
+include_default:
+  description: Includes Home Assistant default theme in the list.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
 
 The output of this selector will contain the selected theme, for example:
 `waves_dark`.
