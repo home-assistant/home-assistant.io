@@ -63,7 +63,7 @@ tap_action:
       default: "false"
     pipeline_id:
       required: false
-      description: "Assist pipeline to use when the `action` is defined as `assist`. It can be either `last_used`, `preferred` or a pipeline id."
+      description: "Assist pipeline to use when the `action` is defined as `assist`. It can be either `last_used`, `preferred`, or a pipeline id."
       type: string
       default: "`last_used`"
     start_listening:
