@@ -679,11 +679,11 @@ In the example above, the entity_id will be `sensor.my_super_device` instead of 
 
 For most integrations, it is also possible to manually set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
 
-MQTT supports two styles for configuring items in yaml. All configuration items are placed directly under the `mqtt` integration key. Note that you cannot mix this styles. If your are doubting, the use the *YAML configuration listed per item* style.
+MQTT supports two styles for configuring items in YAML. All configuration items are placed directly under the `mqtt` integration key. Note that you cannot mix these styles. Use the *YAML configuration listed per item* style when in doubt.
 
 ### YAML configuration listed per item
 
-This method expects al items to be in a YAML list. Each item has a `{domain}` key and the item config is placed directly under the domain key. This method is considered as best practice. In examples we use this format.
+This method expects all items to be in a YAML list. Each item has a `{domain}` key and the item config is placed directly under the domain key. This method is considered as best practice. In all the examples we use this format.
 
 ```yaml
 mqtt:
