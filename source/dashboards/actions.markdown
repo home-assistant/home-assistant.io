@@ -63,9 +63,9 @@ tap_action:
       default: "false"
     pipeline_id:
       required: false
-      description: "Assist pipeline id to use when the `action` is defined as `assist`"
+      description: "Assist pipeline to use when the `action` is defined as `assist`. It can be either `last_used`, `preferred` or a pipeline id."
       type: string
-      default: none
+      default: "`last_used`"
     start_listening:
       required: false
       description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
