@@ -181,7 +181,7 @@ min_humidity:
   type: integer
   default: 0
 name:
-  description: The name of the humidifier.
+  description: The name of the humidifier. Can be set to `None` if only the device name is relevant.
   required: false
   type: string
   default: MQTT humidifier

@@ -175,7 +175,7 @@ modes:
   default: ['off', 'eco', 'electric', 'gas', 'heat_pump', 'high_demand', 'performance']
   type: list
 name:
-  description: The name of the Water Heater.
+  description: The name of the Water Heater. Can be set to `None` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Water Heater

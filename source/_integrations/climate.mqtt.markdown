@@ -236,7 +236,7 @@ modes:
   default: ['auto', 'off', 'cool', 'heat', 'dry', 'fan_only']
   type: list
 name:
-  description: The name of the HVAC.
+  description: The name of the HVAC. Can be set to `None` if only the device name is relevant.
   required: false
   type: string
   default: MQTT HVAC

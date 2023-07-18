@@ -257,7 +257,7 @@ min_mireds:
   required: false
   type: integer
 name:
-  description: The name of the light.
+  description: The name of the light. Can be set to `None` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Light
