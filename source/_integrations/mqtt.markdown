@@ -679,7 +679,36 @@ In the example above, the entity_id will be `sensor.my_super_device` instead of 
 
 For most integrations, it is also possible to manually set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
 
-{% details "MQTT integrations that support setup via YAML" %}
+MQTT supports two styles for configuring items in YAML. All configuration items are placed directly under the `mqtt` integration key. Note that you cannot mix these styles. Use the *YAML configuration listed per item* style when in doubt.
+
+### YAML configuration listed per item
+
+This method expects all items to be in a YAML list. Each item has a `{domain}` key and the item config is placed directly under the domain key. This method is considered as best practice. In all the examples we use this format.
+
+```yaml
+mqtt:
+  - {domain}:
+      name: ""
+      ...
+  - {domain}:
+      name: ""
+      ...
+```
+
+### YAML configuration keyed and bundled by `{domain}`
+
+All items are grouped per `{domain}` and where all configs are listed.
+
+```yaml
+mqtt:
+  {domain}:
+    - name: ""
+      ...
+    - name: ""
+      ...
+```
+
+{% details "MQTT components that support setup via YAML" %}
 
 - [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)

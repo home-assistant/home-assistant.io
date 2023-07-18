@@ -20,11 +20,12 @@ To use this device tracker in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  device_tracker:
-  - name: "annetherese_n4"
-    state_topic: "location/annetherese"
-  - name: "paulus_oneplus"
-    state_topic: "location/paulus"
+  - device_tracker:
+      name: "annetherese_n4"
+      state_topic: "location/annetherese"
+  - device_tracker:
+      name: "paulus_oneplus"
+      state_topic: "location/paulus"
 ```
 
 {% configuration %}
@@ -253,8 +254,8 @@ The following example shows how to configure the same device tracker through con
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  device_tracker:
-    - name: "My Tracker"
+  - device_tracker:
+      name: "My Tracker"
       state_topic: "a4567d663eaf/state"
       payload_home: "home"
       payload_not_home: "not_home"
