@@ -1194,6 +1194,10 @@ multiline:
   type: boolean
   default: false
   required: false
+prefix:
+  description: An optional prefix to show before the text input box.
+  type: string
+  required: false
 suffix:
   description: An optional suffix to show after the text input box.
   type: string
