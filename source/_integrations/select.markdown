@@ -94,7 +94,7 @@ The {% my developer_call_service service="select.select_option" %} service
 changes the selected option to a specific desired option provided in the
 service call using the required `option` service call data.
 
-The service call wil not succeed if the selected option is not available in
+The service call will not succeed if the selected option is not available in
 the list of options for the targeted entity.
 
 {% my developer_call_service badge service="select.select_option" %}

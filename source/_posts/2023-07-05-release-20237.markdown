@@ -56,6 +56,8 @@ Enjoy the release!
 - [Reducing the risk of running into breaking changes](#reducing-the-risk-of-running-into-breaking-changes)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
+- [Release 2023.7.1 - July 6](#release-202371---july-6)
+- [Release 2023.7.2 - July 13](#release-202372---july-13)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
@@ -210,7 +212,7 @@ dashboards!
 Just like with automations, select the card you want to cut or copy, and
 when adding a new card to your dashboard, you will see a new option to paste.
 
-When reorganizing your dashboards that use a masonry layout, it is mandatory to 
+When reorganizing your dashboards that use a masonry layout, it is mandatory to
 understand the order of the cards across the different columns in your view.
 To make that easier we now show a positional number on the card when
 your dashboard is in edit mode.
@@ -369,7 +371,7 @@ noteworthy changes this release:
   he added support to the [Xiaomi Miio], [HomeKit Device], [Tuya] and [MQTT] integrations.
   Awesome!
 - [@piitaya] updated all existing Humidifier cards to work with the above change,
-  and adjusted them to be more in line with the existing climate cards. Nice! 
+  and adjusted them to be more in line with the existing climate cards. Nice!
 - The [weather entity] now supports more (forecast) attributes. It added support
   for apparent temperature, dew point, cloud coverage, and wind gust speed;
   Thanks, [@gjohansson-ST], [@vingerha], and [@bieniu]!
@@ -452,6 +454,186 @@ We welcome the following new integrations in this release:
 [Image]: /integrations/image
 [LOQED Touch Smart Lock]: /integrations/loqed
 [Renson]: /integrations/renson
+
+## Release 2023.7.1 - July 6
+
+- Fix not including device_name in friendly name if it is None ([@jbouwh] - [#95485])
+- Handle integrations with empty services or failing to load during service description enumeration ([@bdraco] - [#95911])
+- Update frontend to 20230705.1 ([@bramkragten] - [#95913]) ([frontend docs])
+- Make SwitchBot no_devices_found message more helpful ([@bdraco] - [#95916]) ([switchbot docs])
+- Migrate bracketed IP addresses in ZHA config entry ([@puddly] - [#95917]) ([zha docs])
+- Use device name for Nuki ([@joostlek] - [#95941]) ([nuki docs])
+- Add explicit device naming for Tuya sensors ([@joostlek] - [#95944]) ([tuya docs])
+- Fix entity name for Flick Electric ([@joostlek] - [#95947]) ([flick_electric docs])
+- Fix matter exception NoneType in set_brightness for optional min/max level values ([@neocolis] - [#95949]) ([matter docs])
+- Fix grouping feature for MusicCast ([@micha91] - [#95958]) ([yamaha_musiccast docs])
+- Bump pyrainbird to 2.1.0 ([@allenporter] - [#95968]) ([rainbird docs])
+- Add missing qnap translation ([@emontnemery] - [#95969]) ([qnap docs])
+- Set correct `response` value in service description when `async_set_service_schema` is used ([@bramkragten] - [#95985]) ([script docs])
+- Explicitly use device name as entity name for Xiaomi fan and humidifier ([@jpbede] - [#95986]) ([xiaomi_miio docs])
+- Make script services always respond when asked ([@bramkragten] - [#95991]) ([script docs])
+- Fix state of slimproto players ([@marcelveldt] - [#96000]) ([slimproto docs])
+
+[#95485]: https://github.com/home-assistant/core/pull/95485
+[#95908]: https://github.com/home-assistant/core/pull/95908
+[#95911]: https://github.com/home-assistant/core/pull/95911
+[#95913]: https://github.com/home-assistant/core/pull/95913
+[#95916]: https://github.com/home-assistant/core/pull/95916
+[#95917]: https://github.com/home-assistant/core/pull/95917
+[#95941]: https://github.com/home-assistant/core/pull/95941
+[#95944]: https://github.com/home-assistant/core/pull/95944
+[#95947]: https://github.com/home-assistant/core/pull/95947
+[#95949]: https://github.com/home-assistant/core/pull/95949
+[#95958]: https://github.com/home-assistant/core/pull/95958
+[#95968]: https://github.com/home-assistant/core/pull/95968
+[#95969]: https://github.com/home-assistant/core/pull/95969
+[#95985]: https://github.com/home-assistant/core/pull/95985
+[#95986]: https://github.com/home-assistant/core/pull/95986
+[#95991]: https://github.com/home-assistant/core/pull/95991
+[#96000]: https://github.com/home-assistant/core/pull/96000
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@marcelveldt]: https://github.com/marcelveldt
+[@micha91]: https://github.com/micha91
+[@neocolis]: https://github.com/neocolis
+[@puddly]: https://github.com/puddly
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[flick_electric docs]: /integrations/flick_electric/
+[frontend docs]: /integrations/frontend/
+[matter docs]: /integrations/matter/
+[nuki docs]: /integrations/nuki/
+[qnap docs]: /integrations/qnap/
+[rainbird docs]: /integrations/rainbird/
+[script docs]: /integrations/script/
+[slimproto docs]: /integrations/slimproto/
+[switchbot docs]: /integrations/switchbot/
+[tuya docs]: /integrations/tuya/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[yamaha_musiccast docs]: /integrations/yamaha_musiccast/
+[zha docs]: /integrations/zha/
+
+## Release 2023.7.2 - July 13
+
+- Fix ESPHome deep sleep devices staying unavailable after unexpected disconnect ([@bdraco] - [#96354]) ([esphome docs])
+- Bump pydaikin 2.10.5 ([@mover85] - [#95656]) ([daikin docs])
+- Bump pywemo from 0.9.1 to 1.1.0 ([@esev] - [#95951]) ([wemo docs])
+- Get MyStrom device state before checking support ([@joostlek] - [#96004]) ([mystrom docs])
+- Refactor async_get_hass to rely on threading.local instead of a ContextVar ([@jbouwh] - [#96005]) ([mqtt docs])
+- Use explicit device naming for Switchbot ([@joostlek] - [#96011]) ([switchbot docs])
+- Remove openhome from discovery component ([@bazwilliams] - [#96021]) ([discovery docs])
+- UPB explicit device name ([@joostlek] - [#96042]) ([upb docs])
+- Use default MyStrom devicetype if not present ([@joostlek] - [#96070]) ([mystrom docs])
+- Fix implicit use of device name in Slimproto ([@frenck] - [#96081]) ([slimproto docs])
+- Fix implicit device name for RainMachine `update` entity ([@bachya] - [#96094]) ([rainmachine docs])
+- Use explicit device name for Yalexs BLE ([@joostlek] - [#96105]) ([yalexs_ble docs])
+- Fix reference to translation reference in buienradar translations ([@jbouwh] - [#96119]) ([buienradar docs])
+- Bump goalzero to 0.2.2 ([@tkdrob] - [#96121]) ([goalzero docs])
+- Fix implicitly using device name in Yale Smart Living ([@gjohansson-ST] - [#96161]) ([yale_smart_alarm docs])
+- Bump bthome to 2.12.1 ([@Ernst79] - [#96166]) ([bthome docs])
+- Use explicit device name for Stookwijzer ([@joostlek] - [#96184]) ([stookwijzer docs])
+- Enable retries on rainbird devices by loading model and version ([@allenporter] - [#96190]) ([rainbird docs])
+- Fix race fetching ESPHome dashboard when there are no devices set up ([@bdraco] - [#96196]) ([esphome docs])
+- Bump Roborock to v0.30.0 ([@Lash-L] - [#96268]) ([roborock docs])
+- Use explicit device naming for Escea ([@joostlek] - [#96270]) ([escea docs])
+- Fix ZHA serialization issue with warning devices ([@puddly] - [#96275]) ([zha docs])
+- Bump reolink_aio to 0.7.3 ([@starkillerOG] - [#96284]) ([reolink docs])
+- Bump aiohomekit to 2.6.7 ([@bdraco] - [#96291]) ([homekit_controller docs])
+- Add has entity name to Blink ([@joostlek] - [#96322]) ([blink docs])
+- Fix extra verbiage in Ridwell rotating category sensor ([@bachya] - [#96345]) ([ridwell docs])
+- Update RestrictedPython to 6.1 ([@frenck] - [#96358]) ([python_script docs])
+- Add explicit device naming to Led BLE ([@joostlek] - [#96421]) ([led_ble docs])
+- Always add guest wifi qr code entity in AVM Fritz!Tools ([@mib1185] - [#96435]) ([fritz docs])
+- Fix mixed case service schema registration ([@bdraco] - [#96448])
+- Ensure ESPHome dashboard connection recovers if its down when core starts ([@bdraco] - [#96449]) ([esphome docs])
+
+[#95656]: https://github.com/home-assistant/core/pull/95656
+[#95908]: https://github.com/home-assistant/core/pull/95908
+[#95951]: https://github.com/home-assistant/core/pull/95951
+[#96004]: https://github.com/home-assistant/core/pull/96004
+[#96005]: https://github.com/home-assistant/core/pull/96005
+[#96006]: https://github.com/home-assistant/core/pull/96006
+[#96011]: https://github.com/home-assistant/core/pull/96011
+[#96021]: https://github.com/home-assistant/core/pull/96021
+[#96042]: https://github.com/home-assistant/core/pull/96042
+[#96070]: https://github.com/home-assistant/core/pull/96070
+[#96081]: https://github.com/home-assistant/core/pull/96081
+[#96094]: https://github.com/home-assistant/core/pull/96094
+[#96105]: https://github.com/home-assistant/core/pull/96105
+[#96119]: https://github.com/home-assistant/core/pull/96119
+[#96121]: https://github.com/home-assistant/core/pull/96121
+[#96161]: https://github.com/home-assistant/core/pull/96161
+[#96166]: https://github.com/home-assistant/core/pull/96166
+[#96184]: https://github.com/home-assistant/core/pull/96184
+[#96190]: https://github.com/home-assistant/core/pull/96190
+[#96196]: https://github.com/home-assistant/core/pull/96196
+[#96268]: https://github.com/home-assistant/core/pull/96268
+[#96270]: https://github.com/home-assistant/core/pull/96270
+[#96275]: https://github.com/home-assistant/core/pull/96275
+[#96284]: https://github.com/home-assistant/core/pull/96284
+[#96291]: https://github.com/home-assistant/core/pull/96291
+[#96322]: https://github.com/home-assistant/core/pull/96322
+[#96345]: https://github.com/home-assistant/core/pull/96345
+[#96354]: https://github.com/home-assistant/core/pull/96354
+[#96358]: https://github.com/home-assistant/core/pull/96358
+[#96421]: https://github.com/home-assistant/core/pull/96421
+[#96435]: https://github.com/home-assistant/core/pull/96435
+[#96448]: https://github.com/home-assistant/core/pull/96448
+[#96449]: https://github.com/home-assistant/core/pull/96449
+[@Ernst79]: https://github.com/Ernst79
+[@Lash-L]: https://github.com/Lash-L
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bazwilliams]: https://github.com/bazwilliams
+[@bdraco]: https://github.com/bdraco
+[@esev]: https://github.com/esev
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@mib1185]: https://github.com/mib1185
+[@mover85]: https://github.com/mover85
+[@puddly]: https://github.com/puddly
+[@starkillerOG]: https://github.com/starkillerOG
+[@tkdrob]: https://github.com/tkdrob
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[blink docs]: /integrations/blink/
+[bthome docs]: /integrations/bthome/
+[buienradar docs]: /integrations/buienradar/
+[daikin docs]: /integrations/daikin/
+[discovery docs]: /integrations/discovery/
+[escea docs]: /integrations/escea/
+[esphome docs]: /integrations/esphome/
+[fritz docs]: /integrations/fritz/
+[goalzero docs]: /integrations/goalzero/
+[homekit_controller docs]: /integrations/homekit_controller/
+[led_ble docs]: /integrations/led_ble/
+[mqtt docs]: /integrations/mqtt/
+[mystrom docs]: /integrations/mystrom/
+[python_script docs]: /integrations/python_script/
+[rainbird docs]: /integrations/rainbird/
+[rainmachine docs]: /integrations/rainmachine/
+[reolink docs]: /integrations/reolink/
+[ridwell docs]: /integrations/ridwell/
+[roborock docs]: /integrations/roborock/
+[slimproto docs]: /integrations/slimproto/
+[stookwijzer docs]: /integrations/stookwijzer/
+[switchbot docs]: /integrations/switchbot/
+[upb docs]: /integrations/upb/
+[wemo docs]: /integrations/wemo/
+[yale_smart_alarm docs]: /integrations/yale_smart_alarm/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+[zha docs]: /integrations/zha/
 
 ## Integrations now available to set up from the UI
 
@@ -575,6 +757,21 @@ the backup was initiated (`%Y-%m-%d %H:%M:%S`, for example,
 
 [@ludeeus]: https://github.com/ludeeus
 [#94468]: https://github.com/home-assistant/core/pull/94468
+
+{% enddetails %}
+
+{% details "Hyperion" %}
+
+The behavior of Hyperion lights has changed:
+
+Turning off the light entity will only clear the priority you have configured during the integration setup. Other Home Assistant independent light sources in Hyperion might still be active and cause light to be emitted. If you want to turn the light off entirely, regardless of active light sources, you can enable the `switch.[instance]_led_device` entity that acts as a global switch.
+
+External effects that are unrelated to the Hyperion light source (such as USB capture) have been removed from the light entity. To control them, enable the respective disabled-by-default switch entity.
+
+([@Sab44 ] - [#80478]) ([documentation](/integrations/hyperion))
+
+[@Sab44]: https://github.com/Sab44
+[#80478]: https://github.com/home-assistant/core/pull/80478
 
 {% enddetails %}
 

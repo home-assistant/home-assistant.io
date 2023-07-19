@@ -73,8 +73,8 @@ MQTT broker settings are configured when the MQTT integration is first set up an
 Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-1. On the MQTT integration, select the cogwheel. 
-1. Select **Configure**, then **Re-configure MQTT**.
+2. Select the MQTT integration.
+3. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
 
@@ -129,9 +129,9 @@ A configured client certificate will only be active if broker certificate valida
 To change the settings, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-1. On the MQTT integration, select the cogwheel. 
-1. Select **Configure**, then **Re-configure MQTT**.
-1. To open the MQTT options page, select **Next**.
+2. Select the MQTT integration.
+3. Select **Configure**, then **Re-configure MQTT**.
+4. To open the MQTT options page, select **Next**.
 
 ### Discovery options
 
@@ -157,8 +157,8 @@ mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
 Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Choose "Settings" on the left menu, click "Devices & Services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-1. On the Mosquitto broker integration, select the cogwheel, then select **Configure**.
-1. Enter something similar to the example below into the **topic** field under **Publish a packet**. Select **Publish**.
+2. Select the Mosquitto broker integration, then select **Configure**.
+3. Enter something similar to the example below into the **topic** field under **Publish a packet**. Select **Publish**.
 
 ```bash
    homeassistant/switch/1/power
@@ -786,14 +786,14 @@ The MQTT integration will register the service `mqtt.publish` which allows publi
 
 ### Service `mqtt.publish`
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `topic` | no | Topic to publish payload to.
-| `topic_template` | no | Template to render as topic to publish payload to.
-| `payload` | yes | Payload to publish.
-| `payload_template` | yes | Template to render as payload value.
-| `qos` | yes | Quality of Service to use. (default: 0)
-| `retain` | yes | If message should have the retain flag set. (default: false)
+| Service data attribute | Optional | Description                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------ |
+| `topic`                | no       | Topic to publish payload to.                                 |
+| `topic_template`       | no       | Template to render as topic to publish payload to.           |
+| `payload`              | yes      | Payload to publish.                                          |
+| `payload_template`     | yes      | Template to render as payload value.                         |
+| `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
+| `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
 <p class='note'>
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
@@ -870,10 +870,10 @@ retain: true
 
 Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `topic` | no | Topic to dump. Can contain a wildcard (`#` or `+`).
-| `duration` | yes | Duration in seconds that we will listen for messages. Default is 5 seconds.
+| Service data attribute | Optional | Description                                                                 |
+| ---------------------- | -------- | --------------------------------------------------------------------------- |
+| `topic`                | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
+| `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
 
 ```yaml
 topic: openzwave/#

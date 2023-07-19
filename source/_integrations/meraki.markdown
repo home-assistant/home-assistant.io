@@ -16,13 +16,13 @@ Use your Meraki AP as device tracker. Note that Meraki will see all devices, not
 ### Prerequisites
 
 1. Go to Network-wide/General page, and find the Location and scanning section.
-1. Make sure analytics and Scanning API are both enabled.
-1. Make note of the Validator string, which will be used in the `device_tracker` configuration.
-1. Click **Add a Post URL**:
-  1. Set the Post URL to `https://YOUR_HOSTNAME/api/meraki`
-  1. Set the Secret to a randomly generated string, and make note of it for the `device_tracker` configuration.
-  1. Make sure the API Version is set to `2.0`.
-  1. Hit **Save** in the bottom right of the page.
+2. Make sure analytics and Scanning API are both enabled.
+3. Make note of the Validator string, which will be used in the `device_tracker` configuration.
+4. Click **Add a Post URL**:
+   1. Set the Post URL to `https://YOUR_HOSTNAME/api/meraki`
+   2. Set the Secret to a randomly generated string, and make note of it for the `device_tracker` configuration.
+   3. Make sure the API Version is set to `2.0`.
+   4. Hit **Save** in the bottom right of the page.
 
 ## Configuration
 
