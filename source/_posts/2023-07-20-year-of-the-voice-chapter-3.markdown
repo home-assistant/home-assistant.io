@@ -72,9 +72,11 @@ For each test command or query, you can find out:
 
 [Piper] is a text-to-speech system created by Nabu Casa, designed to run locally on the Raspberry Pi 4. Since its introduction in Chapter 2, Piper has [grown rapidly] with adoption in the open source community as well as [academia].
 
+<p class='img'>
 <img style='width: 80%' src='/images/assist/piper-logo.svg' alt='Piper logo' class='no-shadow'>
+</p>
 
-The [Piper add-on] for Home Assistant OS now supports 23 languages and over 70 different voices. This includes voices from 7 brand new [voice datasets] contributed by the Home Assistant community. These datasets have been collected and donated to the public domain by Nabu Casa with the hope of benefiting text-to-speech research now and in the future.
+The [Piper add-on] for Home Assistant OS now supports 23 languages and over 70 different voices. This includes voices from 7 brand new [voice datasets] contributed by the Home Assistant community. These datasets have been collected and donated to the public domain by Nabu Casa for the benefit of text-to-speech research now and in the future.
 
 [Piper]: https://github.com/rhasspy/piper/
 [grown rapidly]: https://building.open-home.io/piper-is-our-new-voice-for-the-open-home/
@@ -88,7 +90,7 @@ The [Piper add-on] for Home Assistant OS now supports 23 languages and over 70 d
 
 With hardware like the $13 [ATOM Echo], it was possible in Chapter 2 to [create a push-to-talk voice Assistant using ESPHome](/voice_control/thirteen-usd-voice-remote/).
 
-Using the latest ESPHome, you now have the option to push the button to start speaking or enable continuous mode, where you can have multiple conversation turns with Assist (similar to an analog phone).
+Using the latest ESPHome, you can push a button to start speaking and let Home Assistant detect the end of the voice command. Continuous mode is also available, allowing multiple conversation turns with Assist similar to an analog phone.
 
 ```yaml
 voice_assistant:
@@ -111,7 +113,7 @@ binary_sensor:
 
 ### Silence Detection
 
-Both "push to start speaking" and continuous mode will use silence detection in Home Assistant to detect the end of each voice command. In your device's configuration, you can now adjust how much silence is needed with "Finished speaking detection":
+ESPHome's new voice modes use Home Assistant to detect the end of each voice command. In your device's configuration, you can now adjust how much silence is needed with "Finished speaking detection":
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/esphome_config.png" alt="Configure silence detection for your ESPHome voice assistant" />
@@ -123,7 +125,7 @@ Each ESPHome Voice Assistant automatically gets two config entities to automate 
 
 ## Native Assist on Android
 
-Starting in Chapter 3, Assist is now natively supported through the [Home Assistant Companion App]. With this update, the full power of Assist is now available to over a million Android devices using Home Assistant. Access the Assist button in the app, and talk to your smart home from your phone:
+Starting in Chapter 3, Assist is now natively supported through the [Home Assistant Companion App]. With this update, the full power of Assist is available to over a million Android devices using Home Assistant. Access the Assist button in the app, and talk to your smart home from your phone:
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone-ha.jpg" alt="Screenshot of Assist in HA Companion app" />
