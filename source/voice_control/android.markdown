@@ -6,6 +6,10 @@ title: "Assist on Android"
 
 Assist is available on Android phones and tablets using the [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/) for Android.
 
+### Prerequisites
+
+- The devices you want to control with Assist are [exposed to Assist](/voice_control/voice_remote_expose_devices/)
+
 ### Setting up Home Assistant Assist as default assistant app on an Android phone
 
 This section was written using an Android 13. Depending on your flavor of Android, the exact steps may vary.
