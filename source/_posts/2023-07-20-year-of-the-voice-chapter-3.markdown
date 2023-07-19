@@ -4,7 +4,7 @@ title: "Year of the Voice - Chapter 3: Ready when you are"
 description: "The full power of Assist on all of your Android devices."
 date: 2023-07-18 00:00:00
 date_formatted: "July 20, 2023"
-author: Paulus Schoutsen
+author: Mike Hansen
 comments: true
 categories: Assist
 og_image: /images/blog/2023-07-20-year-of-the-voice-chapter-3/social.png
@@ -18,7 +18,9 @@ In [Chapter 1], we focused on intents – what the user wants to do. The Home As
 
 In [Chapter 2], we included both speech-to-text and text-to-speech, allowing users to talk and listen to their smart homes through the browser, [ESPHome], and even [analog phones].
 
-For Chapter 3, we bring the full power of [Assist] to a million active Android devices running the Home Assistant Companion app. Got an Android phone, tablet, or watch? Read on to find out how you can talk to your Home Assistant with one click!
+For Chapter 3, we bring the full power of [Assist] to a million active Android devices running the Home Assistant Companion app. Got an Android phone, tablet, or watch? Read on to find out how you can talk to your Home Assistant with one push!
+
+<lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
 _To watch the video presentation of this blog post, including live demos, check [the recording of our live stream.][live-stream]_
 
@@ -37,7 +39,10 @@ _To watch the video presentation of this blog post, including live demos, check 
 
 While [custom sentences] were already part of Assist, they required manually editing YAML. With the new [sentence trigger], you can now add custom sentences directly in the UI:
 
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/sentence-trigger.png" alt="Screenshot of sentence trigger creation" class='no-shadow' />
+<p class='img'>
+<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/sentence-trigger.png" alt="Screenshot of sentence trigger creation" />
+Screenshot of the sentence trigger in the automation editor.
+</p>
 
 These sentences take priority over the built-in commands, and work anywhere that Assist does. Some basic [template syntax] is available, such as marking parts of the sentence as optional.
 
@@ -49,13 +54,16 @@ These sentences take priority over the built-in commands, and work anywhere that
 
 The Home Assistant community is hard at work translating [common smart home commands]. To help contributors, we've added an "Assist" developer tool that lets you test out sentences without actually executing the commands:
 
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/sentence-debug.png" alt="Screenshot of sentence debug tool" class='no-shadow' />
+<p class='img'>
+<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/sentence-debug.png" alt="Screenshot of Assist developer tool" />
+Screenshot of the Assist developer tool.
+</p>
 
 For each test command or query, you can find out:
 
-- Which [intent] *would* be triggered with its slot values,
-- Which entities would be targeted, and
-- For queries, whether or not each targeted entity matched
+- Which [intent] *would* be triggered with its slot values
+- Which entities would be targeted
+- Whether or not each targeted entity matched (queries only)
 
 [common smart home commands]: https://github.com/home-assistant/intents/
 [intent]: https://developers.home-assistant.io/docs/intent_builtin
@@ -74,61 +82,84 @@ The [Piper add-on] for Home Assistant OS now supports 23 languages and over 70 d
 [academia]: https://www.techrxiv.org/articles/preprint/Image_Captioning_for_the_Visually_Impaired_and_Blind_A_Recipe_for_Low-Resource_Languages/22133894
 [voice datasets]: https://github.com/NabuCasa/voice-datasets/
 
-
 ## New ESPHome Voice Modes
 
-With hardware like the $13 [ATOM Echo], it was possible in Chapter 2 to run a push-to-talk voice Assistant using ESPHome:
+<a href="https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa"><img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/atom_echo.png" alt="ATOM Echo Smart Speaker from M5Stack" style='width:96px;float:right;margin-left:8px;'/></a>
 
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/atom_echo.png" alt="ATOM Echo Smart Speaker from M5Stack" />
+With hardware like the $13 [ATOM Echo], it was possible in Chapter 2 to [create a push-to-talk voice Assistant using ESPHome](/voice_control/thirteen-usd-voice-remote/).
 
 Using the latest ESPHome, you now have the option to push the button to start speaking or enable continuous mode, where you can have multiple conversation turns with Assist (similar to an analog phone).
 
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/esphome.png" alt="YAML code for ESPHome voice assistant" class='no-shadow' />
+```yaml
+voice_assistant:
+  microphone: ...
+  speaker: ...
+
+binary_sensor:
+  - platform: gpio
+    pin: ...
+    on_click:
+      - if:
+          condition: voice_assistant.is_running
+          then:
+            - voice_assistant.stop:
+          else:
+            - voice_assistant.start_continuous:
+```
+
+[ESPHome Voice Assistant documentation](https://esphome.io/components/voice_assistant.html#click-to-converse)
 
 ### Silence Detection
 
 Both "push to start speaking" and continuous mode will use silence detection in Home Assistant to detect the end of each voice command. In your device's configuration, you can now adjust how much silence is needed with "Finished speaking detection":
 
+<p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/esphome_config.png" alt="Configure silence detection for your ESPHome voice assistant" />
+</p>
 
-[ATOM Echo]: https://docs.m5stack.com/en/atom/atomecho
+[ATOM Echo]: https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa
 
 
 ## Native Assist on Android
 
 Starting in Chapter 3, Assist is now natively supported through the [Home Assistant Companion App]. With this update, the full power of Assist is now available to over a million Android devices using Home Assistant. Access the Assist button in the app, and talk to your smart home from your phone:
 
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone-ha.jpg" alt="Screenshot of Assist in HA Companion app" class='no-shadow' />
+<p class='img'>
+<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone-ha.jpg" alt="Screenshot of Assist in HA Companion app" />
+</p>
 
 Have a [Home Assistant Cloud subscription]? You can now control your smart home via voice from anywhere in the world without giving up your privacy. Multiple Home Assistant servers are supported, so you can just as easily talk to your parent's house.
 
 ### Default Digital Assistant
 
-Why open an app if you don't have to? Set Home Assistant as your default digital assistant app!
+Why open an app if you don't have to? Set Home Assistant as your default digital assistant app! Now, holding the home or power button will instantly bring up Assist:
 
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone-assistant.jpg" alt="Setting Assist as Default Android Assistant" class='no-shadow' />
+<lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
-Now, holding the home or power button will instantly bring up Assist:
+You can find the settings on Android -> Apps -> Default apps or tap on the tip in the Home Assistant Companion settings.
 
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone.jpg" alt="Screenshot of Assist as Default Android Assistant" class='no-shadow' />
-
-**TODO: Add video** 
+<p class='img'>
+<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone-assistant.jpg" alt="Setting Assist as Default Android Assistant" />
+</p>
 
 [Home Assistant Companion App]: https://companion.home-assistant.io/
 [Home Assistant Cloud subscription]: https://www.nabucasa.com/
-
 
 ## Native Assist on Wear OS
 
 We didn't leave out watches! Wear OS devices can now natively use Assist as well:
 
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/watch.png" alt="Screenshot of Assist as Default Wear OS Assistant" class='no-shadow' />
+<p class='img'>
+<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/watch.png" alt="Screenshot of Assist as Default Wear OS Assistant" />
+</p>
 
 Text-to-speech responses are spoken directly from the watch as well, allowing you to listen instead of look for confirmation.
 
 Like the phones, it is also possible to set Home Assistant to be your watch's default digital assistant:
 
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/watch-assistant.png" alt="Setting HA as Default Wear OS Assistant" class='no-shadow' />
+<p class='img'>
+<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/watch-assistant.png" alt="Setting HA as Default Wear OS Assistant" />
+</p>
 
 Holding the secondary button on your watch now brings up Assist!
 
