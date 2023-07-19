@@ -392,7 +392,7 @@ If you need to generate codes for switches and lights, you can use a template (u
 
 {% endraw %}
 
-- Use this code to add a new switch in the options menu.
-- Launch your Home Assistant and go to the website.
+- Use this code to add a new switch in the options menu (Settings -> Devices -> RFXCOM -> Configure -> Paste the code into "Enter event code to add".
+- Launch your Home Assistant and go to the website or app.
 - Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
-- Toggle your new switch in the Home Assistant interface
+- Toggle your new switch in the Home Assistant interface. Some brands (e.g. Trust / Kaku) use switching 'On' to learn, and turning 'Off' to unlearn, so make sure the switch is in the opposite state before enabling learning. E.g. if you want a device to learn the new code, make sure to toggle the switch in HA to 'Off' before starting the learning, then toggling the switch to 'On' while the learning mode is enabled on the device.
