@@ -22,6 +22,5 @@ Integrates Bluetooth Low Energy (BLE) Leviton Decora devices into Home Assistant
 This integration has been confirmed to work with the following devices:
 
 - DD710 0-10v dimmer
-- DDS15 switch
 
-It's likely that other Leviton Decora BLE devices will work with this integration.
+It's likely that other Leviton Decora BLE dimmers will work with this integration. There is some additional work to support non-dimmable switches like the DDS15 model.
