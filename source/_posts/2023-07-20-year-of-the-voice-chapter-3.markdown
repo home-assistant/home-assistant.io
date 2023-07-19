@@ -132,6 +132,7 @@ Starting in Chapter 3, Assist is now natively supported through the [Home Assist
 Screenshot of Assist in HA Companion app
 </p>
 
+
 Have a [Home Assistant Cloud subscription]? You can now control your smart home via voice from anywhere in the world without giving up your privacy. Multiple Home Assistant servers are supported, so you can just as easily talk to your parent's house.
 
 ### Default Digital Assistant
@@ -149,9 +150,7 @@ You can find the settings on Android -> Apps -> Default apps or tap on the tip i
 
 We didn't leave out watches! Wear OS devices can now natively use Assist as well:
 
-<p class='img'>
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/watch.png" alt="Screenshot of Assist as Default Wear OS Assistant" />
-</p>
+<lite-youtube videoid="5b7nqGZyeVU" videotitle="Use Assist natively on your Android watch"></lite-youtube>
 
 Text-to-speech responses are spoken directly from the watch as well, allowing you to listen instead of look for confirmation.
 
