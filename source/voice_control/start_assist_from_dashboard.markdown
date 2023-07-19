@@ -4,7 +4,7 @@ title: "Starting Assist from your dashboard"
 
 If you are using Home Assistant in kiosk mode, for example if you have a tablet mounted on the wall, the Assist icon in the top right corner is not accessible. In this case, use a dashboard button to start Assist.
 
-## To start Assist using a button on the dashboard
+## To add an Assist button to the dashboard
 
 1. On your dashboard, select **Add card** and select the **Button** card.
 2. Clear the **Entity** field and give the card a name, such as *Assist - listen*.
