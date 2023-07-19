@@ -22,6 +22,8 @@ For Chapter 3, we bring the full power of [Assist] to a million active Android d
 
 <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
+<lite-youtube videoid="5b7nqGZyeVU" videotitle="Use Assist natively on your Android watch"></lite-youtube>
+
 _To watch the video presentation of this blog post, including live demos, check [the recording of our live stream.][live-stream]_
 
 [Year of the Voice]: https://www.home-assistant.io/blog/2022/12/20/year-of-voice/
