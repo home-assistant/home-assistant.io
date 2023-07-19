@@ -115,6 +115,7 @@ Both "push to start speaking" and continuous mode will use silence detection in 
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/esphome_config.png" alt="Configure silence detection for your ESPHome voice assistant" />
+Each ESPHome Voice Assistant automatically gets two config entities to automate it's behavior in Home Assistant.
 </p>
 
 [ATOM Echo]: https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa
@@ -126,6 +127,7 @@ Starting in Chapter 3, Assist is now natively supported through the [Home Assist
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone-ha.jpg" alt="Screenshot of Assist in HA Companion app" />
+Screenshot of Assist in HA Companion app
 </p>
 
 Have a [Home Assistant Cloud subscription]? You can now control your smart home via voice from anywhere in the world without giving up your privacy. Multiple Home Assistant servers are supported, so you can just as easily talk to your parent's house.
@@ -137,10 +139,6 @@ Why open an app if you don't have to? Set Home Assistant as your default digital
 <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
 You can find the settings on Android -> Apps -> Default apps or tap on the tip in the Home Assistant Companion settings.
-
-<p class='img'>
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone-assistant.jpg" alt="Setting Assist as Default Android Assistant" />
-</p>
 
 [Home Assistant Companion App]: https://companion.home-assistant.io/
 [Home Assistant Cloud subscription]: https://www.nabucasa.com/
@@ -155,11 +153,7 @@ We didn't leave out watches! Wear OS devices can now natively use Assist as well
 
 Text-to-speech responses are spoken directly from the watch as well, allowing you to listen instead of look for confirmation.
 
-Like the phones, it is also possible to set Home Assistant to be your watch's default digital assistant:
-
-<p class='img'>
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/watch-assistant.png" alt="Setting HA as Default Wear OS Assistant" />
-</p>
+Like the phones, multiple servers are supported and it is possible to set Home Assistant to be your watch's default digital assistant.
 
 Holding the secondary button on your watch now brings up Assist!
 
