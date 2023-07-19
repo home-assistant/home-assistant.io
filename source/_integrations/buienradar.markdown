@@ -102,8 +102,7 @@ The following entities will be created:
 - **Condition code n days ahead**: Symbol and condition code of the expected condition n days ahead
 - **Condition n days ahead**: Symbol and expected condition n days ahead
 - **Detailed condition n days ahead**: Symbol and detailed expected condition n days ahead
-- **Full condition (english) n days ahead**: Symbol and full expected condition n days ahead (in English)
-- **Full condition (dutch) n days ahead**: Symbol and full expected condition n days ahead (in Dutch)
+- **Full condition n days ahead**: Symbol and full expected condition n days ahead
 
 {% include integrations/option_flow.md %}
 
