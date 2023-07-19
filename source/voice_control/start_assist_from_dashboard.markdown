@@ -2,7 +2,7 @@
 title: "Starting Assist from your dashboard"
 ---
 
-If you are using Home Assistant in kiosk mode, for example if you have a tablet mounted on the wall, use a dashboard button to start Assist.
+If you are using Home Assistant in kiosk mode, for example if you have a tablet mounted on the wall, the Assist icon in the top right corner is not accessible. In this case, use a dashboard button to start Assist.
 
 ## To start Assist using a button on the dashboard
 
