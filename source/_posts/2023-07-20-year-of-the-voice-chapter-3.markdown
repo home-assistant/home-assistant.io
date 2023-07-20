@@ -43,15 +43,15 @@ Starting in Chapter 3, Assist is now natively supported through the [Home Assist
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone-ha.jpg" alt="Screenshot of Assist in HA Companion app" style="max-height: 550px;" />
-Screenshot of Assist in HA Companion app
+Assist on Android is built-in to the Android app and uses the speech-to-text from Home Assistant
 </p>
 
 
 Have a [Home Assistant Cloud subscription]? You can now control your smart home via voice from anywhere in the world without giving up your privacy. Multiple Home Assistant servers are supported, so you can just as easily talk to your parent's house:
 
 <p class='img'>
-<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/multi-server.png" alt="Screenshot of Assist server selection" style="max-height: 550px;" />
-Screenshot of Assist server selection
+<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/multi-server.png" alt="Screenshot of Assist picking a voice assistant" style="max-height: 550px;" />
+Select a voice assistant from any of your configured Home Assistant instances
 </p>
 
 ### Default Digital Assistant
@@ -60,14 +60,14 @@ Why open an app if you don't have to? Set Home Assistant as your default digital
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone.jpg" alt="Screenshot of Assist activated on the home screen" style="max-height: 550px;" />
-Screenshot of Assist on Home Screen
+Launch Assist from anywhere on Android without having to open the Home Assistant app
 </p>
 
 It's even possible to activate Assist directly from the lock screen:
 
 <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
-You can find the settings on Android -> Apps -> Default apps or tap on the tip in the Home Assistant Companion settings.
+You can find the settings on Android: **Settings** -> **Apps** -> **Default apps** or tap on the tip in the Home Assistant Companion settings.
 
 [Home Assistant Companion App]: https://companion.home-assistant.io/
 [Home Assistant Cloud subscription]: https://www.nabucasa.com/
@@ -78,20 +78,14 @@ We didn't leave out watches! Wear OS devices can now natively use Assist as well
 
 <lite-youtube videoid="5b7nqGZyeVU" videotitle="Use Assist natively on your Android watch"></lite-youtube>
 
-Text-to-speech responses are spoken directly from the watch, allowing you to listen instead of look for confirmation.
+Text-to-speech responses are spoken directly from the watch, allowing you to listen instead of looking for confirmation.
 
-Like the phones, multiple servers are supported and it is possible to set Home Assistant to be your watch's default digital assistant.
-
-Pressing the crown or holding the button on your watch now brings up Assist!
+Like the phones, multiple servers are supported and it is possible to set Home Assistant to be your watch's default digital assistant. Pressing the crown or holding the button on your watch now brings up Assist!
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/watch.png" alt="Screenshot of native Assist on Wear OS" style="max-height: 250px;" />
-Screenshot of native Assist on Wear OS
+Native Assist on Wear OS
 </p>
-
-[Wear OS]: https://companion.home-assistant.io/docs/wear-os/
-
-
 
 ## Sentence Triggers
 
@@ -99,7 +93,7 @@ While [custom sentences] were already part of Assist, they required manually edi
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/sentence-trigger.png" alt="Screenshot of sentence trigger creation" />
-Screenshot of the sentence trigger in the automation editor.
+Configure your own sentences to trigger any action in the automation editor
 </p>
 
 These sentences take priority over the built-in commands, and work anywhere that Assist does. Some basic [template syntax] is available, such as marking parts of the sentence as optional.
@@ -114,7 +108,7 @@ The Home Assistant community is hard at work translating [common smart home comm
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/sentence-debug.png" alt="Screenshot of Assist developer tool" />
-Screenshot of the Assist developer tool.
+Test sentence understanding with the Assist developer tool
 </p>
 
 For each test command or query, you can find out:
@@ -175,7 +169,7 @@ ESPHome's new voice modes use Home Assistant to detect the end of each voice com
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/esphome_config.png" alt="Configure silence detection for your ESPHome voice assistant" />
-Each ESPHome Voice Assistant automatically gets two config entities to automate it's behavior in Home Assistant.
+ESPHome Voice Assistant have two config entities to automate it's behavior in Home Assistant
 </p>
 
 [ATOM Echo]: https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa
