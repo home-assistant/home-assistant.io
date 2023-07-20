@@ -62,4 +62,7 @@ This procedure was written using Wear OS version 3.5. The exact steps may vary d
 
 To define Home Assistant Assist as default assistant app, follow these steps:
 
-1. 
+1. On the watch, navigate to the **Apps screen** and select the cogwheel.
+2. Go to **Apps** > **Choose default apps** > **Digital assistant app**.
+3. From the list, select **Home Assistant**.
+4. When you go back one step, under **Default app**, it now says **HA: Assist**.
