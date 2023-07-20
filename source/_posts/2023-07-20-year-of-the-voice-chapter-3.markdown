@@ -10,6 +10,8 @@ categories: Assist
 og_image: /images/blog/2023-07-20-year-of-the-voice-chapter-3/social.png
 ---
 
+<p><img src='/images/blog/2023-07-20-year-of-the-voice-chapter-3/social.png' class='no-shadow' /></p>
+
 This year is Home Assistant’s [Year of the Voice]. It is our goal for 2023 to let users control Home Assistant in their own language. Today we’re presenting our third milestone for the year: Chapter 3.
 
 In [Chapter 1], we focused on intents – what the user wants to do. The Home Assistant community has now translated common smart home commands and responses into [50 languages], coming even closer to the 62 languages that Home Assistant supports.
@@ -61,7 +63,7 @@ Screenshot of the Assist developer tool.
 
 For each test command or query, you can find out:
 
-- Which [intent] *would* be triggered with its slot values
+- Which [intent] would be triggered with its slot values
 - Which entities would be targeted
 - Whether or not each targeted entity matched (queries only)
 
