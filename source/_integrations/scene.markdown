@@ -1,5 +1,5 @@
 ---
-title: Scenes
+title: Scene
 description: Instructions on how to setup scenes within Home Assistant.
 ha_category:
   - Organization
@@ -10,6 +10,24 @@ ha_codeowners:
 ha_domain: scene
 ha_integration_type: entity
 ---
+
+A scene entity is an entity that can restore the state of a group of entities.
+Scenes can be user defined or can be provided through an integration.
+
+## The state of a scene
+
+The scene entity is stateless, as in, it cannot have a state like the `on` or
+`off` state that, for example, a normal switch entity has.
+
+Every scene entity does keep track of the timestamp of when the last time
+the scene entity was called the Home Assistant UI or called via
+a service call.
+
+## Scenes created by integrations
+
+Some integrations like `hue`, `mqtt`, and `knx` provide scenes. You can activate them from the Home Assistant UI or via as service calls. In this case the integration provides the preferred states to restore.
+
+## Creating a scene
 
 You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red.
 
