@@ -19,12 +19,12 @@ To enable MQTT Select in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  select:
-      - command_topic: topic
-        name: "Test Select"
-        options:
-          - "Option 1"
-          - "Option 2"
+  - select:
+      command_topic: topic
+      name: "Test Select"
+      options:
+        - "Option 1"
+        - "Option 2"
 ```
 
 {% configuration %}

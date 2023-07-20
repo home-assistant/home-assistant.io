@@ -16,6 +16,7 @@ ha_platforms:
   - camera
   - light
   - number
+  - select
   - sensor
   - switch
   - update
@@ -111,9 +112,17 @@ Trigger device OTA firmware update process for latest stable version.
 
 The motion detection sensitivity can be adjusted using the "Detection sensitivity" Number entity. It's important to note that this entity fetches information from the device and will not update if your battery-powered camera is in sleep mode, as this measure is implemented to preserve battery life and prevent excessive drainage.
 
+### Warning sound
+
+If your camera supports motion detection warning sounds, you can use this entity to select the level.
+
 ### Light entity
 
 A light entity will be added to cameras + light combos. You can turn it on/off and set the brightness.
+
+### Image Entity
+
+The image entity represents the last detected event from a camera and visually represents the event within Home Assistant.
 
 ## Troubleshooting
 

@@ -28,8 +28,8 @@ To enable MQTT locks in your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  lock:
-    - command_topic: "home/frontdoor/set"
+  - lock:
+      command_topic: "home/frontdoor/set"
 ```
 
 {% configuration %}
@@ -260,8 +260,8 @@ The example below shows a full configuration for a MQTT lock.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  lock:
-    - name: Frontdoor
+  - lock:
+      name: Frontdoor
       state_topic: "home-assistant/frontdoor/state"
       code_format: "^\\d{4}$"
       command_topic: "home-assistant/frontdoor/set"

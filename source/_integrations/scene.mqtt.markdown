@@ -19,8 +19,8 @@ To enable a MQTT scene in your installation, add the following to your `configur
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  scene:
-    - command_topic: zigbee2mqtt/living_room_group/set
+  - scene:
+      command_topic: zigbee2mqtt/living_room_group/set
 ```
 
 {% configuration %}
@@ -135,8 +135,8 @@ The example below shows a full configuration for a scene.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  scene:
-    - unique_id: living_room_party_scene
+  - scene:
+      unique_id: living_room_party_scene
       name: "Living Room Party Scene"
       command_topic: "home/living_room/party_scene/set"
       availability:
@@ -153,8 +153,8 @@ The example below shows a configuration using a JSON payload.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  scene:
-    - name: Living Room Blue Scene
+  - scene:
+      name: Living Room Blue Scene
       unique_id: living_room_blue_scene
       command_topic: "home/living_room/set"
       payload_on: '{"activate_scene": "Blue Scene"}'

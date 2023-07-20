@@ -19,8 +19,8 @@ To enable this water heater platform in your installation, first add the followi
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  water_heater:
-    - name: Boiler
+  - water_heater:
+      name: Boiler
       mode_command_topic: "basement/boiler/mode/set"
 ```
 
@@ -267,8 +267,8 @@ Say you receive the operation mode `"off"` via your `mode_state_topic`, but the 
 
 ```yaml
 mqtt:
-  water_heater:
-    - name: Boiler
+  - water_heater:
+      name: Boiler
       modes:
         - "off"
         - "eco"
@@ -293,8 +293,8 @@ A full configuration example looks like the one below.
 ```yaml
 # Full example configuration.yaml entry
 mqtt:
-  water_heater:
-    - name: Boiler
+  - water_heater:
+      name: Boiler
       modes:
         - "off"
         - "eco"

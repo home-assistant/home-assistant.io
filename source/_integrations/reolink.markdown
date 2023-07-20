@@ -58,6 +58,10 @@ These sensors are polled every 60 seconds and receive ONVIF push events for imme
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
 
+## Asterisk (*) next to entities listed in this documentation
+
+If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#enabling-entities) first.
+
 ## Number entities
 
 Depending on the supported features of the camera, number entities are added for:
@@ -98,6 +102,7 @@ Depending on the supported features of the camera, button entities are added for
 - PTZ calibrate
 - Guard go to
 - Guard set current position
+- Restart*
 
 PTZ left, right, up and down will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
 

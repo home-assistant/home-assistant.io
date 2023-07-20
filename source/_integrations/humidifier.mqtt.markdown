@@ -25,8 +25,8 @@ To enable MQTT humidifiers in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  humidifier:
-    - command_topic: "bedroom_humidifier/on/set"
+  - humidifier:
+      command_topic: "bedroom_humidifier/on/set"
       target_humidity_command_topic: "bedroom_humidifier/humidity/set"
 ```
 
@@ -304,8 +304,8 @@ The example below shows a full configuration for a MQTT humidifier including mod
 ```yaml
 # Example configuration.yaml
 mqtt:
-  humidifier:
-    - name: "Bedroom humidifier"
+  - humidifier:
+      name: "Bedroom humidifier"
       device_class: "humidifier"
       state_topic: "bedroom_humidifier/on/state"
       action_topic: "bedroom_humidifier/action"

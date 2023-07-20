@@ -24,8 +24,8 @@ To add your MQTT vacuum to your installation, add the following to your `configu
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  vacuum:
-    - command_topic: "vacuum/command"
+  - vacuum:
+      command_topic: "vacuum/command"
 ```
 
 ## Legacy Configuration
@@ -247,8 +247,8 @@ unique_id:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  vacuum:
-    - name: "MQTT Vacuum"
+  - vacuum:
+      name: "MQTT Vacuum"
       supported_features:
         - turn_on
         - turn_off
@@ -520,8 +520,8 @@ unique_id:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  vacuum:
-    - name: "MQTT Vacuum"
+  - vacuum:
+      name: "MQTT Vacuum"
       schema: state
       supported_features:
         - start
