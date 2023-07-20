@@ -80,7 +80,7 @@ We didn't leave out watches! Wear OS devices can now natively use Assist as well
 
 Text-to-speech responses are spoken directly from the watch, allowing you to listen instead of looking for confirmation.
 
-Like the phones, multiple servers are supported and it is possible to set Home Assistant to be your watch's default digital assistant. Pressing the crown or holding the button on your watch now brings up Assist!
+Like the phones, it is possible to set Home Assistant to be your watch's default digital assistant. Pressing the crown or holding the button on your watch now brings up Assist!
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/watch.png" alt="Screenshot of native Assist on Wear OS" style="max-height: 250px;" />
