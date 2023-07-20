@@ -54,3 +54,12 @@ After pressing "Assist", wait for "Speak Now" to be displayed:
 Speak your command, then press the "play" icon on the right to send the command to Home Assistant:
 
 ![Assist button](/images/assist/android_watch_3.png)
+
+
+### Setting up Home Assistant Assist as default assistant app on a Wear OS watch
+
+This procedure was written using Wear OS version 3.5. The exact steps may vary depending on the watch and software version.
+
+To define Home Assistant Assist as default assistant app, follow these steps:
+
+1. 
