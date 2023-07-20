@@ -99,7 +99,7 @@ Configure your own sentences to trigger any action in the automation editor
 These sentences take priority over the built-in commands, and work anywhere that Assist does. Some basic [template syntax] is available, such as marking parts of the sentence as optional.
 
 [custom sentences]: /voice_control/custom_sentences/
-[sentence trigger]: /docs/automation/trigger#sentence-trigger
+[sentence trigger]: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
 [template syntax]: https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax
 
 ## Assist Debug Tool
