@@ -34,26 +34,40 @@ Assist is available on Wear OS using the [Home Assistant Companion App](https://
 
 <lite-youtube videoid="Dr_ZCbt8w5k" videotitle="Assist on Wear OS"></lite-youtube>
 
-### Installation
+### Setting up Assist on Wear OS
 
-After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) and connecting it to your Home Assistant, visit your watch companion app or the Wear OS app and click "Add tile" inside the Tiles area. Select the "Assist" tile to add it to your watch:
+The way how Assist can be set up on your phone may differ depending on your version of Wear OS.
 
-![Conversation tile](/images/assist/android_tile.png)
+1. After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) and connecting it to your Home Assistant, Assist might appear automatically on the **Apps screen**.
+2. If it does not, visit your watch companion app or the Wear OS app and select **Add tile** inside the **Tiles** area. 
+3. Select the **Assist** tile to add it to your watch:
+
+    ![Conversation tile](/images/assist/android_tile.png)
+
+### Adding Assist to the watch face
+
+1. On your phone, open the **Watch** app and select **Watch faces**.
+2. Make sure you select a watch face that supports complications (little shortcut icons).
+3. Select **Edit**.
+4. In the **Complications** section, select one of the slots and choose **Assist**.
+   - If you just recently added the Home Assistant app, Assist may not be listed yet.
+   - After rebooting your watch, under **Complications**, there should be section with Home Assistant icons.
+5. Save your changes.
 
 
-### Usage
+### Using Assist on Wear OS
 
-Swipe left on your watch until the "Assist" button is visible:
+1. On your watch, swipe left until the **Assist** button is visible.
+   
+    ![Assist button](/images/assist/android_watch_1.png)
 
-![Assist button](/images/assist/android_watch_1.png)
+2. After selecting **Assist**, wait for **How can I assist?** to be displayed and the microphone to start pulsing.
+   
+    ![Assist button](/images/assist/android_watch_2.png)
 
-After pressing "Assist", wait for "Speak Now" to be displayed:
-
-![Assist button](/images/assist/android_watch_2.png)
-
-Speak your command, then press the "play" icon on the right to send the command to Home Assistant:
-
-![Assist button](/images/assist/android_watch_3.png)
+3. Speak your command.
+   
+    ![Assist button](/images/assist/android_watch_3.png)
 
 
 ### Setting up Home Assistant Assist as default assistant app on a Wear OS watch
@@ -66,3 +80,9 @@ To define Home Assistant Assist as default assistant app, follow these steps:
 2. Go to **Apps** > **Choose default apps** > **Digital assistant app**.
 3. From the list, select **Home Assistant**.
 4. When you go back one step, under **Default app**, it now says **HA: Assist**.
+5. On some watches, you can now start Assist by pressing the crown key.
+   - If this does not work, you need to assign Assist to a button: 
+   - On your watch, go to **Settings** > **Advances features** > **Customize keys**.
+   - Select **Home key** and select **Double press**.
+   - From the list of apps, select **HA: Assist**.
+6. Now, use your key and give a command.
