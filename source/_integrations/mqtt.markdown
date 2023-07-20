@@ -254,7 +254,7 @@ mqtt:
           - dev001
 ```
 
-So when an MQTT entity configuration has a `device` mapping, `has_entity_name` will be set to `True` and the entity's `friendly_name` and `entity_id` will constructed from the device `name` and entity `name`, in other cases `has_entity_name` will be set to False and the  friendly name will be set to the entity `name`.
+So when an MQTT entity configuration has a `device` mapping, `has_entity_name` will be set to `True` and the entity's `friendly_name` and `entity_id` will constructed from the device `name` and entity `name`, in other cases `has_entity_name` will be set to `False` and the friendly name will be set to the entity `name`.
 
 The entity `name` option can also be set to `null`. This will set the entity name to `None` and `has_entity_name` to `True`. The entity `friendly_name` will only inherit the device name.
 
