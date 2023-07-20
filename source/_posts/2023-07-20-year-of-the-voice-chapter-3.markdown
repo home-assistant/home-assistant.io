@@ -16,9 +16,9 @@ This year is Home Assistant’s [Year of the Voice]. It is our goal for 2023 to 
 
 In [Chapter 1], we focused on intents – what the user wants to do. The Home Assistant community has now translated common smart home commands and responses into [50 languages], coming even closer to the 62 languages that Home Assistant supports.
 
-In [Chapter 2], we included both speech-to-text and text-to-speech, allowing users to talk and listen to their smart homes through the browser, [ESPHome], and even [analog phones].
+In [Chapter 2], we introduced speech-to-text and text-to-speech. This allows users to talk and listen to their smart homes through the browser, [ESPHome], and even [analog phones].
 
-For Chapter 3, we bring the full power of [Assist] to a million active Android devices running the Home Assistant Companion app. Got an Android phone, tablet, or watch? Set Assist as your default digital assistant and talk to your Home Assistant with one push!
+For Chapter 3, we bring the full power of [Assist] to the million active Android devices running the Home Assistant Companion app. Got an Android phone, tablet, or watch? Set Assist as your default digital assistant and talk to your Home Assistant with one push!
 
 <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
