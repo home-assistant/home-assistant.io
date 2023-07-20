@@ -265,7 +265,7 @@ scrape:
 This example gets the container type and container cleaning date for the next two cleanings.
 
 ```yaml
-# Configuration entry. Change postal code and house number to your own address.
+# Example configuration.yaml entry. Change postal code and house number to your own address.
 scrape:
   - resource: https://crm.cleanprofs.nl/search/planning
     method: POST
