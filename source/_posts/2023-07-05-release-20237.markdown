@@ -663,6 +663,7 @@ We welcome the following new integrations in this release:
 - Avoid infinite loop on corrupt stream recording ([@uvjustin] - [#96881]) ([stream docs])
 - Bump AIOSomecomfort to 0.0.15 in Honeywell ([@mkmer] - [#96904]) ([honeywell docs]) (dependency)
 - Fix timer switch in Sensibo ([@gjohansson-ST] - [#96911]) ([sensibo docs])
+- Disable wheels building for pycocotools ([@frenck] - [#96937])
 
 [#95908]: https://github.com/home-assistant/core/pull/95908
 [#96006]: https://github.com/home-assistant/core/pull/96006
@@ -692,6 +693,7 @@ We welcome the following new integrations in this release:
 [#96881]: https://github.com/home-assistant/core/pull/96881
 [#96904]: https://github.com/home-assistant/core/pull/96904
 [#96911]: https://github.com/home-assistant/core/pull/96911
+[#96937]: https://github.com/home-assistant/core/pull/96937
 [@Lash-L]: https://github.com/Lash-L
 [@Shutgun]: https://github.com/Shutgun
 [@allenporter]: https://github.com/allenporter
