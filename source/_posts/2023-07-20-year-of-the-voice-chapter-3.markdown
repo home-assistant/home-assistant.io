@@ -54,7 +54,7 @@ Have a [Home Assistant Cloud subscription]? You can now control your smart home 
 Select a voice assistant from any of your configured Home Assistant instances
 </p>
 
-### Default Digital Assistant
+### Default digital assistant
 
 Why open an app if you don't have to? Set Home Assistant as your default digital assistant app! Now, holding the home or power button will instantly bring up Assist:
 
@@ -87,7 +87,7 @@ Like the phones, it is possible to set Home Assistant to be your watch's default
 Native Assist on Wear OS
 </p>
 
-## Sentence Triggers
+## Sentence triggers
 
 While [custom sentences] were already part of Assist, they required manually editing YAML. With the new [sentence trigger], you can now add custom sentences directly in the UI:
 
@@ -102,7 +102,7 @@ These sentences take priority over the built-in commands, and work anywhere that
 [sentence trigger]: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
 [template syntax]: https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax
 
-## Assist Debug Tool
+## Assist debug tool
 
 The Home Assistant community is hard at work translating [common smart home commands]. To help contributors, we've added an "Assist" developer tool that lets you test out sentences without actually executing the commands:
 
@@ -120,7 +120,7 @@ For each test command or query, you can find out:
 [common smart home commands]: https://github.com/home-assistant/intents/
 [intent]: https://developers.home-assistant.io/docs/intent_builtin
 
-## Piper Community Voices
+## Piper community voices
 
 [Piper] is a text-to-speech system created by Nabu Casa, designed to run locally on the Raspberry Pi 4. Since its introduction in Chapter 2, Piper has [grown rapidly] with adoption in the open source community as well as [academia].
 
@@ -136,7 +136,7 @@ The [Piper add-on] for Home Assistant OS now supports 23 languages and over 70 d
 [academia]: https://www.techrxiv.org/articles/preprint/Image_Captioning_for_the_Visually_Impaired_and_Blind_A_Recipe_for_Low-Resource_Languages/22133894
 [voice datasets]: https://github.com/NabuCasa/voice-datasets/
 
-## New ESPHome Voice Modes
+## New ESPHome voice modes
 
 <a href="https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa"><img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/atom_echo.png" alt="ATOM Echo Smart Speaker from M5Stack" style='width:96px;float:right;margin-left:8px;'/></a>
 
@@ -163,7 +163,7 @@ binary_sensor:
 
 [ESPHome Voice Assistant documentation](https://esphome.io/components/voice_assistant.html#click-to-converse)
 
-### Silence Detection
+### Silence detection
 
 ESPHome's new voice modes use Home Assistant to detect the end of each voice command. In your device's configuration, you can now adjust how much silence is needed with "Finished speaking detection":
 
@@ -174,14 +174,14 @@ ESPHome Voice Assistant have two config entities to automate it's behavior in Ho
 
 [ATOM Echo]: https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa
 
-## Until Next Time
+## Until next time
 
 That does it for Chapter 3! A big thanks to [Joris Pelgröm] for his work on the Android app, and to the many Assist contributors.
 And as always, thank you to [Nabu Casa](https://www.nabucasa.com) and all of the Home Assistant Cloud subscribers for making this possible.
 
 If you want to help fund our work on voice and further development of Home Assistant, ESPHome, Z-Wave JS and other related projects? Subscribe to [Home Assistant Cloud](https://www.nabucasa.com).
 
-### Where is Wake Word?
+### Where is wake word?
 
 After three chapters in the Year of Voice, the message from Home Assistant users and creators is loud and clear: we want a wake word for Assist!
 
