@@ -664,7 +664,11 @@ We welcome the following new integrations in this release:
 - Bump AIOSomecomfort to 0.0.15 in Honeywell ([@mkmer] - [#96904]) ([honeywell docs]) (dependency)
 - Fix timer switch in Sensibo ([@gjohansson-ST] - [#96911]) ([sensibo docs])
 - Disable wheels building for pycocotools ([@frenck] - [#96937])
+- Fix esphome entity ids in test ([@bdraco] - [#96965]) ([esphome docs])
+- Add custom bypass night arming to SIA alarm codes ([@etnoy] - [#95736]) ([sia docs])
+- Upgrade pymazda to 0.3.10 ([@bdr99] - [#96954]) ([mazda docs]) (dependency)
 
+[#95736]: https://github.com/home-assistant/core/pull/95736
 [#95908]: https://github.com/home-assistant/core/pull/95908
 [#96006]: https://github.com/home-assistant/core/pull/96006
 [#96093]: https://github.com/home-assistant/core/pull/96093
@@ -694,14 +698,18 @@ We welcome the following new integrations in this release:
 [#96904]: https://github.com/home-assistant/core/pull/96904
 [#96911]: https://github.com/home-assistant/core/pull/96911
 [#96937]: https://github.com/home-assistant/core/pull/96937
+[#96954]: https://github.com/home-assistant/core/pull/96954
+[#96965]: https://github.com/home-assistant/core/pull/96965
 [@Lash-L]: https://github.com/Lash-L
 [@Shutgun]: https://github.com/Shutgun
 [@allenporter]: https://github.com/allenporter
 [@andrewsayre]: https://github.com/andrewsayre
 [@balloob]: https://github.com/balloob
+[@bdr99]: https://github.com/bdr99
 [@bdraco]: https://github.com/bdraco
 [@cdce8p]: https://github.com/cdce8p
 [@emontnemery]: https://github.com/emontnemery
+[@etnoy]: https://github.com/etnoy
 [@frenck]: https://github.com/frenck
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@jbouwh]: https://github.com/jbouwh
@@ -720,12 +728,14 @@ We welcome the following new integrations in this release:
 [esphome docs]: /integrations/esphome/
 [honeywell docs]: /integrations/honeywell/
 [imap docs]: /integrations/imap/
+[mazda docs]: /integrations/mazda/
 [mystrom docs]: /integrations/mystrom/
 [onvif docs]: /integrations/onvif/
 [otbr docs]: /integrations/otbr/
 [rainbird docs]: /integrations/rainbird/
 [roborock docs]: /integrations/roborock/
 [sensibo docs]: /integrations/sensibo/
+[sia docs]: /integrations/sia/
 [simplisafe docs]: /integrations/simplisafe/
 [smartthings docs]: /integrations/smartthings/
 [ssdp docs]: /integrations/ssdp/
