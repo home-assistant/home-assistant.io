@@ -262,7 +262,7 @@ scrape:
 
 ### Container cleaning by CleanProfs in The Netherlands
 
-The example gets the container type and container cleaning date for the next two cleanings
+This example gets the container type and container cleaning date for the next two cleanings.
 
 ```yaml
 # Configuration entry. Change postal code and house number to your own address.
