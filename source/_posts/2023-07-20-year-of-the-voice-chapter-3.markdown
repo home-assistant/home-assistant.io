@@ -2,7 +2,7 @@
 layout: post
 title: "Year of the Voice - Chapter 3: Ready when you are"
 description: "The full power of Assist on all of your Android devices."
-date: 2023-07-18 00:00:00
+date: 2023-07-20 00:00:00
 date_formatted: "July 20, 2023"
 author: Mike Hansen
 comments: true
@@ -10,15 +10,13 @@ categories: Assist
 og_image: /images/blog/2023-07-20-year-of-the-voice-chapter-3/social.png
 ---
 
-TODO: change date, add videos
-
 This year is Home Assistant’s [Year of the Voice]. It is our goal for 2023 to let users control Home Assistant in their own language. Today we’re presenting our third milestone for the year: Chapter 3.
 
 In [Chapter 1], we focused on intents – what the user wants to do. The Home Assistant community has now translated common smart home commands and responses into [50 languages], coming even closer to the 62 languages that Home Assistant supports.
 
 In [Chapter 2], we included both speech-to-text and text-to-speech, allowing users to talk and listen to their smart homes through the browser, [ESPHome], and even [analog phones].
 
-For Chapter 3, we bring the full power of [Assist] to a million active Android devices running the Home Assistant Companion app. Got an Android phone, tablet, or watch? Read on to find out how you can talk to your Home Assistant with one push!
+For Chapter 3, we bring the full power of [Assist] to a million active Android devices running the Home Assistant Companion app. Got an Android phone, tablet, or watch? Set Assist as your default digital assistant and talk to your Home Assistant with one push!
 
 <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
@@ -154,7 +152,7 @@ We didn't leave out watches! Wear OS devices can now natively use Assist as well
 
 <lite-youtube videoid="5b7nqGZyeVU" videotitle="Use Assist natively on your Android watch"></lite-youtube>
 
-Text-to-speech responses are spoken directly from the watch as well, allowing you to listen instead of look for confirmation.
+Text-to-speech responses are spoken directly from the watch, allowing you to listen instead of look for confirmation.
 
 Like the phones, multiple servers are supported and it is possible to set Home Assistant to be your watch's default digital assistant.
 
