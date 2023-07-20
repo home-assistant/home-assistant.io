@@ -52,7 +52,9 @@ The way how Assist can be set up on your phone may differ depending on your vers
 4. In the **Complications** section, select one of the slots and choose **Assist**.
    - If you just recently added the Home Assistant app, Assist may not be listed yet.
    - After rebooting your watch, under **Complications**, there should be section with Home Assistant icons.
-5. Save your changes.
+5. Save your changes. You should now see Assist as a complication on your watch face.
+   
+     ![Assist complication](/images/assist/android_watch_5.png)
 
 
 ### Using Assist on Wear OS
