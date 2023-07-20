@@ -26,6 +26,7 @@ To define Home Assistant Assist as default assistant app, follow these steps:
 6. Start Assist using the gesture to start an assistant. The gesture may differ depending on the version.
    - Swipe from the bottom left corner.
    - Long press the power button.
+   - Hold the home button (square button at the bottom).
 
 ## Assist on Wear OS
 
