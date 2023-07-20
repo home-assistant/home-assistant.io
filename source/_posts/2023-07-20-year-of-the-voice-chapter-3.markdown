@@ -164,4 +164,19 @@ Each ESPHome Voice Assistant automatically gets two config entities to automate 
 [ATOM Echo]: https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa
 
 
+## Until Next Time
+
+That does it for Chapter 3! A big thanks to [Joris Pelgröm] for his work on the Android app, and to the many Assist contributors.
+And as always, thank you to Nabu Casa and all of the subscribers for making this possible.
+
+### Wake Word
+
+After three chapters in the Year of Voice, the message from Home Assistant users and creators is loud and clear: we want a wake word for Assist!
+
+In Chapter 4, our focus will be on delivering the foundation for wake word detection. As a part of the [Open Home], this foundation will keep in line with our values: privacy, choice, and durability. Stay tuned!
+
+[Joris Pelgröm]: https://github.com/jpelgrom
+[Open Home]: https://www.home-assistant.io/blog/2021/12/23/the-open-home/?ref=building.open-home.io
+
+
 _Some links on this page are affiliate links and purchases using these links support the Home Assistant project._
