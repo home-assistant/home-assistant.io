@@ -70,7 +70,7 @@ Flower Care firmware update steps:
 
 - Install the official "Flower Care" app by HHCC:
   - [Google Play](https://play.google.com/store/apps/details?id=com.huahuacaocao.flowercare) (requires location and storage permission)
-  - [Apple App Store](https://apps.apple.com/us/app/flower-care/id1095274672)
+  - [Apple App Store](https://apps.apple.com/app/flower-care/id1095274672)
 - Place the device with the app within 10cm of the plant sensor
 - Press the "+" button on the top right in the devices tab of the app
 - Add the plant sensor to the app and select an arbitrary plant
