@@ -18,8 +18,6 @@ your smart home. Issue commands and get responses!
 - [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
 - USB-C cable to connect the ATOM Echo
 
-
-
 ## Installing the software onto the ATOM Echo
 
 Before you can use this device with Home Assistant, you need to install a bit of software on it.
@@ -74,7 +72,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
       - You can also ask a question, such as
           - *Is the front door locked?*
           - *Which lights are on in the living room?*
-3. Your command is not supported? [Add your own commands](/integrations/conversation/).
+3. Your command is not supported? Add your own commands using [a sentence trigger](/voice_control/custom_sentences/).
 
 ## Troubleshooting
 
