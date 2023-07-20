@@ -47,11 +47,23 @@ Screenshot of Assist in HA Companion app
 </p>
 
 
-Have a [Home Assistant Cloud subscription]? You can now control your smart home via voice from anywhere in the world without giving up your privacy. Multiple Home Assistant servers are supported, so you can just as easily talk to your parent's house.
+Have a [Home Assistant Cloud subscription]? You can now control your smart home via voice from anywhere in the world without giving up your privacy. Multiple Home Assistant servers are supported, so you can just as easily talk to your parent's house:
+
+<p class='img'>
+<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/multi-server.png" alt="Screenshot of Assist server selection" style="max-height: 550px;" />
+Screenshot of Assist server selection
+</p>
 
 ### Default Digital Assistant
 
 Why open an app if you don't have to? Set Home Assistant as your default digital assistant app! Now, holding the home or power button will instantly bring up Assist:
+
+<p class='img'>
+<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone.jpg" alt="Screenshot of Assist activated on the home screen" style="max-height: 550px;" />
+Screenshot of Assist on Home Screen
+</p>
+
+It's even possible to activate Assist directly from the lock screen:
 
 <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
@@ -70,7 +82,12 @@ Text-to-speech responses are spoken directly from the watch, allowing you to lis
 
 Like the phones, multiple servers are supported and it is possible to set Home Assistant to be your watch's default digital assistant.
 
-Holding the secondary button on your watch now brings up Assist!
+Pressing the crown or holding the button on your watch now brings up Assist!
+
+<p class='img'>
+<img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/watch.png" alt="Screenshot of native Assist on Wear OS" style="max-height: 250px;" />
+Screenshot of native Assist on Wear OS
+</p>
 
 [Wear OS]: https://companion.home-assistant.io/docs/wear-os/
 
