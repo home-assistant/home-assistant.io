@@ -166,7 +166,9 @@ Each ESPHome Voice Assistant automatically gets two config entities to automate 
 ## Until Next Time
 
 That does it for Chapter 3! A big thanks to [Joris Pelgröm] for his work on the Android app, and to the many Assist contributors.
-And as always, thank you to Nabu Casa and all of the Home Assistant Cloud subscribers for making this possible ([help support](https://www.nabucasa.com)).
+And as always, thank you to [Nabu Casa](https://www.nabucasa.com) and all of the Home Assistant Cloud subscribers for making this possible.
+
+If you want to help fund our work on voice and further development of Home Assistant, ESPHome, Z-Wave JS and other related projects? Subscribe to [Home Assistant Cloud](https://www.nabucasa.com).
 
 ### Where is Wake Word?
 
