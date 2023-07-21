@@ -128,7 +128,7 @@ For each test command or query, you can find out:
 <img style='width: 80%' src='/images/assist/piper-logo.svg' alt='Piper logo' class='no-shadow'>
 </p>
 
-The [Piper add-on] for Home Assistant OS now supports 23 languages and over 70 different voices. This includes voices from 7 brand new [voice datasets] contributed by the Home Assistant community. These datasets have been collected and donated to the public domain by Nabu Casa for the benefit of text-to-speech research now and in the future.
+The upcoming release of the [Piper add-on] for Home Assistant 2023.8 will support 23 languages and over 70 different voices. This will include voices from 7 brand new [voice datasets] contributed by the Home Assistant community. These datasets have been collected and donated to the public domain by Nabu Casa for the benefit of text-to-speech research now and in the future.
 
 [Piper]: https://github.com/rhasspy/piper/
 [grown rapidly]: https://building.open-home.io/piper-is-our-new-voice-for-the-open-home/
