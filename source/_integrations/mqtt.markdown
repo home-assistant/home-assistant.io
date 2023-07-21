@@ -201,6 +201,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Cover](/integrations/cover.mqtt/)
 - [Device Tracker](/integrations/device_tracker.mqtt/)
 - [Device Trigger](/integrations/device_trigger.mqtt/)
+- [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
@@ -316,6 +317,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'ent_pic':             'entity_picture',
     'err_t':               'error_topic',
     'err_tpl':             'error_template',
+    'evt_typ':             'event_types',
     'fanspd_t':            'fan_speed_topic',
     'fanspd_tpl':          'fan_speed_template',
     'fanspd_lst':          'fan_speed_list',
@@ -716,6 +718,7 @@ mqtt:
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
 - [Device Tracker](/integrations/device_tracker.mqtt/)
+- [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/imahe.mqtt/)
