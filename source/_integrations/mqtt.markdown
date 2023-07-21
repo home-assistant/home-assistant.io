@@ -199,86 +199,13 @@ For every configured MQTT entity Home Assistant automatically assigns a unique `
 
 If the `object_id` option is set, then this will be used to generate the `entity_id`.
 If for example we have configured a `sensor`, and we have set `object_id` to `test` then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will a append it with a suffix to make it unique, for example `sensor.test_2`.
-Example:
 
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  - sensor:
-      state_topic: "home/bedroom/temperature"
-      unique_id: "brtemp01"
-      name: "temperature"
-      object_id: "test"
-```
+This means any MQTT entity which is part of a device will [automatically have it's `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
 
-If `object_id` is not set, then the default `entity_id` will be based on the `name` option, the `name` option under the `device` key or on the `device_class` of the entity.
-If for example the MQTT items `name` is set to `humidity` and the `name` under the `device` key is set `Attic`, the default `entity_id` becomes `sensor.attic_humidity`.
+Unnamed `binary_sensor`, `button`, `number` and `sensor` entities will now be named by their device class instead of being named "MQTT binary sensor" etc.
+It's allowed to set an MQTT entity's name to `None` (use `null` in YAML) to mark it as the main feature of a device
 
-Example:
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  - sensor:
-      state_topic: "home/bedroom/humidity"
-      unique_id: "brhum01"
-      name: "humidity"
-      device:
-        name: "Attic"
-        identifiers:
-          - dev001
-```
-
-If the `device_class` option is set, it is not needed to set the entity's `name`, in that case the entity name follows the name of the `device_class`, this name supports translations. In the following example the entity `friendly_name` becomes `Bedroom Temperature`:
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  - sensor:
-      state_topic: "home/bedroom/temperature"
-      unique_id: "brtemp01"
-      device_class: temperature
-      device:
-        name: "Bedroom"
-        identifiers:
-          - dev001
-```
-
-In the following example without a `device_class` the entity `friendly_name` will become `Bedroom some sensor`:
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  - sensor:
-      state_topic: "home/bedroom/sensor"
-      unique_id: "brsensor01"
-      name: "some sensor"
-      device:
-        name: "Bedroom"
-        identifiers:
-          - dev001
-```
-
-So when an MQTT entity configuration has a `device` mapping, and the entity's `friendly_name` and `entity_id` will constructed from the device `name` and entity `name.
-
-The entity `name` option can also be set to `null`. This will set the entity name to `None`. The entity `friendly_name` will only inherit the device name.
-
-In the example below the default `entity_id` will be `sensor.bedroom` and the `friendly_name` will be "Bedroom":
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  - sensor:
-      state_topic: "home/bedroom/sensor"
-      unique_id: "brsensor01"
-      name: null
-      device:
-        name: "Bedroom"
-        identifiers:
-          - dev001
-```
-
-Note that on each MQTT entity the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#entity-naming).
+Note that on each MQTT entity the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations).
 
 ## MQTT Discovery
 
