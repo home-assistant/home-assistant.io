@@ -76,19 +76,21 @@ To reproduce this example, follow these steps:
 Note: this procedure requires an OpenAI account. To just run the example, the free trial option is sufficient. No need to leave your credit card information.
 
 1. [Set up an OpenAI account and install the OpenAI conversation](/integrations/openai_conversation/) integration.
-2. Create a Mario personality.
-   - Once you installed the OpenAI Conversation integration, go to {% my integrations title="**Settings** > **Devices & Services**" %} and in OpenAI Conversation integration, the select **Configure**.
-  
-      ![Configure the OpenAI integration](/images/assist/assistant-openai-mario-config.png)
+2. Install the OpenAI Conversation integration.
+
+   ![Install the OpenAI integration](/images/assist/assistant-openai-mario-config.png)
+
+3. Create a Mario assistant:
+   - Under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, select **Add assistant**.
+   - Give it a name, select a language and under **Conversation agent**, select the OpenAI Conversation integration.
+   ![Add a new assistant](/images/assist/assistant-openai-mario-04.png)
+   - Select the cogwheel.
    - In the **Prompt template** field, enter the following text: 
   
        `You are Super Mario from Mario Bros. Be funny.` and select **Submit**.
   
       ![Add prompt for Mario personality](/images/assist/assistant-openai-mario-02.png)
-3. Create a Mario assistant:
-   - Under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, select **Add assistant**.
-   - Give it a name, select a language and under **Conversation agent**, select the Mario OpenAI Conversation integration.
-   ![Add a new assistant](/images/assist/assistant-openai-mario-04.png)
+
    - Leave the other settings unchanged and select **Create**.
 4. In the **Voice over IP** integration, under **Configuration**, select the Mario assistant you just created.
 
