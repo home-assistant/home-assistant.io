@@ -23,7 +23,7 @@ Please note the event integration cannot be directly used; you cannot create you
 
 The event entity is stateless, as in, it cannot have a state like the `on` or `off` state that, for example, a normal switch or light entity has.
 
-Therefore, every event entity keeps track of the timestamp of when the last time the emitted event has been detected.
+Therefore, every event entity keeps track of the timestamp when the emitted event has last been detected.
 
 Because the state of an event entity in Home Assistant is a timestamp, it means we can use it in our automations. For example:
 
@@ -39,11 +39,11 @@ action:
 
 ## Event types
 
-Besides the timestamp of the last event, the event entity also keeps track of the last event type that has been emitted. This can be used in automations to trigger different actions based on the type of event.
+Besides the timestamp of the last event, the event entity also keeps track of the event type that has last been emitted. This can be used in automations to trigger different actions based on the type of event.
 
-This allows you to, for example, trigger a different action when the button on a remote control is pressed once or twice, if your remote control is capable of emitting these different types of events.
+This allows you, for example, to trigger a different action when the button on a remote control is pressed once or twice, if your remote control is capable of emitting these different types of events.
 
-When combining that with the [choose action](/docs/scripts/#choose-a-group-of-actions), you can assign multiple different actions to a single event entity. In the following example, pressing the button on the remote once or twice will trigger a different scene:
+When combining that with the [choose action](/docs/scripts/#choose-a-group-of-actions) script, you can assign multiple different actions to a single event entity. In the following example, pressing the button on the remote once or twice will trigger a different scene:
 
 ```yaml
 trigger:
@@ -70,13 +70,13 @@ action:
           - scene: scene.living_room_movie
 ```
 
-When creating automations in our automation editor in the UI, the event types are available as a dropdown list to select from depending on the event entity you are using. This means you don't have to remember the different event types and can easily select them.
+When creating automations in the automation editor in the UI, the event types are available as a dropdown list, depending on the event entity you are using. This means you don't have to remember the different event types and can easily select them.
 
 ## Device classes
 
 The following device classes are supported by event entities:
 
 - **None**: Generic event. This is the default and doesn't need to be set.
-- **button**: A button of a remote control has been pressed.
+- **button**: For remote control buttons.
 - **doorbell**: Specifically for buttons that are used as a doorbell.
 - **motion**: For motion events detected by a motion sensor.
