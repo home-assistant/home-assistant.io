@@ -25,7 +25,7 @@ a service call.
 
 ## Scenes created by integrations
 
-Some integrations like `hue`, `mqtt`, and `knx` provide scenes. You can activate them from the Home Assistant UI or via as service calls. In this case the integration provides the preferred states to restore.
+Some integrations like [Philips Hue](/integrations/hue), [MQTT](/integrations/mqtt), and [KNX](/integrations/knx) provide scenes. You can activate them from the Home Assistant UI or via as service calls. In this case, the integration provides the preferred states to restore.
 
 ## Creating a scene
 
