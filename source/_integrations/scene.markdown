@@ -12,7 +12,7 @@ ha_integration_type: entity
 ---
 
 A scene entity is an entity that can restore the state of a group of entities.
-Scenes can be user defined or can be provided through an integration.
+Scenes can be user-defined or can be provided through an integration.
 
 ## The state of a scene
 
