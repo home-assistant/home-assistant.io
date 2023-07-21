@@ -58,7 +58,7 @@ Enjoy the release!
 - [New integrations](#new-integrations)
 - [Release 2023.7.1 - July 6](#release-202371---july-6)
 - [Release 2023.7.2 - July 13](#release-202372---july-13)
-- [Release 2023.7.3 - July 20](#release-202373---july-20)
+- [Release 2023.7.3 - July 21](#release-202373---july-21)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
@@ -636,7 +636,7 @@ We welcome the following new integrations in this release:
 [yalexs_ble docs]: /integrations/yalexs_ble/
 [zha docs]: /integrations/zha/
 
-## Release 2023.7.3 - July 20
+## Release 2023.7.3 - July 21
 
 - Use device class naming for SimpliSafe ([@joostlek] - [#96093]) ([simplisafe docs])
 - Always try PullPoint with ONVIF ([@bdraco] - [#96377]) ([onvif docs])
@@ -667,6 +667,12 @@ We welcome the following new integrations in this release:
 - Fix esphome entity ids in test ([@bdraco] - [#96965]) ([esphome docs])
 - Add custom bypass night arming to SIA alarm codes ([@etnoy] - [#95736]) ([sia docs])
 - Upgrade pymazda to 0.3.10 ([@bdr99] - [#96954]) ([mazda docs]) (dependency)
+- Fix OTBR tests on RC ([@frenck] - [#96966]) ([otbr docs])
+- Update aiohttp to 3.8.5 ([@frenck] - [#96945]) (dependency)
+- Remove stateclass from Systemmonitor process sensor ([@joostlek] - [#96973]) ([systemmonitor docs])
+- Fix task leak on config entry unload/retry ([@bdraco] - [#96981])
+- Bump env_canada to v0.5.36 ([@michaeldavie] - [#96987]) ([environment_canada docs])
+- Update pyfibaro dependency ([@rappenze] - [#97004]) ([fibaro docs]) (dependency)
 
 [#95736]: https://github.com/home-assistant/core/pull/95736
 [#95908]: https://github.com/home-assistant/core/pull/95908
@@ -698,8 +704,14 @@ We welcome the following new integrations in this release:
 [#96904]: https://github.com/home-assistant/core/pull/96904
 [#96911]: https://github.com/home-assistant/core/pull/96911
 [#96937]: https://github.com/home-assistant/core/pull/96937
+[#96945]: https://github.com/home-assistant/core/pull/96945
 [#96954]: https://github.com/home-assistant/core/pull/96954
 [#96965]: https://github.com/home-assistant/core/pull/96965
+[#96966]: https://github.com/home-assistant/core/pull/96966
+[#96973]: https://github.com/home-assistant/core/pull/96973
+[#96981]: https://github.com/home-assistant/core/pull/96981
+[#96987]: https://github.com/home-assistant/core/pull/96987
+[#97004]: https://github.com/home-assistant/core/pull/97004
 [@Lash-L]: https://github.com/Lash-L
 [@Shutgun]: https://github.com/Shutgun
 [@allenporter]: https://github.com/allenporter
@@ -714,9 +726,11 @@ We welcome the following new integrations in this release:
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@jbouwh]: https://github.com/jbouwh
 [@joostlek]: https://github.com/joostlek
+[@michaeldavie]: https://github.com/michaeldavie
 [@mkmer]: https://github.com/mkmer
 [@mover85]: https://github.com/mover85
 [@quthla]: https://github.com/quthla
+[@rappenze]: https://github.com/rappenze
 [@slovdahl]: https://github.com/slovdahl
 [@uvjustin]: https://github.com/uvjustin
 [abode docs]: /integrations/abode/
@@ -725,7 +739,9 @@ We welcome the following new integrations in this release:
 [androidtv_remote docs]: /integrations/androidtv_remote/
 [daikin docs]: /integrations/daikin/
 [devolo_home_network docs]: /integrations/devolo_home_network/
+[environment_canada docs]: /integrations/environment_canada/
 [esphome docs]: /integrations/esphome/
+[fibaro docs]: /integrations/fibaro/
 [honeywell docs]: /integrations/honeywell/
 [imap docs]: /integrations/imap/
 [mazda docs]: /integrations/mazda/
@@ -741,6 +757,7 @@ We welcome the following new integrations in this release:
 [ssdp docs]: /integrations/ssdp/
 [stookalert docs]: /integrations/stookalert/
 [stream docs]: /integrations/stream/
+[systemmonitor docs]: /integrations/systemmonitor/
 [tensorflow docs]: /integrations/tensorflow/
 [vallox docs]: /integrations/vallox/
 
