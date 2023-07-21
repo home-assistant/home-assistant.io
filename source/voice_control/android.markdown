@@ -41,7 +41,7 @@ The way how Assist can be set up on your phone may differ depending on your vers
 1. After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) and connecting it to your Home Assistant, Assist might appear automatically on the **Apps screen**.
 2. If it does not, visit your watch companion app or the Wear OS app and select **Add tile** inside the **Tiles** area. 
 3. Select the **Assist** tile to add it to your watch:
-
+    
     ![Conversation tile](/images/assist/android_tile.png)
 
 ### Adding Assist to the watch face
@@ -65,11 +65,16 @@ The way how Assist can be set up on your phone may differ depending on your vers
 
 2. After selecting **Assist**, wait for **How can I assist?** to be displayed and the microphone to start pulsing.
    
-    ![Assist button](/images/assist/android_watch_2.png)
+    ![How can I assist](/images/assist/android_watch_2.png)
 
 3. Speak your command.
    
-    ![Assist button](/images/assist/android_watch_3.png)
+    ![Assist speak your command](/images/assist/android_watch_3.png)
+
+4. To change the assistant, select the current assistant (**Home Assistant Cloud** in the screenshot above).
+   - Select the assistant from the list.
+    
+   ![List of assistants](/images/assist/android_watch_6.png)
 
 
 ### Setting up Home Assistant Assist as default assistant app on a Wear OS watch
