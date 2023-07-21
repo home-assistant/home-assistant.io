@@ -188,7 +188,12 @@ For reading all messages sent on the topic `homeassistant` to a broker running o
 mosquitto_sub -h 127.0.0.1 -v -t "homeassistant/#"
 ```
 
-## MQTT Entities and their entity_id and name
+## Sharing of device configuration
+
+MQTT entities can share device configuration, meaning one entity can include the full device configuration and other entities can link to that device by only setting mandatory fields.
+The mandatory fields were previously limited to at least one of `connection` and `identifiers`, but has now been extended to at least one of `connection` and `identifiers` as well as the `name`.
+
+## Naming of MQTT Entities
 
 For every configured MQTT entity Home Assistant automatically assigns a unique `entity_id`. If the `unique_id` option is configured, you can change the `entity_id` after creation, and the changes are stored in the Entity Registry. The `entity_id` is generated when an item is loaded the first time.
 
@@ -254,9 +259,9 @@ mqtt:
           - dev001
 ```
 
-So when an MQTT entity configuration has a `device` mapping, `has_entity_name` will be set to `True` and the entity's `friendly_name` and `entity_id` will constructed from the device `name` and entity `name`, in other cases `has_entity_name` will be set to `False` and the friendly name will be set to the entity `name`.
+So when an MQTT entity configuration has a `device` mapping, and the entity's `friendly_name` and `entity_id` will constructed from the device `name` and entity `name.
 
-The entity `name` option can also be set to `null`. This will set the entity name to `None` and `has_entity_name` to `True`. The entity `friendly_name` will only inherit the device name.
+The entity `name` option can also be set to `null`. This will set the entity name to `None`. The entity `friendly_name` will only inherit the device name.
 
 In the example below the default `entity_id` will be `sensor.bedroom` and the `friendly_name` will be "Bedroom":
 
@@ -273,7 +278,7 @@ mqtt:
           - dev001
 ```
 
-More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#entity-naming).
+Note that on each MQTT entity the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#entity-naming).
 
 ## MQTT Discovery
 
