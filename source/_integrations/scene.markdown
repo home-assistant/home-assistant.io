@@ -20,7 +20,7 @@ The scene entity is stateless, as in, it cannot have a state like the `on` or
 `off` state that, for example, a normal switch entity has.
 
 Every scene entity does keep track of the timestamp of when the last time
-the scene entity was called the Home Assistant UI or called via
+the scene entity was called via the Home Assistant UI or called via
 a service call.
 
 ## Scenes created by integrations
