@@ -227,5 +227,5 @@ These additional attribute updates will be exposed as attributes on the `mqtt` e
 The example below demonstrates how event attributes can be added to the event data.
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t home/doorbell/available -m '{"event_type": "press", "duration": 0.1}'
+mosquitto_pub -h 127.0.0.1 -t home/doorbell/state -m '{"event_type": "press", "duration": 0.1}'
 ```
