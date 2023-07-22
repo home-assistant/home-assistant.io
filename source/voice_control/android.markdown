@@ -16,7 +16,7 @@ This section was written using an Android 13. Depending on your flavor of Androi
 
 To define Home Assistant Assist as default assistant app, follow these steps:
 
-1. On Android, go to **Settings** > **Apps** > **Default apps**.
+1. On the Android phone, go to **Settings** > **Apps** > **Default apps**.
 2. Under **Digital assistant app**, select **Default digital assistant app**.
    - On some Android versions, this might be under **Digital & voice input** > **Default digital assistant app** > **Voice Assistant**.
 3. Select **Home Assistant**.
@@ -40,7 +40,7 @@ The way how Assist can be set up on your phone may differ depending on your vers
 
 1. After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) and connecting it to your Home Assistant, Assist might appear automatically on the **Apps screen**.
 2. If it does not, visit your watch companion app or the Wear OS app and select **Add tile** inside the **Tiles** area. 
-3. Select the **Assist** tile to add it to your watch:
+3. Tap the **Assist** tile to add it to your watch:
     
     ![Conversation tile](/images/assist/android_tile.png)
 
@@ -48,10 +48,10 @@ The way how Assist can be set up on your phone may differ depending on your vers
 
 1. On your phone, open the **Watch** app and select **Watch faces**.
 2. Make sure you select a watch face that supports complications (little shortcut icons).
-3. Select **Edit**.
+3. Tap **Edit**.
 4. In the **Complications** section, select one of the slots and choose **Assist**.
    - If you just recently added the Home Assistant app, Assist may not be listed yet.
-   - After rebooting your watch, under **Complications**, there should be section with Home Assistant icons.
+   - After rebooting your watch, under **Complications**, there should be a section with Home Assistant icons.
 5. Save your changes. You should now see Assist as a complication on your watch face.
    
      ![Assist complication](/images/assist/android_watch_5.png)
@@ -63,7 +63,7 @@ The way how Assist can be set up on your phone may differ depending on your vers
    
     ![Assist button](/images/assist/android_watch_1.png)
 
-2. After selecting **Assist**, wait for **How can I assist?** to be displayed and the microphone to start pulsing.
+2. After tapping **Assist**, wait for **How can I assist?** to be displayed and the microphone to start pulsing.
    
     ![How can I assist](/images/assist/android_watch_2.png)
 
@@ -71,7 +71,7 @@ The way how Assist can be set up on your phone may differ depending on your vers
    
     ![Assist speak your command](/images/assist/android_watch_3.png)
 
-4. To change the assistant, select the current assistant (**Home Assistant Cloud** in the screenshot above).
+4. To change the assistant, tap the current assistant (**Home Assistant Cloud** in the screenshot above).
    - Select the assistant from the list.
     
    ![List of assistants](/images/assist/android_watch_6.png)
@@ -90,6 +90,6 @@ To define Home Assistant Assist as default assistant app, follow these steps:
 5. On some watches, you can now start Assist by pressing the crown key.
    - If this does not work, you need to assign Assist to a button: 
    - On your watch, go to **Settings** > **Advances features** > **Customize keys**.
-   - Select **Home key** and select **Double press**.
+   - Tap **Home key**, then tap **Double press**.
    - From the list of apps, select **HA: Assist**.
-6. Now, use your key and give a command.
+6. Now, use your key and speak a command.
