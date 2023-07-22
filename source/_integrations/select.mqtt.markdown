@@ -19,12 +19,12 @@ To enable MQTT Select in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  select:
-      - command_topic: topic
-        name: "Test Select"
-        options:
-          - "Option 1"
-          - "Option 2"
+  - select:
+      command_topic: topic
+      name: "Test Select"
+      options:
+        - "Option 1"
+        - "Option 2"
 ```
 
 {% configuration %}
@@ -78,7 +78,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:

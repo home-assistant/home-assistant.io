@@ -25,8 +25,8 @@ To enable this switch in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  switch:
-    - command_topic: "home/bedroom/switch1/set"
+  - switch:
+      command_topic: "home/bedroom/switch1/set"
 ```
 
 {% configuration %}
@@ -76,7 +76,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -232,8 +232,8 @@ The example below shows a full configuration for a switch.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  switch:
-    - unique_id: bedroom_switch
+  - switch:
+      unique_id: bedroom_switch
       name: "Bedroom Switch"
       state_topic: "home/bedroom/switch1"
       command_topic: "home/bedroom/switch1/set"
@@ -269,8 +269,8 @@ The configuration will look like the example below:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  switch:
-    - name: bathroom
+  - switch:
+      name: bathroom
       state_topic: "home/bathroom/gpio/13"
       command_topic: "home/bathroom/gpio/13"
       payload_on: "1"

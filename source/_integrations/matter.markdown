@@ -91,7 +91,19 @@ It is recommended to run the Matter add-on on Home Assistant OS. This is current
 
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
 
-Running Matter on a Home Assistant Core installation is not supported.
+Supported platforms (device types):
+
+- Binary sensor: We have so far tested door/window sensors and motion sensors, but others will probably work too.
+- Climate: Support for thermostat devices has been added but availability of actual devices is limited.
+- Cover: Has been implemented, but support for a tilt feature is still missing.
+- Lights: All features (in the Matter specification) should be supported, including color control, etc.
+- Locks: Basic lock control has been implemented, but not all devices and features are supported yet.
+- Sensor: We have tested Illuminance and temperature sensors, but others will probably work too.
+- Switch: Powerplugs should work (note: no support for energy metering yet in Matter).
+
+Note that a single Matter device can exist on multiple platforms. For example, a Motion sensor also has a temperature sensor and an illuminance sensor on board.
+
+If you own a (bridged) Matter device and you are missing controls for this device, create an issue on [GitHub](https://github.com/home-assistant/home-assistant.io) and make sure to post your Integration diagnostics there. In some cases, we can easily extend the existing platform support based on your diagnostics dump.
 
 ## Adding Matter devices to Home Assistant
 

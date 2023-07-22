@@ -19,8 +19,8 @@ To enable this climate platform in your installation, first add the following to
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  climate:
-    - name: Study
+  - climate:
+      name: Study
       mode_command_topic: "study/ac/mode/set"
 ```
 
@@ -105,7 +105,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -431,8 +431,8 @@ Say you receive the operation mode `"auto"` via your `mode_state_topic`, but the
 
 ```yaml
 mqtt:
-  climate:
-    - name: Study
+  - climate:
+      name: Study
       modes:
         - "off"
         - "heat"
@@ -457,8 +457,8 @@ A full configuration example looks like the one below.
 ```yaml
 # Full example configuration.yaml entry
 mqtt:
-  climate:
-    - name: Study
+  - climate:
+      name: Study
       modes:
         - "off"
         - "cool"

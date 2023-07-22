@@ -19,6 +19,7 @@ ha_platforms:
   - camera
   - device_tracker
   - sensor
+  - binary_sensor
   - switch
 ha_zeroconf: true
 ha_integration_type: integration
@@ -28,10 +29,11 @@ The `freebox` integration allows you to observe and control [Freebox router](htt
 
 There is currently support for the following device types within Home Assistant:
 
-- [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
-- [Device tracker](#presence-detection) for connected devices
-- [Switch](#switch) to control Wi-Fi
-- [Camera](#camera)
+* [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
+* [Binary sensor](#binary-sensor) for monitoring Raid arrays health
+* [Device tracker](#presence-detection) for connected devices
+* [Switch](#switch) to control Wi-Fi
+* [Camera](#camera)
 
 {% include integrations/config_flow.md %}
 
@@ -117,7 +119,12 @@ The monitored metrics are:
 - Free partition space of used disks
 - Number of missed calls
 
+## Binary sensor
+
+The health status of each RAID array can be monitored with a diagnostics binary sensor reflecting the `degraded` state (OK means not degraded, PROBLEM means degraded).
+
 ## Camera
+
 Cameras are only available in Freebox V7 (also known as Freebox Delta).
 
 ## Service
