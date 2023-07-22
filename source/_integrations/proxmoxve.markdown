@@ -22,6 +22,8 @@ After configuring this integration, the binary sensors automatically appear.
 
 <div class='note'>
 You should have at least one VM or container entry configured, else this integration won't do anything.
+  These instructions are deprecated and better suited to follow this link to get up and running.
+  https://github.com/dougiteixeira/proxmoxve
 </div>
 
 To use the `proxmoxve` integration, add the following configuration to your `configuration.yaml` file:
