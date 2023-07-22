@@ -28,6 +28,17 @@ Currently supported services are:
 - `stop`
 - `return_to_base`
 - `locate`
+- `send_command`
+    - `CLEAN_ROOMS`
+      ```yaml
+      service: vacuum.send_command
+      data:
+        command: CLEAN_ROOM
+        params:
+          - Kitchen
+      target:
+        entity_id: vacuum.my_vacuum_name
+      ```
 
 If `pause` does not work for you, then it is not supported by your vacuum. The `stop` service will provide similar functionality.
 
