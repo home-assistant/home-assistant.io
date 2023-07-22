@@ -218,7 +218,7 @@ To set trigger the `mqtt` event entity manually:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -t home/doorbell/available -m "online"
-mosquitto_pub -h 127.0.0.1 -t home/doorbell/available -m '{"event_type": "hold"}'
+mosquitto_pub -h 127.0.0.1 -t home/doorbell/state -m '{"event_type": "hold"}'
 ```
 
 Besides the required `event_type` element, the payload can contain additional event attributes.
