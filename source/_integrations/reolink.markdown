@@ -256,7 +256,7 @@ ONVIF push will result in slightly faster state changes of the binary motion/AI 
 However ONVIF push has some additional network configuration requirements:
 
 - Reolink products can not push motion events to an HTTPS address (SSL).
-Threfore, make sure a (local) HTTP address at which HA is reachable is configured under "Home Assistant URL" in the [network settings](https://my.home-assistant.io/redirect/network/).
+Therefore, make sure a (local) HTTP address at which HA is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
 A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device".
 
 - Since a HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
