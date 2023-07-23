@@ -192,6 +192,7 @@ The SmartThings Cover platform lets you control devices that have open/close rel
 | [`garageDoorControl`](https://developer-preview.smartthings.com/docs/devices/capabilities/deprecated#garageDoorControl) (seb a) | `open` and `close`                |
 | [`windowShade`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#windowShade) (set a)              | `open` and `close`                |
 | [`switchLevel`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#switchLevel)                      | `position`                        |
+| [`windowShadeLevel`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference/#windowShadeLevel)                   | `position`                        |
 | [`battery`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#battery)                               | `battery_level` (state attribute) |
 
 ### Fan
