@@ -55,11 +55,10 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI face detection
 
 These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
-The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used. The `Event Connection` sensor shows the current method being used.
+The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
-If the `Event Connection` sensor does not show `ONVIF push` and you wish to reduce the latency, refer to the [troubleshooting](#troubleshooting) section.
 
 ## Number entities
 
@@ -163,7 +162,6 @@ When IR light entity is OFF always OFF, when ON IR LEDs will be on when the came
 Depending on the supported features of the camera, the following sensor entities are added:
 
 - Wi-Fi signal*
-- Event Connection (ONVIF push, ONVIF long poll, Fast poll)*
 
 ## Update entity
 
