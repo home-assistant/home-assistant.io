@@ -6,7 +6,7 @@ ha_category:
   - Number
   - Sensor
   - Switch
-ha_release: '2023.7'
+ha_release: '2023.8'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@elupus'
@@ -19,7 +19,7 @@ ha_platforms:
   - switch
 ---
 
-The `gardena_bluetooth` integration allows users to integrate their [Gardena Smart](https://www.gardena.com/int/products/smart/) devices using Bluetooth into Home Assistant.
+The Gardena Bluetooth integration allows users to integrate their [Gardena Smart](https://www.gardena.com/int/products/smart/) devices using Bluetooth into Home Assistant.
 
 The integration supports the [Water Control](#water-control) devices within Home Assistant:
 
@@ -29,14 +29,14 @@ The integration supports the [Water Control](#water-control) devices within Home
 
 Allow control of the valve state of [Gardena Bluetooth Water Control](https://www.gardena.com/int/products/watering/water-controls/water-control-bluetooth) units.
 
-Paring of the device may require a [Factory Reset](#factory-reset) before it allow a connection.
+The paring of the device may require a [Factory Reset](#factory-reset) before it allows a connection.
 
 ### Limitations
 
-* Control of offline scheduling settings are not supported.
+- Control of offline scheduling settings is not supported.
 
 ### Factory Reset
 
-1. Remove battery
-2. Push and hold Man. button and reinsert battery.
-3. Hold button for approx. 10 seconds
+1. Remove the battery.
+2. Push and hold Man. button and reinsert the battery.
+3. Hold the button for approx. 10 seconds.
