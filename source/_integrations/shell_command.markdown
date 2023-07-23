@@ -133,7 +133,7 @@ automation:
 
 
 shell_command:
-  get_file_contents: 'cat {{ filename }}'
+  get_file_contents: "cat {{ filename }}"
 ```
 
 {% endraw %}
