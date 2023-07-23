@@ -3,6 +3,7 @@ title: Group
 description: Instructions on how to setup groups within Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
   - Cover
   - Fan
   - Helper
@@ -22,6 +23,7 @@ ha_domain: group
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - climate
   - cover
   - fan
   - light
@@ -38,7 +40,7 @@ The group integration lets you combine multiple entities into a single entity. E
 This can be useful for cases where you want to control, for example, the
 multiple bulbs in a light fixture as a single light in Home Assistant.
 
-Home Assistant can group multiple binary sensors, covers, fans, lights, locks, media players, switches as a single entity, with the option of hiding the individual member entities.
+Home Assistant can group multiple binary sensors, climate devices, covers, fans, lights, locks, media players, switches as a single entity, with the option of hiding the individual member entities.
 
 {% include integrations/config_flow.md %}
 
@@ -59,6 +61,17 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
 - Otherwise, the group state is `off` if at least one group member is `off`.
 - Otherwise, the group state is `on`.
+
+### Climate groups
+
+In short, the most common state shown (except that devices which are `off` are excluded).
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
+- Otherwise, the group state is `off` if all group members are `off`.
+- Otherwise, the group state is the most common state of the group members which are not `off`.
+
+For other modes, the most common mode is reported (e.g. for `PRESET_MODES`, `FAN_MODE` and `SWING_MODE`). The reported temperatures are the averages from the given entities.
 
 ### Cover groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
@@ -135,6 +148,19 @@ binary_sensor:
     entities:
       - binary_sensor.door_left_contact
       - binary_sensor.door_right_contact
+```
+
+Example YAML configuration of a climate group:
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: group
+    name: "Downstairs Climate"
+    entities:
+      - climate.hall
+      - climate.living_room
+    temperature_unit: '°C' # optional '°F' or '°C'
 ```
 
 Example YAML configuration of a cover group:
