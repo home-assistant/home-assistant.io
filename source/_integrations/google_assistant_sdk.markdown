@@ -179,16 +179,11 @@ data:
 
 ## Conversation agent
 
-In the configure options of the integration, enable the conversation agent and then you can converse with Google Assistant by tapping the Assist icon at the top right of your dashboard:
+You can add an assistant with the conversation agent set to "Google Assistant SDK".
+Then you can converse with Google Assistant by tapping the Assist icon at the top right of your dashboard:
 
 ![Screenshot Conversation](/images/integrations/google_assistant_sdk/conversation.png)
 
-Or by calling the `conversation.process` service with the transcribed text:
-
-```yaml
-service: conversation.process
-data:
-  text: "Dim the family room lights"
-```
+Or by calling the `conversation.process` service.
 
 Note: due to a bug in the Google Assistant API, not all responses contain text, especially for home control commands, like turn on the lights. These will be shown as `<empty response>`. For those, Google Assistant responds with HTML and Home Assistant integrations are [not allowed](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md) to parse HTML.
