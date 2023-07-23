@@ -104,6 +104,10 @@ To enable/disable motion detection, use the Home Assistant built in services.
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 
+### Alarm Control Panel Entity
+
+The Alarm Control Panel entity in the EZVIZ platform allows users to manage and control the armed status of all their EZVIZ devices. With this entity, users can choose between three options: **Arm Away**, **Arm Sleep**, and **Disarm**.
+
 ### OTA update
 
 Trigger device OTA firmware update process for latest stable version.
