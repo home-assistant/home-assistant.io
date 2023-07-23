@@ -57,7 +57,7 @@ Depending on the supported features of the camera, binary sensors are added for:
 These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
-If you want to make sure you have the best latency possible, refer to the [Reducing_latency_of_motion_events](#Reducing_latency_of_motion_events) section.
+To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#Reducing_latency_of_motion_events) section.
 
 ## Number entities
 
