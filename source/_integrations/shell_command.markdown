@@ -56,7 +56,7 @@ A `0` exit code means the commands completed successfully without error. In case
 
 ## Response
 
-Shell commands provide a service response in the form of a dictionary containing `stdout`, `stderr` and `returncode`. These can be used in automations to act upon the results of the command using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+Shell commands provide a service response in a dictionary containing `stdout`, `stderr`, and `returncode`. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
 
 ## Examples
 
@@ -104,7 +104,7 @@ shell_command:
 
 {% endraw %}
 
-The next example shows how the shell command response may be used in automations.
+The following example shows how the shell command response may be used in automations.
 
 {% raw %}
 
@@ -119,21 +119,21 @@ automation:
         data:
           filename: "todo.txt"
         response_variable: todo_response
-      - if: '{{todo_response["returncode"] == 0}}'
+      - if: "{{ todo_response['returncode'] == 0 }}'
         then:
           - service: notify.mobile_app_iphone
             data:
-              title: ToDo
+              title: "ToDo"
               message: "{{ todo_response['stdout'] }}"
         else:
           - service: notify.mobile_app_iphone
             data:
-              title: ToDo file error
+              title: "ToDo file error"
               message: "{{ todo_response['stderr'] }}"
 
 
 shell_command:
-  get_file_contents: 'cat {{filename}}'
+  get_file_contents: 'cat {{ filename }}'
 ```
 
 {% endraw %}
