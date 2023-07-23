@@ -253,7 +253,7 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 ### Reducing latency of motion events
 
 ONVIF push will result in slightly faster state changes of the binary motion/AI event sensors than ONVIF long polling.
-However ONVIF push has some additional network configuration requirements:
+However, ONVIF push has some additional network configuration requirements:
 
 - Reolink products can not push motion events to an HTTPS address (SSL).
 Therefore, make sure a (local) HTTP address at which HA is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
