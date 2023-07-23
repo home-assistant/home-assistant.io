@@ -260,6 +260,6 @@ Threfore, make sure a (local) HTTP address at which HA is reachable is configure
 A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device".
 
 - Since a HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
-Therefore, make sure there is no Global SSL certificate configured in the [configuration.yaml under HTTP](https://www.home-assistant.io/integrations/http/#ssl_certificate).
-A SSL certificate can still be enforced for external connections, by for instance using [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) instead of a globally enforced SSL certificate.
+Therefore, ensure no Global SSL certificate is configured in the [`configuration.yaml` under HTTP](/integrations/http/#ssl_certificate).
+An SSL certificate can still be enforced for external connections, by, for instance, using the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) instead of a globally enforced SSL certificate.
 More information about NGINX with Home Assistant can be found [here](https://kleypot.com/home-assistant-nginx-unencrypted-local-traffic/).
