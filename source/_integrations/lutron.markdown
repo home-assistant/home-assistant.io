@@ -103,7 +103,7 @@ After setup, scenes will appear in Home Assistant using the area, keypad and but
 
 ## Fans
 
-Any Maestro Fan Controls will be added as fans in home assistant.  The fan integration uses 4 speed settings to match the Maestro controls.  The UI will show the fan controls in percentage by default but will operate with 25%, 50%, 75%, and 100% indents.
+Any Maestro Fan Controls will be added as fans in Home Assistant.  The fan integration uses 4 speed settings to match the Maestro controls.  The UI will show the fan controls in percentage by default but also operates with 25%, 50%, 75%, and 100% indents.  When turning on a fan if the fan speed is not specified it will default to Medium High.
 
 ## Occupancy Sensors
 
