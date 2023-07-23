@@ -776,10 +776,10 @@ Requires [Proactive Events](#proactive-events) enabled.
 #### Doorbell Events
 
 Home Assistant `event` entities can trigger a doorbell announcement in Alexa if the `device_class` of the `event` entity is set to `doorbell`.
-Alexa will announce on all echo devices _"Someone is at the [entity name]"_ when a `event` entity has received an updated.
+Alexa will announce on all echo devices _"Someone is at the [entity name]"_ when an `event` entity has received an updated.
 
 <div class='note info'>
-Each Amazon Echo device will need the communication and announcements setting enabled, and the Do Not Disturb feature turned off.
+Each Amazon Echo device will need the communication and announcements setting enabled and the Do Not Disturb feature turned off.
 </div>
 
 <p class='img'>
