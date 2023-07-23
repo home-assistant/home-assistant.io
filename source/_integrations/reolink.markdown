@@ -177,6 +177,7 @@ The following models have been tested and confirmed to work:
 - [RLC-410W](https://reolink.com/product/rlc-410w/)
 - RLC-411*
 - RLC-420*
+- RLC-423*
 - [RLC-510A](https://reolink.com/product/rlc-510a/)
 - RLC-511*
 - RLC-511W*
