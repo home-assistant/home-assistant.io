@@ -113,7 +113,7 @@ homeassistant:
 
 
 <div class='note warning'>
+If you are moving configuration to packages, `auth_providers` must stay within ‘configuration.yaml’. See the general documentation for [Authentication Providers](/docs/authentication/providers/#configuring-auth-providers).
 
-If you are moving configuration to packages, `auth_providers` must stay within ‘configuration.yaml’. See [Issue 16441](https://github.com/home-assistant/core/issues/16441) and the general documentation for [Authentication Providers](https://www.home-assistant.io/docs/authentication/providers/#configuring-auth-providers).
-
-This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is done before the `packages` are processed.
+This is because Home Assistant processes the authentication provided early in the start-up process, even before packages are processed.
+</div>
