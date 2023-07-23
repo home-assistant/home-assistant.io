@@ -57,6 +57,7 @@ Depending on the supported features of the camera, binary sensors are added for:
 These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
+If you want to make sure you have the best latency possible, refer to the [Reducing_latency_of_motion_events](#Reducing_latency_of_motion_events) section.
 
 ## Number entities
 
@@ -248,3 +249,17 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 - Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.
+
+### Reducing latency of motion events
+
+ONVIF push will result in slightly faster state changes of the binary motion/AI event sensors than ONVIF long polling.
+However ONVIF push has some additional network configuration requirements:
+
+- Reolink products can not push motion events to an HTTPS address (SSL).
+Threfore, make sure a (local) HTTP address at which HA is reachable is configured under "Home Assistant URL" in the [network settings](https://my.home-assistant.io/redirect/network/).
+A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device".
+
+- Since a HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
+Therefore, make sure there is no Global SSL certificate configured in the [configuration.yaml under http](https://www.home-assistant.io/integrations/http/#ssl_certificate).
+A SSL certificate can still be enforced for external connections, by for instance using [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) instead of a globally enforced SSL certificate.
+More information about NGINX with Home Assistant can be found [here](https://kleypot.com/home-assistant-nginx-unencrypted-local-traffic/).
