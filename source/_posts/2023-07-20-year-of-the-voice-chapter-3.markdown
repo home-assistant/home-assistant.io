@@ -47,7 +47,7 @@ Assist on Android is built-in to the Android app and uses the speech-to-text fro
 </p>
 
 
-Have a [Home Assistant Cloud subscription]? You can now control your smart home via voice from anywhere in the world without giving up your privacy. Multiple Home Assistant servers are supported, so you can just as easily talk to your parent's house:
+Have a [Home Assistant Cloud subscription]? You can now control your smart home via voice from anywhere in the world without giving up your privacy. [Multiple Home Assistant servers are supported](/voice_control/android/#using-assist-with-multiple-home-assistant-servers), so you can just as easily talk to your parent's house:
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/multi-server.png" alt="Screenshot of Assist picking a voice assistant" style="max-height: 550px;" />
@@ -56,7 +56,7 @@ Select a voice assistant from any of your configured Home Assistant instances
 
 ### Default digital assistant
 
-Why open an app if you don't have to? Set Home Assistant as your default digital assistant app! Now, holding the home or power button will instantly bring up Assist:
+Why open an app if you don't have to? Set Home Assistant as your [default digital assistant app](/voice_control/android/#setting-up-home-assistant-assist-as-default-assistant-app-on-an-android-phone)! Now, holding the home or power button will instantly bring up Assist:
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone.jpg" alt="Screenshot of Assist activated on the home screen" style="max-height: 550px;" />
@@ -74,13 +74,13 @@ You can find the settings on Android: **Settings** > **Apps** > **Default apps**
 
 ## Native Assist on Wear OS
 
-We didn't leave out watches! Wear OS devices can now natively use Assist as well:
+We didn't leave out watches! Wear OS devices can now natively [use Assist](/voice_control/android/#assist-on-wear-os) as well:
 
 <lite-youtube videoid="5b7nqGZyeVU" videotitle="Use Assist natively on your Android watch"></lite-youtube>
 
 Text-to-speech responses are spoken directly from the watch, allowing you to listen instead of looking for confirmation.
 
-Like the phones, it is possible to set Home Assistant to be your watch's default digital assistant. Pressing the crown or holding the button on your watch now brings up Assist!
+Like the phones, it is possible to set Home Assistant to be your [watch's default digital assistant](/voice_control/android/#setting-up-home-assistant-assist-as-default-assistant-app-on-a-wear-os-watch). Pressing the crown or holding the button on your watch now brings up Assist!
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/watch.png" alt="Screenshot of native Assist on Wear OS" style="max-height: 250px;" />
