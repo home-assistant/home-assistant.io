@@ -13,6 +13,7 @@ ha_integration_type: integration
 ha_platforms:
   - stt
   - tts
+  - wake_word
 ha_config_flow: true
 ---
 
