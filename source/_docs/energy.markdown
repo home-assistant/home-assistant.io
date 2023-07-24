@@ -22,16 +22,21 @@ If you have a sensor that returns instantaneous power readings (W or kW), then t
 
 <img src='/images/docs/energy/energy-overview.png' alt='Visual representation of how all different energy forms relate.' style='border: 0;box-shadow: none;'>
 
-## Troubleshooting Missing Entities 
+## Troubleshooting missing entities 
 
-If you have a sensor you are trying to add to the energy dashboard, and it does not appear in the selection list, please check the following points to see why it may be missing:
+### Condition
 
-- The sensor must have the appropriate attributes. Check your entity attributes in `Developer Tools -> States` to confirm the following:
+You are trying to add a sensor to the energy dashboard, but it does not appear in the selection list. 
+
+### Remedy
+
+To find out why the sensor is not showing, check the following points:
+- The sensor must have the appropriate attributes. Check your entity attributes in **{% my developer_states title="Developer Tools > States" %}** to confirm the following:
   - `device_class` must be `energy` for electricity grid, solar, or battery categories. It must be `gas` for gas, or `water` for water.
   - `state_class` must be `total` or `total_increasing`.
-  - The sensor must have an appropriate `unit_of_measurement`. See the help text for each category to see which units are accepted. Units containg an exponent must match superscript characters exactly as defined, e.g. `m³` is accepted, `m3` is not.
+  - The sensor must have an appropriate `unit_of_measurement`. See the help text for each category to see which units are accepted. Units containing an exponent must match superscript characters exactly as defined, e.g. `m³` is accepted, `m3` is not.
   
   If any of the attributes are not correct, you can take it up with the integration developer that provides your sensor, or override missing attributes with [customize](/docs/configuration/customizing-devices/).
  
-- The entity must be a `sensor`. If you are trying to add something from another domain (e.g. like an `input_number`), then you must first create a template sensor from it.
-- The entity must not have any statistics errors. Go to `Developer Tools -> Statistics` to check your specific entity. If your unit has a listed issue here, you must fix the issue before it can be added to the dashboard. 
+- The entity must be a `sensor`. If you are trying to add something from another domain (for example an `input_number`), then you must first create a template sensor from it.
+- The entity must not have any statistics errors. Go to **{% my developer_statistics title="Developer tools > Statistics" %}** to check your specific entity. If your unit has a listed issue here, you must fix the issue before it can be added to the dashboard. 
