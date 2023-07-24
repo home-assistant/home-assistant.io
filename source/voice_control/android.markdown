@@ -28,6 +28,26 @@ To define Home Assistant Assist as default assistant app, follow these steps:
    - Long press the power button.
    - Hold the home button (square button at the bottom).
 
+### Using Assist with multiple Home Assistant servers
+
+Once Assist has been defined as the default digital assistant on your phone, you can use Assist with multiple servers. This can be useful for example, if you maintain a Home Assistant instance for someone else's home.
+
+1. Make sure you have a voice assistant set up on the Home Assistant servers.
+2. Make sure the servers are added to the companion app.
+   - On the Android phone, go to **Settings** > **Companion app** and select **Add server**.
+   - From the list, select the additional server.
+3. Start Assist using the gesture to start an assistant. The gesture may differ depending on the version.
+   - Swipe from the bottom left corner.
+   - Long press the power button.
+   - Hold the home button (square button at the bottom).
+4. Open the assistant drop-down menu.
+
+   ![Using Assist with multiple servers](/images/assist/android_multi-server_01.png)
+
+5. Select the assistant from the instance you want to speak to.
+   - Speak your command.
+
+
 ## Assist on Wear OS
 
 Assist is available on Wear OS using the [Home Assistant Companion App](https://companion.home-assistant.io/) for Android and "Assist" tile.
@@ -39,7 +59,7 @@ Assist is available on Wear OS using the [Home Assistant Companion App](https://
 The way how Assist can be set up on your phone may differ depending on your version of Wear OS.
 
 1. After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) and connecting it to your Home Assistant, Assist might appear automatically on the **Apps screen**.
-2. If it does not, visit your watch companion app or the Wear OS app and select **Add tile** inside the **Tiles** area. 
+2. If it does not, visit your watch companion app or the Wear OS app and select **Add tile** inside the **Tiles** area.
 3. Tap the **Assist** tile to add it to your watch:
     
     ![Conversation tile](/images/assist/android_tile.png)
