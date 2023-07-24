@@ -258,9 +258,9 @@ To use your Command binary sensor in your installation, add the following to you
 # Example configuration.yaml entry
 command_line:
   - binary_sensor:
-      command: "cat /proc/sys/net/ipv4/ip_forward"
+      command: '(cat /proc/sys/net/ipv4/ip_forward)'
   - binary_sensor:
-      command: "echo 1"
+      command: '(echo 1)'
 ```
 {% endraw%}
 
@@ -275,9 +275,9 @@ To enable a command line cover in your installation, add the following to your `
 # Example configuration.yaml entry
 command_line:
   - cover:
-      command_open: move_command up garage
-      command_close: move_command down garage
-      command_stop: move_command stop garage
+      command_open: 'move_command up garage'
+      command_close: 'move_command down garage'
+      command_stop: 'move_command stop garage'
       name: Garage
 ```
 {% endraw%}
@@ -293,7 +293,7 @@ To enable those notifications in your installation, add the following to your `c
 # Example configuration.yaml entry
 command_line:
   - notify:
-      command: "espeak -vmb/mb-us1"
+      command: '(espeak -vmb/mb-us1)'
 ```
 {% endraw%}
 
@@ -308,9 +308,9 @@ To enable it, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 command_line:
   - sensor:
-      command: SENSOR_COMMAND
+      command: 'SENSOR_COMMAND'
   - sensor:
-      command: SENSOR_COMMAND_2
+      command: 'SENSOR_COMMAND_2'
 ```
 {% endraw%}
 
@@ -329,15 +329,15 @@ To enable it, add the following lines to your `configuration.yaml`:
 command_line:
   - switch:
       name: Kitchen Light
-      command_on: switch_command on kitchen
-      command_off: switch_command off kitchen
+      command_on: 'switch_command on kitchen'
+      command_off: 'switch_command off kitchen'
 ```
 {% endraw%}
 
 <div class='note'>
 
 A note on `name` for `cover` and `switch`:
-  
+
 The use of `friendly_name` and `object_id` has been deprecated and the slugified `name` will also be used as identifier.
 
 Use `unique_id` to enable changing the name from the UI and if required, use the slugified `name` as identifier.
@@ -443,10 +443,10 @@ command_line:
 command_line:
   - cover:
       name: Garage door
-      command_open: move_command up garage
-      command_close: move_command down garage
-      command_stop: move_command stop garage
-      command_state: state_command garage
+      command_open: 'move_command up garage'
+      command_close: 'move_command down garage'
+      command_stop: 'move_command stop garage'
+      command_state: 'state_command garage'
       value_template: >
         {% if value == 'open' %}
         100
@@ -470,7 +470,7 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 command_line:
   - sensor:
       name: CPU Temperature
-      command: "cat /sys/class/thermal/thermal_zone0/temp"
+      command: '(cat /sys/class/thermal/thermal_zone0/temp)'
       # If errors occur, make sure configuration file is encoded as UTF-8
       unit_of_measurement: "°C"
       value_template: "{{ value | multiply(0.001) | round(1) }}"
@@ -487,7 +487,7 @@ If you'd like to know how many failed login attempts are made to Home Assistant,
 command_line:
   - sensor:
       name: Badlogin
-      command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
+      command: '(grep -c ''Login attempt'' /home/hass/.homeassistant/home-assistant.log)'
 ```
 {% endraw%}
 
@@ -511,7 +511,7 @@ You can see directly in the frontend (**Developer tools** -> **About**) what rel
 ```yaml
 command_line:
   - sensor:
-      command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
+      command: 'python3 -c "import requests; print(requests.get(''https://pypi.python.org/pypi/homeassistant/json'').json()[''info''][''version''])"'
       name: HA release
 ```
 {% endraw%}
@@ -524,7 +524,7 @@ If you own devices which are storing values in text files which are accessible o
 ```yaml
 command_line:
   - sensor:
-      command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
+      command: 'python3 -c "import requests; print(requests.get(''http://remote-host/sensor_data.txt'').text)"'
       name: File value
 ```
 {% endraw%}
@@ -561,7 +561,7 @@ To use the script you need to add something like the following to your `configur
 command_line:
   - sensor:
       name: Brightness
-      command: "python3 /path/to/script/arest-value.py"
+      command: '(python3 /path/to/script/arest-value.py)'
 ```
 {% endraw%}
 
@@ -575,7 +575,7 @@ command_line:
 command_line:
   - sensor:
       name: Wind direction
-      command: "sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"
+      command: '(sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states(''sensor.wind_direction'') }})'
       unit_of_measurement: "Direction"
 ```
 {% endraw%}
@@ -593,7 +593,7 @@ command_line:
       json_attributes:
         - date
         - milliseconds_since_epoch
-      command: "python3 /home/pi/.homeassistant/scripts/datetime.py"
+      command: '(python3 /home/pi/.homeassistant/scripts/datetime.py)'
       value_template: "{{ value_json.time }}"
 ```
 {% endraw%}
@@ -610,10 +610,10 @@ command_line:
   - switch:
       name: Driveway outside sensor
       command_on: >
-        curl -X PUT -d '{"on":true}' "http://ip_address/api/sensors/27/config/"
+        'curl -X PUT -d ''{"on":true}'' "http://ip_address/api/sensors/27/config/"'
       command_off: >
-        curl -X PUT -d '{"on":false}' "http://ip_address/api/sensors/27/config/"
-      command_state: curl http://ip_address/api/sensors/27/
+        'curl -X PUT -d ''{"on":false}'' "http://ip_address/api/sensors/27/config/"'
+      command_state: 'curl http://ip_address/api/sensors/27/'
       value_template: >
         {{value_json.config.on}}
       icon: >
@@ -635,9 +635,9 @@ which is controllable through REST.
 # Example configuration.yaml entry
 command_line:
   - switch:
-      command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
-      command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
-      command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
+      command_on: '/usr/bin/curl -X GET http://192.168.1.10/digital/4/1'
+      command_off: '/usr/bin/curl -X GET http://192.168.1.10/digital/4/0'
+      command_state: '/usr/bin/curl -X GET http://192.168.1.10/digital/4'
       value_template: '{{ value == "1" }}'
       name: Kitchen Lightswitch
 ```
@@ -662,7 +662,7 @@ This switch will shutdown your host immediately, there will be no confirmation.
 command_line:
   - switch:
       name: Home Assistant System Shutdown
-      command_off: "/usr/sbin/poweroff"
+      command_off: '/usr/sbin/poweroff'
 ```
 {% endraw%}
 
@@ -677,8 +677,8 @@ This switch will control a local VLC media player
 command_line:
   - switch:
       name: VLC
-      command_on: "cvlc 1.mp3 vlc://quit &"
-      command_off: "pkill vlc"
+      command_on: 'cvlc 1.mp3 vlc://quit &'
+      command_off: 'pkill vlc'
 ```
 {% endraw%}
 
