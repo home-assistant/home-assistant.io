@@ -177,7 +177,7 @@ version: '3.7'
 
 services:
   homeassistant:
-    image: homeassistant/home-assistant:stable
+    image: ghrc.io/homeassistant/home-assistant:stable
     volumes:
       - config:/config/
       - /dev/input:/dev/input/ # this is needed to read input events, even in privileged mode.
