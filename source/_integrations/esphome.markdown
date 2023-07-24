@@ -3,7 +3,7 @@ title: ESPHome
 description: Support for ESPHome devices using the native ESPHome API.
 featured: true
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - DIY
   - Update
 ha_release: 0.85

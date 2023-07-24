@@ -2,7 +2,7 @@
 title: Hitachi Hi Kumo
 description: Connect and control your Hitachi Hi Kumo devices using the Overkiz integration
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Binary Sensor
   - Button
   - Climate

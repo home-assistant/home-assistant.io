@@ -110,8 +110,8 @@ Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_var
 
 Not supported in [limited templates](#limited-templates).
 
-- Iterating `states` will yield each state sorted alphabetically by entity ID.
-- Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
+- Iterating `states` will yield each state object.
+- Iterating `states.domain` will yield each state object of that domain.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
 - `states` can also be used as a function, `states(entity_id, rounded=False, with_unit=False)`, which returns the state string (not the state object) of the given entity, `unknown` if it doesn't exist, and `unavailable` if the object exists but is not available.
   - The optional arguments `rounded` and `with_unit` control the formatting of sensor state strings, please see the [examples](#formatting-sensor-states) below.

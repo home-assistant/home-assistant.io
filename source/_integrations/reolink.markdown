@@ -57,6 +57,7 @@ Depending on the supported features of the camera, binary sensors are added for:
 These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
+To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#Reducing_latency_of_motion_events) section.
 
 ## Number entities
 
@@ -166,37 +167,42 @@ The latest firmware can be downloaded from the [Reolink download center](https:/
 
 The following models have been tested and confirmed to work:
 
-- C1 Pro
-- C2 Pro
-- CX410
-- E1 Zoom
-- E1 Outdoor
-- E1 Outdoor Pro
-- RLC-410
-- RLC-410W
-- RLC-411
-- RLC-420
-- RLC-510A
-- RLC-511
-- RLC-511W
-- RLC-520
-- RLC-520A
-- RLC-522
-- RLC-810A
-- RLC-811A
-- RLC-81PA
-- RLC-820A
-- RLC-822A
-- RLC-823A
-- RLC-833A
-- RLC-1224A
-- RLN8-410 NVR
-- RLN16-410 NVR
-- RLN36 NVR
-- Reolink Duo 2 WiFi
-- Reolink Duo Floodlight PoE
-- Reolink TrackMix (PoE and Wi-Fi)
-- Reolink Video Doorbell (PoE and Wi-Fi)
+- C1 Pro*
+- C2 Pro*
+- [CX410](https://reolink.com/product/cx410/)
+- [E1 Zoom](https://reolink.com/product/e1-zoom/)
+- [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
+- [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
+- [E1 Outdoor Pro](https://reolink.com/product/e1-outdoor-pro/)
+- RLC-410*
+- [RLC-410W](https://reolink.com/product/rlc-410w/)
+- RLC-411*
+- RLC-420*
+- RLC-423*
+- [RLC-510A](https://reolink.com/product/rlc-510a/)
+- RLC-511*
+- RLC-511W*
+- [RLC-511WA](https://reolink.com/product/rlc-511wa/)
+- RLC-520*
+- [RLC-520A](https://reolink.com/product/rlc-520a/)
+- RLC-522*
+- [RLC-810A](https://reolink.com/product/rlc-810a/)
+- [RLC-811A](https://reolink.com/product/rlc-811a/)
+- [RLC-81PA](https://reolink.com/product/rlc-81pa/)
+- [RLC-820A](https://reolink.com/product/rlc-820a/)
+- [RLC-822A](https://reolink.com/product/rlc-822a/)
+- [RLC-823A](https://reolink.com/product/rlc-823a/)
+- [RLC-833A](https://reolink.com/product/rlc-833a/)
+- [RLC-1224A](https://reolink.com/product/rlc-1224a/)
+- [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
+- [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
+- [RLN36 NVR](https://reolink.com/product/rln36/)
+- [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
+- [Reolink Duo Floodlight PoE](https://reolink.com/product/reolink-duo-floodlight-poe/)
+- Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))
+- Reolink Video Doorbell ([PoE](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi](https://reolink.com/product/reolink-video-doorbell-wifi/))
+
+*These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
 
 Battery-powered cameras are not yet supported.
 
@@ -244,3 +250,16 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 - Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.
+
+### Reducing latency of motion events
+
+ONVIF push will result in slightly faster state changes of the binary motion/AI event sensors than ONVIF long polling.
+However, ONVIF push has some additional network configuration requirements:
+
+- Reolink products can not push motion events to an HTTPS address (SSL).
+Therefore, make sure a (local) HTTP address at which HA is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
+A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device".
+
+- Since a HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
+Therefore, ensure no Global SSL certificate is configured in the [`configuration.yaml` under HTTP](/integrations/http/#ssl_certificate).
+An SSL certificate can still be enforced for external connections, by, for instance, using the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) or [NGINX Proxy Manager add-on](https://github.com/hassio-addons/addon-nginx-proxy-manager) instead of a globally enforced SSL certificate.

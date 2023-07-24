@@ -2,7 +2,7 @@
 title: Rexel Energeasy Connect
 description: Connect and control your Rexel Energeasy Connect devices using the Overkiz integration
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Binary Sensor
   - Button
   - Climate

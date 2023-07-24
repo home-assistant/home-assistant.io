@@ -85,6 +85,9 @@ Note: this procedure requires an OpenAI account. To just run the example, the fr
        `You are Super Mario from Mario Bros. Be funny.` and select **Submit**.
   
       ![Add prompt for Mario personality](/images/assist/assistant-openai-mario-02.png)
+
+   - Give your personality a name. Select the three-dots menu, select **Rename** and change the name to `OpenAI Mario`.
+  
 3. Create a Mario assistant:
    - Under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, select **Add assistant**.
    - Give it a name, select a language and under **Conversation agent**, select the Mario OpenAI Conversation integration.
@@ -94,7 +97,8 @@ Note: this procedure requires an OpenAI account. To just run the example, the fr
 
       ![VoIP: select OpenAI](/images/assist/assistant-openai-mario-03.png) 
 5. That's it! Pick up your phone and ask Mario a question.
-6. You can repeat this with other characters. You can add as many OpenAI Conversation integrations as you would like.
+6. You can repeat this with other OpenAI personalities. You can add as many OpenAI Conversation integrations as you would like.
+   - To add a new personality, you need to create a new API key. Then, add a new OpenAI Conversation integration with that API key.
 
 ## Troubleshoot Grandstream
 

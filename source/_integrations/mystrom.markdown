@@ -34,6 +34,7 @@ Supported devices are:
  - LED strip (105)
  - Switch CH v2 (106)
  - Switch EU (107)
+ - Switch Zero (120)
 
 {%include integrations/config_flow.md %}
 

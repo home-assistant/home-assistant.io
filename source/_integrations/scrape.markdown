@@ -259,3 +259,28 @@ scrape:
 ```
 
 {% endraw %}
+
+### Container cleaning by CleanProfs in The Netherlands
+
+This example gets the container type and container cleaning date for the next two cleanings.
+
+```yaml
+# Example configuration.yaml entry. Change postal code and house number to your own address.
+scrape:
+  - resource: https://crm.cleanprofs.nl/search/planning
+    method: POST
+    payload: zipcode=5624JW&street_number=17
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+    sensor:
+      - name: "Type container 1"
+        select: "div.nk-tb-item:nth-child(2) > div:nth-child(1) > span:nth-child(1)"
+      - name: "Date container 1"
+        select: "div.nk-tb-item:nth-child(2) > div:nth-child(3) > span:nth-child(1) > span:nth-child(1)"
+      - name: "Type container 2"
+        select: "div.nk-tb-item:nth-child(3) > div:nth-child(1) > span:nth-child(1)"
+      - name: "Date container 2"
+        select: "div.nk-tb-item:nth-child(3) > div:nth-child(3) > span:nth-child(1) > span:nth-child(1)"
+
+```
+
