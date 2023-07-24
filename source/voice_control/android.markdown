@@ -27,6 +27,8 @@ To define Home Assistant Assist as default assistant app, follow these steps:
    - Swipe from the bottom left corner.
    - Long press the power button.
    - Hold the home button (square button at the bottom).
+7. You can now also start Assist from your lock screen.
+   <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
 ### Using Assist with multiple Home Assistant servers
 
@@ -47,6 +49,14 @@ Once Assist has been defined as the default digital assistant on your phone, you
 5. Select the assistant from the instance you want to speak to.
    - Speak your command.
 
+### Using Assist via shortcut
+
+1. On your phone, open the **Widgets** panel.
+2. From the list, select **Home Assistant**.
+3. Long tap the **Assist** icon and drag it onto your home screen.
+4. Select the server and the assistant.
+5. If you want to be able to use voice control, enable the **Start listening** toggle.
+6. Repeat this procedure for each server you want to connect to, for example, if you support someone else's home.
 
 ## Assist on Wear OS
 
