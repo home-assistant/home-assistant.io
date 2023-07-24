@@ -49,27 +49,14 @@ Once Assist has been defined as the default digital assistant on your phone, you
 5. Select the assistant from the instance you want to speak to.
    - Speak your command.
 
-### Using Assist via shortcuts
+### Using Assist via shortcut
 
-You can create up to 5 shortcuts on your phone. The shortcut can point to any Home Assistant server you choose.
-
-1. Create a new dashboard which only contains an [Assist button](/voice_control/start_assist_from_dashboard/).
-   - Call it **assist**.
-2. On the Android phone, go to **Settings** > **Companion app** and select **Manage shortcuts**.
-3. Define the shortcut.
-   - Select an icon, such as `message`.
-   - Add a shortcut label and description.
-   - Select the server (the Home Assistant instance you want to use).
-   - Under **Shortcut type**, select **Dashboard**.
-   - Under **Dashboard view**, enter the path to the Assist button. For example, `/lovelace/assist/`.
-   - Select **Add shortcut**.
-4. If you want to access multiple servers via Assist, repeat step 2 and step 3 for each server.
-   - Make sure to use a different icon for each.
-5. Place the shortcut.
-   - On your home screen, long-tap the Home Assistant app.
-   - The shortcuts should be listed.
-   - Drag and drop the shortcuts to your home screen.
-
+1. On your phone, open the **Widgets** panel.
+2. From the list, select **Home Assistant**.
+3. Long tap the **Assist** icon and drag it onto your home screen.
+4. Select the server and the assistant.
+5. If you want to be able to use voice control, enable the **Start listening** toggle.
+6. Repeat this procedure for each server you want to connect to, for example if you support someone elses home.
 
 ## Assist on Wear OS
 
