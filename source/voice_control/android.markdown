@@ -56,7 +56,7 @@ Once Assist has been defined as the default digital assistant on your phone, you
 3. Long tap the **Assist** icon and drag it onto your home screen.
 4. Select the server and the assistant.
 5. If you want to be able to use voice control, enable the **Start listening** toggle.
-6. Repeat this procedure for each server you want to connect to, for example if you support someone elses home.
+6. Repeat this procedure for each server you want to connect to, for example, if you support someone else's home.
 
 ## Assist on Wear OS
 
