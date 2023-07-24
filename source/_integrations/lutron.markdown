@@ -7,6 +7,7 @@ ha_category:
   - Light
   - Scene
   - Switch
+  - Fan
 ha_release: 0.37
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -18,12 +19,13 @@ ha_platforms:
   - light
   - scene
   - switch
+  - fan
 ha_integration_type: integration
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` integration in Home Assistant is responsible for communicating with the main hub for these systems.
 
-Presently, there's only support for communicating with the [RadioRA 2](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx) Main Repeater and only handle light switches, dimmers, and seeTouch keypad scenes.
+Presently, there's only support for communicating with the [RadioRA 2](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx) Main Repeater and only handle light switches, dimmers, fans, and seeTouch keypad scenes.
 
 ## Configuration
 
@@ -66,6 +68,12 @@ If you are using RadioRA2 software version 12 or later, the default `lutron` use
 
 </div>
 
+<div class='note'>
+
+To confirm you have the correct user and password, you can enter the IP address into your browseer and log in with that username and password.  If you are able to download the XML DB then that is the correct combination to use for the configuration.
+
+</div>
+
 ## Keypad buttons
 
 Individual buttons on keypads are not represented as entities. Instead, they fire events called `lutron_event` whose payloads include `id`, `action`, and `uuid` attributes.
@@ -92,6 +100,10 @@ This integration uses keypad programming to identify scenes.  Currently, it work
 The Lutron scene platform allows you to control scenes programmed into your SeeTouch keypads.
 
 After setup, scenes will appear in Home Assistant using the area, keypad and button name.
+
+## Fans
+
+Any Maestro Fan Controls will be added as fans in Home Assistant.  The fan integration uses 4 speed settings to match the Maestro controls.  The UI will show the fan controls in percentage by default but also operates with 25%, 50%, 75%, and 100% indents.  When turning on a fan if the fan speed is not specified it will default to Medium High.
 
 ## Occupancy Sensors
 
