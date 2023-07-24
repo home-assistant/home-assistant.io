@@ -67,7 +67,7 @@ It's even possible to activate Assist directly from the lock screen:
 
 <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
-You can find the settings on Android: **Settings** -> **Apps** -> **Default apps** or tap on the tip in the Home Assistant Companion settings.
+You can find the settings on Android: **Settings** > **Apps** > **Default apps** or tap on the tip in the Home Assistant Companion settings.
 
 [Home Assistant Companion App]: https://companion.home-assistant.io/
 [Home Assistant Cloud subscription]: https://www.nabucasa.com/
