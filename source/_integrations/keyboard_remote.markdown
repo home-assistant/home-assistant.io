@@ -165,3 +165,29 @@ You can check ACLs permissions with:
 ```bash
 getfacl /dev/input/event*
 ```
+
+## Containers
+
+If you are running Home Assistant Container, you need to pass the input device through to the container. You can pass the input device you want to use directly into the container with the `--devices` flag. However, restarting the container or unplugging and replugging your keyboard will break this integration. This is because only the instance of the keyboard that existed when the container first started will be available inside the container.
+
+Here is an incomplete example `docker-compose.yml` that allows Home Assistant persistent access to input devices in a container:
+
+```yaml
+version: '3.7'
+
+services:
+  homeassistant:
+    image: ghrc.io/homeassistant/home-assistant:stable
+    volumes:
+      - config:/config/
+      - /dev/input:/dev/input/ # this is needed to read input events.
+    restart: unless-stopped
+    device_cgroup_rules:
+      # allow creation of /dev/input/* with mknod, this is not enough on its own and needs mknod to be called in the container
+      - 'c 13:* rmw' 
+    devices:
+      # since input id may change, pass them all in
+      - "/dev/input/"
+    ...
+
+```
