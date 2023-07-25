@@ -28,7 +28,7 @@ There is no need for Access from the Internet to Home Assistant for this Integra
 
 ## Create app on Fitbit
 
-Your Fitbit account must also be registered as an Developer account at the [Fitbit Developer Portal](https://dev.fitbit.com), and have a verified email address.
+Your Fitbit account must also be registered as a Developer account at the [Fitbit Developer Portal](https://dev.fitbit.com) and have a verified email address.
 
 It is the process of creating the [developer application](https://dev.fitbit.com/apps/new) in Fitbit:
 
