@@ -977,6 +977,77 @@ entity_category:
   default: None
 {% endconfiguration %}
 
+## DateTime
+
+The KNX datetime platform allows to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+
+<div class='note'>
+
+Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+DateTimes that have a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+<div class='note'>
+
+System timezone is used as DPT 19.001 doesn't provide timezone information.
+Year values outside of the range 1900 to 2155 are invalid.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  datetime:
+    - name: "DateTime"
+      address: "0/0/3"
+      state_address: "0/0/4"
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: The group address to which new values will be sent. *DPT 19.001*
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus. *DPT 19.001*
+  required: false
+  type: [string, list]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
+  required: false
+  type: [boolean, string, integer]
+  default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
+
 ## Fan
 
 The KNX fan integration is used to control KNX fans. Following control types are supported:
