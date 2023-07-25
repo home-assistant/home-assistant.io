@@ -92,6 +92,16 @@ These are the properties available for a [Numeric State trigger](/docs/automatio
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has met above/below criteria, if any.
 
+### Sentence
+
+These are the properties available for a [Sentence trigger](/docs/automation/trigger/#sentence-trigger).
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `conversation`
+| `trigger.sentence` | Text of the sentence that was matched
+| `trigger.wildcards` | Object with names and values of all [wildcards](/docs/automation/trigger/#sentence-wildcards)
+
 ### State
 
 These are the properties available for a [State trigger](/docs/automation/trigger/#state-trigger).

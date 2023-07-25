@@ -939,6 +939,20 @@ The sentences matched by this trigger will be:
 
 Punctuation and casing are ignored, so "It's PARTY TIME!!!" will also match.
 
+### Sentence Wildcards
+
+Adding one or more `{lists}` to your trigger sentences will capture any text at that point in the sentence and copy it into a `wildcards` object in the trigger data.
+This allows you to match sentences with variable parts, such as album/artist names or a description of a picture.
+
+For example, the sentence `play {album} by {artist}` will match "play the white album by the beatles" and have the following variables available in the action templates:
+
+{% raw %}
+
+* `{{ trigger.wildcards.album }}` - "the white album"
+* `{{ trigger.wildcards.artist }}` - "the beatles"
+
+{% endraw %}
+
 ## Multiple triggers
 
 It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, processing of your automation rule begins.
