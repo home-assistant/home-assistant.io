@@ -28,7 +28,7 @@ If you have a sensor that returns instantaneous power readings (W or kW), then t
 
 You are trying to add a sensor to the energy dashboard, but it does not appear in the selection list. 
 
-### Remedy
+### Resolution
 
 To find out why the sensor is not showing, check the following points:
 - The sensor must have the appropriate attributes. Check your entity attributes in {% my developer_states title="**Developer Tools** > **States**" %} to confirm the following:
