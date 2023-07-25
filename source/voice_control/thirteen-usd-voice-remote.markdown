@@ -57,7 +57,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
    ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
 8. Select the **ESPHome** integration. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
    ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-new-03.png)
-   - Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply. 
+   - Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
 9. Congratulations! You can now voice control Home Assistant using a button with a built-in microphone. Now give some commands.
 
 ## Controlling Home Assistant over the ATOM Echo
@@ -73,6 +73,11 @@ Before you can use this device with Home Assistant, you need to install a bit of
           - *Is the front door locked?*
           - *Which lights are on in the living room?*
 3. Your command is not supported? Add your own commands using [a sentence trigger](/voice_control/custom_sentences/).
+4. You find ATOM Echo takes to long to start processing your command?
+   - Adjust the silence detection settings. This setting defines how much silence is needed for Assist to find you're done speaking and it can start processing your command.
+   - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
+   - Under **M5Stack ATOM Echo**, select **1 device**.
+   ![Open My link](/images/assist/esp32-atom_silence_detection_01.png)
 
 ## Troubleshooting
 
