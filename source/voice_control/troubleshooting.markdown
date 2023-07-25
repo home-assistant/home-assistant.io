@@ -14,7 +14,7 @@ This section lists a few steps that may help you troubleshoot issues with Assist
 4. At the top of the screen, from the dropdown menu, select the run you are interested in.
 ![Debug speech-to-text](/images/assist/assistant-debug-02.png)
 
-## Test if the phrase works without voice: without executing commands
+## Test a sentence per language without voice: without executing commands
 
 If you want to test if a sentence works in a specific language without actually executing the commands, use the sentence parser in the **Developer tools**.
 
@@ -27,7 +27,7 @@ If you want to test if a sentence works in a specific language without actually 
 ![Open the Assist developer tool sentence parser](/images/assist/assistant-debug-06.png)
 
 
-## Test if the phrase works without voice: while executing the commands
+## Test a sentence per assistant without voice: while executing the commands
 
 If you want to test if a sentence works with a specific assistant while actively executing the commands, use the sentence parser in the **Debug** view.
 
