@@ -171,6 +171,7 @@ binary_sensor:
           else:
             - voice_assistant.start_continuous:
 ```
+[ESPHome Voice Assistant documentation](https://esphome.io/components/voice_assistant.html#click-to-converse)
 
 ### Silence detection
 
@@ -182,7 +183,6 @@ ESPHome Voice Assistant have two config entities to automate it's behavior in Ho
 </p>
 
 [ATOM Echo]: https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa
-[ESPHome Voice Assistant documentation](https://esphome.io/components/voice_assistant.html#click-to-converse)
 [create a push-to-talk voice Assistant using ESPHome]: /voice_control/thirteen-usd-voice-remote/
 
 ## Until next time
