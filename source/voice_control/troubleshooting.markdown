@@ -34,7 +34,7 @@ If you want to test if a sentence works with a specific assistant while actively
 1. [Open the debug view](#view-debug-information).
 2. In the top right corner, select the icon.
 ![Open the pipeline debug dialog](/images/assist/assistant-debug-04.png)
-3. Select the assistant you want to test
+3. Select the assistant you want to test.
 4. Select **Run text pipeline**.
 ![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-01.png)
 5. Enter the phrase you want to test and select **Run**.
