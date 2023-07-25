@@ -118,8 +118,19 @@ To define Home Assistant Assist as default assistant app, follow these steps:
 3. From the list, select **Home Assistant**.
 4. When you go back one step, under **Default app**, it now says **HA: Assist**.
 5. On some watches, you can now start Assist by pressing the crown key.
-   - If this does not work, you need to assign Assist to a button: 
-   - On your watch, go to **Settings** > **Advances features** > **Customize keys**.
-   - Tap **Home key**, then tap **Double press**.
-   - From the list of apps, select **HA: Assist**.
+   - If this does not work, you can manually assign Assist to a button.
 6. Now, use your key and speak a command.
+
+### Assigning a button to Assist
+
+Depending on your watch, you can assign Assist to a button so that you can start it directly with a long or double press.
+
+1. On your watch, go to **Settings** > **Advances features** > **Customize keys**.
+2. Assign a key:
+   - To use double press, tap **Home key** > **Double press**. From the list of apps, select **HA: Assist**.
+   - To use long press, tap **Home key**, then tap **press and hold**. Select **Assistant**. 
+     - Then long press the home key, and from the selection, select **HA: Assist**.
+     - Select **Always**.
+      
+     ![List of assistants](/images/assist/android_watch_7.png)
+3. Now, use your key and speak a command.
