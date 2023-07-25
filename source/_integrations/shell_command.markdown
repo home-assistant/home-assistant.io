@@ -119,7 +119,7 @@ automation:
         data:
           filename: "todo.txt"
         response_variable: todo_response
-      - if: "{{ todo_response['returncode'] == 0 }}'
+      - if: "{{ todo_response['returncode'] == 0 }}"
         then:
           - service: notify.mobile_app_iphone
             data:
