@@ -128,7 +128,7 @@ Depending on your watch, you can assign Assist to a button so that you can start
 1. On your watch, go to **Settings** > **Advances features** > **Customize keys**.
 2. Assign a key:
    - To use double press, tap **Home key** > **Double press**. From the list of apps, select **HA: Assist**.
-   - To use long press, tap **Home key**, then tap **press and hold**. Select **Assistant**. 
+   - On a Galaxy watch, if Assist is set as the default, you can use long press. Tap **Home key**, then tap **press and hold**. Select **Assistant**. 
      - Then long press the home key, and from the selection, select **HA: Assist**.
      - Select **Always**.
       
