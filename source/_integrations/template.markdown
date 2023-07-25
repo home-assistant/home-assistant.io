@@ -3,6 +3,10 @@ title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
+  - Image
+  - Number
+  - Select
   - Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
@@ -26,6 +30,7 @@ ha_platforms:
   - switch
   - vacuum
   - weather
+  - image
 ha_integration_type: integration
 ---
 

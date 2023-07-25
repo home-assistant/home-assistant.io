@@ -36,6 +36,7 @@ ha_platforms:
   - update
   - vacuum
   - water_heater
+  - image
 ha_integration_type: integration
 ha_quality_scale: gold
 ---
@@ -72,8 +73,8 @@ MQTT broker settings are configured when the MQTT integration is first set up an
 Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-1. On the MQTT integration, select the cogwheel. 
-1. Select **Configure**, then **Re-configure MQTT**.
+2. Select the MQTT integration.
+3. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
 
@@ -128,9 +129,9 @@ A configured client certificate will only be active if broker certificate valida
 To change the settings, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-1. On the MQTT integration, select the cogwheel. 
-1. Select **Configure**, then **Re-configure MQTT**.
-1. To open the MQTT options page, select **Next**.
+2. Select the MQTT integration.
+3. Select **Configure**, then **Re-configure MQTT**.
+4. To open the MQTT options page, select **Next**.
 
 ### Discovery options
 
@@ -156,8 +157,8 @@ mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
 Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Choose "Settings" on the left menu, click "Devices & Services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-1. On the Mosquitto broker integration, select the cogwheel, then select **Configure**.
-1. Enter something similar to the example below into the **topic** field under **Publish a packet**. Select **Publish**.
+2. Select the Mosquitto broker integration, then select **Configure**.
+3. Enter something similar to the example below into the **topic** field under **Publish a packet**. Select **Publish**.
 
 ```bash
    homeassistant/switch/1/power
@@ -568,6 +569,7 @@ The following software has built-in support for MQTT discovery:
 - [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
+- [MyElectricalData](https://github.com/MyElectricalData/myelectricaldata#english)
 - [Nuki Hub](https://github.com/technyon/nuki_hub)
 - [Nuki Smart Lock 3.0 Pro](https://support.nuki.io/hc/articles/12947926779409-MQTT-support), [more info](https://developer.nuki.io/t/mqtt-api-specification-v1-3/17626)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
@@ -593,16 +595,18 @@ A motion detection device which can be represented by a [binary sensor](/integra
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
-- Payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}`
+- Configuration payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
-To create a new sensor manually.
+It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together.
+
+To create a new sensor manually:
 
 ```bash
-mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}'
 ```
 
-Update the state.
+Update the state:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ON
@@ -621,9 +625,9 @@ For more details please refer to the [MQTT testing section](/integrations/mqtt/#
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
 - Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}" }`
+- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}","unique_id": "temp01ae",  "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" }}`
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
+- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}","unique_id": "hum01ae", "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" } }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
 
 #### Entities with command topics
@@ -633,15 +637,15 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
-- Payload:  `{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}`
+- Payload:  `{"name": "Irrigation", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}`
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 ```bash
 mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
-  -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}'
+  -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}}'
 ```
 
-Set the state.
+Set the state:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/set" -m ON
@@ -679,7 +683,6 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
   ```
 
 #### Use object_id to influence the entity id
-
 
 The entity id is automatically generated from the entity's name. All MQTT integrations optionally support providing an `object_id` which will be used instead if provided.
 
@@ -835,14 +838,14 @@ The MQTT integration will register the service `mqtt.publish` which allows publi
 
 ### Service `mqtt.publish`
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `topic` | no | Topic to publish payload to.
-| `topic_template` | no | Template to render as topic to publish payload to.
-| `payload` | yes | Payload to publish.
-| `payload_template` | yes | Template to render as payload value.
-| `qos` | yes | Quality of Service to use. (default: 0)
-| `retain` | yes | If message should have the retain flag set. (default: false)
+| Service data attribute | Optional | Description                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------ |
+| `topic`                | no       | Topic to publish payload to.                                 |
+| `topic_template`       | no       | Template to render as topic to publish payload to.           |
+| `payload`              | yes      | Payload to publish.                                          |
+| `payload_template`     | yes      | Template to render as payload value.                         |
+| `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
+| `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
 <p class='note'>
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
@@ -919,10 +922,10 @@ retain: true
 
 Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `topic` | no | Topic to dump. Can contain a wildcard (`#` or `+`).
-| `duration` | yes | Duration in seconds that we will listen for messages. Default is 5 seconds.
+| Service data attribute | Optional | Description                                                                 |
+| ---------------------- | -------- | --------------------------------------------------------------------------- |
+| `topic`                | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
+| `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
 
 ```yaml
 topic: openzwave/#

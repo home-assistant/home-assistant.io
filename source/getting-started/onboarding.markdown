@@ -20,26 +20,26 @@ In this step, you will create the owner account of Home Assistant. This account 
 
     ![Set your username and password.](/images/getting-started/username.png)
 
-1. Enter a name for your home and define the location specific settings and the language of the user interface. 
-   * To automatically populate these settings, select **Detect**.
-   * If you'd rather not send your location, you can set these values manually.
+2. Enter a name for your home and define the location specific settings and the language of the user interface. 
+   - To automatically populate these settings, select **Detect**.
+   - If you'd rather not send your location, you can set these values manually.
 
     ![Define your location specific settings.](/images/getting-started/onboarding_location.png)
     
-1. Select which information you are willing to share. 
-    * Sharing is disabled by default. However, we would like to encourage you to share some of this data. 
-    * This information helps us to find out which platforms we need to support and where to focus our efforts.
-    * The data is anonymized and aggregated. To see the charts we generate out of this data, take a look at our [analytics page](https://analytics.home-assistant.io/). 
+3. Select which information you are willing to share. 
+    - Sharing is disabled by default. However, we would like to encourage you to share some of this data. 
+    - This information helps us to find out which platforms we need to support and where to focus our efforts.
+    - The data is anonymized and aggregated. To see the charts we generate out of this data, take a look at our [analytics page](https://analytics.home-assistant.io/). 
     
    ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png) 
 
-1. Once you are done, select **Next**. 
-    * Home Assistant will then show any {% term devices %} it has discovered on your network.
-    * Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
+4. Once you are done, select **Next**. 
+    - Home Assistant will then show any {% term devices %} it has discovered on your network.
+    - Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
 
     ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
 
-1. Finally, select **Finish**. 
-   * Now you're brought to the Home Assistant web interface. This screen will show all of your devices.
+5. Finally, select **Finish**. 
+   - Now you're brought to the Home Assistant web interface. This screen will show all of your devices.
 
 {% include getting-started/next_step.html step="Concepts & Terminologies" link="/getting-started/concepts-terminology/" %}

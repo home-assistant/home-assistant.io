@@ -44,8 +44,8 @@ ha_platforms:
   - sensor
   - switch
   - text
-  - time
   - weather
+  - time
 ha_config_flow: true
 ha_integration_type: hub
 ---
@@ -338,7 +338,7 @@ address:
   type: string
   required: true
 type:
-  description: Type of the exposed value. Either `binary`, `time`, `date`, `datetime` or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
+  description: Type of the exposed value. Either `binary`, `time` *DPT 10.001*, `date` *DPT 11.001*, `datetime` *DPT 19.001* or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
   type: [string, integer]
   required: true
 entity_id:

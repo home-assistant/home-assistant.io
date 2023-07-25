@@ -3,15 +3,16 @@ title: ESPHome
 description: Support for ESPHome devices using the native ESPHome API.
 featured: true
 ha_category:
+  - Alarm
   - DIY
   - Update
-  - Alarm Control Panel
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@OttoWinter'
   - '@jesserockz'
+  - '@bdraco'
 ha_domain: esphome
 ha_zeroconf: true
 ha_platforms:
