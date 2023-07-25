@@ -948,8 +948,8 @@ For example, the sentence `play {album} by {artist}` will match "play the white 
 
 {% raw %}
 
-* `{{ trigger.wildcards.album }}` - "the white album"
-* `{{ trigger.wildcards.artist }}` - "the beatles"
+- `{{ trigger.wildcards.album }}` - "the white album"
+- `{{ trigger.wildcards.artist }}` - "the beatles"
 
 {% endraw %}
 
