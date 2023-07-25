@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: duotecno
 ha_platforms:
   - switch
+  - cover
 ha_integration_type: hub
 ---
 
