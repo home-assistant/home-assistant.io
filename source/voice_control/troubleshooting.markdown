@@ -14,16 +14,32 @@ This section lists a few steps that may help you troubleshoot issues with Assist
 4. At the top of the screen, from the dropdown menu, select the run you are interested in.
 ![Debug speech-to-text](/images/assist/assistant-debug-02.png)
 
-## Test if the phrase works without voice
+## Test if the phrase works without voice: without executing commands
+
+If you want to test if a sentence works in a specific language without actually executing the commands, use the sentence parser in the **Developer tools**.
+
+1. Go to  {% my developer_assist title="**Developer tools** > **Assist**" %}.
+2. In the sentence parser, select the language and enter the sentence you want to test.
+3. The debug tool shows you the following:
+   - The intent triggered.
+   - The entities that were targeted.
+   - Which of the targeted entities were matched.
+![Open the Assist developer tool sentence parser](/images/assist/assistant-debug-06.png)
+
+
+## Test if the phrase works without voice: while executing the commands
+
+If you want to test if a sentence works with a specific assistant while actively executing the commands, use the sentence parser in the **Debug** view.
 
 1. [Open the debug view](#view-debug-information).
 2. In the top right corner, select the icon.
 ![Open the pipeline debug dialog](/images/assist/assistant-debug-04.png)
-3. Select **Run text pipeline**.
+3. Select the assistant you want to test
+4. Select **Run text pipeline**.
 ![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-01.png)
-4. Enter the phrase you want to test and select **Run**.
+5. Enter the phrase you want to test and select **Run**.
 ![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-02.png)
-5. Check if it worked.
+6. Check if it worked.
 ![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-03.png)
    - If the phrase does not work, try a variant. For example, if *Turn off the light* doesn't work, try: *Turn off the lights in the kitchen*.
    - Check if your phrase is [supported](/voice_control/builtin_sentences/).
