@@ -70,7 +70,7 @@ extensions:
 You can write reusable Jinja templates by adding them to a `custom_templates` folder under your
 configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
 Templates in this folder will be loaded at startup. To reload the templates without
-restarting Home Assistant, invoke the `homeassistant.reload_custom_templates` service.
+restarting Home Assistant, invoke the {% my developer_call_service service="homeassistant.reload_custom_templates" %} service.
 
 Once the templates are loaded, Jinja [includes](https://jinja.palletsprojects.com/en/3.0.x/templates/#include) and [imports](https://jinja.palletsprojects.com/en/3.0.x/templates/#import) will work
 using `config/custom_templates` as the base directory.
