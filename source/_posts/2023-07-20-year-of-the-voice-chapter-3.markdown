@@ -104,7 +104,7 @@ These sentences take priority over the built-in commands, and work anywhere that
 
 ## Assist debug tool
 
-The Home Assistant community is hard at work translating [common smart home commands]. To help contributors, we've added an "Assist" developer tool that lets you test out sentences without actually executing the commands:
+The Home Assistant community is hard at work translating [common smart home commands]. To help contributors, we've added an ["Assist" developer tool](/voice_control/troubleshooting/#test-a-sentence-per-assistant-without-voice-while-executing-the-commands) that lets you test out sentences without actually executing the commands:
 
 <p class='img'>
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/sentence-debug.png" alt="Screenshot of Assist developer tool" />
