@@ -19,8 +19,8 @@ Prior to enabling the sensor, your Home Assistant instance must be enabled with 
 
 It is necessary to have configured the internal and external URLs. Settings-> System-> Network → (Home Assistant URL)
 For example something like this if you have configured Duck DNS changing to the corresponding values.
-* Internet: https://CustomName.duckdns.org:8123
-* Local Network https://192.168.x.xxx:8123
+- Internet: https://CustomName.duckdns.org:8123
+- Local Network https://192.168.x.xxx:8123
 
 <div class='note'>
 There is no need for Access from the Internet to Home Assistant for this Integration to work. Home Assistant can only be accessible from the internal Network or via VPN. But a Certificate is required in any case.
