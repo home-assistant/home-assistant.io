@@ -105,6 +105,10 @@ Note that POE control actually configures the network port of the switch which t
 
 Entities appear automatically for each restriction group. If there are no restrictions in a group, no entity will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
 
+### Control WLAN availability
+
+Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
+
 ## Sensor
 
 ### Bandwidth sensor
