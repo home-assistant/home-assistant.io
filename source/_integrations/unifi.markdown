@@ -3,6 +3,7 @@ title: UniFi Network
 description: Instructions on how to configure UniFi Network integration with UniFi Network application by Ubiquiti.
 ha_category:
   - Hub
+  - Image
   - Presence Detection
   - Sensor
   - Switch
@@ -28,6 +29,7 @@ ha_integration_type: hub
 
 There is currently support for the following device types within Home Assistant:
 
+- [Image](#image)
 - [Presence Detection](#presence-detection)
 - [Switch](#switch)
 - [Sensor](#sensor)
@@ -54,6 +56,10 @@ For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti
 The UniFi Network application can either be a UniFi OS console device (like the Cloud Key), or as software on any Linux system. If you run the UniFi Network application on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
 
 It is recommended that you run the UniFi Network application in a dedicated virtual machine to avoid that situation.
+
+## Image
+
+Provides QR Code images that can be scanned to easily join a specific WLAN. Entities are disabled by default.
 
 ## Presence detection
 
