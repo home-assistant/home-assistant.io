@@ -107,7 +107,7 @@ Entities appear automatically for each restriction group. If there are no restri
 
 ### Control WLAN availability
 
-Entities appear for each WLAN. Changing state of WLAN will trigger a reconfiguration of affected access points limiting access to all WLANs exposed by the access point.
+Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
 
 ## Sensor
 
