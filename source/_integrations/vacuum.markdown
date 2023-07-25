@@ -24,7 +24,7 @@ vacuum:
     host: 192.168.1.2
 ```
 
-### Component services
+### Integration services
 
 Available services: `turn_on`, `turn_off`, `start_pause`, `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `set_fan_speed` and `send_command`.
 

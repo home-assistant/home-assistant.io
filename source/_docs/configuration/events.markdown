@@ -98,7 +98,7 @@ This event is fired when a new service has been registered within Home Assistant
 
 | Field     | Description                                                             |
 | --------- | ----------------------------------------------------------------------- |
-| `domain`  | The domain of the component that offers this service. Example: `light`. |
+| `domain`  | The domain of the integration that offers this service. Example: `light`. |
 | `service` | The name of the service. Example: `turn_on`                             |
 
 ### `service_removed`
@@ -107,7 +107,7 @@ This event is fired when a service has been removed from Home Assistant.
 
 | Field     | Description                                                             |
 | --------- | ----------------------------------------------------------------------- |
-| `domain`  | The domain of the component that offers this service. Example: `light`. |
+| `domain`  | The domain of the integration that offers this service. Example: `light`. |
 | `service` | The name of the service. Example: `turn_on`                             |
 
 ### `state_changed`

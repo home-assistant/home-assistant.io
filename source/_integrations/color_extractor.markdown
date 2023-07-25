@@ -36,7 +36,7 @@ Passing the key `color_extract_url` to the service call will download the linked
 
 <div class="note">
   
-  Please ensure any [external URLs](/docs/configuration/basic/#allowlist_external_urls) or [external files](/docs/configuration/basic/#allowlist_external_dirs) are authorized for use, you will receive error messages if this component is not allowed access to these external resources.
+  Please ensure any [external URLs](/docs/configuration/basic/#allowlist_external_urls) or [external files](/docs/configuration/basic/#allowlist_external_dirs) are authorized for use. You will receive error messages if this integration is not allowed access to these external resources.
   
 </div>
 

@@ -21,6 +21,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - cover
+  - diagnostics
   - light
   - sensor
   - siren
