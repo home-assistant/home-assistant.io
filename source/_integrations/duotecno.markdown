@@ -4,7 +4,7 @@ description: Access and control your Duotecno nodes.
 ha_category:
   - Switch
 ha_iot_class: Local Push
-ha_release: '2023.8.0'
+ha_release: '2023.8'
 ha_config_flow: true
 ha_codeowners:
   - '@Cereal2nd'

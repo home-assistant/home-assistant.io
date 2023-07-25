@@ -3,7 +3,7 @@ title: "MQTT Event"
 description: "Instructions on how to integrate MQTT events into Home Assistant."
 ha_category:
   - Event
-ha_release: 2023.08
+ha_release: 2023.8
 ha_iot_class: Configurable
 ha_domain: mqtt
 ---
