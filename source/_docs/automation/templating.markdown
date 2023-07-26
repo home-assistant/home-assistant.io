@@ -100,7 +100,7 @@ These are the properties available for a [Sentence trigger](/docs/automation/tri
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `conversation`
 | `trigger.sentence` | Text of the sentence that was matched
-| `trigger.wildcards` | Object with names and values of all [wildcards](/docs/automation/trigger/#sentence-wildcards)
+| `trigger.entities` | Object with matched entities by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each entity contains: <ul><li>`name` - name of the entity</li><li>`text` - matched text</li><li>`value` - output value (see [lists](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>
 
 ### State
 
