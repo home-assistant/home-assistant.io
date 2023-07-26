@@ -303,6 +303,8 @@ These URLs work great when trying to send notifications. Home Assistant will aut
 
 `nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect integration. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any entity provided by the UniFi Protect integration that can be reversed to a UniFi Protect camera (i.e., an entity ID of a detected object sensor).
 
+The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Developer Tools** > **States**" %} and find the event when the sensor started detecting motion.
+
 ## Troubleshooting
 
 ### Delay in Video Feed
