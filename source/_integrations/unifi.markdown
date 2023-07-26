@@ -115,6 +115,10 @@ Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfi
 
 Get entities reporting receiving and transmitting bandwidth per network client.
 
+### Wlan clients sensor
+
+Entities reporting connected clients to a WLAN.
+
 ### Uptime sensor
 
 Get entities reporting uptime per network client.
