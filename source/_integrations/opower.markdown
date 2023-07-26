@@ -56,7 +56,7 @@ For gas:
 - Typical monthly gas usage
 - Typical monthly gas cost
 
-Note the unit for gas is CCF (centum cubic feet) which is equivalent to the therm unit. 1 therm is equivalent to one hundred cubic feet or 1 CCF.
+Note the unit for gas is CCF (centum cubic feet). 1 CCF is one hundred cubic feet which is equivalent to 1 therm.
 
 ## Energy
 
