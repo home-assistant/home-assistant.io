@@ -953,6 +953,9 @@ For example, the sentence `play {album} by {artist}` will match "play the white 
 
 {% endraw %}
 
+Wildcards will match as much text as possible, which may lead to surprises: "play day by day by taken by trees" will match `album` as "day by day by taken" and `artist` as "trees".
+Including extra words in your template can help: `play {album} by artist {artist}` can now correctly match "play day by day by artist taken by trees".
+
 ## Multiple triggers
 
 It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, processing of your automation rule begins.
