@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The MyPermobil integration allows you to view various sensors with information about your wheelchair, such as battery status, distance traveled, number of seating adjustments, etc.  The values of the sensors may be delayed by several minutes and should not be relied on for any crucial applications.
+The MyPermobil integration allows you to view various sensors with information about your Permobil wheelchair, such as battery status, distance traveled, number of seating adjustments, etc. The values of the sensors may be delayed by several minutes and should not be relied on for any crucial applications.
 
 {% include integrations/config_flow.md %}
 
@@ -26,7 +26,7 @@ Configure the integration by entering your email associated with your MyPermobil
 
 The sensors will update periodically with information about your wheelchair. The updates may be delayed by several minutes and should not be relied on for any crucial applications.
 
-A total of 13 sensors are available:
+A total of 11 sensors are available:
 
 ### Battery Charge
 
@@ -36,17 +36,13 @@ The current battery state of the wheelchair as a percentage.
 
 The maximum amount of charge the battery can hold measured as a percentage of the battery's original capacity.
 
-### is Charging
-
-A boolean value that indicates true if the battery is currently charging. The wheelchair needs to have been charged at least once for this sensor to work.
-
 ### Charge Time Left
 
 A number indicating how many hours the battery needs until it is fully charged. The battery needs to be currently charging for this sensor to work.
 
 ### Distance Left
 
-The distance the wheelchair can travel on its current charge. The unit of measurement is the same as you have selected in your MyPermobil account. This figure is an estimate and should not be relied upon.
+The distance the wheelchair can travel on its current charge. This figure is an estimate and should not be relied upon.
 
 ### Indoor Drive Time
 
@@ -62,19 +58,15 @@ The number of watt hours of energy stored in the battery on its current charge.
 
 ### Full Charge Distance
 
-The distance the wheelchair can travel on a full charge. The unit of distance is the same as you have selected in your MyPermobil account. This figure is an estimate and should not be relied upon.
+The distance the wheelchair can travel on a full charge. This figure is an estimate and should not be relied upon.
 
 ### Distance Traveled
 
-The distance the wheelchair has traveled today. The unit of distance is the same as you have selected in your MyPermobil account.
+The distance the wheelchair has traveled today.
 
 ### Number of Adjustments
 
-The number of adjustments sessions today. Multiple different adjustment within a short time period are counted as a single one.
-
-### Record Distance Traveled
-
-The record distance traveled in a single day.
+The number of adjustments sessions today. Multiple different adjustment within a short time period are counted as a single sessions.
 
 ### Record Number of Adjustments
 
