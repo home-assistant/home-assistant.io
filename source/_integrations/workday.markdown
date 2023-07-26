@@ -52,11 +52,11 @@ The offset can be used to see if future days are workdays. For example, put `1` 
 ## Service `workday.check_date`
 
 This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
-with test if date provided is a workday or not.
+providing feedback if the date is a workday or not.
 
 | Service data attribute | Required | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `check_date` | yes | Date to test if workday or not. | 2019-03-10
+| `check_date` | yes | Date to test if workday or not. | 2022-03-10
 
 {% raw %}
 ```yaml
@@ -69,11 +69,11 @@ response_variable: check_date
 ```
 {% endraw %}
 
-The response data field `date` is a list providing:
+The response data field `check_date` is providing:
 
 | Response data | Description | Example |
 | ---------------------- | ----------- | -------- |
-| `date` | Date sent to test. | "2023-12-25"
+| `date` | Date provided by the user. | "2023-12-25"
 | `workday` | Is date a workday. | True
 
 ## Automation example
