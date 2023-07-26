@@ -60,7 +60,7 @@ For gas:
 
 Because utilities only release usage/cost data with a 48-hour delay, the integration inserts data into statistic objects. At the initial setup, the integration pulls historical monthly usage/cost since the account activation, daily usage/cost for the past 3 years, and for electricity hourly usage/cost for the past 2 months. After the initial setup, the integration keeps pulling hourly data for electricity and daily data for gas for the past 30 days to allow for any corrections in the data from the utilities.
 
-In the configuration of the energy dashboard (**{% my config/energy title="Settings > Dashboards > Energy" %}**):
+In the configuration of the energy dashboard (**Settings > Dashboards > Energy**):
 
 For electricity:
 
