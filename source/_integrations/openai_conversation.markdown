@@ -64,7 +64,7 @@ with the requested image.
 | ---------------------- | -------- | ------------------------------------------------------ | ---------------- |
 | `config_entry`         | no       | Integration entry ID to use.                           |                  |
 | `prompt`               | no       | The text to turn into an image.                        | Picture of a dog |
-| `size`                 | yes      | Size of the returned image in pixels, defaults to 512. | 512              |
+| `size`                 | yes      | Size of the returned (square) image in pixels, defaults to 512. | 512              |
 
 {% raw %}
 ```yaml
