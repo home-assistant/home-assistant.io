@@ -3,11 +3,13 @@ title: Airzone Cloud
 description: Instructions on how to integrate Airzone Cloud within Home Assistant.
 ha_release: 2023.6
 ha_category:
+  - Binary Sensor
   - Sensor
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: airzone_cloud
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - sensor
 ha_codeowners:
@@ -42,6 +44,14 @@ Password:
   description: "Cloud API password"
 {% endconfiguration_basic %}
 
+## Binary Sensors
+
+For each Airzone zone (thermostat), the following *binary sensors* are created:
+
+| Condition           | Description                                             |
+| :------------------ | :------------------------------------------------------ |
+| problems            | Indicates that the current zone has errors or warnings. |
+
 ## Sensors
 
 For each Airzone Aidoo (HVAC Wi-Fi controller), the following *sensors* are created:
@@ -56,3 +66,9 @@ For each Airzone zone (thermostat), the following *sensors* are created:
 | :------------------ | :-------------------------------------------------- |
 | humidity            | Measures the relative humidity in the current zone. |
 | temperature         | Measures the temperature in the current zone.       |
+
+For each Airzone WebServer (HVAC Wi-Fi controller), the following *sensors* are created:
+
+| Condition           | Description                                        |
+| :------------------ | :------------------------------------------------- |
+| rssi                | Wi-Fi RSSI.                                        |

@@ -5,28 +5,41 @@ description: "Instructions to get Home Assistant configured."
 
 Alright, you made it here. The tough part is done.
 
-With Home Assistant installed, it's time to configure it. Here you will create the owner account of Home Assistant. This account will be an administrator and will always be able to change everything. Enter a name, username, password and select **create account**.
+After entering the Home Assistant device's address in your browser's address bar, the preparation screen is shown. Depending on your hardware, preparation may take a while.
 
-![Set your username and password.](/images/getting-started/username.png)
+![Home Assistant preparation](/images/getting-started/onboarding_preparing_01.png)
 
-Next, you can enter a name for your home and set your location and unit system. Select **Detect** to find your location and set your time zone and unit system based on that location. If you'd rather not send your location, you can set these values manually.
+To show the logs, select the blue pulsing circle.
+![Home Assistant preparation](/images/getting-started/onboarding_preparing_show_logs.png)
 
-![Set your location, time zone, and unit system.](/images/getting-started/location.png)
+With Home Assistant installed, it's time to set up the basics.
 
-Once you are done, click **Next**. In this screen, Home Assistant will show any {% term devices %} that it has discovered on your network. Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
+In this step, you will create the owner account of Home Assistant. This account is an administrator account. It will always be able to change everything. 
+ 
+1. Enter a name, username, and password.  Select **Create account**.
 
-![Discovery of devices on your network.](/images/getting-started/devices.png)
+    ![Set your username and password.](/images/getting-started/username.png)
 
-Finally, click **Finish**. Now you're brought to the Home Assistant web interface. This screen will show all of your devices. So let's get that screen filled up!
+2. Enter a name for your home and define the location specific settings and the language of the user interface. 
+   - To automatically populate these settings, select **Detect**.
+   - If you'd rather not send your location, you can set these values manually.
 
-![The Home Assistant user interface.](/images/getting-started/lovelace.png)
+    ![Define your location specific settings.](/images/getting-started/onboarding_location.png)
+    
+3. Select which information you are willing to share. 
+    - Sharing is disabled by default. However, we would like to encourage you to share some of this data. 
+    - This information helps us to find out which platforms we need to support and where to focus our efforts.
+    - The data is anonymized and aggregated. To see the charts we generate out of this data, take a look at our [analytics page](https://analytics.home-assistant.io/). 
+    
+   ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png) 
 
-From the side bar, click on {% my integrations title="Settings > Devices & Services" %}. On this screen, you will be able to set up {% term integrations %} with Home Assistant. 
+4. Once you are done, select **Next**. 
+    - Home Assistant will then show any {% term devices %} it has discovered on your network.
+    - Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
 
-![The integrations page in the configurations panel shows you all your configured integrations.](/images/getting-started/integrations.png)
+    ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
 
-When each integration is done setting up, it will ask you to put the new devices in areas. Areas allow you to organize all the devices in your home.
-
-When you're done, navigate back to the web interface and voila, your devices are ready for you to control.
+5. Finally, select **Finish**. 
+   - Now you're brought to the Home Assistant web interface. This screen will show all of your devices.
 
 {% include getting-started/next_step.html step="Concepts & Terminologies" link="/getting-started/concepts-terminology/" %}

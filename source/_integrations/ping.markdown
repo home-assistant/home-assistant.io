@@ -50,7 +50,7 @@ name:
   default: Ping [hostname]
 {% endconfiguration %}
 
-The sensor exposes the different round trip times values measured by `ping` as attributes:
+The sensor exposes the different round trip times in milliseconds measured by `ping` as attributes:
 
 - `round_trip_time_mdev`
 - `round_trip_time_avg`

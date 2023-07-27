@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-Sensors are a basic platform component in Home Assistant. They monitor the states and conditions of a variety of entities. An entity can be many things. This can include a physical device like a motion sensor that reports the battery level, a web service that retrieves the weather temperature, a built-in function that calculates the sun's elevation relative to your GPS position, or even a custom sensor you may have created to report the free space on your laptop. These are all _things_ reporting different types of information.
+Sensors are a basic integration in Home Assistant. They monitor the states and conditions of a variety of entities. An entity can be many things. This can include a physical device like a motion sensor that reports the battery level, a web service that retrieves the weather temperature, a built-in function that calculates the sun's elevation relative to your GPS position, or even a custom sensor you may have created to report the free space on your laptop. These are all _things_ reporting different types of information.
 
 Some of these sensors are built-in to Home Assistant, some are created automatically when you add an integration (see this [list](/integrations/#sensor)), and some can be created manually. The [Statistics](/integrations/statistics) and [Template](/integrations/template) sensors are two examples of the last case.
 
@@ -46,6 +46,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **nitrogen_monoxide**: Concentration of Nitrogen Monoxide in µg/m³
 - **nitrous_oxide**: Concentration of Nitrous Oxide in µg/m³
 - **ozone**: Concentration of Ozone in µg/m³
+- **ph**: Potential hydrogen (pH) value of a water solution
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³

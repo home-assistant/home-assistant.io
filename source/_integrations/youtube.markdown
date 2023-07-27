@@ -15,8 +15,14 @@ ha_integration_type: service
 ---
 
 The YouTube integration allows you to connect YouTube channels to Home Assistant.
+For every channel you add, it will create sensors for:
+- Subscriber count
+- The latest uploaded video
 
 ## Prerequisites
+
+To be able to configure the integration, you need to have a YouTube channel.
+How to create one can be found [here](https://support.google.com/youtube/answer/1646861).
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
 These credentials are the same as the ones for [Nest](/integrations/nest), [Google Mail](/integrations/google_mail) and [Google Sheets](/integrations/google_sheets).
