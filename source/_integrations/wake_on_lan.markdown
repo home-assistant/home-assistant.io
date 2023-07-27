@@ -22,16 +22,55 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To use this integration in your installation, add the following to your `configuration.yaml` file:
+{% configuration %}
+wake_on_lan:
+  description: Configure the Wake on Lan integration.
+  required: true
+  type: list
+  keys:
+    switch:
+      description: Binary sensor platform.
+      required: false
+      type: map
+      keys:
+        mac:
+          description: "The MAC address to send the wake up command to, e.g, `00:01:02:03:04:05`."
+          required: true
+          type: string
+        name:
+          description: The name of the switch.
+          required: false
+          default: Wake on LAN
+          type: string
+        host:
+          description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
+          required: false
+          type: string
+        turn_off:
+          description: Defines an [action](/getting-started/automation/) to run when the switch is turned off.
+          required: false
+          type: string
+        broadcast_address:
+          description: The IP address of the host to send the magic packet to.
+          required: false
+          default: 255.255.255.255
+          type: string
+        broadcast_port:
+          description: The port to send the magic packet to.
+          required: false
+          type: integer
+{% endconfiguration %}
+
+### Integration services
+
+Available services: `send_magic_packet`.
+
+You can configure Wake on Lan to only have the service by not creating the switches.
 
 ```yaml
 # Example configuration.yaml entry
 wake_on_lan:
 ```
-
-### Integration services
-
-Available services: `send_magic_packet`.
 
 #### Service `wake_on_lan.send_magic_packet`
 
@@ -70,39 +109,11 @@ To enable this switch in your installation, add the following to your `configura
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: wake_on_lan
-    mac: MAC_ADDRESS
+wake_on_lan:
+  - switch:
+      mac: MAC_ADDRESS
+      name: "Name of switch"
 ```
-
-{% configuration %}
-mac:
-  description: "The MAC address to send the wake up command to, e.g, `00:01:02:03:04:05`."
-  required: true
-  type: string
-name:
-  description: The name of the switch.
-  required: false
-  default: Wake on LAN
-  type: string
-host:
-  description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
-  required: false
-  type: string
-turn_off:
-  description: Defines an [action](/getting-started/automation/) to run when the switch is turned off.
-  required: false
-  type: string
-broadcast_address:
-  description: The IP address of the host to send the magic packet to.
-  required: false
-  default: 255.255.255.255
-  type: string
-broadcast_port:
-  description: The port to send the magic packet to.
-  required: false
-  type: integer
-{% endconfiguration %}
 
 ### Examples
 
@@ -123,12 +134,12 @@ from Home Assistant running on another Linux computer (the **server**).
 8. On the **server**, add the following to your configuration, replacing TARGET with the target's name:
 
 ```yaml
-switch:
-  - platform: wake_on_lan
-    name: "TARGET"
-    ...
-    turn_off:
-      service: shell_command.turn_off_TARGET
+wake_on_lan:
+  - switch
+      name: "TARGET"
+      ...
+      turn_off:
+        service: shell_command.turn_off_TARGET
 
 shell_command:
   turn_off_TARGET: "ssh hass@TARGET sudo pm-suspend"
