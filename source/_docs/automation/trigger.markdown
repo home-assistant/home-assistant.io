@@ -941,19 +941,19 @@ Punctuation and casing are ignored, so "It's PARTY TIME!!!" will also match.
 
 ### Sentence Wildcards
 
-Adding one or more `{lists}` to your trigger sentences will capture any text at that point in the sentence. An `entities` object will be [available in the trigger data](/docs/automation/templating#sentence).
+Adding one or more `{lists}` to your trigger sentences will capture any text at that point in the sentence. A `slots` object will be [available in the trigger data](/docs/automation/templating#sentence).
 This allows you to match sentences with variable parts, such as album/artist names or a description of a picture.
 
 For example, the sentence `play {album} by {artist}` will match "play the white album by the beatles" and have the following variables available in the action templates:
 
 {% raw %}
 
-- `{{ trigger.entities.album.text }}` - "the white album"
-- `{{ trigger.entities.artist.text }}` - "the beatles"
+- `{{ trigger.slots.album }}` - "the white album"
+- `{{ trigger.slots.artist }}` - "the beatles"
 
 {% endraw %}
 
-Wildcards will match as much text as possible, which may lead to surprises: "play day by day by taken by trees" will match `album` as "day by day by taken" and `artist` as "trees".
+Wildcards will match as much text as possible, which may lead to surprises: "play day by day by taken by trees" will match `album` as "day" and `artist` as "day by taken by trees".
 Including extra words in your template can help: `play {album} by artist {artist}` can now correctly match "play day by day by artist taken by trees".
 
 ## Multiple triggers
