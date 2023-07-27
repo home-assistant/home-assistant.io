@@ -20,6 +20,46 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Presence Detection](#presence-detection)
 
+{% configuration %}
+ping:
+  description: The platforms to use for you command_line integration.
+  required: true
+  type: list
+  keys:
+    host:
+      description: Host to use as binary sensor or device tracker.
+      required: true
+      type: string
+    binary_sensor:
+      description: Binary sensor platform.
+      required: false
+      type: map
+      keys:
+        name:
+          description: Let you overwrite the name of the device.
+          required: true
+          type: string
+        count:
+          description: Number of packets to be sent up to a maximum of 100.
+          required: false
+          type: integer
+          default: 5
+    device_tracker:
+      description: Device tracker platform.
+      required: false
+      type: map
+      keys:
+        name:
+          description: Let you overwrite the name of the device.
+          required: true
+          type: string
+        count:
+          description: Number of packet used for each device (avoid false detection).
+          required: false
+          type: integer
+          default: 5
+{% endconfiguration %}
+
 ## Binary Sensor
 
 The `ping` binary sensor platform allows you to use `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
@@ -28,27 +68,11 @@ To use this sensor in your installation, add the following to your `configuratio
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: ping
-    host: 192.168.0.1
+ping:
+  - host: "127.0.0.1"
+    binary_sensor:
+      name: "Presence 127.0.0.1"
 ```
-
-{% configuration %}
-host:
-  description: The IP address or hostname of the system you want to track.
-  required: true
-  type: string
-count:
-  description: Number of packets to be sent up to a maximum of 100.
-  required: false
-  type: integer
-  default: 5
-name:
-  description: Let you overwrite the name of the device.
-  required: false
-  type: string
-  default: Ping [hostname]
-{% endconfiguration %}
 
 The sensor exposes the different round trip times in milliseconds measured by `ping` as attributes:
 
@@ -56,18 +80,6 @@ The sensor exposes the different round trip times in milliseconds measured by `p
 - `round_trip_time_avg`
 - `round_trip_time_min`
 - `round_trip_time_max`
-
-The default polling interval is 5 minutes. As many integrations [based on the entity class](/docs/configuration/platform_options), it is possible to overwrite this scan interval by specifying a `scan_interval` configuration key (value in seconds). In the example below we setup the `ping` binary sensor to poll the device every 30 seconds.
-
-```yaml
-# Example configuration.yaml entry to ping host 192.168.0.1 with 2 packets every 30 seconds.
-binary_sensor:
-  - platform: ping
-    host: 192.168.0.1
-    name: "device name"
-    count: 2
-    scan_interval: 30
-```
 
 <div class='note'>
 When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.
@@ -87,21 +99,25 @@ To use this presence detection in your installation, add the following to your `
 
 ```yaml
 # Example configuration.yaml entry
-device_tracker:
-  - platform: ping
-    hosts:
-      device_name_1: 192.168.2.10
+ping:
+  - host: "127.0.0.1"
+    device_tracker:
+      name: "Tracker 127.0.0.1"
 ```
 
-{% configuration %}
-hosts:
-  description: Map of device names and their corresponding IP address or hostname. Device names must conform to the standard requirements of lower case, numbers and underscore only - see [entity names](/docs/configuration/troubleshooting/#entity-names).
-  required: true
-  type: map
-count:
-  description: Number of packet used for each device (avoid false detection).
-  required: false
-  type: integer
-{% endconfiguration %}
-
 See the [person integration page](/integrations/person/) for instructions on how to configure the people to be tracked.
+
+## Services
+
+Available services: `reload`.
+
+### Service `ping.reload`
+
+Reload all `ping` entities.
+
+This service takes no service data attributes.
+
+<div class='note'>
+  Device tracker is a legacy entity which does not support reloading. To reconfigure device tracker Home Assistant needs to be restarted.
+</div>
+
