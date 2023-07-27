@@ -3,7 +3,7 @@ title: Schlage
 description: Instructions on how to integrate Schlage WiFi smart locks into Home Assistant.
 ha_category:
   - Lock
-ha_release: 2023.9.0
+ha_release: 2023.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
