@@ -21,7 +21,7 @@ The `workday` binary sensor indicates whether the current day is a workday or no
 
 It allows specifying which days of the week will count as workdays and also uses the Python module [holidays](https://pypi.org/project/holidays/) to incorporate information about region-specific public holidays. 
 
-This can be used to make daily automations that act differently wether it is a working day or not. For example, you could make your bedroom lights turn on (gently) at 7 in the morning if it is a workday, but wait until 11 if it is a non working day.
+This can be used to make daily automations that act differently on workdays than non-workdays. For example, you could make your bedroom lights turn on (gently) at 7 in the morning if it is a workday but wait until 11 if it is a non-working day.
 
 ## Setup
 
@@ -34,7 +34,7 @@ The keyword `holiday` is used for public holidays identified by the holidays mod
 
 <div class='note warning'>
 
-Watch out how the `holiday` keyword is used. Your first instinct might be adding it to the `exclude` configuration, thinking it means skipping the holidays. But it is meant to exclude the days in the holiday list from the workdays. So, when you exclude `holiday` and a workday falls on that day, that workday is excluded and thus the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your `Excludes` configuration _other_ than `holiday`.
+Take note of the `holiday` keyword. Your first instinct might be to add it to the `exclude` configuration, thinking it means skipping the holidays. But it is meant to exclude the days in the holiday list from the workdays. So, when you exclude `holiday` and a workday falls on that day, that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your `Excludes` configuration _other_ than `holiday`.
 
 </div>
 
