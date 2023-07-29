@@ -18,7 +18,7 @@ ha_integration_type: integration
 ---
 
 The Möhlenhoff Alpha 2 integration allows you to control a
-[Möhlenhoff Alpha 2](https://www.moehlenhoff.de/en/products/room-by-room-control/oem-alpha-2-system)
+[Möhlenhoff Alpha 2](https://dev.moehlenhoff.de/en/products/room-by-room-control/oem-alpha-2-system)
 temperature control system.
 
 ## Prerequisites
