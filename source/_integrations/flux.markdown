@@ -24,7 +24,7 @@ To use the Flux integration in your installation, navigate to the "Integrations"
 
 ## Configuration
 
-Flux allows you to configure how your lights behave throughout the day. By default, Flux sets the timings (such as `start_time`, `sunset_time` and `stop_time`) based on your geographical location. However, these can be manually adjusted in the configuration panel for finer control.
+Flux allows you to configure how your lights behave throughout the day. By default, Flux sets the timings (such as `start_time`, `sunset_time` and `stop_time`) based on your geographical location. However, these (except `sunset_time`) can be manually adjusted in the configuration panel for finer control.
 
 During the day (in between `start_time` and `sunset_time`), the lights transition from a cool, daylight temperature to a warm, sunset color. After sunset (between `sunset_time` and `stop_time`), the lights continue to warm, mimicking the natural transition from daylight to nighttime.
 
