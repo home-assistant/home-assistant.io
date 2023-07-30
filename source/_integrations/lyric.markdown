@@ -60,3 +60,11 @@ This integration provides the following sensors:
 | Outdoor Humidity    | Lyric's outdoor humidity                    |
 | Next Period Time    | The next time the thermostat will change    |
 | Setpoint Status     | A description of the setpoint of the device |
+
+Additional sensors will be created for each room assigned to a thermostat device, if applicable:
+
+| Name                 | Description                                                       |
+| -------------------- | ----------------------------------------------------------------- |
+| Average Temperature  | The average temperature reported from room accessorsies           |
+| Average Humidity     | The average humidity reported from room accessories               |
+| Overall Motion       | On if any movement is detected by room accessories, Off otherwise |
