@@ -471,6 +471,11 @@ climates:
       description: Register address for target temperature (Setpoint).
       required: true
       type: integer
+    write_registers:
+      description: if true use write_registers for target temperature
+      required: false
+      type: boolean
+      default: false
     temp_step:
       description: The supported step size a target temperature can be increased/decreased.
       required: false
@@ -491,7 +496,7 @@ climates:
           required: true
           type: integer
         write_registers:
-          description: if true use write_registers
+          description: if true use write_registers for hvac mode
           required: false
           type: boolean
           default: false
