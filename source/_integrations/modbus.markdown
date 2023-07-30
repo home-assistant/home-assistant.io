@@ -496,7 +496,7 @@ climates:
           required: true
           type: integer
         write_registers:
-          description: if true use write_registers for hvac mode
+          description: if true use write_registers for HVAC mode
           required: false
           type: boolean
           default: false
