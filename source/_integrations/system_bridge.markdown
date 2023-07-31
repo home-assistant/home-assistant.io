@@ -13,6 +13,7 @@ ha_domain: system_bridge
 ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
+  - media_player
   - sensor
 ha_zeroconf: true
 ha_integration_type: device
@@ -79,6 +80,12 @@ These sensors are also available, but are not enabled by default:
 | GPU Memory Used %      | GPU memory used percentage               |
 | GPU Power Usage        | GPU power usage                          |
 | GPU Temperature        | The current temperature of the GPU       |
+
+## Media Player
+
+The integration also provides a media player. This allows you control the currently playing media on your device.
+
+> This is currently only supported devices running System Bridge on Windows.
 
 ## Media Source
 
