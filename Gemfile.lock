@@ -79,7 +79,7 @@ GEM
       forwardable-extended (~> 2.6)
     public_suffix (5.0.3)
     racc (1.7.1)
-    rack (2.2.7)
+    rack (2.2.8)
     rack-protection (3.0.6)
       rack
     rake (13.0.6)
