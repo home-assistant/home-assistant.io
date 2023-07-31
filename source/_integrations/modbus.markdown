@@ -412,6 +412,7 @@ modbus:
         max_temp: 30
         structure: ">f"
         target_temp_register: 2782
+        target_temp_write_registers: true
         temp_step: 1
         temperature_unit: C
       - name: "Bedroom Air Condition"
@@ -471,7 +472,7 @@ climates:
       description: Register address for target temperature (Setpoint).
       required: true
       type: integer
-    write_registers:
+    target_temp_write_registers:
       description: if true use write_registers for target temperature
       required: false
       type: boolean
