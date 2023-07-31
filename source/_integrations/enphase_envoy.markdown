@@ -18,7 +18,7 @@ ha_integration_type: integration
 
 A sensor platform for the [Enphase Envoy / IQ Gateway](https://[enphase.com/en-us/products-and-services/envoy-and-combiner](https://enphase.com/store/comunicacao)) solar energy gateway.
 
-Works with older models that only have (some) production metrics (ie. Envoy-C or Envoy LCD or R), newer models with only production metrics (ENVOY-S Standard) and models that offer both production and consumption metrics (ie. Envoy-S metered).
+Works with older models that only have (some) production metrics (ie. Envoy-C R or LCD), newer models with only production metrics (IQ Gateway / ENVOY-S Standard) and models that offer both production and consumption metrics (ie. Envoy-S metered).
 
 {% include integrations/config_flow.md %}
 
@@ -34,16 +34,16 @@ Enter the IP address of the Envoy. If the Envoy is auto-discovered it will be pr
 
 Specify the username and password to access the envoy data. What username and password to use depends on the ENVOY type and/or it's firmware version:
 
-- If your IQ Gateway / Envoy-S is on Firmware 7.x or later, use your Enphase Enlighten username and password. Make sure the enable the 'Use Enlighten' option at the bottom of the form.
+- If your IQ Gateway / Envoy-S is on Firmware 7.x or later, use your Enphase Enlighten username and password. Make sure to enable the 'Use Enlighten' option at the bottom of the form.
 
 - For older models and ENVOY-S with firmware before 7.x use `envoy` without a password, `installer` without a password or a valid username and password for the type.
 
-- For older models that require username `installer` with a password this can be obtained with this: [tool](https://thecomputerperson.wordpress.com/2016/08/28/reverse-engineering-the-enphase-installer-toolkit/).
+- For older models that require username `installer` with a password, this can be obtained with this: [tool](https://thecomputerperson.wordpress.com/2016/08/28/reverse-engineering-the-enphase-installer-toolkit/).
 - In some cases, you need to use the username `envoy` with the last 6 digits of the unit's serial number as password. 
 
 See [the Enphase documentation](https://support.enphase.com/s/article/What-is-the-Username-and-Password-for-the-Administration-page-of-the-Envoy-local-interface) for more details on various units.
 
-**Note** This integration does not provide the additional data accessible by Enphase Installer or DIY accounts, only data accessible by Home owner accounts is provided.
+**Note** This integration does not provide the additional data accessible by Enphase Installer or DIY accounts, only data accessible by Home owner accounts is provided. Using an Installer or DIY account probably works, but currently just the Home owner data is retrieved.
 
 #### Serial number
 
@@ -61,7 +61,7 @@ Once the Envoy has been running and is operational, the following configuration 
 
 By default the Envoy data is collected every 60 seconds. One can change the setting to what is desired with a minimum of every 5 seconds. Upon changing the value, reload the integration (or restart Home Assistant).
 
-What the optimal scan frequency is depends on the typeEnvoy model. Models without meters typically update the inverter data every 5 minutes. Models using meters update measurements way more frequent, probably every second or so. Hence the default of 60 seconds as starting point. Some models may have capacity issues running at high refresh rates, so no single recipe is available.
+What the optimal scan frequency is depends on the Envoy model. Models without meters typically update the inverter data every 5 minutes. Models using meters update measurements way more frequent, probably every second or so. Hence the default of 60 seconds as starting point. Some models may have capacity issues running at high refresh rates, so no single recipe is available.
 
 **Note** Envoy Metered has a data streaming option to bring in data as it comes available which is not currently supported by this integration.
 
@@ -88,9 +88,11 @@ What data is available depends on how many current transformer clamps (CT) are i
 
 ##### with connected current transformer clamps
 
-- Current power production, today's, last 7 days and lifetime energy production over all phases.
-- Current power production, today's, last 7 days and lifetime energy production for each individual phase named L1, L2 and L3.
+- Current power production and consumption, today's, last 7 days and lifetime energy production and consumption over all phases.
+- Current power production and consumption, today's, last 7 days and lifetime energy production and consumption for each individual phase named L1, L2 and L3. 
 - Current power production for each connected inverter.
+
+**Note** If you have CT clamps on a single phase / breaker circuit only, the L1 production and consumption phase sensors will show same data as the over all phases sensors.
 
 ##### without connected current transformer clamps
 
@@ -100,10 +102,59 @@ The current firmware (D7.6.175 and probably some other right before and after it
 - Lifetime Energy production reportedly resets to zero roughly every 1.19 MWh.
 - Current power production for each connected inverter.
 
+## Device and Entities
+
+The naming scheme used is based on the Envoy and inverter Serial numbers. 
+
+### Device
+
+A device `Envoy <serialnumber>` is created with sensor entities for accessible data. 
+
+### Envoy Sensors
+
+|Sensor name|Sensor ID|remarks|
+|-----|-----|----|
+|Envoy \<serialnumber\> Current Power Production|sensor.Envoy_\<serialnumber\>_current_power_production||
+|Envoy \<serialnumber\> Today's Energy production|sensor.Envoy_\<serialnumber\>_todays_energy_production|1|
+|Envoy \<serialnumber\> Last Seven Days Energy Production|sensor.Envoy_\<serialnumber\>_last_seven_days_energy_production|1|
+|Envoy \<serialnumber\> Lifetime Energy Production|sensor.Envoy_\<serialnumber\>_lifetime_energy_production|2|
+|Envoy \<serialnumber\> Current Power Consumption|sensor.Envoy_\<serialnumber\>_current_power_consumption||
+|Envoy \<serialnumber\> Today's Energy Consumption|sensor.Envoy_\<serialnumber\>_todays_energy_consumption|4,5|
+|Envoy \<serialnumber\> Last Seven Days Energy Consumption|sensor.Envoy_\<serialnumber\>_last_seven_days_energy_consumption|4,5|
+|Envoy \<serialnumber\> Lifetime Energy Consumption|sensor.Envoy_\<serialnumber\>_lifetime_energy_consumption|4,5|
+|Grid Status |binary_sensor.grid_status|3|
+Envoy \<serialnumber\> Current Power Production L\<n\>|sensor.Envoy_\<serialnumber\>_current_power_production_L\<n\>|4,5|
+|Envoy \<serialnumber\> Today's Energy production L\<n\>|sensor.Envoy_\<serialnumber\>_todays_energy_production_L\<n\>|4,5|
+|Envoy \<serialnumber\> Last Seven Days Energy Production L\<n\>|sensor.Envoy_\<serialnumber\>_last_seven_days_energy_production L\<n\>|4,5|
+|Envoy \<serialnumber\> Lifetime Energy Production L\<n\>|sensor.Envoy_\<serialnumber\>_lifetime_energy_consumption_L\<n\>|4,5|
+|Envoy \<serialnumber\> Current Power Consumption L\<n\>|sensor.Envoy_\<serialnumber\>_current_power_consumption_L\<n\>|4,5|
+|Envoy \<serialnumber\> Today's Energy Consumption L\<n\>|sensor.Envoy_\<serialnumber\>_todays_energy_consumption_L\<n\>|4,5|
+|Envoy \<serialnumber\> Last Seven Days Energy Consumption L\<n\>|sensor.Envoy_\<serialnumber\>_last_seven_days_energy_production L\<n\>|4,5|
+|Envoy \<serialnumber\> Lifetime Energy Consumption L\<n\>|sensor.Envoy_\<serialnumber\>_lifetime_energy_consumption_L\<n\>|4,5|
+
+1 always zero for Envoy Metered without meters.  
+2 resets to zero when reaching ~1.92MWh for Envoy Metered without meters.  
+3 Not available on Legacy models and ENVOY Standard with recent firmware.  
+4 Only on Envoy metered with configered and connected meters.  
+5 L\<n\> L1,L2,L3, availability depends on which and how many meters are connected and configured.  
+
+### Inverter Sensors
+
+For each inverter a sensor for current power production is created. It is named with both the Envoy and the inverter serial number.
+
+!Sensor name|Sensor ID|remarks|
+|-----|-----|----|
+|Envoy \<serialnumber\> Inverter \<serialnumber\>|sensor.Envoy_\<serialnumber\>\_Inverter_\<serialnumber\>|1|
+
+1: Not available on Legacy models
+
+**Note** As can be noted the Envoy serial number is part of the inverter sensor id and name. Internally the unique_id for it is the inverter serial number. When changing your setup by moving inverters to a new/different Envoy it will require some preparation/research how this will work out. (Statistics (history) is stored by sensor id)
+
 ## How to switch to Enphase token authorization
 
-Once the envoy received the new firmware that requires token authorization data collection will fail. To switch to the token usages:
+Once the envoy received the new firmware that requires token authorization, data collection will fail. To switch to the token usage execute next steps:
 
+- Make sure to run a Home Assistant version with this version of the Enphase_Envoy.
 - In Home Assistant go to the Enphase Envoy integration and delete it.
 - Restart Home Assistant
 - The envoy will be auto-discovered again. If not add an Envoy Integration manually.
@@ -117,6 +168,8 @@ When issues occur with this integration some items to check are:
 
 - What model are you using. This will drive what can be expected.
 - What firmware is your model using, Was a firmware update recently pushed to the device?
-- Enable debug logging and let it run for a couple of minutes, disable it again and the log file will download to your computer. Check for obvious errors and be prepared to share it as needed to troubleshooting. All data collected is logged in lines like `Fetched from https://192.168.01.10/some_url: <Response [200 OK]>:`
-- When configuring the Envoy for token use it will reach out to the Enphase Enlighten website to obtain a token. Reportedly the Enphase website is not equally responsive every moment of the day, week, moth, year and the setup will fail. At this moment the only answer to that is your perseverance or just try at another moment.
-- The token lifetime is currently 1 year. The token is cached eliminating the need to connect toe Enphase each reload or restart. When the token is expired or some other authorization hiccup occurs a new token will be obtained. If that is needed at a moment it can't connect to Enphase it will try until success but in the mean time no data is collected from the Envoy.
+- Enable debug logging and let it run for a couple of minutes, disable it again and the log file will download to your computer. Check for obvious errors and be prepared to share it as needed to troubleshooting. 
+  - All data collected is logged in lines like `Fetched from https://192.168.01.10/some_url: <Response [200 OK]>:`. 
+  - The Envoy model it thinks its dealing with is reported in a line containg: `Using Model: P (HTTPs, Metering enabled: False, Get Inverters: True, Use Enligthen True)`. (Model PC is envoy metered, P is Standard and R/LCD with FW >= R3.9 and P0 is Legacy/C/R/LCD with FW < R3.9>)
+- When configuring the Envoy for token use it will reach out to the Enphase Enlighten website to obtain a token. Reportedly the Enphase website is not equally responsive every moment of the day, week, moth, year and the setup will fail. At this moment the only answer to that is your perseverance or just try at another moment. 
+- The token lifetime for Home Owner accounts is currently 1 year. The token is cached eliminating the need to connect toe Enphase each reload or restart. When the token is expired or some other authorization hiccup occurs a new token will be obtained. If that is needed at a moment it can't connect to Enphase it will try until success but in the mean time no data is collected from the Envoy. When using an Installer or DIY account this may work as well but the lifetime is 12 hours and refresh is way more frequent.
