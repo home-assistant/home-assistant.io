@@ -91,7 +91,7 @@ Services are the actions you can call, like turning on a light. This was one of
 the bigger things in Home Assistant, that still was only available in English.
 
 Starting this release, we are adding translations to these services. Hoping to
-drasticly improve the experience when English is not main language.
+drasticly improve the experience when English is not your main language.
 
 <p class='img'>
 <img src='https://cdn.discordapp.com/attachments/427516175237382144/1133776797583015957/CleanShot_2023-07-26_at_17.01.53.png'></a>
