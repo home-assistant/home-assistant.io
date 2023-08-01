@@ -59,7 +59,7 @@ It is recommended that you run the UniFi Network application in a dedicated virt
 
 ## Image
 
-Provides QR Code images that can be scanned to easily join a specific WLAN. Entities are disabled by default.
+Provides QR Code images that can be scanned to easily join a specific WLAN. Entities are disabled by default. This feature requires admin privileges.
 
 ## Presence detection
 
