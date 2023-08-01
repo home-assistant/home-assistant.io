@@ -5,7 +5,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     chunky_png (1.4.0)
     colorator (1.1.0)
-    commonmarker (0.23.9)
+    commonmarker (0.23.10)
     compass (1.0.3)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.2)
