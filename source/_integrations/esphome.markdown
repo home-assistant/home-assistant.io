@@ -47,3 +47,46 @@ This integration allows [ESPHome](https://esphome.io) devices to connect directl
 ESPHome devices can make service calls to any [Home Assistant service](https://esphome.io/components/api.html#homeassistant-service-action). This functionality is not enabled by default for newly configured device, but can be turned on the options flow on a per device basis.
 
 {% include integrations/option_flow.md %}
+
+## Entity naming and ids
+
+ESPHome uses different naming and entity id rules based on the configuration of the ESPHome device. It is recommended to set a `friendly_name` in the ESPHome `configuration.yaml` to take advantage of the newer naming structure, which is consistent with Home Assistant naming standards and makes it much easier to tell similar devices apart. The legacy naming rules apply when the `friendly_name` is not set in the `configuration.yaml`.
+
+### Friendly naming
+
+- Entity name is a combination of the friendly name and component name
+- Device name is prepended to entity id
+- Entity id uses the ESPHome id
+
+Example:
+
+```yaml
+esphome:
+   name: livingroomdesk
+   friendly_name: Living Room Desk
+
+sensor:
+   name: Temperature
+   id: temperature
+```
+
+The entity will be named `Living Room Desk Temperature` and will default to having an entity_id of `sensor.livingroomdesk_temperature`
+
+### Legacy naming
+
+- Entity name is the component name
+- Device name is not prepended to the entity name
+- Entity id is derived solely from the entity name
+
+Example:
+
+```yaml
+esphome:
+   name: livingroomdesk
+
+sensor:
+   name: Temperature
+   id: temperature
+```
+
+The entity will be named `Temperature` and will default to having an entity_id of `sensor.temperature`
