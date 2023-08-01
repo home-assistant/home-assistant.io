@@ -12,6 +12,7 @@ ha_domain: duotecno
 ha_platforms:
   - switch
   - cover
+  - light
 ha_integration_type: hub
 ---
 
