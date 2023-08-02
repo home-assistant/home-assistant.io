@@ -145,28 +145,17 @@ supporting this new entity type soon.
 
 ## Improving the first experience with Home Assistant
 
-{% details "TODO" %}
+Onboarding is a user's first experience with Home Assistant. It are the first
+screens you see, and steps you take when you access Home Assistant for the
+first time, setting up things like your account and language preferences.
+The goal is to ensure this process is seamless, which is why we've made
+improvements to the onboarding experience.
 
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
+To achieve this, we have implemented a search field on the map during
+onboarding. Instead of endlessly dragging the pin on the map around,
+you can now easily search for your location.
 
-Sources:
-
-- Use nominatim from openstreetmap for location search in onboarding (#17287) @bramkragten
-- https://github.com/home-assistant/frontend/pull/17287
-
-{% enddetails %}
-
-Onboarding is the first experience a user has with Home Assistant, and we want
-to make it as smooth as possible. This release, we are improving the onboarding
-experience by adding a search field to the map, so you can search for your
-location instead of endless dragging the map around.
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/254225127-52be8526-01eb-47c2-80e9-fceba4d3d5f4.png'></a>
-Temporary screenshot.
-</p>
+<img class="no-shadow" src='/images/blog/2023-08/onboarding-openstreetmap.png' alt='Screenshot showing you can now enter '>
 
 This is powered by [OpenStreetMap](https://www.openstreetmap.org/) ❤️
 
@@ -379,7 +368,7 @@ We welcome the following new integrations in this release:
 - **[Gardena Bluetooth]**, added by [@elupus]<br />
   Integrate your [Gardena Smart](https://www.gardena.com/int/products/smart/) devices using Bluetooth.
 - **[Opower]**, added by [@tronikos]<br />
-  Read out energy information from utilities that use [Opwer](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
+  Read out energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
   See the virtual integrations below for which utility providers those are.
 - **[PEGELONLINE]**, added by [@mib1185]<br />
   Provides water level sensors from the [German Federal Waterways and Shipping Administration](https://www.pegelonline.wsv.de/).
