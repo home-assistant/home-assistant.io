@@ -24,7 +24,7 @@ ha_integration_type: integration
 ---
 
 <p class='note'>
-This integration have a bug that makes it impossible to make automations based on visitors presing the doorbell. [Issue #88705](https://github.com/home-assistant/core/issues/88705)
+This integration currently has a bug that makes it impossible to create automations based on visitors pressing the doorbell. [Issue #88705](https://github.com/home-assistant/core/issues/88705)
 </p>
 
 The Ring integration allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.
