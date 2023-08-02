@@ -262,29 +262,16 @@ could even ask Home Assistant to generate an image for you by using your voice!
 
 ## Condition selector
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Sources:
-
-- Add condition selector for blueprint (#17278) @piitaya
-https://github.com/home-assistant/frontend/pull/17278
-
-{% enddetails %}
-
 A new selector is available for use in, for example, blueprints:
 [The condition selector](/docs/blueprint/selectors/#condition-selector).
 
 This selector takes and shows the condition part of the automation editor,
-and allows Blueprints creators to use a user-provided condition in their
-blueprint.
+and allows blueprint creators to use a user-provided condition in their
+blueprinted automations and scripts.
 
 <p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/252745910-4504a664-b47d-463c-ab1e-615f3a00026a.png'></a>
-Temporary screenshot.
+<img src='/images/blog/2023-08/condition-selector.png'></a>
+This blueprint allows one to set a custom condition using the new condition selector.
 </p>
 
 ## Other noteworthy changes
