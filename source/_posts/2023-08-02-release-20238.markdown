@@ -468,8 +468,8 @@ other news about building an Open Home; straight into your inbox.
 Python 3.10 support has previously been deprecated and has now been removed.
 Home Assistant now requires Python 3.11 to run.
 
-If you are using Home Assistant OS, Home Assistant Container,
-or Home Assistant Supervised installation method, you don’t have to do anything.
+You don't have to do anything if you are using Home Assistant OS,
+Home Assistant Container, or Home Assistant Supervised installation method.
 In those cases, we handle this all for you.
 
 Your system has been using Python 3.11 for quite some time already.
@@ -481,15 +481,36 @@ Your system has been using Python 3.11 for quite some time already.
 
 {% enddetails %}
 
+
+{% details "Discovery" %}
+
+The legacy discovery integration has been removed. This only affects the
+automatic discovery of Enigma2, Yamaha Network Receivers, and Bluesound.
+
+These can still be manually configured as per usual.
+
+Note this is for our very, very old discovery logic. This does not affect the
+discovery of any other integration/device/service.
+
+If you still have `discovery:` listed in your YAML configuration, you can
+safely remove it.
+
+([@frenck] - [#96856])
+
+[@frenck]: https://github.com/frenck
+[#96856]: https://github.com/home-assistant/core/pull/96856
+
+{% enddetails %}
+
 {% details "Ecovacs" %}
 
 The Ecovacs integration has been migrated to the new "StateVacuumEntity"
 under the hood.
 
-The states of the vacuum entity now reports not only on or off,
+The states of the vacuum entity now report not only on or off,
 instead `cleaning`, `paused`, `docked` (_implicit mean charging_),
-`returning` (_to base_), `idle` and `error`. Further the actions `turn_on`
-(_start cleaning_) and `turn_off` (_stop cleaning and return to base_) were
+`returning` (_to base_), `idle` and `error`. Further, the actions `turn_on`
+(_start cleaning_), and `turn_off` (_stop cleaning and return to base_) were
 superseded by three single actions `start`, `stop` and `return_to_base`.
 
 ([@mib1185] - [#95920]) ([documentation](/integrations/ecovacs))
@@ -502,12 +523,12 @@ superseded by three single actions `start`, `stop` and `return_to_base`.
 {% details "MQTT" %}
 
 It's no longer allowed for an MQTT RGB light without a `brighness_state_topic`
-to report an RGB value of `RGB=0,0,0`. The reason is that for such lights
-the light's brightness is derived from the RGB value, and and RGB value
+to report an RGB value of `RGB=0,0,0`. The reason is that for such lights,
+the light's brightness is derived from the RGB value, and an RGB value
 of `RGB=0,0,0` corresponds to a brightness of 0 which is not allowed.
 
 In case an MQTT RGB light without a `brighness_state_topic` reports `0,0,0`
-for R, G and B, that update will be ignored.
+for R, G, and B, that update will be ignored.
 
 ([@jbouwh] - [#96286]) ([documentation](/integrations/mqtt))
 
@@ -517,7 +538,7 @@ for R, G and B, that update will be ignored.
 ---
 
 The MQTT climate `CONF_POWER_STATE_TOPIC` and `CONF_POWER_STATE_TEMPLATE` were
-depredated in HA Core 2023.2.0 and are now removed. Please remove these options
+deprecated in HA Core 2023.2.0 and are now removed. Please remove these options
 from your configuration. The options were not implemented but will break your
 MQTT configuration if they are still present in your config.
 
@@ -534,21 +555,21 @@ between discovered entities has changed.
 **Sharing of device configuration**
 
 Discovered MQTT entities can share device configuration, meaning one entity
-can include the full device configuration and other entities can link to that
+can include the full device configuration, and other entities can link to that
 device by only setting mandatory fields.
 
 The mandatory fields were previously limited to at least one of
-`connection` and `identifiers`, but has now been extended to at least
+`connection` and `identifiers`, but have now been extended to at least
 one of `connection` and `identifiers` as well as the `name`.
 
 **Naming of MQTT entities**
 
-Naming of MQTT entities has been changed to be aligned with the
+The naming of MQTT entities has been changed to be aligned with the
 [entity naming guidelines](https://developers.home-assistant.io/docs/core/entity/#entity-naming):
 
 - The `has_entity_name` entity will be set to `True` on all MQTT entities.
-- This means any MQTT entity which is part of a device will [automatically have it's `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations).
-- Unnamed `binary_sensor`, `button`, `event`, `number` and `sensor` entities will
+- This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations).
+- Unnamed `binary_sensor`, `button`, `event`, `number`, and `sensor` entities will
   now be named by their device class instead of being named "MQTT binary sensor" etc.
 - It's now allowed to set an MQTT entity's name to `None` to mark it as the
   main feature of a device.
@@ -563,7 +584,7 @@ Naming of MQTT entities has been changed to be aligned with the
 {% details "Philips Dynalite" %}
 
 The Dynalite configuration panel, which previously was on the Home Assistant
-side bar, has moved. It now can be accessed via the integration page in
+sidebar, has moved. It can now be accessed via the integration page in
 **Settings** -> **Device & services** -> **Dynalite** -> **Configure**.
 
 ([@frenck] - [#95920]) ([documentation](/integrations/dynalite))
@@ -576,7 +597,7 @@ side bar, has moved. It now can be accessed via the integration page in
 {% details "Renson" %}
 
 The state values of the Reason Ventilation integration have been changed to
-be more consistent with other integrations, and are now lowercase. Additionally,
+be more consistent with other integrations and are now lowercase. Additionally,
 it can now provide translations for the state values in the UI.
 
 This means that the following state values have changed:
@@ -611,16 +632,19 @@ changes and new features available for your integration: Be sure to follow our
 
 The following integrations are also no longer available as of this release:
 
+- **Discovery** has been removed. This is the old legacy discovery integration.
+  See the breaking changes above for more information.  
+  ([@frenck] - [#96856])
 - **Mi Flora** has been removed. This integration was replaced by the
-  [Xiaomi BLE] a long time ago and was in a non-functional state.
+  [Xiaomi BLE] integration a long time ago and was in a non-functional state.  
   ([@frenck] - [#96868])
 - **Xiaomi Mijia BLE T&H Sensor** has been removed. This integration was
-  replaced by the [Xiaomi BLE] a long time ago and was in a non-functional state.
+  replaced by the [Xiaomi BLE] integration  a long time ago and was in a
+  non-functional state.  
   ([@frenck] - [#96869])
 
-- Remove legacy discovery integration ([@frenck] - [#96856])
-
 [@frenck]: https://github.com/frenck
+[#96856]: https://github.com/home-assistant/core/pull/96856
 [#96868]: https://github.com/home-assistant/core/pull/96868
 [#96869]: https://github.com/home-assistant/core/pull/96869
 [Xiaomi BLE]: /integations/xiaomi_ble
