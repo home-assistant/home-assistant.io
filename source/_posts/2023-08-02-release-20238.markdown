@@ -67,7 +67,7 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 All services in Home Assistant are now translatable! 🌎
 
 Services are the actions you can call, like turning on a light. This was one of
-the bigger parts of Home Assistant that still was only available in English
+the bigger parts of Home Assistant that still was only available in English.
 Odd, as the Home Assistant interface can be used in 60+ languages!
 
 In this release, translations for these services have been added to drastically
@@ -96,7 +96,8 @@ noticed that it was not the easiest thing to do. You need to know the event name
 and then you need to know the data that is being sent with it. Before you know it,
 you'll start fiddling with the developer tools to figure out what is going on.
 
-To make this all easier, we are introducing a new entity type in this release: [The event entity](/integrations/event).
+To make this all easier, we are introducing a new entity type in this release:
+[The event entity](/integrations/event).
 
 The event entity can capture these events in the physical world and makes them
 available in Home Assistant as an entity.
@@ -114,9 +115,9 @@ supporting this new entity type soon.
 
 ## Improving the first experience with Home Assistant
 
-Onboarding is a user's first experience with Home Assistant. It are the first
-screens you see, and steps you take when you access Home Assistant for the
-first time, setting up things like your account and language preferences.
+Onboarding is a user's first experience with Home Assistant. The onboarding
+screens are the first you see, and steps you take when you access Home Assistant
+for the first time, setting up things like your account and language preferences.
 The goal is to ensure this process is seamless, which is why we've made
 improvements to the onboarding experience.
 
@@ -162,7 +163,7 @@ integration on your instance, and you will get a new service:
 Call this service describing the image you'd like the AI to generate, and
 it will respond with an image URL you can use in your automations.
 
-<img class="no-shadow" src='/images/blog/2023-08/openai-generate-image.png' alt='Screenshot showing the new generate image service with DALL-E from OpenAI, asking to generate an image of an astronout riding an unicorn.'>
+<img class="no-shadow" src='/images/blog/2023-08/openai-generate-image.png' alt='Screenshot showing the new generate image service with DALL-E from OpenAI, asking to generate an image of an astronaut riding a unicorn.'>
 
 You could, for example, use this to generate an image of a city that matches
 the weather conditions outside of your home, let the AI generate an image
@@ -203,7 +204,7 @@ These wildcards are interesting and open up a lot of possibilities!
 Home Assistant generate an image and show it on his Chrome Cast-enabled device
 just by using his voice! 😎 You could ask it:
 
-> Show me a picture of an astronaut riding an unicorn!
+> Show me a picture of an astronaut riding a unicorn!
 
 He put this together in an automation blueprint, which you can use to do the
 same thing in your own Home Assistant instance:
@@ -212,7 +213,7 @@ same thing in your own Home Assistant instance:
 
 Provide the sentence you like to trigger on and the media player you want to
 show the image at, and you're good to go! You can import his blueprint using
-the My Home Assitant button below:
+the My Home Assistant button below:
 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/blog/2023-08/cast_dall_e.yaml" %}
 
