@@ -22,12 +22,12 @@ conservative after two absolutely packed releases in [June](/blog/2023/06/30/rel
 and [July](/blog/2023/06/07/release-20236/). Many of us are enjoying summer holidays 🏖️.
 
 Pretty much all features in this release are absolutely amazing, and it is hard
-to pick a favorite. Great translations improvements that help with the user
+to pick a favorite. Great translation improvements that help with the user
 experience, a new entity to capture events from things like remotes, and the
 new Assist features are, again, mind-blowing!
 
 Talking about Assist, have you seen the blog on [Year of the Voice - Chapter 3](/blog/2023/07/20/year-of-the-voice-chapter-3/)?
-Or, check the [the live stream recording on YouTube](https://www.youtube.com/watch?v=sXzItFksYFA),
+Or, check [the live stream recording on YouTube](https://www.youtube.com/watch?v=sXzItFksYFA),
 where the new features have been demonstrated.
 
 Some new integrations have been added too. Most notably [Opower](/integrations/opower)!
@@ -241,7 +241,7 @@ noteworthy changes this release:
 - Tons of performance upgrades again this month (thanks [@bdraco]), these
   include a much faster ingress experience when visiting add-on web interfaces. 🚀
 - [@emontnemery] added filters to many of the services Home Assistant provides,
-  meaning only options relevant to the entity you are calling the service on,
+  meaning only options relevant to the entity you are calling the service on
   will be shown in the UI. Nice!
 - CO2Signal changed its name to [Electricity Maps]. The integration
   has been renamed to match that. Thanks, [@madsnedergaard]!
