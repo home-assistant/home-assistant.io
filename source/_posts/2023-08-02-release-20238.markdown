@@ -53,7 +53,7 @@ Enjoy the (beta) release!
 - [Translated services](#translated-services)
 - [Introducing the event entity](#introducing-the-event-entity)
 - [Improving the first experience with Home Assistant](#improving-the-first-experience-with-home-assistant)
-- [Add items to your shopping list with Assist](#add-items-to-your-shopping-list-with-assist)
+- [Add items to your shopping list using Assist](#add-items-to-your-shopping-list-using-assist)
 - [Wildcard support for sentence triggers](#wildcard-support-for-sentence-triggers)
 - [Generate an image with OpenAI's DALL-E](#generate-an-image-with-openais-dall-e)
 - [Condition selector](#condition-selector)
@@ -155,26 +155,30 @@ To achieve this, we have implemented a search field on the map during
 onboarding. Instead of endlessly dragging the pin on the map around,
 you can now easily search for your location.
 
-<img class="no-shadow" src='/images/blog/2023-08/onboarding-openstreetmap.png' alt='Screenshot showing you can now enter '>
+<img class="no-shadow" src='/images/blog/2023-08/onboarding-openstreetmap.png' alt='Screenshot showing you can now enter your address to quickly find your location on the map.'>
 
 This is powered by [OpenStreetMap](https://www.openstreetmap.org/) ❤️
 
-## Add items to your shopping list with Assist
-
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-{% enddetails %}
+## Add items to your shopping list using Assist
 
 What if you could ask [Assist](/integrations/assist) to add items to your
 Home Assistant [shopping list](/integrations/shopping_list)? Well, now you can!
 
 > Add milk to my shopping list!
 
-😎
+<img class="no-shadow" src='/images/blog/2023-08/assist-shopping-list.png' alt='Screenshot showing asking assist to add milk to the shopping list.'>
+
+In case you are wondering, the shopping list integration adds a handy page to
+your Home Assistant interface to which everyone in your household can add items.
+It is a great way to keep track of what you need to buy, and now you can
+add items to it with your voice using Assist!
+
+<img class="no-shadow" src='/images/blog/2023-08/shopping-list.png' alt='Screenshot showing the shopping list integration in Home Assistant.'>
+
+To be able to use this feature, you need to have the shopping list integration
+set up, which is as easy as clicking the My Home Assistant button below:
+
+{% my config_flow_start badge domain="shopping_list" %}
 
 ## Wildcard support for sentence triggers
 
