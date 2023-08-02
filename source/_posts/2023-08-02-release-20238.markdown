@@ -17,7 +17,7 @@ og_image: /images/blog/2023-08/social.png
 
 Home Assistant Core 2023.8! 🎉
 
-Another month, another fine release of Home Assistant! his release is a bit more
+Another month, another fine release of Home Assistant! This release is a bit more
 conservative after two absolutely packed releases in [June](/blog/2023/06/30/release-20236/)
 and [July](/blog/2023/06/07/release-20236/). Many of us are enjoying summer holidays 🏖️.
 
@@ -87,48 +87,25 @@ from the comfort of your browser. Check out our documentation on
 
 ## Introducing the event entity
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Sources:
-
-- https://github.com/home-assistant/architecture/discussions/929
-- https://github.com/home-assistant/frontend/pull/17332
-- Add MQTT event entity platform ([@jbouwh] - [#96876]) ([mqtt docs]) (new-platform) (new-integration)
-- Add doorbell event support to alexa ([@jbouwh] - [#97092]) ([alexa docs])
-
-{% enddetails %}
-
 Events are signals that are emitted when something happens, for example, when
-a user presses a physical button like a doorbell or when a button on a remote
+someone presses a physical button like a doorbell or when a button on a remote
 control is pressed.
 
-If you ever tried to work with events in Home Assistant, you probably noticed
-that it is not the easiest thing to do. You need to know the event name,
+If you have ever tried to work with events in Home Assistant, you probably
+noticed that it was not the easiest thing to do. You need to know the event name,
 and then you need to know the data that is being sent with it. Before you know it,
 you'll start fiddling with the developer tools to figure out what is going on.
 
-To make this all easier, we are introducing a new entity type this release: The event entity.
+To make this all easier, we are introducing a new entity type in this release: [The event entity](/integrations/event).
 
 The event entity can capture these events in the physical world and makes them
 available in Home Assistant as an entity.
 
-The event entity can be used like any other entity in Home Assistant: They will
-show up in the UI, can be used directly in the automations editor and provides
-historical information in the logbook.
+The beauty of the event entity is that they  can be used like any other entity
+in Home Assistant: They will show up in the UI, can be used directly in the
+automations editor, and provide historical information in the logbook.
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/195327/254939018-9b4d0667-7620-4ccc-95af-dce4e1c02be3.gif'></a>
-Temporary screen recording, showing a fake/demo button that triggers an event entity. Mainly to showcase the UI of the event entity.
-</p>
-
-<p class='img'>
-<img src='https://cdn.discordapp.com/attachments/735034443408080896/1133460012082135060/Schermafbeelding_2023-07-25_om_20.05.19.png'></a>
-Temporary screenshot. Matter supports the event entity, as shown for this Philips Hue remote.
-</p>
+<img class="no-shadow" src='/images/blog/2023-08/events-hue-dimmer-switch.png' alt='Screenshot showing the Home Assistant interface in the Dutch language, showcasing the translations for service calls.'>
 
 Besides [Matter](/integrations/matter), the event entity is also supported by
 [HomeKit Devices](/integrations/homekit_controller), [MQTT](/integrations/mqtt),
