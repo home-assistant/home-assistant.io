@@ -15,36 +15,28 @@ og_image: /images/blog/2023-08/social.png
 
 <a href='/integrations/#version/2023.8'><img src='/images/blog/2023-08/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-These are the beta release notes for Home Assistant Core 2023.8 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/UI/dashboards:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
-
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
 Home Assistant Core 2023.8! 🎉
 
-Thanks for helping out testing the beta! ❤️
+Another month, another fine release of Home Assistant! his release is a bit more
+conservative after two absolutely packed releases in [June](/blog/2023/06/30/release-20236/)
+and [July](/blog/2023/06/07/release-20236/). Many of us are enjoying summer holidays 🏖️.
 
-Enjoy the (beta) release!
+Pretty much all features in this release are absolutely amazing, and it is hard
+to pick a favorite. Great translations improvements that help with the user
+experience, a new entity to capture events from things like remotes, and the
+new Assist features are, again, mind-blowing!
+
+Talking about Assist, have you seen the blog on [Year of the Voice - Chapter 3](/blog/2023/07/20/year-of-the-voice-chapter-3/)?
+Or, check the [the live stream recording on YouTube](https://www.youtube.com/watch?v=sXzItFksYFA),
+where the new features have been demonstrated.
+
+Some new integrations have been added too. Most notably [Opower](/integrations/opower)!
+This integration can pull in energy usage data from many utility companies in
+the United States. For example, it supports [PG&E](/integrations/pge),
+[ComEd](/integrations/comed), [BGE](/integrations/bge), and many more! ⚡️
+Very good news for all our American friends!
+
+Enjoy the release!
 
 ../Frenck
 
