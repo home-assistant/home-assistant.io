@@ -207,83 +207,47 @@ could ask Home Assistant to generate an image using your voice...
 
 ## Wildcard support for sentence triggers
 
-{% details "TODO" %}
+[Sentence triggers](/docs/automation/trigger/#sentence-wildcards) now support
+wildcards! This means you can now partially match a sentence, and use the
+matched part in your actions. This is what powers the above
+[shopping list feature](#add-items-to-your-shopping-list-using-assist)
+too, and it can be used for many other things as well.
 
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
+You could, for example, create a sentence trigger that matches when you say:
 
-Sources:
+> Play the white album by the Beatles
 
-- https://github.com/home-assistant/core/pull/97236
-- https://github.com/home-assistant/home-assistant.io/pull/28332
+Using the wildcard support, you can get the album and artist name from the spoken
+sentence and use those in your actions. To trigger on the above example sentence,
+you would use the following command in your sentence trigger:
 
-{% enddetails %}
+<img class="no-shadow" src='/images/blog/2023-08/sentence-trigger-wildcard-music.png' alt='Screenshot showing an automation that uses a sentence trigger that has wildcards in it.'>
 
-⚠️ **This is pending a final review and might not make it into the release.**
+This will make the `album` and `artist` available as trigger variables that you
+can use in your actions; for example, to start playing the music requested.
 
-Sentence triggers now support wildcards! This means you can now partially match
-a sentence, and use the matched part in your actions. This is what powers the
-above shopping list feature too and it can be used for many other things as well.
+These wildcards are interesting and open up a lot of possibilities!
+[Read more about sentence triggers in our documentation](/docs/automation/trigger/#sentence-trigger).
 
-You could for example, create a sentence trigger that matches when you say:
+[JLo] realized he could use these wildcards, combined with the new
+[generate image service](#generate-an-image-with-openais-dall-e), to let
+Home Assistant generate an image and show it on his Chrome Cast-enabled device
+just by using his voice! 😎 You could ask it:
 
-> Play the white album by the beatles
+> Show me a picture of an astronaut riding an unicorn!
 
-Using the wildcard support, you can actually get the album and artist name
-from the sentence, and use that in your actions.
+He put this together in an automation blueprint, which you can use to do the
+same thing in your own Home Assistant instance:
 
-Sentence trigger; `Play {album} by {artist}`
+<img class="no-shadow" src='/images/blog/2023-08/assist-wildcard-dall-e-blueprint.png' alt='Screenshot showing how the blueprint by JLo looks like in Home Assistant.'>
 
-This will make `album` and `artist` available as trigger variables that you
-can use in your actions; e.g., to start playing the music requested. Or maybe,
-you could even ask to display an AI generated image on your TV using a prompt...
+Provide the sentence you like to trigger on and the media player you want to
+show the image at, and you're good to go! You can import his blueprint using
+the My Home Assitant button below:
 
-## Generate an image with OpenAI's DALL-E
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/blog/2023-07/cast_dall_e.yaml" %}
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Sources:
-
-- https://github.com/home-assistant/core/pull/97018
-
-{% enddetails %}
-
-In the last release, we added the ability for service to respond with data,
-and now we added a service that allows you to generate an image using
-[OpenAI's DALL-E](https://openai.com/dall-e-2).
-
-All you need is having the [OpenAI conversation agent](/integrations/openai_conversation)
-integration set up on your instance, and you will get a new service:
-{% my developer_call_service service="openai_conversation.generate_image" %}.
-
-
-Call this service describing the image you'd like the AI to generate, and
-it will respond with an image URL you can use in your automations.
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/1444314/255199204-cc7cbf5a-a4eb-4d3f-99d1-789ff2d70915.png'></a>
-Temporary screenshot.
-</p>
-
-You could, for example use this to generate an image of a city that matches
-the weather conditions outside of your home, let the AI generate an image
-about the latest new headline to show on your dashboard, or maybe a nice
-random piece of abstract art to show on your TV.
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/1444314/255245436-270a4529-a02c-4cd1-8863-e464074cccb2.png'></a>
-Temporary screenshot. AI generated image of New York based on the current weather state.
-</p>
-
-But if you combine it with the wildcard support for sentence triggers, you
-could even ask Home Assistant to generate an image for you by using your voice!
-
-{% my developer_call_service badge service="openai_conversation.generate_image" %}
+[JLo]: https://github.com/jlpouffier
 
 ## Condition selector
 
