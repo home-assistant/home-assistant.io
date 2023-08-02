@@ -72,39 +72,25 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 ## Translated services
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Sources:
-
-- Add support for service translations ([@frenck] - [#95984]) ([light docs]) (noteworthy)
-- Add support for service translations (#17264) @bramkragten
-
-{% enddetails %}
-
 All services in Home Assistant are now translatable! 🌎
 
 Services are the actions you can call, like turning on a light. This was one of
-the bigger things in Home Assistant, that still was only available in English.
+the bigger parts of Home Assistant that still was only available in English
+Odd, as the Home Assistant interface can be used in 60+ languages!
 
-Starting this release, we are adding translations to these services. Hoping to
-drasticly improve the experience when English is not your main language.
+In this release, translations for these services have been added to drastically
+improve the experience when English is not your primary language. For example,
+when you use the Dutch language (as used in the screenshot below), the service
+to turn on a light is now also translated into Dutch.
 
-<p class='img'>
-<img src='https://cdn.discordapp.com/attachments/427516175237382144/1133776797583015957/CleanShot_2023-07-26_at_17.01.53.png'></a>
-Temporary screenshot. My Home Assistant uses the Dutch language, and the service
-to turn on a light is also translated into Dutch!
-</p>
+<img class="no-shadow" src='/images/blog/2023-08/translated-services.png' alt='Screenshot showing the Home Assistant interface in the Dutch language, showcasing the translations for service calls.'>
 
-This is a big step forward! As a matter of fact, this change caused our
-translations to grow and actually double! 😅
+A big step forward! Implementing this change has resulted in a substantial
+increase in the number of translations. They have doubled! 😅
 
-Because of that, It might take some time to translate all services; however...
-You can help! You don't have to be a developer to help out with this, you can
-do this from the comfort of your own browser. Check out our documentation on
+Because of that, translating all services might take some time; however… 
+You can help! You don’t have to be a developer to help with this; you can do this
+from the comfort of your browser. Check out our documentation on
 [how to contribute translations](https://developers.home-assistant.io/docs/translations).
 
 ## Introducing the event entity
