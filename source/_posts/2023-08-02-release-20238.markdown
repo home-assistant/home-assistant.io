@@ -234,57 +234,25 @@ This blueprint allows one to set a custom condition using the new condition sele
 
 ## Other noteworthy changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-- Last minute ones added?
-- Go over list again, might have missed something
-
-Still to process:
-
-- Add unique_id to Wirelesstag entities. ([@davecpearce] - [#95631]) ([wirelesstag docs])
-- Add Bridge module to AsusWRT ([@ollo69] - [#84152]) ([asuswrt docs])
-- Add mold risk sensor to Notion ([@bachya] - [#95643]) ([notion docs])
-- Add Airzone Cloud Zone running binary sensor ([@Noltari] - [#95606]) ([airzone_cloud docs])
-- Speed up hassio ingress ([@bdraco] - [#95777]) ([hassio docs])
-- Airvisual Pro Outside Station Support ([@tedivm] - [#96618]) ([airvisual_pro docs])
-- Add support for multiple Russound RNET controllers ([@stonith] - [#96793]) ([media_player docs])
-- Add sensors to LOQED integration for battery percentage and BLE stength ([@mikewoudenberg] - [#95726]) ([loqed docs]) (new-platform)
-- Add UV Index and UV Health Concern sensors to tomorrow.io ([@dirrgang] - [#96534]) ([tomorrowio docs])
-- Add humidity to NWS forecast ([@lymanepp] - [#95575]) ([nws docs])
-- Add new Forecasting to Weather ([@gjohansson-ST] - [#75219]) ([demo docs]) ([weather docs]) ([kitchen_sink docs]) (deprecation)
-- Add uv_index to Weather Entity ([@gjohansson-ST] - [#96951]) ([weather docs])
-- Add `uv_index` to AccuWeather weather entity ([@bieniu] - [#97015]) ([accuweather docs])
-- Add humidity to meteo_france weather forecast ([@vingerha] - [#96524]) ([meteo_france docs])
-- Add external power sensor for Shelly Plus HT ([@bieniu] - [#96768]) ([shelly docs])
-- Add sensors for Shelly Plus PM Mini ([@bieniu] - [#97163]) ([shelly docs])
-- Add new sensors for Shelly Pro 3EM ([@bieniu] - [#97006]) ([shelly docs])
-- Add Airzone Cloud Aidoo binary sensors ([@Noltari] - [#95607]) ([airzone_cloud docs])
-- Add action attribute to generic hygrostat ([@Shulyaka] - [#95675]) ([generic_hygrostat docs])
-- Add service turn_on and turn_off service for water_heater ([@jbouwh] - [#94817]) ([water_heater docs])
-- Add turn on/off support for mqtt water_heater ([@jbouwh] - [#97197]) ([mqtt docs])
-
-{% enddetails %}
-
-There are much more easter bunnies in this release; here are some of the other
+There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
 - Tons of performance upgrades again this month (thanks [@bdraco]), these
   include a much faster ingress experience when visiting add-on web interfaces. 🚀
 - [@emontnemery] added filters to many of the services Home Assistant provides,
-  meaning only options that are relevant to the entity you are calling the
-  service on, will be shown in the UI. Nice!
-- CO2Signal changed their name to [Electricity Maps]. The integration
+  meaning only options relevant to the entity you are calling the service on,
+  will be shown in the UI. Nice!
+- CO2Signal changed its name to [Electricity Maps]. The integration
   has been renamed to match that. Thanks, [@madsnedergaard]!
 - [@Lash-L] keeps extending the [Roborock] integration, adding many new entities
-  this release. This includes an error sensor, volume controls, and DnD setting
-  times. Awesome!
-- [EZVIZ] received a big update, adding support for alarm control panels, button,
+  in this release. This includes an error sensor, volume controls,
+  and DnD setting times. Awesome!
+- [EZVIZ] received a big update, adding support for alarm control panels, buttons,
   and select entities. Thanks [@RenierM26]!
 - [@farmio] added support for adding [date] and [date/time] entities to [KNX]! Great!
-- The [Xiaomi BLE] now supports for the MiScale (V1 and V2). Thanks [@Ernst79]!
-- [UniFi Network] now has controls to enable and disable a UniFi WLAN, and added
-  image entities for QR-codes for WLAN access. Thanks [@Kane610]!
+- The [Xiaomi BLE] now supports the MiScale (V1 and V2). Thanks, [@Ernst79]!
+- [UniFi Network] now has controls to turn an UniFi WLAN on and off and added
+  image entities for QR codes for WLAN access. Thanks, [@Kane610]!
 
 
 [@bdraco]: https://github.com/bdraco
