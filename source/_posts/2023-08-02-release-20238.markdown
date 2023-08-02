@@ -387,7 +387,7 @@ We welcome the following new integrations in this release:
 - **[Electric Kiwi]**, added by [@mikey0000]<br />
   Integrate with the independent power and broadband company [Electric Kiwi](https://www.electrickiwi.co.nz/) from New Zealand.
 - **[Event]**, added by [@frenck]<br />
-  A new event entity that can be provided by other integrations to show detected events.
+  A new event entity that other integrations can provide to show detected events in the physical world.
 - **[Duotecno]**, added by [@Cereal2nd]<br />
   Integrate with the [Duotecno](https://www.duotecno.be/) nodes.
 - **[Gardena Bluetooth]**, added by [@elupus]<br />
@@ -400,7 +400,7 @@ We welcome the following new integrations in this release:
 
 This release also has a new virtual integration. Virtual integrations
 are stubs that are handled by other (existing) integrations to help with
-findability. These are is new:
+findability. These are new:
 
 - **[Atlantic City Electric]** provided by [Opower]
 - **[Baltimore Gas and Electric (BGE)]** provided by [Opower]
