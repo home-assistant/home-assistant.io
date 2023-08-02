@@ -44,8 +44,8 @@ ha_platforms:
   - sensor
   - switch
   - text
-  - weather
   - time
+  - weather
 ha_config_flow: true
 ha_integration_type: hub
 ---

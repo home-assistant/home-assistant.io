@@ -19,6 +19,7 @@ ha_ssdp: true
 ha_platforms:
   - device_tracker
   - diagnostics
+  - image
   - sensor
   - switch
   - update

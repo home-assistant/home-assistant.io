@@ -14,9 +14,11 @@ ha_domain: gardena_bluetooth
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - number
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Gardena Bluetooth integration allows users to integrate their [Gardena Smart](https://www.gardena.com/int/products/smart/) devices using Bluetooth into Home Assistant.

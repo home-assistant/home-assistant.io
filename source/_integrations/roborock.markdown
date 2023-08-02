@@ -17,9 +17,11 @@ ha_codeowners:
 ha_domain: roborock
 ha_platforms:
   - diagnostics
+  - number
   - select
   - sensor
   - switch
+  - time
   - vacuum
 ha_integration_type: integration
 ---
