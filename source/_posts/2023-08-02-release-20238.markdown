@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2023.8: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2023.8."
-date: 2023-07-26 00:00:00
+title: "2023.8: Translated services, events, and wildcards!"
+description: "Sentence triggers can now contain wildcards, a brand new event entity, all services are now translated into your language, generate images with OpenAI's DALL-E using Assist, and more!"
+date: 2023-08-02 00:00:00
 date_formatted: "August 2, 2023"
 author: Franck Nijhof
 author_twitter: frenck
