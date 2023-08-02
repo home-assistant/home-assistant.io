@@ -245,7 +245,7 @@ Provide the sentence you like to trigger on and the media player you want to
 show the image at, and you're good to go! You can import his blueprint using
 the My Home Assitant button below:
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/blog/2023-07/cast_dall_e.yaml" %}
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/blog/2023-08/cast_dall_e.yaml" %}
 
 [JLo]: https://github.com/jlpouffier
 
