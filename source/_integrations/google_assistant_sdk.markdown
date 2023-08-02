@@ -108,7 +108,7 @@ The easiest way to check if the integration is working is to check [My Google Ac
   - Media playback commands (other than play news, play podcast, play white noise, or play rain sounds) don't work.
   - Routines don't work.
   - Broadcast doesn't work with IPv6.
-  - Broadcast to specific rooms often doesn't work for non English languages.
+  - Broadcast to specific rooms often doesn't work for non-English languages.
 
 ## Configuration
 
