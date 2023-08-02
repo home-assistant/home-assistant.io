@@ -39,7 +39,7 @@ Specify the username and password to access the envoy data. What username and pa
 - For older models and ENVOY-S with firmware before 7.x use `envoy` without a password, `installer` without a password or a valid username and password for the type.
 
 - For older models that require username `installer` with a password, this can be obtained with this: [tool](https://thecomputerperson.wordpress.com/2016/08/28/reverse-engineering-the-enphase-installer-toolkit/).
-- In some cases, you need to use the username `envoy` with the last 6 digits of the unit's serial number as password. 
+- In some cases, you need to use the username `envoy` with the last 6 digits of the unit's serial number as password.
 
 See [the Enphase documentation](https://support.enphase.com/s/article/What-is-the-Username-and-Password-for-the-Administration-page-of-the-Envoy-local-interface) for more details on various units.
 
@@ -89,7 +89,7 @@ What data is available depends on how many current transformer clamps (CT) are i
 ##### with connected current transformer clamps
 
 - Current power production and consumption, today's, last 7 days and lifetime energy production and consumption over all phases.
-- Current power production and consumption, today's, last 7 days and lifetime energy production and consumption for each individual phase named L1, L2 and L3. 
+- Current power production and consumption, today's, last 7 days and lifetime energy production and consumption for each individual phase named L1, L2 and L3.
 - Current power production for each connected inverter.
 
 **Note** If you have CT clamps on a single phase / breaker circuit only, the L1 production and consumption phase sensors will show same data as the over all phases sensors.
@@ -104,11 +104,11 @@ The current firmware (D7.6.175 and probably some other right before and after it
 
 ## Device and Entities
 
-The naming scheme used is based on the Envoy and inverter Serial numbers. 
+The naming scheme used is based on the Envoy and inverter Serial numbers.
 
 ### Device
 
-A device `Envoy <serialnumber>` is created with sensor entities for accessible data. 
+A device `Envoy <serialnumber>` is created with sensor entities for accessible data.
 
 ### Envoy Sensors
 
@@ -135,7 +135,7 @@ Envoy \<serialnumber\> Current Power Production L\<n\>|sensor.Envoy_\<serialnumb
 1 always zero for Envoy Metered without meters.  
 2 resets to zero when reaching ~1.92MWh for Envoy Metered without meters.  
 3 Not available on Legacy models and ENVOY Standard with recent firmware.  
-4 Only on Envoy metered with configered and connected meters.  
+4 Only on Envoy metered with configured and connected meters.  
 5 L\<n\> L1,L2,L3, availability depends on which and how many meters are connected and configured.  
 
 ### Inverter Sensors
@@ -162,14 +162,20 @@ Once the envoy received the new firmware that requires token authorization, data
 - Once it's configured it will continue reporting data in the same entities.
 - Optionally change the default time interval from 60 to what is preferred.
 
+## How to switch from custom integration to HA Core integration
+
+To switch back to the HA Core integration the custom integration needs to be removed for the HA Core one to become active. How well this will work depends on the nature of the custom integration and how much it deviates with its entity naming scheme from the core integration. Check with the custom integration author for more information.
+
 ## Troubleshooting
 
 When issues occur with this integration some items to check are:
 
+- Use the `Download Diagnostics` button in the Envoy Device page or the Enphase Integration page menu. It will download settings and recent data of the Envoy and provide some key information.
 - What model are you using. This will drive what can be expected.
 - What firmware is your model using, Was a firmware update recently pushed to the device?
-- Enable debug logging and let it run for a couple of minutes, disable it again and the log file will download to your computer. Check for obvious errors and be prepared to share it as needed to troubleshooting. 
-  - All data collected is logged in lines like `Fetched from https://192.168.01.10/some_url: <Response [200 OK]>:`. 
-  - The Envoy model it thinks its dealing with is reported in a line containg: `Using Model: P (HTTPs, Metering enabled: False, Get Inverters: True, Use Enligthen True)`. (Model PC is envoy metered, P is Standard and R/LCD with FW >= R3.9 and P0 is Legacy/C/R/LCD with FW < R3.9>)
-- When configuring the Envoy for token use it will reach out to the Enphase Enlighten website to obtain a token. Reportedly the Enphase website is not equally responsive every moment of the day, week, moth, year and the setup will fail. At this moment the only answer to that is your perseverance or just try at another moment. 
+- Enable debug logging and let it run for a couple of minutes, disable it again and the log file will download. Check for obvious errors and be prepared to share it as needed for troubleshooting. Any tokens, usernames or passwords for the Envoy integration are not visible, but there may be sensitive information of other integrations that are being used.
+  - All data collected is logged in lines like `Fetched from https://192.168.01.10/some_url: <Response [200 OK]>:`. Inspecting these provides insight in what and how successful data is collected.
+  - The Envoy model it thinks its dealing with is reported in a line containing: `Using Model: P (HTTPs, Metering enabled: False, Get Inverters: True, Use Enligthen True)`. (Model PC is envoy metered, P is Standard and R/LCD with FW >= R3.9 and P0 is Legacy/C/R/LCD with FW < R3.9>)
+- When configuring the Envoy for token use it will reach out to the Enphase Enlighten website to obtain a token. Reportedly the Enphase website is not equally responsive every moment of the day, week, moth, year and the setup will fail. At this moment the only answer to that is your perseverance or just try at another moment.
 - The token lifetime for Home Owner accounts is currently 1 year. The token is cached eliminating the need to connect toe Enphase each reload or restart. When the token is expired or some other authorization hiccup occurs a new token will be obtained. If that is needed at a moment it can't connect to Enphase it will try until success but in the mean time no data is collected from the Envoy. When using an Installer or DIY account this may work as well but the lifetime is 12 hours and refresh is way more frequent.
+- The Envoy integration supports zeroconf for auto detection and changes of IP addresses for the Envoy. It will not switch to an IPV6 address if the default network interface is running ipv4 or the other way around.It supports both IPV4 and IPV6. To change between these when default interface change IP type, remove and re-add the Envoy.
