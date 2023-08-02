@@ -180,6 +180,31 @@ set up, which is as easy as clicking the My Home Assistant button below:
 
 {% my config_flow_start badge domain="shopping_list" %}
 
+## Generate an image with OpenAI's DALL-E
+
+In the last release, we added [the ability for services to respond with data](/blog/2023/07/05/release-20237/#services-can-now-respond),
+and now we added a service that allows you to generate an image using
+[OpenAI's DALL-E](https://openai.com/dall-e-2).
+
+All you need is to set up the [OpenAI conversation agent](/integrations/openai_conversation)
+integration on your instance, and you will get a new service:
+{% my developer_call_service service="openai_conversation.generate_image" %}.
+
+Call this service describing the image you'd like the AI to generate, and
+it will respond with an image URL you can use in your automations.
+
+<img class="no-shadow" src='/images/blog/2023-08/openai-generate-image.png' alt='Screenshot showing the new generate image service with DALL-E from OpenAI, asking to generate an image of an astronout riding an unicorn.'>
+
+You could, for example, use this to generate an image of a city that matches
+the weather conditions outside of your home, let the AI generate an image
+about the latest news headline to show on your dashboard, or maybe generate
+a fun image of someone putting out garbage on garbage day.
+
+{% my developer_call_service badge service="openai_conversation.generate_image" %}
+
+You could even combine it with the wildcard support for sentence triggers so you
+could ask Home Assistant to generate an image using your voice...
+
 ## Wildcard support for sentence triggers
 
 {% details "TODO" %}
