@@ -7,7 +7,7 @@ ha_category:
 ha_release: 2023.8
 ha_config_flow: true
 ha_iot_class: Cloud Polling
-ha_domain: 'pegel_online'
+ha_domain: pegel_online
 ha_platforms:
   - sensor
 ha_codeowners:

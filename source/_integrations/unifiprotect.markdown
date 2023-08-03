@@ -22,8 +22,8 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - "@AngellusMortis"
-  - "@bdraco"
+  - '@AngellusMortis'
+  - '@bdraco'
 ha_domain: unifiprotect
 ha_platforms:
   - binary_sensor

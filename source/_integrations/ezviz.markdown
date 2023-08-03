@@ -12,9 +12,11 @@ ha_codeowners:
   - '@baqs'
 ha_config_flow: true
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - camera
+  - image
   - light
   - number
   - select

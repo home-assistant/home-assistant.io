@@ -17,6 +17,7 @@ ha_platforms:
   - light
   - number
   - select
+  - sensor
   - siren
   - switch
   - update

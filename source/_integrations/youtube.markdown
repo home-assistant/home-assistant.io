@@ -10,6 +10,7 @@ ha_codeowners:
   - '@joostlek'
 ha_domain: youtube
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
 ---

@@ -21,10 +21,10 @@ ha_platforms:
   - button
   - device_tracker
   - diagnostics
+  - image
   - sensor
   - switch
   - update
-  - image
 ha_ssdp: true
 ha_integration_type: integration
 ---
