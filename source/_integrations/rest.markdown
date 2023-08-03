@@ -12,6 +12,7 @@ ha_platforms:
   - notify
   - sensor
   - switch
+  - button
 ha_integration_type: integration
 ha_codeowners:
   - '@epenet'
