@@ -605,7 +605,7 @@ It is also a good idea to add a `unique_id` to allow changes to the entity and a
 
 If no name is set, a default name will be set by MQTT ([see the MQTT platform documentation](#mqtt-discovery)).
 
-To create a new sensor manually and with the name set to `null` to derive device name "Garden":
+To create a new sensor manually and with the name set to `null` to derive the device name "Garden":
 
 ```bash
 mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": null, "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}'
