@@ -70,7 +70,7 @@ extensions:
 You can write reusable Jinja templates by adding them to a `custom_templates` folder under your
 configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
 Templates in this folder will be loaded at startup. To reload the templates without
-restarting Home Assistant, invoke the `homeassistant.reload_custom_templates` service.
+restarting Home Assistant, invoke the {% my developer_call_service service="homeassistant.reload_custom_templates" %} service.
 
 Once the templates are loaded, Jinja [includes](https://jinja.palletsprojects.com/en/3.0.x/templates/#include) and [imports](https://jinja.palletsprojects.com/en/3.0.x/templates/#import) will work
 using `config/custom_templates` as the base directory.
@@ -110,8 +110,8 @@ Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_var
 
 Not supported in [limited templates](#limited-templates).
 
-- Iterating `states` will yield each state sorted alphabetically by entity ID.
-- Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
+- Iterating `states` will yield each state object.
+- Iterating `states.domain` will yield each state object of that domain.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
 - `states` can also be used as a function, `states(entity_id, rounded=False, with_unit=False)`, which returns the state string (not the state object) of the given entity, `unknown` if it doesn't exist, and `unavailable` if the object exists but is not available.
   - The optional arguments `rounded` and `with_unit` control the formatting of sensor state strings, please see the [examples](#formatting-sensor-states) below.
@@ -631,7 +631,7 @@ If your template is returning a timestamp that should be displayed in the fronte
 
 {% raw %}
 
-`{{ states.sun.sun.last_changed }}` => `2021-01-24 07:06:59+00:00` (missing "T" separator)
+`{{ states.sun.sun.last_changed }}` => `2023-07-30 20:03:49.253717+00:00` (missing "T" separator)
 
 {% endraw %}
 
@@ -639,7 +639,7 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 {% raw %}
 
-`{{ states.sun.sun.last_changed.isoformat() }}` => `2021-01-24T07:06:59+00:00` (contains "T" separator)
+`{{ states.sun.sun.last_changed.isoformat() }}` => `2023-07-30T20:03:49.253717+00:00` (contains "T" separator)
 
 {% endraw %}
 

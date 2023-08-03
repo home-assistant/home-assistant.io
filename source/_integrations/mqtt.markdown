@@ -21,8 +21,10 @@ ha_platforms:
   - cover
   - device_tracker
   - diagnostics
+  - event
   - fan
   - humidifier
+  - image
   - light
   - lock
   - number
@@ -31,12 +33,11 @@ ha_platforms:
   - sensor
   - siren
   - switch
-  - text
   - tag
+  - text
   - update
   - vacuum
   - water_heater
-  - image
 ha_integration_type: integration
 ha_quality_scale: gold
 ---
@@ -189,6 +190,25 @@ For reading all messages sent on the topic `homeassistant` to a broker running o
 mosquitto_sub -h 127.0.0.1 -v -t "homeassistant/#"
 ```
 
+## Sharing of device configuration
+
+MQTT entities can share device configuration, meaning one entity can include the full device configuration and other entities can link to that device by only setting mandatory fields.
+The mandatory fields were previously limited to at least one of `connection` and `identifiers`, but have now been extended to at least one of `connection` and `identifiers` as well as the `name`.
+
+## Naming of MQTT Entities
+
+For every configured MQTT entity Home Assistant automatically assigns a unique `entity_id`. If the `unique_id` option is configured, you can change the `entity_id` after creation, and the changes are stored in the Entity Registry. The `entity_id` is generated when an item is loaded the first time.
+
+If the `object_id` option is set, then this will be used to generate the `entity_id`.
+If, for example, we have configured a `sensor`, and we have set `object_id` to `test`, then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will append it with a suffix to make it unique, for example, `sensor.test_2`.
+
+This means any MQTT entity which is part of a device will [automatically have it's `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
+
+Unnamed `binary_sensor`, `button`, `number` and `sensor` entities will now be named by their device class instead of being named "MQTT binary sensor" etc.
+It's allowed to set an MQTT entity's name to `None` (use `null` in YAML) to mark it as the main feature of a device.
+
+Note that on each MQTT entity, the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations).
+
 ## MQTT Discovery
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
@@ -202,6 +222,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Cover](/integrations/cover.mqtt/)
 - [Device Tracker](/integrations/device_tracker.mqtt/)
 - [Device Trigger](/integrations/device_trigger.mqtt/)
+- [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
@@ -317,6 +338,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'ent_pic':             'entity_picture',
     'err_t':               'error_topic',
     'err_tpl':             'error_template',
+    'evt_typ':             'event_types',
     'fanspd_t':            'fan_speed_topic',
     'fanspd_tpl':          'fan_speed_template',
     'fanspd_lst':          'fan_speed_list',
@@ -548,6 +570,7 @@ The following software has built-in support for MQTT discovery:
 - [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
+- [MyElectricalData](https://github.com/MyElectricalData/myelectricaldata#english)
 - [Nuki Hub](https://github.com/technyon/nuki_hub)
 - [Nuki Smart Lock 3.0 Pro](https://support.nuki.io/hc/articles/12947926779409-MQTT-support), [more info](https://developer.nuki.io/t/mqtt-api-specification-v1-3/17626)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
@@ -681,7 +704,36 @@ In the example above, the entity_id will be `sensor.my_super_device` instead of 
 
 For most integrations, it is also possible to manually set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
 
-{% details "MQTT integrations that support setup via YAML" %}
+MQTT supports two styles for configuring items in YAML. All configuration items are placed directly under the `mqtt` integration key. Note that you cannot mix these styles. Use the *YAML configuration listed per item* style when in doubt.
+
+### YAML configuration listed per item
+
+This method expects all items to be in a YAML list. Each item has a `{domain}` key and the item config is placed directly under the domain key. This method is considered as best practice. In all the examples we use this format.
+
+```yaml
+mqtt:
+  - {domain}:
+      name: ""
+      ...
+  - {domain}:
+      name: ""
+      ...
+```
+
+### YAML configuration keyed and bundled by `{domain}`
+
+All items are grouped per `{domain}` and where all configs are listed.
+
+```yaml
+mqtt:
+  {domain}:
+    - name: ""
+      ...
+    - name: ""
+      ...
+```
+
+{% details "MQTT components that support setup via YAML" %}
 
 - [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
@@ -689,6 +741,7 @@ For most integrations, it is also possible to manually set up MQTT items in `con
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
 - [Device Tracker](/integrations/device_tracker.mqtt/)
+- [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/imahe.mqtt/)

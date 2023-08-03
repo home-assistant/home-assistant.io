@@ -19,8 +19,8 @@ To enable this climate platform in your installation, first add the following to
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  climate:
-    - name: Study
+  - climate:
+      name: Study
       mode_command_topic: "study/ac/mode/set"
 ```
 
@@ -105,7 +105,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -219,7 +219,7 @@ mode_command_template:
   required: false
   type: template
 mode_command_topic:
-  description: The MQTT topic to publish commands to change the HVAC operation mode. Use `power_command_topic` if you only want to publish the power state.
+  description: The MQTT topic to publish commands to change the HVAC operation mode.
   required: false
   type: string
 mode_state_template:
@@ -236,7 +236,7 @@ modes:
   default: ['auto', 'off', 'cool', 'heat', 'dry', 'fan_only']
   type: list
 name:
-  description: The name of the HVAC.
+  description: The name of the HVAC. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT HVAC
@@ -274,7 +274,7 @@ power_command_template:
   required: false
   type: template
 power_command_topic:
-  description: The MQTT topic to publish commands to change the HVAC power state. Sends the payload configured with `payload_on` if the climate is turned on via the `climate.turn_on`, or the payload configured with `payload_off` if the climate is turned off via the `climate.turn_off` service. The climate device reports it's state back via `mode_command_topic`. Note that when this option is used in `optimistic` mode, service `climate.turn_on` will send a the message configured with `payload_on` to the device but will not update the state of the climate.
+  description: The MQTT topic to publish commands to change the HVAC power state. Sends the payload configured with `payload_on` if the climate is turned on via the `climate.turn_on`, or the payload configured with `payload_off` if the climate is turned off via the `climate.turn_off` service. Note that `optimistic` mode is not supported through `climate.turn_on` and `climate.turn_off` services. When called, these services will send a power command to the device but will not optimistically update the state of the climate entity. The climate device should report its state back via `mode_state_topic`.
   required: false
   type: string
 precision:
@@ -431,8 +431,8 @@ Say you receive the operation mode `"auto"` via your `mode_state_topic`, but the
 
 ```yaml
 mqtt:
-  climate:
-    - name: Study
+  - climate:
+      name: Study
       modes:
         - "off"
         - "heat"
@@ -457,8 +457,8 @@ A full configuration example looks like the one below.
 ```yaml
 # Full example configuration.yaml entry
 mqtt:
-  climate:
-    - name: Study
+  - climate:
+      name: Study
       modes:
         - "off"
         - "cool"
