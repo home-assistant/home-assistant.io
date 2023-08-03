@@ -986,6 +986,12 @@ translation_key:
     for more information.
   type: string
   required: false
+sort:
+  description: >
+    Display options in alphabetical order.
+  type: boolean
+  required: false
+  default: false
 {% endconfiguration %}
 
 Alternatively, a mapping can be used for the options. When you want to return
