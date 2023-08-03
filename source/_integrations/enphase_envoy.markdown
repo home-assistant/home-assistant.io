@@ -140,15 +140,29 @@ Envoy \<serialnumber\> Current Power Production L\<n\>|sensor.Envoy_\<serialnumb
 
 ### Inverter Sensors
 
-For each inverter a sensor for current power production is created. It is named with both the Envoy and the inverter serial number.
+For each inverter a sensor for current power production is created.
 
-!Sensor name|Sensor ID|remarks|
+|Sensor name|Sensor ID|remarks|
 |-----|-----|----|
 |Envoy \<serialnumber\> Inverter \<serialnumber\>|sensor.Envoy_\<serialnumber\>\_Inverter_\<serialnumber\>|1|
 
 1: Not available on Legacy models
 
 **Note** As can be noted the Envoy serial number is part of the inverter sensor id and name. Internally the unique_id for it is the inverter serial number. When changing your setup by moving inverters to a new/different Envoy it will require some preparation/research how this will work out. (Statistics (history) is stored by sensor id)
+
+### Battery Sensors
+
+For each battery a sensor for percent full is created as well as sensors for overall battery percentage, overall battery capacity, overall energy charged and discharged are created.
+
+|Sensor name|Sensor ID|remarks|
+|-----|-----|----|
+|Envoy \<serialnumber\> Battery \<serialnumber\>|sensor.Envoy_\<serialnumber\>\_Battery_\<serialnumber\>|Unit: %  1|
+|Envoy \<serialnumber\> Total Battery Percentage|sensor.Envoy_\<serialnumber\>\_total_battery_percentage|1|
+|Envoy \<serialnumber\> Current Battery Capacity|sensor.Envoy_\<serialnumber\>\_current_battery_capacity|Wh   1|
+|Envoy \<serialnumber\> Battery Energy Charged|sensor.Envoy_\<serialnumber\>\_battery_energy_charged|1|
+|Envoy \<serialnumber\> Battery Energy Discharged|sensor.Envoy_\<serialnumber\>\_battery_energy_charged|1|
+
+1: Not available on Legacy models and ENVOYS-S Standard
 
 ## How to switch to Enphase token authorization
 
