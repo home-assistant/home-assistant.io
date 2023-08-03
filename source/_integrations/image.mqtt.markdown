@@ -83,7 +83,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -159,7 +159,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the image.
+  description: The name of the image. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
 object_id:

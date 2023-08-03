@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - event
   - light
   - lock
   - sensor

@@ -22,6 +22,7 @@ ha_platforms:
   - button
   - cover
   - fan
+  - image
   - light
   - lock
   - number
@@ -30,7 +31,6 @@ ha_platforms:
   - switch
   - vacuum
   - weather
-  - image
 ha_integration_type: integration
 ---
 

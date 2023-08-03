@@ -57,3 +57,4 @@ The integration is tested and verified for the following devices from YoLink:
 - YS6801/2 (MultiOutlet)
 - YS3604 (FlexFob)
 - YS7106 (PowerFailureAlar)
+- YS4908 (Finger)

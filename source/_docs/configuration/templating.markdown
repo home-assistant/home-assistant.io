@@ -631,7 +631,7 @@ If your template is returning a timestamp that should be displayed in the fronte
 
 {% raw %}
 
-`{{ states.sun.sun.last_changed }}` => `2021-01-24 07:06:59+00:00` (missing "T" separator)
+`{{ states.sun.sun.last_changed }}` => `2023-07-30 20:03:49.253717+00:00` (missing "T" separator)
 
 {% endraw %}
 
@@ -639,7 +639,7 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 {% raw %}
 
-`{{ states.sun.sun.last_changed.isoformat() }}` => `2021-01-24T07:06:59+00:00` (contains "T" separator)
+`{{ states.sun.sun.last_changed.isoformat() }}` => `2023-07-30T20:03:49.253717+00:00` (contains "T" separator)
 
 {% endraw %}
 

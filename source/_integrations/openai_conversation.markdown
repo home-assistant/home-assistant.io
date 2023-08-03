@@ -20,7 +20,7 @@ This integration requires an API key to use, [which you can generate here.](http
 
 {% include integrations/config_flow.md %}
 
-### Generate an API Key
+## Generate an API Key
 
 The OpenAI key is used to authenticate requests to the OpenAI API. To generate an API key take the following steps:
 
@@ -48,6 +48,75 @@ Top P:
 
 {% endconfiguration_basic %}
 
-### Talking to Super Mario over the phone
+## Talking to Super Mario over the phone
 
 You can use an OpenAI Conversation integration to [talk to Super Mario over a classic landline phone](/voice_control/worlds-most-private-voice-assistant/).
+
+## Services
+
+### Service `openai_conversation.generate_image`
+
+Allows you to ask OpenAI to generate an image based on a prompt. This service
+populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+with the requested image.
+
+| Service data attribute | Optional | Description                                            | Example          |
+| ---------------------- | -------- | ------------------------------------------------------ | ---------------- |
+| `config_entry`         | no       | Integration entry ID to use.                           |                  |
+| `prompt`               | no       | The text to turn into an image.                        | Picture of a dog |
+| `size`                 | yes      | Size of the returned (square) image in pixels, defaults to 512. | 512              |
+
+{% raw %}
+```yaml
+service: openai_conversation.generate_image
+data:
+  config_entry: f29e6b8696a15e107b4bd843de722249
+  prompt: "Cute picture of a dog chasing a herd of cats"
+  size: 1024
+response_variable: generated_image
+```
+{% endraw %}
+
+The response data field `url` will contain a URL to the generated image.
+
+#### Example using a generated image entity
+
+The following example shows an automation that generates an image and displays
+it in a image template entity. The prompt uses the state of the weather entity
+to generate a new image of New York in the current weather state.
+
+The resulting image entity can be used in, for example, a card on your dashboard.
+
+{% raw %}
+```yaml
+automation:
+  - alias: "Update image when weather changes"
+    trigger:
+      - platform: state
+        entity_id: weather.home
+    action:
+      - alias: "Ask OpenAI to generate an image"
+        service: openai_conversation.generate_image
+        response_variable: generated_image
+        data:
+          config_entry: f29e6b8696a15e107b4bd843de722249
+          size: 512
+          prompt: >-
+            New York when the weather is {{ state("weather.home") }}"
+
+      - alias: "Send out a manual event to update the image entity"
+        event: new_weather_image
+        event_data:
+          url: '{{ generated_image.url }}'
+
+template:
+  - trigger:
+      alias: "Update image when a new weather image is generated"
+      platform: event
+      event_type: new_weather_image
+    image:
+      name: "AI generated image of New York"
+      url: "{{ trigger.event.data.url }}"
+```
+
+{% endraw %}

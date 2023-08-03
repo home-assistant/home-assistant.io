@@ -2,9 +2,11 @@
 title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
 ha_category:
+  - Number
   - Select
   - Sensor
   - Switch
+  - Time
   - Vacuum
 ha_iot_class: Local Polling
 ha_release: 2023.5
@@ -15,9 +17,11 @@ ha_codeowners:
 ha_domain: roborock
 ha_platforms:
   - diagnostics
+  - number
   - select
   - sensor
   - switch
+  - time
   - vacuum
 ha_integration_type: integration
 ---
@@ -70,7 +74,7 @@ data:
     - segments:
         - 22
         - 23
-    - repeat: 1
+      repeat: 2
 target:
   entity_id: vacuum.s7_roborock
 

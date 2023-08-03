@@ -73,7 +73,7 @@ sql:
     name:
       description: The name of the sensor.
       required: true
-      type: string
+      type: template
     query:
       description: An SQL QUERY string, should return 1 result at most.
       required: true
@@ -102,6 +102,18 @@ sql:
       description: "Provide [state class](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes) for this sensor."
       required: false
       type: string
+    icon:
+      description: "Defines a template for the icon of the entity."
+      required: false
+      type: template
+    picture:
+      description: "Defines a template for the entity picture of the entity."
+      required: false
+      type: template
+    availability:
+      description: "Defines a template if the entity state is available or not."
+      required: false
+      type: template
 {% endconfiguration %}
 
 ## Information
