@@ -68,12 +68,12 @@ For electricity:
 
 1. Select **Add consumption** for the **Electricity grid**.
 2. Select **Opower {utility name} elec {account number} consumption** for the **consumed energy**.
-3. Select the radio button to "Use an entity tracking the total costs"
+3. Select the radio button to **Use an entity tracking the total costs**.
 4. Select **Opower {utility name} elec {account number} cost** for the **entity with the total costs**.
 
 For gas:
 
 1. Select **Add gas source** for the **Gas consumption**.
 2. Select **Opower {utility name} gas {account number} consumption** for the **gas usage**.
-3. 3. Select the radio button to "Use an entity tracking the total costs"
+3. Select the radio button to **Use an entity tracking the total costs**.
 4. Select **Opower {utility name} gas {account number} cost** for the **entity with the total costs**.
