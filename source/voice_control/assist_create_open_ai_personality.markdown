@@ -16,7 +16,7 @@ Using OpenAI requires an OpenAI account. For this tutorial, the free trial optio
 
 1. [Set up an OpenAI account and install the OpenAI conversation](/integrations/openai_conversation/) integration.
 2. Create a Mario personality.
-   - Once you installed the OpenAI Conversation integration, go to {% my integrations title="**Settings** > **Devices & Services**" %} and in OpenAI Conversation integration, the select **Configure**.
+   - Once you installed the OpenAI Conversation integration, go to {% my integrations title="**Settings** > **Devices & Services**" %}. In the OpenAI Conversation integration, select **Configure**.
   
       ![Configure the OpenAI integration](/images/assist/assistant-openai-mario-config.png)
    - In the **Prompt template** field, enter the following text: 
