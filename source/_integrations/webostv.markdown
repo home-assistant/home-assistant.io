@@ -92,6 +92,20 @@ data:
   media_content_type: "channel"
 ```
 
+## Play video through play_media service
+
+The `play_media` service can be used in a script to play a video using the default Media Player source.
+
+```yaml
+# Example action entry in script to play video from USB
+service: media_player.play_media
+target:
+  entity_id: media_player.lg_webos_smart_tv
+data:
+  media_content_id: "file:///tmp/usb/sda/sda1/video.mp4"
+  media_content_type: "video"
+```
+
 ## Next/Previous buttons
 
 The behavior of the next and previous buttons is different depending on the active source:
