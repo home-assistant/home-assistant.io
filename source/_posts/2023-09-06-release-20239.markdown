@@ -1,0 +1,384 @@
+---
+layout: post
+title: "2023.9: Beta release notes"
+description: "The beta release notes for Home Assistant 2023.9"
+date: 2023-08-02 00:00:00
+date_formatted: "September 6, 2023"
+author: Bram Kragten
+author_twitter: bramkragten
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2023-09/social.png
+---
+
+<a href='/integrations/#version/2023.9'><img src='/images/blog/2023-09/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+These are the beta release notes for Home Assistant Core 2023.5 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/UI/dashboards:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2023.9! 🎉
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+<!--more-->
+
+- [Lorem ipsum!](#lorem-ipsum)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New integrations](#new-integrations)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking changes](#breaking-changes)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=JSNRrWk9IHs)
+6 September 2023, at 12:00 PDT / 21:00 CEST!
+
+<lite-youtube videoid="JSNRrWk9IHs" videotitle="Home Assistant 2023.9 Release Party"></lite-youtube>
+
+## Lorem ipsum!
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod.
+
+<p class='img'>
+<img src='https://cdn.discordapp.com/attachments/427516175237382144/1100754453725978644/image.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+## Other noteworthy changes
+
+{% details "TODO" %}
+
+- **Note**: Changes processed up to PR X
+
+- Proof read/spelling/grammar
+- Last minute ones added?
+- Go over list again, might have missed something
+
+To consider:
+- something
+
+{% enddetails %}
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- [Lorem] now has support for ipsums, thanks [@frenck]!
+
+[@frenck]: https://github.com/frenck
+[Lorem]: /integrations/lorem
+
+## New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Comelit SimpleHome]**, added by [@chemelli74]<br />
+  Control your Comelit home automation devices.
+- **[Lawn mower]**, added by [@mikey0000]<br />
+  A new entity type, that allows integrations to provide lawn mower entities.
+- **[Schlage]**, added by [@dknowles2]<br />
+  Use your Schlage WiFi smart locks with Home Assistant.
+- **[Trafikverket Camera]**, added by [@gjohansson-ST]<br />
+  Adds Swedish traffic camera feeds from Trafikverket.
+- **[Vodafone Station]**, added by [@chemelli74]<br />
+  Provides device tracker support for Vodafone Station router.
+- **[Yardian]**, added by [@h3l1o5]<br />
+  Support for your Yardan Smart Sprinkler Controller.
+
+[@chemelli74]: https://github.com/chemelli74
+[@dknowles2]: https://github.com/dknowles2
+[@gjohansson-ST]: http://github.com/gjohansson-ST
+[@h3l1o5]: https://github.com/h3l1o5
+[@mikey0000]: https://github.com/mikey0000
+[Comelit SimpleHome]: /integrations/comelit
+[Lawn mower]: /integrations/lawn_mower
+[Schlage]: /integrations/schlage
+[Trafikverket Camera]: /integrations/trafikverket_camera
+[Vodafone Station]: /integrations/vodafone_station
+[Yardian]: /integrations/yardian
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking changes
+
+**Note**: Breaking changes processed up to PR 98609
+
+{% details "BMW Connected Drive" %}
+
+The "Refresh from cloud" button has been removed. Use the
+`homeassistant.update_entity` service with any BMW entity for a
+full reload instead.
+
+([@rikroe] - [#97864]) ([documentation](/integrations/bmw_connected_drive))
+
+[@rikroe]: https://github.com/rikroe
+[#97864]: https://github.com/home-assistant/core/pull/97864
+
+{% enddetails %}
+
+{% details "DoorBird" %}
+
+The `doorbird_reset_favorites` event is no longer fired when the clear webhook
+is called. Note: this event was never documented.
+
+([@bdraco] - [#98585]) ([documentation](/integrations/doorbird))
+
+[@bdraco]: https://github.com/bdraco
+[#98585]: https://github.com/home-assistant/core/pull/98585
+
+{% enddetails %}
+
+{% details "Enphase Envoy" %}
+
+Envoy versions < 3.9 (pre-API) are no longer supported as they require
+web scraping which is disallowed by [ADR-0004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
+
+([@bdraco] - [#97862]) ([documentation](/integrations/enphase_envoy))
+
+[@bdraco]: https://github.com/bdraco
+[#97862]: https://github.com/home-assistant/core/pull/97862
+
+{% enddetails %}
+
+{% details "ESPHome" %}
+
+To prevent cross-linked devices, replacing an ESPHome device with a different
+board is no longer allowed. Instead, delete the integration entry and re-add
+the new device when the mac address of the board changes.
+
+([@bdraco] - [#98787]) ([documentation](/integrations/esphome))
+
+[@bdraco]: https://github.com/bdraco
+[#98787]: https://github.com/home-assistant/core/pull/98787
+
+{% enddetails %}
+
+{% details "EZVIZ" %}
+
+Now, only returns switches if supported by the Camera. Some of the "switches" on
+the EZVIZ API are intermingled with "is this supported" and are not actually
+switchable; those have been removed.
+
+([@RenierM26] - [#95672]) ([documentation](/integrations/ezviz))
+
+[@RenierM26]: https://github.com/RenierM26
+[#95672]: https://github.com/home-assistant/core/pull/95672
+
+{% enddetails %}
+
+{% details "Flume" %}
+
+You might get false positives for leak detected and high flow sensors if you
+have old unread notifications in the Flume app.
+
+Before, the leak detected and high flow sensors would only trigger until you
+read the notification in the Flume app which was too late for Home Assistant
+to take any automated action.
+
+Now, they trigger regardless if you have read or not the notification. They will
+remain active until you delete the notification in the Flume app,
+similar to [the old behavior documented](/integrations/flume/#notifications).
+
+([@tronikos] - [#98560]) ([documentation](/integrations/flume))
+
+[@tronikos]: https://github.com/tronikos
+[#98560]: https://github.com/home-assistant/core/pull/98560
+
+{% enddetails %}
+
+{% details "Hive" %}
+
+The previously deprecated service `hive.boost_heating` has been removed.
+
+([@gjohansson-ST] - [#97444]) ([documentation](/integrations/hive))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#97444]: https://github.com/home-assistant/core/pull/97444
+
+{% enddetails %}
+
+{% details "HTTP / Webserver" %}
+
+Home Assistant can't be put in an iframe anymore by default. If you still want
+to embed the Home Assistant interface in a frame, you can do so by disabling
+`use_x_frame_options` by setting it to `false` in the `http` configuration.
+
+([@frenck] - [#97784]) ([documentation](/integrations/http))
+
+[@frenck]: https://github.com/frenck
+[#97784]: https://github.com/home-assistant/core/pull/97784
+
+{% enddetails %}
+
+{% details "Météo-France" %}
+
+The Météo-France weather entities have been updated:
+
+- The `forecast` state attribute is deprecated and will be removed in
+  Home Assistant Core 2024.3, you should instead use the `weather.get_forecast`
+  service.
+- The config entry option to select hourly or daily forecast can no longer be
+  adjusted, but any existing configuration of the forecast period will be
+  respected until Home Assistant Core 2024.3.
+- Météo-France now provides a single weather entity which supports both
+  hourly and daily forecast.
+
+([@emontnemery] - [#98022]) ([documentation](/integrations/meteo_france))
+
+[@emontnemery]: https://github.com/emontnemery
+[#98022]: https://github.com/home-assistant/core/pull/98022
+
+{% enddetails %}
+
+{% details "Mill" %}
+
+Mill has moved to a new IoT solution and released a new API. The unique ID from
+the old API is no longer available, so all devices will be shown as new devices.
+Support for the heater fan will be added later.
+
+([@Danielhiversen] - [#97497]) ([documentation](/integrations/mill))
+
+[@Danielhiversen]: https://github.com/Danielhiversen
+[#97497]: https://github.com/home-assistant/core/pull/97497
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+MQTT device trackers no longer always update the when there is no state change.
+This means that automations that trigger on a state change no longer are
+triggered if there is no change.
+
+([@jbouwh] - [#98838]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#98838]: https://github.com/home-assistant/core/pull/98838
+
+{% enddetails %}
+
+{% details "Nextcloud" %}
+
+The CPU load sensor has been replaced, it is not a list of 3 values anymore,
+but there are now three single sensors for
+CPU load within last 1, 5, and 15 minutes. 
+
+([@mib1185] - [#99141]) ([documentation](/integrations/nextcloud))
+
+[@mib1185]: https://github.com/mib1185
+[#99141]: https://github.com/home-assistant/core/pull/99141
+
+{% enddetails %}
+
+{% details "Plugwise" %}
+
+The `maximum_boiler_temperature` sensor entity has been replaced by a number
+entity, allowing control as well.
+
+([@CoMPaTech] - [#97203]) ([documentation](/integrations/plugwise))
+
+[@CoMPaTech]: https://github.com/CoMPaTech
+[#97203]: https://github.com/home-assistant/core/pull/97203
+
+---
+
+The additional schema state attributes of the climate entity have been removed.
+They have beeen previously replaced by a select entity.
+
+([@bouwew] - [#98153]) ([documentation](/integrations/plugwise))
+
+[@bouwew]: https://github.com/bouwew
+[#98153]: https://github.com/home-assistant/core/pull/98153
+
+{% enddetails %}
+
+{% details "Start.ca" %}
+
+Start.ca `limit`, `usage`, and `used_remaining` sensors will no longer be created
+when there's no bandwidth cap.
+
+([@emontnemery] - [#98525]) ([documentation](/integrations/startca))
+
+[@emontnemery]: https://github.com/emontnemery
+[#98525]: https://github.com/home-assistant/core/pull/98525
+
+{% enddetails %}
+
+{% details "Trafikverket Train" %}
+
+All attributes have been converted into their own sensors.
+The original sensor is now renamed with suffix "Departure time".
+
+Any automation or script depending on these attributes needs to be adjusted
+to use these new sensors.
+
+([@gjohansson-ST] - [#71432]) ([documentation](/integrations/trafikverket_train))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#71432]: https://github.com/home-assistant/core/pull/71432
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+The entity naming logic has been updated to be less brittle. As a result,
+some `zwave_js` entities that you haven't given a custom name to may be renamed.
+
+Since they are registered in the entity registry, the entity IDs will not change
+and your automations should therefore not be impacted by the change.
+
+([@raman325] - [#98140]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#98140]: https://github.com/home-assistant/core/pull/98140
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Numerical sensors are no longer allowed to set their state to NaN or inf](https://developers.home-assistant.io/blog/2023/08/23/sensor-updates)
+- [Weather entity forecast types](https://developers.home-assistant.io/blog/2023/08/07/weather_entity_forecast_types/)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2023.9](/changelogs/core-2023.9)
