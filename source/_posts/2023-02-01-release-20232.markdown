@@ -89,7 +89,7 @@ Go ahead, it is enabled by default; just tap the new Assist icon
 at the top right of your dashboard to start using it.
 
 Oh, and we are also releasing some fun stuff we've cooked up along the way!
-[Read more about Assist](/docs/assist/) and other released voice features in the
+[Read more about Assist](/voice_control/) and other released voice features in the
 [Chapter 1: Assist](/blog/2023/01/26/year-of-the-voice-chapter-1/) blogpost
 and a [video presentation (including live demos) on YouTube](https://www.youtube.com/live/ixgNT3RETPg).
 

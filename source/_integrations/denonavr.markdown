@@ -3,7 +3,7 @@ title: Denon AVR Network Receivers
 description: Instructions on how to integrate Denon AVR Network Receivers into Home Assistant.
 ha_category:
   - Media Player
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: 0.7.2
 ha_domain: denonavr
 ha_codeowners:
@@ -52,6 +52,7 @@ Known supported devices:
 - Denon AVR-X6700H
 - Denon AVR-X7200W
 - Denon AVR-X8500H
+- Denon AVR-1713
 - Denon AVR-1912
 - Denon AVR-2112CI
 - Denon AVR-2312CI
@@ -62,6 +63,7 @@ Known supported devices:
 - Denon AVR-S650H
 - Denon AVR-S710W
 - Denon AVR-S720W
+- Denon AVR-S740H
 - Denon AVR-S750H
 - Denon AVR-S760H
 - Denon AVR-S940H
@@ -71,6 +73,8 @@ Known supported devices:
 - Marantz AV7702
 - Marantz AV7703
 - Marantz AV7704
+- Marantz CINEMA 50
+- Marantz CINEMA 70s
 - Marantz M-CR510
 - Marantz M-CR511
 - Marantz M-CR603
@@ -78,9 +82,12 @@ Known supported devices:
 - Marantz M-CR611
 - Marantz SR5006
 - Marantz SR5008
+- Marantz SR5010
 - Marantz SR5011
+- Marantz SR5015
 - Marantz SR6007 - SR6012
 - Marantz SR7007
+- Marantz SR7010
 - Marantz SR7012
 - Marantz SR8015
 - Marantz NR1504

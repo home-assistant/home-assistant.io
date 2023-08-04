@@ -261,7 +261,7 @@ scan_interval:
   description: Defines the update interval of the entity in seconds, if scan_interval = 0 polling is stopped. Entities are unavailable until the first response is received, except for entities with scan_interval = 0, these entities are available from startup.
   required: false
   type: integer
-  default: 10
+  default: 15
 slave:
   description: The number of the slave.
   required: false
@@ -426,7 +426,9 @@ modbus:
             state_fan_only: 3
             state_dry: 4
             state_off: 5
+          write_registers: true
         hvac_onoff_register: 11
+        write_registers: true
 ```
 
 {% details "Previous configuration format" %}
@@ -488,6 +490,11 @@ climates:
           description: The address of the HVAC mode register.
           required: true
           type: integer
+        write_registers:
+          description: if true use write_registers
+          required: false
+          type: boolean
+          default: false
         values:
           description: A mapping between the register values and HVAC modes
           required: true
@@ -529,6 +536,11 @@ climates:
         value 1 is written.
       required: false
       type: integer
+    write_registers:
+      description: if true use write_registers for hvac_onoff.
+      required: false
+      type: boolean
+      default: false
     unique_id:
       description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false
@@ -1164,9 +1176,10 @@ and restart Home Assistant, reproduce the problem, and include the log in the is
 
 ## Building on top of Modbus
 
- - [Modbus Binary Sensor](#configuring-platform-binary_sensor)
+ - [Modbus Binary Sensor](#configuring-platform-binary-sensor)
  - [Modbus Climate](#configuring-platform-climate)
  - [Modbus Cover](#configuring-platform-cover)
  - [Modbus Fan](#configuring-platform-fan)
+ - [Modbus Light](#configuring-platform-light)
  - [Modbus Sensor](#configuring-platform-sensor)
  - [Modbus Switch](#configuring-platform-switch)

@@ -5,7 +5,7 @@ toc: true
 no_toc: true
 ---
 
-Scripts are a sequence of actions that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in [automations] and [Alexa/Amazon Echo] configurations.
+Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script integration] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
 
 When the script is executed within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
@@ -210,7 +210,7 @@ These actions allow a script to wait for entities in the system to be in a certa
 
 This action evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
 
-The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) component that will update minutely or daily.
+The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) integration that will update minutely or daily.
 
 {% raw %}
 ```yaml
@@ -761,7 +761,7 @@ on each other and order doesn't matter. For those cases, the `parallel` action
 can be used to run the actions in the sequence in parallel, meaning all
 the actions are started at the same time.
 
-The following example shows sending messages out at the time (in parallel):
+The following example shows sending messages out at the same time (in parallel):
 
 ```yaml
 automation:
@@ -779,7 +779,7 @@ automation:
               message: "These messages are sent at the same time!"
 ```
 
-It is also possible to run a group of actions sequantially inside the parallel
+It is also possible to run a group of actions sequentially inside the parallel
 actions. The example below demonstrates that:
 
 ```yaml
@@ -823,7 +823,8 @@ Some of the caveats of running actions in parallel:
 
 ## Stopping a script sequence
 
-It is possible to halt a script sequence at any point. Using the `stop` action.
+It is possible to halt a script sequence at any point and return script responses
+using the `stop` action.
 
 The `stop` action takes a text as input explaining the reason for halting the
 sequence. This text will be logged and shows up in the automations and
@@ -834,6 +835,15 @@ for example, a condition is not met.
 
 ```yaml
 - stop: "Stop running the rest of the sequence"
+```
+
+To return a response from a script, use the `response_variable` option. This
+option expects the name of the variable that contains the data to return. The
+response data must contains a mapping of key/value pairs.
+
+```yaml
+- stop: "Stop running the rest of the sequence"
+  response_variable: "my_response_variable"
 ```
 
 There is also an `error` option, to indicate we are stopping because of
@@ -892,22 +902,22 @@ script:
       # This action will not run, as it is disabled.
       # The message will not be sent.
       - enabled: false
-        alias: "Notify that ceiling light is being turned on"
+        alias: "Notify that the ceiling light is being turned on"
         service: notify.notify
         data:
           message: "Turning on the ceiling light!"
 
       # This action will run, as it is not disabled
-      - alias: "Turn on ceiling light"
+      - alias: "Turn on the ceiling light"
         service: light.turn_on
         target:
           entity_id: light.ceiling
 ```
 
-[Script component]: /integrations/script/
-[automations]: /getting-started/automation-action/
+[Script integration]: /integrations/script/
+[automations]: /docs/automation/action/
 [Alexa/Amazon Echo]: /integrations/alexa/
-[service calls page]: /getting-started/scripts-service-calls/
-[conditions page]: /getting-started/scripts-conditions/
+[service calls page]: /docs/scripts/service-calls/
+[conditions page]: /docs/scripts/conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
 [script variables]: /integrations/script/#configuration-variables

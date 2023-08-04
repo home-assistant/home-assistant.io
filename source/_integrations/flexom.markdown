@@ -2,7 +2,7 @@
 title: Bouygues Flexom
 description: Connect and control your Bouygues Flexom devices using the Overkiz integration
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Binary Sensor
   - Button
   - Climate

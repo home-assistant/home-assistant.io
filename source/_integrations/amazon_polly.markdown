@@ -16,7 +16,7 @@ Polly is a paid service via Amazon Web Services.  There is a [free tier](https:/
 
 ## Setup
 
-For more information, please read the [AWS General Reference regarding Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) to get the needed details. Also, check the [boto3 Documentation](https://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file) about the profiles and the [AWS Regions and Endpoints Reference](https://docs.aws.amazon.com/general/latest/gr/rande.html#pol_region) for available regions.
+For more information, please read the [AWS General Reference regarding Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html) to get the needed details. Also, check the [boto3 Documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#shared-credentials-file) about the profiles and the [AWS Regions and Endpoints Reference](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for available regions.
 
 Available voices are listed in the [Amazon Documentation](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html).
 

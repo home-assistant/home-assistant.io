@@ -13,6 +13,8 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_codeowners:
+  - '@epenet'
 ---
 
 The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
@@ -132,6 +134,11 @@ verify_ssl:
   required: false
   type: boolean
   default: True
+ssl_cipher_list:
+  description: Define the list of SSL ciphers to be accepted from this endpoint. `python_default` (_default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
+  required: false
+  type: string
+  default: default
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
@@ -162,6 +169,11 @@ scan_interval:
   required: false
   type: integer
   default: 30
+encoding:
+  description: The character encoding to use if none provided in the header of the shared data.
+  required: false
+  type: string
+  default: UTF-8
 sensor:
   description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
   required: false
