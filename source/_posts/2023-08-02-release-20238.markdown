@@ -1,0 +1,548 @@
+---
+layout: post
+title: "2023.8: Translated services, events, and wildcards!"
+description: "Sentence triggers can now contain wildcards, a brand new event entity, all services are now translated into your language, generate images with OpenAI's DALL-E using Assist, and more!"
+date: 2023-08-02 00:00:00
+date_formatted: "August 2, 2023"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2023-08/social.png
+---
+
+<a href='/integrations/#version/2023.8'><img src='/images/blog/2023-08/social.png' style='border: 0;box-shadow: none;'></a>
+
+Home Assistant Core 2023.8! 🎉
+
+Another month, another fine release of Home Assistant! This release is a bit more
+conservative after two absolutely packed releases in [June](/blog/2023/06/30/release-20236/)
+and [July](/blog/2023/06/07/release-20236/). Many of us are enjoying summer holidays 🏖️.
+
+Pretty much all features in this release are absolutely amazing, and it is hard
+to pick a favorite. Great translation improvements that help with the user
+experience, a new entity to capture events from things like remotes, and the
+new Assist features are, again, mind-blowing!
+
+Talking about Assist, have you seen the blog on [Year of the Voice - Chapter 3](/blog/2023/07/20/year-of-the-voice-chapter-3/)?
+Or, check [the live stream recording on YouTube](https://www.youtube.com/watch?v=sXzItFksYFA),
+where the new features have been demonstrated.
+
+Some new integrations have been added too. Most notably [Opower](/integrations/opower)!
+This integration can pull in energy usage data from many utility companies in
+the United States. For example, it supports [PG&E](/integrations/pge),
+[ComEd](/integrations/comed), [BGE](/integrations/bge), and many more! ⚡️
+Very good news for all our American friends!
+
+Enjoy the release!
+
+../Frenck
+
+<!--more-->
+
+- [Translated services](#translated-services)
+- [Introducing the event entity](#introducing-the-event-entity)
+- [Improving the first experience with Home Assistant](#improving-the-first-experience-with-home-assistant)
+- [Add items to your shopping list using Assist](#add-items-to-your-shopping-list-using-assist)
+- [Wildcard support for sentence triggers](#wildcard-support-for-sentence-triggers)
+- [Generate an image with OpenAI's DALL-E](#generate-an-image-with-openais-dall-e)
+- [Condition selector](#condition-selector)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=4EpUgLW03Pg)
+2 August 2023, at 12:00 PDT / 21:00 CEST!
+
+<lite-youtube videoid="4EpUgLW03Pg" videotitle="Home Assistant 2023.8 Release Party"></lite-youtube>
+
+## Translated services
+
+All services in Home Assistant are now translatable! 🌎
+
+Services are the actions you can call, like turning on a light. This was one of
+the bigger parts of Home Assistant that still was only available in English.
+Odd, as the Home Assistant interface can be used in 60+ languages!
+
+In this release, translations for these services have been added to drastically
+improve the experience when English is not your primary language. For example,
+when you use the Dutch language (as used in the screenshot below), the service
+to turn on a light is now also translated into Dutch.
+
+<img class="no-shadow" src='/images/blog/2023-08/translated-services.png' alt='Screenshot showing the Home Assistant interface in the Dutch language, showcasing the translations for service calls.'>
+
+A big step forward! Implementing this change has resulted in a substantial
+increase in the number of translations. They have doubled! 😅
+
+Because of that, translating all services might take some time; however… 
+You can help! You don’t have to be a developer to help with this; you can do this
+from the comfort of your browser. Check out our documentation on
+[how to contribute translations](https://developers.home-assistant.io/docs/translations).
+
+## Introducing the event entity
+
+Events are signals that are emitted when something happens, for example, when
+someone presses a physical button like a doorbell or when a button on a remote
+control is pressed.
+
+If you have ever tried to work with events in Home Assistant, you probably
+noticed that it was not the easiest thing to do. You need to know the event name,
+and then you need to know the data that is being sent with it. Before you know it,
+you'll start fiddling with the developer tools to figure out what is going on.
+
+To make this all easier, we are introducing a new entity type in this release:
+[The event entity](/integrations/event).
+
+The event entity can capture these events in the physical world and makes them
+available in Home Assistant as an entity. Take for example, this Hue remote:
+
+<img class="no-shadow" src='/images/blog/2023-08/events-hue-dimmer-switch.png' alt='Screenshot showing the new event entities provided by a Philips Hue remote.'>
+
+The beauty of the event entity is that they can be used like any other entity
+in Home Assistant: They will show up in the UI, can be used directly in the
+automations editor, and provide historical information in the logbook.
+
+Besides [Matter](/integrations/matter), the event entity is also supported by
+[HomeKit Devices](/integrations/homekit_controller), [MQTT](/integrations/mqtt),
+and [Philips Hue](/integrations/hue). We expect to see more integrations
+supporting this new entity type soon.
+
+## Improving the first experience with Home Assistant
+
+Onboarding is a user's first experience with Home Assistant. The onboarding
+screens are the first you see, and steps you take when you access Home Assistant
+for the first time, setting up things like your account and language preferences.
+The goal is to ensure this process is seamless, which is why we've made
+improvements to the onboarding experience.
+
+To achieve this, we have implemented a search field on the map during
+onboarding. Instead of endlessly dragging the pin on the map around,
+you can now easily search for your location.
+
+<img class="no-shadow" src='/images/blog/2023-08/onboarding-openstreetmap.png' alt='Screenshot showing you can now enter your address to quickly find your location on the map.'>
+
+This is powered by [OpenStreetMap](https://www.openstreetmap.org/) ❤️
+
+## Add items to your shopping list using Assist
+
+What if you could ask [Assist](/integrations/assist) to add items to your
+Home Assistant [shopping list](/integrations/shopping_list)? Well, now you can!
+
+> Add milk to my shopping list!
+
+<img class="no-shadow" src='/images/blog/2023-08/assist-shopping-list.png' alt='Screenshot showing asking assist to add milk to the shopping list.'>
+
+In case you are wondering, the shopping list integration adds a handy page to
+your Home Assistant interface to which everyone in your household can add items.
+It is a great way to keep track of what you need to buy, and now you can
+add items to it with your voice using Assist!
+
+<img class="no-shadow" src='/images/blog/2023-08/shopping-list.png' alt='Screenshot showing the shopping list integration in Home Assistant.'>
+
+To be able to use this feature, you need to have the shopping list integration
+set up, which is as easy as clicking the My Home Assistant button below:
+
+{% my config_flow_start badge domain="shopping_list" %}
+
+## Generate an image with OpenAI's DALL-E
+
+In the last release, we added [the ability for services to respond with data](/blog/2023/07/05/release-20237/#services-can-now-respond),
+and now we added a service that allows you to generate an image using
+[OpenAI's DALL-E](https://openai.com/dall-e-2).
+
+All you need is to set up the [OpenAI conversation agent](/integrations/openai_conversation)
+integration on your instance, and you will get a new service:
+{% my developer_call_service service="openai_conversation.generate_image" %}.
+
+Call this service describing the image you'd like the AI to generate, and
+it will respond with an image URL you can use in your automations.
+
+<img class="no-shadow" src='/images/blog/2023-08/openai-generate-image.png' alt='Screenshot showing the new generate image service with DALL-E from OpenAI, asking to generate an image of an astronaut riding a unicorn.'>
+
+You could, for example, use this to generate an image of a city that matches
+the weather conditions outside of your home, let the AI generate an image
+about the latest news headline to show on your dashboard, or maybe generate
+a fun image of someone putting out garbage on garbage day.
+
+{% my developer_call_service badge service="openai_conversation.generate_image" %}
+
+You could even combine it with the wildcard support for sentence triggers so you
+could ask Home Assistant to generate an image using your voice...
+
+## Wildcard support for sentence triggers
+
+[Sentence triggers](/docs/automation/trigger/#sentence-wildcards) now support
+wildcards! This means you can now partially match a sentence, and use the
+matched part in your actions. This is what powers the above
+[shopping list feature](#add-items-to-your-shopping-list-using-assist)
+too, and it can be used for many other things as well.
+
+You could, for example, create a sentence trigger that matches when you say:
+
+> Play the white album by the Beatles
+
+Using the wildcard support, you can get the album and artist name from the spoken
+sentence and use those in your actions. To trigger on the above example sentence,
+you would use the following command in your sentence trigger:
+
+<img class="no-shadow" src='/images/blog/2023-08/sentence-trigger-wildcard-music.png' alt='Screenshot showing an automation that uses a sentence trigger that has wildcards in it.'>
+
+This will make the `album` and `artist` available as trigger variables that you
+can use in your actions; for example, to start playing the music requested.
+
+These wildcards are interesting and open up a lot of possibilities!
+[Read more about sentence triggers in our documentation](/docs/automation/trigger/#sentence-trigger).
+
+[JLo] realized he could use these wildcards, combined with the new
+[generate image service](#generate-an-image-with-openais-dall-e), to let
+Home Assistant generate an image and show it on his Chrome Cast-enabled device
+just by using his voice! 😎 You could ask it:
+
+> Show me a picture of an astronaut riding a unicorn!
+
+He put this together in an automation blueprint, which you can use to do the
+same thing in your own Home Assistant instance:
+
+<img class="no-shadow" src='/images/blog/2023-08/assist-wildcard-dall-e-blueprint.png' alt='Screenshot showing how the blueprint by JLo looks like in Home Assistant.'>
+
+Provide the sentence you like to trigger on and the media player you want to
+show the image at, and you're good to go! You can import his blueprint using
+the My Home Assistant button below:
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/blog/2023-08/cast_dall_e.yaml" %}
+
+[JLo]: https://github.com/jlpouffier
+
+## Condition selector
+
+A new selector is available for use in, for example, blueprints:
+[The condition selector](/docs/blueprint/selectors/#condition-selector).
+
+This selector takes and shows the condition part of the automation editor,
+and allows blueprint creators to use a user-provided condition in their
+blueprinted automations and scripts.
+
+<p class='img'>
+<img src='/images/blog/2023-08/condition-selector.png'></a>
+This blueprint allows one to set a custom condition using the new condition selector.
+</p>
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- Tons of performance upgrades again this month (thanks [@bdraco]), these
+  include a much faster ingress experience when visiting add-on web interfaces. 🚀
+- [@emontnemery] added filters to many of the services Home Assistant provides,
+  meaning only options relevant to the entity you are calling the service on
+  will be shown in the UI. Nice!
+- CO2Signal changed its name to [Electricity Maps]. The integration
+  has been renamed to match that. Thanks, [@madsnedergaard]!
+- [@Lash-L] keeps extending the [Roborock] integration, adding many new entities
+  in this release. This includes an error sensor, volume controls,
+  and DnD setting times. Awesome!
+- [EZVIZ] received a big update, adding support for alarm control panels, buttons,
+  and select entities. Thanks [@RenierM26]!
+- [@farmio] added support for adding [date] and [date/time] entities to [KNX]! Great!
+- The [Xiaomi BLE] now supports the MiScale (V1 and V2). Thanks, [@Ernst79]!
+- [UniFi Network] now has controls to turn an UniFi WLAN on and off and added
+  image entities for QR codes for WLAN access. Thanks, [@Kane610]!
+
+
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@Ernst79]: https://github.com/Ernst79
+[@farmio]: https://github.com/farmio
+[@Kane610]:https://github.com/Kane610
+[@Lash-L]: https://github.com/Lash-L
+[@madsnedergaard]: https://github.com/madsnedergaard
+[@RenierM26]:https://github.com/RenierM26
+[date]: /integrations/date
+[date/time]: /integrations/datetime
+[Electricity Maps]: /integrations/co2signal
+[EZVIZ]: /integrations/ezviz
+[KNX]: /integrations/knx
+[UniFi Network]: /integrations/unifi
+[Xiaomi BLE]: /integrations/xiaomi_ble
+[Roborock]: /integrations/roborock
+
+## New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Electric Kiwi]**, added by [@mikey0000]<br />
+  Integrate with the independent power and broadband company [Electric Kiwi](https://www.electrickiwi.co.nz/) from New Zealand.
+- **[Event]**, added by [@frenck]<br />
+  A new event entity that other integrations can provide to show detected events in the physical world.
+- **[Duotecno]**, added by [@Cereal2nd]<br />
+  Integrate with the [Duotecno](https://www.duotecno.be/) nodes.
+- **[Gardena Bluetooth]**, added by [@elupus]<br />
+  Integrate your [Gardena Smart](https://www.gardena.com/int/products/smart/) devices using Bluetooth.
+- **[Opower]**, added by [@tronikos]<br />
+  Read out energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
+  See the virtual integrations below for which utility providers those are.
+- **[PEGELONLINE]**, added by [@mib1185]<br />
+  Provides water level sensors from the [German Federal Waterways and Shipping Administration](https://www.pegelonline.wsv.de/).
+
+This release also has a new virtual integration. Virtual integrations
+are stubs that are handled by other (existing) integrations to help with
+findability. These are new:
+
+- **[Atlantic City Electric]** provided by [Opower]
+- **[Baltimore Gas and Electric (BGE)]** provided by [Opower]
+- **[Commonwealth Edison (ComEd)]** provided by [Opower]
+- **[Delmarva Power]** provided by [Opower]
+- **[Evergy]** provided by [Opower]
+- **[Pacific Gas & Electric (PG&E)]** provided by [Opower]
+- **[PECO Energy Company (PECO)]** provided by [Opower]
+- **[Potomac Electric Power Company (Pepco)]** provided by [Opower]
+- **[Puget Sound Energy (PSE)]** provided by [Opower]
+
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@mib1185]: https://github.com/mib1185
+[@mikey0000]: https://github.com/mikey0000
+[@tronikos]: https://github.com/tronikos
+[Atlantic City Electric]: /integrations/atlanticcityelectric
+[Baltimore Gas and Electric (BGE)]: /integrations/bge
+[Commonwealth Edison (ComEd)]: /integrations/comed
+[Delmarva Power]: /integrations/delmarva
+[Duotecno]: /integrations/duotecno
+[Electric Kiwi]: /integrations/electric_kiwi
+[Event]: /integrations/event
+[Evergy]: /integrations/evergy
+[Gardena Bluetooth]: /integrations/gardena_bluetooth
+[Opower]: /integrations/opower
+[Pacific Gas & Electric (PG&E)]: /integrations/pge
+[PECO Energy Company (PECO)]: /integrations/peco_opower
+[PEGELONLINE]: /integrations/pegel_online
+[Potomac Electric Power Company (Pepco)]: /integrations/pepco
+[Puget Sound Energy (PSE)]: /integrations/pse
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[OpenSky]**, done by [@joostlek]
+- **[Zodiac]**, done by [@joostlek]
+
+[@joostlek]: https://github.com/jooostlek
+[OpenSky]: /integrations/opensky
+[Zodiac]: /integrations/zodiac
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking changes
+
+{% details "Python 3.10 support has been removed" %}
+
+Python 3.10 support has previously been deprecated and has now been removed.
+Home Assistant now requires Python 3.11 to run.
+
+You don't have to do anything if you are using Home Assistant OS,
+Home Assistant Container, or Home Assistant Supervised installation method.
+In those cases, we handle this all for you.
+
+Your system has been using Python 3.11 for quite some time already.
+
+([@frenck] - [#97007])
+
+[@frenck]: https://github.com/frenck
+[#97007]: https://github.com/home-assistant/core/pull/97007
+
+{% enddetails %}
+
+
+{% details "Discovery" %}
+
+The legacy discovery integration has been removed. This only affects the
+automatic discovery of Enigma2, Yamaha Network Receivers, and Bluesound.
+
+These can still be manually configured as per usual.
+
+Note this is for our very, very old discovery logic. This does not affect the
+discovery of any other integration/device/service.
+
+If you still have `discovery:` listed in your YAML configuration, you can
+safely remove it.
+
+([@frenck] - [#96856])
+
+[@frenck]: https://github.com/frenck
+[#96856]: https://github.com/home-assistant/core/pull/96856
+
+{% enddetails %}
+
+{% details "Ecovacs" %}
+
+The Ecovacs integration has been migrated to the new "StateVacuumEntity"
+under the hood.
+
+The states of the vacuum entity now report not only on or off,
+instead `cleaning`, `paused`, `docked` (_implicit mean charging_),
+`returning` (_to base_), `idle` and `error`. Further, the actions `turn_on`
+(_start cleaning_), and `turn_off` (_stop cleaning and return to base_) were
+superseded by three single actions `start`, `stop` and `return_to_base`.
+
+([@mib1185] - [#95920]) ([documentation](/integrations/ecovacs))
+
+[@mib1185]: https://github.com/mib1185
+[#95920]: https://github.com/home-assistant/core/pull/95920
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+It's no longer allowed for an MQTT RGB light without a `brighness_state_topic`
+to report an RGB value of `RGB=0,0,0`. The reason is that for such lights,
+the light's brightness is derived from the RGB value, and an RGB value
+of `RGB=0,0,0` corresponds to a brightness of 0 which is not allowed.
+
+In case an MQTT RGB light without a `brighness_state_topic` reports `0,0,0`
+for R, G, and B, that update will be ignored.
+
+([@jbouwh] - [#96286]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#96286]: https://github.com/home-assistant/core/pull/96286
+
+---
+
+The MQTT climate `CONF_POWER_STATE_TOPIC` and `CONF_POWER_STATE_TEMPLATE` were
+deprecated in HA Core 2023.2.0 and are now removed. Please remove these options
+from your configuration. The options were not implemented but will break your
+MQTT configuration if they are still present in your config.
+
+([@jbouwh] - [#96771]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#96771]: https://github.com/home-assistant/core/pull/96771
+
+---
+
+The way MQTT entities are named and how device configuration can be shared
+between discovered entities has changed.
+
+**Sharing of device configuration**
+
+Discovered MQTT entities can share device configuration, meaning one entity
+can include the full device configuration, and other entities can link to that
+device by only setting mandatory fields.
+
+The mandatory fields were previously limited to at least one of
+`connection` and `identifiers`, but have now been extended to at least
+one of `connection` and `identifiers` as well as the `name`.
+
+**Naming of MQTT entities**
+
+The naming of MQTT entities has been changed to be aligned with the
+[entity naming guidelines](https://developers.home-assistant.io/docs/core/entity/#entity-naming):
+
+- The `has_entity_name` entity will be set to `True` on all MQTT entities.
+- This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations).
+- Unnamed `binary_sensor`, `button`, `event`, `number`, and `sensor` entities will
+  now be named by their device class instead of being named "MQTT binary sensor" etc.
+- It's now allowed to set an MQTT entity's name to `None` to mark it as the
+  main feature of a device.
+
+([@jbouwh] - [#95159]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#95159]: https://github.com/home-assistant/core/pull/95159
+
+{% enddetails %}
+
+{% details "Philips Dynalite" %}
+
+The Dynalite configuration panel, which previously was on the Home Assistant
+sidebar, has moved. It can now be accessed via the integration page in
+**Settings** -> **Device & services** -> **Dynalite** -> **Configure**.
+
+([@frenck] - [#95920]) ([documentation](/integrations/dynalite))
+
+[@frenck]: https://github.com/frenck
+[#96853]: https://github.com/home-assistant/core/pull/96853
+
+{% enddetails %}
+
+{% details "Renson" %}
+
+The state values of the Reason Ventilation integration have been changed to
+be more consistent with other integrations and are now lowercase. Additionally,
+it can now provide translations for the state values in the UI.
+
+This means that the following state values have changed:
+
+- `Off` -> `off`
+- `Level1` -> `level1`
+- `Level2` -> `level2`
+- `Level3` -> `level3`
+- `Level4` -> `level4`
+- `Breeze` -> `breeze`
+- `Holiday` -> `holiday`
+
+Please update any automations where you are using the state of this Renson sensor.
+
+[@joostlek]: https://github.com/joostlek
+[#96040]: https://github.com/home-assistant/core/pull/96040
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Action event for custom cards](https://developers.home-assistant.io/blog/2023/07/07/action-event-custom-cards)
+- [The naming of MQTT entities changes to correspond with HA guidelines](https://developers.home-assistant.io/blog/2023-057-21-change-naming-mqtt-entities)
+- [Translating services](https://developers.home-assistant.io/blog/2023/07/11/translating-services)
+- [Updates to the Vacuum entity integration](https://developers.home-assistant.io/blog/2023/07/10/vacuum-updates)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Discovery** has been removed. This is the old legacy discovery integration.
+  See the breaking changes above for more information.  
+  ([@frenck] - [#96856])
+- **Mi Flora** has been removed. This integration was replaced by the
+  [Xiaomi BLE] integration a long time ago and was in a non-functional state.  
+  ([@frenck] - [#96868])
+- **Xiaomi Mijia BLE T&H Sensor** has been removed. This integration was
+  replaced by the [Xiaomi BLE] integration  a long time ago and was in a
+  non-functional state.  
+  ([@frenck] - [#96869])
+
+[@frenck]: https://github.com/frenck
+[#96856]: https://github.com/home-assistant/core/pull/96856
+[#96868]: https://github.com/home-assistant/core/pull/96868
+[#96869]: https://github.com/home-assistant/core/pull/96869
+[Xiaomi BLE]: /integations/xiaomi_ble
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2023.8](/changelogs/core-2023.8)
