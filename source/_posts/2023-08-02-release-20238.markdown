@@ -52,6 +52,7 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2023.8.1 - August 4](#release-202381---august-4)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
