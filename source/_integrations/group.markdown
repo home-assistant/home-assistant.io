@@ -60,6 +60,8 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `off` if at least one group member is `off`.
 - Otherwise, the group state is `on`.
 
+Light groups additionally allow you to set the "Preserve relative brightness" option. When this option is disabled (the default), the current brightness of the group is the average brightness of all group members, and changing the brightness of the group results in setting all group members to the new brightness level. When the option is enabled, the current brightness of the group is the brightness of the brightest member, and changing the brightness preserves the ratio of brightness between that brightest member and other group members.
+
 ### Cover groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
 
@@ -237,6 +239,11 @@ unique_id:
   type: string
 all:
   description: Only available for `binary_sensor`, `light` and `switch` groups. Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
+  required: false
+  type: boolean
+  default: false
+preserve_relative_brightness:
+  description: Only available for `light` switch groups. Set this to `true` if changing the brightness of the group should preserve the ratio of brightness between different members of the group, rather than setting all members to the new brightness level.
   required: false
   type: boolean
   default: false
