@@ -19,23 +19,12 @@ The OpenSky integration allows one to track overhead flights in a given region. 
 {% configuration_basic %}
 latitude:
   description: The latitude of the center of the area to track.
-  required: true
-  type: string
-  default: The latitude of your instance
 longitude:
   description: The latitude of the center of the area to track.
-  required: true
-  type: string
-  default: The latitude of your instance
 radius:
   description: The radius in meters around the latitude/longitude point to track.
-  required: true
-  type: integer
 altitude:
-  description: The minimum height in meters above which the planes are tracked. 0 means all planes are tracked in the area
-  required: false
-  type: float
-  default: 0
+  description: The minimum height in meters above which the planes are tracked. No input (or 0) means all planes are tracked in the area.
 {% endconfiguration_basic %}
 
 {% include integrations/config_flow.md %}
