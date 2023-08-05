@@ -44,7 +44,7 @@ feed_id:
   required: true
   type: string
 title:
-  description: The title of the feed, which is parsed as [template](/topics/templating/).
+  description: The title of the feed, which is parsed as [template](/docs/configuration/templating/).
   required: false
   type: template
 items:
@@ -53,11 +53,11 @@ items:
   type: list
   keys:
     title:
-      description: The title of the item, which is parsed as [template](/topics/templating/).
+      description: The title of the item, which is parsed as [template](/docs/configuration/templating/).
       required: false
       type: template
     description:
-      description: The description of the item, which is parsed as [template](/topics/templating/).
+      description: The description of the item, which is parsed as [template](/docs/configuration/templating/).
       required: false
       type: template
 {% endconfiguration %}

@@ -264,7 +264,7 @@ The list of sensors can be any sensor, not just temperature or humidity.
 
 ## Examples
 
-In this section you find some real-life examples of how to use this component.
+In this section you find some real-life examples of how to use this integration.
 
 ### Eastermundigen
 

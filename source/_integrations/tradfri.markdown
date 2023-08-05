@@ -23,7 +23,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `tradfri` integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your `configuration.yaml` file.
+The IKEA TRÅDFRI integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your `configuration.yaml` file.
 
 {% include integrations/config_flow.md %}
 
@@ -32,6 +32,11 @@ You will be prompted to configure the gateway through the Home Assistant interfa
 <div class='note'>
 If you see an "Unable to connect" message, restart the gateway and try again. Don't forget to assign a permanent IP address to your IKEA Trådfri Gateway on your router or DHCP server.
 </div>
+
+<div class='note'>
+  There is currently no native support for the Dirigera hub released in October, 2022.
+</div>
+
 
 ## Troubleshooting
 
@@ -52,7 +57,7 @@ Then restart Home Assistant. When prompted, enter the security key and click *co
   This does not apply to Home Assistant running in Docker Containers, including the default Home Assistant install.
 </div>
 
-Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this component. Also, installing some dependencies might take considerable time (more than one hour) on slow devices.
+Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this integration. Also, installing some dependencies might take considerable time (more than one hour) on slow devices.
 
 ## Known limitations
 

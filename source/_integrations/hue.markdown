@@ -13,17 +13,17 @@ ha_codeowners:
   - '@balloob'
   - '@marcelveldt'
 ha_domain: hue
-ha_ssdp: true
 ha_homekit: true
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - event
   - light
   - scene
   - sensor
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Philips Hue integration allows you to control and monitor the lights and sensors connected to your Hue bridge.
@@ -38,7 +38,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Lights for Hue zones and rooms
 
-The Hue concept is based on Rooms and Zones. Although the underlying Hue lights are exposed directly to Home Assistant it might also be useful to interact with the `grouped lights` of the Hue ecosystem, for example to turn all lights in a Hue group on/off at the same time.
+The Hue concept is based on Rooms and Zones. Although the underlying Hue lights are exposed directly to Home Assistant, it might also be useful to interact with the `grouped lights` of the Hue ecosystem, for example, to turn all lights in a Hue group on/off at the same time.
 
 Home Assistant creates lights for each Hue zone/room automatically but disables them by default.
 If you'd like to use those `grouped lights`, you can enable them from Settings --> Integrations --> Hue --> entities.

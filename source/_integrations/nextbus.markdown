@@ -4,7 +4,7 @@ description: Instructions on how to use public transit data from Nextbus in Home
 ha_category:
   - Sensor
   - Transport
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Polling
 ha_release: 0.93
 ha_codeowners:
   - '@vividboarder'
@@ -24,8 +24,7 @@ It is possible to get the tag information from the NextBus website.
 
     https://www.nextbus.com/#!/<agency>/<route>/<direction>/<stop>
 
-If tags are incorrect, valid ones will be displayed in the logs as a
-convenience.
+If tags are incorrect, valid ones will be displayed in the logs as a convenience. Note that the `<direction>` tag is not used in this integration.
 
 ```yaml
 # Example configuration.yaml entry

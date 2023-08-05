@@ -9,6 +9,7 @@ ha_release: 2022.9
 ha_iot_class: Local Push
 ha_codeowners:
   - '@bdraco'
+  - '@skgsergio'
 ha_domain: qingping
 ha_config_flow: true
 ha_platforms:
@@ -32,3 +33,4 @@ The Qingping integration will automatically discover devices once the [Bluetooth
 - [LEE GUITARS Thermo-Hygrometer](https://www.qingping.co/lee-guitars-thermo-hygrometer/overview) (CGM1)
 - [Motion & Ambient Light Sensor](https://www.qingping.co/motion-light-sensor/overview) (CGPR1)
 - [Temp RH M](https://www.qingping.co/temp-rh-monitor/overview#mi) (CGG1)
+- [Temp RH Pro E](https://www.qingping.co/temp-rh-monitor-pro-e/overview) (CGF1W)

@@ -3,6 +3,7 @@ title: UniFi Network
 description: Instructions on how to configure UniFi Network integration with UniFi Network application by Ubiquiti.
 ha_category:
   - Hub
+  - Image
   - Presence Detection
   - Sensor
   - Switch
@@ -16,18 +17,22 @@ ha_codeowners:
 ha_domain: unifi
 ha_ssdp: true
 ha_platforms:
+  - button
   - device_tracker
   - diagnostics
+  - image
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-[UniFi Network](https://www.ui.com/software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
+[UniFi Network](https://www.ui.com/download-software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
 
 There is currently support for the following device types within Home Assistant:
 
+- [Button](#button)
+- [Image](#image)
 - [Presence Detection](#presence-detection)
 - [Switch](#switch)
 - [Sensor](#sensor)
@@ -55,11 +60,21 @@ The UniFi Network application can either be a UniFi OS console device (like the 
 
 It is recommended that you run the UniFi Network application in a dedicated virtual machine to avoid that situation.
 
+## Button
+
+Provides the ability to restart a UniFi device. This feature requires admin privileges.
+
+## Image
+
+Provides QR Code images that can be scanned to easily join a specific WLAN. Entities are disabled by default. This feature requires admin privileges.
+
 ## Presence detection
 
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://unifi-network.ui.com/) application. By default devices are marked as away 300 seconds after they were last seen.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://ui.com/consoles) application. By default devices are marked as away 300 seconds after they were last seen.
 
 ### Troubleshooting and Time Synchronization
+
+If tracked devices continue to show "Home" when not connect/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming.  When enabled, it has been observed on the various UniFi Controller versions, failure to declare disconnected clients.
 
 Presence detection depends on accurate time configuration between Home Assistant and the UniFi Network application.
 
@@ -97,11 +112,19 @@ Note that POE control actually configures the network port of the switch which t
 
 Entities appear automatically for each restriction group. If there are no restrictions in a group, no entity will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
 
+### Control WLAN availability
+
+Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
+
 ## Sensor
 
 ### Bandwidth sensor
 
 Get entities reporting receiving and transmitting bandwidth per network client.
+
+### Wlan clients sensor
+
+Entities reporting connected clients to a WLAN.
 
 ### Uptime sensor
 

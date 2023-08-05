@@ -6,11 +6,10 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.107
 ha_domain: edl21
-ha_codeowners:
-  - '@mtdcr'
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
+ha_config_flow: true
 ---
 
 The `edl21` integration lets you read German EDL21 smart meters using [SML](https://de.wikipedia.org/wiki/Smart_Message_Language) from Home Assistant.
@@ -21,7 +20,7 @@ Compatible transceivers:
 
 - [DIY](https://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-rs232-ausgang)
 - [Weidmann Elektronik Schreib-/Lesekopf USB](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
-- [USB IR Lesekopf EHZ Lese-Schreib-Kopf Volkszähler Hichi Smartmeter](https://www.ebay.de/itm/313455434998)
+- [USB IR Lesekopf EHZ Lese-Schreib-Kopf Volkszähler Hichi Smartmeter](https://www.ebay.de/itm/313884760667)
 
 Tested smart meters:
 
@@ -30,27 +29,9 @@ Tested smart meters:
 - Iskraemeco MT175 (ISKRA MT175-D2A51-V22-K0t)
 - EMH metering eHZ Generation K (enable InF as described in manual to retrieve full data)
 - efr SGM-C4 (enable InF as described in manual to retrieve full data)
+- easymeter Q3 ([Link](https://www.easymeter.com/products/zaehler/q3a))
 
-## Configuration
-
-To set it up, add the following information to your `configuration.yaml` file:
-
-```yaml
-sensor:
-  - platform: edl21
-    serial_port: /dev/ttyUSB0
-```
-
-{% configuration %}
-name:
-  description: The friendly name of the smart meter.
-  required: false
-  type: string
-serial_port:
-  description: The device to communicate with. When using ser2net, use socket://host:port.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## InF Mode
 

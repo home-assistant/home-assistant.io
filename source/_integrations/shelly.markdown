@@ -9,12 +9,14 @@ ha_category:
   - Number
   - Sensor
   - Switch
+  - Update
 ha_release: 0.115
 ha_codeowners:
   - '@balloob'
   - '@bieniu'
   - '@thecode'
   - '@chemelli74'
+  - '@bdraco'
 ha_iot_class: Local Push
 ha_domain: shelly
 featured: true
@@ -30,7 +32,9 @@ ha_platforms:
   - number
   - sensor
   - switch
-ha_integration_type: integration
+  - update
+ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
@@ -43,13 +47,25 @@ There are two generations of devices. Both generations are supported by this int
 
 ## Shelly device configuration (generation 1)
 
-Shelly devices use the `CoIoT` protocol to communicate with integration. For Shelly firmware 1.10.0 or newer, `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
+Generation 1 devices use the `CoIoT` protocol to communicate with the integration. For Shelly firmware 1.10.0 or newer, `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
 
-We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. This is mandatory for Shelly Motion with firmware 1.1.0 or newer. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
+We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. **This is mandatory for battery operated devices**. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
+
+## Shelly device configuration (generation 2)
+
+Generation 2 devices use the `RPC` protocol to communicate with the integration. Battery powered devices need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
+
+`ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 
 <div class="note">
 Integration is communicating directly with the device; cloud connection is not needed.
 </div>
+
+## Bluetooth Support
+
+Shelly generation 2 devices running firmware 0.12 or later can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
+
+{% include integrations/option_flow.md %}
 
 ## Entity naming (generation 1)
 
@@ -177,7 +193,7 @@ You can also create automations using YAML, for example:
 | `SL`               | `single_long` |
 | `LS`               | `long_single` |
 
-Generation 2 devices use the values `btn_down`, `btn_up`, `single_push`, `double_push` and `long_push` as `click_type`.
+Generation 2 devices use the values `btn_down`, `btn_up`, `single_push`, `double_push`, `triple_push` and `long_push` as `click_type`.
 
 <div class="note">
 
@@ -191,7 +207,13 @@ Shelly device relays are added to Home Assistant by default as `switch` entities
 
 ## Consumption type (generation 2)
 
-Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **CONSUMPTION TYPE** value is set to `Lights`.
+Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **EXTERNAL CONSUMPTION TYPE** value is set to `light`.
+
+<div class="note">
+
+Firmware 1.0.0 or later is required.
+
+</div>
 
 ## Light transition
 
@@ -251,7 +273,7 @@ As soon as you change the temperature, it gets enabled again.
 
 ## CoAP port (generation 1)
 
-In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
+In some cases, it may be needed to customize the CoAP UDP port (default: `5683`) your Home Assistant instance is listening to.
 
 In order to change it, add the following key to your `configuration.yaml`:
 
@@ -273,3 +295,4 @@ Please check from the device Web UI that the configured server is reachable.
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - OTA update service does not support battery-powered devices
+- Frequency sensors for generation 2 energy monitoring devices are supported by firmware 1.0.0 beta 6 or later.

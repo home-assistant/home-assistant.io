@@ -6,7 +6,7 @@ ha_category:
 ha_release: 0.58
 ha_quality_scale: internal
 ha_domain: system_log
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 The `system_log` integration stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to **Settings** -> **System** -> **Logs**. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
@@ -43,23 +43,23 @@ To manually clear the system log, call this service.
 
 Write a log entry
 
-| Service data attribute | Optional | Description                                                                     |
-| ---------------------- | -------- | ------------------------------------------------------------------------------- |
-| `message`              | no       | Message to log                                                                  |
-| `level`                | yes      | Log level: debug, info, warning, error, critical. Defaults to 'error'.          |
-| `logger`               | yes      | Logger name under which to log the message. Defaults to 'system_log.external'.  |
+| Service data attribute | Optional | Description                                                                    |
+| ---------------------- | -------- | ------------------------------------------------------------------------------ |
+| `message`              | no       | Message to log                                                                 |
+| `level`                | yes      | Log level: debug, info, warning, error, critical. Defaults to 'error'.         |
+| `logger`               | yes      | Logger name under which to log the message. Defaults to 'system_log.external'. |
 
 ## Events
 
 Errors and warnings are posted as the event `system_log_event`, so it is possible to write automations that trigger whenever a warning or error occurs. The following information is included in each event:
 
 | Field       | Description                                                                 |
-|-------------|-----------------------------------------------------------------------------|
+| ----------- | --------------------------------------------------------------------------- |
 | `level`     | Either `WARNING` or `ERROR` depending on severity.                          |
 | `source`    | File that triggered the error, e.g., `core.py` or `media_player/yamaha.py`. |
 | `exception` | Full stack trace if available, an empty string otherwise.                   |
 | `message`   | Descriptive message of the error, e.g., "Error handling request".           |
-| `name`      | Name of the component, e.g., `homeassistant.components.device_tracker`      |
+| `name`      | Name of the integration, e.g., `homeassistant.components.device_tracker`    |
 | `timestamp` | Unix timestamp with as a double, e.g., 1517241010.237416.                   |
 
 Live examples of these events can be found in the Home Assistant log file (`home-assistant.log`) or by just looking in the system log. An example could, for instance, look like this:
@@ -72,7 +72,7 @@ Traceback (most recent call last):
 [...]
 ```
 
-The message ("Unable to find integration system_healt"), name (`homeassistant.loader`) and level (`ERROR`) can easily be extracted from the log. The exact timestamp and if there is a stack trace that's shown as well. Here is another error caused by the `google_map` integration with additional output present.
+The message ("Unable to find integration system_healt"), name (`homeassistant.loader`) and level (`ERROR`) can easily be extracted from the log. The exact timestamp and if there is a stack trace that's shown as well. 
 
 ## Examples 
 
@@ -109,7 +109,7 @@ This automation will create a persistent notification whenever an error or warni
 
 ```yaml
 automation:
-  - alias: "Create notifications for "service" errors"
+  - alias: "Create notifications for 'service' errors"
     trigger:
       platform: event
       event_type: system_log_event
