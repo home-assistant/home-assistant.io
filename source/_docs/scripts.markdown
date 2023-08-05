@@ -889,6 +889,11 @@ it encounters an error; it will continue to the next action.
 Please note that `continue_on_error` will not suppress/ignore misconfiguration
 or errors that Home Assistant does not handle.
 
+If an error was ignored by `continue_on_error`, the error message of the last error
+is stored in the `last_error` variable. You can test against this variable to
+check if your automation or script ran without issues and even take further 
+actions based on the message text.
+
 ## Disabling an action
 
 Every individual action in a sequence can be disabled, without removing it.
