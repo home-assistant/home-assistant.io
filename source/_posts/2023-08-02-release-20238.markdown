@@ -335,7 +335,7 @@ The following integrations are now available via the Home Assistant UI:
 - **[OpenSky]**, done by [@joostlek]
 - **[Zodiac]**, done by [@joostlek]
 
-[@joostlek]: https://github.com/jooostlek
+[@joostlek]: https://github.com/joostlek
 [OpenSky]: /integrations/opensky
 [Zodiac]: /integrations/zodiac
 
