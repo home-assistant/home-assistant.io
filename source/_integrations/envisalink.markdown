@@ -34,6 +34,12 @@ As of 0.29, the alarm_trigger service is supported.  It is possible to fire off 
 
 An `envisalink` section must be present in the `configuration.yaml` file and contain the following options as required:
 
+---
+NOTE:
+
+After applying the changes to the config YAML file(s) you must restart your Home Assistance instance. A simple reload will not work!
+
+---
 ```yaml
 # Example configuration.yaml entry
 envisalink:
