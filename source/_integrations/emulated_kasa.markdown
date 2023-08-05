@@ -37,6 +37,11 @@ emulated_kasa:
     light.dining_room:
       power: 40.2
 ```
+<div class='note'>
+
+Home Assistant must be restarted for changes to take effect (reloading YAML isn't sufficient).
+
+</div>
 
 {% configuration %}
 entities:
