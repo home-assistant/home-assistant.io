@@ -18,6 +18,17 @@ The OpenSky integration allows one to track overhead flights in a given region. 
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+latitude:
+  description: The latitude of the center of the area to track.
+longitude:
+  description: The latitude of the center of the area to track.
+radius:
+  description: The radius in meters around the latitude/longitude point to track.
+altitude:
+  description: The minimum height in meters above which the planes are tracked. No input (or 0) means all planes are tracked in the area.
+{% endconfiguration_basic %}
+
 ## Events
 
 - **opensky_entry**: Fired when a flight enters the region.
