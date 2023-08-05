@@ -16,7 +16,7 @@ ha_config_flow: true
 
 The OpenSky integration allows one to track overhead flights in a given region. It uses crowd-sourced data from the [OpenSky Network](https://opensky-network.org/) public API. It will also fire Home Assistant events when flights enter and exit the defined region.
 
-{% configuration %}
+{% configuration_basic %}
 latitude:
   description: The latitude of the center of the area to track.
   required: true
@@ -36,7 +36,7 @@ altitude:
   required: false
   type: float
   default: 0
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 {% include integrations/config_flow.md %}
 
