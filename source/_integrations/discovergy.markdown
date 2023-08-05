@@ -13,7 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: hub
+ha_integration_type: service
 ---
 
 The `discovergy` integration allows users to integrate their [Discovergy](https://discovergy.com/) smart meters into Home Assistant.
