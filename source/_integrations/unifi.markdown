@@ -115,6 +115,9 @@ Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfi
 These Sensor are disabled by default, to enable them, click the "Configure" button on the Unifi-Integration page and go to page 3/3. Here you can enable the different sensors.
 >This will add a new Device to Home Assistant for every connected client in your network. If you network is very large, this will get very messy in Home Assistant.
 
+Currently it is also not possible to get a global bandwith sensor for something like a UDM Pro. The Integration only supports per-device sensors.
+
+
 ### Bandwidth sensor
 
 Get entities reporting receiving and transmitting bandwidth per network client.
