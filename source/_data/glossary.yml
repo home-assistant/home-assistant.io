@@ -76,6 +76,15 @@
     such as on or off.
   link: /integrations/binary_sensor
 
+- term: Blueprint
+  definition: >-
+    A blueprint is a script or automation configuration with certain parts marked as configurable. This allows users to create multiple scripts or automations based on the same blueprint, with each having its own configuration-specific settings. Blueprints are shared by the community on the [blueprints exchange](https://community.home-assistant.io/c/blueprints-exchange/53) in the forum.
+  link: /docs/blueprint/
+  excerpt: >-
+    A blueprint is a script or automation configuration with certain parts marked as configurable. This allows users to create multiple scripts or automations based on the same blueprint, with each having its own configuration-specific settings.
+  aliases:
+    - blueprints
+
 - term: Component
   definition: >-
     Better known as: Integrations. Integrations used to be known as components.
