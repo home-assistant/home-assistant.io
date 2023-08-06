@@ -56,7 +56,7 @@ Home Assistant will display a repair issue for the Shelly device if push updates
 The list below will help you diagnose and fix the problem:
 
 - Check if your Shelly devices have a properly configured `CoIoT peer`.
-- If you can't find the `CoIoT peer` settings in the device's web panel, it's probably using a very old firmware version and you should update it to the current one.
+- If you can't find the `CoIoT peer` settings in the device's web panel, it's probably using an ancient firmware version, and you should update it to the current one.
 - If Shelly devices are in a different subnet than the Home Assistant server, you should ensure communication on `UDP` port `5683` between these subnets.
 - If Home Assistant is running as a virtual machine or service on an operating system other than Home Assistant OS, you should open `UDP` port `5683` on the device's firewall and/or ensure that communication from this port is redirected to the Home Assistant service.
 - The lack of push updates may be related to the range of the WiFi network. If you are using a WiFi network with several access points, enable **Internet & Security** >> **WiFi Client AP Roaming** option. Consider moving Shelly device closer to the WiFi access point if possible. Consider adding an additional WiFi access point, which will improve the quality of connection with the device.
