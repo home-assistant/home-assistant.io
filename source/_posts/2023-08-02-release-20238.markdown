@@ -536,6 +536,24 @@ superseded by three single actions `start`, `stop` and `return_to_base`.
 
 {% enddetails %}
 
+{% details "Google Nest" %}
+
+The legacy Works With Nest API is no longer supported. You must manually take
+action to use the SDM API by removing nest configuration from configuration.yaml
+and restarting Home Assistant, then add the Nest integration following the
+instructions. Please review the documentation for information about which
+devices are supported.
+
+Additionally, as a reminder, the legacy Works With Nest API is shutting down
+in September 2023.
+
+([@allenporter] - [#96111]) ([documentation](/integrations/nest))
+
+[@allenporter]: https://github.com/allenporter
+[#96111]: https://github.com/home-assistant/core/pull/96111
+
+{% enddetails %}
+
 {% details "MQTT" %}
 
 It's no longer allowed for an MQTT RGB light without a `brighness_state_topic`
