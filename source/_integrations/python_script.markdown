@@ -140,7 +140,7 @@ output["hello"] = f"hello {data.get('name', 'world')}"
 
 The above `python_script` can be called using the following YAML and return a result to later steps.
 
-% raw %}
+{% raw %}
 
 ```yaml
 - service: python_script.hello_world
