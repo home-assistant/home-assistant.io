@@ -51,7 +51,7 @@ Generation 1 devices use the `CoIoT` protocol to communicate with the integratio
 
 We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. **This is mandatory for battery operated devices**. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
 
-Home assistant from version 2023.8.0 will display a repair issue for the Shelly device if push updates from this device do not reach the Home Assistant server. It may seem that the Shelly device was working properly before, and yet Home Assistant will display a repair issue, it's just that the user has not been informed about the problems so far.
+Home Assistant from version 2023.8.0 will display a repair issue for the Shelly device if push updates from this device do not reach the Home Assistant server. It may seem that the Shelly device was working properly before, and yet Home Assistant will display a repair issue, it's just that the user has not been informed about the problems so far.
 
 The list below will help you diagnose and fix the problem:
 
