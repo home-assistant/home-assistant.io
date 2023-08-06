@@ -60,7 +60,7 @@ The list below will help you diagnose and fix the problem:
 - If Shelly devices are in a different subnet than the Home Assistant server, you should ensure communication on `UDP` port `5683` between these subnets.
 - If Home Assistant is running as a virtual machine or service on an operating system other than Home Assistant OS, you should open `UDP` port `5683` on the device's firewall and/or ensure that communication from this port is redirected to the Home Assistant service.
 - The missing push updates may be related to the WiFi network range. If using a WiFi network with several access points, enable **Internet & Security** >> **WiFi Client AP Roaming** option. Consider moving Shelly device closer to the WiFi access point. Consider adding another WiFi access point, which will improve the connection quality with the device.
-- If you think your Shelly devices are working properly and you don't want to make changes to your network/configuration you can ignore the repair issue but you must be aware that you are giving up the best experience of using first generation Shelly devices with Home Assistant.
+- If you think your Shelly devices are working correctly and don't want to change your network/configuration, you can ignore the repair issue. Still, you must know you are giving up the best experience of using first-generation Shelly devices with Home Assistant.
 
 ## Shelly device configuration (generation 2)
 
