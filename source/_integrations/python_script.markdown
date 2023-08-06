@@ -131,7 +131,7 @@ The above `python_script` can be called using the following YAML as an input.
 
 ## Returning data
 
-Python script provides a service response. Just add items to the `output` variable in your python script and the whole dictionary will be returned. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+Python script provides a service response. Just add items to the `output` variable in your `python_script` and the whole dictionary will be returned. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
 
 ```python
 # hello_world.py
