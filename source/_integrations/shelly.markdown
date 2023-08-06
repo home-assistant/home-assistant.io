@@ -51,6 +51,16 @@ Generation 1 devices use the `CoIoT` protocol to communicate with the integratio
 
 We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. **This is mandatory for battery operated devices**. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
 
+Home assistant from version 2023.8.0 will display a repair issue for the Shelly device if push updates from this device do not reach the Home Assistant server. It may seem that the Shelly device was working properly before, and yet Home Assistant will display a repair issue, it's just that the user has not been informed about the problems so far.
+
+The list below will help you diagnose and fix the problem:
+
+- Check if your Shelly devices have a properly configured `CoIoT peer`.
+- If you can't find the `CoIoT peer` settings in the device's web panel, it's probably using a very old firmware version and you should update it to the current one.
+- If Shelly devices are in a different subnet than the Home Assistant server, you should ensure communication on `UDP` port `5683` between these subnets.
+- If Home Assistant is running as a virtual machine or service on an operating system other than Home Assistant OS, you should open `UDP` port `5683` on the device's firewall and/or ensure that communication from this port is redirected to the Home Assistant service.
+- If you think your Shelly devices are working properly and you don't want to make changes to your network/configuration you can ignore the repair issue but you must be aware that you are giving up the best experience of using first generation Shelly devices with Home Assistant.
+
 ## Shelly device configuration (generation 2)
 
 Generation 2 devices use the `RPC` protocol to communicate with the integration. Battery powered devices need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
