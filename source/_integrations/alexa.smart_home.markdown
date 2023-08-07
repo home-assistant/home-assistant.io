@@ -49,7 +49,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Routines](#routines)
   - [Button, Input Button](#button-input-button)
     - [Routines](#routines-1)
-    - [Doorbell Announcement](#doorbell-announcement)
+    - [Doorbell Announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
     - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
   - [Camera](#camera)
   - [Climate](#climate)
@@ -60,6 +60,8 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Set Cover Position](#set-cover-position)
     - [Set Cover Tilt](#set-cover-tilt)
     - [Garage Doors](#garage-doors)
+  - [Event entities](#event-entities)
+    - [Doorbell Events](#doorbell-events)
   - [Fan](#fan)
     - [Fan Speed](#fan-speed)
     - [Fan Preset Mode](#fan-preset-mode)
@@ -227,7 +229,7 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
 - Find the skill you just created, click `Edit` link in the `Actions` column.
 - Click `ACCOUNT LINKING` in the left navigation bar of build page
 - Do not turn on the "Allow users to link their account to your skill from within your application or website" switch. This will require a Redirect URI, which won't work.
-- Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL]`
+- Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL]`. Alexa account linking does not work with a non-standard port. You must use port 443. Use your firewall to forward, if needed. Using a `:1234` or a similar port number will not work.
   - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
     - Note: you must use a valid/trusted SSL Certificate for account linking to work
@@ -437,7 +439,7 @@ light.kitchen_light:
 ```
 
 <div class='note info'>
-Devices such as cameras, doorbells, garage doors, and alarm control panels require specific display categories to provide all available features from Amazon Alexa. Overriding the default display category will limit features provided by Amazon Alexa.
+Devices such as cameras, garage doors, and alarm control panels require specific display categories to provide all available features from Amazon Alexa. Overriding the default display category will limit features provided by Amazon Alexa.
 </div>
 
 See [Alexa Display Categories][alexa-display-categories] for a complete list
@@ -466,7 +468,7 @@ The following integrations are currently supported:
     - [Routines](#routines)
   - [Button, Input Button](#button-input-button)
     - [Routines](#routines-1)
-    - [Doorbell Announcement](#doorbell-announcement)
+    - [Doorbell Announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
     - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
   - [Camera](#camera)
   - [Climate](#climate)
@@ -477,6 +479,8 @@ The following integrations are currently supported:
     - [Set Cover Position](#set-cover-position)
     - [Set Cover Tilt](#set-cover-tilt)
     - [Garage Doors](#garage-doors)
+  - [Event entities](#event-entities)
+    - [Doorbell Events](#doorbell-events)
   - [Fan](#fan)
     - [Fan Speed](#fan-speed)
     - [Fan Preset Mode](#fan-preset-mode)
@@ -601,11 +605,13 @@ In order to enable this, buttons will appear to have "presence detection" capabi
   <img height='460' src='/images/integrations/alexa/alexa_app_button_trigger.png' alt='Screenshot: Alexa App Button Routine Trigger'/></a>
 </p>
 
-#### Doorbell Announcement
+#### Doorbell Announcement with binary_sensor
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-Configure a `binary_sensor` with `display_category` of `DOORBELL` in the [`entity_config`](#entity_config) to gain access to the doorbell notification settings in the Alexa App.
+Note that Home Assistant can support a doorbell natively with an `event` entity with `device_class` to `doorbell`
+
+Configure a `binary_sensor` with `display_category` of `DOORBELL` in the [`entity_config`](#entity_config) to gain access to the doorbell notification settings in the Alexa App. Note that Home Assistant can support this natively with an `event` entity.
 
 ```yaml
 alexa:
@@ -619,14 +625,7 @@ alexa:
 
 Alexa will announce on all echo devices _"Someone is at the [entity name]"_ when a `binary_sensor` state changes from `off` to `on`.
 
-<div class='note info'>
-Each Amazon Echo device will need the communication and announcements setting enabled, and the Do Not Disturb feature turned off.
-</div>
-
-<p class='img'>
-<a href='/images/integrations/alexa/alexa_app_doorbell_announcement.png' target='_blank'>
-  <img height='460' src='/images/integrations/alexa/alexa_app_doorbell_announcement.png' alt='Screenshot: Alexa App Doorbell Notification'/></a>
-</p>
+See also [Event entities](#event-entities).
 
 #### Presence Detection with Binary Sensor
 
@@ -768,6 +767,24 @@ Covers with a `device_class` of `garage` support the Open by Voice PIN feature i
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_garage_door_pin.png' target='_blank'>
   <img height='460' src='/images/integrations/alexa/alexa_app_garage_door_pin.png' alt='Screenshot: Alexa App Garage Door Open by voice'/></a>
+</p>
+
+### Event entities
+
+Requires [Proactive Events](#proactive-events) enabled.
+
+#### Doorbell Events
+
+Home Assistant `event` entities can trigger a doorbell announcement in Alexa if the `device_class` of the `event` entity is set to `doorbell`.
+Alexa will announce on all echo devices _"Someone is at the [entity name]"_ when an `event` entity has received an updated.
+
+<div class='note info'>
+Each Amazon Echo device will need the communication and announcements setting enabled and the Do Not Disturb feature turned off.
+</div>
+
+<p class='img'>
+<a href='/images/integrations/alexa/alexa_app_doorbell_announcement.png' target='_blank'>
+  <img height='460' src='/images/integrations/alexa/alexa_app_doorbell_announcement.png' alt='Screenshot: Alexa App Doorbell Notification'/></a>
 </p>
 
 ### Fan

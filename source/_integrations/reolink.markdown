@@ -17,6 +17,7 @@ ha_platforms:
   - light
   - number
   - select
+  - sensor
   - siren
   - switch
   - update
@@ -54,10 +55,16 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI pet detection
 - AI face detection
 
-These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
+These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
+The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
+For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#Reducing_latency_of_motion_events) section.
+
+## Asterisk (*) next to entities listed in this documentation
+
+If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#enabling-entities) first.
 
 ## Number entities
 
@@ -99,6 +106,7 @@ Depending on the supported features of the camera, button entities are added for
 - PTZ calibrate
 - Guard go to
 - Guard set current position
+- Restart*
 
 PTZ left, right, up and down will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
 
@@ -156,6 +164,12 @@ When the floodlight entity is ON always ON, when OFF controlled based on the int
 
 When IR light entity is OFF always OFF, when ON IR LEDs will be on when the camera is in night vision mode, see the "Day night mode" select entity.
 
+## Sensor entities
+
+Depending on the supported features of the camera, the following sensor entities are added:
+
+- Wi-Fi signal*
+
 ## Update entity
 
 An update entity is available that checks for firmware updates every 12 hours.
@@ -197,6 +211,7 @@ The following models have been tested and confirmed to work:
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
+- [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - [Reolink Duo Floodlight PoE](https://reolink.com/product/reolink-duo-floodlight-poe/)
 - Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))

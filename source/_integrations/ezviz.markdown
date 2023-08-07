@@ -12,10 +12,14 @@ ha_codeowners:
   - '@baqs'
 ha_config_flow: true
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
+  - button
   - camera
+  - image
   - light
   - number
+  - select
   - sensor
   - switch
   - update
@@ -125,6 +129,10 @@ To enable/disable motion detection, use the Home Assistant built in services.
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 
+### Alarm Control Panel Entity
+
+The Alarm Control Panel entity in the EZVIZ platform allows users to manage and control the armed status of all their EZVIZ devices. With this entity, users can choose between three options: **Arm Away**, **Arm Sleep**, and **Disarm**.
+
 ### OTA update
 
 Trigger device OTA firmware update process for latest stable version.
@@ -133,9 +141,21 @@ Trigger device OTA firmware update process for latest stable version.
 
 The motion detection sensitivity can be adjusted using the "Detection sensitivity" Number entity. It's important to note that this entity fetches information from the device and will not update if your battery-powered camera is in sleep mode, as this measure is implemented to preserve battery life and prevent excessive drainage.
 
+### PTZ
+
+PTZ up/down/left/right buttons are available on supported PTZ cameras for pan and tilt control.
+
+### Warning sound
+
+If your camera supports motion detection warning sounds, you can use this entity to select the level.
+
 ### Light entity
 
 A light entity will be added to cameras + light combos. You can turn it on/off and set the brightness.
+
+### Image Entity
+
+The image entity represents the last detected event from a camera and visually represents the event within Home Assistant.
 
 ## Troubleshooting
 
