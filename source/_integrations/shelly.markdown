@@ -43,30 +43,44 @@ Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
 ## Shelly device generations
 
-There are two generations of devices. Both generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
+There are two generations of devices. Both generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations. Some of the ways to tell them apart are:
 
-## Shelly device configuration (generation 1)
+- In Home Assistant UI, on Shelly device's page, Device info section will state Hardware: gen1 or Hardware: gen2;
+- 2nd generation Shelly devices will have a web UI sidebar on the left;
+- 2nd generation Shelly devices will have a blue Shelly favicon on their web browser tab.
 
-Generation 1 devices use the `CoIoT` protocol to communicate with the integration. For Shelly firmware 1.10.0 or newer, `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
+## Configuring 1st generaton Shelly devices
 
-We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. **This is mandatory for battery operated devices**. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
+First generation Shelly devices use the `CoIoT` protocol to communicate with the integration. Home Assistant will display a repair issue for any such Shelly device if push updates from it do not reach the Home Assistant server. To fix:
 
-Home Assistant will display a repair issue for the Shelly device if push updates from this device do not reach the Home Assistant server.
+1. Ensure the Shelly device is on the current firmware. Older firmware will lack the necessary setting;
+1. In the device's web UI (at the local IP address of your Shelly device), go to: **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS**;
+1. Make sure box **Enable CoIoT** is selected;
+1. In **CoIoT peer** field, enter `Your_Home_Assistant_local_IP_address:5683`
+1. Save;
+1. Reboot the Shelly device.
 
-The list below will help you diagnose and fix the problem:
 
-- Check if your Shelly devices have a properly configured `CoIoT peer`.
-- If you can't find the `CoIoT peer` settings in the device's web panel, it's probably using an ancient firmware version, and you should update it to the current one.
+If you've followed the above steps, but the repair issue remains, the following items will help you diagnose and fix the problem:
+
 - If Shelly devices are in a different subnet than the Home Assistant server, you should ensure communication on `UDP` port `5683` between these subnets.
 - If Home Assistant is running as a virtual machine or service on an operating system other than Home Assistant OS, you should open `UDP` port `5683` on the device's firewall and/or ensure that communication from this port is redirected to the Home Assistant service.
 - The missing push updates may be related to the WiFi network range. If using a WiFi network with several access points, enable **Internet & Security** >> **WiFi Client AP Roaming** option. Consider moving Shelly device closer to the WiFi access point. Consider adding another WiFi access point, which will improve the connection quality with the device.
 - If you think your Shelly devices are working correctly and don't want to change your network/configuration, you can ignore the repair issue. Still, you must know you are giving up the best experience of using first-generation Shelly devices with Home Assistant.
 
-## Shelly device configuration (generation 2)
 
-Generation 2 devices use the `RPC` protocol to communicate with the integration. Battery powered devices need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
+## Configuring 2nd generation Shelly devices
 
-`ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
+Second generation Shelly devices use the `RPC` protocol to communicate with the integration. **Battery powered gen. 2 devices only** need manual outbound WebSocket configuration:
+
+1. Ensure the Shelly device is on the current firmware. Older firmware will lack the necessary setting;
+1. In the device's web UI (at the local IP address of your Shelly device), go to: Left sidebar >> **Settings** >> **Outbound WebSocket**;
+1. Make sure box **Enable Outbound WebSocket** is selected;
+1. In Server field, enter ws://`Your_Home_Assistant_local_IP_address:Port`/api/shelly/ws (note: port must match your HA port when you open HA UI);
+1. You *might* have to tweak the **Connection Type**, depending on your local TLS certificate situation;
+1. Click **Apply** to save the settings;
+1. Reboot the Shelly device/
+
 
 <div class="note">
 Integration is communicating directly with the device; cloud connection is not needed.
