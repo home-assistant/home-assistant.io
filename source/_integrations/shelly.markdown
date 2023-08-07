@@ -43,30 +43,62 @@ Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
 ## Shelly device generations
 
-There are two generations of devices. Both generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
+There are two generations of devices. Both generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations. Some of the ways to tell them apart are:
 
-## Shelly device configuration (generation 1)
+- In Home Assistant UI, on the Shelly device's page, **Device info** section will state `Hardware: gen1` or `Hardware: gen2`;
+- 2nd generation devices will have a web UI sidebar on the left;
+- 2nd generation devices will have a blue Shelly favicon on their web browser tab.
 
-Generation 1 devices use the `CoIoT` protocol to communicate with the integration. For Shelly firmware 1.10.0 or newer, `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
+## Configuring 1st generaton Shelly devices
 
-We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. **This is mandatory for battery operated devices**. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
+First generation Shelly devices use the `CoIoT` protocol to communicate with the HA integration. Home Assistant will display a repair issue for any such Shelly device, if push updates from it do not reach the Home Assistant server. To fix:
 
-Home Assistant will display a repair issue for the Shelly device if push updates from this device do not reach the Home Assistant server.
+1. Ensure the Shelly device is on the current firmware. Older firmware will lack the necessary setting;
+1. In the device's web UI (at the local IP address of your Shelly device), go to: **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS**;
+1. Make sure box **Enable CoIoT** is selected;
+1. In **CoIoT peer** field, enter `Your_Home_Assistant_local_IP_address:5683`
+1. **Save**;
+1. Reboot the Shelly device.
 
-The list below will help you diagnose and fix the problem:
 
-- Check if your Shelly devices have a properly configured `CoIoT peer`.
-- If you can't find the `CoIoT peer` settings in the device's web panel, it's probably using an ancient firmware version, and you should update it to the current one.
-- If Shelly devices are in a different subnet than the Home Assistant server, you should ensure communication on `UDP` port `5683` between these subnets.
-- If Home Assistant is running as a virtual machine or service on an operating system other than Home Assistant OS, you should open `UDP` port `5683` on the device's firewall and/or ensure that communication from this port is redirected to the Home Assistant service.
-- The missing push updates may be related to the WiFi network range. If using a WiFi network with several access points, enable **Internet & Security** >> **WiFi Client AP Roaming** option. Consider moving Shelly device closer to the WiFi access point. Consider adding another WiFi access point, which will improve the connection quality with the device.
-- If you think your Shelly devices are working correctly and don't want to change your network/configuration, you can ignore the repair issue. Still, you must know you are giving up the best experience of using first-generation Shelly devices with Home Assistant.
+If you've followed the above steps, but the repair issue remains, the following ideas might help you diagnose and fix the problem of the CoIoT push updates not propagating to HA:
 
-## Shelly device configuration (generation 2)
+- If Shelly devices are in a different subnet than the Home Assistant server, please confirm that there is communication on `UDP` port `5683` between these subnets. Connect a computer to the same WiFi SSID at the same location / access point as the affected Shelly device(s) and try:
+  - On Windows command line: `portqry.exe -n Your_Home_Assistant_local_IP_address -p udp -e 5683 -sp 5683` This tool is available at https://www.microsoft.com/en-us/download/details.aspx?id=17148 or its GUI version PortQryUI at https://www.microsoft.com/en-us/download/details.aspx?id=24009&wa=wsignin1.0
+  - On Linux: `nc -vz -u Your_Home_Assistant_local_IP_address 5683`
+- If Home Assistant is running in a virtual machine or as a service on an operating system other than Home Assistant OS, open `UDP` port `5683` on the host device's firewall, and/or ensure that communication from this port is forwarded to the Home Assistant service.
+- Check WiFi connection quality. In the device's web UI, go to **Settings** >> **DEVICE INFO**. Confirm the proper SSID name and signal strength; if device reports WiFi RSSI of -70 dBm or a greater negative value, signal strength may be the issue. You can test this hypothesis by temporarily relocating the affected Shelly device(s) an/or their WiFi access point(s) to be closer together and/or with fewer metal obstacles between them, so that you get the shelly device(s) report the WiFi RSSI in the -40s...low 50s dBm. If the issue goes away then, one or more of the following measures may help:
+  - Optimize WiFi access point placement to boost the worst affected devices' Wi-Fi signal. Minimizing metal obstructions (includig wires) in the immediate vicinity of Wi-Fi antennae can often make a meaningful difference.
+  - If your affected Shelly devices are installed in metal electrical boxes, **only if local electrical codes allow**, consider having a qualified electrician replace any unused metal electrical box knock-outs with NM (non-metallic) push-in connectors. This will allow  additional Wi-Fi signal pathways to the Shelly device.
+  - If your affected Shelly devices have a dense mass of electrical wiring surrounding them, consider having a qualified electrician clean up the wiring. Multi-conductor lever connectors, such as WAGO 221-415 *(example - not endorsement)*, can allow for more compact connections compared to traditional twist nuts.
+  - If you are using a metal wallplate and the WiFi signal improves with it removed, consider switching to plastic.
+  - If using a Wi-Fi network with multiple access points, in the Shelly device's web UI, enable **Internet & Security** >> **WiFi Client AP Roaming** option.
+  - Consider adding another WiFi access point, situated where it will improve the connection quality with the affected Shelly device(s).
+- Check that your Shelly devices' time is consistent with your HA server and your router, with the following settings in Shelly device web UI:
+  - **Settings** >> **TIME ZONE AND GEO-LOCATION** >> **Local Time zone of the Shelly device****
+  - **Settings** >> **TIME ZONE AND GEO-LOCATION** >> **Daylight saving time**
+  - **Internet & Security** >> **SNTP Server**
+- Consider **TEMPORARILY** enabling Debug Log in **Settings** >> **DEVICE INFO**, just long enough to capture any current errors the Shelly device is reporting, and then disabling the Debug Log.
 
-Generation 2 devices use the `RPC` protocol to communicate with the integration. Battery powered devices need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
+> [!WARNING]  
+> Leaving the Debug Log enabled for an extended period will age the Shelly device's flash memory, i.e. use up its finite write endurance cycles.
 
-`ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
+> [!NOTE]  
+> In Home Assistant, you can ignore the repair issue and forgo the recommended CoIoT push updates from gen 1 Shelly devices.
+
+
+## Configuring 2nd generation Shelly devices
+
+Second generation Shelly devices use the `RPC` protocol to communicate with the integration. **Battery powered gen. 2 devices only** need manual outbound WebSocket configuration:
+
+1. Ensure the Shelly device is on the current firmware. Older firmware will lack the necessary setting;
+1. In the device's web UI (at the local IP address of your Shelly device), go to: Left sidebar >> **Settings** >> **Outbound WebSocket**;
+1. Make sure box **Enable Outbound WebSocket** is selected;
+1. In Server field, enter ws://`Your_Home_Assistant_local_IP_address:Port`/api/shelly/ws (note: port must match your HA port when you open HA UI);
+1. You *might* have to tweak the **Connection Type**, depending on your local TLS certificate situation;
+1. Click **Apply** to save the settings;
+1. Reboot the Shelly device.
+
 
 <div class="note">
 Integration is communicating directly with the device; cloud connection is not needed.
