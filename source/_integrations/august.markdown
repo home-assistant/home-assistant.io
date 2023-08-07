@@ -47,6 +47,8 @@ The `august` integration allows you to integrate your [August](https://august.co
 | Yale Linus | yes |
 | Yale Smart Safe | yes |
 
+Other devices not listed above have not been tested and may not function as expected.
+
 There is currently support for the following device types within Home Assistant:
 
 - Doorbell
