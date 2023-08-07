@@ -71,6 +71,9 @@ For electricity:
 3. Select the radio button to **Use an entity tracking the total costs**.
 4. Select **Opower {utility name} elec {account number} cost** for the **entity with the total costs**.
 
+Your **Configure grid consumption** should now look like this:
+![Screenshot configure grid consumption](/images/integrations/opower/configure_grid_consumption.png)
+
 For gas:
 
 1. Select **Add gas source** for the **Gas consumption**.
@@ -78,4 +81,9 @@ For gas:
 3. Select the radio button to **Use an entity tracking the total costs**.
 4. Select **Opower {utility name} gas {account number} cost** for the **entity with the total costs**.
 
-Your {% my config_energy title="Settings > Dashboards > Energy" %} page should now look like this:
+Your **Configure gas consumption** should now look like this:
+![Screenshot configure gas consumption](/images/integrations/opower/configure_gas_consumption.png)
+
+With the above changes your (**{% my config_energy title="Settings > Dashboards > Energy" %}**) page should now look like this:
+
+![Screenshot Energy Configuration](/images/integrations/opower/energy_config.png)
