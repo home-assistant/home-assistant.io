@@ -69,7 +69,7 @@ Weather integrations which support weather forecasts expose the forecast using s
 
 <div class='note'>
 
-Some integrations may not support the `weather.get_forecast` service, but instead expose weather forecasts as a state attribute named `forecast`. This behavior is deprecated and will be removed in a future release of Home Assistant core.
+Some integrations may not support the `weather.get_forecast` service, but instead expose weather forecasts as a state attribute named `forecast`. This behavior is deprecated and will be removed in a future release of Home Assistant Core.
 
 </div>
 
