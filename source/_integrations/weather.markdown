@@ -15,7 +15,10 @@ The `weather` platforms gather meteorological information from web services and 
 
 Home Assistant currently supports free web services some of which require registration.
 
-## Condition mapping
+## State and state attributes
+
+A weather entity's state is used to indicate the current overall conditions, e.g. 'cloudy' or 'sunny'.
+### Condition mapping
 
 The `weather` platform only knows the below listed conditions. The reason for this is that for these conditions is an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) available and mapped in the frontend.
 
@@ -35,21 +38,86 @@ The `weather` platform only knows the below listed conditions. The reason for th
 - 'windy-variant'
 - 'exceptional'
 
-### Forecast Information
+### State attributes
 
-Periodic forecast information is stored in the `forecast` attribute on the entity. To access and use the information should be reserved for advanced users using [Templates](/docs/configuration/templating/).
+Detailed weather conditions as well as the unit of measurements used for the conditions are indicated by state attributes. A weather entity may not support all the state attributes.
 
+{% raw %}
 ```yaml
-temperature: 14.2
-temperature_unit: °C
+apparent_temperature: 12.0
+cloud_coverage: 0
+dew_point: 5.0
 humidity: 76
-pressure: 1019
-pressure_unit: hPa
-wind_bearing: 260
-wind_speed: 35.17
-wind_speed_unit: km/h
-visibility_unit: km
 precipitation_unit: mm
+pressure_unit: hPa
+pressure: 1019
+temperature_unit: °C
+temperature: 14.2
+uv_index: 2
+visibility_unit: km
+visibility: 10
+wind_bearing: 260
+wind_gust_speed: 51.56
+wind_speed_unit: km/h
+wind_speed: 35.17
+```
+{% endraw %}
+
+## Service `weather.get_forecast`
+
+Weather integrations which support weather forecasts expose the forecast using services. The services provided by weather entities are described below, and you can also read more about [Service Calls](/docs/scripts/service-calls/).
+
+<div class='note'>
+
+Some integrations may not support the `weather.get_forecast` service, but instead expose weather forecasts as a state attribute named `forecast`. This behavior is deprecated and will be removed in a future release of Home Assistant core.
+
+</div>
+
+This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+with a weather forecast.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `forecast_type` | no | The type of forecast, must be one of `daily`, `twice_daily` or `hourly`. | daily
+
+{% raw %}
+```yaml
+service: calendar.list_events
+target:
+  entity_id: calendar.school
+data:
+  duration:
+    hours: 24
+response_variable: agenda
+```
+{% endraw %}
+
+The response data field `forecast` is a list of forecasted conditions at a given point in time:
+
+| Response data | Description | Example |
+| ---------------------- | ----------- | -------- |
+| `datetime` | The time of the forecasted conditions. | 2023-02-17T14:00:00+00:00
+| `is_daytime` | Only set for `twice_daily` forecasts. | False
+| `apparent_temperature` | The apparent (feels-like) temperature. | 10.2
+| `cloud_coverage` | The cloud coverage in %. | 15
+| `condition` | The weather condition. | Sunny
+| `dew_point` | The dew point temperature. | 6.0
+| `humidity` | The relative humidity in %. | 82
+| `precipitation_probability` | The probability of precipitation in %. | 0
+| `precipitation` | The precipitation amount. | 0
+| `pressure` | The air pressure. | 1019
+| `temperature` | The temperature. If templow is also provided, this is the higher temperature. | 14.2
+| `templow` | The lower temperature. | 5.0
+| `uv_index` | The UV index. | 3
+| `wind_bearing` | The wind bearing in azimuth angle (degrees) or 1-3 letter cardinal direction. | 268
+| `wind_gust_speed` | The wind gust speed. | 34.41
+| `wind_speed` | The wind speed. | 24.41
+
+
+Example forecast:
+
+{% raw %}
+```yaml
 forecast:
   - condition: cloudy
     precipitation_probability: 0
@@ -76,3 +144,4 @@ forecast:
     wind_speed: 20.27
     precipitation: 0
 ```
+{% endraw %}
