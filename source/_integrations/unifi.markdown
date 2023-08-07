@@ -112,11 +112,13 @@ Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfi
 
 ## Sensor
 
-These Sensor are disabled by default, to enable them, click the "Configure" button on the Unifi-integration page and go to page 3/3. Here the different sensors can be enabled.
+These sensors are disabled by default. Enabling a sensor adds a new device to Home Assistant for every connected client in your network. This can add complexity to large networks.
 
-**Warning:** This will add a new Device to Home Assistant for every connected client in your network. If you network is very large, this will get very messy in Home Assistant.
+1. To enable the sensors, on the Unifi integration page, select **Configure**. 
+2. Go to page 3/3 and enable the sensors.
 
-Currently it is also not possible to get a global bandwidth sensor for a UDM router. The Integration only supports per-device sensors.
+
+Currently, it is not possible to get a global bandwidth sensor for a UDM router. The integration only supports per-device sensors.
 
 
 ### Bandwidth sensor
