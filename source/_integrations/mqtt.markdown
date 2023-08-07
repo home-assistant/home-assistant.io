@@ -599,7 +599,7 @@ A motion detection device which can be represented by a [binary sensor](/integra
 - Configuration payload with derived device name:  `{"name": null, "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
-It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together. We can set "name" to `null` if we want to inherit the device name for the entity. If we set an entity name the friendly_name wil be a combination of device and entity name. If "name" would be left away and a `device_class` is set, the entity name part will be derived from the `device_class`.
+It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together. We can set "name" to `null` if we want to inherit the device name for the entity. If we set an entity name the `friendly_name` wil be a combination of the device and entity name. If "name" is left away and a `device_class` is set, the entity name part will be derived from the `device_class`.
 
 - Example configuration payload with no name set and derived `device_class` name: `{"device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
 
@@ -897,7 +897,7 @@ and will pass it to the MQTT publish service.
 
 The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
 The `device_class` is set, so it is not needed to set the "name" option. The entity
-will inherit the name from the device_class set and also support translations.
+will inherit the name from the `device_class` set and also support translations.
 If you set "name" in the payload the entity name will start with the device name.
 
 {% raw %}
