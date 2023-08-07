@@ -66,10 +66,6 @@ The August Wi-Fi Smart Lock (Gen 4) uses different battery technology (lithium-i
 		
 Other August locks expect to be powered by AA alkaline (non-rechargeable) batteries. Rechargeable batteries in these locks will result in incorrect reporting of battery charge.
 
-## Known Unsupported Devices
-
-Other devices not listed above have not been tested and may not function as expected.
-
 ## Binary Sensor
 
 If you have an August Doorbell, once you have enabled the August integration, you should see following sensors:
