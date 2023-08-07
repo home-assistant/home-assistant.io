@@ -54,11 +54,11 @@ There are two generations of devices. Both generations are supported by this int
 First generation Shelly devices use the `CoIoT` protocol to communicate with the HA integration. Home Assistant will display a repair issue for any such Shelly device, if push updates from it do not reach the Home Assistant server. To fix:
 
 1. Ensure the Shelly device is on the current firmware. Older firmware will lack the necessary setting;
-1. In the device's web UI (at the local IP address of your Shelly device), go to: **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS**;
-1. Make sure box **Enable CoIoT** is selected;
-1. In **CoIoT peer** field, enter `Your_Home_Assistant_local_IP_address:5683`
-1. **Save**;
-1. Reboot the Shelly device.
+2. In the device's web UI (at the local IP address of your Shelly device), go to: **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS**;
+3. Make sure box **Enable CoIoT** is selected;
+4. In **CoIoT peer** field, enter `Your_Home_Assistant_local_IP_address:5683`
+5. **Save**;
+6. Reboot the Shelly device.
 
 
 If you've followed the above steps, but the repair issue remains, the following ideas might help you diagnose and fix the problem of the CoIoT push updates not propagating to HA:
@@ -92,12 +92,12 @@ If you've followed the above steps, but the repair issue remains, the following 
 Second generation Shelly devices use the `RPC` protocol to communicate with the integration. **Battery powered gen. 2 devices only** need manual outbound WebSocket configuration:
 
 1. Ensure the Shelly device is on the current firmware. Older firmware will lack the necessary setting;
-1. In the device's web UI (at the local IP address of your Shelly device), go to: Left sidebar >> **Settings** >> **Outbound WebSocket**;
-1. Make sure box **Enable Outbound WebSocket** is selected;
-1. In Server field, enter ws://`Your_Home_Assistant_local_IP_address:Port`/api/shelly/ws (note: port must match your HA port when you open HA UI);
-1. You *might* have to tweak the **Connection Type**, depending on your local TLS certificate situation;
-1. Click **Apply** to save the settings;
-1. Reboot the Shelly device.
+2. In the device's web UI (at the local IP address of your Shelly device), go to: Left sidebar >> **Settings** >> **Outbound WebSocket**;
+3. Make sure box **Enable Outbound WebSocket** is selected;
+4. In Server field, enter ws://`Your_Home_Assistant_local_IP_address:Port`/api/shelly/ws (note: port must match your HA port when you open HA UI);
+5. You *might* have to tweak the **Connection Type**, depending on your local TLS certificate situation;
+6. Click **Apply** to save the settings;
+7. Reboot the Shelly device.
 
 
 <div class="note">
