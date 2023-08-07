@@ -82,13 +82,12 @@ with a weather forecast.
 
 {% raw %}
 ```yaml
-service: calendar.list_events
+service: weather.get_forecast
 target:
-  entity_id: calendar.school
+  entity_id: weather.home
 data:
-  duration:
-    hours: 24
-response_variable: agenda
+  forecast_type: daily
+response_variable: weather_forecast
 ```
 {% endraw %}
 
