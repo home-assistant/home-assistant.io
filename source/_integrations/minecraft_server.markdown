@@ -43,10 +43,10 @@ This integration provides sensors for the following information from a Minecraft
 - Version
 - Protocol version
 - Number of online players
-  - Including player names list in the state attributes, if available (see note below)
+  - Including player names list in the state attributes, if available (see note below).
 - Number of maximum players
 - World Message / Message of the Day (MOTD)
 
 <div class='note'>
-Depending on the server, the player names list may not be shown completely. Some servers and plugins are limiting or completely hiding this list or even replacing the player names with fake ones to show some custom message(s) there.
+Depending on the server, the player names list may not be shown completely. Some servers and plugins limit or completely hide this list or even replace the player names with fake ones to show some custom messages there.
 </div>
