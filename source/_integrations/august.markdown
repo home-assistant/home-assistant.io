@@ -43,6 +43,7 @@ The `august` integration allows you to integrate your [August](https://august.co
 | Yale Assure Lock 2 | yes |
 | Yale Conexis L1 | yes |
 | Yale Conexis L2 | yes |
+| Yale Doorman L3 | yes |
 | Yale Linus | yes |
 | Yale Smart Safe | yes |
 
@@ -66,8 +67,6 @@ The August Wi-Fi Smart Lock (Gen 4) uses different battery technology (lithium-i
 Other August locks expect to be powered by AA alkaline (non-rechargeable) batteries. Rechargeable batteries in these locks will result in incorrect reporting of battery charge.
 
 ## Known Unsupported Devices
-
-- The Yale Doorman L3
 
 Other devices not listed above have not been tested and may not function as expected.
 
