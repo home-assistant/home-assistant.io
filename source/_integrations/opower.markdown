@@ -77,3 +77,5 @@ For gas:
 2. Select **Opower {utility name} gas {account number} consumption** for the **gas usage**.
 3. Select the radio button to **Use an entity tracking the total costs**.
 4. Select **Opower {utility name} gas {account number} cost** for the **entity with the total costs**.
+
+Your {% my config_energy title="Settings > Dashboards > Energy" %} page should now look like this:
