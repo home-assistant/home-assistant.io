@@ -82,6 +82,12 @@ Send a video.
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
+| `supports_streaming`   | yes      | Pass `true` if the uploaded video is suitable for streaming. Default is false/none. Videos with more than ~15mb won't auto-download or autoplay. So this feature is very useful for bigger videos. |
+| `thumb_url`            | yes      | Remote path to a thumb image. (Videos bigger than ~15mb won't auto-generate a thumb image, so you may want to explicitly upload one) |
+| `thumb_file`           | yes      | Local path to a thumb image. (Videos bigger than ~15mb won't auto-generate a thumb image, so you may want to explicitly upload one) |
+| `duration`             | yes      | Duration of the video clip in seconds (Required if using 'supports_streaming', if the duration is unknown, you can use any number, like `60`) |
+| `width`                | yes      | Width of the video clip in pixels (Required if using 'supports_streaming', if the width is unknown, you can use any number, like `1`) |
+| `height`               | yes      | Height of the video clip in pixels (Required if using 'supports_streaming', if the height is unknown, you can use any number, like `1`) |
 
 ### Service `telegram_bot.send_animation`
 
