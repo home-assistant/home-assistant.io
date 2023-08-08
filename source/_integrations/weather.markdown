@@ -48,18 +48,18 @@ apparent_temperature: 12.0
 cloud_coverage: 0
 dew_point: 5.0
 humidity: 76
-precipitation_unit: mm
-pressure_unit: hPa
 pressure: 1019
-temperature_unit: °C
 temperature: 14.2
 uv_index: 2
-visibility_unit: km
 visibility: 10
 wind_bearing: 260
 wind_gust_speed: 51.56
-wind_speed_unit: km/h
 wind_speed: 35.17
+precipitation_unit: mm
+pressure_unit: hPa
+temperature_unit: °C
+visibility_unit: km
+wind_speed_unit: km/h
 ```
 {% endraw %}
 
@@ -97,20 +97,20 @@ The response data field `forecast` is a list of forecasted conditions at a given
 | ---------------------- | ----------- | -------- |
 | `datetime` | The time of the forecasted conditions. | 2023-02-17T14:00:00+00:00
 | `is_daytime` | Only set for `twice_daily` forecasts. | False
-| `apparent_temperature` | The apparent (feels-like) temperature. | 10.2
+| `apparent_temperature` | The apparent (feels-like) temperature in the unit indicated by the `temperature_unit` state attribute. | 10.2
 | `cloud_coverage` | The cloud coverage in %. | 15
 | `condition` | The weather condition. | Sunny
-| `dew_point` | The dew point temperature. | 6.0
+| `dew_point` | The dew point temperature in the unit indicated by the `temperature_unit` state attribute. | 6.0
 | `humidity` | The relative humidity in %. | 82
 | `precipitation_probability` | The probability of precipitation in %. | 0
-| `precipitation` | The precipitation amount. | 0
-| `pressure` | The air pressure. | 1019
-| `temperature` | The temperature. If templow is also provided, this is the higher temperature. | 14.2
-| `templow` | The lower temperature. | 5.0
+| `precipitation` | The precipitation amount in the unit indicated by the `precipitation_unit` state attribute. | 0
+| `pressure` | The air pressure in the unit indicated by the `pressure_unit` state attribute. | 1019
+| `temperature` | The temperature in the unit indicated by the `temperature_unit` state attribute. If templow is also provided, this is the higher temperature. | 14.2
+| `templow` | The lower temperature in the unit indicated by the `temperature_unit` state attribute. | 5.0
 | `uv_index` | The UV index. | 3
 | `wind_bearing` | The wind bearing in azimuth angle (degrees) or 1-3 letter cardinal direction. | 268
-| `wind_gust_speed` | The wind gust speed. | 34.41
-| `wind_speed` | The wind speed. | 24.41
+| `wind_gust_speed` | The wind gust speed in the unit indicated by the `wind_speed_unit` state attribute. | 34.41
+| `wind_speed` | The wind speed in the unit indicated by the `wind_speed_unit` state attribute. | 24.41
 
 
 Example forecast:
