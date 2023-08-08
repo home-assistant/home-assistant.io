@@ -199,7 +199,7 @@ mqtt:
 
 Add the configuration below to your `configuration.yaml`.
 
-To test it publish an image URL to the topic from the console:
+To test it, publish an image URL to the topic from the console:
 
 ```shell
 mosquitto_pub -h <mqtt_broker> -t mynas/status/file -f <logo.png>
