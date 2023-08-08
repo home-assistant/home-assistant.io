@@ -30,7 +30,7 @@ There is support for the following platform types within Home Assistant:
 - **Camera** - allows you to view the latest cleaning map.
 - **Sensor** - allows you to view the battery level.
 - **Switch** - allows you to enable or disable the schedule.
-- [**Button**] - allows you to dismiss an alert visible in the app.
+- [**Button**](#button) - allows you to dismiss an alert visible in the app.
 - [**Vacuum**](#vacuum)
 
 ## Prerequisites
