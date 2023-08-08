@@ -48,17 +48,17 @@ apparent_temperature: 12.0
 cloud_coverage: 0
 dew_point: 5.0
 humidity: 76
+precipitation_unit: mm
 pressure: 1019
+pressure_unit: hPa
 temperature: 14.2
+temperature_unit: °C
 uv_index: 2
 visibility: 10
+visibility_unit: km
 wind_bearing: 260
 wind_gust_speed: 51.56
 wind_speed: 35.17
-precipitation_unit: mm
-pressure_unit: hPa
-temperature_unit: °C
-visibility_unit: km
 wind_speed_unit: km/h
 ```
 {% endraw %}
