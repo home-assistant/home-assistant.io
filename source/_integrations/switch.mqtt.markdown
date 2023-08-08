@@ -248,7 +248,19 @@ mqtt:
       retain: true
 ```
 
-For a check, you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually:
+For a check, you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually. First, we can simulate the availability message sent for the switch:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1/available -m "online"
+```
+
+We can simulate the switch being turned on by publishing the "ON" command message:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1/set -m "ON"
+```
+
+Finally, we can simulate the switch reporting back the changed state to Home Assistant:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
