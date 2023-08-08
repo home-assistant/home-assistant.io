@@ -544,7 +544,7 @@ and restarting Home Assistant, then add the Nest integration following the
 instructions. Please review the documentation for information about which
 devices are supported.
 
-Additionally, as a reminder, the legacy Works With Nest API is shutting down
+Additionally, as a reminder, the legacy Works With Nest API is [shutting down](https://developers.nest.com/)
 in September 2023.
 
 ([@allenporter] - [#96111]) ([documentation](/integrations/nest))
