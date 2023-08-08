@@ -78,7 +78,7 @@ with a weather forecast.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `forecast_type` | no | The type of forecast, must be one of `daily`, `twice_daily` or `hourly`. | daily
+| `type` | no | The type of forecast, must be one of `daily`, `twice_daily` or `hourly`. | daily
 
 {% raw %}
 ```yaml
@@ -86,7 +86,7 @@ service: weather.get_forecast
 target:
   entity_id: weather.home
 data:
-  forecast_type: daily
+  type: daily
 response_variable: weather_forecast
 ```
 {% endraw %}
