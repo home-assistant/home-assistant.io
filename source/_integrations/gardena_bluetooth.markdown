@@ -36,7 +36,7 @@ The paring of the device may require a [Factory Reset](#factory-reset) before it
 ### Limitations
 
 - Control of offline scheduling settings is not supported.
-- Use of the official Android application, sometimes locks out access to device until [Factory Reset](#factory-reset) is performed.
+- Use of the official Android application, sometimes locks out access to device until [Factory Reset](#factory-reset) is performed or Bluetooth is disabled in the Android device.
 
 ### Factory Reset
 
