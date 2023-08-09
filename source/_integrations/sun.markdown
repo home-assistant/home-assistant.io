@@ -38,7 +38,7 @@ If that is the case, you can configure it as described in the next paragraphs.
 
 ## YAML Configuration
 
-Alternatlively, this integration can be configured and set up manually via YAML
+Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the sun integration in your installation, add the
 following to your `configuration.yaml` file:
 

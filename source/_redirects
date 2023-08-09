@@ -256,7 +256,7 @@ layout: null
 /docs/mqtt/birth_will /integrations/mqtt/#birth-and-last-will-messages
 /docs/mqtt/broker /integrations/mqtt/#broker-configuration
 /docs/mqtt/certificate /integrations/mqtt/#advanced-broker-configuration
-/integrations/mqtt/#mqtt-discovery /integrations/mqtt/#mqtt-discovery
+/docs/mqtt/discovery/ /integrations/mqtt/#mqtt-discovery
 /docs/mqtt/logging /integrations/mqtt/#logging
 /docs/mqtt/service /integrations/mqtt/#publish--dump-services
 /docs/mqtt/testing /integrations/mqtt/#testing-your-setup
@@ -544,6 +544,7 @@ layout: null
 /integrations/trackr /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
+/integrations/ultraloq /more-info/removed-integration 301
 /integrations/updater /more-info/removed-integration 301
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301

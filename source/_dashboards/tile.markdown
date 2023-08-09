@@ -93,9 +93,9 @@ type: tile
 entity: vacuum.ground_floor
 features:
   - type: vacuum-commands
-      commands:
-        - start_pause
-        - return_home
+    commands:
+      - start_pause
+      - return_home
 ```
 
 ## Available color tokens
