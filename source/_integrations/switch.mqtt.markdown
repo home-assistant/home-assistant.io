@@ -25,8 +25,8 @@ To enable this switch in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  switch:
-    - command_topic: "home/bedroom/switch1/set"
+  - switch:
+      command_topic: "home/bedroom/switch1/set"
 ```
 
 {% configuration %}
@@ -71,12 +71,12 @@ command_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this switch is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this switch is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -148,7 +148,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name to use when displaying this switch.
+  description: The name to use when displaying this switch. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Switch
@@ -232,8 +232,8 @@ The example below shows a full configuration for a switch.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  switch:
-    - unique_id: bedroom_switch
+  - switch:
+      unique_id: bedroom_switch
       name: "Bedroom Switch"
       state_topic: "home/bedroom/switch1"
       command_topic: "home/bedroom/switch1/set"
@@ -269,8 +269,8 @@ The configuration will look like the example below:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  switch:
-    - name: bathroom
+  - switch:
+      name: bathroom
       state_topic: "home/bathroom/gpio/13"
       command_topic: "home/bathroom/gpio/13"
       payload_on: "1"

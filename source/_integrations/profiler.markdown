@@ -20,21 +20,21 @@ The Profiler integration provides a profile which is a set of statistics that id
 
 Start the profiler for the specified number of seconds.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `seconds` | yes | The number of seconds to run the profile. Defaults to 60.0
+| Service data attribute | Optional | Description                                                |
+| ---------------------- | -------- | ---------------------------------------------------------- |
+| `seconds`              | yes      | The number of seconds to run the profile. Defaults to 60.0 |
 
 When the profile is complete, Profiler will generate a Python `cprof` and a `callgrind.out` file in your configuration directory. The exact path to these files will appear in a persistent notification so they can be easily located and copied to your desktop. 
 
 The `cprof` file can be viewed with:
 
-* [SnakeViz](https://jiffyclub.github.io/snakeviz/)
-* [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
+- [SnakeViz](https://jiffyclub.github.io/snakeviz/)
+- [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
 
 Additionally, the profiler will generate a `callgrind.out` file that can be viewed with:
 
-* [KCachegrind or QCachegrind](https://kcachegrind.github.io/)
-* [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
+- [KCachegrind or QCachegrind](https://kcachegrind.github.io/)
+- [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
 
 The gprof2dot tool generates [DOT](http://www.graphviz.org/doc/info/lang.html) files, which can be converted to images using the `dot` tool from [Graphviz](http://www.graphviz.org/) or viewed directly using [xdot](https://github.com/jrfonseca/xdot.py). The `-e` and `-n` parameters can be used to set the minimum percentage required to include a function in the output file. Observe these examples:
 
@@ -55,9 +55,9 @@ gprof2dot -f pstats profile.1234567890123456.cprof | dot -Tsvg -o profile.svg
 
 Start the memory profiler for the specified number of seconds.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `seconds` | yes | The number of seconds to run the profile. Defaults to 60.0
+| Service data attribute | Optional | Description                                                |
+| ---------------------- | -------- | ---------------------------------------------------------- |
+| `seconds`              | yes      | The number of seconds to run the profile. Defaults to 60.0 |
 
 When the memory profile is complete, Profiler will generate a `.hpy` file in your configuration directory. The exact path to these files will appear in a persistent notification so they can be easily located and copied to your desktop.
 
@@ -73,9 +73,9 @@ hpy().pb()
 
 Start logging the growth of objects in memory.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `scan_interval` | yes | The the frequency between logging objects. Defaults to 30.0
+| Service data attribute | Optional | Description                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------- |
+| `scan_interval`        | yes      | The the frequency between logging objects. Defaults to 30.0 |
 
 Periodically log the growth of new objects in memory. This service's primary use case is finding memory leaks. This service can be run for long periods to find slow leaks. For finding fast leaks, `profiler.start_log_object_sources` is preferred; however, it is much more CPU intensive.
 
@@ -87,10 +87,10 @@ Stop logging the growth of objects in memory.
 
 Start logging the growth of objects in memory and attempt to find the source of the new objects.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `scan_interval` | yes | The the frequency between logging objects. Defaults to 30.0
-| `max_objects` | yes | The number of new objects to examine for source information. Defaults to 5
+| Service data attribute | Optional | Description                                                                |
+| ---------------------- | -------- | -------------------------------------------------------------------------- |
+| `scan_interval`        | yes      | The the frequency between logging objects. Defaults to 30.0                |
+| `max_objects`          | yes      | The number of new objects to examine for source information. Defaults to 5 |
 
 Periodically log the growth of new objects in memory. This service's primary use case is finding memory leaks.
 
@@ -102,9 +102,9 @@ Stop logging the growth of objects with sources in memory.
 
 ### Service {% my developer_call_service service="profiler.dump_log_objects" %}
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `type` | no | The type of object to dump to the log.
+| Service data attribute | Optional | Description                            |
+| ---------------------- | -------- | -------------------------------------- |
+| `type`                 | no       | The type of object to dump to the log. |
 
 When `start_log_objects` highlights the growth of a collection of objects in memory, this service can help investigate. The `repr` of each object that matches `type` will be logged.
 

@@ -17,10 +17,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `workday` binary sensor indicates whether the current day is a workday or not. It allows specifying which days of the week will count as workdays and also
-uses the Python module [holidays](https://pypi.org/project/holidays/) to incorporate information about region-specific public holidays. 
+The `workday` binary sensor indicates whether the current day is a workday or not.
 
-This can be used to make automations that act differently on weekdays vs weekends. For example, you could make your bedroom lights turn on (gently) at 7 in the morning if it is a weekday, but wait until 11 if it is a weekend day.
+It allows specifying which days of the week will count as workdays and also uses the Python module [holidays](https://pypi.org/project/holidays/) to incorporate information about region-specific public holidays. 
+
+This can be used to make daily automations that act differently on workdays than non-workdays. For example, you could make your bedroom lights turn on (gently) at 7 in the morning if it is a workday but wait until 11 if it is a non-working day.
 
 ## Setup
 
@@ -33,7 +34,7 @@ The keyword `holiday` is used for public holidays identified by the holidays mod
 
 <div class='note warning'>
 
-Watch how the `holiday` keyword is used. Your first instinct might be adding it to the `exclude` configuration, thinking it means skipping the holidays. It means to exclude the days in the holiday list from the workdays. So, when you exclude `holiday` and a workday falls on that day, that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your `Excludes` configuration _other_ than `holiday`.
+Take note of the `holiday` keyword. Your first instinct might be to add it to the `exclude` configuration, thinking it means skipping the holidays. But it is meant to exclude the days in the holiday list from the workdays. So, when you exclude `holiday` and a workday falls on that day, that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your `Excludes` configuration _other_ than `holiday`.
 
 </div>
 
@@ -46,6 +47,8 @@ Subdivision code must be given according to [holidays](https://pypi.org/project/
 Add holidays will only take dates formatted with `YYYY-MM-DD`.
 
 Remove holidays will take dates formatted with `YYYY-MM-DD` or partial of name, for example, `christmas` will exclude `Christmas Day`.
+
+The offset can be used to see if future days are workdays. For example, put `1` to see if tomorrow is a workday.
 
 ## Automation example
 

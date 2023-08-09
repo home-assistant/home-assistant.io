@@ -22,12 +22,12 @@ The Honeywell Lyric integration integrates the Lyric thermostat platform into Ho
 
 ## Setup
 
-To set up this component, you first **must** set up a developer account with Honeywell:
+To set up this integration, you first **must** set up a developer account with Honeywell:
 
 1. Go to the [developer site](https://developer.honeywellhome.com) and register with an account.
-1. Next, create a [new app](https://developer.honeywellhome.com/user/me/apps/add) via the `My Apps` section.
+2. Next, create a [new app](https://developer.honeywellhome.com/user/me/apps/add) via the `My Apps` section.
    1. App Name: You can use any name here, but it must not contain special characters.
-   1. Callback URL: `https://my.home-assistant.io/redirect/oauth`
+   2. Callback URL: `https://my.home-assistant.io/redirect/oauth`
 
 {% details "I have manually disabled My Home Assistant" %}
 

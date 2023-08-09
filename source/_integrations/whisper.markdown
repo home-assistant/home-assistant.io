@@ -1,6 +1,6 @@
 ---
 title: Whisper
-description: Connect and control your Whisper instance using the Wyoming Protocol integration
+description: Connect and control your Whisper devices using the Wyoming Protocol integration
 ha_category:
   - Voice
 ha_domain: whisper

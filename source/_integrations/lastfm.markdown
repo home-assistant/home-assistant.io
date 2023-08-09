@@ -10,6 +10,8 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_config_flow: true
+ha_codeowners:
+  - '@joostlek'
 ---
 
 The `lastfm` sensor platform will allow you to see whenever a user starts scrobbling, their play count, last song played, and top song played on [Last.fm](https://www.last.fm/).
