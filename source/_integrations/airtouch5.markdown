@@ -24,11 +24,11 @@ The AirTouch 5 integration allows you to control Ducted Air Conditioning Systems
 
 ### Climate
 
-The integration will create a climate entity for AC unit and each zone.
+The integration will create a climate entity for each AC unit and each zone.
 
 ### Cover
 
-Each zone has a cover entity to represent the state of the damper. The damper position can be controlled if the zone is not temperature controlled.
+Each zone has a cover entity to represent the state of the damper. The damper position can be controlled only if the zone is not temperature controlled.
 
 ### Binary Sensor
 
