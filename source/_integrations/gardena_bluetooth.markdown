@@ -56,7 +56,7 @@ Irrigation valves are currently untested, but expected to work.
 
 ### Limitations
 
-Gardena bluetooth lawn mowers are currently not supported due to custom protocol on top of bluetooth.
+Gardena Bluetooth lawn mowers are currently not supported due to custom protocol on top of Bluetooth.
 
 ## Gard Pumps
 
