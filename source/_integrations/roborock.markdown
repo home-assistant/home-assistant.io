@@ -34,6 +34,60 @@ Once you log in with your Roborock account, the integration will automatically d
 
 {% include integrations/config_flow.md %}
 
+
+## Entities
+
+Roborock devices have a variety of features that are supported on some devices but not others, only entities that your device supports will be added to your integration
+
+### Vacuum
+
+The vacuum entity holds the ability to control most theiongs the vacuum can do, such as start a clean, return to the dock, or set fan speed.
+
+### Select
+
+Mop mode - Describes how to mop the floor. On some firmware, it is called 'mop route'
+
+Mop intensity - How hard you would like your vacuum to mop
+
+### Sensor
+
+Cleaning area - How much area the Vacuum has cleaned in its current run, or if the vacuum is not currently cleaning, how much area it cleaned during its last run
+
+Cleaning time - How long the Vacuum has been cleaning for, or if the vacuum is not currently cleaning, how long it cleaned for last
+
+Main brush time left - How much time is left before Roborock recommends you replace your main brush
+
+Side brush time left - How much time is left before Roborock recommends you replace your side brush
+
+Filter time left - How much time is left before Roborock recommends you replace your vacuum's air filter
+
+Status - The current status of your vacuum, this typically describes the action that is currently being run, i.e. 'spot_cleaning' or 'docking'
+
+Total cleaning time - The lifetime cleaning duration of your vacuum
+
+Total cleaning area - The lifetime clenaing area of your vacuum
+
+Vacuum error - The current error with your vacuum, if one exists.
+
+### Time
+
+Do not disturb begin - When Do not disturb is enabled, do not run the vacuum or speak after this point
+
+Do not disturb end - When Do not disturb is enabled, do not run the vacuum or speak before this point
+
+### Switch
+
+Child lock - This disables the buttons on the vacuum from doing anything when hit.
+
+Status indicator light - This is the led on the top of your vacuum that is colored based off of the status of your vacuum.
+
+Do not disturb - This enables Do not disturb during the do not distrub time frame you have set in the app or on the time entity.
+
+### Number
+
+Volume - This allows you to control the volume of the robot's voice, i.e. when it states "Starting cleaning". This allows you to set the volume to 0%, while the app limits it to 20%.
+
+
 ## FAQ
 
 ### Can I use the Mi home app with this integration?
