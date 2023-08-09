@@ -7,6 +7,7 @@ ha_category:
   - Presence Detection
   - Sensor
   - Switch
+  - Update
 ha_release: '2021.12'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -22,6 +23,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - switch
+  - update
 ha_zeroconf: true
 ha_integration_type: device
 ---
@@ -71,6 +73,11 @@ Currently the following device types within Home Assistant are supported.
   - Is enabled by default
 - Turn on/off the device LEDs
   - Is enabled by default
+
+## Update
+
+- Update the firmware of a device
+  - Is enabled by default, but will only give a result, if regular checks are enabled on the device
 
 ## Supported devolo Devices
 
