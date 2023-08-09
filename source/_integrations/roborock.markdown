@@ -79,7 +79,7 @@ Do not disturb end - When Do not disturb is enabled, do not run the vacuum or sp
 
 Child lock - This disables the buttons on the vacuum from doing anything when hit
 
-Status indicator light - This is the led on the top of your vacuum that is colored based off of the status of your vacuum
+Status indicator light - This is the LED on the top of your vacuum that is colored based off of the status of your vacuum
 
 Do not disturb - This enables Do not disturb during the do not distrub time frame you have set in the app or on the time entity
 
