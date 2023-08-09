@@ -130,6 +130,10 @@ Entities reporting connected clients to a WLAN.
 
 Get entities reporting uptime per network client.
 
+### Power Outlet sensor
+
+Get entities reporting the power utilization for outlets that support metrics (such as the AC outlets on the USP-PDU-Pro). Use the [Riemann sum integral integration](https://www.home-assistant.io/integrations/integration/) to track power usage over time.
+
 ## Firmware updates
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
