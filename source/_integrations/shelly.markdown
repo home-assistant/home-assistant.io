@@ -49,6 +49,10 @@ There are two generations of Shelly devices, and this integration supports both.
 - 2nd generation devices will have a web UI sidebar on the left;
 - 2nd generation devices will have a blue Shelly favicon on their web browser tab.
 
+> [!NOTE]  
+> Shelly cloud connection is not required for this HA integration to work. Shelly devices are communicating directly with this HA integration.
+
+
 ## Configuring 1st generaton Shelly devices
 
 First generation Shelly devices use the `CoIoT` protocol to communicate with the HA integration. Home Assistant will display a repair issue for any such Shelly device, if push updates from it do not reach the Home Assistant server. To fix:
@@ -60,9 +64,7 @@ First generation Shelly devices use the `CoIoT` protocol to communicate with the
 5. **Save**;
 6. Reboot the Shelly device.
 
-
 If you have followed the above steps, but the HA repair issue remains, there are diagnostic steps and ideas listed in the **Known issues and limitations** section at the bottom of this document.
-
 
 
 ## Configuring 2nd generation Shelly devices
@@ -77,13 +79,9 @@ Second generation Shelly devices use the `RPC` protocol to communicate with the 
 6. Click **Apply** to save the settings;
 7. Reboot the Shelly device.
 
-<div class="note">
-It is recommended that your Shelly devices' time settings (NTP server, time zone, and DST) be consistent with your Home Assistant host and your network.
-</div>
+> [!NOTE]  
+> It is recommended that your Shelly devices' time settings (NTP server, time zone, and DST) be consistent with your Home Assistant host and your network.
 
-<div class="note">
-Integration is communicating directly with the device; cloud connection is not needed.
-</div>
 
 ## Bluetooth Support
 
@@ -314,9 +312,9 @@ Please check from the device Web UI that the configured server is reachable.
 
 ## Known issues and limitations
 
+- Generation 1 "Shelly 4Pro" and "Shelly Sense", *based on the old CoAP v1 protocol*, are **not** supported.
 - Only supports firmware 1.8 and later for generation 1 devices
 - Only supports firmware 0.8 and later for generation 2 devices
-- Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - OTA update service does not support battery-powered devices
 - Frequency sensors for generation 2 energy monitoring devices are supported by firmware 1.0.0 beta 6 or later.
@@ -345,7 +343,5 @@ The following ideas might help you diagnose and fix the problem of the gen. 1 Sh
 > [!WARNING]  
 > Leaving the Debug Log enabled for an extended period will age the Shelly device's flash memory, i.e. use up its finite write endurance cycles.
 
-<div class="note">
-In Home Assistant, you can ignore the repair issue and forgo the recommended CoIoT push updates from gen 1 Shelly devices.
-</div>
-
+> [!NOTE]  
+> In Home Assistant, you can ignore the repair issue and forgo the recommended CoIoT push updates from gen 1 Shelly devices.
