@@ -3,8 +3,6 @@ title: "Edit the dashboard"
 description: "Instructions on editing the dashboard for the first time"
 ---
 
-
-
 ## First contact with the Overview dashboard
 
 The procedure below is optional. The idea is to learn some basics on changing the dashboard.
@@ -23,7 +21,7 @@ The procedure below is optional. The idea is to learn some basics on changing th
    ![Weather details](/images/getting-started/weather_card_details_01.png)
 
 3. To change the units used on the card, select the cogwheel.
-    - Change the units if you like. 
+    - Change the units if you like.
     - Do not change any of the other settings for now.
     - Once you are done, select **Update**.
    ![Weather details](/images/getting-started/onboarding_card_settings_01.png)
