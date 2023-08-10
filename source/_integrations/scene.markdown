@@ -1,5 +1,5 @@
 ---
-title: Scene
+title: Scenes
 description: Instructions on how to setup scenes within Home Assistant.
 ha_category:
   - Organization

@@ -10,9 +10,10 @@ ha_codeowners:
 ha_domain: kitchen_sink
 ha_iot_class: Calculated
 ha_platforms:
+  - image
   - lock
   - sensor
-  - image
+  - weather
 ha_integration_type: integration
 ---
 

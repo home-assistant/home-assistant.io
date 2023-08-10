@@ -19,7 +19,9 @@ ha_platforms:
   - camera
   - climate
   - cover
+  - date
   - device_tracker
+  - event
   - fan
   - geo_location
   - humidifier
@@ -35,13 +37,12 @@ ha_platforms:
   - stt
   - switch
   - text
+  - time
   - tts
   - update
   - vacuum
   - water_heater
   - weather
-  - date
-  - time
 ha_integration_type: integration
 ---
 

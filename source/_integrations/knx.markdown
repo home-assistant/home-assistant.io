@@ -7,6 +7,7 @@ ha_category:
   - Button
   - Climate
   - Cover
+  - Date
   - Fan
   - Hub
   - Light
@@ -32,6 +33,7 @@ ha_platforms:
   - button
   - climate
   - cover
+  - date
   - diagnostics
   - fan
   - light
@@ -42,8 +44,8 @@ ha_platforms:
   - sensor
   - switch
   - text
-  - weather
   - time
+  - weather
 ha_config_flow: true
 ha_integration_type: hub
 ---
@@ -58,6 +60,7 @@ There is currently support for the following device types within Home Assistant:
 - [Button](#button)
 - [Climate](#climate)
 - [Cover](#cover)
+- [Date](#date)
 - [Fan](#fan)
 - [Light](#light)
 - [Notify](#notify)
@@ -69,6 +72,10 @@ There is currently support for the following device types within Home Assistant:
 - [Text](#text)
 - [Time](#time)
 - [Weather](#weather)
+
+## Free KNX online training
+
+As a Home Assistant KNX user, you can start a FREE KNX online training and get a discounted ETS Home license on the [KNX website](https://www.knx.org/knx-en/for-your-home/home-assistant/).
 
 {% include integrations/config_flow.md %}
 
@@ -897,6 +904,147 @@ device_class:
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
+
+## Date
+
+The KNX date platform allows to send date values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+
+<div class='note'>
+
+Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Dates that have a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+<div class='note'>
+
+DPT 11.001 covers the range 1990 to 2089. Year values outside of this range are not allowed.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  date:
+    - name: "Date"
+      address: "0/0/2"
+      state_address: "0/0/2"
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: The group address to which new values will be sent. *DPT 11.001*
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus. *DPT 11.001*
+  required: false
+  type: [string, list]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
+  required: false
+  type: [boolean, string, integer]
+  default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
+
+## DateTime
+
+The KNX datetime platform allows to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+
+<div class='note'>
+
+Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+DateTimes that have a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+<div class='note'>
+
+System timezone is used as DPT 19.001 doesn't provide timezone information.
+Year values outside of the range 1900 to 2155 are invalid.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  datetime:
+    - name: "DateTime"
+      address: "0/0/3"
+      state_address: "0/0/4"
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: The group address to which new values will be sent. *DPT 19.001*
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus. *DPT 19.001*
+  required: false
+  type: [string, list]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
+  required: false
+  type: [boolean, string, integer]
+  default: true
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
