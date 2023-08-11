@@ -37,7 +37,7 @@ _Consumption sensors require your Envoy to be properly configured with consumpti
 
 For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/IQ Batteries installed, additional features are available:
 
-- Sensors for battery status and usage.
+- Sensors for battery status and usage
 - Sensors for grid status
 - Sensors for the state of the Enpower's 4 load-shedding relays
 - A switch allowing you to take your system on-grid and off-grid. Note that the Enpower has a slight delay built-in between receiving these commands and actually switching the system on or off grid.
