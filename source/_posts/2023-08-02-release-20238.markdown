@@ -506,6 +506,7 @@ The following integrations are now available via the Home Assistant UI:
 - Update aioairzone to v0.6.5 ([@Noltari] - [#98163])
 - Use explicit device name in Broadlink ([@joostlek] - [#98229])
 - Bump pynws 1.5.1; fix regression for precipitation probability ([@MatthewFlamm] - [#98237])
+- Bump pymazda to 0.3.11 ([@bdr99] - [#98084])
 
 [#93632]: https://github.com/home-assistant/core/pull/93632
 [#97609]: https://github.com/home-assistant/core/pull/97609
@@ -540,6 +541,7 @@ The following integrations are now available via the Home Assistant UI:
 [#98053]: https://github.com/home-assistant/core/pull/98053
 [#98056]: https://github.com/home-assistant/core/pull/98056
 [#98070]: https://github.com/home-assistant/core/pull/98070
+[#98084]: https://github.com/home-assistant/core/pull/98084
 [#98091]: https://github.com/home-assistant/core/pull/98091
 [#98119]: https://github.com/home-assistant/core/pull/98119
 [#98122]: https://github.com/home-assistant/core/pull/98122
@@ -560,6 +562,7 @@ The following integrations are now available via the Home Assistant UI:
 [@Noltari]: https://github.com/Noltari
 [@alexyao2015]: https://github.com/alexyao2015
 [@bachya]: https://github.com/bachya
+[@bdr99]: https://github.com/bdr99
 [@bdraco]: https://github.com/bdraco
 [@bieniu]: https://github.com/bieniu
 [@elupus]: https://github.com/elupus
