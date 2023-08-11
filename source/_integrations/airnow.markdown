@@ -26,6 +26,6 @@ To generate an AirNow API key, go to the [AirNow Developer Tools Page](https://d
 
 <div class="note">
 
-The AirNow API allows 500 data updates per hour, but since observations are only updated hourly, the default update rate is set to 2 per hour and should not trigger rate limiting. If you use this API key for other purposes, ensure the total request rate does not exceed 500 per hour.
+The AirNow API allows 500 data updates per hour, but since observations are only updated hourly, the update rate is hard-coded to 2 per hour and should not trigger rate limiting. If you use this API key for other purposes, ensure the total request rate does not exceed 500 per hour.
 
 </div>
