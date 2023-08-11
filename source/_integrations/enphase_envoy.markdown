@@ -17,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -34,7 +35,12 @@ This integration will offer various sensors depending on the configuration of yo
 
 _Consumption sensors require your Envoy to be properly configured with consumption CT sensors installed._
 
-For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/IQ Batteries installed, additional sensors are available for battery status and usage.
+For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/IQ Batteries installed, additional features are available:
+
+- Sensors for battery status and usage.
+- Sensors for grid status
+- Sensors for the state of the Enpower's 4 load-shedding relays
+- A switch allowing you to take your system on-grid and off-grid. Note that the Enpower has a slight delay built-in between receiving these commands and actually switching the system on or off grid.
 
 ## Envoy authentication requirements
 
