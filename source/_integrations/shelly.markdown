@@ -59,7 +59,7 @@ First generation Shelly devices use the `CoIoT` protocol to communicate with the
 5. **Save**;
 6. Reboot the Shelly device.
 
-If you have followed the above steps, but the HA repair issue remains, there are diagnostic steps and ideas listed in the **Known issues and limitations** section at the bottom of this document.
+If you have followed the above steps, but the repair issue remains, there are diagnostic steps and ideas listed in the **Known issues and limitations** section at the bottom of this document.
 
 
 ## Configuring 2nd generation Shelly devices
