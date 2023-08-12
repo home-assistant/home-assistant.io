@@ -45,7 +45,7 @@ Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
 There are two generations of Shelly devices, and this integration supports both. In Home Assistant UI, on each Shelly device's page, **Device info** section will state `Hardware: gen1` or `Hardware: gen2`. There are differences in how gen1 vs. gen2 devices should be configured, and in the naming of entities and devices.
 
-<div class="note">Shelly cloud connection is not required for this HA integration to work. Shelly devices are communicating directly with this HA integration.</div>
+<div class="note">Shelly cloud connection is not required for this integration to work. Shelly devices are communicating directly with Home Assistant server.</div>
 
 
 ## Configuring 1st generaton Shelly devices
