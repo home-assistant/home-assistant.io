@@ -3,7 +3,7 @@ title: MPRIS media playback remote control
 description: Instructions on how to integrate Linux media players into Home Assistant
 ha_category:
   - Media Player
-ha_release: 2022.09
+ha_release: 2023.09
 ha_iot_class: Local Push
 ha_codeowners:
   - '@Rudd-O'
