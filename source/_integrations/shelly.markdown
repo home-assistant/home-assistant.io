@@ -318,7 +318,7 @@ Please check from the device Web UI that the configured server is reachable.
 
 The following ideas might help you diagnose and fix the problem of 1st generation Shelly device CoIoT push updates not propagating to Home Assistant:
 
-- Check that communication on `UDP` port `5683` is propagating from your Shelly device to Home Assistant. This can be affected when the HA is behind a firewall (such as one running on HA's virtual machine host) or in a different subnet or VLAN than Shelly devices. Connect a computer to the same WiFi SSID at the same location / access point as the affected Shelly device(s) and try:
+- Check that communication on `UDP` port `5683` is propagating from your Shelly device to Home Assistant. This can be affected when the Home Assistant server is behind a firewall (such as one running on the virtual machine host) or in a different subnet or VLAN than Shelly devices. Connect a computer to the same WiFi SSID at the same location/access point as the affected Shelly device(s) and try:
   - On Windows command line: `portqry.exe -n Your_Home_Assistant_local_IP_address -p udp -e 5683 -sp 5683` This tool is available at https://www.microsoft.com/en-us/download/details.aspx?id=17148 or its GUI version PortQryUI at https://www.microsoft.com/en-us/download/details.aspx?id=24009&wa=wsignin1.0
   - On Linux: `nc -vz -u Your_Home_Assistant_local_IP_address 5683`
 - If this is the issue, enabling this communication depends on your netrwork hardware and configuration, and can include port forwarding or opening `UDP` port `5683` on the firewall, or creating other routing rules.
