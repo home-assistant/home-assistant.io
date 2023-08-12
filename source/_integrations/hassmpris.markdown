@@ -57,7 +57,7 @@ Your media player computer must have the following important system packages:
 3. Python 3
 4. GObject introspection
 
-While these packages are shipped in the overwhelming majority of Linux systems, do please ensure your system has these two libraries already available before proceeding with the next step. Your operating system's package manager will help in this task.
+While these packages are shipped in the overwhelming majority of Linux systems, do please ensure your system has these libraries already available before proceeding with the next step. Your operating system's package manager will help in this task.
 
 ### Install the MPRIS agent on your media player computer
 
