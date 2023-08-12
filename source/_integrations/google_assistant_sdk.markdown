@@ -141,7 +141,7 @@ data:
   media_player: media_player.living_room_speaker
 ```
 
-You can also send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
+You can send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
 
 ```yaml
 service: google_assistant_sdk.send_text_command
@@ -149,6 +149,28 @@ data:
   command:
     - "open the garage door"
     - "1234"
+```
+
+You can get responses. Example:
+
+```yaml
+service: google_assistant_sdk.send_text_command
+data:
+  command:
+    - "tell me a joke"
+    - "tell me another one"
+```
+
+returns:
+
+```yaml
+responses:
+  - text: |-
+      What do you call a belt made of watches?
+      A waist of time 👖 🕝
+  - text: |-
+      What's the most musical part of the turkey?
+      The drumsticks 🍗
 ```
 
 ### Service `notify.google_assistant_sdk`
