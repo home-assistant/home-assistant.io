@@ -50,7 +50,7 @@ There are two generations of Shelly devices, and this integration supports both.
 
 ## Configuring 1st generaton Shelly devices
 
-First generation Shelly devices use the `CoIoT` protocol to communicate with the HA integration. Home Assistant will display a repair issue for any such Shelly device, if push updates from it do not reach the Home Assistant server. To fix:
+First generation Shelly devices use the `CoIoT` protocol to communicate with the integration. Home Assistant will display a repair issue for any such Shelly device, if push updates from it do not reach the Home Assistant server. To fix:
 
 1. Ensure the Shelly device is on the current firmware. Older firmware will lack the necessary setting;
 2. In the device's web UI (at the local IP address of your Shelly device), go to: **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS**;
