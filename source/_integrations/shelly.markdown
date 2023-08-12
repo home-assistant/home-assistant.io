@@ -307,7 +307,7 @@ Please check from the device Web UI that the configured server is reachable.
 
 ## Known issues and limitations
 
-- Generation 1 "Shelly 4Pro" and "Shelly Sense", *based on the old CoAP v1 protocol*, are **not** supported.
+- Generation 1 "Shelly 4Pro" and "Shelly Sense", based on the old CoAP v1 protocol, are not supported.
 - Only supports firmware 1.8 and later for generation 1 devices
 - Only supports firmware 0.8 and later for generation 2 devices
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
