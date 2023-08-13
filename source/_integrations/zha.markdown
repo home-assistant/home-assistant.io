@@ -316,10 +316,10 @@ To add new devices to the network, call the `permit` service on the `zha` domain
 
 This service opens network for joining new devices.
 
-| Data       | Optional | Description                                            |
-| ---------- | -------- | ------------------------------------------------------ |
-| `duration` | yes      | For how long to allow new devices to join, default 60s |
-| `ieee`     | yes      | allow new devices to join via an existing device       |
+| Data       | Optional | Description                                                                    |
+| ---------- | -------- | ------------------------------------------------------------------------------ |
+| `duration` | yes      | For how long to allow new devices to join, default 60s                         |
+| `ieee`     | yes      | The IEEE address of an existing device via which the new device is to be added |
 
 To join a new device using an install code (ZB3 devices) use the following data attributes (must use parameters only
 from the same group:

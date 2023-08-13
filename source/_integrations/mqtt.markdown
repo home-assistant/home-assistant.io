@@ -596,15 +596,19 @@ A motion detection device which can be represented by a [binary sensor](/integra
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
-- Configuration payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
+- Configuration payload with derived device name:  `{"name": null, "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
-It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together.
+It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together. We can set "name" to `null` if we want to inherit the device name for the entity. If we set an entity name, the `friendly_name` will be a combination of the device and entity name. If `name` is left away and a `device_class` is set, the entity name part will be derived from the `device_class`.
 
-To create a new sensor manually:
+- Example configuration payload with no name set and derived `device_class` name: `{"device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
+
+If no name is set, a default name will be set by MQTT ([see the MQTT platform documentation](#mqtt-discovery)).
+
+To create a new sensor manually and with the name set to `null` to derive the device name "Garden":
 
 ```bash
-mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}'
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": null, "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}'
 ```
 
 Update the state:
@@ -626,9 +630,9 @@ For more details please refer to the [MQTT testing section](/integrations/mqtt/#
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
 - Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}","unique_id": "temp01ae",  "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" }}`
+- Configuration payload no1: `{"device_class": "temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}","unique_id": "temp01ae",  "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" }}`
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}","unique_id": "hum01ae", "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" } }`
+- Configuration payload no2: `{"device_class": "humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}","unique_id": "hum01ae", "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" } }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
 
 #### Entities with command topics
@@ -643,7 +647,7 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
 
 ```bash
 mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
-  -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}}'
+  -m '{"name": "Irrigation", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}}'
 ```
 
 Set the state:
@@ -891,24 +895,32 @@ definition as a template. Make sure you escape the template blocks as like
 in the example below. Home Assistant will convert the result to a string
 and will pass it to the MQTT publish service.
 
+The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
+The `device_class` is set, so it is not needed to set the "name" option. The entity
+will inherit the name from the `device_class` set and also support translations.
+If you set "name" in the payload the entity name will start with the device name.
+
+{% raw %}
+
 ```yaml
 service: mqtt.publish
 data:
   topic: homeassistant/sensor/Acurite-986-1R-51778/config
   payload: >-
     {"device_class": "temperature",
-    "name": "Acurite-986-1R-51778-T",
     "unit_of_measurement": "\u00b0C",
-    "value_template": "{% raw %}{% raw %}{{ value|float }}{%{% endraw %} endraw %}",
+    "value_template": "{{ value|float }}",
     "state_topic": "rtl_433/rtl433/devices/Acurite-986/1R/51778/temperature_C",
     "unique_id": "Acurite-986-1R-51778-T",
     "device": {
     "identifiers": "Acurite-986-1R-51778",
-    "name": "Acurite-986-1R-51778",
+    "name": "Bathroom",
     "model": "Acurite-986",
     "manufacturer": "rtl_433" }
     }
 ```
+
+{% endraw %}
 
 Example of how to use `qos` and `retain`:
 
