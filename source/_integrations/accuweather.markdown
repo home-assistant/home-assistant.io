@@ -19,6 +19,12 @@ ha_integration_type: service
 
 The AccuWeather integration uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.
 
+<div class="note">
+
+By default this integration does not retrieve daily forecast data. It only retrieves current conditions. To also receive daily forecast data, go to the integration and click the `configure` button, then check the Weather forecast box and click submit.
+
+</div>
+
 ## Setup
 
 To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.accuweather.com/) page, register and create application with the following settings:
