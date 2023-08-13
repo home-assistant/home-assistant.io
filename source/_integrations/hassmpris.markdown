@@ -32,15 +32,15 @@ There is currently support for the following entity types within Home Assistant:
 
 Currently supported actions:
 
-* pause / play
-* seek
-* stop
-* next / previous track
+- pause / play
+- seek
+- stop
+- next / previous track
 
 Currently supported attributes:
 
-* playback position (`media_position` entity attribute)
-* playback rate (`playback_rate` entity attribute); see below on notes about rate
+- playback position (`media_position` entity attribute)
+- playback rate (`playback_rate` entity attribute, see below on notes about rate)
 
 The matrix of tested media players is [documented in the agent's project page](https://pypi.org/project/hassmpris-agent/).
 
@@ -128,8 +128,8 @@ This does not work with media players that can change their playback rate (as yo
 
 1. Get the `media_position` attribute from the entity.  This gives you the play head position in seconds... with a caveat (see next point).
 2. Get the `media_position_last_updated` attribute from the entity.  This gives you the last time that the play head position was updated.
-1. Get the `playback_rate` attribute from the entity.  This gives you the speed of playback as a floating point rate.
-3. Subtract from `now()` the `media_position_last_updated` — this gives you an offset in seconds between the last time that the media player updated the position, and now.  **Now multiply this value by the playback rate** from step (2).
-4. Sum the value from (3) to the value from (1).  This gives you a reasonable estimate (to within one second accuracy) of how far ahead the play head of your media player is.
+3. Get the `playback_rate` attribute from the entity.  This gives you the speed of playback as a floating point rate.
+4. Subtract from `now()` the `media_position_last_updated` — this gives you an offset in seconds between the last time that the media player updated the position, and now.  **Now multiply this value by the playback rate** from step (2).
+5. Sum the value from (3) to the value from (1).  This gives you a reasonable estimate (to within one second accuracy) of how far ahead the play head of your media player is.
 
 To make sure that the values needed for this computation are trustworthy, the agent is smart enough to update the play head position in Home Assistant, whenever media is paused, played, sought, or its rate of playback changes.
