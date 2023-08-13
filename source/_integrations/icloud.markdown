@@ -24,7 +24,7 @@ There is currently support for the following platforms within Home Assistant:
 - [Device Tracker](#device-tracker)
 - [Sensor](#sensor)
 
-It does require that your devices are registered with the [Find My](https://www.apple.com/uk/icloud/find-my/) service.
+It does require that your devices are registered with the [Find My](https://www.apple.com/icloud/find-my/) service.
 
 {% include integrations/config_flow.md %}
 

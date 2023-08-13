@@ -22,7 +22,7 @@ The Apple TV integration allows you to control an Apple TV (any generation).
 
 There is currently support for the following entities within the Apple TV device:
 
-- [Media Player](#media_player)
+- [Media Player](#media-player)
 - [Remote](#remote)
 
 {% include integrations/config_flow.md %}
@@ -32,6 +32,53 @@ There is currently support for the following entities within the Apple TV device
 The Apple TV media player platform will create a Media Player entity for each
 Apple TV discovered on your network.
 This entity will display the active app and playback controls.
+
+### Launching apps
+
+You can launch apps using the `media_player.select_source` service, or using the
+“Apps” folder in the media browser.
+
+Using the `media_player.play_media` service, you can also use `Deep Links` to
+launch specific content in applications.
+
+Examples of some `Deep Links` for popular applications:
+
+| App       | URL                                                                   |
+| --------- | --------------------------------------------------------------------- |
+| YouTube   | youtube://www.youtube.com/watch?v=dQw4w9WgXcQ                         |
+| Netflix   | https://www.netflix.com/title/80234304                                |
+| Disney+   | https://www.disneyplus.com/series/the-beatles-get-back/7DcWEeWVqrkE   |
+| Apple TV+ | https://tv.apple.com/show/severance/umc.cmc.1srk2goyh2q2zdxcx605w8vtx |
+
+The simplest way to find useful `Deep Links` is to use the “Share” feature in iOS
+or macOS versions of the App. Share sheets will often have a “Copy” or
+“Copy link” feature. For apps that have a web-accessible version, links copied
+from the browser usually work too. Such links may not work if a developer
+maintains separate iOS and tvOS apps. More methods of discovering links
+supported by apps can be found in the
+[pyatv documentation](https://pyatv.dev/development/apps/#app-deep-links).
+
+Examples:
+
+```yaml
+# Open the Netflix app at a specific title
+service: media_player.play_media
+data:
+  media_content_type: url
+  media_content_id: https://www.netflix.com/title/80234304
+target:
+  entity_id: media_player.living_room_apple_tv
+```
+
+```yaml
+# Open a specific YouTube video:
+service: media_player.play_media
+data:
+  media_content_type: url
+  media_content_id: youtube://www.youtube.com/watch?v=dQw4w9WgXcQ
+target:
+  entity_id: media_player.living_room_apple_tv
+```
 
 ## Remote
 
@@ -65,11 +112,11 @@ The following commands are currently available:
 
 ### Service `send_command`
 
-| Service data<br>attribute | Optional | Description  |
-| ------------------------- | -------- | ------------ |
-| `entity_id`               | no       | `entity_id` of the Apple TV |
-| `command`                 | no       | Command, or list of commands to be sent |
-| `num_repeats`             | yes      | Number of times to repeat the commands |
+| Service data<br>attribute | Optional | Description                                                                                    |
+| ------------------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| `entity_id`               | no       | `entity_id` of the Apple TV                                                                    |
+| `command`                 | no       | Command, or list of commands to be sent                                                        |
+| `num_repeats`             | yes      | Number of times to repeat the commands                                                         |
 | `delay_secs`              | yes      | Interval in seconds between one send and another <br> This is a `float` value e.g. 1, 1.2 etc. |
 
 ### Examples
@@ -152,6 +199,17 @@ to perform. Before writing an issue about this, verify if the same action is pos
 Remote app in iOS. If that is the case, please write a bug in
 [pyatv](https://github.com/postlund/pyatv/issues/new?assignees=&labels=bug&template=bug_report.yml)
 and include logs (see Debugging below).
+
+### Setting volume doesn't work on my Apple TV
+
+Volume control functionality depends on how the Apple TV is set up. 
+All volume controls should work if the Apple TV is connected to a 
+HomePod or HomePod stereo pair. If the Apple TV is connected to 
+TV speakers and with volume control
+over HDMI CEC (Settings -> Remotes and Devices -> Volume Control) only volume
+up/down controls will work. If volume control is over IR then volume cannot be
+controlled remotely through the Apple TV, but you can integrate your
+TV or soundbar directly.
 
 ### I'm trying to play a stream via AirPlay, but it doesn't work
 

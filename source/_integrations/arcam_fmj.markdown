@@ -40,6 +40,7 @@ Supported devices:
 - SA 20
 - SA 30
 - SR 250
+- ST 60
 
 This integration may also work with [JBL](https://www.jblsynthesis.com/products/electronics/) and [AudioControl](https://www.audiocontrol.com/home-audio/) receivers and processors as they share the same firmware as Arcam.
 

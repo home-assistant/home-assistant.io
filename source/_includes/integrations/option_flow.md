@@ -7,4 +7,4 @@ Options for {{ name }} can be set via the user interface, by taking the followin
 - Browse to your Home Assistant instance.
 - Go to **{% my integrations title="Settings > Devices & Services" %}**.
 - If multiple instances of {{ name }} are configured, choose the instance you want to configure.
-- Select the cogwheel, then select **Configure**.
+- Select the integration, then select **Configure**.

@@ -73,6 +73,24 @@ Note that if you use static device entries, you may want to set up your router (
 
 If the device doesn't seem to work and all you see is the state "unavailable" on your dashboard, check that your firewall doesn't block incoming requests on port 8989, since this is the port to which the WeMo devices send their updates.
 
+### Device Options
+
+Clicking the **Configure** button on the WeMo integration will bring up some additional options that can be configured for WeMo devices.
+
+![Device Options](/images/integrations/wemo/device_options.png)
+
+**Subscribe to device local push updates**: WeMo devices support both the *Local Push* and *Local Polling* [IoT classes](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers). Home Assistant will default subscribe to event notifications from WeMo devices and use the Local Push IoT class. If the Local Push doesn't work, Home Assistant will use Local Polling as a fallback. Some devices are known not to work well with Local Push. WeMo devices expect to be on the same subnet as Home Assistant and will not work with Local Push otherwise. For devices known not to work with Local Push, the **Subscribe to local push updates** option can be disabled to force only Local Polling to be used.
+
+There are some downsides of disabling **Subscribe to device local push updates**:
+
+- The WeMo Motion detector will not work in Home Assistant when **Subscribe to device local push updates** is disabled. The same will be for the sensor on the WeMo Maker device. Without a push subscription, Home Assistant will be unaware of motion events.
+
+- Long press events, when the button on a wall switch/dimmer is pressed, will not work if **Subscribe to device local push updates** is disabled.
+
+- Automations based on the device being locally switched on or off will be delayed by at least the polling interval (below).
+
+**Register for device long-press events**: WeMo wall switches and dimmers will notify Home Assistant when the button on the device is held for more than 2 seconds. This feature is enabled by default in Home Assistant (see [below](#long-press-events-and-triggers)). If this feature causes issues for your device, it can be disabled by deselecting the **Register for device long-press events** option.
+
 ## Emulated devices
 
 Various software that emulate WeMo devices often use alternative ports. Static configuration should include the port value:
@@ -100,7 +118,7 @@ There are several attributes which can be used for automations and templates:
 | `current_humidity` | An integer that indicates the current relative humidity percentage of the room, as determined by the device's onboard humidity sensor.
 | `fan_mode` | String that indicates the current fan speed setting, as reported by the WeMo humidifier.
 | `filter_expired` | A boolean that indicates whether the filter has expired and needs to be replaced.
-| `filter_life` | The used life of the filter (as a percentage).
+| `filter_life` | The used lifetime of the filter (as a percentage).
 | `target_humidity` | An integer that indicates the desired relative humidity percentage (this is constrained to the humidity settings of the device, which are 45, 50, 55, 60, and 100).
 | `water level` | String that indicates whether the water level is Good, Low, or Empty.
 
@@ -115,7 +133,7 @@ There are several services which can be used for automations and control of the 
 | `turn_off` | Calling this service will turn the humidifier off (entity_id is required).
 | `turn_on` | Calling this service will turn the humidifier on and set the speed to the last used speed (defaults to medium, entity_id is required).
 | `wemo.set_humidity` | Calling this service will set the desired relative humidity setting on the device (entity_id is a required list of 1 or more entities to set humidity on, and target_humidity is a required float value between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 60, or 100 that are supported by the WeMo humidifier)).
-| `wemo.reset_filter_life` | Calling this service will reset the humdifier's filter life back to 100% (entity_id is a required list of 1 or more entities to reset the filter life on). Call this service when you change the filter on your humidifier.
+| `wemo.reset_filter_life` | Calling this service will reset the humdifier's filter lifetime back to 100% (entity_id is a required list of 1 or more entities to reset the filter lifetime on). Call this service when you change the filter on your humidifier.
 
 ## Long Press Events and Triggers
 

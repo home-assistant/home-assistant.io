@@ -3,6 +3,7 @@ title: UniFi Network
 description: Instructions on how to configure UniFi Network integration with UniFi Network application by Ubiquiti.
 ha_category:
   - Hub
+  - Image
   - Presence Detection
   - Sensor
   - Switch
@@ -18,6 +19,7 @@ ha_ssdp: true
 ha_platforms:
   - device_tracker
   - diagnostics
+  - image
   - sensor
   - switch
   - update
@@ -28,6 +30,7 @@ ha_integration_type: hub
 
 There is currently support for the following device types within Home Assistant:
 
+- [Image](#image)
 - [Presence Detection](#presence-detection)
 - [Switch](#switch)
 - [Sensor](#sensor)
@@ -54,6 +57,10 @@ For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti
 The UniFi Network application can either be a UniFi OS console device (like the Cloud Key), or as software on any Linux system. If you run the UniFi Network application on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
 
 It is recommended that you run the UniFi Network application in a dedicated virtual machine to avoid that situation.
+
+## Image
+
+Provides QR Code images that can be scanned to easily join a specific WLAN. Entities are disabled by default. This feature requires admin privileges.
 
 ## Presence detection
 
@@ -99,11 +106,19 @@ Note that POE control actually configures the network port of the switch which t
 
 Entities appear automatically for each restriction group. If there are no restrictions in a group, no entity will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
 
+### Control WLAN availability
+
+Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
+
 ## Sensor
 
 ### Bandwidth sensor
 
-Get entities reporting receiving and transmitting bandwidth per network client.
+Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+
+### Wlan clients sensor
+
+Entities reporting connected clients to a WLAN.
 
 ### Uptime sensor
 

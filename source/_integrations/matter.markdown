@@ -3,6 +3,7 @@ title: Matter (BETA)
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
   - Cover
   - Light
   - Lock
@@ -16,8 +17,10 @@ ha_codeowners:
 ha_domain: matter
 ha_platforms:
   - binary_sensor
+  - climate
   - cover
   - diagnostics
+  - event
   - light
   - lock
   - sensor
@@ -90,7 +93,6 @@ It is recommended to run the Matter add-on on Home Assistant OS. This is current
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
 
 Running Matter on a Home Assistant Core installation is not supported.
-
 
 ## Adding Matter devices to Home Assistant
 
@@ -180,7 +182,6 @@ Did you test a device that is not listed below? It would be greatly appreciated 
 - You need to enable Matter support/firmware in the Aqara app.
 - You will need an Aqara (cloud) account and the app before you can use Matter.
 - See [this Aqara landingpage](https://www.aqara.com/en/article-1583275073188196352.html) for more information, including what devices are bridged.
-- Thermostat devices (climate platform) are not supported yet (but are currently in development).
 - Device events, for example for the wall rockers and Cube, are not supported.
 
 ### Eve Energy (power plug), Eve Door & Window (contact sensor), Eve Motion (motion sensor)

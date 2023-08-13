@@ -12,9 +12,8 @@ categories:
 og_image: /images/blog/2022-10-25-ultraloq-partner/social.png
 ---
 
-<div class="note warning">
-There is a <a href="https://github.com/zwave-js/node-zwave-js/issues/5445">bug</a> in the firmware of Ultraloq devices that causes the door state sensor to not be updated and the latch to always be reported as "OPEN".<br/>
-We are fully aware that this is not what you expect from a <a href="/blog/2022/07/12/partner-program">Works With Home Assistant</a> brand and we are in contact Ultraloq to get this resolved!
+<div class="note important">
+On July 11th, 2023, due to fundamentally different perceptions of best Home Assistant user experience, Ultraloq by U-tec was removed from <a href="/blog/2022/07/12/partner-program">Works With Home Assistant</a> partner program.
 </div>
 
 <img src='/images/works_with/works-with-zwave.png' width="256" align="right" alt="Works via Zigbee with Home Assistant" class='no-shadow'>
