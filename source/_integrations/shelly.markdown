@@ -85,8 +85,8 @@ Names are set from the device web page:
 
 The integration uses the following strategy to name its entities:
 
-- If `Device Name` and `Channel Name` are set in the device, the integration will use them to generate the entities' name, e.g. `Shelly Pro 2 Kitchen Light`
-- If `Device Name` or `Channel Name` are set to the default value, the integration will use the `Device ID` or default channel name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 Switch 0`.
+- If `Device Name` and `Output Name` are set in the device, the integration will use them to generate the entities' name, e.g. `Shelly Pro 2 Kitchen Light`
+- If `Device Name` or `Output Name` are set to the default value, the integration will use the `Device ID` or default output name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 Switch 0`.
 - If the device has no relay at all, the integration will use `Device Name` to name its entities.
 
 Names are set from the device web page:
