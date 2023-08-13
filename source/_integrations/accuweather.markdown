@@ -42,6 +42,13 @@ You can test your newly created API key [here](https://developer.accuweather.com
 
 {% include integrations/config_flow.md %}
 
+<div class="note">
+
+By default this integration does not retrieve daily forecast data. It only retrieves current conditions. To also receive daily forecast data, go to the integration and click the `configure` button and check the Weather forecast box and click submit.
+
+</div>
+
+
 <div class="note warning">
 
 Due to limitations of the terms of use of AccuWeather free API key, it is possible to configure only one integration instance.
