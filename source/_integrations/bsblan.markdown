@@ -13,7 +13,7 @@ ha_domain: bsblan
 ha_platforms:
   - climate
   - diagnostics
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 This integration integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.

@@ -42,9 +42,9 @@ The integration can discover most Bluetooth-enabled Oral-B toothbrushes. Brushes
 
 ## Sensor
 
-* Mode - selected cleaning mode e.g. daily clean.
-* Number of sectors - brushing areas set in the **Set Pacer Visualisation** in the brushing preferences in the mobile app.
-* Sector - the current sector of brush goal you are in (i.e. if brush goal is 2:00 minutes, and you are at 0:37, you are in sector 2)
-* Time - total brushing time in seconds.
-* Toothbrush state - whether the toothbrush is running, idle.
-* Battery - toothbrush battery percentage.
+- Mode - selected cleaning mode e.g. daily clean.
+- Number of sectors - brushing areas set in the **Set Pacer Visualisation** in the brushing preferences in the mobile app.
+- Sector - the current sector of brush goal you are in (i.e. if brush goal is 2:00 minutes, and you are at 0:37, you are in sector 2)
+- Time - total brushing time in seconds.
+- Toothbrush state - whether the toothbrush is running, idle.
+- Battery - toothbrush battery percentage.

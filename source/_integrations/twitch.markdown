@@ -9,6 +9,8 @@ ha_domain: twitch
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_codeowners:
+  - '@joostlek'
 ---
 
 The `twitch` platform will allow you to monitor [Twitch](https://www.twitch.tv/) channel status from within Home Assistant and setup automation based on the information.

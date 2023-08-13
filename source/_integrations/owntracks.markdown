@@ -21,16 +21,16 @@ By default, the integration listens for incoming messages from OwnTracks via HTT
 ## Configuration
 
 1. To set up OwnTracks in Home Assistant, go to **{% my integrations title="Settings > Devices & Services" %}**.
-1. Add the **OwnTracks** integration.
-   * This will give you the **Webhook** URL as well as the **Encryption key** to use during mobile device configuration (below).
+2. Add the **OwnTracks** integration.
+   - This will give you the **Webhook** URL as well as the **Encryption key** to use during mobile device configuration (below).
 
 ### Configuring the app - Android
 
 1. Install the [OwnTracks](https://play.google.com/store/apps/details?id=org.owntracks.android) application for Android.
-   * If you need a version of OwnTracks without Google Play Services, the "OSS" flavour is available [here](https://github.com/owntracks/android/releases).
+   - If you need a version of OwnTracks without Google Play Services, the "OSS" flavour is available [here](https://github.com/owntracks/android/releases).
 
-1. In the app, open the sidebar and select **Preferences**, then **Connection**. 
-1. Change the following settings:
+2. In the app, open the sidebar and select **Preferences**, then **Connection**. 
+3. Change the following settings:
 
    - **Mode**: HTTP
    - **Host**: `<URL given to you when setting up the integration>`
@@ -45,9 +45,8 @@ By default, the integration listens for incoming messages from OwnTracks via HTT
 ### Configuring the app - iOS
 
 1. [Install the OwnTracks application for iOS.](https://itunes.apple.com/us/app/owntracks/id692424691?mt=8)
-
-1. In the OwnTracks app, tap the (i) in the top left and select **Settings**. 
-1. Change the following settings:
+2. In the OwnTracks app, tap the (i) in the top left and select **Settings**. 
+3. Change the following settings:
 
    - **Mode**: HTTP
    - **URL**: `<URL given to you when setting up the integration>`

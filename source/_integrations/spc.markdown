@@ -38,7 +38,7 @@ api_url:
   required: true
   type: string
 ws_url:
-  description: URL of the SPC Web Gateway websocket, e.g., `ws://<ip>:8088/ws/spc`.
+  description: URL of the SPC Web Gateway WebSocket, e.g., `ws://<ip>:8088/ws/spc`.
   required: true
   type: string
 {% endconfiguration %}

@@ -51,9 +51,20 @@ Generation 1 devices use the `CoIoT` protocol to communicate with the integratio
 
 We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. **This is mandatory for battery operated devices**. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
 
+Home Assistant will display a repair issue for the Shelly device if push updates from this device do not reach the Home Assistant server.
+
+The list below will help you diagnose and fix the problem:
+
+- Check if your Shelly devices have a properly configured `CoIoT peer`.
+- If you can't find the `CoIoT peer` settings in the device's web panel, it's probably using an ancient firmware version, and you should update it to the current one.
+- If Shelly devices are in a different subnet than the Home Assistant server, you should ensure communication on `UDP` port `5683` between these subnets.
+- If Home Assistant is running as a virtual machine or service on an operating system other than Home Assistant OS, you should open `UDP` port `5683` on the device's firewall and/or ensure that communication from this port is redirected to the Home Assistant service.
+- The missing push updates may be related to the WiFi network range. If using a WiFi network with several access points, enable **Internet & Security** >> **WiFi Client AP Roaming** option. Consider moving Shelly device closer to the WiFi access point. Consider adding another WiFi access point, which will improve the connection quality with the device.
+- If you think your Shelly devices are working correctly and don't want to change your network/configuration, you can ignore the repair issue. Still, you must know you are giving up the best experience of using first-generation Shelly devices with Home Assistant.
+
 ## Shelly device configuration (generation 2)
 
-Generation 2 devices use the `RPC` protocol to communicate with the integration. Battery powered devices need manual outbound websocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound websocket** and check the box **Enable Outbound Websocket**, under server enter the following address:
+Generation 2 devices use the `RPC` protocol to communicate with the integration. Battery powered devices need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
 
 `ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 
@@ -295,3 +306,4 @@ Please check from the device Web UI that the configured server is reachable.
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - OTA update service does not support battery-powered devices
+- Frequency sensors for generation 2 energy monitoring devices are supported by firmware 1.0.0 beta 6 or later.
