@@ -3,7 +3,7 @@ title: Wake-word-detection
 description: Detect a wake word in streaming audio.
 ha_category:
   - Voice
-ha_release: '2023.8'
+ha_release: '2023.9'
 ha_codeowners:
   - '@balloob'
   - '@synesthesiam'
