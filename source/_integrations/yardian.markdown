@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This `yardian` integration allows you to control your [Yardian Smart Sprinkler Controller](https://aeonmatrix.com/products/yardian-pro-smart-sprinkler-controller/).
+This `yardian` integration allows you to control your [Yardian Smart Sprinkler Controller](https://yardian.com/products/yardian-pro-smart-sprinkler-controller/).
 
 There is currently support for the following platform within Home Assistant:
 
@@ -25,7 +25,7 @@ They will be automatically added if the Yardian integration is correctly configu
 
 {% include integrations/config_flow.md %}
 
-During the configuration, you will have to manully set the **Device IP Address** and the **Access Token**. You can find them inside your [Yardian App](https://aeonmatrix.com/app/).
+During the configuration, you will have to manually set the **Host** and the **Access Token**. You can find them inside your [Yardian App](https://yardian.com/app/).
 
 <p class='img'>
 <img src='/images/screenshots/yardian_config_flow.jpg' />
