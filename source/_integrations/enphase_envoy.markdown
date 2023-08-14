@@ -9,19 +9,41 @@ ha_domain: enphase_envoy
 ha_zeroconf: true
 ha_config_flow: true
 ha_codeowners:
-  - '@gtdiehl'
+  - '@bdraco'
+  - '@cgarwood'
+  - '@dgomes'
+  - '@joostlek'
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
-A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
+An integration for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. This integration works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S). Firmware version 3.9 or newer is required.
 
 {% include integrations/config_flow.md %}
 
-### Obtaining the password
+## Capabilities
 
-For newer models, the username `envoy` without a password will grant access to the device. For older models, the password for the `installer` user can be obtained with this: [tool](https://thecomputerperson.wordpress.com/2016/08/28/reverse-engineering-the-enphase-installer-toolkit/).
+This integration will offer various sensors depending on the configuration of your Enphase system. Sensors are available for the following:
 
-In some cases, you need to use the username `envoy` with the last 6 digits of the unit's serial number as password. See [the enphase documentation](https://support.enphase.com/s/article/What-is-the-Username-and-Password-for-the-Administration-page-of-the-Envoy-local-interface) for more details on other units.
+- Current energy production & consumption
+- Historical energy production & consumption
+- Power production per-inverter
+
+_Consumption sensors require your Envoy to be properly configured with consumption CT sensors installed._
+
+For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/IQ Batteries installed, additional features are available:
+
+- Sensors for battery status and usage
+- Sensors for grid status
+- Sensors for the state of the Enpower's 4 load-shedding relays
+- A switch allowing you to take your system on-grid and off-grid. Note that the Enpower has a slight delay built-in between receiving these commands and actually switching the system on or off grid.
+
+## Envoy authentication requirements
+
+For newer models running firmware 7 and greater, you will need your Enlighten cloud username and password. The integration will use these credentials to obtain an Envoy access token from the Enlighten cloud.
+
+For models running firmware 5 and older, use `installer` for the username. No password is required. The integration will automatically detect the `installer` password.

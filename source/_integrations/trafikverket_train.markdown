@@ -37,6 +37,8 @@ Retrieve train departure information from [Trafikverket](https://www.trafikverke
 
 The next departure is calculated from actual, estimated, and planned to provide the most accurate information about departure.
 
+You can filter based on product descriptions such as `SJ Regionaltåg` to only see specific trains between the two stations.
+
 ## Prerequisites
 
 Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obtain the API key.
