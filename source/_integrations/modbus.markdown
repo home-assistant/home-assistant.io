@@ -1014,7 +1014,7 @@ sensors:
       required: false
       type: float
     nan_value:
-      description: If a modbus sensor has a defined NaN value, this value can be set as hex string starting with `0x` containing one or more bytes (e.g. `0xFFFF` or `0x80000000`) or provided as integer directly. If triggered, the sensor becomes `unavailable`. Please note that the hex to int conversion for `nan_value` does currently not obey home-assistants modbus encoding using the `data_type`, `structure` or `swap` arguments.
+      description: If a Modbus sensor has a defined NaN value, this value can be set as a hex string starting with `0x` containing one or more bytes (for example, `0xFFFF` or `0x80000000`) or provided as an integer directly. If triggered, the sensor becomes `unavailable`. Please note that the hex to int conversion for `nan_value` does currently not obey home-assistants Modbus encoding using the `data_type`, `structure`, or `swap` arguments.
       required: false
       type: string
     zero_suppress:
