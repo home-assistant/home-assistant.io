@@ -67,7 +67,7 @@ If you are running an older Windows version or have a stricter network configura
 
 Congratulations! You finished the Raspberry Pi setup!
 
-{% include survey.html %}
+{% include installation_survey.html %}
 
 With the Home Assistant Operating System installed and accessible, you can now continue with onboarding.
 
