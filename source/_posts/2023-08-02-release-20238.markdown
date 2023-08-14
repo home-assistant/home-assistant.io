@@ -539,8 +539,8 @@ superseded by three single actions `start`, `stop` and `return_to_base`.
 {% details "Google Nest" %}
 
 The legacy Works With Nest API is no longer supported. You must manually take
-action to use the SDM API by removing nest configuration from configuration.yaml
-and restarting Home Assistant, then add the Nest integration following the
+action to use the SDM API by removing the Nest configuration from `configuration.yaml`
+and restarting Home Assistant. Then add the Nest integration following the
 instructions. Please review the documentation for information about which
 devices are supported.
 
