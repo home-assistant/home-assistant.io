@@ -267,10 +267,11 @@ _All these can be extended if your usage calls for more resources._
     <div class="note info">
 
     By default, VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
-    the `discard` option must be enabled:
+    the `discard` option must be enabled using your host machine's terminal:
     ```bash
     VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
     ```
+    More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
     </div>
 {% unless page.installation_type == 'macos' %}
