@@ -361,6 +361,8 @@ _All these can be extended if your usage calls for more resources._
 
 {% endif %}
 
+{% include installation_survey.html %}
+
 With the Home Assistant Operating System installed and accessible, you can continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
