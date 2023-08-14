@@ -15,7 +15,7 @@ The `lawn_mower` integration enables the ability to control home lawn mowers wit
 
 ## Services
 
-Available services: `start_mowing`, `pause`, `enable_schedule`, `disable_schedule` and `dock`.
+Available services: `start_mowing`, `pause` and `dock`.
 
 Before calling one of these services, make sure your lawn_mower platform supports it.
 
@@ -30,22 +30,6 @@ Start or resume a mowing task.
 ### Service `lawn_mower.pause`
 
 Pause a mowing task.
-
-| Service data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
-
-### Service `lawn_mower.enable_schedule`
-
-Tell the lawn_mower to enable current schedule.
-
-| Service data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
-
-### Service `lawn_mower.disable_schedule`
-
-Tell the lawn_mower to disable current schedule.
 
 | Service data attribute | Optional | Description                                                      |
 | ---------------------- | -------- | ---------------------------------------------------------------- |
