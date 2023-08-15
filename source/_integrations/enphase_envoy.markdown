@@ -16,6 +16,7 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - number
   - select
   - sensor
   - switch
@@ -57,4 +58,4 @@ The Enphase Enpower has 4 load shedding relays that can be used to control non-e
 When the mode entity is set to standard, you can simply set the state of the relay to be powered or not powered for each mode of operation: on grid, off grid, and on generator.
 
 ### Battery Level
-When the relay mode is set to battery level, the relays will turn on and off based on the remaining battery level of your Encharge batteries. Currently, target battery levels must be set using the Enphase Enlighten app.
+When the relay mode is set to battery level, the relays will turn on and off based on the remaining battery level of your Encharge batteries. Two number entities are available to control the cutoff and restore levels for the relays. When the battery level drops below the cutoff level, the relays will turn off. When the battery level rises above the restore level, the relays will turn back on.
