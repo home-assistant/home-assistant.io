@@ -195,7 +195,7 @@ toc:
 installation:
   container: "ghcr.io/home-assistant/home-assistant"
   versions:
-    python: "3.10"
+    python: "3.11"
   types:
     odroid:
       board: ODROID
