@@ -18,27 +18,35 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Attribute selector](#attribute-selector)
 - [Assist pipeline selector](#assist-pipeline-selector)
+- [Backup location selector](#backup-location-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
+- [Condition selector](#condition-selector)
 - [Config entry selector](#config-entry-selector)
 - [Constant selector](#constant-selector)
+- [Conversation agent selector](#conversation-agent-selector)
 - [Date selector](#date-selector)
-- [Date & time selector](#date--time-selector)
+- [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
 - [Icon selector](#icon-selector)
 - [Language selector](#language-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
@@ -121,6 +129,7 @@ device:
     that at least provide one device that matches the given conditions. Can be
     either a object or a list of object.
   type: list
+  required: false
   keys:
     integration:
       description: >
@@ -259,6 +268,21 @@ This selector does not have any other options; therefore, it only has its key.
 assist_pipeline:
 ```
 
+## Backup location selector
+
+This can only be used on an installation with a Supervisor (Operating System or
+Supervised). For installations of type Home Assistant Core or Container, an error
+will be displayed.
+
+The backup location selector shows a list of places a backup could go, depending
+on what you have configured in [storage](https://my.home-assistant.io/redirect/storage/).
+
+![Screenshot of an assist pipeline selector](/images/blueprints/selector-backup-location.png)
+
+The output of this selector is the name of the selected network storage. It may
+also be the value `/backup`, if the user chooses to use the local data disk option
+instead of one of the configured network storage locations.
+
 ## Boolean selector
 
 The boolean selector shows a toggle that allows the user to turn on or off
@@ -304,6 +328,29 @@ max_mireds:
 
 The output of this selector is the number of mired selected, for example, `243`.
 
+## Condition selector
+
+The condition selector allows the user to input one or more conditions.
+On the user interface, the condition part of the automation editor will be shown.
+The value of the input will contain a list of conditions.
+
+![Screenshot of an condition selector](/images/blueprints/selector-condition.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+condition:
+```
+
+The output of this selector is a list of conditions. For example:
+
+```yaml
+# Example Condition selector output result
+- condition: numeric_state
+  entity_id: "sensor.outside_temperature"
+  below: 20
+```
+
 ## Config entry selector
 
 The config entry selector allows the user to select an integration
@@ -342,6 +389,28 @@ boolean:
 ```
 
 The output of this selector is the configured value when the toggle is on, it has not output otherwise.
+
+## Conversation agent selector
+
+The conversation agent selector allows picking a conversation agent.
+
+![Screenshot of a conversation agent selector](/images/blueprints/selector-conversation-agent.png)
+
+The selector has 1 option, `language`. This filters the conversation agents shown, depending on the language.
+
+```yaml
+conversation_agent:
+  language: en
+```
+
+{% configuration conversation_agent %}
+language:
+  description: Limits the list of conversation agents to those supporting the specified language.
+  type: string
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the ID of the conversation agent.
 
 ## Date selector
 
@@ -561,8 +630,7 @@ include_entities:
 filter:
   description: >
     When filter options are provided, the entities are limited by entities
-    that at least match the given conditions. Can be either a object or a list of object.
-    Can be either a object or a list of object.
+    that at least match the given conditions. Can be either an object or a list of objects.
   type: list
   required: false
   keys:
@@ -918,6 +986,12 @@ translation_key:
     for more information.
   type: string
   required: false
+sort:
+  description: >
+    Display options in alphabetical order.
+  type: boolean
+  required: false
+  default: false
 {% endconfiguration %}
 
 Alternatively, a mapping can be used for the options. When you want to return
@@ -1126,6 +1200,10 @@ multiline:
   type: boolean
   default: false
   required: false
+prefix:
+  description: An optional prefix to show before the text input box.
+  type: string
+  required: false
 suffix:
   description: An optional suffix to show after the text input box.
   type: string
@@ -1161,7 +1239,13 @@ installed in Home Assistant.
 theme:
 ```
 
-This selector does not have any other options; therefore, it only has its key.
+{% configuration theme %}
+include_default:
+  description: Includes Home Assistant default theme in the list.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
 
 The output of this selector will contain the selected theme, for example:
 `waves_dark`.

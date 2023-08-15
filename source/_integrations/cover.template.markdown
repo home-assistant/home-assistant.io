@@ -149,7 +149,7 @@ If both a [`value_template`](#value_template) and a [`position_template`](#posit
 | value_template output | result |
 | ------------- |-------------|
 | open | state defined by `position_template` |
-| close | state defined by `position_template` |
+| closed | state defined by `position_template` |
 | true | state defined by `position_template` |
 | false | state defined by `position_template` |
 | opening | state set to `opening` |

@@ -1,6 +1,6 @@
 ---
 title: File Size
-description: Component for monitoring the size of a file.
+description: Integration for monitoring the size of a file.
 ha_category:
   - Sensor
   - Utility

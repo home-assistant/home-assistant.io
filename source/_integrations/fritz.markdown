@@ -3,6 +3,7 @@ title: AVM FRITZ!Box Tools
 description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Image
   - Presence Detection
   - Sensor
   - Update
@@ -20,6 +21,7 @@ ha_platforms:
   - button
   - device_tracker
   - diagnostics
+  - image
   - sensor
   - switch
   - update
@@ -33,6 +35,7 @@ There is support for the following platform types within Home Assistant:
 
 - **Device tracker** - presence detection by looking at connected devices.
 - **Binary sensor** - connectivity status.
+- **Image** - QR code for Guest Wi-Fi.
 - **Button** - reboot, reconnect, firmware_update.
 - **Sensor** - external IP address, uptime and network monitors.
 - **Switch** - call deflection, port forward, parental control and Wi-Fi networks.
@@ -76,10 +79,10 @@ If no password is given, it will be auto-generated.
 | `password`             | yes      | New password for the guest wifi                                                                                |
 | `length`               | yes      | Length of the auto-generated password. (_default 12_)                        |
 
-## Integration Options
+## Integration options
 
 It is possible to change some behaviors through the integration options.
-These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrations page.
+To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. Select the **AVM FRITZ!Box Tools** integration, then select **Configure**.
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
 - **Enable old discovery method**: Needed on some scenarios like no mesh support (fw <= 6.x), mixed brands network devices or LAN switches.
