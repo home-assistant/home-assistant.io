@@ -120,7 +120,7 @@ Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfi
 
 ### Bandwidth sensor
 
-Get entities reporting receiving and transmitting bandwidth per network client.
+Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
 
 ### Wlan clients sensor
 
