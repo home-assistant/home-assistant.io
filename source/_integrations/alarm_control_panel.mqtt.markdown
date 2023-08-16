@@ -263,6 +263,24 @@ value_template:
 
 In this section you find some real-life examples of how to use this alarm control panel.
 
+### Configuration with partial feature support
+
+The example below shows a full configuration with an alarm panel that only supports the `arm_home` and `arm_away` features.
+
+{% raw %}
+
+```yaml
+# Example with partial feature support
+mqtt:
+  - alarm_control_panel:
+      name: "Alarm Panel"
+      supported_features: ["arm_home", "arm_away"]
+      state_topic: "alarmdecoder/panel"
+      command_topic: "alarmdecoder/panel/set"
+```
+
+{% endraw %}
+
 ### Configuration with local code validation
 
 The example below shows a full configuration with local code validation.
