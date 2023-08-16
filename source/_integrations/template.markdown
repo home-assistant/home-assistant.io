@@ -3,6 +3,10 @@ title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
+  - Image
+  - Number
+  - Select
   - Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
@@ -18,6 +22,7 @@ ha_platforms:
   - button
   - cover
   - fan
+  - image
   - light
   - lock
   - number
@@ -31,7 +36,7 @@ ha_integration_type: integration
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Sensors, binary (on/off) sensors, buttons, numbers and selects are covered on this page. For other types, please see the specific pages:
+Sensors, binary (on/off) sensors, buttons, images, numbers and selects are covered on this page. For other types, please see the specific pages:
 
 - [Alarm Control Panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
@@ -42,11 +47,11 @@ Sensors, binary (on/off) sensors, buttons, numbers and selects are covered on th
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor, binary sensor, button, number and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+Sensor, binary sensor, button, image, number and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-## State-based template binary sensors, buttons, numbers, selects and sensors
+## State-based template binary sensors, buttons, images, numbers, selects and sensors
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -69,7 +74,7 @@ template:
 {% endraw %}
 
 
-## Trigger-based template binary sensors, buttons, numbers, selects and sensors
+## Trigger-based template binary sensors, buttons, images, numbers, selects and sensors
 
 If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
@@ -233,7 +238,21 @@ button:
       description: Defines actions to run to press the button.
       required: true
       type: action
-"[all sensor, binary sensor, button, number, select entities]":
+image:
+  description: List of images
+  required: true
+  type: map
+  keys:
+    url:
+      description: The URL on which the image is served.
+      required: true
+      type: template
+    verify_ssl:
+      description: Enable or disable SSL certificate verification. Set to false to use an http-only URL, or you have a self-signed SSL certificate and haven’t installed the CA certificate to enable verification.
+      required: false
+      type: boolean
+      default: true
+"[all sensor, binary sensor, button, image, number, select entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map
@@ -415,7 +434,7 @@ template:
 
 ### State based sensor modifying another sensor's output
 
-If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun component](/integrations/sun/) as a simple example:
+If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun integration](/integrations/sun/) as a simple example:
 
 {% raw %}
 
@@ -790,7 +809,7 @@ sensor:
             required: true
             type: template
       availability_template:
-        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        description: Defines a template to get the `available` state of the integration. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the integration will always be `available`.
         required: false
         type: template
         default: true

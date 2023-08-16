@@ -34,8 +34,8 @@ To use your MQTT cover in your installation, add the following to your `configur
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  cover:
-    - command_topic: "home-assistant/cover/set"
+  - cover:
+      command_topic: "home-assistant/cover/set"
 ```
 
 {% configuration %}
@@ -80,12 +80,12 @@ command_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this cover is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this cover is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -157,7 +157,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the cover.
+  description: The name of the cover. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Cover
@@ -332,8 +332,8 @@ The example below shows a full configuration for a cover without tilt with state
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  cover:
-    - name: "MQTT Cover"
+  - cover:
+      name: "MQTT Cover"
       command_topic: "home-assistant/cover/set"
       state_topic: "home-assistant/cover/state"
       availability:
@@ -364,8 +364,8 @@ The example below shows a full configuration for a cover without tilt with posit
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  cover:
-    - name: "MQTT Cover"
+  - cover:
+      name: "MQTT Cover"
       command_topic: "home-assistant/cover/set"
       position_topic: "home-assistant/cover/position"
       availability:
@@ -395,8 +395,8 @@ The example below shows a full configuration for a cover with position, state & 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  cover:
-    - name: "MQTT Cover"
+  - cover:
+      name: "MQTT Cover"
       command_topic: "home-assistant/cover/set"
       state_topic: "home-assistant/cover/state"
       position_topic: "home-assistant/cover/position"
@@ -436,8 +436,8 @@ The example below shows a full configuration for a cover using stopped state.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  cover:
-    - name: "MQTT Cover"
+  - cover:
+      name: "MQTT Cover"
       command_topic: "home-assistant/cover/set"
       state_topic: "home-assistant/cover/state"
       position_topic: "home-assistant/cover/position"
@@ -470,8 +470,8 @@ Setting `payload_close` empty or to `null` disables the close command and will n
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  cover:
-    - payload_open: "on"
+  - cover:
+      payload_open: "on"
       payload_close: 
       payload_stop: "on"
 ```
@@ -505,8 +505,8 @@ The example below shows an example of how to correct the state of the blind depe
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  cover:
-    - name: "MQTT Cover"
+  - cover:
+      name: "MQTT Cover"
       command_topic: "home-assistant/cover/set"
       state_topic: "home-assistant/cover/state"
       position_topic: "home-assistant/cover/position"
@@ -549,8 +549,8 @@ Following variable might be used in `position_template`, `set_position_template`
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  cover:
-    - name: "MQTT Cover"
+  - cover:
+      name: "MQTT Cover"
       command_topic: "home-assistant/cover/set"
       state_topic: "home-assistant/cover/state"
       position_topic: "home-assistant/cover/position"

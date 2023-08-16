@@ -3,8 +3,7 @@
 
 ## Configuration
 
-Adding {{ name }} to your Home Assistant instance can be done via the user
-interface, by using this My button:
+To add the **{{ name }}** integration to your Home Assistant instance, use this My button:
 
 {% my config_flow_start badge domain=domain %}
 
@@ -23,17 +22,16 @@ manually:
 {% endif %}
 
 - Browse to your Home Assistant instance.
-- In the sidebar, select **{% my config icon %}**.
-- From the configuration menu, select **{% my integrations %}**.
+- Go to **{% my integrations title="Settings > Devices & Services" %}**.
 {% if page.ha_integration_type == 'helper' %}
-- In top of the screen, select the tab: **{% my helpers %}**.
-- In the bottom right, select the
+- At the top of the screen, select the tab: **{% my helpers %}**.
+- In the bottom right corner, select the
   **{% my config_flow_start icon domain=domain title="Create helper" %}** button.
 {% else %}
-- In the bottom right, select the
+- In the bottom right corner, select the
   **{% my config_flow_start icon domain=domain %}** button.
 {% endif %}
-- From the list, search and select **{{ name }}**.
+- From the list, select **{{ name }}**.
 - Follow the instructions on screen to complete the setup.
 
 {% enddetails %}

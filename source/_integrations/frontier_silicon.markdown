@@ -23,12 +23,12 @@ Frontier Silicon is used by many different brands of radio manufacturers.
 
 Supported devices include, but are not limited to:
 
-* Hama: [IR50], [IR110], [DIR3110]
-* Medion: [Medion Radios]
-* Silvercrest: [SIRD 14 C2 (archived website)]
-* Teufel: [Radio 3sixty (2019)]
-* Roberts: [Roberts Stream 94i]
-* Some models from: Auna, Technisat, Revo, Pinell, Como Audio
+- Hama: [IR50], [IR110], [DIR3110]
+- Medion: [Medion Radios]
+- Silvercrest: [SIRD 14 C2 (archived website)]
+- Teufel: [Radio 3sixty (2019)]
+- Roberts: [Roberts Stream 94i]
+- Some models from: Auna, Technisat, Revo, Pinell, Como Audio
 
 This integration was developed and tested with a [Roberts Stream 94i].
 

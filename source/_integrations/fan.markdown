@@ -52,7 +52,7 @@ automation:
 
 ### Service `fan.set_preset_mode`
 
-Sets a preset mode for the fan device. Available preset modes are defined by the integration that supplies the fan entity to Home Assistant. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed.html) component provides by default three available presets: `Low`, `Medium` and `High`.
+Sets a preset mode for the fan device. Available preset modes are defined by the integration that supplies the fan entity to Home Assistant. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed.html) component provides three available presets by default: `Low`, `Medium`, and `High`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

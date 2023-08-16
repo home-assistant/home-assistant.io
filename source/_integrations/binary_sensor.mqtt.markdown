@@ -27,8 +27,8 @@ add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  binary_sensor:
-    - state_topic: "home-assistant/window/contact"
+  - binary_sensor:
+      state_topic: "home-assistant/window/contact"
 ```
 
 {% configuration %}
@@ -69,12 +69,12 @@ availability_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this binary sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this binary sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/device_registry_index/). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -129,7 +129,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://developers.home-assistant.io/docs/core/entity/#generic-properties) of the entity.
   required: false
   type: string
   default: None
@@ -155,7 +155,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the binary sensor.
+  description: The name of the binary sensor. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Binary Sensor
@@ -230,8 +230,8 @@ The example below shows a full configuration for a binary sensor:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  binary_sensor:
-    - name: "Window Contact Sensor"
+  - binary_sensor:
+      name: "Window Contact Sensor"
       state_topic: "home-assistant/window/contact"
       payload_on: "ON"
       availability:
@@ -252,8 +252,8 @@ mqtt:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  binary_sensor:
-    - state_topic: "lab_button/cmnd/POWER"
+  - binary_sensor:
+      state_topic: "lab_button/cmnd/POWER"
       value_template: "{%if is_state(entity_id,\"on\")-%}OFF{%-else-%}ON{%-endif%}"
 ```
 
@@ -276,8 +276,8 @@ The configuration will look like the example below:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  binary_sensor:
-    - name: Bathroom
+  - binary_sensor:
+      name: Bathroom
       state_topic: "home/bathroom/switch/button"
       payload_on: "1"
       payload_off: "0"

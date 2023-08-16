@@ -1176,9 +1176,10 @@ and restart Home Assistant, reproduce the problem, and include the log in the is
 
 ## Building on top of Modbus
 
- - [Modbus Binary Sensor](#configuring-platform-binary_sensor)
+ - [Modbus Binary Sensor](#configuring-platform-binary-sensor)
  - [Modbus Climate](#configuring-platform-climate)
  - [Modbus Cover](#configuring-platform-cover)
  - [Modbus Fan](#configuring-platform-fan)
+ - [Modbus Light](#configuring-platform-light)
  - [Modbus Sensor](#configuring-platform-sensor)
  - [Modbus Switch](#configuring-platform-switch)

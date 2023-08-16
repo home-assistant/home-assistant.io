@@ -65,7 +65,7 @@ frontend:
       accent-color: darkred
 ```
 
-The example above defines two themes named `happy` and `sad`. For each theme, you can set values for CSS variables. If you want to provide hex color values, wrap those in apostrophes, since otherwise, YAML would consider them a comment (`primary-color: "#123456"`).
+The example above defines two themes named `happy` and `sad`. For each theme, you can set values for CSS variables. If you want to provide hex color values, wrap those in quotation marks, since otherwise, YAML would consider them a comment (`primary-color: "#123456"`).
 
 ### Supported theme variables
 

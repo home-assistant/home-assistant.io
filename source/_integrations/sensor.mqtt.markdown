@@ -19,8 +19,8 @@ To use your MQTT sensor in your installation, add the following to your `configu
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  sensor:
-    - state_topic: "home/bedroom/temperature"
+  - sensor:
+      state_topic: "home/bedroom/temperature"
 ```
 
 {% configuration %}
@@ -61,12 +61,12 @@ availability_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/device_registry_index/). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/device_registry_index/). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -153,7 +153,7 @@ last_reset_value_template:
   required: false
   type: template
 name:
-  description: The name of the MQTT sensor.
+  description: The name of the MQTT sensor. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Sensor
@@ -220,8 +220,8 @@ Extra attributes will be displayed in the frontend and can also be extracted in 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  sensor:
-    - name: "RSSI"
+  - sensor:
+      name: "RSSI"
       state_topic: "home/sensor1/infojson"
       unit_of_measurement: "dBm"
       value_template: "{{ value_json.RSSI }}"
@@ -245,13 +245,14 @@ Extra attributes will be displayed in the frontend and can also be extracted in 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  sensor:
-    - name: "Timer 1"
+  - sensor:
+      name: "Timer 1"
       state_topic: "tele/sonoff/sensor"
       value_template: "{{ value_json.Timer1.Arm }}"
       json_attributes_topic: "tele/sonoff/sensor"
       json_attributes_template: "{{ value_json.Timer1 | tojson }}"
-    - name: "Timer 2"
+  - sensor:
+      name: "Timer 2"
       state_topic: "tele/sonoff/sensor"
       value_template: "{{ value_json.Timer2.Arm }}"
       json_attributes_topic: "tele/sonoff/sensor"
@@ -271,8 +272,8 @@ The example below shows how a simple filter, that calculates the value by adding
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  sensor:
-    - name: "Temp 1"
+  - sensor:
+      name: "Temp 1"
       state_topic: "sensor/temperature"
       value_template: |-
         {% if states(entity_id) == None %}
@@ -299,8 +300,8 @@ Thus the trick is extracting the battery level from the payload.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  sensor:
-    - name: "Battery Tablet"
+  - sensor:
+      name: "Battery Tablet"
       state_topic: "owntracks/tablet/tablet"
       unit_of_measurement: "%"
       value_template: "{{ value_json.batt }}"
@@ -327,13 +328,14 @@ Then use this configuration example to extract the data from the payload:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  sensor:
-    - name: "Temperature"
+  - sensor:
+      name: "Temperature"
       state_topic: "office/sensor1"
       suggested_display_precision: 1
       unit_of_measurement: "°C"
       value_template: "{{ value_json.temperature }}"
-    - name: "Humidity"
+  - sensor:
+      name: "Humidity"
       state_topic: "office/sensor1"
       unit_of_measurement: "%"
       value_template: "{{ value_json.humidity }}"
@@ -363,7 +365,7 @@ The configuration will look like the example below:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  sensor:
-    - name: "Brightness"
+  - sensor:
+      name: "Brightness"
       state_topic: "home/bathroom/analog/brightness"
 ```

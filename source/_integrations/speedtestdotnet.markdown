@@ -39,7 +39,7 @@ Please be aware of the potential [inconsistencies](https://github.com/sivel/spee
 
 ## Examples
 
-In this section you will find some real-life examples of how to use this component.
+In this section you will find some real-life examples of how to use this integration.
 ### Using as a trigger in an automation
 
 {% raw %}

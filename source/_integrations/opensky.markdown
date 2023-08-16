@@ -9,27 +9,25 @@ ha_domain: opensky
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_codeowners:
+  - '@joostlek'
+ha_config_flow: true
 ---
 
-The `opensky` sensor allows one to track overhead flights in a given region. It uses crowd-sourced data from the [OpenSky Network](https://opensky-network.org/) public API. It will also fire Home Assistant events when flights enter and exit the defined region.
+The OpenSky integration allows one to track overhead flights in a given region. It uses crowd-sourced data from the [OpenSky Network](https://opensky-network.org/) public API. It will also fire Home Assistant events when flights enter and exit the defined region.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
-
-```yaml
-sensor:
-  - platform: opensky
-    radius: 10
-```
-
-Configuration options for the OpenSky Network sensor:
-
-- **radius** (*Required*): Radius of region to monitor, in kilometers.
-- **latitude** (*Optional*): Region latitude. Defaults to home zone latitude.
-- **longitude** (*Optional*): Region longitude. Defaults to home zone longitude.
-- **altitude** (*Optional*): The maximum altitude (in meters) for planes to be detected in, 0 sets it to unlimited. Defaults to 0).
-- **name** (*Optional*): Sensor name. Defaults to opensky.
+{% configuration_basic %}
+latitude:
+  description: The latitude of the center of the area to track.
+longitude:
+  description: The latitude of the center of the area to track.
+radius:
+  description: The radius in meters around the latitude/longitude point to track.
+altitude:
+  description: The maximum altitude in meters in which the planes are tracked. No input (or 0) means all planes in the area are tracked.
+{% endconfiguration_basic %}
 
 ## Events
 
