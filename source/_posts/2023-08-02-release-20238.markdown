@@ -46,12 +46,14 @@ Enjoy the release!
 - [Introducing the event entity](#introducing-the-event-entity)
 - [Improving the first experience with Home Assistant](#improving-the-first-experience-with-home-assistant)
 - [Add items to your shopping list using Assist](#add-items-to-your-shopping-list-using-assist)
-- [Wildcard support for sentence triggers](#wildcard-support-for-sentence-triggers)
 - [Generate an image with OpenAI's DALL-E](#generate-an-image-with-openais-dall-e)
+- [Wildcard support for sentence triggers](#wildcard-support-for-sentence-triggers)
 - [Condition selector](#condition-selector)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2023.8.1 - August 4](#release-202381---august-4)
+- [Release 2023.8.2 - August 11](#release-202382---august-11)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -334,9 +336,249 @@ The following integrations are now available via the Home Assistant UI:
 - **[OpenSky]**, done by [@joostlek]
 - **[Zodiac]**, done by [@joostlek]
 
-[@joostlek]: https://github.com/jooostlek
+[@joostlek]: https://github.com/joostlek
 [OpenSky]: /integrations/opensky
 [Zodiac]: /integrations/zodiac
+
+## Release 2023.8.1 - August 4
+
+- Raise PlatformNotReady on initial OwnTone connection failure ([@uvjustin] - [#97257])
+- Add overkiz battery sensor level medium ([@matthieume] - [#97472])
+- Fix ZHA `turn_on` issues with `transition=0`, improve tests ([@TheJulianJES] - [#97539])
+- Bump pyDuotecno to 2023.8.1 ([@Cereal2nd] - [#97583])
+- Bump Cryptography to 41.0.3 for a second security fix ([@blastoise186] - [#97611])
+- Waqi State unknown if value is string ([@joostlek] - [#97617])
+- Bump dbus-fast to 1.90.1 ([@bdraco] - [#97619])
+- Bump python-roborock to 0.31.1 ([@Lash-L] - [#97632])
+- Bump intents to 2023.8.2 ([@synesthesiam] - [#97636])
+- Add device naming to Yeelight ([@joostlek] - [#97639])
+- Fix typo in tplink OUI ([@bdraco] - [#97644])
+- Revert "Add device naming to Yeelight" ([@joostlek] - [#97647])
+- Enable the `PRESET_MODE` `FanEntityFeature` for VeSync air purifiers ([@DuckyCrayfish] - [#97657])
+- Fix tplink child plug state reporting ([@bdraco] - [#97658])
+- Fix date and timestamp device class in Command Line Sensor ([@gjohansson-ST] - [#97663])
+- Bump zeroconf to 0.72.3 ([@bdraco] - [#97668])
+- Bump pyatv to 0.13.3 ([@bdraco] - [#97670])
+- Fix color mode attribute for both official and non-official Hue lights ([@marcelveldt] - [#97683])
+- Fix UniFi image platform not loading when passphrase is missing from WLAN ([@Kane610] - [#97684])
+- Fix Kostal_Plenticore SELECT entities using device_info correctly ([@N3rdix] - [#97690])
+- Fix freebox enumerate raid disks ([@cyr-ius] - [#97696])
+- Fix allow_name_translation logic ([@amitfin] - [#97701])
+- Fix NWS twice_daily forecast day/night detection ([@karwosts] - [#97703])
+- Bump opower to 0.0.19 ([@tronikos] - [#97706])
+- Fix detection of client WAN access rule in AVM Fritz!Box Tools ([@mib1185] - [#97708])
+- Fix unloading KNX integration without sensors ([@farmio] - [#97720])
+- Update zigpy to 0.56.3 ([@cdce8p] - [#97480])
+- Bump zigpy to 0.56.4 ([@TheJulianJES] - [#97722])
+- Fix keymitt_ble RuntimeWarning ([@cdce8p] - [#97729])
+- Bump zeroconf to 0.74.0 ([@bdraco] - [#97745])
+- Avoid calling the http access logging when logging is disabled in emulated_hue ([@bdraco] - [#97750])
+- Bump opower to 0.0.20 ([@tronikos] - [#97752])
+- Bump pyduotecno to 2023.8.3 ([@Cereal2nd] - [#97759])
+- Add has entity name to Solarlog ([@joostlek] - [#97764])
+- Fix WAQI being zero ([@joostlek] - [#97767])
+
+[#97257]: https://github.com/home-assistant/core/pull/97257
+[#97472]: https://github.com/home-assistant/core/pull/97472
+[#97480]: https://github.com/home-assistant/core/pull/97480
+[#97539]: https://github.com/home-assistant/core/pull/97539
+[#97583]: https://github.com/home-assistant/core/pull/97583
+[#97609]: https://github.com/home-assistant/core/pull/97609
+[#97611]: https://github.com/home-assistant/core/pull/97611
+[#97617]: https://github.com/home-assistant/core/pull/97617
+[#97619]: https://github.com/home-assistant/core/pull/97619
+[#97632]: https://github.com/home-assistant/core/pull/97632
+[#97636]: https://github.com/home-assistant/core/pull/97636
+[#97639]: https://github.com/home-assistant/core/pull/97639
+[#97644]: https://github.com/home-assistant/core/pull/97644
+[#97647]: https://github.com/home-assistant/core/pull/97647
+[#97657]: https://github.com/home-assistant/core/pull/97657
+[#97658]: https://github.com/home-assistant/core/pull/97658
+[#97663]: https://github.com/home-assistant/core/pull/97663
+[#97668]: https://github.com/home-assistant/core/pull/97668
+[#97670]: https://github.com/home-assistant/core/pull/97670
+[#97683]: https://github.com/home-assistant/core/pull/97683
+[#97684]: https://github.com/home-assistant/core/pull/97684
+[#97690]: https://github.com/home-assistant/core/pull/97690
+[#97696]: https://github.com/home-assistant/core/pull/97696
+[#97701]: https://github.com/home-assistant/core/pull/97701
+[#97703]: https://github.com/home-assistant/core/pull/97703
+[#97706]: https://github.com/home-assistant/core/pull/97706
+[#97708]: https://github.com/home-assistant/core/pull/97708
+[#97720]: https://github.com/home-assistant/core/pull/97720
+[#97722]: https://github.com/home-assistant/core/pull/97722
+[#97729]: https://github.com/home-assistant/core/pull/97729
+[#97745]: https://github.com/home-assistant/core/pull/97745
+[#97750]: https://github.com/home-assistant/core/pull/97750
+[#97752]: https://github.com/home-assistant/core/pull/97752
+[#97759]: https://github.com/home-assistant/core/pull/97759
+[#97764]: https://github.com/home-assistant/core/pull/97764
+[#97767]: https://github.com/home-assistant/core/pull/97767
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@DuckyCrayfish]: https://github.com/DuckyCrayfish
+[@Kane610]: https://github.com/Kane610
+[@Lash-L]: https://github.com/Lash-L
+[@N3rdix]: https://github.com/N3rdix
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@amitfin]: https://github.com/amitfin
+[@bdraco]: https://github.com/bdraco
+[@blastoise186]: https://github.com/blastoise186
+[@cdce8p]: https://github.com/cdce8p
+[@cyr-ius]: https://github.com/cyr-ius
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@karwosts]: https://github.com/karwosts
+[@marcelveldt]: https://github.com/marcelveldt
+[@matthieume]: https://github.com/matthieume
+[@mib1185]: https://github.com/mib1185
+[@synesthesiam]: https://github.com/synesthesiam
+[@tronikos]: https://github.com/tronikos
+[@uvjustin]: https://github.com/uvjustin
+[apple_tv docs]: /integrations/apple_tv/
+[bluetooth docs]: /integrations/bluetooth/
+[command_line docs]: /integrations/command_line/
+[conversation docs]: /integrations/conversation/
+[duotecno docs]: /integrations/duotecno/
+[emulated_hue docs]: /integrations/emulated_hue/
+[forked_daapd docs]: /integrations/forked_daapd/
+[freebox docs]: /integrations/freebox/
+[fritz docs]: /integrations/fritz/
+[hue docs]: /integrations/hue/
+[keymitt_ble docs]: /integrations/keymitt_ble/
+[knx docs]: /integrations/knx/
+[kostal_plenticore docs]: /integrations/kostal_plenticore/
+[nws docs]: /integrations/nws/
+[opower docs]: /integrations/opower/
+[overkiz docs]: /integrations/overkiz/
+[roborock docs]: /integrations/roborock/
+[solarlog docs]: /integrations/solarlog/
+[tplink docs]: /integrations/tplink/
+[unifi docs]: /integrations/unifi/
+[vesync docs]: /integrations/vesync/
+[waqi docs]: /integrations/waqi/
+[yeelight docs]: /integrations/yeelight/
+[zeroconf docs]: /integrations/zeroconf/
+[zha docs]: /integrations/zha/
+
+## Release 2023.8.2 - August 11
+
+- Handle Alert exception on notification failure ([@karwosts] - [#93632])
+- Add yeelight class to fix superclass issue ([@joostlek] - [#97649])
+- Fix metoffice visibility range sensor device class ([@MrHarcombe] - [#97763])
+- Don't assume that `battery_level` value is always present in Tractive `hw_info` ([@bieniu] - [#97766])
+- Improve counting of UniFi WLAN Clients sensor ([@Kane610] - [#97785])
+- Integration tado bump ([@erwindouna] - [#97791])
+- Ensure webhooks take HA cloud into account ([@frenck] - [#97801])
+- Bump aiohomekit to 2.6.13 ([@bdraco] - [#97820])
+- Fix Samsung syncthru device info ([@joostlek] - [#97843])
+- Fallback to get_hosts_info on older Fritz!OS in AVM Fritz!Tools ([@mib1185] - [#97844])
+- Fix Command Line template error when data is None ([@gjohansson-ST] - [#97845])
+- Bump Omada API version to fix #96193 ([@MarkGodwin] - [#97848])
+- Bump pysensibo to 1.0.33 ([@gjohansson-ST] - [#97853])
+- Add missing translation key to Gardena Bluetooth ([@joostlek] - [#97855])
+- Bump bimmer_connected to 0.13.9, fix notify ([@rikroe] - [#97860])
+- Do not fire homekit_controller events from IP polling ([@bdraco] - [#97869])
+- Avoid polling event characteristic in homekit_controller ([@bdraco] - [#97877])
+- Fix handling HomeKit events when the char is in error state ([@bdraco] - [#97884])
+- Bump python-roborock to 0.32.2 ([@Lash-L] - [#97907])
+- modbus: Adjust read count by slave_count ([@janiversen] - [#97908])
+- Bump pyatv to 0.13.4 ([@bdraco] - [#97932])
+- Bump yeelight to v0.7.13 ([@alexyao2015] - [#97933])
+- Android TV Remote: Fix missing key and cert when adding a device via IP address ([@tronikos] - [#97953])
+- Fix tomorrowio integration for new users ([@lymanepp] - [#97973])
+- Bump ZHA dependency bellows to 0.35.9 ([@puddly] - [#97976])
+- Bump `pyairvisual` to 2023.08.1 ([@bachya] - [#97999])
+- Bump aiohomekit to 2.6.15 ([@bdraco] - [#98005])
+- Add translation keys to Tuya cover ([@joostlek] - [#98040])
+- Remove trailing . from melcloud service descriptions ([@reedy] - [#98053])
+- Bump AIOAladdinConnect to 0.1.57 ([@mkmer] - [#98056])
+- Bump pynina to 0.3.2 ([@DeerMaximum] - [#98070])
+- Bump opower to 0.0.24 ([@tronikos] - [#98091])
+- Improve UniFi control PoE mode ([@Kane610] - [#98119])
+- Add missing translation key in Tuya ([@joostlek] - [#98122])
+- Correct unit of rain pause ([@elupus] - [#98131])
+- Make gardena closing sensor unavailable when closed ([@elupus] - [#98133])
+- Bump opower to 0.0.26 ([@tronikos] - [#98141])
+- Opower: Add gas sensors for utilities that report CCF ([@tronikos] - [#98142])
+- Get Opower accounts from the customer endpoint ([@tronikos] - [#98144])
+- Update aioairzone to v0.6.5 ([@Noltari] - [#98163])
+- Use explicit device name in Broadlink ([@joostlek] - [#98229])
+- Bump pynws 1.5.1; fix regression for precipitation probability ([@MatthewFlamm] - [#98237])
+- Bump pymazda to 0.3.11 ([@bdr99] - [#98084])
+
+[#93632]: https://github.com/home-assistant/core/pull/93632
+[#97609]: https://github.com/home-assistant/core/pull/97609
+[#97649]: https://github.com/home-assistant/core/pull/97649
+[#97763]: https://github.com/home-assistant/core/pull/97763
+[#97766]: https://github.com/home-assistant/core/pull/97766
+[#97772]: https://github.com/home-assistant/core/pull/97772
+[#97785]: https://github.com/home-assistant/core/pull/97785
+[#97791]: https://github.com/home-assistant/core/pull/97791
+[#97801]: https://github.com/home-assistant/core/pull/97801
+[#97820]: https://github.com/home-assistant/core/pull/97820
+[#97843]: https://github.com/home-assistant/core/pull/97843
+[#97844]: https://github.com/home-assistant/core/pull/97844
+[#97845]: https://github.com/home-assistant/core/pull/97845
+[#97848]: https://github.com/home-assistant/core/pull/97848
+[#97853]: https://github.com/home-assistant/core/pull/97853
+[#97855]: https://github.com/home-assistant/core/pull/97855
+[#97860]: https://github.com/home-assistant/core/pull/97860
+[#97869]: https://github.com/home-assistant/core/pull/97869
+[#97877]: https://github.com/home-assistant/core/pull/97877
+[#97884]: https://github.com/home-assistant/core/pull/97884
+[#97907]: https://github.com/home-assistant/core/pull/97907
+[#97908]: https://github.com/home-assistant/core/pull/97908
+[#97932]: https://github.com/home-assistant/core/pull/97932
+[#97933]: https://github.com/home-assistant/core/pull/97933
+[#97953]: https://github.com/home-assistant/core/pull/97953
+[#97973]: https://github.com/home-assistant/core/pull/97973
+[#97976]: https://github.com/home-assistant/core/pull/97976
+[#97999]: https://github.com/home-assistant/core/pull/97999
+[#98005]: https://github.com/home-assistant/core/pull/98005
+[#98040]: https://github.com/home-assistant/core/pull/98040
+[#98053]: https://github.com/home-assistant/core/pull/98053
+[#98056]: https://github.com/home-assistant/core/pull/98056
+[#98070]: https://github.com/home-assistant/core/pull/98070
+[#98084]: https://github.com/home-assistant/core/pull/98084
+[#98091]: https://github.com/home-assistant/core/pull/98091
+[#98119]: https://github.com/home-assistant/core/pull/98119
+[#98122]: https://github.com/home-assistant/core/pull/98122
+[#98131]: https://github.com/home-assistant/core/pull/98131
+[#98133]: https://github.com/home-assistant/core/pull/98133
+[#98141]: https://github.com/home-assistant/core/pull/98141
+[#98142]: https://github.com/home-assistant/core/pull/98142
+[#98144]: https://github.com/home-assistant/core/pull/98144
+[#98163]: https://github.com/home-assistant/core/pull/98163
+[#98229]: https://github.com/home-assistant/core/pull/98229
+[#98237]: https://github.com/home-assistant/core/pull/98237
+[@DeerMaximum]: https://github.com/DeerMaximum
+[@Kane610]: https://github.com/Kane610
+[@Lash-L]: https://github.com/Lash-L
+[@MarkGodwin]: https://github.com/MarkGodwin
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@MrHarcombe]: https://github.com/MrHarcombe
+[@Noltari]: https://github.com/Noltari
+[@alexyao2015]: https://github.com/alexyao2015
+[@bachya]: https://github.com/bachya
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@elupus]: https://github.com/elupus
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@janiversen]: https://github.com/janiversen
+[@joostlek]: https://github.com/joostlek
+[@karwosts]: https://github.com/karwosts
+[@lymanepp]: https://github.com/lymanepp
+[@mib1185]: https://github.com/mib1185
+[@mkmer]: https://github.com/mkmer
+[@puddly]: https://github.com/puddly
+[@reedy]: https://github.com/reedy
+[@rikroe]: https://github.com/rikroe
+[@tronikos]: https://github.com/tronikos
 
 ## Need help? Join the community!
 
@@ -410,6 +652,24 @@ superseded by three single actions `start`, `stop` and `return_to_base`.
 
 [@mib1185]: https://github.com/mib1185
 [#95920]: https://github.com/home-assistant/core/pull/95920
+
+{% enddetails %}
+
+{% details "Google Nest" %}
+
+The legacy Works With Nest API is no longer supported. You must manually take
+action to use the SDM API by removing the Nest configuration from `configuration.yaml`
+and restarting Home Assistant. Then add the Nest integration following the
+instructions. Please review the documentation for information about which
+devices are supported.
+
+Additionally, as a reminder, the legacy Works With Nest API is [shutting down](https://developers.nest.com/)
+in September 2023.
+
+([@allenporter] - [#96111]) ([documentation](/integrations/nest))
+
+[@allenporter]: https://github.com/allenporter
+[#96111]: https://github.com/home-assistant/core/pull/96111
 
 {% enddetails %}
 

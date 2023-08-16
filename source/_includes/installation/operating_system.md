@@ -267,10 +267,11 @@ _All these can be extended if your usage calls for more resources._
     <div class="note info">
 
     By default, VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
-    the `discard` option must be enabled:
+    the `discard` option must be enabled using your host machine's terminal:
     ```bash
     VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
     ```
+    More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
     </div>
 {% unless page.installation_type == 'macos' %}
@@ -359,6 +360,8 @@ _All these can be extended if your usage calls for more resources._
 3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 
 {% endif %}
+
+{% include installation_survey.html %}
 
 With the Home Assistant Operating System installed and accessible, you can continue with onboarding.
 

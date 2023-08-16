@@ -316,10 +316,10 @@ To add new devices to the network, call the `permit` service on the `zha` domain
 
 This service opens network for joining new devices.
 
-| Data       | Optional | Description                                            |
-| ---------- | -------- | ------------------------------------------------------ |
-| `duration` | yes      | For how long to allow new devices to join, default 60s |
-| `ieee`     | yes      | allow new devices to join via an existing device       |
+| Data       | Optional | Description                                                                    |
+| ---------- | -------- | ------------------------------------------------------------------------------ |
+| `duration` | yes      | For how long to allow new devices to join, default 60s                         |
+| `ieee`     | yes      | The IEEE address of an existing device via which the new device is to be added |
 
 To join a new device using an install code (ZB3 devices) use the following data attributes (must use parameters only
 from the same group:
@@ -495,7 +495,7 @@ Before continuing with this section: If a device does not join/pair at all, read
 
 Tip to new Zigbee users: Checkout [blakadder's unofficial Zigbee Device Compatibility Repository](https://zigbee.blakadder.com). Anyone can help maintain the site by submitting device compatibility information to it. The repository contains independent community member's reports or device-specific pairing tips for several home automation gateway/bridge/hub software, including open-source Zigbee implementations, such as ZHA, Zigbee2MQTT, and Tasmota (Zigbee2Tasmota).
 
-#### How to add support for new and unsupported devices
+### How to add support for new and unsupported devices
 
 If your Zigbee device pairs/joins successfully with the ZHA integration but does not show all of the expected entities: 
 1. Try to re-pair/re-join the device several times.
