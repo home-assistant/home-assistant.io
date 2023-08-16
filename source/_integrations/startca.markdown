@@ -57,11 +57,11 @@ monitored_conditions:
   type: list
   keys:
     usage:
-      description: Bandwidth usage (percentage).
+      description: Bandwidth usage (percentage). This sensor is not supported for unlimited plans.
     usage_gb:
       description: Bandwidth usage (gigabytes).
     limit:
-      description: Monthly bandwidth limit (gigabytes).
+      description: Monthly bandwidth limit (gigabytes). This sensor is not supported for unlimited plans.
     used_download:
       description: Bandwidth used by download outside the grace period (gigabytes).
     used_upload:
@@ -79,5 +79,5 @@ monitored_conditions:
     total_upload:
       description: Total bandwidth upload (Grace + Used) (gigabytes).
     used_remaining:
-      description: Remaining bandwidth calculated from used and supplied total bandwidth (gigabytes).
+      description: Remaining bandwidth calculated from used and supplied total bandwidth (gigabytes). This sensor is not supported for unlimited plans.
 {% endconfiguration %}
