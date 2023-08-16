@@ -379,7 +379,7 @@ binary_sensors:
       required: false
       type: string
     slave_count:
-      description: Generates x-1 slave binary sensors, allowing read of multiple coils with a single read messsage.
+      description: Generates x+1 binary sensors (master + slaves), allowing read of multiple coils with a single read messsage.
       required: false
       type: integer
 
@@ -1026,7 +1026,7 @@ sensors:
       required: false
       type: string
     slave_count:
-      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read messsage.
+      description: Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read messsage.
       required: false
       type: integer
 {% endconfiguration %}
