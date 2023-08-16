@@ -25,6 +25,4 @@ There is currently support for the following platform within Home Assistant:
 
 During the configuration, you will have to manually set the **Host** and the **Access Token**. You can find them inside your [Yardian App](https://yardian.com/app/).
 
-<p class='img'>
-<img src='/images/screenshots/yardian_config_flow.jpg' />
-</p>
+![Yardian Host/Token Location](/images/integrations/yardian/yardian_config_flow.jpg)
