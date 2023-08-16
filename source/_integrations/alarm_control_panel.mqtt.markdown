@@ -244,10 +244,10 @@ state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: true
   type: string
-supported_features
-  description: A list of features that the alarm control panel supports. The available options are "arm_home", "arm_away", "arm_night", "arm_vacation", "arm_custom_bypass", and "trigger".
-  required: true
-  type: [list, string]
+supported_features:
+  description: A list of features that the alarm control panel supports. The available list options are `arm_home`, `arm_away`, `arm_night`, `arm_vacation`, `arm_custom_bypass`, and `trigger`.
+  required: false
+  type: list
   default: ["arm_home", "arm_away", "arm_night", "arm_vacation", "arm_custom_bypass", "trigger"]
 unique_id:
    description: An ID that uniquely identifies this alarm panel. If two alarm panels have the same unique ID, Home Assistant will raise an exception.
