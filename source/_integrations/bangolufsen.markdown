@@ -4,7 +4,7 @@ description: Instructions on how to integrate Bang & Olufsen devices into Home A
 ha_category:
   - Media Player
   - Multimedia
-ha_release: 2023.8
+ha_release: 2023.9
 ha_iot_class: Local Push
 ha_domain: bangolufsen
 ha_platforms:
@@ -20,7 +20,7 @@ The `bangolufsen` integration enables control of some of the features of certain
 
 ## Compatible devices
 
-Devices that have been tested and *should* work without any trouble are:
+Devices that have been tested and _should_ work without any trouble are:
 
 - [Beolab 28](https://www.bang-olufsen.com/en/dk/speakers/beolab-28)
 - [Beosound 2 3rd gen](https://www.bang-olufsen.com/en/dk/speakers/beosound-2)
@@ -40,15 +40,15 @@ IP Address:
   required: true
   type: string
 Device model:
-  description: The model name of your Bang & Olufsen device. This is used to determine som capabilities of the device. If the device is not in the list yet, choose a product similar to yours.
+  description: The model name of your Bang & Olufsen device. This is used to determine some capabilities of the device. If the device is not in the list yet, choose a product similar to yours.
   required: true
   type: string
 Volume step:
-  description: The step size of the media_player.volume_up and media_player.volume_down services.
+  description: The step size of the `media_player.volume_up` and `media_player.volume_down` services.
   required: true
   type: integer
 Default volume:
-  description: The volume level that the device will *default* to when entering standby.
+  description: The volume level that the device will default to when entering standby.
   required: true
   type: integer
 Max volume:
@@ -64,11 +64,11 @@ Name:
   required: true
   type: string
 Volume step:
-  description: The step size of the media_player.volume_up and media_player.volume_down services.
+  description: The step size of the `media_player.volume_up` and `media_player.volume_down` services.
   required: true
   type: integer
 Default volume:
-  description: The volume level that the device will *default* to when entering standby.
+  description: The volume level that the device will default to when entering standby.
   required: true
   type: integer
 Max volume:
@@ -218,6 +218,14 @@ Leave a Beolink experience.
 ### Service `bangolufsen.beolink_allstandby`
 
 Set all Connected Beolink devices to standby.
+
+### Service `bangolufsen.beolink_set_relative_volume`
+
+Increase or decrease volume by a certain value for all connected Beolink devices.
+
+| Service data attribute | Optional | Description               |
+| ---------------------- | -------- | ------------------------- |
+| `volume_level`         | no       | Specify the volume level. |
 
 ### Service `bangolufsen.beolink_set_volume`
 
