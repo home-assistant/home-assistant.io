@@ -1013,6 +1013,10 @@ sensors:
       description: The maximum allowed value of a sensor. If value > max_value --> max_value. Can be float or integer
       required: false
       type: float
+    nan_value:
+      description: If a Modbus sensor has a defined NaN value, this value can be set as a hex string starting with `0x` containing one or more bytes (for example, `0xFFFF` or `0x80000000`) or provided as an integer directly. If triggered, the sensor becomes `unavailable`. Please note that the hex to int conversion for `nan_value` does currently not obey home-assistants Modbus encoding using the `data_type`, `structure`, or `swap` arguments.
+      required: false
+      type: string
     zero_suppress:
       description: Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer
       required: false
@@ -1026,7 +1030,7 @@ sensors:
       required: false
       type: string
     slave_count:
-      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read messsage.
+      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read message.
       required: false
       type: integer
 {% endconfiguration %}
