@@ -98,7 +98,7 @@ Allow control of network access to clients configured in the integration options
 
 ### PoE port control
 
-Provides per port PoE control. Entities are disabled by default. This feature requires admin privileges.
+Provides per-port PoE control. Entities are disabled by default. This feature requires admin privileges.
 
 ### Control DPI Traffic Restrictions
 
