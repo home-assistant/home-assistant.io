@@ -274,7 +274,9 @@ The example below shows a full configuration with an alarm panel that only suppo
 mqtt:
   - alarm_control_panel:
       name: "Alarm Panel"
-      supported_features: ["arm_home", "arm_away"]
+      supported_features:
+        - arm_home
+        - arm_away
       state_topic: "alarmdecoder/panel"
       command_topic: "alarmdecoder/panel/set"
 ```
