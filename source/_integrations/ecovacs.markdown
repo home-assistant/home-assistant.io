@@ -79,11 +79,11 @@ logger:
 
 The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Deebot vacuums.
 
-### Vacuum services
+### Vacuum services historical note
 
-The `ecovacs` vacuum platform does not support eithor of the services `vacuum.pause` or `vacuum.start`, it supports the following services instead.
+The `ecovacs` vacuum platform previously did not support either of the services `vacuum.pause` or `vacuum.start`, it supported the `vacuum.turn_on` and `vacuum.turn_off` instead. This functionality was replaced with standardized `vacuum.start` and `vacuum.stop` by 2023.8.
 
-#### Service `vacuum.turn_on`
+#### Service `vacuum.start`
 
 Start a new cleaning task.
 
@@ -91,7 +91,7 @@ Start a new cleaning task.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
-#### Service `vacuum.turn_off`
+#### Service `vacuum.stop`
 
 Stop the current cleaning task and return to the dock.
 
