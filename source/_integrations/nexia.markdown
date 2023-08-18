@@ -101,12 +101,3 @@ Sets the humidify setpoint. This setting will affect all zones on the same therm
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
 | `humidity` | no | Humidify setpoint level, from 35 to 65.
-
-### Service `nexia.set_fan_speed`
-
-Sets the blower fan speed. This setting will affect all zones on the same thermostat.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
-| `fan_speed` | no | Fan speed setpoint, from 35 to 100.
