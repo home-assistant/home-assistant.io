@@ -32,6 +32,8 @@ More than 175 utilities use Opower. Currently only the following ones are suppor
 
 To add this integration to your installation, you will need your login username and password for your utility website. Two-factor authentication is not supported.
 
+For the Exelon subsidiaries, log on the web site, select don't use 2FA and don't ask me again. If you have already enabled 2FA, disable it.
+
 {% include integrations/config_flow.md %}
 
 ## Sensors
