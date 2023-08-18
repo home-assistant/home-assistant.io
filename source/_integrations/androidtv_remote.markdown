@@ -36,7 +36,7 @@ Using the `media_player.play_media` service, you can launch applications via `De
 
 ### Launching apps
 
-You can pass any URL to the device. Using `Deep Links` you can launch some applications.
+You can pass any URL to the device. Using `Deep Links`, you can launch some applications.
 
 Examples of some `Deep Links` for popular applications:
 
@@ -223,7 +223,7 @@ Below is an example for you to start with. Many of the buttons support long pres
 
 Add a Manual card with the following code. 
 Replace all instances of `living_room_tv` with your entity ID.
-Tip: inside the code editor press `ctrl+F` (or `command+F` on Mac) to do the replace all.
+ - To use the `replace all` functionality, inside the code editor, press `ctrl+F` (or `command+F` on Mac).
 
 ```yaml
 type: vertical-stack
@@ -487,12 +487,12 @@ cards:
 {% enddetails %}
 
 
-## Troubleshooting/Known issues
+## Limitations and known issues
 
-- Doesn't work with Fire TV devices because they are missing the [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service). Attempts to sideload it haven't been successful.
-- If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot with this integration either.
+- The integration doesn't work with Fire TV devices because they are missing the [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service). Attempts to sideload it haven't been successful.
+- If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot send commands with this integration either.
 - Commands don't work on Netflix. They don't work from the Google TV mobile app or the Google Home mobile app either.
 - Some devices, like Xiaomi, become unavailable after they are turned off and can't be turned on with this integration.
 - Some devices experience disconnects every 15 seconds. This is typically resolved by rebooting the Android TV device after the initial setup of the integration.
-- If you are not able to connect to the Android TV device, or asked to pair it again and again, try force stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to settings, apps, show system apps, select Android TV Remote Service, storage, clear storage. You will have to pair again.
-- Some onscreen keyboards enabled by TV manufacturers do not support concurrent virtual and onscreen keyboard use. This presents whenever a text field is selected, such as "search" where a constant "use the keyboard on your mobile device" will show, preventing you from opening the onscreen keyboard to type. This can be overcome by disabling your "3rd party" keyboard and using the default Gboard keyboard.
+- If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **settings** > **Apps** >  **Show system apps**. Then,  select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to pair again.
+- Some onscreen keyboards enabled by TV manufacturers do not support concurrent virtual and onscreen keyboard use. This presents whenever a text field is selected, such as "search" where a constant **use the keyboard on your mobile device** will show, preventing you from opening the onscreen keyboard to type. This can be overcome by disabling your 3rd party keyboard and using the default Gboard keyboard.
