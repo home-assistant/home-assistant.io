@@ -82,10 +82,10 @@ Use this procedure if Raspberry Pi Imager is not supported by your platform.
 
 1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
-3. Select **Flash from URL**.
-![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 
-4. Copy the correct URL for the Raspberry Pi 3 or 4 (Note: there are 2 different links below!):
+3. Download the image to your computer.
+   - Copy the correct URL for the Raspberry Pi 3 or 4 (Note: there are 2 different links below!):
+
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
 
@@ -101,15 +101,18 @@ Use this procedure if Raspberry Pi Imager is not supported by your platform.
 
 _Select and copy the URL or use the "copy" button that appear when you hover it._
 
-1. Paste the URL for the image into Balena Etcher and select **OK**.
-![Screenshot of the Etcher software showing the URL bar with a URL pasted in.](/images/installation/etcher2.png)
-2. When Balena Etcher has downloaded the image, select **Select target**.
+4. Paste the URL into your browser to start the download.
+5. Select **Flash from file** and select the image you just downloaded.
+   - **Flash from URL** does not work on some systems.
+
+  ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
+6. **Select target**.
 ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
-3. Select the SD card you want to use for your installation.
+7. Select the SD card you want to use for your installation.
 ![Screenshot of the Etcher software showing teh targets available.](/images/installation/etcher4.png)
-4. Select **Flash!** to start writing the image.
+8. Select **Flash!** to start writing the image.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-5. Once Balena Etcher has finished writing the image, you will see a confirmation.
+9. Once Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 
