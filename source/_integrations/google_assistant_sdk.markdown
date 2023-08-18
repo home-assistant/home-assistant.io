@@ -90,6 +90,44 @@ The integration setup will next give you instructions to enter the [Application 
 
 {% enddetails %}
 
+## Enable personal results (for advanced users)
+
+If you want to enable personal commands (e.g. "remind me tomorrow at 9 pm to take out the trash") follow the steps below after successfully installing the integration. This is for advanced users since it requires creating an OAuth client ID of Desktop app, running a Python program on your desktop (or laptop), and copying the resulting credentials to your Home Assistant config directory.
+
+{% details "Create credentials file" %}
+
+1. Navigate to [Google Developers Console > Credentials](https://console.cloud.google.com/apis/credentials)
+2. Select the project you created earlier from the dropdown menu in the upper left corner.
+3. Click Create credentials (at the top of the screen), then select OAuth client ID.
+4. Set the Application type to "Desktop app" and give this credential set a name (like "Home Assistant Desktop Credentials").
+5. Click Create.
+6. In the OAuth client created screen, click on Download JSON.
+7. Rename the downloaded file to `client_secret.json`
+8. On your Windows or Linux or Mac machine download Python if you don't have it already.
+9. Open terminal (on windows click on start and then type cmd).
+10. On the terminal run the following commands (preferably in a Python virtual environment): 
+11. `python -m pip install --upgrade google-auth-oauthlib[tool]`
+12. Under Windows: `google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype --scope https://www.googleapis.com/auth/gcm --save --client-secrets %userprofile%\Downloads\client_secret.json`
+13. Or under Linux: `google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype --scope https://www.googleapis.com/auth/gcm --save --client-secrets ~/Downloads/client_secret.json`
+14. A browser window will open asking you to select the account to continue to the cloud project you created earlier.
+15. Once you select the correct account, add a tick to both: "Use your Google Assistant: broad access to your Google account."  and "Send information to your Android device.".
+16. Click continue.
+17. If everything was successful you will get "The authentication flow has completed. You may close this window." in your browser and in your terminal you will see the path where the credentials was saved. E.g. `credentials saved: C:\Users\user\AppData\Roaming\google-oauthlib-tool\credentials.json`
+18. In the file editor of your Home Assistant, typically http://homeassistant.local:8123/core_configurator, upload `credentials.json` in your config directory and rename it to `google_assistant_sdk_credentials.json`.
+19. If you have .gitignore in your config directory, add `google_assistant_sdk_credentials.json` in that file to avoid uploading your credentials to GitHub.
+
+{% enddetails %}
+
+{% details "Enable personal results" %}
+
+1. In the Developer Tools > Services, issue a query that requires personal results, e.g. call `google_assistant_sdk.send_text_command` with `command: "what is my name"`
+2. On your phone you should receive a notification "Allow personal answers" "Allow Google Assistant to answer your questions about your calendar, trips, and more"
+3. DO NOT tap on ALLOW (it won't work until you enter a device name). Instead tap on the notification text.
+4. Tap on Device Name, enter any device name (like Home Assistant), and tap on OK.
+5. Only after having a non empty device name enable the checkbox next to Personal results.
+
+{% enddetails %}
+
 ## Troubleshooting
 
 If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
@@ -103,7 +141,6 @@ The easiest way to check if the integration is working is to check [My Google Ac
 ## Limitations/known issues
 
 - Multiple Google accounts are not supported.
-- Personal results are not supported yet since that requires creating an OAuth client ID of the Desktop app.
 - If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity), the integration is working fine. If the commands don't have the expected outcome, don't open an issue in the Home Assistant Core project or the [underlying library](https://github.com/tronikos/gassist_text). You should instead report the issue directly to Google [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
   - Media playback commands (other than play news, play podcast, play white noise, or play rain sounds) don't work.
   - Routines don't work.
