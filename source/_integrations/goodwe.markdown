@@ -58,3 +58,9 @@ The integration will poll the inverter for new values every 10 seconds. If you w
 <div class='note'>
 It has been observed in some rare situations that frequent polling conflicts with updates to the Goodwe SEMS cloud portal and do not receive any updates anymore. Reducing polling frequency to 30 seconds or 1 minute seems to help in such cases.
 </div>
+
+For more detailed steps on how to define a custom polling interval, follow the procedure below.
+
+## Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}

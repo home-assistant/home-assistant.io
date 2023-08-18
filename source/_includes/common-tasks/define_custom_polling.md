@@ -1,4 +1,4 @@
-## Defining a custom polling interval
+
 
 If you want to define a specific interval at which your device is being polled for data, you can disable the default polling interval and create your own polling service.
 
