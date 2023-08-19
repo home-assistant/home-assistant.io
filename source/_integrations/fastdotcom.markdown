@@ -8,6 +8,7 @@ ha_release: 0.88
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@rohankapoorcom'
+  - '@erwindouna'
 ha_domain: fastdotcom
 ha_platforms:
   - sensor
@@ -25,59 +26,9 @@ If you want to measure bandwidth metrics other then download such as ping and up
 
 Enabling this integration will automatically create the Fast.com Sensor.
 
-By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a speed test to run.
+By default, a speed test will be run every hour. The user can manually run a speed test via the `homeassistant.update_entity` service.
 
-## Configuration
-
-To add Fast.com to your installation, add the following to your `configuration.yaml` file:
-
-Once per hour, on the hour (default):
-
-```yaml
-fastdotcom:
-```
-
-Every half hour of every day:
-
-```yaml
-fastdotcom:
-  scan_interval:
-      minutes: 30
-```
-
-{% configuration %}
-scan_interval:
-  description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
-  required: false
-  default: 60 minutes
-  type: time
-manual:
-  description: Turn manual mode on or off. Manual mode will disable scheduled speedtests.
-  required: false
-  default: false
-  type: boolean
-{% endconfiguration %}
-
-### Time period dictionary example
-
-```yaml
-scan_interval:
-  # At least one of these must be specified:
-  days: 0
-  hours: 0
-  minutes: 3
-  seconds: 30
-  milliseconds: 0
-```
-
-## Service
-
-Once loaded, the `fastdotcom` integration will expose a service (`fastdotcom.speedtest`) that can be called to run a Fast.com speed test on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
-
-```yaml
-action:
-  service: fastdotcom.speedtest
-```
+{% include integrations/config_flow.md %}
 
 ## Notes
 
