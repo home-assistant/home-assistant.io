@@ -271,9 +271,9 @@ The first will allow specifying a temperature, the second instead of a percentag
  will be disabled.
 As soon as you change the temperature, it gets enabled again.
 
-## Shelly Gas with Valve addon
+## Shelly Gas with Valve add-on
 
-If you have Valve addon connected to Shelly Gas, the integration will create two entities for the valve. The `switch` entity allows you to control the valve, the `sensor` entity shows exact states of the valve.
+If you have Valve add-on connected to Shelly Gas, the integration will create two entities for the valve. The `switch` entity allows you to control the valve, the `sensor` entity shows exact states of the valve.
 
 <div class="note">
 
