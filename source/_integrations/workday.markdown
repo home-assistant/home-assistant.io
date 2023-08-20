@@ -40,7 +40,7 @@ Take note of the `holiday` keyword. Your first instinct might be to add it to th
 
 ## Specific field information
 
-Country code must be given according to [holidays](https://pypi.org/project/holidays/) notation. The country can also be set to `None` to use a blank slate of holidays. This is useful in conjunction with the add holidays field.
+Country code must be given according to [holidays](https://pypi.org/project/holidays/) notation. The country can also be set to `None` to start with an empty set of holidays. This is useful in conjunction with the add holidays field.
 
 Subdivision code must be given according to [holidays](https://pypi.org/project/holidays/) notation.
 
