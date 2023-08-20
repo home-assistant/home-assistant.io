@@ -14,12 +14,12 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The HKO integration retrieves weather data from the [Hong Kong Observatory Open Data API](https://www.hko.gov.hk/en/abouthko/opendata_intro.htm) for meteorological data in HKSAR.
+The HKO integration retrieves weather data from the [Hong Kong Observatory](https://www.hko.gov.hk/tc/index.html) [Open Data API](https://www.hko.gov.hk/en/abouthko/opendata_intro.htm) for meteorological data in HKSAR.
 
-The integration support the following platforms within Home Assistant:
+There is currently support for the following platforms within Home Assistant:
 
 - [Weather](#weather-platform)
 
-It supports displaying the weather of your selected district and the 5-day weather forecast for Hong Kong.
+It displays the weather of your selected location and the 5-day weather forecast for Hong Kong.
 
 {% include integrations/config_flow.md %}
