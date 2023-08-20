@@ -271,6 +271,16 @@ The first will allow specifying a temperature, the second instead of a percentag
  will be disabled.
 As soon as you change the temperature, it gets enabled again.
 
+## Shelly Gas with Valve addon
+
+If you have Valve addon connected to Shelly Gas, the integration will create two entities for the valve. The `switch` entity allows you to control the valve, the `sensor` entity shows exact states of the valve.
+
+<div class="note">
+
+The `switch` entity in Home Assistant does not support transition states. For this reason, the `opening` state of the valve maps to the `on` (opened) state of the entity and the `closing` state of the valve maps to the `off` (closed) state of the entity.
+
+</div>
+
 ## CoAP port (generation 1)
 
 In some cases, it may be needed to customize the CoAP UDP port (default: `5683`) your Home Assistant instance is listening to.
