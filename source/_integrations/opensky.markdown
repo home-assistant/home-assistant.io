@@ -29,6 +29,12 @@ altitude:
   description: The minimum height in meters above which the planes are tracked. No input (or 0) means all planes are tracked in the area.
 {% endconfiguration_basic %}
 
+## Authentication
+
+By default, to not hit the API limit, polling is done every 15 minutes.
+You can do more API requests as an authenticated user.
+To login you can enter your credentials in the integration configuration.
+
 ## Events
 
 - **opensky_entry**: Fired when a flight enters the region.
