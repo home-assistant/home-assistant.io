@@ -3,13 +3,12 @@ title: Open Thread Border Router
 ha_category:
   - Other
 ha_release: 2023.2
-ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: otbr
 ha_iot_class: Local Polling
-ha_platforms:
-ha_integration_type: integration
+ha_integration_type: service
+ha_config_flow: true
 ---
 
 The Open Thread Border Router integration allows calling an Open Thread Border Router's REST API from Python and via WebSocket.

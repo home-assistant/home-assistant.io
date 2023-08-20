@@ -12,13 +12,13 @@ ha_domain: counter
 ha_integration_type: helper
 ---
 
-The `counter` integration allows one to count occurrences fired by automations.
+The Counter integration allows one to count occurrences fired by automations.
 
 ## Configuration
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
 **{% my helpers title="Settings -> Devices & Services -> Helpers" %}** and click the add button;
-next choose the "**Counter**" option.
+next choose the **{% my config_flow_start domain=counter title="Counter" %}** option.
 
 To be able to add **Helpers** via the user interface you should have
 `default_config:` in your `configuration.yaml`, it should already be there by
@@ -85,7 +85,7 @@ If `restore` is set to `true`, the `initial` value will only be used when no pre
 
 ## Services
 
-Available services: `increment`, `decrement`, `reset` and `configure`.
+Available services: `increment`, `decrement`, `reset`, and `set_value`.
 
 ### Service `counter.increment`
 
@@ -111,18 +111,14 @@ With this service the counter is reset to its initial value.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-### Service `counter.configure`
+### Service `counter.set_value`
 
-With this service the properties of the counter can be changed while running.
+This service allows setting the counter to a specific value.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
-| `minimum`              |     yes  | Set new value for minimum. None disables minimum. |
-| `maximum`              |     yes  | Set new value for maximum. None disables maximum. |
-| `step`                 |     yes  | Set new value for step. |
-| `initial`              |     yes  | Set new value for initial. |
-| `value`                |     yes  | Set the counters state to the given value. |
+| `value`                |     yes  | Set the counter to the given value. |
 
 ### Use the service
 

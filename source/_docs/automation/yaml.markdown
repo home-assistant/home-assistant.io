@@ -3,7 +3,7 @@ title: "Automation YAML"
 description: "How to use the automation integration with YAML."
 ---
 
-Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an automation, go to edit the automation, click on the menu button in the top right and turn on YAML mode.
+Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an automation, select the automation, click on the menu button in the top right then on **Edit in YAML**.
 
 The UI will write your automations to `automations.yaml`. This file is managed by the UI and should not be edited manually.
 
@@ -189,7 +189,7 @@ automation my_lights:
         data:
           message: "Paulus left the house"
 
-  # Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi component.
+  # Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi integration.
   - alias: "Xiaomi Cube Action"
     initial_state: false
     trigger:

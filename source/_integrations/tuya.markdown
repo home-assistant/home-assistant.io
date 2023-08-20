@@ -54,7 +54,7 @@ All Home Assistant platforms are supported by the Tuya integration, except the l
 
 ### Prerequisites
 
-- Your devices need first to be added in the [Tuya Smart or Smart Life app](https://developer.tuya.com/en/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
+- Your devices need first to be added in the [Tuya Smart or Smart Life app](https://developer.tuya.com/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
 - You will also need to create an account in the [Tuya IoT Platform](https://iot.tuya.com/).
 This is a separate account from the one you made for the app. You cannot log in with your app's credentials.
 
@@ -66,8 +66,8 @@ This is a separate account from the one you made for the app. You cannot log in 
 4. In the `Create Cloud Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in. Refer to the country/data center mapping list [here](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md) to choose the right data center for the country you are in.
   ![](/images/integrations/tuya/image_001.png)
 5. Click `Create` to continue with the project configuration.
-6. In Configuration Wizard, make sure you add `Device Status Notification` API. The list of API should look like this:
-  ![](/images/integrations/tuya/image_002.png)
+6. In Configuration Wizard, make sure you add `Industry Basic Service`, `Smart Home Basic Service` and `Device Status Notification` APIs. The list of API should look like this:
+  ![](/images/integrations/tuya/image_002new.png)
 7. Click `Authorize`.
 
 ### Link devices by app account
@@ -75,7 +75,7 @@ This is a separate account from the one you made for the app. You cannot log in 
 1. Navigate to the `Devices` tab.
 2. Click `Link Tuya App Account` > `Add App Account`.
   ![](/images/integrations/tuya/image_003.png)
-3. Scan the QR code that appears using the `Tuya Smart` app or `Smart Life` app.
+3. Scan the QR code that appears using the `Tuya Smart` app or `Smart Life` app using the 'Me' section of the app.
   ![](/images/integrations/tuya/image_004.png)
 4. Click `Confirm` in the app.
 5. To confirm that everything worked, navigate to the `All Devices` tab. Here you should be able to find the devices from the app.
@@ -130,11 +130,11 @@ If no devices show up in Home Assistant:
 
 "1106: permission deny":
   description: >
-    - App account not linked with cloud project: On the [Tuya IoT Platform](https://iot.tuya.com/cloud/), you have linked devices by using Tuya Smart or Smart Life app in your cloud project. For more information, see [Link devices by app account](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx&_source=7a356dd493196a01bb9021b7680a2a45#title-3-Link%20devices%20by%20app%20account).
+    - App account not linked with cloud project: On the [Tuya IoT Platform](https://iot.tuya.com/cloud/), you have linked devices by using Tuya Smart or Smart Life app in your cloud project. For more information, see [Link devices by app account](https://developer.tuya.com/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx#title-3-Link%20devices%20by%20app%20account).
 
     - Incorrect username or password: Enter the correct account and password of the Tuya Smart or Smart Life app in the **Account** and **Password** fields (social login, which the Tuya Smart app allows, may not work, and thus should be avoided for use with the Home Assistant integration). Note that the app account depends on which app (Tuya Smart or Smart Life) you used to link devices on the [Tuya IoT Platform](https://iot.tuya.com/cloud/).
 
-    - Incorrect country. You must select the region of your account of the Tuya Smart app or Smart Life app.
+    - Incorrect country. You must select the region of your account of the Tuya Smart app or Smart Life app.    
 
 "1100: param is empty":
   description: Empty parameter of username or app. Please fill the parameters refer to the **Configuration** part above.
@@ -149,9 +149,13 @@ If no devices show up in Home Assistant:
 
 "28841105: No permissions. This project is not authorized to call this API":
   description: >
-    Some APIs are not authorized, please [Subscribe](https://developer.tuya.com/en/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-2-Subscribe%20to%20cloud%20products) then [Authorize](https://developer.tuya.com/en/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-3-Authorize%20projects%20to%20call%20the%20cloud%20product). The following APIs must be subscribed for this tutorial:
+    Some APIs are not authorized, please [Subscribe](https://developer.tuya.com/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-2-Subscribe%20to%20APIs) then [Authorize](https://developer.tuya.com/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-3-Grant%20a%20project%20access%20to%20API%20calls). The following APIs must be subscribed for this tutorial:
 
     - Device Status Notification
+
+    - Industry Basic Service
+
+    - Smart Home Basic Service
     
     - Authorization
 

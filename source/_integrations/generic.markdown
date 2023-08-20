@@ -24,13 +24,13 @@ Home Assistant will serve the images via its server, making it possible to view 
 
 You must enter a URL in at least one of the fields **Still Image URL** or **Stream Source URL**, the others are optional.
 
-[Templates](/topics/templating/) are allowed in the URL fields, which can be used to select different images or parameterize the URL depending on the status of sensors.  Template validity and network access are checked during the configuration steps.
+[Templates](/docs/configuration/templating/) are allowed in the URL fields, which can be used to select different images or parameterize the URL depending on the status of sensors.  Template validity and network access are checked during the configuration steps.
 
 {% configuration_basic %}
 Still Image URL:
-  description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/). Usernames and passwords are allowed in the URL, but if none are provided, the `Username` and `Password` settings will be used during authentication.  At least one of still_image_url or stream_source must be provided."
+  description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/docs/configuration/templating/). Usernames and passwords are allowed in the URL, but if none are provided, the `Username` and `Password` settings will be used during authentication.  At least one of still_image_url or stream_source must be provided."
 Stream Source:
-  description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`. Can be a [template](/topics/templating/). Usernames and passwords are allowed in the URL, but if none are provided, the `Username` and `Password` settings will be used during authentication.  At least one of still_image_url or stream_source must be provided. Note that a stream_source without a still_image_url can only be used if the [stream integration](/integrations/stream/) is configured."
+  description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`. Can be a [template](/docs/configuration/templating/). Usernames and passwords are allowed in the URL, but if none are provided, the `Username` and `Password` settings will be used during authentication.  At least one of still_image_url or stream_source must be provided. Note that a stream_source without a still_image_url can only be used if the [stream integration](/integrations/stream/) is configured."
 Username:
   description: The username for accessing your camera. Note that this applies to both still_image_url and stream_source.
 Password:
@@ -86,12 +86,12 @@ To access a camera which is only available via HTTP, you must turn off SSL verif
 
 ### Live stream
 
-To access a camera that has both a snapshot and live stream URL, utilizing the [stream](/integrations/stream/) component.
+To access a camera that has both a snapshot and live stream URL, utilizing the [stream](/integrations/stream/) integration.
 
 - Still Image URL: `http://194.218.96.92/jpg/image.jpg`
 - Stream Source: `rtsp://user:pass@194.218.96.92:554`
 
-If a camera only has a live stream URL and no snapshot URL, the [stream](/integrations/stream/) component can also generate still images from the live stream URL.
+If a camera only has a live stream URL and no snapshot URL, the [stream](/integrations/stream/) integration can also generate still images from the live stream URL.
 
 - Stream Source: `rtsp://user:pass@194.218.96.92:554`
 

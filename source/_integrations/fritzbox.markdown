@@ -53,7 +53,8 @@ Additionally, we also support to trigger smarthome templates.
 - [FRITZ!DECT 301](https://en.avm.de/products/fritzdect/fritzdect-301/)
 - [FRITZ!DECT 500](https://en.avm.de/products/fritzdect/fritzdect-500/)
 - [Eurotronic Comet DECT](https://eurotronic.org/produkte/dect-ule-heizkoerperthermostat/comet-dect/)
-- [Magenta SmartHome LED E27](https://www.smarthome.de/geraete/smarthome-led-lampe-e27-farbig-weiss)
+- [Magenta SmartHome LED E27 Color](https://www.smarthome.de/geraete/smarthome-led-lampe-e27-farbig-weiss)
+- Magenta SmartHome LED E27 warmwhite
 - [Rademacher RolloTron DECT 1213](https://www.rademacher.de/shop/rollladen-sonnenschutz/elektrischer-gurtwickler/rollotron-dect-1213)
 
 {% include integrations/config_flow.md %}
