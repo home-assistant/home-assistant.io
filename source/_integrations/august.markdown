@@ -73,7 +73,8 @@ Other August locks expect to be powered by AA alkaline (non-rechargeable) batter
 While most entities are able to be updated via the push API, August/Yale does not offer a push API for for some data which means these entities will update slower:
 
 - Doorbell ding sensor (Doorman models only)
-- Operator sensor
+- Lock Battery sensor
+- Lock Operation sensor
 
 ## Binary Sensor
 
