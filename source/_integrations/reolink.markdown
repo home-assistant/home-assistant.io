@@ -168,6 +168,7 @@ When IR light entity is OFF always OFF, when ON IR LEDs will be on when the came
 
 Depending on the supported features of the camera, the following sensor entities are added:
 
+- PTZ pan position
 - Wi-Fi signal*
 
 ## Update entity
