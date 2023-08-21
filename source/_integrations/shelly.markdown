@@ -65,7 +65,7 @@ If you have followed the above steps, but the repair issue remains, there are di
 
 ## Configuring 2nd generation Shelly devices
 
-Second generation Shelly devices use the `RPC` protocol to communicate with the integration. **Only** battery powered 2nd generation devices  need manual outbound WebSocket configuration:
+Second generation Shelly devices use the `RPC` protocol to communicate with the integration. **Only battery powered** 2nd generation devices need manual outbound WebSocket configuration:
 
 1. Ensure the Shelly device is on the current firmware. Older firmware will lack the necessary setting;
 2. In the device's web UI (at the local IP address of your Shelly device), go to: Left sidebar >> **Settings** >> **Outbound WebSocket**;
