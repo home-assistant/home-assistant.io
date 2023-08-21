@@ -55,7 +55,8 @@ First generation Shelly devices use the `CoIoT` protocol to communicate with the
 1. Ensure the Shelly device is on the current firmware. Older firmware will lack the necessary setting;
 2. In the device's web UI (at the local IP address of your Shelly device), go to: **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS**;
 3. Make sure box **Enable CoIoT** is selected;
-4. In **CoIoT peer** field, enter `Your_Home_Assistant_local_IP_address:5683`
+4. In **CoIoT peer** field, enter `Your_Home_Assistant_local_IP_address:5683`, for example: `192.168.1.10:5683`
+
 5. Click **Save**;
 6. Reboot the Shelly device.
 
