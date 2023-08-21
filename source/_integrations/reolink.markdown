@@ -17,6 +17,7 @@ ha_platforms:
   - light
   - number
   - select
+  - sensor
   - siren
   - switch
   - update
@@ -167,6 +168,7 @@ When IR light entity is OFF always OFF, when ON IR LEDs will be on when the came
 
 Depending on the supported features of the camera, the following sensor entities are added:
 
+- PTZ pan position
 - Wi-Fi signal*
 
 ## Update entity
@@ -210,6 +212,7 @@ The following models have been tested and confirmed to work:
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
+- [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - [Reolink Duo Floodlight PoE](https://reolink.com/product/reolink-duo-floodlight-poe/)
 - Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))

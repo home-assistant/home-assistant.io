@@ -17,9 +17,11 @@ ha_codeowners:
 ha_domain: roborock
 ha_platforms:
   - diagnostics
+  - number
   - select
   - sensor
   - switch
+  - time
   - vacuum
 ha_integration_type: integration
 ---
@@ -72,7 +74,7 @@ data:
     - segments:
         - 22
         - 23
-    - repeat: 1
+      repeat: 2
 target:
   entity_id: vacuum.s7_roborock
 

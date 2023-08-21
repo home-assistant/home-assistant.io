@@ -21,8 +21,10 @@ ha_platforms:
   - cover
   - device_tracker
   - diagnostics
+  - event
   - fan
   - humidifier
+  - image
   - light
   - lock
   - number
@@ -31,12 +33,11 @@ ha_platforms:
   - sensor
   - siren
   - switch
-  - text
   - tag
+  - text
   - update
   - vacuum
   - water_heater
-  - image
 ha_integration_type: integration
 ha_quality_scale: gold
 ---

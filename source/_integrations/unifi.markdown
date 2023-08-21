@@ -17,8 +17,10 @@ ha_codeowners:
 ha_domain: unifi
 ha_ssdp: true
 ha_platforms:
+  - button
   - device_tracker
   - diagnostics
+  - image
   - sensor
   - switch
   - update
@@ -29,6 +31,7 @@ ha_integration_type: hub
 
 There is currently support for the following device types within Home Assistant:
 
+- [Button](#button)
 - [Image](#image)
 - [Presence Detection](#presence-detection)
 - [Switch](#switch)
@@ -57,9 +60,13 @@ The UniFi Network application can either be a UniFi OS console device (like the 
 
 It is recommended that you run the UniFi Network application in a dedicated virtual machine to avoid that situation.
 
+## Button
+
+Provides the ability to restart a UniFi device. This feature requires admin privileges.
+
 ## Image
 
-Provides QR Code images that can be scanned to easily join a specific WLAN. Entities are disabled by default.
+Provides QR Code images that can be scanned to easily join a specific WLAN. Entities are disabled by default. This feature requires admin privileges.
 
 ## Presence detection
 
@@ -122,6 +129,10 @@ Entities reporting connected clients to a WLAN.
 ### Uptime sensor
 
 Get entities reporting uptime per network client.
+
+### Power Outlet sensor
+
+Get entities reporting the power utilization for outlets that support metrics (such as the AC outlets on the USP-PDU-Pro).
 
 ## Firmware updates
 

@@ -283,4 +283,3 @@ scrape:
         select: "div.nk-tb-item:nth-child(3) > div:nth-child(3) > span:nth-child(1) > span:nth-child(1)"
 
 ```
-
