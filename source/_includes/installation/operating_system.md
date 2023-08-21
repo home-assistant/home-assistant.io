@@ -121,10 +121,9 @@ sudo apt install libfuse2
    If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
 {% endif %}
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
-3. Select **Flash from URL**.
-![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
-
-4. Copy the URL for the image. If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}:
+3. Download the image to your computer.
+   - Copy the URL for the image.
+   - If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}.
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
@@ -155,17 +154,20 @@ sudo apt install libfuse2
 
 _Select and copy the URL or use the "copy" button that appear when you hover it._
 
-5. Paste the URL for the {{site.installation.types[page.installation_type].board}} image into Balena Etcher and select **OK**.
-![Screenshot of the Etcher software showing the URL bar with a URL pasted in.](/images/installation/etcher2.png)
-6. When Balena Etcher has downloaded the image, click **Select target**.
-[Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
+
+4. Paste the URL into your browser to start the download.
+5. Select **Flash from file** and select the image you just downloaded.
+   - **Flash from URL** does not work on some systems.
+
+  ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
+6. **Select target**.
+![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
 7. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
 ![Screenshot of the Etcher software showing teh targets available.](/images/installation/etcher4.png)
 8. Select **Flash!** to start writing the image.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
 9. When Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
-    - If you are having issues with Balena Etcher, rather than installing from URL, download the file. Then, install from file.
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
