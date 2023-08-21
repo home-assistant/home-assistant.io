@@ -71,7 +71,7 @@ Second generation Shelly devices use the `RPC` protocol to communicate with the 
 2. In the device's web UI (at the local IP address of your Shelly device), go to: Left sidebar >> **Settings** >> **Outbound WebSocket**;
 3. Make sure box **Enable Outbound WebSocket** is selected;
 4. In Server field, enter `ws://Your_Home_Assistant_local_IP_address:Port/api/shelly/ws` (note: port must match your Home Assistant port when you open the UI);
-5. You *might* have to tweak the **Connection Type**, depending on your local TLS certificate situation;
+5. You may have to tweak the **Connection Type**, depending on your local TLS certificate situation;
 6. Click **Apply** to save the settings;
 7. Reboot the Shelly device.
 
