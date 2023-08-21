@@ -30,6 +30,7 @@ See device section for support information: [Water Control](#water-control), [Ir
 ## Water Control
 
 - Water Control Bluetooth ([01889-20](https://www.gardena.com/int/products/watering/water-controls/water-control-bluetooth))
+- Soil Moisture Sensors ([1867-20](https://www.gardena.com/int/products/watering/water-controls/soil-moisture-sensor/))
 
 The paring of the device may require a [Factory Reset](#factory-reset) before it allows a connection.
 
