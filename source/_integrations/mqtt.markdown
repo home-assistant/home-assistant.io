@@ -276,6 +276,22 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
+It is encouraged to add additional information about the integration or application that supplies MQTT entities via MQTT discovery by adding the `integration` option (can abbreviated to `i`) to the discovery payload. Note that these options also support abbreviations. Information of the integration will be logged to the core event log.
+
+{% configuration_basic %}
+name:
+  description: The name of the integration/application that supplies the MQTT entity. This option is required.
+manufacturer:
+  description: Manufacturer of the integration/application that supplies the MQTT entity.
+hw_version:
+  description: Hardware/firmware version of the device that supplies the MQTT entity.
+sw_version:
+  description: Software version of the integration/application that supplies the MQTT entity.
+support_url:
+  description: Support URL of the integration/application that supplies the MQTT entity.
+{% endconfiguration_basic %}
+
+
 {% details "Supported abbreviations" %}
 
 ```txt
@@ -361,6 +377,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'hs_cmd_tpl':          'hs_command_template',
     'hs_stat_t':           'hs_state_topic',
     'hs_val_tpl':          'hs_value_template',
+    'i':                   'integration',
     'ic':                  'icon',
     'img_e':               'image_encoding',
     'img_t':               'image_topic',
@@ -555,6 +572,16 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'sa':                  'suggested_area',
 ```
 {% enddetails %}
+{% details "Supported abbreviations for integration / external application info" %}
+
+```txt
+    'name':                'name',
+    'mf':                  'manufacturer',
+    'hw':                  'hw_version',
+    'sw':                  'sw_version',
+    'url':                 'support_url',
+```
+{% enddetails %}
 
 ### Support by third-party tools
 
@@ -675,11 +702,39 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
   {
     "~": "homeassistant/light/kitchen",
     "name": "Kitchen",
-    "unique_id": "kitchen_light",
+    "uniq_id": "kitchen_light",
     "cmd_t": "~/set",
     "stat_t": "~/state",
     "schema": "json",
     "brightness": true
+  }
+  ```
+
+#### Example with using abbreviated Device and Integration info in discovery messages
+
+  ```json
+  {
+    "~": "homeassistant/light/kitchen",
+    "name": null,
+    "uniq_id": "kitchen_light",
+    "cmd_t": "~/set",
+    "stat_t": "~/state",
+    "schema": "json",
+    "dev": {
+      "ids": "ea334450945afc",
+      "name": "Kitchen",
+      "mf": "Bla electronics",
+      "mdl": "xya",
+      "sw": "1.0",
+      "hw": "1.0rev2",
+    },
+    "i": {
+      "name":"bla2mqtt",
+      "mf": "Bla electronics",
+      "sw": "2.1",
+      "hw": "1.0",
+      "url": "https://bla2mqtt.example.com/support",
+    }
   }
   ```
 
