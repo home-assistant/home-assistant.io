@@ -158,10 +158,10 @@ name:
 
 The EnOcean sensor platform currently supports the following device types:
 
- * [power sensor](#power-sensor)
- * [humidity sensor](#humidity-sensor)
- * [temperature sensor](#temperature-sensor)
- * [window handle](#window-handle)
+- [power sensor](#power-sensor)
+- [humidity sensor](#humidity-sensor)
+- [temperature sensor](#temperature-sensor)
+- [window handle](#window-handle)
  
 To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 

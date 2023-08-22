@@ -4,11 +4,11 @@ Backup of your Home Assistant and add-on data and configuration. They are stored
 
 A full backup includes the following directories:
 
-* `config`
-* `share`
-* `addons` (only manually installed or created add-ons, not those installed from the store)
-* `ssl`
-* `media`
+- `config`
+- `share`
+- `addons` (only manually installed or created add-ons, not those installed from the store)
+- `ssl`
+- `media`
 
 A partial backup consists of any number of the above default directories and installed add-ons.
 
