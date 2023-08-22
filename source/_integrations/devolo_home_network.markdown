@@ -76,8 +76,8 @@ Currently the following device types within Home Assistant are supported.
 
 ## Update
 
-- Update the firmware of a device
-  - Is enabled by default, but will only give a result, if regular checks are enabled on the device
+- Update the firmware of a device.
+  - Is enabled by default but will only give a result if regular checks are enabled on the device.
 
 ## Supported devolo Devices
 
