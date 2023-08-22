@@ -281,10 +281,6 @@ It is encouraged to add additional information about the integration or applicat
 {% configuration_basic %}
 name:
   description: The name of the integration/application that supplies the MQTT entity. This option is required.
-manufacturer:
-  description: Manufacturer of the integration/application that supplies the MQTT entity.
-hw_version:
-  description: Hardware/firmware version of the device that supplies the MQTT entity.
 sw_version:
   description: Software version of the integration/application that supplies the MQTT entity.
 support_url:
@@ -576,8 +572,6 @@ support_url:
 
 ```txt
     'name':                'name',
-    'mf':                  'manufacturer',
-    'hw':                  'hw_version',
     'sw':                  'sw_version',
     'url':                 'support_url',
 ```
@@ -730,9 +724,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
     },
     "i": {
       "name":"bla2mqtt",
-      "mf": "Bla electronics",
       "sw": "2.1",
-      "hw": "1.0",
       "url": "https://bla2mqtt.example.com/support",
     }
   }
