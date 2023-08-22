@@ -104,11 +104,13 @@ Depending on the supported features of the camera, button entities are added for
 - PTZ up
 - PTZ down
 - PTZ calibrate
+- PTZ zoom in*
+- PTZ zoom out*
 - Guard go to
 - Guard set current position
 - Restart*
 
-PTZ left, right, up and down will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
+PTZ left, right, up, down, zoom in and zoom out will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
 
 "Guard set current position" will set the current position as the new guard position.
 
