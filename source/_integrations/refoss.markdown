@@ -53,4 +53,3 @@ Long-press the button on the device to reset it.
 
 - Before set up, the device is connected to the local network and powered on.
 - The integration will occupy port: 9989.
-
