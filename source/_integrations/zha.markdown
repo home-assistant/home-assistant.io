@@ -593,7 +593,7 @@ The exact method in which these values are reported depends on the Zigbee networ
 
 #### How to interpret RSSI and LQI values
 
-Interpreting RSSI and LQI values is complicated and the recommendation is that normal users should ignore them unless guided by Zigbee troubleshooting specialists. If you do delve into this then it is important to understand not to judge only RSSI or LQI values on their own separately as it is really the combination of these two that needs to interpret be when troubleshooting if Zigbee messages are being dropped.
+Interpreting RSSI and LQI values is complex. Unless you are Zigbee specialist yourself or are guided by one, please ignore those values. They can be misleading.  If you do delve into this, then it is important to understand not to judge RSSI or LQI values on their own. When troubleshooting Zigbee messages that are being dropped, you must interpret the combination of both RSSI and LQI.
 
 RSSI (Received Signal Strength Indicator) values are simple to interpret as they are just an indicator value of the raw signal strength between two devices. RSSI values are shown as negative numbers represented in -dBm format (0 to -100 power ratio in decibels of the measured power referenced to one milliwatt). Lower negative values are better as they indicate less interference and a good signal. It is important to understand that RSSI information is only between the endpoint device and the first hop from that device, as such it may not necessarily show signal strength to the Zigbee Coordinator but instead could be showing signal strength to the nearest Zigbee Router device.
 
