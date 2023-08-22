@@ -35,9 +35,9 @@ Flume notifications are available via binary sensors. To clear the notifications
 
 The following notifications are supported:
 
-* Bridge disconnected
-* High flow
-* Leak detected
+- Bridge disconnected
+- High flow
+- Leak detected
 
 
 ## Configuration for Binary Sensor

@@ -14,6 +14,7 @@ ha_platforms:
   - button
   - camera
   - diagnostics
+  - event
   - sensor
   - switch
 ha_integration_type: integration

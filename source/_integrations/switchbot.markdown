@@ -168,3 +168,7 @@ The SwitchBot integration will automatically discover devices once the [Bluetoot
 "No unconfigured devices found":
   description: Make sure your devices are powered on and are in range.
 {% endconfiguration_basic %}
+
+### Slow connection times
+
+Move the device closer, or replace the Bluetooth adapter with a faster one. See [Improving connection times](/integrations/bluetooth/#improving-connection-times) for more information.

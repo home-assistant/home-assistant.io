@@ -58,7 +58,7 @@ manual:
   type: boolean
 {% endconfiguration %}
 
-#### Time period dictionary example
+### Time period dictionary example
 
 ```yaml
 scan_interval:
@@ -70,7 +70,7 @@ scan_interval:
   milliseconds: 0
 ```
 
-### Service
+## Service
 
 Once loaded, the `fastdotcom` integration will expose a service (`fastdotcom.speedtest`) that can be called to run a Fast.com speed test on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
 

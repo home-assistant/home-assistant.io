@@ -15,7 +15,7 @@ The debugging screen is split into four features, the first being the Step Detai
 
 Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) assigned in order for debugging traces to be stored.
 
-#### Traces ####
+#### Traces
 
 The last 5 traces are recorded for all automations. It is possible to change this by adding the following code to your automation.
 

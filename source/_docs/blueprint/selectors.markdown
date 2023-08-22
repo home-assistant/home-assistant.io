@@ -24,6 +24,7 @@ The following selectors are currently available:
 - [Backup location selector](#backup-location-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
+- [Condition selector](#condition-selector)
 - [Config entry selector](#config-entry-selector)
 - [Constant selector](#constant-selector)
 - [Conversation agent selector](#conversation-agent-selector)
@@ -326,6 +327,29 @@ max_mireds:
 {% endconfiguration %}
 
 The output of this selector is the number of mired selected, for example, `243`.
+
+## Condition selector
+
+The condition selector allows the user to input one or more conditions.
+On the user interface, the condition part of the automation editor will be shown.
+The value of the input will contain a list of conditions.
+
+![Screenshot of an condition selector](/images/blueprints/selector-condition.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+condition:
+```
+
+The output of this selector is a list of conditions. For example:
+
+```yaml
+# Example Condition selector output result
+- condition: numeric_state
+  entity_id: "sensor.outside_temperature"
+  below: 20
+```
 
 ## Config entry selector
 
@@ -962,6 +986,12 @@ translation_key:
     for more information.
   type: string
   required: false
+sort:
+  description: >
+    Display options in alphabetical order.
+  type: boolean
+  required: false
+  default: false
 {% endconfiguration %}
 
 Alternatively, a mapping can be used for the options. When you want to return
@@ -1170,6 +1200,10 @@ multiline:
   type: boolean
   default: false
   required: false
+prefix:
+  description: An optional prefix to show before the text input box.
+  type: string
+  required: false
 suffix:
   description: An optional suffix to show after the text input box.
   type: string
@@ -1205,7 +1239,13 @@ installed in Home Assistant.
 theme:
 ```
 
-This selector does not have any other options; therefore, it only has its key.
+{% configuration theme %}
+include_default:
+  description: Includes Home Assistant default theme in the list.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
 
 The output of this selector will contain the selected theme, for example:
 `waves_dark`.
