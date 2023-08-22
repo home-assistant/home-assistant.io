@@ -77,9 +77,13 @@ Depending on the supported features of the camera, number entities are added for
 - Guard return time
 - Motion sensitivity
 - AI face sensitivity
-- AI people sensitivity
+- AI person sensitivity
 - AI vehicle sensitivity
 - AI pet sensitivity
+- AI face delay*
+- AI person delay*
+- AI vehicle delay*
+- AI pet delay*
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
