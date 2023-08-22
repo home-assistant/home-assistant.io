@@ -276,15 +276,15 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
-It is encouraged to add additional information about the integration or application that supplies MQTT entities via MQTT discovery by adding the `integration` option (can abbreviated to `i`) to the discovery payload. Note that these options also support abbreviations. Information of the integration will be logged to the core event log.
+It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can abbreviated to `o`) to the discovery payload. Note that these options also support abbreviations. Information of the origin will be logged to the core event log when an item is discovered or updated.
 
 {% configuration_basic %}
 name:
-  description: The name of the integration/application that supplies the MQTT entity. This option is required.
+  description: The name of the application that is the origin the discovered MQTT item. This option is required.
 sw_version:
-  description: Software version of the integration/application that supplies the MQTT entity.
+  description: Software version of the application that supplies the discovered MQTT item.
 support_url:
-  description: Support URL of the integration/application that supplies the MQTT entity.
+  description: Support URL of the application that supplies the discovered MQTT item.
 {% endconfiguration_basic %}
 
 
@@ -373,7 +373,6 @@ support_url:
     'hs_cmd_tpl':          'hs_command_template',
     'hs_stat_t':           'hs_state_topic',
     'hs_val_tpl':          'hs_value_template',
-    'i':                   'integration',
     'ic':                  'icon',
     'img_e':               'image_encoding',
     'img_t':               'image_topic',
@@ -404,6 +403,7 @@ support_url:
     'mode_stat_t':         'mode_state_topic',
     'modes':               'modes',
     'name':                'name',
+    'o':                   'origin',
     'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
@@ -568,7 +568,7 @@ support_url:
     'sa':                  'suggested_area',
 ```
 {% enddetails %}
-{% details "Supported abbreviations for integration / external application info" %}
+{% details "Supported abbreviations for origin info" %}
 
 ```txt
     'name':                'name',
@@ -704,7 +704,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
   }
   ```
 
-#### Example with using abbreviated Device and Integration info in discovery messages
+#### Example with using abbreviated Device and Origin info in discovery messages
 
   ```json
   {
@@ -722,7 +722,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "sw": "1.0",
       "hw": "1.0rev2",
     },
-    "i": {
+    "o": {
       "name":"bla2mqtt",
       "sw": "2.1",
       "url": "https://bla2mqtt.example.com/support",
