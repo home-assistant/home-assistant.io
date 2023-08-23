@@ -79,10 +79,6 @@ logger:
 
 The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Deebot vacuums.
 
-### Vacuum services historical note
-
-The `ecovacs` vacuum platform previously did not support either of the services `vacuum.pause` or `vacuum.start`, it supported the `vacuum.turn_on` and `vacuum.turn_off` instead. This functionality was replaced with standardized `vacuum.start` and `vacuum.stop` by 2023.8.
-
 #### Service `vacuum.start`
 
 Start a new cleaning task.
@@ -99,9 +95,42 @@ Stop the current cleaning task and return to the dock.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
-#### Service `vacuum.start_pause`
+#### Service `vacuum.pause`
 
-Start, pause or resume a cleaning task.
+Pause a cleaning task.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
+
+#### Service `vacuum.clean_spot`
+
+Begin a spot cleaning operation.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
+
+#### Service `vacuum.locate`
+
+Locate the vacuum.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
+
+#### Service `vacuum.set_fan_speed`
+
+Pause a cleaning task.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
+| `fan_speed`               |      no  | Fan speed. Values are `medium` or `high`.                                |
+
+#### Service `vacuum.return_to_base`
+
+Pause a cleaning task.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
