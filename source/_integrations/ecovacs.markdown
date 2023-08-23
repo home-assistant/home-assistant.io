@@ -126,7 +126,7 @@ Pause a cleaning task.
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
-| `fan_speed`               |      no  | Fan speed. Values are `normal` or `high`.                                |
+| `fan_speed`               |      no  | Fan speed. Values are `normal` or `high`.                               |
 
 #### Service `vacuum.return_to_base`
 
