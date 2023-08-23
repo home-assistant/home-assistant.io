@@ -36,14 +36,14 @@ Default: Match nothing (`/(?!)/`)
 
 ##### Example
 
-Ignore warnings that contain the word corona
+Ignore warnings that contain the word `corona`
 
 Regex: `.*corona.*` <br>
 Headline: `corona-verordnung des landes: warnstufe durch landesgesundheitsamt ausgerufen`
 
 #### Affected area filter
 
-This filter **whitelists** warnings based on the affected area. In other words, the regular expression matches the area, the warning will be **displayed**.
+This filter **whitelists** warnings based on the affected area. In other words, if the regular expression matches the area, the warning will be **displayed**.
 
 Default: Match all (`.*`)
 
