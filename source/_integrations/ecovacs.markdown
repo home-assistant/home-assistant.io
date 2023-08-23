@@ -79,7 +79,7 @@ logger:
 
 The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Deebot vacuums.
 
-#### Service `vacuum.start`
+### Service `vacuum.start`
 
 Start a new cleaning task.
 
@@ -87,7 +87,7 @@ Start a new cleaning task.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
-#### Service `vacuum.stop`
+### Service `vacuum.stop`
 
 Stop the current cleaning task and return to the dock.
 
@@ -95,7 +95,7 @@ Stop the current cleaning task and return to the dock.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
-#### Service `vacuum.pause`
+### Service `vacuum.pause`
 
 Pause a cleaning task.
 
@@ -103,7 +103,7 @@ Pause a cleaning task.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
-#### Service `vacuum.clean_spot`
+### Service `vacuum.clean_spot`
 
 Begin a spot cleaning operation.
 
@@ -111,7 +111,7 @@ Begin a spot cleaning operation.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
-#### Service `vacuum.locate`
+### Service `vacuum.locate`
 
 Locate the vacuum.
 
@@ -119,7 +119,7 @@ Locate the vacuum.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
-#### Service `vacuum.set_fan_speed`
+### Service `vacuum.set_fan_speed`
 
 Pause a cleaning task.
 
@@ -128,7 +128,7 @@ Pause a cleaning task.
 | `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 | `fan_speed`               |      no  | Fan speed. Values are `normal` or `high`.                               |
 
-#### Service `vacuum.return_to_base`
+### Service `vacuum.return_to_base`
 
 Return to charging base/dock immediately.
 
