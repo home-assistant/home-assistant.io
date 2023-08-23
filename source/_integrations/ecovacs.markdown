@@ -130,7 +130,7 @@ Pause a cleaning task.
 
 #### Service `vacuum.return_to_base`
 
-Pause a cleaning task.
+Return to charging base/dock immediately.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
