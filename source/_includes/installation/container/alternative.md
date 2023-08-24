@@ -4,8 +4,8 @@ As Synology within DSM now supports Docker (with a neat UI), you can simply inst
 
 The steps would be:
 
-- Install "Docker" package on your Synology NAS
-- Launch Docker-app and move to "Registry"-section
+- Install Docker "Container Manager" package on your Synology NAS
+- Launch Container Manager-app and move to "Registry"-section
 - Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "stable" tag.
 - Wait for some time until your NAS has pulled the image
 - Move to the "Image"-section of the Docker-app
