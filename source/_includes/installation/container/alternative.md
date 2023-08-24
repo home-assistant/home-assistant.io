@@ -8,7 +8,7 @@ The steps would be:
 - Launch Container Manager-app and move to "Registry"-section
 - Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "stable" tag.
 - Wait for some time until your NAS has pulled the image
-- Move to the "Image"-section of the Docker-app
+- Move to the "Image"-section of the "Container Manager"-app
 - Click on "Launch"
 - Within "Network" select "Use same network as Docker Host" and click Next
 - Choose a container-name you want (e.g., "homeassistant")
@@ -48,8 +48,8 @@ Complete the remainder of the Z-Wave configuration by [following the instruction
 
 Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
 
-- Go to the Docker-app and move to "Registry"-section
-- Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "stable" tag.
+- Go to the "Container Manager"-app and move to "Image"-section
+- Find "homeassistant/home-assistant" within Image and click on "Update".
 - Wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
 - Move to "Container"-section
 - Stop your container if it's running
@@ -58,7 +58,7 @@ Remark: to update your Home Assistant on your Docker within Synology NAS, you ju
 
 Remark: to restart your Home Assistant within Synology NAS, you just have to do the following:
 
-- Go to the Docker-app and move to "Container"-section
+- Go to the "Container Manager"-app and move to "Container"-section
 - Right-click on it and select "Action"->"Restart".
 
 <div class='note'>
