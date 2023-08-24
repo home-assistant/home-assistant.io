@@ -55,6 +55,7 @@ Enjoy the release!
 - [Release 2023.8.1 - August 4](#release-202381---august-4)
 - [Release 2023.8.2 - August 11](#release-202382---august-11)
 - [Release 2023.8.3 - August 18](#release-202383---august-18)
+- [Release 2023.8.4 - August 24](#release-202384---august-24)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -682,6 +683,43 @@ The following integrations are now available via the Home Assistant UI:
 [verisure docs]: /integrations/verisure/
 [withings docs]: /integrations/withings/
 [yeelight docs]: /integrations/yeelight/
+
+## Release 2023.8.4 - August 24
+
+- Fix octoprint down every two minutes ([@markusressel] - [#90001])
+- modbus: slave is allowed with custom ([@janiversen] - [#98644])
+- Bump opowerto 0.0.30 ([@tronikos] - [#98660])
+- Correct modbus swap/datatype error message ([@janiversen] - [#98698])
+- Bump opower to 0.0.31 ([@tronikos] - [#98716])
+- Reduce Freebox router Raid warning to one occurence ([@fthiery] - [#98740])
+- Remove repair issue for MQTT discovered items ([@frenck] - [#98768])
+- Bump androidtvremote2 to 0.0.14 ([@tronikos] - [#98801])
+- Bump pylitterbot to 2023.4.4 ([@natekspencer] - [#98414])
+- Bump pylitterbot to 2023.4.5 ([@natekspencer] - [#98854])
+- Bump reolink-aio to 0.7.8 ([@starkillerOG] - [#98942])
+
+[#90001]: https://github.com/home-assistant/core/pull/90001
+[#97609]: https://github.com/home-assistant/core/pull/97609
+[#97772]: https://github.com/home-assistant/core/pull/97772
+[#98255]: https://github.com/home-assistant/core/pull/98255
+[#98414]: https://github.com/home-assistant/core/pull/98414
+[#98623]: https://github.com/home-assistant/core/pull/98623
+[#98644]: https://github.com/home-assistant/core/pull/98644
+[#98660]: https://github.com/home-assistant/core/pull/98660
+[#98698]: https://github.com/home-assistant/core/pull/98698
+[#98716]: https://github.com/home-assistant/core/pull/98716
+[#98740]: https://github.com/home-assistant/core/pull/98740
+[#98768]: https://github.com/home-assistant/core/pull/98768
+[#98801]: https://github.com/home-assistant/core/pull/98801
+[#98854]: https://github.com/home-assistant/core/pull/98854
+[#98942]: https://github.com/home-assistant/core/pull/98942
+[@frenck]: https://github.com/frenck
+[@fthiery]: https://github.com/fthiery
+[@janiversen]: https://github.com/janiversen
+[@markusressel]: https://github.com/markusressel
+[@natekspencer]: https://github.com/natekspencer
+[@starkillerOG]: https://github.com/starkillerOG
+[@tronikos]: https://github.com/tronikos
 
 ## Need help? Join the community!
 
