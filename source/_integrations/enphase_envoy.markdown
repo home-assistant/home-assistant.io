@@ -16,6 +16,8 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - number
+  - select
   - sensor
   - switch
 ha_integration_type: integration
@@ -47,3 +49,13 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
 For newer models running firmware 7 and greater, you will need your Enlighten cloud username and password. The integration will use these credentials to obtain an Envoy access token from the Enlighten cloud.
 
 For models running firmware 5 and older, use `installer` for the username. No password is required. The integration will automatically detect the `installer` password.
+
+## Enpower Load Shedding Relays
+
+The Enphase Enpower has 4 load shedding relays that can be used to control non-essential loads in your home. These have two main modes of operation:
+
+### Standard
+When the mode entity is set to standard, you can simply set the state of the relay to be powered or not powered for each mode of operation: on grid, off grid, and on generator.
+
+### Battery Level
+When the relay mode is set to battery level, the relays will turn on and off based on the remaining battery level of your Encharge batteries. Two number entities are available to control the cutoff and restore levels for the relays. When the battery level drops below the cutoff level, the relays will turn off. When the battery level rises above the restore level, the relays will turn back on.
