@@ -276,6 +276,18 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
+It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can abbreviated to `o`) to the discovery payload. Note that these options also support abbreviations. Information of the origin will be logged to the core event log when an item is discovered or updated.
+
+{% configuration_basic %}
+name:
+  description: The name of the application that is the origin the discovered MQTT item. This option is required.
+sw_version:
+  description: Software version of the application that supplies the discovered MQTT item.
+support_url:
+  description: Support URL of the application that supplies the discovered MQTT item.
+{% endconfiguration_basic %}
+
+
 {% details "Supported abbreviations" %}
 
 ```txt
@@ -391,6 +403,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'mode_stat_t':         'mode_state_topic',
     'modes':               'modes',
     'name':                'name',
+    'o':                   'origin',
     'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
@@ -555,6 +568,14 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'sa':                  'suggested_area',
 ```
 {% enddetails %}
+{% details "Supported abbreviations for origin info" %}
+
+```txt
+    'name':                'name',
+    'sw':                  'sw_version',
+    'url':                 'support_url',
+```
+{% enddetails %}
 
 ### Support by third-party tools
 
@@ -675,11 +696,37 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
   {
     "~": "homeassistant/light/kitchen",
     "name": "Kitchen",
-    "unique_id": "kitchen_light",
+    "uniq_id": "kitchen_light",
     "cmd_t": "~/set",
     "stat_t": "~/state",
     "schema": "json",
     "brightness": true
+  }
+  ```
+
+#### Example with using abbreviated Device and Origin info in discovery messages
+
+  ```json
+  {
+    "~": "homeassistant/light/kitchen",
+    "name": null,
+    "uniq_id": "kitchen_light",
+    "cmd_t": "~/set",
+    "stat_t": "~/state",
+    "schema": "json",
+    "dev": {
+      "ids": "ea334450945afc",
+      "name": "Kitchen",
+      "mf": "Bla electronics",
+      "mdl": "xya",
+      "sw": "1.0",
+      "hw": "1.0rev2",
+    },
+    "o": {
+      "name":"bla2mqtt",
+      "sw": "2.1",
+      "url": "https://bla2mqtt.example.com/support",
+    }
   }
   ```
 
