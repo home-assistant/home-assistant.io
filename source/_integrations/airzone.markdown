@@ -80,7 +80,7 @@ For the Airzone DHW, the following *sensors* are created:
 
 | Condition           | Description                        |
 | :------------------ | :--------------------------------- |
-| rssi                | Current DHW temperature.           |
+| temperature         | Current DHW temperature.           |
 
 For the Airzone WebServer, the following *sensors* are created:
 
