@@ -76,6 +76,12 @@ For each Airzone zone (Thermostat), the following *selects* are created:
 
 ## Sensors
 
+For the Airzone DHW, the following *sensors* are created:
+
+| Condition           | Description                        |
+| :------------------ | :--------------------------------- |
+| rssi                | Current DHW temperature.           |
+
 For the Airzone WebServer, the following *sensors* are created:
 
 | Condition           | Description                        |
