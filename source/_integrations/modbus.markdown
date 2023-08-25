@@ -145,17 +145,6 @@ This is typically used, when communicating with a modbus-forwarder, a device tha
 has a TCP/IP connection upwards, and one or more serial connections downwards. lets also
 write more here, to see if the error moves.
 
-this
-
-is
-
-a
-
-long
-
-delay
-
-
 {% configuration %}
 host:
   description: "IP address or name of your modbus device, e.g., `192.168.1.1`."
