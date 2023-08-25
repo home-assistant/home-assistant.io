@@ -67,7 +67,7 @@ retries:
   default: 3
   type: integer
 retry_on_empty:
-  description: "Retry request, when receiving and empty message."
+  description: "Retry request, when receiving an empty message."
   required: false
   default: false
   type: boolean
@@ -82,13 +82,13 @@ type:
   type: list
   keys:
     tcp:
-      description: "TCP/IP connection with socket framer, used with ethernet enabled devices."
+      description: "TCP/IP connection with socket framer, used with Ethernet enabled devices."
     udp:
-      description: "Udp connection with socket framer, rarely used."
+      description: "UDP connection with socket framer, rarely used."
     rtuovertcp:
       description: "TCP/IP connection with rtu framer, used when connection to modbus forwarders."
     serial:
-      description: "Serial connection with rtu framer, used with tty port or USB rs485 converter."
+      description: "Serial connection with RTU framer, used with TTY port or USB rs485 converter."
 
 {% endconfiguration %}
 
@@ -137,7 +137,7 @@ modbus:
     timeout: 5
 ```
 
-## Configuring tcp-rtu connection
+## Configuring a TCP-RTU connection
 
 `type: rtuovertcp` is required. Used for devices providing a TCP/IP interface directly.
 
@@ -168,7 +168,7 @@ port:
 
 {% endconfiguration %}
 
-### Example: typical tcp-rtu configuration
+### Example: typical TCP-RTU configuration
 
 ```yaml
 # Example yaml: typical tcp-rtu connection
@@ -179,7 +179,7 @@ modbus:
     port: 502
 ```
 
-### Example: full tcp-rtu configuration
+### Example: full TCP-RTU configuration
 
 ```yaml
 # Example yaml: full tcp-rtu connection
@@ -197,7 +197,7 @@ modbus:
     timeout: 5
 ```
 
-## Configuring udp connection
+## Configuring a UDP connection
 
 `type: udp` is required. This is rarely used, and only for very special configurations.
 
@@ -224,7 +224,7 @@ modbus:
     port: 502
 ```
 
-### Example: full udp configuration
+### Example: full UDP configuration
 
 ```yaml
 # Example yaml: full udp connection
@@ -459,15 +459,15 @@ The different types of entities are detailed in the following.
 
 The Modbus binary sensor allows you to gather data from coils which as per standard have state ON/OFF.
 
-Normally a register contains 16 coils, giving different address depending on the request used
+Normally, a register contains 16 coils, giving different addresses depending on the request used.
 
 ```yaml
 Register 512: Coil 1 - 16
 Register 513: Coil 17 - 32
 ```
 
-`input_type: coils` would use adresses from 1 through 32, while `input_type: input` would use adresses 512 and 513.
-For that reason many devices (especially older ones) do not share the coil address space with the register address space,
+`input_type: coils` would use addresses from 1 through 32, while `input_type: input` would use addresses 512 and 513.
+For that reason, many devices (especially older ones) do not share the coil address space with the register address space,
 and this `input` would read from a different address space than `coil`. The problem is present in devices with
 shared address space and are a frequent cause of problems when configuring entities.
 
@@ -825,7 +825,7 @@ covers:
       default: 2
       type: integer
     state_closing:
-      description: "A value in `status_register` or `register` representing a closing cov
+      description: "A value in `status_register` or `register` representing a closing cover.
         Note that this state should be also supported on your connected Modbus cover.
         If it will not report the state, this state won't be detected."
       required: false
@@ -1003,7 +1003,7 @@ fans:
     verify:
       description: "Read from Modbus device to verify fan.
         If used without attributes, it uses the toggle register configuration.
-        If omitted no verification is done, but the state of the fan is set with each toggle."
+        If omitted, no verification is done, but the state of the fan is set with each toggle."
       required: false
       type: map
       keys:
@@ -1403,7 +1403,7 @@ switches:
     verify:
       description: "Read from Modbus device to verify fan.
         If used without attributes, it uses the toggle register configuration.
-        If omitted no verification is done, but the state of the fan is set with each toggle."
+        If omitted, no verification is done, but the state of the fan is set with each toggle."
       required: false
       type: map
       keys:
