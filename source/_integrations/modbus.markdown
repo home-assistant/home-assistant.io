@@ -1501,6 +1501,21 @@ modbus:
             state_off: 1
 ```
 
+## Parameters usage matrix:
+
+Some parameters exclude other parameters, the following tables show what can be combined:
+
+| Datatype:       | custom | string | <type>16 | <type>32 | <type>64 |
+| --------------- | ------ | ------ | -------- | -------- | -------- |
+| count           | Yes    | Yes    | No       | No       | No       |
+| structure       | Yes    | No     | No       | No       | No       |
+| slave_count     | No     | No     | Yes      | Yes      | Yes      |
+| swap: none      | Yes    | Yes    | Yes      | Yes      | Yes      |
+| swap: byte      | No     | No     | Yes      | Yes      | Yes      |
+| swap: word      | No     | No     | No       | Yes      | Yes      |
+| swap: word_byte | No     | No     | No       | Yes      | Yes      |
+
+
 # modbus services
 
 The modbus integration provides two generic write services in addition to the platform-specific services.
