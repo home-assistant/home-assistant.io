@@ -3,7 +3,7 @@ title: Comelit SimpleHome
 description: Instructions on how to integrate Comelit SimpleHome home automation devices into Home Assistant.
 ha_category:
   - Light
-ha_release: '2023.09'
+ha_release: '2023.9'
 ha_domain: comelit
 ha_config_flow: true
 ha_codeowners:
