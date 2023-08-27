@@ -9,7 +9,7 @@ ha_domain: emoncms_history
 ha_integration_type: integration
 ---
 
-The `emoncms_history` integration makes it possible to transfer details collected with Home Assistant to [Emoncms.org](https://emoncms.org/) or your local running Emoncms instance. It will send the data to a specific input node on Emoncms with the entity IDs as a key. Afterwards you can create feeds and dashboards in Emoncms with the collected data.
+The `emoncms_history` integration makes it possible to transfer (write) details collected with Home Assistant to [Emoncms.org](https://emoncms.org/) or your local running Emoncms instance. It will send the data to a specific input node on Emoncms with the entity IDs as a key. Afterwards you can create feeds and dashboards in Emoncms with the collected data.
 
 To use the `emoncms_history` integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -23,6 +23,8 @@ emoncms_history:
     - sensor.owm_temperature
     - sensor.owm_wind_speed
 ```
+
+To read information from Emoncms to Home Assistant, you can use the [`emoncms`](/integrations/emoncms) integration.
 
 {% configuration %}
 api_key:
