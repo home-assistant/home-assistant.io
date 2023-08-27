@@ -34,8 +34,8 @@ To set up this integration, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 evohome:
-  username: "YOUR_USERNAME"
-  password: "YOUR_PASSWORD"
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}
