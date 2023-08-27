@@ -26,15 +26,15 @@ emoncms_history:
 
 {% configuration %}
 api_key:
-  description: Your Emoncms write API key
+  description: The write API key for your Emoncms user.
   required: true
   type: string
 url:
-  description: The root URL of your Emoncms installation. (Use `https://emoncms.org` for the cloud based version)
+  description: "The base URL of Emoncms, use <https://emoncms.org> for the cloud-based version. For self-hosted Emoncms or EmonPi you may need a URL of `http://x.x.x.x/emoncms`."
   required: true
   type: string
 inputnode:
-  description:  Input node that will be used inside Emoncms. Please make sure you use a dedicated, not used before, node for this integration!
+  description: Input node that will be used inside Emoncms. Please make sure you use a dedicated, not used before, node for this integration!
   required: true
   type: integer
 whitelist:
