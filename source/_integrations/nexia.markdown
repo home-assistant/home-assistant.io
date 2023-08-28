@@ -71,6 +71,10 @@ The following thermostats are not supported: `XL624`, `XL950`, `AZONE950`, `AZEM
 
 Other thermostats may work, but they have not been tested.
 
+### Number
+
+The number platform lets you adjust the fan speed on systems with variable-speed fan support.
+
 ### Scene
 
 The scene platform lets you activate a nexia automation.

@@ -20,7 +20,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Android TV Remote integration allows you to control an Android TV and launching apps. For this to work the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices.
+The Android TV Remote integration allows you to control an Android TV and launching apps. For this to work the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices (Fire TV devices are a notable exception).
 
 For a quick introduction on how to get started with Android TV Remote, check out this video:
 
@@ -36,16 +36,17 @@ Using the `media_player.play_media` service, you can launch applications via `De
 
 ### Launching apps
 
-You can pass any URL to the device to open it in the built-in browser. Using `Deep Links` you can launch some applications.
+You can pass any URL to the device. Using `Deep Links`, you can launch some applications.
 
 Examples of some `Deep Links` for popular applications:
 
 | App | URL |
 | --- | --- |
-| YouTube | https://www.youtube.com
-| Netflix | https://www.netflix.com/title
-| Prime Video | https://app.primevideo.com
-| Disney+ | https://www.disneyplus.com
+| YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
+| Netflix | `https://www.netflix.com/title` or `netflix://`
+| Prime Video | `https://app.primevideo.com`
+| Disney+ | `https://www.disneyplus.com`
+| Plex | `plex://`
 
 Examples:
 
@@ -157,6 +158,7 @@ Other:
 - BUTTON_MODE
 - EXPLORER
 - MENU
+- HOME
 - INFO
 - GUIDE
 - TV_TELETEXT
@@ -168,8 +170,6 @@ Other:
 - ASSIST
 
 {% enddetails %}
-
-For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
 
 If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app. See [Launching apps section](#launching-apps).
 
@@ -220,9 +220,11 @@ Below is an example for you to start with. Many of the buttons support long pres
 
 ![Screenshot Android TV Remote example](/images/integrations/androidtv_remote/lovelace_example.png)
 
-{% details "Lovelace example" %}
+{% details "YAML Lovelace example" %}
 
+Add a Manual card with the following code. 
 Replace all instances of `living_room_tv` with your entity ID.
+ - To use the `replace all` functionality, inside the code editor, press `ctrl+F` (or `command+F` on Mac).
 
 ```yaml
 type: vertical-stack
@@ -484,3 +486,14 @@ cards:
 ```
 
 {% enddetails %}
+
+
+## Limitations and known issues
+
+- The integration doesn't work with Fire TV devices because they are missing the [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service). Attempts to sideload it haven't been successful.
+- If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot send commands with this integration either.
+- Commands don't work on Netflix. They don't work from the Google TV mobile app or the Google Home mobile app either.
+- Some devices, like Xiaomi, become unavailable after they are turned off and can't be turned on with this integration.
+- Some devices experience disconnects every 15 seconds. This is typically resolved by rebooting the Android TV device after the initial setup of the integration.
+- If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **settings** > **Apps** >  **Show system apps**. Then,  select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to pair again.
+- Some onscreen keyboards enabled by TV manufacturers do not support concurrent virtual and onscreen keyboard use. This presents whenever a text field is selected, such as "search" where a constant **use the keyboard on your mobile device** will show, preventing you from opening the onscreen keyboard to type. This can be overcome by either disabling your 3rd party keyboard and using the default Gboard keyboard or by unselecting **Enable IME** in the **Configure** page of the integration.

@@ -26,7 +26,7 @@ longitude:
 radius:
   description: The radius in meters around the latitude/longitude point to track.
 altitude:
-  description: The minimum height in meters above which the planes are tracked. No input (or 0) means all planes are tracked in the area.
+  description: The maximum altitude in meters in which the planes are tracked. No input (or 0) means all planes in the area are tracked.
 {% endconfiguration_basic %}
 
 ## Authentication

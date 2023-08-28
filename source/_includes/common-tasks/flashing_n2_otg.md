@@ -64,6 +64,7 @@ This will configure the ODROID-N2+ and OTG to act as a memory card reader:
 1. Connect the ODROID-N2+ to your PC via the micro-USB port at the front of the ODROID-N2+. 
 2. When the ODROID-N2 is recognized as a USB connected storage device, you can flash the eMMC with [Etcher](https://www.balena.io/etcher/).
    - Use the latest stable version of Home Assistant OS for the [ODROID-N2+](https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos['odroid-n2']}}/haos_odroid-n2-{{site.data.version_data.hassos['odroid-n2']}}.img.xz) (haos_odroid-n2-{{site.data.version_data.hassos['odroid-n2']}}.img.xz).
+   - In Balena, use **Flash from file**. **Flash from URL** does not work on all systems.
 
 3. When the flash process is complete, disconnect the ODROID-N2+ from your PC.
    - Remove the power cable.
