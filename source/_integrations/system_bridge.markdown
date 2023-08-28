@@ -140,7 +140,10 @@ data:
 
 ### Service `system_bridge.power_command`
 
-Sends power command to system.
+Sends power command to the system.
+
+{% my developer_call_service service="system_bridge.power_command" title="Show service in your Home Assistant instance." %}
+
 
 ```yaml
 service: system_bridge.power_command
