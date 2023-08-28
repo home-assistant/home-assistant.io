@@ -42,8 +42,8 @@ Both events have two attributes in common:
 **opensky_entry** has 4 additional attributes:
 
 - **altitude**: Altitude of the flight in meters.
-- **latitude**: Latitude of the flight in decimal
-- **longitude**: Longitude of the flight in decimal 
+- **latitude**: Latitude of the flight in decimal.
+- **longitude**: Longitude of the flight in decimal.
 - **icao24**: The ICAO 24-bit address of the aircraft's transponder.
 
 To receive notifications of the entering flights using the [Home Assistant Companion App](https://companion.home-assistant.io/), add the following lines to your `configuration.yaml` file:
