@@ -52,7 +52,7 @@ Currently the following device types within Home Assistant are supported.
 ### Images
 
 - QR code of your guest wifi credentials
-  - Updates every 10 seconds
+  - Updates every 15 seconds if changes are detected
   - Is enabled by default
 
 ### Presence Detection
