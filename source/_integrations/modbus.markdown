@@ -1507,8 +1507,8 @@ modbus:
 
 Some parameters exclude other parameters, the following tables show what can be combined:
 
-| Datatype:123456 | custom | string | *16 | *32 | *64 |
-| --------------- | ------ | ------ | --- | --- | --- |
+| Datatype:       | custom | string | *16 | *32 | *64 |
+| _______________ | ______ | ______ | ___ | ___ | ___ |
 | count:          | Yes    | Yes    | No  | No  | No  |
 | structure:      | Yes    | No     | No  | No  | No  |
 | slave_count:    | No     | No     | Yes | Yes | Yes |
