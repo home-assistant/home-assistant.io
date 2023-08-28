@@ -1507,7 +1507,7 @@ modbus:
 
 Some parameters exclude other parameters, the following tables show what can be combined:
 
-| Datatype:       | custom | string | *16 | *32 | *64 |
+| Datatype:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | custom | string | *16 | *32 | *64 |
 | --------------- | ------ | ------ | --- | --- | --- |
 | count           | Yes    | Yes    | No  | No  | No  |
 | structure       | Yes    | No     | No  | No  | No  |
