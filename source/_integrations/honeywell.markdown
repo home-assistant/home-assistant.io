@@ -49,7 +49,7 @@ All [climate services](/integrations/climate) are supported except set_swing_mod
 
 ## Sensor
 
-The sensor platform integrates inside and outside temperature and humidity into Home Assistant as sensors for each device.  Not every supported thermostat will support all sensors.
+The sensor platform integrates inside and outside temperature and humidity into Home Assistant as sensors for each device. Not every supported thermostat will support all sensors.
 
 This integration will add Home Assistant sensors for the following:
 |Sensor|Value|
