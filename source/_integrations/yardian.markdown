@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This `yardian` integration allows you to control your [Yardian Smart Sprinkler Controller](https://yardian.com/products/yardian-pro-smart-sprinkler-controller/).
+The Yardian integration allows you to control your [Yardian Smart Sprinkler Controller](https://yardian.com/products/yardian-pro-smart-sprinkler-controller/).
 
 There is currently support for the following platform within Home Assistant:
 
