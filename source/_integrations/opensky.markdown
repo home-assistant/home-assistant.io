@@ -31,9 +31,9 @@ altitude:
 
 ## Authentication
 
-By default, to not hit the API limit, polling is done every 15 minutes.
-More api requests are allowed as authenticated user.
-You can add your credentials after setting up the config entry.
+By default, polling is done every 15 minutes not to hit the API limit.
+More API requests are allowed as authenticated users.
+You can add your credentials after setting up the integration.
 
 ## Events
 
