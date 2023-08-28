@@ -1507,11 +1507,11 @@ modbus:
 
 Some parameters exclude other parameters, the following tables show what can be combined:
 
-| Datatype:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | custom | string | *16 | *32 | *64 |
+| Datatype:______ | custom | string | *16 | *32 | *64 |
 | --------------- | ------ | ------ | --- | --- | --- |
-| count           | Yes    | Yes    | No  | No  | No  |
-| structure       | Yes    | No     | No  | No  | No  |
-| slave_count     | No     | No     | Yes | Yes | Yes |
+| count:          | Yes    | Yes    | No  | No  | No  |
+| structure:      | Yes    | No     | No  | No  | No  |
+| slave_count:    | No     | No     | Yes | Yes | Yes |
 | swap: none      | Yes    | Yes    | Yes | Yes | Yes |
 | swap: byte      | No     | No     | Yes | Yes | Yes |
 | swap: word      | No     | No     | No  | Yes | Yes |
