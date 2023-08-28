@@ -14,6 +14,7 @@ ha_iot_class: Cloud Polling
 ha_domain: verisure
 ha_codeowners:
   - '@frenck'
+  - '@niro1987'
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
@@ -34,7 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - Alarm
 - Camera
 - Switch (Smartplug)
-- Sensor (Thermometers, Hygrometers and Mouse detectors)
+- Sensor (Thermometers and Hygrometers)
 - Lock
 - Binary Sensor (Door & Window)
 

@@ -200,7 +200,7 @@ Available services:
 `start_tour`, `stop_tour`, and
 `ptz_control`
 
-#### Service `enable_audio`/`disable_audio`
+### Service `enable_audio`/`disable_audio`
 
 These services enable or disable the camera's audio stream.
 
@@ -208,7 +208,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
-#### Service `enable_motion_recording`/`disable_motion_recording`
+### Service `enable_motion_recording`/`disable_motion_recording`
 
 These services enable or disable the camera to record a clip to its configured storage location when motion is detected.
 
@@ -216,7 +216,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
-#### Service `enable_recording`/`disable_recording`
+### Service `enable_recording`/`disable_recording`
 
 These services enable or disable the camera to continuously record to its configured storage location.
 
@@ -224,7 +224,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
-#### Service `goto_preset`
+### Service `goto_preset`
 
 This service will cause the camera to move to one of the PTZ locations configured within the camera.
 
@@ -233,7 +233,7 @@ Service data attribute | Optional | Description
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 `preset` | no | Preset number, starting from 1.
 
-#### Service `set_color_bw`
+### Service `set_color_bw`
 
 This service will set the color mode of the camera.
 
@@ -242,7 +242,7 @@ Service data attribute | Optional | Description
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 `color_bw` | no | One of `auto`, `bw` or `color`.
 
-#### Service `start_tour`/`stop_tour`
+### Service `start_tour`/`stop_tour`
 
 These services start or stop the camera's PTZ tour function.
 
@@ -250,7 +250,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
-#### Service `ptz_control`
+### Service `ptz_control`
 
 If your Amcrest or Dahua camera supports PTZ, you will be able to pan, tilt or zoom your camera.  
 
@@ -260,12 +260,12 @@ Service data attribute | Optional | Description
  `movement` | no | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`,  `left_down`
  `travel_time` | yes |Travel time in fractional seconds. Allowed values: `0` to `1`. Default: `0.2`.
 
-#### Notes
+## Notes
 
 - PTZ zoom capability does not control VariFocal lens adjustments.
 - There can be several seconds of lag before the video (snapshot or live) reflects the camera movement.
 
-### Example card with controls
+## Example card with controls
 
 <p class='img'>
   <img src='/images/integrations/amcrest/amcrest_ptz.jpg' alt='Screenshot using a picture-elements with PTZ controls.'>
@@ -289,7 +289,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      data:
+      service_data:
         entity_id: camera.lakehouse
         movement: up
   - type: icon
@@ -301,7 +301,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      data:
+      service_data:
         entity_id: camera.lakehouse
         movement: down
   - type: icon
@@ -313,7 +313,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      data:
+      service_data:
         entity_id: camera.lakehouse
         movement: left
   - type: icon
@@ -325,7 +325,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      data:
+      service_data:
         entity_id: camera.lakehouse
         movement: right
   - type: icon
@@ -337,7 +337,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      data:
+      service_data:
         entity_id: camera.lakehouse
         movement: left_up
   - type: icon
@@ -349,7 +349,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      data:
+      service_data:
         entity_id: camera.lakehouse
         movement: right_up
   - type: icon
@@ -361,7 +361,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      data:
+      service_data:
         entity_id: camera.lakehouse
         movement: left_down
   - type: icon
@@ -373,7 +373,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      data:
+      service_data:
         entity_id: camera.lakehouse
         movement: right_down
   - type: icon
@@ -385,7 +385,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      data:
+      service_data:
         entity_id: camera.lakehouse
         movement: zoom_in
     hold_action:

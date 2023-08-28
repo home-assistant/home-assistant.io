@@ -195,6 +195,8 @@ The names must exactly match the scene names (minus underscores - Amazon discard
 
 In the new Alexa Skills Kit, you can also create synonyms for slot type values, which can be used in place of the base value in utterances. Synonyms will be replaced with their associated slot value in the intent request sent to the Alexa API endpoint, but only if there are not multiple synonym matches. Otherwise, the value of the synonym that was spoken will be used.
 
+If you want to use the `Optional ID` field next to or instead of the Synonym value, you can simply append "_Id" at the end of the template variable e.g. `Scene_Id`.
+
 <p class='img'>
 <img src='/images/integrations/alexa/scene_slot_synonyms.png' />
 Custom slot values with synonyms.
@@ -217,6 +219,8 @@ intent_script:
       service: scene.turn_on
       target:
         entity_id: scene.{{ Scene | replace(" ", "_") }}
+      data:
+        id: {{ Scene_Id }}
     speech:
       type: plain
       text: OK

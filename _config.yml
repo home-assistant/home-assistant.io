@@ -109,9 +109,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2023
-current_minor_version: 2
-current_patch_version: 5
-date_released: 2023-02-15
+current_minor_version: 8
+current_patch_version: 4
+date_released: 2023-08-24
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -165,6 +165,19 @@ defaults:
       path: "hassio/*"
     values:
       toc: true
+  # Remove some resources from sitemap
+  - scope:
+      path: "google*.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "static/fonts/**/*.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "static/mdi-demo.html"
+    values:
+      sitemap: false
 
 # Support for files Jekyll will normally exclude
 include:
@@ -182,11 +195,11 @@ toc:
 installation:
   container: "ghcr.io/home-assistant/home-assistant"
   versions:
-    python: "3.10"
+    python: "3.11"
   types:
     odroid:
       board: ODROID
-      installation_media: "eMMC module/SD card"
+      installation_media: "eMMC module or SD card"
       variants:
         - name: "ODROID-N2"
           key: "odroid-n2"
@@ -196,8 +209,8 @@ installation:
           key: "odroid-c2"
         - name: "ODROID-C4"
           key: "odroid-c4"
-        - name: "ODROID-XU4"
-          key: "odroid-xu4"
+        - name: "ODROID-M1"
+          key: "odroid-m1"
 
     raspberrypi:
       board: Raspberry Pi
@@ -210,7 +223,7 @@ installation:
 
     tinkerboard:
       board: ASUS Tinkerboard
-      installation_media: "eMMC module/SD card"
+      installation_media: "eMMC module or SD card"
       variants:
         - name: "ASUS Tinkerboard"
           key: "tinker"

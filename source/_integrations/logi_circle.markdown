@@ -23,18 +23,18 @@ The `logi_circle` implementation allows you to integrate your [Logi Circle](http
 1. Navigate to the [Circle OAuth2 Client Request Form](https://docs.google.com/forms/d/184FUILJ10rVxotyOQR5DAiu6GcCbK31AZszUdzT1ybs).
 2. Fill out your contact name and e-mail address.
 3. For the User Visible Client Name, specify "Home Assistant"
-3. Request the following scopes:
-    * `circle:activities`
-    * `circle:accessories`
-    * `circle:live_image`
-    * `circle:live`
-    * `circle:notifications`
-    * `circle:summaries`
-4. Request the `authorization_code` grant type.
-5. For the redirect URI, specify your Home Assistant URL followed by `/api/logi_circle`. For example, if your Home Assistant URL is `https://abc123.ui.nabu.casa`, then request `https://abc123.ui.nabu.casa/api/logi_circle`. The redirect URI must meet the following criteria:
- * The URL must be HTTPS with a SSL certificate issued by a trusted CA (i.e., trusted by normal browsers).
- * At the time you submit your request to Logitech, you need to demonstrate that you have exclusive control of the fully qualified domain name in your redirect URI. An active Home Assistant instance at the redirect URI will suffice. If you don't want to expose your Home Assistant instance publicly, you may also place a static page at the redirect URI with a short message that you will manage redirection of the authorization token to your local Home Assistant instance. Free static hosts that issue subdomains for hosting (e.g., Netlify) are permitted.
- * As the redirect URI must be public facing, no local/reserved TLDs are permitted (eg. .local, .localhost, .example, etc. are not allowed).
+4. Request the following scopes:
+    - `circle:activities`
+    - `circle:accessories`
+    - `circle:live_image`
+    - `circle:live`
+    - `circle:notifications`
+    - `circle:summaries`
+5. Request the `authorization_code` grant type.
+6. For the redirect URI, specify your Home Assistant URL followed by `/api/logi_circle`. For example, if your Home Assistant URL is `https://abc123.ui.nabu.casa`, then request `https://abc123.ui.nabu.casa/api/logi_circle`. The redirect URI must meet the following criteria:
+ - The URL must be HTTPS with a SSL certificate issued by a trusted CA (i.e., trusted by normal browsers).
+ - At the time you submit your request to Logitech, you need to demonstrate that you have exclusive control of the fully qualified domain name in your redirect URI. An active Home Assistant instance at the redirect URI will suffice. If you don't want to expose your Home Assistant instance publicly, you may also place a static page at the redirect URI with a short message that you will manage redirection of the authorization token to your local Home Assistant instance. Free static hosts that issue subdomains for hosting (e.g., Netlify) are permitted.
+ - As the redirect URI must be public facing, no local/reserved TLDs are permitted (eg. .local, .localhost, .example, etc. are not allowed).
 
 Please note that the turn-around time for API access takes up to a month after which you will be contacted by Logitech using the email address you provided in the form.
 
@@ -98,7 +98,7 @@ logi_circle:
       - streaming
 ```
 
-By default, all sensors available from your Logi Circle devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the Logi Circle component. Devices without an internal battery will not expose a `battery_level` sensor.
+By default, all sensors available from your Logi Circle devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the Logi Circle integration. Devices without an internal battery will not expose a `battery_level` sensor.
 
 {% configuration %}
 sensor:
@@ -134,11 +134,11 @@ The `logi_circle` platform exposes 3 services for interacting with your Logi Cir
 
 Initiates a recording of the camera's live stream.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name(s) of entities to initiate a recording for, e.g., `camera.living_room_camera`. If blank, targets all Logi Circle cameras. |
-| `filename `            |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/recording_{{ entity_id }}.mp4`{% endraw %}. |
-| `duration`             |      no  | Duration of recording, in seconds.
+| Service data attribute | Optional | Description                                                                                                                    |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | yes      | Name(s) of entities to initiate a recording for, e.g., `camera.living_room_camera`. If blank, targets all Logi Circle cameras. |
+| `filename `            | no       | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/recording_{{ entity_id }}.mp4`{% endraw %}.             |
+| `duration`             | no       | Duration of recording, in seconds.                                                                                             |
 
 The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
@@ -148,10 +148,10 @@ Take a snapshot from a camera's live stream. This differs from the generic [snap
 
 Please note that new snapshots will only be generated if the cached snapshot is older than 30s. Requesting multiple snapshots in quick succession will likely return the same image. Likewise, requesting a snapshot from a camera that is actively streaming (ie. is not in deep sleep) will return a cached image no older than 30s.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name(s) of entities to create a live stream snapshot from, e.g., `camera.living_room_camera`. If blank, targets all Logi Circle cameras. |
-| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}.jpg`{% endraw %}. |
+| Service data attribute | Optional | Description                                                                                                                              |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Name(s) of entities to create a live stream snapshot from, e.g., `camera.living_room_camera`. If blank, targets all Logi Circle cameras. |
+| `filename`             | no       | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}.jpg`{% endraw %}.                        |
 
 The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
@@ -159,8 +159,8 @@ The path part of `filename` must be an entry in the `allowlist_external_dirs` in
 
 Sets a configuration property for your camera.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name(s) of entities to set the operation mode for, e.g., `camera.living_room_camera`. If blank, targets all Logi Circle cameras. |
-| `mode`                 |      no  | Configuration property to set. Allowed values: `LED`, `RECORDING_MODE` |
-| `value`                |      no  | Mode value. Allowed values: `true`, `false` |
+| Service data attribute | Optional | Description                                                                                                                      |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Name(s) of entities to set the operation mode for, e.g., `camera.living_room_camera`. If blank, targets all Logi Circle cameras. |
+| `mode`                 | no       | Configuration property to set. Allowed values: `LED`, `RECORDING_MODE`                                                           |
+| `value`                | no       | Mode value. Allowed values: `true`, `false`                                                                                      |

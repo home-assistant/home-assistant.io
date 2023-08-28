@@ -6,6 +6,7 @@ is_homepage: true
 regenerate: true
 feedback: false
 ---
+{% assign recent_release_post = site.categories['Core'].first %}
 
 <div class="frontpage">
   <div class="grid">
@@ -21,7 +22,7 @@ feedback: false
         >
 
         <div class="links">
-          <a href="/latest-release-notes/">Release notes</a>
+          <a href="{{ recent_release_post.url }}{{ site.patch_version_notes }}">Release notes</a>
         </div>
       </div>
 
@@ -89,6 +90,27 @@ feedback: false
       </a>
     </div>
     <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
+      <!-- Year of the voice chapter 3 -->
+      <a
+        href="/blog/2023/07/20/year-of-the-voice-chapter-3/"
+        class="material-card picture-promo"
+        style="
+          background-image: url(/images/frontpage/year-of-the-voice-chapter-3.png);
+          background-size: cover;
+          padding-top: 45%;
+        "
+      ></a>
+      <!-- Tutorial: setup private voice assistant over phone -->
+      <a
+        href="/voice_control/worlds-most-private-voice-assistant/"
+        target="_blank"
+        class="material-card picture-promo"
+        style="
+          background-image: url(/images/frontpage/promo-private-voice-assistant.png);
+          background-size: cover;
+          padding-top: 45%;
+        "
+      ></a>
       <!-- State of the Open Home 2022 -->
       <a
         href="https://www.youtube.com/watch?v=D936T1Ze8-4"

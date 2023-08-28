@@ -22,6 +22,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
   - update
   - vacuum
 ha_integration_type: hub
@@ -45,12 +46,13 @@ You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot or 
 | Last seen                     | `sensor` | Displays the time the unit was last seen / reported an update.                   |
 | Litter level                  | `sensor` | Displays the litter level, only for Litter-Robot 4.                              |
 | Pet weight                    | `sensor` | Displays the last measured pet weight, only for Litter-Robot 4.                  |
-| Sleep mode start time         | `sensor` | When sleep mode is enabled, displays the current or next sleep mode start time.  |
-| Sleep mode end time           | `sensor` | When sleep mode is enabled, displays the current or last sleep mode end time.    |
-| Status code                   | `sensor` | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc).     |
-| Waste drawer                  | `sensor` | Displays the current waste drawer level.                                         |
-| Clean cycle wait time minutes | `select` | View and select the clean cycle wait time.                                       |
-| Reset waste drawer            | `button` | Button to reset the waste drawer level to 0%, only for Litter-Robot 3.           |
+| Sleep Mode Start Time         | `sensor` | When sleep mode is enabled, displays the current or next sleep mode start time.  |
+| Sleep Mode End Time           | `sensor` | When sleep mode is enabled, displays the current or last sleep mode end time.    |
+| Status Code                   | `sensor` | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc).     |
+| Waste Drawer                  | `sensor` | Displays the current waste drawer level.                                         |
+| Clean Cycle Wait Time Minutes | `select` | View and select the clean cycle wait time.                                       |
+| Panel brightness              | `select` | View and select the panel brightness, only for Litter-Robot 4.                   |
+| Reset Waste Drawer            | `button` | Button to reset the waste drawer level to 0%, only for Litter-Robot 3.           |
 | Firmware                      | `update` | View and update to the latest firmware, only for Litter-Robot 4.                 |
 
 ### Feeder-Robot

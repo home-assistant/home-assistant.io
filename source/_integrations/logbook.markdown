@@ -154,7 +154,7 @@ exclude them in `recorder` instead.
 ### Custom Entries
 
 It is possible to add custom entries to the logbook by using the script
-component to fire an event.
+integration to fire an event.
 
 ```yaml
 # Example configuration.yaml entry

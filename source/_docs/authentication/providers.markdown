@@ -179,7 +179,7 @@ name = John Doe
 
 Leading and trailing whitespace, as well as lines starting with `#` are ignored. The following variables are supported. More may be added in the future.
 
-* `name`: The real name of the user to be displayed in their profile.
+- `name`: The real name of the user to be displayed in their profile.
 
 Stderr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
 
@@ -197,7 +197,7 @@ For now, meta variables are only respected the first time a particular user is a
 This is a legacy feature for backwards compatibility and will be dropped in a future release. You should move to one of the other auth providers.
 </div>
 
-Activating this auth provider will allow you to authenticate with the API password set in the HTTP component.
+Activating this auth provider will allow you to authenticate with the API password set in the HTTP integration.
 
 ```yaml
 homeassistant:

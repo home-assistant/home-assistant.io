@@ -29,7 +29,7 @@ One of the most common problems with Home Assistant is an invalid `configuration
 - You can verify your configuration's YAML structure using [this online YAML parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/).
 - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltproject.io/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
-`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one component, you can append a number or string to the name or nest them:
+`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one integration, you can append a number or string to the name or nest them:
 
 ```yaml
 sensor:
@@ -39,7 +39,7 @@ sensor:
     ...
 ```
 
-Another common problem is that a required configuration setting is missing. If this is the case, the integration will report this to `home-assistant.log`. You can have a look at [the various integration pages](/integrations/) for instructions on how to setup the components.
+Another common problem is that a required configuration setting is missing. If this is the case, the integration will report this to `home-assistant.log`. You can have a look at [the various integration pages](/integrations/) for instructions on how to setup the integrations.
 
 See the [logger](/integrations/logger/) integration for instructions on how to define the level of logging you require for specific modules.
 
@@ -104,12 +104,7 @@ The first thing you will need before reporting an issue online is debug logs and
 
 ### Enabling Debug Logging
 
-To enable debug logging for an integration, go to **Settings -> Devices & Services** and then click the triple dots for the integration giving you trouble and click **Enable Debug Logging**.
-
-<p class='img'>
-  <img src='/images/docs/configuration/enable-debug-logging.gif' alt='Example of Enable Debug Logging'>
-  Example of Enable Debug Logging.
-</p>
+To enable debug logging for an integration, go to **Settings** > **Devices & Services** and select the integration. Select the triple dots for the integration giving you trouble and select **Enable Debug Logging**.
 
 ### Disable Debug Logging and Download Logs
 
