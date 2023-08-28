@@ -295,7 +295,7 @@ payload_on:
   type: string
   default: "ON"
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -692,7 +692,7 @@ payload_not_available:
   type: string
   default: offline
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -1054,7 +1054,7 @@ payload_not_available:
   type: string
   default: offline
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
