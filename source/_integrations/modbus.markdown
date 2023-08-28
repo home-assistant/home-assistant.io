@@ -372,6 +372,8 @@ modbus entities are grouped below each modbus communication entry.
 
 All modbus entities have the following parameters:
 
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+
 {% configuration %}
 address:
   description: "Address of coil/register."
@@ -460,6 +462,7 @@ For that reason, many devices (especially older ones) do not share the coil addr
 and this `input` would read from a different address space than `coil`. The problem is present in devices with
 shared address space and are a frequent cause of problems when configuring entities.
 
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
 {% configuration %}
 binary_sensors:
@@ -550,6 +553,8 @@ The master configuration like device_class are automatically copied to the slave
 ## Configuring climate entities
 
 The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature.
+
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
 {% configuration %}
 climates:
@@ -773,6 +778,8 @@ Cover that uses `input_type: coil` is not able to determine intermediary states 
 
 If your cover uses `input_type: holding` (default) to send commands, it can also read the intermediary states. To adjust which value represents what state, you can fine-tune the optional state attributes, like `state_open`. These optional state values are also used for specifying values written into the register. If you specify an optional status_register attribute, cover states will be read from status_register instead of the register used for sending commands.
 
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+
 {% configuration %}
 covers:
   description: "A list of all cover entities configured for this connection."
@@ -958,6 +965,7 @@ modbus:
 
 The `modbus` fan platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
 {% configuration %}
 fans:
@@ -1063,6 +1071,8 @@ modbus:
 ## Configuring light entities
 
 The `modbus` light platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
+
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
 {% configuration %}
 lights:
@@ -1170,6 +1180,7 @@ modbus:
 
 The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
 
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
 {% configuration %}
 sensors:
@@ -1371,6 +1382,8 @@ modbus:
 
 The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+
 {% configuration %}
 switches:
   description: "A list of all switches in this modbus instance."
@@ -1502,19 +1515,19 @@ modbus:
             state_off: 1
 ```
 
-## Parameters usage matrix:
+## Parameters usage matrix
 
 Some parameters exclude other parameters, the following tables show what can be combined:
 
-| Datatype:       | custom | string | <type>16 | <type>32 | <type>64 |
-| --------------- | ------ | ------ | -------- | -------- | -------- |
-| count           | Yes    | Yes    | No       | No       | No       |
-| structure       | Yes    | No     | No       | No       | No       |
-| slave_count     | No     | No     | Yes      | Yes      | Yes      |
-| swap: none      | Yes    | Yes    | Yes      | Yes      | Yes      |
-| swap: byte      | No     | No     | Yes      | Yes      | Yes      |
-| swap: word      | No     | No     | No       | Yes      | Yes      |
-| swap: word_byte | No     | No     | No       | Yes      | Yes      |
+| Datatype:       | custom | string | *16 | *32 | *64 |
+| --------------- | ------ | ------ | --- | --- | --- |
+| count           | Yes    | Yes    | No  | No  | No  |
+| structure       | Yes    | No     | No  | No  | No  |
+| slave_count     | No     | No     | Yes | Yes | Yes |
+| swap: none      | Yes    | Yes    | Yes | Yes | Yes |
+| swap: byte      | No     | No     | Yes | Yes | Yes |
+| swap: word      | No     | No     | No  | Yes | Yes |
+| swap: word_byte | No     | No     | No  | Yes | Yes |
 
 
 # modbus services
