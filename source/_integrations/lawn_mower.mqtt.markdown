@@ -1,6 +1,6 @@
 ---
 title: "MQTT Lawn Mower"
-description: "Instructions on how to integrate MQTT Lawn Mower's into Home Assistant."
+description: "Instructions on how to integrate MQTT lawn mowers into Home Assistant."
 ha_category:
   - Lawn Mower
 ha_release: 2023.9
@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` `lawn_mower` platform allows control a Lawn Mower over MQTT.
+The `mqtt` `lawn_mower` platform allows controlling a lawn mower over MQTT.
 
 ## Configuration
 
@@ -24,7 +24,7 @@ mqtt:
 
 {% configuration %}
 activity_state_topic:
-  description: The MQTT topic subscribed to receive update of the activity. Valid activities are `mowing`, `paused`, `docked` and `error`. Use `value_template` to extract the activity state from a custom payload. When payload `none` is received the activity state will be reset to `unknown`.  
+  description: The MQTT topic subscribed to receive an update of the activity. Valid activities are `mowing`, `paused`, `docked`, and `error`. Use `value_template` to extract the activity state from a custom payload. When payload `none` is received, the activity state will be reset to `unknown`.  
   required: false
   type: string
 activity_value_template:
@@ -51,7 +51,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_topic:
@@ -64,20 +64,20 @@ availability_mode:
    type: string
    default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 device:
-  description: "Information about the device this Lawn Mower is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this lawn mower is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when the [`unique_id`](#unique_id) is set. At least one of the identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://`, or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example, the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
       required: false
       type: list
     hw_version:
@@ -85,7 +85,7 @@ device:
       required: false
       type: string
     identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      description: 'A list of IDs that uniquely identify the device. For example, a serial number.'
       required: false
       type: [list, string]
     manufacturer:
@@ -109,7 +109,7 @@ device:
       required: false
       type: string
     via_device:
-      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
+      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs or parent devices of a sub-device. This is used to show the device topology in Home Assistant.'
       required: false
       type: string
 dock_command_template:
@@ -126,7 +126,7 @@ enabled_by_default:
   type: boolean
   default: true
 encoding:
-  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of the incoming payload.
   required: false
   type: string
   default: "utf-8"
@@ -148,7 +148,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the Lawn Mower. Can be set to `null` if only the device name is relevant.
+  description: The name of the lawn mower. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
 object_id:
@@ -187,7 +187,7 @@ retain:
   type: boolean
   default: false
 unique_id:
-  description: An ID that uniquely identifies this Lawn Mower. If two Lawn Mower's have the same unique ID Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this lawn mower. If two lawn mowers have the same unique ID, Home Assistant will raise an exception.
   required: false
   type: string
 {% endconfiguration %}
