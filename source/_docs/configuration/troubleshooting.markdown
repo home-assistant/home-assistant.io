@@ -104,7 +104,7 @@ The first thing you will need before reporting an issue online is debug logs and
 
 ### Enabling Debug Logging
 
-To enable debug logging for an integration, go to **Settings** > **Devices & Services** > **Integrations** and go to the detail page of the integration. Click the **Enable Debug Logging** button on the left side of the integrationd detail page.
+To enable debug logging for an integration, go to **Settings** > **Devices & Services** > **Integrations** and go to the detail page of the integration. Select the **Enable Debug Logging** button on the left side of the integration detail page.
 
 <p class='img'>
   <img src='/images/docs/configuration/enable-debug-logging.png' alt='Example of Enable debug logging'>
