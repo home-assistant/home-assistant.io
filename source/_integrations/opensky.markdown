@@ -39,7 +39,7 @@ Both events have two attributes in common:
 - **sensor**: Name of `opensky` sensor that fired the event.
 - **callsign**: Callsign of the flight.
 
-**opensky_entry** has 4 additionnal attributes:
+**opensky_entry** has 4 additional attributes:
 
 - **altitude**: Altitude of the flight in meters.
 - **latitude**: Latitude of the flight in decimal
