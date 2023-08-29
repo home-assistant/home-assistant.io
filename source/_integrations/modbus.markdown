@@ -626,15 +626,15 @@ climates:
             state_off:
               description: "Value corresponding to HVAC Off mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_heat:
               description: "Value corresponding to HVAC Heat mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_cool:
               description: "Value corresponding to HVAC Cool mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_auto:
               description: "Value corresponding to HVAC Auto mode."
               required: false
@@ -642,15 +642,15 @@ climates:
             state_dry:
               description: "Value corresponding to HVAC Dry mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_fan_only:
               description: "Value corresponding to HVAC Fan only mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_heat_cool:
               description: "Value corresponding to HVAC Heat/Cool mode."
               required: false
-              type: integer
+              type: [integer, list]
     hvac_onoff_register:
       description: "Address of On/Off state.
         When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
