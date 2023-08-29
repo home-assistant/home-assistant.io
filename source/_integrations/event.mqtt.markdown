@@ -221,3 +221,33 @@ The example below demonstrates how event attributes can be added to the event da
 ```bash
 mosquitto_pub -h 127.0.0.1 -t home/doorbell/state -m '{"event_type": "press", "duration": 0.1}'
 ```
+
+### Example: processing event data using a value template
+
+In many cases, translation of an existing published payload is needed.
+The example config below translates the payload `{"Button1": {"Action": "SINGLE"}}` of
+the device `Button1` with event type `single` to the required format.
+An extra attribute `button` will be set to `Button1` and be added to the entity,
+but only if the `Action` property is set. Empty dictionaries will be ignored.
+
+{% raw %}
+
+```yaml
+mqtt:
+  - event:
+      name: "Desk button"
+      state_topic: "desk/button/state"
+      event_types:
+        - single
+        - double
+      device_class: "button"
+      value_template: |
+        { {% for key in value_json %}
+        {% if value_json[key].get("Action") %}
+        "button": "{{ key }}",
+        "event_type": "{{ value_json[key].Action | lower }}"
+        {% endif %}
+        {% endfor %} }
+```
+
+{% endraw %}
