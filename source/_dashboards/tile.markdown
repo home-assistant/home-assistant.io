@@ -140,11 +140,11 @@ modes:
 
 ### Climate HVAC modes
 
-Widget that display buttons to control change the HVAC mode for a [climate](/integrations/climate).
+Widget that displays buttons to control the HVAC mode for a [climate](/integrations/climate).
 
 <p class='img'>
-  <img src='/images/dashboards/tile-features/climate_hvac_modes.png' alt='Screenshot of the tile card with climate HVAC modes feature'>
-  Screenshot of the tile card with climate HVAC modes feature
+  <img src='/images/dashboards/tile-features/climate_hvac_modes.png' alt='Screenshot of the tile card with the climate HVAC modes feature'>
+  Screenshot of the tile card with the climate HVAC modes feature
 </p>
 
 ```yaml
@@ -173,7 +173,7 @@ hvac_modes:
 
 ### Cover open/close
 
-Widget that display buttons to open, close or stop a [cover](/integrations/cover).
+Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
 
 <p class='img'>
   <img src='/images/dashboards/tile-features/cover_open_close.png' alt='Screenshot of the tile card with open/close feature'>
@@ -194,11 +194,11 @@ type:
 
 ### Cover position
 
-Widget that display a slider to control the position for a [cover](/integrations/cover).
+Widget that displays a slider to control the position for a [cover](/integrations/cover).
 
 <p class='img'>
-  <img src='/images/dashboards/tile-features/cover_position.png' alt='Screenshot of the tile card with cover position feature'>
-  Screenshot of the tile card with cover position feature
+  <img src='/images/dashboards/tile-features/cover_position.png' alt='Screenshot of the tile card with the cover position feature'>
+  Screenshot of the tile card with the cover position feature
 </p>
 
 ```yaml
@@ -215,7 +215,7 @@ type:
 
 ### Cover tilt
 
-Widget that display buttons to open, close or stop a [cover](/integrations/cover).
+Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
 
 <p class='img'>
   <img src='/images/dashboards/tile-features/cover_tilt.png' alt='Screenshot of the tile card with tilt feature'>
@@ -236,11 +236,11 @@ type:
 
 ### Cover tilt position
 
-Widget that display a slider to control the tilt position for a [cover](/integrations/cover).
+Widget that displays a slider to control the tilt position for a [cover](/integrations/cover).
 
 <p class='img'>
-  <img src='/images/dashboards/tile-features/cover_tilt_position.png' alt='Screenshot of the tile card with cover tilt position feature'>
-  Screenshot of the tile card with cover tilt position feature
+  <img src='/images/dashboards/tile-features/cover_tilt_position.png' alt='Screenshot of the tile card with the cover tilt position feature'>
+  Screenshot of the tile card with the cover tilt position feature
 </p>
 
 ```yaml
@@ -257,7 +257,7 @@ type:
 
 ### Fan speed
 
-Widget that display speed controls for a [fan](/integrations/fan).
+Widget that displays speed controls for a [fan](/integrations/fan).
 
 <p class='img'>
   <img src='/images/dashboards/tile-features/fan_speed.png' alt='Screenshot of the tile card with fan speed feature'>
@@ -278,11 +278,11 @@ type:
 
 ### Lawn mower commands
 
-Widget that display buttons to control a [lawn mower](/integrations/lawn_mower).
+Widget that displays buttons to control a [lawn mower](/integrations/lawn_mower).
 
 <p class='img'>
-  <img src='/images/dashboards/tile-features/lawn_mower_commands.png' alt='Screenshot of the tile card with lawn mower commands feature'>
-  Screenshot of the tile card with lawn mower commands feature
+  <img src='/images/dashboards/tile-features/lawn_mower_commands.png' alt='Screenshot of the tile card with the lawn mower commands feature'>
+  Screenshot of the tile card with the lawn mower commands feature
 </p>
 
 ```yaml
@@ -306,7 +306,7 @@ commands:
 
 ### Light brightness
 
-Widget that display a slider to select the brightness for a [light](/integrations/light).
+Widget that displays a slider to select the brightness for a [light](/integrations/light).
 
 <p class='img'>
   <img src='/images/dashboards/tile-features/light_brightness.png' alt='Screenshot of the tile card with light brightness feature'>
@@ -327,11 +327,11 @@ type:
 
 ### Light color temp
 
-Widget that display a slider to select the color temperature for a [light](/integrations/light).
+Widget that displays a slider to select the color temperature for a [light](/integrations/light).
 
 <p class='img'>
-  <img src='/images/dashboards/tile-features/light_color_temp.png' alt='Screenshot of the tile card with light color temperature feature'>
-  Screenshot of the tile card with light color temperature feature
+  <img src='/images/dashboards/tile-features/light_color_temp.png' alt='Screenshot of the tile card with the light color temperature feature'>
+  Screenshot of the tile card with the light color temperature feature
 </p>
 
 ```yaml
@@ -348,11 +348,11 @@ type:
 
 ### Target temperature
 
-Widget that display buttons to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater).
+Widget that displays buttons to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater).
 
 <p class='img'>
-  <img src='/images/dashboards/tile-features/target_temperature.png' alt='Screenshot of the tile card with target temperature feature'>
-  Screenshot of the tile card with target temperature feature
+  <img src='/images/dashboards/tile-features/target_temperature.png' alt='Screenshot of the tile card with the target temperature feature'>
+  Screenshot of the tile card with the target temperature feature
 </p>
 
 ```yaml
@@ -369,7 +369,7 @@ type:
 
 ### Vacuum commands
 
-Widget that display buttons to control a [vacuum](/integrations/vacuum).
+Widget that displays buttons to control a [vacuum](/integrations/vacuum).
 
 <p class='img'>
   <img src='/images/dashboards/tile-features/vacuum_commands.png' alt='Screenshot of the tile card with vacuum commands feature'>
@@ -400,11 +400,11 @@ commands:
 
 ### Water heater operation modes
 
-Widget that display buttons to control change the operation mode of a [water heater](/integrations/water_heater).
+Widget that displays buttons to control the operation mode of a [water heater](/integrations/water_heater).
 
 <p class='img'>
-  <img src='/images/dashboards/tile-features/water_heater_operation_modes.png' alt='Screenshot of the tile card with water heater operation modes feature'>
-  Screenshot of the tile card with water heater operation modes feature
+  <img src='/images/dashboards/tile-features/water_heater_operation_modes.png' alt='Screenshot of the tile card with the water heater operation modes feature'>
+  Screenshot of the tile card with the water heater operation modes feature
 </p>
 
 ```yaml
