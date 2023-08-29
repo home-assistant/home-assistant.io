@@ -27,6 +27,8 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
   - Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)
   - Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
   - Zooz S2 Stick 700 (ZST10 700)
+  - HomeSeer SmartStick+ G3
+  - HomeSeer Z-NET G3
 
 - 500 series controllers
   - Aeotec Z-Stick Gen5 (see note below)
@@ -35,6 +37,8 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
   - Sigma Designs UZB stick
   - Vision USB stick - Gen5
   - Z-Wave.Me UZB1 stick
+  - HomeSeer SmartStick+ G2
+  - HomeSeer Z-NET G2
 
 - Raspberry Pi modules
   - Aeotec Z-Pi 7 Raspberry Pi HAT/Shield (ZWA025, 700 series)
