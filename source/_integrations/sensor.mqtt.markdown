@@ -176,7 +176,7 @@ suggested_display_precision:
   required: false
   type: integer
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0

@@ -110,6 +110,10 @@ Provides per-port PoE control. Entities are disabled by default. This feature re
 
 Entities appear automatically for each restriction group. If there are no restrictions in a group, no entity will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
 
+### Control Port forward functonality
+
+Entities appear for each port forwarding rule. 
+
 ### Control WLAN availability
 
 Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
