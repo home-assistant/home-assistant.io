@@ -372,6 +372,8 @@ modbus entities are grouped below each modbus communication entry.
 
 All modbus entities have the following parameters:
 
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+
 {% configuration %}
 address:
   description: "Address of coil/register."
@@ -460,6 +462,7 @@ For that reason, many devices (especially older ones) do not share the coil addr
 and this `input` would read from a different address space than `coil`. The problem is present in devices with
 shared address space and are a frequent cause of problems when configuring entities.
 
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
 {% configuration %}
 binary_sensors:
@@ -551,6 +554,8 @@ The master configuration like device_class are automatically copied to the slave
 
 The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature.
 
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+
 {% configuration %}
 climates:
   description: "A list of all climate entities in this modbus instance."
@@ -608,7 +613,8 @@ climates:
           required: true
           type: integer
         write_registers:
-          description: "Request type, use `write_registers` if true  else `write_register`."
+          description: "Request type, use `write_registers` if true  else `write_register`.
+            If more than one value is specified for a specific mode, only the first one is used for writing to the register."
           required: false
           type: boolean
           default: false
@@ -620,15 +626,15 @@ climates:
             state_off:
               description: "Value corresponding to HVAC Off mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_heat:
               description: "Value corresponding to HVAC Heat mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_cool:
               description: "Value corresponding to HVAC Cool mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_auto:
               description: "Value corresponding to HVAC Auto mode."
               required: false
@@ -636,15 +642,15 @@ climates:
             state_dry:
               description: "Value corresponding to HVAC Dry mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_fan_only:
               description: "Value corresponding to HVAC Fan only mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_heat_cool:
               description: "Value corresponding to HVAC Heat/Cool mode."
               required: false
-              type: integer
+              type: [integer, list]
     hvac_onoff_register:
       description: "Address of On/Off state.
         When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
@@ -772,6 +778,8 @@ At the moment, platform cover support the opening and closing of a cover. You ca
 Cover that uses `input_type: coil` is not able to determine intermediary states such as opening and closing. Coil stores only two states — "0" means cover closed, and "1" implies cover open. To allow detecting intermediary states, there is an optional `status_register` attribute. It will enable you to write your command (e.g., to open a cover) into a coil, and read current cover status back through the register. Additionally, you can specify values for `state_open`, `state_opening`, `state_closed`, and `state_closing` attributes. These will be matched with the value read from the `status_register`.
 
 If your cover uses `input_type: holding` (default) to send commands, it can also read the intermediary states. To adjust which value represents what state, you can fine-tune the optional state attributes, like `state_open`. These optional state values are also used for specifying values written into the register. If you specify an optional status_register attribute, cover states will be read from status_register instead of the register used for sending commands.
+
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
 {% configuration %}
 covers:
@@ -958,6 +966,7 @@ modbus:
 
 The `modbus` fan platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
 {% configuration %}
 fans:
@@ -1063,6 +1072,8 @@ modbus:
 ## Configuring light entities
 
 The `modbus` light platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
+
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
 {% configuration %}
 lights:
@@ -1170,6 +1181,7 @@ modbus:
 
 The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
 
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
 {% configuration %}
 sensors:
@@ -1371,6 +1383,8 @@ modbus:
 
 The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+
 {% configuration %}
 switches:
   description: "A list of all switches in this modbus instance."
@@ -1502,19 +1516,19 @@ modbus:
             state_off: 1
 ```
 
-## Parameters usage matrix:
+## Parameters usage matrix
 
 Some parameters exclude other parameters, the following tables show what can be combined:
 
-| Datatype:       | custom | string | <type>16 | <type>32 | <type>64 |
-| --------------- | ------ | ------ | -------- | -------- | -------- |
-| count           | Yes    | Yes    | No       | No       | No       |
-| structure       | Yes    | No     | No       | No       | No       |
-| slave_count     | No     | No     | Yes      | Yes      | Yes      |
-| swap: none      | Yes    | Yes    | Yes      | Yes      | Yes      |
-| swap: byte      | No     | No     | Yes      | Yes      | Yes      |
-| swap: word      | No     | No     | No       | Yes      | Yes      |
-| swap: word_byte | No     | No     | No       | Yes      | Yes      |
+| Datatype:       | custom | string | *16 | *32 | *64 |
+| --------------- | ------ | ------ | --- | --- | --- |
+| count           | Yes    | Yes    | No  | No  | No  |
+| structure       | Yes    | No     | No  | No  | No  |
+| slave_count     | No     | No     | Yes | Yes | Yes |
+| swap: none      | Yes    | Yes    | Yes | Yes | Yes |
+| swap: byte      | No     | No     | Yes | Yes | Yes |
+| swap: word      | No     | No     | No  | Yes | Yes |
+| swap: word_byte | No     | No     | No  | Yes | Yes |
 
 
 # modbus services
