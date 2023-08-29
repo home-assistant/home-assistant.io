@@ -138,7 +138,7 @@ modes:
   type: list
 {% endconfiguration %}
 
-### Climate HVAC Modes
+### Climate HVAC modes
 
 Widget that display buttons to control change the HVAC mode for a [climate](/integrations/climate).
 
