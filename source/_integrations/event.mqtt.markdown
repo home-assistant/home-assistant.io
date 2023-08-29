@@ -243,7 +243,7 @@ mqtt:
       device_class: "button"
       value_template: |
         { {% for key in value_json %}
-        {% if value_json[key].Action %}
+        {% if value_json[key].get("Action") %}
         "button": "{{ key }}",
         "event_type": "{{ value_json[key].Action | lower }}"
         {% endif %}
