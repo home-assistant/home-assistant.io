@@ -14,6 +14,13 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
+<div class="note warning">
+
+Home Assistant has been informed that the Legrand Home+ Control integration platform will be shutting down in December.
+Once that happens, it means this integration is no longer functional. We advise you to remove this integration and switch to the [Netatmo](/integrations/netatmo/) integration, which provides a replacement for controlling your Legrand Home+ Control devices.
+
+</div>
+
 The Home+ Control integration platform allows you to control a range of Legrand in-wall switches and power outlets that have smart home functionality thanks to their "with Netatmo" capabilities.
 
 This integration works against the Home+ Control API, which is one of the many APIs offered through the [*Works with Legrand*](https://developer.legrand.com/) program. The API is capable of managing "Legrand/Btcino with Netatmo" devices, such as light switches, power outlets and rolling shutters.
