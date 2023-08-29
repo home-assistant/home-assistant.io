@@ -16,10 +16,7 @@ ha_integration_type: integration
 
 <div class="note warning">
 
-Home Assistant has been informed that the Legrand Home+ Control integration platform will be shutting down in December.
-Once that happens, it means this integration is no longer functional.
-
-We advise you to remove this integration and switch to the [Netatmo](/integrations/netatmo/) integration, which provides a replacement for controlling your Legrand Home+ Control devices.
+The Legrand Home+ Control cloud is shutting down in December. Use [the Netatmo integration](/integrations/netatmo/) to integrate your Legrand Home+ Control devices.
 
 </div>
 
