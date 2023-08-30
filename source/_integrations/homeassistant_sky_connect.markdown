@@ -1,6 +1,6 @@
 ---
-title: Home Assistant Sky Connect
-description: Home Assistant Sky Connect provides hardware information for the hardware configuration page.
+title: Home Assistant SkyConnect
+description: Home Assistant SkyConnect provides hardware information for the hardware configuration page.
 ha_release: 2022.9
 ha_category:
   - Other
@@ -10,9 +10,10 @@ ha_domain: homeassistant_sky_connect
 ha_integration_type: hardware
 ---
 
-The Home Assistant Sky Connect integration provides hardware information for the hardware configuration page.
+The Home Assistant SkyConnect integration provides hardware information for the hardware configuration page.
 
-For documentation about the Home Assistant Sky Connect please visit the [documentation](https://skyconnect.home-assistant.io/documentation/).
+For documentation on the Home Assistant SkyConnect, please visit the [documentation page](https://skyconnect.home-assistant.io/documentation/).
+If you are looking to buy one, please visit the [product page](https://home-assistant.io/skyconnect
 
 ## Configuration
 
