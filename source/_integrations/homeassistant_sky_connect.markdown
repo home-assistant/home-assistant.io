@@ -13,7 +13,7 @@ ha_integration_type: hardware
 The Home Assistant SkyConnect integration provides hardware information for the hardware configuration page.
 
 For documentation on the Home Assistant SkyConnect, please visit the [documentation page](https://skyconnect.home-assistant.io/documentation/).
-If you are looking to buy one, please visit the [product page](https://home-assistant.io/skyconnect
+If you are looking to buy one, please visit the [product page](https://home-assistant.io/skyconnect)
 
 ## Configuration
 
