@@ -41,6 +41,11 @@ tap_action:
       description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
       default: none
+    navigation_replace:
+      required: false
+      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      type: boolean
+      default: none
     url_path:
       required: false
       description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
@@ -98,6 +103,11 @@ hold_action:
       description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
       default: none
+    navigation_replace:
+      required: false
+      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      type: boolean
+      default: none
     url_path:
       required: false
       description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
@@ -154,6 +164,11 @@ double_tap_action:
       required: false
       description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
+      default: none
+    navigation_replace:
+      required: false
+      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      type: boolean
       default: none
     url_path:
       required: false
