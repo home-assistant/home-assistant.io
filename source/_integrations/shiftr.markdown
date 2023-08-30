@@ -13,7 +13,7 @@ The `shiftr` integration makes it possible to transfer details collected with Ho
 
 ## Configuration
 
-Create a new [namespace](https://shiftr.io/new) and generate a new token. You will need to use `Key (Username)` and `Secret (Password)` to setup the component.
+Create a new [namespace](https://shiftr.io/new) and generate a new token. You will need to use `Key (Username)` and `Secret (Password)` to setup the integration.
 
 To use the `shiftr` integration in your installation, add the following to your `configuration.yaml` file:
 

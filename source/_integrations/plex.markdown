@@ -172,11 +172,11 @@ The integration must be configured with a token for playback commands to work. T
 
 #### Music
 
-| Service data attribute | Description                                                                                                                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | `entity_id` of the client                                                                                                                                                                            |
+| Service data attribute | Description                                                                                                                                                                                                                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | `entity_id` of the client                                                                                                                                                                                                                                                                        |
 | `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`artist_name` or `artist.title`</li><li>`album_name` or `album.title`</li><li>`track_name` or `track.title`</li><li>`track_number` or `track.index`</li><li>`shuffle` (0 or 1)</li><li>`allow_multiple` (0 or 1)</li></ul> |
-| `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
+| `media_content_type`   | `MUSIC`                                                                                                                                                                                                                                                                                          |
 
 ##### Examples:
 
@@ -216,11 +216,11 @@ media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
 
 #### TV Episode
 
-| Service data attribute | Description                                                                                                                                                                        |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | `entity_id` of the client                                                                                                                                                          |
+| Service data attribute | Description                                                                                                                                                                                                                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                                                                                                                                                                                                                                              |
 | `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` or `show.title`</li><li>`season_number` or `season.index`</li><li>`episode_number` or `episode.index`</li><li>`shuffle` (0 or 1)</li><li>`resume` (0 or 1)</li><li>`offset` (in seconds)</li><li>`allow_multiple` (0 or 1)</li></ul> |
-| `media_content_type`   | `EPISODE`                                                                                                                                                                          |
+| `media_content_type`   | `EPISODE`                                                                                                                                                                                                                                                                                                              |
 
 ##### Examples:
 
@@ -250,11 +250,11 @@ media_content_id: '{ "library_name": "News TV", "show_name": "60 Minutes", "epis
 
 #### Movie
 
-| Service data attribute | Description                                                                                             |
-| ---------------------- | ------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | `entity_id` of the client                                                                               |
+| Service data attribute | Description                                                                                                                                     |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                                                                       |
 | `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`title`</li><li>`resume` (0 or 1)</li><li>`offset` (in seconds)</li></ul> |
-| `media_content_type`   | `movie`                                                                                                 |
+| `media_content_type`   | `movie`                                                                                                                                         |
 
 ##### Examples:
 
@@ -272,16 +272,16 @@ Instead of searching for a specific known piece of media, many additional parame
 
 These are examples of optional keys that can be included in the `media_content_id` JSON payload customize the search:
 
-* `unwatched`: Restrict search to unwatched items only (`true`, `false`)
-* `actor`: Restrict search for movies that include a specific actor
-* `collection`: Restrict search within a named Plex collection ("Back to the Future", "Indiana Jones")
-* `contentRating`: Restrict search to a specific content rating ("PG", "R")
-* `country`: Restrict search to a specific country of origin
-* `decade`: Restrict search to a specific decade ("1960", "2010")
-* `director`: Restrict search to a specific director
-* `genre`: Restrict search to a specific genre ("Animation", "Drama", "Sci-Fi")
-* `resolution`: Restrict search to a specific video resolution (480, 720, 1080, "4k")
-* `year`: Restrict search to a specific year
+- `unwatched`: Restrict search to unwatched items only (`true`, `false`)
+- `actor`: Restrict search for movies that include a specific actor
+- `collection`: Restrict search within a named Plex collection ("Back to the Future", "Indiana Jones")
+- `contentRating`: Restrict search to a specific content rating ("PG", "R")
+- `country`: Restrict search to a specific country of origin
+- `decade`: Restrict search to a specific decade ("1960", "2010")
+- `director`: Restrict search to a specific director
+- `genre`: Restrict search to a specific genre ("Animation", "Drama", "Sci-Fi")
+- `resolution`: Restrict search to a specific video resolution (480, 720, 1080, "4k")
+- `year`: Restrict search to a specific year
 
 More parameters and additional details can be found in the `plexapi` library [documentation](https://python-plexapi.readthedocs.io/en/latest/modules/library.html#plexapi.library.LibrarySection.search).
 
@@ -324,15 +324,15 @@ The search will attempt to guess the type of media based on the search parameter
 
 ### Compatibility
 
-| Client | Limitations |
-| --- | --- |
-| Remote clients     | Controls are unavailable |
-| Apple TV           | None |
-| iOS                | None |
-| NVidia Shield      | None |
-| Plexamp            | None (music playback only) |
+| Client             | Limitations                                |
+| ------------------ | ------------------------------------------ |
+| Remote clients     | Controls are unavailable                   |
+| Apple TV           | None                                       |
+| iOS                | None                                       |
+| NVidia Shield      | None                                       |
+| Plexamp            | None (music playback only)                 |
 | Plex Desktop & Web | Controls are unavailable (as of June 2022) |
-| Plex HTPC          | None |
+| Plex HTPC          | None                                       |
 
 ## Sonos Playback
 
@@ -344,7 +344,7 @@ To play Plex music directly to Sonos speakers, the following requirements must b
 
 Call the `media_player.play_media` service with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both [music](#music) and [playlist](#playlist) `media_content_type` values are supported.
 
-##### Examples:
+### Examples:
 
 Play a track with advanced filtering on a Sonos Speaker
 
@@ -368,10 +368,10 @@ media_content_id: 'plex://{ "playlist_name": "Party Mix" }'
 
 Refresh a Plex library to scan for new and updated media.
 
-| Service data attribute | Required | Description | Example |
-| --- | --- | --- | --- |
-| `server_name` | No | Name of Plex server to use if multiple servers configured. | "My Plex Server" |
-| `library_name` | Yes | Name of Plex library to update. | "TV Shows" |
+| Service data attribute | Required | Description                                                | Example          |
+| ---------------------- | -------- | ---------------------------------------------------------- | ---------------- |
+| `server_name`          | No       | Name of Plex server to use if multiple servers configured. | "My Plex Server" |
+| `library_name`         | Yes      | Name of Plex library to update.                            | "TV Shows"       |
 
 
 ## Notes

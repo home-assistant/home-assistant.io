@@ -2,7 +2,7 @@
 title: SIMU LiveIn2
 description: Connect and control your SIMU LiveIn2 devices using the Overkiz integration
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Binary Sensor
   - Button
   - Climate

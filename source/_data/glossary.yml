@@ -57,11 +57,33 @@
   aliases:
     - automations
 
+- term: Backup
+  definition: >-
+    Home Assistant has built-in functionality to create files containing a copy of
+    your configuration. This can be used to restore your Home Assistant as well
+    as migrate to a new system. The backup feature is available on some installation
+    types.
+  link: /integrations/backup/
+  excerpt: >-
+    Home Assistant has built-in functionality to create files containing a copy of
+    your configurations. This is available on certain installation types.
+  aliases:
+    - backups
+
 - term: Binary sensor
   definition: >-
     A binary sensor returns information about things that only have two states -
     such as on or off.
   link: /integrations/binary_sensor
+
+- term: Blueprint
+  definition: >-
+    A blueprint is a script or automation configuration with certain parts marked as configurable. This allows users to create multiple scripts or automations based on the same blueprint, with each having its own configuration-specific settings. Blueprints are shared by the community on the [blueprints exchange](https://community.home-assistant.io/c/blueprints-exchange/53) in the forum.
+  link: /docs/blueprint/
+  excerpt: >-
+    A blueprint is a script or automation configuration with certain parts marked as configurable. This allows users to create multiple scripts or automations based on the same blueprint, with each having its own configuration-specific settings.
+  aliases:
+    - blueprints
 
 - term: Component
   definition: >-
@@ -72,6 +94,8 @@
     Conditions are an optional part of an automation that will prevent an
     action from firing if they are not met.
   link: /docs/scripts/conditions/
+  aliases:
+    - conditions
 
 - term: Cover
   definition: >-
@@ -282,6 +306,20 @@
     other integrations.
   link: /docs/configuration/platform_options/
 
+- term: Reload
+  definition: >-
+    Applies the changes made to the Home Assistant configuration files. Changes
+    are normally automatically updated. However, changes made outside of the front
+    end will not be reflected in Home Assistant and require a reload.
+    To perform a manual reload, go to **Settings** > **System** >
+    **Restart Home Assistant** (top right) > **Quick reload**. More granular
+    reload options are available in *YAML configuration reloading* section
+    in **Developer tools** > **YAML**.
+  excerpt: >
+    Applies the changes made to Home Assistant configuration files. Changes are normally
+    automatically updated. However, changes made outside of the front
+    end will not be reflected in Home Assistant and require a reload.
+
 - term: Scene
   definition: >-
     Scenes capture the states you want certain entities to be. For example,
@@ -335,8 +373,9 @@
     A service carries out one specific task, for example: turn on the light in the 
     living room. A service has targets and data and can be called by actions, a 
     dashboard, or via voice command.
-
   link: /docs/scripts/service-calls/
+  aliases:
+    - services
 
 - term: State
   definition: |-
@@ -344,7 +383,7 @@
 
     State changes can be used as the source of triggers. The current state can be used in conditions.
     
-  link: /docs/scripts/configuration/state_object/
+  link: /docs/configuration/state_object/
   excerpt: >
     The state holds the information of interest of an entity, for example, if a light is on or off. Each entity has exactly one state and the state only holds one value at a time. However, entities can store attributes related to that state such as brightness, color, or a unit of measurement.
 
@@ -377,7 +416,7 @@
 
 - term: TTS
   definition: >-
-    TTS (text to speech) allows Home Assistant to talk to you.
+    TTS (text-to-speech) allows Home Assistant to talk to you.
   link: /integrations/tts/
 
 - term: Variables

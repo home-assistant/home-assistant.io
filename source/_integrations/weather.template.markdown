@@ -34,7 +34,7 @@ weather:
     temperature_template: "{{ states('sensor.temperature') | float }}"
     temperature_unit: "°C"
     humidity_template: "{{ states('sensor.humidity') | float }}"
-    forecast_template: "{{ state_attr('weather.my_region', 'forecast') }}"
+    forecast_daily_template: "{{ state_attr('weather.my_region', 'forecast') }}"
 ```
 
 {% endraw %}
@@ -43,7 +43,7 @@ weather:
 name:
   description: Name to use in the frontend.
   required: true
-  type: string
+  type: template
 unique_id:
   description: An ID that uniquely identifies this weather entity. Set this to a unique value to allow customization through the UI.
   required: false
@@ -56,8 +56,16 @@ temperature_template:
   description: The current temperature.
   required: true
   type: template
+dew_point_template:
+  description: The current dew point.
+  required: false
+  type: template
+apparent_temperature_template:
+  description: The current apparent (feels-like) temperature.
+  required: false
+  type: template
 temperature_unit:
-  description: Unit for temperature_template output. Valid options are °C, °F and K.
+  description: Unit for temperature_template output. Valid options are °C, °F, and K.
   required: false
   type: string
 humidity_template:
@@ -80,8 +88,12 @@ wind_speed_template:
   description: The current wind speed.
   required: false
   type: template
+wind_gust_speed_template:
+  description: The current wind gust speed.
+  required: false
+  type: template
 wind_speed_unit:
-  description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, in/h.
+  description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
   required: false
   type: string
 wind_bearing_template:
@@ -92,6 +104,10 @@ ozone_template:
   description: The current ozone level.
   required: false
   type: template
+cloud_coverage_template:
+  description: The current cloud coverage.
+  required: false
+  type: template
 visibility_template:
   description: The current visibility.
   required: false
@@ -100,8 +116,16 @@ visibility_unit:
   description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
   required: false
   type: string
-forecast_template:
+forecast_daily_template:
   description: Daily forecast data.
+  required: false
+  type: template
+forecast_hourly_template:
+  description: Hourly forecast data.
+  required: false
+  type: template
+forecast_twice_daily_template:
+  description: Twice daily forecast data.
   required: false
   type: template
 precipitation_unit:

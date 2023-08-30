@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@frenck'
+  - '@joostlek'
 ha_domain: rdw
 ha_platforms:
   - binary_sensor
