@@ -4,9 +4,8 @@ description: Instructions on how to integrate the GPIO capability of a Remote Ra
 ha_category:
   - Binary Sensor
   - DIY
-  - Switch
   - Light
-  - DIY
+  - Switch
 ha_release: 0.94
 ha_iot_class: Local Push
 ha_domain: remote_rpi_gpio
@@ -150,7 +149,7 @@ pins:
   type: [int]
 {% endconfiguration %}
 
-For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
+For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#J8_header_and_general_purpose_input-output_(GPIO)) about the Raspberry Pi.
 
 <div class='note warning'>
 Note that a pin managed by Home Assistant is expected to be exclusive to Home Assistant.
