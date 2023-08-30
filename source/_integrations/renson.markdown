@@ -83,11 +83,3 @@ Set all the pollution settings of the ventilation system.
   | `Enable CO2 control` | no | Activate or disable the CO2 control | `2020-05-01T17:45:00` |
   | `co2 threshold` | no | Sets the CO2 pollution threshold level in ppm | `2020-05-01T17:45:00` |
   | `co2 hysteresis` | no | Sets the CO2 pollution threshold hysteresis level in ppm | `2020-05-01T17:45:00` |
-
-### Service `renson.set_filter_days`
-
-Indicates the recommended filter remaining time in case of filter change, in days.
-
-  | Service data attribute | Required | Description | Example |
-  | ---------------------- | -------- | ----------- | ------- |
-  | `Days`| yes | Indicates the recommended filter remaining time in case of filter change, in days | |
