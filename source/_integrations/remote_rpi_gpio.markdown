@@ -5,12 +5,15 @@ ha_category:
   - Binary Sensor
   - DIY
   - Switch
+  - Light
+  - DIY
 ha_release: 0.94
 ha_iot_class: Local Push
 ha_domain: remote_rpi_gpio
 ha_platforms:
   - binary_sensor
   - switch
+  - light
 ha_integration_type: integration
 ---
 
@@ -21,6 +24,8 @@ The remote Raspberry Pi and the control computer where Home Assistant is running
 Note that for virtual environments you may need to set an environment variable when starting the environment to set the pin factory, example:
 
 `Environment =  GPIOZERO_PIN_FACTORY=pigpio PIGPIO_ADDR=YOUR_RPi_IP_ADDRESS`
+
+When using Hass OS one should install the daemon by adding this [add-on](https://github.com/Poeschl/Hassio-Addons/tree/master/pigpio).
 
 ## Binary Sensor
 
@@ -106,7 +111,46 @@ invert_logic:
   type: boolean
 {% endconfiguration %}
 
-For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#J8_header_and_general_purpose_input-output_(GPIO)) about the Raspberry Pi.
+## Light
+
+The `remote_rpi_gpio` light platform allows you to control the GPIOs of a [Remote Raspberry Pi](https://www.raspberrypi.org/) in PWM mode. This allows you to control a LED or LED-strip via the configured output.
+
+To use your Remote Raspberry Pi's GPIO light in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: remote_rpi_gpio
+    host: IP_ADDRESS_OF_REMOTE_PI
+    port: PORT_OF_REMOTE_PI
+    lights:
+      - name: ExampleLight
+        pins: [1,2,3]
+        frequency: 300
+```
+
+{% configuration %}
+host:
+  description: IP Address of remote Raspberry Pi.
+  required: true
+  type: string
+port:
+  description: IP port of the remote Raspberry Pi.
+  required: false
+  type: positive_int
+  default: 8888
+frequency:
+  description: Frequency of the PWM signal.
+  required: false
+  type: positive_int
+  default: 200
+pins:
+  description: Array of pins used to create the light. Use one pin for a simple one-color light, three pins for an RGB light and 4 pins for an RGBW light.
+  required: true
+  type: [int]
+{% endconfiguration %}
+
+For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
 <div class='note warning'>
 Note that a pin managed by Home Assistant is expected to be exclusive to Home Assistant.
