@@ -2,7 +2,7 @@
 layout: post
 title: "2023.9: Beta release notes"
 description: "The beta release notes for Home Assistant 2023.9"
-date: 2023-08-02 00:00:00
+date: 2023-08-30 00:00:00
 date_formatted: "September 6, 2023"
 author: Bram Kragten
 author_twitter: bramkragten
@@ -17,7 +17,7 @@ og_image: /images/blog/2023-09/social.png
 
 <!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
 
-These are the beta release notes for Home Assistant Core 2023.5 (and is thus a
+These are the beta release notes for Home Assistant Core 2023.9 (and is thus a
 work in progress).
 
 If you encounter any issues with the beta release, please report them on GitHub:
@@ -46,7 +46,13 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Lorem ipsum!](#lorem-ipsum)
+- [Climate, humidifier and water heater more info](#climate-humidifier-and-water-heater-more-info)
+- [A lot of new tile features](#a-lot-of-new-tile-features)
+- [Lawn mower](#lawn-mower)
+- [Group previews](#group-previews)
+- [Template sensors from the UI](#template-sensors-from-the-ui)
+- [Weather forecast service](#weather-forecast-service)
+- [Onboarding](#onboarding)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Need help? Join the community!](#need-help-join-the-community)
@@ -58,12 +64,107 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 <lite-youtube videoid="JSNRrWk9IHs" videotitle="Home Assistant 2023.9 Release Party"></lite-youtube>
 
-## Lorem ipsum!
+## Climate, humidifier and water heater more info
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod.
+The more info for climate, humidifier and water heater entities got an update, if you ask me, they look absolutely stunning!
+They now have a newly designed circular slider, that shows the current temperature and the setpoint(s).
+There are also buttons to change the change the setpoint.
+It will glow in the middle to show it's current action, as well as show that.
+<p class='img'>
+<img src='https://media.discordapp.net/attachments/427516175237382144/1146364342015623198/SPOILER_CleanShot_2023-08-30_at_10.png?width=1242&height=1400'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+## A lot of new tile features
+
+A lot of new tile features are added this release:
+
+- HVAC mode
+- Water heater mode
+- Temperature control
+- Cover position
+- Cover tilt
+- Lawn mower
+- Color temperature
 
 <p class='img'>
-<img src='https://cdn.discordapp.com/attachments/427516175237382144/1100754453725978644/image.png'></a>
+<img src='/images/blog/2023-09/tile features.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+## Lawn mower
+
+A new entity component was added this release, the lawn mower!
+
+You can now integrate your lawn mower in Home Assistant! 
+For now just MQTT is supported, but keep an eye out for other integrations!
+
+<p class='img'>
+<img src='/images/blog/2023-09/lawn_mower.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+
+## Group previews
+
+When setting up a helper, sometimes it can be useful to see how the entity that you creating looks while you are setting it up. That's why we added an preview when you create or change a group helper.
+
+It will show exactly what the entity will look like with the current settings.
+
+And talking about groups, we also got a new group, the `event` group!
+
+<p class='img'>
+<img src='https://media.discordapp.net/attachments/427516175237382144/1146444995243548712/SPOILER_CleanShot_2023-08-30_at_16.02.392x.png?width=834&height=1402'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+
+## Template sensors from the UI
+
+We also added preview support to another helper, that finally made it's way into the UI, the template sensor. 
+
+From the UI you can use a template to set the state of the sensor.
+You can pick a unit of measurement, set the device class and select a state class.
+Both sensors and binary sensors are supported.
+
+This will make most of the use cases for template sensors available through the UI and one less need for YAML!
+
+Other more advanced fields, like attributes, are not available from the UI. You will still have to set those up in YAML.
+
+With the preview, you see a live update of the sensors value while you are writing the template.
+
+<p class='img'>
+<img src='https://media.discordapp.net/attachments/427516175237382144/1146448232839397486/SPOILER_CleanShot_2023-08-30_at_16.15.142x.png?width=1398&height=1402'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+
+## Weather forecast service
+
+We added a weather forecast service, that returns the weather forecast.
+
+Previously you would have to look at the `forecast` attribute of a weather entity to get the forecast, now this can be done by calling a new service, `weather.get_forecast`, that will respond with the forecast.
+You can also specify what type of forecast you want, daily or do you want to know it for every hour? This means you no longer need separate entities for every forecast type, but it can all be done in 1 entity.
+
+In the weather card in your dashboard, you can also now pick what kind of weather forecast you want to show in that card.
+
+All weather integrations are updated to support this new service.
+
+With this change, the `forecast` attribute of the weather entity is deprecated, and will be removed in Home Assistant Core 2024.3.
+
+<p class='img'>
+<img src='https://media.discordapp.net/attachments/427516175237382144/1146445861421846608/SPOILER_CleanShot_2023-08-30_at_16.03.542x.png?width=1466&height=794'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+## Onboarding
+
+Our onboarding got a fresh new look and it is now easier to get started with Home Assistant!
+
+Something you probably have not seen for a while, but we gave our onboarding a fresh new look! It is shortened to get the user in Home Assistant as fast as possible.
+
+<p class='img'>
+<img src='/images/blog/2023-09/onboarding.png'></a>
 Temporary screenshot that needs to be replaced.
 </p>
 
@@ -85,10 +186,10 @@ To consider:
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- [Lorem] now has support for ipsums, thanks [@frenck]!
+- [Enphase Envoy] has gotten a lot of love this release, thanks [@bdraco]!
 
-[@frenck]: https://github.com/frenck
-[Lorem]: /integrations/lorem
+[@bdraco]: https://github.com/bdraco
+[Enphase Envoy]: /integrations/enphase_envoy
 
 ## New integrations
 
