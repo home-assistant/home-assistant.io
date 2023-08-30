@@ -131,12 +131,13 @@ light:
 {% configuration %}
 host:
   description: IP Address of remote Raspberry Pi.
-  required: true
+  required: false
   type: string
+  default: "127.0.0.1"
 port:
   description: IP port of the remote Raspberry Pi.
   required: false
-  type: positive_int
+  type: integer
   default: 8888
 frequency:
   description: Frequency of the PWM signal.
