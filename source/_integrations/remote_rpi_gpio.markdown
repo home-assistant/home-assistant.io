@@ -24,7 +24,7 @@ Note that for virtual environments you may need to set an environment variable w
 
 `Environment =  GPIOZERO_PIN_FACTORY=pigpio PIGPIO_ADDR=YOUR_RPi_IP_ADDRESS`
 
-When using Hass OS one should install the daemon by adding this [add-on](https://github.com/Poeschl/Hassio-Addons/tree/master/pigpio).
+When using HassOS one should install the daemon by adding this [add-on](https://github.com/Poeschl/Hassio-Addons/tree/master/pigpio).
 
 ## Binary Sensor
 
