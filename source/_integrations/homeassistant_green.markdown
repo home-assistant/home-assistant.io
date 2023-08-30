@@ -12,7 +12,8 @@ ha_integration_type: hardware
 
 The Home Assistant Green integration provides hardware information for the hardware configuration page.
 
-For documentation about the Home Assistant Green please visit the [documentation](https://green.home-assistant.io/).
+For documentation on the Home Assistant Green, please visit the [documentation page](https://green.home-assistant.io/).
+If you are looking to buy one, please visit the [product page](https://home-assistant.io/green).
 
 ## Configuration
 
