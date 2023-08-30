@@ -68,7 +68,7 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 The more info for climate, humidifier and water heater entities got an update, if you ask me, they look absolutely stunning!
 They now have a newly designed circular slider, that shows the current temperature and the setpoint(s).
-There are also buttons to change the change the setpoint.
+There are also buttons to change the setpoint.
 It will glow in the middle to show it's current action, as well as show that.
 <p class='img'>
 <img src='https://media.discordapp.net/attachments/427516175237382144/1146364342015623198/SPOILER_CleanShot_2023-08-30_at_10.png?width=1242&height=1400'></a>
@@ -107,7 +107,7 @@ Temporary screenshot that needs to be replaced.
 
 ## Group previews
 
-When setting up a helper, sometimes it can be useful to see how the entity that you creating looks while you are setting it up. That's why we added an preview when you create or change a group helper.
+When setting up a helper, sometimes it can be useful to see how the entity that you are creating looks while you are setting it up. That's why we added an preview when you create or change a group helper.
 
 It will show exactly what the entity will look like with the current settings.
 
