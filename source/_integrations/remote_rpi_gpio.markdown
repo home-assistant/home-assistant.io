@@ -140,7 +140,7 @@ port:
   type: integer
   default: 8888
 name:
-  description: Name of the light
+  description: Name of the light.
   required: true
   type: string
 frequency:
