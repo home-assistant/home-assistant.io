@@ -147,7 +147,7 @@ frequency:
 pins:
   description: Array of pins used to create the light. Use one pin for a simple one-color light, three pins for an RGB light and 4 pins for an RGBW light.
   required: true
-  type: [int]
+  type: [integer]
 {% endconfiguration %}
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#J8_header_and_general_purpose_input-output_(GPIO)) about the Raspberry Pi.
