@@ -48,7 +48,7 @@ This integration adds BleBox device as a binary_sensor in Home Assistant.
 Currently, this includes support for the following product classes:
 
 - BleBox rainSensor
-- BleBox wind&rainSensor (rain only)
+- BleBox wind&rainSensor 
 
 ## Sensors
 
@@ -57,6 +57,8 @@ This integration adds the BleBox device as a sensor in Home Assistant.
 Currently, this includes support for the following product classes and their features:
 
 - BleBox tempSensor (temperature only)
+- Blebox humiditySensor
+- BleBox airSensor
 
 ## Switches
 
@@ -76,13 +78,6 @@ Currently, this includes support for the following product classes:
 - BleBox saunaBox
 - BleBox thermoBox
 
-## Air Quality
-
-This integration adds the BleBox device as an air quality entity in Home Assistant.
-
-Currently, this includes support for the following product classes:
-
-- BleBox airSensor
 
 ## Lights
 
