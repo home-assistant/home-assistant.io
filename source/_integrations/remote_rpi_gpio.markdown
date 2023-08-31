@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - DIY
   - Light
+  - Number
   - Switch
 ha_release: 0.94
 ha_iot_class: Local Push
@@ -12,6 +13,7 @@ ha_domain: remote_rpi_gpio
 ha_platforms:
   - binary_sensor
   - light
+  - number
   - switch
 ha_integration_type: integration
 ---
@@ -140,7 +142,7 @@ port:
   type: integer
   default: 8888
 name:
-  description: Name of the light
+  description: Name of the light.
   required: true
   type: string
 frequency:
@@ -153,6 +155,52 @@ pins:
   required: true
   type: [integer]
 {% endconfiguration %}
+
+
+## Number
+
+The `remote_rpi_gpio` number platform allows you to control a GPIO of a [Remote Raspberry Pi](https://www.raspberrypi.org/) in PWM mode. The number defines the pecentage of time the PWM pin is on.
+
+To use your Remote Raspberry Pi's GPIO number in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+number:
+  - platform: remote_rpi_gpio
+    host: IP_ADDRESS_OF_REMOTE_PI
+    port: PORT_OF_REMOTE_PI
+    numbers:
+      - name: ExampleNumber
+        pin: 4
+        frequency: 300
+```
+
+{% configuration %}
+host:
+  description: IP Address of remote Raspberry Pi.
+  required: false
+  type: string
+  default: "127.0.0.1"
+port:
+  description: IP port of the remote Raspberry Pi.
+  required: false
+  type: integer
+  default: 8888
+name:
+  description: Name of the number
+  required: true
+  type: string
+frequency:
+  description: Frequency of the PWM signal.
+  required: false
+  type: integer
+  default: 200
+pin:
+  description: Pin used to create the number output.
+  required: true
+  type: integer
+{% endconfiguration %}
+
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#J8_header_and_general_purpose_input-output_(GPIO)) about the Raspberry Pi.
 
