@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@OttoWinter'
   - '@jesserockz'
+  - '@kbx81'
   - '@bdraco'
 ha_domain: esphome
 ha_zeroconf: true
