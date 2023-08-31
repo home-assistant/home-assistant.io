@@ -142,7 +142,7 @@ port:
 frequency:
   description: Frequency of the PWM signal.
   required: false
-  type: positive_int
+  type: integer
   default: 200
 pins:
   description: Array of pins used to create the light. Use one pin for a simple one-color light, three pins for an RGB light and 4 pins for an RGBW light.
