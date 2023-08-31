@@ -11,8 +11,8 @@ ha_iot_class: Local Push
 ha_domain: remote_rpi_gpio
 ha_platforms:
   - binary_sensor
-  - switch
   - light
+  - switch
 ha_integration_type: integration
 ---
 
@@ -139,6 +139,10 @@ port:
   required: false
   type: integer
   default: 8888
+name:
+  description: Name of the light
+  required: true
+  type: string
 frequency:
   description: Frequency of the PWM signal.
   required: false
