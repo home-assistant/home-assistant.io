@@ -107,7 +107,7 @@ Temporary screenshot that needs to be replaced.
 
 ## Group previews
 
-When setting up a helper, sometimes it can be useful to see how the entity that you are creating looks while you are setting it up. That's why we added an preview when you create or change a group helper.
+When setting up a helper, sometimes it can be useful to see how the entity that you are creating looks while you are setting it up. That's why we added a preview when you create or change a group helper.
 
 It will show exactly what the entity will look like with the current settings.
 
