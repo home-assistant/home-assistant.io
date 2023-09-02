@@ -8,7 +8,6 @@ ha_iot_class: Local Push
 ha_domain: private_ble_device
 ha_platforms:
   - device_tracker
-ha_bluetooth: true
 ha_config_flow: true
 ha_integration_type: integration
 ha_codeowners:
