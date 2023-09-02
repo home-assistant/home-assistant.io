@@ -31,7 +31,7 @@ If you are trying to get the IRK for your iPhone or Apple Watch, you must be log
 
 1. Start the **Keychain Acess** application.
 2. In the left sidebar make sure iCloud is selected.
-3. In the search bar in the upper right type Bluetooth.
+3. In the search bar in the upper right, type Bluetooth.
 4. A list of GUID are shown.
 5. Double click on a record. As part of the **Account** field it will say `Public: XX:XX:XX:XX:XX:XX`. This is a MAC address and should match the device you are trying to work.
 6. Click on show password
