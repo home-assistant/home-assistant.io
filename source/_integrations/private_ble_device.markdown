@@ -33,7 +33,7 @@ If you are trying to get the IRK for your iPhone or Apple Watch, you must be log
 2. In the left sidebar make sure iCloud is selected.
 3. In the search bar in the upper right, type Bluetooth.
 4. A list of GUIDs is shown.
-5. Double click on a record. As part of the **Account** field it will say `Public: XX:XX:XX:XX:XX:XX`. This is a MAC address and should match the device you are trying to work.
+5. Double-click on a record. As part of the **Account** field, it will say `Public: XX:XX:XX:XX:XX:XX`. This MAC address should match the device you are trying to work with.
 6. Click on show password
 7. You will have to enter your password, then enter your username and password.
 8. macOS will show some XML. You are looking for the "Remote IRK" field. After there is a data field that contains a base64 encoded version of your Identity Resolving Key.
