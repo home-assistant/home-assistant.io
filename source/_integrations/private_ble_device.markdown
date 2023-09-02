@@ -15,7 +15,7 @@ ha_codeowners:
   - '@Jc2k'
 ---
 
-Some BLE devices use a privacy feature called Resolvable Private Addresses to stop businesses tracking you when you are out with your smart devices. Instead of having a single static address that can be used to track you, its Bluetooth address changes frequently. If you have [Bluetooth](/integrations/bluetooth) enabled and functioning and you know the Identity Resolving Key for your device, you can add it to Home Assistant as a Private BLE Device. We can then work out which random mac addresses are related to the IRK and track those.
+Some BLE devices use a privacy feature called Resolvable Private Addresses to stop businesses from tracking you when you are out with your smart devices. Instead of having a single static address that can be used to track you, its Bluetooth address changes frequently. If you have [Bluetooth](/integrations/bluetooth) enabled and functioning and know your device's Identity Resolving Key, you can add it to Home Assistant as a Private BLE Device. We can then work out which random MAC addresses are related to the IRK and track those.
 
 {% include integrations/config_flow.md %}
 
