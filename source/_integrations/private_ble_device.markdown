@@ -19,6 +19,8 @@ Some BLE devices use a privacy feature called Resolvable Private Addresses to st
 
 {% include integrations/config_flow.md %}
 
+Your device must be on and broadcasting in range before adding it to Home Assistant - we check that it's visible to validat your IRK is correct.
+
 There are 2 common representations for encoding an IRK - base64 encoding or hex encoding. This integration supports both.
 
 ## Getting your Identity Resolving Key
