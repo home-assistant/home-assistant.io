@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_domain: private_ble_device
 ha_platforms:
   - device_tracker
+  - sensor
 ha_config_flow: true
 ha_integration_type: integration
 ha_codeowners:
@@ -15,6 +16,8 @@ ha_codeowners:
 ---
 
 Some BLE devices use a privacy feature called Resolvable Private Addresses to stop businesses from tracking you when you are out with your smart devices. Instead of having a single static address that can be used to track you, its Bluetooth address changes frequently. If you have [Bluetooth](/integrations/bluetooth) enabled and functioning and know your device's Identity Resolving Key, you can add it to Home Assistant as a Private BLE Device. We can then work out which random MAC addresses are related to the IRK and track those.
+
+In addition to telling you if your device is home or away, it can also tell you an estimated distance to the nearest Bluetooth dongle or proxy and its signal strength.
 
 {% include integrations/config_flow.md %}
 
