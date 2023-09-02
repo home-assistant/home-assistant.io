@@ -23,7 +23,7 @@ Your device must be on and broadcasting in range before adding it to Home Assist
 
 There are two common representations for encoding an IRK - base64 encoding or hex encoding. This integration supports both.
 
-## Getting your Identity Resolving Key
+## Getting your Identity Resolving Key (IRK)
 
 ### On macOS
 
