@@ -28,13 +28,13 @@ There are 2 common representations for encoding an IRK - base64 encoding or hex 
 If you are trying to get the IRK for your iPhone or Apple Watch you'll need to be logged in to the Mac with the same iCloud account as on those devices. This should also work for devices that you pair with macOS.
 
 1. Start the **Keychain Acess** application.
-1. In the left sidebar make sure iCloud is selected.
-1. In the search bar in the upper right type bluetooth.
-1. A list of GUID are shown.
-1. Double click on a record. As part of the **Account** field it will say `Public: XX:XX:XX:XX:XX:XX`. This is a MAC address and should match the device you are trying to work.
-1. Click on show password
-1. You will have to enter your password, then enter your username and password.
-1. macOS will show some XML. You are looking for the "Remote IRK" field. After there is a data field that contains a base64 encoded version of your Identity Resolving Key.
+2. In the left sidebar make sure iCloud is selected.
+3. In the search bar in the upper right type Bluetooth.
+4. A list of GUID are shown.
+5. Double click on a record. As part of the **Account** field it will say `Public: XX:XX:XX:XX:XX:XX`. This is a MAC address and should match the device you are trying to work.
+6. Click on show password
+7. You will have to enter your password, then enter your username and password.
+8. macOS will show some XML. You are looking for the "Remote IRK" field. After there is a data field that contains a base64 encoded version of your Identity Resolving Key.
 
 ## ESPresense
 
