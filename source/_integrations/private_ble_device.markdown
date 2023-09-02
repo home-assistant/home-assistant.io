@@ -30,7 +30,7 @@ There are two common representations for encoding an IRK - base64 encoding or he
 If you are trying to get the IRK for your iPhone or Apple Watch, you must be logged in to the Mac with the same iCloud account on those devices. This procedure should also work for devices that you pair with macOS.
 
 1. Start the **Keychain Acess** application.
-2. In the left sidebar make sure iCloud is selected.
+2. In the left sidebar, make sure iCloud is selected.
 3. In the search bar in the upper right, type Bluetooth.
 4. A list of GUIDs is shown.
 5. Double-click on a record. As part of the **Account** field, it will say `Public: XX:XX:XX:XX:XX:XX`. This MAC address should match the device you are trying to work with.
