@@ -38,10 +38,6 @@ Set manual level.
   | ---------------------- | -------- | ----------- | ------- |
   | `Manual level`| yes | device_id of the vehicle | |
 
-### Service `renson.sync_time`
-
-Sync current time to device.
-
 ### Service `renson.set_timer_level`
 
 Set the ventilation timer.
