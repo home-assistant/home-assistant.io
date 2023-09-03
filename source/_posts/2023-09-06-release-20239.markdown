@@ -186,7 +186,7 @@ To consider:
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- [Enphase Envoy] has gotten a lot of love this release, and now supports firmware 7.x, thanks [@bdraco], [@cgarwood], [@dgomes], and [@joostlek]
+- [Enphase Envoy] has gotten a lot of love this release, and now supports firmware 7.x, thanks [@bdraco], [@cgarwood], [@dgomes], and [@joostlek]!
 
 [@bdraco]: https://github.com/bdraco
 [@cgarwood]: https://github.com/cgarwood
