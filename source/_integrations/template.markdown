@@ -113,7 +113,8 @@ unique_id:
   required: false
   type: string
 action:
-  description: Define actions to be executed when the trigger fires. Optional. This can be used to interact with anything via services, in particular services with [response data](/docs/scripts/service-calls/#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to be executed when the trigger fires. Optional.  Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything via services, in particular services with [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+  [See action documentation](/docs/automation/action).
   required: false
   type: list
 sensor:
