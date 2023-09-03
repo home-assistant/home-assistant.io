@@ -186,9 +186,12 @@ To consider:
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- [Enphase Envoy] has gotten a lot of love this release, thanks [@bdraco]!
+- [Enphase Envoy] has gotten a lot of love this release, thanks [@bdraco], [@cgarwood], [@dgomes], and [@joostlek]
 
 [@bdraco]: https://github.com/bdraco
+[@cgarwood]: https://github.com/cgarwood
+[@dgomes]: https://github.com/dgomes
+[@joostlek]: https://github.com/joostlek
 [Enphase Envoy]: /integrations/enphase_envoy
 
 ## New integrations
