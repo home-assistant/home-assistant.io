@@ -5,7 +5,7 @@ ha_category:
   - Hub
   - Light
   - Switch
-ha_release: 0.44
+ha_release: 0.1.0
 ha_codeowners:
   - '@microBeesTech'
 ha_config_flow: true
