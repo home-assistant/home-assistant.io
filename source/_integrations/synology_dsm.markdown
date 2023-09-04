@@ -27,7 +27,37 @@ ha_integration_type: integration
 ha_zeroconf: true
 ---
 
-The Synology DSM integration provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_) as well as cameras from the [Surveillance Station](https://www.synology.com/surveillance).
+The Synology <abbr title="DiskStation Manager">DSM</abbr> integration can be used to backup your Home Assistant configuration. It also provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_) as well as cameras from the [Surveillance Station](https://www.synology.com/surveillance).
+
+## Getting started
+
+This section describes how to set up the integration in Home Assistant.
+
+### User configuration
+
+Before you can configure the integration, create a dedicated user for Home Assistant on Synology.
+
+1. On Synology, go to **User & Group** and select **Create**.
+   - Define the credentials and select **Next**.
+   - To assign administrator rights, under **Join groups**, select **administrators**.
+     - Due to the nature of the Synology <abbr title="DiskStation Manager">DSM</abbr> API, it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
+2. **Permissions for monitoring**: If you only want to use the integration for monitoring purposes (read the utilization and storage information using the API), you do not need to give any permissions to locations or applications.
+   - The user will not be able to login to the web interface or view any of the files on the Synology NAS, but can still receive the monitoring information.
+3. **Permissions for folders**: If you want to use Synology for backup or media, and you already have a dedicated folder set up, give the user permissions to that folder.
+   - Under **Permissions**, select the folder and select **Read/Write**.
+   - For a description on how to create shared a folder for backup, refer to [this procedure](/integrations/synology_dsm/#preparing-synology-dsm-for-use-as-a-backup-location).
+4. If you want to add cameras from [Surveillance Station](https://www.synology.com/surveillance), the user needs application permission for [Surveillance Station](https://www.synology.com/surveillance).
+   - Check the settings under **Applications**.
+
+#### If you utilize 2-Step Verification or Two Factor Authentication (2FA) with your Synology NAS
+
+If you have the **Enforce 2-step verification for the following users** option checked under **Control Panel** > **User** > **Advanced** > **2-Step Verification**, you'll need to configure the 2-step verification/one-time password (OTP) for the user you just created before the credentials for this user will work with Home Assistant.
+
+Make sure to log out of your "normal" user's account and then login with the separate user you created specifically for Home Assistant. <abbr title="DiskStation Manager">DSM</abbr> will walk you through the process of setting up the one-time password for this user which you'll then be able to use in Home Assistant's frontend configuration screen.
+
+<div class='note'>
+If you denied access to all locations and applications it is normal to receive a message indicating you do not have access to <abbr title="DiskStation Manager">DSM</abbr> when trying to login with this separate user. As noted above, you do not need access to the <abbr title="DiskStation Manager">DSM</abbr> and Home Assistant will still be able to read statistics from your NAS.
+</div>
 
 {% include integrations/config_flow.md %}
 
@@ -43,28 +73,54 @@ Having cameras or the Home mode toggle from [Surveillance Station](https://www.s
 
 <div class='note'>
 
-If you have two or more NICs with different IP addresses from the same subnet and SSDP is activated, this leads to problems with this integration, as the NAS is detected several times with different IPs and the integration always adopts the new "detected" IP address in its configuration and then reloads it.
-In this case, it is recommended to use NIC bonding instead or to deactivate SSDP.
+If you have two or more <abbr title="network interface card">NIC</abbr>s with different IP addresses from the same subnet and <abbr title="simple service discovery protocol">SSDP</abbr> is activated, this leads to problems with this integration, as the NAS is detected several times with different IPs and the integration always adopts the new "detected" IP address in its configuration and then reloads it.
+In this case, it is recommended to use <abbr title="network interface card">NIC</abbr> bonding instead or to deactivate <abbr title="simple service discovery protocol">SSDP</abbr>.
 
 </div>
 
-## Separate User Configuration
+## Using Synology <abbr title="DiskStation Manager">DSM</abbr> to backup Home Assistant
 
-Due to the nature of the Synology DSM API, it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
+Before you can store your Home Assistant backup files on Synology, you need to prepare a few things on Synology first. Then you can add Synology as a network storage on Home Assistant.
 
-When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
+### Preparing Synology DSM for use as a backup location
 
-If you want to add cameras from [Surveillance Station](https://www.synology.com/surveillance), the user needs application permission for [Surveillance Station](https://www.synology.com/surveillance).
+Before you can store your Home Assistant backup files on Synology, you need to create a shared folder and grant Home Assistant access to that folder.
 
-### If you utilize 2-Step Verification or Two Factor Authentication (2FA) with your Synology NAS
+1. On Synology, create a shared folder.
+   - Go to **Control Panel** > **Shared Folder** and select **Create**.
+   - Enter a name for the shared folder and select a location.
+     - The number of available volumes depends on how the NAS was setup.
+     - Disable the **Recycle Bin** and select **Next**.
+     ![Create a shared folder](/images/integrations/synology/synology_set-up_01.png)
+    - **Skip** the encryption settings.
+    - Confirm your settings.
+2. To grant access to the folder, under **Configure user permissions**, enable **Read/Write** permissions for your Home Assistant user.
+3. If you want to use the <abbr title="network file system">NFS</abbr> protocol, enable NFS.
+   - Go to **Control Panel** > **File Services** and on the **NFS** tab, select **Enable NFS service**. Select **Apply**.
+     ![Enable NFS service](/images/integrations/synology/synology_set-up_02.png)
+   - On **Shared folder**, select your new folder.
+   - Select **NFS Permissions** and select **Create**.
+   - Enter the hostname or IP address of your Home Assistant instance and select **Save**.
+     ![Edit NFS rules](/images/integrations/synology/synology_set-up_03.png)
+   - From the bottom of the screen, copy the **Mount path**.
+     ![Define the mount path](/images/integrations/synology/synology_set-up_04.png)
+4. The shared folder is now ready to connect to Home Assistant.
 
-If you have the "Enforce 2-step verification for the following users" option checked under **Control Panel > User > Advanced > 2-Step Verification**, you'll need to configure the 2-step verification/one-time password (OTP) for the user you just created before the credentials for this user will work with Home Assistant. 
+### Add the shared folder as network storage in Home Assistant
 
-Make sure to log out of your "normal" user's account and then login with the separate user you created specifically for Home Assistant. DSM will walk you through the process of setting up the one-time password for this user which you'll then be able to use in Home Assistant's frontend configuration screen. 
-
-<div class='note'>
-If you denied access to all locations and applications it is normal to receive a message indicating you do not have access to DSM when trying to login with this separate user. As noted above, you do not need access to the DSM and Home Assistant will still be able to read statistics from your NAS.
-</div>
+1. On Home Assistant, go to {% my storage title="**Settings** > **System** > **Storage**" %}.
+2. Select **Add Network Storage**.
+3. Define the [network storage settings](/common-tasks/os/#add-a-new-network-storage):
+   - Enter a name.
+   - Select **Backup**.
+   - Enter the NAS server hostname or IP address.
+   - Select the protocol.
+     - If unsure, try **Samba/Windows (<abbr title="common internet file system">CIFS</abbr>)**.
+     ![Define the storage settings](/images/integrations/synology/synology_set-up_05.png)
+     - If you previously defined the NFS settings (as described in the procedure above), you can also select **Network File Share (NFS)**.
+4. Select **Connect**.
+5. If this is the first time you've defined a backup location, this shared folder is now your default backup location.
+   - If you've used other backup locations before, and you want to use this shared folder instead, [change the backup default location](/common-tasks/os/#change-default-backup-location).
 
 ## Sensors
 
