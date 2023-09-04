@@ -55,8 +55,13 @@ Basic instruction for all APIs:
     If you are requesting a text-to-speech API key:
 
     4. Don't select a value from the Role list. **No role is required to access this service**.
-    5. Click `Create`. A note appears, warning that this service account has no role.
-    6. Click `Create without role`. A JSON file that contains your `API key` downloads to your computer.
+    5. Click `Create`. If a note appears, warning that this service account has no role, you may ignore that.
+    6. Return to the `Service account` list page and click on the service account you created in step 5 to see the details for this service account.
+    7. Choose the `Keys` tab within the details view for this service account.
+    8. In the `Add Key` dropdown, select `Create New Key`.
+    9. Specify a `JSON` key type  and click `Create`.
+    10. A `[serviceaccountname].json` file will download to your browser.
+
 
 ## Google Cloud text-to-speech
 
