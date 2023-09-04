@@ -25,19 +25,13 @@ ha_integration_type: integration
 
 Presently, there's only support for communicating with the [RadioRA 2](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx) Main Repeater and only handle light switches, dimmers, and seeTouch keypad scenes.
 
-## Configuration
-
 When configured, the `lutron` integration will automatically discover the rooms and their associated switches/dimmers as configured by the RadioRA 2 software from Lutron. Each room will be treated as a separate group.
 
-To use Lutron RadioRA 2 devices in your installation, you'll need to first create a username/password in your Lutron programming software. Once a telnet username/password has been programmed, add the following to your `configuration.yaml` file using the IP address of your RadioRA 2 main repeater:
+## Configuration
 
-``` yaml
-# Example configuration.yaml entry
-lutron:
-  host: IP_ADDRESS
-  username: USERNAME
-  password: PASSWORD
-```
+To use Lutron RadioRA 2 devices in your installation, you'll need to first create a username/password in your Lutron programming software. Once a telnet username/password has been programmed, you can use this My button:
+
+{% include integrations/config_flow.md %}
 
 {% configuration %}
 host:
