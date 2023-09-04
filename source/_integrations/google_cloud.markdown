@@ -49,7 +49,7 @@ Basic instruction for all APIs:
 6. Set up authentication:
 
     1. Visit [this link](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
-    2. From the `Service account` list, select `New service account`.
+    2. From the toolbar above the `Service account` list, select `Create service account`.
     3. In the `Service account name` field, enter any name.
 
     If you are requesting a text-to-speech API key:
@@ -66,10 +66,13 @@ Basic instruction for all APIs:
 
 The Cloud text-to-speech API is priced monthly based on the amount of characters to synthesize into audio sent to the service.
 
-| Feature                       | Monthly free tier         | Paid usage                        |
+| Voice                         | Monthly free tier         | Paid usage                        |
 | ----------------------------- | ------------------------- | --------------------------------- |
-| Standard (non-WaveNet) voices | 0 to 4 million characters | $4.00 USD / 1 million characters  |
-| WaveNet voices                | 0 to 1 million characters | $16.00 USD / 1 million characters |
+| Neural2                       | 0 to 1 million bytes      | $16.00 USD / 1 million bytes      |
+| Polyglot (Preview)            | 0 to 1 million bytes      | $16.00 USD / 1 million bytes      |
+| Studio (Preview)              | 0 to 100 thousand bytes   | $160.00 USD / 1 million bytes     |
+| Standard                      | 0 to 4 million characters | $4.00 USD / 1 million characters  |
+| WaveNet                       | 0 to 1 million characters | $16.00 USD / 1 million characters |
 
 ### Text-to-speech configuration
 
