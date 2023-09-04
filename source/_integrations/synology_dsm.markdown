@@ -82,7 +82,7 @@ In this case, it is recommended to use <abbr title="network interface card">NIC<
 
 Before you can store your Home Assistant backup files on Synology, you need to prepare a few things on Synology first. Then you can add Synology as a network storage on Home Assistant.
 
-### Preparing Synology DSM for use as a backup location
+### To prepare Synology DSM for use as a backup location
 
 Before you can store your Home Assistant backup files on Synology, you need to create a shared folder and grant Home Assistant access to that folder.
 
@@ -106,7 +106,9 @@ Before you can store your Home Assistant backup files on Synology, you need to c
      ![Define the mount path](/images/integrations/synology/synology_set-up_04.png)
 4. The shared folder is now ready to connect to Home Assistant.
 
-### Add the shared folder as network storage in Home Assistant
+### To add the shared folder as network storage in Home Assistant
+
+Once you have created a shared folder on Synology, you can add this folder as a network storage location in Home Assistant.
 
 1. On Home Assistant, go to {% my storage title="**Settings** > **System** > **Storage**" %}.
 2. Select **Add Network Storage**.
