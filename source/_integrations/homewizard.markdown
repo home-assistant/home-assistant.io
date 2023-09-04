@@ -88,3 +88,14 @@ This feature is currently only available for the P1 meter and the Energy Socket.
 The HomeWizard Energy devices are designed to work with the HomeWizard Energy app and require communication with the HomeWizard cloud to make them function with the app. The "Cloud connection" configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won't receive any future firmware updates. This feature is currently not available for the Water meter.
 
 Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
+
+## Firmware updates
+
+The HomeWizard Energy devices are automatically updated when new firmware is available to ensure you have the latest features and security patches. You can also trigger an update manually through the HomeWizard Energy app.
+  1. Make sure you have enabled 'Cloud connection'
+  2. Open the HomeWizard Energy app
+  3. Go to Settings → Meters and find your device
+  4. Press '...' in the top right
+  5. Select 'Check for updates'
+
+*Updates can only be installed when the device can communicate with the HomeWizard cloud.*
