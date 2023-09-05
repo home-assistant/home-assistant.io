@@ -18,7 +18,7 @@ A partial backup consists of any number of the above default directories and ins
 2. Select the **Create backup** button in the lower right.
 3. Provide a name for the backup.
 4. Choose full or partial.
-5. Choose to password protect or not. Password-protected backups cannot easily be browsed outside of Home Assistant OS.
+5. Choose to password protect or not.
 6. Select **Create** to begin the backup.
 
 ### Alternative: Creating a backup using the Home Assistant Command Line Interface
@@ -31,19 +31,23 @@ Use `ha help` to get more information about the command line usage.
 
 ### Copying your backups to another location
 
-You often need a backup in case your system has crashed. If you only store them on the crashed device, you won't be able to access them easily. We recommend that you copy them from `/backup` to another machine on occasion.
+You might need a backup in case your system has crashed. If you only store them on the device itself, you won't be able to access them easily. We recommend that you copy them from `/backup` to another machine on occasion.
 
 There are multiple ways to store the backup on another device:
 
-- If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/os/#configuring-access-to-files), using one of the methods listed there.
-   - For example, [use the samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
-   - In your file explorer, access Home Assistant, open the `backup` folder and copy the file to your computer.
-- You can also change the default location for backups:
+- **Option 1**: Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select the backup from the list.
+  - In the dialog, select the three dots menu and select **Download backup**.
+  - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
+- **Option 2**: If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/os/#configuring-access-to-files), using one of the methods listed there.
+  - For example, [use the samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
+  - In your file explorer, access Home Assistant, open the `backup` folder and copy the file to your computer.
+- **Option 3**: You can also change the default location for backups:
   - [Add a network storage location](/common-tasks/os/#network-storage) for backup.
   - Go to  {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and in the top right corner, select the three dots menu.
   - Select **Change default backup location** and select the new storage location.
 
-- Or even better, create an automation to handle that, or make use of one of the following add-ons:
+- **Option 4**: Or even better, create an automation to handle that.
+- **Option 5**: Make use of one of a third-party add-on:
 
 - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
 - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
