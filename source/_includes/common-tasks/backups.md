@@ -47,7 +47,7 @@ There are multiple ways to store the backup on another device:
   - Select **Change default backup location** and select the new storage location.
 
 - **Option 4**: Or even better, create an automation to handle that.
-- **Option 5**: Make use of one of a third-party add-on:
+- **Option 5**: Make use of a third-party add-on:
   - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
   - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
   - [OneDrive Backup](https://github.com/lavinir/hassio-onedrive-backup)
