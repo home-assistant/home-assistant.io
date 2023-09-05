@@ -2,11 +2,13 @@
 title: FlexMeasures
 description: Use FlexMeasures flexible energy asset in Home Assistant 
 ha_category:
-  - Car
+  - Energy
 ha_release: "2023.9"
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@filcole'
+  - '@victorgarcia98'
+  - '@GustaafL'
+  - '@Flix6x'
 ha_domain: flexmeasures
 ha_platforms:
   - sensor
