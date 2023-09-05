@@ -21,7 +21,7 @@ A partial backup consists of any number of the above default directories and ins
 5. Choose to password protect or not. Password-protected backups cannot easily be browsed outside of Home Assistant OS.
 6. Select **Create** to begin the backup.
 
-### Alternative: Creating backup using the Home Assistant Command Line Interface
+### Alternative: Creating a backup using the Home Assistant Command Line Interface
 
 1. `ha backups list` - lists backups and their slugnames
 2. `ha backups restore slugname` - restores a specific backup
@@ -38,7 +38,7 @@ There are multiple ways to store the backup on another device:
 - If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/os/#configuring-access-to-files), using one of the methods listed there.
    - For example, [use the samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
    - In your file explorer, access Home Assistant, open the `backup` folder and copy the file to your computer.
-- You can also change the default location for backups.
+- You can also change the default location for backups:
   - [Add a network storage location](/common-tasks/os/#network-storage) for backup.
   - Go to  {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and in the top right corner, select the three dots menu.
   - Select **Change default backup location** and select the new storage location.
@@ -55,7 +55,7 @@ There are multiple ways to store the backup on another device:
 
 ### Restoring a backup
 
--You can make use of backup which you have copied off of a previous install to restore to a new installation during the onboarding process. Follow the link at the bottom of the account creation page to upload your backup from the previous installation.
+You can make use of backup which you have copied off of a previous install to restore to a new installation during the onboarding process. Follow the link at the bottom of the account creation page to upload your backup from the previous installation.
 
 For restoring a backup at any other time, visit the Supervisor backup panel in your UI and use the following steps:
 
