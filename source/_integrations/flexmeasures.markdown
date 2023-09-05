@@ -125,7 +125,7 @@ friendly_name: FlexMeasures Schedule
 
 For a schedule to be calculated a `soc_at_start` is required. All other variables needed to calculate a new schedule were provided in the configuration. The following `yaml` file will trigger a schedule and update the sensor:
 
-```yanl
+```yaml
 service: flexmeasures.trigger_and_get_schedule
 data:
   soc_at_start: "FLOAT_SOC_AT_START"
@@ -139,4 +139,16 @@ The intended usage of FlexMeasures is letting the schedules and Home Assistant o
 service: flexmeasures.trigger_and_get_schedule
 data:
   soc_at_start: "\{\{ state_attr('SENSOR_TYPE.SENSOR', 'SENSOR_ATTRIBUTES') }}"
+```
+
+## Posting measurement data
+
+```yaml
+service: flexmeasures.post_measurements
+data:
+  sensor_id: SENSOR_TO_POST_DATA_TO_INT
+  start: "DATETIME_STRING_OF_FIRST_DATA_POINT"
+  duration: "DATETIME_DURATION_STRING_FOR_THE_COLLECTED_VALUES"
+  unit: "SENSOR_UNIT_OF_THE_VALUES"
+  prior: "DATETIME_STRING_AT_WHICH_THE_VALUES_WERE_RECORDED_OR_FORECASTED"
 ```
