@@ -89,6 +89,8 @@ The OctoPrint integration provides the following buttons:
 - Pause Job
 - Resume Job
 - Stop Job
+- Connect to printer
+- Disconnect from printer
 
 ## Troubleshooting
 
@@ -101,3 +103,8 @@ This is typically caused by copying/backup/restoring part of the config files be
 3. Under `plugins/discovery`, change the value of `upnpUuid` to have a different uuid.
 4. Restart the OctoPrint service
 5. Attempt to add the instance once again.
+
+### Will not connect to printer
+
+When connecting OctoPrint will use the saved connection settings stored in OctoPrint, and these are probably not correct or saved.
+In OctoPrint when connecting to the printer make sure the "Save connection settings" checkbox is selected to store settings after a successful connection to the printer. This setting is what will be used for future connections from both OctoPrint and Home Assistant.
