@@ -18,7 +18,7 @@ A partial backup consists of any number of the above default directories and ins
 2. Select the **Create backup** button in the lower right.
 3. Provide a name for the backup.
 4. Choose full or partial.
-5. Choose to password protect or not.
+5. Optionally, enable password protection.
 6. Select **Create** to begin the backup.
 
 ### Alternative: Creating a backup using the Home Assistant Command Line Interface
