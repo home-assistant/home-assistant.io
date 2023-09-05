@@ -53,7 +53,7 @@ Remark: to update your Home Assistant on your Docker within Synology NAS, you ju
 - Wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
 - Move to "Container"-section
 - Stop your container if it's running
-- Right-click on it and select "Action"->"Reset". You won't lose any data, as all files are stored in your configuration-directory. (You may need to repair certain integration by re-download them, e.g. [HACS](https://hacs.xyz/docs/setup/download/))
+- Right-click on it and select "Action"->"Reset". You won't lose any data, as all files are stored in your configuration directory. You may need to repair certain integrations by re-downloading them.  For example, [HACS](https://hacs.xyz/docs/setup/download/).
 - Start the container again - it will then boot up with the new Home Assistant image
 
 Remark: to restart your Home Assistant within Synology NAS, you just have to do the following:
