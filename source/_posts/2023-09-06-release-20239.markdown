@@ -139,6 +139,10 @@ Temporary screenshot that needs to be replaced.
 </p>
 
 
+## Actions for template entities
+
+Trigger template entities can now have an action block that is executed after the trigger but before the entities are rendered. All variables from the action block will be available during the entity rendering. This will allow users to fetch things like weather forecast or calendar events and use them in their template entities. Long term goal is to align the trigger template entities with automation syntax so we can support things like tracing too.
+
 ## Weather forecast service
 
 We added a weather forecast service, that returns the weather forecast.
@@ -146,11 +150,14 @@ We added a weather forecast service, that returns the weather forecast.
 Previously you would have to look at the `forecast` attribute of a weather entity to get the forecast, now this can be done by calling a new service, `weather.get_forecast`, that will respond with the forecast.
 You can also specify what type of forecast you want, daily or do you want to know it for every hour? This means you no longer need separate entities for every forecast type, but it can all be done in 1 entity.
 
+If an entity supports multiple forecasts, you can choose which one you want to see in the more info dialog.
 In the weather card in your dashboard, you can also now pick what kind of weather forecast you want to show in that card.
 
 All weather integrations are updated to support this new service.
 
 With this change, the `forecast` attribute of the weather entity is deprecated, and will be removed in Home Assistant Core 2024.3.
+
+You can use the newly added `action` part of a template entity to fetch the forecast and use it in your template.
 
 <p class='img'>
 <img src='https://media.discordapp.net/attachments/427516175237382144/1146445861421846608/SPOILER_CleanShot_2023-08-30_at_16.03.542x.png?width=1466&height=794'></a>
@@ -186,9 +193,10 @@ To consider:
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- [Enphase Envoy] has gotten a lot of love this release, thanks [@bdraco]!
+- [Enphase Envoy] has gotten a lot of love this release, thanks [@bdraco] and [@cgarwood]!
 
 [@bdraco]: https://github.com/bdraco
+[@cgarwood]: https://github.com/cgarwood
 [Enphase Envoy]: /integrations/enphase_envoy
 
 ## New integrations
@@ -465,8 +473,18 @@ and your automations should therefore not be impacted by the change.
 
 ([@raman325] - [#98140]) ([documentation](/integrations/zwave_js))
 
+With this release, you will need to update your zwave-js-server instance. You must use zwave-js-server 1.31.0 or greater (schema 31).
+
+If you use the Z-Wave JS add-on, you need at least version 0.1.88.
+If you use the Z-Wave JS UI add-on, you need at least version ??.
+If you use the Z-Wave JS UI Docker container, you need at least version 8.23.2.
+If you run your own Docker container or some other installation method, you will need to update your zwave-js-server instance to at least 1.31.0.
+
+([@raman325] - [#99250]) ([documentation](/integrations/zwave_js))
+
 [@raman325]: https://github.com/raman325
 [#98140]: https://github.com/home-assistant/core/pull/98140
+[#99250]: https://github.com/home-assistant/core/pull/99250
 
 {% enddetails %}
 
