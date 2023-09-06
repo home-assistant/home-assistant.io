@@ -177,27 +177,40 @@ Temporary screenshot that needs to be replaced.
 
 ## Other noteworthy changes
 
-{% details "TODO" %}
-
-- **Note**: Changes processed up to PR X
-
-- Proof read/spelling/grammar
-- Last minute ones added?
-- Go over list again, might have missed something
-
-To consider:
-- something
-
-{% enddetails %}
-
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- [Enphase Envoy] has gotten a lot of love this release, thanks [@bdraco] and [@cgarwood]!
+- [Enphase Envoy] has gotten a lot of love this release, ensure it works
+  perfectly with the latest firmware available. Thanks [@bdraco] and [@cgarwood]!
+- The [Shelly] integration now supports the Shelly Gas Valve addon. Thanks [@bieniu]!
+- [@starkillerOG] added zoom buttons and AI detection delay time controls to
+  the [Reolink] integration. Nice!
+- You can now set separate damping factors for morning and evening in the
+  [Forecast Solar] integration. Thanks [@joostlek]!
+- [@Kane610] added a restart device button to the [UniFi] integration. Thanks!
+- The [Tomorrow.io] integration now reports humidity and dew point in its weather
+  forecasts. Thanks [@lymanepp]!
+- Support for soil moisture sensors was added to the [Gardena] integration.
+  Thanks [@elupus]!
+- [@timmo001] added a power service to the [System Bridge] integration. Thanks!
 
 [@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
 [@cgarwood]: https://github.com/cgarwood
+[@elupus]: https://github.com/elupus
+[@joostlek]: https://github.com/joostlek
+[@Kane610]: https://github.com/Kane610
+[@lymanepp]: https://github.com/lymanepp
+[@starkillerOG]: https://github.com/starkillerOG
+[@timmo001]: https://github.com/timmo001
 [Enphase Envoy]: /integrations/enphase_envoy
+[Forecast Solar]: /integrations/forecast_solar
+[Gardena]: /integrations/gardena
+[Reolink]: /integrations/reolink
+[Shelly]: /integrations/shelly
+[System Bridge]: /integrations/system_bridge
+[Tomorrow.io]: /integrations/tomorrowio
+[Unifi]: /integrations/unifi
 
 ## New integrations
 
@@ -245,8 +258,6 @@ to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
 ## Breaking changes
-
-**Note**: Breaking changes processed up to PR 98609
 
 {% details "BMW Connected Drive" %}
 
@@ -476,7 +487,7 @@ and your automations should therefore not be impacted by the change.
 With this release, you will need to update your zwave-js-server instance. You must use zwave-js-server 1.31.0 or greater (schema 31).
 
 If you use the Z-Wave JS add-on, you need at least version 0.1.88.
-If you use the Z-Wave JS UI add-on, you need at least version ??.
+If you use the Z-Wave JS UI add-on, you need at least version 1.15.9.
 If you use the Z-Wave JS UI Docker container, you need at least version 8.23.2.
 If you run your own Docker container or some other installation method, you will need to update your zwave-js-server instance to at least 1.31.0.
 
@@ -492,6 +503,8 @@ If you are a custom integration developer and want to learn about breaking
 changes and new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
+- [Entity state formatting](https://developers.home-assistant.io/blog/2023/08/29/hass-format-state)
+- [HomeAssistant.__init__ requires passing a string to it](https://developers.home-assistant.io/blog/2023/08/29/homeassistant-changed-signature)
 - [Numerical sensors are no longer allowed to set their state to NaN or inf](https://developers.home-assistant.io/blog/2023/08/23/sensor-updates)
 - [Weather entity forecast types](https://developers.home-assistant.io/blog/2023/08/07/weather_entity_forecast_types/)
 
