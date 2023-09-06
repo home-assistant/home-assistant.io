@@ -33,7 +33,7 @@ Your Husqvarna account username/password used for the *Automower® Connect*  pho
 
     ![Creat new Application](https://github.com/Thomas55555/home-assistant.io/assets/59625598/97abbbac-a089-4d9a-be3d-3a3f9c50442c)
 
-   * Click **CREATE**.  *Application Key* and *Application Secret* will be generated and shown.  Protect these like a username and password.
+   - Click **CREATE**.  *Application Key* and *Application Secret* will be generated and shown.  Protect these like a username and password.
 
 4. Click on **CONNECT NEW API** and connect the **Authentication API**.
    ![Authentication API*](https://github.com/Thomas55555/home-assistant.io/assets/59625598/1d541011-6a38-4678-ac98-b73b2dac5aab)
