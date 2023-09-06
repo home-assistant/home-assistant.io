@@ -476,7 +476,7 @@ and your automations should therefore not be impacted by the change.
 With this release, you will need to update your zwave-js-server instance. You must use zwave-js-server 1.31.0 or greater (schema 31).
 
 If you use the Z-Wave JS add-on, you need at least version 0.1.88.
-If you use the Z-Wave JS UI add-on, you need at least version ??.
+If you use the Z-Wave JS UI add-on, you need at least version 1.15.9.
 If you use the Z-Wave JS UI Docker container, you need at least version 8.23.2.
 If you run your own Docker container or some other installation method, you will need to update your zwave-js-server instance to at least 1.31.0.
 
