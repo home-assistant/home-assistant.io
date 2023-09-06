@@ -55,7 +55,7 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 ## New climate, humidifier, and water heater entity dialogs
 
 The entity dialogs for climate, humidifier, and water heater entities got an update, and if you ask me, it looks absolutely stunning!
-It now has a newly designed circular slider showing the current and target temperatures and allows you to easily swipe to the desired target temperature. And allows you to swipe to the desired target temperature easily.
+It now has a newly designed circular slider showing the current and target temperatures and allows you to easily swipe to the desired target temperature.
 There are also dedicated buttons to change the target, so it is easy to use if you are not using a touchscreen.
 It will glow in the middle to show its current action, for example when it is heating or cooling.
 <p class='img'>
@@ -84,10 +84,10 @@ Screenshot of tile cards with the new features.
 
 ## Lawn mower
 
-A new entity type was added to release: the lawn mower!
+A new entity type was added this release: the lawn mower!
 
 You can now integrate your lawn mower into Home Assistant!
-Never worry about the lawn mower when it starts raining, you can now automate it to stop and go back when it rains.
+Never worry about the lawn mower when it starts raining, you can now automate the lawn mower to stop and go back when it rains.
 For now, just MQTT is supported, but keep an eye out for other integrations!
 
 <p class='img'>
@@ -169,7 +169,7 @@ template:
 We added a new service for weather entities, `weather.get_forecast`, that responds with the weather forecast.
 
 Previously you would have to look at the `forecast` attribute of a weather entity to get the forecast, now this can be done by calling a new service, `weather.get_forecast`, that will respond with the forecast.
-You can also specify what type of forecast you want, do you want to see the forecast by day or do you want to know it for every hour? This means you no longer need separate entities for every forecast type, but it can all be done in 1 entity.
+You can also specify what type of forecast you want. Do you want to see the forecast by day or do you want to know it for every hour? This means you no longer need separate entities for every forecast type, but it can all be done in 1 entity.
 
 All weather integrations are updated to support this new service.
 
@@ -188,7 +188,7 @@ Screenshot of the weather more info dialog.
 
 With this change, the `forecast` attribute of the weather entity is deprecated, and will be removed in Home Assistant Core 2024.3.
 
-This will make it possible to have on-demand forecasts, that update when you want them to, instead of them being updated all time. 
+This will make it possible to have on-demand forecasts, that update when you want them to, instead of them being updated all the time. 
 It will also make the system faster; all state data gets sent to your browser or mobile app every time it is opened so the frontend has the latest states of your entities. The forecast attribute makes the state of weather entities very big, causing everything to be loaded slower.
 
 While the way to access this data has changed and may impact your automations, you will not experience any loss in functionality. Even with this change, rest assured that the forecast cards in your dashboard will still work, they will now just use the service to retrieve the forecast data asynchronously instead of reading it from the state attribute. The end result is that your dashboards will load faster, and the frontend will be leaner.
@@ -222,7 +222,7 @@ While it is certain that Home Assistant is a great tool once you understand how 
 We are now actively working to flatten that curve so that you can get more from your home faster and simpler. 
 This release shows the first result of that effort, a new onboarding flow.
 
-Something you probably have not seen for a while, but we gave our onboarding a fresh new look! It is shortened to get the user in Home Assistant as fast as possible, so they can enjoy tinkering with their home faster!
+Something you probably have not seen for a while, but we gave our onboarding a fresh new look! It is shortened to get users in Home Assistant as fast as possible, so they can enjoy tinkering with their home faster!
 
 <p class='img'>
 <img src='/images/blog/2023-09/onboarding.png'>
@@ -379,9 +379,7 @@ the new device when the mac address of the board changes.
 
 {% details "EZVIZ" %}
 
-Now, only returns switches if supported by the Camera. Some of the "switches" on
-the EZVIZ API are intermingled with "is this supported" and are not actually
-switchable; those have been removed.
+Only switches supported by the camera will be created. Non switchable switches have been removed.
 
 ([@RenierM26] - [#95672]) ([documentation](/integrations/ezviz))
 
@@ -469,7 +467,7 @@ Support for the heater fan will be added later.
 
 {% details "MQTT" %}
 
-MQTT device trackers no longer always update the when there is no state change.
+MQTT device trackers no longer always update when there is no state change.
 This means that automations that trigger on a state change no longer are
 triggered if there is no change.
 
