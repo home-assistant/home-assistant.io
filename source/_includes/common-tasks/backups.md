@@ -42,9 +42,8 @@ There are multiple ways to store the backup on another device:
   - For example, [use the samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
   - In your file explorer, access Home Assistant, open the `backup` folder and copy the file to your computer.
 - **Option 3**: You can also change the default location for backups:
-  - [Add a network storage location](/common-tasks/os/#network-storage) for backup.
-  - Go to  {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and in the top right corner, select the three dots menu.
-  - Select **Change default backup location** and select the new storage location.
+  - [Add a network storage location](/common-tasks/os/#network-storage) for backups.
+  - [Change the default location](/common-tasks/os/#change-default-backup-location) for backups.
 
 - **Option 4**: Or even better, create an automation to handle that.
 - **Option 5**: Make use of a third-party add-on:
