@@ -84,7 +84,7 @@ During peak hours, it could happen that the Overkiz platform is unable to execut
 
 ### Internet connectivity required
 
-This integration communicates via the cloud-based Overkiz API. The Somfy TaHoma v2 and the Somfy TaHoma Switch offer the [Somfy TaHoma Developer Mode (local API)](https://developer.somfy.com/developer-mode), which is not supported in Home Assistant yet.
+This integration communicates via the cloud-based Overkiz API. The Somfy TaHoma v2 and the Somfy TaHoma Switch offer the [Somfy TaHoma Developer Mode (local API)](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode), which is not supported in Home Assistant yet.
 
 Another option if you are only using Somfy IO compatible devices is to purchase a Velux KLF200 hub and use [the Velux integration](/integrations/velux/) which has a local API.
 
