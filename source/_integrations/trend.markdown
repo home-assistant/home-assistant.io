@@ -10,7 +10,8 @@ ha_quality_scale: internal
 ha_domain: trend
 ha_platforms:
   - binary_sensor
-ha_integration_type: integration
+ha_config_flow: true
+ha_integration_type: helper
 ha_codeowners:
   - '@jpbede'
 ---
@@ -22,6 +23,10 @@ Thus it can take some time to show an accurate state. It can be useful
 as part of automations, where you want to base an action on a trend.
 
 ## Configuration
+
+{% include integrations/config_flow.md %}
+
+### YAML Configuration
 
 To enable Trend binary sensors in your installation,
 add the following to your `configuration.yaml` file:
