@@ -19,7 +19,7 @@ Home Assistant Core 2023.9! 🎉
 
 Frenck is enjoying a well earned holiday, so I'm taking care of the release this month.
 
-This month, on the 17th, it has been 10 years since Home Assistant started. We'll be publishing a video to the [Home Assistant YouTube channel](https://www.youtube.com/channel/UCbX3YkedQunLt7EQAdVxh7w) to celebrate, reflect and look ahead. We hope you can join us on the 17th @ 12:00 PDT / 21:00 CET!
+This month, on the 17th, it has been 10 years since Home Assistant started. We'll be preparing a special event on the [Home Assistant YouTube channel](https://www.youtube.com/channel/UCbX3YkedQunLt7EQAdVxh7w) to celebrate, reflect and look ahead. We will have some cool announcements too! We hope you can join us on the 17th @ 12:00 PDT / 21:00 CET!
 
 This release is pretty packed! With some very nice updates to the UI with new entity dialogs for climate entities, and lots of tile card features. Template sensors can be created from the UI now, and for the more advanced template sensors, the ability to get data from services!
 A new service to get the weather forecast, and better options to display different forecasts.
