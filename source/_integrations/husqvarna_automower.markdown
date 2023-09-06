@@ -40,20 +40,20 @@ Your Husqvarna account username/password used for the *Automower® Connect*  pho
 
    * Click **CREATE**.  *Application Key* and *Application Secret* will be generated and shown.  Protect these like a username and password.
 
-5. Click on **CONNECT NEW API** and connect the **Authentication API**.
+4. Click on **CONNECT NEW API** and connect the **Authentication API**.
    ![DeepinBildschirmfoto_Bereich auswählen_20230907000555](https://github.com/Thomas55555/home-assistant.io/assets/59625598/1d541011-6a38-4678-ac98-b73b2dac5aab)
 
-7. Click on **CONNECT NEW API** again and connect the **Automower Connect API**.
+5. Click on **CONNECT NEW API** again and connect the **Automower Connect API**.
    ![DeepinBildschirmfoto_Bereich auswählen_20230907000834](https://github.com/Thomas55555/home-assistant.io/assets/59625598/3ade9aee-8643-44de-ab43-38cf95dd59fb)
 
-8. Leave this tab open in browser and continue with Home Assistant configuration.
+6. Leave this tab open in browser and continue with Home Assistant configuration.
    ![DeepinBildschirmfoto_Bereich auswählen_20230907000942](https://github.com/Thomas55555/home-assistant.io/assets/59625598/8bdfef10-9cc4-40ee-8b44-e845661551dc)
 
 ### Home Assistant
 
-The My Home Assistant redirect feature needs to be setup to redirect to your home assistant installation. See [My FAQ](https://my.home-assistant.io/faq) for additional information.
+The My Home Assistant redirect feature needs to be setup to redirect to your Home Assistant installation. See [My FAQ](https://my.home-assistant.io/faq) for additional information.
 
-1. Add the integration to your home assistant installation and test the redirect feature by following below link:
+1. Add the integration to your Home Assistant installation and test the redirect feature by following below link:
    [![my_button](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=husqvarna_automower)
 
 2. Acknowledge prompts to open link, install Husqvarna Automower integration.
@@ -70,7 +70,7 @@ The My Home Assistant redirect feature needs to be setup to redirect to your hom
 
 6. Browser will be redirected to Husqvarna Developer site.  Sign in and Authorize the integration to connect with your Husqvarna account
 
-7. After authorizing the integration the browser will show the my Home Assistant redirect link to link this account.  Click on **Link Account**.
+7. After authorizing the integration the browser will show the My Home Assistant redirect link to link this account.  Click on **Link Account**.
 
 8. Confirm successful connection of mower and assign to an area.
 
