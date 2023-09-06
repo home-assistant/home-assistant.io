@@ -1,5 +1,5 @@
 ---
-title: modbus
+title: Modbus
 description: Instructions on how to integrate modbus and platforms.
 ha_category:
   - Hub

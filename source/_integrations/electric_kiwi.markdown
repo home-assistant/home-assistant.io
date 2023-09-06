@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: electric_kiwi
 ha_config_flow: true
 ha_platforms:
+  - select
   - sensor
 ha_integration_type: hub
 ---

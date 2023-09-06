@@ -4,6 +4,7 @@ description: Instructions on how to integrate Template Sensors into Home Assista
 ha_category:
   - Binary Sensor
   - Button
+  - Helper
   - Image
   - Number
   - Select
@@ -31,7 +32,8 @@ ha_platforms:
   - switch
   - vacuum
   - weather
-ha_integration_type: integration
+ha_integration_type: helper
+ha_config_flow: true
 ---
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
