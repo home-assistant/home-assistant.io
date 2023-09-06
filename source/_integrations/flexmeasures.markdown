@@ -154,7 +154,3 @@ data:
   unit: "SENSOR_UNIT_OF_THE_VALUES"
   prior: "DATETIME_STRING_AT_WHICH_THE_VALUES_WERE_RECORDED_OR_FORECASTED"
 ```
-
-
-
-add limitations and possibilities section to documentation.
