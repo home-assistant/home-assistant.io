@@ -1,5 +1,5 @@
 ---
-title: modbus
+title: Modbus
 description: Instructions on how to integrate modbus and platforms.
 ha_category:
   - Hub
@@ -613,7 +613,8 @@ climates:
           required: true
           type: integer
         write_registers:
-          description: "Request type, use `write_registers` if true  else `write_register`."
+          description: "Request type, use `write_registers` if true  else `write_register`.
+            If more than one value is specified for a specific mode, only the first one is used for writing to the register."
           required: false
           type: boolean
           default: false
@@ -625,15 +626,15 @@ climates:
             state_off:
               description: "Value corresponding to HVAC Off mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_heat:
               description: "Value corresponding to HVAC Heat mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_cool:
               description: "Value corresponding to HVAC Cool mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_auto:
               description: "Value corresponding to HVAC Auto mode."
               required: false
@@ -641,15 +642,15 @@ climates:
             state_dry:
               description: "Value corresponding to HVAC Dry mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_fan_only:
               description: "Value corresponding to HVAC Fan only mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_heat_cool:
               description: "Value corresponding to HVAC Heat/Cool mode."
               required: false
-              type: integer
+              type: [integer, list]
     hvac_onoff_register:
       description: "Address of On/Off state.
         When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
@@ -1252,6 +1253,14 @@ sensors:
       description: "The maximum allowed value of a sensor. If value > max_value --> max_value. Can be float or integer"
       required: false
       type: float
+    nan_value:
+      description: If a Modbus sensor has a defined NaN value, this value can be set as a hex string starting with `0x` containing one or more bytes (for example, `0xFFFF` or `0x80000000`) or provided as an integer directly. If triggered, the sensor becomes `unavailable`. Please note that the hex to int conversion for `nan_value` does currently not obey home-assistants Modbus encoding using the `data_type`, `structure`, or `swap` arguments.
+      required: false
+      type: string
+    zero_suppress:
+      description: Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer
+      required: false
+      type: float
     offset:
       description: "Final offset (output = scale * value + offset)."
       required: false
@@ -1282,6 +1291,10 @@ sensors:
       required: false
       type: string
       default: ">f"
+    slave_count:
+      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read message.
+      required: false
+      type: integer
     swap:
       description: "Swap the order of bytes/words, **not valid with `custom` and `datatype: string`**"
       required: false
@@ -1522,33 +1535,33 @@ Some parameters exclude other parameters, the following tables show what can be 
 
 The modbus integration provides two generic write services in addition to the platform-specific services.
 
-| Service | Description |
-| ------- | ----------- |
+| Service               | Description                 |
+| --------------------- | --------------------------- |
 | modbus.write_register | Write register or registers |
-| modbus.write_coil | Write coil or coils |
+| modbus.write_coil     | Write coil or coils         |
 
 Description:
 
-| Attribute | Description |
-| --------- | ----------- |
-| hub       | Hub name (defaults to 'modbus_hub' when omitted) |
-| unit      | Slave address (0-255), alternative to slave |
-| slave     | Slave address (0-255), alternative to unit |
-| address   | Address of the Register (e.g. 138) |
+| Attribute | Description                                                                                                                                                                                                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
+| unit      | Slave address (0-255), alternative to slave                                                                                                                                                                                                                                                 |
+| slave     | Slave address (0-255), alternative to unit                                                                                                                                                                                                                                                  |
+| address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
-| state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F |
+| state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |
 
 The modbus integration also provides communication stop/restart services. These services will not do any reconfiguring, but simply stop/start the modbus communication layer.
 
-| Service | Description |
-| ------- | ----------- |
-| modbus.stop | Stop communication |
+| Service        | Description                                   |
+| -------------- | --------------------------------------------- |
+| modbus.stop    | Stop communication                            |
 | modbus.restart | Restart communication (Stop first if running) |
 
 Description:
 
-| Attribute | Description |
-| --------- | ----------- |
+| Attribute | Description                                      |
+| --------- | ------------------------------------------------ |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted) |
 
 ## Example: writing a float32 type register
@@ -1566,14 +1579,14 @@ data:
 
 ## Service `modbus.set-temperature`
 
-| Service | Description |
-| ------- | ----------- |
+| Service         | Description                                                                                                                                   |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | set_temperature | Set temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
 
 ## Service `modbus.set_hvac_mode`
 
-| Service | Description |
-| ------- | ----------- |
+| Service       | Description                                                                                                                                                                                                                                                                                                                           |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Calling this service will also set the On/Off register to an appropriate value, if such a register is defined. |
 
 

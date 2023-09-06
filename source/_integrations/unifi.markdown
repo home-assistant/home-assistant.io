@@ -17,6 +17,7 @@ ha_codeowners:
 ha_domain: unifi
 ha_ssdp: true
 ha_platforms:
+  - button
   - device_tracker
   - diagnostics
   - image
@@ -30,6 +31,7 @@ ha_integration_type: hub
 
 There is currently support for the following device types within Home Assistant:
 
+- [Button](#button)
 - [Image](#image)
 - [Presence Detection](#presence-detection)
 - [Switch](#switch)
@@ -57,6 +59,10 @@ For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti
 The UniFi Network application can either be a UniFi OS console device (like the Cloud Key), or as software on any Linux system. If you run the UniFi Network application on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
 
 It is recommended that you run the UniFi Network application in a dedicated virtual machine to avoid that situation.
+
+## Button
+
+Provides the ability to restart a UniFi device. This feature requires admin privileges.
 
 ## Image
 
@@ -104,6 +110,10 @@ Provides per-port PoE control. Entities are disabled by default. This feature re
 
 Entities appear automatically for each restriction group. If there are no restrictions in a group, no entity will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
 
+### Control Port forward functonality
+
+Entities appear for each port forwarding rule. 
+
 ### Control WLAN availability
 
 Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
@@ -121,6 +131,10 @@ Entities reporting connected clients to a WLAN.
 ### Uptime sensor
 
 Get entities reporting uptime per network client.
+
+### Power Outlet sensor
+
+Get entities reporting the power utilization for outlets that support metrics (such as the AC outlets on the USP-PDU-Pro).
 
 ## Firmware updates
 

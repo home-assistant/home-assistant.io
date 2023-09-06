@@ -77,9 +77,13 @@ Depending on the supported features of the camera, number entities are added for
 - Guard return time
 - Motion sensitivity
 - AI face sensitivity
-- AI people sensitivity
+- AI person sensitivity
 - AI vehicle sensitivity
 - AI pet sensitivity
+- AI face delay*
+- AI person delay*
+- AI vehicle delay*
+- AI pet delay*
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
@@ -104,11 +108,13 @@ Depending on the supported features of the camera, button entities are added for
 - PTZ up
 - PTZ down
 - PTZ calibrate
+- PTZ zoom in*
+- PTZ zoom out*
 - Guard go to
 - Guard set current position
 - Restart*
 
-PTZ left, right, up and down will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
+PTZ left, right, up, down, zoom in and zoom out will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
 
 "Guard set current position" will set the current position as the new guard position.
 
@@ -168,6 +174,7 @@ When IR light entity is OFF always OFF, when ON IR LEDs will be on when the came
 
 Depending on the supported features of the camera, the following sensor entities are added:
 
+- PTZ pan position
 - Wi-Fi signal*
 
 ## Update entity

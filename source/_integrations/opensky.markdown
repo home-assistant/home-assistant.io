@@ -29,6 +29,12 @@ altitude:
   description: The maximum altitude in meters in which the planes are tracked. No input (or 0) means all planes in the area are tracked.
 {% endconfiguration_basic %}
 
+## Authentication
+
+By default, polling is done every 15 minutes not to hit the API limit.
+More API requests are allowed as authenticated users.
+You can add your credentials after setting up the integration.
+
 ## Events
 
 - **opensky_entry**: Fired when a flight enters the region.

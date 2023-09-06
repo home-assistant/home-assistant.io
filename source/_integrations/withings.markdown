@@ -81,4 +81,3 @@ use_webhook:
   default: false
   type: boolean
 {% endconfiguration %}
-

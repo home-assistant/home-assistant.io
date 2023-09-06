@@ -2,6 +2,8 @@
 title: Duotecno
 description: Access and control your Duotecno nodes.
 ha_category:
+  - Cover
+  - Light
   - Switch
 ha_iot_class: Local Push
 ha_release: '2023.8'
@@ -11,6 +13,7 @@ ha_codeowners:
 ha_domain: duotecno
 ha_platforms:
   - cover
+  - light
   - switch
 ha_integration_type: integration
 ---

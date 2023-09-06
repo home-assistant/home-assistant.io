@@ -13,8 +13,6 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
-ha_codeowners:
-  - '@epenet'
 ---
 
 The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
