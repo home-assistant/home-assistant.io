@@ -29,6 +29,7 @@ light:
         value_template: "{{ state_attr('sensor.theater_brightness', 'lux')|int > 0 }}"
         temperature_template: "{{states('input_number.temperature_input') | int}}"
         color_template: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
+        effect_list_template: "{{ state_attr('light.led_strip', 'effect_list') }}"
         turn_on:
           service: script.theater_lights_on
         turn_off:
@@ -56,6 +57,21 @@ light:
             data:
               value: "{{ s }}"
               entity_id: input_number.s_input
+          - service: light.turn_on
+            data_template:
+              entity_id:
+                - light.led_strip
+              transition: "{{ transition | float }}"
+              hs_color:
+                - "{{ hs[0] }}"
+                - "{{ hs[1] }}"
+        set_effect:
+          - service: light.turn_on
+            data_template:
+              entity_id:
+                - light.led_strip
+              effect: "{{ effect }}"
+        supports_transition_template: "{{ true }}"
 ```
 
 {% endraw %}
@@ -89,13 +105,33 @@ light:
         required: false
         type: template
         default: optimistic
-      white_value_template:
-        description: Defines a template to get the white value of the light.
+      color_template:
+        description: Defines a template to get the color of the light. Must render a tuple (hue, saturation)
         required: false
         type: template
         default: optimistic
-      color_template:
-        description: Defines a template to get the color of the light. Must render a tuple (hue, saturation)
+      supports_transition_template:
+        description: Defines a template to get if light supports transition. Should return boolean value (True/False). If this value is `True` transition parameter in a turn on or turn off call will be passed as a named parameter `transition` to either of the scripts.
+        required: false
+        type: template
+        default: false
+      effect_list_template:
+        description: Defines a template to get the list of supported effects. Must render a list
+        required: inclusive
+        type: template
+        default: optimistic
+      effect_template:
+        description: Defines a template to get the effect of the light.
+        required: inclusive
+        type: template
+        default: optimistic
+      min_mireds_template:
+        description: Defines a template to get the min mireds value of the light.
+        required: false
+        type: template
+        default: optimistic
+      max_mireds_template:
+        description: Defines a template to get the max mireds value of the light.
         required: false
         type: template
         default: optimistic
@@ -104,35 +140,39 @@ light:
         required: false
         type: template
       availability_template:
-        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
         required: false
         type: template
         default: true
       turn_on:
-        description: Defines an action to run when the light is turned on.
+        description: Defines an action to run when the light is turned on. May receive variables `brightness` and/or `transition`.
         required: true
         type: action
       turn_off:
-        description: Defines an action to run when the light is turned off.
+        description: Defines an action to run when the light is turned off. May receive variable `transition`.
         required: true
         type: action
       set_level:
-        description: Defines an action to run when the light is given a brightness command.
+        description: Defines an action to run when the light is given a brightness command. The script will only be called if the `turn_on` call only has brightness, and optionally transition. Receives variables `brightness` and optionally `transition`.
         required: false
         type: action
       set_temperature:
-        description: Defines an action to run when the light is given a color temperature command.
-        required: false
-        type: action
-      set_white_value:
-        description: Defines an action to run when the light is given a white value command.
+        description: Defines an action to run when the light is given a color temperature command. Receives variable `color_temp`. May also receive variables `brightness` and/or `transition`.
         required: false
         type: action
       set_color:
-        description: Defines an action to run when the light is given a color command.
+        description: Defines an action to run when the light is given a color command. Receives variables `h`, `s`, and `hs` (which is equivalent to `(h, s)`). May also receive variables `brightness` and/or `transition`.
         required: false
         type: action
+      set_effect:
+        description: Defines an action to run when the light is given an effect command. Receives variable `effect`. May also receive variables `brightness` and/or `transition`.
+        required: inclusive
+        type: action
 {% endconfiguration %}
+
+### Template and action variables
+
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
 
 ## Considerations
 
@@ -145,6 +185,9 @@ For example, you would replace
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
+Transition doesn't have its own script, it will instead be passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color` or `white_value` scripts.
+Brightness will be passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color` or `white_value` scripts if the corresponding parameter is also in the call. In this case the brightness script (`set_level`) will not be called.
+If only brightness is passed to `light.turn_on` service call then `set_level` script is called.
 
 ## Examples
 
@@ -153,9 +196,9 @@ In this section you will find some real-life examples of how to use this light.
 ### Theater Volume Control
 
 This example shows a light that is actually a home theater's volume. This
-component gives you the flexibility to provide whatever you'd like to send as
+integration gives you the flexibility to provide whatever you'd like to send as
 the payload to the consumer including any scale conversions you may need to
-make; the [Media Player component](/integrations/media_player/) needs a floating
+make; the [Media Player integration](/integrations/media_player/) needs a floating
 point percentage value from `0.0` to `1.0`.
 
 {% raw %}
@@ -178,18 +221,21 @@ light:
           {% endif %}
         turn_on:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: false
         turn_off:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: true
         set_level:
           service: media_player.volume_set
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             volume_level: "{{ (brightness / 255 * 100)|int / 100 }}"
         level_template: >-
           {% if is_state('media_player.receiver', 'on') %}
@@ -235,13 +281,15 @@ light:
           {% endif %}
         turn_on:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: false
         turn_off:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: true
 ```
 
@@ -281,13 +329,15 @@ light:
           {% endif %}
         turn_on:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: false
         turn_off:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: true
 ```
 

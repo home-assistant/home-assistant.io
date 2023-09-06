@@ -34,7 +34,7 @@ autoconnect-retries-default=0
 rc-manager=file
 
 [keyfile]
-unmanaged-devices=type:bridge;type:tun;type:veth
+unmanaged-devices=type:bridge;type:tun;driver:veth
 
 [logging]
 backend=journal

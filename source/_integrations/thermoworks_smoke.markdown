@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: thermoworks_smoke
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `thermoworks_smoke` sensor platform pulls data for your [ThermoWorks Smoke Thermometer](https://www.thermoworks.com/Smoke).
@@ -105,7 +106,7 @@ input_number:
     icon: mdi:thermometer
 
 automation:
-  - alias: Alert when My Smoke Probe 1 is above threshold
+  - alias: "Alert when My Smoke Probe 1 is above threshold"
     trigger:
       platform: template
       value_template: >-

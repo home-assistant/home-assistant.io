@@ -5,7 +5,7 @@ description: "Guide on authentication in Home Assistant."
 
 Our authentication system secures access to Home Assistant.
 
-If you are starting Home Assistant for the first time, or you have logged out, you will be asked for credentials before you can log in. 
+If you are starting Home Assistant for the first time, or you have logged out, you will be asked for credentials before you can log in.
 
 <img src='/images/docs/authentication/login.png' alt='Screenshot of the login screen' style='border: 0;box-shadow: none;'>
 
@@ -20,26 +20,29 @@ When you start Home Assistant for the first time the _owner_ user account is cre
 For the moment, other user accounts will have the same access as the owner account. In the future, non-owner accounts will be able to have restrictions applied.
 </div>
 
+<div class="note">
+If you want to manage users and you're an owner but you do not see "Users" in your main configuration menu, make sure that "Advanced Mode" is enabled for your user in your profile.
+</div>
+
 ### Your Account Profile
 
-Once you're logged in, you can see the details of your account at the _Profile_ page by clicking on the circular at the very bottom of the sidebar. 
+Once you're logged in, you can see the details of your account at the _Profile_ page by clicking on the circular at the very bottom of the sidebar.
 
 <img src='/images/docs/authentication/profile.png' alt='Screenshot of the profile page' style='border: 0;box-shadow: none;'>
 
 You can:
 
-* Change your password.
-* Enable or disable [multi-factor authentication](/docs/authentication/multi-factor-auth/).
-* Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
-* Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) so scripts can securely interact with Home Assistant. 
-* Log out of Home Assistant. 
+- Change your password.
+- Enable or disable [multi-factor authentication](/docs/authentication/multi-factor-auth/).
+- Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
+- Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) so scripts can securely interact with Home Assistant.
+- Log out of Home Assistant.
 
 ### Securing your login
 
-_Make sure to choose a secure password!_ At some time in the future, you will probably want to access Home Assistant from outside your local network. This means you are also exposed to random black-hats trying to do the same. Treat the password like the key to your house. 
+_Make sure to choose a secure password!_ At some time in the future, you will probably want to access Home Assistant from outside your local network. This means you are also exposed to random black-hats trying to do the same. Treat the password like the key to your house.
 
-
-As an extra level of security, you can turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/). 
+As an extra level of security, you can turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 
 ## Other authentication techniques
 
@@ -73,7 +76,7 @@ INFO (MainThread) [homeassistant.components.http.auth] You need to use a bearer 
 
 Before using the procedure below, make sure you explore options provided [here](/docs/locked_out).
 
-While you should hopefully be storing your passwords in a password manager, if you lose the password associated with the owner account the only way to resolve this is to delete *all* the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
+While you should hopefully be storing your passwords in a password manager, if you lose the password associated with the owner account the only way to resolve this is to delete _all_ the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
 
 - `auth`
 - `auth_provider.homeassistant`

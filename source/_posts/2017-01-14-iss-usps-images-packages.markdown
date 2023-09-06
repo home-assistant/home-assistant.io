@@ -5,7 +5,9 @@ date: 2017-01-14 08:04:05 +0000
 date_formatted: "January 15, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2016-01-0.36/social.png
 ---
 

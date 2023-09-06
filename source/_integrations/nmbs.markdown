@@ -1,6 +1,6 @@
 ---
 title: NMBS
-description: Instructions on how to integrate timetable data for traveling on the NMBS Belgian Railway within Home Assistant.
+description: Instructions on how to integrate timetable data for traveling on the NMBS/SNCB Belgian Railway within Home Assistant.
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: nmbs
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `nmbs` platform will create sensors for monitoring travel time and information between 2 stations.
@@ -28,7 +29,7 @@ sensor:
     exclude_vias: true
 ```
 
-The stations can only be provided by their standard names and not ids. The list of stations can be checked on the NMBS/SCNB website but for most accurate results check them on the [iRail API page](https://api.irail.be/stations/) which this integration uses internally.
+The stations can only be provided by their standard names and not ids. The list of stations can be checked on the NMBS/SNCB website but for most accurate results check them on the [iRail API page](https://api.irail.be/stations/) which this integration uses internally.
 
 {% configuration %}
 station_from:
@@ -62,5 +63,5 @@ show_on_map:
 
 <p class='img'>
   <img src='/images/screenshots/nmbs-card-example.png' />
-  <p>Example using the <a href="https://github.com/custom-cards/entity-attributes-card">Lovelace Attributes custom card</a> </p>
+  <p>Example using the <a href="https://github.com/custom-cards/entity-attributes-card">Entity Attributes custom card</a> </p>
 </p>

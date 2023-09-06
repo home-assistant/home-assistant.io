@@ -1,5 +1,5 @@
 ---
-title: Manual
+title: Manual Alarm Control Panel
 description: Instructions on how to integrate manual alarms into Home Assistant.
 ha_category:
   - Alarm
@@ -9,6 +9,7 @@ ha_domain: manual
 ha_iot_class: Calculated
 ha_platforms:
   - alarm_control_panel
+ha_integration_type: integration
 ---
 
 The `manual` alarm control panel platform enables you to create an alarm system in Home Assistant.
@@ -67,7 +68,7 @@ disarm_after_trigger:
   required: false
   type: boolean
   default: false
-armed_custom_bypass/armed_home/armed_away/armed_night/disarmed/triggered:
+armed_custom_bypass/armed_home/armed_away/armed_night/armed_vacation/disarmed/triggered:
   description: State specific settings
   required: false
   type: list
@@ -171,11 +172,12 @@ automation:
       to: "open"
   condition:
     - condition: state
-      entity_id: alarm_control_panel.ha_alarm
+      entity_id: alarm_control_panel.home_alarm
       state: armed_away
   action:
     service: alarm_control_panel.alarm_trigger
-    entity_id: alarm_control_panel.ha_alarm
+    target:
+      entity_id: alarm_control_panel.home_alarm
 ```
 
 Sending a notification when the alarm is triggered.
@@ -185,7 +187,7 @@ automation:
   - alias: 'Send notification when alarm triggered'
     trigger:
       - platform: state
-        entity_id: alarm_control_panel.ha_alarm
+        entity_id: alarm_control_panel.home_alarm
         to: "triggered"
     action:
       - service: notify.notify
@@ -205,7 +207,8 @@ automation:
         # many z-wave locks use Alarm Type 19 for 'Unlocked by Keypad'
     action:
       - service: alarm_control_panel.alarm_disarm
-        entity_id: alarm_control_panel.house_alarm
+        target:
+          entity_id: alarm_control_panel.home_alarm
 ```
 
 Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pending Status

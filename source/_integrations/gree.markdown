@@ -12,20 +12,17 @@ ha_domain: gree
 ha_platforms:
   - climate
   - switch
+ha_integration_type: integration
 ---
 
-The Gree integration allows you to control a [Gree Smart HVAC](http://global.gree.com/) in Home Assistant.
+The Gree integration allows you to control a [Gree Smart HVAC](https://global.gree.com/) in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Climate](#climate)
 - [Switch](#switch)
 
-## Configuration
-
-Go to the integrations page in your configuration and click on **new integration** -> **Gree**.
-
-Gree Smart compatible devices are detected and added automatically.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 Devices must first be bound to WiFi using the Gree+ app, or app provided by the device manufacturer. It is not possible to connect devices to WiFi using this integration at the current time.
@@ -39,6 +36,8 @@ Any Gree Smart device working with the Gree+ app should be supported, including 
 - Innova
 - Cooper & Hunter
 - Proklima
+- Tadiran
+- Heiwa
 
 ## Climate
 
@@ -57,4 +56,8 @@ Preset mode **Away** represents Gree's "8°C heating mode."
 
 ## Switch
 
-Gree devices expose a switch to turn on/off the light panel displaying the temperature set point and HVAC mode.
+Gree devices expose multiple switches to control various features:
+
+- Light Panel, turns the front panel light on/off.
+- Quiet Mode, enables/disables the quiet mode feature.
+- Xtra Fan, enables/disables extra fan mode to remove help moisture from coils.

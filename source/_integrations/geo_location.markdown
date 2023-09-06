@@ -3,10 +3,12 @@ title: Geolocation
 description: Instructions on how to integrate geolocation aware platforms into Home Assistant.
 ha_category:
   - Geolocation
-logo: geo_location.png
 ha_release: 0.78
 ha_domain: geo_location
-ha_iot_class:
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: entity
 ---
 
 Geolocation aware entities are typically related to events in the real world in the vicinity of Home Assistant's location, like for example weather events, bush fires or earthquakes.
@@ -51,7 +53,7 @@ zone:
     passive: true
 
 automation:
-  - alias: 'Bush Fire Alert'
+  - alias: "Bush Fire Alert"
     trigger:
       platform: geo_location
       source: nsw_rural_fire_service_feed

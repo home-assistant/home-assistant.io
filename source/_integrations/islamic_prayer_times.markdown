@@ -11,34 +11,30 @@ ha_codeowners:
   - '@engrbm87'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Islamic Prayer Times (`islamic_prayer_times`) integration displays the various prayer times for Muslims as sensors.
 
 This platform calculates prayer times using the following calculation methods:
 
-- University of Islamic Sciences in Karachi
+- Shia Ithna-Ansari
 - Islamic Society of North America
+- University of Islamic Sciences, Karachi
 - Muslim World League
-- Umm Al-Qura University in Makkah
+- Umm Al-Qura University, Makkah
+- Egyptian General Authority of Survey
+- Institute of Geophysics, University of Tehran
+- Gulf Region
+- Kuwait
+- Qatar
+- Majlis Ugama Islam Singapura, Singapore
+- Union Organization islamic de France
+- Diyanet İşleri Başkanlığı, Turkiye
+- Spiritual Administration of Muslims of Russia
+- Moonsighting Committee Worldwide
 
-## Configuration
-
-Set up the integration through **Configuration -> Integrations -> Islamic Prayer Times**. To import the configuration from `configuration.yaml` remove any previously configured sensors with platform type `islamic_prayer_times` and add the following lines:
-
-```yaml
-# Example configuration.yaml entry
-islamic_prayer_times:
-
-```
-
-{% configuration %}
-calculation_method:
-  required: false
-  default: "isna"
-  type: string
-  description: "The calculation method used for prayer times.  Must be one of: `karachi`, `isna`, `mwl`, `makkah`."
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Integration Sensors
 
@@ -52,10 +48,3 @@ sensors:
   - maghrib: Show the maghrib prayer time for today.
   - isha: Show the isha prayer time for today.
   - midnight: Show the midnight for today which is the end of isha prayer. This is a calculated field and is not the same as 12AM.
-
-```yaml
-# Example configuration.yaml using a non-default calculation method
-islamic_prayer_times:
-    calculation_method: makkah
-
-```

@@ -10,7 +10,9 @@ ha_codeowners:
   - '@asymworks'
 ha_domain: airnow
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `airnow` integration uses the [AirNow](https://www.airnow.gov/) web service
@@ -20,9 +22,7 @@ as a source for air quality data for your location.
 
 To generate an AirNow API key, go to the [AirNow Developer Tools Page](https://docs.airnowapi.org/account/request/) page.
 
-## Configuration
-
-To add AirNow to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **AirNow**. By default, the values will be taken from the Home Assistant configuration.
+{% include integrations/config_flow.md %}
 
 <div class="note">
 

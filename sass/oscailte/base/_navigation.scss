@@ -31,7 +31,7 @@ body {
   float: left;
 }
 
-$menu-collapse: 944px;
+$menu-collapse: 1024px;
 
 // @media only screen and (max-width: $lap-end){
 @media only screen and (max-width: $menu-collapse) {
@@ -118,14 +118,13 @@ header .grid {
 
 .menu {
   margin: 0;
-  top: 138px;
+  top: 68px;
 }
 
 .menu li a {
   @include box-sizing(border-box);
-  @include transition(all 0.25s linear);
   display: block;
-  padding: 32px 12px;
+  padding: 27px 12px;
   text-decoration: none;
   font-weight: normal;
   font-size: 14px;
@@ -137,8 +136,7 @@ header .grid {
   background: $site-background;
   box-shadow: inset 0px 5px $navigation-color;
   color: $navigation-color;
-  padding-top: 40px;
-  padding-bottom: 24px;
+  padding-bottom: 22px;
 }
 
 .toggle {
@@ -169,17 +167,9 @@ header .grid {
     padding: 15px 15px 15px 25px;
   }
 
-  .alert-banner {
-    height: 70px !important;
-  }
-
-  .page-content {
-    padding-top: 102px;
-  }
-
   .toggle {
     position: absolute;
-    top: 85px;
+    top: 15px;
     right: 10px;
   }
 

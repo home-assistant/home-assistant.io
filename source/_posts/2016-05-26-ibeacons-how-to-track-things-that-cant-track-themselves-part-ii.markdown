@@ -60,7 +60,7 @@ With the basic tracking working - you can use automation to do things like open 
 
 ```yaml
 automation:
-    - alias: 'Open gate'
+    - alias: "Open gate"
       trigger:
         - platform: state
           entity_id: device_tracker.beacon_car
@@ -72,7 +72,8 @@ automation:
           state: "off"
       action:
           service: switch.turn_on
-          entity_id: switch.gate
+          target:
+            entity_id: switch.gate
 ```
 
 Or warn you if you leave your keys behind
@@ -81,7 +82,7 @@ Or warn you if you leave your keys behind
 
 ```yaml
 automation:
-  - alias: 'Forgotten keys'
+  - alias: "Forgotten keys"
     trigger:
       platform: template
       value_template: '{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}'
@@ -90,9 +91,10 @@ automation:
       value_template: '{{ states.device_tracker.greg_gregphone.state != "home" }}'
     action:
       service: script.turn_on
-      entity_id: script.send_key_alert
+      target:
+        entity_id: script.send_key_alert
 
-  - alias: 'Forgotten keys - cancel'
+  - alias: "Forgotten keys - cancel"
     trigger:
       platform: template
       value_template: '{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}'
@@ -102,7 +104,8 @@ automation:
         state: "on"
     action:
       service: script.turn_off
-      entity_id: script.send_key_alert
+      target:
+        entity_id: script.send_key_alert
 ```
 
 {% endraw %}

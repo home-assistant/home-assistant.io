@@ -12,17 +12,17 @@ ha_domain: brother
 ha_quality_scale: platinum
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: device
 ---
 
 The `Brother Printer` integration allows you to read current data from your local Brother printer.
 
-It usually provides information about the device's state, the left amount of ink or toner and the remaining life of the drum or other parts of the printer.
+It usually provides information about the device's state, the left amount of ink or toner and the remaining lifetime of the drum or other parts of the printer.
 The integration monitors every supported part.
 
-## Configuration
-
-To add `Brother Printer` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Brother Printer**.
+{% include integrations/config_flow.md %}
 
 <div class="note warning">
 
@@ -39,21 +39,21 @@ For some Brother devices, `SNMPv3 read-write access and v1/v2c read-only access`
 
 ## Sensor Example
 
-You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows.  First, add the following to `configuration.yaml` under the `binary_sensor:` section (replace `sensor.hl_l2340d_status` with the actual name of your sensor):
+You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows.  First, add the following to `configuration.yaml` under the `template:` section (Note: replace `sensor.hl_l2340d_status` with the actual name of your sensor):
 
 {% raw %}
 
 ```yaml
-  - platform: template
-    sensors:
-      laser_out_of_paper:
-        value_template: "{{ is_state('sensor.hl_l2340d_status', 'no paper') }}"
-        friendly_name: "Laser Printer Out of Paper"
-  - platform: template
-    sensors:
-      laser_paper_jam:
-        value_template: "{{ is_state('sensor.hl_l2340d_status', 'paper jam') }}"
-        friendly_name: "Laser Printer Paper Jam"
+template:
+  - binary_sensor:
+    - name: 'Laser Printer Out Of Paper'
+      state: >
+        {{ is_state('sensor.hl_l2340d_status', 'no paper') }}
+
+  - binary_sensor:
+    - name: 'Laser Printer Paper Jam'
+      state: >
+        {{ is_state('sensor.hl_l2340d_status', 'paper jam') }}
 ```
 
 {% endraw %}
@@ -64,14 +64,15 @@ Then, add this under the `alert:` section:
   laser_out_of_paper:
     name: Laser Printer is Out of Paper
     done_message: Laser Printer Has Paper
-    entity_id: binary_sensor.laser_out_of_paper
+    entity_id: binary_sensor.laser_printer_out_of_paper
     can_acknowledge: true
     notifiers:
       - my_phone_notify
+
   laser_paper_jam:
     name: Laser Printer has a Paper Jam
     done_message: Laser Printer Paper Jam Cleared
-    entity_id: binary_sensor.laser_paper_jam
+    entity_id: binary_sensor.laser_printer_paper_jam
     can_acknowledge: true
     notifiers:
       - my_phone_notify

@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.36
 ha_iot_class: Local Push
 ha_domain: rest_command
+ha_integration_type: integration
 ---
 
 This integration can expose regular REST commands as services. Services can be called from a [script] or in [automation].
@@ -13,7 +14,7 @@ This integration can expose regular REST commands as services. Services can be c
 [script]: /integrations/script/
 [automation]: /getting-started/automation/
 
-To use this component, add the following lines to your `configuration.yaml` file:
+To use this integration, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,17 +41,17 @@ service_name:
     headers:
       description: The headers for the requests.
       required: false
-      type: list
+      type: map
     payload:
       description: A string/template to send with request.
       required: false
       type: template
     username:
-      description: The username for HTTP authentication.
+      description: The username for basic HTTP authentication (digest is not supported).
       required: false
       type: string
     password:
-      description: The password for HTTP authentication.
+      description: The password for basic HTTP authentication (digest is not supported).
       required: false
       type: string
     timeout:

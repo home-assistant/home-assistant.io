@@ -6,9 +6,12 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.7.2
 ha_domain: denon
+ha_platforms:
+  - media_player
+ha_integration_type: integration
 ---
 
-The `denon` platform allows you to control a [Denon Network Receiver](https://www.denon.com/category/homecinema/avreceiver) from Home Assistant. It might be that your device is supported by the [Denon AVR] platform.
+The `denon` platform allows you to control a Denon Network Receiver from Home Assistant. It might be that your device is supported by the [Denon AVR] platform.
 
 Supported devices:
 

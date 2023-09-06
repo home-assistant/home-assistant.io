@@ -1,9 +1,9 @@
 ---
-title: remote_rpi_gpio
+title: Raspberry Pi Remote GPIO
 description: Instructions on how to integrate the GPIO capability of a Remote Raspberry Pi into Home Assistant.
 ha_category:
-  - DIY
   - Binary Sensor
+  - DIY
   - Switch
 ha_release: 0.94
 ha_iot_class: Local Push
@@ -11,6 +11,7 @@ ha_domain: remote_rpi_gpio
 ha_platforms:
   - binary_sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections.
@@ -66,7 +67,7 @@ pull_mode:
   default: "`UP`"
 {% endconfiguration %}
 
-For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
+For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#J8_header_and_general_purpose_input-output_(GPIO)) about the Raspberry Pi.
 
 ## Switch
 
@@ -105,7 +106,7 @@ invert_logic:
   type: boolean
 {% endconfiguration %}
 
-For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
+For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#J8_header_and_general_purpose_input-output_(GPIO)) about the Raspberry Pi.
 
 <div class='note warning'>
 Note that a pin managed by Home Assistant is expected to be exclusive to Home Assistant.
@@ -125,4 +126,4 @@ switch:
 
 ### Troubleshooting
 
-If you receive an error such as `gpiozero.exc.BadPinFactory: Unable to load any default pin factory!` try changing the pinfactory from `pigpio` to `mock`, this addresses a [known issue](https://www.raspberrypi.org/forums/viewtopic.php?p=1417922).
+If you receive an error such as `gpiozero.exc.BadPinFactory: Unable to load any default pin factory!` try changing the pinfactory from `pigpio` to `mock`, this addresses a [known issue](https://forums.raspberrypi.com/viewtopic.php?p=1417922).

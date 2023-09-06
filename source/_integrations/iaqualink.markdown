@@ -19,6 +19,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 [iAqualink](https://www.iaqualink.com/) by [Jandy](https://www.jandy.com/) allows you to control your pool anytime, anywhere.
@@ -31,29 +32,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-## Configuration
-
-Home Assistant offers Jandy iAqualink integration through **Configuration** -> **Integrations** -> **Jandy iAqualink**. Simply enter `username` and `password` when prompted.
-
-You can also configure the component via `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-iaqualink:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: The username for accessing your iAqualink account
-  type: string
-  required: true
-password:
-  description: The password for accessing your iAqualink account
-  type: string
-  required: true
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Known limitations
 

@@ -13,17 +13,16 @@ ha_domain: nzbget
 ha_platforms:
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
-The `nzbget` platform will allow you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant and setup automation based on the information.
+The NZBGet integration allows you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant. It also allows you to setup automation based on the information.
 
-## Configuration
-
-Go to the integrations page in your configuration and click on new integration -> NZBGet.
+{% include integrations/config_flow.md %}
 
 ## Sensor
 
-This component will create these sensors:
+This integration will create these sensors:
 
 - `nzbget_article_cache`: Article cache size in MB.
 - `nzbget_average_speed`: Average download rate since server start in MB/s.
@@ -35,6 +34,7 @@ This component will create these sensors:
 - `nzbget_post_processing_paused`: Whether post processing is paused.
 - `nzbget_uptime`: NZBGet server uptime.
 - `nzbget_size`: Amount of data downloaded since server start in MB.
+- `nzbget_speed_limit`: Download queue speed limit in MB/s.
 
 ## Event Automation
 
@@ -51,7 +51,7 @@ Example automation to send a Telegram message on a completed download:
 {% raw %}
 
 ```yaml
-- alias: Completed Torrent
+- alias: "Completed Torrent"
   trigger:
     platform: event
     event_type: nzbget_download_complete

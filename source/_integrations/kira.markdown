@@ -11,6 +11,7 @@ ha_domain: kira
 ha_platforms:
   - remote
   - sensor
+ha_integration_type: integration
 ---
 
 The `kira` integration is the main integration to integrate Keene Electronics IR over IP [Kira](https://k2audio.co.uk/collections/ip-and-internet-control) modules with Home Assistant.
@@ -208,7 +209,7 @@ Example automation using these IR codes to toggle a Sonoff plug.
 ```yaml
 # Example kira_sensor
 - id: "1583339338363"
-  alias: Panasonic On
+  alias: "Panasonic On"
   description: Turn on sonoff s20 relay
   trigger:
   - entity_id: sensor.kira_wireless

@@ -58,7 +58,7 @@ Replace x.y.z with the desired version like `--version {{current_version}}`
 
 You can get a better description of the CLI capabilities by typing `ha help`:
 
-```bash
+```txt
 The Home Assistant CLI is a small and simple command line utility that allows
 you to control and configure different aspects of Home Assistant
 
@@ -67,21 +67,30 @@ Usage:
 
 Available Commands:
   addons         Install, update, remove and configure Home Assistant add-ons
+  audio          Audio device handling.
   authentication Authentication for Home Assistant users.
+  backups        Create, restore and remove backups
+  banner         Prints the CLI Home Assistant banner along with some useful information
+  cli            Get information, update or configure the Home Assistant cli backend
   core           Provides control of the Home Assistant Core
   dns            Get information, update or configure the Home Assistant DNS server
+  docker         Docker backend specific for info and OCI configuration
   hardware       Provides hardware information about your system
   help           Help about any command
   host           Control the host/system that Home Assistant is running on
   info           Provides a general Home Assistant information overview
+  jobs           Get information and manage running jobs
+  multicast      Get information, update or configure the Home Assistant Multicast
+  network        Network specific for updating, info and configuration imports
+  observer       Get information, update or configure the Home Assistant observer
   os             Operating System specific for updating, info and configuration imports
-  snapshots      Create, restore and remove snapshot backups
+  resolution     Resolution center of Supervisor, show issues and suggest solutions
   supervisor     Monitor, control and configure the Home Assistant Supervisor
 
 Flags:
       --api-token string   Home Assistant Supervisor API token
       --config string      Optional config file (default is $HOME/.homeassistant.yaml)
-      --endpoint string    Endpoint for Home Assistant Supervisor ( default is 'supervisor' )
+      --endpoint string    Endpoint for Home Assistant Supervisor (default is 'supervisor')
   -h, --help               help for ha
       --log-level string   Log level (defaults to Warn)
       --no-progress        Disable the progress spinner
@@ -93,6 +102,5 @@ Use "ha [command] --help" for more information about a command.
 {% if page.installation == "os" %}
 ### Console access
 
-You can also access the Home Assistant Operating System via a directly connected keyboard and monitor, the console. To log in to the physical console the username is `root`, with no password.
-
+You can also access the Home Assistant Operating System via a directly connected keyboard and monitor, the console.
 {% endif %}

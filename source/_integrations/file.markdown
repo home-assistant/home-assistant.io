@@ -2,9 +2,9 @@
 title: File
 description: Instructions on how to integrate sensors which read from files into Home Assistant.
 ha_category:
-  - Utility
   - Notifications
   - Sensor
+  - Utility
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -13,6 +13,7 @@ ha_domain: file
 ha_platforms:
   - notify
   - sensor
+ha_integration_type: integration
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -111,6 +112,32 @@ sensor:
     name: Temperature
     file_path: /home/user/.homeassistant/sensor.json
     value_template: '{{ value_json.temperature }}'
+    unit_of_measurement: "°C"
+```
+
+{% endraw %}
+
+#### Entries as CSV
+
+Assuming the log file contains multiple values formatted as CSV like shown below:
+
+```text
+timestamp,temperature,humidity
+1631472948,21,39
+1631472949,22,36
+```
+
+This would require the following entry in the `configuration.yaml` file to extract the temperature:
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: file
+    name: Temperature
+    file_path: /home/user/.homeassistant/sensor.csv
+    value_template: '{{ value.split(",")[1] }}'
     unit_of_measurement: "°C"
 ```
 

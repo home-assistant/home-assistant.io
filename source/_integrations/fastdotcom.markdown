@@ -2,8 +2,8 @@
 title: Fast.com
 description: How to integrate Fast.com within Home Assistant.
 ha_category:
-  - System Monitor
   - Sensor
+  - System Monitor
 ha_release: 0.88
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: fastdotcom
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `fastdotcom` integration uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.
@@ -57,7 +58,7 @@ manual:
   type: boolean
 {% endconfiguration %}
 
-#### Time period dictionary example
+### Time period dictionary example
 
 ```yaml
 scan_interval:
@@ -69,7 +70,7 @@ scan_interval:
   milliseconds: 0
 ```
 
-### Service
+## Service
 
 Once loaded, the `fastdotcom` integration will expose a service (`fastdotcom.speedtest`) that can be called to run a Fast.com speed test on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
 

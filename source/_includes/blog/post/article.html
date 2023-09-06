@@ -11,7 +11,6 @@
   <div class="meta clearfix">
     {% include blog/post/date.html %}{{ time }}
     {% include post/author.html %}
-    <span><i class='icon-time'></i> {{ post.content | reading_time_as_s }} reading time</span>
     {% include blog/post/tags.html %}
     {% if page.comments != false and post.comments != false %}
       <a class='comments'
@@ -24,7 +23,8 @@
 
 {% if index %}
   <div class="entry-content clearfix">
-    {{ post.excerpt }}
+    {% assign blog_post_link = 'href="' | append: post.url | append:"#" %}
+    {{ post.excerpt | replace: 'href="#', blog_post_link }}
     {% if post.content contains site.excerpt_separator %}
       <a class="btn pull-right" href="{{ post.url }}#read-more">{{ site.excerpt_link }}</a>
     {% endif %}

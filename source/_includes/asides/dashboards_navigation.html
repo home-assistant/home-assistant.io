@@ -1,0 +1,59 @@
+<section class="aside-module grid__item one-whole lap-one-half">
+  {% assign elements = site.dashboards | sort_natural: 'title' %}
+
+  <div class="section">
+    <h1 class="title delta">Dashboards</h1>
+    <ul class="divided sidebar-menu">
+      <li>{% active_link /dashboards/ Introduction %}</li>
+      <li>
+        {% active_link /dashboards/dashboards/ Multiple Dashboards %}
+      </li>
+      <li>
+        {% active_link /dashboards/views/ Views %}
+      </li>
+      <li>
+        {% active_link /dashboards/cards/ Cards %}
+      </li>
+      <li>
+        {% active_link /dashboards/badges/ Badges %}
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h1 class="title delta">Views</h1>
+    <ul class="divided sidebar-menu">
+      {% for element in elements %}
+        {% if element.type == "view" %}
+          <li>{% active_link {{element.url}} {{element.sidebar_label}} %}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h1 class="title delta">Cards</h1>
+    <ul class="divided sidebar-menu">
+      {% for element in elements %}
+        {% if element.type == "card" %}
+          <li>{% active_link {{element.url}} {{element.sidebar_label}} %}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h1 class="title delta">Advanced</h1>
+    <ul class="divided sidebar-menu">
+      <li>{% active_link /dashboards/header-footer/ Headers & Footers %}</li>
+      <li>{% active_link /dashboards/actions/ Actions %}</li>
+      <li>
+        <a
+          href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
+          >Developing Custom Cards
+          <i class="icon-external-link"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>

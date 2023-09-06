@@ -7,11 +7,15 @@ ha_release: 0.38
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: alert
+ha_codeowners:
+  - '@home-assistant/core'
+  - '@frenck'
+ha_integration_type: integration
 ---
 
 The `alert` integration is designed to notify you when problematic issues arise.
 For example, if the garage door is left open, the `alert` integration can be used
-remind you of this by sending you repeating notifications at customizable
+to remind you of this by sending you repeating notifications at customizable
 intervals. This is also used for low battery sensors,
 water leak sensors, or any condition that may need your attention.
 
@@ -27,7 +31,7 @@ State | Description
 
 ### Basic Example
 
-The `alert` integration makes use of any of the `notifications` integrations. To
+The `alert` integration makes use of any of the `notification` integrations. To
 setup the `alert` integration, first, you must setup a `notification` integration.
 Then, add the following to your configuration file:
 
@@ -100,7 +104,7 @@ done_message:
   type: template
 notifiers:
   description: "List of `notification` integrations to use for alerts."
-  required: true
+  required: false
   type: list
 data:
   description: "Dictionary of extra parameters to send to the notifier."
@@ -121,7 +125,7 @@ you specify a `target` parameter when sending the notification), you can use the
 `group` notification to wrap them for an alert.
 Simply create a `group` notification type with a single notification member
 (such as `twilio_sms`) specifying the required parameters other than `message`
-provided by the `alert` component:
+provided by the `alert` integration:
 
 ```yaml
 - platform: group
@@ -158,17 +162,16 @@ conjunction with a `Template Binary Sensor`. The following example does that.
 {% raw %}
 
 ```yaml
-binary_sensor:
-  - platform: template
-    sensors:
-      motion_battery_low:
-        value_template: "{{ state_attr('sensor.motion', 'battery') < 15 }}"
-        friendly_name: "Motion battery is low"
+template:
+  - binary_sensor:
+      - name: "Motion Battery is Low"
+        state: "{{ state_attr('sensor.motion', 'battery') | float(default=0) < 15 }}"
+        device_class: battery
 
 alert:
   motion_battery:
     name: Motion Battery is Low
-    entity_id: binary_sensor.motion_battery_low
+    entity_id: binary_sensor.motion_battery_is_low
     repeat: 30
     notifiers:
       - ryans_phone
@@ -243,7 +246,7 @@ alert:
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.
 
-### Additional parameters for notifiers 
+### Additional parameters for notifiers
 
 Some notifiers support more parameters (e.g., to set text color or action
   buttons). These can be supplied via the `data` parameter:
@@ -252,7 +255,9 @@ Some notifiers support more parameters (e.g., to set text color or action
 # Example configuration.yaml entry
 alert:
   garage_door:
-    name: Garage is open
+    name: "Garage is open"
+    message: "The garage door is still open"
+    done_message: "The garage door is closed"
     entity_id: input_boolean.garage_door
     state: "on"   # Optional, 'on' is the default value
     repeat:
@@ -267,7 +272,24 @@ alert:
     notifiers:
       - frank_telegram
 ```
+
 This particular example relies on the `inline_keyboard` functionality of
 Telegram, where the user is presented with buttons to execute certain actions.
+
+Based on the example above you can make an automation to stop further messages,
+but you will still receive the done message.
+
+```yaml
+- alias: "Telegram callback to stop alerts for garage door"
+  trigger:
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/garage_acknowledge"
+  action:
+    - service: alert.turn_off
+      target:
+        entity_id: alert.garage_door
+```
 
 [template]: /docs/configuration/templating/

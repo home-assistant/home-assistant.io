@@ -6,15 +6,22 @@ ha_category:
 ha_release: 0.22
 ha_iot_class: Local Polling
 ha_domain: pandora
+ha_platforms:
+  - media_player
+ha_integration_type: integration
 ---
 
 If you have a Pandora account, you can control it from Home Assistant with this media player.
+
+<div class='note'>
+This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
+</div>
 
 ### Installation of Pianobar
 
 This media player uses the [Pianobar command-line Pandora client](https://github.com/PromyLOPh/pianobar), which you have to install separately. This can be done on a Raspberry Pi 2/3 with Raspbian Jessie as follows . _(Note: Other platforms may have different installation processes)_
 
-The version of pianobar that comes with Jessie has a bug, so you have to build a more recent version. The latest version depends on a recent version of libraries associated with FFmpeg, so you should make sure you go through the backport process documented in [The FFmpeg component](/integrations/ffmpeg/) before doing this. Install the following basic dependencies:
+The version of pianobar that comes with Jessie has a bug, so you have to build a more recent version. The latest version depends on a recent version of libraries associated with FFmpeg, so you should make sure you go through the backport process documented in [The FFmpeg integration](/integrations/ffmpeg/) before doing this. Install the following basic dependencies:
 
 ```bash
 sudo apt-get install git libao-dev libgcrypt11-dev libfaad-dev libmad0-dev libjson-c-dev make pkg-config  libcurl4-openssl-dev

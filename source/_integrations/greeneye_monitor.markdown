@@ -1,8 +1,8 @@
 ---
 title: GreenEye Monitor (GEM)
 description: Instructions on how to integrate your GreenEye Monitor within Home Assistant.
-logo: brultech.png
 ha_category:
+  - Energy
   - Hub
   - Sensor
 ha_release: 0.82
@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: greeneye_monitor
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The [GreenEye Monitor (GEM)](https://www.brultech.com/greeneye/) integration for Home Assistant allows you to create sensors for the various data channels of the GEM. Each current transformer (CT) channel, pulse counter, and temperature sensor appears in Home Assistant as a sensor, and can be used in automations.

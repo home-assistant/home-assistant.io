@@ -11,13 +11,12 @@ ha_domain: foscam
 ha_config_flow: true
 ha_platforms:
   - camera
+ha_integration_type: integration
 ---
 
 The `foscam` platform allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.
 
-## Configuration
-
-Home Assistant offers Foscam IP Cameras integration through **Configuration** -> **Integrations** -> **Foscam**. Follow the instructions to get it set up.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
@@ -58,7 +57,7 @@ Using the following card code you can achieve a card displaying the live video f
 
 ```yaml
 type: picture-elements
-entity: camera.bedroom
+image: camera.bedroom
 camera_image: camera.bedroom
 camera_view: live
 elements:
@@ -71,7 +70,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: up
   - type: icon
@@ -83,7 +82,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: down
   - type: icon
@@ -95,7 +94,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: left
   - type: icon
@@ -107,7 +106,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: right
   - type: icon
@@ -119,7 +118,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: top_left
   - type: icon
@@ -131,7 +130,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: top_right
   - type: icon
@@ -143,7 +142,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: bottom_left
   - type: icon
@@ -155,11 +154,11 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: bottom_right
 ```
 
 ### Extra CGI Commands
 
-Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://www.iltucci.com/blog/wp-content/uploads/2018/12/Foscam-IPCamera-CGI-User-Guide-V1.0.4.pdf)). For an example of how this can be done, see the [Foscam IP Camera Pan, Tilt, Zoom Control](/cookbook/foscam_away_mode_PTZ/) Cookbook entry.
+Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://www.foscam.es/descarga/Foscam-IPCamera-CGI-User-Guide-AllPlatforms-2015.11.06.pdf)).

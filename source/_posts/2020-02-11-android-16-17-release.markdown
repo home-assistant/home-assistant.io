@@ -21,7 +21,7 @@ Here's an example to check with a user if they want to close the garage door aft
 
 ```yaml
 automation:
-  - alias: Notify apps when the garage door opens
+  - alias: "Notify apps when the garage door opens"
     trigger:
       platform: state
       entity_id: cover.garage_door
@@ -38,7 +38,7 @@ automation:
             - action: "close_garage" # The key you are sending for the event
               title: "Close Garage Door" # The button title
 
-  - alias: Close the garage when notification action is tapped
+  - alias: "Close the garage when notification action is tapped"
     trigger:
       platform: event
       event_type: mobile_app_notification_action
@@ -46,7 +46,8 @@ automation:
         action: close_garage
     action:
       service: cover.close_cover
-      entity_id: cover.garage_door
+      target:
+        entity_id: cover.garage_door
 ```
 
 After adding these automations, whenever your garage door remains open for 30 minutes, your device will get a notification that looks like this:

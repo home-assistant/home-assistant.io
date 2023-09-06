@@ -77,7 +77,7 @@ sensor 2:
   unit_of_measurement: ""
 
 automation:
-  alias: Dryer complete
+  alias: "Dryer complete"
 
   platform: state
   state_entity_id: sensor.dryer_status
@@ -88,7 +88,7 @@ automation:
   service_entity_id: script.dryer_complete
 
 automation 2:
-  alias: Dryer emptied
+  alias: "Dryer emptied"
 
   platform: state
   state_entity_id: sensor.dryer_status
@@ -100,39 +100,39 @@ automation 2:
 
 script:
   dryer_complete:
-    alias: Dryer Complete Script
+    alias: "Dryer Complete Script"
     sequence:
-      - alias: Pushbullet Notification
+      - alias: "Pushbullet Notification"
         execute_service: notify.notify
         service_data:
           message: "The dryer has finished its cycle, please empty it!"
-      - alias: Living Room Lights Red
+      - alias: "Living Room Lights Red"
         execute_service: scene.turn_on
         service_data:
           entity_id: scene.red
       - delay:
           seconds: 1
-      - alias: Living Room Lights Off
+      - alias: "Living Room Lights Off"
         execute_service: light.turn_off
         service_data:
           entity_id: group.living_room
       - delay:
           seconds: 1
-      - alias: Living Room Lights Red
+      - alias: "Living Room Lights Red"
         execute_service: scene.turn_on
         service_data:
           entity_id: scene.red
 
   dryer_cleared:
-    alias: Dryer Cleared Script
+    alias: "Dryer Cleared Script"
     sequence:
-      - alias: Living Room Lights Off
+      - alias: "Living Room Lights Off"
         execute_service: light.turn_off
         service_data:
           entity_id: group.living_room
       - delay:
           seconds: 1
-      - alias: Living Room Lights Normal
+      - alias: "Living Room Lights Normal"
         execute_service: scene.turn_on
         service_data:
           entity_id: scene.normal

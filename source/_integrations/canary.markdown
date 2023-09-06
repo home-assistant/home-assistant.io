@@ -13,6 +13,7 @@ ha_platforms:
   - alarm_control_panel
   - camera
   - sensor
+ha_integration_type: integration
 ---
 
 The `canary` integration allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.
@@ -23,13 +24,9 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Sensor](#sensor)
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-You will need your Canary login information (username, usually your email address, and password) to use this module.
-
-Go to the integrations page in your configuration and click on new integration -> Canary.
-
-Once loaded, your front end will have the following integrations:
+Once loaded, your front end will have the following entities:
 
 - A camera image triggered by motion for each camera.
 - An alarm control panel for each location.

@@ -5,7 +5,9 @@ date: 2016-09-10 08:00:00 +0200
 date_formatted: "September 10, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's already time for 0.28 thanks to our super short release cycles. Now, it' official...we hit 4000 stars on Github. That's amazing. Sorry, not as amazing as all the stuff that was going on for 0.27 but still pretty awesome.

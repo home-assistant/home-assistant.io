@@ -10,8 +10,8 @@ The automation's `mode` configuration option controls what happens when the auto
 Mode | Description
 -|-
 `single` | (Default) Do not start a new run. Issue a warning.
-`restart` | Start a new run after first stopping previous run.
-`queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
+`restart` | Start a new run after first stopping the previous run. The automation only restarts if the conditions are met. 
+`queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued. Note that subsequent queued automations will only join the queue if any conditions it may have are met at the time it is triggered.
 `parallel` | Start a new, independent run in parallel with previous runs.
 
 <p class='img'>

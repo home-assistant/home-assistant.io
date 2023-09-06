@@ -1,45 +1,34 @@
 ---
 title: Obihai
 description: Instructions on how to integrate your Obihai device into Home Assistant.
-logo: obitalk.png
 ha_iot_class: Local Polling
 ha_category:
   - Sensor
+ha_config_flow: true
 ha_release: 0.99
 ha_codeowners:
   - '@dshokouhi'
+  - '@ejpenney'
 ha_domain: obihai
 ha_platforms:
+  - button
   - sensor
+ha_integration_type: integration
+ha_dhcp: true
 ---
 
 The `obihai` integration allows you to view the call status for your [Obihai devices](https://www.obitalk.com/info/products#home_section).
 
-To enable `obihai` in your installation, add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: obihai
-    host: 192.168.1.x
-```
-
-{% configuration %}
+{% configuration_basic %}
 host:
   description: IP Address of Obihai device
-  required: true
-  type: string
 username:
   description: Username for the Obihai device.
-  required: false
-  type: string
-  default: admin
 password:
   description: Password for the Obihai device.
-  required: false
-  type: string
-  default: admin
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 The following is a list of expected sensors and their expected states when using the `user` account:
 
@@ -53,3 +42,5 @@ In addition to the above list the `admin` account can expect to see the followin
 - Obihai service status (`Normal`, `Down` or other states from Obihais network)
 - Sensors for each phone port in use (`On Hook`, `Off Hook` and `Ringing`)
 - Sensors for last caller name and number (this is also the current incoming call, will also show `--` if no data provided)
+
+You will also see a reboot button for each configured Obihai, this button will restart the Obihai when pressed.

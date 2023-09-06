@@ -5,7 +5,9 @@ date: 2016-10-08 03:04:05 +0000
 date_formatted: "October 08, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Yes, after only nine days comes 0.30. Don't worry, we will try to keep our usual release cycle and not start to release every day.

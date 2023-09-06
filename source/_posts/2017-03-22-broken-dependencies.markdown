@@ -5,7 +5,9 @@ date: 2017-03-22 08:04:05 +0000
 date_formatted: "March 22, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 TL; DR: We have just released version 0.40.2 that includes a fix related to the installation of dependencies.

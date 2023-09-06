@@ -5,7 +5,9 @@ date: 2015-08-09 18:01 0000
 date_formatted: "August 9, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's time for the August release and there is some serious good stuff this time. The core of Home Assistant has gone some serious clean up and a bump in test coverage thanks to [@balloob](https://github.com/balloob). If you're a developer, make sure you read up on [the deprecation notices](https://github.com/home-assistant/home-assistant/pull/251). [@fabaff](https://github.com/fabaff) did another great round of documenting all the various components.

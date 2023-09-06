@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: hp_ilo
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `hp_ilo` platform allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors.
@@ -114,6 +115,7 @@ sensor:
         value_template: '{{ ilo_data.temperature["01-Inlet Ambient"].currentreading[0] }}'
       - name: Server Health
         sensor_type: server_health
+        value_template: '{{ ilo_data.health_at_a_glance }}'
 ```
 
 {% endraw %}

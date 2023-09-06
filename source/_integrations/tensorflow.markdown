@@ -6,16 +6,19 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.82
 ha_domain: tensorflow
+ha_integration_type: integration
 ---
 
-The `tensorflow` image processing platform allows you to detect and recognize objects in a camera image using [TensorFlow](https://www.tensorflow.org/). The state of the entity is the number of objects detected, and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
+The TensorFlow image processing platform allows you to detect and recognize objects in a camera image using [TensorFlow](https://www.tensorflow.org/). The state of the entity is the number of objects detected, and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
 
-## Home Assistant Core
+<div class='note'>
+This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
+</div>
 
-If you are using the Home Assistant Core installation type, some additional requirements and steps apply.
-For all other installation types, this section can be skipped.
+## Prerequisites
 
 The following packages must be installed on Debian before following the setup for the integration to work:
+
 `sudo apt-get install libatlas-base-dev libopenjp2-7 libtiff5`
 
 It is possible that Home Assistant is unable to install the Python TensorFlow bindings. If that is the case,
@@ -201,12 +204,13 @@ image_processing:
 
 ```yaml
 # Example advanced automations.yaml entry
-- alias: TensorFlow scanning
+- alias: "TensorFlow scanning"
   trigger:
      - platform: state
        entity_id:
          - binary_sensor.driveway
   action:
     - service: image_processing.scan
-      entity_id: camera.driveway
+      target:
+        entity_id: camera.driveway
 ```

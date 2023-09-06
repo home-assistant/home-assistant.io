@@ -9,7 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
   - '@Shulyaka'
-ha_iot_class:
+ha_integration_type: entity
 ---
 
 The `humidifier` integration is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
@@ -40,13 +40,14 @@ Set mode for the humidifier device. This service is only available if the device
 ```yaml
 automation:
   trigger:
-    platform: time
-    at: "07:15:00"
+    - platform: time
+      at: "07:15:00"
   action:
     - service: humidifier.set_mode
-      data:
+      target:
         entity_id: humidifier.bedroom
-        preset_mode: "eco"
+      data:
+        mode: "eco"
 ```
 
 ### Service `humidifier.set_humidity`
@@ -63,12 +64,13 @@ Set target humidity of the humidifier device
 ```yaml
 automation:
   trigger:
-    platform: time
-    at: "07:15:00"
+    - platform: time
+      at: "07:15:00"
   action:
     - service: humidifier.set_humidity
-      data:
+      target:
         entity_id: humidifier.bedroom
+      data:
         humidity: 60
 ```
 

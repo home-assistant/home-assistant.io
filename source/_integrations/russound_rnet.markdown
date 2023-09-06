@@ -6,11 +6,14 @@ ha_category:
 ha_release: 0.25
 ha_iot_class: Local Polling
 ha_domain: russound_rnet
+ha_platforms:
+  - media_player
+ha_integration_type: integration
 ---
 
 The `russound_rnet` platform allows you to control Russound devices that make use of the RNET protocol.
 
-This has initially been tested against a Russound CAV6.6 unit with six zones and six sources. It will also work with a Russound CAA66, but be sure to use a null-modem cable.
+This has initially been tested against a Russound CAV6.6 unit with six zones and six sources. It will also work with a Russound CAA66, but be sure to use a null-modem cable. If you have mutiple controllers connected via the RNET link ports, every increment of 6 zones maps to the corresponding controller ID.
 
 Connecting to the Russound device is only possible by TCP, you can make use of a TCP to Serial gateway such as [tcp_serial_redirect](https://github.com/pyserial/pyserial/blob/master/examples/tcp_serial_redirect.py)
 
@@ -36,6 +39,9 @@ media_player:
         name: Dining Room
       6:
         name: Guest Bedroom
+      # controller 2 - zone 1 (connected via RNET link ports)
+      7:
+        name: Basement Recroom
     sources:
       - name: Sonos
       - name: Sky+

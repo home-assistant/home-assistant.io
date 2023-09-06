@@ -5,7 +5,9 @@ date: 2016-08-28 20:30:25 UTC
 date_formatted: "August 28, 2016"
 author: Robbie Trencheny
 author_twitter: Robbie
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 This week's blog post could only be possibly described by exactly one hashtag:
@@ -30,15 +32,15 @@ For my next trick, let's hand out some...
 
 I felt that I had to 1-up Paulus ([@balloob]) somehow with his 500,000 pageviews stat he shared in the [0.26 blog post](/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/), so I pushed myself and our development community as a whole super hard the last two weeks to put a lot of love into Home Assistant to bring you not just one, but six **#Amazing** stats for this release. As of 0.27, we have now surpassed the following milestones:
 
-* [10,000](https://travis-ci.org/home-assistant/home-assistant/builds/154660811) builds on Travis (congrats to [@BluGeni])
-* [3,000](https://github.com/home-assistant/home-assistant/pull/3000) issues and pull requests (thanks [@kellerza]!)
-* [2,000](https://github.com/home-assistant/home-assistant/pull/2991) pull requests alone (awesome [@fabaff]!!)
-* 900 forks on Github!
+- [10,000](https://travis-ci.org/home-assistant/home-assistant/builds/154660811) builds on Travis (congrats to [@BluGeni])
+- [3,000](https://github.com/home-assistant/home-assistant/pull/3000) issues and pull requests (thanks [@kellerza]!)
+- [2,000](https://github.com/home-assistant/home-assistant/pull/2991) pull requests alone (awesome [@fabaff]!!)
+- 900 forks on Github!
 
 In addition,
 
-* We are very close to 4,000 stars on Github!
-* [I'm now #5 contributor by most commits!!!](https://github.com/home-assistant/home-assistant/graphs/contributors) Hey wait, how'd this get in here 😳...
+- We are very close to 4,000 stars on Github!
+- [I'm now #5 contributor by most commits!!!](https://github.com/home-assistant/home-assistant/graphs/contributors) Hey wait, how'd this get in here 😳...
 
 Now that we have that great news out of the way, onto this week's release which is going to keep the **#Amazing** gravy train rolling right along and get to the stuff you all _really_ are here for.
 

@@ -5,7 +5,9 @@ date: 2017-03-25 08:04:05 +0000
 date_formatted: "March 25, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-03-0.41/social.png
 ---
 

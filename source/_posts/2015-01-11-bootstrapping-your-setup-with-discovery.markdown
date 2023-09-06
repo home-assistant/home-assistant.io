@@ -5,7 +5,9 @@ date: 2015-01-11 21:49:08 0000
 date_formatted: January 11, 2015
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Most people do not like configuring things. Things just have to work, out of the box. Reaching this scenario is the goal of what we are about to introduce: our new discovery component.

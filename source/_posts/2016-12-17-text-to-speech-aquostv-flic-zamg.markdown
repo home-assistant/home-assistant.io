@@ -5,7 +5,9 @@ date: 2016-12-17 08:04:05 +0000
 date_formatted: "December 17, 2016"
 author: Fabian Affolter et al.
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2016-12-0.35/social.png
 ---
 
@@ -13,7 +15,7 @@ og_image: /images/blog/2016-12-0.35/social.png
 
 This will be the last release of 2016 as our developers are taking a well deserved break. We will be back in 2017!
 
-## Text to Speech
+## Text-to-speech
 With the addition of a [text-to-speech][tts] component by [@pvizeli] we have been able to bring Home Assistant to a whole new level. The text-to-speech component will take in any text and will play it on a media player that supports to play media. We have tested this on Sonos, Chromecast, and Google Home.
 
 [https://www.youtube.com/watch?v=Ke0QuoJ4tRM](https://www.youtube.com/watch?v=Ke0QuoJ4tRM)
@@ -70,7 +72,7 @@ http:
 ```
 
  - Fix exit hanging on OS X with async logging ([@balloob])
- - Fix Text to speech clearing cache ([@pvizeli])
+ - Fix text-to-speech clearing cache ([@pvizeli])
  - Allow setting a base API url in HTTP component ([@balloob])
  - Fix occasional errors in automation ([@pvizeli])
 

@@ -7,7 +7,9 @@ date_formatted: "November 20, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-11-0.102/components.png
 ---
 

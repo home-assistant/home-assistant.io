@@ -3,7 +3,7 @@ title: "Setup basic information"
 description: "Setting up the basic info of Home Assistant."
 ---
 
-As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a temperature unit and time zone based on this location. You may adjust this during onboarding, or afterwards at Configuration -> General.
+As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a unit system and time zone based on this location. You may adjust this during onboarding, or afterwards at {% my general title="Settings > System > General" %}, network related configuration is found under {% my network title="Settings > System > Network" %}.
 
 If you prefer YAML, you can add the following information to your `configuration.yaml`:
 
@@ -14,21 +14,27 @@ homeassistant:
   longitude: 117.22743
   elevation: 430
   unit_system: metric
-  time_zone: America/Los_Angeles
+  currency: USD
+  country: US
+  time_zone: "America/Los_Angeles"
   external_url: "https://www.example.com"
   internal_url: "http://homeassistant.local:8123"
   allowlist_external_dirs:
-    - /usr/var/dumping-ground
-    - /tmp
+    - "/usr/var/dumping-ground"
+    - "/tmp"
   allowlist_external_urls:
     - "http://images.com/image1.png"
   media_dirs:
-    media: /media
-    recordings: /mnt/recordings
+    media: "/media"
+    recordings: "/mnt/recordings"
   legacy_templates: false
 ```
 
-NOTE: You will not be able to edit anything in Configuration -> General in the UI if you are using YAML configuration for any of the following: name, latitude, longitude, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url.
+<div class='note'>
+
+  You will not be able to edit anything in {% my general title="Settings > System > General" %} in the UI if you are using YAML configuration for any of the following: name, latitude, longitude, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url, country, currency. Additionally, some options are only visible after "Advanced Mode" is enabled on your {% my profile title="User Profile" %}.
+
+</div>
 
 {% configuration %}
 name:
@@ -44,11 +50,11 @@ longitude:
   required: false
   type: float
 elevation:
-  description: Altitude above sea level in meters. Impacts weather/sunrise data.
+  description: Altitude above sea level in meters. Impacts sunrise data.
   required: false
   type: integer
 unit_system:
-  description: "`metric` for Metric, `imperial` for Imperial. This also sets temperature_unit, Celsius for Metric and Fahrenheit for Imperial"
+  description: "`metric` for Metric, `us_customary` for US Customary. This also sets temperature_unit, Celsius for Metric and Fahrenheit for US Customary"
   required: false
   type: string
 temperature_unit:
@@ -56,9 +62,14 @@ temperature_unit:
   required: false
   type: string
 time_zone:
-  description: "Pick your time zone from the column **TZ** of [Wikipedia's list of tz database time zones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
+  description: "Pick your time zone from the column **TZ** of [Wikipedia's list of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
   required: false
   type: string
+currency:
+  description: "Pick your currency code from the column **Code** of [Wikipedia's list of ISO 4217 active codes](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)"
+  required: false
+  type: string
+  default: "EUR"
 external_url:
   description: "The URL that Home Assistant is available on from the internet. For example: `https://example.duckdns.org:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
   required: false
@@ -96,8 +107,17 @@ legacy_templates:
   required: false
   type: boolean
   default: false
+language:
+  description: "Default language used by Home Assistant. This may, for example, influence the language used by voice assistants. The language should be specified as an RFC 5646 language tag, and must be a language which Home Assistant is translated to."
+  required: false
+  type: string
+  default: "en"
+country:
+  description: "Country in which Home Assistant is running. This may, for example, influence radio settings to comply with local regulations. The country should be specified as an ISO 3166.1 alpha-2 code. Pick your country from the column **Code** of [Wikipedia's list of ISO 31661 alpha-2 officially assigned code codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)"
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Reload Core Service
 
-Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant.reload_core_config`. This allows you to change any of the above sections and see it being applied without having to restart Home Assistant. To call this service, go to the "Service" tab under Developer Tools, select the `homeassistant.reload_core_config` service and click the "CALL SERVICE" button. Alternatively, you can press the "Reload Location & Customizations" button under Configuration > Server Control.
+Home Assistant offers a service to reload the core configuration while Home Assistant is running called {% my developer_call_service service="homeassistant.reload_core_config" %}. This allows you to change any of the above sections and see it being applied without having to restart Home Assistant. To call this service, go to the "{% my developer_services %}" tab under {% my developer_services title="Developer Tools" %}, select the {% my developer_call_service service="homeassistant.reload_core_config" %} service and click the "CALL SERVICE" button. Alternatively, you can press the "Reload Location & Customizations" button under {% my server_controls title="Developer Tools > YAML" %}.

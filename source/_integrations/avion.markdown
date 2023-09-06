@@ -8,6 +8,7 @@ ha_release: 0.37
 ha_domain: avion
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 Support for the Avi-on Bluetooth dimmer switch [Avi-on](https://avi-on.com/).
@@ -19,7 +20,7 @@ If you want to add your devices manually (like in the example below) then you ne
 ```bash
 $ curl -X POST -H "Content-Type: application/json" \
     -d '{"email": "fakename@example.com", "password": "password"}' \
-    https://admin.avi-on.com/api/sessions | jq
+    https://api.avi-on.com/sessions | jq
 ```
 
 with the email and password fields replaced with those used when registering the device via the mobile app. The pass phrase field of the output should be used as the API key in the configuration.
@@ -34,7 +35,7 @@ light:
   - platform: avion
 ```
 
-There are two ways to configure this component: username & password, or list of devices. You must choose one.
+There are two ways to configure this integration: username & password, or list of devices. You must choose one.
 
 {% configuration %}
 username:

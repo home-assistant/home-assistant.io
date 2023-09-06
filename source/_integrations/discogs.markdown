@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: discogs
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `discogs` platform allows you to see the current amount of records in your [Discogs](https://www.discogs.com) collection.

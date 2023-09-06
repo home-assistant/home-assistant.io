@@ -4,10 +4,11 @@ description: Instructions on how to use the FinTS sensor.
 ha_category:
   - Finance
 ha_release: '0.70'
-ha_iot_class: Local Push
+ha_iot_class: Cloud Polling
 ha_domain: fints
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 With the FinTS sensor, you can fetch your account information from your bank. This only works with banks that support the FinTS (aka. HBCI) standard. The FinTS standard used by many German banks. So if you do not have a German bank account, this will most likely not work for you. To find out if your bank supports FinTS, check the bank's website or call their hotline.
@@ -55,7 +56,7 @@ accounts:
   type: list
   keys:
     account:
-      description: The IBAN of the blance account.
+      description: The IBAN of the balance account.
       required: true
       type: string
     name:
