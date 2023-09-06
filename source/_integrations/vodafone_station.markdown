@@ -12,7 +12,6 @@ ha_codeowners:
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
-ha_ssdp: false
 ha_integration_type: integration
 ---
 
