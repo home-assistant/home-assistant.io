@@ -177,27 +177,40 @@ Temporary screenshot that needs to be replaced.
 
 ## Other noteworthy changes
 
-{% details "TODO" %}
-
-- **Note**: Changes processed up to PR X
-
-- Proof read/spelling/grammar
-- Last minute ones added?
-- Go over list again, might have missed something
-
-To consider:
-- something
-
-{% enddetails %}
-
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- [Enphase Envoy] has gotten a lot of love this release, thanks [@bdraco] and [@cgarwood]!
+- [Enphase Envoy] has gotten a lot of love this release, ensure it works
+  perfectly with the latest firmware available. Thanks [@bdraco] and [@cgarwood]!
+- The [Shelly] integration now supports the Shelly Gas Valve addon. Thanks [@bieniu]!
+- [@starkillerOG] added zoom buttons and AI detection delay time controls to
+  the [Reolink] integration. Nice!
+- You can now set separate damping factors for morning and evening in the
+  [Forecast Solar] integration. Thanks [@joostlek]!
+- [@Kane610] added a restart device button to the [UniFi] integration. Thanks!
+- The [Tomorrow.io] integration now reports humidity and dew point in its weather
+  forecasts. Thanks [@lymanepp]!
+- Support for soil moisture sensors was added to the [Gardena] integration.
+  Thanks [@elupus]!
+- [@timmo001] added a power service to the [System Bridge] integration. Thanks!
 
 [@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
 [@cgarwood]: https://github.com/cgarwood
+[@elupus]: https://github.com/elupus
+[@joostlek]: https://github.com/joostlek
+[@Kane610]: https://github.com/Kane610
+[@lymanepp]: https://github.com/lymanepp
+[@starkillerOG]: https://github.com/starkillerOG
+[@timmo001]: https://github.com/timmo001
 [Enphase Envoy]: /integrations/enphase_envoy
+[Forecast Solar]: /integrations/forecast_solar
+[Gardena]: /integrations/gardena
+[Reolink]: /integrations/reolink
+[Shelly]: /integrations/shelly
+[System Bridge]: /integrations/system_bridge
+[Tomorrow.io]: /integrations/tomorrowio
+[Unifi]: /integrations/unifi
 
 ## New integrations
 
