@@ -492,6 +492,8 @@ If you are a custom integration developer and want to learn about breaking
 changes and new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
+- [Entity state formatting](https://developers.home-assistant.io/blog/2023/08/29/hass-format-state)
+- [HomeAssistant.__init__ requires passing a string to it](https://developers.home-assistant.io/blog/2023/08/29/homeassistant-changed-signature)
 - [Numerical sensors are no longer allowed to set their state to NaN or inf](https://developers.home-assistant.io/blog/2023/08/23/sensor-updates)
 - [Weather entity forecast types](https://developers.home-assistant.io/blog/2023/08/07/weather_entity_forecast_types/)
 
