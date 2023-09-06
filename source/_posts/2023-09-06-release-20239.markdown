@@ -246,8 +246,6 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking changes
 
-**Note**: Breaking changes processed up to PR 98609
-
 {% details "BMW Connected Drive" %}
 
 The "Refresh from cloud" button has been removed. Use the
