@@ -182,6 +182,7 @@ data:
 ## Conversation agent
 
 You can add an assistant with the conversation agent set to "Google Assistant SDK".
+See setup your assistant section [here](/voice_control/voice_remote_local_assistant/).
 Then you can converse with Google Assistant by tapping the Assist icon at the top right of your dashboard:
 
 ![Screenshot Conversation](/images/integrations/google_assistant_sdk/conversation.png)
