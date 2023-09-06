@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2023.9: Beta release notes"
-description: "The beta release notes for Home Assistant 2023.9"
-date: 2023-08-30 00:00:00
+title: "2023.9: New climate entity dialogs, lots of tile features, and template sensors from the UI!"
+description: "New entity dialogs for climate and others, lots of tile features, create template sensors from the UI and more!"
+date: 2023-09-06 00:00:00
 date_formatted: "September 6, 2023"
 author: Bram Kragten
 author_twitter: bramkragten
@@ -15,39 +15,27 @@ og_image: /images/blog/2023-09/social.png
 
 <a href='/integrations/#version/2023.9'><img src='/images/blog/2023-09/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-These are the beta release notes for Home Assistant Core 2023.9 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/UI/dashboards:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
-
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
 Home Assistant Core 2023.9! 🎉
 
-Thanks for helping out testing the beta! ❤️
+Frenck is enjoying a well earned holiday, so I'm taking care of the release this month.
 
-Enjoy the (beta) release!
+This month, on the 17th, it has been 10 years since Home Assistant started. We'll be publishing a video to the [Home Assistant YouTube channel](https://www.youtube.com/channel/UCbX3YkedQunLt7EQAdVxh7w) to celebrate, reflect and look ahead. We hope you can join us on the 17th @ 12:00 PDT / 21:00 CET!
+
+This release is pretty packed! With some very nice updates to the UI with new entity dialogs for climate entities, and lots of tile card features. Template sensors can be created from the UI now, and for the more advanced template sensors, the ability to get data from services!
+A new service to get the weather forecast, and better options to display different forecasts.
+
+And something you will probably not see when you are already using Home Assistant: the onboarding flow is completely redesigned!
+
+I absolutely love it!
+
+Enjoy the release!
+
+Bram
 
 <!--more-->
 
-- [Climate, humidifier and water heater more info](#climate-humidifier-and-water-heater-more-info)
-- [A lot of new tile features](#a-lot-of-new-tile-features)
+- [New climate, humidifier, and water heater entity dialogs](#new-climate-humidifier-and-water-heater-entity-dialogs)
+- [Lots of new tile features](#lots-of-new-tile-features)
 - [Lawn mower](#lawn-mower)
 - [Group previews](#group-previews)
 - [Template sensors from the UI](#template-sensors-from-the-ui)
@@ -64,44 +52,47 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 <lite-youtube videoid="JSNRrWk9IHs" videotitle="Home Assistant 2023.9 Release Party"></lite-youtube>
 
-## Climate, humidifier and water heater more info
+## New climate, humidifier, and water heater entity dialogs
 
-The more info for climate, humidifier and water heater entities got an update, if you ask me, they look absolutely stunning!
-They now have a newly designed circular slider, that shows the current temperature and the setpoint(s).
-There are also buttons to change the setpoint.
-It will glow in the middle to show it's current action, as well as show that.
+The entity dialogs for climate, humidifier, and water heater entities got an update, and if you ask me, it looks absolutely stunning!
+It now has a newly designed circular slider showing the current and target temperatures and allows you to easily swipe to the desired target temperature.
+There are also dedicated buttons to change the target, so it is easy to use if you are not using a touchscreen.
+It will glow in the middle to show its current action, for example when it is heating or cooling.
 <p class='img'>
-<img src='https://media.discordapp.net/attachments/427516175237382144/1146364342015623198/SPOILER_CleanShot_2023-08-30_at_10.png?width=1242&height=1400'></a>
-Temporary screenshot that needs to be replaced.
+<img src='/images/blog/2023-09/climate-card.png'>
+Screenshot of the more info dialog of a climate entity.
 </p>
 
-## A lot of new tile features
+## Lots of new tile features
 
-A lot of new tile features are added this release:
+The tile card gets many new features this release.
+
+The features of a tile card are a great way to bring more functionalities directly into your dashboard, without needing to open the more info dialog.
 
 - HVAC mode
 - Water heater mode
 - Temperature control
 - Cover position
 - Cover tilt
-- Lawn mower
+- Lawn mower commands
 - Color temperature
 
 <p class='img'>
-<img src='/images/blog/2023-09/tile features.png'></a>
-Temporary screenshot that needs to be replaced.
+<img src='/images/blog/2023-09/tile-features.png'>
+Screenshot of tile cards with the new features.
 </p>
 
 ## Lawn mower
 
-A new entity component was added this release, the lawn mower!
+A new entity type was added this release: the lawn mower!
 
-You can now integrate your lawn mower in Home Assistant! 
-For now just MQTT is supported, but keep an eye out for other integrations!
+You can now integrate your lawn mower into Home Assistant!
+Never worry about the lawn mower when it starts raining, you can now automate the lawn mower to stop and go back when it rains.
+For now, just MQTT is supported, but keep an eye out for other integrations!
 
 <p class='img'>
-<img src='/images/blog/2023-09/lawn_mower.png'></a>
-Temporary screenshot that needs to be replaced.
+<img src='/images/blog/2023-09/lawn-mower.png'>
+Screenshot of the more info dialog of a lawn mower entity.
 </p>
 
 
@@ -114,65 +105,128 @@ It will show exactly what the entity will look like with the current settings.
 And talking about groups, we also got a new group, the `event` group!
 
 <p class='img'>
-<img src='https://media.discordapp.net/attachments/427516175237382144/1146444995243548712/SPOILER_CleanShot_2023-08-30_at_16.02.392x.png?width=834&height=1402'></a>
-Temporary screenshot that needs to be replaced.
+<img src='/images/blog/2023-09/group-preview.png'>
+Screenshot of creating a sensor group.
 </p>
 
 
 ## Template sensors from the UI
 
-We also added preview support to another helper, that finally made it's way into the UI, the template sensor. 
+We also added preview support to another helper that finally made its way into the UI, the template sensor.
 
 From the UI you can use a template to set the state of the sensor.
-You can pick a unit of measurement, set the device class and select a state class.
+You can pick a unit of measurement, set the device class, and select a state class.
 Both sensors and binary sensors are supported.
 
 This will make most of the use cases for template sensors available through the UI and one less need for YAML!
 
-Other more advanced fields, like attributes, are not available from the UI. You will still have to set those up in YAML.
+Other more advanced fields, like attributes, are unavailable from the UI. You will still have to set those up in YAML.
 
-With the preview, you see a live update of the sensors value while you are writing the template.
+With the preview, you see a live update of the sensor value while writing the template.
 
 <p class='img'>
-<img src='https://media.discordapp.net/attachments/427516175237382144/1146448232839397486/SPOILER_CleanShot_2023-08-30_at_16.15.142x.png?width=1398&height=1402'></a>
-Temporary screenshot that needs to be replaced.
+<img src='/images/blog/2023-09/template-sensor.png'>
+Screenshot of creating a template sensor.
 </p>
 
 
-## Actions for template entities
+## Actions for trigger template entities
 
-Trigger template entities can now have an action block that is executed after the trigger but before the entities are rendered. All variables from the action block will be available during the entity rendering. This will allow users to fetch things like weather forecast or calendar events and use them in their template entities. Long term goal is to align the trigger template entities with automation syntax so we can support things like tracing too.
+Trigger template entities can now have an action block that is executed after the trigger but before the entities are rendered.
+
+This will allow users to fetch things like calendar events and weather forecasts using services with responses and use them in their template entities. You can even use OpenAI to set the value of your entities now!
+
+All variables from the action block will be available in the template.
+
+An example that checks at midnight if you have something on your calendar tomorrow and sets a binary sensor:
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: time
+        at: "00:00:00"
+    action:
+      - service: calendar.list_events
+        target:
+          entity_id: calendar.calendar
+        data:
+          start_date_time: "{{ today_at() + timedelta(days=1) }}"
+          duration:
+            hours: 24
+        response_variable: events
+    binary_sensor:
+      - name: Calendar events tomorrow
+        state: "{{ events.events is defined and events.events | count > 0 }}"
+```
+
+{% endraw %}
+
 
 ## Weather forecast service
 
-We added a weather forecast service, that returns the weather forecast.
+We added a new service for weather entities, `weather.get_forecast`, that responds with the weather forecast.
 
 Previously you would have to look at the `forecast` attribute of a weather entity to get the forecast, now this can be done by calling a new service, `weather.get_forecast`, that will respond with the forecast.
-You can also specify what type of forecast you want, daily or do you want to know it for every hour? This means you no longer need separate entities for every forecast type, but it can all be done in 1 entity.
-
-If an entity supports multiple forecasts, you can choose which one you want to see in the more info dialog.
-In the weather card in your dashboard, you can also now pick what kind of weather forecast you want to show in that card.
+You can also specify what type of forecast you want. Do you want to see the forecast by day or do you want to know it for every hour? This means you no longer need separate entities for every forecast type, but it can all be done in 1 entity.
 
 All weather integrations are updated to support this new service.
 
-With this change, the `forecast` attribute of the weather entity is deprecated, and will be removed in Home Assistant Core 2024.3.
+<p class='img'>
+<img src='/images/blog/2023-09/get-forecast-service.png'>
+Screenshot of service developer tools showing the weather forecast service.
+</p>
 
-You can use the newly added `action` part of a template entity to fetch the forecast and use it in your template.
+If an entity supports multiple forecasts, you can choose which forecast you want to see in the more info dialog.
+In the weather card in your dashboard, you can also now pick what kind of weather forecast you want to show in that card.
 
 <p class='img'>
-<img src='https://media.discordapp.net/attachments/427516175237382144/1146445861421846608/SPOILER_CleanShot_2023-08-30_at_16.03.542x.png?width=1466&height=794'></a>
-Temporary screenshot that needs to be replaced.
+<img src='/images/blog/2023-09/weather-more-info.png'>
+Screenshot of the weather more info dialog.
 </p>
+
+With this change, the `forecast` attribute of the weather entity is deprecated, and will be removed in Home Assistant Core 2024.3.
+
+This will make it possible to have on-demand forecasts, that update when you want them to, instead of them being updated all the time. 
+It will also make the system faster; all state data gets sent to your browser or mobile app every time it is opened so the frontend has the latest states of your entities. The forecast attribute makes the state of weather entities very big, causing everything to be loaded slower.
+
+While the way to access this data has changed and may impact your automations, you will not experience any loss in functionality. Even with this change, rest assured that the forecast cards in your dashboard will still work, they will now just use the service to retrieve the forecast data asynchronously instead of reading it from the state attribute. The end result is that your dashboards will load faster, and the frontend will be leaner.
+
+You can use the newly added `action` part of a template entity to fetch the forecast and use it in your template:
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: time
+        at: "00:00:00"
+    action:
+      - service: weather.get_forecast
+        target:
+          entity_id: weather.home
+        data:
+          type: daily
+        response_variable: forecast
+    binary_sensor:
+      - name: Is it going to rain?
+        state: "{{ forecast.forecast[0].precipitation > 0 }}"
+```
+
+{% endraw %}
 
 ## Onboarding
 
-Our onboarding got a fresh new look and it is now easier to get started with Home Assistant!
+While it is certain that Home Assistant is a great tool once you understand how it works, one part that was often overlooked is its associated learning curve.
+We are now actively working to flatten that curve so that you can get more from your home faster and simpler. 
+This release shows the first result of that effort, a new onboarding flow.
 
-Something you probably have not seen for a while, but we gave our onboarding a fresh new look! It is shortened to get the user in Home Assistant as fast as possible.
+Something you probably have not seen for a while, but we gave our onboarding a fresh new look! It is shortened to get users in Home Assistant as fast as possible, so they can enjoy tinkering with their home faster!
 
 <p class='img'>
-<img src='/images/blog/2023-09/onboarding.png'></a>
-Temporary screenshot that needs to be replaced.
+<img src='/images/blog/2023-09/onboarding.png'>
+Screenshot of the onboarding screen.
 </p>
 
 ## Other noteworthy changes
@@ -193,7 +247,12 @@ noteworthy changes this release:
 - Support for soil moisture sensors was added to the [Gardena] integration.
   Thanks [@elupus]!
 - [@timmo001] added a power service to the [System Bridge] integration. Thanks!
+- If you change your password, you will be asked if you want to logout everywhere.
+- The file and image upload elements have been revamped.
+- You can now sort the options of an input select entity. Thanks [@karwosts]!
+- Local Bluetooth has been optimized and is now faster, thanks [@bdraco]!
 
+[@karwosts]: https://github.com/karwosts
 [@bdraco]: https://github.com/bdraco
 [@bieniu]: https://github.com/bieniu
 [@cgarwood]: https://github.com/cgarwood
@@ -229,6 +288,12 @@ We welcome the following new integrations in this release:
 - **[Yardian]**, added by [@h3l1o5]<br />
   Support for your Yardan Smart Sprinkler Controller.
 
+This release also has a new virtual integration. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. These are new:
+
+- **[Consolidated Edison (ConEd)]** provided by [Opower]
+- **[Orange and Rockland Utilities (ORU) Opower]** provided by [Opower]
+
+
 [@chemelli74]: https://github.com/chemelli74
 [@dknowles2]: https://github.com/dknowles2
 [@gjohansson-ST]: http://github.com/gjohansson-ST
@@ -240,6 +305,9 @@ We welcome the following new integrations in this release:
 [Trafikverket Camera]: /integrations/trafikverket_camera
 [Vodafone Station]: /integrations/vodafone_station
 [Yardian]: /integrations/yardian
+[Opower]: /integrations/opower
+[Consolidated Edison (ConEd)]: /integrations/coned
+[Orange and Rockland Utilities (ORU) Opower]: /integrations/oru_opower
 
 ## Need help? Join the community!
 
@@ -311,9 +379,7 @@ the new device when the mac address of the board changes.
 
 {% details "EZVIZ" %}
 
-Now, only returns switches if supported by the Camera. Some of the "switches" on
-the EZVIZ API are intermingled with "is this supported" and are not actually
-switchable; those have been removed.
+Only switches supported by the camera will be created. Non switchable switches have been removed.
 
 ([@RenierM26] - [#95672]) ([documentation](/integrations/ezviz))
 
@@ -401,7 +467,7 @@ Support for the heater fan will be added later.
 
 {% details "MQTT" %}
 
-MQTT device trackers no longer always update the when there is no state change.
+MQTT device trackers no longer always update when there is no state change.
 This means that automations that trigger on a state change no longer are
 triggered if there is no change.
 
