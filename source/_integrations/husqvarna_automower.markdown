@@ -24,30 +24,25 @@ Your Husqvarna account username/password used for the *Automower® Connect*  pho
 2. After signing in you will be automatically redirected to "My applications". (Otherwise go to: [Applications](https://developer.husqvarnagroup.cloud/applications))
 
 3. Create a new application:
-   * Name is required but can be anything, for example "My Home Assistant"
+   - Name is required but can be anything, for example "My Home Assistant"
 
-   * Description is optional
+   - Description is optional
 
-   * Redirect URL:
+   - Redirect URL: `https://my.home-assistant.io/redirect/oauth`
+     Make sure no extra spaces were appended at end of URL from copy and paste.
 
-     ```
-     https://my.home-assistant.io/redirect/oauth
-     ```
-
-     Confirm no extra spaces were appended at end of URL from copy and paste.
-
-    ![DeepinBildschirmfoto_Bereich auswählen_20230907000321](https://github.com/Thomas55555/home-assistant.io/assets/59625598/97abbbac-a089-4d9a-be3d-3a3f9c50442c)
+    ![Creat new Application](https://github.com/Thomas55555/home-assistant.io/assets/59625598/97abbbac-a089-4d9a-be3d-3a3f9c50442c)
 
    * Click **CREATE**.  *Application Key* and *Application Secret* will be generated and shown.  Protect these like a username and password.
 
 4. Click on **CONNECT NEW API** and connect the **Authentication API**.
-   ![DeepinBildschirmfoto_Bereich auswählen_20230907000555](https://github.com/Thomas55555/home-assistant.io/assets/59625598/1d541011-6a38-4678-ac98-b73b2dac5aab)
+   ![Authentication API*](https://github.com/Thomas55555/home-assistant.io/assets/59625598/1d541011-6a38-4678-ac98-b73b2dac5aab)
 
 5. Click on **CONNECT NEW API** again and connect the **Automower Connect API**.
-   ![DeepinBildschirmfoto_Bereich auswählen_20230907000834](https://github.com/Thomas55555/home-assistant.io/assets/59625598/3ade9aee-8643-44de-ab43-38cf95dd59fb)
+   ![Automower Connect API](https://github.com/Thomas55555/home-assistant.io/assets/59625598/3ade9aee-8643-44de-ab43-38cf95dd59fb)
 
 6. Leave this tab open in browser and continue with Home Assistant configuration.
-   ![DeepinBildschirmfoto_Bereich auswählen_20230907000942](https://github.com/Thomas55555/home-assistant.io/assets/59625598/8bdfef10-9cc4-40ee-8b44-e845661551dc)
+   ![Application Overview](https://github.com/Thomas55555/home-assistant.io/assets/59625598/8bdfef10-9cc4-40ee-8b44-e845661551dc)
 
 ### Home Assistant
 
@@ -62,9 +57,9 @@ The My Home Assistant redirect feature needs to be setup to redirect to your Hom
 
 4. Enter the following from the Husqvrana developer tab:
 
-   * A name of the applicatione
-   * Copy and paste the *Application key* into the *OAuth Client ID* field
-   * Copy and paste the *Application secret* into the *OAuth Client Secret* field
+   - A name of the applicatione
+   - Copy and paste the *Application key* into the *OAuth Client ID* field
+   - Copy and paste the *Application secret* into the *OAuth Client Secret* field
 
 5. Click **Create**
 
