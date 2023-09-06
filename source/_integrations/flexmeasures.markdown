@@ -22,7 +22,7 @@ ha_quality_scale: silver
 
 The `flexmeasures` integration offers an integration with [FlexMeasures](https://flexmeasures.io/) instances to schedule flexible energy assets.
 
-FlexMeasures can be used to schedule batteries, EV's, heat storage, and other assets. The integration offers:
+FlexMeasures can be used to schedule batteries, EV's, heat storage, and other assets. The current integration only support car batteries and batteries optimizations. Shiftable energy assets like dishwashing machines are currently not supported in the integration. The integration offers the following sensor and services:
 
 - A sensor for flexible asset schedules
 - A service to retrieve a schedule
@@ -143,6 +143,8 @@ data:
 
 ## Posting measurement data
 
+FlexMeasures needs data to calculate the optimal schedules for flexible assets. This data can be posted to the FlexMeasures instance using the `flexmeasures` integration. To post data the following `yaml` can be used:
+
 ```yaml
 service: flexmeasures.post_measurements
 data:
@@ -152,3 +154,7 @@ data:
   unit: "SENSOR_UNIT_OF_THE_VALUES"
   prior: "DATETIME_STRING_AT_WHICH_THE_VALUES_WERE_RECORDED_OR_FORECASTED"
 ```
+
+
+
+add limitations and possibilities section to documentation.
