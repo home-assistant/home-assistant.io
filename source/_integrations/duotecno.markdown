@@ -24,10 +24,10 @@ The Duotecno integration can be used to control [Duotecno](https://www.duotecno.
 
 There is currently support for the following device types within Home Assistant:
 
-    - [Climate](#climate)
-    - [Cover](#cover)
-    - [Light](#light)
-    - [Switch](#switch)
+    - Climate
+    - Cover
+    - Light
+    - Switch
 
 
 {% include integrations/config_flow.md %}
