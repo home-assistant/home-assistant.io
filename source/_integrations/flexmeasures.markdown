@@ -157,7 +157,7 @@ data:
 
 ##S2 Protocol
 
-The S2 Protocol is a flexibility description protocol that allows resource manager share their preferences with solutions that optimize energy assets (the Customer Energy Managers).
+The S2 Protocol is a flexibility description protocol that allows a resource manager share their preferences with solutions that optimize energy assets (the Customer Energy Managers).
 
 This integration allows to have FlexMeasures exposed as a Customer Energy Manager just in HomeAssistant. That way, users can change the control type of a resource manager in HA interface.
 Changing the control type
