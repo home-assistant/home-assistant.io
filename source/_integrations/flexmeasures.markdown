@@ -84,10 +84,10 @@ rm_discharge_sensor:
   required: true
   type: integer
 schedule_duration:
-  description: The duration for which the schedules should be calculated in hours.
+  description: The duration of the requested schedule in ISO8601 format.
   required: true
-  default: 24
-  type: integer
+  default: "PT24H"
+  type: string
 soc_unit:
   description: The state of charge unit of energy.
   required: true
@@ -107,7 +107,7 @@ soc_max:
 
 ## Schedule Sensor
 
-The Flexmeasures Schedule sensor shows the values of the power draw or supply at the start of each interval. It contains a startdatetime, unit of measurement, and a device class as well. The schedule is automatically shifted up to be in line with the sensor resolution. 
+The Flexmeasures Schedule sensor shows the values of the power draw or supply at the start of each interval. It contains a start datetime, unit of measurement, and a device class as well. The schedule is automatically shifted up to be in line with the sensor resolution. 
 
 ```yaml
 schedule:
