@@ -161,7 +161,7 @@ The S2 Protocol is a communication standard for devices with energy flexibility.
 It supports sending descriptions of energy flexibility and preference for activation between a Resource Manager (RM) and a Customer Energy Manager (CEM).
 
 This integration allows running HomeAssistant as a CEM, by receiving and sending S2 messages with websockets and using FlexMeasures to optimize device activation.
-That way, users can change the control type of a resource manager in HA interface.
+That way, users can change the control type of a resource manager in Home Assistant.
 
 ## Changing the control type
 
