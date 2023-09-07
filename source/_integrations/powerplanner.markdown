@@ -1,6 +1,6 @@
 ---
 title: PowerPlanner
-description: Instructions on how to integrate your PowerPlannes plans with Home Assistant.
+description: Instructions on how to integrate your power plans with Home Assistant.
 ha_category:
   - Binary Sensor
   - Button
