@@ -155,12 +155,15 @@ data:
   prior: "DATETIME_STRING_AT_WHICH_THE_VALUES_WERE_RECORDED_OR_FORECASTED"
 ```
 
-##S2 Protocol
+## S2 Protocol
 
-The S2 Protocol is a flexibility description protocol that allows a resource manager share their preferences with solutions that optimize energy assets (the Customer Energy Managers).
+The S2 Protocol is a communication standard for devices with energy flexibility.
+It supports sending descriptions of energy flexibility and preference for activation between a Resource Manager (RM) and a Customer Energy Manager (CEM).
 
-This integration allows to have FlexMeasures exposed as a Customer Energy Manager just in HomeAssistant. That way, users can change the control type of a resource manager in HA interface.
-Changing the control type
+This integration allows running HomeAssistant as a CEM, by receiving and sending S2 messages with websockets and using FlexMeasures to optimize device activation.
+That way, users can change the control type of a resource manager in HA interface.
+
+## Changing the control type
 
 A user can use the service change_control_type to change the control type of the resource manager, for example:
 
