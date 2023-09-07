@@ -154,3 +154,18 @@ data:
   unit: "SENSOR_UNIT_OF_THE_VALUES"
   prior: "DATETIME_STRING_AT_WHICH_THE_VALUES_WERE_RECORDED_OR_FORECASTED"
 ```
+
+##S2 Protocol
+
+The S2 Protocol is a flexibility description protocol that allows resource manager share their preferences with solutions that optimize energy assets (the Customer Energy Managers).
+
+This integration allows to have FlexMeasures exposed as a Customer Energy Manager just in HomeAssistant. That way, users can change the control type of a resource manager in HA interface.
+Changing the control type
+
+A user can use the service change_control_type to change the control type of the resource manager, for example:
+
+```yaml
+service: flexmeasures.change_control_type
+data:
+  control_type: "FILL_RATE_BASED_CONTROL"
+```
