@@ -21,6 +21,8 @@ The `life360` integration allows you to detect presence using the [unofficial AP
 You must first [create a Life360 account](https://app.life360.com/sign-up).
 Individual Members must enable Location Sharing in their Life360 app to show up as a tracked entity in Home Assistant.
 
+> When adding your Life360 account to Home Assistant, you must use the email address associated with your Life360 account, not the phone number.
+
 {% include integrations/config_flow.md %}
 
 ### Account options

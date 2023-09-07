@@ -54,6 +54,8 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2023.8.1 - August 4](#release-202381---august-4)
 - [Release 2023.8.2 - August 11](#release-202382---august-11)
+- [Release 2023.8.3 - August 18](#release-202383---august-18)
+- [Release 2023.8.4 - August 24](#release-202384---august-24)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -578,6 +580,145 @@ The following integrations are now available via the Home Assistant UI:
 [@puddly]: https://github.com/puddly
 [@reedy]: https://github.com/reedy
 [@rikroe]: https://github.com/rikroe
+[@tronikos]: https://github.com/tronikos
+
+## Release 2023.8.3 - August 18
+
+- Fix ness alarm armed_home state appearing as disarmed/armed_away ([@nickw444] - [#94351])
+- Correct modbus config validator: slave/swap ([@janiversen] - [#97798])
+- Fix Opower utilities that have different ReadResolution than previously assumed ([@tronikos] - [#97823])
+- modbus config: count and slave_count can normally not be mixed. ([@janiversen] - [#97902])
+- Create abstraction for Generic YeeLight ([@joostlek] - [#97939])
+- modbus: Repair swap for slaves ([@janiversen] - [#97960])
+- Use Local Timezone for Withings Integration ([@VidFerris] - [#98137])
+- Bump pyrainbird to 4.0.0 ([@allenporter] - [#98271])
+- Bump Python-Roborock to 0.32.3 ([@Lash-L] - [#98303])
+- Bump flux-led to 1.0.2 ([@bdraco] - [#98312])
+- Use default translations by removing names from tplink descriptions ([@joostlek] - [#98338])
+- Fix tts notify config validation ([@MartinHjelmare] - [#98381])
+- Fix GoGoGate2 configuration URL when remote access is disabled ([@oyvindwe] - [#98387])
+- Handle missing keys in Honeywell ([@mkmer] - [#98392])
+- Bump Reolink_aio to 0.7.7 ([@starkillerOG] - [#98425])
+- Update rokuecp to 0.18.1 ([@ctalkington] - [#98432])
+- Update pyipp to 0.14.3 ([@ctalkington] - [#98434])
+- Fix inconsistent lyric temperature unit ([@lscorcia] - [#98457])
+- Bump aiohomekit to 2.6.16 ([@bdraco] - [#98490])
+- Bump opower to 0.0.29 ([@tronikos] - [#98503])
+- Revert "Integration tado bump" ([@erwindouna] - [#98505])
+- Fix the availability condition for Shelly N current sensor ([@bieniu] - [#98518])
+- Correct number of registers to read for sensors for modbus ([@janiversen] - [#98534])
+- Pin setuptools to 68.0.0 ([@frenck] - [#98582])
+- Bump ESPHome recommended BLE version to 2023.8.0 ([@bdraco] - [#98586])
+- Verisure unpack ([@niro1987] - [#98605])
+- Update frontend to 20230802.1 ([@bramkragten] - [#98616])
+
+[#94351]: https://github.com/home-assistant/core/pull/94351
+[#97609]: https://github.com/home-assistant/core/pull/97609
+[#97772]: https://github.com/home-assistant/core/pull/97772
+[#97798]: https://github.com/home-assistant/core/pull/97798
+[#97823]: https://github.com/home-assistant/core/pull/97823
+[#97902]: https://github.com/home-assistant/core/pull/97902
+[#97939]: https://github.com/home-assistant/core/pull/97939
+[#97960]: https://github.com/home-assistant/core/pull/97960
+[#98137]: https://github.com/home-assistant/core/pull/98137
+[#98255]: https://github.com/home-assistant/core/pull/98255
+[#98271]: https://github.com/home-assistant/core/pull/98271
+[#98303]: https://github.com/home-assistant/core/pull/98303
+[#98312]: https://github.com/home-assistant/core/pull/98312
+[#98338]: https://github.com/home-assistant/core/pull/98338
+[#98381]: https://github.com/home-assistant/core/pull/98381
+[#98387]: https://github.com/home-assistant/core/pull/98387
+[#98392]: https://github.com/home-assistant/core/pull/98392
+[#98425]: https://github.com/home-assistant/core/pull/98425
+[#98432]: https://github.com/home-assistant/core/pull/98432
+[#98434]: https://github.com/home-assistant/core/pull/98434
+[#98457]: https://github.com/home-assistant/core/pull/98457
+[#98490]: https://github.com/home-assistant/core/pull/98490
+[#98503]: https://github.com/home-assistant/core/pull/98503
+[#98505]: https://github.com/home-assistant/core/pull/98505
+[#98518]: https://github.com/home-assistant/core/pull/98518
+[#98534]: https://github.com/home-assistant/core/pull/98534
+[#98582]: https://github.com/home-assistant/core/pull/98582
+[#98586]: https://github.com/home-assistant/core/pull/98586
+[#98605]: https://github.com/home-assistant/core/pull/98605
+[#98616]: https://github.com/home-assistant/core/pull/98616
+[@Lash-L]: https://github.com/Lash-L
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@VidFerris]: https://github.com/VidFerris
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@ctalkington]: https://github.com/ctalkington
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@joostlek]: https://github.com/joostlek
+[@lscorcia]: https://github.com/lscorcia
+[@mkmer]: https://github.com/mkmer
+[@nickw444]: https://github.com/nickw444
+[@niro1987]: https://github.com/niro1987
+[@oyvindwe]: https://github.com/oyvindwe
+[@starkillerOG]: https://github.com/starkillerOG
+[@tronikos]: https://github.com/tronikos
+[esphome docs]: /integrations/esphome/
+[flux_led docs]: /integrations/flux_led/
+[frontend docs]: /integrations/frontend/
+[gogogate2 docs]: /integrations/gogogate2/
+[homekit_controller docs]: /integrations/homekit_controller/
+[honeywell docs]: /integrations/honeywell/
+[ipp docs]: /integrations/ipp/
+[lyric docs]: /integrations/lyric/
+[modbus docs]: /integrations/modbus/
+[ness_alarm docs]: /integrations/ness_alarm/
+[opower docs]: /integrations/opower/
+[rainbird docs]: /integrations/rainbird/
+[reolink docs]: /integrations/reolink/
+[roborock docs]: /integrations/roborock/
+[roku docs]: /integrations/roku/
+[shelly docs]: /integrations/shelly/
+[tado docs]: /integrations/tado/
+[tplink docs]: /integrations/tplink/
+[tts docs]: /integrations/tts/
+[verisure docs]: /integrations/verisure/
+[withings docs]: /integrations/withings/
+[yeelight docs]: /integrations/yeelight/
+
+## Release 2023.8.4 - August 24
+
+- Fix octoprint down every two minutes ([@markusressel] - [#90001])
+- modbus: slave is allowed with custom ([@janiversen] - [#98644])
+- Bump opowerto 0.0.30 ([@tronikos] - [#98660])
+- Correct modbus swap/datatype error message ([@janiversen] - [#98698])
+- Bump opower to 0.0.31 ([@tronikos] - [#98716])
+- Reduce Freebox router Raid warning to one occurence ([@fthiery] - [#98740])
+- Remove repair issue for MQTT discovered items ([@frenck] - [#98768])
+- Bump androidtvremote2 to 0.0.14 ([@tronikos] - [#98801])
+- Bump pylitterbot to 2023.4.4 ([@natekspencer] - [#98414])
+- Bump pylitterbot to 2023.4.5 ([@natekspencer] - [#98854])
+- Bump reolink-aio to 0.7.8 ([@starkillerOG] - [#98942])
+
+[#90001]: https://github.com/home-assistant/core/pull/90001
+[#97609]: https://github.com/home-assistant/core/pull/97609
+[#97772]: https://github.com/home-assistant/core/pull/97772
+[#98255]: https://github.com/home-assistant/core/pull/98255
+[#98414]: https://github.com/home-assistant/core/pull/98414
+[#98623]: https://github.com/home-assistant/core/pull/98623
+[#98644]: https://github.com/home-assistant/core/pull/98644
+[#98660]: https://github.com/home-assistant/core/pull/98660
+[#98698]: https://github.com/home-assistant/core/pull/98698
+[#98716]: https://github.com/home-assistant/core/pull/98716
+[#98740]: https://github.com/home-assistant/core/pull/98740
+[#98768]: https://github.com/home-assistant/core/pull/98768
+[#98801]: https://github.com/home-assistant/core/pull/98801
+[#98854]: https://github.com/home-assistant/core/pull/98854
+[#98942]: https://github.com/home-assistant/core/pull/98942
+[@frenck]: https://github.com/frenck
+[@fthiery]: https://github.com/fthiery
+[@janiversen]: https://github.com/janiversen
+[@markusressel]: https://github.com/markusressel
+[@natekspencer]: https://github.com/natekspencer
+[@starkillerOG]: https://github.com/starkillerOG
 [@tronikos]: https://github.com/tronikos
 
 ## Need help? Join the community!

@@ -5,7 +5,7 @@ ha_category:
   - Binary Sensor
   - Helper
 ha_release: 0.89
-ha_iot_class: Local Push
+ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_config_flow: true
 ha_domain: tod
