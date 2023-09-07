@@ -67,7 +67,7 @@ There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues
 
 The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, configure the MQTT integration to connect to broker `test.mosquitto.org` on port 1883 or 8883.
 
-## Broker configuration
+## Configuration of the connection to the broker
 
 MQTT broker settings are configured when the MQTT integration is first set up and can be changed later if needed.
 
@@ -83,7 +83,7 @@ If you experience an error message like `Failed to connect due to exception: [SS
 
 </div>
 
-### Advanced broker configuration
+### Advanced configuration of the connection to the broker
 
 Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication and enabling TLS validation of the brokers certificate for. To access the advanced settings, open the MQTT broker settings, switch on `Advanced options` and click `Next`. The advanced options will be shown by default if there are advanced settings active already.
 
