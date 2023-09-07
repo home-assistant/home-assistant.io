@@ -928,6 +928,8 @@ automation:
       command:
         - "[it's ]party time"
         - "happy (new year|birthday)"
+      response_success: "Let there be party"
+      response_error: "You cannot party right now"
 ```
 
 The sentences matched by this trigger will be:
@@ -955,6 +957,31 @@ For example, the sentence `play {album} by {artist}` will match "play the white 
 
 Wildcards will match as much text as possible, which may lead to surprises: "play day by day by taken by trees" will match `album` as "day" and `artist` as "day by taken by trees".
 Including extra words in your template can help: `play {album} by artist {artist}` can now correctly match "play day by day by artist taken by trees".
+
+### Responses
+
+There are two config options which dictate what Assist will respond with when a matching sentence triggers the automation.
+
+`response_success` is the response phrase in case all of the automation steps have run successfully. You can use Jinja2 [template syntax](/docs/configuration/templating/) to include any variables set inside the automation. `response_error` is passed when an automation step fails or if any error prevents the automation from running. `response_error` is just a static text and does not accept templates.
+
+```yaml
+automation:
+  trigger:
+    - platform: conversation
+      command: "what's on my calendar today"
+      response_success: "{{ my_events.events | map(attribute='summary') | join(', ') }}"
+      response_error: "Sorry, I can't get your calendar events right now"
+  action:
+    - service: calendar.list_events
+      data:
+        duration:
+          hours: 24
+          minutes: 0
+          seconds: 0
+      target:
+        entity_id: calendar.my_calendar
+      response_variable: my_events
+```
 
 ## Multiple triggers
 
