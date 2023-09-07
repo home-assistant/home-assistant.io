@@ -964,6 +964,8 @@ There are two config options which dictate what Assist will respond with when a 
 
 `response_success` is the response phrase in case all of the automation steps have run successfully. You can use Jinja2 [template syntax](/docs/configuration/templating/) to include any variables set inside the automation. `response_error` is passed when an automation step fails or if any error prevents the automation from running. `response_error` is just a static text and does not accept templates.
 
+{% raw %}
+
 ```yaml
 automation:
   trigger:
@@ -982,6 +984,8 @@ automation:
         entity_id: calendar.my_calendar
       response_variable: my_events
 ```
+
+{% endraw %}
 
 ## Multiple triggers
 
