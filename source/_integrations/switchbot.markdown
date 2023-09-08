@@ -53,7 +53,7 @@ Please note, device names configured in the SwitchBot app are not transferred in
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
 - [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
-- [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain)
+- [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
 - [Humidifier (WoHumi)](https://eu.switch-bot.com/products/switchbot-smart-humidifier)
 - Light Strip (WoStrip)
 - [Meter](https://switch-bot.com/pages/switchbot-meter)/[Meter Plus 70BB](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
