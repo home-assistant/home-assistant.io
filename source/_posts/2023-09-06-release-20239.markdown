@@ -312,6 +312,7 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 
 ## Release 2023.9.1 - September 8
 
+- 2023.9.0 ([@bramkragten] - [#99741]) ([abode docs]) ([ads docs]) ([adguard docs]) ([acmeda docs]) ([accuweather docs]) ([adax docs])
 - Fix the Hydrawise status sensor ([@dknowles2] - [#99271]) ([hydrawise docs])
 - Fix tradfri asyncio.wait ([@cdce8p] - [#99730]) ([tradfri docs])
 - Handle alexa invalid climate temp adjustment ([@jbouwh] - [#99740]) ([alexa docs])
@@ -398,36 +399,36 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 [@pszafer]: https://github.com/pszafer
 [@puddly]: https://github.com/puddly
 [@swamplynx]: https://github.com/swamplynx
-[abode docs]: https://www.home-assistant.io/integrations/abode/
-[accuweather docs]: https://www.home-assistant.io/integrations/accuweather/
-[acmeda docs]: https://www.home-assistant.io/integrations/acmeda/
-[adax docs]: https://www.home-assistant.io/integrations/adax/
-[adguard docs]: https://www.home-assistant.io/integrations/adguard/
-[ads docs]: https://www.home-assistant.io/integrations/ads/
-[alexa docs]: https://www.home-assistant.io/integrations/alexa/
-[api docs]: https://www.home-assistant.io/integrations/api/
-[bluetooth docs]: https://www.home-assistant.io/integrations/bluetooth/
-[elkm1 docs]: https://www.home-assistant.io/integrations/elkm1/
-[enphase_envoy docs]: https://www.home-assistant.io/integrations/enphase_envoy/
-[epson docs]: https://www.home-assistant.io/integrations/epson/
-[freebox docs]: https://www.home-assistant.io/integrations/freebox/
-[frontend docs]: https://www.home-assistant.io/integrations/frontend/
-[hydrawise docs]: https://www.home-assistant.io/integrations/hydrawise/
-[livisi docs]: https://www.home-assistant.io/integrations/livisi/
-[lutron_caseta docs]: https://www.home-assistant.io/integrations/lutron_caseta/
-[mill docs]: https://www.home-assistant.io/integrations/mill/
-[modbus docs]: https://www.home-assistant.io/integrations/modbus/
-[mqtt docs]: https://www.home-assistant.io/integrations/mqtt/
-[noaa_tides docs]: https://www.home-assistant.io/integrations/noaa_tides/
-[overkiz docs]: https://www.home-assistant.io/integrations/overkiz/
-[recollect_waste docs]: https://www.home-assistant.io/integrations/recollect_waste/
-[tasmota docs]: https://www.home-assistant.io/integrations/tasmota/
-[tomorrowio docs]: https://www.home-assistant.io/integrations/tomorrowio/
-[tradfri docs]: https://www.home-assistant.io/integrations/tradfri/
-[vodafone_station docs]: https://www.home-assistant.io/integrations/vodafone_station/
-[websocket_api docs]: https://www.home-assistant.io/integrations/websocket_api/
-[zeroconf docs]: https://www.home-assistant.io/integrations/zeroconf/
-[zha docs]: https://www.home-assistant.io/integrations/zha/
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[adax docs]: /integrations/adax/
+[adguard docs]: /integrations/adguard/
+[ads docs]: /integrations/ads/
+[alexa docs]: /integrations/alexa/
+[api docs]: /integrations/api/
+[bluetooth docs]: /integrations/bluetooth/
+[elkm1 docs]: /integrations/elkm1/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[epson docs]: /integrations/epson/
+[freebox docs]: /integrations/freebox/
+[frontend docs]: /integrations/frontend/
+[hydrawise docs]: /integrations/hydrawise/
+[livisi docs]: /integrations/livisi/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[mill docs]: /integrations/mill/
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[noaa_tides docs]: /integrations/noaa_tides/
+[overkiz docs]: /integrations/overkiz/
+[recollect_waste docs]: /integrations/recollect_waste/
+[tasmota docs]: /integrations/tasmota/
+[tomorrowio docs]: /integrations/tomorrowio/
+[tradfri docs]: /integrations/tradfri/
+[vodafone_station docs]: /integrations/vodafone_station/
+[websocket_api docs]: /integrations/websocket_api/
+[zeroconf docs]: /integrations/zeroconf/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
