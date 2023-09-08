@@ -312,7 +312,6 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 
 ## Release 2023.9.1 - September 8
 
-- 2023.9.0 ([@bramkragten] - [#99741]) ([abode docs]) ([ads docs]) ([adguard docs]) ([acmeda docs]) ([accuweather docs]) ([adax docs])
 - Fix the Hydrawise status sensor ([@dknowles2] - [#99271]) ([hydrawise docs])
 - Fix tradfri asyncio.wait ([@cdce8p] - [#99730]) ([tradfri docs])
 - Handle alexa invalid climate temp adjustment ([@jbouwh] - [#99740]) ([alexa docs])
