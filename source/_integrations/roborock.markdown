@@ -49,7 +49,7 @@ Mop mode - Describes how to mop the floor. On some firmware, it is called 'mop r
 
 Mop intensity - How hard you would like your vacuum to mop.
 
-### Binary Sensor
+### Binary sensor
 
 Mop attached - States if the mop is currently attached.
 
