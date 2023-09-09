@@ -61,7 +61,7 @@ Dock error - Only available on the non-basic docks - The current error of the va
 
 Main brush time left - How much time is left before Roborock recommends you replace your main brush.
 
-Mop drying remaining time - Only availabe on the non-basic docks - How much time is left until the mop is dry and ready to continue cleaning.
+Mop drying remaining time - Only available on the non-basic docks - How much time is left until the mop is dry and ready to continue cleaning.
 
 Side brush time left - How much time is left before Roborock recommends you replace your side brush.
 
