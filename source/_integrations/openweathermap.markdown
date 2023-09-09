@@ -47,7 +47,7 @@ not be activated yet. Recent policy changes limit the API access for new registe
 The integration creates a weather entity as well as sensors for supported weather conditions.
 Selecting a `onecall` forecast mode with the free tier leverages the One Call API, resulting in updates every 5 minutes and is recommended for both hourly and daily forecast.
 
-A `sensor` entity will be created for each supported condition. Their ids will follow the format:
+A `sensor` entity will be created for each supported condition. Their ids will follow the format: 
 
 `sensor.<integration name>_<monitored condition>`
 
@@ -63,25 +63,24 @@ The Weather entity provides data only in English. Home Assistant automatically t
 
 ### Current Weather Conditions
 
-| Condition                 | Description                                                                                                                       |
-| :------------------------ | :------------------------------------------------------------------------------------------------------------------------------   |
-| `cloud_coverage`          | Cloudiness, %.                                                                                                                    |
-| `condition`               | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition).   |
-| `dew_point`               | Atmospheric temperature below which water droplets begin to condense and dew can form, ºC.                                        |
-| `feels_like_temperature`  | Temperature accounting for the human perception of weather, ºC.                                                                   |
-| `humidity`                | Humidity, %.                                                                                                                      |
-| `national_weather_alerts` | List of national weather alerts.                                                                                                  |
-| `precipitation_kind`      | The kind of precipitation (Rain, Snow, Snow and Rain, None) for the last hour.                                                    |
-| `pressure`                | Atmospheric pressure at sea level, hPa.                                                                                           |
-| `rain`                    | Rain volume for the last hour, mm.                                                                                                |
-| `snow`                    | Snow volume for the last hour, mm.                                                                                                |
-| `temperature`             | Temperature, ºC.                                                                                                                  |
-| `uv_index`                | UV Index.                                                                                                                         |
-| `visibility`              | Average visibility, m.                                                                                                            |
-| `weather`                 | A human-readable description of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2). |
-| `weather_code`            | ID of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2).                           |
-| `wind_bearing`            | Wind direction, degrees (meteorological).                                                                                         |
-| `wind_speed`              | Wind speed, metre/sec.                                                                                                            |
+| Condition                | Description                                                                                                                       |
+| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------   |
+| `cloud_coverage`         | Cloudiness, %.                                                                                                                    |
+| `condition`              | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition).   |
+| `dew_point`              | Atmospheric temperature below which water droplets begin to condense and dew can form, ºC.                                        |
+| `feels_like_temperature` | Temperature accounting for the human perception of weather, ºC.                                                                   |
+| `humidity`               | Humidity, %.                                                                                                                      |
+| `precipitation_kind`     | The kind of precipitation (Rain, Snow, Snow and Rain, None) for the last hour.                                                    |
+| `pressure`               | Atmospheric pressure at sea level, hPa.                                                                                           |
+| `rain`                   | Rain volume for the last hour, mm.                                                                                                |
+| `snow`                   | Snow volume for the last hour, mm.                                                                                                |
+| `temperature`            | Temperature, ºC.                                                                                                                  |
+| `uv_index`               | UV Index.                                                                                                                         |
+| `visibility`             | Average visibility, m.                                                                                                            |
+| `weather`                | A human-readable description of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2). |
+| `weather_code`           | ID of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2).                           |
+| `wind_bearing`           | Wind direction, degrees (meteorological).                                                                                         |
+| `wind_speed`             | Wind speed, metre/sec.                                                                                                            |
 
 ### Forecast Weather Conditions
 
@@ -92,7 +91,7 @@ The time period these sensors use depends on the forecast mode selected when con
 </div>
 
 | Condition                            | Description                                                                                                                                                    |
-| :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
 | `forecast_cloud_coverage`         | Cloudiness, %.                                                                                                                    |
 | `forecast_condition`                 | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition) for the forecast's time period. |
 | `forecast_precipitation`             | Combined Rain and Snow volume for the forecast's time period, mm.                                                                                              |
