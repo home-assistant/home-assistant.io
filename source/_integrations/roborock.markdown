@@ -4,6 +4,7 @@ description: Instructions on how to integrate Roborock vacuums into Home Assista
 ha_category:
   - Number
   - Select
+  - Binary Sensor
   - Sensor
   - Switch
   - Time
@@ -18,6 +19,7 @@ ha_domain: roborock
 ha_platforms:
   - diagnostics
   - number
+  - binary_sensor
   - select
   - sensor
   - switch
