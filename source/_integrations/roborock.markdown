@@ -4,6 +4,7 @@ description: Instructions on how to integrate Roborock vacuums into Home Assista
 ha_category:
   - Number
   - Select
+  - Binary Sensor
   - Sensor
   - Switch
   - Time
@@ -18,6 +19,7 @@ ha_domain: roborock
 ha_platforms:
   - diagnostics
   - number
+  - binary_sensor
   - select
   - sensor
   - switch
@@ -48,6 +50,15 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 Mop mode - Describes how to mop the floor. On some firmware, it is called 'mop route'.
 
 Mop intensity - How hard you would like your vacuum to mop.
+
+### Binary sensor
+
+Mop attached - States if the mop is currently attached.
+
+Mop drying status - Only available on docks with drying capabilites - States if the mop is currently being driven.
+
+Water box attached - States if the water box is currently attached.
+
 
 ### Sensor
 
