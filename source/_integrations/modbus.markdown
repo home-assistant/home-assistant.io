@@ -38,9 +38,7 @@ The modbus integration provides a number of parameters to help communicate with 
 
 {% configuration %}
 close_comm_on_error:
-  description: "Close connection when an error occurs.
-  Some serial-rs485 adapters deliver garble when opened, this leads to a disconnect and a new connect, which can continue.
-  If the log contains a message from pymodbus, with the text 'cleaning....', then try this parameter."
+  description: "Deprecated, Close connection when an error occurs."
   required: false
   default: true
   type: boolean
