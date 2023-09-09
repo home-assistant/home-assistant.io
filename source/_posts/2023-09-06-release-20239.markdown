@@ -43,6 +43,7 @@ Bram
 - [Onboarding](#onboarding)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
+- [Release 2023.9.1 - September 8](#release-202391---september-8)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -308,6 +309,125 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 [Opower]: /integrations/opower
 [Consolidated Edison (ConEd)]: /integrations/coned
 [Orange and Rockland Utilities (ORU) Opower]: /integrations/oru_opower
+
+## Release 2023.9.1 - September 8
+
+- Fix the Hydrawise status sensor ([@dknowles2] - [#99271]) ([hydrawise docs])
+- Fix tradfri asyncio.wait ([@cdce8p] - [#99730]) ([tradfri docs])
+- Handle alexa invalid climate temp adjustment ([@jbouwh] - [#99740]) ([alexa docs])
+- Revert "Bump pyoverkiz to 1.10.1 (#97916)" ([@joostlek] - [#99742]) ([overkiz docs])
+- Fix Freebox disk free space sensor ([@Quentame] - [#99757]) ([freebox docs])
+- Fix Freebox Home battery sensor ([@Quentame] - [#99756]) ([freebox docs])
+- Bump sense_energy to 0.12.1 ([@bdraco] - [#99763])
+- Add support for more busy codes for Epson ([@pszafer] - [#99771]) ([epson docs])
+- Bump `aiorecollect` to 2023.09.0 ([@bachya] - [#99780]) ([recollect_waste docs])
+- Bump pyenphase to 1.9.3 ([@bdraco] - [#99787]) ([enphase_envoy docs])
+- Bump pylutron-caseta to v0.18.2 ([@swamplynx] - [#99789]) ([lutron_caseta docs])
+- Fix missing dew point and humidity in tomorrowio forecasts ([@lymanepp] - [#99793]) ([tomorrowio docs])
+- Always set severity level flag on render_template error events ([@emontnemery] - [#99804]) ([websocket_api docs])
+- Improve error handling in /api/states POST ([@emontnemery] - [#99810]) ([api docs])
+- Use correct config entry id in Livisi ([@joostlek] - [#99812]) ([livisi docs])
+- Fix missing name and identifiers for ELKM1 connected devices ([@bdraco] - [#99828]) ([elkm1 docs])
+- Bump aiovodafone to 0.1.0 ([@chemelli74] - [#99851]) ([vodafone_station docs])
+- Bump dbus-fast to 1.95.0 ([@bdraco] - [#99749]) ([bluetooth docs])
+- Bump dbus-fast to 1.95.2 ([@bdraco] - [#99852]) ([bluetooth docs])
+- Bump ZHA dependencies ([@puddly] - [#99855]) ([zha docs])
+- Fix NOAA tides warnings ([@jbouwh] - [#99856]) ([noaa_tides docs])
+- Upgrade bluetooth deps to fix timeout behavior on py3.11 ([@bdraco] - [#99879]) ([bluetooth docs])
+- Update frontend to 20230908.0 ([@bramkragten] - [#99939]) ([frontend docs])
+- Bump pymodbus v3.5.0 ([@janiversen] - [#99343]) ([modbus docs])
+- Bump pymodbus v.3.5.1 ([@janiversen] - [#99940]) ([modbus docs])
+- Bump pyenphase to v1.11.0 ([@joostlek] - [#99941]) ([enphase_envoy docs])
+- Fix key error MQTT binary_sensor when no name is set ([@jbouwh] - [#99943]) ([mqtt docs])
+- Bump zeroconf to 0.93.1 ([@bdraco] - [#99516]) ([zeroconf docs])
+- Bump zeroconf to 0.96.0 ([@bdraco] - [#99549]) ([zeroconf docs])
+- Bump zeroconf to 0.97.0 ([@bdraco] - [#99554]) ([zeroconf docs])
+- Bump zeroconf to 0.98.0 ([@bdraco] - [#99748]) ([zeroconf docs])
+- Make WS command render_template not give up if initial render raises ([@emontnemery] - [#99808]) ([websocket_api docs])
+- Bump hatasmota to 0.7.1 ([@emontnemery] - [#99818]) ([tasmota docs])
+- Bump millheater to 0.11.2 ([@Danielhiversen] - [#99683]) ([mill docs])
+
+[#99271]: https://github.com/home-assistant/core/pull/99271
+[#99343]: https://github.com/home-assistant/core/pull/99343
+[#99516]: https://github.com/home-assistant/core/pull/99516
+[#99549]: https://github.com/home-assistant/core/pull/99549
+[#99554]: https://github.com/home-assistant/core/pull/99554
+[#99683]: https://github.com/home-assistant/core/pull/99683
+[#99730]: https://github.com/home-assistant/core/pull/99730
+[#99740]: https://github.com/home-assistant/core/pull/99740
+[#99741]: https://github.com/home-assistant/core/pull/99741
+[#99742]: https://github.com/home-assistant/core/pull/99742
+[#99748]: https://github.com/home-assistant/core/pull/99748
+[#99749]: https://github.com/home-assistant/core/pull/99749
+[#99756]: https://github.com/home-assistant/core/pull/99756
+[#99757]: https://github.com/home-assistant/core/pull/99757
+[#99763]: https://github.com/home-assistant/core/pull/99763
+[#99771]: https://github.com/home-assistant/core/pull/99771
+[#99780]: https://github.com/home-assistant/core/pull/99780
+[#99787]: https://github.com/home-assistant/core/pull/99787
+[#99789]: https://github.com/home-assistant/core/pull/99789
+[#99793]: https://github.com/home-assistant/core/pull/99793
+[#99804]: https://github.com/home-assistant/core/pull/99804
+[#99808]: https://github.com/home-assistant/core/pull/99808
+[#99810]: https://github.com/home-assistant/core/pull/99810
+[#99812]: https://github.com/home-assistant/core/pull/99812
+[#99818]: https://github.com/home-assistant/core/pull/99818
+[#99828]: https://github.com/home-assistant/core/pull/99828
+[#99851]: https://github.com/home-assistant/core/pull/99851
+[#99852]: https://github.com/home-assistant/core/pull/99852
+[#99855]: https://github.com/home-assistant/core/pull/99855
+[#99856]: https://github.com/home-assistant/core/pull/99856
+[#99879]: https://github.com/home-assistant/core/pull/99879
+[#99939]: https://github.com/home-assistant/core/pull/99939
+[#99940]: https://github.com/home-assistant/core/pull/99940
+[#99941]: https://github.com/home-assistant/core/pull/99941
+[#99943]: https://github.com/home-assistant/core/pull/99943
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Quentame]: https://github.com/Quentame
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@chemelli74]: https://github.com/chemelli74
+[@dknowles2]: https://github.com/dknowles2
+[@emontnemery]: https://github.com/emontnemery
+[@janiversen]: https://github.com/janiversen
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@lymanepp]: https://github.com/lymanepp
+[@pszafer]: https://github.com/pszafer
+[@puddly]: https://github.com/puddly
+[@swamplynx]: https://github.com/swamplynx
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[adax docs]: /integrations/adax/
+[adguard docs]: /integrations/adguard/
+[ads docs]: /integrations/ads/
+[alexa docs]: /integrations/alexa/
+[api docs]: /integrations/api/
+[bluetooth docs]: /integrations/bluetooth/
+[elkm1 docs]: /integrations/elkm1/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[epson docs]: /integrations/epson/
+[freebox docs]: /integrations/freebox/
+[frontend docs]: /integrations/frontend/
+[hydrawise docs]: /integrations/hydrawise/
+[livisi docs]: /integrations/livisi/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[mill docs]: /integrations/mill/
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[noaa_tides docs]: /integrations/noaa_tides/
+[overkiz docs]: /integrations/overkiz/
+[recollect_waste docs]: /integrations/recollect_waste/
+[tasmota docs]: /integrations/tasmota/
+[tomorrowio docs]: /integrations/tomorrowio/
+[tradfri docs]: /integrations/tradfri/
+[vodafone_station docs]: /integrations/vodafone_station/
+[websocket_api docs]: /integrations/websocket_api/
+[zeroconf docs]: /integrations/zeroconf/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
