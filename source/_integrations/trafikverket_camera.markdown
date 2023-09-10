@@ -3,6 +3,7 @@ title: Trafikverket Camera
 description: Instructions how to integrate Trafikverket Camera within Home Assistant.
 ha_category:
   - Camera
+  - Sensor
 ha_release: 2023.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: trafikverket_camera
 ha_platforms:
   - camera
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -24,7 +26,17 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 
 {% include integrations/config_flow.md %}
 
-## Additional attributes
+## Sensors
+
+- Active
+- Direction (degree of angle the camera is pointing towards)
+- Modified (datetime when record has changed)
+- Photo time
+- Photo url
+- Status
+- Camera type
+
+## Additional attributes available on camera
 
 - Location (placement of camera)
 - Description (free text description)
