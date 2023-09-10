@@ -265,7 +265,7 @@ noteworthy changes this release:
 [@timmo001]: https://github.com/timmo001
 [Enphase Envoy]: /integrations/enphase_envoy
 [Forecast Solar]: /integrations/forecast_solar
-[Gardena]: /integrations/gardena
+[Gardena]: /integrations/gardena_bluetooth
 [Reolink]: /integrations/reolink
 [Shelly]: /integrations/shelly
 [System Bridge]: /integrations/system_bridge
