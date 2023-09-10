@@ -32,7 +32,7 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 - Direction (degree of angle the camera is pointing towards)
 - Modified (datetime when record has changed)
 - Photo time
-- Photo url
+- Photo URL
 - Status
 - Camera type
 
