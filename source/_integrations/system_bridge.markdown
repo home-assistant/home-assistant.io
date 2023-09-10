@@ -81,7 +81,7 @@ These sensors are also available, but are not enabled by default:
 | GPU Power Usage        | GPU power usage                          |
 | GPU Temperature        | The current temperature of the GPU       |
 
-## Media Player
+## Media player
 
 The integration also provides a media player. This allows you control the currently playing media on your device.
 
