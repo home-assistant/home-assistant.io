@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Sensor
+  - Number
 ha_release: 2023.7
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -15,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - button
   - sensor
+  - number
 ha_integration_type: integration
 ---
 
