@@ -23,7 +23,9 @@ The SNOOZ integration will automatically discover devices once the [Bluetooth](/
 
 ## Supported devices
 
-- [SNOOZ White Noise Machine](https://getsnooz.com/products/snooz-white-noise-machine)
+- [SNOOZ Original](https://getsnooz.com/products/snooz-white-noise-machine)
+- [SNOOZ Pro](https://getsnooz.com/products/snooz-pro-white-noise-machine)
+- [Breez](https://getsnooz.com/products/snooz-breez-smart-bedroom-fan-sound-machine)
 
 ## Setup
 
