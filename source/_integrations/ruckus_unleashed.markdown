@@ -39,3 +39,7 @@ To create a **Monitoring Admin** user, login to the Ruckus Unleashed admin UI an
 ## Troubleshooting
 
 For this platform to work, the Ruckus Unleashed master access point will need to be accessible from Home Assistant over HTTPS. If you are having trouble with Home Assistant not connecting, make sure the user you created above can log in to the Unleashed management web interface.
+
+## Ruckus ZoneDirector
+
+This platform also allows you to connect to Ruckus ZoneDirector (9.10+) access points. Just supply your ZoneDirector's IP address and admin credentials.
