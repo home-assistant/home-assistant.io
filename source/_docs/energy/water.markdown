@@ -24,7 +24,7 @@ Alternatively, the following shops sell ESPHome-based devices, that use a proxim
 - [Slimme Watermeter Gateway](https://smartgateways.nl/product/slimme-watermeter-gateway/) (Dutch)
 - [watermeterkit.nl](https://watermeterkit.nl/) (Dutch)
 
-Alternatively, the following shops sell ESPHome-based devices, that use a '3-phase' light sensor to detect a rotating disk in your water meter and converts this to Mili-Liters of water used.
+Alternatively, the following shops sell ESPHome-based devices that use a 3-phase light sensor to detect a rotating disk in your water meter and convert this to the amount of water used in milliliters (ml).
 - [Muino water meter reader](https://watermeter.muino.nl/)
 
 Maybe you like to build one yourself?
