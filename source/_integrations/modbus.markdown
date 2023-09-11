@@ -37,13 +37,6 @@ The modbus integration allows you to use multiple connections each with multiple
 The modbus integration provides a number of parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
 
 {% configuration %}
-close_comm_on_error:
-  description: "Close connection when an error occurs.
-  Some serial-rs485 adapters deliver garble when opened, this leads to a disconnect and a new connect, which can continue.
-  If the log contains a message from pymodbus, with the text 'cleaning....', then try this parameter."
-  required: false
-  default: true
-  type: boolean
 delay:
   description: "Time to delay sending messages in seconds after connecting.
   Some modbus devices need a delay of typically 1-2 seconds after connection is established to prepare the communication.

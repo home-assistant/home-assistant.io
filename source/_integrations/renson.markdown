@@ -4,6 +4,7 @@ description: Instructions on how to integrate Renson Endura Delta sensors into H
 ha_category:
   - Binary Sensor
   - Sensor
+  - Number
 ha_release: 2023.7
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -13,6 +14,7 @@ ha_domain: renson
 ha_platforms:
   - binary_sensor
   - sensor
+  - number
 ha_integration_type: integration
 ---
 
