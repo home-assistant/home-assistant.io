@@ -7,15 +7,16 @@ ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@gabe565'
   - '@lanrat'
+  - '@ms264556'
+  - '@gabe565'
 ha_domain: ruckus_unleashed
 ha_platforms:
   - device_tracker
 ha_integration_type: hub
 ---
 
-This platform allows you to connect to a [Ruckus Unleashed](https://support.ruckuswireless.com/product_families/19-ruckus-unleashed) access point.
+This platform allows you to connect to [Ruckus Unleashed](https://support.ruckuswireless.com/product_families/19-ruckus-unleashed) access points.  
 
 There is currently support for the following device types within Home Assistant:
 
@@ -25,9 +26,10 @@ There is currently support for the following device types within Home Assistant:
 
 To add a Ruckus Unleashed device to your installation, go to **Settings** -> **Devices & Services**, click the `+` button, then select **Ruckus** from the list of integrations.
 
-It is required to configure the IP address of your **master access point**. See the section Access Points on the management web interface. And perhaps consider to set a preferred master (Admin & Services>System>System Info>Preferred master).
+It is preferable to configure the IP address of your **master access point**. See the Access Points section of the Unleashed management web interface. And perhaps consider setting a preferred master (Admin & Services > System > System Info > Preferred master).
 
-You will have to create a user on the device which is a **Monitoring Admin**. Login to the Ruckus Unleashed admin UI and follow these steps:
+You may authenticate with the **Default** Ruckus Unleashed admin user or, if you prefer, a user which is a **Monitoring Admin**.  
+To create a **Monitoring Admin** user, login to the Ruckus Unleashed admin UI and follow these steps:
 
  - [Create a new role](https://docs.ruckuswireless.com/unleashed/200.1.9.12/t-ConfigUserRoles.html).
    - Check **Allow Unleashed Administration**.
@@ -36,17 +38,4 @@ You will have to create a user on the device which is a **Monitoring Admin**. Lo
 
 ## Troubleshooting
 
-For this platform to work, the Ruckus Unleashed device will need to be accessible over SSH. If you are having trouble with Home Assistant not connecting, make sure the user you created above can log in to SSH and can run privileged commands.
-
-Terminal:
-
-```bash
-ssh <ruckus_ip>
-
-Please login: <username>
-Password: <password>
-Welcome to Ruckus Unleashed Network Command Line Interface
-ruckus> enable
-ruckus# exit
-Exit ruckus CLI.
-```
+For this platform to work, the Ruckus Unleashed master access point will need to be accessible from Home Assistant over HTTPS. If you are having trouble with Home Assistant not connecting, make sure the user you created above can log in to the Unleashed management web interface.
