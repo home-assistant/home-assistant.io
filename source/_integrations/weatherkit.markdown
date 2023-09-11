@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@tjhorner'
 ha_domain: weatherkit
+ha_platforms:
+  - weather
 ---
 
 The Apple WeatherKit integration obtains current weather and forecasts (hourly and daily) from Apple Weather. It is the most direct replacement for those coming from the Dark Sky API since Apple bought Dark Sky and implemented its technology into their weather service.
