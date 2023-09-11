@@ -54,7 +54,6 @@ The Overkiz (by Somfy) integration platform is used by many different vendors, l
 - Atlantic Cozytouch
 - Hitachi Hi Kumo
 - Nexity Eugénie
-- Rexel Energeasy Connect
 - Somfy Connectivity Kit
 - Somfy Connexoon IO
 - Somfy Connexoon RTS
