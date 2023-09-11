@@ -3,9 +3,7 @@ title: Apple WeatherKit
 description: Instructions on how to set up Apple WeatherKit with Home Assistant.
 ha_category:
   - Weather
-ha_release: 2023.10.0
-# TODO: score on quality scale
-# ha_quality_scale: internal
+ha_release: "2023.10"
 ha_iot_class: "Cloud Polling"
 ha_config_flow: true
 ha_codeowners:
@@ -13,7 +11,7 @@ ha_codeowners:
 ha_domain: weatherkit
 ---
 
-The Apple WeatherKit integration obtains current weather and forecasts (hourly and daily) from Apple Weather. It is the most direct replacement for those coming from the Dark Sky API, since Apple bought Dark Sky and implemented its technology into their own weather service.
+The Apple WeatherKit integration obtains current weather and forecasts (hourly and daily) from Apple Weather. It is the most direct replacement for those coming from the Dark Sky API since Apple bought Dark Sky and implemented its technology into their weather service.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -21,7 +19,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Requirements
 
-You will need a paid Apple Developer Program account to use this integration. Unfortunately, this means you will need to pay the US$99/yr fee. If you don't have one, maybe a kind friend with an account will let you use theirs.
+You will need a [paid Apple Developer Program account](https://developer.apple.com/support/compare-memberships/) to use this integration.
 
 {% include integrations/config_flow.md %}
 
@@ -41,11 +39,11 @@ You will need to obtain the appropriate credentials which you will use to connec
     3. For the identifier, Apple recommends using a reverse-DNS style name, like `com.example.homeassistant`.
     4. Save the identifier you used. This is your **Service ID**.
 
-Now that you have all the credentials, you can add a new WeatherKit integration entry. Using the details from earlier, it should look something like this:
+You can add a new WeatherKit integration entry now that you have all the credentials. Using the details from earlier, it should look something like this:
 
 - **Key ID**: `ABC123DEFG`
 - **Service ID**: `com.example.homeassistant`
-- **Apple Team ID**: `ABC123DEFG`
+- **Apple team ID**: `ABC123DEFG`
   - This value can be found in the top-right of the Apple Developer website.
-- **Private Key**: `-----BEGIN PRIVATE KEY----- [...]`
+- **Private key**: `-----BEGIN PRIVATE KEY----- [...]`
   - Open the `.p8` file you downloaded earlier in a text editor and copy the contents into this field.
