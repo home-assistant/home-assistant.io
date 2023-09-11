@@ -35,18 +35,6 @@ action_topic:
     Valid values: `off`, `heating`, `cooling`, `drying`, `idle`, `fan`.
   required: false
   type: string
-aux_command_topic:
-  description: The MQTT topic to publish commands to switch auxiliary heat.
-  required: false
-  type: string
-aux_state_template:
-  description: A template to render the value received on the `aux_state_topic` with.
-  required: false
-  type: template
-aux_state_topic:
-  description: The MQTT topic to subscribe for changes of the auxiliary heat mode. If this is not set, the auxiliary heat mode works in optimistic mode (see below).
-  required: false
-  type: string
 availability:
   description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
   required: false
@@ -183,7 +171,7 @@ fan_modes:
 initial:
   description: Set the initial target temperature. The default value depends on the temperature unit and will be 21° or 69.8°F.
   required: false
-  type: integer
+  type: float
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
