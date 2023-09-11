@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@tjhorner'
 ha_domain: weatherkit
+ha_integration_type: integration
 ha_platforms:
   - weather
 ---
