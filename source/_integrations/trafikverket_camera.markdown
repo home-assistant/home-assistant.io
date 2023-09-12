@@ -36,7 +36,7 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 
 - Active
 - Direction (degree of angle the camera is pointing towards)
-- Modified (datetime when record has changed)
+- Modified (date and time when the record last changed)
 - Photo time
 - Photo URL
 - Status
