@@ -83,7 +83,7 @@ You can send notifications to the device using the `notify` platform.
 service: notify.system_bridge_hostname
 data:
   data:
-    image: https://brands.home-assistant.io/system_bridge/logo@2x.png
+    image: "https://brands.home-assistant.io/system_bridge/logo@2x.png"
     timeout: 30
     actions:
       - command: api
@@ -91,13 +91,13 @@ data:
           endpoint: open
           method: POST
           body:
-            url: http://homeassistant.local:8123/lovelace/cameras
-        label: Open Cameras
+            url: "http://homeassistant.local:8123/lovelace/cameras"
+        label: "Open Cameras"
     audio:
-      source: https://d3qhmae9zx9eb.cloudfront.net/home/amzn_sfx_doorbell_chime_02.mp3
+      source: "https://d3qhmae9zx9eb.cloudfront.net/home/amzn_sfx_doorbell_chime_02.mp3"
       volume: 80
-  title: Test Title
-  message: This is a message
+  title: "Test Title"
+  message: "This is a message"
 ```
 
 #### Parameters
@@ -123,12 +123,12 @@ Here is an example action that will open a URL in the device's browser:
 
 ```yaml
 - command: api
-  label: Open Cameras
+  label: "Open Cameras"
   data:
     endpoint: open
     method: POST
     body:
-      url: http://homeassistant.local:8123/lovelace/cameras
+      url: "http://homeassistant.local:8123/lovelace/cameras"
 ```
 
 ##### Audio (`data` parameter)
