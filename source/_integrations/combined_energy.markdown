@@ -2,16 +2,14 @@
 title: Combined Energy
 description: Instructions on how to integrate Combined Energy Hub device sensors within Home Assistant.
 ha_category:
-  - Binary Sensor
   - Energy
   - Sensor
-ha_release: 2022.12
+ha_release: 2023.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: combined_energy
 ha_dhcp: true
 ha_platforms:
-  - binary_sensor
   - sensor
 ha_codeowners:
   - '@timsavage'
@@ -31,16 +29,9 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-### Binary Sensor
-
-The following binary sensors are added for each Powerwall:
-
-- Energy Hub connection status - On/ Off
-
 ### Sensor
 
 Each device type exposes multiple sensors with relevant information.
-
 
 #### Solar PV
 
