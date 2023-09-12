@@ -465,7 +465,6 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 - Bump hatasmota to 0.7.3 ([@emontnemery] - [#100169]) ([tasmota docs])
 - Bump Ultraheat to version 0.5.7 ([@vpathuis] - [#100172]) ([landisgyr_heat_meter docs])
 - Fix entity name attribute on mqtt entity is not removed on update ([@jbouwh] - [#100187]) ([mqtt docs])
-- Remove default from deprecated close_comm_on_error ([@janiversen] - [#100188]) ([modbus docs])
 - Bump hass-nabucasa from 0.70.0 to 0.71.0 ([@ludeeus] - [#100193]) ([cloud docs])
 
 [#100051]: https://github.com/home-assistant/core/pull/100051
