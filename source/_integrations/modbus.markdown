@@ -1564,7 +1564,7 @@ To write a float32 datatype register use network format like `10.0` == `0x412000
 service: modbus.write_register
 data:
   address: <target register address>
-  unit: <target slave address>
+  slave: <target slave address>
   hub: <hub name>
   value: [0x4120, 0x0000]
 ```
