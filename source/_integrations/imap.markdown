@@ -120,6 +120,8 @@ headers:
   description: The `headers` of the message in the for of a dictionary. The values are iterable as headers can occur more than once.
 custom:
   description: Holds the result of the custom event data [template](/docs/configuration/templating). All attributes are available as a variable in the template.
+initial:
+  description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message has not been changed then an `imap_content` event is generated and `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email the `initial` property will always be set to `True`.
 
 {% endconfiguration_basic %}
 
@@ -153,6 +155,7 @@ template:
           Sender: "{{ trigger.event.data['sender'] }}"
           Date: "{{ trigger.event.data['date'] }}"
           Subject: "{{ trigger.event.data['subject'] }}"
+          Initial: "{{ trigger.event.data['initial'] }}"
           To: "{{ trigger.event.data['headers'].get('Delivered-To', ['n/a'])[0] }}"
           Return-Path: "{{ trigger.event.data['headers'].get('Return-Path',['n/a'])[0] }}"
           Received-first: "{{ trigger.event.data['headers'].get('Received',['n/a'])[0] }}"
@@ -175,6 +178,7 @@ template:
         id: "custom_event"
         event_data:
           sender: "no-reply@smartconnect.apc.com"
+          initial: true
     sensor:
       - name: house_electricity
         state: >-
