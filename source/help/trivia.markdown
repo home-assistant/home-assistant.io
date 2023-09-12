@@ -22,6 +22,11 @@ The current logo was created by [Jeremy Geltman](https://jeremygeltman.com/). Fu
 
 Home Assistant is open source software and available under the [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license.
 
+## Hardware
+
+ - In September 2021, the first Home Assistant hardware project was launched: [Home Assistant Yellow](/yellow/), a dedicated, modular smart home hub to run Home Assistant. Home Assistant Yellow supports both Zigbee and Thread.
+ - End of 2022, [Home Assistant SkyConnect](skyconnect) was launched. SkyConnect is a USB dongle that provides Zigbee and Thread network support for hubs that do not have this built-in.
+
 ## Numbers
 
 This sections just contains some random numbers of the Home Assistant eco-system. Sorry, only the main repository counts.
