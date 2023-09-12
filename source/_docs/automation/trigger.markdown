@@ -378,7 +378,7 @@ automation:
       to: "error"
 ```
 
-Trigger on all state changes, but not attributes by setting `to` to `null`, `~`, or nothing:
+Trigger on all state changes, but not attributes by setting `to` to `null`:
 
 ```yaml
 automation:
