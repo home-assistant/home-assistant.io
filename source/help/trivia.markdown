@@ -24,8 +24,8 @@ Home Assistant is open source software and available under the [Apache 2.0](http
 
 ## Hardware
 
-- End of 2020, [Home Assistant Blue](/blue/) was launched. The first dedicated smart home hub for Home Assistant. This limited edition is known for its blue aluminum case with Home Assistant logo.
-- In September 2021, [Home Assistant Yellow](/yellow/) was launched: a dedicated, modular smart home hub to run Home Assistant. Home Assistant Yellow supports both Zigbee and Thread.
+- End of 2020, [Home Assistant Blue](/blue/) was launched. The first dedicated smart home hub for Home Assistant. This limited edition is based on an ODROID and known for its blue aluminum case.
+- In September 2021, [Home Assistant Yellow](/yellow/) was launched: a dedicated, extendable smart home hub to run Home Assistant. It is a custom, open-source design powered by a Raspberry Pi Compute Module 4. Home Assistant Yellow supports both Zigbee and Thread.
 - End of 2022, [Home Assistant SkyConnect](skyconnect) was launched: a USB dongle that provides Zigbee and Thread network support for hubs that do not have this built-in.
 
 ## Numbers
