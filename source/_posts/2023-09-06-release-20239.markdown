@@ -39,11 +39,13 @@ Bram
 - [Lawn mower](#lawn-mower)
 - [Group previews](#group-previews)
 - [Template sensors from the UI](#template-sensors-from-the-ui)
+- [Actions for trigger template entities](#actions-for-trigger-template-entities)
 - [Weather forecast service](#weather-forecast-service)
 - [Onboarding](#onboarding)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Release 2023.9.1 - September 8](#release-202391---september-8)
+- [Release 2023.9.2 - September 12](#release-202392---september-12)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -189,7 +191,7 @@ Screenshot of the weather more info dialog.
 
 With this change, the `forecast` attribute of the weather entity is deprecated, and will be removed in Home Assistant Core 2024.3.
 
-This will make it possible to have on-demand forecasts, that update when you want them to, instead of them being updated all the time. 
+This will make it possible to have on-demand forecasts, that update when you want them to, instead of them being updated all the time.
 It will also make the system faster; all state data gets sent to your browser or mobile app every time it is opened so the frontend has the latest states of your entities. The forecast attribute makes the state of weather entities very big, causing everything to be loaded slower.
 
 While the way to access this data has changed and may impact your automations, you will not experience any loss in functionality. Even with this change, rest assured that the forecast cards in your dashboard will still work, they will now just use the service to retrieve the forecast data asynchronously instead of reading it from the state attribute. The end result is that your dashboards will load faster, and the frontend will be leaner.
@@ -220,7 +222,7 @@ template:
 ## Onboarding
 
 While it is certain that Home Assistant is a great tool once you understand how it works, one part that was often overlooked is its associated learning curve.
-We are now actively working to flatten that curve so that you can get more from your home faster and simpler. 
+We are now actively working to flatten that curve so that you can get more from your home faster and simpler.
 This release shows the first result of that effort, a new onboarding flow.
 
 Something you probably have not seen for a while, but we gave our onboarding a fresh new look! It is shortened to get users in Home Assistant as fast as possible, so they can enjoy tinkering with their home faster!
@@ -429,6 +431,132 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 [zeroconf docs]: /integrations/zeroconf/
 [zha docs]: /integrations/zha/
 
+## Release 2023.9.2 - September 12
+
+- Remove modbus pragma no cover and solve nan ([@janiversen] - [#99221]) ([modbus docs])
+- Bugfix: Electric Kiwi reduce interval so oauth doesn't expire ([@mikey0000] - [#99489]) ([electric_kiwi docs])
+- Read modbus data before scan_interval ([@janiversen] - [#99243]) ([modbus docs])
+- Make modbus retry fast on read errors ([@janiversen] - [#99576]) ([modbus docs])
+- Fix Soma cover tilt ([@ratsept] - [#99717]) ([soma docs])
+- Cache device trigger info during ZHA startup ([@puddly] - [#99764]) ([zha docs])
+- Airthings BLE unique id migration ([@LaStrada] - [#99832]) ([airthings_ble docs])
+- Update RestrictedPython to 6.2 ([@cdce8p] - [#99955]) ([python_script docs])
+- Bump bleak to 0.21.1 ([@bdraco] - [#99960]) ([bluetooth docs])
+- Bump python-roborock to 33.2 ([@Lash-L] - [#99962]) ([roborock docs])
+- Handle disconnects in zwave_js repair flow ([@raman325] - [#99964]) ([zwave_js docs])
+- Bump plugwise to v0.32.2 ([@bouwew] - [#99973]) ([plugwise docs])
+- Bump bluetooth-auto-recovery to 1.2.3 ([@bdraco] - [#99979]) ([bluetooth docs])
+- Avoid probing ipp printers for unique_id when it is available via mdns ([@bdraco] - [#99982]) ([ipp docs])
+- Bump pymodbus to v3.5.2 ([@janiversen] - [#99988]) ([modbus docs])
+- Bump pywaze to 0.4.0 ([@eifinger] - [#99995]) ([waze_travel_time docs])
+- Bump systembridgeconnector to 3.8.2 ([@timmo001] - [#100051]) ([system_bridge docs])
+- Bump aiovodafone to 0.2.0 ([@chemelli74] - [#100062]) ([vodafone_station docs])
+- Remove Comelit alarm data retrieval ([@chemelli74] - [#100067]) ([comelit docs])
+- Fix addon slug validation ([@mdegat01] - [#100070]) ([hassio docs])
+- Remove duplicated word in enphase description text ([@greiginsydney] - [#100098]) ([enphase_envoy docs])
+- Fix TriggerEntity.async_added_to_hass ([@emontnemery] - [#100119]) ([template docs])
+- Bump hatasmota to 0.7.2 ([@emontnemery] - [#100129]) ([tasmota docs])
+- Update frontend to 20230911.0 ([@bramkragten] - [#100139]) ([frontend docs])
+- Fix devices not always reporting IP - bump aiounifi to v62 ([@Kane610] - [#100149]) ([unifi docs])
+- Fix AVM Fritz!Tools update entity ([@mib1185] - [#100151]) ([fritz docs])
+- Bump ZHA dependencies ([@puddly] - [#100156]) ([zha docs])
+- Bump zwave-js-server-python to 0.51.2 ([@raman325] - [#100159]) ([zwave_js docs])
+- Adjust tasmota sensor device class and icon mapping ([@emontnemery] - [#100168]) ([tasmota docs])
+- Bump hatasmota to 0.7.3 ([@emontnemery] - [#100169]) ([tasmota docs])
+- Bump Ultraheat to version 0.5.7 ([@vpathuis] - [#100172]) ([landisgyr_heat_meter docs])
+- Fix entity name attribute on mqtt entity is not removed on update ([@jbouwh] - [#100187]) ([mqtt docs])
+- Bump hass-nabucasa from 0.70.0 to 0.71.0 ([@ludeeus] - [#100193]) ([cloud docs])
+
+[#100051]: https://github.com/home-assistant/core/pull/100051
+[#100062]: https://github.com/home-assistant/core/pull/100062
+[#100067]: https://github.com/home-assistant/core/pull/100067
+[#100070]: https://github.com/home-assistant/core/pull/100070
+[#100098]: https://github.com/home-assistant/core/pull/100098
+[#100119]: https://github.com/home-assistant/core/pull/100119
+[#100129]: https://github.com/home-assistant/core/pull/100129
+[#100139]: https://github.com/home-assistant/core/pull/100139
+[#100149]: https://github.com/home-assistant/core/pull/100149
+[#100151]: https://github.com/home-assistant/core/pull/100151
+[#100156]: https://github.com/home-assistant/core/pull/100156
+[#100159]: https://github.com/home-assistant/core/pull/100159
+[#100168]: https://github.com/home-assistant/core/pull/100168
+[#100169]: https://github.com/home-assistant/core/pull/100169
+[#100172]: https://github.com/home-assistant/core/pull/100172
+[#100187]: https://github.com/home-assistant/core/pull/100187
+[#100188]: https://github.com/home-assistant/core/pull/100188
+[#100193]: https://github.com/home-assistant/core/pull/100193
+[#99221]: https://github.com/home-assistant/core/pull/99221
+[#99243]: https://github.com/home-assistant/core/pull/99243
+[#99489]: https://github.com/home-assistant/core/pull/99489
+[#99576]: https://github.com/home-assistant/core/pull/99576
+[#99717]: https://github.com/home-assistant/core/pull/99717
+[#99741]: https://github.com/home-assistant/core/pull/99741
+[#99764]: https://github.com/home-assistant/core/pull/99764
+[#99832]: https://github.com/home-assistant/core/pull/99832
+[#99950]: https://github.com/home-assistant/core/pull/99950
+[#99955]: https://github.com/home-assistant/core/pull/99955
+[#99960]: https://github.com/home-assistant/core/pull/99960
+[#99962]: https://github.com/home-assistant/core/pull/99962
+[#99964]: https://github.com/home-assistant/core/pull/99964
+[#99973]: https://github.com/home-assistant/core/pull/99973
+[#99979]: https://github.com/home-assistant/core/pull/99979
+[#99982]: https://github.com/home-assistant/core/pull/99982
+[#99988]: https://github.com/home-assistant/core/pull/99988
+[#99995]: https://github.com/home-assistant/core/pull/99995
+[@Kane610]: https://github.com/Kane610
+[@LaStrada]: https://github.com/LaStrada
+[@Lash-L]: https://github.com/Lash-L
+[@bdraco]: https://github.com/bdraco
+[@bouwew]: https://github.com/bouwew
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@chemelli74]: https://github.com/chemelli74
+[@eifinger]: https://github.com/eifinger
+[@emontnemery]: https://github.com/emontnemery
+[@greiginsydney]: https://github.com/greiginsydney
+[@janiversen]: https://github.com/janiversen
+[@jbouwh]: https://github.com/jbouwh
+[@ludeeus]: https://github.com/ludeeus
+[@mdegat01]: https://github.com/mdegat01
+[@mib1185]: https://github.com/mib1185
+[@mikey0000]: https://github.com/mikey0000
+[@puddly]: https://github.com/puddly
+[@raman325]: https://github.com/raman325
+[@ratsept]: https://github.com/ratsept
+[@timmo001]: https://github.com/timmo001
+[@vpathuis]: https://github.com/vpathuis
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[adax docs]: /integrations/adax/
+[adguard docs]: /integrations/adguard/
+[ads docs]: /integrations/ads/
+[airthings_ble docs]: /integrations/airthings_ble/
+[bluetooth docs]: /integrations/bluetooth/
+[cloud docs]: /integrations/cloud/
+[comelit docs]: /integrations/comelit/
+[electric_kiwi docs]: /integrations/electric_kiwi/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[fritz docs]: /integrations/fritz/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[ipp docs]: /integrations/ipp/
+[landisgyr_heat_meter docs]: /integrations/landisgyr_heat_meter/
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[plugwise docs]: /integrations/plugwise/
+[python_script docs]: /integrations/python_script/
+[roborock docs]: /integrations/roborock/
+[soma docs]: /integrations/soma/
+[system_bridge docs]: /integrations/system_bridge/
+[tasmota docs]: /integrations/tasmota/
+[template docs]: /integrations/template/
+[unifi docs]: /integrations/unifi/
+[vodafone_station docs]: /integrations/vodafone_station/
+[waze_travel_time docs]: /integrations/waze_travel_time/
+[zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -602,7 +730,7 @@ triggered if there is no change.
 
 The CPU load sensor has been replaced, it is not a list of 3 values anymore,
 but there are now three single sensors for
-CPU load within last 1, 5, and 15 minutes. 
+CPU load within last 1, 5, and 15 minutes.
 
 ([@mib1185] - [#99141]) ([documentation](/integrations/nextcloud))
 
