@@ -121,7 +121,7 @@ headers:
 custom:
   description: Holds the result of the custom event data [template](/docs/configuration/templating). All attributes are available as a variable in the template.
 initial:
-  description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message has not been changed then an `imap_content` event is generated and `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email the `initial` property will always be set to `True`.
+  description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message received has not been changed, then an `imap_content` event is generated and the `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email, the `initial` property will always be set to `True`.
 
 {% endconfiguration_basic %}
 
