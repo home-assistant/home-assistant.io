@@ -34,13 +34,13 @@ Partners who purchase their energy through EnergyZero:
 {% include integrations/option_flow.md %}
 
 {% configuration %}
-gas_modifyer:
-  description: Gas price modifyer template that is used to customize the price.
+gas_modifier:
+  description: Gas price modifier template that is used to customize the price.
   required: false
   type: string
   default:
-energy_modifyer:
-  description: Energy price modifyer template that is used to customize the price.
+energy_modifier:
+  description: Energy price modifier template that is used to customize the price.
   required: false
   type: string
   default:
