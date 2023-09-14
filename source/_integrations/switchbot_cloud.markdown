@@ -18,7 +18,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The SwitchBot Cloud integration allows you to control SwitchBot [devices](https://www.switch-bot.com/). It will automatically discover devices accessible by the hub and remotes configured in the hub using the SwitchBot API.
+The SwitchBot Cloud integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub. It will automatically discover devices accessible by the hub and remotes configured in the hub using the SwitchBot API.
 
 ## Prerequisites
 
