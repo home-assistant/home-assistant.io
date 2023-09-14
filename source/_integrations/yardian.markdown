@@ -45,21 +45,3 @@ Stop a zone.
 | Service Data Attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `entity_id`            | no       | The Yardian Zone switch to turn off.                  |
-
-## Configuration
-
-You can do some customization through the `configuration.yaml` file.
-
-### Watering Duration
-
-To customize the watering duration for an Yardian Zone switch `entity_id`.
-For those Yardian Zone switch which are not given this value, the duration will be set to 6 minutes by default.
-
-```yaml
-# Example of customizing the watering duration
-yardian:
-  duration:
-    switch.yardian_smart_sprinkler_myzone1: 12
-    switch.yardian_smart_sprinkler_myzone2: 24
-    switch.yardian_smart_sprinkler_myzone3: 30
-```
