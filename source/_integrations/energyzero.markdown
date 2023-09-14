@@ -31,6 +31,15 @@ Partners who purchase their energy through EnergyZero:
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Gas price modifyer template:
+  description: "A template to alter the prices. Can be used to add VAT or custom purchase costs"
+Energy price modifyer template:
+  description: "A template to alter the prices. Can be used to add VAT or custom purchase costs"
+{% endconfiguration_basic %}
+
 ## Sensors
 
 The EnergyZero integration creates a number of sensor entities for both gas and electricity prices.
