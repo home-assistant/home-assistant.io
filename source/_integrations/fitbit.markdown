@@ -8,11 +8,18 @@ ha_release: 0.19
 ha_domain: fitbit
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Fitbit sensor allows you to expose data from [Fitbit](https://fitbit.com/) to Home Assistant.
 
-Prior to enabling the sensor, your Home Assistant instance must be enabled with SSL, using services such as [Home Assistant cloud](/cloud/) or [Duck DNS](/integrations/duckdns/) integrating Let's Encrypt. Fitbit will not allow insecure integrations. Your Fitbit account must also be registered as an Developer account at the [Fitbit Developer Portal](https://dev.fitbit.com), and have a verified email address. 
+Prior to enabling the sensor, your Home Assistant instance must be enabled with SSL, using services such as [Home Assistant cloud](/cloud/) or [Duck DNS](/integrations/duckdns/) integrating Let's Encrypt. Fitbit will not allow insecure integrations.
+
+<div class='note'>
+There is no need for Access from the Internet to Home Assistant for this Integration to work. Home Assistant can only be accessible from the internal Network or via VPN. But a Certificate is required in any case.
+</div>
+
+Your Fitbit account must also be registered as an Developer account at the [Fitbit Developer Portal](https://dev.fitbit.com), and have a verified email address. 
 
 Enable the sensor by adding the following to your `configuration.yaml` file:
 

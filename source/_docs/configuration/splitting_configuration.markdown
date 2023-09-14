@@ -20,8 +20,8 @@ homeassistant:
   # Location required to calculate the time the sun rises and sets
   latitude: 37
   longitude: -121
-  # 'metric' for Metric, 'imperial' for Imperial
-  unit_system: imperial
+  # 'metric' for Metric, 'us_customary' for US Customary
+  unit_system: us_customary
   # Pick yours from here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: "America/Los_Angeles"
   customize: !include customize.yaml
@@ -43,16 +43,15 @@ http:
 ifttt:
   key: ["nope"]
 
-zwave:
-  usb_path: "/dev/ttyUSB0"
-  config_path: "/usr/local/share/python-openzwave/config"
-  polling_interval: 10000
-
 mqtt:
-  broker: 127.0.0.1
+  sensor:
+    - name: "test sensor 1"
+      state_topic: "test/some_topic1"
+    - name: "test sensor 2"
+      state_topic: "test/some_topic2"
 ```
 
-As with the core snippet, indentation makes a difference. The integration headers (`mqtt:`) should be fully left aligned (aka no indent), and the parameters (`broker:`) should be indented two (2) spaces.
+As with the core snippet, indentation makes a difference. The integration headers (`mqtt:`) should be fully left aligned (aka no indent), and the key (`sensor:`) should be indented two (2) spaces. The list `-` under the key `sensor` should be indented another two (2) spaces followed by a single space. The `mqtt` sensor list contains two (2) configurations containing two (2) keys each.
 
 While some of these integrations can technically be moved to a separate file they are so small or "one off's" where splitting them off is superfluous. Also, you'll notice the # symbol (hash/pound). This represents a "comment" as far as the commands are interpreted. Put another way, any line prefixed with a `#` will be ignored. This makes breaking up files for human readability really convenient, not to mention turning off features while leaving the entry intact.
 
@@ -81,7 +80,9 @@ device_tracker: !include device_tracker.yaml
 
 Nesting `!include`s (having an `!include` within a file that is itself `!include`d) will also work.
 
-You can, as well, have multiple top-level `!include`s for a given integration, if you give a different label to each one:
+Some integrations support multiple top-level `!include`s, this includes integrations defining an IoT domain, e.g. `light`, `switch`, `sensor` as well as the `automation`, `script` and `template` integrations, if you give a different label to each one. Configuration for other integrations can instead be split up by using packages. To learn more about packages, see the [Packages](/docs/configuration/packages) page.
+
+Example of multiple top-level keys for the `light` platform.
 
 ```yaml
 light:
@@ -164,7 +165,7 @@ This (large) sensor configuration gives us another example:
 - platform: steam_online
   api_key: ["not telling"]
   accounts:
-      - 76561198012067051
+    - 76561198012067051
 
 #### TIME/DATE ##################################
 - platform: time_date
@@ -210,7 +211,7 @@ This will allow you to `!include` files with `.yml` extensions from within the `
 - `!include_dir_merge_list` will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
 - `!include_dir_merge_named` will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
 
-These work recursively. As an example using `!include_dir_* automation`, will include all 6 files shown below:
+These work recursively. As an example using `!include_dir_list automation`, will include all 6 files shown below:
 
 ```bash
 .

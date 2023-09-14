@@ -13,10 +13,11 @@ ha_release: 0.25
 ha_domain: flux_led
 ha_platforms:
   - button
+  - diagnostics
   - light
   - number
-  - sensor
   - select
+  - sensor
   - switch
 ha_codeowners:
   - '@icemanch'
@@ -24,9 +25,10 @@ ha_codeowners:
 ha_quality_scale: platinum
 ha_config_flow: true
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
-The Magic Home integration supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app.
+The Magic Home integration supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app or the Surp Life app.
 
 This integration will provide local control over your LED lights/strips and can be configured to auto-scan your network for controllers or for you to manually configure individual lights by their IP address.
 
@@ -34,7 +36,7 @@ Example of bulbs:
 
 - [MagicLight Smart Bulbs](https://www.magiclightbulbs.com/lightbulbs) or [Amazon](https://www.amazon.com/gp/product/B081YJHHB1/)
 - [RGBCW Downlights](https://www.amazon.com/gp/product/B093Q83G7S/)
-- [RGBCW Floodlights](https://www.amazon.com/gp/product/B09J38NKPN)
+- [RGBCW Floodlights](https://www.amazon.com/dp/product/B08CDS3N6H)
 
 Examples of controllers with strips:
 
@@ -45,7 +47,7 @@ Examples of controllers:
 - [Single color](https://www.amazon.com/gp/product/B07J5B3R5L/)
 - [RGB](https://www.amazon.com/gp/product/B07C1LN7FZ/)
 - [RGBW](https://www.amazon.com/gp/product/B07J9QCQNN/)
-- [RGBCW](https://www.amazon.com/gp/product/B09BMC4JNJ/)
+- [RGBCW](https://www.amazon.co.uk/gp/product/B09BMC4JNJ/)
 - [RGB/W/CW](https://www.amazon.com/gp/product/B01DY56N8U/)
 
 Examples of addressable controllers:
@@ -81,7 +83,7 @@ These devices have been sold under at least the following brands:
 - [Diode Dynamics](https://www.diodedynamics.com/)
 - [Flux LED](https://www.fluxsmartlighting.com/)
 - [FVTLED](https://fvtled.com/)
-- [GEV LIG](https://www.gev.de/)
+- GEV LIG
 - GEYUEYA Home
 - GIDEALED
 - [GIDERWEL](https://giderwel.com/)
@@ -96,7 +98,7 @@ These devices have been sold under at least the following brands:
 - INDARUN
 - iNextStation
 - [Koopower](https://www.koopower.com/)
-- [Lallumer](https://www.lapuretes.cn/)
+- Lallumer
 - LEDENET
 - [LiteWRX](https://litewrx.com/)
 - Lytworx
@@ -108,7 +110,7 @@ These devices have been sold under at least the following brands:
 - Mowelai
 - Nexlux
 - OBSESS
-- [Offdarks](http://offdarks.net)
+- Offdarks
 - PH LED
 - PHOPOLLO
 - [Pin Stadium Pinball Lights](https://pinstadium.com/)
@@ -118,6 +120,7 @@ These devices have been sold under at least the following brands:
 - SMFX
 - [Sumaote](https://fvtled.com/)
 - [Superhome](https://superhome.com.cy/)
+- [SurpLife](http://www.zengge.com/newbrand)
 - [SuperlightingLED](https://www.superlightingled.com/)
 - Svipear
 - Tommox
@@ -129,7 +132,7 @@ These devices have been sold under at least the following brands:
 
 {% include integrations/config_flow.md %}
 
-After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
+After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Settings -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
 
 **Custom Effect**\
 A list of RGB colors can be entered to create an effect. The effect speed can be adjusted using the slider underneath.
@@ -170,10 +173,10 @@ The following models have been tested.
 | 0x97  | Socket                      | no         |                                 |
 | 0xA1  | Addressable v1              | no         | Supports UCS1903, SM16703, WS2811, WS2812B, SK6812, INK1003, WS2801, LB1914 |
 | 0xA2  | Addressable v2              | yes        | Supports UCS1903, SM16703, WS2811, WS2811B, SK6812, INK1003, WS2801, WS2815, APA102, TM1914, UCS2904B |
-| 0xA3  | Addressable v3              | yes        | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW, INK1003, UCS2904B |
-| 0xA4  | Addressable v4              | no         | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW, INK1003, UCS2904B |
-| 0xA6  | Addressable v6              | yes        | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW, INK1003, UCS2904B |
-| 0xA7  | Addressable v7              | yes        | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW, INK1003, UCS2904B |
+| 0xA3  | Addressable v3              | yes        | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW (WS2814), INK1003, UCS2904B |
+| 0xA4  | Addressable v4              | no         | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW (WS2814), INK1003, UCS2904B |
+| 0xA6  | Addressable v6              | yes        | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW (WS2814), INK1003, UCS2904B |
+| 0xA7  | Addressable v7              | yes        | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW (WS2814), INK1003, UCS2904B |
 | 0xE1  | Ceiling Light CCT           | no         |                                 |
 | 0xE2  | Ceiling Light Assist        | no         | Auxiliary Switch not supported  |
 

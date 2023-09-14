@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: lacrosse
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `lacrosse` sensor platform is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
@@ -16,6 +17,7 @@ The `lacrosse` sensor platform is using the data provided by a [Jeelink](https:/
 
 - Technoline TX 29 IT (temperature only)
 - Technoline TX 29 DTH-IT (including humidity)
+- TFA Dostmann LaCrosse sensors (type 30.3147.IT)
 
 ## Setup
 

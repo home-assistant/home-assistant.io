@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: rtorrent
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `rtorrent` platform allows you to monitor your downloads with [rTorrent](https://rakshasa.github.io/rtorrent/) from within Home Assistant and setup automations based on the information.

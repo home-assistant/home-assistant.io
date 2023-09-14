@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.9
 ha_quality_scale: internal
 ha_domain: binary_sensor
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: entity
 ---
 
 Binary sensors are similar to other [sensors](/integrations/sensor) in that they
@@ -27,18 +30,16 @@ or using an [input boolean helper](/integrations/input_boolean),
 ### Device Class
 
 Knowing a sensor is binary impacts how the sensor's current state may be
-represented in Home Assistant's UI (see [Lovelace](/lovelace/)). Opposing states
+represented in Home Assistant's UI (see [Dashboards](/dashboards/)). Opposing states
 may be given different icons, colors, and value labels to highlight a particular
 state over the other. This is set by the binary sensor's device class.
 
 Here are a few examples of this representation in the UI:
 
-<p class='img'>
-<img src='/images/screenshots/binary_sensor_classes_icons.png' />
+![List of binary sensors](/images/screenshots/binary_sensor_classes_icons.png)
 Example of various device classes icons in `on` and `off` state. The on image
 in this example has `state_color: true` specified in the Entities card
 configuration to receive the icon coloring.
-</p>
 
 The full list of supported binary sensor device classes is below
 *(note: these may also be modified in the [customizing section](/docs/configuration/customizing-devices)).*
@@ -58,7 +59,7 @@ The full list of supported binary sensor device classes is below
 - **moisture**: `on` means moisture detected (wet), `off` means no moisture (dry)
 - **motion**: `on` means motion detected, `off` means no motion (clear)
 - **moving**: `on` means moving, `off` means not moving (stopped)
-- **occupancy**: `on` means occupied, `off` means not occupied (clear)
+- **occupancy**: `on` means occupied (detected), `off` means not occupied (clear)
 - **opening**: `on` means open, `off` means closed
 - **plug**: `on` means device is plugged in, `off` means device is unplugged
 - **power**: `on` means power detected, `off` means no power

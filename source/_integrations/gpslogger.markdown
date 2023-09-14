@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_domain: gpslogger
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 This integration sets up integration with [GPSLogger](https://gpslogger.app/). GPSLogger is an open source app for Android that allows users to update your location in Home Assistant.
@@ -19,7 +20,7 @@ To configure GPSLogger, you must set it up via the integrations panel in the con
 
 ## Setup on your smartphone
 
-Install GPSLogger for Android from [GitHub](https://github.com/mendhak/gpslogger/releases) or [F-Droid](https://f-droid.org/en/packages/com.mendhak.gpslogger/) on your device.
+Install GPSLogger for Android from [GitHub](https://github.com/mendhak/gpslogger/releases) or [F-Droid](https://f-droid.org/packages/com.mendhak.gpslogger/) on your device.
 
 After the launch, go to **General Options**. Enable **Start on bootup** and **Start on app launch**.
 

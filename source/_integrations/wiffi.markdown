@@ -13,6 +13,7 @@ ha_domain: wiffi
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 This integration allows you to connect your [STALL WIFFI](https://stall.biz) devices directly to Home Assistant.

@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: aten_pe
 ha_platforms:
   - switch
+ha_integration_type: integration
 ---
 
 The `aten_pe` integration lets you control [ATEN Rack PDUs](https://www.aten.com/eu/en/products/energy-intelligence-pduupsracks/rack-pdu/) from Home Assistant.
@@ -18,7 +19,7 @@ In order to use it, SNMP must be enabled on your PDU. It is recommended to use S
 
 Tested devices:
 
-* [PE8324G](https://www.aten.com/eu/en/products/energy-intelligence-pduupsracks/rack-pdu/pe8324/)
+- [PE8324G](https://www.aten.com/eu/en/products/energy-intelligence-pduupsracks/rack-pdu/pe8324/)
 
 To set it up, add the following information to your `configuration.yaml` file:
 

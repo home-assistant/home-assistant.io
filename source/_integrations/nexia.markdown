@@ -3,9 +3,9 @@ title: Nexia/American Standard/Trane
 description: Instructions on how to integrate Trane and American Standard thermostats into Home Assistant.
 ha_category:
   - Binary Sensor
-  - Sensor
   - Climate
   - Scene
+  - Sensor
   - Switch
 ha_release: 0.108
 ha_iot_class: Cloud Polling
@@ -17,9 +17,11 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
   - scene
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com/) (Trane) thermostats or [American Standard](https://asairhome.com/) thermostats into Home Assistant.
@@ -68,6 +70,10 @@ The following American Standard thermostats have been reported to work: `AZONE10
 The following thermostats are not supported: `XL624`, `XL950`, `AZONE950`, `AZEMT500`, `AZEMT400B`
 
 Other thermostats may work, but they have not been tested.
+
+### Number
+
+The number platform lets you adjust the fan speed on systems with variable-speed fan support.
 
 ### Scene
 

@@ -6,6 +6,7 @@ show_title: true
 toc: true
 ---
 
+{% include installation_survey.html %}
 
 <div class="intro">
     <p>
@@ -37,7 +38,23 @@ toc: true
 </div>
 
 <div class="installations">
-
+    <h2>Home Assistant Yellow</h2>
+    <a href="/installation/yellow" class="installations-card">
+        <div class="material-card text">
+            <div class="content-container">
+                <div>
+                    <img src="/images/installation/yellow-logo-square.png">
+                </div>
+                <div>
+                    <b>Home Assistant Yellow</b>
+                    <ul>
+                        <li>Home Assistant Operating System</li>
+                    </ul>
+                </div>
+            </div>
+            {% include assets/chevron_right.html %}
+        </div>
+    </a>
     <h2>Raspberry Pi</h2>
     <a href="/installation/raspberrypi" class="installations-card">
         <div class="material-card text">
@@ -204,7 +221,7 @@ toc: true
         <td>✅</td><td>✅</td><td>✅</td><td>✅</td>
     </tr>
     <tr>
-        <td><a href="/lovelace" target="_blank">Lovelace</a></td>
+        <td><a href="/dashboards" target="_blank">Dashboards</a></td>
         <td>✅</td><td>✅</td><td>✅</td><td>✅</td>
     </tr>
     <tr>
@@ -228,13 +245,20 @@ toc: true
         <td>✅</td><td>❌</td><td>❌</td><td>✅</td>
     </tr>
     <tr>
-        <td><a href="/common-tasks/supervised/#backups" target="_blank">Backups</a></td>
-        <td>✅</td><td>❌</td><td>❌</td><td>✅</td>
+        <td><a href="/common-tasks/os/#backups" target="_blank">Backups</a></td>
+        <td>✅</td><td>✅<sup>1</sup></td><td>✅<sup>1</sup></td><td>✅</td>
+    </tr>
+    <tr>
+        <td>Managed Restore</td>
+        <td>✅</td><td>❌<sup>2</sup></td><td>❌<sup>2</sup></td><td>✅</td>
     </tr>
     <tr>
         <td>Managed OS</td>
         <td>✅</td><td>❌</td><td>❌</td><td>❌</td>
     </tr>
 </table>
+
+<sub>1: Backups for Home Assistant Core and Home Assistant Container is provided by the <a href="/integrations/backup" target="_blank"><code>backup</code> integration</a>.</sub>
+<sub>2: Backups for Home Assistant Core and Home Assistant Container are either a tool to migrate to HAOS or a completely manual restore of the backup.</sub>
 
 {% include getting-started/next_step.html step="onboarding" link="/getting-started/onboarding" %}

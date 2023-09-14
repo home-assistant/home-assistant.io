@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: stiebel_eltron
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 The `stiebel_eltron` integration lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
@@ -47,7 +48,7 @@ The following preset modes are supported. The STIEBEL ELTRON modes are mapped an
 
 ## Configuration
 
-To enable this component, add the following lines to your `configuration.yaml` file:
+To enable this integration, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

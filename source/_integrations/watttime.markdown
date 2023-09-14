@@ -12,9 +12,10 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - sensor
+ha_integration_type: service
 ---
 
-The `watttime` integration allows users to get real-time emissions data for a latitude/longitude from [WattTime](https://www.watttime.org).
+The WattTime integration allows users to get real-time emissions data for a latitude/longitude from [WattTime](https://www.watttime.org).
 
 ## Registering an Account
 
@@ -22,8 +23,8 @@ WattTime account registration is accomplished [via the REST API itself](https://
 
 ```bash
 curl -X "POST" "https://api2.watttime.org/v2/register" \
-     -H 'Content-Type: application/json; charset=utf-8' \
-     -d $'{
+     -H 'Content-Type: application/json' \
+     -d '{
        "username": "<USERNAME>",
        "password": "<PASSWORD>",
        "email": "<EMAIL>",
@@ -42,11 +43,11 @@ The sensors available to you will depend on the type of WattTime subscription yo
 </div>
 
 | Name                                  | Subscription Level | Meaning                                                                                                     |
-|---------------------------------------|--------------------|-------------------------------------------------------------------------------------------------------------|
+| ------------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------- |
 | Marginal Operating Emissions Rate     | Pro                | The currently measured amount of lbs of CO2 per MWh                                                         |
 | Relative Marginal Emissions Intensity | All                | A percentage between the lowest (cleanest) and highest (highest) MOER values observed in the past two weeks |
 
 You can learn more about the data that WattTime collects by viewing these articles:
 
-* https://www.watttime.org/aer/what-is-aer/
-* https://www.watttime.org/aer/how-aer-works/
+- https://www.watttime.org/aer/what-is-aer/
+- https://www.watttime.org/aer/how-aer-works/

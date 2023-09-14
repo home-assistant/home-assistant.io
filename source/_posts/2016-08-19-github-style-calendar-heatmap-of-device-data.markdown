@@ -19,4 +19,4 @@ Heatmap
 
 [heatmap]: https://en.wikipedia.org/wiki/Heat_map
 [Jupyter notebook]: https://jupyter.org/
-[nb-prev]: https://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/other/DataExploration-2/DataExploration-2.ipynb
+[nb-prev]: https://nbviewer.org/github/home-assistant/home-assistant-notebooks/blob/master/other/DataExploration-2/DataExploration-2.ipynb

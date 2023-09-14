@@ -6,9 +6,10 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.31
 ha_domain: emoncms_history
+ha_integration_type: integration
 ---
 
-The `emoncms_history` integration makes it possible to transfer details collected with Home Assistant to [Emoncms.org](https://emoncms.org/) or your local running Emoncms instance. It will send the data to a specific input node on Emoncms with the entity IDs as a key. Afterwards you can create feeds and dashboards in Emoncms with the collected data.
+The `emoncms_history` integration makes it possible to transfer (write) details collected with Home Assistant to [Emoncms.org](https://emoncms.org/) or your local running Emoncms instance. It will send the data to a specific input node on Emoncms with the entity IDs as a key. Afterwards you can create feeds and dashboards in Emoncms with the collected data.
 
 To use the `emoncms_history` integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -23,17 +24,19 @@ emoncms_history:
     - sensor.owm_wind_speed
 ```
 
+To read information from Emoncms to Home Assistant, you can use the [`emoncms`](/integrations/emoncms) integration.
+
 {% configuration %}
 api_key:
-  description: Your Emoncms write API key
+  description: The write API key for your Emoncms user.
   required: true
   type: string
 url:
-  description: The root URL of your Emoncms installation. (Use `https://emoncms.org` for the cloud based version)
+  description: "The base URL of Emoncms, use <https://emoncms.org> for the cloud-based version. For self-hosted Emoncms or EmonPi you may need a URL of `http://x.x.x.x/emoncms`."
   required: true
   type: string
 inputnode:
-  description:  Input node that will be used inside Emoncms. Please make sure you use a dedicated, not used before, node for this component!
+  description: Input node that will be used inside Emoncms. Please make sure you use a dedicated, not used before, node for this integration!
   required: true
   type: integer
 whitelist:

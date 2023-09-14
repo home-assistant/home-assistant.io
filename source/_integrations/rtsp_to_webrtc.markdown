@@ -11,15 +11,14 @@ ha_codeowners:
 ha_domain: rtsp_to_webrtc
 ha_platforms:
   - diagnostics
+ha_integration_type: integration
 ---
 
 The RTSPtoWebRTC integration registers with [camera integration](/integrations/camera) to provide WebRTC live streams for any RTSP camera. The integration initiates a connection to a [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) or [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
 
 The integration configuration requires the URL to your server (e.g. `http://example.com:8083`) and will automatically discover which type of server you have.
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6hJXenSZJ5M" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="6hJXenSZJ5M" videotitle="Real Time Camera Viewing using RTSPtoWeb and Glance Cards in Home Assistant." posterquality="maxresdefault"></lite-youtube>
 
 {% include integrations/config_flow.md %}
 
@@ -31,7 +30,7 @@ RTSPtoWebRTC registers with the camera integration to override the camera attrib
 
 See [WebRTC](https://webrtc.org/) for more technical details on the open standard for real-time communication. Here is a short summary of how it works:
 
-- The Home Assistant Frontend is a WebRTC client. This just means there is some javascript for initiating a WebRTC stream which creates an *offer*.
+- The Home Assistant Frontend is a WebRTC client. This just means there is some JavaScript for initiating a WebRTC stream which creates an *offer*.
 - The `webrtc` integration is responsible for *signaling*, passing the *offer* and an RTSP URL to the *RTSPtoWebRTC* server.
 - The *RTSPtoWeb{RTC}* server opens the RTSP URL, and returns back an *answer*.
 - The Frontend accepts the answer and then establishes a *peer connection* to the *RTSPtoWebRTC* server.

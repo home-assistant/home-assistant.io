@@ -12,6 +12,7 @@ ha_codeowners:
   - '@gjohansson-ST'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.
@@ -28,7 +29,7 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 
 {% include integrations/config_flow.md %}
 
-## Entities provided by the integration is
+## Entities provided by the integration
 - Air temperature.
 - Road temperature.
 - Relative humidity.

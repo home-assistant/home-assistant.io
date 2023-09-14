@@ -8,6 +8,7 @@ ha_release: 0.37
 ha_domain: avion
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 Support for the Avi-on Bluetooth dimmer switch [Avi-on](https://avi-on.com/).
@@ -34,7 +35,7 @@ light:
   - platform: avion
 ```
 
-There are two ways to configure this component: username & password, or list of devices. You must choose one.
+There are two ways to configure this integration: username & password, or list of devices. You must choose one.
 
 {% configuration %}
 username:

@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: config
 ha_platforms:
   - scene
+ha_integration_type: system
 ---
 
 The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.
@@ -43,7 +44,7 @@ This section enables you to control Home Assistant from within Home Assistant. C
 
 ### Persons
 
-This section enables you to associate users with their device tracker entities using the person component.
+This section enables you to associate users with their device tracker entities using the person integration.
 
 ### Entities
 

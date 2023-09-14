@@ -2,9 +2,9 @@
 title: Amcrest
 description: Instructions on how to integrate Amcrest (or Dahua) IP cameras within Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Camera
+  - Hub
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.49
@@ -16,6 +16,7 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@flacjacket'
+ha_integration_type: integration
 ---
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.
@@ -47,7 +48,7 @@ host:
   required: true
   type: string
 username:
-  description: The username for accessing your camera.
+  description: The username for accessing your camera. Most Amcrest devices use "admin" for the username, even if you've configured another username in their app.
   required: true
   type: string
 password:
@@ -85,7 +86,7 @@ stream_source:
   default: snapshot
 ffmpeg_arguments:
   description: >
-    Extra options to pass to ffmpeg, e.g.,
+    Extra options to pass to FFmpeg, e.g.,
     image quality or video filter options.
   required: false
   type: string
@@ -199,7 +200,7 @@ Available services:
 `start_tour`, `stop_tour`, and
 `ptz_control`
 
-#### Service `enable_audio`/`disable_audio`
+### Service `enable_audio`/`disable_audio`
 
 These services enable or disable the camera's audio stream.
 
@@ -207,7 +208,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
-#### Service `enable_motion_recording`/`disable_motion_recording`
+### Service `enable_motion_recording`/`disable_motion_recording`
 
 These services enable or disable the camera to record a clip to its configured storage location when motion is detected.
 
@@ -215,7 +216,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
-#### Service `enable_recording`/`disable_recording`
+### Service `enable_recording`/`disable_recording`
 
 These services enable or disable the camera to continuously record to its configured storage location.
 
@@ -223,7 +224,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
-#### Service `goto_preset`
+### Service `goto_preset`
 
 This service will cause the camera to move to one of the PTZ locations configured within the camera.
 
@@ -232,7 +233,7 @@ Service data attribute | Optional | Description
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 `preset` | no | Preset number, starting from 1.
 
-#### Service `set_color_bw`
+### Service `set_color_bw`
 
 This service will set the color mode of the camera.
 
@@ -241,7 +242,7 @@ Service data attribute | Optional | Description
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 `color_bw` | no | One of `auto`, `bw` or `color`.
 
-#### Service `start_tour`/`stop_tour`
+### Service `start_tour`/`stop_tour`
 
 These services start or stop the camera's PTZ tour function.
 
@@ -249,7 +250,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
-#### Service `ptz_control`
+### Service `ptz_control`
 
 If your Amcrest or Dahua camera supports PTZ, you will be able to pan, tilt or zoom your camera.  
 
@@ -259,12 +260,12 @@ Service data attribute | Optional | Description
  `movement` | no | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`,  `left_down`
  `travel_time` | yes |Travel time in fractional seconds. Allowed values: `0` to `1`. Default: `0.2`.
 
-#### Notes
+## Notes
 
 - PTZ zoom capability does not control VariFocal lens adjustments.
 - There can be several seconds of lag before the video (snapshot or live) reflects the camera movement.
 
-### Example card with controls
+## Example card with controls
 
 <p class='img'>
   <img src='/images/integrations/amcrest/amcrest_ptz.jpg' alt='Screenshot using a picture-elements with PTZ controls.'>
@@ -390,7 +391,7 @@ elements:
     hold_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: zoom_out
 ```
@@ -421,6 +422,27 @@ amcrest:
     stream_source: snapshot
     sensors:
       - ptz_preset
+```
+
+## Example Automation to Detect Button Presses on AD110 and AD410 Doorbells
+
+Using this trigger in an automation will allow you to detect the press of the doorbell call button and create automations based upon it. 
+
+```yaml
+# Example automations.yaml entry
+alias: Doorbell Pressed
+description: "Trigger when Amcrest Button Press Event Fires"
+trigger:
+  - platform: event
+    event_type: amcrest
+    event_data:
+      event: "CallNoAnswered"
+      payload:
+        action: "Start"
+action:
+  - type: flash
+    entity_id: light.living_room
+    domain: light
 ```
 
 To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.

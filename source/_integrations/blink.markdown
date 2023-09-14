@@ -2,10 +2,10 @@
 title: Blink
 description: Instructions for how to integrate Blink camera/security system within Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
   - Camera
+  - Hub
   - Sensor
 ha_release: '0.40'
 ha_iot_class: Cloud Polling
@@ -19,6 +19,7 @@ ha_platforms:
   - camera
   - sensor
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The `blink` integration lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.
@@ -33,7 +34,7 @@ The preferred method for setting this up is by using the configuration flow. Go 
 
 1. You are sent an email asking for you to allow Home Assistant to access Blink.  In this case, leave the pin field blank and hit `Submit`.
 
-2. You are sent an email containing a 2FA pin.  In this case, please enter the pin and hit `Submit`.
+2. You are sent an email or SMS containing a 2FA pin.  In this case, please enter the pin and hit `Submit`.
 
 Your integration will then set up.  Given that setup is asynchronous, you may see your sensors before they have finished extracting data from the Blink servers.  After a few minutes (at most) this information should populate.
 
@@ -98,7 +99,7 @@ The following are some examples showing how to correctly make service calls usin
 
 ### Snap Picture and Save Locally
 
-This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in home-assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example makes use of services found in the [camera integration](/integrations/camera#service-snapshot)
+This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in Home Assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example makes use of services found in the [camera integration](/integrations/camera#service-snapshot)
 
 ```yaml
 alias: "Blink Snap Picture"
@@ -151,11 +152,11 @@ Similar to the previous example, this automation will disarm blink when arriving
       entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
-### Save Video Locally When Motion Detected
+### Save Most Recent Video Locally When Motion Detected
 
 When motion is detected, you can use the Blink Home Assistant integration to save the last recorded video locally, rather than relying on Blink's servers to save your data.
 
-Again, this example assumes your camera's name (in the blink app) is `My Camera` and your sync module name is `My Sync Module`.  The file will be saved to `/tmp/videos/blink_video_{YYYMMDD_HHmmSS}.mp4` where `{YYYYMMDD_HHmmSS}` will be a timestamp create via the use of [templating](/docs/configuration/templating/).
+The following example assumes your camera's name (in the Blink app) is `My Camera` and your sync module name is `My Sync Module`.  The file will be saved to `/tmp/videos/blink_video_{YYYMMDD_HHmmSS}.mp4` where `{YYYYMMDD_HHmmSS}` will be a timestamp create via the use of [templating](/docs/configuration/templating/).
 
 {% raw %}
 
@@ -174,3 +175,28 @@ Again, this example assumes your camera's name (in the blink app) is `My Camera`
 ```
 
 {% endraw %}
+
+### Save All Recent Clips Locally on a Schedule
+
+A list of all the recent video clips is updated at each refresh of the Blink system.
+The video clips are available in a download list (per camera) for up to an hour,
+and they can be downloaded at any time before the one-hour expiration time.
+After a clip is downloaded it is removed from the list.
+
+The following example demonstrates saving recent clips every three minutes.
+It assumes your camera's name (in the Blink app) is `My Camera`.
+The file will be saved to `/tmp/videos/YYYYMMDD_HHmmSS_MyCamera.mp4`.
+The file name of the downloaded video file is not configurable.
+
+```yaml
+- id: save_recent_clips_from_my_camera
+  alias: "Save Recent Clips from My Camera"
+  trigger:
+    - platform: time_pattern
+      minutes: /3
+  action:
+    - service: blink.save_recent_clips
+      data:
+        name: My Camera
+        file_path: /tmp/videos
+```

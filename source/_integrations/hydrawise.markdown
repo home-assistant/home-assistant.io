@@ -2,19 +2,21 @@
 title: Hunter Hydrawise
 description: Instructions on how to integrate your Hunter Hydrawise Wi-Fi irrigation control system within Home Assistant.
 ha_category:
-  - Irrigation
   - Binary Sensor
+  - Irrigation
   - Sensor
   - Switch
 ha_release: 0.71
 ha_iot_class: Cloud Polling
 ha_domain: hydrawise
 ha_codeowners:
+  - '@dknowles2'
   - '@ptcryan'
 ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `hydrawise` integration allows you to integrate your [Hunter Hydrawise](https://hydrawise.com) Wi-Fi irrigation controller system in Home Assistant.
@@ -44,14 +46,14 @@ scan_interval:
   description: The time interval, in seconds, to poll the Hydrawise cloud.
   required: false
   type: integer
-  default: 30
+  default: 120
 {% endconfiguration %}
 
 To get your API access token log into your [Hydrawise account](https://app.hydrawise.com/config/login) and in the 'My Account Details' section under Account Settings click 'Generate API Key'. Enter that key in your configuration file as `YOUR_API_KEY`.
 
 ## Binary Sensor
 
-Once you have enabled the `hydrawise` component, add the following to your `configuration.yaml` file:
+Once you have enabled the `hydrawise` integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -76,9 +78,16 @@ monitored_conditions:
 The Hydrawise API removed the ability to read the rain sensor status. Therefore it is no longer supported by the Hydrawise integration to Home Assistant.
 </div>
 
+<div class='note warning'>
+
+The Hydrawise API uses rate limiting and might throw errors in case the `scan_interval` is too low or too many manual service calls are triggered:
+The limit is 3 calls to start/stop/suspend a zone per 30 seconds and an additional limit across the entire API of 30 calls in a 5-minute period per user.
+
+</div>
+
 ## Sensor
 
-Once you have enabled the `hydrawise` component, add the following to your `configuration.yaml` file:
+Once you have enabled the `hydrawise` integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -101,7 +110,7 @@ monitored_conditions:
 
 ## Switch
 
-Once you have enabled the `hydrawise` component, add the following to your `configuration.yaml` file:
+Once you have enabled the `hydrawise` integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

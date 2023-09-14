@@ -14,7 +14,9 @@ ha_codeowners:
 ha_domain: asuswrt
 ha_platforms:
   - device_tracker
+  - diagnostics
   - sensor
+ha_integration_type: hub
 ---
 
 The ASUSWRT integration can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.

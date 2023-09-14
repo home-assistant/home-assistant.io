@@ -6,11 +6,12 @@ ha_category:
 ha_release: 0.13
 ha_domain: graphite
 ha_iot_class: Local Push
+ha_integration_type: integration
 ---
 
-The `graphite` integration records all events and state changes and feeds the data to a [graphite](http://graphite.wikidot.com/) instance.
+The `graphite` integration records all events and state changes and feeds the data to a [graphite](http://graphiteapp.org/) instance.
 
-To enable this component, add the following lines to your `configuration.yaml`:
+To enable this integration, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry

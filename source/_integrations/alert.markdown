@@ -7,6 +7,10 @@ ha_release: 0.38
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: alert
+ha_codeowners:
+  - '@home-assistant/core'
+  - '@frenck'
+ha_integration_type: integration
 ---
 
 The `alert` integration is designed to notify you when problematic issues arise.
@@ -100,7 +104,7 @@ done_message:
   type: template
 notifiers:
   description: "List of `notification` integrations to use for alerts."
-  required: true
+  required: false
   type: list
 data:
   description: "Dictionary of extra parameters to send to the notifier."
@@ -121,7 +125,7 @@ you specify a `target` parameter when sending the notification), you can use the
 `group` notification to wrap them for an alert.
 Simply create a `group` notification type with a single notification member
 (such as `twilio_sms`) specifying the required parameters other than `message`
-provided by the `alert` component:
+provided by the `alert` integration:
 
 ```yaml
 - platform: group

@@ -8,6 +8,9 @@ ha_iot_class: Cloud Polling
 ha_domain: twitch
 ha_platforms:
   - sensor
+ha_integration_type: integration
+ha_codeowners:
+  - '@joostlek'
 ---
 
 The `twitch` platform will allow you to monitor [Twitch](https://www.twitch.tv/) channel status from within Home Assistant and setup automation based on the information.
@@ -27,7 +30,7 @@ Before clicking Summit (the broken image below the form), visit the [Twitch dev 
 
 As __OAuth Redirect URLs__ add `https://twitchapps.com/tokengen/` and click __Create__
 .
-Back at the Token Generator, click the __Summit__ button, accept the consent screen and get your __OAuth Token__.
+Back at the Token Generator, click the __Connect__ button, accept the consent screen and get your __OAuth Token__.
 
 ## Configuration
 

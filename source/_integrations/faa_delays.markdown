@@ -11,10 +11,11 @@ ha_codeowners:
 ha_domain: faa_delays
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The FAA Delays integration collects and displays information about delays at US Airports based on the
-[FAA's National Airspace System Status](https://www.fly.faa.gov/ois/).
+[FAA's National Airspace System Status](https://nasstatus.faa.gov/).
 
 Data measured includes:
 

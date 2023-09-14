@@ -20,7 +20,7 @@ If your entity is not supported, or you cannot customize what you need via this 
 
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
-#### Possible values
+### Possible values
 
 {% configuration customize %}
 friendly_name:
@@ -32,7 +32,7 @@ entity_picture:
   required: false
   type: string
 icon:
-  description: "Any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
+  description: "Any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release."
   required: false
   type: string
 assumed_state:
@@ -57,13 +57,16 @@ initial_state:
   default: None
 {% endconfiguration %}
 
-#### Device Class
+### Device Class
 
 Device class is currently supported by the following platforms:
 
 - [Binary Sensor](/integrations/binary_sensor/)
+- [Button](/integrations/button/)
 - [Cover](/integrations/cover/)
+- [Humidifier](/integrations/humidifier/)
 - [Media Player](/integrations/media_player/)
+- [Number](/integrations/number/)
 - [Sensor](/integrations/sensor/)
 - [Switch](/integrations/switch/)
 
@@ -115,7 +118,9 @@ homeassistant:
 
 Home Assistant offers a service to reload the core configuration while Home Assistant is running. This allows you to change your customize section and see your changes being applied without having to restart Home Assistant.
 
-To reload customizations, navigate to Configuration > Server Controls and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
+To reload customizations, navigate to Developer Tools > YAML and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
+
+You can also use the [Quick bar](/docs/tools/quick-bar/#command-palette), and choose "Reload Location & Customizations".
 
 Alternatively, you can reload via service call. Navigate to Developer Tools > Services tab, select `homeassistant.reload_core_config` from the dropdown and press the "Call Service" button.
 

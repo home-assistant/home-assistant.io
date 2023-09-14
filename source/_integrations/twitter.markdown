@@ -8,13 +8,14 @@ ha_domain: twitter
 ha_iot_class: Cloud Push
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `twitter` notification platform uses [Twitter](https://twitter.com) to deliver notifications from Home Assistant.
 
 ## Setup
 
-Make sure you have a developer account registered with Twitter, then go to [Twitter Apps](https://apps.twitter.com/app/new) and create an application. If you don't have a developer account you need to apply for one, it can take some time to get approved.
+Make sure you have a developer account registered with Twitter, then go to [Twitter Apps](https://developer.twitter.com/en/portal/dashboard) and create an application. If you don't have a developer account you need to apply for one, it can take some time to get approved.
 
 ### App permissions
 

@@ -8,9 +8,10 @@ ha_release: 0.43
 ha_domain: marytts
 ha_platforms:
   - tts
+ha_integration_type: integration
 ---
 
-The `marytts` text-to-speech platform uses [MaryTTS](http://mary.dfki.de/) Text-to-Speech engine to read a text with natural sounding voices.
+The `marytts` text-to-speech platform uses [MaryTTS](http://mary.dfki.de/) text-to-speech engine to read a text with natural sounding voices.
 
 ## Configuration
 

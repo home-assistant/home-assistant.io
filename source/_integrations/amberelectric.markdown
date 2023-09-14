@@ -2,8 +2,8 @@
 title: Amber Electric
 description: Instructions on how to integrate Amber Electric live prices within Home Assistant.
 ha_category:
-  - Sensor
   - Energy
+  - Sensor
 ha_release: '2021.10'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,6 +13,7 @@ ha_domain: amberelectric
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 [Amber](https://www.amber.com.au/) is an Australian electricity retailer that provides access to wholesale electricity prices. Customers monitor the wholesale price and shift their energy usage to cheaper, greener times. This saves them money and supports the shift to a more renewably-powered Australia.
@@ -44,6 +45,7 @@ It exposes the following sensors for each channel type:
 
 - **Price** - Your current electricity price in $/kWh
 - **Forecast** - The forecasted prices for the next 12 hours
+- **Descriptor** - A description of the price. Useful if you want to create a Amber light that matches the app.
 
 There are two additional sensors:
 

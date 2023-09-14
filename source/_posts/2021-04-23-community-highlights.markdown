@@ -99,7 +99,7 @@ Blitzwolf etc.
 
 More information can also be found in the twitter thread below.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;m doing an internship at <a href="https://twitter.com/NabuCasa?ref_src=twsrc%5Etfw">@NabuCasa</a> with the goal to discover how <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> can be used to gain insight in your energy usage and help optimize it.<br><br>I will be using this thread to show some of the things that I have done so far. <a href="https://t.co/0lLJxt15Nn">pic.twitter.com/0lLJxt15Nn</a></p>&mdash; Klaas Schoute (@klaasnicolaas) <a href="https://twitter.com/klaasnicolaas/status/1384584214402719746?ref_src=twsrc%5Etfw">April 20, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;m doing an internship at <a href="https://twitter.com/NabuCasa?ref_src=twsrc%5Etfw">@NabuCasa</a> with the goal to discover how <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> can be used to gain insight in your energy usage and help optimize it.<br><br>I will be using this thread to show some of the things that I have done so far. <a href="https://t.co/0lLJxt15Nn">pic.twitter.com/0lLJxt15Nn</a></p>&mdash; Klaas Schoute (@klaasnicolaas) <a href="https://twitter.com/klaasnicolaas/status/1384584214402719746?ref_src=twsrc%5Etfw">April 20, 2021</a></blockquote>
 
 ## Got a tip for the next edition?
 

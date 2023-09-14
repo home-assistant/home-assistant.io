@@ -14,11 +14,12 @@ ha_zeroconf: true
 ha_platforms:
   - diagnostics
   - sensor
+ha_integration_type: device
 ---
 
 The `Brother Printer` integration allows you to read current data from your local Brother printer.
 
-It usually provides information about the device's state, the left amount of ink or toner and the remaining life of the drum or other parts of the printer.
+It usually provides information about the device's state, the left amount of ink or toner and the remaining lifetime of the drum or other parts of the printer.
 The integration monitors every supported part.
 
 {% include integrations/config_flow.md %}
@@ -50,7 +51,7 @@ template:
         {{ is_state('sensor.hl_l2340d_status', 'no paper') }}
 
   - binary_sensor:
-    - name: 'Later Printer Paper Jam'
+    - name: 'Laser Printer Paper Jam'
       state: >
         {{ is_state('sensor.hl_l2340d_status', 'paper jam') }}
 ```
