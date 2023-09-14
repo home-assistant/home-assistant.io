@@ -33,12 +33,18 @@ Partners who purchase their energy through EnergyZero:
 
 {% include integrations/option_flow.md %}
 
-{% configuration_basic %}
-Gas price modifyer template:
-  description: "A template to alter the prices. Can be used to add VAT or custom purchase costs"
-Energy price modifyer template:
-  description: "A template to alter the prices. Can be used to add VAT or custom purchase costs"
-{% endconfiguration_basic %}
+{% configuration %}
+gas_modifyer:
+  description: Gas price modifyer template that is used to customize the price.
+  required: true
+  type: string
+  default: {% set s = {"BTW": 1.21 } %}{{ price * s.BTW | float | round(5)}}
+energy_modifyer:
+  description: Energy price modifyer template that is used to customize the price.
+  required: true
+  type: string
+  default: {% set s = {"BTW": 1.21 } %}{{ price * s.BTW | float | round(5)}}
+{% endconfiguration %}
 
 ## Sensors
 
