@@ -2,6 +2,9 @@
 title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
+  - Hub
+  - Plug
+  - Remote
   - Switch
 ha_release: '2023.10'
 ha_iot_class: Cloud Polling
