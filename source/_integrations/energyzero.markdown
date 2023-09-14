@@ -31,6 +31,21 @@ Partners who purchase their energy through EnergyZero:
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration %}
+gas_modifyer:
+  description: Gas price modifyer template that is used to customize the price.
+  required: false
+  type: string
+  default: {{ "{% set s = {"BTW": 1.21 } %}{{ price * s.BTW | float | round(5) }}" | escape_once }}
+energy_modifyer:
+  description: Energy price modifyer template that is used to customize the price.
+  required: false
+  type: string
+  default: {{ "{% set s = {"BTW": 1.21 } %}{{ price * s.BTW | float | round(5) }}" | escape_once }}
+{% endconfiguration %}
+
 ## Sensors
 
 The EnergyZero integration creates a number of sensor entities for both gas and electricity prices.
