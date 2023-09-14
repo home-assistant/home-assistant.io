@@ -38,12 +38,16 @@ gas_modifyer:
   description: Gas price modifyer template that is used to customize the price.
   required: false
   type: string
-  default: {{ "\{\% set s = \{\"BTW\": 1.21 \} \%\}\{\{ price * s.BTW | float | round(5) \}\}" }}
+{% raw %}
+  default: {% set s = {"BTW": 1.21 } %}{{ price * s.BTW | float | round(5) }}
+{% endraw %}
 energy_modifyer:
   description: Energy price modifyer template that is used to customize the price.
   required: false
   type: string
-  default: {{ "\{\% set s = \{\"BTW\": 1.21 \} \%\}\{\{ price * s.BTW | float | round(5) \}\}" }}
+{% raw %}
+  default: {% set s = {"BTW": 1.21 } %}{{ price * s.BTW | float | round(5) }}
+{% endraw %}
 {% endconfiguration %}
 
 ## Sensors
