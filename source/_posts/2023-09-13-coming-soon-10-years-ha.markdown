@@ -12,4 +12,6 @@ og_image: /images/frontpage/HA10_-_Website_banner.png
 
 Join us on September 17 to look back on ten years of Home Assistant and hear some very special announcements...
 
-<lite-youtube videoid="EmLV6lJLzSU" videotitle="Home Assistant 10th Anniversary Event #HA10"></lite-youtube>
+<lite-youtube autoload videoid="EmLV6lJLzSU" videotitle="Home Assistant 10th Anniversary Event #HA10">
+  <a class="lite-youtube-fallback" href="https://www.youtube.com/watch?v=EmLV6lJLzSU">Watch on YouTube: Home Assistant 10th Anniversary Event #HA10</a>
+</lite-youtube>
