@@ -17,8 +17,6 @@ In this step, you will create the owner's account of Home Assistant. This accoun
     - Continue with the procedure on [restoring from backup](/common-tasks/os/#restoring-a-backup).
     - Ignore the rest of this procedure. The following steps describe how to create a new installation, not how to restore from backup.
 2. If this is your initial installation, select **Create my smart home**.
-   - 
-   
 3. Enter a name, username, and password. Select **Create account**.
 
     ![Set your username and password.](/images/getting-started/username.png)
@@ -35,7 +33,6 @@ In this step, you will create the owner's account of Home Assistant. This accoun
     - Sharing is disabled by default. However, we would like to encourage you to share some of this data.
     - This information helps us to find out which platforms we need to support and where to focus our efforts.
     - The data is anonymized and aggregated. To see the charts we generate out of this data, take a look at our [analytics page](https://analytics.home-assistant.io/).
-    
    ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png)
 
 6. Once you are done, select **Next**.
