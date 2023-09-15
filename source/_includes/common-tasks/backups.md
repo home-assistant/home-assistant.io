@@ -113,14 +113,14 @@ Note: Restoring from a backup will clear all data you had on this device.
 6. If you had Zigbee devices, and you migrated to a new device with its own Zigbee radio built-in: 
    - Because this is now a different Zigbee radio, you need to [migrate Zigbee](/integrations/zha/#migrating-to-a-new-zigbee-coordinator-adapter-inside-zha).
 
-#### To restoring a backup on your current system
+#### To restore a backup on your current system
 
 1. Go to **{% my backup title="Settings > System > Backups" %}**.
 2. From the list of backups, select the backup from which you want to restore.
-3. If you want to restore the complete configuration with the Core, Supervisor, and all add-ons, select **Full backup**.
+3. If you want to restore the complete configuration with all directories and add-ons, select **Full backup**.
 4. If you only want to restore specific elements, select **Partial backup**.
    - From the list, select the installation, folders, and add-ons you want to restore.
 5. Select **Restore**.
    - This may take a while, depending on how much you have to compress or decompress.
 6. Once the restore is complete, Home Assistant restarts to apply the new settings.
-   - You will lose the connection to the UI and it will return once the restart is completed. 
+   - You will lose the connection to the UI and it will return once the restart is completed.
