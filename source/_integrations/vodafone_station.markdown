@@ -12,6 +12,8 @@ ha_codeowners:
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
+  - sensor
+ha_ssdp: false
 ha_integration_type: integration
 ---
 
@@ -20,6 +22,7 @@ The Vodafone Station integration allows you to control your [Vodafone Station](h
 There is support for the following platform types within Home Assistant:
 
 - **Device tracker** - presence detection by looking at connected devices.
+- **Sensor** - external IP address, uptime, firmware, resources and network monitors.
 {% include integrations/config_flow.md %}
 
 ## Configuration
