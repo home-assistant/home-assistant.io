@@ -12,6 +12,16 @@ A full backup includes the following directories:
 
 A partial backup consists of any number of the above default directories and installed add-ons.
 
+### Preparing for a backup
+
+1. Before creating a backup, check if you can reduce the size of the backup.
+   - Check if your configuration directory contains a large database file (`home-assistant_v2.db`). 
+   - See the [`recorder`](/integrations/recorder/) integration page for options to keep your database data down to a size that won't cause issues. 
+   - Note the keep days, purge interval, and include/exclude options.
+   - If you have add-ons installed that you no longer use, delete those add-ons. Some add-ons require quite a bit of space.
+2. Delete all old and unneeded backups.
+
+
 ### Making a backup from the UI
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} in the UI.
@@ -57,19 +67,60 @@ There are multiple ways to store the backup on another device:
 
 ### Restoring a backup
 
-You can make use of backup which you have copied off of a previous install to restore to a new installation during the onboarding process. Follow the link at the bottom of the account creation page to upload your backup from the previous installation.
+There are two ways to use a backup:
 
-For restoring a backup at any other time, visit the Supervisor backup panel in your UI and use the following steps:
+- On your current system to recover your settings.
+- During onboarding, to migrate your setup to a new device or a to device on which you performed a factory reset and a new installation.
 
-1. Select "Upload Backup" from the icon in the upper right of the page.
-2. Click on the folder icon to navigate to your backup .tar file and select it.
+#### Restoring a backup during onboarding
 
-When the upload is completed, you will be presented with the backup restore dialog for restoring it, and can then choose to restore in full or in part by manually selecting individual items.
+You can use a backup during the onboarding process to restore your configuration.
 
-If the backup you are uploading is more than 1GB in size, it can be faster and more efficient to make use of the Samba add-on in order to transfer files to the `/backup` directory.
+**Migration**: This procedure also works if you want to migrate from one device to another. In that case, use the backup of the old device on the new device. The target device can be a different device type. For example, you can migrate from a Raspberry&nbsp;Pi to another smart home hub.
 
-The length of time it takes to create or restore backup will depend on how much you have to compress or decompress.
+##### Prerequisites
 
-If you're looking to slim down your backup, check if your configuration directory contains a large database file (`home-assistant_v2.db`). See the [`recorder`](/integrations/recorder/) integration page for options to keep your database data down to a size that won't cause issues. Note the keep days, purge interval, and include/exclude options.
+1. The login credentials of the device from which you made the backup.
+2. If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
+   - Before migrating, on the old system, check how much storage you used.
+     - Go to **{% my storage title="Settings > System > Storage" %}**, and under **Disk metrics**, hover over the **Used space** bar.
+     - The tooltip shows your disk size.
+     - The target device must have more free space than the source device.
+        - If your target device is a Home Assistant Yellow, note that it is the size of the eMMC that is relevant.
+        - The restore process mainly uses the eMMC, not the NVMe.
+3. If you are migrating to a new device:
+   - You do not need to transfer the backup to a USB or SD card to bring it to your smart home hub.
+   - You will be able to access the explorer of your PC.
+4. This procedure assumes you have already completed the [installation](/installation/) procedure on your target device and are now viewing the welcome screen as part of the [onboarding](/getting-started/onboarding/).
 
-When the restore is complete, Home Assistant will restart to apply the new settings. You will lose the connection to the UI and it will return once the restart is completed.
+Note: Restoring from a backup will clear all data you had on this device.
+
+##### To restore a backup during onboarding
+
+1. If you are migrating to a new device and you had controllers or radios connected (such as a Z-Wave stick or SkyConnect):
+   - make sure to plug them into the new device.
+2. After Home Assistant has been installed, on the welcome screen, select **Restore from backup**.
+   - Then, select **Upload backup**.
+   - The file explorer opens on the device on which you are viewing the Home Assistant User interface.
+   - You can access any connected network drive from there.
+3. Select the backup file, then, in the dialog, select **Full backup** and **Restore**.
+   - The restore may take a while, depending on the amount of data.
+   - To see if the restore is complete, reload the page from time to time.
+4. On the login screen, enter the credentials of the system from which you took the backup.
+   - Your dashboard should show all the elements as they were when you created the backup.
+   - If some devices are shown as unavailable, you may need to wake the battery powered devices.
+5. If you had [network storage](/common-tasks/os/#network-storage) connected on the previous system, you may need to reconnect those.
+6. If you had Zigbee devices, and you migrated to a new device with its own Zigbee radio built-in: 
+   - Because this is now a different Zigbee radio, you need to [migrate Zigbee](/integrations/zha/#migrating-to-a-new-zigbee-coordinator-adapter-inside-zha).
+
+#### To restoring a backup on your current system
+
+1. Go to **{% my backup title="Settings > System > Backups" %}**.
+2. From the list of backups, select the backup from which you want to restore.
+3. If you want to restore the complete configuration with the Core, Supervisor, and all add-ons, select **Full backup**.
+4. If you only want to restore specific elements, select **Partial backup**.
+   - From the list, select the installation, folders, and add-ons you want to restore.
+5. Select **Restore**.
+   - This may take a while, depending on how much you have to compress or decompress.
+6. Once the restore is complete, Home Assistant restarts to apply the new settings.
+   - You will lose the connection to the UI and it will return once the restart is completed. 
