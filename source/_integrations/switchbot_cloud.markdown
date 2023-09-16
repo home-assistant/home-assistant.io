@@ -11,7 +11,6 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@SeraphicRav'
 ha_domain: switchbot_cloud
-ha_bluetooth: false
 ha_platforms:
   - switch
 ha_config_flow: true
