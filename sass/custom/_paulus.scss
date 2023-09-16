@@ -643,6 +643,17 @@ div.note {
       font-size: 2em;
       padding: 0 5px;
     }
+
+    .icons {
+      display: flex;
+      align-items: center;
+
+      svg {
+        height: 48px;
+        padding: 10px 4px;
+        fill: currentColor;
+      }
+    }
   }
 
   ul {

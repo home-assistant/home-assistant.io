@@ -6,6 +6,12 @@ html {
   position: absolute;
 }
 
+@media only screen and (max-width: 480px) {
+  #landingpage .site-header {
+    background-color: #ffffff;
+  }
+}
+
 #landingpage #buy-dialog {
   overflow-y: auto;
 }
@@ -3592,24 +3598,21 @@ button,
 
 @font-face {
   font-family: "Pretendard Bold";
-  src: url("/green/fonts/Pretendard-Bold.woff2")
-    format("woff2");
+  src: url("/green/fonts/Pretendard-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Pretendard Regular";
-  src: url("/green/fonts/Pretendard-Regular.woff2")
-    format("woff2");
+  src: url("/green/fonts/Pretendard-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url("/green/fonts/Pretendard-SemiBold.woff2")
-    format("woff2");
+  src: url("/green/fonts/Pretendard-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -3618,12 +3621,11 @@ button,
   font-family: "Figtree";
   font-style: normal;
   font-weight: 300;
-  src: url("/green/fonts/Figtree.woff2")
-    format("woff2");
+  src: url("/green/fonts/Figtree.woff2") format("woff2");
 }
 @font-face {
-  font-family: 'Figtree';
+  font-family: "Figtree";
   font-style: normal;
   font-weight: 700;
-  src: url("/green/fonts/Figtree-Bold.woff2") format('woff2');
+  src: url("/green/fonts/Figtree-Bold.woff2") format("woff2");
 }
