@@ -59,11 +59,6 @@ retries:
   required: false
   default: 3
   type: integer
-retry_on_empty:
-  description: "Retry request, when receiving an empty message."
-  required: false
-  default: false
-  type: boolean
 timeout:
   description: "Timeout while waiting for a response in seconds."
   required: false
@@ -126,7 +121,6 @@ modbus:
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -175,7 +169,6 @@ modbus:
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -220,7 +213,6 @@ modbus:
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -317,7 +309,6 @@ modbus:
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
