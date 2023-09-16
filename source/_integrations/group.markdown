@@ -4,8 +4,8 @@ description: Instructions on how to setup groups within Home Assistant.
 ha_category:
   - Binary Sensor
   - Cover
-  - Fan
   - Event
+  - Fan
   - Helper
   - Light
   - Lock

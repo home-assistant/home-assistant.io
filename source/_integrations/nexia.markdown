@@ -18,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - number
   - scene
   - sensor
   - switch

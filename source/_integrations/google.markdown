@@ -85,6 +85,11 @@ If the setup process fails and you see an error message such as *Authentication 
 
 If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
+### Video Tutorial
+This video tutorial explains how to set up Google Calendar in Home Assistant and how you can trigger an automation based on a calendar event.
+
+<lite-youtube videoid="r2WbpxKDOD4" videotitle="How To Use Calendar Events in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
+
 ## Calendar Entities
 
 Each Google Calendar from *My Calendars* ([more info](https://support.google.com/calendar/answer/37095)) is represented as a [calendar](/integrations/calendar) entity in Home Assistant.

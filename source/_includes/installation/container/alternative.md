@@ -34,7 +34,7 @@ To use a Z-Wave USB stick for Z-Wave control, the HA Docker container needs extr
 
 Adjust the following Terminal command as follows :
 
-- Replace `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration
+- Replace `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration -  make sure that you keep the `:/config` part
 - Replace `/PATH_TO_YOUR_USB_STICK` matches the path for your USB stick (e.g., `/dev/ttyACM0` for most Synology users)
 - Replace "Australia/Melbourne" with [your timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
