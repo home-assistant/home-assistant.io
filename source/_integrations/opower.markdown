@@ -21,7 +21,6 @@ More than 175 utilities use Opower. Currently only the following utilities are s
 
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)
-- Enmax Energy
 - Evergy
 - Exelon subsidiaries
   - Atlantic City Electric
