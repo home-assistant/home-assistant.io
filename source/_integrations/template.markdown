@@ -3,6 +3,11 @@ title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
+  - Helper
+  - Image
+  - Number
+  - Select
   - Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
@@ -18,6 +23,7 @@ ha_platforms:
   - button
   - cover
   - fan
+  - image
   - light
   - lock
   - number
@@ -26,7 +32,8 @@ ha_platforms:
   - switch
   - vacuum
   - weather
-ha_integration_type: integration
+ha_integration_type: helper
+ha_config_flow: true
 ---
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
@@ -107,6 +114,10 @@ unique_id:
   description: The unique ID for this config block. This will be prefixed to all unique IDs of all entities in this block.
   required: false
   type: string
+action:
+  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything via services, in particular services with [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  required: false
+  type: list
 sensor:
   description: List of sensors
   required: true
@@ -654,6 +665,36 @@ template:
 ```
 
 {% endraw %}
+
+### Trigger based handling of service response data
+
+This example demonstrates how to use an `action` to call a [service with response data](/docs/scripts/service-calls/#use-templates-to-handle-response-data)
+and use the response in a template.
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: /1
+    action:
+      - service: weather.get_forecast
+        data:
+          type: hourly
+        target:
+          entity_id: weather.home
+        response_variable: hourly
+    sensor:
+      - name: Weather Forecast Hourly
+        unique_id: weather_forecast_hourly
+        state: "{{ now().isoformat() }}"
+        attributes:
+          forecast: "{{ hourly.forecast }}"
+```
+
+{% endraw %}
+
 
 ## Legacy binary sensor configuration format
 

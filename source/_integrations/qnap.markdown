@@ -9,7 +9,9 @@ ha_domain: qnap
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
+ha_codeowners:
+  - '@disforw'
 ---
 
 The QNAP integration allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).

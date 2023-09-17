@@ -12,7 +12,7 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
-  - Sensor
+  - sensor
 ha_codeowners:
   - '@tkdrob'
 ha_integration_type: device

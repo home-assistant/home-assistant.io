@@ -72,6 +72,7 @@ Update the location of the Home Assistant default zone (usually "Home").
 |---------------------------|----------|-------------------------------------------------------|
 | `latitude`                |       no | Latitude of your location.                            |
 | `longitude`               |       no | Longitude of your location.                           |
+| `elevation`               |      yes | Elevation of your location.                           |
 
 #### Example
 
@@ -81,6 +82,7 @@ action:
   data:
     latitude: 32.87336
     longitude: 117.22743
+    elevation: 120
 ```
 
 ### Service `homeassistant.toggle`

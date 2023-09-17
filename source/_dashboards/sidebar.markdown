@@ -25,7 +25,7 @@ type:
   type: string
 {% endconfiguration %}
 
-#### Example
+### Example
 
 Alternatively, the position of the card can be configured using YAML with the `view_layout` option:
 

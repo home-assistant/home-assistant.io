@@ -49,36 +49,36 @@ The following entity types are created:
 
 This is the main entity of the integration containing the incident message as its `value`, it has several attributes which are described below.
 
-| Attribute | Description |
-| --------- | ----------- |
-| `trigger` | Type of trigger, `new` or `update`.|
-| `state` | The state of the incident. |
-| `created_at` | Date and time when incident was created.|
-| `message_to_speech_url` | The URL of the mp3 file containing the spoken text of the incident.|
-| `prio` | Priority of the incident, `a1`, `a2`, `b1` or `b2`.|
-| `type` | Type of incident, e.g. `incident_alert`.|
-| `responder_mode` | Modes of response, e.g. `available_in_schedule_is_acknowledgment`.|
-| `can_respond_until` | Date and time until response is accepted.|
-| `latitude` | The Latitude of the incident.|
-| `longitude` | The Longitude of the incident.|
-| `address_type` | Type of address, e.g. `home`.|
-| `formatted_address` | Address in string format.|
-| `task_ids` | ID(s) of appliance(s) or task(s).|
+| Attribute               | Description                                                         |
+| ----------------------- | ------------------------------------------------------------------- |
+| `trigger`               | Type of trigger, `new` or `update`.                                 |
+| `state`                 | The state of the incident.                                          |
+| `created_at`            | Date and time when incident was created.                            |
+| `message_to_speech_url` | The URL of the mp3 file containing the spoken text of the incident. |
+| `prio`                  | Priority of the incident, `a1`, `a2`, `b1` or `b2`.                 |
+| `type`                  | Type of incident, e.g. `incident_alert`.                            |
+| `responder_mode`        | Modes of response, e.g. `available_in_schedule_is_acknowledgment`.  |
+| `can_respond_until`     | Date and time until response is accepted.                           |
+| `latitude`              | The Latitude of the incident.                                       |
+| `longitude`             | The Longitude of the incident.                                      |
+| `address_type`          | Type of address, e.g. `home`.                                       |
+| `formatted_address`     | Address in string format.                                           |
+| `task_ids`              | ID(s) of appliance(s) or task(s).                                   |
 
 ### Duty Binary Sensor
 
 This entity reflects the duty you have scheduled, the value can be `on` = on duty, `off` = no duty. When you have no duty the response switch is disabled which means you cannot respond to a call.
 
-| Attribute | Description |
-| --------- | ----------- |
-| `start_time` | Start date and time of duty schedule.|
-| `end_time` | End date and time of duty schedule.|
-| `available` | `true` or `false`.|
-| `active` | `true` or `false`.|
-| `assigned_function_ids` | Function id's, e.g. `540`.|
-| `skill_ids` | Skill id's, e.g. `6, 8`.|
-| `type` | Type, e.g. `standby_duty`.|
-| `assigned function` | Assigned function, e.g. `Chauffeur`.|
+| Attribute               | Description                           |
+| ----------------------- | ------------------------------------- |
+| `start_time`            | Start date and time of duty schedule. |
+| `end_time`              | End date and time of duty schedule.   |
+| `available`             | `true` or `false`.                    |
+| `active`                | `true` or `false`.                    |
+| `assigned_function_ids` | Function id's, e.g. `540`.            |
+| `skill_ids`             | Skill id's, e.g. `6, 8`.              |
+| `type`                  | Type, e.g. `standby_duty`.            |
+| `assigned function`     | Assigned function, e.g. `Chauffeur`.  |
 
 ### Incident Response Switch
 
@@ -87,26 +87,26 @@ It gets reset to `unknown` value with every incident received. Switching it to `
 
 The following attributes are available:
 
-| Attribute | Description |
-| --------- | ----------- |
-| `user_name` | Your username.|
-| `assigned_skill_ids` | Assigned skill ID's.|
-| `responded_at` | Time you responded.|
-| `start_time` | Incident response start time.|
-| `status` | Status of response, e.g., `pending`.|
-| `reported_status` | Reported status, e.g., `shown_up`.|
-| `arrived_at_station` | `true` or `false`.|
-| `available_at_incident_creation` | `true` or `false`.|
-| `active_duty_function_ids` | Active function ID's, e.g., `540`.|
+| Attribute                        | Description                          |
+| -------------------------------- | ------------------------------------ |
+| `user_name`                      | Your username.                       |
+| `assigned_skill_ids`             | Assigned skill ID's.                 |
+| `responded_at`                   | Time you responded.                  |
+| `start_time`                     | Incident response start time.        |
+| `status`                         | Status of response, e.g., `pending`. |
+| `reported_status`                | Reported status, e.g., `shown_up`.   |
+| `arrived_at_station`             | `true` or `false`.                   |
+| `available_at_incident_creation` | `true` or `false`.                   |
+| `active_duty_function_ids`       | Active function ID's, e.g., `540`.   |
 
 ## Advanced Configuration
 
 With Automation you can configure one or more of the following useful actions:
 
 1. Sound an alarm and/or switch on lights when an emergency incident is received.
-1. Use text-to-speech to play incident details via a media player while getting dressed.
-1. Respond with a response acknowledgment using a door-sensor when leaving the house or by pressing a button to let your teammates know you are underway.
-1. Cast a FireServiceRota dashboard to a Chromecast device. (this requires a Nabu Casa subscription)
+2. Use text-to-speech to play incident details via a media player while getting dressed.
+3. Respond with a response acknowledgment using a door-sensor when leaving the house or by pressing a button to let your teammates know you are underway.
+4. Cast a FireServiceRota dashboard to a Chromecast device. (this requires a Nabu Casa subscription)
 
 These are documented below.
 

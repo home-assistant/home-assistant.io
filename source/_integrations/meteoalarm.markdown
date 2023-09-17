@@ -80,9 +80,9 @@ icon: mdi:alert
 
 There are a few awareness levels:
 
-* 2; yellow; Moderate
-* 3; orange; Severe
-* 4; red; High
+- 2; yellow; Moderate
+- 3; orange; Severe
+- 4; red; High
 
 Example automation
 

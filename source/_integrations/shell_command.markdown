@@ -54,6 +54,10 @@ If you are using [Home Assistant Operating System](https://github.com/home-assis
 
 A `0` exit code means the commands completed successfully without error. In case a command results in a non `0` exit code or is terminated after a timeout of 60 seconds, the result is logged to Home Assistant log.
 
+## Response
+
+Shell commands provide a service response in a dictionary containing `stdout`, `stderr`, and `returncode`. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+
 ## Examples
 
 ### Defining multiple shell commands
@@ -96,6 +100,40 @@ input_number:
 
 shell_command:
   set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states("input_number.ac_temperature") }}_AUTO'
+```
+
+{% endraw %}
+
+The following example shows how the shell command response may be used in automations.
+
+{% raw %}
+
+```yaml
+# Create a ToDo notification based on file contents
+automation:
+  - alias: "run_set_ac"
+    trigger:
+      - ...
+    action:
+      - service: shell_command.get_file_contents
+        data:
+          filename: "todo.txt"
+        response_variable: todo_response
+      - if: "{{ todo_response['returncode'] == 0 }}"
+        then:
+          - service: notify.mobile_app_iphone
+            data:
+              title: "ToDo"
+              message: "{{ todo_response['stdout'] }}"
+        else:
+          - service: notify.mobile_app_iphone
+            data:
+              title: "ToDo file error"
+              message: "{{ todo_response['stderr'] }}"
+
+
+shell_command:
+  get_file_contents: "cat {{ filename }}"
 ```
 
 {% endraw %}
