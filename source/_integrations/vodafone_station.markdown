@@ -25,13 +25,6 @@ There is support for the following platform types within Home Assistant:
 - **Sensor** - external IP address, uptime, firmware, resources and network monitors.
 {% include integrations/config_flow.md %}
 
-## Configuration
-
-The configuration in the UI asks for a a few information: host, username, password and SSL.
-Depending on the model of the router, the login URL can be based on http:// or https://.
-The default username is `vodafone`.
-
-
 ## Integration options
 
 It is possible to change some behaviors through the integration options.
@@ -45,10 +38,9 @@ To change the settings, go to {% my integrations title="**Settings** > **Devices
 
 **Note**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.
 
-
 ### Tested models
 
-This integartion was tested against the following models:
+This integration was tested against the following models:
 
-  - Vodafone Power Station 
-  - Vodafone WiFi 6 Station
+- Vodafone Power Station
+- Vodafone WiFi 6 Station
