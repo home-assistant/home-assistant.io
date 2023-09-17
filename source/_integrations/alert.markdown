@@ -109,7 +109,15 @@ notifiers:
 data:
   description: "Dictionary of extra parameters to send to the notifier."
   required: false
-  type: list  
+  type: list
+script:
+  description: "`script` integration to call on alert fires, ack, unack, and done."
+  required: false
+  type: string
+variables:
+  description: "Dictionary of extra variables to send to the script."
+  required: false
+  type: list
 {% endconfiguration %}
 
 In this example, the garage door status (`input_boolean.garage_door`) is watched
@@ -269,6 +277,10 @@ alert:
     data:
       inline_keyboard:
         - 'Close garage:/close_garage, Acknowledge:/garage_acknowledge'
+      subtitle: >-
+        {% if states('sensor.garage_doors_open_count') | int(0) > 0 %}
+        {{ states('sensor.garage_doors_open_count') }} garage doors have been left open!
+        {% endif %}
     notifiers:
       - frank_telegram
 ```
