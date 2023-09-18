@@ -30,14 +30,6 @@ The Renson integration pulls in data from the Renson Endura delta application fo
 
 ## Services
 
-### Service `renson.set_manual_level`
-
-Set manual level.
-
-  | Service data attribute | Required | Description | Example |
-  | ---------------------- | -------- | ----------- | ------- |
-  | `Manual level`| yes | device_id of the vehicle | |
-
 ### Service `renson.set_timer_level`
 
 Set the ventilation timer.
