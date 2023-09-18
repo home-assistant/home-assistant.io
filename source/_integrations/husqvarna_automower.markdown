@@ -31,7 +31,7 @@ Your Husqvarna account username/password used for the *Automower® Connect*  pho
    - Redirect URL: `https://my.home-assistant.io/redirect/oauth`
      Make sure no extra spaces were appended at end of URL from copy and paste.
 
-    ![Creat new Application](https://github.com/Thomas55555/home-assistant.io/assets/59625598/97abbbac-a089-4d9a-be3d-3a3f9c50442c)
+    ![Create new Application](https://github.com/Thomas55555/home-assistant.io/assets/59625598/97abbbac-a089-4d9a-be3d-3a3f9c50442c)
 
    - Click **CREATE**.  *Application Key* and *Application Secret* will be generated and shown.  Protect these like a username and password.
 
