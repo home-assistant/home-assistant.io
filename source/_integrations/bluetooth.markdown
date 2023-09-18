@@ -21,7 +21,7 @@ The Bluetooth integration will detect nearby Bluetooth devices. Discovered devic
 
 ## Before you begin
 
-The Linux kernel does not prioritise Bluetooth stability and whilst it is possible to use your own Bluetooth card (or one of the many high perofrmance ones listed below), there may be issues. An alternative "just works" solution is to use an ESP32 and ESPhome's [Bluetooth Proxy](https://esphome.github.io/bluetooth-proxies/). This will provide you with a much smoother experience, espeically if you virtualise and pass through your adapter.
+The Linux kernel does not prioritize Bluetooth stability and whilst it is possible to use your own Bluetooth card (or one of the many high performance adapter listed below), there may be issues. An alternative "just works" solution is to use an ESP32 and ESPhome's [Bluetooth Proxy](https://esphome.github.io/bluetooth-proxies/). This will provide you with a much smoother experience, espeically if you virtualize and pass thru your adapter. More information is available in the Remote Adapters section below.
 
 ## Configuration
 
