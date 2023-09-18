@@ -52,3 +52,67 @@ Every day around **14:00 UTC time**, the new prices are published for the follow
 For the dynamic gas prices, only entities are created that display the
 `current` and `next hour` price because the price is always fixed for
 24 hours; new prices are published every morning at **05:00 UTC time**.
+
+## Service `energyzero.get_prices`
+
+The energy and gas prices are exposed using [Service Calls](/docs/scripts/service-calls/). This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with price data.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `type` | no | The type of prices to get. Must be 'all', 'gas', or 'energy' | all
+| `start` | yes | Start datetime to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| `end` | yes | End datetime to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| `incl_btw` | yes | Get prices including BTW (VAT) or without  | False
+
+
+### Response
+The response data is a dictionary with the gas and/or energy prices as timestamp/float dictionary
+
+{% raw %}
+```json
+{
+  "energy": {
+    "2023-01-01 00:00:00+00:00": 0.7502560835
+  },
+  "gas": {
+    "2023-01-01 00:00:00+00:00": 1.233123
+  }
+}
+```
+{% endraw %}
+
+#### Add response to sensor
+
+The response data can be added to a sensor in order to create price graphs. First, setup an automation that puts the prices into an event. Then create a template sensor that puts the event data in it's attributes.
+
+##### Price automation
+{% raw %}
+```yaml
+prices_script:
+  sequence:
+  - service: energyzero.get_prices
+    data:
+      type: all
+    response_variable: prices
+  - event: prices
+    event_data:
+      prices: '{{ prices }}'
+```
+{% endraw %}
+
+##### Price template sensor
+{% raw %}
+```yaml
+template:
+  - trigger:
+    - platform: event
+      event_type: prices
+    sensor:
+    - name: Energyzero prices
+      device_class: timestamp
+      state: "{{ now() }}"
+      attributes:
+        prices: "{{ trigger.event.data }}"
+```
+{% endraw %}
+
