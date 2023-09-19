@@ -102,7 +102,7 @@ You can use a backup during the onboarding process to restore your configuration
 3. Select the backup file, then, in the dialog, select **Full backup** and **Restore**.
    - The restore may take a while, depending on the amount of data.
    - To see if the restore is complete, reload the page from time to time.
-   - If your previous installation had certificates enabled directly for the http integration, when the restore is complete, it will no longer respond to http:// requests. In this case, use https:// (added s) instead.
+   - If your previous installation had certificates enabled directly for the [`http` integration](/integrations/http), when the restore is complete, it will no longer respond to `http://` requests. In this case, use `https://` (added `s`) instead.
 4. On the login screen, enter the credentials of the system from which you took the backup.
    - Your dashboard should show all the elements as they were when you created the backup.
    - If some devices are shown as unavailable, you may need to wake the battery powered devices.
