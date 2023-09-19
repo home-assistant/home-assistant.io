@@ -15,7 +15,7 @@ A partial backup consists of any number of the above default directories and ins
 ### Preparing for a backup
 
 1. Before creating a backup, check if you can reduce the size of the backup.
-   - Check if your configuration directory contains a large database file (`home-assistant_v2.db`). 
+   - Check if your configuration directory contains a large database file, to check that go to **{% my system_health title="Settings > System > Repairs -> ... -> System Information" %}** and look for the "Estimated Database Size (MiB)" under the "Recorder" section. 
    - See the [`recorder`](/integrations/recorder/) integration page for options to keep your database data down to a size that won't cause issues. 
    - Note the keep days, purge interval, and include/exclude options.
    - If you have add-ons installed that you no longer use, uninstall those add-ons. Some add-ons require quite a bit of space.
@@ -83,8 +83,7 @@ You can use a backup during the onboarding process to restore your configuration
 1. The login credentials of the device from which you made the backup.
 2. If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
    - Before migrating, on the old system, check how much storage you used.
-     - Go to **{% my storage title="Settings > System > Storage" %}**, and under **Disk metrics**, hover over the **Used space** bar.
-     - The tooltip shows your disk size.
+     - Go to **{% my system_health title="Settings > System > Repairs -> ... -> System Information" %}**, and under **Home Assistant Supervisor**, look at the **Disk used** value.
      - The target device must have more free space than the source device.
         - If your target device is a Home Assistant Yellow, note that it is the size of the eMMC that is relevant.
         - The restore process mainly uses the eMMC, not the NVMe.
