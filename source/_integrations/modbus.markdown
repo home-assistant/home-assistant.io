@@ -469,6 +469,10 @@ binary_sensors:
       default: coil
       type: string
     slave_count:
+      description: "Identical to `virtual_count`."
+      required: false
+      type: integer
+    virtual_count:
       description: "Generate count+1 binary sensors (master + slaves).
       Addresses are automatically incremented.
       The parameter simplifies configuration and provides a much better performance by not using count+1 requests but a single request."
@@ -1266,6 +1270,10 @@ sensors:
       type: float
       default: 1
     slave_count:
+      description: "Identical to `virtual_count`."
+      required: false
+      type: integer
+    virtual_count:
       description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read messsage."
       required: false
       type: integer
@@ -1281,6 +1289,10 @@ sensors:
       type: string
       default: ">f"
     slave_count:
+      description: "Identical to `virtual_count`."
+      required: false
+      type: integer
+    virtual_count:
       description: Generates x-1 slave sensors, allowing read of multiple registers with a single read message.
       required: false
       type: integer
@@ -1514,6 +1526,7 @@ Some parameters exclude other parameters, the following tables show what can be 
 | count           | Yes    | Yes    | No  | No  | No  |
 | structure       | Yes    | No     | No  | No  | No  |
 | slave_count     | No     | No     | Yes | Yes | Yes |
+| virtual_count   | No     | No     | Yes | Yes | Yes |
 | swap: none      | Yes    | Yes    | Yes | Yes | Yes |
 | swap: byte      | No     | No     | Yes | Yes | Yes |
 | swap: word      | No     | No     | No  | Yes | Yes |
