@@ -15,12 +15,11 @@ A partial backup consists of any number of the above default directories and ins
 ### Preparing for a backup
 
 1. Before creating a backup, check if you can reduce the size of the backup.
-   - Check if your configuration directory contains a large database file, to check that go to **{% my system_health title="Settings > System > Repairs -> ... -> System Information" %}** and look for the "Estimated Database Size (MiB)" under the "Recorder" section. 
-   - See the [`recorder`](/integrations/recorder/) integration page for options to keep your database data down to a size that won't cause issues. 
+   - Check if your configuration directory contains a large database file. Go to **{% my system_health title="Settings > System > Repairs" %}**. From the three dot menu, select **System information** and under the **Recorder** section, look for the **Estimated Database Size (MiB)**.
+   - By default, the data is kept for 10 days. If you have modified that to a longer period, check the [`recorder`](/integrations/recorder/) integration page for options to keep your database data down to a size that won't cause issues.
    - Note the keep days, purge interval, and include/exclude options.
    - If you have add-ons installed that you no longer use, uninstall those add-ons. Some add-ons require quite a bit of space.
-2. Delete all old and unneeded backups.
-
+2. Old backups are not included in the backup. However, while you are here, you could delete all old and unneeded backups.
 
 ### Making a backup from the UI
 
@@ -76,23 +75,21 @@ There are two ways to use a backup:
 
 You can use a backup during the onboarding process to restore your configuration.
 
-**Migration**: This procedure also works if you want to migrate from one device to another. In that case, use the backup of the old device on the new device. The target device can be a different device type. For example, you can migrate from a Raspberry&nbsp;Pi to another smart home hub.
+**Migration**: This procedure also works if you want to migrate from one device to another. In that case, use the backup of the old device on the new device. The target device can be a different device type. For example, you can migrate from a Raspberry&nbsp;Pi to another device.
 
 ##### Prerequisites
 
-1. The login credentials of the device from which you made the backup.
-2. If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
+- This procedure assumes you have already completed the [installation](/installation/) procedure on your target device and are now viewing the welcome screen as part of the [onboarding](/getting-started/onboarding/).
+- The login credentials of the device from which you made the backup.
+- If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
    - Before migrating, on the old system, check how much storage you used.
      - Go to **{% my system_health title="Settings > System > Repairs -> ... -> System Information" %}**, and under **Home Assistant Supervisor**, look at the **Disk used** value.
      - The target device must have more free space than the source device.
         - If your target device is a Home Assistant Yellow, note that it is the size of the eMMC that is relevant.
         - The restore process mainly uses the eMMC, not the NVMe.
-3. If you are migrating to a new device:
-   - You do not need to transfer the backup to a USB or SD card to bring it to your smart home hub.
+- If you are migrating to a new device:
+   - You do not need to transfer the backup to a USB or SD card to bring it to your device.
    - You will be able to upload the backup file from the device you are accessing the onboarding from.
-4. This procedure assumes you have already completed the [installation](/installation/) procedure on your target device and are now viewing the welcome screen as part of the [onboarding](/getting-started/onboarding/).
-
-Note: Restoring from a backup will clear all data you had on this device.
 
 ##### To restore a backup during onboarding
 
@@ -105,6 +102,7 @@ Note: Restoring from a backup will clear all data you had on this device.
 3. Select the backup file, then, in the dialog, select **Full backup** and **Restore**.
    - The restore may take a while, depending on the amount of data.
    - To see if the restore is complete, reload the page from time to time.
+   - If your previous installation had certificates enabled directly for the http integration, when the restore is complete, it will no longer respond to http:// requests. In this case, use https:// (added s) instead.
 4. On the login screen, enter the credentials of the system from which you took the backup.
    - Your dashboard should show all the elements as they were when you created the backup.
    - If some devices are shown as unavailable, you may need to wake the battery powered devices.
