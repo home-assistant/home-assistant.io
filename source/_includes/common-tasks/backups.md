@@ -18,7 +18,7 @@ A partial backup consists of any number of the above default directories and ins
    - Check if your configuration directory contains a large database file (`home-assistant_v2.db`). 
    - See the [`recorder`](/integrations/recorder/) integration page for options to keep your database data down to a size that won't cause issues. 
    - Note the keep days, purge interval, and include/exclude options.
-   - If you have add-ons installed that you no longer use, delete those add-ons. Some add-ons require quite a bit of space.
+   - If you have add-ons installed that you no longer use, uninstall those add-ons. Some add-ons require quite a bit of space.
 2. Delete all old and unneeded backups.
 
 
@@ -90,7 +90,7 @@ You can use a backup during the onboarding process to restore your configuration
         - The restore process mainly uses the eMMC, not the NVMe.
 3. If you are migrating to a new device:
    - You do not need to transfer the backup to a USB or SD card to bring it to your smart home hub.
-   - You will be able to access the explorer of your PC.
+   - You will be able to upload the backup file from the device you are accessing the onboarding from.
 4. This procedure assumes you have already completed the [installation](/installation/) procedure on your target device and are now viewing the welcome screen as part of the [onboarding](/getting-started/onboarding/).
 
 Note: Restoring from a backup will clear all data you had on this device.
