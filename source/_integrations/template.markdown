@@ -305,6 +305,11 @@ template:
 
 [trigger-doc]: /docs/automation/trigger
 
+### Video Tutorial
+This video tutorial explains how to set up a Trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
+
+<lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
+
 ## Template and action variables
 
 State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attribute in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/). 
