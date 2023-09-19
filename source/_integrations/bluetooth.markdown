@@ -21,7 +21,9 @@ The Bluetooth integration will detect nearby Bluetooth devices. Discovered devic
 
 ## Before you begin
 
-The Linux Kernel can occasionally cause Bluetooth problems as it doesn't prioritize stability of the Bluetooth stack. Some users have found that a better approach than a directly connected adapter or card is to use a Bluetooth proxy by means of an ESP32. This is particularly of interest to users who virtualize their instance, where the USB pass thru may cause additional problems. More information is available in the Remote Adapters section below or by visiting ESPhome's [Bluetooth proxy page](https://esphome.github.io/bluetooth-proxies/).
+In many cases, a better approach than a directly connected adapter or card is to use a Bluetooth proxy using an ESP32 since Linux kernel updates have previously broken Bluetooth functionality and Bluetooth driver support Linux generally falls behind other operating systems for newer adapters. A Bluetooth proxy is particularly interesting to users who virtualize their instance, where the USB pass-through may cause additional problems. More information is available in the Remote Adapters section below or by visiting ESPhome's [Bluetooth proxy page](https://esphome.github.io/bluetooth-proxies/).
+
+Suppose a Bluetooth proxy is not a good fit for your use case. Consider using the Home Assistant Operating System when using a local adapter because it includes Bluetooth patches for issues unsolved in other operating systems.
 
 ## Configuration
 
