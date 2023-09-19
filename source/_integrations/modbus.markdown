@@ -383,6 +383,11 @@ scan_interval:
   type: integer
   default: 15
 slave:
+  description: "Identical to `device_address`"
+  required: false
+  type: integer
+  default: 0
+device_address:
   description: "Id of the device. Used to address multiple devices on a rs485 bus or devices connected to a modbus repeater."
   required: false
   type: integer
