@@ -8,7 +8,6 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@dgomes'
-  - '@abmantis'
 ha_domain: ipma
 ha_platforms:
   - sensor

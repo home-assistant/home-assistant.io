@@ -1,5 +1,5 @@
 ---
-title: modbus
+title: Modbus
 description: Instructions on how to integrate modbus and platforms.
 ha_category:
   - Hub
@@ -37,13 +37,6 @@ The modbus integration allows you to use multiple connections each with multiple
 The modbus integration provides a number of parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
 
 {% configuration %}
-close_comm_on_error:
-  description: "Close connection when an error occurs.
-  Some serial-rs485 adapters deliver garble when opened, this leads to a disconnect and a new connect, which can continue.
-  If the log contains a message from pymodbus, with the text 'cleaning....', then try this parameter."
-  required: false
-  default: true
-  type: boolean
 delay:
   description: "Time to delay sending messages in seconds after connecting.
   Some modbus devices need a delay of typically 1-2 seconds after connection is established to prepare the communication.
@@ -66,11 +59,6 @@ retries:
   required: false
   default: 3
   type: integer
-retry_on_empty:
-  description: "Retry request, when receiving an empty message."
-  required: false
-  default: false
-  type: boolean
 timeout:
   description: "Timeout while waiting for a response in seconds."
   required: false
@@ -133,7 +121,6 @@ modbus:
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -182,7 +169,6 @@ modbus:
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -227,7 +213,6 @@ modbus:
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -324,7 +309,6 @@ modbus:
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -1545,8 +1529,7 @@ Description:
 | Attribute | Description                                                                                                                                                                                                                                                                                 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
-| unit      | Slave address (0-255), alternative to slave                                                                                                                                                                                                                                                 |
-| slave     | Slave address (0-255), alternative to unit                                                                                                                                                                                                                                                  |
+| slave     | Slave address (0-255)                                                                                                                                                                                                                                                  |
 | address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |
@@ -1572,7 +1555,7 @@ To write a float32 datatype register use network format like `10.0` == `0x412000
 service: modbus.write_register
 data:
   address: <target register address>
-  unit: <target slave address>
+  slave: <target slave address>
   hub: <hub name>
   value: [0x4120, 0x0000]
 ```
