@@ -16,7 +16,9 @@ The Profiler integration provides a profile which is a set of statistics that id
 
 {% include integrations/config_flow.md %}
 
-### Service {% my developer_call_service service="profiler.start" %}
+### Service profiler.start
+
+{% my developer_call_service badge service="profiler.start" %}
 
 Start the profiler for the specified number of seconds.
 
@@ -51,7 +53,9 @@ dot callgrind.dot -Tpng -o callgrind.png
 gprof2dot -f pstats profile.1234567890123456.cprof | dot -Tsvg -o profile.svg
 ```
 
-### Service {% my developer_call_service service="profiler.memory" %}
+### Service profiler.memory
+
+{% my developer_call_service badge service="profiler.memory" %}
 
 Start the memory profiler for the specified number of seconds.
 
@@ -69,7 +73,9 @@ from guppy import hpy
 hpy().pb()
 ```
 
-### Service {% my developer_call_service service="profiler.start_log_objects" %}
+### Service profiler.start_log_objects
+
+{% my developer_call_service badge service="profiler.start_log_objects" %}
 
 Start logging the growth of objects in memory.
 
@@ -79,11 +85,15 @@ Start logging the growth of objects in memory.
 
 Periodically log the growth of new objects in memory. This service's primary use case is finding memory leaks. This service can be run for long periods to find slow leaks. For finding fast leaks, `profiler.start_log_object_sources` is preferred; however, it is much more CPU intensive.
 
-### Service {% my developer_call_service service="profiler.stop_log_objects" %}
+### Service profiler.stop_log_objects
+
+{% my developer_call_service badge service="profiler.stop_log_objects" %}
 
 Stop logging the growth of objects in memory.
 
-### Service {% my developer_call_service service="profiler.start_log_object_sources" %}
+### Service profiler.start_log_object_sources
+
+{% my developer_call_service badge service="profiler.start_log_object_sources" %}
 
 Start logging the growth of objects in memory and attempt to find the source of the new objects.
 
@@ -96,11 +106,15 @@ Periodically log the growth of new objects in memory. This service's primary use
 
 This service is similar to `start_log_objects` except that it is much more CPU intensive since it will attempt to locate the source of each new object up to `max_objects` each time it logs.
 
-### Service {% my developer_call_service service="profiler.stop_log_object_sources" %}
+### Service profiler.stop_log_object_sources
+
+{% my developer_call_service badge service="profiler.stop_log_object_sources" %}
 
 Stop logging the growth of objects with sources in memory.
 
-### Service {% my developer_call_service service="profiler.dump_log_objects" %}
+### Service profiler.dump_log_objects
+
+{% my developer_call_service badge service="profiler.dump_log_objects" %}
 
 | Service data attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
@@ -121,7 +135,9 @@ data:
   type: Template
 ```
 
-### Service {% my developer_call_service service="profiler.log_thread_frames" %}
+### Service profiler.log_thread_frames
+
+{% my developer_call_service badge service="profiler.log_thread_frames" %}
 
 To help discover run away threads, why the executor is overloaded, or other threading problems, the current frames for each running thread will be logged when this service is called.
 
@@ -156,7 +172,9 @@ An example is below:
     sock.connect(address)
 ```
 
-### Service {% my developer_call_service service="profiler.log_event_loop_scheduled" %}
+### Service profiler.log_event_loop_scheduled
+
+{% my developer_call_service badge service="profiler.log_event_loop_scheduled" %}
 
 Log what is scheduled in the event loop. This can be helpful in tracking down integrations that do not stop listeners when Home Assistant stops or do not have sufficient locking to avoid scheduling updates before the previous update is finished.
 
@@ -164,6 +182,8 @@ Each upcoming scheduled item is logged similar to the below example:
 
 `[homeassistant.components.profiler] Scheduled: <TimerHandle when=1528307.1818668307 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobType.Coroutinefunction <bound method DataUpdateCoordinator._handle_refresh_interval of <homeassistant.components.screenlogic.ScreenlogicDataUpdateCoordinator object at 0x7f985d896d30>>>) at /usr/src/homeassistant/homeassistant/helpers/event.py:1175>`
 
-### Service {% my developer_call_service service="profiler.lru_stats" %}
+### Service profiler.lru_stats
+
+{% my developer_call_service badge service="profiler.lru_stats" %}
 
 Logs statistics from [lru_cache](https://docs.python.org/3/library/functools.html#functools.lru_cache) and [lru-dict](https://pypi.org/project/lru-dict/) to help tune Home Assistant and locate memory leaks.
