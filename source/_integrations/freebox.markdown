@@ -15,11 +15,11 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: freebox
 ha_platforms:
+  - binary_sensor
   - button
   - camera
   - device_tracker
   - sensor
-  - binary_sensor
   - switch
 ha_zeroconf: true
 ha_integration_type: integration

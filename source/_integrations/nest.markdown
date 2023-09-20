@@ -17,7 +17,6 @@ ha_domain: nest
 ha_quality_scale: platinum
 ha_dhcp: true
 ha_platforms:
-  - binary_sensor
   - camera
   - climate
   - diagnostics
@@ -47,7 +46,7 @@ The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buyin
 
 ## Configuration
 
-Adding Nest to your Home Assistant instance can be done via the user interface, by using this My Button:
+To add the **Nest** integration to your Home Assistant, use this My Button:
 {% my config_flow_start badge domain=page.ha_domain %}
 
   ![Screenshot of Setup prompt](/images/integrations/nest/setup_prompt.png)

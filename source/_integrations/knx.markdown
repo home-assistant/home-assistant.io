@@ -44,8 +44,8 @@ ha_platforms:
   - sensor
   - switch
   - text
-  - weather
   - time
+  - weather
 ha_config_flow: true
 ha_integration_type: hub
 ---
@@ -72,6 +72,10 @@ There is currently support for the following device types within Home Assistant:
 - [Text](#text)
 - [Time](#time)
 - [Weather](#weather)
+
+## Free KNX online training
+
+As a Home Assistant KNX user, you can start a FREE KNX online training and get a discounted ETS Home license on the [KNX website](https://www.knx.org/knx-en/for-your-home/home-assistant/).
 
 {% include integrations/config_flow.md %}
 

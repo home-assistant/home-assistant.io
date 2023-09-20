@@ -32,7 +32,8 @@ To add a Yamaha Network Receiver to your installation, add the following to your
 media_player:
   - platform: yamaha
 ```
-
+You **must** enable network standby on your receiver, or else startup of Home Assistant will hang if you
+have your receiver switched off.
 {% configuration %}
 name:
   description: Name of the device. This overrides the default name (often model number) that is returned by the device.
@@ -59,21 +60,6 @@ zone_names:
   required: false
   type: list
 {% endconfiguration %}
-
-### Discovery notes
-
-- If the `discovery` integration is enabled, all units on the network
-  will be discovered using UPnP.
-- For receivers that support more than one zone, Home Assistant will
-  add one media player per zone supported by the player, named "$name
-  Zone 2" and "$name Zone 3".
-- If you specify `host` manually, you **must** enable network standby
-  on your receiver, or else startup of Home Assistant will hang if you
-  have your receiver switched off.
-- In some cases, auto-discovery fails due to a known bug in the
-  receiver's firmware. It is possible to manually specify the
-  receiver's IP address or via its hostname (if it is discoverable by
-  your DNS) then.
 
 ### Supported operations
 

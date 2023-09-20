@@ -3,8 +3,7 @@
 
 ## Configuration
 
-Adding {{ name }} to your Home Assistant instance can be done via the user
-interface, by using this My button:
+To add the **{{ name }}** integration to your Home Assistant instance, use this My button:
 
 {% my config_flow_start badge domain=domain %}
 

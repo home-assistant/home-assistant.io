@@ -227,9 +227,10 @@ Keep in mind that, depending on the update frequency of your sensor and other fa
 #### Postgres
 
 ```sql
-SELECT (pg_database_size('dsmrreader')/1024/1024) as db_size;
+SELECT pg_database_size('dsmrreader')/1024/1024 as db_size;
 ```
 Use `db_size` as column for value.
+Replace `dsmrreader` with the correct name of your database.
 
 #### MariaDB/MySQL
 

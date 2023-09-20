@@ -383,12 +383,12 @@ is that the constant selector has no value when it's not enabled.
 The selector's value must be configured, and optionally, a label.
 
 ```yaml
-boolean:
+constant:
   value: true
   label: Enabled
 ```
 
-The output of this selector is the configured value when the toggle is on, it has not output otherwise.
+The output of this selector is the configured value when the toggle is on, it has no output otherwise.
 
 ## Conversation agent selector
 
@@ -986,6 +986,12 @@ translation_key:
     for more information.
   type: string
   required: false
+sort:
+  description: >
+    Display options in alphabetical order.
+  type: boolean
+  required: false
+  default: false
 {% endconfiguration %}
 
 Alternatively, a mapping can be used for the options. When you want to return

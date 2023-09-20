@@ -46,6 +46,12 @@ Password:
 
 ## Binary Sensors
 
+For each Airzone system (HVAC machine), the following *binary sensors* are created:
+
+| Condition           | Description                                               |
+| :------------------ | :-------------------------------------------------------- |
+| problems            | Indicates that the current system has errors or warnings. |
+
 For each Airzone zone (thermostat), the following *binary sensors* are created:
 
 | Condition           | Description                                             |
