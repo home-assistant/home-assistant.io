@@ -60,13 +60,13 @@ Currently the following device types within Home Assistant are supported.
 ### Presence Detection
 
 - Detect presence of devices connected to the main or the guest wifi
-  - Updates every 10 seconds
+  - Updates every 15 seconds
   - Automatically adds new devices as disabled entities unless disabled via system option
 
 ### Sensors
 
 - Number of connected wifi clients
-  - Updates every 10 seconds
+  - Updates every 15 seconds
   - Is enabled by default
 - Number of neighbored wifi networks
   - Updates every 5 minutes

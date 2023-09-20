@@ -1,5 +1,5 @@
 ---
-title: modbus
+title: Modbus
 description: Instructions on how to integrate modbus and platforms.
 ha_category:
   - Hub
@@ -37,13 +37,6 @@ The modbus integration allows you to use multiple connections each with multiple
 The modbus integration provides a number of parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
 
 {% configuration %}
-close_comm_on_error:
-  description: "Close connection when an error occurs.
-  Some serial-rs485 adapters deliver garble when opened, this leads to a disconnect and a new connect, which can continue.
-  If the log contains a message from pymodbus, with the text 'cleaning....', then try this parameter."
-  required: false
-  default: true
-  type: boolean
 delay:
   description: "Time to delay sending messages in seconds after connecting.
   Some modbus devices need a delay of typically 1-2 seconds after connection is established to prepare the communication.
@@ -66,11 +59,6 @@ retries:
   required: false
   default: 3
   type: integer
-retry_on_empty:
-  description: "Retry request, when receiving an empty message."
-  required: false
-  default: false
-  type: boolean
 timeout:
   description: "Timeout while waiting for a response in seconds."
   required: false
@@ -133,7 +121,6 @@ modbus:
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -182,7 +169,6 @@ modbus:
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -227,7 +213,6 @@ modbus:
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -324,7 +309,6 @@ modbus:
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -399,6 +383,11 @@ scan_interval:
   type: integer
   default: 15
 slave:
+  description: "Identical to `device_address`"
+  required: false
+  type: integer
+  default: 0
+device_address:
   description: "Id of the device. Used to address multiple devices on a rs485 bus or devices connected to a modbus repeater."
   required: false
   type: integer
@@ -480,6 +469,10 @@ binary_sensors:
       default: coil
       type: string
     slave_count:
+      description: "Identical to `virtual_count`."
+      required: false
+      type: integer
+    virtual_count:
       description: "Generate count+1 binary sensors (master + slaves).
       Addresses are automatically incremented.
       The parameter simplifies configuration and provides a much better performance by not using count+1 requests but a single request."
@@ -613,7 +606,8 @@ climates:
           required: true
           type: integer
         write_registers:
-          description: "Request type, use `write_registers` if true  else `write_register`."
+          description: "Request type, use `write_registers` if true  else `write_register`.
+            If more than one value is specified for a specific mode, only the first one is used for writing to the register."
           required: false
           type: boolean
           default: false
@@ -625,15 +619,15 @@ climates:
             state_off:
               description: "Value corresponding to HVAC Off mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_heat:
               description: "Value corresponding to HVAC Heat mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_cool:
               description: "Value corresponding to HVAC Cool mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_auto:
               description: "Value corresponding to HVAC Auto mode."
               required: false
@@ -641,15 +635,15 @@ climates:
             state_dry:
               description: "Value corresponding to HVAC Dry mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_fan_only:
               description: "Value corresponding to HVAC Fan only mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_heat_cool:
               description: "Value corresponding to HVAC Heat/Cool mode."
               required: false
-              type: integer
+              type: [integer, list]
     hvac_onoff_register:
       description: "Address of On/Off state.
         When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
@@ -1276,6 +1270,10 @@ sensors:
       type: float
       default: 1
     slave_count:
+      description: "Identical to `virtual_count`."
+      required: false
+      type: integer
+    virtual_count:
       description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read messsage."
       required: false
       type: integer
@@ -1291,6 +1289,10 @@ sensors:
       type: string
       default: ">f"
     slave_count:
+      description: "Identical to `virtual_count`."
+      required: false
+      type: integer
+    virtual_count:
       description: Generates x-1 slave sensors, allowing read of multiple registers with a single read message.
       required: false
       type: integer
@@ -1524,6 +1526,7 @@ Some parameters exclude other parameters, the following tables show what can be 
 | count           | Yes    | Yes    | No  | No  | No  |
 | structure       | Yes    | No     | No  | No  | No  |
 | slave_count     | No     | No     | Yes | Yes | Yes |
+| virtual_count   | No     | No     | Yes | Yes | Yes |
 | swap: none      | Yes    | Yes    | Yes | Yes | Yes |
 | swap: byte      | No     | No     | Yes | Yes | Yes |
 | swap: word      | No     | No     | No  | Yes | Yes |
@@ -1544,8 +1547,7 @@ Description:
 | Attribute | Description                                                                                                                                                                                                                                                                                 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
-| unit      | Slave address (0-255), alternative to slave                                                                                                                                                                                                                                                 |
-| slave     | Slave address (0-255), alternative to unit                                                                                                                                                                                                                                                  |
+| slave     | Slave address (0-255)                                                                                                                                                                                                                                                  |
 | address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |
@@ -1571,7 +1573,7 @@ To write a float32 datatype register use network format like `10.0` == `0x412000
 service: modbus.write_register
 data:
   address: <target register address>
-  unit: <target slave address>
+  slave: <target slave address>
   hub: <hub name>
   value: [0x4120, 0x0000]
 ```

@@ -26,6 +26,7 @@ ha_codeowners:
   - '@mib1185'
   - '@flabbamann'
 ha_integration_type: hub
+ha_quality_scale: gold
 ---
 
 The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/smart-home/) devices like switches, sensors and thermostats.
@@ -43,6 +44,7 @@ Additionally, we also support to trigger smarthome templates.
 
 #### Tested Devices
 
+- [FRITZ!Box 5590 Fiber](https://en.avm.de/products/fritzbox/fritzbox-5590-fiber/)
 - FRITZ!Box 6490 Cable
 - [FRITZ!Box 6591 Cable](https://en.avm.de/products/fritzbox/fritzbox-6591-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)

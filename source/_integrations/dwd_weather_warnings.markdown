@@ -10,7 +10,6 @@ ha_domain: dwd_weather_warnings
 ha_codeowners:
   - '@runningman84'
   - '@stephan192'
-  - '@Hummel95'
   - '@andarotajo'
 ha_platforms:
   - sensor

@@ -17,8 +17,10 @@ ha_integration_type: integration
 
 The Opower integration allows you to get energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
 
-More than 175 utilities use Opower. Currently only the following ones are supported:
+More than 175 utilities use Opower. Currently only the following utilities are supported by this integration:
 
+- Consolidated Edison (ConEd) and subsidiaries
+  - Orange & Rockland Utilities (ORU)
 - Evergy
 - Exelon subsidiaries
   - Atlantic City Electric
@@ -30,9 +32,35 @@ More than 175 utilities use Opower. Currently only the following ones are suppor
 - Pacific Gas & Electric (PG&E)
 - Puget Sound Energy (PSE)
 
-To add this integration to your installation, you will need your login username and password for your utility website. Two-factor authentication is not supported.
+When you add the Opower integration to Home Assistant, you will need to provide your utility account's authentication details to enable retrieving your energy data.
+This is typically the same information needed to access your utility's website.
 
-When using Opower with any of the Exelon subsidiaries, you need to actively disable two-factor authentication. Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, disable it.
+## Utility Authentication Requirements
+
+For many utilities, only a username and password are required to access your accounts. Some utilities requires additional authentication information.
+It might be necessary to configure your utility account with an authentication method that is compatible with the Opower integration.
+Utility-specific authentication requirements are listed below:
+
+### Consolidated Edison (ConEd)
+
+Your ConEd account must be set up to use two-factor authentication using time-based one time passwords (TOTP). Other authentication methods, such as secret questions, are not supported.
+
+When adding the Opower ConEd integration you will need to provide the TOTP secret that is used to synchronize your authenticator app, such as Google Authenticator, to your ConEd account.
+
+NOTE: The TOTP secret is not one of the 6 digit time-based numeric codes.
+It is a string of around 16 characters containing the shared secret that enables your authenticator app to generate the correct time-based code at the appropriate time.
+The QR codes used for setting up TOTP accounts contain the secret.
+Using the TOTP secret, the Opower integration will be able to generate the correct time-based code when it needs to authenticate to the ConEd website.
+
+If you have an existing TOTP set up, there are methods for exporting the account from your authenticator app and then using a tool to obtain the TOTP secret from the encoded string.
+
+Alternatively, you can create a new TOTP secret for your account and use the "no camera to scan" option to capture the TOTP secret. You may also want to capture the QR code by taking a picture, or using a QR code scanner. There are tools available that can decode the TOTP data from a QR code.
+
+**NOTE: At this time, ConEd only has a single TOTP set up per account. Therefore, it is important that you configure the same TOTP secret for ConEd access in both Opower and your authenticator app.**
+
+### Exelon subsidiaries
+
+When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO, Pepco, etc., you need to actively disable two-factor authentication. Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, disable it.
 
 {% include integrations/config_flow.md %}
 
