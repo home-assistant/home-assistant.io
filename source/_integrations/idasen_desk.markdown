@@ -5,7 +5,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_release: '2023.10'
 ha_category:
-  - Desk
+  - Cover
 ha_domain: idasen_desk
 ha_platforms:
   - cover
