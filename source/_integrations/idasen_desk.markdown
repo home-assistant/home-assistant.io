@@ -7,6 +7,7 @@ ha_release: '2023.10'
 ha_category:
   - Cover
 ha_domain: idasen_desk
+ha_bluetooth: true
 ha_platforms:
   - cover
 ha_integration_type: integration
