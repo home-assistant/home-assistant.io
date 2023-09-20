@@ -4,7 +4,7 @@ description: Instructions on how to integrate Bang & Olufsen devices into Home A
 ha_category:
   - Media Player
   - Multimedia
-ha_release: 2023.9
+ha_release: 2023.11
 ha_iot_class: Local Push
 ha_domain: bangolufsen
 ha_platforms:
@@ -22,6 +22,7 @@ The `bangolufsen` integration enables control of some of the features of certain
 
 Devices that have been tested and _should_ work without any trouble are:
 
+- [Beolab 8](https://www.bang-olufsen.com/en/dk/speakers/beolab-8)
 - [Beolab 28](https://www.bang-olufsen.com/en/dk/speakers/beolab-28)
 - [Beosound 2 3rd gen](https://www.bang-olufsen.com/en/dk/speakers/beosound-2)
 - [Beosound A5](https://www.bang-olufsen.com/en/dk/speakers/beosound-a5)
@@ -34,6 +35,7 @@ Devices that have been tested and _should_ work without any trouble are:
 and any other Mozart based products.
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 IP Address:
   description: The IP address of your device. Can be found by navigating to the device on the [Bang & Olufsen app](https://www.bang-olufsen.com/en/dk/story/apps) and selecting `⋯` → `Product settings` → `About` → `IP address`.
@@ -43,38 +45,6 @@ Device model:
   description: The model name of your Bang & Olufsen device. This is used to determine some capabilities of the device. If the device is not in the list yet, choose a product similar to yours.
   required: true
   type: string
-Volume step:
-  description: The step size of the `media_player.volume_up` and `media_player.volume_down` services.
-  required: true
-  type: integer
-Default volume:
-  description: The volume level that the device will default to when entering standby.
-  required: true
-  type: integer
-Max volume:
-  description: The maximum volume level that the device will be able to play at.
-  required: true
-  type: integer
-{% endconfiguration_basic %}
-
-{% include integrations/option_flow.md %}
-{% configuration_basic %}
-Name:
-  description: The name of the device in Home Assistant.
-  required: true
-  type: string
-Volume step:
-  description: The step size of the `media_player.volume_up` and `media_player.volume_down` services.
-  required: true
-  type: integer
-Default volume:
-  description: The volume level that the device will default to when entering standby.
-  required: true
-  type: integer
-Max volume:
-  description: The maximum volume level that the device will be able to play at.
-  required: true
-  type: integer
 {% endconfiguration_basic %}
 
 ## Entities
@@ -185,19 +155,7 @@ data:
 
 ## Automations
 
-All device triggers can be received by listening to `bangolufsen_event` event types.
-
-Additionally the "raw" WebSocket notifications received from the device are fired as events in Home Assistant. These can be received by listening to `bangolufsen_websocket_event` event types where `device_id` or `serial_number` can be used to differentiate devices.
-
-### Physical buttons and sensors
-
-The "shortPress" of all the buttons, except for volume control, are available as device triggers.
-
-### Beoremote One
-
-Device triggers for the [Beoremote One](https://www.bang-olufsen.com/en/dk/accessories/beoremote-one) are supported and will be available once the integration detects that it has been paired with the device. To trigger these triggers, enter the "Control" or "Light" submenu, and press any of the compatible buttons. Each button press will send a "press" and a "release" event and therefore also a "press" and a "release" device trigger.
-
-The favourite buttons correspond to the physical favourite buttons on the device.
+WebSocket notifications received from the device are fired as events in Home Assistant. These can be received by listening to `bangolufsen_websocket_event` event types where `device_id` or `serial_number` can be used to differentiate devices.
 
 ### Getting Deezer URIs
 
@@ -206,22 +164,3 @@ In order to find Deezer playlist, album URIs and user IDs for Deezer flows, the 
 Additionally a Deezer user ID can be found at <https://www.deezer.com/en/profile/USER_ID> by selecting the active user in a web browser.
 
 Deezer track IDs can currently only easily be found by playing the track on the device and looking at the extra state attributes, where it is shown with the key "deezer_track_id". Tracks do not have a prefix so the ID needs to be used directly.
-
-### Automation examples
-
-#### Using the Beoremote One to control lights
-
-```yaml
-description: Use the Beoremote One to control living room lights.
-mode: single
-trigger:
-  - platform: device
-    device_id: 234567890abcdef1234567890abcdef1
-    domain: bangolufsen
-    type: Light/Digit1_KeyPress
-condition: []
-action:
-  - service: light.toggle
-    target:
-      entity_id: light.living_room
-```
