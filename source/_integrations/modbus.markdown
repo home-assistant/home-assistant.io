@@ -712,6 +712,11 @@ climates:
       description: "Register address for target temperature (Setpoint)."
       required: true
       type: integer
+    target_temp_write_registers:
+      description: if true use write_registers for target temperature
+      required: false
+      type: boolean
+      default: false
     temp_step:
       description: "Step size target temperature."
       required: false
@@ -758,6 +763,7 @@ modbus:
         max_temp: 30
         structure: ">f"
         target_temp_register: 2782
+        target_temp_write_registers: true
         temp_step: 1
         temperature_unit: C
 ```
