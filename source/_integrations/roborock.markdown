@@ -59,6 +59,8 @@ Mop drying status - Only available on docks with drying capabilites - States if 
 
 Water box attached - States if the water box is currently attached.
 
+Water shortage - States if the water box is low on water - 'Ok' if it has not detected a water shortage.
+
 
 ### Sensor
 
