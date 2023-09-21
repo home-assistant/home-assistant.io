@@ -17,7 +17,7 @@ Please remember to ensure you're using an [appropriate power supply](https://www
 </div>
 
 Before installing Home Assistant, you might want to <a href="/installation#compare-installation-methods">compare installation methods</a>. Most notably, 
-<a href="/addons">Add-ons</a> are only available with the Home Assistant Operating System.
+<a href="/addons">add-ons</a> are only available with the Home Assistant Operating System.
 
 ## Suggested Hardware
 
