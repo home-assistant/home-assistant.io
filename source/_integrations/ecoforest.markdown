@@ -20,7 +20,7 @@ There is currently support for the following device platforms within Home Assist
 
 - [Sensor](#sensor)
 
-{% include integrations/config_flow.md discovery=False %}
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 Devices must first be connected to Wi-Fi or LAN using the app or website provided by the device manufacturer. It is not possible to connect devices to Wi-Fi using this integration.
