@@ -59,6 +59,8 @@ Mop drying status - Only available on docks with drying capabilites - States if 
 
 Water box attached - States if the water box is currently attached.
 
+Water shortage - States if the water box is low on water - 'Ok' if it has not detected a water shortage.
+
 
 ### Sensor
 
@@ -79,6 +81,10 @@ Side brush time left - How much time is left before Roborock recommends you repl
 Filter time left - How much time is left before Roborock recommends you replace your vacuum's air filter.
 
 Status - The current status of your vacuum. This typically describes the action that is currently being run. For example, 'spot_cleaning' or 'docking'.
+
+Last clean begin - the last time that your vacuum started cleaning.
+
+Last clean end - The last time that your vacuum finished cleaning.
 
 Total cleaning time - The lifetime cleaning duration of your vacuum.
 
