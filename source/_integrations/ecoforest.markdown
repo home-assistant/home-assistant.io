@@ -28,7 +28,7 @@ Devices must first be connected to Wi-Fi or LAN using the app or website provide
 
 ### Credentials
 
-To configure the Ecoforest integration you will need to enter your Ecoforest credentials which are the same ones you would use with the manufacturer app. The image bellow shows how to obtain the credentials:
+To configure the Ecoforest integration you will need to enter your Ecoforest credentials which are the same ones you would use with the manufacturer app. The image below shows how to obtain the credentials:
 
 - Username: use the serial number of the device as identified by 1.
 - Password: use the first 8 characters of the wifi password as identified by 4.
