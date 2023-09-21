@@ -46,7 +46,7 @@ Any Ecoforest device working with [Ecoforest Home](https://ecoforesthome.com/) s
 
 Ecoforest devices expose multiple sensors to monitor various features:
 
-- Room Temperature: Current ambient temperature as read by the device probe.
+- Temperature: Current ambient temperature as read by the device probe.
 
 ## Troubleshooting
 
