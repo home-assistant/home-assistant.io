@@ -176,7 +176,7 @@ data:
 Send a message as reply to an existing message. `thread_ts` can be retrieved via a script utilising [Bolt](https://slack.dev/bolt-python/tutorial/getting-started), any other Slack library, or the Slack API directly.
 
 ```yaml
-message: Here's some supplementary information that doesn't need to be present in the channel directly.
+message: "Here's some supplementary information that doesn't need to be present in the channel directly."
 target: "#general"
 data:
   thread_ts: "1684736481.064129"
