@@ -44,7 +44,7 @@ Any Ecoforest device working with [Ecoforest Home](https://ecoforesthome.com/) s
 
 ## Sensor
 
-Ecoforest devices expose multiple sensors to monitor various features:
+The Ecoforest integration exposes a sensor for the current ambient temperature
 
 - Temperature: Current ambient temperature as read by the device probe.
 
