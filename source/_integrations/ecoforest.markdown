@@ -23,7 +23,7 @@ There is currently support for the following device platforms within Home Assist
 {% include integrations/config_flow.md discovery=False %}
 
 <div class='note'>
-Devices must first be bound to WiFi or LAN using the app or website provided by the device manufacturer. It is not possible to connect devices to WiFi using this integration.
+Devices must first be connected to Wi-Fi or LAN using the app or website provided by the device manufacturer. It is not possible to connect devices to Wi-Fi using this integration.
 </div>
 
 ### Credentials
@@ -47,19 +47,3 @@ Any Ecoforest device working with [Ecoforest Home](https://ecoforesthome.com/) s
 The Ecoforest integration exposes a sensor for the current ambient temperature
 
 - Temperature: Current ambient temperature as read by the device probe.
-
-## Troubleshooting
-
-If you're trying to track down issues with this integration, set up logging for it.
-
-### Debugging
-
-To turn on debug logging in the integration configuration view or modify your `configuration.yaml` file in the `/config` directory and add the following:
-
-```yaml
-# Example configuration.yaml with logging for Ecoforest
-logger:
-  default: warning
-  logs:
-    homeassistant.components.ecoforest: debug
-```
