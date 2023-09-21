@@ -119,9 +119,9 @@ mobileMenuLinks.forEach((link) =>
 );
 
 const rendering = document.querySelector(".exploded-view-rendered");
-rendering.addEventListener("animationend", (event) => {
+rendering.addEventListener("animationend", () => {
     rendering.style.opacity = 1;
     document.querySelectorAll(".exploded-part").forEach((part) => {
         part.remove();
     });
-});
+}, {once: true});
