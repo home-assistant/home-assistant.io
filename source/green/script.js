@@ -1,8 +1,9 @@
+let observer;
+
 function createObserver(elements) {
-    let observer;
 
     let options = {
-        threshold: .3,
+        threshold: [.3, .9],
     };
 
     observer = new IntersectionObserver(handleIntersect, options);
@@ -13,7 +14,8 @@ function createObserver(elements) {
 
 function handleIntersect(entries, _observer) {
     entries.forEach((entry) => {
-        if (entry.intersectionRatio > 0) {
+        const threshold = entry.target.dataset.threshold || 0;
+        if (entry.intersectionRatio >= Number(threshold)) {
             entry.target.classList.add("show");
         } else {
             entry.target.classList.remove("show");
@@ -116,3 +118,13 @@ mobileMenuLinks.forEach((link) =>
         menuMobileBtn.classList.remove("open");
     })
 );
+
+const rendering = document.querySelector(".exploded-view-rendered");
+rendering.addEventListener("animationend", () => {
+    rendering.style.opacity = 1;
+    observer.unobserve(rendering.parentElement);
+    rendering.parentElement.classList.add("show");
+    document.querySelectorAll(".exploded-part").forEach((part) => {
+        part.remove();
+    });
+}, {once: true});
