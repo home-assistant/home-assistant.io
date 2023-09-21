@@ -5,7 +5,9 @@ date: 2023-09-21 0:0:00
 date_formatted: "September 21, 2023"
 author: Paulus Schoutsen
 author_twitter: balloob
+comments: true
 categories: Public-Service-Announcement
+og_image: /images/blog/2023-09-hue-upload-user-data-cloud/social.png
 ---
 
 Today’s story is about Philips Hue by Signify. They will soon start forcing accounts on all users and upload user data to their cloud. For now, Signify says you’ll still be able to control your Hue lights locally as you’re currently used to, but we don’t know if this may change in the future. The privacy policy allows them to store the data and share it with partners.
