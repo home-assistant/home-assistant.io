@@ -80,7 +80,7 @@ Filter time left - How much time is left before Roborock recommends you replace 
 
 Status - The current status of your vacuum. This typically describes the action that is currently being run. For example, 'spot_cleaning' or 'docking'.
 
-Last clean start - the last time that your vacuum started cleaning.
+Last clean begin - the last time that your vacuum started cleaning.
 
 Last clean end - The last time that your vacuum finished cleaning.
 
