@@ -40,7 +40,7 @@ Any Ecoforest device working with [Ecoforest Home](https://ecoforesthome.com/) s
 
 ## Number
 
-The Ecoforest integration exposes a number entity for the device power target.
+The Ecoforest integration exposes a number entity for the device power level.
 
 ## Sensor
 
