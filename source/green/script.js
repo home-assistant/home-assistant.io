@@ -1,5 +1,6 @@
+let observer;
+
 function createObserver(elements) {
-    let observer;
 
     let options = {
         threshold: [.3, .9],
@@ -121,6 +122,8 @@ mobileMenuLinks.forEach((link) =>
 const rendering = document.querySelector(".exploded-view-rendered");
 rendering.addEventListener("animationend", () => {
     rendering.style.opacity = 1;
+    observer.unobserve(rendering.parentElement);
+    rendering.parentElement.classList.add("show");
     document.querySelectorAll(".exploded-part").forEach((part) => {
         part.remove();
     });
