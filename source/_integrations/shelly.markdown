@@ -124,7 +124,7 @@ For generation 2 hardware it's possible to select if a device's input is connect
 
 ## Event entities (generation 2)
 
-If the **Input Mode** of the switch connected to the device is set to `Button`, integration creates an event entity for this switch. You can use this entity in your automations.
+If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
 ## Events
 
