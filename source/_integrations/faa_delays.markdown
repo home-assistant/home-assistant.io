@@ -35,30 +35,20 @@ FAA Identifier at [Airnav](https://airnav.com/airports/).
 ## Additional Delay Information
 
 Each airport added will expose 5 binary sensors, one for each type of delay. Within each sensor there is additional
-information listed as attributes, which depends on the type of delay it is. All sensors include an update time attribute, which is the last time the advisory was updated, *not* the last time the data was fetched. Each delay type also has the attributes
+information listed as attributes, which depends on the type of delay it is. Each delay type has the attributes
 listed below:
 
 - Ground Delay
   - Average Delay Time
   - Delay reason
-  - Maximum delay time
-  - GDP start time
-  - GDP end time
-  - URL to the ATCSCC advisory
-  - Departure scope
 - Ground Stop
   - Expected End Time for stop
   - Delay reason
-  - URL to the ATCSCC advisory
-  - Included facilities
-  - Included flights
-  - Probability of extension (low, medium, or high)
 - Arrival/Departure Delay
   - Minimum delay time
   - Maximum delay time
   - Delay trend (increasing/decreasing)
   - Delay reason
-  - Average delay
 - Closure
   - Start of closure (begin)
   - End of closure (end)
