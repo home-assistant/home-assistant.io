@@ -16,7 +16,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - number
-  - Fan
+  - fan
 ha_integration_type: integration
 ---
 
