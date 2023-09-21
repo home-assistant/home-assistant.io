@@ -713,7 +713,7 @@ climates:
       required: true
       type: integer
     target_temp_write_registers:
-      description: if true use write_registers for target temperature
+      description: "If `true` use `write_registers` for target temperature."
       required: false
       type: boolean
       default: false
