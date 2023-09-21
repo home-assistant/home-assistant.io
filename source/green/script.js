@@ -95,7 +95,7 @@ if (document.location.search === "?order") {
     showBuyDialog();
 }
 
-const menuMobileBtn = document.querySelector(".menu-mobile");
+const menuMobileBtn = document.getElementById("open-mobile-menu");
 const mobileMenu = document.querySelector(".w-nav-overlay");
 const mobileMenuLinks = document.querySelectorAll(".w-nav-overlay a");
 
