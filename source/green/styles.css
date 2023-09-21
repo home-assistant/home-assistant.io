@@ -1081,7 +1081,7 @@ button,
 .brand {
   height: 42px;
   padding-bottom: 0;
-  padding-right: 35px;
+  padding-right: 20px;
 }
 
 .topnav-button {
@@ -1719,6 +1719,10 @@ button,
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.grid-3-col.specs {
+  grid-template-columns: 1fr 1.5fr 1fr;
+}
+
 .header-ticker-inner {
   grid-column-gap: 24px;
   align-items: center;
@@ -1914,7 +1918,7 @@ button,
 }
 
 .block-wrapper-content {
-  height: 45em;
+  min-height: 45em;
   border-radius: 48px;
   align-items: center;
   display: flex;
@@ -2498,6 +2502,7 @@ button,
   }
 
   .block-wrapper-content {
+    min-height: unset;
     height: 25em;
   }
 
@@ -2680,8 +2685,8 @@ button,
   }
 
   .menu-button {
-    padding-left: 5px;
-    padding-right: 10px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .button {
@@ -3373,6 +3378,8 @@ button,
   }
 
   #w-node-f82aa316-050e-d74a-ecac-5099737262df-3f61e7c1 {
+    display: flex;
+    flex-direction: row;
     grid-area: 1 / 3 / 2 / 4;
     justify-self: end;
   }
