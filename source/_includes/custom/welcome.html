@@ -17,5 +17,5 @@
 <p class='hero-buttons'>
   <a href='/getting-started/'>Get started</a>
   <a href='https://demo.home-assistant.io' target='_blank'>View demo</a>
-  <a href='/integrations/'>Browse {{ tot | divided_by: 100 | round | times: 100 }}+ integrations</a>
+  <a href='/integrations/'>Browse {{ tot | minus: 1 | divided_by: 100 | round | times: 100 }}+ integrations</a>
 </p>
