@@ -44,4 +44,11 @@ Any Ecoforest device working with [Ecoforest Home](https://ecoforesthome.com/) s
 
 ## Sensor
 
-The Ecoforest integration exposes a sensor for the current ambient temperature
+The Ecoforest integration exposes multiple sensors to monitor various features:
+
+- temperature a sensor for the current ambient temperature
+- cpu_temperature a sensor for the current cpu temperature
+- gas_temperature a sensor for the current gas temperature
+- ntc_temperature a sensor for the current ntc probe temperature
+- status a sensor for the current status of the device
+- alarm a sensor for the current alarm of the device
