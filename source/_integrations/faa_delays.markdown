@@ -52,4 +52,3 @@ listed below:
 - Closure
   - Start of closure (begin)
   - End of closure (end)
-  - NOTAM of closure
