@@ -22,6 +22,7 @@ Left: A new tip informs users that they soon need to login.<br>
 Right: the screen shown when clicking learn more
 </p>
 
+<!--more-->
 When you create an account with Hue, you get the ability to control your lights while away from home using their mobile app. This feature works by uploading your data to the Hue cloud such that the mobile app can reach it. Their privacy policy allows them to store this data and share it with their partners.
 
 Creating a Hue account has been an option for a long time, but it was always an option. Many Home Assistant users preferred not to create an account and remain private, and purchased Hue devices because it allowed this.
