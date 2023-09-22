@@ -18,6 +18,7 @@ The Ecoforest integration allows monitoring and control of local [Ecoforest](htt
 
 There is currently support for the following device platforms within Home Assistant:
 
+- [Number](#number)
 - [Sensor](#sensor)
 
 ## Prerequisites
@@ -36,6 +37,10 @@ To configure the Ecoforest integration you will need to enter your Ecoforest cre
 Any Ecoforest device working with [Ecoforest Home](https://ecoforesthome.com/) should be supported, this integration is confirmed to support:
 
 - Ecoforest Cordoba Glass (using firmware version `30Abr19_v2z`)
+
+## Number
+
+The Ecoforest integration exposes a number entity for the device power level.
 
 ## Sensor
 
