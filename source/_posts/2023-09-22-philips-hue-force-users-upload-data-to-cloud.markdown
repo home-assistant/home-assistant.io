@@ -1,8 +1,8 @@
 ---
 title: "Philips Hue will force users to upload their data to Hue cloud"
 description: "To control your lights you soon need to create an account and share your data with the Hue cloud."
-date: 2023-09-21 0:0:00
-date_formatted: "September 21, 2023"
+date: 2023-09-22 0:0:00
+date_formatted: "September 22, 2023"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
@@ -63,5 +63,7 @@ Source: <a href='https://twitter.com/tweethue/status/1704590580355854398'>Twitte
 ## It’s not too late
 
 Currently Philips Hue is announcing this change in their app and users are not forced yet to turn over all their data. We have contacted Signify privately to bring this issue to their attention but they have not responded.
+
+As a user, we encourage you to reach out to [Signify support](https://www.philips-hue.com/en-us/support/contact-form) and voice your concern.
 
 Dear Signify, please reconsider your decision and do not move forward with it. You’ve [reversed bad decisions before](/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/). People care about privacy and forcing accounts will hurt the brand in the long term. The pain caused by this is not worth the gain.
