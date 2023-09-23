@@ -49,9 +49,9 @@ Default is `Minecraft Server`.
 
 The **server address** is a combination of the hostname and the port, where the port is optional. For SRV records, the port is automatically extracted. For all other cases the default port **25565** is used, if the port is omitted. Here are some server address examples:
 
-* **SRV record**: `hypixel.net`
-* **Hostname**: `mc.hypixel.net:25565` or `mc.hypixel.net`
-* **IP address**: `192.168.0.123:25565` or `192.168.0.123`
+- **SRV record**: `hypixel.net`
+- **Hostname**: `mc.hypixel.net:25565` or `mc.hypixel.net`
+- **IP address**: `192.168.0.123:25565` or `192.168.0.123`
 
 <div class='note'>
 
@@ -63,19 +63,19 @@ Default is `localhost:25565`.
 
 This integration provides a binary sensor for the following information from a Minecraft server:
 
-* Connection status
+- Connection status
 
 ## Sensors
 
 This integration provides sensors for the following information from a Minecraft server:
 
-* Latency
-* Version
-* Protocol version
-* Number of online players
-  * Including player names list in the state attributes, if available (see note below).
-* Number of maximum players
-* World Message / Message of the Day (MOTD)
+- Latency
+- Version
+- Protocol version
+- Number of online players
+  - Including player names list in the state attributes, if available (see note below).
+- Number of maximum players
+- World Message / Message of the Day (MOTD)
 
 <div class='note'>
 
