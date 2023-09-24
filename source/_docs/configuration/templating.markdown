@@ -916,6 +916,15 @@ The numeric functions and filters raise an error if the input is not a valid num
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 
+### Complex type checking
+
+In addition to strings and numbers, Python (and Jinja) support lists, sets, and dictionaries. To help you with testing these types, the following are available as functions, filters, and tests:
+
+- `is_list(x)` will return whether `x` is a list or not (e.g. [1, 2]).
+- `is_set(x)` will return whether `x` is a set or not (e.g. {1, 2}).
+- `is_non_string_iterable(x)` will return whether `x` is iterable but not a string, so it will return `True` for both lists and sets. 
+- `is_mapping(x)` will return whether `x` a mapping type such as a dictionary.
+
 ### Functions and filters to process raw data
 
 These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
