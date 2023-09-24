@@ -22,6 +22,14 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Renson integration pulls in data from the Renson Endura delta device. Most of the sensors that can be monitored from inside the Android/iOS application can be monitored with this integration.
+The Renson integration pulls in data from the Renson Endura delta or Healthbox 3 devices. Most of the sensors that can be monitored from inside the Android/iOS application can be monitored with this integration.
+
+Not all features are support for all the different devices.
+
+Renson device that are supported:
+- Renson Endura Delta 330
+- Renson Endura Delta 380
+- Renson Endura Delta 450
+- Renson Healthbox 3.0
 
 {% include integrations/config_flow.md %}
