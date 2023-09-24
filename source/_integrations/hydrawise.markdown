@@ -41,9 +41,17 @@ To set up the Hydrawise integration, you must first obtain an API Key.
 
 ## Binary Sensor
 
-A binary sensor is created for the controller indicating whether it is currently available via the cloud API.
+Binary sensor entities are created for the controller:
 
-There are also binary sensors created for each zone indicating whether the zone is currently running.
+- Cloud API availability
+
+<div class='note warning'>
+The Hydrawise API removed the ability to read the rain sensor status. Therefore it is no longer supported by the Hydrawise integration to Home Assistant.
+</div>
+
+Binary sensor entities are created for each zone:
+
+- Running status
 
 ## Sensor
 
