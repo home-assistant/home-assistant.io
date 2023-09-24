@@ -24,7 +24,7 @@ Create a new app at "Register Your Application" in the [Twitch developer portal]
 To enable the follow and subscription attributes, the OAuth token is needed to get the right permissions on the Twitch API.
 If you don't need those, ignore the configuration setting: `token`.
 
-To get the OAuth token, visit the [OAuth Token Generator](https://twitchapps.com/tokengen/#), insert your __Client ID__ and `user:read:subscriptions` inside __scopes__.
+To get the OAuth token, visit the [OAuth Token Generator](https://twitchapps.com/tokengen/#), insert your __Client ID__ and `user:read:subscriptions user:read:follows` inside __scopes__.
 
 Before clicking Summit (the broken image below the form), visit the [Twitch dev console](https://dev.twitch.tv/console) and add a new application.
 
