@@ -8,10 +8,11 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@gabe565'
+  - '@lanrat'
 ha_domain: ruckus_unleashed
 ha_platforms:
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 This platform allows you to connect to a [Ruckus Unleashed](https://support.ruckuswireless.com/product_families/19-ruckus-unleashed) access point.

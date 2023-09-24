@@ -10,7 +10,6 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_codeowners:
-  - '@engrbm87'
   - '@jbouwh'
 ha_config_flow: true
 ---
@@ -37,18 +36,25 @@ If you’re going to use Gmail, you need to create an [App Password](https://sup
 
 By default, this integration will count unread emails. By configuring the search string, you can count other results, for example:
 
-* `ALL` to count all emails in a folder
-* `FROM`, `TO`, `SUBJECT` to find emails in a folder (see [IMAP RFC for all standard options](https://tools.ietf.org/html/rfc3501#section-6.4.4))
-* [Gmail's IMAP extensions](https://developers.google.com/gmail/imap/imap-extensions) allow raw Gmail searches, like `X-GM-RAW "in: inbox older_than:7d"` to show emails older than one week in your inbox. Note that raw Gmail searches will ignore your folder configuration and search all emails in your account!
+- `ALL` to count all emails in a folder
+- `FROM`, `TO`, `SUBJECT` to find emails in a folder (see [IMAP RFC for all standard options](https://tools.ietf.org/html/rfc3501#section-6.4.4))
+- [Gmail's IMAP extensions](https://developers.google.com/gmail/imap/imap-extensions) allow raw Gmail searches, like `X-GM-RAW "in: inbox older_than:7d"` to show emails older than one week in your inbox. Note that raw Gmail searches will ignore your folder configuration and search all emails in your account!
+
 
 ### Selecting a charset supported by the imap server
 
-Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US_ASCII` as charset:
+Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US-ASCII` as charset:
   - Server: `outlook.office365.com`
   - Port: `993`
   - Username: Your full email address
   - Password: Your password
   - Charset: `US-ASCII`
+
+<div class="note">
+
+Yahoo also requires the character set `US-ASCII`.
+
+</div>
 
 ### Selecting an alternate SSL cipher list or disable SSL verification (advanced mode)
 
@@ -63,13 +69,24 @@ The SSL cipher list and verify SSL are advanced settings. The options are availa
 
 </div>
 
+### Enable IMAP-Push
+
+IMAP-Push is enabled by default if your IMAP server supports it. If you use an unreliable IMAP service that periodically drops the connection and causes issues, you might consider turning off IMAP-Push. This will fall back to polling the IMAP server.
+
+<div class='note info'>
+
+The enforce polling option is an advanced setting. The option is available only when advanced mode is enabled (see user settings).
+
+</div>
+
 ### Troubleshooting
 
 Email providers may limit the number of reported emails. The number may be less than the limit (10,000 at least for Yahoo) even if you set the `IMAP search` to reduce the number of results. If you are not getting expected events and cleaning your Inbox or the configured folder is not desired, set up an email filter for the specific sender to go into a new folder. Then create a new config entry or modify the existing one with the desired folder.
 
+
 ### Using events
 
-When a new message arrives that meets the search criteria the `imap` integration will send a custom [event](/docs/automation/trigger/#event-trigger) that can be used to trigger an automation.
+When a new message arrives or a message is removed within the defined search command scope, the `imap` integration will send a custom [event](/docs/automation/trigger/#event-trigger) that can be used to trigger an automation.
 It is also possible to use to create a template [`binary_sensor` or `sensor`](/integrations/template/#trigger-based-template-binary-sensors-buttons-numbers-selects-and-sensors) based the [event data](/docs/automation/templating/#event).
 
 The table below shows what attributes come with `trigger.event.data`. The data is a dictionary that has the keys that are shown below.
@@ -103,6 +120,8 @@ headers:
   description: The `headers` of the message in the for of a dictionary. The values are iterable as headers can occur more than once.
 custom:
   description: Holds the result of the custom event data [template](/docs/configuration/templating). All attributes are available as a variable in the template.
+initial:
+  description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message received has not been changed, then an `imap_content` event is generated and the `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email, the `initial` property will always be set to `True`.
 
 {% endconfiguration_basic %}
 
@@ -136,6 +155,7 @@ template:
           Sender: "{{ trigger.event.data['sender'] }}"
           Date: "{{ trigger.event.data['date'] }}"
           Subject: "{{ trigger.event.data['subject'] }}"
+          Initial: "{{ trigger.event.data['initial'] }}"
           To: "{{ trigger.event.data['headers'].get('Delivered-To', ['n/a'])[0] }}"
           Return-Path: "{{ trigger.event.data['headers'].get('Return-Path',['n/a'])[0] }}"
           Received-first: "{{ trigger.event.data['headers'].get('Received',['n/a'])[0] }}"
@@ -158,6 +178,7 @@ template:
         id: "custom_event"
         event_data:
           sender: "no-reply@smartconnect.apc.com"
+          initial: true
     sensor:
       - name: house_electricity
         state: >-

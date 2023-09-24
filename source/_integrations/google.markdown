@@ -85,6 +85,11 @@ If the setup process fails and you see an error message such as *Authentication 
 
 If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
+### Video Tutorial
+This video tutorial explains how to set up Google Calendar in Home Assistant and how you can trigger an automation based on a calendar event.
+
+<lite-youtube videoid="r2WbpxKDOD4" videotitle="How To Use Calendar Events in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
+
 ## Calendar Entities
 
 Each Google Calendar from *My Calendars* ([more info](https://support.google.com/calendar/answer/37095)) is represented as a [calendar](/integrations/calendar) entity in Home Assistant.
@@ -95,9 +100,9 @@ For example, your calendar named *Personal* is created as entity `calendar.perso
 
 Individual Calendar *Events* are what powering automations such as:
 
-* Turn on a light at the *start* of the event named *Front Yard Light*
-* Send a notification *5 minutes before the start of any event*
-* Stop the media player *30 minutes after* the *end* of the event named *Exercise*.
+- Turn on a light at the *start* of the event named *Front Yard Light*
+- Send a notification *5 minutes before the start of any event*
+- Stop the media player *30 minutes after* the *end* of the event named *Exercise*.
 
 See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
 
@@ -137,16 +142,16 @@ This will only be available if you have given Home Assistant `read-write` access
 
 A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
-| Service data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `summary` | no | Acts as the title of the event. | Bowling
-| `description` | yes | The description of the event. | Birthday bowling
-| `start_date_time` | yes | The date and time the event should start. | 2019-03-10 20:00:00
-| `end_date_time` | yes | The date and time the event should end. | 2019-03-10 23:00:00
-| `start_date` | yes | The date the whole day event should start. | 2019-03-10
-| `end_date` | yes | The date the whole day event should end. | 2019-03-11
-| `in` | yes | Days or weeks that you want to create the event in. | "days": 2
-| `location` | yes | The location of the event.  | Bowling center
+| Service data attribute | Optional | Description                                         | Example             |
+| ---------------------- | -------- | --------------------------------------------------- | ------------------- |
+| `summary`              | no       | Acts as the title of the event.                     | Bowling             |
+| `description`          | yes      | The description of the event.                       | Birthday bowling    |
+| `start_date_time`      | yes      | The date and time the event should start.           | 2019-03-10 20:00:00 |
+| `end_date_time`        | yes      | The date and time the event should end.             | 2019-03-10 23:00:00 |
+| `start_date`           | yes      | The date the whole day event should start.          | 2019-03-10          |
+| `end_date`             | yes      | The date the whole day event should end.            | 2019-03-11          |
+| `in`                   | yes      | Days or weeks that you want to create the event in. | "days": 2           |
+| `location`             | yes      | The location of the event.                          | Bowling center      |
 
 <div class='note'>
 

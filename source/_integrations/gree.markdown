@@ -38,6 +38,7 @@ Any Gree Smart device working with the Gree+ app should be supported, including 
 - Proklima
 - Tadiran
 - Heiwa
+- Ekokai
 
 ## Climate
 
