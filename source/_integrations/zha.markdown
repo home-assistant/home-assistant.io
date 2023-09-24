@@ -203,6 +203,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 | [Tube’s EFR32 Pro Ethernet/Serial Coordinator](https://www.tubeszb.com/)                                                                    | USB              | 10C4:EA60                      |
 | [ZigStar Coordinators](https://zig-star.com/)                                                                                               | USB              | 1A86:7523                      |
 | [SMLIGHT SLZB-06 POE Zigbee LAN WiFi USB Adapter](https://smlight.tech/product/slzb-06/)                                                    | Zeroconf         | slzb-06.local.                 |
+| [ZigStar UZG Universal Zigbee Gateway (UZG-01)](https://uzg.zig-star.com)                                                                   | Zeroconf         | uzg-01._tcp.local.             |
 | [ZigStar LAN/POE Coordinators](https://zig-star.com/projects/zigbee-gw-lan/)                                                                | Zeroconf         | zigstargw.local.               |
 | [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                              | Zeroconf         | tube_zb_gw_cc2652p2.local.     |
 | [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                              | Zeroconf         | tube_zb_gw_cc2652p2_poe.local. |
@@ -316,10 +317,10 @@ To add new devices to the network, call the `permit` service on the `zha` domain
 
 This service opens network for joining new devices.
 
-| Data       | Optional | Description                                            |
-| ---------- | -------- | ------------------------------------------------------ |
-| `duration` | yes      | For how long to allow new devices to join, default 60s |
-| `ieee`     | yes      | allow new devices to join via an existing device       |
+| Data       | Optional | Description                                                                    |
+| ---------- | -------- | ------------------------------------------------------------------------------ |
+| `duration` | yes      | For how long to allow new devices to join, default 60s                         |
+| `ieee`     | yes      | The IEEE address of an existing device via which the new device is to be added |
 
 To join a new device using an install code (ZB3 devices) use the following data attributes (must use parameters only
 from the same group:
@@ -495,7 +496,7 @@ Before continuing with this section: If a device does not join/pair at all, read
 
 Tip to new Zigbee users: Checkout [blakadder's unofficial Zigbee Device Compatibility Repository](https://zigbee.blakadder.com). Anyone can help maintain the site by submitting device compatibility information to it. The repository contains independent community member's reports or device-specific pairing tips for several home automation gateway/bridge/hub software, including open-source Zigbee implementations, such as ZHA, Zigbee2MQTT, and Tasmota (Zigbee2Tasmota).
 
-#### How to add support for new and unsupported devices
+### How to add support for new and unsupported devices
 
 If your Zigbee device pairs/joins successfully with the ZHA integration but does not show all of the expected entities: 
 1. Try to re-pair/re-join the device several times.
@@ -580,6 +581,29 @@ Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to al
 - Avoid Wi-Fi Routers and Wi-Fi Access Points, alternatively change the Wi-Fi channel or Zigbee channel.
   - Place your Zigbee Coordinator away from any Wi-Fi access points and all other sources of WiFi.
   - Wi-Fi frequency ranges can overlap with Zigbee, see the section above on defining Zigbee channel use.
+
+### Zigbee network visualization in ZHA UI
+
+The ZHA configuration UI has a tab to visualize device links in your Zigbee network topology.
+
+The network visualization can help to identify devices with poor connection (that is, low values on the link). You will need to look at the ZHA logs to find more detailed information required for troubleshooting.
+
+The visualization shows multi-hop connections between your paired devices and their reported cumulative values of Received Signal Strength Indicator (RSSI) and Link Quality Indication (LQI).
+
+The exact method in which these values are reported depends on the Zigbee network stack used on each device. LQI values can be modified at each step as the message propagates through the mesh networking matrix.
+
+#### How to interpret RSSI and LQI values
+
+Interpreting RSSI and LQI values is complex. Unless you are a Zigbee specialist yourself or are guided by one, please ignore those values. They can be misleading. If you delve into this, it is important to understand not to judge RSSI or LQI values on their own. When troubleshooting Zigbee messages that are being dropped, you must interpret the combination of both RSSI and LQI.
+
+RSSI (Received Signal Strength Indicator) values are an indicator value of the raw signal strength between two devices. RSSI values are negative numbers in -dBm format (0 to -100 power ratio in decibels of the measured power referenced to one milliwatt). Lower negative values indicate less interference and a good signal. RSSI information is only between the endpoint device and the first hop from that device. As such, it may not necessarily show signal strength to the Zigbee Coordinator but instead could be showing signal strength to the nearest Zigbee Router device.
+
+- Generally, anything -60 and above (meaning -50, -40, etc.) in RSSI should be considered a strong signal (not losing messages).
+- Anything at -80 and below (meaning -85, -90, etc.) should be considered a noise environment and you risk losing messages.
+
+LQI (Link Quality Index) values can be hard to interpret for Zigbee. This is because the Zigbee specifications and the (IEEE 802.15.4 specification) do not standardize how to perform LQI measurements. LQI values are shown as positive numbers on a scale. But because the value provided by the Zigbee devices is not measured using unified standards from all device manufacturers and Zigbee stacks, the values can not always be trusted. For example, Zigbee devices based on Silicon Labs EmberZNet stack use positive display numbers for LQI, where higher is better and lower is worse. The Texas Instruments Z-Stack computes LQI for each received packet from the raw “received signal strength index” (RSSI) by linearly scaling it between the minimum and maximum defined RF power levels for the radio that more or less just provides an LQI value that, based on the strength of the received signal.  This can be misleading in case the user has a noisy environment with interference within the same frequency range (as the RSSI value may be shown as increased even though the true link quality decreases). Other manufacturers and Zigbee stacks measure and calculate LQI values in another way.
+
+- In theory, an LQI value of 255 means a zero error rate in theory. In general, a positive high LQI value is better and a lower LQI value is worse. However, depending on your devices, that might not be the reality.
 
 ### Reporting issues
 

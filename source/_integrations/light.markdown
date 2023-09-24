@@ -113,6 +113,7 @@ Turns one or multiple lights off.
 | ---------------------- | -------- | ----------- |
 | `entity_id`  | no  | String or list of strings that point at `entity_id`s of lights. To target all lights, set `entity_id` to `all`.
 | `transition` | yes | Integer that represents the time the light should take to transition to the new state in seconds.
+| `flash`      | yes | Tell light to flash, can be either value `short` or `long`.
 
 ### Service `light.toggle`
 

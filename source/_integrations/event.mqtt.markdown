@@ -2,7 +2,7 @@
 title: "MQTT Event"
 description: "Instructions on how to integrate MQTT events into Home Assistant."
 ha_category:
-  - Event
+  - Events
 ha_release: 2023.8
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -160,7 +160,7 @@ payload_not_available:
   type: string
   default: offline
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -221,3 +221,33 @@ The example below demonstrates how event attributes can be added to the event da
 ```bash
 mosquitto_pub -h 127.0.0.1 -t home/doorbell/state -m '{"event_type": "press", "duration": 0.1}'
 ```
+
+### Example: processing event data using a value template
+
+In many cases, translation of an existing published payload is needed.
+The example config below translates the payload `{"Button1": {"Action": "SINGLE"}}` of
+the device `Button1` with event type `single` to the required format.
+An extra attribute `button` will be set to `Button1` and be added to the entity,
+but only if the `Action` property is set. Empty dictionaries will be ignored.
+
+{% raw %}
+
+```yaml
+mqtt:
+  - event:
+      name: "Desk button"
+      state_topic: "desk/button/state"
+      event_types:
+        - single
+        - double
+      device_class: "button"
+      value_template: |
+        { {% for key in value_json %}
+        {% if value_json[key].get("Action") %}
+        "button": "{{ key }}",
+        "event_type": "{{ value_json[key].Action | lower }}"
+        {% endif %}
+        {% endfor %} }
+```
+
+{% endraw %}

@@ -17,7 +17,6 @@ ha_domain: nest
 ha_quality_scale: platinum
 ha_dhcp: true
 ha_platforms:
-  - binary_sensor
   - camera
   - climate
   - diagnostics

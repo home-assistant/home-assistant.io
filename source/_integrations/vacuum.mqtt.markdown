@@ -167,7 +167,7 @@ payload_stop:
   type: string
   default: stop
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
