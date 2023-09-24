@@ -46,6 +46,7 @@ Bram
 - [New integrations](#new-integrations)
 - [Release 2023.9.1 - September 8](#release-202391---september-8)
 - [Release 2023.9.2 - September 12](#release-202392---september-12)
+- [Release 2023.9.3 - September 24](#release-202393---september-24)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -496,7 +497,7 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 [@timmo001]: https://github.com/timmo001
 [@vpathuis]: https://github.com/vpathuis
 
-## Release 2023.9.3 - September 23
+## Release 2023.9.3 - September 24
 
 - Always update unit of measurement of the utility_meter on state change ([@dgomes] - [#99102])
 - Netgear catch no info error ([@starkillerOG] - [#100212])
@@ -536,6 +537,14 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 - Bump ZHA dependencies ([@puddly] - [#100732])
 - Bump intents to 2023.9.22 ([@synesthesiam] - [#100737])
 - Fix weather template forecast attributes ([@gjohansson-ST] - [#100748])
+- Fix rainbird unique id ([@allenporter] - [#99704])
+- Bump ring-doorbell to 0.7.3 ([@sdb9696] - [#100688])
+- Update home-assistant/wheels to 2023.09.1 ([@frenck] - [#100758])
+- Bump pyschlage to 2023.9.0 ([@dknowles2] - [#99624])
+- Bump pyschlage to 2023.9.1 ([@dknowles2] - [#100760])
+- Add strong to fan mode for Sensibo ([@gjohansson-ST] - [#100773])
+- Update home-assistant/builder to 2023.09.0 ([@frenck] - [#100797])
+- Fix Comelit device info ([@chemelli74] - [#100587])
 
 [#100007]: https://github.com/home-assistant/core/pull/100007
 [#100212]: https://github.com/home-assistant/core/pull/100212
@@ -566,16 +575,24 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 [#100527]: https://github.com/home-assistant/core/pull/100527
 [#100574]: https://github.com/home-assistant/core/pull/100574
 [#100577]: https://github.com/home-assistant/core/pull/100577
+[#100587]: https://github.com/home-assistant/core/pull/100587
 [#100630]: https://github.com/home-assistant/core/pull/100630
 [#100652]: https://github.com/home-assistant/core/pull/100652
 [#100665]: https://github.com/home-assistant/core/pull/100665
+[#100688]: https://github.com/home-assistant/core/pull/100688
 [#100707]: https://github.com/home-assistant/core/pull/100707
 [#100714]: https://github.com/home-assistant/core/pull/100714
 [#100715]: https://github.com/home-assistant/core/pull/100715
 [#100732]: https://github.com/home-assistant/core/pull/100732
 [#100737]: https://github.com/home-assistant/core/pull/100737
 [#100748]: https://github.com/home-assistant/core/pull/100748
+[#100758]: https://github.com/home-assistant/core/pull/100758
+[#100760]: https://github.com/home-assistant/core/pull/100760
+[#100773]: https://github.com/home-assistant/core/pull/100773
+[#100797]: https://github.com/home-assistant/core/pull/100797
 [#99102]: https://github.com/home-assistant/core/pull/99102
+[#99624]: https://github.com/home-assistant/core/pull/99624
+[#99704]: https://github.com/home-assistant/core/pull/99704
 [#99741]: https://github.com/home-assistant/core/pull/99741
 [#99950]: https://github.com/home-assistant/core/pull/99950
 [@Danielhiversen]: https://github.com/Danielhiversen
@@ -583,6 +600,7 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 [@Lash-L]: https://github.com/Lash-L
 [@Shutgun]: https://github.com/Shutgun
 [@akx]: https://github.com/akx
+[@allenporter]: https://github.com/allenporter
 [@asymworks]: https://github.com/asymworks
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
@@ -590,10 +608,12 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 [@cgarwood]: https://github.com/cgarwood
 [@chemelli74]: https://github.com/chemelli74
 [@dgomes]: https://github.com/dgomes
+[@dknowles2]: https://github.com/dknowles2
 [@edenhaus]: https://github.com/edenhaus
 [@eifinger]: https://github.com/eifinger
 [@elupus]: https://github.com/elupus
 [@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
 [@frimtec]: https://github.com/frimtec
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@jbouwh]: https://github.com/jbouwh
@@ -603,10 +623,10 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 [@raman325]: https://github.com/raman325
 [@robinlee09201]: https://github.com/robinlee09201
 [@rytilahti]: https://github.com/rytilahti
+[@sdb9696]: https://github.com/sdb9696
 [@starkillerOG]: https://github.com/starkillerOG
 [@steffenrapp]: https://github.com/steffenrapp
 [@synesthesiam]: https://github.com/synesthesiam
-
 
 ## Need help? Join the community!
 
