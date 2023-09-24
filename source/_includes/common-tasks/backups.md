@@ -71,6 +71,10 @@ There are two ways to use a backup:
 - On your current system to recover your settings.
 - During onboarding, to migrate your setup to a new device or a to device on which you performed a factory reset and a new installation.
 
+#### Estimated duration
+
+The time it takes to restore a backup depends on your installation. Home Assistant Core and all add-ons are being reinstalled. For a larger installation, this process can take about 45 minutes.
+
 #### Restoring a backup during onboarding
 
 You can use a backup during the onboarding process to restore your configuration.
