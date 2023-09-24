@@ -3,7 +3,7 @@ title: Ecoforest
 description: Instructions on how to integrate Ecoforest fireplaces with Home Assistant.
 ha_category:
   - Climate
-ha_release: 2023.10
+ha_release: '2023.10'
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -14,19 +14,14 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Ecoforest integration allows monitoring and control of local [Ecoforest](https://ecoforest.com) fireplaces in Home Assistant. These fireplaces are manufactured in Spain.
+The Ecoforest integration allows monitoring and control of local [Ecoforest](https://ecoforest.com) fireplaces in Home Assistant.
 
 There is currently support for the following device platforms within Home Assistant:
 
+- [Number](#number)
 - [Sensor](#sensor)
 
-{% include integrations/config_flow.md %}
-
-<div class='note'>
-Devices must first be connected to Wi-Fi or LAN using the app or website provided by the device manufacturer. It is not possible to connect devices to Wi-Fi using this integration.
-</div>
-
-### Credentials
+## Prerequisites
 
 To configure the Ecoforest integration you will need to enter your Ecoforest credentials which are the same ones you would use with the manufacturer app. The image below shows how to obtain the credentials:
 
@@ -35,12 +30,17 @@ To configure the Ecoforest integration you will need to enter your Ecoforest cre
 
 ![Ecoforest Credentials](/images/integrations/ecoforest/credentials.png)
 
+{% include integrations/config_flow.md %}
 
 ## Supported models
 
 Any Ecoforest device working with [Ecoforest Home](https://ecoforesthome.com/) should be supported, this integration is confirmed to support:
 
 - Ecoforest Cordoba Glass (using firmware version `30Abr19_v2z`)
+
+## Number
+
+The Ecoforest integration exposes a number entity for the device power level.
 
 ## Sensor
 
