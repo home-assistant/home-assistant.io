@@ -923,6 +923,7 @@ In addition to strings and numbers, Python (and Jinja) support lists, sets, and 
 - `is_list(x)` will return whether `x` is a `list` or not (e.g. [1, 2]).
 - `is_set(x)` will return whether `x` is a `set` or not (e.g. {1, 2}).
 - `is_tuple(x)` will return whether `x` is a `tuple` or not (e.g. (1, 2)).
+- `is_datetime(x)` will return whether `x` is a `datetime` or not (e.g. datetime(2020, 1, 1, 0, 0, 0)).
 - `is_non_string_iterable(x)` will return whether `x` is iterable but not a string, so it will return `True` for both lists and sets.
 
 ### Functions and filters to process raw data
