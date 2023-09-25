@@ -926,6 +926,13 @@ In addition to strings and numbers, Python (and Jinja) support lists, sets, and 
 - `is_datetime(x)` will return whether `x` is a `datetime` or not (e.g. datetime(2020, 1, 1, 0, 0, 0)).
 - `is_non_string_iterable(x)` will return whether `x` is iterable but not a string, so it will return `True` for both lists and sets.
 
+### Type conversions
+
+While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to `tuple` or `set`. To help you with using these types, the following are available as functions and filters:
+
+- `set(x)` will convert any iterable `x` to a `set`
+- `tuple(x)` will convert any iterable `x` to a `tuple`
+
 ### Functions and filters to process raw data
 
 These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
