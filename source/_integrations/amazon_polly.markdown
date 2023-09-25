@@ -122,7 +122,7 @@ Say with break:
       </speak>
 ```
 ## Advanced usage
-Amazon Polly supports Accented bilingual voices and you may find that you'd prefer the voice you like be slowed down, or speeded up. If the speed of the voice is a concern, Amazon Polly provides the ability to modify this using SSML tags. First enable SSML in configuration:
+Amazon Polly supports accented bilingual voices and you may find that you'd prefer the voice you like be slowed down, or speeded up. If the speed of the voice is a concern, Amazon Polly provides the ability to modify this using SSML tags. First enable SSML in configuration:
 
 ```yaml
   - platform: amazon_polly
