@@ -20,41 +20,27 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account and have a Pro subscription](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant URL + `/api/minut`, e.g.,  `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used as below.
+The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account and have a Pro subscription](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant URL + `/api/minut`, e.g.,  `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used in the configuration flow.
 
-Once Home Assistant is started, a configurator will pop up asking you to Authenticate your Point account via a link. When you follow the link and click on **Accept** you will be redirected to the `callback url` and the Point integration will be automatically configured and you can go back to the original dialog and press **Submit**.
+{% include integrations/config_flow.md %}
 
 There is currently support for the following device types within Home Assistant:
 
-- [Alarm](#alarm)
-- [Binary Sensor](#binary-sensor)
-- [Sensor](#sensor)
-
-### Configuration
-
-```yaml
-# Example configuration.yaml entry
-point:
-  client_id: CLIENT_ID
-  client_secret: CLIENT_SECRET
-```
-
-{% configuration %}
-client_id:
-  description: Your Minut Point developer client ID.
-  required: true
-  type: string
-client_secret:
-  description: Your Minut Point developer client secret.
-  required: true
-  type: string
-{% endconfiguration %}
+- [Device types](#device-types)
+  - [Alarm](#alarm)
+  - [Binary Sensor](#binary-sensor)
+    - [Automation example](#automation-example)
+    - [Webhook events](#webhook-events)
+  - [Sensor](#sensor)
 
 # Device types
 
 The integration supports the following device types within Home Assistant:
+- [Device types](#device-types)
   - [Alarm](#alarm)
   - [Binary Sensor](#binary-sensor)
+    - [Automation example](#automation-example)
+    - [Webhook events](#webhook-events)
   - [Sensor](#sensor)
 
 <div class='note'>
