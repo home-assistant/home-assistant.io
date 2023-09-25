@@ -59,60 +59,47 @@ The energy and gas prices are exposed using [Service Calls](/docs/scripts/servic
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `type` | no | The type of prices to get. Must be 'all', 'gas', or 'energy' | all
+| `type` | no | The type of prices to get. Must be 'gas' or 'energy' | gas
 | `start` | yes | Start datetime to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 | `end` | yes | End datetime to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
-| `incl_btw` | yes | Get prices including BTW (VAT) or without  | False
+| `incl_btw` | yes | Get prices including BTW (VAT) or without. Defaults to True  | False
 
 
 ### Response
-The response data is a dictionary with the gas and/or energy prices as timestamp/float dictionary
+The response data is a dictionary with the gas or energy prices as timestamp/float dictionary
 
 {% raw %}
 ```json
 {
-  "energy": {
-    "2023-01-01 00:00:00+00:00": 0.7502560835
-  },
-  "gas": {
-    "2023-01-01 00:00:00+00:00": 1.233123
-  }
+'2023-09-25 03:00:00+00:00': 0.05,
+'2023-09-25 04:00:00+00:00': 0.12,
+'2023-09-25 05:00:00+00:00': 0.17
 }
 ```
 {% endraw %}
 
 #### Add response to sensor
 
-The response data can be added to a sensor in order to create price graphs. First, setup an automation that puts the prices into an event. Then create a template sensor that puts the event data in it's attributes.
+The response data can be added to a sensor in order to create price graphs using a template sensor:
 
-##### Price automation
-{% raw %}
-```yaml
-prices_script:
-  sequence:
-  - service: energyzero.get_prices
-    data:
-      type: all
-    response_variable: prices
-  - event: prices
-    event_data:
-      prices: '{{ prices }}'
-```
-{% endraw %}
-
-##### Price template sensor
 {% raw %}
 ```yaml
 template:
   - trigger:
-    - platform: event
-      event_type: prices
+      - platform: time_pattern
+        hours: "*"
+    action:
+      - service: energyzero.get_prices
+        data:
+          type: energy
+        response_variable: prices
     sensor:
-    - name: Energyzero prices
-      device_class: timestamp
-      state: "{{ now() }}"
-      attributes:
-        prices: "{{ trigger.event.data }}"
+      - name: Energy prices
+        device_class: timestamp
+        state: "{{ now() }}"
+        attributes:
+          prices: '{{ prices }}'
 ```
 {% endraw %}
+
 
