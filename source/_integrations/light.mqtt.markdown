@@ -47,8 +47,8 @@ The state of MQTT lights with default schema and support for both color and colo
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - command_topic: "office/rgb1/light/switch"
+  - light:
+      command_topic: "office/rgb1/light/switch"
 ```
 
 {% configuration %}
@@ -143,7 +143,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -257,7 +257,7 @@ min_mireds:
   required: false
   type: integer
 name:
-  description: The name of the light.
+  description: The name of the light. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Light
@@ -295,7 +295,7 @@ payload_on:
   type: string
   default: "ON"
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -419,8 +419,8 @@ To enable a light with brightness and RGB support in your installation, add the 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - name: "Office Light RGB"
+  - light:
+      name: "Office Light RGB"
       state_topic: "office/rgb1/light/status"
       command_topic: "office/rgb1/light/switch"
       brightness_state_topic: "office/rgb1/brightness/status"
@@ -445,8 +445,8 @@ To enable a light with brightness (no RGB version) in your installation, add the
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - name: "Office light"
+  - light:
+      name: "Office light"
       state_topic: "office/light/status"
       command_topic: "office/light/switch"
       brightness_state_topic: 'office/light/brightness'
@@ -464,8 +464,8 @@ To enable a light that sends only brightness topics to turn it on, add the follo
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - name: "Brightness light"
+  - light:
+      name: "Brightness light"
       state_topic: "office/light/status"
       command_topic: "office/light/switch"
       payload_off: "OFF"
@@ -519,8 +519,8 @@ Optimistic mode can be forced, even if state topic is available. Try enabling it
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: json
+  - light:
+      schema: json
       command_topic: "home/rgb1/set"
 ```
 
@@ -586,7 +586,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -692,7 +692,7 @@ payload_not_available:
   type: string
   default: offline
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -748,8 +748,8 @@ To enable a light with brightness and RGB support in your installation, add the 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: json
+  - light:
+      schema: json
       name: mqtt_json_light_1
       state_topic: "home/rgb1"
       command_topic: "home/rgb1/set"
@@ -765,8 +765,8 @@ To enable a light with brightness (but no color support) in your installation, a
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: json
+  - light:
+      schema: json
       name: mqtt_json_light_1
       state_topic: "home/rgb1"
       command_topic: "home/rgb1/set"
@@ -782,8 +782,8 @@ To enable a light using a brightness scale other than 8bit the `brightness_scale
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: json
+  - light:
+      schema: json
       name: mqtt_json_light_1
       state_topic: "home/light"
       command_topic: "home/light/set"
@@ -808,8 +808,8 @@ To use a light with hue+saturation as the color model, set `supported_color_mode
 
 ```yaml
 mqtt:
-  light:
-    - schema: json
+  - light:
+      schema: json
       name: mqtt_json_hs_light
       state_topic: "home/light"
       command_topic: "home/light/set"
@@ -837,8 +837,8 @@ To enable a light with brightness, RGB support and a separate white channel (RGB
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: json
+  - light:
+      schema: json
       name: mqtt_json_light_1
       state_topic: "home/rgbw1"
       command_topic: "home/rgbw1/set"
@@ -881,8 +881,8 @@ Optimistic mode can be forced, even if state topic is available. Try enabling it
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: template
+  - light:
+      schema: template
       command_topic: "home/rgb1/set"
       command_on_template: "on"
       command_off_template: "off"
@@ -955,7 +955,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -1054,7 +1054,7 @@ payload_not_available:
   type: string
   default: offline
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -1100,8 +1100,8 @@ For a simple string payload with the format `state,brightness,r-g-b,h-s` (e.g., 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: template
+  - light:
+      schema: template
       command_topic: "home/rgb1/set"
       state_topic: "home/rgb1/status"
       command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }},{{ hue|d }}-{{ sat|d }}"
@@ -1124,8 +1124,8 @@ For a JSON payload with the format `{"state": "on", "brightness": 255, "color": 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: template
+  - light:
+      schema: template
       effect_list:
         - rainbow
         - colorloop
@@ -1169,8 +1169,8 @@ Add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: template
+  - light:
+      schema: template
       name: "Bulb-white"
       command_topic: "shellies/bulb/color/0/set"
       state_topic: "shellies/bulb/color/0/status"

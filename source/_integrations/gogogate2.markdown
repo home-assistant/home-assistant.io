@@ -9,7 +9,6 @@ ha_iot_class: Local Polling
 ha_domain: gogogate2
 ha_codeowners:
   - '@vangorra'
-  - '@bdraco'
 ha_config_flow: true
 ha_homekit: true
 ha_platforms:

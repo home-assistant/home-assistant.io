@@ -15,11 +15,11 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: freebox
 ha_platforms:
+  - binary_sensor
   - button
   - camera
   - device_tracker
   - sensor
-  - binary_sensor
   - switch
 ha_zeroconf: true
 ha_integration_type: integration
@@ -29,11 +29,11 @@ The `freebox` integration allows you to observe and control [Freebox router](htt
 
 There is currently support for the following device types within Home Assistant:
 
-* [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
-* [Binary sensor](#binary-sensor) for monitoring Raid arrays health
-* [Device tracker](#presence-detection) for connected devices
-* [Switch](#switch) to control Wi-Fi
-* [Camera](#camera)
+- [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
+- [Binary sensor](#binary-sensor) for monitoring Raid arrays health
+- [Device tracker](#presence-detection) for connected devices
+- [Switch](#switch) to control Wi-Fi
+- [Camera](#camera)
 
 {% include integrations/config_flow.md %}
 
@@ -90,10 +90,10 @@ To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme
 
 Only the routers with Freebox OS are supported:
 
-* Freebox V8 also known as Freebox Pop
-* Freebox V7 also known as Freebox Delta
-* Freebox V6 also known as Freebox Revolution
-* Freebox mini 4k
+- Freebox V8 also known as Freebox Pop
+- Freebox V7 also known as Freebox Delta
+- Freebox V6 also known as Freebox Revolution
+- Freebox mini 4k
 
 ## Presence Detection
 
@@ -114,10 +114,10 @@ refreshes the devices states.
 
 This platform offers you sensors to monitor a Freebox router.
 The monitored metrics are:
-* Internal temperature
-* Upload and download rates (in KB/s)
-* Free partition space of used disks
-* Number of missed calls
+- Internal temperature
+- Upload and download rates (in KB/s)
+- Free partition space of used disks
+- Number of missed calls
 
 ## Binary sensor
 

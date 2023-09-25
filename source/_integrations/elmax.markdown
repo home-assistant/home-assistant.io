@@ -12,6 +12,7 @@ ha_domain: elmax
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - cover
   - switch
 ha_integration_type: integration
 ---

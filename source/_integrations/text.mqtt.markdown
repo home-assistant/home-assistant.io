@@ -17,8 +17,8 @@ To enable MQTT text platform in your installation, add the following to your `co
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  text:
-    - command_topic: command-topic
+  - text:
+      command_topic: command-topic
 ```
 
 {% configuration %}
@@ -72,7 +72,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -150,7 +150,7 @@ mode:
   type: string
   default: text
 name:
-  description: The name of the text entity.
+  description: The name of the text entity. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: "MQTT Text"
@@ -163,7 +163,7 @@ pattern:
   required: false
   type: string
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -201,8 +201,8 @@ This is an example of a manual configured MQTT `text` item.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  text:
-    - name: "Remote LCD screen"
+  - text:
+      name: "Remote LCD screen"
       icon: mdi:ab-testing
       mode: "text"
       command_topic: "txt/cmd"

@@ -107,6 +107,8 @@ The easiest way to check if the integration is working is to check [My Google Ac
 - If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity), the integration is working fine. If the commands don't have the expected outcome, don't open an issue in the Home Assistant Core project or the [underlying library](https://github.com/tronikos/gassist_text). You should instead report the issue directly to Google [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
   - Media playback commands (other than play news, play podcast, play white noise, or play rain sounds) don't work.
   - Routines don't work.
+  - Broadcast doesn't work with IPv6.
+  - Broadcast to specific rooms often doesn't work for non-English languages.
 
 ## Configuration
 
@@ -139,7 +141,7 @@ data:
   media_player: media_player.living_room_speaker
 ```
 
-You can also send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
+You can send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
 
 ```yaml
 service: google_assistant_sdk.send_text_command
@@ -147,6 +149,28 @@ data:
   command:
     - "open the garage door"
     - "1234"
+```
+
+You can get responses. Example:
+
+```yaml
+service: google_assistant_sdk.send_text_command
+data:
+  command:
+    - "tell me a joke"
+    - "tell me another one"
+```
+
+returns:
+
+```yaml
+responses:
+  - text: |-
+      What do you call a belt made of watches?
+      A waist of time 👖 🕝
+  - text: |-
+      What's the most musical part of the turkey?
+      The drumsticks 🍗
 ```
 
 ### Service `notify.google_assistant_sdk`
@@ -179,16 +203,12 @@ data:
 
 ## Conversation agent
 
-In the configure options of the integration, enable the conversation agent and then you can converse with Google Assistant by tapping the Assist icon at the top right of your dashboard:
+You can add an assistant with the conversation agent set to "Google Assistant SDK".
+See setup your assistant section [here](/voice_control/voice_remote_local_assistant/).
+Then you can converse with Google Assistant by tapping the Assist icon at the top right of your dashboard:
 
 ![Screenshot Conversation](/images/integrations/google_assistant_sdk/conversation.png)
 
-Or by calling the `conversation.process` service with the transcribed text:
-
-```yaml
-service: conversation.process
-data:
-  text: "Dim the family room lights"
-```
+Or by calling the `conversation.process` service.
 
 Note: due to a bug in the Google Assistant API, not all responses contain text, especially for home control commands, like turn on the lights. These will be shown as `<empty response>`. For those, Google Assistant responds with HTML and Home Assistant integrations are [not allowed](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md) to parse HTML.
