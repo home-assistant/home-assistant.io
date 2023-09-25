@@ -19,6 +19,8 @@ The `mqtt` event platform allows you to process event info from an MQTT message.
 mqtt:
   - event:
       state_topic: "home/doorbell/state"
+      event_types:
+        - press
 ```
 
 {% configuration %}
