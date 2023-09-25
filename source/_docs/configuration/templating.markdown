@@ -920,10 +920,10 @@ The numeric functions and filters raise an error if the input is not a valid num
 
 In addition to strings and numbers, Python (and Jinja) support lists, sets, and dictionaries. To help you with testing these types, the following are available as functions, filters, and tests:
 
-- `is_list(x)` will return whether `x` is a list or not (e.g. [1, 2]).
-- `is_set(x)` will return whether `x` is a set or not (e.g. {1, 2}).
-- `is_non_string_iterable(x)` will return whether `x` is iterable but not a string, so it will return `True` for both lists and sets. 
-- `is_mapping(x)` will return whether `x` a mapping type such as a dictionary.
+- `is_list(x)` will return whether `x` is a `list` or not (e.g. [1, 2]).
+- `is_set(x)` will return whether `x` is a `set` or not (e.g. {1, 2}).
+- `is_tuple(x)` will return whether `x` is a `tuple` or not (e.g. (1, 2)).
+- `is_non_string_iterable(x)` will return whether `x` is iterable but not a string, so it will return `True` for both lists and sets.
 
 ### Functions and filters to process raw data
 
