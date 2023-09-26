@@ -103,4 +103,4 @@ These are easily accessed using another Linux machine with EXT support.
 For Windows or Mac OS you will need third party software. Below are some options.
 
 - Windows: <https://www.diskinternals.com/linux-reader/> (read-only access to the SD)
-- Mac: <https://osxfuse.github.io/>
+- Mac OS: <https://osxfuse.github.io/>
