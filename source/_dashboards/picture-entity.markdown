@@ -54,7 +54,7 @@ aspect_ratio:
   type: string
 fit_mode:
   required: false
-  description: 'Defines the manner in which the image is stretched/clipped to fit the card area. `cover`: The image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit. `contain`: The image keeps its aspect ratio, but is resized to fit within the given dimension. `fill`: The image is resized to fill the given dimension. If necessary, the image will be stretched or squished to fit.
+  description: 'Defines the manner in which the image is stretched/clipped to fit the card area. `cover`: The image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit. `contain`: The image keeps its aspect ratio, but is resized to fit within the given dimension. `fill`: The image is resized to fill the given dimension. If necessary, the image will be stretched or squished to fit.'
   type: string
   default: cover
 name:
