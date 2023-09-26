@@ -10,18 +10,18 @@ or need to recover your data.
 
 ### Home Assistant (including Supervised)
 
-If you are still logged in to the web interface with your user, then you are in luck. 
+If you are still logged in to the web interface with your user, then you are in luck.
 
-1. Add a new user as an administrator and give the new user a password you can remember. 
+1. Add a new user as an administrator and give the new user a password you can remember.
 2. Then log out, and log in with this new user. 
-3. Reset your password via this new administrator account (and then delete this new account), or you can delete your old user account. 
+3. Reset your password via this new administrator account (and then delete this new account), or you can delete your old user account.
    - Either way, your configuration will remain, and you don't have to do a new onboarding process.
 
 If you’ve forgotten your username, then deleting the files mentioned further below will be necessary to start a new onboarding process.
 
 #### To reset a user's password, via console
 
-Use this procedure if you know the username, and you can access the [Home Assistant console](https://www.home-assistant.io/hassio/commandline/) on the device itself (not the SSH terminal from the add-ons). 
+Use this procedure if you know the username, and you can access the [Home Assistant console](/hassio/commandline/) on the device itself (not the SSH terminal from the add-ons). 
 
 1. Connect a keyboard and monitor to your device and access the terminal:
    - If you are using a Home Assistant Yellow, refer to the following procedure:
