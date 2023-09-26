@@ -38,15 +38,10 @@ The integration setup will next give you instructions to enter the [Application 
 {% details "OAuth and Authorization steps" %}
 
 1. Continue through the steps of selecting the account you want to authorize.
-
 2. You will be asked to grant access to specific data in your Fitbit account.
-
 3. You must select *profile* in order for Home Assistant to understand your account.
-
 4. All other data is optional, and Home Assistant will create entities based on the information you select. For example, if you allow access to **Activity and exercise** then Home Assistant will create activity related sensors such as `sensor.step`. 
-
 5. The page will now display **Link account to Home Assistant?**, note **Your instance URL**. If this is not correct, refer to [My Home Assistant](/integrations/my). If everything looks good, select **Link Account**.
-
 6. You may close the window, and return back to Home Assistant where you should see a **Success!** message from Home Assistant.
 
 {% enddetails %}
