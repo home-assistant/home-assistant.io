@@ -10,16 +10,28 @@ or need to recover your data.
 
 ### Home Assistant (including Supervised)
 
-If you are still logged in to the web interface with your user, then you are in luck. Add a new user as an administrator and give the new user a password you can remember. Then log out, and log in with this new user. You may then reset your password via this new administrator account (and then delete this new account), or you can delete your old user account. Either way, your configuration will remain, and you don't have to do a new onboarding process.
+If you are still logged in to the web interface with your user, then you are in luck. 
+
+1. Add a new user as an administrator and give the new user a password you can remember. 
+2. Then log out, and log in with this new user. 
+3. Reset your password via this new administrator account (and then delete this new account), or you can delete your old user account. 
+   - Either way, your configuration will remain, and you don't have to do a new onboarding process.
 
 If you’ve forgotten your username, then deleting the files mentioned further below will be necessary to start a new onboarding process.
 
 #### To reset a user's password, via console
-If you know the username, but not the password and you can access the [Home Assistant console](https://www.home-assistant.io/hassio/commandline/) and use the command below:
 
-Connect a keyboard and monitor to your device.
+Use this procedure if you know the username, and you can access the [Home Assistant console](https://www.home-assistant.io/hassio/commandline/) on the device itself (not the SSH terminal from the add-ons). 
 
-`auth reset --username existing_user --password new_password`
+1. Connect a keyboard and monitor to your device and access the terminal:
+   - If you are using a Home Assistant Yellow, refer to the following procedure:
+     - [Using the serial console on Windows](/guides/use-serial-console-windows/)
+     - [Using the serial console on Mac OS / Linux](/guides/use-serial-console-linux-macos/)
+   - If you are using a Home Assistant Green, refer to the following procedure:
+     - [Using the terminal](/guides/use-terminal/)
+2. Once you have opened the Home Assistant command line, enter the following command:
+      `auth reset --username existing_user --password new_password`
+3. You can now log in to Home Assistant using this new password.
 
 #### To reset a user's password, via the container command line
 
@@ -29,28 +41,24 @@ If you are running Home Assistant in a container, you can use the command line i
 2. `hass` to create a default user, if this is your first time using the tool
 3. `hass --script auth --config /config change_password existing_user new_password` to change the password
 4. `exit` to exit the container command line
-5. `docker restart homeassistant` to restart the container
+5. `docker restart homeassistant` to restart the container.
 
 #### To reset a user's password, as an administrator via the web interface
 
-1. Confirm that you have "Advanced Mode" activated on your "Profile" page.
-2. Click "Settings" in the sidebar.
-3. Scroll down to "Users", and click in to that section.
-4. Click on the user, this should bring up a dialog box.
-5. At the bottom of the dialog box, click "Change Password".
-   - If you do not see the "Change Password" button, try using another interface, such as the mobile version.
-6. Enter the new password, and then click "OK".
-7. Confirm the new password by entering it again, and then click "OK" again.
-8. A confirmation box will be displayed with the text "Password was changed successfully".
+1. In the bottom left, select your user to go to the {% my profile title="**Profile**" %} page and make sure **Advanced Mode** is activated.
+2. Go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the password.
+3. At the bottom of the dialog box, select **Change Password**.
+4. Enter the new password, and select **OK**.
+5. Confirm the new password by entering it again, and select **OK** again.
+6. A confirmation box will be displayed with the text **Password was changed successfully**.
 
 #### To delete a user, as an administrator via the web interface
 
-1. Click "Settings" in the sidebar.
-2. Scroll down to "Users", and click in to that section.
-3. Click on the user, this should bring up a dialog box.
-4. At the bottom of the dialog box, click "Delete User".
-5. A confirmation dialog box will be displayed, asking "Are you sure you want to delete <User>"?
-6. Click "OK".
+1. Go to {% my people title="**Settings** > **People**" %} and select the person which you want to delete.
+   - Note: you cannot delete the owner.
+2. At the bottom of the dialog box, select **Delete**.
+   - A confirmation dialog box will be displayed.
+3. To confirm, select **OK**.
 
 #### Start a new onboarding process
 
