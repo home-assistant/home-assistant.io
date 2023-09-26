@@ -45,7 +45,7 @@ The `rainsensor` sensor will tell if you if the device has detected rain.
 
 ## Calendar
 
-Some Rain Bird devices support automatic irrigation schedules configured with the Rain Bird App
+Some Rain Bird devices support automatic irrigation schedules configured with the Rain Bird app.
 and are available in Home Assistant as a [Calendar](https://www.home-assistant.io/integrations/calendar/) entity. You can view the program schedule in the UI, or trigger other automations
 based on the irrigation start or end time.
 
