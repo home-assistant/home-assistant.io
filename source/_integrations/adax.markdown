@@ -22,9 +22,10 @@ The local integrations only works with newer Adax heaters with both Bluetooth an
 
 For the cloud integration, you'll need the Account ID (which can be found in the Adax Wifi app, pressing 'Account'). You will also need a credential, which you can create in the Adax app:
 
-1. Navigate to Account Tab,
-2. Select “Remote user client API”
-3. Select “Add Credential”
-4. Give some name to the created credential and copy the generated password.
+1. Navigate to the Account tab.
+2. Go to **Third party integrations**.
+3. Select **Remote API**.
+4. Select **Add Credential**.
+5. Give some name to the created credential (e.g. 'Home Assistant') and copy the generated password.
 
 {% include integrations/config_flow.md %}
