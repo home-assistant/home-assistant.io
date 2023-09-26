@@ -26,7 +26,7 @@ Use this procedure if you know the username, and you can access the [Home Assist
 1. Connect a keyboard and monitor to your device and access the terminal:
    - If you are using a Home Assistant Yellow, refer to the following procedure:
      - [Using the serial console on Windows](/guides/use-serial-console-windows/)
-     - [Using the serial console on Mac OS / Linux](/guides/use-serial-console-linux-macos/)
+     - [Using the serial console on macOS / Linux](/guides/use-serial-console-linux-macos/)
    - If you are using a Home Assistant Green, refer to the following procedure:
      - [Using the terminal](/guides/use-terminal/)
 2. Once you have opened the Home Assistant command line, enter the following command:
@@ -100,7 +100,7 @@ You will then be at the Home Assistant CLI, where you can run the custom command
 The files are on an EXT4 partition (`hassos-data`) and the path is `/mnt/data/supervisor`.
 These are easily accessed using another Linux machine with EXT support.
 
-For Windows or Mac OS you will need third party software. Below are some options.
+For Windows or macOS you will need third party software. Below are some options.
 
 - Windows: <https://www.diskinternals.com/linux-reader/> (read-only access to the SD)
-- Mac OS: <https://osxfuse.github.io/>
+- macOS: <https://osxfuse.github.io/>
