@@ -13,9 +13,9 @@ or need to recover your data.
 If you are still logged in to the web interface with your user, then you are in luck.
 
 1. Add a new user as an administrator and give the new user a password you can remember.
-2. Then log out, and log in with this new user. 
-3. Reset your password via this new administrator account (and then delete this new account), or you can delete your old user account.
-   - Either way, your configuration will remain, and you don't have to do a new onboarding process.
+2. Then log out, and log in with this new user.
+3. Reset your password via this new administrator account (and then delete this new account).
+   - Your configuration will remain, and you don't have to do a new onboarding process.
 
 If you’ve forgotten your username, then deleting the files mentioned further below will be necessary to start a new onboarding process.
 
