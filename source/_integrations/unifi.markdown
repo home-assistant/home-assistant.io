@@ -130,11 +130,15 @@ Entities reporting connected clients to a WLAN.
 
 ### Uptime sensor
 
-Get entities reporting uptime per network client.
+Get entities reporting uptime per network client or UniFi Network device.
 
 ### Power Outlet sensor
 
 Get entities reporting the power utilization for outlets that support metrics (such as the AC outlets on the USP-PDU-Pro).
+
+### Device temperature sensor
+
+Get entities reporting the general temperature of a UniFi Network device.
 
 ## Firmware updates
 
