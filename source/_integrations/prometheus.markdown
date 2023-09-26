@@ -94,7 +94,7 @@ component_config_glob:
       required: false
 requires_auth:
   type: boolean
-  description: This makes authentication optional for this /api/prometheus endpoint
+  description: "This makes authentication optional for the `/api/prometheus` endpoint."
   required: false
   default: true
 {% endconfiguration %}
