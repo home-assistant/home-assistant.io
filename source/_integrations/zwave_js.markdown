@@ -437,6 +437,7 @@ These are notification events fired by devices using the Notification command cl
 {
     "domain": "zwave_js",
     "node_id": 1,
+    "endpoint": 0,
     "home_id": "974823419",
     "device_id": "ad8098fe80980974",
     "command_class": 113,
@@ -459,6 +460,7 @@ These are notification events fired by devices using the Multilevel Switch comma
 {
     "domain": "zwave_js",
     "node_id": 1,
+    "endpoint": 0,
     "home_id": 974823419,
     "device_id": "2f44f0d4152be3123f7ad40cf3abd095",
     "command_class": 38,
@@ -475,6 +477,7 @@ These are notification events fired by devices using the Multilevel Switch comma
 {
     "domain": "zwave_js",
     "node_id": 8,
+    "endpoint": 0,
     "home_id": 3803689189,
     "device_id": "2f44f0d4152be3123f7ad40cf3abd095",
     "command_class": 38,
@@ -493,6 +496,7 @@ These are notification events fired by devices using the Entry Control command c
 {
     "domain": "zwave_js",
     "node_id": 1,
+    "endpoint": 0,
     "home_id": "974823419",
     "device_id": "ad8098fe80980974",
     "command_class": 111,
