@@ -18,7 +18,7 @@ ha_integration_type: integration
 
 Integrates International Medcom Bluetooth-enabled radiation monitors into Home Assistant.
 
-[International Medcom](https://medcom.com/) is an American company that manufactures radiation detection instruments for professional environments, home and office, and community projects worldwide.
+[International Medcom](https://medcom.com/) is an American company that manufactures radiation detection instruments that are used in professional environments, for home and office, and by community projects worldwide.
 
 This integration supports the Medcom [Inspector BLE](https://medcom.com/product/inspector-ble/) via a Bluetooth low-energy interface.
 
