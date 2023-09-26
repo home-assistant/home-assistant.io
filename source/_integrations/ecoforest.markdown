@@ -50,5 +50,5 @@ The Ecoforest integration exposes multiple sensors to monitor various features:
 - cpu_temperature: a sensor for the current CPU temperature
 - gas_temperature: a sensor for the current gas temperature
 - ntc_temperature: a sensor for the current <abbr title="negative temperature coefficient">NTC</abbr> probe temperature
-- status: a sensor for the current status of the device
-- alarm: a sensor for the current alarm of the device
+- status: a sensor for the current status of the device. Possible values are: off, starting, pre-heating, on, shutting down, standby, alarm.
+- alarm: a sensor for the current alarm of the device. Possible values are: air depression, pellets, CPU overheating, unknown.
