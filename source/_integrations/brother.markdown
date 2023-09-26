@@ -19,7 +19,7 @@ ha_integration_type: device
 
 The `Brother Printer` integration allows you to read current data from your local Brother printer.
 
-It usually provides information about the device's state, the left amount of ink or toner and the remaining life of the drum or other parts of the printer.
+It usually provides information about the device's state, the left amount of ink or toner and the remaining lifetime of the drum or other parts of the printer.
 The integration monitors every supported part.
 
 {% include integrations/config_flow.md %}

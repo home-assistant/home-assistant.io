@@ -12,7 +12,7 @@ ha_integration_type: entity
 
 The `water_heater` integration is built for the controlling and monitoring of hot water heaters.
 
-To enable this component, pick one of the platforms, and add it to your `configuration.yaml`:
+To enable this integration, pick one of the platforms, and add it to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -38,9 +38,9 @@ Sets target temperature of water heater device.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Use `entity_id: all` to target all.
+| `entity_id` | yes | String or list of strings that point at the `entity_id` of water heater devices to control. Use `entity_id: all` to target all.
 | `temperature` | no | New target temperature for water heater
-| `operation_mode` | yes | Operation mode to set the temperature to. This defaults to current_operation mode if not set, or set incorrectly.
+| `operation_mode` | yes | Operation mode to set the temperature to. This defaults to current_operation mode if not set, or set incorrectly. For a list of possible modes, refer to the integration documentation.
 
 #### Automation example 
 
@@ -64,8 +64,8 @@ Set operation mode for water heater device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Use `entity_id: all` to target all.
-| `operation_mode` | no | New value of operation mode
+| `entity_id` | yes | String or list of strings that point at the `entity_id` of water heater devices to control. Use `entity_id: all` to target all.
+| `operation_mode` | no | New value of operation mode. For a list of possible modes, refer to the integration documentation.
 
 #### Automation example
 
@@ -88,7 +88,7 @@ Turn away mode on or off for water heater device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Use `entity_id: all` to target all.
+| `entity_id` | yes | String or list of strings that point at the `entity_id` of water heater devices to control. Use `entity_id: all` to target all.
 | `away_mode` | no | New value of away mode. 'on'/'off' or True/False
 
 #### Automation example

@@ -2,9 +2,9 @@
 title: Rain Bird
 description: Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant.
 ha_category:
-  - Irrigation
   - Binary Sensor
   - Calendar
+  - Irrigation
   - Sensor
   - Switch
 ha_config_flow: true
@@ -17,6 +17,7 @@ ha_domain: rainbird
 ha_platforms:
   - binary_sensor
   - calendar
+  - number
   - sensor
   - switch
 ha_integration_type: integration

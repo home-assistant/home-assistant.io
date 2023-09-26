@@ -7,7 +7,6 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.18
 ha_codeowners:
-  - '@bendavid'
   - '@thecode'
 ha_domain: webostv
 ha_config_flow: true
@@ -24,8 +23,8 @@ The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS S
 
 There is currently support for the following device types within Home Assistant:
 
-- [Media Player](#media-player)
-- [Notifications](#notifications)
+- [Media Player](/integrations/media_player/)
+- [Notifications](/integrations/notification/)
 
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 

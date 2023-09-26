@@ -43,4 +43,4 @@ geofency:
 
 When you enter a geofence or stationary beacon, your location name in Home Assistant will be set to the name of the geofence or beacon location in Geofency. When you exit a geofence or stationary beacon, your location name in Home Assistant will be set to `not home`. For mobile beacons, the location name will be `not_home` whenever the beacon is entered or exited outside of a [zone](/integrations/zone/), otherwise, it will be set to the name of the zone.
 
-To make Geofency work better with the [proximity](/integrations/proximity/) component, you should enable the 'Send Current Location' feature in the Webhook configuration screen. This ensures that the _current_ GPS coordinates are included in exit events instead of the coordinates of the (center of) the zone that was exited.
+To make Geofency work better with the [proximity](/integrations/proximity/) integration, you should enable the 'Send Current Location' feature in the Webhook configuration screen. This ensures that the _current_ GPS coordinates are included in exit events instead of the coordinates of the (center of) the zone that was exited.

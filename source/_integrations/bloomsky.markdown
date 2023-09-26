@@ -131,4 +131,4 @@ monitored_conditions:
       description: Voltage
 {% endconfiguration %}
 
-More conditions are available using the [BloomSky binary sensor](#binary-sensor) component.
+More conditions are available using the [BloomSky binary sensor](#binary-sensor) integration.

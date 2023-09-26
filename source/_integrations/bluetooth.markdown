@@ -81,14 +81,19 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 #### Cambridge Silicon Radio (CSR) Based adapters
 
+- ANNE PRO CSR 4.0 (CSR8510A10)
 - Avantree BTDG-40S (CSR8510A10)
+- DIGITUS DN-30210-1 (CSR8510A10)
 - Enbiawit BT403 (CSR8510A10)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
+- Gold Touch E-USB-BT4 (CSR8510A10)
 - HIDEEZ BT0015-01 (CSR8510A10)
+- Maxesla CSR 4.0 (CSR8510A10)
 - Nuu You BT40 (CSR8510A10)
 - ORICO BTA-403 (CSR8510A10)
 - ORICO BTA-409 (CSR8510A10)
 - Panda Wireless PBU40 (CSR8510A10)
+- PlanexCOMM BT-Micro4 (CSR8510A10)
 - QGOO BT-06A (CSR8510A10)
 - ROCKETEK BT4Y (CSR8510A10)
 - SABRENT BT-UB40 (CSR8510A10)
@@ -158,6 +163,10 @@ Performance testing used the following hardware:
 
 ### Known working adapters
 
+<div class='note'>
+Known working adapters list adapters that do not meet high-performance requirements but will generally work. These adapters vary widely in performance and may take as long as thirty seconds or more to establish a connection. These adapters may also miss advertisements such as button presses or temperature updates.
+</div>
+
 #### Realtek RTL8761BU adapters
 
 <div class='note warning'>
@@ -179,6 +188,7 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - XDO BT802 (RTL8761BU) 📶
 - ZEXMTE BT-505 (RTL8761BU) 📶
 - ZEXMTE BT-DG54 (RTL8761BU) 📶
+- ZEXMTE Z01 (RTL8761BU) 📶
 - ZETSAGE BH451A (RTL8761BU) 📶
 
 📶 Denotes external antenna
@@ -188,9 +198,13 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
 - BASEUS BR8651A01 BA04 - Advertisement drops out
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
+- Bluegiga BLED112 - No driver available yet for USB id 2458:0001
 - EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
 - EDUP EP-AC1661 (RTL8821CU) - Frequent connection failures and drop outs
 - eppfun AK3040G (ATS2851) - No driver available yet for USB id 10d7:b012
+- eppfun AK3040A (ATS2851) - No driver available yet for USB id 10d7:b012
+- KOAMTAC KBD 401G (CSR8510A10) - Adapter is unstable and drops out
+- TRIPP-LITE CU885A/U261-001-BT4 (CSR8510A10) - Adapter is unstable and drops out
 - QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
 - UGREEEN CM591 (ATS2851) - No driver available yet for USB id 10d7:b012
 - tp-link UB400 (CSR4) - Frequent connection failures with active connections
@@ -232,14 +246,33 @@ The following remote adapters are supported:
 
 - [ESPHome](https://esphome.github.io/bluetooth-proxies/)
   - Bluetooth advertisement listening: ESPHome ESP32 device with firmware 2022.8.2 or later
+  - Bluetooth advertisement bundling: ESPHome ESP32 device with firmware 2023.6.0 or later
   - Single active connection: ESPHome ESP32 device with firmware 2022.9.3 or later
   - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
 - [Shelly](/integrations/shelly/)
   - Bluetooth advertisement listening: Shelly v2 device with firmware 12.0 or later
+  - Bluetooth advertisement bundling: not supported
   - Single active connection: not supported
   - Multiple active connections: not supported
 
+Bluetooth advertisement bundling reduces traffic between Home Assistant and the proxy, significantly improving performance and reducing the time that Bluetooth and WiFi compete for air time for devices that share a radio.
+
 ## Troubleshooting
+
+### Improving connection times
+
+The connection time and performance vary greatly based on the Bluetooth adapter and interference. The below adapters are listed from best-performing to worst-performing:
+
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#passive-scanning)
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [USB High performance adapter](#known-working-high-performance-adapters) with active scanning
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#passive-scanning)
+- [Onboard high performance adapter](#cypress-based-adapters) with active scanning
+- [Known working adapters](#known-working-adapters) with [passive scanning](#passive-scanning)
+- [Known working adapters](#known-working-adapters) with active scanning
 
 ### Integrations that require exclusive use of the Bluetooth Adapter
 

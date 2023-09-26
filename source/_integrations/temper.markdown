@@ -35,10 +35,10 @@ scale:
   type: integer
   default: 1
 name:
-  description: The name to use when displaying this switch.
+  description: The name to use when displaying this sensor.
   required: false
   type: string
-  default: myStrom Switch
+  default: Unnamed Device
 {% endconfiguration %}
 
 Since some of these sensors consistently show higher temperatures the scale and offset values can be used to fine-tune your sensor.
