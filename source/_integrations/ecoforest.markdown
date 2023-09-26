@@ -19,6 +19,7 @@ The Ecoforest integration allows monitoring and control of local [Ecoforest](htt
 There is currently support for the following device platforms within Home Assistant:
 
 - [Number](#number)
+- [Switch](#switch)
 - [Sensor](#sensor)
 
 ## Prerequisites
@@ -41,6 +42,10 @@ Any Ecoforest device working with [Ecoforest Home](https://ecoforesthome.com/) s
 ## Number
 
 The Ecoforest integration exposes a number entity for the device power level.
+
+## Switch
+
+The Ecoforest integration exposes a switch entity to turn status of the device to on and off.
 
 ## Sensor
 
