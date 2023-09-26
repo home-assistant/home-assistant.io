@@ -100,7 +100,7 @@ You will then be at the Home Assistant CLI, where you can run the custom command
 The files are on an EXT4 partition (`hassos-data`) and the path is `/mnt/data/supervisor`.
 These are easily accessed using another Linux machine with EXT support.
 
-For Windows or macOS you will need third party software. Below are some options.
+For Windows or Mac OS you will need third party software. Below are some options.
 
 - Windows: <https://www.diskinternals.com/linux-reader/> (read-only access to the SD)
 - Mac: <https://osxfuse.github.io/>
