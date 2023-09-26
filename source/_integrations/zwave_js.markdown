@@ -894,7 +894,7 @@ Set the log level for `zwave_js_server` to `debug`. This can either be done in y
 
 ###### Disable Z-Wave JS logging manually, or via an automation
 
-Set the log level for `zwave_js_server` to a level higher than `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` service. If the log level of Z-Wave JS was changed by the integration, it will automatically change back to its original setting and the Z-Wave JS logs will no longer be included in the Home Assistant logs.
+Set the log level for `zwave_js_server` to a level higher than `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` service. The Z-Wave JS logs will no longer be included in the Home Assistant logs, and if the log level of Z-Wave JS was changed by the integration, it will automatically change back to its original level.
 
 ## Z-Wave terminology
 
