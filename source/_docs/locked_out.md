@@ -25,10 +25,10 @@ Use this procedure if you know the username, and you can access the [Home Assist
 
 1. Connect a keyboard and monitor to your device and access the terminal:
    - If you are using a Home Assistant Yellow, refer to the following procedure:
-     - [Using the serial console on Windows](/guides/use-serial-console-windows/)
-     - [Using the serial console on macOS / Linux](/guides/use-serial-console-linux-macos/)
+     - [Using the serial console on Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/)
+     - [Using the serial console on macOS / Linux](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/)
    - If you are using a Home Assistant Green, refer to the following procedure:
-     - [Using the terminal](/guides/use-terminal/)
+     - [Using the terminal](https://green.home-assistant.io/guides/use-terminal/)
 2. Once you have opened the Home Assistant command line, enter the following command:
       `auth reset --username existing_user --password new_password`
 3. You can now log in to Home Assistant using this new password.
