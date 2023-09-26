@@ -874,14 +874,14 @@ Many users have reported issues with interference when the USB stick was directl
 
 ###### Enable Z-Wave JS logging
 
-1. Go to the Z-Wave integration panel: {% my integration domain="zwave_js" %}
+1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
 2. Click `Enable debug logging`
 
 The log level will be set to `debug` for the integration, library, and optionally the driver (if the driver log level is not already set to `verbose`, `debug`, or `silly`), and all Z-Wave JS logs will be added to the Home Assistant logs.
 
 ###### Disable Z-Wave JS logging
 
-1. Go to the Z-Wave integration panel: {% my integration domain="zwave_js" %}
+1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
 2. Click `Disable debug logging`
 
 The log level will be reset to its previous value for the integration, library, and driver, and the Home Assistant frontend will automatically send you the Z-Wave logs generated during that time period for download.
