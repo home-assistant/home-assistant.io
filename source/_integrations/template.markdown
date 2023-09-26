@@ -51,15 +51,15 @@ Sensors, binary (on/off) sensors, buttons, images, numbers and selects are cover
 
 Sensor and binary sensor can be configured using [UI](#ui-configuration) or [YAML](#yaml-configuration) file.
 
-Button, image, number and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+Button, image, number, and select template entities are defined in your YAML configuration files under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
 # UI configuration
 
-Sensor template and binary sensor template can be configured using a the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain=input_datetime title="Template" %}** option.
+Sensor template and binary sensor template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=input_datetime title="Template" %}** helper.
 
-To be able to add **{% my helpers title="Helpers" %}** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your `configuration.yaml`. It should already be there by default unless you removed it.
 
 # YAML configuration
 
