@@ -870,7 +870,7 @@ Many users have reported issues with interference when the USB stick was directl
 
 #### How to access the Z-Wave logs
 
-To enable Z-Wave JS logging in the Home Assistant logs, set the log level for `zwave_js_server` to `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` service. When the integration detects that the log level has been set to `debug`, it will also set the Z-Wave JS logs to `debug` if the level isn't already `verbose`, `debug`, or `silly` and will include those logs in the Home Assistant logs. The Z-Wave JS logs can be found under the logger name `zwave_js_server.server`.
+To enable Z-Wave JS logging in the Home Assistant logs, set the log level for `zwave_js_server` to `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` service. When the integration detects that the log level for `zwave_js_server` has been set to `debug`, it will also set the Z-Wave JS logs to `debug` if its log level isn't already `verbose`, `debug`, or `silly` and will include those logs in the Home Assistant logs. The Z-Wave JS logs can be found under the logger name `zwave_js_server.server`.
 
 To disable Z-Wave JS logging in the Home Assistant logs, set the log level for `zwave_js_server` to a level higher than `debug`. If the log level of Z-Wave JS was changed by the integration, it will automatically change back to its original setting and the Z-Wave JS logs will no longer be included in the Home Assistant logs.
 
