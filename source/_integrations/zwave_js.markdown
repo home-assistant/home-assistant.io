@@ -864,11 +864,11 @@ When trying to determine why something isn't working as you expect, or when repo
 2. Select the **Z-Wave** integration. Then, select the three dots.
 3. From he dropdown menu, select **Download diagnostics**.
 
-### Interference issues
+#### How do I address interference issues?
 
 Many users have reported issues with interference when the USB stick was directly connected to the machine (proximity). If you are having issues, try to use a short USB&nbsp;2.0&nbsp;A (male to female) extension cord.
 
-#### How to access the Z-Wave logs
+#### How do I access the Z-Wave logs?
 
 ##### The easy way
 
