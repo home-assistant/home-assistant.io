@@ -15,6 +15,7 @@ ha_platforms:
   - cover
   - light
   - switch
+  - binary sensor
 ha_integration_type: integration
 ---
 
