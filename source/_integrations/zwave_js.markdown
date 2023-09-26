@@ -892,7 +892,6 @@ To enable Z-Wave JS logging in the Home Assistant logs, set the log level for `z
 
 To disable Z-Wave JS logging in the Home Assistant logs, set the log level for `zwave_js_server` to a level higher than `debug`. If the log level of Z-Wave JS was changed by the integration, it will automatically change back to its original setting and the Z-Wave JS logs will no longer be included in the Home Assistant logs.
 
-
 ## Z-Wave terminology
 
 For some of the concepts, you may come across different terminology in Z-Wave than in Home Assistant.
