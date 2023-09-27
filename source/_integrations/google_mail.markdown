@@ -122,3 +122,8 @@ data:
       - "example4@gmail.com"
     from: "example@gmail.com"
 ```
+
+### Video Tutorial
+This video tutorial explains how to set up GMail in Home Assistant and how you can create a dashboard and automations to send e-mail and toggle your out-of-office notice.
+
+<lite-youtube videoid="IHKliqSFZvM" videotitle="How To send e-mail PERFECTLY using Gmail in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
