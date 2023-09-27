@@ -101,7 +101,7 @@ In the above example, the next day `sunrise` is calculated as a time range end.
 
 ## Daylight Savings Time Handling
 
-The ToD sensor handles the following cases where the sensor interval
+The ToD sensor handles the following cases where the sensor interval:
 - does not exist at all
 - stops at a non-existent time
 - starts at a non-existent time.
