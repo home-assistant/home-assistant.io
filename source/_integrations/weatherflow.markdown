@@ -4,9 +4,11 @@ description: "Instructions on how to integrate your WeatherFlow tempest into Hom
 ha_release: "2023.10"
 ha_category: 
   - Sensor
+  - environment
 ha_platforms:
  - sensor
- - enviornment
+
+ 
 ha_iot_class: "Local Polling"
 ha_config_flow: true
 ha_codeowners:
@@ -26,7 +28,6 @@ It possible you may see slight deviations between the values reported in Home As
 ## Sensors
 
 This integration will expose the following sensors:
-
 
 - Air density
 - Air pressure
