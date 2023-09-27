@@ -114,7 +114,7 @@ Let's make the following assumptions:
 - Daylight Savings starts at 2am
 - On the DST day, the ToD sensor interval is from non-existent 2:30am to non-existent 2:40am.
 
-In this case, the ToD sensor will not trigger at all since the 2:30am-2:40am interval does not exist on the day where time jumps from 2am to 3am.  However, on the following day the sensor resumes operating normally.
+In this case, the ToD sensor will not trigger since the 2:30am-2:40am interval does not exist on the day when time jumps from 2am to 3am. However, on the following day, the sensor resumed operating normally.
 
 ### Case 2: Sensor End Time Does Not Exist
 
