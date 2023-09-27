@@ -35,5 +35,5 @@ Start a zone for a given number of minutes. This service accepts an Yardian Zone
 
 | Service Data Attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | no       | The Yardian Zone switch to turn on.                   |
+| `entity_id`            | yes      | The Yardian Zone switch to turn on.                   |
 | `duration`             | no       | Number of minutes for this zone to be turned on.      |
