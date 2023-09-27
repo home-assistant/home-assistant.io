@@ -128,4 +128,4 @@ In this case, the ToD sensor will last 10 minutes starting at 1:50am and stop at
 - Daylight Savings starts at 2am
 - On the DST day, the ToD sensor interval is from non-existent 2:50am to 3:10am.
 
-In this case, the ToD sensor will last 10 minutes starting at 3:00am and stop at 3:10am (the 2am-3am time is jumped over and does not exist).
+In this case, the ToD sensor will last 10 minutes, starting at 3:00am and stopping at 3:10am (the 2am-3am time is jumped over and does not exist).
