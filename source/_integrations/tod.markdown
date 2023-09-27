@@ -124,6 +124,7 @@ In this case, the ToD sensor will not trigger at all since the 2:30am-2:40am int
 In this case, the ToD sensor will last 10 minutes starting at 1:50am and stop at 3am (the 2am-3am time is jumped over and does not exist).
 
 ### Case 3: Sensor Start Time Does Not Exist
+
 - Daylight Savings starts at 2am
 - On the DST day, the ToD sensor interval is from non-existent 2:50am to 3:10am.
 
