@@ -4,7 +4,7 @@ description: "Instructions on how to integrate your WeatherFlow tempest into Hom
 ha_release: "2023.10"
 ha_category: 
   - Sensor
-  - environment
+  - Environment
 ha_platforms:
   - sensor
 
