@@ -65,7 +65,7 @@ If you are running Home Assistant in a container, you can use the command line i
 If you lose the password associated with the owner account and the steps above do not work to reset the password, the only way to resolve this is to start a new onboarding process. If you have an external backup with an administrator account of which you still know the login credentials, you can restore that backup. If you do not have a backup, resetting the device will erase all data.
 
 - If you have a Home Assistant Green, [reset the Green](https://green.home-assistant.io/guides/reset/).
-- If you have a Home Assistant Yellow, [reset the Yellow](https://yellow.home-assistant.io/guides/factory-reset/)
+- If you have a Home Assistant Yellow, [reset the Yellow](https://yellow.home-assistant.io/guides/factory-reset/).
 - If you have a Raspberry Pi, delete *all* the authentication data.
   - Shut down Home Assistant.
   - Remove your SD card and access it from your PC.
