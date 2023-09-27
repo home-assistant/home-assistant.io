@@ -28,29 +28,32 @@ It possible you may see slight deviations between the values reported in Home As
 This integration will expose the following sensors:
 
 
-- Air Density
-- Battery Voltage
-- Dew Point
-- Feels Like
+- Air density
+- Air pressure
+- Dew point
+- Feels like
 - Humidity
 - Illuminance
-- Lightning Average Distance
-- Lightning Count
-- Precipitation Type
-- RSSI
-- Rain Amount
-- Rain Rate
-- Solar Radiation
-- Station Pressure
+- Irradiance
+- Lightning average distance
+- Lightning count
+- Precipitation
+- Precipitation amount
+- Precipitation type
 - Temperature
-- UV
-- Up Since
-- Vapor Pressure
-- Wet Bulb Temperature
-- Wind Average
-- Wind Direction
-- Wind Direction Average
-- Wind Gust
-- Wind Lull
-- Wind Speed
-- Wind Speed Average
+- UV index
+- Vapor pressure
+- Wet bulb temperature
+- Wind direction
+- Wind direction average
+- Wind gust
+- Wind lull
+- Wind speed
+
+## Diagnostic Sensors
+
+Additionally the following diagnostic sensors are available
+
+- Battery voltage
+- Signal strength
+- Uptime
