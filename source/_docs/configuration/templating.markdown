@@ -918,20 +918,48 @@ The numeric functions and filters raise an error if the input is not a valid num
 
 ### Complex type checking
 
-In addition to strings and numbers, Python (and Jinja) support lists, sets, and dictionaries. To help you with testing these types, the following are available as functions, filters, and tests:
+In addition to strings and numbers, Python (and Jinja) supports lists, sets, and dictionaries.
 
-- `is_list(x)` will return whether `x` is a `list` or not (e.g. [1, 2]).
-- `is_set(x)` will return whether `x` is a `set` or not (e.g. {1, 2}).
-- `is_tuple(x)` will return whether `x` is a `tuple` or not (e.g. (1, 2)).
-- `is_datetime(x)` will return whether `x` is a `datetime` or not (e.g. datetime(2020, 1, 1, 0, 0, 0)).
+To help you with testing these types, you can use the following functions, filters, or tests:
+
+#### Functions
+
+- `is_list(x)` will return whether `x` is a `list` or not (e.g. `is_list([1, 2])` will return `True`).
+- `is_set(x)` will return whether `x` is a `set` or not (e.g. `is_set({1, 2})` will return `True`).
+- `is_tuple(x)` will return whether `x` is a `tuple` or not (e.g. `is_tuple((1, 2))` will return `True`).
+- `is_datetime(x)` will return whether `x` is a `datetime` or not (e.g. `is_datetime(datetime(2020, 1, 1, 0, 0, 0))` will return `True`).
 - `is_non_string_iterable(x)` will return whether `x` is iterable but not a string, so it will return `True` for both lists and sets.
+
+#### Filters
+
+- `x | is_list` will return whether `x` is a `list` or not (e.g. `[1, 2] | is_list` will return `True`).
+- `x | is_set` will return whether `x` is a `set` or not (e.g. `{1, 2} | is_set` will return `True`).
+- `x | is_tuple` will return whether `x` is a `tuple` or not (e.g. `(1, 2) | is_tuple` will return `True`).
+- `x | is_datetime` will return whether `x` is a `datetime` or not (e.g. `datetime(2020, 1, 1, 0, 0, 0) | is_datetime` will return `True`).
+- `x | is_non_string_iterable` will return whether `x` is iterable but not a string, so it will return `True` for both lists and sets.
+
+
+#### Tests
+
+- `x is list` will return whether `x` is a `list` or not (e.g. `[1, 2] is list` will return `True`).
+- `x is set` will return whether `x` is a `set` or not (e.g. `{1, 2} is set` will return `True`).
+- `x is tuple` will return whether `x` is a `tuple` or not (e.g. `(1, 2) is tuple` will return `True`).
+- `x is datetime` will return whether `x` is a `datetime` or not (e.g. `datetime(2020, 1, 1, 0, 0, 0) is datetime` will return `True`).
+- `x is non_string_iterable` will return whether `x` is iterable but not a string, so it will return `True` for both lists and sets.
 
 ### Type conversions
 
-While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to `tuple` or `set`. To help you with using these types, the following are available as functions and filters:
+While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to `tuple` or `set`. To help you with using these types, you can use the following functions and filters:
 
-- `set(x)` will convert any iterable `x` to a `set`
-- `tuple(x)` will convert any iterable `x` to a `tuple`
+#### Functions
+
+- `set(x)` will convert any iterable `x` to a `set` (e.g. `set([1, 2]) == {1, 2}`)
+- `tuple(x)` will convert any iterable `x` to a `tuple` (e.g. `tuple([1, 2]) == (1, 2)`)
+
+#### Filters
+
+- `x | set` will convert any iterable `x` to a `set` (e.g. `[1, 2] | set == {1, 2}`)
+- `x | tuple` will convert any iterable `x` to a `tuple` (e.g. `[1, 2] | tuple == (1, 2)`)
 
 ### Functions and filters to process raw data
 
