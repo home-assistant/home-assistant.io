@@ -12,7 +12,6 @@ ha_codeowners:
 ha_domain: withings
 ha_platforms:
   - binary_sensor
-  - event
   - sensor
 ha_integration_type: integration
 ---
