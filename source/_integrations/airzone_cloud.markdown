@@ -61,11 +61,11 @@ For each Airzone zone (thermostat), the following *binary sensors* are created:
 
 ## Climate
 
-For each Airzone zone (thermostat) a climate entity is created.
+For each Airzone zone (thermostat), a climate entity is created.
 
 **HVAC mode can only be changed on a *parent zone*.**
 
-*Child zones* can only enable/disable the current HVAC mode selected on the corresponding *parent zone*. Attempting to change the HVAC mode on a *child zone* will result on a Home Assistant error.
+*Child zones* can only enable/disable the current HVAC mode selected on the corresponding *parent zone*. Attempting to change the HVAC mode on a *child zone* will result in a Home Assistant error.
 
 ## Sensors
 
