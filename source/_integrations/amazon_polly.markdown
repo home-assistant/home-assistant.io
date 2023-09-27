@@ -121,3 +121,25 @@ Say with break:
           Amazon Polly
       </speak>
 ```
+## Advanced usage
+Amazon Polly supports accented bilingual voices and you may find that you'd prefer the voice you like be slowed down, or speeded up. If the speed of the voice is a concern, Amazon Polly provides the ability to modify this using SSML tags. First enable SSML in configuration:
+
+```yaml
+  - platform: amazon_polly
+    ...
+    text_type: ssml
+    ...
+```
+
+Note: You now need to enclose all new and previous TTS input within the `<speak></speak>` tags. To use SSML in automation, you can follow these steps, for instance:
+
+```yaml
+service: tts.amazon_polly_say
+data:
+  cache: true
+  entity_id: media_player.mpd
+  message: >-
+    <speak> <prosody rate="75%">나는  <prosody rate="75%">천천히</prosody> <lang
+    xml:lang="fr-FR">parle</lang>.하고 있다식기세척!</speak>
+  language: ko-KR
+```

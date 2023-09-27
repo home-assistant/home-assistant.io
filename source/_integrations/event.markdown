@@ -2,7 +2,7 @@
 title: Event
 description: Instructions on how to use event entities in Home Assistant.
 ha_category:
-  - Events
+  - Event
 ha_release: 2023.8
 ha_quality_scale: internal
 ha_domain: event
