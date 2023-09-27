@@ -56,4 +56,4 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 ## Data updates
 
 The integration will automatically detect if you can use webhooks. This will enable the integration only to update when there is new data.
-The bed activity event will only work if the integration can establish webhooks with Withings.
+The binary sensor for sleep will only work if the integration can establish webhooks with Withings.
