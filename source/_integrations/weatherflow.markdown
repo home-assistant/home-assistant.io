@@ -1,7 +1,7 @@
 ---
 title: "WeatherFlow Local"
 description: "Instructions on how to integrate your WeatherFlow tempest into Home Assistant."
-ha_release: 2023.2
+ha_release: "2023.10"
 ha_category: 
   - Sensor
 ha_platforms:
