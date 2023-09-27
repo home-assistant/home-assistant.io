@@ -15,7 +15,7 @@ ha_codeowners:
 ha_domain: weatherflow
 ---
 
-This integration is a local-only WeatherFlow integration that reads weather data from [WeatherFlow Tempest](https://weatherflow.com/tempest-weather-system/) compatible weather station on the local network.
+This integration is a local-only WeatherFlow integration that reads weather data from all [WeatherFlow Tempest](https://weatherflow.com/tempest-weather-system/) compatible weather station on the local network.
 
 <div class='note'>
 It possible you may see slight deviations between the values reported in Home Assistant and the values in the WeatherFlow App. This is because the WeatherFlow app takes into account both forecasts and neighboring weather stations in addition to the local data which is used in this integration.
@@ -26,6 +26,7 @@ It possible you may see slight deviations between the values reported in Home As
 ## Sensors
 
 This integration will expose the following sensors:
+
 
 - Air Density
 - Battery Voltage
