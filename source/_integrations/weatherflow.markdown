@@ -50,7 +50,7 @@ This integration will expose the following sensors:
 - Wind lull
 - Wind speed
 
-## Diagnostic Sensors
+## Diagnostic sensors
 
 Additionally the following diagnostic sensors are available
 
