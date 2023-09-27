@@ -220,7 +220,7 @@ The following models have been tested and confirmed to work:
 - [RLN36 NVR](https://reolink.com/product/rln36/)
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
-- [Reolink Duo Floodlight PoE](https://reolink.com/product/reolink-duo-floodlight-poe/)
+- Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
 - Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))
 - Reolink Video Doorbell ([PoE](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi](https://reolink.com/product/reolink-video-doorbell-wifi/))
 

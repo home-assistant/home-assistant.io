@@ -11,6 +11,7 @@ ha_codeowners:
   - '@chemelli74'
 ha_iot_class: Local Polling
 ha_platforms:
+  - button
   - device_tracker
   - sensor
 ha_ssdp: false
@@ -23,6 +24,7 @@ There is support for the following platform types within Home Assistant:
 
 - **Device tracker** - presence detection by looking at connected devices.
 - **Sensor** - external IP address, uptime, firmware, resources and network monitors.
+- **Button** - restart router, dsl/fiber/internet key connections.
 {% include integrations/config_flow.md %}
 
 ## Integration options
