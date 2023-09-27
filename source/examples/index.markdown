@@ -42,9 +42,9 @@ This is a list of the most popular [blueprints](/docs/automation/using_blueprint
   {% for recipe in examples %}
     {% if recipe.ha_category == category %}
       {% if recipe.ha_external_link %}
-  * [{{recipe.title}} <i class="icon-external-link"></i>]({{recipe.ha_external_link}})
+  - [{{recipe.title}} <i class="icon-external-link"></i>]({{recipe.ha_external_link}})
       {% else %}
-  * [{{recipe.title}}]({{recipe.url}})
+  - [{{recipe.title}}]({{recipe.url}})
       {% endif %}
     {% endif %}
   {% endfor %}

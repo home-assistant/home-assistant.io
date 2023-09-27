@@ -3,6 +3,7 @@ title: UniFi Network
 description: Instructions on how to configure UniFi Network integration with UniFi Network application by Ubiquiti.
 ha_category:
   - Hub
+  - Image
   - Presence Detection
   - Sensor
   - Switch
@@ -16,8 +17,10 @@ ha_codeowners:
 ha_domain: unifi
 ha_ssdp: true
 ha_platforms:
+  - button
   - device_tracker
   - diagnostics
+  - image
   - sensor
   - switch
   - update
@@ -28,6 +31,8 @@ ha_integration_type: hub
 
 There is currently support for the following device types within Home Assistant:
 
+- [Button](#button)
+- [Image](#image)
 - [Presence Detection](#presence-detection)
 - [Switch](#switch)
 - [Sensor](#sensor)
@@ -54,6 +59,14 @@ For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti
 The UniFi Network application can either be a UniFi OS console device (like the Cloud Key), or as software on any Linux system. If you run the UniFi Network application on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
 
 It is recommended that you run the UniFi Network application in a dedicated virtual machine to avoid that situation.
+
+## Button
+
+Provides the ability to restart a UniFi device. This feature requires admin privileges.
+
+## Image
+
+Provides QR Code images that can be scanned to easily join a specific WLAN. Entities are disabled by default. This feature requires admin privileges.
 
 ## Presence detection
 
@@ -89,25 +102,43 @@ Clean up clients on the UniFi Network application that has only been associated 
 
 Allow control of network access to clients configured in the integration options by adding MAC addresses. Items in this list will have a Home Assistant switch created, using the UniFi Device name, allowing for blocking and unblocking.
 
-### Control clients powered by POE
+### PoE port control
 
-Entities appear automatically for each connected POE client. If no POE client device is in operation, no entity will be visible. Note: UniFi infrastructure devices such as access points and other switches are not (yet) supported, even if they are powered over ethernet themselves.
-
-Note that POE control actually configures the network port of the switch which the client is connected to.
+Provides per-port PoE control. Entities are disabled by default. This feature requires admin privileges.
 
 ### Control DPI Traffic Restrictions
 
 Entities appear automatically for each restriction group. If there are no restrictions in a group, no entity will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
 
+### Control Port forward functonality
+
+Entities appear for each port forwarding rule. 
+
+### Control WLAN availability
+
+Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
+
 ## Sensor
 
 ### Bandwidth sensor
 
-Get entities reporting receiving and transmitting bandwidth per network client.
+Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+
+### Wlan clients sensor
+
+Entities reporting connected clients to a WLAN.
 
 ### Uptime sensor
 
-Get entities reporting uptime per network client.
+Get entities reporting uptime per network client or UniFi Network device.
+
+### Power Outlet sensor
+
+Get entities reporting the power utilization for outlets that support metrics (such as the AC outlets on the USP-PDU-Pro).
+
+### Device temperature sensor
+
+Get entities reporting the general temperature of a UniFi Network device.
 
 ## Firmware updates
 

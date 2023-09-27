@@ -15,10 +15,10 @@ ha_integration_type: device
 
 The `yi` camera platform allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
 
-* Yi Home 17CN / 27US / 47US
-* Yi 1080p Home
-* Yi Dome
-* Yi 1080p Dome
+- Yi Home 17CN / 27US / 47US
+- Yi 1080p Home
+- Yi Dome
+- Yi 1080p Dome
 
 To successfully implement this platform, the Home Assistant host should be capable of multiple simultaneous reads. For every concurrent Home Assistant user, a connection will be made to the camera every 10 seconds. This should normally not be a problem.
 

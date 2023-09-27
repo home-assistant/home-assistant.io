@@ -19,6 +19,12 @@ The Bluetooth integration will detect nearby Bluetooth devices. Discovered devic
 
 {% include integrations/config_flow.md %}
 
+## Before you begin
+
+In many cases, a better approach than a directly connected adapter or card is to use a Bluetooth proxy using an ESP32 since Linux kernel updates have previously broken Bluetooth functionality and Bluetooth driver support Linux generally falls behind other operating systems for newer adapters. A Bluetooth proxy is particularly interesting to users who virtualize their instance, where the USB pass-through may cause additional problems. More information is available in the Remote Adapters section below or by visiting ESPhome's [Bluetooth proxy page](https://esphome.github.io/bluetooth-proxies/).
+
+Suppose a Bluetooth proxy is not a good fit for your use case. Consider using the Home Assistant Operating System when using a local adapter because it includes Bluetooth patches for issues unsolved in other operating systems.
+
 ## Configuration
 
 While this integration is part of [`default_config:`](/integrations/default_config/) to enable automatic discovery of the Bluetooth Adapter, it will only be enabled by setting up the configuration flow, or manually adding it to your `configuration.yaml`.
@@ -246,7 +252,7 @@ The following remote adapters are supported:
 
 - [ESPHome](https://esphome.github.io/bluetooth-proxies/)
   - Bluetooth advertisement listening: ESPHome ESP32 device with firmware 2022.8.2 or later
-  - Bluetooth advertisement bundling: ESPHome ESP32 device with firmware 2022.6.0 or later
+  - Bluetooth advertisement bundling: ESPHome ESP32 device with firmware 2023.6.0 or later
   - Single active connection: ESPHome ESP32 device with firmware 2022.9.3 or later
   - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
 - [Shelly](/integrations/shelly/)

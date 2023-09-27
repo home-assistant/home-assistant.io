@@ -19,9 +19,9 @@ The YouLess integration for Home Assistant allows you to read the meter values f
 
 The integration is tested and verified for the following devices from YouLess:
 
-* LS110
-* LS120 running PVOutput firmware
-* LS120 running Enologic firmware
+- LS110
+- LS120 running PVOutput firmware
+- LS120 running Enologic firmware
 
 {% include integrations/config_flow.md %}
 
