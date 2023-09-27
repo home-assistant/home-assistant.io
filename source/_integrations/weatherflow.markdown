@@ -7,8 +7,6 @@ ha_category:
   - Environment
 ha_platforms:
   - sensor
-
- 
 ha_iot_class: "Local Push"
 ha_config_flow: true
 ha_codeowners:
