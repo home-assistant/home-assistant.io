@@ -51,7 +51,7 @@ This integration will expose the following sensors:
 
 ## Diagnostic sensors
 
-Additionally the following diagnostic sensors are available
+Additionally the following diagnostic sensors are available:
 
 - Battery voltage
 - Signal strength
