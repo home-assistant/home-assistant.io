@@ -6,9 +6,7 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@adamchengtkc'
   - '@janiversen'
-  - '@vzahradnik'
 ha_domain: modbus
 ha_platforms:
   - binary_sensor

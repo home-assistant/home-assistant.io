@@ -11,6 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@joostlek'
+ha_config_flow: true
 ---
 
 The Twitch integration will allow you to monitor [Twitch](https://www.twitch.tv/) channel status from within Home Assistant and setup automation based on the information.

@@ -1,5 +1,5 @@
 ---
-title: SwitchBot
+title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary Sensor
