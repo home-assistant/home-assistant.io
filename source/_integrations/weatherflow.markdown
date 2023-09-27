@@ -9,7 +9,7 @@ ha_platforms:
   - sensor
 
  
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ha_config_flow: true
 ha_codeowners:
   - '@natekspencer'
