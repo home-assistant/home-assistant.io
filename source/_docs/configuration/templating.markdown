@@ -945,6 +945,8 @@ In addition to strings and numbers, Python (and Jinja) supports lists, sets, and
 - `x is datetime` will return whether `x` is a `datetime` or not (e.g. `datetime(2020, 1, 1, 0, 0, 0) is datetime` will return `True`).
 - `x is non_string_iterable` will return whether `x` is iterable but not a string, so it will return `True` for both lists and sets.
 
+Note that, as of Home Assistant 2023.10.0, Jinja has built in tests for `boolean` (`True`/`False`), `callable` (any function), `float` (a number with a decimal), `integer` (a number without a decimal), `iterable` (a value that can be iterated over such as a `list`, `set`, `string`, or generator), `mapping` (mainly `dict` but also supports other dictionary like types), `number` (`float` or `int`), `sequence` (a value that can be iterated over and indexed such as `list` and `string`), and `string`.
+
 ### Type conversions
 
 While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to `tuple` or `set`. To help you with using these types, you can use the following functions and filters.
@@ -954,10 +956,14 @@ While Jinja natively supports the conversion of an iterable to a `list`, it does
 - `set(x)` will convert any iterable `x` to a `set` (e.g. `set([1, 2]) == {1, 2}`)
 - `tuple(x)` will convert any iterable `x` to a `tuple` (e.g. `tuple([1, 2]) == (1, 2)`)
 
+Note that, as of Home Assistant 2023.10.0, to convert a value to a `list`, a `string`, an `int`, or a `float`, Jinja has built in functions with names that correspond to each type.
+
 #### Filters
 
 - `x | set` will convert any iterable `x` to a `set` (e.g. `[1, 2] | set == {1, 2}`)
 - `x | tuple` will convert any iterable `x` to a `tuple` (e.g. `[1, 2] | tuple == (1, 2)`)
+
+Note that, as of Home Assistant 2023.10.0, to convert a value to a `list`, a `string`, an `int`, or a `float`, Jinja has built in filters with names that correspond to each type.
 
 ### Functions and filters to process raw data
 
