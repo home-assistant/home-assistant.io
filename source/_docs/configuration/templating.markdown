@@ -918,9 +918,7 @@ The numeric functions and filters raise an error if the input is not a valid num
 
 ### Complex type checking
 
-In addition to strings and numbers, Python (and Jinja) supports lists, sets, and dictionaries.
-
-To help you with testing these types, you can use the following functions, filters, or tests:
+In addition to strings and numbers, Python (and Jinja) supports lists, sets, and dictionaries. To help you with testing these types, you can use the following functions, filters, or tests.
 
 #### Functions
 
@@ -949,7 +947,7 @@ To help you with testing these types, you can use the following functions, filte
 
 ### Type conversions
 
-While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to `tuple` or `set`. To help you with using these types, you can use the following functions and filters:
+While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to `tuple` or `set`. To help you with using these types, you can use the following functions and filters.
 
 #### Functions
 
