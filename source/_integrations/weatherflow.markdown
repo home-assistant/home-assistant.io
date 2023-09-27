@@ -15,14 +15,10 @@ ha_codeowners:
 ha_domain: weatherflow
 ---
 
-This integration is a local-only WeatherFlow integration that reads UDP data from a [WeatherFlow Tempest](https://weatherflow.com/tempest-weather-system/) compatible weather station.
-
-## Installation Notes
-
-When you add this integration to Home Assistant it will detect and decode any valid UDP packets sent from a valid weather station. Sensors will only be created in Home Assistant once it has received a valid reading for that particular sensor type.
+This integration is a local-only WeatherFlow integration that reads weather data from [WeatherFlow Tempest](https://weatherflow.com/tempest-weather-system/) compatible weather station on the local network.
 
 <div class='note'>
-It possible you will may see slight deviations between some of the values in your WeatherFlow app and Home Assistant. This only applies to sensors with calculated values, as there may be slight differences between how Home Assistant and WeatherFlow choose to calculate these values.
+It possible you may see slight deviations between the values reported in Home Assistant and the values in the WeatherFlow App. This is because the WeatherFlow app takes into account both forecasts and neighboring weather stations in addition to the local data which is used in this integration.
 </div>
 
 {% include integrations/config_flow.md %}
@@ -32,6 +28,7 @@ It possible you will may see slight deviations between some of the values in you
 This integration will expose the following sensors:
 
 - Air Density
+- Battery Voltage
 - Dew Point
 - Feels Like
 - Humidity
@@ -39,12 +36,14 @@ This integration will expose the following sensors:
 - Lightning Average Distance
 - Lightning Count
 - Precipitation Type
+- RSSI
 - Rain Amount
 - Rain Rate
 - Solar Radiation
 - Station Pressure
 - Temperature
 - UV
+- Up Since
 - Vapor Pressure
 - Wet Bulb Temperature
 - Wind Average
@@ -54,6 +53,3 @@ This integration will expose the following sensors:
 - Wind Lull
 - Wind Speed
 - Wind Speed Average
-- Up Since
-- Battery Voltage
-- RSSI
