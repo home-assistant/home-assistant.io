@@ -6,7 +6,7 @@ ha_category:
   - Sensor
   - environment
 ha_platforms:
- - sensor
+  - sensor
 
  
 ha_iot_class: "Local Polling"
