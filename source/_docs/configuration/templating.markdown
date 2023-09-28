@@ -918,26 +918,7 @@ The numeric functions and filters raise an error if the input is not a valid num
 
 ### Complex type checking
 
-In addition to strings and numbers, Python (and Jinja) supports lists, sets, and dictionaries. To help you with testing these types, you can use the following functions, filters, or tests.
-
-#### Functions
-
-- `is_list(x)` will return whether `x` is a `list` or not (e.g. `is_list([1, 2])` will return `True`).
-- `is_set(x)` will return whether `x` is a `set` or not (e.g. `is_set({1, 2})` will return `True`).
-- `is_tuple(x)` will return whether `x` is a `tuple` or not (e.g. `is_tuple((1, 2))` will return `True`).
-- `is_datetime(x)` will return whether `x` is a `datetime` or not (e.g. `is_datetime(datetime(2020, 1, 1, 0, 0, 0))` will return `True`).
-- `is_non_string_iterable(x)` will return whether `x` is iterable but not a string, so it will return `True` for both lists and sets.
-
-#### Filters
-
-- `x | is_list` will return whether `x` is a `list` or not (e.g. `[1, 2] | is_list` will return `True`).
-- `x | is_set` will return whether `x` is a `set` or not (e.g. `{1, 2} | is_set` will return `True`).
-- `x | is_tuple` will return whether `x` is a `tuple` or not (e.g. `(1, 2) | is_tuple` will return `True`).
-- `x | is_datetime` will return whether `x` is a `datetime` or not (e.g. `datetime(2020, 1, 1, 0, 0, 0) | is_datetime` will return `True`).
-- `x | is_non_string_iterable` will return whether `x` is iterable but not a string, so it will return `True` for both lists and sets.
-
-
-#### Tests
+In addition to strings and numbers, Python (and Jinja) supports lists, sets, and dictionaries. To help you with testing these types, you can use the following tests:
 
 - `x is list` will return whether `x` is a `list` or not (e.g. `[1, 2] is list` will return `True`).
 - `x is set` will return whether `x` is a `set` or not (e.g. `{1, 2} is set` will return `True`).
@@ -949,21 +930,12 @@ Note that, as of Home Assistant 2023.10.0, Jinja has built in tests for `boolean
 
 ### Type conversions
 
-While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to `tuple` or `set`. To help you with using these types, you can use the following functions and filters.
-
-#### Functions
+While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to `tuple` or `set`. To help you with using these types, you can use the following functions:
 
 - `set(x)` will convert any iterable `x` to a `set` (e.g. `set([1, 2]) == {1, 2}`)
 - `tuple(x)` will convert any iterable `x` to a `tuple` (e.g. `tuple([1, 2]) == (1, 2)`)
 
 Note that, as of Home Assistant 2023.10.0, to convert a value to a `list`, a `string`, an `int`, or a `float`, Jinja has built in functions with names that correspond to each type.
-
-#### Filters
-
-- `x | set` will convert any iterable `x` to a `set` (e.g. `[1, 2] | set == {1, 2}`)
-- `x | tuple` will convert any iterable `x` to a `tuple` (e.g. `[1, 2] | tuple == (1, 2)`)
-
-Note that, as of Home Assistant 2023.10.0, to convert a value to a `list`, a `string`, an `int`, or a `float`, Jinja has built in filters with names that correspond to each type.
 
 ### Functions and filters to process raw data
 
