@@ -43,11 +43,9 @@ For more information about Home Assistant Green, [visit our product page](/green
 
 <br>
 
-To celebrate [the 10th anniversary of Home Assistant][10ha-blog], we are making an anniversary batch of 1000 Home Assistant Green hubs available for sale via our partner Seeed Studio. You can order your Home Assistant Green right now:
+To celebrate [the 10th anniversary of Home Assistant][10ha-blog], we made an anniversary batch of 1000 Home Assistant Green hubs available. This batch has sold out, but Home Assistant Green will become widely available through our existing distributor network starting in November. You can pre-order your Home Assistant Green at our product page:
 
-<a href="https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html" class="btn">Order at Seeed Studio</a>
-
-If this anniversary batch sells out before you can get one, don't worry! At the end of October, the Home Assistant Green will become widely available through our existing distributor network. Keep an eye on the <a href="/green">Home Assistant Green</a> website for availability!
+<a href="/green" class="btn">Home Assistant Green</a>
 
 [logo-blog]: /blog/2023/09/17/a-refreshed-logo-for-home-assistant/
 [10ha-blog]: /blog/2023/09/17/10-years-home-assistant/
