@@ -7,14 +7,18 @@ description: "The Markdown card is used to render Markdown"
 
 The Markdown card is used to render [Markdown](https://commonmark.org/help/).
 
-The renderer uses [Marked.js](https://marked.js.org), which supports [several specifications of Markdown](https://marked.js.org/#specifications), including CommonMark, GitHub Flavored Markdown (GFM) and `markdown.pl`.
-
 <p class='img'>
 <img src='/images/dashboards/markdown.png' alt='Screenshot of the markdown card'>
 Screenshot of the Markdown card.
 </p>
 
-To add the Markdown card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Markdown** from the card picker.
+The renderer uses [Marked.js](https://marked.js.org), which supports [several specifications of Markdown](https://marked.js.org/#specifications), including CommonMark, GitHub Flavored Markdown (GFM) and `markdown.pl`.
+
+To add the Markdown card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -46,9 +50,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-## Example
-
-The card can also be configured using YAML, some examples below:
+### Example
 
 ```yaml
 type: markdown
@@ -58,7 +60,7 @@ content: >
   Starting with Home Assistant 0.72, we're experimenting with a new way of defining your interface.
 ```
 
-## Template variables
+### Template variables
 
 A special template variable - `config` is set up for the `content` of the card. It contains the configuration of the card.
 
@@ -101,9 +103,9 @@ content: |
 
 {% endraw %}
 
-## Icons
+### Icons
 
-You can use [materialdesignicons.com](https://materialdesignicons.com/) icons in the `content` of the card.
+You can use [Material Design Icons](https://pictogrammers.com/library/mdi/) icons in the `content` of the card.
 
 For example:
 

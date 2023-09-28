@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: usgs_earthquakes_feed
 ha_platforms:
   - geo_location
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `usgs_earthquakes_feed` platform lets you integrate a GeoJSON feed provided by the [U.S. Geological Survey](https://earthquake.usgs.gov/) with information about seismic events like earthquakes. It retrieves incidents from a feed and shows information of those incidents filtered by distance to Home Assistant's location.

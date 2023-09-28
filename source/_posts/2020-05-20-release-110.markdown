@@ -392,8 +392,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **Fortigate** *(Deprecated)* - The Fortigate integration will be removed in
   0.112.0 and has a replacement in the FortiOS integration.
 
-  Please refer to the fortios integration on how to configure the new
-  parameters: https://www.home-assistant.io/integrations/fortios/ -
+  Please refer to the [fortios integration](/integrations/fortios) on how to configure the new
+  parameters. -
   ([@kifeo] - [#34854])
 
 - **Raspberry Pi Camera** - To align with ADR-0007, configuration has been

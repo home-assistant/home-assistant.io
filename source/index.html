@@ -6,6 +6,7 @@ is_homepage: true
 regenerate: true
 feedback: false
 ---
+{% assign recent_release_post = site.categories['Core'].first %}
 
 <div class="frontpage">
   <div class="grid">
@@ -21,7 +22,7 @@ feedback: false
         >
 
         <div class="links">
-          <a href="/latest-release-notes/">Release notes</a>
+          <a href="{{ recent_release_post.url }}{{ site.patch_version_notes }}">Release notes</a>
         </div>
       </div>
 
@@ -81,7 +82,7 @@ feedback: false
           <div class="title">
             Take over all the screens
             <div class="subtitle">
-              Home Assistant Cast makes each TV a display.
+              Home Assistant Cast makes every TV a display.
             </div>
           </div>
           <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
@@ -89,40 +90,16 @@ feedback: false
       </a>
     </div>
     <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
-      <!-- State of the Open Home 2022 -->
+      <!-- 10 YEAR HA -->
       <a
-        href="https://www.youtube.com/watch?v=D936T1Ze8-4"
-        target="_blank"
+        href="https://www.youtube.com/watch?v=EmLV6lJLzSU"
         class="material-card picture-promo"
         style="
-          background-image: url(/images/frontpage/state-of-the-open-home-2022.png);
+          background-image: url(/images/frontpage/HA10_-_Website_banner.png);
           background-size: cover;
-          padding-top: 45%;
+          padding-top: 55%;
         "
       ></a>
-     
-      <!-- Home Assistant Yellow -->
-      <a
-        class="material-card picture-promo"
-        href="https://www.crowdsupply.com/nabu-casa/home-assistant-yellow"
-        style="
-          background-image: url(/images/frontpage/yellow-frontpage.jpg);
-          background-size: cover;
-          background-color: #41bdf5;
-        "
-      >
-        <div class="caption">
-          <div class="title">
-            Home Assistant Yellow
-            <div class="subtitle">
-              The easiest way to run Home Assistant. Now available for pre-order.
-            </div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" /></svg>
-        </div>
-      </a>
-
-
     {% assign pages_by_date = site.pages | sort: "date" | reverse %}
     {% for page in pages_by_date %}
       {% if page.layout == "landingpage" and page.frontpage != false %}
@@ -147,7 +124,17 @@ feedback: false
         </a>
       {% endif %}
     {% endfor %}
-
+      <!-- Tutorial: setup private voice assistant over phone -->
+      <a
+        href="/voice_control/worlds-most-private-voice-assistant/"
+        target="_blank"
+        class="material-card picture-promo"
+        style="
+          background-image: url(/images/frontpage/promo-private-voice-assistant.png);
+          background-size: cover;
+          padding-top: 45%;
+        "
+      ></a>
       <a
         class="material-card picture-promo"
         href="/blog/2020/09/15/home-assistant-tags/"
@@ -168,7 +155,7 @@ feedback: false
 
       <a
         class="material-card picture-promo"
-        href="https://teespring.com/stores/home-assistant-store"
+        href="https://home-assistant-store.creator-spring.com/"
         style="background-image: url(/images/merchandise/shirt-frontpage.png)"
       >
         <div class="caption">

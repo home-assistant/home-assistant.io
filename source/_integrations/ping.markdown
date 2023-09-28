@@ -39,7 +39,7 @@ host:
   required: true
   type: string
 count:
-  description: Number of packages to be sent up to a maximum of 100.
+  description: Number of packets to be sent up to a maximum of 100.
   required: false
   type: integer
   default: 5
@@ -50,7 +50,7 @@ name:
   default: Ping [hostname]
 {% endconfiguration %}
 
-The sensor exposes the different round trip times values measured by `ping` as attributes:
+The sensor exposes the different round trip times in milliseconds measured by `ping` as attributes:
 
 - `round_trip_time_mdev`
 - `round_trip_time_avg`

@@ -12,7 +12,7 @@ The Weather Forecast card displays the weather. Very useful to include on interf
   Screenshot of the Weather card.
 </p>
 
-To add the Weather card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Weather** from the card picker.
+To add the Weather card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
 ## Card Settings
 
@@ -23,6 +23,8 @@ Name:
   description: The name of the location where the weather platform is located. If not set, the name will be the name set on the weather entity
 Show Forecast:
   description: Check this if you would like to show the upcoming forecast under the current weather.
+Forecast type:
+  description: Select the forecast to display between "Daily", "Hourly" and "Twice daily".
 Secondary Info Attribute:
   description: Here you can specify a secondary attribute to show under the current temperature. Ex. Extrema, Precipitation, Humidity. If not set, it will default to Extrema (High/Low) if available, if not available then Precipitation and if precipitation isn't available then Humidity.
 Theme:
@@ -37,9 +39,9 @@ Theme:
 
 </div>
 
-### YAML
+## YAML Configuration
 
-This is for if you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -60,6 +62,11 @@ show_forecast:
   description: Show next hours/days forecast.
   type: boolean
   default: true
+forecast_type:
+  required: true
+  description: Type of forecast to display, one of `daily`, `hourly` or `twice_daily`.
+  type: string
+  default: Automatically selects in order of `daily`, `hourly` and `twice_daily`.
 secondary_info_attribute:
   required: false
   description: Which attribute to display under the temperature.
@@ -83,11 +90,14 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-Example
+### Example
 
 ```yaml
+show_current: true
+show_forecast: true
 type: weather-forecast
 entity: weather.openweathermap
+forecast_type: daily
 ```
 
 ### Advanced
@@ -112,8 +122,6 @@ Example theme configuration:
 --weather-icon-sun-color: orange
 --weather-icon-rain-color: purple
 ```
-
-&nbsp;
 
 #### Personal Icons
 

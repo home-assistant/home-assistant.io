@@ -19,7 +19,7 @@ The `iZone` integration allows access of control of a local [iZone](https://izon
 
 ## Supported hardware
 
-Any current iZone unit with ducted reverse cycle airconditioning and the CB wired or wireless bridge device installed should currently work. There is currently no support for the iZone lights, reticulation, or other devices.
+Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wired or wireless bridge device installed should currently work. There is currently no support for the iZone lights, reticulation, or other devices.
 
 {% include integrations/config_flow.md %}
 
@@ -107,7 +107,7 @@ type: history-graph
 
 ## Debugging
 
-If you're trying to track down issues with the component, set up logging for it:
+If you're trying to track down issues with the integration, set up logging for it:
 
 ```yaml
 # Example configuration.yaml with logging for iZone

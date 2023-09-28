@@ -13,9 +13,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `MeteoAlarm` platform allows one to watch for weather alerts in europe from [MeteoAlarm](https://www.meteoalarm.org) (EUMETNET). To use this binary sensor, you need the name of your country and the province name from  [MeteoAlarm](https://feeds.meteoalarm.org). Please note that you need to write the exact country name (with hyphens) as at the end of the URL starting with: `https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-`.
+The `MeteoAlarm` platform allows one to watch for weather alerts in Europe from [MeteoAlarm](https://www.meteoalarm.org) (EUMETNET). To use this binary sensor, you need the country and the province name from  [MeteoAlarm](https://feeds.meteoalarm.org). Please note that it is crucial to write the country name exactly as it appears in the URL starting with https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-, including any hyphens used in the name. Failure to do so may result in errors or incorrect data.
 
-The binary sensor state shows if applicable the warning message. The details are available as attribute.
+The binary sensor state shows the warning message if applicable. The details are available as attribute.
 
 ## Configuration
 
@@ -80,13 +80,11 @@ icon: mdi:alert
 
 There are a few awareness levels:
 
-* 2; yellow; Moderate
-* 3; orange; Severe
-* 4; red; High
+- 2; yellow; Moderate
+- 3; orange; Severe
+- 4; red; High
 
 Example automation
-
-Below you find an example of an automation.
 
 {% raw %}
 

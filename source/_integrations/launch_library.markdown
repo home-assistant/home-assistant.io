@@ -13,7 +13,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `launch_library` sensor will provide you with information about the next planned space launch and SpaceX Starship event.

@@ -14,6 +14,6 @@ Unless you really need this installation type, you should install Home Assistant
    supported). So, make sure you understand the requirements from step 1 above.
 3. Then head over to <a href="https://github.com/home-assistant/supervised-installer" target="_blank">home-assistant/supervised-installer</a> to set it up.
 
-Once the Home Assistant Supervised installation is running and Home Assistant accessible you can continue with onboarding.
+Once the Home Assistant Supervised installation is running and Home Assistant is accessible you can continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}

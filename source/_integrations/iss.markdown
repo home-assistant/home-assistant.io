@@ -11,7 +11,7 @@ ha_platforms:
 ha_codeowners:
   - '@DurgNomis-drol'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The International Space Station (ISS) integration uses the

@@ -1,6 +1,7 @@
 div.details-block {
   width: 100%;
   display: block;
+  margin: 0 0 1.5em 0;
 
   .details-block-item {
     background-color: white;
@@ -18,6 +19,9 @@ div.details-block {
       justify-content: space-between;
       display: flex;
       align-items: center;
+      background-color: white;
+      border: 0px;
+      width: 100%;
     }
     .details-block-content {
       margin: 4px 32px 12px 0;

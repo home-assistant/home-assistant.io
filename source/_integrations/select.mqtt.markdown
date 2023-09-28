@@ -12,41 +12,20 @@ The `mqtt` Select platform allows you to integrate devices that might expose con
 
 ## Configuration
 
+<a id='new_format'></a>
+
 To enable MQTT Select in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  select:
-      - command_topic: topic
-        name: "Test Select"
-        options:
-          - "Option 1"
-          - "Option 2"
-```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `select` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-select:
-    - platform: mqtt
+  - select:
       command_topic: topic
       name: "Test Select"
       options:
-       - "Option 1"
-       - "Option 2"
+        - "Option 1"
+        - "Option 2"
 ```
-
-{% enddetails %}
 
 {% configuration %}
 availability:
@@ -94,12 +73,12 @@ command_topic:
   required: true
   type: string
 device:
-  description: "Information about the device this Select is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this Select is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -166,7 +145,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the Select.
+  description: The name of the Select. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
 object_id:
@@ -183,7 +162,7 @@ options:
   required: true
   type: list
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0

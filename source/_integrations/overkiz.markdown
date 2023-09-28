@@ -2,7 +2,7 @@
 title: Overkiz
 description: Instructions on how to integrate hubs whom use the Overkiz platform with Home Assistant.
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Binary Sensor
   - Button
   - Climate
@@ -16,6 +16,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Water Heater
 ha_release: 2022.2
 ha_config_flow: true
 ha_iot_class: Cloud Polling
@@ -23,6 +24,7 @@ ha_codeowners:
   - '@imicknl'
   - '@vlebourl'
   - '@tetienne'
+  - '@nyroDev'
 ha_domain: overkiz
 ha_dhcp: true
 ha_zeroconf: true
@@ -41,7 +43,8 @@ ha_platforms:
   - sensor
   - siren
   - switch
-ha_integration_type: integration
+  - water_heater
+ha_integration_type: hub
 ---
 
 The Overkiz (by Somfy) integration platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
@@ -51,7 +54,6 @@ The Overkiz (by Somfy) integration platform is used by many different vendors, l
 - Atlantic Cozytouch
 - Hitachi Hi Kumo
 - Nexity Eugénie
-- Rexel Energeasy Connect
 - Somfy Connectivity Kit
 - Somfy Connexoon IO
 - Somfy Connexoon RTS
@@ -81,7 +83,7 @@ During peak hours, it could happen that the Overkiz platform is unable to execut
 
 ### Internet connectivity required
 
-This integration communicates via the cloud-based Overkiz API. The Somfy TaHoma v2 and the Somfy TaHoma Switch offer the [Somfy TaHoma Developer Mode (local API)](https://developer.somfy.com/developer-mode), which is not supported in Home Assistant yet.
+This integration communicates via the cloud-based Overkiz API. The Somfy TaHoma v2 and the Somfy TaHoma Switch offer the [Somfy TaHoma Developer Mode (local API)](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode), which is not supported in Home Assistant yet.
 
 Another option if you are only using Somfy IO compatible devices is to purchase a Velux KLF200 hub and use [the Velux integration](/integrations/velux/) which has a local API.
 
