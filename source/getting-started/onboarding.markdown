@@ -13,14 +13,15 @@ With Home Assistant installed, it's time to set up the basics.
 
 In this step, you will create the owner's account of Home Assistant. This account is an administrator account. It will always be able to change everything.
  
-1. If this is your initial installation, select **Create my smart home**.
-   - If you want to restore from a backup of a previous installation, select **Restore from backup**.
-   - The following steps describe how to create a new installation, not how to restore from backup.
-2. Enter a name, username, and password. Select **Create account**.
+1. If you want to restore from a backup of a previous installation, select **Restore from backup**.
+    - Continue with the procedure on [restoring from backup](/common-tasks/os/#restoring-a-backup).
+    - Ignore the rest of this procedure. The following steps describe how to create a new installation, not how to restore from backup.
+2. If this is your initial installation, select **Create my smart home**.
+3. Enter a name, username, and password. Select **Create account**.
 
     ![Set your username and password.](/images/getting-started/username.png)
 
-3. Enter the location of your home.
+4. Enter the location of your home.
    - The location is used to populate settings such as time zone, unit system, and currency.
    - It is also used for location-based information and automations: for example showing the weather-forecast, opening the shades at sunrise, or starting the vacuum when you leave the home.
    - If you'd rather not send your location, you can choose a location far away from where you live.
@@ -28,20 +29,19 @@ In this step, you will create the owner's account of Home Assistant. This accoun
 
     ![Define your location.](/images/getting-started/onboarding_location.png)
 
-4. Select which information you are willing to share.
+5. Select which information you are willing to share.
     - Sharing is disabled by default. However, we would like to encourage you to share some of this data.
     - This information helps us to find out which platforms we need to support and where to focus our efforts.
     - The data is anonymized and aggregated. To see the charts we generate out of this data, take a look at our [analytics page](https://analytics.home-assistant.io/).
-    
    ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png)
 
-5. Once you are done, select **Next**.
+6. Once you are done, select **Next**.
     - Home Assistant will then show any {% term devices %} it has discovered on your network.
     - Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
 
     ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
 
-6. Finally, select **Finish**.
+7. Finally, select **Finish**.
    - Now you're brought to the Home Assistant web interface. If some of your devices were discovered and setup automatically, this default dashboard may already show some of your devices.
 
 {% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}

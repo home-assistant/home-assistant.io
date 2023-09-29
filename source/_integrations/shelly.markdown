@@ -28,6 +28,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - event
   - light
   - number
   - sensor
@@ -120,6 +121,14 @@ Depending on how a device's button type is configured, the integration will crea
 ### Binary input sensors (generation 2)
 
 For generation 2 hardware it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
+
+## Event entities (generation 1)
+
+If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
+
+## Event entities (generation 2)
+
+If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
 ## Events
 

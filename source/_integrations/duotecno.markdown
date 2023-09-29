@@ -2,6 +2,7 @@
 title: Duotecno
 description: Access and control your Duotecno nodes.
 ha_category:
+  - Climate
   - Cover
   - Light
   - Switch
@@ -12,12 +13,23 @@ ha_codeowners:
   - '@cereal2nd'
 ha_domain: duotecno
 ha_platforms:
+  - climate
   - cover
   - light
   - switch
+  - binary sensor
 ha_integration_type: integration
 ---
 
 The Duotecno integration can be used to control [Duotecno](https://www.duotecno.be/) nodes in Home Assistant.
 
+There is currently support for the following device types within Home Assistant:
+
+- Climate
+- Cover
+- Light
+- Switch
+
 {% include integrations/config_flow.md %}
+
+The information needed is the connection info to your Smart Box.

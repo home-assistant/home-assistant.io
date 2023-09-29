@@ -2,7 +2,7 @@
 title: "MQTT Event"
 description: "Instructions on how to integrate MQTT events into Home Assistant."
 ha_category:
-  - Events
+  - Event
 ha_release: 2023.8
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -19,6 +19,8 @@ The `mqtt` event platform allows you to process event info from an MQTT message.
 mqtt:
   - event:
       state_topic: "home/doorbell/state"
+      event_types:
+        - press
 ```
 
 {% configuration %}

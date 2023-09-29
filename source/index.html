@@ -100,28 +100,6 @@ feedback: false
           padding-top: 55%;
         "
       ></a>
-      <!-- Year of the voice chapter 3 -->
-      <a
-        href="/blog/2023/07/20/year-of-the-voice-chapter-3/"
-        class="material-card picture-promo"
-        style="
-          background-image: url(/images/frontpage/year-of-the-voice-chapter-3.png);
-          background-size: cover;
-          padding-top: 45%;
-        "
-      ></a>
-      <!-- Tutorial: setup private voice assistant over phone -->
-      <a
-        href="/voice_control/worlds-most-private-voice-assistant/"
-        target="_blank"
-        class="material-card picture-promo"
-        style="
-          background-image: url(/images/frontpage/promo-private-voice-assistant.png);
-          background-size: cover;
-          padding-top: 45%;
-        "
-      ></a>
-
     {% assign pages_by_date = site.pages | sort: "date" | reverse %}
     {% for page in pages_by_date %}
       {% if page.layout == "landingpage" and page.frontpage != false %}
@@ -146,7 +124,17 @@ feedback: false
         </a>
       {% endif %}
     {% endfor %}
-
+      <!-- Tutorial: setup private voice assistant over phone -->
+      <a
+        href="/voice_control/worlds-most-private-voice-assistant/"
+        target="_blank"
+        class="material-card picture-promo"
+        style="
+          background-image: url(/images/frontpage/promo-private-voice-assistant.png);
+          background-size: cover;
+          padding-top: 45%;
+        "
+      ></a>
       <a
         class="material-card picture-promo"
         href="/blog/2020/09/15/home-assistant-tags/"
@@ -167,7 +155,7 @@ feedback: false
 
       <a
         class="material-card picture-promo"
-        href="https://teespring.com/stores/home-assistant-store"
+        href="https://home-assistant-store.creator-spring.com/"
         style="background-image: url(/images/merchandise/shirt-frontpage.png)"
       >
         <div class="caption">
