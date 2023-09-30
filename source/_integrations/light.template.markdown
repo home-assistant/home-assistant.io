@@ -185,7 +185,6 @@ light:
       set_rgbww:
         description: "Defines an action to run when the light is given a rgbww color command. Available variables: `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`, `b`, `cw` and `ww`"
         required: false
-        required: false
         type: action
       set_effect:
         description: Defines an action to run when the light is given an effect command.
