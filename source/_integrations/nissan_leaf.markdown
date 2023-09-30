@@ -36,6 +36,11 @@ nissan_leaf:
 ```
 
 {% configuration %}
+display_name:
+  description: The name to use for the car in the HA user interface
+  required: false
+  default: The car's nickname according to Nissan servers
+  type: string
 username:
   description: The username associated with your NissanConnect EV account. Enclose in quotes.
   required: true
