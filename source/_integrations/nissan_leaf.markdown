@@ -63,6 +63,11 @@ update_interval_climate:
   required: false
   default: 5
   type: time
+display_name
+  description: The name to use for the car in the HA user interface
+  required: false
+  default: The car's nickname received from the Nissan servers
+  type: string
 {% endconfiguration %}
 
 ## Full configuration sample
@@ -72,6 +77,7 @@ A more advanced example for setting the update interval:
 ```yaml
 # Example configuration.yaml entry
 nissan_leaf:
+  display_name: "Mom's Leaf"
   username: "YOUR_USERNAME"
   password: "YOUR_PASSWORD"
   region: "YOUR_REGION"
