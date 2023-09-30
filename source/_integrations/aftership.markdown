@@ -23,27 +23,7 @@ To use this sensor, you need an [AfterShip Account](https://accounts.aftership.c
 AfterShip recently removed the tracking API functionality from the Forever Free plan. The tracking API functionality requires at least the Essentials plan.
 </div>
 
-## Configuration
-
-To enable this sensor, add the following lines to your `configuration.yaml`:
-
-```yaml
-sensor:
-  - platform: aftership
-    api_key: AFTERSHIP_APIKEY
-```
-
-{% configuration %}
-name:
-  description: The sensor name to use in the frontend.
-  required: false
-  default: "aftership"
-  type: string
-api_key:
-  description: The API key for AfterShip.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Service `add_tracking`
 

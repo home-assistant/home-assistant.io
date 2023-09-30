@@ -152,7 +152,7 @@ The following features can be accessed from the integration configuration panel:
 
 - **Add device:** Allows you to pre-provision a SmartStart device or start the inclusion process for adding a new device to your network.
 - **Remove device:** Starts the exclusion process for removing a device from your network.
-- **Heal network:** Forces your network to rediscover routes to the controller from each device. This is useful when devices or the controller have moved to a new location, or if you are having significant problems with your network, but it also generates a lot of network traffic and should be used sparingly.
+- **Rebuild network routes:** Forces your network to rediscover routes to the controller from each device. This is useful when devices or the controller have moved to a new location, or if you are having significant problems with your network, but it also generates a lot of network traffic and should be used sparingly.
 - **[Controller statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot):** Provides statistics about communication between the controller and other devices, allowing you to troubleshoot your network's RF quality.
 - **Third-party data opt-in/out:** Allows you to opt-in or out of telemetry that the Z-Wave JS project collects to help inform development decisions, influence manufacturers, etc. This telemetry is disabled by default and has to be opted in to be activated.
 
@@ -171,7 +171,7 @@ The following features can be accessed from the device panel of a Z-Wave device:
 
 - **Configure:** Provides an easy way to look up and update configuration parameters for the device. While there is an existing service for setting configuration parameter values, this UI may sometimes be quicker to use for one-off changes.
 - **Re-interview:** Forces the device to go through the interview process again so that Z-Wave-JS can discover all of its capabilities. Can be helpful if you don't see all the expected entities for your device.
-- **Heal:** Forces the device to rediscover its optimal route back to the controller. Use this if you think you are experiencing unexpected delays or RF issues with your device. Your device may be less responsive during this process.
+- **Rebuild routes:** Forces the device to rediscover its optimal route back to the controller. Use this if you think you are experiencing unexpected delays or RF issues with your device. Your device may be less responsive during this process.
 - **Remove failed:** Forces the controller to remove the device from the controller. Can be used when a device has failed and it can't go through the normal exclusion process.
 - **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot):** Provides statistics about communication between this device and the controller, allowing you to troubleshoot RF issues with the device.
 - **Update:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (controllers and devices with the Firmware Update Metadata Command Class).
@@ -437,6 +437,7 @@ These are notification events fired by devices using the Notification command cl
 {
     "domain": "zwave_js",
     "node_id": 1,
+    "endpoint": 0,
     "home_id": "974823419",
     "device_id": "ad8098fe80980974",
     "command_class": 113,
@@ -459,6 +460,7 @@ These are notification events fired by devices using the Multilevel Switch comma
 {
     "domain": "zwave_js",
     "node_id": 1,
+    "endpoint": 0,
     "home_id": 974823419,
     "device_id": "2f44f0d4152be3123f7ad40cf3abd095",
     "command_class": 38,
@@ -475,6 +477,7 @@ These are notification events fired by devices using the Multilevel Switch comma
 {
     "domain": "zwave_js",
     "node_id": 8,
+    "endpoint": 0,
     "home_id": 3803689189,
     "device_id": "2f44f0d4152be3123f7ad40cf3abd095",
     "command_class": 38,
@@ -493,6 +496,7 @@ These are notification events fired by devices using the Entry Control command c
 {
     "domain": "zwave_js",
     "node_id": 1,
+    "endpoint": 0,
     "home_id": "974823419",
     "device_id": "ad8098fe80980974",
     "command_class": 111,
@@ -822,7 +826,7 @@ _Many_ reported issues result from RF interference caused by the system's USB po
 
 **All users are encouraged to use a USB extension cable to prevent such interference.** Please try such a cable before opening an issue or requesting support on Discord. It will nearly always be the first troubleshooting step that we ask you to take anyway.
 
-After ensuring you are using an extension cable, perform a network heal.
+After ensuring you are using an extension cable, rebuild network routes.
 
 The combination of these two steps corrects a large number of reported difficulties.
 
@@ -864,18 +868,37 @@ When trying to determine why something isn't working as you expect, or when repo
 2. Select the **Z-Wave** integration. Then, select the three dots.
 3. From he dropdown menu, select **Download diagnostics**.
 
-### Interference issues
+#### How do I address interference issues?
 
 Many users have reported issues with interference when the USB stick was directly connected to the machine (proximity). If you are having issues, try to use a short USB&nbsp;2.0&nbsp;A (male to female) extension cord.
 
-#### How to access the Z-Wave logs
+#### How do I access the Z-Wave logs?
 
-Z-Wave JS writes details to its logs. To access these logs, follow these steps:
+##### The easy way
 
-1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-2. Select the **Z-Wave** integration. Then, select **Configure**.
-3. Open the **Logs** tab.
-4. Make sure to keep this browser tab open. Otherwise the logging is not active.
+###### Enable Z-Wave JS logging
+
+1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
+2. Select `Enable debug logging` on the left-hand side of the screen.
+
+The log level will be set to `debug` for the integration, library, and optionally the driver (if the driver log level is not already set to `verbose`, `debug`, or `silly`), and all Z-Wave JS logs will be added to the Home Assistant logs.
+
+###### Disable Z-Wave JS logging
+
+1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
+2. Select `Disable debug logging` on the left-hand side of the screen.
+
+The log level will be reset to its previous value for the integration, library, and driver, and the Home Assistant frontend will automatically send you the Z-Wave logs generated during that time period for download.
+
+##### The advanced way
+
+###### Enable Z-Wave JS logging manually, or via an automation
+
+Set the log level for `zwave_js_server` to `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` service. When the integration detects that the log level has been set to `debug`, it will also set the Z-Wave JS logs to `debug` if the level isn't already `verbose`, `debug`, or `silly` and will include those logs in the Home Assistant logs. The Z-Wave JS logs can be found under the logger name `zwave_js_server.server`.
+
+###### Disable Z-Wave JS logging manually, or via an automation
+
+Set the log level for `zwave_js_server` to a level higher than `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` service. The Z-Wave JS logs will no longer be included in the Home Assistant logs, and if the log level of Z-Wave JS was changed by the integration, it will automatically change back to its original level.
 
 ## Z-Wave terminology
 
