@@ -854,7 +854,7 @@ move_long_address:
   required: false
   type: [string, list]
 move_short_address:
-  description: KNX group address for moving the cover stepwise up or down. Used by some covers also as the means to stop the cover. Note. Stepwise moves are only mapped to tilt angle functions in Home Assistant, as no stepwise move of cover position is generally supported by the architecture. If tilt angle is not supported, prefer the use of a `stop_address`. *DPT 1*
+  description: KNX group address for moving the cover stepwise up or down. Used by some covers also as the means to stop the cover. Note: Stepwise moves are only mapped to tilt angle functions in Home Assistant, as no stepwise move of cover position is generally supported by the architecture. If tilt angle is not supported, prefer the use of a `stop_address`. *DPT 1*
   required: false
   type: [string, list]
 stop_address:
