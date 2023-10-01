@@ -466,6 +466,8 @@ Once you have completed the above steps, you can continue through the flow to re
 
 ## Troubleshooting
 
+- *No access to partner information* "Infomation could not be retrieved" error message during the setup wizard, please ensure that you have successfully migrated your Nest Account to a Google Account using the Google Nest App. Additionally, if your home has multiple members, please note that the individual who initially set up the home must complete the migration of their Nest Account to a Google Account before you can establish a connection with Home Assistant.
+
 - You can manage devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Restart Home Assistant to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
 
 - *Error 400: invalid_request* plus a message about not complying with *Google's OAuth Policy for keeping accounts secure* is shown when using *App Auth* or *Desktop Auth* or *OOB Auth* which has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google. Follow the steps in the previous section to upgrade Home Assistant and restore access.
