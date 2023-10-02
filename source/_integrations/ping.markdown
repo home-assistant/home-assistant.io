@@ -48,6 +48,10 @@ name:
   required: false
   type: string
   default: Ping [hostname]
+unique_id:
+  description: An ID that uniquely identifies this binary sensor. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 {% endconfiguration %}
 
 The sensor exposes the different round trip times in milliseconds measured by `ping` as attributes:
