@@ -43,6 +43,11 @@ count:
   required: false
   type: integer
   default: 5
+scan_interval:
+  description: Polling interval in seconds.
+  required: false
+  type: integer
+  default: 300
 name:
   description: Let you overwrite the name of the device.
   required: false
