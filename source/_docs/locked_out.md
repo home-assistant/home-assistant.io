@@ -1,12 +1,12 @@
 ---
-title: "I'm Locked Out!"
+title: "I'm locked out!"
 description: "Options for regaining access"
 ---
 
 The sections below deal with recovering from a situation where you are not able to sign in,
 or need to recover your data.
 
-## Forgot Password
+## Forgot password
 
 ### Home Assistant (including Supervised)
 
@@ -30,7 +30,9 @@ Use this procedure if you know the username, and you can access the [Home Assist
    - If you are using a Home Assistant Green, refer to the following procedure:
      - [Using the terminal](https://green.home-assistant.io/guides/use-terminal/)
 2. Once you have opened the Home Assistant command line, enter the following command:
-      `auth reset --username existing_user --password new_password`
+   - Note: `existing_user` is a placeholder. Replace it with your user name.
+   - Note: `new_password` is a placeholder. Replace it with your new password.
+   - **Command**: `auth reset --username existing_user --password new_password`
 3. You can now log in to Home Assistant using this new password.
 
 #### To reset a user's password, via the container command line
