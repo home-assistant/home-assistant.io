@@ -18,7 +18,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The `volvooncall` integration offers integration with the [Volvo On Call](https://www.volvocars.com/intl/why-volvo/human-innovation/future-of-driving/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
+The `volvooncall` integration offers integration with the [Volvo Cars App](https://www.volvocars.com/intl/v/volvo-cars-app) (former Volvo On Call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
 
 {% include integrations/config_flow.md %}
 
