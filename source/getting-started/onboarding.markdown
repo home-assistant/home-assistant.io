@@ -5,7 +5,7 @@ description: "Instructions to get Home Assistant configured."
 
 Alright, you made it here. The tough part is done.
 
-After entering the Home Assistant device's address in your browser's address bar, the welcome screen is shown. Depending on your hardware, preparation may take a while.
+Upon inputting either the IP or MDNS address (homeassistant.local) of your Home Assistant device into your browser's address bar, followed by a colon with port number 8123, the welcome screen will be displayed. Depending on your hardware, preparation may take a while.
 
 ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01_.png)
 
