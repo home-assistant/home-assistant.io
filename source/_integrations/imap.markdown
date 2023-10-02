@@ -40,7 +40,7 @@ If you’re going to use Gmail, 2-step verification must be enabled on your Gmai
 10. Click **Submit**.
 11. Assign your integration to an "Area" if desired, then click **Finish**.
 
-Congratulations, you now how a sensor that counts the number of unread e-mails in your Gmail account.  From here you can create additional sensors based upon the data that comes through the event bus when there's a new message detected.
+Congratulations, you now have a sensor that counts the number of unread e-mails in your Gmail account.  From here you can create additional sensors based upon the data that comes through the event bus when there's a new message detected.
 
 ### Configuring IMAP Searches
 
