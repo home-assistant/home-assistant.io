@@ -253,16 +253,18 @@ The firmware limits the transition time to 5 seconds.
 
 The integration offers device services which can be triggered by a configuration button.
 
-### OTA update
+### OTA firmware update
 
 Trigger device OTA firmware update.
 
-#### Buttons
+#### Update entities
 
-- OTA Update
-  - triggers the OTA update process for latest stable version
-- OTA Update Beta (_disabled by default_)
-  - triggers the OTA update process for latest beta version
+- Firmware update
+  - triggers the OTA firmware update process for latest stable version
+- Beta firmware update (_disabled by default_)
+  - triggers the OTA firmware update process for latest beta version
+ 
+**Note**: For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
 
 ### Reboot
 
