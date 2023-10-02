@@ -151,6 +151,7 @@ noteworthy changes this release:
 - The [System Bridge] integration now supports notifications! Thanks, [@timmo001]!
 - [@alexyao2015] added a button to [Life360] to trigger a poll to update the
   location information. Cool!
+- It's now easier than ever to collect Z-Wave logs for troubleshooting. Just [enable debug logging](/integrations/zwave_js#how-do-i-access-the-z-wave-logs)!
 
 To process:
 
