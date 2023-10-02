@@ -560,7 +560,7 @@ Debug logs are often required to solve an issue. Follow the instructions on [Ena
 Sometimes, for example, a problem can occur while starting Home Assistant. In this case follow these instructions.
 Add the following to your `configuration.yaml` file in your Home Assistant `config` directory:
 
-```
+```yaml
 logger:
   logs:
     elkm1_lib: debug
