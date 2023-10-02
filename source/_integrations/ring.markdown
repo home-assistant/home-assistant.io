@@ -125,7 +125,7 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 
 ## Switch
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the switch platform. This will add a switch for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the switch platform. This will add a switch for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off. It will also add a switch for every device that supports toggling on and off of motion detection. This can be useful for automations to control internal cameras being enabled based on whether you're in or out of the home for example.
 
 ## Light
 
