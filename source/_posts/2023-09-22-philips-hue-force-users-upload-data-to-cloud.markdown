@@ -1,6 +1,6 @@
 ---
 title: "[Update Oct 2: data sharing to become optional] Philips Hue will force users to upload their data to Hue cloud"
-description: "To control your lights locally you soon need to create an account and share your data with the Hue cloud."
+description: "To control your lights you soon need to create an account and share your data with the Hue cloud."
 date: 2023-09-22 0:0:00
 date_formatted: "September 22, 2023"
 author: Paulus Schoutsen
