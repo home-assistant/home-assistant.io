@@ -10,7 +10,7 @@ categories: Public-Service-Announcement
 og_image: /images/blog/2023-09-hue-upload-user-data-cloud/social.png
 ---
 
-**Update Oct 2:** In a [conversation with The Verge](https://www.theverge.com/2023/9/28/23892761/philips-hue-app-account-changes), Philips Hue has announced that they will update their privacy policy to require users to consent sharing their usage data with Philips Hue.
+**Update Oct 2:** In a [conversation with The Verge](https://www.theverge.com/2023/9/28/23892761/philips-hue-app-account-changes), Philips Hue has announced that they will update their privacy policy to require users to consent to share their usage data with Philips Hue.
 
 _Original Post_
 
