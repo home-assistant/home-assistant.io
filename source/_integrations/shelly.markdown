@@ -260,9 +260,9 @@ Trigger device OTA firmware update.
 #### Update entities
 
 - Firmware update
-  - triggers the OTA firmware update process for latest stable version
+  - triggers the OTA firmware update process to the latest stable version
 - Beta firmware update (_disabled by default_)
-  - triggers the OTA firmware update process for latest beta version
+  - triggers the OTA firmware update process to the latest beta version
  
 **Note**: For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
 
