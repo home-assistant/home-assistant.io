@@ -85,12 +85,13 @@ You can use a backup during the onboarding process to restore your configuration
 
 - This procedure assumes you have already completed the [installation](/installation/) procedure on your target device and are now viewing the welcome screen as part of the [onboarding](/getting-started/onboarding/).
 - The login credentials of the device from which you made the backup.
-- If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
+- **Required storage capacity**: If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
    - Before migrating, on the old system, check how much storage you used.
      - Go to **{% my system_health title="Settings > System > Repairs -> ... -> System Information" %}**, and under **Home Assistant Supervisor**, look at the **Disk used** value.
      - The target device must have more free space than the source device.
         - If your target device is a Home Assistant Yellow, note that it is the size of the eMMC that is relevant.
         - The restore process mainly uses the eMMC, not the NVMe.
+        - The size of the backup file is no indication of the size of your installation. To know the size of your installation, you need to check the **Disk used** value mentioned above.
 - If you are migrating to a new device:
    - You do not need to transfer the backup to a USB or SD card to bring it to your device.
    - You will be able to upload the backup file from the device you are accessing the onboarding from.
