@@ -16,4 +16,5 @@ A wake-word-detection entity allows other integrations or applications to detect
 The wake-word-detection entities cannot be implemented manually, but can be provided by integrations such as [Wyoming](/integrations/wyoming). The API in [Assist Pipelines](https://developers.home-assistant.io/docs/voice/pipelines/) enables wake-word-detection as part of [Assist](/voice_control/).
 
 
-{% include integrations/config_flow.md %}
+
+{% include integrations/building_block_integration.md %}
