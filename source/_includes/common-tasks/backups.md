@@ -91,7 +91,7 @@ You can use a backup during the onboarding process to restore your configuration
      - The target device must have more free space than the source device.
         - If your target device is a Home Assistant Yellow, note that it is the size of the eMMC that is relevant.
         - The restore process mainly uses the eMMC, not the NVMe.
-        - The size of the backup file is no indication of the size of your installation! To know the size of your installation, you need to check the **Disk used** value mentioned above.
+        - The size of the backup file is no indication of the size of your installation. To know the size of your installation, you need to check the **Disk used** value mentioned above.
 - If you are migrating to a new device:
    - You do not need to transfer the backup to a USB or SD card to bring it to your device.
    - You will be able to upload the backup file from the device you are accessing the onboarding from.
