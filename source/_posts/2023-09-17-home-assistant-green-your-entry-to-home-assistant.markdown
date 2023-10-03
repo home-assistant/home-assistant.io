@@ -25,10 +25,9 @@ Home Assistant Green contains everything you need for Home Assistant in one box.
 Home Assistant Green alongside Home Assistant Yellow and Home Assistant Blue
 </p>
 
-On the inside, Home Assistant Green runs on a powerful 1.8 GHz quad-core CPU. Memory and storage are amply provided with 4 GB of RAM and 32 GB of eMMC, more than enough to keep you running Home Assistant on the device for a long time. When your smart home grows, you can use <a href="/skyconnect">Home Assistant SkyConnect</a> to add Zigbee and Matter support or one of many third-party USB devices available to expand Home Assistant Green with other smart standards like Z-Wave or Bluetooth.
+On the inside, Home Assistant Green runs on a powerful 1.8&nbsp;GHz quad-core CPU. Memory and storage are amply provided with 4&nbsp;GB of RAM and 32&nbsp;GB of eMMC, more than enough to keep you running Home Assistant on the device for a long time. Connecting to your existing smart home platforms lets you instantly use your devices that communicate over Zigbee, Matter, or other smart standards. And when your smart home grows, you can use <a href="/skyconnect">Home Assistant SkyConnect</a> to add Zigbee and Thread radios (Thread support under development) or one of many third-party USB devices available to expand Home Assistant Green with other smart standards like Z-Wave or Bluetooth.
 
 On the outside, Home Assistant Green has a stunning translucent enclosure design revealing the hub's inner hardware. Unlike some other smart home devices, it looks great in your home decor. The bottom of the case also functions as the hub's heat sink and is made of a solid piece of black, anodized aluminum. And, of course, this case features [the new Home Assistant logo][logo-blog] on top as a nice subtle mosaic pattern.
-
 
 <p class='img'>
 <img src="/images/blog/2023-09-ha10/green-specs.jpeg" alt="Home Assistant Green has 1.8 GHz quad-code CPU, 4 GB of RAM and 32 GB of eMMC storage.">
