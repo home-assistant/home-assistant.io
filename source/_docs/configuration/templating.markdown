@@ -924,7 +924,7 @@ In addition to strings and numbers, Python (and Jinja) supports lists, sets, and
 - `x is set` will return whether `x` is a `set` or not (e.g. `{1, 2} is set` will return `True`).
 - `x is tuple` will return whether `x` is a `tuple` or not (e.g. `(1, 2) is tuple` will return `True`).
 - `x is datetime` will return whether `x` is a `datetime` or not (e.g. `datetime(2020, 1, 1, 0, 0, 0) is datetime` will return `True`).
-- `x is non_string_iterable` will return whether `x` is iterable but not a string, so it will return `True` for both lists and sets.
+- `x is string_like` will return whether `x` is a string, bytes, or bytearray object.
 
 Note that, as of Home Assistant 2023.10.0, Jinja has built in tests for `boolean` (`True`/`False`), `callable` (any function), `float` (a number with a decimal), `integer` (a number without a decimal), `iterable` (a value that can be iterated over such as a `list`, `set`, `string`, or generator), `mapping` (mainly `dict` but also supports other dictionary like types), `number` (`float` or `int`), `sequence` (a value that can be iterated over and indexed such as `list` and `string`), and `string`.
 
