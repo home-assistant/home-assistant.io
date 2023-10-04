@@ -229,7 +229,7 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
 - Find the skill you just created, click `Edit` link in the `Actions` column.
 - Click `ACCOUNT LINKING` in the left navigation bar of build page
 - Do not turn on the "Allow users to link their account to your skill from within your application or website" switch. This will require a Redirect URI, which won't work.
-- Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL]`. For Alexa account linking by default the standard port 443 is used. Use your firewall to forward this, if needed:
+- Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL]`. For Alexa account linking, by default, the standard port 443 is used. Use your firewall to forward this, if needed:
   - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
 
@@ -238,7 +238,7 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]:1433/auth/token`
 
 <div class="note">
-    Note: you must use a valid/trusted SSL Certificate for account linking to work. Self signed certificates will not work, but you can use a free Lets Encrypt Certificate.
+    Note: you must use a valid/trusted SSL certificate for account linking to work. Self signed certificates will not work, but you can use a free Let's Encrypt certificate.
 </div>
 
   - `Client ID`:
