@@ -254,13 +254,11 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking changes
 
-**Note**: Breaking changes processed up to PR 100959
-
 {% details "HomeKit Bridge" %}
 
 The HomeKit integration now supports media player receivers. HomeKit expects
-receivers to be paired in accessory mode. Existing receivers that were paired
-in bridge mode should be re-added in [accessory mode](/integrations/homekit/#accessory-mode).
+receivers to be paired in accessory mode. Existing receivers paired in bridge
+mode should be re-added in [accessory mode](/integrations/homekit/#accessory-mode).
 
 ([@bdraco] - [#100717]) ([documentation](/integrations/homekit))
 
@@ -271,9 +269,9 @@ in bridge mode should be re-added in [accessory mode](/integrations/homekit/#acc
 
 {% details "Modbus" %}
 
-The `close_comm_on_error` configuration is no optional, sockets will always
-be closed on error. Therefore, the `close_comm_on_error` is now deprecated,
-and will be removed in Home Assistant 2024.3.
+The `close_comm_on_error` configuration is no longer optional, sockets will
+always be closed on error. Therefore, the `close_comm_on_error` is now
+deprecated and will be removed in Home Assistant 2024.3.
 
 ([@janiversen] - [#99946]) ([documentation](/integrations/modbus))
 
@@ -288,7 +286,7 @@ An MQTT lock with a configured state topic will initialize with state
 `unknown` instead of state `unlocked` unless the lock is set to optimistic mode.
 
 MQTT locks set to optimistic mode will still be initialized with
-state `unlocked`. You should check if your automations are affected.
+the `unlocked` state. You should check if your automations are affected.
 
 ([@jbouwh] - [#100943]) ([documentation](/integrations/mqtt))
 
@@ -299,11 +297,11 @@ state `unlocked`. You should check if your automations are affected.
 
 {% details "NZBGet" %}
 
-The option to set a custom scan interval in NZBGet via configuring the entry
-is removed. The update interval is now every 5 seconds.
+The option to set a custom scan interval in NZBGet via the options UI has been
+removed. The update interval is now every 5 seconds.
 
 If you want to restore the custom scan interval behavior,
-please checkout [the `homeassistant.update_entity` service](/common-tasks/general/#defining-a-custom-polling-interval).
+please see [the `homeassistant.update_entity` service](/common-tasks/general/#defining-a-custom-polling-interval).
 
 ([@joostlek] - [#98869]) ([documentation](/integrations/nzbget))
 
@@ -314,8 +312,8 @@ please checkout [the `homeassistant.update_entity` service](/common-tasks/genera
 
 {% details "OpenTherm Gateway" %}
 
-Some of the older binary sensors and sensors from OpenTherm gateway have been
-deprecated since January 2021. They have now been removed. Please use
+Some of the older binary sensors and sensors from the OpenTherm gateway have
+been deprecated since January 2021. They have now been removed. Please use
 the new binary sensors and sensors that have been created since.
 
 ([@joostlek] - [#99712]) ([documentation](/integrations/opentherm_gw))
@@ -328,7 +326,7 @@ the new binary sensors and sensors that have been created since.
 {% details "Pentair ScreenLogic" %}
 
 Some entity names have changed. The integration will migrate old entities
-to new names/ids. You may have to manually update old entities used
+to new names/IDs. You may have to manually update old entities used
 in, for example, your dashboards.
 
 Invalid entities such as "Saturation Index" are removed
@@ -344,9 +342,8 @@ if the required equipment is not configured.
 {% details "Supervisor" %}
 
 The default name given to backups created with the `hassio.full_backup`
-and `hassio.partial_backup` services is no longer the UTC date and time the
-backup was initiated (`%Y-%m-%d %H:%M:%S`) but instead the local date and
-time the backup was initiated (`%Y-%m-%d %H:%M:%S`).
+and `hassio.partial_backup` services are no longer the UTC date and time the
+backup was initiated but use the local date and time instead.
 
 ([@jpbede] - [#100959]) ([documentation](/integrations/hassio))
 
@@ -357,7 +354,7 @@ time the backup was initiated (`%Y-%m-%d %H:%M:%S`).
 
 {% details "Z-Wave" %}
 
-Multiple websocket commands have been renamed based on [this change in Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/getting-started/migrating-to-v12?id=renamed-network-heal-to-rebuild-routes).
+Multiple WebSocket commands have been renamed based on [this change in Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/getting-started/migrating-to-v12?id=renamed-network-heal-to-rebuild-routes).
 
 With this release, you will need to update your zwave-js-server instance.
 You must use zwave-js-server `1.32.0` or greater (schema `32`).
@@ -379,6 +376,7 @@ If you are a custom integration developer and want to learn about breaking
 changes and new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
+- [Home Assistant is participating in Hacktoberfest 2023!](https://developers.home-assistant.io/blog/2023/10/01/hacktoberfest-2023)
 - [New way of excluding state attributes from recording](https://developers.home-assistant.io/blog/2023/09/20/excluding-state-attributes-from-recording)
 - [The websocket command entity/source has been modified](https://developers.home-assistant.io/blog/2023/09/12/ws-entity-source-simplified/)
 
