@@ -22,7 +22,7 @@ October! 🎃 It means we've just celebrated our birthday; we are now 10 years o
 
 Even more exciting news, as this is [Home Assistant's year of the voice](/blog/2022/12/20/year-of-voice/): Chapter 4 of this endeavor has been announced and will be [streamed live on YouTube](https://www.youtube.com/watch?v=YzgYYkOrnhQ) on 12 October 2023, at 12:00 PDT / 21:00 CEST! Be sure to tune in! I've seen some early demos... All I'm going to say is: It is mind-blowing! 🤯
 
-As for this release, because of all of the above, it is a bit smaller than usual in terms of features. I promise that chapter 4 is going to make it all worth it. Yet, it contains tons of updates, bug fixes, and a couple of beautiful new features for the Tile card! 🤩
+As for this release, because of all of the above, it is a bit smaller than usual in terms of features. I promise that chapter 4 is going to make it all worth it. Yet, it contains tons of updates, bug fixes, and a couple of beautiful new features for the tile card! 🤩
 
 Enjoy the release!
 
@@ -32,7 +32,7 @@ Enjoy the release!
 
 - [A beautiful updated logo!](#a-beautiful-updated-logo)
 - [Brand new My Home Assistant buttons](#brand-new-my-home-assistant-buttons)
-- [New tile features for climate](#new-tile-features-for-climate)
+- [New tile card features for climate entities](#new-tile-card-features-for-climate-entities)
 - [Tile card select feature](#tile-card-select-feature)
 - [Map entity markers options](#map-entity-markers-options)
 - [Password managers and Home Assistant](#password-managers-and-home-assistant)
@@ -82,31 +82,27 @@ So, if you see these buttons showing up somewhere, you now know what they do! Yo
 [create link]: https://my.home-assistant.io/create-link/
 [My Home Assistant]: https://my.home-assistant.io
 
-## New tile features for climate
+## New tile card features for climate entities
 
-Last release, we added [lots of new features for the Tile card](/blog/2023/09/06/release-20239/#lots-of-new-tile-features),
+In the last release, we added [lots of new features for the tile card](/blog/2023/09/06/release-20239/#lots-of-new-tile-features),
 including features specifically for controlling your climate devices. This release, we are adding even more!
 
-[@Weissnix4711] contributed a feature that allows you to add buttons for the presets of your climate device to the tile card.
+[@Weissnix4711] contributed a feature that allows you to add buttons for the presets of your climate device to the tile card. Next,[@piitaya] took it a step further and added the ability to select which presets you want to show and allow showing them in a dropdown list instead of a series of buttons.
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/42943391/268513574-28a41a14-e6da-44bf-8e3e-db1fe3b2c902.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+<img class='no-shadow' src='/images/blog/2023-10/tile-card-climate-presets.png' alt='Screenshot showing the new preset feature of the tile cards in both button and dropdown variants.'>
 
-[@piitaya] took it a step further and added the ability to select which presets you want to show, and allow showing them in a dropdown list instead of series of buttons.
+The screenshot above shows the same tile card, but one with the buttons and one with the dropdown.
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/269567473-711b7654-5e05-4301-874b-0f8c96210093.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+In the options for this tile card feature, you'll be given the choice if you
+prefer to show icons or if you rather have a dropdown. You can also pick
+which presets you want to show/hide.
 
 [@piitaya]: https://github.com/piitaya
 [@Weissnix4711]: https://github.com/Weissnix4711
 
 ## Tile card select feature
 
-But there is more goodness for the Tile card this release. [@piitaya] added a select feature to the tile card, allowing you to select an option from a list of options.
+But there is more goodness for the tile card this release. [@piitaya] added a select feature to the tile card, allowing you to select an option from a list of options.
 
 This feature can be used for any `select` entity, but also for your dropdown helpers! (also known as `input_select` entities).
 
