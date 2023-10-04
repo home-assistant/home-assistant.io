@@ -16,6 +16,8 @@ ha_platforms:
 
 The camera integration allows you to use IP cameras with Home Assistant.
 
+{% include integrations/building_block_integration.md %}
+
 ### Streaming Video
 
 If your camera supports it, and the [`stream`](/integrations/stream) integration is setup, you will be able to stream your cameras in the frontend and on supported media players.

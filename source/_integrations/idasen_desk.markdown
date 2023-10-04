@@ -1,5 +1,5 @@
 ---
-title: IKEA IDÅSEN Desk
+title: IKEA Idasen Desk
 description: Control and monitor your IKEA Idåsen standing desk.
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -11,6 +11,8 @@ ha_bluetooth: true
 ha_platforms:
   - cover
 ha_integration_type: integration
+ha_codeowners:
+  - '@abmantis'
 ---
 
 The IKEA IDÅSEN integration allows you to connect your IKEA Idåsen motorized desk to Home Assistant, making it possible to control the desk height and also monitor height changes from the physical controller.

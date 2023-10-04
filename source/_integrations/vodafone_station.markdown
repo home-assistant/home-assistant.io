@@ -14,7 +14,6 @@ ha_platforms:
   - button
   - device_tracker
   - sensor
-ha_ssdp: false
 ha_integration_type: integration
 ---
 

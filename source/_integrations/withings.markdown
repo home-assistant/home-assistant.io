@@ -9,6 +9,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@vangorra'
+  - '@joostlek'
 ha_domain: withings
 ha_platforms:
   - binary_sensor

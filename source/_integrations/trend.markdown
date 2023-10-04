@@ -5,12 +5,14 @@ ha_category:
   - Binary Sensor
   - Utility
 ha_release: 0.28
-ha_iot_class: Local Push
+ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_domain: trend
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
+ha_codeowners:
+  - '@jpbede'
 ---
 
 The `trend` platform allows you to create sensors which show the trend of
