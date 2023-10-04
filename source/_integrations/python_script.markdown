@@ -132,7 +132,7 @@ Introduced in Home Assistant [2023.7](/blog/2023/07/05/release-20237/), services
 
 ```python
 # get_forecast.py
-service_data = {"type": "daily", "entity_id": "weather.my_home"}
+service_data = {"type": "daily", "entity_id": "weather.YOUR_HOME"}
 current_forecast = hass.services.call("weather", "get_forecast", service_data, blocking=True, return_response=True)
 ```
 
