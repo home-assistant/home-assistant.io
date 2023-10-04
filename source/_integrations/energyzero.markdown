@@ -52,3 +52,74 @@ Every day around **14:00 UTC time**, the new prices are published for the follow
 For the dynamic gas prices, only entities are created that display the
 `current` and `next hour` price because the price is always fixed for
 24 hours; new prices are published every morning at **05:00 UTC time**.
+
+
+## Services
+The energy and gas prices are exposed using [Service Calls](/docs/scripts/service-calls/). The services populate [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with price data.
+
+
+### Service `energyzero.get_gas_prices`
+Fetches the gas prices.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `start` | yes | Start moment to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| `end` | yes | End moment to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| `incl_vat` | yes | Get prices including VAT or without. Defaults to True  | False
+
+### Response data
+The response data is a dictionary with the gas prices as timestamp/float key/values.
+
+{% raw %}
+```json
+{
+'2023-09-25 03:00:00+00:00': 1.10,
+'2023-09-25 04:00:00+00:00': 1.05
+}
+```
+{% endraw %}
+
+### Service `energyzero.get_energy_prices`
+Fetches the energy prices. 
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `start` | yes | Start moment to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| `end` | yes | End moment to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| `incl_vat` | yes | Get prices including VAT or without. Defaults to True  | False
+
+### Response data
+The response data is a dictionary with the energy prices as timestamp/float key/values.
+
+{% raw %}
+```json
+{
+'2023-09-25 03:00:00+00:00': 0.05,
+'2023-09-25 04:00:00+00:00': 0.12
+}
+```
+{% endraw %}
+
+
+
+### Add response to sensor
+
+The response data can be added to a template sensor:
+
+{% raw %}
+```yaml
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: "*"
+    action:
+      - service: energyzero.get_energy_prices
+        response_variable: prices
+    sensor:
+      - name: Energy prices
+        device_class: timestamp
+        state: "{{ now() }}"
+        attributes:
+          prices: '{{ prices }}'
+```
+{% endraw %}
