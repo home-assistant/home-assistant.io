@@ -66,6 +66,8 @@ It is not just the logo that got a facelift; we have beautiful new buttons for [
 <a href="https://my.home-assistant.io" target="_blank"><img class='no-shadow' src='https://my.home-assistant.io/badges/homeassistant.svg' alt='My Home Assistant logo as a button'></a>
 </center><br />
 
+If you're unfamiliar with My Home Assistant, it's a free online tool that enables websites, documentation, chat platforms, and blogs to link to places on your Home Assistant server without knowing its address or being exposed to the internet. This ensures your privacy while still allowing a seamless experience.
+
 In case you don't know what My Home Assistant is: It is a free online tool, that allows websites, documentation, chat, and blogs like these, to link into places in the Home Assistant server you run at your home, without them actually knowing the address of it and without being exposed to the internet, retaining your privacy.
 
 In our documentation you'll find those buttons to, for example, add a new integration to your Home Assistant with a single click! Try it yourself! This button below will open up your Home Assistant's interface and shows the integrations
