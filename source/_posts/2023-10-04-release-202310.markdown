@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2023.10: New looks and more tile card features!"
-description: "We added more tile card features, added our beautiful new logo, shiny new My Home Assistant buttons, better password manager support and more!"
+description: "We added more tile card features, added our beautiful new logo, shiny new My Home Assistant buttons, better password manager support, and more!"
 date: 2023-10-04 00:00:00
 date_formatted: "October 4, 2023"
 author: Franck Nijhof
@@ -87,7 +87,7 @@ So, if you see these buttons showing up somewhere, you now know what they do! Yo
 In the last release, we added [lots of new features for the tile card](/blog/2023/09/06/release-20239/#lots-of-new-tile-features),
 including features specifically for controlling your climate devices. This release, we are adding even more!
 
-[@Weissnix4711] contributed a feature that allows you to add buttons for the presets of your climate device to the tile card. Next,[@piitaya] took it a step further and added the ability to select which presets you want to show and allow showing them in a dropdown list instead of a series of buttons.
+[@Weissnix4711] contributed a feature that allows you to add buttons for the presets of your climate device to the tile card. Next,[@piitaya] took it a step further: You can now select which presets you want to show and if you want them in a dropdown list instead of a series of buttons.
 
 <img class='no-shadow' src='/images/blog/2023-10/tile-card-climate-presets.png' alt='Screenshot showing the new preset feature of the tile cards in both button and dropdown variants.'>
 
@@ -126,7 +126,7 @@ The [map card](/dashboards/map/) received new options (thanks [@karwosts]!)
 for your entity markers that are shown on the map.
 
 You can now choose if you want the entity name to be rendered on the map
-or the entity state, but you could also override the name alltogether. You could,
+or the entity state, but you could also override the name altogether. You could,
 for example, show state values, instead of the name, for the entities providing
 gas prices, so you can see where the cheapest gas is.
 
@@ -134,7 +134,7 @@ gas prices, so you can see where the cheapest gas is.
 <img class='no-shadow' src='/images/blog/2023-10/map-features-prices.png' alt='Screenshot of a map card showing gas prices on the map.'>
 </center><br />
 
-When centering the map all entities on the map are taken into account.
+When centering the map, all entities on the map are taken into account.
 However, you can also exclude certain entities (for example,
 known outliers) that should not be considered when doing that.
 
@@ -358,7 +358,7 @@ if the required equipment is not configured.
 
 The default name given to backups created with the `hassio.full_backup`
 and `hassio.partial_backup` services are no longer the UTC date and time the
-backup was initiated but use the local date and time instead.
+backup was initiated. Instead, the local date and time are used for the name.
 
 ([@jpbede] - [#100959]) ([documentation](/integrations/hassio))
 
