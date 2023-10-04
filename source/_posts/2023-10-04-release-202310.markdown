@@ -53,7 +53,10 @@ In case you've missed it, we have refreshed the Home Assistant logo! 🤩
 
 <img class='no-shadow' src='/images/blog/2023-09-ha10/home-assistant-logo-new.png' alt='The new Home Assistant logo on a gray background.'>
 
-This was done for the [10th anniversary of Home Assistant](/blog/2023/09/17/10-years-home-assistant/), and you can [read all about this iteration in this blog post](/blog/2023/09/17/a-refreshed-logo-for-home-assistant/).
+This was done for the [10th anniversary of Home Assistant](/blog/2023/09/17/10-years-home-assistant/), and you can [read all about this iteration in this blog post](/blog/2023/09/17/a-refreshed-logo-for-home-assistant/). You will start seeing this logo in many more places in the upcoming weeks, but, it is already included this release!
+
+<img class='no-shadow' src='/images/blog/2023-10/home-assistant-about.png' alt='Screenshot showing the new logo showing on the about page in the Home Assistant interface.'>
+
 
 You will start seeing this logo in many more places in the upcoming weeks, but, it is already included this release!
 
