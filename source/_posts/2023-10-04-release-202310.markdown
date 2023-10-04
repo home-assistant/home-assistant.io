@@ -33,9 +33,9 @@ Enjoy the release!
 - [A beautiful updated logo!](#a-beautiful-updated-logo)
 - [Brand new My Home Assistant buttons](#brand-new-my-home-assistant-buttons)
 - [New tile card features for climate entities](#new-tile-card-features-for-climate-entities)
-- [Tile card select feature](#tile-card-select-feature)
-- [Map entity markers options](#map-entity-markers-options)
+- [Tile card feature select entities](#tile-card-feature-select-entities)
 - [Password managers and Home Assistant](#password-managers-and-home-assistant)
+- [Map entity markers options](#map-entity-markers-options)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -110,20 +110,6 @@ But there is more goodness for the tile card. [@piitaya] also added the dropdown
 
 This feature can be used for any select entity but also your custom dropdown helpers! (also known as `input_select` entities).
 
-## Map entity markers options
-
-The [map card](/dashboards/map/), received new options for your entity markers that are shown on the map.
-
-For example, you can now choose if you want the entity name to be rendered on
-the map, or the entity state but you could also override the name all together.
-You can now also exclude entities to be not taking into account when centering
-the map.
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/32912880/268457282-4ff6a3c9-301c-4988-91fa-a9f68f15a378.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
-
 ## Password managers and Home Assistant
 
 Using a password manager is arguably one of the best things you can do to
@@ -136,10 +122,29 @@ For example, 1Password now works!
 
 <img class='no-shadow' src='/images/blog/2023-10/home-assistant-works-with-1password.png' alt='Screenshot from the Home Assistant login screen, that show the use of 1Password'>
 
-<p class='img'>
-<img src='https://cdn.discordapp.com/attachments/1012715899263922246/1156616802265219072/CleanShot_2023-09-27_at_17.41.56.png?ex=65159ed6&is=65144d56&hm=81f0422da38ac49f0648fbe95136d629838cce19b264da2ee73719a6f1389b2a&'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+## Map entity marker options
+
+The [map card](/dashboards/map/) received new options (thanks [@karwosts]!)
+for your entity markers that are shown on the map.
+
+You can now choose if you want the entity name to be rendered on the map
+or the entity state, but you could also override the name alltogether. You could,
+for example, show state values, instead of the name, for the entities providing
+gas prices, so you can see where the cheapest gas is.
+
+<center>
+<img class='no-shadow' src='/images/blog/2023-10/map-features-prices.png' alt='Screenshot of a map card showing gas prices on the map.'>
+</center><br />
+
+When centering the map all entities on the map are taken into account.
+However, you can also exclude certain entities (for example,
+known outliers) that should not be considered when doing that.
+
+This is currently only available in the YAML configuration of the map card.
+See our [documentation for the map card](/dashboards/map/#label_mode) for
+more information.
+
+[@karwosts]: https://github.com/karwosts
 
 ## Other noteworthy changes
 
