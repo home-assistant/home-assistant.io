@@ -183,7 +183,7 @@ We welcome the following new integrations in this release:
 - **[IKEA IDÅSEN Desk]**, added by [@abmantis]<br />
   Connect and control the height of your IKEA IDÅSEN motorized desk.
 - **[Medcom Bluetooth]**, added by [@elafargue]<br />
-  Integrates you Medcom radiation monitors.
+  Integrates your Medcom radiation monitors.
 - **[Private BLE Device]**, added by [@Jc2k]<br />
   Track your BLE devices that change their MAC address frequently.
 - **[SwitchBot Cloud]**, added by [@SeraphicRav]<br />
