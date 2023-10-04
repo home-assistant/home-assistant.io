@@ -49,7 +49,7 @@ you might need to either disconnect your system from the cloud, or set up a prox
 
 The local version of the integration does not support events, and the `arming` state, but provides an additional binary sensor per zone (with the `_alarmed` suffix) that signals whether this zone is currently triggering an alarm.
 
-If the integration fails to set up, you can try to increase the optional `Communication delay` parameter to wait for the specified seconds between opening the connection and starting the communication with the panel.
+If the integration fails to set up, you can try to increase the optional **Communication delay** parameter to wait for the specified seconds between opening the connection and starting the communication with the panel.
 
 {% include integrations/config_flow.md %}
 
