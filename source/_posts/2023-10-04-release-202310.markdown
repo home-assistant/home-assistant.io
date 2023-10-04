@@ -132,18 +132,16 @@ Temporary screenshot that needs to be replaced.
 
 ## Other noteworthy changes
 
-**Note**: Changes processed up to PR 100967
-
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
 - If you are using [ESPHome], you will notice much smaller Home Assistant
   backups when you have [the latest version] installed!
-- The [HomeKit Bridge] integration now support media receivers! Thanks, [@bdraco]!
+- The [HomeKit Bridge] integration now supports media receivers! Thanks, [@bdraco]!
 - [@Lash-L] keeps extending the [Roborock] integration.
-  In this release, water and last clean sensors have been added. Sweet!
+  In this release, water and last cleaned sensors have been added. Sweet!
 - [Withings] received lots of love this release, thanks [@joostlek]! It is now
-  easier to set up, and now also works with the [Home Assistant Cloud] webhooks
+  easier to set up and now also works with the [Home Assistant Cloud] webhooks
   for push updates!
 - [@allenporter] added calendar support to the [Rain Bird](/integrations/rainbird)
   integration, allowing you to see your irrigation schedule in Home Assistant!
@@ -151,26 +149,24 @@ noteworthy changes this release:
 - The [System Bridge] integration now supports notifications! Thanks, [@timmo001]!
 - [@alexyao2015] added a button to [Life360] to trigger a poll to update the
   location information. Cool!
-- It's now easier than ever to collect Z-Wave logs for troubleshooting. Just [enable debug logging](/integrations/zwave_js#how-do-i-access-the-z-wave-logs)!
-
-To process:
-
-- [Add an image fit mode to hui-image and picture-entity-card](https://github.com/home-assistant/frontend/pull/17959)
+- It's now easier than ever to collect [Z-Wave] logs for troubleshooting.
+  Just [enable debug logging](/integrations/zwave_js#how-do-i-access-the-z-wave-logs)!
 
 [@alexyao2015]: https://github.com/alexyao2015
-[Life360]: /integrations/life360
-[@timmo001]: https://github.com/timmo001
-[System Bridge]: /integrations/system_bridge
-[Home Assistant Cloud]: https://www.nabucasa.com
 [@allenporter]: https://github.com/allenporter
-[@Lash-L]: https://github.com/Lash-L
-[Roborock]: /integrations/roborock
 [@bdraco]: https://github.com/bdraco
 [@joostlek]: https://github.com/joostlek
+[@Lash-L]: https://github.com/Lash-L
+[@timmo001]: https://github.com/timmo001
 [ESPHome]: https://esphome.io
+[Home Assistant Cloud]: https://www.nabucasa.com
 [HomeKit Bridge]: /integrations/homekit
+[Life360]: /integrations/life360
+[Roborock]: /integrations/roborock
+[System Bridge]: /integrations/system_bridge
 [the latest version]: https://esphome.io/changelog/2023.9.0.html#esphome-2023-9-0-27th-september-2023
 [Withings]: /integrations/withings
+[Z-Wave]: /integrations/zwave_js
 
 ## New integrations
 
