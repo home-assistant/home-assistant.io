@@ -31,6 +31,7 @@ Enjoy the release!
 <!--more-->
 
 - [A beautiful updated logo!](#a-beautiful-updated-logo)
+- [Brand new My Home Assistant buttons](#brand-new-my-home-assistant-buttons)
 - [New tile features for climate](#new-tile-features-for-climate)
 - [Tile card select feature](#tile-card-select-feature)
 - [Map entity markers options](#map-entity-markers-options)
@@ -57,8 +58,29 @@ This was done for the [10th anniversary of Home Assistant](/blog/2023/09/17/10-y
 
 <img class='no-shadow' src='/images/blog/2023-10/home-assistant-about.png' alt='Screenshot showing the new logo showing on the about page in the Home Assistant interface.'>
 
+## Brand new My Home Assistant buttons
 
-You will start seeing this logo in many more places in the upcoming weeks, but, it is already included this release!
+It is not just the logo that got a facelift; we have beautiful new buttons for [My Home Assistant] as well 🤩.
+
+<center>
+<a href="https://my.home-assistant.io" target="_blank"><img class='no-shadow' src='https://my.home-assistant.io/badges/homeassistant.svg' alt='My Home Assistant logo as a button'></a>
+</center><br />
+
+In case you don't know what My Home Assistant is: It is a free online tool, that allows websites, documentation, chat, and blogs like these, to link into places in the Home Assistant server you run at your home, without them actually knowing the address of it and without being exposed to the internet, retaining your privacy.
+
+In our documentation you'll find those buttons to, for example, add a new integration to your Home Assistant with a single click! Try it yourself! This button below will open up your Home Assistant's interface and shows the integrations
+you have installed:
+
+<center>
+
+{% my integrations badge %}
+
+</center>
+
+So, if you see these buttons showing up somewhere, you now know what they do! You can easily create your own buttons and links to share on the [create link] page.
+
+[create link]: https://my.home-assistant.io/create-link/
+[My Home Assistant]: https://my.home-assistant.io
 
 ## New tile features for climate
 
