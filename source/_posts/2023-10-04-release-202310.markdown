@@ -124,8 +124,15 @@ Temporary screenshot that needs to be replaced.
 
 ## Password managers and Home Assistant
 
-There has been a long standing issue with using password managers with the Home Assistant login.
-This release addresses this issue:
+Using a password manager is arguably one of the best things you can do to
+improve your online security. But using them with Home Assistant, depending on
+which one you have been using, has been a bit of a pain.
+
+If you've been using one of these password managers that had issues with
+Home Assistant, you'll be happy to know that this release fixes that!
+For example, 1Password now works!
+
+<img class='no-shadow' src='/images/blog/2023-10/home-assistant-works-with-1password.png' alt='Screenshot from the Home Assistant login screen, that show the use of 1Password'>
 
 <p class='img'>
 <img src='https://cdn.discordapp.com/attachments/1012715899263922246/1156616802265219072/CleanShot_2023-09-27_at_17.41.56.png?ex=65159ed6&is=65144d56&hm=81f0422da38ac49f0648fbe95136d629838cce19b264da2ee73719a6f1389b2a&'></a>
