@@ -160,6 +160,9 @@ noteworthy changes this release:
 - The [System Bridge] integration now supports notifications! Thanks, [@timmo001]!
 - [@alexyao2015] added a button to [Life360] to trigger a poll to update the
   location information. Cool!
+- The [picture entity card] now has a fit mode option to control how the image
+  fits into the card. This lets you decide if the image is clipped, fitted,
+  or stretched into the displayed card. Thanks [@karwosts]!
 - It's now easier than ever to collect [Z-Wave] logs for troubleshooting.
   Just [enable debug logging](/integrations/zwave_js#how-do-i-access-the-z-wave-logs)!
 
@@ -167,12 +170,14 @@ noteworthy changes this release:
 [@allenporter]: https://github.com/allenporter
 [@bdraco]: https://github.com/bdraco
 [@joostlek]: https://github.com/joostlek
+[@karwosts]: https://github.com/karwosts
 [@Lash-L]: https://github.com/Lash-L
 [@timmo001]: https://github.com/timmo001
 [ESPHome]: https://esphome.io
 [Home Assistant Cloud]: https://www.nabucasa.com
 [HomeKit Bridge]: /integrations/homekit
 [Life360]: /integrations/life360
+[picture entity card]: /dashboards/picture-entity/
 [Roborock]: /integrations/roborock
 [System Bridge]: /integrations/system_bridge
 [the latest version]: https://esphome.io/changelog/2023.9.0.html#esphome-2023-9-0-27th-september-2023
