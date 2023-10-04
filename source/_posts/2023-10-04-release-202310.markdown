@@ -15,34 +15,18 @@ og_image: /images/blog/2023-10/social.png
 
 <a href='/integrations/#version/2023.10'><img src='/images/blog/2023-10/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-These are the beta release notes for Home Assistant Core 2023.10 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/UI/dashboards:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
-
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
 Home Assistant Core 2023.10! 🎉
 
-Thanks for helping out testing the beta! ❤️
+October! 🎃 It means we've just celebrated our birthday; we are now 10 years old! 🎂 In case you've missed our
+[birthday YouTube stream](https://www.youtube.com/watch?v=EmLV6lJLzSU&t=2538s) with all the cool announcements, we've summed it all up in our [10 year Home Assistant blog post](/blog/2023/09/17/10-years-home-assistant/).
 
-Enjoy the (beta) release!
+Even more exciting news, as this is [Home Assistant's year of the voice](/blog/2022/12/20/year-of-voice/): Chapter 4 of this endeavor has been announced and will be [streamed live on YouTube](https://www.youtube.com/watch?v=YzgYYkOrnhQ)! Be sure to tune in! I've seen some early demos... All I'm going to say is: It is mind-blowing! 🤯
+
+As for this release, because of all of the above, it is a bit smaller than usual in terms of features. I promise that chapter 4 is going to make it all worth it. Yet, it contains tons of updates, bug fixes, and a couple of beautiful new features for the Tile card! 🤩
+
+Enjoy the release!
+
+../Frenck
 
 <!--more-->
 
