@@ -18,6 +18,7 @@ The Twitch integration will allow you to monitor [Twitch](https://www.twitch.tv/
 
 ## Get Twitch application credentials
 
-Create a new app at "Register Your Application" in the [Twitch developer portal](https://dev.twitch.tv/console/apps). Then get the __Client ID__ and __Client secret__ for the new application.
+Create a new app at "Register Your Application" in the [Twitch developer portal](https://dev.twitch.tv/console/apps). When it asks for "OAuth Redirect URLs" include `https://my.home-assistant.io/redirect/oauth` in the list.
+Then get the __Client ID__ and __Client secret__ for the new application.
 
 {% include integrations/config_flow.md %}
