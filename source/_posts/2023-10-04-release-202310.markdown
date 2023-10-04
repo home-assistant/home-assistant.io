@@ -87,7 +87,7 @@ So, if you see these buttons showing up somewhere, you now know what they do! Yo
 In the last release, we added [lots of new features for the tile card](/blog/2023/09/06/release-20239/#lots-of-new-tile-features),
 including features specifically for controlling your climate devices. This release, we are adding even more!
 
-[@Weissnix4711] contributed a feature that allows you to add buttons for the presets of your climate device to the tile card. Next,[@piitaya] took it a step further: You can now select which presets you want to show and if you want them in a dropdown list instead of a series of buttons.
+[@Weissnix4711] contributed a feature that allows you to add buttons for the presets of your climate device to the tile card. Next, [@piitaya] took it a step further: You can now select which presets you want to show and if you want them in a dropdown list instead of a series of buttons.
 
 <img class='no-shadow' src='/images/blog/2023-10/tile-card-climate-presets.png' alt='Screenshot showing the new preset feature of the tile cards in both button and dropdown variants.'>
 
