@@ -774,6 +774,18 @@ For a summary in a more readable format:
 - Bump pylitterbot to 2023.4.9 ([@natekspencer] - [#101285])
 - Update frontend to 20231002.0 ([@bramkragten] - [#101294])
 - Update Lokalise CLI to v2.6.8 ([@frenck] - [#101297])
+- Remove duplicated device before daikin migration ([@mover85] - [#99900])
+- Revert PR #99077 for Aussie Broadband ([@Bre77] - [#101314])
+- Fix reference error in Aussie Broadband ([@Bre77] - [#101315])
+- Bump pyW800rf32 to 0.4 ([@mib1185] - [#101317])
+- Increase pipeline timeout to 5 minutes ([@synesthesiam] - [#101327])
+- Pipeline runs are only equal with same id ([@synesthesiam] - [#101341])
+- Fix manual stopping of the voice assistant pipeline ([@jesserockz] - [#101351])
+- Allow esphome device to disable vad on stream ([@jesserockz] - [#101352])
+- Fix temperature when myZone is in use for Advantage air ([@Bre77] - [#101316])
+- Check that dock error status is not None for Roborock ([@Lash-L] - [#101321])
+- Increase update interval of update platform in devolo_home_network ([@Shutgun] - [#101366])
+- Update Pillow to 10.0.1 ([@frenck] - [#101368])
 
 [#100002]: https://github.com/home-assistant/core/pull/100002
 [#100008]: https://github.com/home-assistant/core/pull/100008
@@ -1258,6 +1270,17 @@ For a summary in a more readable format:
 [#101285]: https://github.com/home-assistant/core/pull/101285
 [#101294]: https://github.com/home-assistant/core/pull/101294
 [#101297]: https://github.com/home-assistant/core/pull/101297
+[#101314]: https://github.com/home-assistant/core/pull/101314
+[#101315]: https://github.com/home-assistant/core/pull/101315
+[#101316]: https://github.com/home-assistant/core/pull/101316
+[#101317]: https://github.com/home-assistant/core/pull/101317
+[#101321]: https://github.com/home-assistant/core/pull/101321
+[#101327]: https://github.com/home-assistant/core/pull/101327
+[#101341]: https://github.com/home-assistant/core/pull/101341
+[#101351]: https://github.com/home-assistant/core/pull/101351
+[#101352]: https://github.com/home-assistant/core/pull/101352
+[#101366]: https://github.com/home-assistant/core/pull/101366
+[#101368]: https://github.com/home-assistant/core/pull/101368
 [#58707]: https://github.com/home-assistant/core/pull/58707
 [#72797]: https://github.com/home-assistant/core/pull/72797
 [#75530]: https://github.com/home-assistant/core/pull/75530
@@ -1509,6 +1532,7 @@ For a summary in a more readable format:
 [#99893]: https://github.com/home-assistant/core/pull/99893
 [#99894]: https://github.com/home-assistant/core/pull/99894
 [#99895]: https://github.com/home-assistant/core/pull/99895
+[#99900]: https://github.com/home-assistant/core/pull/99900
 [#99903]: https://github.com/home-assistant/core/pull/99903
 [#99915]: https://github.com/home-assistant/core/pull/99915
 [#99916]: https://github.com/home-assistant/core/pull/99916
@@ -1540,6 +1564,7 @@ For a summary in a more readable format:
 [#99998]: https://github.com/home-assistant/core/pull/99998
 [@ArdaSeremet]: https://github.com/ArdaSeremet
 [@AtomBrake]: https://github.com/AtomBrake
+[@Bre77]: https://github.com/Bre77
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@DCSBL]: https://github.com/DCSBL
 [@DanielWeeber]: https://github.com/DanielWeeber
@@ -1617,6 +1642,7 @@ For a summary in a more readable format:
 [@mike391]: https://github.com/mike391
 [@mikey0000]: https://github.com/mikey0000
 [@mkmer]: https://github.com/mkmer
+[@mover85]: https://github.com/mover85
 [@ms264556]: https://github.com/ms264556
 [@mueli]: https://github.com/mueli
 [@nachonam]: https://github.com/nachonam
