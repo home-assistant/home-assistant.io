@@ -100,16 +100,13 @@ which presets you want to show/hide.
 [@piitaya]: https://github.com/piitaya
 [@Weissnix4711]: https://github.com/Weissnix4711
 
-## Tile card select feature
+## Tile card feature select entities
 
-But there is more goodness for the tile card this release. [@piitaya] added a select feature to the tile card, allowing you to select an option from a list of options.
+But there is more goodness for the tile card. [@piitaya] also added the dropdown from above as a feature for the select entities, allowing you to select an option from a list of options.
 
-This feature can be used for any `select` entity, but also for your dropdown helpers! (also known as `input_select` entities).
+<img class='no-shadow' src='/images/blog/2023-10/tile-card-select.png' alt='Screenshot showing the select feature for the tile card in the Home Assistant interface.'>
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/269248136-d6a1ebb5-8209-4550-a4d8-85147340ddb1.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+This feature can be used for any select entity but also your custom dropdown helpers! (also known as `input_select` entities).
 
 ## Map entity markers options
 
