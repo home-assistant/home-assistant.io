@@ -35,7 +35,7 @@ Enjoy the release!
 - [New tile card features for climate entities](#new-tile-card-features-for-climate-entities)
 - [Tile card feature select entities](#tile-card-feature-select-entities)
 - [Password managers and Home Assistant](#password-managers-and-home-assistant)
-- [Map entity markers options](#map-entity-markers-options)
+- [Map entity marker options](#map-entity-marker-options)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
