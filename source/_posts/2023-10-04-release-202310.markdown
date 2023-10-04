@@ -18,7 +18,7 @@ og_image: /images/blog/2023-10/social.png
 Home Assistant Core 2023.10! 🎉
 
 October! 🎃 It means we've just celebrated our birthday; we are now 10 years old! 🎂 In case you've missed our
-[birthday YouTube stream](https://www.youtube.com/watch?v=EmLV6lJLzSU&t=2538s) with all the cool announcements, we've summed it all up in our [10 year Home Assistant blog post](/blog/2023/09/17/10-years-home-assistant/).
+[birthday YouTube stream](https://www.youtube.com/watch?v=EmLV6lJLzSU) with all the cool announcements, we've summed it all up in our [10 year Home Assistant blog post](/blog/2023/09/17/10-years-home-assistant/).
 
 Even more exciting news, as this is [Home Assistant's year of the voice](/blog/2022/12/20/year-of-voice/): Chapter 4 of this endeavor has been announced and will be [streamed live on YouTube](https://www.youtube.com/watch?v=YzgYYkOrnhQ) on 12 October 2023, at 12:00 PDT / 21:00 CEST! Be sure to tune in! I've seen some early demos... All I'm going to say is: It is mind-blowing! 🤯
 
