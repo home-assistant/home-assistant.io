@@ -52,6 +52,11 @@ aspect_ratio:
   required: false
   description: 'Forces the height of the image to be a ratio of the width. Valid formats: Height percentage value (`23%`) or ratio expressed with colon or "x" separator (`16:9` or `16x9`). For a ratio, the second element can be omitted and will default to "1" (`1.78` equals `1.78:1`).'
   type: string
+fit_mode:
+  required: false
+  description: 'Defines the manner in which the image is stretched/clipped to fit the card area. `cover`: The image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit. `contain`: The image keeps its aspect ratio, but is resized to fit within the given dimension. `fill`: The image is resized to fill the given dimension. If necessary, the image will be stretched or squished to fit.'
+  type: string
+  default: cover
 name:
   required: false
   description: Overwrite entity name.

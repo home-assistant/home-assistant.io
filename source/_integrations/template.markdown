@@ -268,7 +268,92 @@ image:
       required: false
       type: boolean
       default: true
-"[all sensor, binary sensor, button, image, number, select entities]":
+weather:
+  description: List of weather entities
+  required: true
+  type: map
+  keys:
+    condition_template:
+      description: The current weather condition.
+      required: true
+      type: template
+    temperature_template:
+      description: The current temperature.
+      required: true
+      type: template
+    dew_point_template:
+      description: The current dew point.
+      required: false
+      type: template
+    apparent_temperature_template:
+      description: The current apparent (feels-like) temperature.
+      required: false
+      type: template
+    temperature_unit:
+      description: Unit for temperature_template output. Valid options are °C, °F, and K.
+      required: false
+      type: string
+    humidity_template:
+      description: The current humidity.
+      required: true
+      type: template
+    pressure_template:
+      description: The current air pressure.
+      required: false
+      type: template
+    pressure_unit:
+      description: Unit for pressure_template output. Valid options are Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, psi.
+      required: false
+      type: string
+    wind_speed_template:
+      description: The current wind speed.
+      required: false
+      type: template
+    wind_gust_speed_template:
+      description: The current wind gust speed.
+      required: false
+      type: template
+    wind_speed_unit:
+      description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
+      required: false
+      type: string
+    wind_bearing_template:
+      description: The current wind bearing.
+      required: false
+      type: template
+    ozone_template:
+      description: The current ozone level.
+      required: false
+      type: template
+    cloud_coverage_template:
+      description: The current cloud coverage.
+      required: false
+      type: template
+    visibility_template:
+      description: The current visibility.
+      required: false
+      type: template
+    visibility_unit:
+      description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      required: false
+      type: string
+    forecast_daily_template:
+      description: Daily forecast data.
+      required: false
+      type: template
+    forecast_hourly_template:
+      description: Hourly forecast data.
+      required: false
+      type: template
+    forecast_twice_daily_template:
+      description: Twice daily forecast data.
+      required: false
+      type: template
+    precipitation_unit:
+      description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      required: false
+      type: string
+"[all sensor, binary sensor, button, image, number, select, weather entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map

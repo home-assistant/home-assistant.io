@@ -21,6 +21,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
 
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)
+- Enmax Energy
 - Evergy
 - Exelon subsidiaries
   - Atlantic City Electric
@@ -30,6 +31,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
 - Pacific Gas & Electric (PG&E)
+- Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
 
 When you add the Opower integration to Home Assistant, you will need to provide your utility account's authentication details to enable retrieving your energy data.

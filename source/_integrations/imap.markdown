@@ -96,7 +96,7 @@ Email providers may limit the number of reported emails. The number may be less 
 
 ### Using events
 
-When a new message arrives that meets the search criteria the `imap` integration will send a custom [event](/docs/automation/trigger/#event-trigger) that can be used to trigger an automation.
+When a new message arrives or a message is removed within the defined search command scope, the `imap` integration will send a custom [event](/docs/automation/trigger/#event-trigger) that can be used to trigger an automation.
 It is also possible to use to create a template [`binary_sensor` or `sensor`](/integrations/template/#trigger-based-template-binary-sensors-buttons-numbers-selects-and-sensors) based the [event data](/docs/automation/templating/#event).
 
 The table below shows what attributes come with `trigger.event.data`. The data is a dictionary that has the keys that are shown below.
@@ -130,6 +130,8 @@ headers:
   description: The `headers` of the message in the for of a dictionary. The values are iterable as headers can occur more than once.
 custom:
   description: Holds the result of the custom event data [template](/docs/configuration/templating). All attributes are available as a variable in the template.
+initial:
+  description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message received has not been changed, then an `imap_content` event is generated and the `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email, the `initial` property will always be set to `True`.
 
 {% endconfiguration_basic %}
 
@@ -163,6 +165,7 @@ template:
           Sender: "{{ trigger.event.data['sender'] }}"
           Date: "{{ trigger.event.data['date'] }}"
           Subject: "{{ trigger.event.data['subject'] }}"
+          Initial: "{{ trigger.event.data['initial'] }}"
           To: "{{ trigger.event.data['headers'].get('Delivered-To', ['n/a'])[0] }}"
           Return-Path: "{{ trigger.event.data['headers'].get('Return-Path',['n/a'])[0] }}"
           Received-first: "{{ trigger.event.data['headers'].get('Received',['n/a'])[0] }}"
@@ -185,6 +188,7 @@ template:
         id: "custom_event"
         event_data:
           sender: "no-reply@smartconnect.apc.com"
+          initial: true
     sensor:
       - name: house_electricity
         state: >-

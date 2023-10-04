@@ -324,7 +324,7 @@ It is recommended to only edit a HomeKit instance in the UI that was created in 
 
 ### Accessory mode
 
-When exposing a Camera, Activity based remote (a `remote` that supports activities), Lock, or Television media player (a `media_player` with device class `tv`) to HomeKit, `mode` must be set to `accessory`, and the relevant `include` filter should be setup to only include a single entity.
+When exposing a Camera, Activity based remote (a `remote` that supports activities), Lock, or Television media player (a `media_player` with device class `tv` or `receiver`) to HomeKit, `mode` must be set to `accessory`, and the relevant `include` filter should be setup to only include a single entity.
 
 To quickly add all accessory mode entities in the UI:
 
@@ -412,6 +412,7 @@ The following integrations are currently supported:
 | lock | DoorLock | Support for `lock / unlock`. |
 | media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
 | media_player | TelevisionMediaPlayer | All media players that have `tv` as their `device_class`.  Represented as Television and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later. |
+| media_player | ReceiverMediaPlayer | All media players that have `receiver` as their `device_class`.  Represented as Receiver and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later. |
 | sensor | TemperatureSensor | All sensors that have `°C` or `°F` as their `unit_of_measurement` and `temperature` as their `device_class`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`. |
 | sensor | AirQualitySensor | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization). |
@@ -430,7 +431,7 @@ Bridged device triggers are represented as a single press button on stateless pr
 
 ## iOS Remote Widget
 
-Entities exposed as `TelevisionMediaPlayer` are controllable within the Apple Remote widget in
+Entities exposed as `TelevisionMediaPlayer` and `ReceiverMediaPlayer` are controllable within the Apple Remote widget in
 Control Center. Play, pause, volume up and volume down should work out of the box depending on the `supported_features`
 of the entity. However, if your television can be controlled in other ways outside of the `media_player` entity, (e.g.,
 service calls to an IR blaster), it is possible to build an automation to take advantage of these events.
@@ -594,7 +595,7 @@ To use the HomeKit integration with multiple different Home Assistant instances 
 
 Although we try our best, some entities don't work with the HomeKit integration yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works, unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [core/issues/new](https://github.com/home-assistant/core/issues/new)
 
-If you have any iOS 12.x devices signed into your iCloud account, media player entities with `device_class: tv` may trigger this condition. Filtering the entity or signing the iOS 12.x device out of iCloud should resolve the issue after restarting other devices.
+If you have any iOS 12.x devices signed into your iCloud account, media player entities with `device_class: tv` or `device_class: receiver` may trigger this condition. Filtering the entity or signing the iOS 12.x device out of iCloud should resolve the issue after restarting other devices.
 
 #### Accessories are all listed as not responding
 
@@ -610,9 +611,9 @@ See [resetting accessories](#resetting-accessories) and [Unpairing and Re-pairin
 
 Try removing the entity from HomeKit and then adding it again. If you are adding this configuration option to an existing entity in HomeKit, any changes you make to this entity's configuration options won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
 
-#### My media player is not showing up as a television accessory
+#### My media player is not showing up as a television or receiver accessory
 
-Media Player entities with `device_class: tv` will show up as Television accessories on devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed supported features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
+Media Player entities with `device_class: tv` or `device_class: receiver` will show up as Television or Receiver accessories on devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed supported features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
 
 The [Universal Media Player](/integrations/universal/#harmony-remote-example) has an example of how it can be used to wrap existing entities to enable them to be used as a Television accessory in HomeKit.
 
