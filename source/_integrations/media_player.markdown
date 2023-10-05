@@ -13,6 +13,8 @@ ha_integration_type: entity
 
 Interacts with media players on your network.
 
+{% include integrations/building_block_integration.md %}
+
 ## Services
 
 ### Media control services

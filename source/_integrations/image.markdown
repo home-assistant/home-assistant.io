@@ -12,3 +12,5 @@ ha_integration_type: entity
 ---
 
 The image integration allows other integrations to display a static image.
+
+{% include integrations/building_block_integration.md %}
