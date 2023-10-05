@@ -72,8 +72,8 @@ The Weather entity provides data only in English. Home Assistant automatically t
 | `humidity`               | Humidity, %.                                                                                                                      |
 | `precipitation_kind`     | The kind of precipitation (Rain, Snow, Snow and Rain, None) for the last hour.                                                    |
 | `pressure`               | Atmospheric pressure at sea level, hPa.                                                                                           |
-| `rain`                   | Rain volume for the last hour, mm.                                                                                                |
-| `snow`                   | Snow volume for the last hour, mm.                                                                                                |
+| `rain`                   | Average rain rate since the last update, mm/hr.                                                                                   |
+| `snow`                   | Average rain rate since the last update, mm/hr.                                                                                   |
 | `temperature`            | Temperature, ºC.                                                                                                                  |
 | `uv_index`               | UV Index.                                                                                                                         |
 | `visibility`             | Average visibility, m.                                                                                                            |
