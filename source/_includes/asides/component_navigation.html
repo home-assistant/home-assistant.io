@@ -3,11 +3,7 @@
 {% assign percentage = 100.0 | times: active_installations | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
 <section class="aside-module grid__item one-whole lap-one-half">
   <div class='brand-logo-container section'>
-    {%- if page.logo -%}
-      <img src='/images/supported_brands/{{ page.logo }}' />
-    {%- else -%}
       <img src='https://brands.home-assistant.io/{% if page.ha_brand %}brands{% else %}_{% endif %}/{{ domain }}/logo.png' srcset='https://brands.home-assistant.io/{% if page.ha_brand %}brands{% else %}_{% endif %}/{{ page.ha_domain }}/logo@2x.png 2x' />
-    {%- endif -%}
 
     {%- if page.ha_config_flow and domain -%}
       {% my config_flow_start badge domain=domain %}
