@@ -115,7 +115,6 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
@@ -163,7 +162,6 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
@@ -207,7 +205,6 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
@@ -303,7 +300,6 @@ modbus:
     parity: E
     stopbits: 1
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
