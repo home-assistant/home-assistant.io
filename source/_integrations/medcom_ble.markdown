@@ -24,7 +24,7 @@ This integration supports the Medcom [Inspector BLE](https://medcom.com/product/
 
 {% include integrations/config_flow.md %}
 
-The Medcom Bluetooth integration will automatically discover devices once the [Bluetooth](integrations/bluetooth) integration is enabled and working. It will list each detected Inspector using its Bluetooth MAC address as the serial number.
+The Medcom Bluetooth integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and working. It will list each detected Inspector using its Bluetooth MAC address as the serial number.
 
 To limit the load on the Bluetooth radio on the Home Assistant side, the integration only polls for a reading every 5 minutes, which should be adequate for ongoing background monitoring. An Inspector BLE battery should last several months with continuous use before needing replacement.
 
