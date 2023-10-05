@@ -24,7 +24,7 @@ GEM
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
     eventmachine (1.2.7-x64-mingw32)
-    ffi (1.16.2)
+    ffi (1.16.3)
     forwardable-extended (2.6.0)
     google-protobuf (3.24.4)
     http_parser.rb (0.8.0)
