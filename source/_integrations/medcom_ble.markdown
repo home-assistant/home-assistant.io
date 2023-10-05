@@ -34,4 +34,4 @@ To limit the load on the Bluetooth radio on the Home Assistant side, the integra
 
 ## Sensors
 
-This integration adds a counts-per-minute ("CPM") sensor for each detected Inspector BLE device. See the Inspector BLE manual for how to convert this CPM reading into another unit if desired, which can be done via a custom [template sensor](integrations/template)
+This integration adds a counts-per-minute ("CPM") sensor for each detected Inspector BLE device. See the Inspector BLE manual for how to convert this CPM reading into another unit if desired, which can be done via a custom [template sensor](/integrations/template)
