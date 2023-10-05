@@ -44,7 +44,7 @@ The required Client ID can be obtained as follows:
 
 The `heating_type` can either be `auto` to automatically find the most suitable type for your device or one of `gas`, `oil`, `pellets`, `heatpump`, `fuelcell`, `hybrid`.
 
-Important: the redirect URI that you configure requires that you perform the initial setup on a device that has the 'ViCare' application installed. If your device does not know how to handle the `vicare://` URL you will receive a 'Invalid credentials' notification and the setup procedure will fail. This means: install 'ViCare' on your phone and setup the integration from your phone.
+Important: the redirect URI that you configure requires that you perform the initial setup on a device that has the ViCare application installed. If your device does not know how to handle the `vicare://` URL, you will receive an **Invalid credentials** notification and the setup procedure will fail. This means: install the ViCare app on your phone and set up the integration from your phone.
 
 Multiple device instances might be generated depending on the number of burners and/or circuits of your installation. If there is more than a single instance all devices are suffixed with the circuit or burner ID.
 
