@@ -18,7 +18,7 @@ This platform allows you to connect to your [Todoist Projects](https://todoist.c
 
 ## Prerequisites
 
-You need to determine your Todoist API token. This is fairly simple to do; just go [to the Integrations section on your Todoist settings page](https://todoist.com/app/settings/integrations) and find the section labeled "API token" at the bottom of the page. Copy that token and use it in your configuration file.
+You need to determine your Todoist API token. Go to the [**Integrations** > **Developer** section on your Todoist settings page](https://todoist.com/app/settings/integrations/developer) and find the section labeled **API token** at the bottom of the page. Copy that token and use it in your configuration file.
 
 {% include integrations/config_flow.md %}
 
