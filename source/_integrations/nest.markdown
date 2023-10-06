@@ -17,7 +17,6 @@ ha_domain: nest
 ha_quality_scale: platinum
 ha_dhcp: true
 ha_platforms:
-  - binary_sensor
   - camera
   - climate
   - diagnostics
@@ -47,7 +46,7 @@ The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buyin
 
 ## Configuration
 
-Adding Nest to your Home Assistant instance can be done via the user interface, by using this My Button:
+To add the **Nest** integration to your Home Assistant, use this My Button:
 {% my config_flow_start badge domain=page.ha_domain %}
 
   ![Screenshot of Setup prompt](/images/integrations/nest/setup_prompt.png)
@@ -466,6 +465,8 @@ If the *Nest* integration does not have an Alert then you probably used *Web Aut
 Once you have completed the above steps, you can continue through the flow to re-authorize *Home Assistant* to restore access to your Nest Devices.
 
 ## Troubleshooting
+
+- *No access to partner information* "Information could not be retrieved" error message during the setup wizard means that the Google Account used is not able to access the Home. Please ensure that you have successfully migrated your Nest Account to a Google Account using the Google Nest App. Additionally, if your home has multiple members, please note that the individual who initially set up the home must complete the migration of their Nest Account to a Google Account before you can establish a connection with Home Assistant.
 
 - You can manage devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Restart Home Assistant to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
 

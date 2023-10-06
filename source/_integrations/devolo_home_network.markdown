@@ -4,9 +4,11 @@ description: Instructions on how to integrate devolo Home Network devices with H
 ha_category:
   - Binary Sensor
   - Button
+  - Image
   - Presence Detection
   - Sensor
   - Switch
+  - Update
 ha_release: '2021.12'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -20,8 +22,10 @@ ha_platforms:
   - button
   - device_tracker
   - diagnostics
+  - image
   - sensor
   - switch
+  - update
 ha_zeroconf: true
 ha_integration_type: device
 ---
@@ -47,16 +51,22 @@ Currently the following device types within Home Assistant are supported.
 - Restart the device
 - Start WPS
 
+### Images
+
+- QR code of your guest wifi credentials
+  - Updates every 15 seconds if changes are detected
+  - Is enabled by default
+
 ### Presence Detection
 
 - Detect presence of devices connected to the main or the guest wifi
-  - Updates every 10 seconds
+  - Updates every 15 seconds
   - Automatically adds new devices as disabled entities unless disabled via system option
 
 ### Sensors
 
 - Number of connected wifi clients
-  - Updates every 10 seconds
+  - Updates every 15 seconds
   - Is enabled by default
 - Number of neighbored wifi networks
   - Updates every 5 minutes
@@ -71,6 +81,11 @@ Currently the following device types within Home Assistant are supported.
   - Is enabled by default
 - Turn on/off the device LEDs
   - Is enabled by default
+
+## Update
+
+- Update the firmware of a device.
+  - Is enabled by default but will only give a result if regular checks are enabled on the device.
 
 ## Supported devolo Devices
 

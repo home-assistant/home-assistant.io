@@ -8,6 +8,8 @@ ha_release: 0.49
 ha_quality_scale: internal
 ha_domain: media_extractor
 ha_integration_type: integration
+ha_codeowners:
+  - '@joostlek'
 ---
 
 The `media_extractor` integration gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.

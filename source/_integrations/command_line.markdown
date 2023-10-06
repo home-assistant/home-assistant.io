@@ -58,6 +58,10 @@ command_line:
           required: false
           type: string
           default: "Binary Command Sensor"
+        icon:
+          description: Defines a template for the icon of the entity.
+          required: false
+          type: template
         payload_on:
           description: The payload that represents enabled state.
           required: false
@@ -169,6 +173,10 @@ command_line:
           required: false
           type: string
           default: "Command Sensor"
+        icon:
+          description: Defines a template for the icon of the entity.
+          required: false
+          type: template
         unique_id:
           description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
           required: false

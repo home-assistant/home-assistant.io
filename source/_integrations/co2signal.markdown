@@ -2,17 +2,19 @@
 title: Electricity Maps
 description: Instructions on how to use the Electricity Maps (formerly known as CO2Signal) data within Home Assistant
 ha_category:
-    - Climate
-    - Energy
-    - Environment
+  - Climate
+  - Energy
+  - Environment
 ha_release: 0.87
 ha_iot_class: Cloud Polling
 ha_domain: co2signal
 ha_platforms:
-    - diagnostics
-    - sensor
+  - diagnostics
+  - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
+ha_codeowners:
+  - '@jpbede'
 ---
 
 The `Electricity Maps` sensor platform (formerly known as CO2Signal) queries the [Electricity Maps](https://www.electricitymaps.com/) API for the CO2 intensity of a specific region. Data can be collected for your home by using the latitude/longitude or a country code. This API uses the same data as <https://app.electricitymaps.com>. Not all countries/regions in the world are supported, so please consult the app to check local availability.

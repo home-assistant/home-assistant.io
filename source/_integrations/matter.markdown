@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - event
   - light
   - lock
   - sensor
@@ -153,17 +154,17 @@ This method will allow you to share a device that was added to Google Home to Ho
 
 ## Experiment with Matter using a ESP32 dev board
 
-You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lightning app.
+You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lighting app.
 
 NOTE for Android users: You need to follow the instructions at the bottom of the page to add the test device to the Google developer console, otherwise commissioning will fail. iOS users will not have this issue but they will get a prompt during commissioning asking if you trust the development device.
 
 1. Make sure you use Google Chrome or Microsoft Edge browser.
 2. Open https://nabucasa.github.io/matter-example-apps/
 3. Attach the ESP32 device using a USB cable.
-4. Select the radio button next to the example you like to set up, in case of an M5 Stamp, click **Lightning app for M5STAMP C3**.
+4. Select the radio button next to the example you like to set up, in case of an M5 Stamp, click **Lighting app for M5STAMP C3**.
 5. Select **Connect**.
 6. In the popup dialog that appears, choose the correct serial device. This will usually be something like "cu-usbserial" or alike.
-7. Click **Install Matter Lightning app example** and let it install the firmware on the device. This will take a few minutes.
+7. Click **Install Matter Lighting app example** and let it install the firmware on the device. This will take a few minutes.
 8. Once the device is flashed with the Matter firmware, connect to the device again but this time choose **Logs & console**.
 9. You are presented with a console interface where you see live logging of events. This is an interactive shell where you can type commands. For a list of all commands, type **matter help** and press enter.
 10. To add the device, we need the QR code. In the console, type in `matter onboardingcodes ble` and copy/paste the URL into your browser.

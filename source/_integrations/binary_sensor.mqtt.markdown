@@ -188,7 +188,7 @@ payload_on:
   type: string
   default: "ON"
 qos:
-  description: The maximum QoS level to be used when receiving messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0

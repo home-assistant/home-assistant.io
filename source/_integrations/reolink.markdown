@@ -17,6 +17,7 @@ ha_platforms:
   - light
   - number
   - select
+  - sensor
   - siren
   - switch
   - update
@@ -76,9 +77,13 @@ Depending on the supported features of the camera, number entities are added for
 - Guard return time
 - Motion sensitivity
 - AI face sensitivity
-- AI people sensitivity
+- AI person sensitivity
 - AI vehicle sensitivity
 - AI pet sensitivity
+- AI face delay*
+- AI person delay*
+- AI vehicle delay*
+- AI pet delay*
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
@@ -103,11 +108,13 @@ Depending on the supported features of the camera, button entities are added for
 - PTZ up
 - PTZ down
 - PTZ calibrate
+- PTZ zoom in*
+- PTZ zoom out*
 - Guard go to
 - Guard set current position
 - Restart*
 
-PTZ left, right, up and down will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
+PTZ left, right, up, down, zoom in and zoom out will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
 
 "Guard set current position" will set the current position as the new guard position.
 
@@ -167,6 +174,7 @@ When IR light entity is OFF always OFF, when ON IR LEDs will be on when the came
 
 Depending on the supported features of the camera, the following sensor entities are added:
 
+- PTZ pan position
 - Wi-Fi signal*
 
 ## Update entity
@@ -210,8 +218,9 @@ The following models have been tested and confirmed to work:
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
+- [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
-- [Reolink Duo Floodlight PoE](https://reolink.com/product/reolink-duo-floodlight-poe/)
+- Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
 - Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))
 - Reolink Video Doorbell ([PoE](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi](https://reolink.com/product/reolink-video-doorbell-wifi/))
 
@@ -263,6 +272,8 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 - Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.
+- Reolink cameras can support a limited amount of simultaneous connections. Therefore using third-party software like Frigate, Blue Iris, or Scrypted, or using the ONVIF integration at the same time can cause the camera to drop connections. This results in short unavailabilities of the Reolink entities in Home Assistant. Especially when the connections are coming from the same device (IP) where Home Assistant is running, the Reolink cameras can get confused, dropping one connection in favor of the other originating from the same host IP. If you experience disconnections/unavailabilities of the entities, please first temporarily shut down the other connections (like Frigate) to diagnose if that is the problem. If that is indeed the problem, you could try moving the third-party software to a different host (IP address) since that is known to solve the problem most of the time. You could also try switching the protocol to FLV on Home Assistant and/or the third-party software, as that is known to be less resource-intensive on the camera.
+- If the integration and the browser can't connect to the camera even after you enable the HTTP/HTTPS ports, try to create a new user on the camera; that fixes the problem in some cases.
 
 ### Reducing latency of motion events
 

@@ -87,6 +87,15 @@ to generate a new image of New York in the current weather state.
 
 The resulting image entity can be used in, for example, a card on your dashboard.
 
+The *config_entry* is installation specific. To get the value, make sure the integration has been installed.
+Then, go to {% my developer_services title="**Developer Tools** > **Services**" %}. Ensure you are in UI mode and enter the following below:
+
+![Open AI Conversation UI Mode](/images/integrations/openai_conversation/openai_developer_tools_ui.png)
+
+Select **YAML Mode** to reveal the *config_entry* value to be used in the below example automation.
+
+![Open AI Conversation YAML Mode](/images/integrations/openai_conversation/openai_developer_tools_yaml.png)
+
 {% raw %}
 ```yaml
 automation:
@@ -99,10 +108,10 @@ automation:
         service: openai_conversation.generate_image
         response_variable: generated_image
         data:
-          config_entry: f29e6b8696a15e107b4bd843de722249
-          size: 512
+          config_entry: abce6b8696a15e107b4bd843de722249
+          size: "512"
           prompt: >-
-            New York when the weather is {{ state("weather.home") }}"
+            New York when the weather is {{ states("weather.home") }}"
 
       - alias: "Send out a manual event to update the image entity"
         event: new_weather_image
