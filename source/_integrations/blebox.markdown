@@ -48,9 +48,9 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 #### Key supported features
 
-- Open (Trigger primary output)
-- Close (Trigger primary output)
-- Stop (Trigger secondary output)
+- Open (trigger primary output)
+- Close (trigger primary output)
+- Stop (trigger secondary output)
 - Gate state (open, close, unknown)
 
 #### Additional features
@@ -63,14 +63,14 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 #### Key supported features
 
-- Open (Trigger primary output)
-- Close (Trigger primary output)
-- Stop (Trigger secondary output)
+- Open (trigger primary output)
+- Close (trigger primary output)
+- Stop (trigger secondary output)
 - Gate state (open, close, unknown)
 
 #### Additional features
 
-- "stop" requires setting your device's secondary trigger as stop(via website or phone app).
+- "stop" requires setting your device's secondary trigger as stop (via website or phone app).
 
 ### doorBox
 
@@ -105,7 +105,7 @@ This integration adds the Blebox device as a climate entity to Home Assistant.
 
 #### Additional features
 
-- Changing operation mode(cooling/heating) requires direct access to device or from wBox app
+- Changing operation mode (cooling/heating) requires direct access to device or from wBox app
 
 ### shutterBox
 
@@ -578,4 +578,4 @@ This integration adds the Tedee device ("blebox inside") as a cover entity to Ho
 #### Key supported features
 
 - Open
-- Door state(open, close, unknown)
+- Door state (open, close, unknown)
