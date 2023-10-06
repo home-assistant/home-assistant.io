@@ -92,7 +92,8 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 ### Recommended Zigbee radio adapters and modules
 
 - Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
-  - [Home Assistant SkyConnect](/skyconnect/)
+  - [Home Assistant SkyConnect](/skyconnect/) (EFR32MG21-based USB dongle)
+  - [Home Assistant Yellow](/yellow/) with integrated EFR32MG21 radio
   - [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)
   - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs-usb-adapter.html)/POPP ZB-Stick (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
   - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs-zigbee-shield.html) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
