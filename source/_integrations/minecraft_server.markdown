@@ -51,10 +51,6 @@ The **server address** is a combination of the hostname and the port, where the 
 
 Default is `localhost:25565`.
 
-</div>
-
-<div class='note'>
-
 Bedrock Edition servers don't support SRV records.
 
 </div>
