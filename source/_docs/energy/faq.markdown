@@ -32,3 +32,22 @@ To accomplish such, you can use [the utility_meter integration](/integrations/ut
 ## The Energy panel is not visible
 
 If you do not see the Energy panel in the sidebar, make sure you have not removed [`default_config:`](/integrations/default_config/) from your `configuration.yaml`. If you have, you will need to add the `energy:` integration manually.
+
+## Troubleshooting missing entities 
+
+### Condition
+
+You are trying to add a sensor to the energy dashboard, but it does not appear in the selection list. 
+
+### Resolution
+
+To find out why the sensor is not showing, check the following points:
+- The sensor must have the appropriate attributes. Check your entity attributes in {% my developer_states title="**Developer Tools** > **States**" %} to confirm the following:
+  - `device_class` must be `energy` for electricity grid, solar, or battery categories. It must be `gas` for gas, or `water` for water.
+  - `state_class` must be `total` or `total_increasing`.
+  - The sensor must have an appropriate `unit_of_measurement`. See the help text for each category to see which units are accepted. Units containing an exponent must match superscript characters exactly as defined, e.g. `m³` is accepted, `m3` is not.
+  
+  If any of the attributes are not correct, please open an issue against the integration that provides your sensor, or if you are developing custom template sensors, make sure the templates have the correct settings.
+ 
+- The entity must be a `sensor`. If you are trying to add something from another domain (for example an `input_number`), then you must first create a template sensor from it.
+- The entity must not have any statistics errors. Go to {% my developer_statistics title="**Developer Tools** > **Statistics**" %} to check your specific entity. If your unit has a listed issue here, you must fix the issue before it can be added to the dashboard.
