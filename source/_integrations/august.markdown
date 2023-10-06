@@ -68,6 +68,14 @@ The August Wi-Fi Smart Lock (Gen 4) uses different battery technology (lithium-i
 		
 Other August locks expect to be powered by AA alkaline (non-rechargeable) batteries. Rechargeable batteries in these locks will result in incorrect reporting of battery charge.
 
+## Push updates not available for some entities
+
+While most entities can be updated via the push API, August/Yale does not offer a push API for some data, which means these entities will update slower:
+
+- Doorbell ding sensor (Doorman models only)
+- Lock Battery sensor
+- Lock Operation sensor
+
 ## Binary Sensor
 
 If you have an August Doorbell, once you have enabled the August integration, you should see following sensors:

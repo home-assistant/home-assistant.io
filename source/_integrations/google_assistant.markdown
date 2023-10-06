@@ -274,6 +274,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - camera (streaming, requires compatible camera)
 - climate (temperature setting, hvac_mode)
 - cover (on/off/set position)
+- event (only entities with device class `doorbell` are supported)
 - fan (on/off/speed percentage/preset mode)
 - group (on/off)
 - humidifier (humidity setting/on/off/mode)

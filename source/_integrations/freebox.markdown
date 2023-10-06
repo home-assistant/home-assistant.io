@@ -34,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Device tracker](#presence-detection) for connected devices
 - [Switch](#switch) to control Wi-Fi
 - [Camera](#camera)
+- [Binary sensors](#binary)
 
 {% include integrations/config_flow.md %}
 
@@ -126,6 +127,12 @@ The health status of each RAID array can be monitored with a diagnostics binary 
 ## Camera
 
 Cameras are only available in Freebox V7 (also known as Freebox Delta).
+
+## Binary
+This platform offers you sensors to monitor:
+- motion sensor
+- door opener 
+- plastic cover 
 
 ## Service
 
