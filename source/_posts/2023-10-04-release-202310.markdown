@@ -367,6 +367,17 @@ backup was initiated. Instead, the local date and time are used for the name.
 
 {% enddetails %}
 
+{% details "Twitch" %}
+
+Any existing app you have created in the [Twitch Developer Portal](https://dev.twitch.tv/console/apps/) to work with this integration must be updated to work with Home Assistant's UI authentication flow. Update the app's configuration to include `https://my.home-assistant.io/redirect/oauth` in its list of "OAuth Redirect URLs"
+
+([@joostlek] - [issue#101414]) ([documentation](/integrations/twitch))
+
+[@joostlek]: https://github.com/joostlek
+[issue#101414]: https://github.com/home-assistant/core/issues/101414
+
+{% enddetails %}
+
 {% details "Z-Wave" %}
 
 Multiple WebSocket commands have been renamed based on [this change in Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/getting-started/migrating-to-v12?id=renamed-network-heal-to-rebuild-routes).
