@@ -1,6 +1,6 @@
 ---
 title: Eastron
-description: Integrate Eastron wifi energy meters using the HomeWizard integration.
+description: Integrate Eastron Wi-Fi energy meters using the HomeWizard integration.
 ha_category:
   - Energy
   - Sensor
