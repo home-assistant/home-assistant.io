@@ -109,7 +109,7 @@ This integration adds the Blebox device as a climate entity to Home Assistant.
 
 ### shutterBox
 
-This integration adds the Blebox device as a cover entity to Home Assistant
+This integration adds the Blebox device as a cover entity to Home Assistant.
 
 #### Key supported features
 
@@ -120,7 +120,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant
 
 ### shutterBoxDC
 
-This integration adds the Blebox device as a cover entity to Home Assistant
+This integration adds the Blebox device as a cover entity to Home Assistant.
 
 #### Key supported features
 
@@ -131,7 +131,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant
 
 ### shutterBox DIN
 
-This integration adds the Blebox device as a cover entity to Home Assistant
+This integration adds the Blebox device as a cover entity to Home Assistant.
 
 #### Key supported features
 
@@ -142,7 +142,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant
 
 ### switchBox
 
-This integration adds the Blebox device as a switch entity to Home Assistant
+This integration adds the Blebox device as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -152,7 +152,7 @@ This integration adds the Blebox device as a switch entity to Home Assistant
 
 ### switchBox DIN
 
-This integration adds the Blebox device as a switch entity to Home Assistant
+This integration adds the Blebox device as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -162,7 +162,7 @@ This integration adds the Blebox device as a switch entity to Home Assistant
 
 ### switchBoxD
 
-This integration adds the Blebox device as a switch entity to Home Assistant
+This integration adds the Blebox device as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -172,7 +172,7 @@ This integration adds the Blebox device as a switch entity to Home Assistant
 
 ### switchBoxD DIN
 
-This integration adds the Blebox device as a switch entity to Home Assistant
+This integration adds the Blebox device as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -182,7 +182,7 @@ This integration adds the Blebox device as a switch entity to Home Assistant
 
 ### switchBoxDC
 
-This integration adds the Blebox device as a switch entity to Home Assistant
+This integration adds the Blebox device as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -191,7 +191,7 @@ This integration adds the Blebox device as a switch entity to Home Assistant
 
 ### switchBox LIGHT
 
-This integration adds the Blebox device as a switch entity to Home Assistant
+This integration adds the Blebox device as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -200,7 +200,7 @@ This integration adds the Blebox device as a switch entity to Home Assistant
 
 ### switchBoxT PRO
 
-This integration adds the Blebox device as a switch entity to Home Assistant
+This integration adds the Blebox device as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -209,7 +209,7 @@ This integration adds the Blebox device as a switch entity to Home Assistant
 
 ### dimmerBox
 
-This integration adds the Blebox device as a light entity to Home Assistant
+This integration adds the Blebox device as a light entity to Home Assistant.
 
 #### Key supported features
 
@@ -219,7 +219,7 @@ This integration adds the Blebox device as a light entity to Home Assistant
 
 ### wLightBox
 
-This integration adds the Blebox device as a light entity to Home Assistant
+This integration adds the Blebox device as a light entity to Home Assistant.
 
 #### Key supported features
 
@@ -235,7 +235,7 @@ This integration adds the Blebox device as a light entity to Home Assistant
 
 ### wLightBox PRO
 
-This integration adds the Blebox device as a light entity to Home Assistant
+This integration adds the Blebox device as a light entity to Home Assistant.
 
 #### Key supported features
 
@@ -251,7 +251,7 @@ This integration adds the Blebox device as a light entity to Home Assistant
 
 ### wLightBoxS
 
-This integration adds the Blebox device as a light entity to Home Assistant
+This integration adds the Blebox device as a light entity to Home Assistant.
 
 #### Key supported features
 
@@ -262,7 +262,7 @@ This integration adds the Blebox device as a light entity to Home Assistant
 
 ### wLightBoxS PRO
 
-This integration adds the Blebox device as a light entity to Home Assistant
+This integration adds the Blebox device as a light entity to Home Assistant.
 
 #### Key supported features
 
@@ -273,7 +273,7 @@ This integration adds the Blebox device as a light entity to Home Assistant
 
 ### pixelBox
 
-This integration adds the Blebox device as a light entity to Home Assistant
+This integration adds the Blebox device as a light entity to Home Assistant.
 
 #### Key supported features
 
@@ -285,7 +285,7 @@ This integration adds the Blebox device as a light entity to Home Assistant
 
 ### tempSensor
 
-This integration adds the Blebox device as a sensor entity to Home Assistant
+This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 #### Key supported features
 
@@ -293,7 +293,7 @@ This integration adds the Blebox device as a sensor entity to Home Assistant
 
 ### tempSensorAC
 
-This integration adds the Blebox device as a sensor entity to Home Assistant
+This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 #### Key supported features
 
@@ -301,7 +301,7 @@ This integration adds the Blebox device as a sensor entity to Home Assistant
 
 ### tempSensor PRO
 
-This integration adds the Blebox device as a sensor entity to Home Assistant
+This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 #### Key supported features
 
@@ -309,7 +309,7 @@ This integration adds the Blebox device as a sensor entity to Home Assistant
 
 ### humiditySensor
 
-This integration adds the Blebox device as a sensor entity to Home Assistant
+This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 #### Key supported features
 
@@ -318,7 +318,7 @@ This integration adds the Blebox device as a sensor entity to Home Assistant
 
 ### wind&RainSensor
 
-This integration adds the Blebox device as a sensor & binary sensor entity to Home Assistant
+This integration adds the Blebox device as a sensor & binary sensor entity to Home Assistant.
 
 #### Key supported features
 
@@ -327,7 +327,7 @@ This integration adds the Blebox device as a sensor & binary sensor entity to Ho
 
 ### rainSensor
 
-This integration adds the Blebox device as a binary sensor entity to Home Assistant
+This integration adds the Blebox device as a binary sensor entity to Home Assistant.
 
 #### Key supported features
 
@@ -335,7 +335,7 @@ This integration adds the Blebox device as a binary sensor entity to Home Assist
 
 ### airSensor
 
-This integration adds the Blebox device as a sensor entity to Home Assistant
+This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 #### Key supported features
 
@@ -346,7 +346,7 @@ This integration adds the Blebox device as a sensor entity to Home Assistant
 
 ### windSensor PRO
 
-This integration adds the Blebox device as a sensor entity to Home Assistant
+This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 #### Key supported features
 
@@ -358,7 +358,7 @@ This integration adds the Blebox device as a sensor entity to Home Assistant
 
 ### Simon 54 GO SHUTTER
 
-This integration adds the Simon 54 GO device ("blebox inside")  as a cover entity to Home Assistant
+This integration adds the Simon 54 GO device ("blebox inside")  as a cover entity to Home Assistant.
 
 #### Key supported features
 
@@ -369,7 +369,7 @@ This integration adds the Simon 54 GO device ("blebox inside")  as a cover entit
 
 ### Simon 54 GO SWITCH
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -378,7 +378,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 
 ### Simon 54 GO SWITCH D
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -387,7 +387,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 
 ### Simon 54 GO LED 230V (dimmer)
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -397,7 +397,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 
 ### Simon 54 GO LED MONO
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -409,7 +409,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 
 ### Simon 54 GO RGBW
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -421,7 +421,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 
 ### Simon 55 GO SHUTTER
 
-This integration adds the Simon 55 GO device ("blebox inside") as a cover entity to Home Assistant
+This integration adds the Simon 55 GO device ("blebox inside") as a cover entity to Home Assistant.
 
 #### Key supported features
 
@@ -432,7 +432,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a cover entity
 
 ### Simon 55 GO SWITCH
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -441,7 +441,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 ### Simon 55 GO SWITCH D
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -451,7 +451,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 ### Simon 55 GO LED 230V (dimmer)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -461,7 +461,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 ### Simon 55 GO LED MONO
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -473,7 +473,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 ### Simon 55 GO RGBW
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
 
 #### Key supported features
 
@@ -485,7 +485,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 ### FAKRO FTP-V/FTU-V WiFi
 
-This integration adds the Fakro device ("blebox inside") as a cover entity to Home Assistant
+This integration adds the Fakro device ("blebox inside") as a cover entity to Home Assistant.
 
 #### Key supported features
 
@@ -495,7 +495,7 @@ This integration adds the Fakro device ("blebox inside") as a cover entity to Ho
 
 ### FAKRO ARF/ARP WiFi
 
-This integration adds the Fakro device ("blebox inside") as a cover entity to Home Assistant
+This integration adds the Fakro device ("blebox inside") as a cover entity to Home Assistant.
 
 #### Key supported features
 
@@ -505,7 +505,7 @@ This integration adds the Fakro device ("blebox inside") as a cover entity to Ho
 
 ### FAKRO ARZ/AMZ/VMZ WiFi
 
-This integration adds the Fakro device ("blebox inside") as a cover entity to Home Assistant
+This integration adds the Fakro device ("blebox inside") as a cover entity to Home Assistant.
 
 #### Key supported features
 
@@ -515,7 +515,7 @@ This integration adds the Fakro device ("blebox inside") as a cover entity to Ho
 
 ### SABAJ TV K-SMRT-4 - WIFI RJ-45
 
-This integration adds the SABAJ device ("blebox inside") as a button entity to Home Assistant
+This integration adds the SABAJ device ("blebox inside") as a button entity to Home Assistant.
 
 #### Key supported features
 
@@ -527,7 +527,7 @@ This integration adds the SABAJ device ("blebox inside") as a button entity to H
 
 ### Wiśniowski RiCo
 
-This integration adds the Wiśniowski device ("blebox inside") as a cover entity to Home Assistant
+This integration adds the Wiśniowski device ("blebox inside") as a cover entity to Home Assistant.
 
 - Open (trigger primary output)
 - Close (trigger primary output)
@@ -540,7 +540,7 @@ This integration adds the Wiśniowski device ("blebox inside") as a cover entity
 
 ### Polfendo smartGateControl
 
-This integration adds the Polfendo device ("blebox inside") as a cover entity to Home Assistant
+This integration adds the Polfendo device ("blebox inside") as a cover entity to Home Assistant.
 
 #### Key supported features
 
@@ -551,7 +551,7 @@ This integration adds the Polfendo device ("blebox inside") as a cover entity to
 
 ### Plast-met SMART LIGHT BOSSPIO
 
-This integration adds the Plast-met device ("blebox inside") as a light entity to Home Assistant
+This integration adds the Plast-met device ("blebox inside") as a light entity to Home Assistant.
 
 #### Key supported features
 
@@ -562,7 +562,7 @@ This integration adds the Plast-met device ("blebox inside") as a light entity t
 
 ### Plast-met SMART LIGHT SIMPIO
 
-This integration adds the Plast-met device ("blebox inside") as a light entity to Home Assistant
+This integration adds the Plast-met device ("blebox inside") as a light entity to Home Assistant.
 
 #### Key supported features
 
@@ -573,7 +573,7 @@ This integration adds the Plast-met device ("blebox inside") as a light entity t
 
 ### Tedee relay module
 
-This integration adds the Tedee device ("blebox inside") as a cover entity to Home Assistant
+This integration adds the Tedee device ("blebox inside") as a cover entity to Home Assistant.
 
 #### Key supported features
 
