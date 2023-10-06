@@ -19,9 +19,9 @@ A unique remote URL will be generated and given to you along with a certificate 
 
 ## VPN
 
-A secure way to remotely access your Home Assistant is to use a Virtual Private Network (VPN) service such as [Tailscale](https://github.com/hassio-addons/addon-tailscale) or [ZeroTier One](https://github.com/hassio-addons/addon-zerotier). If you're running a supervised or Home Assistant OS, these are available from the Home Assistant Community Add-ons.
+A secure way to remotely access your Home Assistant is to use a Virtual Private Network (VPN) service such as [Tailscale](https://tailscale.com/) or [ZeroTier One](https://www.zerotier.com/).
 
-A VPN connection needs to be established before you can connect to your Home Assistant. This is what makes VPN secure however. Bear in mind when using the Home Assistant Companion app such as on a mobile device without this connection your sensors will not update in Home Assistant.
+A VPN connection needs to be established before you can connect to your Home Assistant from outside your local network. The VPN makes this connection secure. When using the Home Assistant Companion app (such as on a mobile device), without this connection, your sensors will not update in Home Assistant.
 
 ## Port Forwarding
 
