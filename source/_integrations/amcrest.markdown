@@ -123,6 +123,10 @@ binary_sensors:
       description: "Return `on` when a tripwire tripping is detected, `off` when not. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
     crossline_detected_polled:
       description: "Return `on` when a tripwire is tripping is detected, `off` when not. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
+    crossregion_detected:
+      description: "Return `on` when an intrusion is detected, `off` when not. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
+    crossregion_detected_polled:
+      description: "Return `on` when an intrusion is detected, `off` when not. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
     online:
       description: "Return `on` when camera is available (i.e., responding to commands), `off` when not."
 sensors:
