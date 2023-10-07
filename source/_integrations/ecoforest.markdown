@@ -26,8 +26,9 @@ There is currently support for the following device platforms within Home Assist
 
 ## Prerequisites
 
-To configure the Ecoforest integration you will need to enter your Ecoforest credentials which are the same ones you would use with the manufacturer app. The image below shows how to obtain the credentials:
+To configure the Ecoforest integration you will need to enter your Ecoforest host and credentials which are the same ones you would use with the manufacturer app. The image below shows how to obtain the credentials:
 
+- Host: it must start with http://ip_address or https://ip_address.
 - Username: use the serial number of the device as identified by 1.
 - Password: use the first 8 characters of the wifi password as identified by 4.
 
@@ -40,6 +41,7 @@ To configure the Ecoforest integration you will need to enter your Ecoforest cre
 Any Ecoforest device working with [Ecoforest Home](https://ecoforesthome.com/) should be supported, this integration is confirmed to support:
 
 - Ecoforest Cordoba Glass (using firmware version `30Abr19_v2z`)
+- Ecoforest Netflame (using firmware version '01Abr18_v2y')
 
 ## Number
 
