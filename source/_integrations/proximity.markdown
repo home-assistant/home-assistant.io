@@ -11,7 +11,7 @@ ha_iot_class: Calculated
 ha_integration_type: integration
 ---
 
-The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
+The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel.
 
 This integration is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The [zone](/docs/automation/trigger#zone-trigger) and [state](/docs/automation/trigger#state-trigger) based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.
 
@@ -20,23 +20,30 @@ Some examples of its use include:
 - Increase thermostat temperature as you near home
 - Decrease temperature the further away from home you travel
 
-The Proximity entity which is created has the following values:
+## Sensors
 
-- `state`: Distance from the monitored zone (in `unit_of_measurement`)
-- `dir_of_travel`: Direction of the closest device or person to the monitored zone. Values are:
-  - `not set`
-  - `arrived`
-  - `towards`
-  - `away_from`
-  - `unknown`
-  - `stationary`
-- `unit_of_measurement`: Measurement of distance. Values are:
-  - `km`
-  - `m`
-  - `mi`
-  - `yd`
-  - `ft`
-- `nearest`: The device or person which is nearest to the zone
+The following sensor entities will be created
+
+### Distance
+
+Distance from the monitored zone in an unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection.
+
+### Direction of travel
+
+Direction of the closest device or person to the monitored zone. Values are:
+
+- `not_set`
+- `arrived`
+- `towards`
+- `away_from`
+- `unknown`
+- `stationary`
+
+### Nearest device
+
+The device or person which is nearest to the zone
+
+## Configuration
 
 To enable this integration in your installation, add the following to your `configuration.yaml` file:
 
