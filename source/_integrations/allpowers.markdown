@@ -32,4 +32,5 @@ Please note device names configured in the Allpowers app are not transferred int
 ## Supported Devices
 
 - [S300 Portable Power Station](https://uk.iallpowers.com/products/allpowers-300w-288wh-portable-power-station-s300)
+
 All other S series Powerstations should be supported but have not been tested.
