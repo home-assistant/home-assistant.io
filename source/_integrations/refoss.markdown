@@ -3,7 +3,7 @@ title: Refoss
 description: Integrate Refoss devices
 ha_category:
   - Switch
-ha_release: 2023.10
+ha_release: 2023.11
 ha_codeowners:
   - '@ashionky'
 ha_iot_class: Local Polling
@@ -12,7 +12,7 @@ featured: true
 ha_config_flow: true
 ha_platforms:
   - switch
-ha_integration_type: device
+ha_integration_type: integration
 ---
 
 Integrate Refoss devices into Home Assistant.
