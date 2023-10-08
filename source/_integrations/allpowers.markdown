@@ -25,7 +25,7 @@ The Allpowers integration allows you to control and interogate Allpowers [device
 
 In order to use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. 
 
-Please note, device names configured in the Allpowers app are not transferred into Home Assistant.
+Please note device names configured in the Allpowers app are not transferred into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
