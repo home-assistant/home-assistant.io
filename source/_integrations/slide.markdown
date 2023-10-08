@@ -23,6 +23,8 @@ The `slide` implementation allows you to integrate your [slide.store](https://sl
 slide:
   username: YOUR_SLIDE_APP_USERNAME
   password: YOUR_SLIDE_APP_PASSWORD
+  scan_interval: 300
+
 ```
 
 {% configuration %}
@@ -45,3 +47,5 @@ invert_position:
   default: false
   type: boolean
 {% endconfiguration %}
+
+NOTE: Starting September 2023 an API limit is in place. A scan_interval of at least 300 (600 if you have multiple slides) is needed.
