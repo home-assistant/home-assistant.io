@@ -26,7 +26,7 @@ GEM
     eventmachine (1.2.7-x64-mingw32)
     ffi (1.16.2)
     forwardable-extended (2.6.0)
-    google-protobuf (3.24.3)
+    google-protobuf (3.24.4)
     http_parser.rb (0.8.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -114,7 +114,7 @@ GEM
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2023.3)
       tzinfo (>= 1.0.0)
-    unicode-display_width (2.4.2)
+    unicode-display_width (2.5.0)
     webrick (1.8.1)
 
 PLATFORMS

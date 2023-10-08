@@ -167,7 +167,7 @@ optimistic:
   type: boolean
   default: "`true` if no `state_topic` defined, else `false`."
 payload_reset:
-  description: A special payload that resets the state to `None` when received on the `state_topic`.
+  description: A special payload that resets the state to `unknown` when received on the `state_topic`.
   required: false
   type: string
   default: '"None"'

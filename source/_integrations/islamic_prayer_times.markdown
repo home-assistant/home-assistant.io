@@ -72,4 +72,3 @@ Default: Standard (mid sunset to sunrise)
 Default: Shafi
 
 Method for adjusting Asr time calcuation, if not specified, it defaults to Shafi.
-

@@ -6,7 +6,6 @@ ha_category:
   - DIY
   - Sensor
   - Switch
-logo: numato.png
 ha_release: '0.110'
 ha_iot_class: Local Push
 ha_domain: numato

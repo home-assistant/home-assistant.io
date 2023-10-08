@@ -13,6 +13,8 @@ ha_integration_type: entity
 
 The device tracker allows you to track devices in Home Assistant. This can happen by querying your wireless router or by having applications push location info.
 
+{% include integrations/building_block_integration.md %}
+
 ## Configuring a `device_tracker` platform
 
 To get started add the following lines to your `configuration.yaml` (example for Netgear):
