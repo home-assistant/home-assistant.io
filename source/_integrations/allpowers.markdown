@@ -5,16 +5,14 @@ ha_category:
   - Energy
   - Plug
   - Switch
-ha_release: 0.78
+ha_release: 2023.11
 ha_iot_class: Local Push
 ha_codeowners:
   - '@madninjaskillz'
 ha_domain: switchbot
 ha_bluetooth: true
 ha_platforms:
-  - light
   - sensor
-  - switch
 ha_config_flow: true
 ha_integration_type: integration
 ---
