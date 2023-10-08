@@ -68,6 +68,8 @@ It is recommended to assign a static IP address to your Fibaro controller. This 
 ## Troubleshooting
 
 ### Enable events on Z-Wave devices
+
 The event platform uses the central scene events sent by Z-Wave devices.
-This should work out of the box for switch devices.
-For relay devices which have also switches or inputs to connect a switch you need often to change the Z-Wave parameter 'Scenes sent' because the events are normally disabled by default.
+This works out of the box for switch devices.
+
+For relay devices with switches or inputs to connect a switch, you often need to change the Z-Wave parameter 'Scenes sent' because the events are usually disabled by default.
