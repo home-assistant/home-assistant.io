@@ -2,9 +2,9 @@
 title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
 ha_category:
+  - Binary Sensor
   - Number
   - Select
-  - Binary Sensor
   - Sensor
   - Switch
   - Time
@@ -17,9 +17,9 @@ ha_codeowners:
   - '@Lash-L'
 ha_domain: roborock
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - number
-  - binary_sensor
   - select
   - sensor
   - switch
@@ -59,6 +59,8 @@ Mop drying status - Only available on docks with drying capabilites - States if 
 
 Water box attached - States if the water box is currently attached.
 
+Water shortage - States if the water box is low on water - 'Ok' if it has not detected a water shortage.
+
 
 ### Sensor
 
@@ -79,6 +81,10 @@ Side brush time left - How much time is left before Roborock recommends you repl
 Filter time left - How much time is left before Roborock recommends you replace your vacuum's air filter.
 
 Status - The current status of your vacuum. This typically describes the action that is currently being run. For example, 'spot_cleaning' or 'docking'.
+
+Last clean begin - the last time that your vacuum started cleaning.
+
+Last clean end - The last time that your vacuum finished cleaning.
 
 Total cleaning time - The lifetime cleaning duration of your vacuum.
 
@@ -132,7 +138,7 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
 3. Search your logs for 'Got home data' and find the attribute rooms.
 4. Write the rooms down; they have a name and 6 digit ID.
 5. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %}. Select your vacuum as the entity and `get_room_mapping` as the command.
-6. Go back to your logs and look at the response to `get_room_mapping`. This is a list of the 6-digit IDs you saw earlier to 2-digit IDs. In your original list of room names and 6-digit IDs, replace the 6-digit ID with its pairing 2-digit ID.
+6. Go back to your logs and look at the response to `get_room_mapping`. This is a list of the 6-digit IDs you saw earlier to 2-digit IDs (use the first number, for instance `16` in `[16, '14000663', 12]` ([internal room id, unique room id, room type])). In your original list of room names and 6-digit IDs, replace the 6-digit ID with its pairing 2-digit ID.
 7. Now, you have the 2-digit ID that your vacuum uses to describe a room.
 8. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 

@@ -25,7 +25,10 @@ Some binary sensors are created automatically when you add a device integration.
 For example, adding the [ecobee integration](/integrations/ecobee/) will create
 a binary sensor to detect room occupancy. Other binary sensors can be created
 manually using the [template integration](/integrations/template/)
-or using an [input boolean helper](/integrations/input_boolean),
+or using an [input boolean helper](/integrations/input_boolean).
+
+
+{% include integrations/building_block_integration.md %}
 
 ### Device Class
 

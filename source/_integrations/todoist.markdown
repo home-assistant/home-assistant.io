@@ -11,6 +11,7 @@ ha_domain: todoist
 ha_platforms:
   - calendar
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 This platform allows you to connect to your [Todoist Projects](https://todoist.com) as [calendar](/integrations/calendar/) entities. A calendar entity will be `on` if you have a task due in that project or `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. All tasks get updated roughly every 15 minutes.

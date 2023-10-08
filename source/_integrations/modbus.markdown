@@ -1,14 +1,12 @@
 ---
-title: modbus
+title: Modbus
 description: Instructions on how to integrate modbus and platforms.
 ha_category:
   - Hub
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@adamchengtkc'
   - '@janiversen'
-  - '@vzahradnik'
 ha_domain: modbus
 ha_platforms:
   - binary_sensor
@@ -24,7 +22,7 @@ ha_integration_type: integration
 
 [modbus](http://www.modbus.org/) is a communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit).
 
-The integration adheres strictly to the [protocol specification](https://modbus.org/docs/modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the actual protocol implmentation.
+The integration adheres strictly to the [protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the actual protocol implmentation.
 
 The modbus integration supports all devices adhering to the modbus standard. The communication to the device/devices can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communication channels e.g. a serial port connection combined with one or more TCP connections.
 
@@ -59,11 +57,6 @@ retries:
   required: false
   default: 3
   type: integer
-retry_on_empty:
-  description: "Retry request, when receiving an empty message."
-  required: false
-  default: false
-  type: boolean
 timeout:
   description: "Timeout while waiting for a response in seconds."
   required: false
@@ -122,11 +115,9 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -171,11 +162,9 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -216,11 +205,9 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -313,11 +300,9 @@ modbus:
     parity: E
     stopbits: 1
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
-    retry_on_empty: false
     timeout: 5
 ```
 
@@ -392,6 +377,11 @@ scan_interval:
   type: integer
   default: 15
 slave:
+  description: "Identical to `device_address`"
+  required: false
+  type: integer
+  default: 0
+device_address:
   description: "Id of the device. Used to address multiple devices on a rs485 bus or devices connected to a modbus repeater."
   required: false
   type: integer
@@ -473,6 +463,10 @@ binary_sensors:
       default: coil
       type: string
     slave_count:
+      description: "Identical to `virtual_count`."
+      required: false
+      type: integer
+    virtual_count:
       description: "Generate count+1 binary sensors (master + slaves).
       Addresses are automatically incremented.
       The parameter simplifies configuration and provides a much better performance by not using count+1 requests but a single request."
@@ -712,6 +706,11 @@ climates:
       description: "Register address for target temperature (Setpoint)."
       required: true
       type: integer
+    target_temp_write_registers:
+      description: "If `true` use `write_registers` for target temperature."
+      required: false
+      type: boolean
+      default: false
     temp_step:
       description: "Step size target temperature."
       required: false
@@ -758,6 +757,7 @@ modbus:
         max_temp: 30
         structure: ">f"
         target_temp_register: 2782
+        target_temp_write_registers: true
         temp_step: 1
         temperature_unit: C
 ```
@@ -1270,6 +1270,10 @@ sensors:
       type: float
       default: 1
     slave_count:
+      description: "Identical to `virtual_count`."
+      required: false
+      type: integer
+    virtual_count:
       description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read messsage."
       required: false
       type: integer
@@ -1285,6 +1289,10 @@ sensors:
       type: string
       default: ">f"
     slave_count:
+      description: "Identical to `virtual_count`."
+      required: false
+      type: integer
+    virtual_count:
       description: Generates x-1 slave sensors, allowing read of multiple registers with a single read message.
       required: false
       type: integer
@@ -1518,6 +1526,7 @@ Some parameters exclude other parameters, the following tables show what can be 
 | count           | Yes    | Yes    | No  | No  | No  |
 | structure       | Yes    | No     | No  | No  | No  |
 | slave_count     | No     | No     | Yes | Yes | Yes |
+| virtual_count   | No     | No     | Yes | Yes | Yes |
 | swap: none      | Yes    | Yes    | Yes | Yes | Yes |
 | swap: byte      | No     | No     | Yes | Yes | Yes |
 | swap: word      | No     | No     | No  | Yes | Yes |

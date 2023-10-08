@@ -6,11 +6,12 @@ ha_category:
 ha_release: 0.34
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@andrey-git'
+  - '@joostlek'
 ha_domain: waqi
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The `waqi` sensor platform will query [World Air Quality Index](https://aqicn.org/city/beijing/) service to check AQI value for a specific set of locations. The resulting indexes will be added to the Home Assistant as sensor outputs.

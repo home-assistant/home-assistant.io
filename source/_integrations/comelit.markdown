@@ -11,6 +11,7 @@ ha_codeowners:
 ha_iot_class: Local Polling
 ha_platforms:
   - light
+  - cover
 ha_ssdp: false
 ha_integration_type: integration
 ---
@@ -19,9 +20,5 @@ The Comelit SimpleHome integration allows you to control your [Comelit home auto
 
 There is support for the following platform types within Home Assistant:
 
-- **Comelit Serial Bridge** - allows local control for climate, light and cover devices.
+- **Comelit Serial Bridge** - allows local control for light and cover devices.
 {% include integrations/config_flow.md %}
-
-## Configuration
-
-The configuration in the UI asks for a a few information: host, alarm_pin.
