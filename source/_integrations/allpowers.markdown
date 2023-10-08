@@ -23,7 +23,7 @@ The Allpowers integration allows you to control and interrogate Allpowers [devic
 
 ## Prerequisites
 
-In order to use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. 
+To use this integration, it is required to have a working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. 
 
 Please note device names configured in the Allpowers app are not transferred into Home Assistant.
 
