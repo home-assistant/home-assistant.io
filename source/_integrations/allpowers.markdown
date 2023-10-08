@@ -19,7 +19,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The Allpowers integration allows you to control and interogate Allpowers [devices](http://iallpowers.com/).
+The Allpowers integration allows you to control and interrogate Allpowers [devices](http://iallpowers.com/).
 
 ## Prerequisites
 
