@@ -7,6 +7,7 @@ ha_category:
   - Sensor
   - Number
   - Fan
+  - Switch
 ha_release: 2023.7
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -19,6 +20,7 @@ ha_platforms:
   - sensor
   - number
   - fan
+  - switch
 ha_integration_type: integration
 ---
 
