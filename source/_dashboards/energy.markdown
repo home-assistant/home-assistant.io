@@ -181,7 +181,17 @@ type: energy-self-sufficiency-gauge
 
 The devices energy graph show the energy usage per device, it is sorted by usage.
 
-### Example
+By default, this card will show all your devices. Optionally, the number of devices shown in this card can be limited by adding the `max_devices` option, specifying the maximum number of devices to show. The devices shown will be the devices with the highest energy usage.
+
+### Examples
+
 ```yaml
 type: energy-devices-graph
+```
+
+The following example will limit the number of devices shown to 5:
+
+```yaml
+type: energy-devices-graph
+max_devices: 5
 ```
