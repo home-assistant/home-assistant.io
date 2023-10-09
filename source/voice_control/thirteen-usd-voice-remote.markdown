@@ -136,4 +136,7 @@ Are things not working as expected?
    - Find the `voice_assistant` section.
    - If the audio is too noisy, increase the `noise_suppression_level` (max.&nbsp;4).
    - If the audio is too quiet, increase either the `auto_gain` (max.&nbsp;31) or the `volume_multiplier` (no maximum, but a too high value will cause distortion eventually).
+8. Collecting the debug recordings impacts your disk space.
+   - Once you have found a configuration that works, delete the folder with the audio files.
+   - In the `configuration.yaml` file, delete the `assist_pipeline entry` and restart Home Assistant.
 
