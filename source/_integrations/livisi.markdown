@@ -2,6 +2,7 @@
 title: LIVISI Smart Home
 description: Access and control your LIVISI Smart Home Controller (SHC) and its connected RWE/innogy devices.
 ha_category:
+  - Cover
   - Binary Sensor
   - Climate
   - Switch
@@ -13,6 +14,7 @@ ha_codeowners:
   - '@planbnet'
 ha_domain: livisi
 ha_platforms:
+  - cover
   - binary_sensor
   - climate
   - switch
@@ -29,6 +31,7 @@ The following devices are currently supported by this integration:
 - Room Heating Control (VRCC) that includes support for physical heating devices such as Radiator Thermostat (RSTx), Room Thermostat (WRT) or Floor Heating Control (FSC8)
 - Wall Switches (ISS, ISS2)
 - Window-Door Sensor (WDS)
+- Shutter (ISR2) 
  
 ## Prequisites
  
