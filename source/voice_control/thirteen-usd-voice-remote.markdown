@@ -6,17 +6,34 @@ This tutorial will guide you to turn an ATOM Echo into the
 world's most private voice assistant. Pick up the tiny device to talk to
 your smart home. Issue commands and get responses!
 
-<lite-youtube videoid="w6QxGdxVMJs" videotitle="$13 voice remote for Home Assistant
-"></lite-youtube>
-
 ## Required material
 
-- Home Assistant 2023.5 or later
+- Home Assistant 2023.10
 - [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - The password to your 2.4&nbsp;GHz Wi-Fi network
 - Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS) 
 - [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
 - USB-C cable to connect the ATOM Echo
+
+## Installing the openWakeWord add-on
+
+As a first step, you need to install the openWakeWord add on. This must be installed before setting up the ATOM Echo.
+
+1. Go to {% my supervisor_addon addon="openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
+2. Start the add-on.
+3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+   - Under **Discovered**, you should now see the **openWakeWord** integration.
+   - Select **Configure** and **Submit**.
+4. To define the wake word enging, under **Wake word**, select **openwakeword**. 
+   - Then, select **ok, nabu**.
+   - To confirm your choices, select **Create**.
+
+## Adding a wake word to your voice assistant
+
+1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
+2. Give your assistant a name, for example the wake word you are going to use.
+3. Select the language you are going to use to speak to Home Assistant.
+4. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
 
 ## Installing the software onto the ATOM Echo
 
@@ -62,12 +79,11 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 ## Controlling Home Assistant over the ATOM Echo
 
-1. Press the flat button with rounded shape on your ATOM Echo.
-   - The rectangular button on the side is the reset button. Do not press that one.
-   - As soon as you press the button, the LED will light up in blue.
-   - While you are speaking, the blue LED is pulsing.
+1. Say "OK, Nabu".
+   - Wait for the LED to start blinking in blue.
+2. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.
+   - While you are speaking, the blue LED keeps pulsing.
    - Once the intent has been processed, the LED lights up in green and Home Assistant confirms the action.
-2. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
       - Make sure you’re using the area name exactly as you defined it in Home Assistant.
       - You can also ask a question, such as
           - *Is the front door locked?*
@@ -78,6 +94,19 @@ Before you can use this device with Home Assistant, you need to install a bit of
    - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
    - Under **M5Stack ATOM Echo**, select **1 device**.
    ![Open My link](/images/assist/esp32-atom_silence_detection_01.png)
+
+## Disabling wake word and use push-to-talk
+
+1. If you do not want to use a wake work, but prefer to use the microphone by pressing a button, you can disable the wake word.
+2. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
+   - Under **M5Stack ATOM Echo**, select **1 device**.
+3. Under **Controls**, disable **Use wake word**.
+   ![Open My link](/images/assist/wake_word_disable_on_atom_echo.png)
+4. To start using push-to-talk, press the flat button with rounded shape on your ATOM Echo.
+   - The rectangular button on the side is the reset button. Do not press that one.
+   - As soon as you press the button, the LED will start blinking in blue. If it does not light up, press again.
+   - While you are speaking, the blue LED is pulsing.
+   - Once the intent has been processed, the LED lights up in green and Home Assistant confirms the action.
 
 ## Troubleshooting
 
