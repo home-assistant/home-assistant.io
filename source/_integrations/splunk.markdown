@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `splunk` integration sends all state changes in Home Assistant to an external [Splunk](https://splunk.com/) instance using it's HTTP Event Collector (HEC) feature.
+The Splunk integration sends all state changes in Home Assistant to an external [Splunk](https://splunk.com/) instance using it's HTTP Event Collector (HEC) feature.
 
 ## Prerequisites
 
