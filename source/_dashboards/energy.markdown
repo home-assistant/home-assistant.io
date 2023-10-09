@@ -189,7 +189,7 @@ By default, this card will show all your devices. Optionally, the number of devi
 type: energy-devices-graph
 ```
 
-The following example will limit the number of devices shown to 5:
+The following example will limit the number of shown devices to 5:
 
 ```yaml
 type: energy-devices-graph
