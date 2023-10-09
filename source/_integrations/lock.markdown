@@ -16,6 +16,8 @@ Keeps track which locks are in your environment, their state and allows you to c
 - Maintains a state per lock and a combined state `all_locks`.
 - Registers services `lock.lock`, `lock.unlock` and `lock.open` (unlatch) to control locks.
 
+{% include integrations/building_block_integration.md %}
+
 ### Services
 
 A lock integration provides the following services:

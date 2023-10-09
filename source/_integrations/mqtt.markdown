@@ -797,7 +797,7 @@ mqtt:
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
-- [Image](/integrations/imahe.mqtt/)
+- [Image](/integrations/image.mqtt/)
 - [Climate/HVACs](/integrations/climate.mqtt/)
 - [Lawn Mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
