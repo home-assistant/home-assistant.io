@@ -12,18 +12,18 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The myUplink integration allows users to get information about their devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
+The myUplink integration lets you get information about the devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
 
-Depending on the type of devices in your system there will be added one or more sensor entities to Home Assistant. Currently there is support for generic and temperature sensors.
+Depending on the type of devices in your system, one or more sensor entities to Home Assistant. Currently, there is support for generic and temperature sensors.
 
 ## Prerequisites
 
 1. Visit [https://myuplink.com/register](https://myuplink.com/register) and sign up for a user account.
-2. Go to [Applications](https://dev.myuplink.com/apps), register a new App:
+2. Go to [**Applications**](https://dev.myuplink.com/apps), register a new App:
 
-- Application ID: Home Assistant (or whatever name makes sense to you)
-- OAuth Flow: Authorization Code Grant Flow
-- Redirect URI: `https://my.home-assistant.io/redirect/oauth`
+- **Application ID**: Home Assistant (or whatever name makes sense to you)
+- **OAuth Flow**: Authorization Code Grant Flow
+- **Redirect URI**: `https://my.home-assistant.io/redirect/oauth`
 
 
 {% details "I have manually disabled My Home Assistant" %}
@@ -41,4 +41,4 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% include integrations/config_flow.md %}
 
-The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
+The integration configuration will require the **Client ID** and **Client Secret** created above. See [Application Credentials](/integrations/application_credentials) for more details.
