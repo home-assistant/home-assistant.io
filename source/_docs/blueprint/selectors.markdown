@@ -992,6 +992,12 @@ sort:
   type: boolean
   required: false
   default: false
+allow_none:
+  description: >
+    Allow `None` as valid value.
+  type: boolean
+  required: false
+  default: false
 {% endconfiguration %}
 
 Alternatively, a mapping can be used for the options. When you want to return
