@@ -44,7 +44,7 @@ servers:
       required: true
       type: string
     access_token:
-      description: An access token for REST API configuration. Under **Scopes** > **Channels**, at least **Read** and **Action execution(( permissions are required to be enabled. A token can be obtained from the Security section of Supla Cloud for [Personal Access Token](https://cloud.supla.org/security/personal-access-tokens) page or your server instance.
+      description: An access token for REST API configuration. Under **Scopes** > **Channels**, at least **Read** and **Action execution** permissions are required to be enabled. A token can be obtained from the Security section of Supla Cloud for [Personal Access Token](https://cloud.supla.org/security/personal-access-tokens) page or your server instance.
       required: true
       type: string
 {% endconfiguration %}
