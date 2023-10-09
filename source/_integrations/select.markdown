@@ -15,6 +15,8 @@ Keeps track on `select` entities in your environment, their state, and allows
 you to control them. This integration allows other integrations to offer
 a limited set of selectable options for the entity.
 
+{% include integrations/building_block_integration.md %}
+
 ## Services
 
 The select entity exposes additional services to control the entity in, for example,

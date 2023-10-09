@@ -26,16 +26,9 @@ made available by the integration providing the update entity, triggering
 the actual update from Home Assistant. The other service exposed allows for
 skipping the offered update.
 
-<div class='note'>
+{% include integrations/building_block_integration.md %}
 
-Update entities are here to be consumed and provided by other integrations and
-are are not designed to be created manually directly.
-
-This page, therefore, does not provide instructions on how to create update
-entities. Please see the ["Update" category](/integrations/#update) on the
-integrations page to find integration offering update entities.
-
-</div>
+For a list of integrations offering update entities, on the integrations page, select the ["Update" category](/integrations/#update).
 
 ## The state of an update entity
 
