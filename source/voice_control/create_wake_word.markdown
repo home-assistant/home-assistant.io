@@ -15,7 +15,7 @@ Depending on the word, training a model on your own wake word may take a few ite
 ## To create your own wake word
 
 1. Think of a wake word.
-   - A word that is not commonly used so that it does not trigger Home Assistant by mistake.
+   - A word or short phrase (3-4 syllables) that is not commonly used so that it does not trigger Home Assistant by mistake.
    - Currently, only wake words in English are supported.
 2. Open the [wake word training environment](https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb?usp=sharing#scrollTo=1cbqBebHXjFD).
 3. In section 1, enter your wake word in the **target_word** field.
@@ -40,7 +40,7 @@ Depending on the word, training a model on your own wake word may take a few ite
    - This may take a while.
    - There are 3 options to tweak. For the time being, don't change any settings.
    - **Result**: Once this process is finished, you should have 2 files in your downloads folder:
-     - `.tflite` and `.onnx` files
+     - `.tflite` and `.onnx` files (only `.tflite` is used)
 
 8. Congratulations! You just applied machine learning to create your own wake word model!
    - The next step is to add it to Home Assistant.
@@ -50,7 +50,7 @@ Depending on the word, training a model on your own wake word may take a few ite
 1. Make sure you have the [Samba add-on installed](/common-tasks/os/#configuring-access-to-files).
 2. On your computer, access your Home Assistant server via Samba.
    - Open the `share` folder and create a new folder `openwakeword` so that you have `/share/openwakeword`.
-3. Drop your shiny new wake word model files into that folder.
+3. Drop your shiny new wake word model file (`.tflite`) into that folder.
 4. Restart Home Assistant.
 5. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
    - Either create a new assistant and select **Add assistant**.
