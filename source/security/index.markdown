@@ -15,7 +15,7 @@ So, you have found a security vulnerability in Home Assistant? Please, be sure t
 
 We are mostly interested in reports by actual Home Assistant users that are familiar with the platform, but all high quality contributions are welcome. Please do your best to describe a clear and realistic impact for your report.
 
-For the sake of the security of our users, please 🙏 do not make vulnerabilities public without notifying us and giving us at least 90 days to release a fixed version. We will do our best to respond to your report within 7 days and also to keep you informed of the progress of our efforts to resolve the issue, but understand that Home Assistant, like many open source projects, is relying heavlity on volunteers that aren't full-time resources. We may not be able to respond as quickly as you would like due to other responsibilities.
+For the sake of the security of our users, please 🙏 do not make vulnerabilities public without notifying us and giving us at least 90 days to release a fixed version. We will do our best to respond to your report within 7 days and also to keep you informed of the progress of our efforts to resolve the issue, but understand that Home Assistant, like many open source projects, is relying heavily on volunteers that aren't full-time resources. We may not be able to respond as quickly as you would like due to other responsibilities.
 
 If you are going to write about Home Assistant’s security, please get in touch, so we can ensure that all claims are correct.
 
