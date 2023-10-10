@@ -65,9 +65,16 @@ The following is a list of past security advisories that have been published by 
 **2023-03-08: Authentication bypass Supervisor API**  
 Severity: _Critical (CVSS: 10.0)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-2j8f-h4mr-qr25)_  
-Assigned CVE: _[CVE-2023-27482](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27482)_  
+Assigned CVE: _[CVE-2023-27482](https://nvd.nist.gov/vuln/detail/CVE-2023-27482)_  
 Discovered by: _[Joseph Surin](https://jsur.in/) from [elttam](https://www.elttam.com/)_  
 Fixed in: _Core 2023.3.2, Supervisor 2023.03.3_  
+
+**2017-10-11: Cross-site scripting in Markdown output**  
+Severity: Medium (CVSS: 6.1)_  
+Detailed information: _[Pull request](https://github.com/home-assistant/frontend/pull/514)_  
+Assigned CVE: _[CVE-2017-16782](https://nvd.nist.gov/vuln/detail/CVE-2017-16782)_  
+Discovered by: _Marcin Teodorczyk from [intive.com](https://intive.com/)_  
+Fixed in: _Core 0.57_  
 
 ---
 
