@@ -87,7 +87,7 @@ Create a random sensor called "My random sensor" which will return a number betw
 # Example configuration.yaml entry
 sensor:
   - platform: random
-  - name: "My random sensor"
-  - minimum: 10
-  - maximum: 500
+    name: "My random sensor"
+    minimum: 10
+    maximum: 500
 ```
