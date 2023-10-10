@@ -56,6 +56,7 @@ Depending on the word, training a model on your own wake word may take a few ite
    - Or, edit an existing assistant.
 5. Under **Wake word**, select **openwakeword**.
    - Then, select your own personal wake word.
+   - If there is no **Wake word** option, make sure you have the add-on installed and successfully completed the [$13 voice remote for Home Assistant](/voice_control/thirteen-usd-voice-remote/) tutorial.
 6. Enable this new assistant on your ATOM Echo device.
    - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
       - Under **M5Stack ATOM Echo**, select **1 device**.
