@@ -33,16 +33,13 @@ Depending on the word, training a model on your own wake word may take a few ite
 5. If the word does not sound correct to you:
    - Follow the instructions in the document to tweak the spelling of the word and press play again.
    - The word should sound the way you pronounce it.
-6. Once you are satisfied with the result, in section 2, select the play button.
+6. Once you are satisfied with the result, in the menu on top of the screen, select **Runtime** > **Run all**.
    - This may take a while.
-   ![Download data](/images/assist/wake_word_download_data.png)
-7. Once this is done, select the play button in section 3.
-   - This may take a while.
-   - There are 3 options to tweak. For the time being, don't change any settings.
+   ![Runtime: run all](/images/assist/wake_word_runtime_run_all.png)
    - **Result**: Once this process is finished, you should have 2 files in your downloads folder:
      - `.tflite` and `.onnx` files (only `.tflite` is used)
 
-8. Congratulations! You just applied machine learning to create your own wake word model!
+7. Congratulations! You just applied machine learning to create your own wake word model!
    - The next step is to add it to Home Assistant.
 
 ## To add your personal wake word to Home Assistant
