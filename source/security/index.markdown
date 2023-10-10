@@ -19,12 +19,6 @@ For the sake of the security of our users, please 🙏 do not make vulnerabiliti
 
 If you are going to write about Home Assistant’s security, please get in touch, so we can ensure that all claims are correct.
 
-### Supported versions
-
-We only accept reports against the latest stable & official versions of Home Assistant or any versions beyond that currently in development or beta test. The latest version can be found [here](https://github.com/home-assistant/core/releases).
-
-We do not accept reports against forks of Home Assistant.
-
 ### Non-qualifying vulnerabilities
 
 We will not accept reports of vulnerabilities of the following types:
@@ -38,6 +32,12 @@ We will not accept reports of vulnerabilities of the following types:
 - Attacks that require the user to install a malicious other software, like a third-party integration, add-on, or plugin.
 - Attacks that the user can only perform on themselves.
 - Privilege escalation attacks for logged in users. Home Assistant assumes every user is trusted and does not enforce user privileges. It assumes every logged in user has the same access as an owner account ([more information](/docs/authentication/#user-accounts)).
+
+### Supported versions
+
+We only accept reports against the latest stable & official versions of Home Assistant or any versions beyond that currently in development or beta test. The latest version can be found [here](https://github.com/home-assistant/core/releases).
+
+We do not accept reports against forks of Home Assistant.
 
 ### Severity scoring
 
@@ -62,12 +62,12 @@ As a open source project, Home Assistant cannot offer bounties for security vuln
 
 The following is a list of past security advisories that have been published by the Home Assistant project.
 
-- **2023-03-08: Authentication bypass Supervisor API**  
-  Severity: _Critical (CVSS: 10.0)_  
-  Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-2j8f-h4mr-qr25)_  
-  Assigned CVE: _[CVE-2023-27482](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27482)_  
-  Discovered by: _[Joseph Surin](https://jsur.in/) from [elttam](https://www.elttam.com/)_  
-  Fixed in: _Core 2023.3.2, Supervisor 2023.03.3_  
+**2023-03-08: Authentication bypass Supervisor API**  
+Severity: _Critical (CVSS: 10.0)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-2j8f-h4mr-qr25)_  
+Assigned CVE: _[CVE-2023-27482](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27482)_  
+Discovered by: _[Joseph Surin](https://jsur.in/) from [elttam](https://www.elttam.com/)_  
+Fixed in: _Core 2023.3.2, Supervisor 2023.03.3_  
 
 ---
 
