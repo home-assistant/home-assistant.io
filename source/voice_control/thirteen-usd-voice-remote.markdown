@@ -24,9 +24,10 @@ As a first step, you need to install the openWakeWord add on. This must be insta
 3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
    - Under **Discovered**, you should now see the **openWakeWord** integration.
    - Select **Configure** and **Submit**.
-4. To define the wake word enging, under **Wake word**, select **openwakeword**. 
+4. To define the wake word engine, under **Wake word**, select **openwakeword**. 
    - Then, select **ok, nabu**.
-   - To confirm your choices, select **Create**.
+   - If you created a new assistant, select **Create**.
+   - If you edited an existing assistant, select **Update**.
 
 ## Adding a wake word to your voice assistant
 
