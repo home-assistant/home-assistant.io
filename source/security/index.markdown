@@ -70,7 +70,7 @@ Discovered by: _[Joseph Surin](https://jsur.in/) from [elttam](https://www.eltta
 Fixed in: _Core 2023.3.2, Supervisor 2023.03.3_  
 
 **2017-10-11: Cross-site scripting in Markdown output**  
-Severity: Medium (CVSS: 6.1)_  
+Severity: _Medium (CVSS: 6.1)_  
 Detailed information: _[Pull request](https://github.com/home-assistant/frontend/pull/514)_  
 Assigned CVE: _[CVE-2017-16782](https://nvd.nist.gov/vuln/detail/CVE-2017-16782)_  
 Discovered by: _Marcin Teodorczyk from [intive.com](https://intive.com/)_  
