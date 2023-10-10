@@ -51,20 +51,23 @@ Depending on the word, training a model on your own wake word may take a few ite
 2. On your computer, access your Home Assistant server via Samba.
    - Open the `share` folder and create a new folder `openwakeword` so that you have `/share/openwakeword`.
 3. Drop your shiny new wake word model file (`.tflite`) into that folder.
-4. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
+4. Restart the **Wyoming** integration.
+   - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **Wyoming** integration.
+   - Select the three dots menu and select **Reload**.
+5. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
    - Either create a new assistant and select **Add assistant**.
    - Or, edit an existing assistant.
-5. Under **Wake word**, select **openwakeword**.
+6. Under **Wake word**, select **openwakeword**.
    - Then, select your own personal wake word.
    - If there is no **Wake word** option, make sure you have the add-on installed and successfully completed the [$13 voice remote for Home Assistant](/voice_control/thirteen-usd-voice-remote/) tutorial.
-6. Enable this new assistant on your ATOM Echo device.
+7. Enable this new assistant on your ATOM Echo device.
    - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
       - Under **M5Stack ATOM Echo**, select **1 device**.
    - Under **Controls**, make sure **Use wake word** is enabled.
    - Under **Configuration**, select the assistant with your wake word.
 
      ![Select the assistant with your wake word](/images/assist/wake_word_select_assistant.png)
-7. Test your new wake word.
+8. Test your new wake word.
    - Speak your wake word followed by a command, such as "Turn on the lights in the kitchen".
    - When the ATOM Echo picks up the wake word, it starts blinking blue.
 
