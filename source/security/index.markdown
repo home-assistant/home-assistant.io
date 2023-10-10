@@ -1,15 +1,15 @@
 ---
 title: "Security"
-description: "Home Assistant takes its security seriously. This page contains information about how we handle security issues, how to report them, and information on past security issues."
+description: "Home Assistant takes its security seriously. This page contains information about how we handle security issues, how to report them, and also information on past security issues."
 ---
 
 Home Assistant takes its security seriously. We will do everything in our power to ensure that our users are safe.
 
-This page is intended to provide information about how we handle security issues and information about security issues we have [handled in the past](#past-advisories).
+This page is intended to provide information about how to report security issues with us, and how they are handled. Additionally, it provides details about reported security issues we have [handled in the past](#past-advisories).
 
 ## Reporting a vulnerability
 
-So, you have found a security vulnerability in Home Assistant? Please, be sure to **responsibly disclose** it to us by [reporting a vulnerability using GitHub's Security Advisory](https://github.com/home-assistant/core/security/advisories/new).
+So, you have found a security vulnerability in Home Assistant? Please, be sure to [**responsibly disclose**](https://en.wikipedia.org/wiki/Coordinated_vulnerability_disclosure) it to us by [reporting a vulnerability using GitHub's Security Advisory](https://github.com/home-assistant/core/security/advisories/new).
 
 **DO NOT MAKE A PUBLIC ISSUES FOR SECURITY VULNERABILITIES!**
 
@@ -17,7 +17,7 @@ We are mostly interested in reports by actual Home Assistant users that are fami
 
 For the sake of the security of our users, please 🙏 do not make vulnerabilities public without notifying us and giving us at least 90 days to release a fixed version. We will do our best to respond to your report within 7 days and also to keep you informed of the progress of our efforts to resolve the issue, but understand that Home Assistant, like many open source projects, is relying heavily on volunteers that aren't full-time resources. We may not be able to respond as quickly as you would like due to other responsibilities.
 
-If you are going to write about Home Assistant’s security, please get in touch, so we can ensure that all claims are correct.
+If you are going to write about Home Assistant’s security, please [get in touch](mailto:hello@home-assistant.io), so we can ensure that all claims are correct.
 
 ### Non-qualifying vulnerabilities
 
@@ -35,15 +35,15 @@ We will not accept reports of vulnerabilities of the following types:
 
 ### Supported versions
 
-We only accept reports against the latest stable & official versions of Home Assistant or any versions beyond that currently in development or beta test. The latest version can be found [here](https://github.com/home-assistant/core/releases).
+We only accept reports against the latest stable & official versions of Home Assistant or any versions beyond that are currently in development or beta test. The latest version can be found on our [GitHub releases page](https://github.com/home-assistant/core/releases).
 
 We do not accept reports against forks of Home Assistant.
 
 ### Severity scoring
 
-If you are familiar with [CVSS3.1](https://www.first.org/cvss/v3.1/specification-document), please provide the vulnerability score in your report in the shape of a vector string. There’s a calculator [here](https://www.first.org/cvss/calculator/3.1). If you are unsure how or unable to score a vulnerability, state that in your report, and we will look into it.
+If you are familiar with [CVSS3.1](https://www.first.org/cvss/v3.1/specification-document), please provide the vulnerability score in your report in the shape of a vector string. There’s a [calculator](https://www.first.org/cvss/calculator/3.1) that can be helpful. If you are unsure how or unable to score a vulnerability, state that in your report, and we will look into it.
 
-If you intend to provide a score, please familiarize yourself with CVSS first (we strongly recommend reading [Specification](https://www.first.org/cvss/v3.1/specification-document) and [Scoring Guide](https://www.first.org/cvss/v3.1/user-guide#Scoring-Guide)), as we will not accept reports that use it incorrectly.
+If you intend to provide a score, please familiarize yourself with CVSS first (we strongly recommend reading the [Specification](https://www.first.org/cvss/v3.1/specification-document) and [Scoring Guide](https://www.first.org/cvss/v3.1/user-guide#Scoring-Guide)), as we will not accept reports that use it incorrectly.
 
 ### Public disclosure & CVE assignment
 
