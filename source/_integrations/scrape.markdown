@@ -8,7 +8,6 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
   - '@gjohansson-ST'
-  - '@epenet'
 ha_domain: scrape
 ha_platforms:
   - sensor

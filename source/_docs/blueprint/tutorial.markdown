@@ -177,15 +177,17 @@ blueprint:
       description: This sensor will be synchronized with the light.
       selector:
         entity:
-          domain: binary_sensor
-          device_class: motion
+          filter:
+            - domain: binary_sensor
+            - device_class: motion
     target_light:
       name: Lights
       description: The lights to keep in sync.
       selector:
         target:
           entity:
-            domain: light
+            filter:
+              - domain: light
 ```
 
 By limiting our blueprint to working with lights and motion sensors, we unlock a couple of benefits: the UI will be able to limit suggested values to lights and motion sensors instead of all devices. It will also allow the user to pick an area to control the lights in.
@@ -207,15 +209,17 @@ blueprint:
       description: This sensor will be synchronized with the light.
       selector:
         entity:
-          domain: binary_sensor
-          device_class: motion
+          filter:
+            - domain: binary_sensor
+            - device_class: motion
     target_light:
       name: Lights
       description: The lights to keep in sync.
       selector:
         target:
           entity:
-            domain: light
+            filter:
+              - domain: light
 
 trigger:
   - platform: state

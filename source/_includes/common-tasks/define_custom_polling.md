@@ -26,7 +26,7 @@ If you want to define a specific interval at which your device is being polled f
             action:
                - service: homeassistant.update_entity
                  target:
-                 entity_id: weather.home
+                   entity_id: weather.home
       ```
 
 4. Save your new automation to poll for data.

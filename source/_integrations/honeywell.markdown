@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: honeywell
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

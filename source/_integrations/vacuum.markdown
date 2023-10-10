@@ -13,6 +13,8 @@ ha_integration_type: entity
 
 The `vacuum` integration enables the ability to control home cleaning robots within Home Assistant.
 
+{% include integrations/building_block_integration.md %}
+
 ## Services
 
 Available services: `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `set_fan_speed` and `send_command`.

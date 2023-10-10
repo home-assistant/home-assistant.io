@@ -11,13 +11,14 @@ ha_domain: todoist
 ha_platforms:
   - calendar
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 This platform allows you to connect to your [Todoist Projects](https://todoist.com) as [calendar](/integrations/calendar/) entities. A calendar entity will be `on` if you have a task due in that project or `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. All tasks get updated roughly every 15 minutes.
 
 ## Prerequisites
 
-You need to determine your Todoist API token. This is fairly simple to do; just go [to the Integrations section on your Todoist settings page](https://todoist.com/app/settings/integrations) and find the section labeled "API token" at the bottom of the page. Copy that token and use it in your configuration file.
+You need to determine your Todoist API token. Go to the [**Integrations** > **Developer** section on your Todoist settings page](https://todoist.com/app/settings/integrations/developer) and find the section labeled **API token** at the bottom of the page. Copy that token and use it in your configuration file.
 
 {% include integrations/config_flow.md %}
 
