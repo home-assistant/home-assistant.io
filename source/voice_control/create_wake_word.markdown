@@ -67,7 +67,7 @@ Depending on the word, training a model on your own wake word may take a few ite
    - Restart Home Assistant.
 8. Test your new wake word.
    - Speak your wake word followed by a command, such as "Turn on the lights in the kitchen".
-   - When the ATOM Echo picks up the wake word, it start blinking blue.
+   - When the ATOM Echo picks up the wake word, it starts blinking blue.
 
 ## Troubleshooting
 
