@@ -24,10 +24,7 @@ As a first step, you need to install the openWakeWord add on. This must be insta
 3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
    - Under **Discovered**, you should now see the **openWakeWord** integration.
    - Select **Configure** and **Submit**.
-4. To define the wake word engine, under **Wake word**, select **openwakeword**. 
-   - Then, select **ok, nabu**.
-   - If you created a new assistant, select **Create**.
-   - If you edited an existing assistant, select **Update**.
+   - **Result**: You have successfully installed the openWakeWord add-on and integration.
 
 ## Adding a wake word to your voice assistant
 
@@ -35,6 +32,11 @@ As a first step, you need to install the openWakeWord add on. This must be insta
 2. Give your assistant a name, for example the wake word you are going to use.
 3. Select the language you are going to use to speak to Home Assistant.
 4. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
+5. To define the wake word engine, under **Wake word**, select **openwakeword**. 
+   - Then, select **ok, nabu**.
+   - If you created a new assistant, select **Create**.
+   - If you edited an existing assistant, select **Update**.
+   - **Result**: You now have a voice assistant that listens to a wake word.
 
 ## Installing the software onto the ATOM Echo
 
