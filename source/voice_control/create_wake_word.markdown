@@ -14,13 +14,13 @@ Depending on the word, training a model on your own wake word may take a few ite
 
 ## To create your own wake word
 
-1. Think of a wake word. 
+1. Think of a wake word.
    - A word that is not commonly used so that it does not trigger Home Assistant by mistake.
    - Currently, only wake words in English are supported.
 2. Open the [wake word training environment](https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb?usp=sharing#scrollTo=1cbqBebHXjFD).
 3. In section 1, enter your wake word in the **target_word** field.
 ![Enter wake word in target field](/images/assist/wake_word_enter_target_word.png)
-1. In the code section next to the **target_word**, select the play button.
+4. In the code section next to the **target_word**, select the play button.
    - If the play button does not appear, make sure your cursor is placed in the **target_word** field.
      ![Select play button](/images/assist/wake_word_press_play_button.png)
    - If it still does not show up, in the top right corner of the document, make sure it says **Connected**.
@@ -30,19 +30,19 @@ Depending on the word, training a model on your own wake word may take a few ite
      - Once it is finished, at the bottom of the section, you see an audio file. Listen to it.
   
      ![Listen to demo of your wake word](/images/assist/wake_word_listen_demo.png)
-2. If the word does not sound correct to you:
-   - Follow the instructions in the document to tweak the spelling of the word and press play again. 
+5. If the word does not sound correct to you:
+   - Follow the instructions in the document to tweak the spelling of the word and press play again.
    - The word should sound the way you pronounce it.
-3. Once you are satisfied with the result, in section 2, select the play button.
+6. Once you are satisfied with the result, in section 2, select the play button.
    - This may take a while.
    ![Download data](/images/assist/wake_word_download_data.png)
-4. Once this is done, select the play button in section 3.
+7. Once this is done, select the play button in section 3.
    - This may take a while.
    - There are 3 options to tweak. For the time being, don't change any settings.
    - **Result**: Once this process is finished, you should have 2 files in your downloads folder:
      - `.tflite` and `.onnx` files
 
-5. Congratulations! You have created your own wake word model!
+8. Congratulations! You have created your own wake word model!
    - The next step is to add it to Home Assistant.
 
 ## To add your personal wake word to Home Assistant
@@ -62,7 +62,7 @@ Depending on the word, training a model on your own wake word may take a few ite
       - Under **M5Stack ATOM Echo**, select **1 device**.
    - Under **Controls**, make sure **Use wake word** is enabled.
    - Under **Configuration**, select the assistant with your wake word.
-     
+
      ![Select the assistant with your wake word](/images/assist/wake_word_select_assistant.png)
    - Restart Home Assistant.
 8. Test your new wake word.
