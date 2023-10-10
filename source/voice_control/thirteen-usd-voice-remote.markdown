@@ -33,7 +33,7 @@ As a first step, you need to install the openWakeWord add on. This must be insta
 3. Select the language you are going to use to speak to Home Assistant.
 4. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
 5. To define the wake word engine, under **Wake word**, select **openwakeword**. 
-   - Then, select **ok, nabu**.
+   - Then, select **ok nabu**.
    - If you created a new assistant, select **Create**.
    - If you edited an existing assistant, select **Update**.
    - **Result**: You now have a voice assistant that listens to a wake word.
