@@ -78,3 +78,10 @@ Depending on the word, training a model on your own wake word may take a few ite
 3. If this was not the issue, you may need to tweak the wake word model.
      - Go back to the [wake word training environment](https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb?usp=sharing#scrollTo=1cbqBebHXjFD).
      - In section 3 of the document, follow the instructions on tweaking the settings and create a new model.
+
+## Related topics
+
+- [$13 voice remote for Home Assistant](/voice_control/thirteen-usd-voice-remote/)
+- [wake word training environment](https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb?usp=sharing#scrollTo=1cbqBebHXjFD)
+- [Samba add-on installed](/common-tasks/os/#configuring-access-to-files)
+- [openWakeWord](https://github.com/dscripka/openWakeWord)
