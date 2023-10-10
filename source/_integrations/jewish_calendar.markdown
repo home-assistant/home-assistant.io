@@ -43,7 +43,7 @@ longitude:
   type: integer
 diaspora:
   required: false
-  description: Consider the location as diaspora (חוץ לארץ) or not for calculation of the weekly portion and holidays. Toggling this will change the calculations of the second day of Yom Tov vs. Isru Chag and Torah readings.
+  description: Consider the location as diaspora (חוץ לארץ) for calculation of the weekly portion and holidays. By default it will consider the location as Israel (One day Yom Tov), setting it to true will show a second day Yom Tov.
   default: false
   type: string
 candle_lighting_minutes_before_sunset:
