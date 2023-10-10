@@ -42,7 +42,7 @@ Depending on the word, training a model on your own wake word may take a few ite
    - **Result**: Once this process is finished, you should have 2 files in your downloads folder:
      - `.tflite` and `.onnx` files
 
-8. Congratulations! You have created your own wake word model!
+8. Congratulations! You just applied machine learning to create your own wake word model!
    - The next step is to add it to Home Assistant.
 
 ## To add your personal wake word to Home Assistant
@@ -68,7 +68,6 @@ Depending on the word, training a model on your own wake word may take a few ite
 8. Test your new wake word.
    - Speak your wake word followed by a command, such as "Turn on the lights in the kitchen".
    - When the ATOM Echo picks up the wake word, it start blinking blue.
-   - Congrats! You just applied machine learning.
 
 ## Troubleshooting
 
