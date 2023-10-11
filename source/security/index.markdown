@@ -30,7 +30,7 @@ We will not accept reports of vulnerabilities of the following types:
 - Attacks that require the user to have access to the Home Assistant host system.
 - Attacks involving physical access to a user’s device, or involving a device or network that’s already seriously compromised (like, man-in-the-middle).
 - Attacks that require the user to install a malicious other software, like a third-party integration, add-on, or plugin.
-- Attacks that the user can only perform on themselves.
+- Attacks that the user can only perform against their own setup.
 - Privilege escalation attacks for logged in users. Home Assistant assumes every user is trusted and does not enforce user privileges. It assumes every logged in user has the same access as an owner account ([more information](/docs/authentication/#user-accounts)).
 
 ### Supported versions
