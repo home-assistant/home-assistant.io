@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The HomeKit integration allows you to make your Home Assistant entities available in Apple HomeKit,
+The HomeKit Bridge integration allows you to make your Home Assistant entities available in Apple HomeKit,
 so they can be controlled from Apple's Home app and Siri; even if those devices do not natively support HomeKit.
 
 Please make sure that you have read the [considerations](#considerations) listed below to save you
@@ -26,7 +26,7 @@ some trouble later. However, if you do encounter issues, check out the
 <div class="note">
 
   If you want to control HomeKit-only devices with Home Assistant,
-  check out the [HomeKit controller](/integrations/homekit_controller/) integration, 
+  check out the [HomeKit Device](/integrations/homekit_controller/) integration, 
   which provides the possibility to pull HomeKit-enabled devices into Home Assistant.
 
 </div>
@@ -277,7 +277,7 @@ homekit:
 
 ## Setup
 
-To enable the HomeKit integration in Home Assistant, add the following to your configuration file:
+To enable the HomeKit Bridge integration in Home Assistant, add the following to your configuration file:
 
 ```yaml
 # Example for HomeKit setup
