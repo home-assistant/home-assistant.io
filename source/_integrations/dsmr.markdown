@@ -1,7 +1,6 @@
 ---
 title: DSMR Slimme Meter
 description: Instructions on how to integrate DSMR Smartmeter within Home Assistant.
-logo: netbeheernederland.jpg
 ha_category:
   - Energy
 ha_release: 0.34
@@ -87,12 +86,14 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 - [ser2net](https://ser2net.sourceforge.net)
 - [Smart Meter bridge](https://github.com/legolasbo/smartmeterBridge)
 - [WIZnet WIZ110SR](https://www.wiznet.io/product-item/wiz110sr/)
+- [esp8266 espeasy (Poluket)](https://www.domohab.be/produit/kit-complet-passerelle-compteur/) (create for Sagemcom T211 model in Belgium)
 
 DIY solutions (ESP8266 based):
 
 - [esp8266_p1meter (daniel-jong)](https://github.com/daniel-jong/esp8266_p1meter) (parse on ESP8266 publish to MQTT)
 - [DSMR reader for ESPHome (mmakaay)](https://github.com/mmakaay/dsmr-reader-for-esphome)
 - [p1-esp8266 (DavyLandman)](https://github.com/DavyLandman/p1-esp8266) (turn ESP8266 into a serial forwarder)
+
 
 {% include integrations/config_flow.md %}
 

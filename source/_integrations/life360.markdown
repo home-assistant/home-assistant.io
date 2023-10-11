@@ -10,6 +10,7 @@ ha_codeowners:
   - '@pnbruckner'
 ha_domain: life360
 ha_platforms:
+  - button
   - device_tracker
 ha_integration_type: integration
 ---
@@ -68,6 +69,10 @@ See [Zone documentation](/integrations/zone/#home-zone) for details about how Ho
   longitude: YY.YYY
   radius: ZZZ
 ```
+
+## Polling Location
+
+A button is also provided that has the ability to poll for a user's location when pressed.
 
 ## Disclaimer
 

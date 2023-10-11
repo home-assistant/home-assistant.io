@@ -7,8 +7,9 @@ ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@gabe565'
   - '@lanrat'
+  - '@ms264556'
+  - '@gabe565'
 ha_domain: ruckus_unleashed
 ha_platforms:
   - device_tracker

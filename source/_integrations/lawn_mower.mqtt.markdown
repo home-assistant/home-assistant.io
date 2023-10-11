@@ -159,7 +159,7 @@ optimistic:
   description: Flag that defines if the lawn mower works in optimistic mode.
   required: false
   type: boolean
-  default: "`true` if no `state_topic` defined, else `false`."
+  default: "`true` if no `activity_state_topic` defined, else `false`."
 pause_command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `pause_command_topic`. The `value` parameter in the template will be set to `pause`.
   required: false
