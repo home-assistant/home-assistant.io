@@ -109,6 +109,10 @@ name:
   description: Name of the sensor.
   required: false
   type: string
+unique_id:
+  description: An ID that uniquely identifies this binary sensor. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 payload_on:
   description: "Variable `on` value. The integration will recognize this as logical '1'."
   required: false
@@ -140,6 +144,7 @@ A full configuration example could look like this:
 binary_sensor:
   - platform: pilight
     name: "Motion"
+    unique_id: "motion_uid"
     variable: "state"
     payload:
       unitcode: 371399
@@ -177,6 +182,10 @@ name:
   required: false
   default: Pilight Sensor
   type: string
+unique_id:
+  description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
@@ -193,6 +202,7 @@ sensor:
   - platform: pilight
     name: "Temperature"
     variable: "temperature"
+    unique_id: "temperature_uid"
     payload:
       uuid: 0000-b8-27-eb-f1f72e
     unit_of_measurement: "°C"
@@ -226,6 +236,7 @@ switch:
   - platform: pilight
     switches:
       Bed light:
+        unique_id: piantana_studio
         on_code:
           protocol: intertechno_old
           'on': 1
@@ -261,6 +272,11 @@ switches:
           description: If given, this command will turn the switch off if it is received by pilight.
           required: false
           type: list
+        unique_id:
+          description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
+          required: false
+          type: string
+
 {% endconfiguration %}
 
 Variables for the different codes (`on_code` and `off_code`):
@@ -311,6 +327,7 @@ switch:
           unit: 6
           id: 34
           state: "off"
+        unique_id: light_uid
 ```
 
 ## Light
