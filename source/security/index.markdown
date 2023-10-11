@@ -56,7 +56,7 @@ We will publish GitHub Security Advisories and through those, will also request 
 
 ### Bounties
 
-As a open source project, Home Assistant cannot offer bounties for security vulnerabilities. However, if so desired, we of course will credit the discoverer of a vulnerability.
+As an open source project, Home Assistant cannot offer bounties for security vulnerabilities. However, if so desired, we of course will credit the discoverer of a vulnerability.
 
 ## Past advisories
 
