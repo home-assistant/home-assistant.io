@@ -45,7 +45,7 @@ Currently, the only compatible network server is [The Things Stack](<https://www
 4. On the **Devices** tab, press the **Add device** button.
 5. Choose **Add LoRaWAN device** at the top of the list.
 6. Fill the required information.
-7. The device is ready for use.
+7. Hit `SUBMIT`, the device is ready for use.
 
 <div class='note info'>
 MQTT broker needs to be setup only once.
@@ -57,9 +57,11 @@ The integration does not yet provide its own MQTT client, if you are already usi
 
 </div>
 
+![image](/images/integrations/lorawan/hass_config.png)
+
 ## Compatible devices
 
-Each device needs specific conversion from the data its send over the air to Home Assistant {% term entity %}, to request a new device open an issue in the library [repository](<https://github.com/oliv4945/pyliblorawan>).
+Each device needs specific conversion from the data its send over the air to Home Assistant {% term entity %}, to request a new device open an issue in the library [repository](<https://gitlab.com/oliv4945/pyliblorawan/-/issues>).
 
 ### Browan
 
