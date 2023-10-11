@@ -34,7 +34,7 @@ If the voice assistant doesn't understand you, you may need to rephrase your sen
 To get an idea of the specific sentences that are supported for your language, you can do the following:
 
 1. Take a look at the test sentences:
-    - On github, in the [tests](https://github.com/home-assistant/intents/tree/main/sentences) folder, open the subfolder for your language.
+    - On GitHub, in the [tests](https://github.com/home-assistant/intents/tree/main/sentences) folder, open the subfolder for your language.
     - Look through the test files to see the example sentences that have been tested.
     - The second part of the file name shows the {% term intent %}, the first part shows the domain. For some domains, such as covers, fans, and light, there are specific sentences.
         The other domains are covered by the generic *homeassistant_*.
@@ -47,7 +47,7 @@ To get an idea of the specific sentences that are supported for your language, y
         ![Example of a set of test sentences](/images/assist/assist-test-file-light-turn-on.png)
 
 2. View the sentence definition:
-    - On github, in the [tests](https://github.com/home-assistant/intents/tree/main/tests) folder, open the subfolder for your language.
+    - On GitHub, in the [tests](https://github.com/home-assistant/intents/tree/main/tests) folder, open the subfolder for your language.
     - Open the file of interest.
 
         ![Sentences definition for turning on the light](/images/assist/assist-sentence-definition-01.png) 

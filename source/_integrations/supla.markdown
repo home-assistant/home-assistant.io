@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The [Supla](https://supla.org/) is an Open Source home automation system for ESP8266 based devices. It has its own set of protocols, its own firmware and commercially available devices (produced for example by [Zamel](https://zamel.pl/pl-PL/produkty/supla-sterowanie-wi-fi))
+The [Supla](https://supla.org/) is an Open Source home automation system for ESP8266 based devices. It has its own set of protocols, its own firmware and commercially available devices (produced for example by [Zamel](https://zamel.pl/pl-PL/produkty/supla-sterowanie-wi-fi)).
 
 Currently only covers (shutters in Supla's lingo), gates, garage doors and switches are supported, but, thanks to comprehensive and universal REST API, it's pretty easy to add more.
 
@@ -40,11 +40,11 @@ servers:
   type: list
   keys:
     server:
-      description: Address of your Supla Cloud server (either IP or DNS name)
+      description: Address of your Supla Cloud server (either IP or DNS name).
       required: true
       type: string
     access_token:
-      description: An access token for REST API configuration. Can be acquired from `http[s]://your.server.org/integrations/tokens` (please add at least Channel's Read and Action Execution permissions).
+      description: An access token for REST API configuration. Under **Scopes** > **Channels**, at least **Read** and **Action execution** permissions are required to be enabled. A token can be obtained from the Security section of Supla Cloud for [Personal Access Token](https://cloud.supla.org/security/personal-access-tokens) page or your server instance.
       required: true
       type: string
 {% endconfiguration %}
