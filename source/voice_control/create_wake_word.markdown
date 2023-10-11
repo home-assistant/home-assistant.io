@@ -70,6 +70,8 @@ Depending on the word, training a model on your own wake word may take a few ite
 
 ## Troubleshooting
 
+### Troubleshooting wake word recognition
+
 1. If the ATOM Echo does not start blinking blue when you say the wake word, there are a few things you can try.
 2. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
    - Under **M5Stack ATOM Echo**, select **1 device**.
@@ -77,6 +79,21 @@ Depending on the word, training a model on your own wake word may take a few ite
 3. If this was not the issue, you may need to tweak the wake word model.
      - Go back to the [wake word training environment](https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb?usp=sharing#scrollTo=1cbqBebHXjFD).
      - In section 3 of the document, follow the instructions on tweaking the settings and create a new model.
+
+### Troubleshooting performance issues of the training environment
+
+The environment on the Colab space runs on resources offered by Google. They are intended for small-scale, non-commercial personal use. There is no guarantee that resources are available.
+If many people use this environment at the same time or if the request itself uses a lot of resources, the execution might be very slow or won't run at all.
+
+It may take 30-60 minutes for the run to complete. This is expected behavior.
+
+Things you can try if the execution is very slow:
+
+1. Free of charge solution: This environment has worked for all the wake word models that were trained to create and test this procedure. There is a good chance that it will work for you. If it does not, try training your model another time. Maybe many people are using it right now.
+2. You can pay for more computing resources: In the top right corner, select the RAM | Disk icon.
+   - Select the link to **Upgrade to Colab Pro**.
+   - Select your price plan and follow the instructions on screen.
+   ![Connect to hosted runtime](/images/assist/wake_word_upgrade_to_colab.png)
 
 ## Related topics
 
