@@ -32,11 +32,13 @@ As a first step, you need to install the openWakeWord add on. This must be insta
 2. Give your assistant a name, for example the wake word you are going to use.
 3. Select the language you are going to use to speak to Home Assistant.
 4. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
-5. To define the wake word engine, under **Wake word**, select **openwakeword**. 
+5. To define the wake word engine, under **Wake word**, select **openwakeword**.
    - Then, select **ok nabu**.
    - If you created a new assistant, select **Create**.
    - If you edited an existing assistant, select **Update**.
    - **Result**: You now have a voice assistant that listens to a wake word.
+6. For the first run, it is recommended to use **ok nabu**, just to test the setup.
+   - Once you have it all set up, you can [create your own wake words](/voice_control/create_wake_word/). 
 
 ## Installing the software onto the ATOM Echo
 
@@ -82,7 +84,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 ## Controlling Home Assistant over the ATOM Echo
 
-1. Say "OK, Nabu".
+1. Say your wake word. For this tutorial, use "OK, Nabu".
    - Wait for the LED to start blinking in blue.
 2. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.
    - While you are speaking, the blue LED keeps pulsing.
@@ -92,7 +94,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
           - *Is the front door locked?*
           - *Which lights are on in the living room?*
 3. Your command is not supported? Add your own commands using [a sentence trigger](/voice_control/custom_sentences/).
-4. You find ATOM Echo takes to long to start processing your command?
+4. You find ATOM Echo takes too long to start processing your command?
    - Adjust the silence detection settings. This setting defines how much silence is needed for Assist to find you're done speaking and it can start processing your command.
    - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
    - Under **M5Stack ATOM Echo**, select **1 device**.
@@ -143,3 +145,9 @@ Are things not working as expected?
    - Once you have found a configuration that works, delete the folder with the audio files.
    - In the `configuration.yaml` file, delete the `assist_pipeline entry` and restart Home Assistant.
 
+## Related topics
+
+- [Create your own wake words](/voice_control/create_wake_word/)
+- [General troubleshooting section for Assist](/voice_control/troubleshooting/)
+- [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
+- [Using a sentence trigger](/voice_control/custom_sentences/)
