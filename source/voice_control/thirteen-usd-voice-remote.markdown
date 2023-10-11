@@ -6,6 +6,9 @@ This tutorial will guide you to turn an ATOM Echo into the
 world's most private voice assistant. Pick up the tiny device to talk to
 your smart home. Issue commands and get responses!
 
+<lite-youtube videoid="uad2rw4MesA" videotitle="Wake word demo on $13 ATOM Echo in Home Assistant
+"></lite-youtube>
+
 ## Required material
 
 - Home Assistant 2023.10
