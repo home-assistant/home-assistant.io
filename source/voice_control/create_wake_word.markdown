@@ -17,7 +17,7 @@ Depending on the word, training a model on your own wake word may take a few ite
 ## To create your own wake word
 
 1. Think of a wake word.
-   - A word or short phrase (3-4 syllables) that is not commonly used so that it does not trigger Home Assistant by mistake.
+   - A word or short phrase (3-4 syllables) that is not commonly used so that it does not trigger Assist by mistake.
    - Currently, only wake words in English are supported.
 2. Open the [wake word training environment](https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb?usp=sharing#scrollTo=1cbqBebHXjFD).
 3. In section 1, enter your wake word in the **target_word** field.
@@ -59,8 +59,8 @@ Depending on the word, training a model on your own wake word may take a few ite
 6. Enable this new assistant on your ATOM Echo device.
    - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
       - Under **M5Stack ATOM Echo**, select **1 device**.
-   - Under **Controls**, make sure **Use wake word** is enabled.
-   - Under **Configuration**, select the assistant with your wake word.
+   - Under **Configuration**, make sure **Use wake word** is enabled.
+   - Select the assistant with your wake word.
 
      ![Select the assistant with your wake word](/images/assist/wake_word_select_assistant.png)
 7. Test your new wake word.
