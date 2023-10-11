@@ -12,7 +12,7 @@ Depending on the word, training a model on your own wake word may take a few ite
 
 - latest version of Home Assistant
 - [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
-- successfully completed the [$13 voice remote for Home Assistant](/voice_control/thirteen-usd-voice-remote/) tutorial
+- successfully completed the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/) tutorial
 
 ## To create your own wake word
 
@@ -58,7 +58,7 @@ Depending on the word, training a model on your own wake word may take a few ite
    - Or, edit an existing assistant.
 6. Under **Wake word**, select **openwakeword**.
    - Then, select your own personal wake word.
-   - If there is no **Wake word** option, make sure you have the add-on installed and successfully completed the [$13 voice remote for Home Assistant](/voice_control/thirteen-usd-voice-remote/) tutorial.
+   - If there is no **Wake word** option, make sure you have the add-on installed and successfully completed the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/) tutorial.
 7. Enable this new assistant on your ATOM Echo device.
    - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
       - Under **M5Stack ATOM Echo**, select **1 device**.
@@ -99,7 +99,7 @@ Things you can try if the execution is very slow:
 
 ## Related topics
 
-- [$13 voice remote for Home Assistant](/voice_control/thirteen-usd-voice-remote/)
+- [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/)
 - [wake word training environment](https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb?usp=sharing#scrollTo=1cbqBebHXjFD)
 - [Samba add-on installed](/common-tasks/os/#configuring-access-to-files)
 - [openWakeWord](https://github.com/dscripka/openWakeWord)

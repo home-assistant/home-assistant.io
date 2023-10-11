@@ -1,5 +1,5 @@
 ---
-title: "$13 voice remote for Home Assistant"
+title: "$13 voice assistant for Home Assistant"
 ---
 
 This tutorial will guide you to turn an ATOM Echo into the
