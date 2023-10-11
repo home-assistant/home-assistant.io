@@ -22,7 +22,7 @@ Depending on the word, training a model on your own wake word may take a few ite
 2. Open the [wake word training environment](https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb?usp=sharing#scrollTo=1cbqBebHXjFD).
 3. In section 1, enter your wake word in the **target_word** field.
 ![Enter wake word in target field](/images/assist/wake_word_enter_target_word.png)
-4. In the code section next to the **target_word**, select the play button.
+4. In the code section next to the **target_word**, select the play button. The first time this can take up to 30 seconds.
    - If the play button does not appear, make sure your cursor is placed in the **target_word** field.
      ![Select play button](/images/assist/wake_word_press_play_button.png)
    - If it still does not show up, in the top right corner of the document, make sure it says **Connected**.
@@ -36,7 +36,7 @@ Depending on the word, training a model on your own wake word may take a few ite
    - Follow the instructions in the document to tweak the spelling of the word and press play again.
    - The word should sound the way you pronounce it.
 6. Once you are satisfied with the result, in the menu on top of the screen, select **Runtime** > **Run all**.
-   - This may take a while.
+   - This will take around an hour. Feel free to do something else but make sure to leave the browser tab open.
    ![Runtime: run all](/images/assist/wake_word_runtime_run_all.png)
    - **Result**: Once this process is finished, you should have 2 files in your downloads folder:
      - `.tflite` and `.onnx` files (only `.tflite` is used)
