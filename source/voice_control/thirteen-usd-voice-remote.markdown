@@ -1,22 +1,49 @@
 ---
-title: "$13 voice remote for Home Assistant"
+title: "$13 voice assistant for Home Assistant"
 ---
 
 This tutorial will guide you to turn an ATOM Echo into the
 world's most private voice assistant. Pick up the tiny device to talk to
 your smart home. Issue commands and get responses!
 
-<lite-youtube videoid="w6QxGdxVMJs" videotitle="$13 voice remote for Home Assistant
+<lite-youtube videoid="ziebKt4XLZQ" videotitle="Wake word demo on $13 ATOM Echo in Home Assistant
 "></lite-youtube>
 
 ## Required material
 
-- Home Assistant 2023.5 or later
+- Home Assistant 2023.10
 - [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - The password to your 2.4&nbsp;GHz Wi-Fi network
 - Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS) 
 - [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
 - USB-C cable to connect the ATOM Echo
+
+## Installing the openWakeWord add-on
+
+As a first step, you need to install the openWakeWord add on. This must be installed before setting up the ATOM Echo.
+
+1. Go to {% my supervisor_addon addon="openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
+2. Start the add-on.
+3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+   - Under **Discovered**, you should now see the **openWakeWord** integration.
+   - Select **Configure** and **Submit**.
+   - **Result**: You have successfully installed the openWakeWord add-on and integration.
+
+## Adding a wake word to your voice assistant
+
+1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
+2. Give your assistant a name, for example the wake word you are going to use.
+3. Select the language you are going to use to speak to Home Assistant.
+   - If the **Text-to-speech** and **Speech-to-text** sections do not provide language selectors, this means you do not have an Assist pipeline set up.
+   - Set up [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
+4. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
+5. To define the wake word engine, under **Wake word**, select **openwakeword**.
+   - Then, select **ok nabu**.
+   - If you created a new assistant, select **Create**.
+   - If you edited an existing assistant, select **Update**.
+   - **Result**: You now have a voice assistant that listens to a wake word.
+6. For the first run, it is recommended to use **ok nabu**, just to test the setup.
+   - Once you have it all set up, you can [create your own wake words](/voice_control/create_wake_word/). 
 
 ## Installing the software onto the ATOM Echo
 
@@ -62,25 +89,70 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 ## Controlling Home Assistant over the ATOM Echo
 
-1. Press the flat button with rounded shape on your ATOM Echo.
-   - The rectangular button on the side is the reset button. Do not press that one.
-   - As soon as you press the button, the LED will light up in blue.
-   - While you are speaking, the blue LED is pulsing.
+1. Say your wake word. For this tutorial, use "OK, Nabu".
+   - Wait for the LED to start blinking in blue.
+2. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.
+   - While you are speaking, the blue LED keeps pulsing.
    - Once the intent has been processed, the LED lights up in green and Home Assistant confirms the action.
-2. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
       - Make sure you’re using the area name exactly as you defined it in Home Assistant.
       - You can also ask a question, such as
           - *Is the front door locked?*
           - *Which lights are on in the living room?*
 3. Your command is not supported? Add your own commands using [a sentence trigger](/voice_control/custom_sentences/).
-4. You find ATOM Echo takes to long to start processing your command?
+4. You find ATOM Echo takes too long to start processing your command?
    - Adjust the silence detection settings. This setting defines how much silence is needed for Assist to find you're done speaking and it can start processing your command.
    - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
    - Under **M5Stack ATOM Echo**, select **1 device**.
    ![Open My link](/images/assist/esp32-atom_silence_detection_01.png)
+
+## Disabling wake word and use push-to-talk
+
+1. If you do not want to use a wake word, but prefer to use the microphone by pressing a button, you can disable the wake word.
+2. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
+   - Under **M5Stack ATOM Echo**, select **1 device**.
+3. Disable **Use wake word**.
+   ![Toggle to enable/disable wake word](/images/assist/wake_word_disable_on_atom_echo.png)
+4. To start using push-to-talk, press the flat button with rounded shape on your ATOM Echo.
+   - The rectangular button on the side is the reset button. Do not press that one.
+   - As soon as you press the button, the LED will start blinking in blue. If it does not light up, press again.
+   - While you are speaking, the blue LED is pulsing.
+   - Once the intent has been processed, the LED lights up in green and Home Assistant confirms the action.
 
 ## Troubleshooting
 
 Are things not working as expected?
 
 - Checkout the [general troubleshooting section for Assist](/voice_control/troubleshooting/).
+- You think there is a problem with noise or volume? Checkout the procedure below.
+
+### Tweaking the ATOM Echo configuration
+
+1. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
+2. Edit the general configuration:
+   - Access the `config` folder and open the `configuration.yaml` file.
+   - Enter the following text:
+      ```yaml
+      assist_pipeline:
+         debug_recording_dir: /share/assist_pipeline
+      ```
+3. Save the changes and restart Home Assistant.
+4. Make sure you have the [Samba add-on installed](/common-tasks/os/#configuring-access-to-files).
+5. On your computer, access your Home Assistant server via Samba.
+   - Navigate to `/share/assist_pipeline`.
+   - For each voice command you gave, you will find a subfolder with the audio file in `.wav` format.
+6. Listen to the audio file of interest.
+7. Adjust noise suppression and volume, if needed:
+   - Access the `config` folder and open the `esphome/m5stack-atom-echo-wake-word.yaml` file.
+   - Find the `voice_assistant` section.
+   - If the audio is too noisy, increase the `noise_suppression_level` (max.&nbsp;4).
+   - If the audio is too quiet, increase either the `auto_gain` (max.&nbsp;31) or the `volume_multiplier` (no maximum, but a too high value will cause distortion eventually).
+8. Collecting the debug recordings impacts your disk space.
+   - Once you have found a configuration that works, delete the folder with the audio files.
+   - In the `configuration.yaml` file, delete the `assist_pipeline entry` and restart Home Assistant.
+
+## Related topics
+
+- [Create your own wake words](/voice_control/create_wake_word/)
+- [General troubleshooting section for Assist](/voice_control/troubleshooting/)
+- [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
+- [Using a sentence trigger](/voice_control/custom_sentences/)
