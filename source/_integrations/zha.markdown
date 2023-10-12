@@ -45,11 +45,11 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://csa-iot.org/) directly to Home Assistant, using one of the many available Zigbee coordinators.
+The ZHA (Zigbee Home Automation) integration is a full-stack [Zigbee gateway](https://csa-iot.org/all-solutions/zigbee/) implementation. It works out-of-the-box and is very easy to get started with, allowing you to connect most [off-the-shelf Zigbee based IoT devices from any manufacturer](https://csa-iot.org/csa-iot_products/) wirelessly directly to Home Assistant.
 
-ZHA uses an open-source Python library implementing a hardware-independent Zigbee stack called [zigpy](https://github.com/zigpy/zigpy). All coordinators compatible with zigpy can be used with ZHA.
+It only requires one locally connected Zigbee Coordinator radio adapter, and since it depends on the [zigpy (open-source Python library)](https://github.com/zigpy/zigpy) it uses a hardware-independent standard Zigbee stack that is compatible with many different Zigbee Coordinator radio adapters available today.
 
-There is currently support for the following device types within Home Assistant:
+This integration currently supports the following device types within Home Assistant:
 
 - [Alarm Control Panel](/integrations/alarm_control_panel/)
 - [Binary Sensor](/integrations/binary_sensor/)
@@ -65,7 +65,7 @@ There is currently support for the following device types within Home Assistant:
 - [Siren](/integrations/siren/)
 - [Switch](/integrations/switch/)
 
-There is also support for Zigbee grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a Zigbee group in the ZHA integration before the group entity is created. As well as support for [binding and unbinding (i.e. bind a remote to a lightbulb or group)](#binding-and-unbinding).
+In addition, it has support for "Zigbee groups" that enable native on-device grouping of multiple Zigbee lights, switches, and fans that enable controlling all entities for those devices in those groups with one command. At least two entities must be added to a Zigbee group inside the ZHA integration before a group entity is created. There is also support for native on-device Zigbee [binding and unbinding (i.e. bind a remote to a lightbulb or group)](#binding-and-unbinding).
 
 ## Introduction
 
