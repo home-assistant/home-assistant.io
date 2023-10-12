@@ -12,11 +12,6 @@ og_image: /images/blog/2023-10-12-year-of-the-voice-chapter-4/social.png
 
 <p><img src='/images/blog/2023-10-12-year-of-the-voice-chapter-4/social.png' class='no-shadow' /></p>
 
-# TODO
-
-# YouTube video of Paul and JLo
-
-
 This year is Home Assistant’s [Year of the Voice](https://www.home-assistant.io/blog/2022/12/20/year-of-voice/). It is our goal for 2023 to let users control Home Assistant in their own language.
 
 We’ve got great news: wake words are finally here! After 4 chapters, we now have the final building block for voice in Home Assistant.
@@ -31,7 +26,9 @@ Home Assistant’s wake words are leveraging a new project called [openWakeWord]
 
 To try wake words today, follow our updated guide to [the $13 voice assistant][13-tutorial]. Also check out our new guide to [create your own wake word.][own-wake-word]
 
-<lite-youtube videoid="uad2rw4MesA" videotitle="Wake word demonstration on $13 ATOM Echo in Home Assistant"></lite-youtube>
+<lite-youtube videoid="ziebKt4XLZQ" videotitle="Wake word demonstration on $13 ATOM Echo in Home Assistant"></lite-youtube>
+
+<lite-youtube videoid="vQ7Hmeume9g" videotitle="Wake word demonstration on ESPHome-based 3D printed droid in Home Assistant"></lite-youtube>
 
 To watch the video presentation of this blog post, including live demos, check [the recording of our live stream.](https://www.youtube.com/watch?v=YzgYYkOrnhQ)
 
@@ -168,6 +165,8 @@ _This method requires users to have basic experience with configuring ESPHome de
 
 We’ve made [homeassistant-satellite](https://github.com/synesthesiam/homeassistant-satellite) available that allows you to connect a USB microphone or speakerphone to an old Raspberry Pi, or any other Linux computer, and turn it into a voice satellite for Home Assistant.
 
+<lite-youtube videoid="JeyZ4HQARMc" videotitle="Wake word demonstration on Raspberry Pi and custom ESP32 board in Home Assistant"></lite-youtube>
+
 We recommend using a USB speakerphone because they contain audio processing chips that clean up the audio and enhance voices. They also come with a speaker and look a bit like one expects a voice satellite to look.
 
 We recommend the [Anker PowerConf S330]. We needed to update its firmware before it could be used with Home Assistant.
@@ -187,10 +186,6 @@ Engines can be plugged Home Assistant’s voice pipelines using [the Wyoming pro
 ## What's next
 
 Now that the foundation is in place for all parts of a voice assistant, it will be easier for us to share what we are going to work on next.
-
-The first thing is Android support for wake words. Home Assistant Companion app will be able to run as a background service that is active while you are using other apps. When the wake word is spoken, it will show the Assist dialog and process your command. This feature is great for Android wall tablets and to reuse old Android phones that you might have laying around.
-
-<lite-youtube videoid="iSq478Az_iM" videotitle="Preview of Home Assistant wake words on Android"></lite-youtube>
 
 We want to work towards supporting the most common tasks that people use with other voice assistants. This includes support for multiple shopping lists, timers and weather forecasts.
 
