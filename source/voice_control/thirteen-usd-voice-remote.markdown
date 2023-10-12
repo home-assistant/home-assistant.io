@@ -34,6 +34,8 @@ As a first step, you need to install the openWakeWord add on. This must be insta
 1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
 2. Give your assistant a name, for example the wake word you are going to use.
 3. Select the language you are going to use to speak to Home Assistant.
+   - If the **Text-to-speech** and **Speech-to-text** sections do not provide language selectors, this means you do not have an Assist pipeline set up.
+   - Set up [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
 4. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
 5. To define the wake word engine, under **Wake word**, select **openwakeword**.
    - Then, select **ok nabu**.
@@ -108,7 +110,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 1. If you do not want to use a wake word, but prefer to use the microphone by pressing a button, you can disable the wake word.
 2. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
    - Under **M5Stack ATOM Echo**, select **1 device**.
-3. Under **Controls**, disable **Use wake word**.
+3. Disable **Use wake word**.
    ![Toggle to enable/disable wake word](/images/assist/wake_word_disable_on_atom_echo.png)
 4. To start using push-to-talk, press the flat button with rounded shape on your ATOM Echo.
    - The rectangular button on the side is the reset button. Do not press that one.
