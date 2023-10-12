@@ -13,10 +13,9 @@ og_image: /images/blog/2023-10-12-year-of-the-voice-chapter-4/social.png
 <p><img src='/images/blog/2023-10-12-year-of-the-voice-chapter-4/social.png' class='no-shadow' /></p>
 
 # TODO
-# Mention preview Android?
+
 # YouTube video of Paul and JLo
-# Mention targets for rest of year?
-# Mention how they can install ESP32 S3 Box.
+
 
 This year is Home Assistant’s [Year of the Voice](https://www.home-assistant.io/blog/2022/12/20/year-of-voice/). It is our goal for 2023 to let users control Home Assistant in their own language.
 
@@ -27,8 +26,6 @@ In [Chapter 1](https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-c
 [Chapter 2](https://www.home-assistant.io/blog/2023/04/27/year-of-the-voice-chapter-2/) introduced audio for voice commands: both speech-to-text and text-to-speech. This included local options for maximum privacy as well as support for Home Assistant Cloud for incredible speed and language coverage. Lastly in [Chapter 3](https://www.home-assistant.io/blog/2023/07/20/year-of-the-voice-chapter-3/), we added the ability to set Home Assistant as your default assistant on Android phones and watches.
 
 For Chapter 4, we’ve now added wake word processing inside Home Assistant. Wake words are special words or phrases that tell a voice assistant that a command is about to be spoken. Examples are: Hey Google, Hey Siri or Alexa.
-
-# TODO: should we put a disclaimer that we know of certain things that we can do to make it better. And that we noticed that Whisper isn’t so good for this?
 
 Home Assistant’s wake words are leveraging a new project called [openWakeWord] by David Scripka. This project has real-world accuracy, runs on commodity hardware and anyone can train a basic model of their own wake word in an hour, for free.
 
@@ -84,7 +81,7 @@ Overview of the openWakeWord training pipeline.
 
 Home Assistant runs openWakeWord as an add-on and comes with various wake word models by default, including our “Okay Nabu” model. Click the button below to install it.
 
-# MY BUTTON https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_openwakeword
+{% my supervisor_addon addon="core_openwakeword" %}
 
 Once installed, the add-on will be discovered via the Wyoming integration.
 
@@ -120,7 +117,7 @@ How wake words integrate into Home Assistant
 
 As an example, we’re also making the Porcupine (v1) wake word engine available. It supports 29 wake words across English, French, Spanish and German, including Computer, Framboise, Manzana and Stachelschwein.
 
-# MY BUTTON https://my.home-assistant.io/redirect/supervisor_addon/?addon=47701997_porcupine1&repository_url=https%3A%2F%2Fgithub.com%2Frhasspy%2Fhassio-addons
+{% my supervisor_addon addon="47701997_porcupine1" repository_url="https://github.com/rhasspy/hassio-addons" %}
 
 ## Reuse and repurpose: different ways to create a voice satellite
 
@@ -132,11 +129,11 @@ Since our voice satellite is only responsible for capturing audio, a lot of devi
 
 You can configure your device running Home Assistant to capture audio and turn it into a voice assistant. To do this, you need to plug in a USB microphone or speakerphone and configure the Assist microphone add-on. Your Home Assistant device may need to be rebooted before the microphone is usable.
 
-# MY BUTTON https://github.com/rhasspy/hassio-addons/blob/master/assist_microphone/DOCS.md
+{% my supervisor_addon addon="47701997_assist_microphone" repository_url="https://github.com/rhasspy/hassio-addons" %}
 
 We recommend using a USB speakerphone because they contain audio processing chips that clean up the audio and enhance voices. They also come with a speaker and look a bit like one expects a voice satellite to look.
 
-We recommend the [Anker PowerConf S330]. We did had to update its firmware before it could be used with Home Assistant.
+We recommend the [Anker PowerConf S330]. We needed to update its firmware before it could be used with Home Assistant.
 
 _Some USB speakerphones will require a powered USB hub because of power limits on the Raspberry Pi’s USB ports._
 
@@ -161,7 +158,7 @@ We’ve made [homeassistant-satellite](https://github.com/synesthesiam/homeassis
 
 We recommend using a USB speakerphone because they contain audio processing chips that clean up the audio and enhance voices. They also come with a speaker and look a bit like one expects a voice satellite to look.
 
-We recommend the [Anker PowerConf S330]. We did had to update its firmware before it could be used with Home Assistant.
+We recommend the [Anker PowerConf S330]. We needed to update its firmware before it could be used with Home Assistant.
 
 _Some USB speakerphones will require a powered USB hub because of power limits on the Raspberry Pi’s USB ports._
 
@@ -174,6 +171,22 @@ _This method requires users to know how to install applications on a Linux syste
 We want Home Assistant to be used as a platform for scientists that are developing new wake word, speech-to-text and text-to-speech engines. These engines can be plugged Home Assistant’s voice pipelines using [the Wyoming protocol][wyoming].
 
 While small, the Wyoming protocol can be tricky to get right for first time integrators. If you’re such a person, reach out to us at [voice@nabucasa.com](mailto:voice@nabucasa.com) and we’ll help you integrate.
+
+## What's next
+
+Now that the foundation is in place for all parts of a voice assistant, it will be easier for us to share what we are going to work on next.
+
+The first thing is Android support for wake words. Home Assistant Companion app will be able to run as a background service that is active while you are using other apps. When the wake word is spoken, it will show the Assist dialog and process your command. This feature is great for Android wall tablets and to reuse old Android phones that you might have laying around.
+
+<lite-youtube videoid="iSq478Az_iM" videotitle="Preview of Home Assistant wake words on Android"></lite-youtube>
+
+We also want to work towards supporting the most common tasks that people use with other voice assistants. Think multiple shopping lists, timers and weather forecasts.
+
+On the voice satellite side we're going to integrate more advanced audio processing to improve wake word and Speech-to-Text accuracy. We will also do another attempt at getting wake words running inside ESPHome.
+
+The voice satellite improvements will require more advanced hardware and we're aiming for the ESP32 S3 Box 3. This is the new variant of the now discontinued ESP32 S3 Box (and lite version). Espressif told us that it will be in stock soon.
+
+If you already have an ESP32 S3 Box variant, you can install [our ESPHome configuration](https://github.com/esphome/firmware/tree/main/voice-assistant) to receive these updates as they come available.
 
 [wyoming]: https://github.com/rhasspy/wyoming
 [13-tutorial]: /voice_control/thirteen-usd-voice-remote/
