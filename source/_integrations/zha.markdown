@@ -414,9 +414,23 @@ In this theoretical example, a CC2652-based Zigbee coordinator has three CC2530 
 
 In practice, you will likely need to add a lot more Zigbee router devices than in this example in order to extend the coverage of the network to reach that many devices.
 
-## Binding and unbinding
+## Zigbee Groups, Bindings and Unbindings
 
-ZHA support for binding and unbinding. Binding is an action in Zigbee which defines relations between two Zigbee devices, specific endpoints, and cluster id. It provides a mechanism for attaching an endpoint on one Zigbee node to one or more endpoints on another Zigbee node or Zigbee group (a group of Zigbee devices).
+ZHA integration support for native Zigbee Groups, as well as Zigbee Bindings and Unbindings. These features can be used separately or combined.
+
+#### Zigbee Group
+
+A "Zigbee Group" enables native on-device grouping of multiple Zigbee lights, switches, and fans that enable controlling all compatible entities for those devices in those groups with only one command/entity.
+
+Importantly note that using a native "Zigbee Group" inside the ZHA integration instead of Home Assistant's [Group](/integrations/group/) integration should make for much faster response times and better synchronization, especially when grouping lights.
+
+To create a Zigbee Group click on "CONFIGURE" in the Zigbee Home Automation integration, at the top of the screen you will find "Groups", and there you can select "+ CREATE GROUP". Give the group a name and choose which devices that are compatible with each other should be in that group.
+
+The group should consist of products of the same device type, (e.g. all lights, switches, or fans), and at least two entities must be added to a Zigbee group inside the ZHA integration before a group entity is created.
+
+#### Zigbee Binding and Unbinding
+
+Binding is a native action in Zigbee which defines on-device relations between two Zigbee devices, specific endpoints, and cluster id. It provides a mechanism for attaching an endpoint on one Zigbee node to one or more endpoints on another Zigbee node or Zigbee group (a group of Zigbee devices).
 
 Binding is a "target destination" in form of a device address or group ID, endpoint, and cluster. For example, binding a Zigbee device like a remote to a Zigbee lightbulb, switch or group of lightbulbs allows direct control of the "target" device (light, switch, shade) from the "remote" Zigbee device, bypassing ZHA.  This means that the remote can control the lightbulb/group of lightbulbs even when the Zigbee coordinator is not available.
 Binding is only supported between the same cluster, for example, "output cluster id 6" (on/off cluster) of a remote, can be only bound to an "input cluster id 6" on the target device -- light, switch.
