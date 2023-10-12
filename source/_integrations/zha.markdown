@@ -418,7 +418,7 @@ In practice, you will likely need to add a lot more Zigbee router devices than i
 
 ZHA integration support for native Zigbee Groups, as well as Zigbee Bindings and Unbindings. These features can be used separately or combined.
 
-#### Zigbee Group
+### Zigbee Group
 
 A "Zigbee Group" enables native on-device grouping of multiple Zigbee lights, switches, and fans that enable controlling all compatible entities for those devices in those groups with only one command/entity.
 
@@ -428,7 +428,7 @@ To create a Zigbee Group click on "CONFIGURE" in the Zigbee Home Automation inte
 
 The group should consist of products of the same device type, (e.g. all lights, switches, or fans), and at least two entities must be added to a Zigbee group inside the ZHA integration before a group entity is created.
 
-#### Zigbee Binding and Unbinding
+### Zigbee Binding and Unbinding
 
 Binding is a native action in Zigbee which defines on-device relations between two Zigbee devices, specific endpoints, and cluster id. It provides a mechanism for attaching an endpoint on one Zigbee node to one or more endpoints on another Zigbee node or Zigbee group (a group of Zigbee devices).
 
