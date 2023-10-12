@@ -12,7 +12,7 @@ og_image: /images/blog/2023-10-12-year-of-the-voice-chapter-4/social.png
 
 <p><img src='/images/blog/2023-10-12-year-of-the-voice-chapter-4/social.png' class='no-shadow' /></p>
 
-This year is Home Assistant’s [Year of the Voice](https://www.home-assistant.io/blog/2022/12/20/year-of-voice/). It is our goal for 2023 to let users control Home Assistant in their own language.
+This year is Home Assistant’s [Year of the Voice](https://www.home-assistant.io/blog/2022/12/20/year-of-voice/). It is our goal for 2023 to let users control Home Assistant by speaking in their own language.
 
 We’ve got great news: wake words are finally here! After 4 chapters, we now have the final building block for voice in Home Assistant.
 
@@ -22,9 +22,9 @@ In [Chapter 1](https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-c
 
 For Chapter 4, we’ve now added wake word processing inside Home Assistant. Wake words are special words or phrases that tell a voice assistant that a command is about to be spoken. Examples are: Hey Google, Hey Siri or Alexa.
 
-Home Assistant’s wake words are leveraging a new project called [openWakeWord] by David Scripka. This project has real-world accuracy, runs on commodity hardware and anyone can train a basic model of their own wake word in an hour, for free.
+Home Assistant’s wake words are leveraging a new project called [openWakeWord] by David Scripka. This project has real-world accuracy, runs on commodity hardware and anyone can [train a basic model of their own wake word][own-wake-word] in an hour, for free.
 
-To try wake words today, follow our updated guide to [the $13 voice assistant][13-tutorial]. Also check out our new guide to [create your own wake word.][own-wake-word]
+To try wake words today, follow our updated guide to [the $13 voice assistant][13-tutorial].
 
 <lite-youtube videoid="ziebKt4XLZQ" videotitle="Wake word demonstration on $13 ATOM Echo in Home Assistant"></lite-youtube>
 
@@ -35,8 +35,6 @@ To watch the video presentation of this blog post, including live demos, check [
 <!--more-->
 
 ## Wake words in Home Assistant
-
-Trying to build a system that performs well, is user friendly and is open source is a tremendous task. Doing this for wake words: even harder.
 
 Wake words are hard to build. They are based on AI, there is little room for false positives, and they need to run extremely fast: as fast audio as comes in. You can’t have a voice assistant start listening 5 seconds after a wake word is spoken. Voice satellite hardware generally does not have a lot of computing power so wake word engines need hardware experts to optimise the models to run smoothly.
 
@@ -51,7 +49,9 @@ The advantage of this approach is that any device that streams audio can be turn
 
 To try it out, follow our updated tutorial to [create your own $13 voice assistant.][13-tutorial]
 
-There are two downsides to this approach. The first is that the quality of the captured audio differs. A speakerphone with multiple microphones and audio processing chips captures voice very cleanly. A device with a single microphone and no post-processing? Not so much. We compensate for poor audio quality with audio post-processing inside Home Assistant and users can use better speech-to-text models like the one included with Home Assistant Cloud to improve accuracy.
+<lite-youtube videoid="ziebKt4XLZQ" videotitle="Wake word demonstration on $13 ATOM Echo in Home Assistant"></lite-youtube>
+
+There are downsides to this approach. The first is that the quality of the captured audio differs. A speakerphone with multiple microphones and audio processing chips captures voice very cleanly. A device with a single microphone and no post-processing? Not so much. We compensate for poor audio quality with audio post-processing inside Home Assistant and users can use better speech-to-text models to improve accuracy like the one included with Home Assistant Cloud.
 
 The other downside of this approach is that each satellite requires ongoing resources inside Home Assistant when it’s streaming audio. With our current approach, users can run 5 voice satellites without overwhelming a Raspberry Pi 4 (assuming all satellites are streaming at the same time). To scale up, we’ve updated [the Wyoming protocol][wyoming] to allow users to run wake word detection on an external server.
 
@@ -64,7 +64,7 @@ Users can pick per configured voice assistant what wake word to listen for
 
 ## openWakeWord
 
-For wake words, we rely on openWakeWord by David Scripka. It’s a technological marvel that is built with 4 goals in mind:
+For the built-in wake words, we rely on [openWakeWord] by David Scripka. It’s a technological marvel that is created with 4 goals in mind:
 
 - Be fast enough for real-world usage
 - Be accurate enough for real-world usage
@@ -84,7 +84,7 @@ Home Assistant runs openWakeWord as an add-on and comes with various wake word m
 
 Once installed, the add-on will be discovered via the Wyoming integration.
 
-OpenWakeWord currently only works for English wake words because English is the only language for which Piper has many different speakers available. Similar models for other languages can be trained as more multi-speaker models per language become available.
+OpenWakeWord currently only works for English wake words. This is because we lack models of other languages with many different speakers. Similar models for other languages can be trained as more multi-speaker models per language become available.
 
 _If you’re not running Home Assistant OS, openWakeWord is also available as [a Docker container](https://github.com/rhasspy/wyoming-openwakeword#docker-image). Once the container is running, you will need to add the Wyoming integration and point it at its IP address and port (typically 10400)._
 
@@ -92,9 +92,9 @@ _If you’re not running Home Assistant OS, openWakeWord is also available as [a
 
 What makes openWakeWord unique is its ability to fine tune Google’s model, trained on clips from real voices, with fake voice clips generated by Piper. This makes it possible to create your own wake words without collecting samples from real people (though real samples can improve the outcome).
 
-David created a Google Collab notebook to [create your own openWakeWord model.][own-wake-word] Enter your desired wake word and an hour later you get your own wake word (using the free computing available to all Google Collab users).
+David created a Google Collab notebook to create your own openWakeWord model. Enter your desired wake word and an hour later you get your own wake word (using the free computing available to all Google Collab users).
 
-To get started, see our new ["create your own wake word"-tutorial.](/voice_control/create_wake_word/)
+To get started, see our new ["create your own wake word"-tutorial.][own-wake-word]
 
 The models generated with the notebook will perform reasonably well. They will not perform as well as the ones bundled with Home Assistant which have received a lot of extensive training.
 
@@ -105,9 +105,9 @@ Screenshot of the wake word generation notebook
 
 ## Other wake word engines
 
-In Home Assistant, we ship our defaults but allow a user to configure each part of their voice assistants. This is the same for wake words.
+In Home Assistant, we ship our defaults but allow a user to configure each part of their voice assistants. This also applies to our wake words.
 
-Wake words can integrate with Home Assistant by adding them as an integration or run them as a standalone program that communicates with Home Assistant via [the Wyoming protocol][wyoming].
+Wake word engines can integrate with Home Assistant by adding them as an integration or run them as a standalone program that communicates with Home Assistant via [the Wyoming protocol][wyoming].
 
 <p class='img'>
 <img src='/images/blog/2023-10-12-year-of-the-voice-chapter-4/wake-word-integration.png'>
@@ -124,17 +124,15 @@ We’re building our voice assistant based on our Open Home vision: a smart home
 
 Since our voice satellite is only responsible for capturing audio, a lot of devices one might have in their “old tech” drawer can be given a new life and purpose as a voice satellite.
 
+When audio is captured via USB, we recommend using a USB speakerphone because they contain audio processing chips that clean up the audio and enhance voices. They also come with a speaker and look a bit like one expects a voice satellite to look. We had great results in our testing with the [Anker PowerConf S330]. It did require a firmware update before it could be used with Home Assistant.
+
+_Some USB speakerphones will require a powered USB hub because of power limits on the Raspberry Pi’s USB ports._
+
 ## Turn Home Assistant into a voice satellite
 
 You can configure your device running Home Assistant to capture audio and turn it into a voice assistant. To do this, you need to plug in a USB microphone or speakerphone and configure the Assist microphone add-on. Your Home Assistant device may need to be rebooted before the microphone is usable.
 
 {% my supervisor_addon badge addon="47701997_assist_microphone" repository_url="https://github.com/rhasspy/hassio-addons" %}
-
-We recommend using a USB speakerphone because they contain audio processing chips that clean up the audio and enhance voices. They also come with a speaker and look a bit like one expects a voice satellite to look.
-
-We recommend the [Anker PowerConf S330]. We needed to update its firmware before it could be used with Home Assistant.
-
-_Some USB speakerphones will require a powered USB hub because of power limits on the Raspberry Pi’s USB ports._
 
 <p class='img'>
 <img src='/images/blog/2023-10-12-year-of-the-voice-chapter-4/assist-microphone-addon.png'>
@@ -154,7 +152,7 @@ Voice assistant on a breadboard.
 
 Recommended parts:
 
-- Microphone: [M5Stack PDM MEMS Microphone Unit (SPM1423)](https://shop.m5stack.com/products/pdm-microphone-unit-spm1423)
+- Microphone: [M5Stack PDM MEMS Microphone Unit (SPM1423)](https://shop.m5stack.com/products/pdm-microphone-unit-spm1423?ref=NabuCasa) or [INMP441 Omnidirectional i2s microphone](https://www.amazon.com/DAOKI-Omnidirectional-Microphone-Interface-Precision/dp/B0821521CV?crid=15LDQX6CCO0TU&keywords=dollatek+INMP441+i2s+microphone&qid=1697133224&sprefix=dollatek+inmp441+i2s+microphone%2Caps%2C53&sr=8-3&linkCode=li2&tag=homeassista0e-20&linkId=387c46c81aea5223b6a2dc46fe30071c&language=en_US&ref_=as_li_ss_il)
 - DAC/Amp: [MAX98357 I2S 3W Class D Amp DAC](https://www.aliexpress.us/item/3256804094226058.html?algo_pvid=abd6f27c-cf43-4bb7-aad5-59db93afeef2&algo_exp_id=abd6f27c-cf43-4bb7-aad5-59db93afeef2-2&pdp_npi=4@dis!USD!0.75!0.75!!!0.75!!@2101c6e316970730845818417e16ee!12000028612275493!sea!US!171596461!&curPageLogUid=KcAyDJivsXHt)
 
 [Example configuration](https://github.com/esphome/firmware/blob/main/voice-assistant/m5stack-atom-echo.yaml)
@@ -166,12 +164,6 @@ _This method requires users to have basic experience with configuring ESPHome de
 We’ve made [homeassistant-satellite](https://github.com/synesthesiam/homeassistant-satellite) available that allows you to connect a USB microphone or speakerphone to an old Raspberry Pi, or any other Linux computer, and turn it into a voice satellite for Home Assistant.
 
 <lite-youtube videoid="JeyZ4HQARMc" videotitle="Wake word demonstration on Raspberry Pi and custom ESP32 board in Home Assistant"></lite-youtube>
-
-We recommend using a USB speakerphone because they contain audio processing chips that clean up the audio and enhance voices. They also come with a speaker and look a bit like one expects a voice satellite to look.
-
-We recommend the [Anker PowerConf S330]. We needed to update its firmware before it could be used with Home Assistant.
-
-_Some USB speakerphones will require a powered USB hub because of power limits on the Raspberry Pi’s USB ports._
 
 _While any Linux computer works, we recommend limiting it to ARM-based processors because they use a lot less energy._
 
@@ -219,7 +211,7 @@ Thanks to our language leaders for extending the sentence support to all the var
 [13-tutorial]: /voice_control/thirteen-usd-voice-remote/
 [openWakeWord]: https://github.com/dscripka/openWakeWord
 [Piper]: https://github.com/rhasspy/piper/
-[own-wake-word]: https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb?usp=sharing
+[own-wake-word]: /voice_control/create_wake_word/
 [my-wake-word-addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_openwakeword
 [Anker PowerConf S330]: https://amzn.to/3tzXUhD
 [ESPHome]: https://esphome.io
