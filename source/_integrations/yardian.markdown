@@ -26,3 +26,14 @@ There is currently support for the following platform within Home Assistant:
 During the configuration, you will have to manually set the **Host** and the **Access Token**. You can find them inside your [Yardian App](https://yardian.com/app/).
 
 ![Yardian Host/Token Location](/images/integrations/yardian/yardian_config_flow.jpg)
+
+## Services
+
+### yardian.start_irrigation
+
+Start a zone for a given number of minutes. This service accepts an Yardian Zone switch entity and allows a given duration.
+
+| Service Data Attribute | Optional | Description                                           |
+| ---------------------- | -------- | ----------------------------------------------------- |
+| `entity_id`            | yes      | The Yardian Zone switch to turn on.                   |
+| `duration`             | no       | Number of minutes for this zone to be turned on.      |
