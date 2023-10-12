@@ -180,9 +180,9 @@ _This method requires users to know how to install applications on a Linux syste
 
 ## Voice office hours for scientists
 
-We want Home Assistant to be used as a platform for scientists that are developing new wake word, speech-to-text and text-to-speech engines. These engines can be plugged Home Assistant’s voice pipelines using [the Wyoming protocol][wyoming].
+We want Home Assistant to be used as a platform for scientists that are developing new wake word, speech-to-text and text-to-speech engines. Working with Home Assistant allows you to try your model as part of a voice assistant in a real world scenario. The Home Assistant community loves new technology and will be great in testing it out and providig feedback.
 
-While small, the Wyoming protocol can be tricky to get right for first time integrators. If you’re such a person, reach out to us at [voice@nabucasa.com](mailto:voice@nabucasa.com) and we’ll help you integrate.
+Engines can be plugged Home Assistant’s voice pipelines using [the Wyoming protocol][wyoming]. While small, the Wyoming protocol can be tricky to get right for first time integrators. If you’re such a person, reach out to us at [voice@nabucasa.com](mailto:voice@nabucasa.com) and we’ll help you integrate.
 
 ## What's next
 
@@ -192,13 +192,29 @@ The first thing is Android support for wake words. Home Assistant Companion app 
 
 <lite-youtube videoid="iSq478Az_iM" videotitle="Preview of Home Assistant wake words on Android"></lite-youtube>
 
-We also want to work towards supporting the most common tasks that people use with other voice assistants. Think multiple shopping lists, timers and weather forecasts.
+We want to work towards supporting the most common tasks that people use with other voice assistants. This includes support for multiple shopping lists, timers and weather forecasts.
+
+To improve accuracy, openWakeWord allows further fine-tuning of the model with recordings made by the user via their own voice satellite. We want users to be able to easily record themselves and let Home Assistant create this improved model.
 
 On the voice satellite side we're going to integrate more advanced audio processing to improve wake word and Speech-to-Text accuracy. We will also do another attempt at getting wake words running inside ESPHome.
 
 The voice satellite improvements will require more advanced hardware and we're aiming for the ESP32 S3 Box 3. This is the new variant of the now discontinued ESP32 S3 Box (and lite version). Espressif told us that it will be in stock soon.
 
 If you already have an ESP32 S3 Box variant, you can install [our ESPHome configuration](https://github.com/esphome/firmware/tree/main/voice-assistant) to receive these updates as they come available.
+
+## That's a wrap!
+
+We hope that you enjoy the wake words and that you set up voice satellites around your house. Let us know how it goes and share your experience with us.
+
+See you soon in chapter 5!
+
+## Thank You
+
+A big thanks to David Scripka for openWakeWord. Thanks to Jesse Hills for his patience and support while Mike and I explored wake word architectures and help ESPHome fit in. Big thanks to everyone at Nabu Casa who has helped make and review today's content.
+
+Thank you to the Home Assistant community for subscribing to [Home Assistant Cloud][nabucasa] to support Year of the Voice and development of Home Assistant, ESPHome and other projects in general.
+
+Thanks to our language leaders for extending the sentence support to all the various languages.
 
 [wyoming]: https://github.com/rhasspy/wyoming
 [13-tutorial]: /voice_control/thirteen-usd-voice-remote/
@@ -208,3 +224,4 @@ If you already have an ESP32 S3 Box variant, you can install [our ESPHome config
 [my-wake-word-addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_openwakeword
 [Anker PowerConf S330]: https://amzn.to/3tzXUhD
 [ESPHome]: https://esphome.io
+[nabucasa]: https://www.nabucasa.com
