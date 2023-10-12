@@ -81,7 +81,7 @@ Overview of the openWakeWord training pipeline.
 
 Home Assistant runs openWakeWord as an add-on and comes with various wake word models by default, including our “Okay Nabu” model. Click the button below to install it.
 
-{% my supervisor_addon addon="core_openwakeword" %}
+{% my badge supervisor_addon addon="core_openwakeword" %}
 
 Once installed, the add-on will be discovered via the Wyoming integration.
 
@@ -117,7 +117,7 @@ How wake words integrate into Home Assistant
 
 As an example, we’re also making the Porcupine (v1) wake word engine available. It supports 29 wake words across English, French, Spanish and German, including Computer, Framboise, Manzana and Stachelschwein.
 
-{% my supervisor_addon addon="47701997_porcupine1" repository_url="https://github.com/rhasspy/hassio-addons" %}
+{% my badge supervisor_addon addon="47701997_porcupine1" repository_url="https://github.com/rhasspy/hassio-addons" %}
 
 ## Reuse and repurpose: different ways to create a voice satellite
 
@@ -129,7 +129,7 @@ Since our voice satellite is only responsible for capturing audio, a lot of devi
 
 You can configure your device running Home Assistant to capture audio and turn it into a voice assistant. To do this, you need to plug in a USB microphone or speakerphone and configure the Assist microphone add-on. Your Home Assistant device may need to be rebooted before the microphone is usable.
 
-{% my supervisor_addon addon="47701997_assist_microphone" repository_url="https://github.com/rhasspy/hassio-addons" %}
+{% my badge supervisor_addon addon="47701997_assist_microphone" repository_url="https://github.com/rhasspy/hassio-addons" %}
 
 We recommend using a USB speakerphone because they contain audio processing chips that clean up the audio and enhance voices. They also come with a speaker and look a bit like one expects a voice satellite to look.
 
