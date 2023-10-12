@@ -85,7 +85,7 @@ Home Assistant runs openWakeWord as an add-on and comes with various wake word m
 
 Once installed, the add-on will be discovered via the Wyoming integration.
 
-OpenWakeWord currently only works for English wake words because English is the only language for which Piper has many different speakers available. Similar models for other languages can be trained as more speaker models per language become available.
+OpenWakeWord currently only works for English wake words because English is the only language for which Piper has many different speakers available. Similar models for other languages can be trained as more multi-speaker models per language become available.
 
 _If you’re not running Home Assistant OS, openWakeWord is also available as [a Docker container](https://github.com/rhasspy/wyoming-openwakeword#docker-image). Once the container is running, you will need to add the Wyoming integration and point it at its IP address and port (typically 10400)._
 
