@@ -429,7 +429,6 @@ source/_integrations/martec.markdown @starkillerOG
 source/_integrations/mastodon.markdown @fabaff
 source/_integrations/matrix.markdown @PaarthShah
 source/_integrations/matter.markdown @home-assistant/matter
-source/_integrations/mazda.markdown @bdr99
 source/_integrations/meater.markdown @Sotolotl @emontnemery
 source/_integrations/medcom_ble.markdown @elafargue
 source/_integrations/media_extractor.markdown @joostlek
