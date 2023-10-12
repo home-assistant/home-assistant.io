@@ -29,7 +29,7 @@ For Chapter 4, we’ve now added wake word processing inside Home Assistant. Wak
 
 Home Assistant’s wake words are leveraging a new project called [openWakeWord] by David Scripka. This project has real-world accuracy, runs on commodity hardware and anyone can train a basic model of their own wake word in an hour, for free.
 
-To try wake words today, follow our updated guide to [the $13 voice assistant][13-tutorial].
+To try wake words today, follow our updated guide to [the $13 voice assistant][13-tutorial]. Also check out our new guide to [create your own wake word.][own-wake-word]
 
 <lite-youtube videoid="uad2rw4MesA" videotitle="Wake word demonstration on $13 ATOM Echo in Home Assistant"></lite-youtube>
 
@@ -51,6 +51,8 @@ Overview of the wake word architecture
 </p>
 
 The advantage of this approach is that any device that streams audio can be turned into a voice satellite, even if it doesn't have enough power to do wake word detection locally. It also allows our developer community to easily experiment with new wake word models as they don’t have to first shrink it to be able to run on a low-powered voice satellite device.
+
+To try it out, follow our updated tutorial to [create your own $13 voice assistant.][13-tutorial]
 
 There are two downsides to this approach. The first is that the quality of the captured audio differs. A speakerphone with multiple microphones and audio processing chips captures voice very cleanly. A device with a single microphone and no post-processing? Not so much. We compensate for poor audio quality with audio post-processing inside Home Assistant and users can use better speech-to-text models like the one included with Home Assistant Cloud to improve accuracy.
 
@@ -137,11 +139,21 @@ We recommend the [Anker PowerConf S330]. We needed to update its firmware before
 
 _Some USB speakerphones will require a powered USB hub because of power limits on the Raspberry Pi’s USB ports._
 
+<p class='img'>
+<img src='/images/blog/2023-10-12-year-of-the-voice-chapter-4/assist-microphone-addon.png'>
+Home Assistant Blue with a speakerphone
+</p>
+
 ## Turn any ESP32 into a voice satellite using ESPHome
 
 [ESPHome] is our firmware to allow users to easily create devices for their smart home. In Year of the Voice - Chapter 2, we’ve added support for ESPHome to accept voice commands when a user pushes a button.
 
 Today, that support is extended to allow any ESP32 device with an i2s microphone to become a voice satellite for Home Assistant.
+
+<p class='img'>
+<img src='/images/blog/2023-10-12-year-of-the-voice-chapter-4/ESP32-breadboard.jpeg'>
+Voice assistant on a breadboard.
+</p>
 
 Recommended parts:
 
