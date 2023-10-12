@@ -216,6 +216,10 @@ Thank you to the Home Assistant community for subscribing to [Home Assistant Clo
 
 Thanks to our language leaders for extending the sentence support to all the various languages.
 
+<p class='img'>
+<img src='/images/blog/2023-10-12-year-of-the-voice-chapter-4/ha-support.png' alt="Thank you for supporting the Home Assistant project">
+</p>
+
 [wyoming]: https://github.com/rhasspy/wyoming
 [13-tutorial]: /voice_control/thirteen-usd-voice-remote/
 [openWakeWord]: https://github.com/dscripka/openWakeWord
