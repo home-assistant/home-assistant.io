@@ -37,7 +37,7 @@ Supported devices are:
 - Switch EU (107)
 - Switch Zero (120)
 
-Two new sensors are available for switches:
+Two sensors are available for switches:
 
 - temperature
 - energy consumption
