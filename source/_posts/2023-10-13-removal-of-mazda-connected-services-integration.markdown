@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Removal of Mazda Connected Services integration"
-description: "They send us a Cease and Desist + DMCA takedown."
+description: "Why the integration has been removed from Home Assistant in 2023.10.2."
 date: 2023-10-13 00:00:00
 date_formatted: "October 13, 2023"
 author: Paulus Schoutsen
