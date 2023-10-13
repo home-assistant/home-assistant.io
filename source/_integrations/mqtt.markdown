@@ -48,7 +48,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
-## Choose a MQTT broker
+## Choose an MQTT broker
 
 ### Run your own
 
@@ -202,7 +202,7 @@ For every configured MQTT entity Home Assistant automatically assigns a unique `
 If the `object_id` option is set, then this will be used to generate the `entity_id`.
 If, for example, we have configured a `sensor`, and we have set `object_id` to `test`, then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will append it with a suffix to make it unique, for example, `sensor.test_2`.
 
-This means any MQTT entity which is part of a device will [automatically have it's `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
+This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
 
 Unnamed `binary_sensor`, `button`, `number` and `sensor` entities will now be named by their device class instead of being named "MQTT binary sensor" etc.
 It's allowed to set an MQTT entity's name to `None` (use `null` in YAML) to mark it as the main feature of a device.
@@ -277,7 +277,7 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
-It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can abbreviated to `o`) to the discovery payload. Note that these options also support abbreviations. Information of the origin will be logged to the core event log when an item is discovered or updated.
+It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can be abbreviated to `o`) to the discovery payload. Note that these options also support abbreviations. Information of the origin will be logged to the core event log when an item is discovered or updated.
 
 {% configuration_basic %}
 name:
