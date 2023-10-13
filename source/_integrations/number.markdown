@@ -14,9 +14,9 @@ ha_integration_type: entity
 
 Keeps track on `number` entities in your environment, their state, and allows you to control them. This integration allows other integrations to get a value input from user within a range.
 
-Number entities cannot be implemented manually, but can be provided by other
-integrations. If you are looking for a way to create a number entity,
-please take a look at the [Number helper](/integrations/input_number).
+{% include integrations/building_block_integration.md %}
+
+If you are looking for a way to create a number entity, please take a look at the [Number helper](/integrations/input_number).
 
 ## Device Class
 

@@ -10,7 +10,9 @@ ha_codeowners:
   - '@pjanuario'
 ha_domain: ecoforest
 ha_platforms:
+  - number
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 

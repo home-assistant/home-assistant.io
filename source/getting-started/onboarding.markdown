@@ -5,9 +5,13 @@ description: "Instructions to get Home Assistant configured."
 
 Alright, you made it here. The tough part is done.
 
-After entering the Home Assistant device's address in your browser's address bar, the welcome screen is shown. Depending on your hardware, preparation may take a while.
+- As the last step of the [installation procedure](/installation/) specific to your device, you entered the Home Assistant device's address in your browser's address bar.
+    - Typically, this is `http://homeassistant.local:8123/`
+    - If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your device's IP address).
 
-![Home Assistant preparation](/images/getting-started/onboarding_preparing_01_.png)
+    - **Result**: You now see the welcome screen. Depending on your hardware, preparation may take a while.
+
+    ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01_.png)
 
 With Home Assistant installed, it's time to set up the basics.
 

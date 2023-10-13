@@ -13,11 +13,11 @@ ha_codeowners:
   - '@cereal2nd'
 ha_domain: duotecno
 ha_platforms:
+  - binary_sensor
   - climate
   - cover
   - light
   - switch
-  - binary sensor
 ha_integration_type: integration
 ---
 

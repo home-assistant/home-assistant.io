@@ -76,3 +76,18 @@ unit_of_measurement:
   required: false
   type: string
 {% endconfiguration %}
+
+### Examples
+
+In this section you find am example of how this sensor can be used.
+
+Create a random sensor called "My random sensor" which will return a number between 10 (minimum) and 500 (maximum).
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: random
+    name: "My random sensor"
+    minimum: 10
+    maximum: 500
+```

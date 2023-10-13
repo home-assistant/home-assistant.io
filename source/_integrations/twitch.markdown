@@ -11,12 +11,13 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@joostlek'
+ha_config_flow: true
 ---
 
 The Twitch integration will allow you to monitor [Twitch](https://www.twitch.tv/) channel status from within Home Assistant and setup automation based on the information.
 
 ## Get Twitch application credentials
 
-Create a new app at "Register Your Application" in the [Twitch developer portal](https://dev.twitch.tv/console/apps). Then get the __Client ID__ and __Client secret__ for the new application.
+Create a new app at **Register Your Application** in the [Twitch developer portal](https://dev.twitch.tv/console/apps). Enter `https://my.home-assistant.io/redirect/oauth` in the **OAuth Redirect URL** field. Then, get the **Client ID** and **Client secret** from the new application.
 
 {% include integrations/config_flow.md %}

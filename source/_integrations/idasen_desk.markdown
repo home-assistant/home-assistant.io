@@ -1,5 +1,5 @@
 ---
-title: IKEA IDÅSEN Desk
+title: IKEA Idasen Desk
 description: Control and monitor your IKEA Idåsen standing desk.
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -11,9 +11,19 @@ ha_bluetooth: true
 ha_platforms:
   - cover
 ha_integration_type: integration
+ha_codeowners:
+  - '@abmantis'
 ---
 
 The IKEA IDÅSEN integration allows you to connect your IKEA Idåsen motorized desk to Home Assistant, making it possible to control the desk height and also monitor height changes from the physical controller.
+
+<div class='note warning'>
+
+The recommended way to connect the desk to Home Assistant is by using an [ESPHome Bluetooth Proxy](https://esphome.io/projects/?type=bluetooth), as they provide the best experience.
+  
+If you are not using an ESPHome Bluetooth Proxy, you need to keep `bluetoothctl` (or any other Bluetooth Agent) open during the integration setup, or it will fail to authenticate with the desk. The connection process is also less reliable than with ESPHome, so you may need to retry a few times until it succeeds. This is due to a limitation in the third-party Bluetooth implementation used by Home Assistant.
+
+</div>
 
 {% include integrations/config_flow.md %}
 
