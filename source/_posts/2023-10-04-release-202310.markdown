@@ -41,6 +41,7 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2023.10.1 - October 6](#release-2023101---october-6)
 - [Release 2023.10.2 - October 12](#release-2023102---october-12)
+- [Release 2023.10.3 - October 13](#release-2023103---october-13)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -439,6 +440,27 @@ The Mazda integration has been removed from Home Assistant. The library that Hom
 [@timmo001]: https://github.com/timmo001
 [@tjhorner]: https://github.com/tjhorner
 [@tkdrob]: https://github.com/tkdrob
+
+## Release 2023.10.3 - October 13
+
+- Downgrade aiohttp to 3.8.5 ([@frenck] - [#101913])
+- Add missing fan mode in Sensibo ([@gjohansson-ST] - [#101883])
+- Uncancel task when swallowing CancelledError ([@starkillerOG] - [#101884])
+- Bump reolink-aio to 0.7.11 ([@starkillerOG] - [#101886])
+- Fix implicit device name in wiz switch ([@bdraco] - [#101914])
+
+[#101386]: https://github.com/home-assistant/core/pull/101386
+[#101547]: https://github.com/home-assistant/core/pull/101547
+[#101871]: https://github.com/home-assistant/core/pull/101871
+[#101883]: https://github.com/home-assistant/core/pull/101883
+[#101884]: https://github.com/home-assistant/core/pull/101884
+[#101886]: https://github.com/home-assistant/core/pull/101886
+[#101913]: https://github.com/home-assistant/core/pull/101913
+[#101914]: https://github.com/home-assistant/core/pull/101914
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@starkillerOG]: https://github.com/starkillerOG
 
 ## Need help? Join the community!
 
