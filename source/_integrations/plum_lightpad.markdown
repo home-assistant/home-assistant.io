@@ -12,6 +12,7 @@ ha_codeowners:
   - '@prystupa'
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 Configurable/Dimmable Wi-Fi Lightswitch

@@ -1,7 +1,8 @@
 ---
 title: "Template Vacuum"
 description: "Instructions how to setup Template vacuums within Home Assistant."
-ha_category: Vacuum
+ha_category:
+  - Vacuum
 ha_release: 0.96
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -65,7 +66,7 @@ vacuum:
             required: true
             type: template          
       availability_template:
-        description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns either of `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"` or a non-zero number, the entity is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+        description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
         required: false
         type: template
         default: true
@@ -103,11 +104,15 @@ vacuum:
         type: [string, list]
 {% endconfiguration %}
 
+### Template and action variables
+
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
+
 ## Examples
 
 ### Control vacuum with Harmony Hub
 
-This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote component](/integrations/harmony).
+This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote integration](/integrations/harmony).
 
 ```yaml
 vacuum:

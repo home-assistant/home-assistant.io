@@ -7,6 +7,9 @@ ha_iot_class: Calculated
 ha_release: 0.49
 ha_quality_scale: internal
 ha_domain: media_extractor
+ha_integration_type: integration
+ha_codeowners:
+  - '@joostlek'
 ---
 
 The `media_extractor` integration gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.
@@ -54,11 +57,11 @@ media_content_type: music
 
 Query examples with explanations:
 
- * **bestvideo**: Best video only stream
- * **best**: Best video + audio stream
- * **bestaudio[ext=m4a]**: Best audio stream with m4a extension
- * **worst**: Worst video + audio stream
- * **bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio**: Best m4a audio, otherwise best ogg audio and only then any best audio
+- **bestvideo**: Best video only stream
+- **best**: Best video + audio stream
+- **bestaudio[ext=m4a]**: Best audio stream with m4a extension
+- **worst**: Worst video + audio stream
+- **bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio**: Best m4a audio, otherwise best ogg audio and only then any best audio
 
 More info about queries can be found [here](https://github.com/ytdl-org/youtube-dl#format-selection).
 
@@ -68,8 +71,8 @@ Navigate to the **Services** tab inside **Developer Tools**. From the "Service" 
 
 This will download the file from the given URL.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name(s) of entities to seek media on, e.g., `media_player.living_room_chromecast`. Defaults to all.
-| `media_content_id`     |       no | The ID of the content to play. Platform dependent.
-| `media_content_type`   |       no | The type of the content to play. Must be one of MUSIC, TVSHOW, VIDEO, EPISODE, CHANNEL or PLAYLIST MUSIC.
+| Service data attribute | Optional | Description                                                                                               |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Name(s) of entities to seek media on, e.g., `media_player.living_room_chromecast`. Defaults to all.       |
+| `media_content_id`     | no       | The ID of the content to play. Platform dependent.                                                        |
+| `media_content_type`   | no       | The type of the content to play. Must be one of MUSIC, TVSHOW, VIDEO, EPISODE, CHANNEL or PLAYLIST MUSIC. |

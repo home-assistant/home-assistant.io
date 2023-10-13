@@ -25,6 +25,7 @@ ha_platforms:
   - lock
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 [Freedompro](https://freedompro.eu/), a company specialized in home automation, designs and manufactures products to make domotics affordable for everyone, installers and enthusiasts. [Freedompro Products](https://freedompro.eu/collections/easykon) are designed to be easy to use and practical and fast to install.

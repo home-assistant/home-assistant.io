@@ -6,15 +6,18 @@ ha_category:
   - Car
   - Sensor
 ha_release: 2021.12
-ha_iot_class: Cloud Poll
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@frenck'
+  - '@joostlek'
 ha_domain: rdw
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
+ha_integration_type: service
 ---
 
 [RDW](https://www.rdw.nl) is the Netherlands Vehicle Authority. Their tasks

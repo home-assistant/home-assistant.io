@@ -8,9 +8,10 @@ ha_iot_class: Cloud Push
 ha_domain: yandextts
 ha_platforms:
   - tts
+ha_integration_type: integration
 ---
 
-The `yandextts` text-to-speech platform uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) Text-to-Speech engine to read a text with natural sounding voices.
+The `yandextts` text-to-speech platform uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) text-to-speech engine to read a text with natural sounding voices.
 
 <div class='note warning'>
 This integration is working only with old API keys. For the new API keys, this integration cannot be used.

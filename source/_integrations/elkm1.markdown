@@ -3,26 +3,30 @@ title: Elk-M1 Control
 description: Instructions to setup the Elk-M1 controller.
 ha_release: 0.81
 ha_category:
-  - Hub
   - Alarm
+  - Binary Sensor
   - Climate
+  - Hub
   - Light
   - Scene
   - Sensor
   - Switch
 ha_iot_class: Local Push
 ha_domain: elkm1
+ha_dhcp: true
 ha_config_flow: true
 ha_codeowners:
   - '@gwww'
   - '@bdraco'
 ha_platforms:
   - alarm_control_panel
+  - binary_sensor
   - climate
   - light
   - scene
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Elk-M1 is a home security and automation controller that is capable of alarm control panel functions and automation.
@@ -31,12 +35,13 @@ The Elk-M1 controller is manufactured by [Elk Products](https://www.elkproducts.
 
 There is currently support for the following device types within Home Assistant:
 
-- **Alarm** - An Elk-M1 area (also known as partition) is represented as an `alarm_control_panel`.
-- **Climate** - An Elk-M1 thermostat is represented as a `climate` entity.
-- **Light** - An Elk-M1 light (which can be X10, Insteon, UPB) is represented as a `light`.
-- **Scene** - Elk-M1 tasks are represented as `scene` entities.
-- **Sensor** - Elk-M1 counters, keypads, panel, settings, and zones are represented as `sensor` entities.
-- **Switch** - Elk-M1 outputs are represented as `switch` entities.
+- **Alarm** - An ElkM1 area (also known as partition) is represented as an `alarm_control_panel`.
+- **Binary Sensor** - ElkM1 zones that have 4 states (i.e.: are not analog zones) are represented as `binary_sensor` entities. `Normal` is `off` and any of the other values is `on`.
+- **Climate** - An ElkM1 thermostat is represented as a `climate` entity.
+- **Light** - An ElkM1 light (which can be X10, Insteon, UPB) is represented as a `light`.
+- **Scene** - ElkM1 tasks are represented as `scene` entities.
+- **Sensor** - ElkM1 counters, keypads, panel, settings, and zones are represented as `sensor` entities.
+- **Switch** - ElkM1 outputs are represented as `switch` entities.
 
 The implementation follows the Elk Products ElkM1 "ASCII Protocol & Interface 
 Specification, Revision 1.84" document. This document can be found on the Internet.
@@ -174,11 +179,6 @@ prefix:
   description: The prefix to use, if any, for all the devices created for this controller. At most one host can omit the prefix, all others must have a unique prefix within the Home Assistant instance.
   require: false
   type: string
-temperature_unit:
-  description: The temperature unit that the Elk panel uses. Valid values are `C` and `F`.
-  required: false
-  type: string
-  default: F
 auto_configure:
   description: Auto configure `area`, `counter`, `keypad`, `output`, `setting`, `task`, `thermostat`, `plc`, and `zone` by only adding elements that ElkM1 reports on the initial sync.
   required: false

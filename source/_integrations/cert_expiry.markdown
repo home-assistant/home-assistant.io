@@ -7,11 +7,11 @@ ha_release: 0.44
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@Cereal2nd'
   - '@jjlawren'
 ha_domain: cert_expiry
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Certificate Expiry integration fetches the certificate from a configured host and displays its expiration in a timestamp sensor.

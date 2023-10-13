@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: cisco_ios
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 This is a presence detection scanner for [Cisco IOS](https://www.cisco.com/) devices.
@@ -44,7 +45,7 @@ copy running-config startup-config
 
 <div class='note warning'>
 
-If you have a very large number of devices on your VLan (+1000), then you may want to adjust the ARP cache timeout to suit your needs. See [this discussion](https://supportforums.cisco.com/discussion/10169296/arp-timeout) to learn more.
+If you have a very large number of devices on your VLan (+1000), then you may want to adjust the ARP cache timeout to suit your needs. See [this discussion](https://community.cisco.com/t5/switching/arp-timeout/td-p/839027) to learn more.
 
 </div>
 

@@ -6,9 +6,14 @@ ha_category:
 ha_release: 0.36
 ha_domain: image_processing
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: entity
 ---
 
 Image processing enables Home Assistant to process images from [cameras](/integrations/#camera). Only camera entities are supported as sources.
+
+{% include integrations/building_block_integration.md %}
 
 ## ALPR
 

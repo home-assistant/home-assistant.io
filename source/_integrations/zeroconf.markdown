@@ -9,11 +9,12 @@ ha_codeowners:
   - '@bdraco'
 ha_domain: zeroconf
 ha_iot_class: Local Push
+ha_integration_type: system
 ---
 
 The `zeroconf` integration will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel. It will also make Home Assistant discoverable for other services in the network. Zeroconf is also sometimes known as Bonjour, Rendezvous, and Avahi.
 
-Integrations can opt-in to be found by adding either [a Zeroconf section](https://developers.home-assistant.io/docs/en/next/creating_integration_manifest.html#zeroconf) or [a HomeKit section](https://developers.home-assistant.io/docs/en/next/creating_integration_manifest.html#homekit) to their `manifest.json`.
+Integrations can opt-in to be found by adding either [a Zeroconf section](https://developers.home-assistant.io/docs/creating_integration_manifest/#zeroconf) or [a HomeKit section](https://developers.home-assistant.io/docs/creating_integration_manifest/#homekit) to their `manifest.json`.
 
 ## Configuration
 
@@ -29,3 +30,28 @@ zeroconf:
 Zeroconf chooses which interfaces to broadcast on based on the [Network](/integrations/network/) integration.
 
 IPv6 will automatically be enabled if one of the selected interfaces has an IPv6 address that is enabled via the Network integration.
+
+## Troubleshooting
+
+### Integrations relying on Zeroconf traffic are unresponsive
+
+Some integrations rely on Zeroconf traffic to work, for example, the [HomeKit](/integrations/homekit/) integration.
+These integrations will not respond to traffic from other devices if the host device is not configured correctly.
+
+#### Libvirt virtual machine with macvtap adapter
+
+By default, the macvtap adapter created by libvirt does not allow the guest to receive Zeroconf or multicast traffic.
+
+Configure the virtual machine to accept this traffic by adding the `trustGuestRxFilters="yes"` setting in the adapter's XML. For example:
+
+```xml
+<interface type="direct" trustGuestRxFilters="yes">
+  <mac address="xx:xx:xx:xx:xx:xx"/>
+  <source dev="eno1" mode="bridge"/>
+  <model type="virtio"/>
+  <link state="up"/>
+  <address type="pci" domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
+</interface>
+```
+
+This only works with the `virtio` network adapter type and it is disabled by default for security reasons. See [the libvirt documentation](https://libvirt.org/formatdomain.html#elementsNICS) for more details.

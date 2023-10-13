@@ -9,11 +9,12 @@ ha_quality_scale: internal
 ha_domain: universal
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
-Universal Media Players combine multiple existing entities in Home Assistant into one media player entity. This is used for creating a single entity that controls an entire media center.
+A Universal Media Player can combine multiple existing entities in Home Assistant into a single media player entity. This is used to create a single media player entity that can control an entire media center.
 
-Multiple media player entities can be controlled from a universal media player. Additionally, the universal media player allows volume and power commands to be re-routed to other entities in Home Assistant. This allows the power and volume to control external devices like a television or audio receiver.
+Multiple media player entities may be controlled from a Universal Media Player. Additionally, the Universal Media Player can enable volume and power commands to be directed to other Home Assistant entities. This enables the media player power and volume commands to control devices like a television, amplifier or audio receiver, for example.
 
 A Universal Media Player is created in `configuration.yaml` as follows.
 
@@ -56,37 +57,53 @@ media_player:
     attributes:
       is_volume_muted: ENTITY_ID|ATTRIBUTE
       state: ENTITY_ID|ATTRIBUTE
+    browse_media_entity: media_player.CHILD_2_ID
     device_class: tv
+    unique_id: a_unique_string
 ```
 
 {% configuration %}
 name:
-  description: The name to assign the player.
+  description: The name to assign to the player.
   required: true
   type: string
 children:
-  description: Ordered list of child media players this entity will control.
+  description: Ordered list of child media players that this entity will control.
   required: false
   type: list
+active_child_template:
+  description: "A [template](/docs/configuration/templating/) that will allow to select (override) active child. Must return the `entity_id` of the child selected as active, or `None` to use the default behavior."
+  required: false
+  type: template
 state_template:
-  description: "A [template](/topics/templating/) can be specified to render the state of the media player. This way, the state could depend on entities different from media players, like switches or input booleans."
+  description: "A [template](/docs/configuration/templating/) can be specified to render the state of the media player. In this way, the state may depend on entities that are not themselves media players, like switches or input booleans."
   required: false
   type: template
 commands:
-  description: "Commands to be overwritten. Almost all media player service commands can be overwritten. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, `volume_mute`, `media_play`, `media_pause`, `media_stop`, `media_previous_track`, `media_next_track` and `play_media` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
+  description: "Media player commands to be overridden. Almost all media player service commands may be overridden. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, `volume_mute`, `media_play`, `media_pause`, `media_stop`, `media_previous_track`, `media_next_track` and `play_media` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
   required: false
   type: string
 attributes:
-  description: "Attributes that can be overwritten. Most, if not all, media player attributes can be overwritten. Example entries are `is_volume_muted`, `state`, `source`, `source_list` and `volume_level`. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID's state should be used, then only the entity id should be provided."
+  description: "Attributes that can be overridden. Most, if not all, media player attributes can be overridden. Example entries are `is_volume_muted`, `state`, `source`, `source_list` and `volume_level`. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID's state should be used, then only the entity id needs to be provided."
+  required: false
+  type: string
+browse_media_entity:
+  description: Allows override the browse media entity to desired media player.
   required: false
   type: string
 device_class:
   description: The device class that this entity represents. Can be `tv`, `speaker`, or `receiver`.
   required: false
   type: string
+unique_id:
+  description: A unique identifier for this entity. Needs to be unique within the `media_player` platform.
+  required: false
+  type: string
 {% endconfiguration %}
 
 The Universal Media Player will primarily imitate one of its `children`. The Universal Media Player will control the first child on the list that is active (not idle/off). The Universal Media Player will also inherit its state from the first active child if a `state_template` is not provided. Entities in the `children:` list must be media players, but the state template can contain any entity.
+
+Using `active_child_template` will allow you to specify an active entity if the default behavior is unsuitable for your task. The template must return the `entity_id` of the child that will be selected as active or `None` to return the default behavior.
 
 It is recommended that the command `turn_on`, the command `turn_off`, and the attribute `state` all be provided together. The `state` attribute indicates if the media player is on or off. If `state` indicates the media player is off, this status will take precedence over the states of the children. If all the children are idle/off and `state` is on, the Universal Media Player's state will be on. If not provided, the `toggle` command will delegate to `turn_on` or `turn_off` based on the `state`.
 
@@ -96,11 +113,13 @@ When providing `select_source` as a command, it is recommended to also provide t
 
 When using `state_template`, if you use a template that depends on the current time it is recommended to use `now()`. Using `now()` will cause templates to be refreshed at the start of every new minute. For more information see the [time](/docs/configuration/templating/#time) section in the template documentation.
 
+The `browse_media_entity` parameter allows you to specify which media player will be used in media browser.
+
 ## Usage examples
 
 ### Chromecast & Kodi control with switches
 
-In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The `turn_on` and `turn_off` commands will be redirected to the television, and the volume commands will be redirected to an audio receiver. The `select_source` command will be passed directly to an A/V receiver.
+In this example, a switch is available to control the power to the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The `turn_on` and `turn_off` commands will be redirected to the television, and the volume commands will be redirected to an audio receiver. The `select_source` command will be passed directly to an A/V receiver.
 
 The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the universal media player will change to reflect its status.
 
@@ -157,7 +176,7 @@ media_player:
 
 {% endraw %}
 
-#### Kodi CEC-TV control
+### Kodi CEC-TV control
 
 In this example, a [Kodi Media Player](/integrations/kodi) runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi add-on installed, it can turn on and off the attached TV.
 
@@ -179,88 +198,87 @@ input_boolean:
   kodi_tv_state:
 
 media_player:
-- platform: universal
-  name: Kodi TV
-  state_template: >
-    {% if is_state('media_player.kodi', 'idle') and is_state('input_boolean.kodi_tv_state', 'off') %}
-    off
-    {% else %}
-    {{ states('media_player.kodi') }}
-    {% endif %}
-  children:
-    - media_player.kodi
-  commands:
-    turn_on:
-      service: media_player.turn_on
-      target:
-        entity_id: media_player.kodi
-    turn_off:
-      service: media_player.turn_off
-      target:
-        entity_id: media_player.kodi
-  attributes:
-    is_volume_muted: media_player.kodi|is_volume_muted
-    volume_level: media_player.kodi|volume_level
+  - platform: universal
+    name: Kodi TV
+    state_template: >
+      {% if is_state('media_player.kodi', 'idle') and is_state('input_boolean.kodi_tv_state', 'off') %}
+        off
+      {% else %}
+        {{ states('media_player.kodi') }}
+      {% endif %}
+    children:
+      - media_player.kodi
+    commands:
+      turn_on:
+        service: media_player.turn_on
+        target:
+          entity_id: media_player.kodi
+      turn_off:
+        service: media_player.turn_off
+        target:
+          entity_id: media_player.kodi
+    attributes:
+      is_volume_muted: media_player.kodi|is_volume_muted
+      volume_level: media_player.kodi|volume_level
 
-- platform: kodi
-  name: Kodi
-  host: 192.168.1.10
-  turn_on_action:
-  - service: input_boolean.turn_on
-    target:
-      entity_id: input_boolean.kodi_tv_state
-  - service: media_player.kodi_call_method
-    target:
-      entity_id: media_player.kodi
-    data:
-      method: Addons.ExecuteAddon
-      addonid: script.json-cec
-      params:
-        command: activate
-  turn_off_action:
-  - service: input_boolean.turn_off
-    target:
-      entity_id: input_boolean.kodi_tv_state
-  - service: media_player.media_stop
-    target:
-      entity_id: media_player.kodi
-  - service: media_player.kodi_call_method
-    target:
-      entity_id: media_player.kodi
-    data:
-      method: Addons.ExecuteAddon
-      addonid: script.json-cec
-      params:
-        command: standby
+  - platform: kodi
+    name: Kodi
+    host: 192.168.1.10
+    turn_on_action:
+      - service: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.kodi_tv_state
+      - service: media_player.kodi_call_method
+        target:
+          entity_id: media_player.kodi
+        data:
+          method: Addons.ExecuteAddon
+          addonid: script.json-cec
+          params:
+            command: activate
+    turn_off_action:
+      - service: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.kodi_tv_state
+      - service: media_player.media_stop
+        target:
+          entity_id: media_player.kodi
+      - service: media_player.kodi_call_method
+        target:
+          entity_id: media_player.kodi
+        data:
+          method: Addons.ExecuteAddon
+          addonid: script.json-cec
+          params:
+            command: standby
 
 automation:
-- alias: "Turn on the TV when Kodi is activated"
-  trigger:
-    platform: state
-    entity_id: media_player.kodi_tv
-    from: "off"
-    to: "playing"
-  action:
-  - service: media_player.turn_on
-    target:
+  - alias: Turn on the TV when Kodi is activated
+    trigger:
+      platform: state
       entity_id: media_player.kodi_tv
-
-- alias: "Turn off the TV when Kodi is in idle > 15 min"
-  trigger:
-    platform: state
-    entity_id: media_player.kodi_tv
-    to: "idle"
-    for:
-      minutes: 15
-  action:
-  - service: media_player.turn_off
-    target:
+      from: "off"
+      to: playing
+    action:
+      - service: media_player.turn_on
+        target:
+          entity_id: media_player.kodi_tv
+  - alias: Turn off the TV when Kodi is in idle > 15 min
+    trigger:
+      platform: state
       entity_id: media_player.kodi_tv
+      to: idle
+      for:
+        minutes: 15
+    action:
+      - service: media_player.turn_off
+        target:
+          entity_id: media_player.kodi_tv
 ```
 
 {% endraw %}
 
-#### Harmony Remote Example
+### Harmony Remote Example
 
 The complete configuration is:
 
@@ -271,39 +289,64 @@ media_player:
   - platform: universal
     name: Media Room TV
     attributes:
-      state: remote.alexander_down_guest
-      source_list: remote.alexander_down_guest|activity_list
-      source: remote.alexander_down_guest|current_activity
+      state: remote.harmony_hub
+      source_list: remote.harmony_hub|activity_list
+      source: remote.harmony_hub|current_activity
     commands:
       turn_on:
         service: remote.turn_on
         target:
-          entity_id: remote.alexander_down_guest
+          entity_id: remote.harmony_hub
       turn_off:
         service: remote.turn_off
         target:
-          entity_id: remote.alexander_down_guest
+          entity_id: remote.harmony_hub
       volume_up:
         service: remote.send_command
         target:
-          entity_id: remote.alexander_down_guest
+          entity_id: remote.harmony_hub
         data:
           device: Receiver
           command: VolumeUp
       volume_down:
         service: remote.send_command
         target:
-          entity_id: remote.alexander_down_guest
+          entity_id: remote.harmony_hub
         data:
           device: Receiver
           command: VolumeDown
       select_source:
         service: remote.turn_on
         target:
-          entity_id: remote.alexander_down_guest
+          entity_id: remote.harmony_hub
         data:
           activity: "{{ source }}"
     device_class: tv
+    unique_id: media_room_harmony_hub
+```
+
+{% endraw %}
+
+### Override active children
+
+This example shows how you can use `active_child_template`:
+
+{% raw %}
+
+```yaml
+media_player:
+  - platform: universal
+    name: sony_tv
+    unique_id: sony_tv
+    children:
+      - media_player.sony_tv_cast
+      - media_player.sony_tv_psk
+    active_child_template: >
+      {% if is_state_attr('media_player.sony_tv_cast', 'app_name', 'TV') %}
+         media_player.sony_tv_psk
+      {% else %}
+         media_player.sony_tv_cast
+      {% endif %}
 ```
 
 {% endraw %}

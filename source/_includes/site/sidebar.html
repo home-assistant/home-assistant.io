@@ -7,16 +7,20 @@
     {% include asides/installation_navigation.html %}
   {% elsif root == 'common-tasks' %}
     {% include asides/common_tasks_navigation.html %}
-  {% elsif root == 'lovelace' %}
-    {% include asides/lovelace_navigation.html %}
+  {% elsif root == 'dashboards' %}
+    {% include asides/dashboards_navigation.html %}
   {% elsif root == 'developers' or root == 'help' %}
     {% include asides/help_navigation.html %}
   {% elsif root == 'getting-started' %}
     {% include asides/getting_started_navigation.html %}
   {% elsif root == 'docs' %}
     {% include asides/docs_navigation.html %}
+  {% elsif root == 'projects' %}
+    {% include asides/docs_navigation.html %}
   {% elsif root == 'faq' %}
     {% include asides/faq_navigation.html %}
+    {% elsif root == 'voice_control' %}
+      {% include asides/voice_navigation.html %}
   {% elsif root == 'hassio' or root == 'addons' %}
     {% include asides/hassio_navigation.html %}
   {% elsif root == 'cloud' %}

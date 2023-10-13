@@ -1,7 +1,6 @@
 ---
 title: "RFLink Cover"
 description: "Instructions on how to integrate RFLink Somfy RTS and KAKU ASUN-650 covers into Home Assistant."
-logo: rflink.png
 ha_category:
   - Cover
 ha_iot_class: Assumed State
@@ -9,7 +8,7 @@ ha_release: 0.55
 ha_domain: rflink
 ---
 
-The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First, you have to set up your [RFLink hub](/integrations/rflink/).
 
@@ -166,7 +165,40 @@ cover:
         name: non_kaku_not_inverted_by_default
 ```
 
-The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the component will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted.
+The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the integration will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted.
+
+## Setting up a non-RTS cover
+
+Configure `automatic_add` for the light domain (yes, the light domain)
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: rflink
+    automatic_add: true
+```
+
+When you press the remote buttons, a new light will show up in {% my entities title="the list of entities" %}.
+
+Also you can enable rflink logs and look for the device_id, for example: `dooya_v4_654321_0f` or `brelmotor_3b35c7_47`.
+
+```yaml
+# Example configuration.yaml entry
+logger:
+  logs:
+    rflink: debug
+    homeassistant.components.rflink: debug
+```
+
+Once the `device_id` is known, the light domain configuration can be removed and configure the device as a cover:
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: rflink
+    devices:
+      dooya_v4_654321_0f:
+        name: "Room blinds"
+```
 
 ## Device support
 

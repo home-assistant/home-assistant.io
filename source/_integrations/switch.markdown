@@ -8,12 +8,17 @@ ha_quality_scale: internal
 ha_domain: switch
 ha_platforms:
   - light
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: entity
 ---
 
 Keeps track which switches are in your environment, their state and allows you to control them.
 
 - Maintains a state per switch and a combined state `all_switches`.
 - Registers services `switch.turn_on`, `switch.turn_off`, and `switch.toggle` to control switches.
+
+{% include integrations/building_block_integration.md %}
 
 ## Device Class
 
@@ -33,4 +38,4 @@ In the frontend open the sidebar. At the bottom, under **Developer Tools**, clic
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | The entity ID of the switch to control. To target all switches, set the entity ID to `all`|
+| `entity_id`            |      no  | String or list of strings that point at `entity_id`s of switches. To target all switches, set `entity_id` to `all`.

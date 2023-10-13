@@ -4,23 +4,27 @@ description: Control Supervisor Add-ons and OS from Home Assistant
 ha_category:
   - Binary Sensor
   - Sensor
+  - Update
 ha_iot_class: Local Polling
 ha_release: 0.42
 ha_domain: hassio
 ha_quality_scale: internal
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
+  - update
 ha_codeowners:
   - '@home-assistant/supervisor'
+ha_integration_type: integration
 ---
 
 Supervisor integration allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.
-This integration is installed automatically if you run Home Assistant OS or Supervised.
+This integration is already installed if you run Home Assistant OS or Supervised.
 
-## Sensors
+## Sensor entities
 
-For each installed add-on Supervisor provides following sensors:
+For each installed add-on, the following sensors are available:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
@@ -29,20 +33,46 @@ For each installed add-on Supervisor provides following sensors:
 | CPU Percent| no | The CPU Percent usage of the add-on
 | Memory Percent| no | The Memory (RAM) Percent usage of the add-on
 
-For Home Assistant OS Supervisor provides following sensors:
+For Home Assistant OS, the following sensors are available:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
 | Version | no | Current version of the Home Assistant OS
 | Newest Version | no | Latest version of the Home Assistant OS currently available
 
-## Binary Sensors
-
-For each installed add-on Supervisor provides following binary sensors:
+For Home Assistant Core, the following sensors are available:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
-| Update Available | no | Whether there is an update available for this add-on
+| CPU Percent| no | The CPU Percent usage of the core
+| Memory Percent| no | The Memory (RAM) Percent usage of the core
+
+For Home Assistant Supervisor, the following sensors are available:
+
+| Sensor | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| CPU Percent| no | The CPU Percent usage of the supervisor
+| Memory Percent| no | The Memory (RAM) Percent usage of the supervisor
+
+For Home Assistant Host, the following sensors are available:
+
+| Sensor | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| OS Agent Version | no | The version of the installed OS Agent
+| Apparmor Version | no | The version of apparmor
+| Disk Free | no | Free space (in GB) left on the device
+| Disk Total | no | Total space (in GB) on the device
+| Disk Used | no | Used space (in GB) on the device
+
+## Binary Sensor entities
+
+For each installed add-on Supervisor provides following binary sensors:
+
+(These entities are disabled by default and must be reenabled to appear)
+
+| Sensor | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| Update Available | no | Whether there is an update available for this add-on (This is deprecated, use the Update entities instead.)
 | Running | no | Whether the add-on is running or not.
 
 For Home Assistant OS Supervisor provides following binary sensors:
@@ -50,6 +80,10 @@ For Home Assistant OS Supervisor provides following binary sensors:
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
 | Update Available | no | Whether there is an update available for OS
+
+## Update entities
+
+For all your installed add-ons, Home Assistant Core, Home Assistant Supervisor, and for the Home Assistant Operating System (if you are running that), this integration will provide [update](/integrations/update) entities that provide information about pending updates, and will allow you to update to them.
 
 ## Services
 
@@ -109,6 +143,8 @@ Create a full backup.
 | ---------------------- | -------- | ----------- |
 | `name` | yes | Name of the backup file. Default is current date and time
 | `password` | yes | Optional password for backup
+| `compressed` | yes | `false` to create uncompressed backups
+| `location` | yes | Alternate backup location instead of using the default location for backups
 
 ### Service hassio.backup_partial
 
@@ -120,6 +156,8 @@ Create a partial backup.
 | `folders` | yes | List of directories to backup
 | `name` | yes | Name of the backup file. Default is current date and time
 | `password` | yes | Optional password for backup
+| `compressed` | yes | `false` to create uncompressed backups
+| `location` | yes | Alternate backup location instead of using the default location for backups
 
 ### Service hassio.restore_full
 

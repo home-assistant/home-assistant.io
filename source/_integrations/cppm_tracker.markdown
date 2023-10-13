@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: cppm_tracker
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 This platform allows you to detect presence by looking at connected devices to [Aruba Clearpass](https://www.arubanetworks.com/products/security/network-access-control/).

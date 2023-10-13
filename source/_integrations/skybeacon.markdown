@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: skybeacon
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `skybeacon` sensor platform supports [CR2477](https://cnsky9.en.alibaba.com/)-powered [iBeacon](https://en.wikipedia.org/wiki/IBeacon)/eddystone sensors that come with temperature/sensor module.

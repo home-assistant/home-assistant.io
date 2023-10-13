@@ -9,23 +9,19 @@ ha_quality_scale: internal
 ha_domain: notify
 ---
 
-The notify TTS platform lets you use the TTS integration [Service Say](/integrations/tts/#service-say) and a [media_player](/integrations/media_player) to alert you of important events. This integration provides a simple interface to use in your automations and alerts.
+The notify TTS platform lets you use the TTS integration [speak](/integrations/tts/#service-speak) or legacy [say](/integrations/tts/#service-say-legacy) service and a [media_player](/integrations/media_player) to alert you of important events. This integration provides a simple interface to use in your automations and alerts.
 
 In order to use this integration, you must already have a TTS platform installed and configured, and a media_player working with the TTS platform.
 
-To enable this platform in your installation, consider the following example using [google_translate](/integrations/google_translate/) and an example `media_player.living_room`. 
+To enable this platform in your installation, consider the following example using [google_translate](/integrations/google_translate/) and an example `media_player.living_room`.
 
 In your `configuration.yaml` file type:
 
 ```yaml
-tts:
-  - platform: google_translate
-    service_name: google_say
-
 notify:
   - platform: tts
     name: in_the_living_room
-    tts_service: tts.google_say
+    entity_id: tts.google_en_com
     media_player: media_player.living_room
 ```
 
@@ -36,16 +32,20 @@ Please note that the `tts_service` parameter, must match the `service_name` defi
     description: The name of the notify service.
     required: true
     type: string
+  entity_id:
+    description: "The `entity_id` of the TTS entity to target. Either use `entity_id` or `tts_service` to target a TTS platform."
+    required: exclusive
+    type: string
   tts_service:
-    description: "The `service_name` of a TTS platform."
-    required: true
+    description: "The `service_name` of a TTS platform. Either use `entity_id` or `tts_service` to target a TTS platform."
+    required: exclusive
     type: string
   media_player:
     description: "The `entity_id` of a media_player."
     required: true
     type: string
   language:
-    description: "The `language` to be passed to the TTS `Service Say`"
+    description: "The `language` to be passed to the TTS `speak` or `say` service."
     required: false
     type: string
 {% endconfiguration %}

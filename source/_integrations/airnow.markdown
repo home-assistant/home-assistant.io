@@ -10,7 +10,9 @@ ha_codeowners:
   - '@asymworks'
 ha_domain: airnow
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `airnow` integration uses the [AirNow](https://www.airnow.gov/) web service

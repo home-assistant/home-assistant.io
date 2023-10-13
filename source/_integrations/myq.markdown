@@ -2,15 +2,15 @@
 title: MyQ
 description: Instructions on how to integrate MyQ-Enabled garage door covers into Home Assistant.
 ha_category:
-  - Cover
   - Binary Sensor
+  - Cover
   - Light
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@bdraco'
   - '@ehendrix23'
+  - '@Lash-L'
 ha_domain: myq
 ha_homekit: true
 ha_platforms:
@@ -18,6 +18,7 @@ ha_platforms:
   - cover
   - light
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The MyQ integration lets you control MyQ-Enabled garage doors and/or lamps through Home Assistant. Device names in Home Assistant are generated based on the names defined in your MyQ Device mobile app.
@@ -54,15 +55,15 @@ To use HomeKit Controller:
 
 ### Pairing with Home Assistant
 
-- Go to {% my integrations title="Configuration >> Integrations" %} in the Home Assistant UI.
-- Click the button with + sign, and from the list of integrations, select  ***HomeKit Controller***.
+- Go to {% my integrations title="Settings >> Devices & Services" %} in the Home Assistant UI.
+- Click the button with + sign, and from the list of integrations, select ***HomeKit Device***.
 - Select the `MyQ-...` bridge.
 - Enter the pairing code that is physically printed on a sticker on the bridge.
 - Complete the remaining steps.
 
 If you want the devices to be accessible via HomeKit, create a HomeKit Bridge using the following steps:
 
-- Go to {% my integrations title="Configuration >> Integrations" %} in the Home Assistant UI.
-- Click the button with + sign, and from the list of integrations, select  ***HomeKit***.
+- Go to {% my integrations title="Settings >> Devices & Services" %} in the Home Assistant UI.
+- Click the button with + sign, and from the list of integrations, select ***HomeKit Bridge***.
 - Create a bridge for the `cover` domain.
 - Follow the instructions to pair with the bridge.

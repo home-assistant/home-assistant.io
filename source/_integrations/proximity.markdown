@@ -8,11 +8,12 @@ ha_release: 0.13
 ha_quality_scale: internal
 ha_domain: proximity
 ha_iot_class: Calculated
+ha_integration_type: integration
 ---
 
 The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
 
-This integration is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The [zone](/getting-started/automation-trigger/#zone-trigger) and [state](/getting-started/automation-trigger/#state-trigger) based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.
+This integration is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The [zone](/docs/automation/trigger#zone-trigger) and [state](/docs/automation/trigger#state-trigger) based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.
 
 Some examples of its use include:
 
@@ -21,7 +22,7 @@ Some examples of its use include:
 
 The Proximity entity which is created has the following values:
 
-- `state`: Distance from the monitored zone (in km)
+- `state`: Distance from the monitored zone (in `unit_of_measurement`)
 - `dir_of_travel`: Direction of the closest device or person to the monitored zone. Values are:
   - `not set`
   - `arrived`
@@ -29,7 +30,6 @@ The Proximity entity which is created has the following values:
   - `away_from`
   - `unknown`
   - `stationary`
-- `dist_to_zone`: Distance from the monitored zone (in km)
 - `unit_of_measurement`: Measurement of distance. Values are:
   - `km`
   - `m`
@@ -51,6 +51,11 @@ proximity:
     tolerance: 50
     unit_of_measurement: mi
 ```
+
+### Video Tutorial
+This video tutorial explains how to set up geofencing in Home Assistant using the proximity integration.
+
+<lite-youtube videoid="pjAyRN5UiBg" videotitle="Geofencing in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
 
 {% configuration %}
 zone:
@@ -77,7 +82,7 @@ zone:
       default: km
 {% endconfiguration %}
 
-To add multiple proximity components, simply use a list in your `configuration.yaml` file:
+To add multiple proximity components, add a mapping to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

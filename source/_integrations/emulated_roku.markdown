@@ -7,6 +7,7 @@ ha_release: 0.86
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: emulated_roku
+ha_integration_type: integration
 ---
 
 This integration integrates an emulated Roku API into Home Assistant,
@@ -78,12 +79,12 @@ After starting up, you can check if the emulated Roku is reachable at the specif
 
 All Roku commands are sent as `roku_command` events.
 
-Field | Description
------ | -----------
-`source_name` | Name of the emulated Roku instance that sent the event. Only required when using multiple instances to filter event sources.
-`type` | The type of the event that was called on the API.
-`key` | the code of the pressed key when the command `type` is `keypress`, `keyup` or `keydown`.
-`app_id` | the id of the app that was launched when command `type` is `launch`.
+| Field         | Description                                                                                                                  |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `source_name` | Name of the emulated Roku instance that sent the event. Only required when using multiple instances to filter event sources. |
+| `type`        | The type of the event that was called on the API.                                                                            |
+| `key`         | the code of the pressed key when the command `type` is `keypress`, `keyup` or `keydown`.                                     |
+| `app_id`      | the id of the app that was launched when command `type` is `launch`.                                                         |
 
 Available key codes |
 ------------------- |
@@ -123,26 +124,6 @@ The following is an example implementation of an automation:
       entity_id: media_player.amplifier
 ```
 
-## Selecting apps, channels, or favorites
-
-Apps, channels, and favorites are exposed as media content to the integration. You can see which ones are available by clicking the media button in the media player more info card for your TV. To capture the `content_id` for the one you want to use in an automation or script, turn your logging on to debug level and tail the log while choosing the media content in the media player more info card. You will find a log message that looks like this when you choose the media:
-
-```txt
-2021-11-22 01:45:14 DEBUG (MainThread) [homeassistant.core] Bus:Handling <Event call_service[L]: domain=media_player, service=play_media, service_data=entity_id=media_player.philips936_tv, media_content_id=com.amazon.ignition.IgnitionActivity-com.amazon.amazonvideo.livingroom, media_content_type=app>
-```
-
-Then you can turn that into a service call for the script or automation like the following, which can then open the app/channel/favorite automatically.
-
-```yaml
-service: media_player.play_media
-data:
-  media_content_id: com.amazon.ignition.IgnitionActivity-com.amazon.amazonvideo.livingroom
-  media_content_type: app
-target:
-  entity_id:
-    - media_player.philips936_tv
-```
-
 ## Troubleshooting
 
 If you change your advertised IP or ports, you will have to re-add the emulated Roku in your app.
@@ -150,12 +131,12 @@ When using Harmony, the app should auto-discover any changes via UPnP discovery 
 Alternatively, you can trigger the 'Fix' page by pressing a button on the unreachable device's remote in the app and wait ~10 seconds, then click 'Fix it'.
 
 Known limitations:
-* Some Android remotes send key up/down events instead of key presses.
-* Functionality other than key presses and app launches are not implemented yet.
-* App ids are limited between 1-10. (The emulated API reports 10 dummy apps)
-* Harmony uses UPnP discovery (UPnP is not needed after pairing), which might not work in Docker. You can:
-  * Change Docker to host networking temporarily, then revert after pairing.
-  * Run the `advertise.py` helper script from the emulated_roku library directly somewhere else and point it to the emulated Roku API.
-* Harmony cannot launch apps as it uses IR instead of the Wi-Fi API and will not display the custom dummy app list.
-* Home control buttons cannot be assigned to emulated Roku on the Harmony Hub Companion remote as they are limited to Hue (and possibly other APIs) within Harmony.
-* Harmony will not set the name of the added emulated Roku device to the specified `name`.
+- Some Android remotes send key up/down events instead of key presses.
+- Functionality other than key presses and app launches are not implemented yet.
+- App ids are limited between 1-10. (The emulated API reports 10 dummy apps)
+- Harmony uses UPnP discovery (UPnP is not needed after pairing), which might not work in Docker. You can:
+  - Change Docker to host networking temporarily, then revert after pairing.
+  - Run the `advertise.py` helper script from the emulated_roku library directly somewhere else and point it to the emulated Roku API.
+- Harmony cannot launch apps as it uses IR instead of the Wi-Fi API and will not display the custom dummy app list.
+- Home control buttons cannot be assigned to emulated Roku on the Harmony Hub Companion remote as they are limited to Hue (and possibly other APIs) within Harmony.
+- Harmony will not set the name of the added emulated Roku device to the specified `name`.

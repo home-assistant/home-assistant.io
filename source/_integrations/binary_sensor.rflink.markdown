@@ -1,7 +1,6 @@
 ---
 title: "RFLink Binary Sensor"
 description: "Instructions on how to integrate RFLink binary sensors into Home Assistant."
-logo: rflink.png
 ha_category:
   - Binary Sensor
 ha_iot_class: Local Push
@@ -9,7 +8,7 @@ ha_release: 0.81
 ha_domain: rflink
 ---
 
-The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First, you have to set up your [RFLink hub](/integrations/rflink/).
 

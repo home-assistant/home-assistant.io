@@ -2,8 +2,8 @@
 title: Ping (ICMP)
 description: Instructions on how to integrate Ping (ICMP)-based into Home Assistant.
 ha_category:
-  - Network
   - Binary Sensor
+  - Network
   - Presence Detection
 ha_release: 0.43
 ha_iot_class: Local Polling
@@ -12,6 +12,7 @@ ha_domain: ping
 ha_platforms:
   - binary_sensor
   - device_tracker
+ha_integration_type: integration
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -38,7 +39,7 @@ host:
   required: true
   type: string
 count:
-  description: Number of packages to be sent up to a maximum of 100.
+  description: Number of packets to be sent up to a maximum of 100.
   required: false
   type: integer
   default: 5
@@ -46,10 +47,10 @@ name:
   description: Let you overwrite the name of the device.
   required: false
   type: string
-  default: Binary sensor Ping [hostname]
+  default: Ping [hostname]
 {% endconfiguration %}
 
-The sensor exposes the different round trip times values measured by `ping` as attributes:
+The sensor exposes the different round trip times in milliseconds measured by `ping` as attributes:
 
 - `round_trip_time_mdev`
 - `round_trip_time_avg`

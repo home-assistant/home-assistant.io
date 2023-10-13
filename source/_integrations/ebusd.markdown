@@ -8,9 +8,10 @@ ha_release: 0.88
 ha_domain: ebusd
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
-Integration between [ebusd](https://github.com/john30/ebusd/) daemon for communication with eBUS heating systems, and Home Assistant using sensor component.
+Integration between the [ebusd](https://github.com/john30/ebusd/) daemon (used for communication with the eBUS heating systems), and Home Assistant. The ebusd integrations uses the sensor integration.
 
 ## Configuration
 

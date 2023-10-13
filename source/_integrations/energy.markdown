@@ -8,4 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: energy
+ha_platforms:
+  - sensor
+ha_integration_type: system
 ---

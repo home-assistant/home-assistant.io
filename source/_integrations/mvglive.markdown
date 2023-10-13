@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: mvglive
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `mvglive` sensor will give you the departure time of the next bus, tram, subway, or train at the next station or stop in the Munich public transport network. Additional details such as the line number and destination are present in the attributes.
@@ -26,7 +27,7 @@ sensor:
 
 {% configuration %}
 station:
-  description: Name of the stop or station. Visit [the MVG live web site](https://www.mvg-live.de/ims/dfiStaticAuswahl.svc) to find valid names. Be aware, that not all data of interest might be available (i.e., bus departure-times in Haar).
+  description: Name of the stop or station. Visit [the MVG live web site](https://www.mvg.de/meinhalt.html) to find valid names. Be aware, that not all data of interest might be available (i.e., bus departure-times in Haar).
   required: true
   type: string
 destinations:

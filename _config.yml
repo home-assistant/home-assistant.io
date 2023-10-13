@@ -48,7 +48,6 @@ commonmark:
 highlighter: none
 
 plugins:
-  - jekyll-time-to-read
   - jekyll-toc
 
 paginate: 10 # Posts per page on the blog index
@@ -76,7 +75,7 @@ collections:
     output: true
   faq:
     output: true
-  lovelace:
+  dashboards:
     output: true
 
 # ----------------------- #
@@ -92,7 +91,7 @@ twitter_user: balloob
 twitter_tweet_button: true
 
 # Google Analytics
-google_analytics_tracking_id: UA-57927901-1
+# google_analytics_tracking_id: UA-57927901-1
 
 # Facebook Like
 facebook_like: true
@@ -105,11 +104,14 @@ social:
   twitter:
     account: home_assistant
 
+  mastodon:
+    account: "https://fosstodon.org/@homeassistant"
+
 # Home Assistant release details
-current_major_version: 2021
-current_minor_version: 11
-current_patch_version: 5
-date_released: 2021-11-19
+current_major_version: 2023
+current_minor_version: 10
+current_patch_version: 1
+date_released: 2023-10-06
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -163,6 +165,19 @@ defaults:
       path: "hassio/*"
     values:
       toc: true
+  # Remove some resources from sitemap
+  - scope:
+      path: "google*.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "static/fonts/**/*.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "static/mdi-demo.html"
+    values:
+      sitemap: false
 
 # Support for files Jekyll will normally exclude
 include:
@@ -178,16 +193,13 @@ toc:
 
 # Configuration for installation pages
 installation:
-  container:
-    base: "ghcr.io/home-assistant/home-assistant"
-    raspberrypi3: "ghcr.io/home-assistant/raspberrypi3-homeassistant"
-    raspberrypi4: "ghcr.io/home-assistant/raspberrypi4-homeassistant"
+  container: "ghcr.io/home-assistant/home-assistant"
   versions:
-    python: "3.9"
+    python: "3.11"
   types:
     odroid:
       board: ODROID
-      installation_media: "eMMC module/SD card"
+      installation_media: "eMMC module or SD card"
       variants:
         - name: "ODROID-N2"
           key: "odroid-n2"
@@ -197,25 +209,21 @@ installation:
           key: "odroid-c2"
         - name: "ODROID-C4"
           key: "odroid-c4"
-        - name: "ODROID-XU4"
-          key: "odroid-xu4"
+        - name: "ODROID-M1"
+          key: "odroid-m1"
 
     raspberrypi:
       board: Raspberry Pi
       installation_media: "SD card"
       variants:
-        - name: "Raspberry Pi 4 64-bit"
+        - name: "Raspberry Pi 4"
           key: "rpi4-64"
-        - name: "Raspberry Pi 4 32-bit"
-          key: "rpi4"
-        - name: "Raspberry Pi 3 64-bit"
+        - name: "Raspberry Pi 3"
           key: "rpi3-64"
-        - name: "Raspberry Pi 3 32-bit"
-          key: "rpi3"
 
     tinkerboard:
       board: ASUS Tinkerboard
-      installation_media: "eMMC module/SD card"
+      installation_media: "eMMC module or SD card"
       variants:
         - name: "ASUS Tinkerboard"
           key: "tinker"

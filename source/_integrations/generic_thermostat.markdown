@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: generic_thermostat
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 The `generic_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler than the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter than the target temperature, the air conditioning will be turned on and turned off when required temperature is reached. One Generic Thermostat entity can only control one switch. If you need to activate two switches, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities.
@@ -59,7 +60,7 @@ ac_mode:
   type: boolean
   default: false
 min_cycle_duration:
-  description: Set a minimum amount of time that the switch specified in the *heater* option must be in its current state prior to being switched either off or on.
+  description: Set a minimum amount of time that the switch specified in the *heater* option must be in its current state prior to being switched either off or on. This option will be ignored if the `keep_alive` option is set.
   required: false
   type: [time, integer]
 cold_tolerance:
@@ -73,7 +74,7 @@ hot_tolerance:
   default: 0.3
   type: float
 keep_alive:
-  description: Set a keep-alive interval. If set, the switch specified in the *heater* option will be triggered every time the interval elapses. Use with heaters and A/C units that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid climate integration state (either on or off).
+  description: Set a keep-alive interval. If set, the switch specified in the *heater* option will be triggered every time the interval elapses. Use with heaters and A/C units that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid climate integration state (either on or off). When `keep_alive` is set the `min_cycle_duration` option will be ignored.
   required: false
   type: [time, integer]
 initial_hvac_mode:
@@ -81,7 +82,23 @@ initial_hvac_mode:
   required: false
   type: string
 away_temp:
-  description: "Set the temperature used by `preset_mode: away`. If this is not specified, the preset mode feature will not be available."
+  description: "Set the temperature used by `preset_mode: away`."
+  required: false
+  type: float
+comfort_temp:
+  description: "Set the temperature used by `preset_mode: comfort`."
+  required: false
+  type: float
+home_temp:
+  description: "Set the temperature used by `preset_mode: home`."
+  required: false
+  type: float
+sleep_temp:
+  description: "Set the temperature used by `preset_mode: sleep`."
+  required: false
+  type: float
+activity_temp:
+  description: "Set the temperature used by `preset_mode: activity`."
   required: false
   type: float
 precision:
@@ -89,6 +106,11 @@ precision:
   required: false
   type: float
   default: "`0.1` for Celsius and `1.0` for Fahrenheit."
+target_temp_step:
+  description: "The desired step size for setting the target temperature. Supported values are `0.1`, `0.5` and `1.0`."
+  required: false
+  type: float
+  default: "equal to `precision`."
 {% endconfiguration %}
 
 Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds.

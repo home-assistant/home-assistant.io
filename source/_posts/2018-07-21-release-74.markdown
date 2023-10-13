@@ -32,7 +32,7 @@ To try it out today, [read these instructions](https://developers.home-assistant
 
 We keep seeing [great examples](https://twitter.com/home_assistant/status/1019579208622845953) of UIs built with Lovelace. Follow us on social media ([FB](https://www.facebook.com/homeassistantio/?ref=bookmarks), [Twitter](https://twitter.com/home_assistant)) where we will keep sharing great examples.
 
-For the Lovelace changes in this release, check out the [changelog](/lovelace/changelog/). To help our development and design teams, we've also introduced a [Lovelace card gallery](https://www.awesome-ha.com/).
+To help our development and design teams, we've also introduced a [Lovelace card gallery](https://www.awesome-ha.com/).
 
 Thanks to [@c727], [@jeradM] and [@ciotlosm] for leading this effort ❤️
 
