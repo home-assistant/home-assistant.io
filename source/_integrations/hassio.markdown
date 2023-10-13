@@ -159,7 +159,7 @@ Create a partial backup.
 | `password` | yes | Optional password for backup
 | `compressed` | yes | `false` to create uncompressed backups
 | `location` | yes | Alternate backup location instead of using the default location for backups
-| `homeassistant` | yes | Include home assistant and associated config in backup
+| `homeassistant` | yes | Include Home Assistant and associated config in backup
 | `homeassistant_exclude_database` | yes | Exclude the Home Assistant database file from backup
 
 ### Service hassio.restore_full
