@@ -63,7 +63,7 @@ The options are also documented in the add-on itself. Go to the {% my supervisor
 
 ## Related topics
 
-- [Create your own a wake word](/voice_control/create_wake_word/)
+- [Create your own wake word](/voice_control/create_wake_word/)
 - [Expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices)
 - [Whisper for speech-to-text](https://github.com/openai/whisper)
 - [Piper for text-to-speech](https://github.com/rhasspy/piper)
