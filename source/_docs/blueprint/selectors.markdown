@@ -338,7 +338,7 @@ The output of this selector is the number of mired selected, for example, `243`.
 
 This selector returns the number of kelvin selected and allows limiting the range of allowed values.
 
-![Screenshot of the Color temperature selector](/images/blueprints/selector-color-temp.png)
+![Screenshot of the Color temperature selector](/images/blueprints/selector-color-temp-kelvin.png)
 
 ```yaml
 color_temp_kelvin:
