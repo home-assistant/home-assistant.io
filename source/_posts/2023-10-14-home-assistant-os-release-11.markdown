@@ -15,6 +15,8 @@ We’ve also worked on the landing page which is bundled with Home Assistant OS 
 
 <img src='/images/blog/2023-10-14-home-assistant-os-11/home-assistant-os-11-landing-page.png' alt='Screenshot of the new Home Assistant landing page'>
 
+The new landing page shipped with Home Assistant OS 11
+
 In this month we at Nabu Casa also increased our workforce working on the Home Assistant OS team: With [Jan Čermák](https://github.com/sairon) joining, we will have more bandwidth to implement new features as well as to tackle issues reported by our community. Welcome Jan!
 
 And finally: Home Assistant OS 11 will be pre-installed in the next batch of Home Assistant Green 🎉
@@ -38,7 +40,7 @@ We've applied Linux's preemptible kernel configuration across all boards. This r
 This is a neat feature for more advanced setups based on Proxmox (or other KVM based VMs).
 Home Assistant's recorder integration uses a database underneath (by default SQLite). When  Home Assistant takes a backup, the Supervisor notifies the database engine  before copying the database files (currently this is implemented for SQLite and MariaDB). With that notification the database engine can take the necessary steps to ensure that the database files are in a consistent state before the backup is taking place.
 However, when creating a snapshot using the VM snapshot feature the database doesn’t know about this, hence the snapshot can end up with an inconsistent state of the database. On snapshot restore, the database may or may not be able to recover from that inconsistent state, which can lead to partial or even complete data loss of the recorder data.
-With Home Assistant OS 11, on Proxmox/KVM-based VMs the filesystem freezes (as triggered by a VM file system snapshot) are now relayed to Home Assistant. Home Assistant then uses the same notification mechanism as backups were using. This ensures that VM snapshots are always coherent, making sure rollbacks of your smart home systems are reliable.
+With Home Assistant OS 11, on Proxmox/KVM-based VMs, when using the snapshot feature, the file system freeze is now relayed to Home Assistant. Home Assistant then uses the same notification mechanism as backups are using. This ensures that VM snapshots are always coherent, making sure rollbacks of your smart home systems are reliable.
 
 ## Docker and containerd Upgrades
 
@@ -47,7 +49,7 @@ In this release, Home Assistant OS has adopted the latest versions of Docker (v2
 ## More Highlights in Home Assistant OS 11
 
 - **Consistent network interface naming**: On Arm-based boards, network names are now enumerated based on the device tree. This means that the first Ethernet device will no longer be named eth0 but end0. The same network configuration used previously is automatically applied to the network interface with the new name.
-Breaking change ⚠️: If you use the name of the primary network interface in a custom script or automation this can be a breaking change for you!
+**This can be a breaking change ⚠️**: If you use the name of the Ethernet interface in custom scripts or automations you'll have to adjust to the new name (as shown in the network settings)!
 - **Bluetooth Improvements**: Updating to a newer version of BlueZ, improving fix for the Bluetooth LE advertisement stall bug, and optimizing Bluetooth device cache management.
 - **Improved Kernel Configuration**: Our improved kernel configuration aims to improve Docker's overlayfs performance, making container operations smoother.
 - **Adjusted Development Workflow** (my personal favorite, but I might be biased 😉): Our adjusted development workflow allows for more incremental changes, and incorporates more automations. This will make it easier for developers to work on and improve Home Assistant OS.
