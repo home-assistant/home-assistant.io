@@ -31,4 +31,10 @@ Is new style scale:
   description: "If your scale is newer than approximately 2020 it is considered new style. If you encounter errors try toggling this setting."
 {% endconfiguration_basic %}
 
-## Button
+## Buttons
+| Button Name | Description |
+|-------------|-------------|
+| Tare        | Tare the scale |
+| Reset Timer | Reset the timer of the scale to 0 |
+| Start/Stop Timer | Starts the timer, if it is not running, stops it, if it is running |
+
