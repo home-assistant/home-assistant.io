@@ -25,10 +25,16 @@ Once the scale is configured Home Assistant will try to connect to it whenever i
 {% configuration_basic %}
 Name:
   description: "Name to give your scale"
+  required: true
+  type: string
 MAC Address:
   description: "Bluetooth MAC address of your scale"
+  required: true
+  type: string
 Is new style scale:
   description: "If your scale is newer than approximately 2020 it is considered new style. If you encounter errors try toggling this setting."
+  required: false
+  type: boolean
 {% endconfiguration_basic %}
 
 ## Buttons
