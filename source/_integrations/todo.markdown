@@ -35,3 +35,98 @@ in the main sidebar of your Home Assistant instance.
 
 The state of a To-do List entity is a number, which represents the number of
 incomplete items in the list.
+
+
+## Services
+
+Some To-do List integrations allow Home Assistant to manage the To-do Items in the list. The
+services provided by some To-do List entities are described below or you can read more about [Service Calls](/docs/scripts/service-calls/).
+
+### Service `todo.create_item`
+
+Add a new To-do Item. A To-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `summary` | no | A short summary or subject for the To-do Item. | Submit Income Tax Return
+| `status` | yes | The overall status of the To-do Item. |  `needs_action` or `completed`
+
+This is a full example of service call in YAML:
+
+```yaml
+service: todo.create_item
+target:
+  entity_id: todo.personal_tasks
+data:
+  summary: "Submit Income Tax Return"
+  status: "needs_action"
+```
+
+### Service `todo.update_item`
+
+Update a To-do Item. A To-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `uid` | yes | The Unique identifier of the To-do Item to update. | `bY1PVzZkni1qQQlkanTvBA`
+| `summary` | yes | A short summary or subject for the To-do Item. | Submit Income Tax Return
+| `status` | yes | The overall status of the To-do Item. |  `needs_action` or `completed`
+
+To-do Items can be identified using either a `uid` or `summary`. This is a full example of
+a service call that updates the status of a To-do Item based on the name.
+
+```yaml
+service: todo.update_item
+target:
+  entity_id: todo.personal_tasks
+data:
+  summary: "Submit Income Tax Return"
+  status: "completed"
+```
+
+### Service `todo.delete_item`
+
+Delete a To-do Item. A To-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `uid` | yes | The Unique identifier of the To-do Item to update. | `bY1PVzZkni1qQQlkanTvBA`
+| `summary` | yes | A short summary or subject for the To-do Item. | Submit Income Tax Return
+
+To-do Items can be identified using either a `uid` or `summary`. This is a full example of
+a service call that delete's a To-do Item with the specified name.
+
+```yaml
+service: todo.delete_item
+target:
+  entity_id: todo.personal_tasks
+data:
+  summary: "Submit Income Tax Return"
+```
+
+
+### Service `todo.move_item`
+
+Re-order a To-do Item in the To-do list. A To-do list `target` is selected with
+a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data`
+payload supports the following fields:
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `uid` | yes | The Unique identifier of the To-do Item to update. | `bY1PVzZkni1qQQlkanTvBA`
+| `summary` | yes | A short summary or subject for the To-do Item. | Submit Income Tax Return
+| `previous_uid` | yes | The Unique identifier of the To-do Item to update. | `bY1PVzZkni1qQQlkanTvBA`
+| `previous_summary` | yes | A short summary or subject for the To-do Item. | Submit Income Tax Return
+
+To-do Items can be identified using either a `uid` or `summary`. The To-do Item is moved
+to the next position after the To-do Item identified by either `previous_uid` or `previous_summary`
+or to the front of the list if no previous To-do Item is specified.
+
+```yaml
+service: todo.delete_item
+target:
+  entity_id: todo.personal_tasks
+data:
+  summary: "Submit Income Tax Return"
+  previous_summary: "Submit Revised Draft"
+```
