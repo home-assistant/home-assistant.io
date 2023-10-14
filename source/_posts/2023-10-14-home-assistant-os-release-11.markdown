@@ -37,8 +37,8 @@ Stefan
 We've applied Linux's preemptible kernel configuration across the board. The result is lower latencies even on busy systems (for example due to slow I/O operations), making your smart home even more responsive.
 
 ## VM filesystem freeze is being relayed to Home Assistant
-This is a neat feature for more advanced setups based on Proxmox (or other KVM based VMs).
-Home Assistant's recorder integration uses a database underneath (by default this is SQLite). When  Home Assistant takes a backup, the Supervisor notifies the database engine before copying the database files (currently, this is implemented for SQLite and MariaDB). With that notification, the database engine can take the necessary steps to ensure that the database files are in a consistent state before the backup takes place.
+VM filesystem freeze (as triggered by VM snapshots) is a neat feature for more advanced setups based on Proxmox (or other KVM based VMs).
+Today, Home Assistant's recorder integration uses a database underneath (by default this is SQLite). When  Home Assistant takes a backup, the Supervisor notifies the database engine before copying the database files (currently, this is implemented for SQLite and MariaDB). So far, this didn't work for VM filesystem freezes With that notification, the database engine can take the necessary steps to ensure that the database files are in a consistent state before the backup takes place.
 However, when creating a snapshot using the VM snapshot feature, the database doesn’t know about this, and the snapshot can end up with an inconsistent state of the database. On snapshot restore, the database may or may not be able to recover from that inconsistent state. This can lead to partial or even complete data loss of the recorder data.
 With Home Assistant OS 11, on Proxmox/KVM-based VMs, when using the snapshot feature, the file system freeze is now relayed to Home Assistant. Home Assistant then uses the same notification mechanism as backups are using. This ensures that VM snapshots are always coherent, making sure rollbacks of your smart home systems are reliable.
 
