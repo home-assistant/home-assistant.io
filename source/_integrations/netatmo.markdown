@@ -100,6 +100,7 @@ Set the heating schedule. This requires an entity id and a schedule name.
 `set_preset_mode_with_end_datetime`
 
 Set the preset mode for a Netatmo climate device. The preset mode must match a preset mode configured at Netatmo.
+
 ### Set Person Home
 
 `set_persons_home`
