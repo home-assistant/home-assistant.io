@@ -52,4 +52,5 @@ In this release, Home Assistant OS has adopted the latest versions of Docker (v2
 **This can be a breaking change ⚠️**: If you use the name of the Ethernet interface in custom scripts or automations you'll have to adjust to the new name (as shown in the network settings)!
 - **Bluetooth Improvements**: Updating to a newer version of BlueZ, improving fix for the Bluetooth LE advertisement stall bug, and optimizing Bluetooth device cache management.
 - **Improved Kernel Configuration**: Our improved kernel configuration aims to improve Docker's overlayfs performance, making container operations smoother.
+- **Support for LED control on Home Assistant Green**: The three LEDs on the front of Home Assistant Green can now be controlled through hardware settings.
 - **Adjusted Development Workflow** (my personal favorite, but I might be biased 😉): Our adjusted development workflow allows for more incremental changes, and incorporates more automations. This will make it easier for developers to work on and improve Home Assistant OS.
