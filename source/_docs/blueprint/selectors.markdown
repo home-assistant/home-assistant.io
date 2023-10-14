@@ -24,6 +24,8 @@ The following selectors are currently available:
 - [Backup location selector](#backup-location-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
+  - [mired](#mired)
+  - [kelvin](#kelvin)
 - [Condition selector](#condition-selector)
 - [Config entry selector](#config-entry-selector)
 - [Constant selector](#constant-selector)
@@ -306,22 +308,24 @@ The output of this selector is `true` when the toggle is on, `false` otherwise.
 ## Color temperature selector
 
 The color temperature selector provides a select that allows for selecting
-a color temperature. The selector returns the number of mireds selected and
-allows limiting the range of selectable mireds.
+a color temperature. 
 
-![Screenshot of the Color temperature selector](/images/blueprints/selector-color-temp.png)
+### Mired
+This selector returns the number of mireds selected and allows limiting the range of selectable mireds.
+
+![Screenshot of the Color temperature selector](/images/blueprints/selector-color-temp-mired.png)
 
 ```yaml
-color_temp:
+color_temp_mired:
 ```
 
-{% configuration color_temp %}
-min_mireds:
+{% configuration color_temp_mired %}
+min:
   description: The minimum color temperature in mireds.
   type: integer
   default: 153
   required: false
-max_mireds:
+max:
   description: The maximum color temperature in mireds.
   type: integer
   default: 500
@@ -329,6 +333,29 @@ max_mireds:
 {% endconfiguration %}
 
 The output of this selector is the number of mired selected, for example, `243`.
+
+### Kelvin
+
+This selector returns the number of kelvin selected and allows limiting the range of allowed values.
+
+![Screenshot of the Color temperature selector](/images/blueprints/selector-color-temp.png)
+
+```yaml
+color_temp_kelvin:
+```
+
+{% configuration color_temp_kelvin %}
+min:
+  description: The minimum color temperature in kelvin.
+  type: integer
+  default: 2700
+  required: false
+max:
+  description: The maximum color temperature in kelvin.
+  type: integer
+  default: 6000
+  required: false
+{% endconfiguration %}
 
 ## Condition selector
 
