@@ -129,9 +129,9 @@ Setting values change less often, therefore these sensors are only polled every 
 </div>
 
 #### Battery Strategy
-This sensor is on by by default, which maps to the "Automatically" mode in the Kostal Plenticore Plus documentation. This mode is recommended for regions with little snowfall.
+This sensor is on by default, which maps to the "Automatically" mode in the Kostal Plenticore Plus documentation. This mode is recommended for regions with little snowfall.
 
-Turning this sensor of maps to the "Automatically economical" mode. Consequently, the inverter controls the batter charging automatically, but switches the battery off when there is not enough PV energy to charge the battery for longer periods. This mode is recommended for regions with a lot of snowfall.
+Turning this sensor off maps to the "Automatically economical" mode. Consequently, the inverter controls the batter charging automatically, but switches the battery off when there is not enough PV energy to charge the battery for longer periods. This mode is recommended for regions with a lot of snowfall.
 
 #### Battery Smart Control
 The Battery Smart Control sensor appears as a select field labelled "Battery Charging / Usage Mode" with three options:
