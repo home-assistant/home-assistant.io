@@ -128,6 +128,17 @@ The following sensors are available in the library:
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
 </div>
 
+#### Battery Strategy
+This sensor is on by by default, which maps to the "Automatically" mode in the Kostal Plenticore Plus documentation. This mode is recommended for regions with little snowfall.
+
+Turning this sensor of maps to the "Automatically economical" mode. Consequently, the inverter controls the batter charging automatically, but switches the battery off when there is not enough PV energy to charge the battery for longer periods. This mode is recommended for regions with a lot of snowfall.
+
+#### Battery Smart Control
+The Battery Smart Control sensor appears as a select field labelled "Battery Charging / Usage Mode" with three options:
+- None: the battery is loaded immediately when there is PV energy spare
+- Battery:SmartBatteryControl:Enable: the battery loading optimizes grid feed-in and battery loading. This setting is recommended when the grid feed-in is limited to e.g. 70% of the Plenticore Plus peak power.
+- Battery:TimeControl:Enable: battery charging/discharging can be configured flexibly at different times (tariff periods). Detailed settings have to be done on the webfrontend of the Kostal Plenticore Plus inverter. This option activates the time-controlled battery usage mode.
+
 ## Number
 
 The following Number entities are available. The values could also be change from Home Assistant.
