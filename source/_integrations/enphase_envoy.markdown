@@ -59,3 +59,6 @@ When the mode entity is set to standard, you can simply set the state of the rel
 
 ### Battery Level
 When the relay mode is set to battery level, the relays will turn on and off based on the remaining battery level of your Encharge batteries. Two number entities are available to control the cutoff and restore levels for the relays. When the battery level drops below the cutoff level, the relays will turn off. When the battery level rises above the restore level, the relays will turn back on.
+
+## Scan Interval
+The default scan interval is 60 seconds. To customize the scan interval use a [time pattern](/docs/automation/trigger/#time-pattern-trigger) triggered automation for service action using [homeassistant.update_entity](/integrations/homeassistant#service-homeassistantupdate_entity) targeting the envoy device. To scan the Envoy every 15 seconds use /15 in the seconds field of the time pattern trigger.  
