@@ -103,30 +103,3 @@ target:
 data:
   summary: "Submit Income Tax Return"
 ```
-
-
-### Service `todo.move_item`
-
-Re-order a To-do Item in the To-do list. A To-do list `target` is selected with
-a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data`
-payload supports the following fields:
-
-| Service data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `uid` | yes | The Unique identifier of the To-do Item to update. | `bY1PVzZkni1qQQlkanTvBA`
-| `summary` | yes | A short summary or subject for the To-do Item. | Submit Income Tax Return
-| `previous_uid` | yes | The Unique identifier of the To-do Item to update. | `bY1PVzZkni1qQQlkanTvBA`
-| `previous_summary` | yes | A short summary or subject for the To-do Item. | Submit Income Tax Return
-
-To-do Items can be identified using either a `uid` or `summary`. The To-do Item is moved
-to the next position after the To-do Item identified by either `previous_uid` or `previous_summary`
-or to the front of the list if no previous To-do Item is specified.
-
-```yaml
-service: todo.delete_item
-target:
-  entity_id: todo.personal_tasks
-data:
-  summary: "Submit Income Tax Return"
-  previous_summary: "Submit Revised Draft"
-```
