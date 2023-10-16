@@ -135,6 +135,7 @@ This sensor is on by default, which maps to the "Automatically" mode in the Kost
 Turning this sensor off maps to the "Automatically economical" mode. Consequently, the inverter controls the battery charging automatically but switches the battery off when there is insufficient PV energy to charge the battery for longer periods. This mode is recommended for regions with a lot of snowfall.
 
 #### Battery Smart Control
+
 The Battery Smart Control sensor appears as a select field labeled "Battery Charging / Usage Mode" with three options:
 
 - **None**: the battery is loaded immediately when there is PV energy spare.
