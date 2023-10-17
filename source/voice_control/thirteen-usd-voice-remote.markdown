@@ -48,7 +48,6 @@ As a first step, you need to install the openWakeWord add on. This must be insta
 ## Installing the software onto the ATOM Echo
 
 If you have used the ATOM Echo on Home Assistant before and have it installed via ESPHome add-on, you first need to remove its configuration.
-During the installation via ESPHome add-on, an encryption key was set up.
 
 ### To delete the ATOM Echo configuration from ESPHome
 
