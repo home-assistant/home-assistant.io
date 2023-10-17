@@ -135,7 +135,7 @@ This is powered by [OpenStreetMap](https://www.openstreetmap.org/) ❤️
 
 ## Add items to your shopping list using Assist
 
-What if you could ask [Assist](/integrations/assist) to add items to your
+What if you could ask [Assist] to add items to your
 Home Assistant [shopping list](/integrations/shopping_list)? Well, now you can!
 
 > Add milk to my shopping list!
@@ -276,6 +276,7 @@ noteworthy changes this release:
 [UniFi Network]: /integrations/unifi
 [Xiaomi BLE]: /integrations/xiaomi_ble
 [Roborock]: /integrations/roborock
+[Assist]: /voice_control/
 
 ## New integrations
 
