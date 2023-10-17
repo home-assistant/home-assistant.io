@@ -84,7 +84,7 @@ to turn on a light is now also translated into Dutch.
 A big step forward! Implementing this change has resulted in a substantial
 increase in the number of translations. They have doubled! 😅
 
-Because of that, translating all services might take some time; however… 
+Because of that, translating all services might take some time; however…
 You can help! You don’t have to be a developer to help with this; you can do this
 from the comfort of your browser. Check out our documentation on
 [how to contribute translations](https://developers.home-assistant.io/docs/translations).
@@ -258,7 +258,6 @@ noteworthy changes this release:
 - The [Xiaomi BLE] now supports the MiScale (V1 and V2). Thanks, [@Ernst79]!
 - [UniFi Network] now has controls to turn an UniFi WLAN on and off and added
   image entities for QR codes for WLAN access. Thanks, [@Kane610]!
-
 
 [@bdraco]: https://github.com/bdraco
 [@emontnemery]: https://github.com/emontnemery
@@ -757,7 +756,6 @@ Your system has been using Python 3.11 for quite some time already.
 [#97007]: https://github.com/home-assistant/core/pull/97007
 
 {% enddetails %}
-
 
 {% details "Discovery" %}
 
