@@ -47,6 +47,22 @@ As a first step, you need to install the openWakeWord add on. This must be insta
 
 ## Installing the software onto the ATOM Echo
 
+If you have used the ATOM Echo on Home Assistant before and have it installed via ESPHome add-on, you first need to remove its configuration.
+During the installation via ESPHome add-on, an encryption key was set up.
+
+### To delete the ATOM Echo configuration from ESPHome
+
+1. If you have used the ATOM Echo before and, you need to remove it before installing the new firmware.
+2. Go to {% my integrations title="**Settings** > **Devices & Services**" %}, and select the ESPHome integration.
+   - Under **Devices**, next to the **M5Stack Atom Echo a61920** entry, select the three-dots menu.
+   - Select **Delete**.
+3. Make sure you have [access to the configuration files](/common-tasks/os/#configuring-access-to-files).
+   - If you have never done this before, [install the file editor add-on](/common-tasks/os/#installing-and-using-the-file-editor-add-on).
+4. Access the config files and open the **esphome** folder.
+5. If there is a configuration file for the ATOM Echo, delete it.
+
+### To install the software on your ATOM Echo
+
 Before you can use this device with Home Assistant, you need to install a bit of software on it.
 
 1. Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.
@@ -78,14 +94,18 @@ Before you can use this device with Home Assistant, you need to install a bit of
 5. Select **OK**. 
    
    ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
-6. To add the newly discovered device, select the ATOM Echo from the list.
-   - Add your ATOM Echo to a room and select **Finish**. 
-7. You should now see the **ESPHome** integration.
+6. If at this stage a dialog opens prompting you to enter connection settings of your ESPHome node, it means there is already a configuration set up for that ESPHome device.
+   - Close the dialog and perform the procedure on [deleting the ATOM Echo configuration from ESPHome](/voice_control/thirteen-usd-voice-remote/#to-delete-the-atom-echo-configuration-from-esphome).
+   - Restart Home Assistant.
+   - Then, under {% my integrations title="**Settings** > **Devices & Services**" %}, your ATOM Echo should be discovered.
+7. To add the newly discovered device, select the ATOM Echo from the list.
+   - Add your ATOM Echo to a room and select **Finish**.
+8. You should now see the **ESPHome** integration.
    ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
-8. Select the **ESPHome** integration. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
+9.  Select the **ESPHome** integration. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
    ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-new-03.png)
    - Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
-9. Congratulations! You can now voice control Home Assistant using a button with a built-in microphone. Now give some commands.
+10. Congratulations! You can now voice control Home Assistant using a button with a built-in microphone. Now give some commands.
 
 ## Controlling Home Assistant over the ATOM Echo
 
