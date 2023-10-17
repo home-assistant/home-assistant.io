@@ -18,7 +18,7 @@ Amazon Alexa provides a Smart Home API for richer home automation control withou
 
 It takes considerable effort to configure. Your Home Assistant instance must be accessible from the Internet, and you need to create an Amazon Developer account and an Amazon Web Services (AWS) account. An easier solution is to use [Home Assistant Cloud](/integrations/cloud/).
 
-The [Emulated Hue integration](/integrations/emulated-hue) provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
+The [Emulated Hue integration][emulated-hue-integration] provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
 
 <div class='note'>
 
