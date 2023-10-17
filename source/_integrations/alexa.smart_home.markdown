@@ -18,7 +18,7 @@ Amazon Alexa provides a Smart Home API for richer home automation control withou
 
 It takes considerable effort to configure. Your Home Assistant instance must be accessible from the Internet, and you need to create an Amazon Developer account and an Amazon Web Services (AWS) account. An easier solution is to use [Home Assistant Cloud](/integrations/cloud/).
 
-The [Emulated Hue integration](/integrations/emulated-hue) provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
+The [Emulated Hue integration][emulated-hue-integration] provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
 
 <div class='note'>
 
@@ -241,16 +241,16 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
     Note: you must use a valid/trusted SSL certificate for account linking to work. Self signed certificates will not work, but you can use a free Let's Encrypt certificate.
 </div>
 
-  - `Client ID`:
-    - `https://pitangui.amazon.com/` if you are in US
-    - `https://layla.amazon.com/` if you are in EU
-    - `https://alexa.amazon.co.jp/` if you are in JP and AU (not verified yet)
+- `Client ID`:
+  - `https://pitangui.amazon.com/` if you are in US
+  - `https://layla.amazon.com/` if you are in EU
+  - `https://alexa.amazon.co.jp/` if you are in JP and AU (not verified yet)
 
     The trailing slash is important here.
 
-  - `Client Secret`: input anything you like, Home Assistant does not check this field
-  - `Your Authentication Scheme`: make sure you selected *Credentials in request body*. Home Assistant does not support *HTTP Basic*.
-  - `Scope`: Click `+ Add scope` and input `smart_home`, Home Assistant is not using it yet, we may use it in the future when we allow more fine-grained access control.
+- `Client Secret`: input anything you like, Home Assistant does not check this field
+- `Your Authentication Scheme`: make sure you selected *Credentials in request body*. Home Assistant does not support *HTTP Basic*.
+- `Scope`: Click `+ Add scope` and input `smart_home`, Home Assistant is not using it yet, we may use it in the future when we allow more fine-grained access control.
 - You can leave `Domain List` and `Default Access Token Expiration Time` as empty.
 
 <p class='img'>
@@ -317,9 +317,9 @@ alexa:
         endpoint:
           description: >-
             To enable proactive events, you send a message to the Alexa event gateway, send it to the event endpoint that aligns with the geographic availability of your smart home skill. Following is the list of endpoints and the regions they cover. See [Proactive Events](#proactive-events) for more information.
-             * North America: `https://api.amazonalexa.com/v3/events`
-             * Europe: `https://api.eu.amazonalexa.com/v3/events`
-             * Far East: `https://api.fe.amazonalexa.com/v3/events`
+             - North America: `https://api.amazonalexa.com/v3/events`
+             - Europe: `https://api.eu.amazonalexa.com/v3/events`
+             - Far East: `https://api.fe.amazonalexa.com/v3/events`
           required: false
           type: string
         client_id:
@@ -412,7 +412,7 @@ See [List of Capability Interfaces and Supported Locales][alexa-supported-locale
 The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e., "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
 
 - There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events.html#endpoints>
-- The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][amazon-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
+- The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][alexa-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
 - If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available. Also, you need to restart your Home Assistant after each disabling/enabling the skill in Alexa."
 
 ### Configure Filter <!-- omit in toc -->
