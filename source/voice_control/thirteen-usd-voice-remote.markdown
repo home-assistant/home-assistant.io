@@ -129,6 +129,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 2. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
    - Under **M5Stack ATOM Echo**, select **1 device**.
 3. Disable **Use wake word**.
+   
    ![Toggle to enable/disable wake word](/images/assist/wake_word_disable_on_atom_echo.png)
 4. To start using push-to-talk, press the flat button with rounded shape on your ATOM Echo.
    - The rectangular button on the side is the reset button. Do not press that one.
