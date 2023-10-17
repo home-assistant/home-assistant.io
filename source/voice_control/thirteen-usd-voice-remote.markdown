@@ -25,9 +25,9 @@ As a first step, you need to install the openWakeWord add on. This must be insta
 1. Go to {% my supervisor_addon addon="openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
 2. Start the add-on.
 3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-   - Under **Discovered**, you should now see the **openWakeWord** integration.
+   - Under **Discovered**, you should now see the **Wyoming** integration.
    - Select **Configure** and **Submit**.
-   - **Result**: You have successfully installed the openWakeWord add-on and integration.
+   - **Result**: You have successfully installed the openWakeWord add-on and Wyoming integration.
 
 ## Adding a wake word to your voice assistant
 
