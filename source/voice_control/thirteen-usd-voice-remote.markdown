@@ -14,7 +14,7 @@ your smart home. Issue commands and get responses!
 - Home Assistant 2023.10
 - [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - The password to your 2.4&nbsp;GHz Wi-Fi network
-- Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS) 
+- Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS)
 - [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
 - USB-C cable to connect the ATOM Echo
 
@@ -86,7 +86,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
        - When prompted, select your network from the list and enter the credentials to your 2.4&nbsp;GHz Wi-Fi network.
        - Select **Connect**.
        - The ATOM Echo now joined your network. Select **Add to Home Assistant**.
-4. This opens the **My** link to Home Assistant. 
+4. This opens the **My** link to Home Assistant.
    - If you have not used My Home Assistant before, you will need to configure it. If your Home Assistant URL is not accessible on `http://homeassistant.local:8123`, replace it with the URL to your Home Assistant instance.
    - Open the link.
    ![Open My link](/images/assist/esp32-atom-flash-06.png)
