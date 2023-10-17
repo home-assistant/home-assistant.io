@@ -241,16 +241,16 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
     Note: you must use a valid/trusted SSL certificate for account linking to work. Self signed certificates will not work, but you can use a free Let's Encrypt certificate.
 </div>
 
-  - `Client ID`:
-    - `https://pitangui.amazon.com/` if you are in US
-    - `https://layla.amazon.com/` if you are in EU
-    - `https://alexa.amazon.co.jp/` if you are in JP and AU (not verified yet)
+- `Client ID`:
+  - `https://pitangui.amazon.com/` if you are in US
+  - `https://layla.amazon.com/` if you are in EU
+  - `https://alexa.amazon.co.jp/` if you are in JP and AU (not verified yet)
 
     The trailing slash is important here.
 
-  - `Client Secret`: input anything you like, Home Assistant does not check this field
-  - `Your Authentication Scheme`: make sure you selected *Credentials in request body*. Home Assistant does not support *HTTP Basic*.
-  - `Scope`: Click `+ Add scope` and input `smart_home`, Home Assistant is not using it yet, we may use it in the future when we allow more fine-grained access control.
+- `Client Secret`: input anything you like, Home Assistant does not check this field
+- `Your Authentication Scheme`: make sure you selected *Credentials in request body*. Home Assistant does not support *HTTP Basic*.
+- `Scope`: Click `+ Add scope` and input `smart_home`, Home Assistant is not using it yet, we may use it in the future when we allow more fine-grained access control.
 - You can leave `Domain List` and `Default Access Token Expiration Time` as empty.
 
 <p class='img'>
@@ -317,9 +317,9 @@ alexa:
         endpoint:
           description: >-
             To enable proactive events, you send a message to the Alexa event gateway, send it to the event endpoint that aligns with the geographic availability of your smart home skill. Following is the list of endpoints and the regions they cover. See [Proactive Events](#proactive-events) for more information.
-             * North America: `https://api.amazonalexa.com/v3/events`
-             * Europe: `https://api.eu.amazonalexa.com/v3/events`
-             * Far East: `https://api.fe.amazonalexa.com/v3/events`
+             - North America: `https://api.amazonalexa.com/v3/events`
+             - Europe: `https://api.eu.amazonalexa.com/v3/events`
+             - Far East: `https://api.fe.amazonalexa.com/v3/events`
           required: false
           type: string
         client_id:
