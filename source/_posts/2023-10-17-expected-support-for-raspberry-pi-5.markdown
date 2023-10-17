@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Expected support for Home Assistant OS on the Raspberry Pi 5"
-description: "Stable support for Home Assistant OS on Raspberry Pi 5 expected end 2023/late 2024"
+description: "Stable support for Home Assistant OS on Raspberry Pi 5 expected end 2023/early 2024"
 date: 2023-10-17 00:00:00
 date_formatted: "October 17, 2023"
 author: Stefan Agner
