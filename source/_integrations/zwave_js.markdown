@@ -747,7 +747,7 @@ Z-Wave supports all known 500 and 700 series Z-Wave controllers. If you are just
 
 For more information, see [Supported Z-Wave dongles](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules)
 
-### Why was I (or why was I not) automatically prompted to install Z-Wave?
+### Why was I (not) automatically prompted to install Z-Wave?
 
 Some Z-Wave USB sticks can be auto-discovered, which can simplify the Z-Wave setup process. The following devices have been tested with discovery, and offer a quick setup experience; however, these are **not** all of the devices supported by Z-Wave:
 
@@ -818,7 +818,7 @@ After the initial setup of the Z-Wave controller, you can view the security keys
 
 ## FAQ: Troubleshooting topics
 
-### I'm having a problem, what should I do first?
+### I'm having a problem, what to do first?
 
 _Many_ reported issues result from RF interference caused by the system's USB ports. This can manifest in many ways, including devices that won't include at all, devices that won't include securely, sensors with erroneous values (packets corrupted), delayed control of devices, or no ability to control devices.
 
@@ -832,7 +832,7 @@ The combination of these two steps corrects a large number of reported difficult
 
 The first-generation Gen5 controller has a known bug when plugged into a Pi&nbsp;4 and possibly other systems. Aeotec released the Gen5+ stick to correct this bug. Gen5 users can plug their sticks into a USB&nbsp;2.0 hub in order to overcome the issue.
 
-### I do not see any entities created for my device in Home Assistant
+### I don't see any entities created for my device in Home Assistant
 
 Entities will be created only after the node is ready (the interview is completed). Also, note that some devices (like button remotes) do not create any entities but will only provide events when a button is pressed. See the events section on how to handle those events in your automations.
 
@@ -852,7 +852,7 @@ Z-Wave does not automatically poll devices on a regular basis. Polling can quick
 Polling should only be used as a last resort. You must use it with care and accept the negative impact on your network. Z-Wave is a very low speed network and poll requests can easily flood your network and slow down your commands.
 </div>
 
-### My device is recognized as Unknown Manufacturer and/or some of its functionalities do not work with the Z-Wave integration
+### My device is recognized as Unknown Manufacturer and/or some functions don't work with the Z-Wave integration
 
 When your device is not yet fully interviewed, this info will not yet be present. So make sure your device is interviewed at least once.
 
