@@ -85,13 +85,7 @@ To integrate a demo platform in Home Assistant, add the following section to you
 
 ```yaml
 # Example configuration.yaml entry
-
-# To load all:
 demo:
-
-# To load for a specific integration:
-light:
-  - platform: demo
 ```
 
 {% configuration %}
