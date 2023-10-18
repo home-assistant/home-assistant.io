@@ -88,7 +88,7 @@ Click on any of the Controls or Sensors to find the corresponding Entity ID
 Dimmer
 Switch
 Controlled Outlet
-Usb Outlet
+USB Outlet
 
 ### Entities
 
