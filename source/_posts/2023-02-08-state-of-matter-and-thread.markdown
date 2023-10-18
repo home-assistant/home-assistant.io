@@ -100,7 +100,7 @@ Together with today’s blog post, we’ve pushed a big update to [the SkyConnec
 
 ## SiLabs multi-flasher & SL Web Tools
 
-It’s our mission to build the Open Home: a smart home that offers privacy, choice, and durability. Part of our efforts is to build tooling that helps other creators to make projects and products to help further the Open Home cause.
+It’s our mission to build the Open Home: a smart home that offers privacy, choice, and sustainability. Part of our efforts is to build tooling that helps other creators to make projects and products to help further the Open Home cause.
 
 As part of this effort, two years ago, we built ESP Web Tools. It revolutionized the DIY firmware world by allowing any ESP32/ESP8266 project to offer an easy web installer on their homepage, allowing users to get started directly from their browser. It has been adopted by all the great projects, including [Tasmota], [WLED], and [ESPresense]. Ever since the introduction of ESP Web Tools, we have wanted to expand this to more devices.
 
