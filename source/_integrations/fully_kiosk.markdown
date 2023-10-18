@@ -104,7 +104,6 @@ Example:
 ```yaml
 service: fully_kiosk.set_config
 data:
-  config_type: "string"
   key: "startURL"
   value: "https://home-assistant.io"
 target:

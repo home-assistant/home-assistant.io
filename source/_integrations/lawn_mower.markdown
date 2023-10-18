@@ -13,7 +13,7 @@ ha_integration_type: entity
 
 The lawn mower integration allows the control of robotic lawn mowers to be reflected within Home Assistant.
 
-Please note, the lawn mower integration cannot be directly used; you cannot create your own lawn mower entities using this integration. This integration is a building block for other integrations to use, enabling them to create lawn mower entities for you.
+{% include integrations/building_block_integration.md %}
 
 ## Services
 

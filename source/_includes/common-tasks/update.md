@@ -55,8 +55,8 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
   content: |
 
     ```bash
-    docker-compose pull homeassistant
-    docker-compose up -d
+    docker compose pull homeassistant
+    docker compose up -d
     ```
 
 {% endtabbed_block %}
