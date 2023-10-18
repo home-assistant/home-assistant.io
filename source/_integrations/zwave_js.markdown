@@ -832,7 +832,7 @@ The combination of these two steps corrects a large number of reported difficult
 
 The first-generation Gen5 controller has a known bug when plugged into a Pi&nbsp;4 and possibly other systems. Aeotec released the Gen5+ stick to correct this bug. Gen5 users can plug their sticks into a USB&nbsp;2.0 hub in order to overcome the issue.
 
-### I don't see any entities created for my device in Home Assistant
+### I do not see any entities created for my device in Home Assistant
 
 Entities will be created only after the node is ready (the interview is completed). Also, note that some devices (like button remotes) do not create any entities but will only provide events when a button is pressed. See the events section on how to handle those events in your automations.
 
