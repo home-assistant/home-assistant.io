@@ -19,7 +19,7 @@ Make sure you have a developer account registered with X, then go to [X Apps](ht
 
 ### App permissions
 
-If you do not perform this step, your application will only receive read permissions and will not be able to post tweets on behalf of your account on Twitter.
+If you do not perform this step, your application will only receive read permissions and will not be able to post tweets on behalf of your account on X.
 
 1. Visit **Settings** of the application.
 2. Select `Set up` under **User authentication settings**.
