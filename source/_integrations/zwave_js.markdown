@@ -430,9 +430,9 @@ trigger:
       event_label: "Keypad unlock operation"
 ```
 
-#### Notification command class
+#### Notification Command Class
 
-These are notification events fired by devices using the notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
+These are notification events fired by devices using the Notification Command Class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
 
 ```json
 {
@@ -451,9 +451,9 @@ These are notification events fired by devices using the notification command cl
 }
 ```
 
-#### Multilevel switch command class
+#### Multilevel Switch Command Class
 
-These are notification events fired by devices using the multilevel switch command class. There are events for start level change and stop level change. These would typically be used in a device like the Aeotec Nano Dimmer with an external switch to respond to long button presses.
+These are notification events fired by devices using the Multilevel Switch Command Class. There are events for start level change and stop level change. These would typically be used in a device like the Aeotec Nano Dimmer with an external switch to respond to long button presses.
 
 ##### Start level change
 
@@ -489,9 +489,9 @@ These are notification events fired by devices using the multilevel switch comma
 },
 ```
 
-#### Entry control command class
+#### Entry Control Command Class
 
-These are notification events fired by devices using the entry control command class.
+These are notification events fired by devices using the Entry Control Command Class.
 
 ```json
 {
@@ -621,8 +621,8 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | ---------------------------- | ------------------------------------------------------------------------------------------ |
 | `trigger.device_id`          | Device ID for the device in the device registry.                                           |
 | `trigger.node_id`            | Z-Wave node ID.                                                                            |
-| `trigger.command_class`      | Command class ID.                                                                          |
-| `trigger.command_class_name` | Command class name.                                                                        |
+| `trigger.command_class`      | Command Class ID.                                                                          |
+| `trigger.command_class_name` | Command Class name.                                                                        |
 | `trigger.property`           | Z-Wave Value's property.                                                                   |
 | `trigger.property_name`      | Z-Wave Value's property name.                                                              |
 | `trigger.property_key`       | Z-Wave Value's property key.                                                               |
@@ -732,11 +732,11 @@ If you're running full Home Assistant with supervisor, you will be presented wit
 
 If you're not running the supervisor or you've unchecked the above-mentioned box, you will be asked to enter a WebSocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (Docker) IP/hostname here. For example for the Z-Wave JS UI add-on this is `ws://a0d7b954-zwavejs2mqtt:3000`.
 
-## FAQ: Supported devices and command classes
+## FAQ: Supported devices and Command Classes
 
 See the [Z-Wave JS device database](https://devices.zwave-js.io/).
 
-While there is support for the most common devices, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
+While there is support for the most common devices, some Command Classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
 
 You can also keep track of the road map for the Z-Wave integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
 
