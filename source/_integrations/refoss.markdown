@@ -17,17 +17,15 @@ ha_integration_type: integration
 
 Integrate Refoss devices into Home Assistant.
 
-{% include integrations/config_flow.md %}
-
-## Refoss IoT Platform Configuration
-
-### Prerequisites
+## Prerequisites
 
 The device needs to be connected to the local network first. There are two ways to connect devices to the local network:
   - Using the Refoss app (download and install the Refoss app on Google Play) to connect devices to the local network.
   - Using the Web page to connect devices to the local network.
     - Computer/mobile phone connected to device factory wifi.
     - In the browser, access the address 10.10.10.1, then select the local wifi that needs to be added for device configuration.
+
+{% include integrations/config_flow.md %}
 
 ### Discover device
 
@@ -60,7 +58,7 @@ Examples:
 
 Long-press the button on the device to reset it.
 
-## limitations
+## Limitations
 
 - Before set up, the device is connected to the local network and powered on.
 - The integration will occupy port: 9989.
