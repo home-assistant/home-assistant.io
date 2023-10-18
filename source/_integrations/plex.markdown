@@ -2,8 +2,10 @@
 title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
 ha_category:
+  - Button
   - Media Player
   - Sensor
+  - Update
 featured: true
 ha_release: 0.7.4
 ha_iot_class: Local Push
@@ -15,6 +17,7 @@ ha_platforms:
   - button
   - media_player
   - sensor
+  - update
 ha_zeroconf: true
 ha_integration_type: integration
 ---
@@ -27,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 - [Button](#button)
+- [Update](#update)
 - [Media Player](#media-player)
 
 If a Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
@@ -135,6 +139,12 @@ play_plex_on_tv:
 ```
 
 {% endraw %}
+
+## Update
+
+Notifications of new releases of Plex Media Server are shown using an Update entity. Detailed release notes are provided.
+
+Automatic upgrades of Plex Media Server can be triggered for some installation types, such as Windows and certain NAS devices.
 
 ## Media Player
 
