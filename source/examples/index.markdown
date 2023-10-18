@@ -12,7 +12,7 @@ of these examples are using [the automation integration][automations].
 
 A great place to find popular configurations is on this
 [GitHub search][github-search] for repositories with the
-`home-assistant-config` topic.
+`home-assistant-config` topic or in [the awesome list|https://www.awesome-ha.com/].
 
 </div>
 
