@@ -26,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor: Emulates a keypad display
 - Binary Sensor: Reports on zone status
 
-This is a fully event-based component. Any event sent by the AlarmDecoder device will be immediately reflected within Home Assistant.
+This is a fully event-based integration. Any event sent by the AlarmDecoder device will be immediately reflected within Home Assistant.
 
 {% include integrations/config_flow.md %}
 

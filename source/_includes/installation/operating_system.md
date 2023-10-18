@@ -6,43 +6,48 @@
 
 Follow this guide if you want to get started with Home Assistant easily or if you have little to no Linux experience.
 
-{% if page.installation_type == 'raspberrypi' %}
-
-### Suggested Hardware
-
-We will need a few things to get started with installing Home Assistant. Links below lead to Amazon US. If you’re not in the US, you should be able to find these items in web stores in your country.
-
-- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 is ok too, if you have one laying around). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) to find official distributors with stock.
-- [Power Supply for Raspberry Pi 4](https://amzn.to/2ReZ2Vq) or [Power Supply for Raspberry Pi 3](https://amzn.to/2R8yG7h)
-- [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32 GB or bigger card is recommended.
-- SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
-- [Ethernet cable](https://amzn.com/dp/B00N2VISLW). Required for installation. After installation, Home Assistant can work with Wi-Fi, but an Ethernet connection is more reliable and highly recommended.
-
-{% endif %}
-
 {% if page.installation_type == 'odroid' %}
 
-### Suggested Hardware
+### Suggested hardware
 
-We will need a few things to get started with installing Home Assistant. Links below lead to Ameridroid. If you’re not in the US, you should be able to find these items in web stores in your country.
+We will need a few things to get started with installing Home Assistant. The links below lead to Ameridroid. If you’re not in the US, you should be able to find these items in web stores in your country.
 
-To get started we suggest the ODROID N2+, it's the most powerful ODROID. It's fast and with built-in eMMC one of the best boards to run Home Assistant. It's also the board that powers our [Home Assistant Blue](/blue/).
+To get started, we suggest the ODROID N2+, the board that powers our [Home Assistant Blue](/blue/), or the ODROID M1.
 
-- [ODROID N2+](https://ameridroid.com/products/odroid-n2-plus?ref=eeb6nfw07e)
+If unavailable, we also recommend the [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e).
+
+
+Home Assistant bundles (US market): 
+
+The bundles come with Home Assistant pre-installed. 
+
+- [ODROID N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935?ref=eeb6nfw07e)
+- [ODROID N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399?ref=eeb6nfw07e)
+- ODROID M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831?ref=eeb6nfw07e)
+- ODROID M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367?ref=eeb6nfw07e)
+- [ODROID M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC ](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
+- ODROID XU4: 2 GB RAM / [32 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729352471?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748782305559?ref=eeb6nfw07e)
+
+Variants without pre-installed Home Assistant:
+
+- ODROID N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650?ref=eeb6nfw07e) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418?ref=eeb6nfw07e)
+- [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e)
+- [ODROID M1](https://ameridroid.com/products/odroid-M1?ref=eeb6nfw07e)
+
 - [Power Supply](https://ameridroid.com/products/12v-2a-power-supply-plug?ref=eeb6nfw07e)
 - [CR2032 Coin Cell](https://ameridroid.com/products/rtc-bios-battery?ref=eeb6nfw07e)
 - [eMMC Module](https://ameridroid.com/products/emmc-module-n2-linux-red-dot?ref=eeb6nfw07e)
 - [Case](https://ameridroid.com/products/odroid-n2-case?ref=eeb6nfw07e)
 
-If unavailable, we also recommend the [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e) or [ODROID XU4](https://ameridroid.com/products/odroid-xu4?ref=eeb6nfw07e).
+*These are affiliated links. We get commissions for purchases made through links in this post.*
 
 {% endif %}
 
 {% if page.installation_type == 'tinkerboard' %}
 
-### Suggested Hardware
+### Suggested hardware
 
-We will need a few things to get started with installing Home Assistant. Links below lead to Amazon US. If you’re not in the US, you should be able to find it in web stores in your country.
+We will need a few things to get started with installing Home Assistant. The links below lead to Amazon US. If you’re not in the US, you should be able to find it in web stores in your country.
 
 - [Asus Tinkerboard S](https://amzn.to/3fFIcbI)
 
@@ -67,13 +72,13 @@ To boot Home Assistant OS, the BIOS needs to have UEFI boot mode enabled and Sec
 1. To enter the BIOS, start up your x86-64 hardware and repeatedly press the `F2` key (on some systems this might be `Del`, `F1` or `F10`).
 ![Enter BIOS using F2, Del, F1 or F10 key](/images/installation/intel-nuc-enter-bios.jpg)
 
-1. Make sure the UEFI Boot mode is enabled.
+2. Make sure the UEFI Boot mode is enabled.
 ![Enable UEFI Boot mode](/images/installation/intel-nuc-uefi-boot.jpg)
 
-1. Disable Secure Boot.
+3. Disable Secure Boot.
 ![Disable Secure Boot mode](/images/installation/intel-nuc-disable-secure-boot.jpg)
 
-1. Save your changes and exit.
+4. Save your changes and exit.
 
 The BIOS configuration is now complete.
 
@@ -90,7 +95,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 1. Write the HAOS disk image from your desktop computer directly to the boot medium (e.g. using a USB to S-ATA adapter).
 If you can use this method, proceed to "[Write the image to your boot medium](#write-the-image-to-your-boot-medium)" and follow all steps. If you have non-removable internal mediums or don't have the necessary adapter, try the next method instead.
 
-1. Create a "live operating system" on a USB device running e.g. Ubuntu ([how-to guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Insert it into your system and boot the live operating system. Then follow from step 2 in "[Write the image to your boot medium](#write-the-image-to-your-boot-medium)".
+2. Create a "live operating system" on a USB device running e.g. Ubuntu ([how-to guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Insert it into your system and boot the live operating system. Then follow from step 2 in "[Write the image to your boot medium](#write-the-image-to-your-boot-medium)".
 
 {% details "Ubuntu dependencies for Etcher" %}
 
@@ -111,13 +116,14 @@ sudo apt install libfuse2
 
 1. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.
 {% if page.installation_type == 'odroid' %}
+   If you are using ODROID M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
+
    If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
 {% endif %}
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
-3. Select "Flash from URL".
-![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
-
-4. Copy the URL for the {{site.installation.types[page.installation_type].board}} image which is:
+3. Download the image to your computer.
+   - Copy the URL for the image.
+   - If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}.
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
@@ -148,15 +154,19 @@ sudo apt install libfuse2
 
 _Select and copy the URL or use the "copy" button that appear when you hover it._
 
-1. Paste the URL for the {{site.installation.types[page.installation_type].board}} image into Balena Etcher and click "OK"
-![Screenshot of the Etcher software showing the URL bar with a URL pasted in.](/images/installation/etcher2.png)
-1. When Balena Etcher has downloaded the image, click "Select target"
+
+4. Paste the URL into your browser to start the download.
+5. Select **Flash from file** and select the image you just downloaded.
+   - **Flash from URL** does not work on some systems.
+
+  ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
+6. **Select target**.
 ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
-1. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation
+7. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
 ![Screenshot of the Etcher software showing teh targets available.](/images/installation/etcher4.png)
-1. Click on "Flash!" to start writing the image
+8. Select **Flash!** to start writing the image.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-1. When Balena Etcher has finished writing the image you will see a confirmation
+9. When Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
@@ -209,9 +219,6 @@ If you are running an older Windows version or have a stricter network configura
 ### Download the appropriate image
 
 - [VirtualBox][vdi] (.vdi)
-{% if page.installation_type == 'macos' %}
-- [KVM][qcow2] (.qcow2)
-{% endif %}
 {% if page.installation_type == 'windows' or page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
 - [Vmware Workstation][vmdk] (.vmdk)
@@ -223,9 +230,15 @@ If you are running an older Windows version or have a stricter network configura
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
 
-Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines we recommend installation Home Assistant OS directly on a [Raspberry Pi](/installation/raspberrypi) or an [ODROID](/installation/odroid).
+After downloading, decompress the image. If the image comes in a ZIP file, for example, unzip it.
 
-### Create the Virtual Machine
+Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines, we recommend installing Home Assistant OS directly on a [Home Assistant Yellow](/installation/yellow), a [Raspberry Pi](/installation/raspberrypi), or an [ODROID](/installation/odroid).
+
+{% if page.installation_type == 'macos' %}
+- If VirtualBox is not supported on your Mac, and you have experience using virtual machines, you can try running the Home Assistant Operating system on [UTM](https://mac.getutm.app/). 
+{% endif %}
+
+### Create the virtual machine
 
 Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs).
 
@@ -243,43 +256,44 @@ _All these can be extended if your usage calls for more resources._
 
 - title: VirtualBox
   content: |
-    1. Create a new virtual machine
-    2. Select Type "Linux" and Version "Linux 2.6 / 3.x / 4.x (64-bit)"
-    3. Select "Use an existing virtual hard disk file", select the unzipped VDI file from above
-    4. Edit the "Settings" of the VM and go "System" then "Motherboard" and select "Enable EFI"
-    5. Then go to "Network" "Adapter 1" choose "Bridged Adapter" and choose your Network adapter
+    1. Create a new virtual machine.
+    2. Select type **Linux** and version **Linux 2.6 / 3.x / 4.x (64-bit)**.
+    3. Select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
+    4. Edit the **Settings** of the VM and go to **System** > **Motherboard**. Select **Enable EFI**.
+    5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.
     <div class="note warning">
     Please keep in mind that the bridged adapter only functions over a hardwired Ethernet connection.
     Using Wi-Fi on your VirtualBox host is unsupported.
     </div>
-    6. Then go to "Audio" and choose "Intel HD Audio" as Audio Controller.
+    6. Then go to **Audio** and choose **Intel HD Audio** as audio controller.
     <div class="note info">
 
-    By default VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
-    the `discard` option must be enabled:
+    By default, VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
+    the `discard` option must be enabled using your host machine's terminal:
     ```bash
     VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
     ```
+    More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
     </div>
-
+{% unless page.installation_type == 'macos' %}
 - title: KVM (virt-manager)
   content: |
-    1. Create a new virtual machine in `virt-manager`
-    2. Select "Import existing disk image", provide the path to the QCOW2 image above
-    3. Choose "Generic Default" for the operating system
-    4. Check the box for "Customize configuration before install"
-    5. Select your bridge under "Network Selection"
-    6. Under customization select "Overview" -> "Firmware" -> "UEFI x86_64: ...". Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), e.g., `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
-    7. Click "Add Hardware" (bottom left), and select "Channel"
-    8. Select device type: "unix"
-    9. Select name: "org.qemu.guest_agent.0"
-    10. Finally select "Begin Installation" (upper left corner)
+    1. Create a new virtual machine in `virt-manager`.
+    2. Select **Import existing disk image**, provide the path to the QCOW2 image above.
+    3. Choose **Generic Default** for the operating system.
+    4. Check the box for **Customize configuration before install**.
+    5. Under **Network Selection**, select your bridge.
+    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), e.g., `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
+    7. Click **Add Hardware** (bottom left), and select **Channel**.
+    8. Select device type: **unix**.
+    9. Select name: **org.qemu.guest_agent.0**.
+    10. Finally, select **Begin Installation** (upper left corner).
 
 - title: KVM (virt-install)
   content: |
     ```bash
-    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi
+    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --import --graphics none --boot uefi
     ```
     <div class="note info">
     If you have a USB dongle to attach, you need to add the option `--hostdev busID.deviceId`. You can discover these IDs via the `lsusb` command.
@@ -299,23 +313,24 @@ _All these can be extended if your usage calls for more resources._
     You can recognize the Sonoff dongle at `Bus 003 Device 003`. So the command to install the VM will become:
 
     ```bash
-    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi --hostdev 003.003
+    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --import --graphics none --boot uefi --hostdev 003.003
     ```
     Note that this configuration (bus 003, device 003) is just an example, your dongle could be on another bus and/or with another device ID. 
     Please check the correct IDs of your USB dongle with `lsusb`.
     </div>
+{% endunless %}
 
 {% if page.installation_type == 'windows' or page.installation_type == 'linux' %}
 
 - title: Vmware Workstation
   content: |
-    1. Create a new virtual machine
-    2. Select “Custom”, make it compatible with the default of Workstation and ESX
-    3. Choose “I will install the operating system later”, select “Linux” -> “Other Linux 5.x or later kernel 64-bit”
-    4. Select “Use Bridged Networking”
-    5. Select “Use an existing virtual disk” and select the VMDK file above,
+    1. Create a new virtual machine.
+    2. Select **Custom**, make it compatible with the default of Workstation and ESX.
+    3. Choose **I will install the operating system later**, select **Linux** > **Other Linux 5.x or later kernel 64-bit**.
+    4. Select **Use Bridged Networking**.
+    5. Select **Use an existing virtual disk** and select the VMDK file above.
 
-    After creation of VM go to “Settings” and “Options” then “Advanced” and select “Firmware type” to “UEFI”.
+    After the VM has been created, go to **Settings** > **Options** > **Advanced**. Under **Firmware type** select **UEFI**.
 
 {% elsif page.installation_type == 'alternative' %}
 
@@ -330,25 +345,27 @@ _All these can be extended if your usage calls for more resources._
         Hyper-V does not have USB support
     </div>
 
-    1. Create a new virtual machine
-    2. Select “Generation 2”
-    3. Select “Connection -> “Your Virtual Switch that is bridged”
-    4. Select “Use an existing virtual hard disk” and select the VHDX file from above
+    1. Create a new virtual machine.
+    2. Select **Generation 2**.
+    3. Select **Connection** > **Your Virtual Switch that is bridged**.
+    4. Select **Use an existing virtual hard disk** and select the VHDX file from above.
 
-    After creation go to “Settings” -> “Security” and deselect “Enable Secure Boot”.
+    After creation, go to **Settings** > **Security** and deselect **Enable Secure Boot**.
 {% endif %}
 
 {% endtabbed_block %}
 
-### Start up your Virtual Machine
+### Start up your virtual machine
 
-1. Start the Virtual Machine
-2. Observe the boot process of Home Assistant Operating System
-3. Once completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+1. Start the virtual machine.
+2. Observe the boot process of the Home Assistant Operating System.
+3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 
 {% endif %}
 
-With the Home Assistant Operating System installed and accessible you can continue with onboarding.
+{% include installation_survey.html %}
+
+With the Home Assistant Operating System installed and accessible, you can continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 

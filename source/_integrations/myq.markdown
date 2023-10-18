@@ -9,8 +9,8 @@ ha_release: 0.39
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@bdraco'
   - '@ehendrix23'
+  - '@Lash-L'
 ha_domain: myq
 ha_homekit: true
 ha_platforms:
@@ -56,7 +56,7 @@ To use HomeKit Controller:
 ### Pairing with Home Assistant
 
 - Go to {% my integrations title="Settings >> Devices & Services" %} in the Home Assistant UI.
-- Click the button with + sign, and from the list of integrations, select  ***HomeKit Controller***.
+- Click the button with + sign, and from the list of integrations, select ***HomeKit Device***.
 - Select the `MyQ-...` bridge.
 - Enter the pairing code that is physically printed on a sticker on the bridge.
 - Complete the remaining steps.
@@ -64,6 +64,6 @@ To use HomeKit Controller:
 If you want the devices to be accessible via HomeKit, create a HomeKit Bridge using the following steps:
 
 - Go to {% my integrations title="Settings >> Devices & Services" %} in the Home Assistant UI.
-- Click the button with + sign, and from the list of integrations, select  ***HomeKit***.
+- Click the button with + sign, and from the list of integrations, select ***HomeKit Bridge***.
 - Create a bridge for the `cover` domain.
 - Follow the instructions to pair with the bridge.

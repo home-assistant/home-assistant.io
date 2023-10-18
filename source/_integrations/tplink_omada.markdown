@@ -11,6 +11,7 @@ ha_codeowners:
   - '@MarkGodwin'
 ha_domain: tplink_omada
 ha_platforms:
+  - binary_sensor
   - switch
   - update
 ha_integration_type: hub
@@ -38,7 +39,7 @@ TP-Link Omada Controller:
 - OC300
 - Software Controller.
 
-Controller versions 5.0.0 and later are supported.
+Controller versions 5.1.0 and later are supported.
 
 ## Supported Omada devices
 
@@ -54,6 +55,7 @@ Controller versions 5.0.0 and later are supported.
 ### Internet Gateways
 
 - Firmware Update entities.
+- WAN/LAN Port connectivity sensor entities.
 
 ## Device Trackers
 

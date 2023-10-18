@@ -761,7 +761,7 @@ on each other and order doesn't matter. For those cases, the `parallel` action
 can be used to run the actions in the sequence in parallel, meaning all
 the actions are started at the same time.
 
-The following example shows sending messages out at the time (in parallel):
+The following example shows sending messages out at the same time (in parallel):
 
 ```yaml
 automation:
@@ -779,7 +779,7 @@ automation:
               message: "These messages are sent at the same time!"
 ```
 
-It is also possible to run a group of actions sequantially inside the parallel
+It is also possible to run a group of actions sequentially inside the parallel
 actions. The example below demonstrates that:
 
 ```yaml
@@ -823,7 +823,8 @@ Some of the caveats of running actions in parallel:
 
 ## Stopping a script sequence
 
-It is possible to halt a script sequence at any point. Using the `stop` action.
+It is possible to halt a script sequence at any point and return script responses
+using the `stop` action.
 
 The `stop` action takes a text as input explaining the reason for halting the
 sequence. This text will be logged and shows up in the automations and
@@ -834,6 +835,15 @@ for example, a condition is not met.
 
 ```yaml
 - stop: "Stop running the rest of the sequence"
+```
+
+To return a response from a script, use the `response_variable` option. This
+option expects the name of the variable that contains the data to return. The
+response data must contains a mapping of key/value pairs.
+
+```yaml
+- stop: "Stop running the rest of the sequence"
+  response_variable: "my_response_variable"
 ```
 
 There is also an `error` option, to indicate we are stopping because of

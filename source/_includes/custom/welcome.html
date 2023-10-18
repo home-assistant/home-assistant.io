@@ -3,8 +3,19 @@
   {{ site.description }}
 </p>
 
+{%- assign tot = 0 -%}
+{%- for comp in site.integrations -%}
+{%- if comp.ha_category -%}
+{%- if comp.ha_category.first -%}
+{%- assign tot = tot | plus: comp.ha_category.size -%}
+{%- else -%}
+{%- assign tot = tot | plus: 1 -%}
+{%- endif -%}
+{%- endif %}
+{%- endfor -%}
+
 <p class='hero-buttons'>
   <a href='/getting-started/'>Get started</a>
   <a href='https://demo.home-assistant.io' target='_blank'>View demo</a>
-  <a href='/integrations/'>Browse 1900+ integrations</a>
+  <a href='/integrations/'>Browse {{ tot | minus: 1 | divided_by: 100 | round | times: 100 }}+ integrations</a>
 </p>

@@ -1,5 +1,5 @@
 ---
-title: "Automation blueprint tutorial"
+title: "Creating an automation blueprint"
 description: "Tutorial on creating an automation blueprint."
 ---
 
@@ -9,13 +9,23 @@ While the tutorial only shows how to create an automation blueprint, scripts als
 
 </div>
 
+## Creating an automation blueprint
+
 In this tutorial, we're going to create an automation blueprint that controls a light based on a motion sensor. We will do this by taking an existing automation and converting it to a blueprint.
 
-For this tutorial, we use a simple automation. The process for converting a complex automation is not any different.
+### Prerequisites
 
-## Our automation
+- This tutorial assumes knowledge in the following topics:
+  - [Editing the configuration file](/docs/configuration/)
+  - [YAML](/docs/configuration/yaml/), and specifically, [YAML used in automations](/docs/automation/yaml/)
+  - [Scripts](/docs/scripts/)
 
-To create a blueprint, we first need to have a working automation. The automation we're going to use in this tutorial, which controls a light based on a motion sensor, looks like this:
+### Creating an automation
+
+To create a blueprint, we first need to have a working automation. 
+For this tutorial, we use a simple automation. The process for converting a complex automation is no different.
+
+The automation we're going to use in this tutorial controls a light based on a motion sensor:
 
 {% raw %}
 
@@ -37,13 +47,17 @@ action:
 
 {% endraw %}
 
-## Create the blueprint file
+The options that can be used with the `trigger` object are listed under [automation trigger variables](/docs/automation/templating/#available-trigger-data).
+In this example, a [state trigger](/docs/automation/templating/#state) is used.
+`turn_on` and `turn_off` are [`homeassistant` services](/docs/scripts/service-calls/#homeassistant-services). They are not tied to a specific domain. You can use them on lights, switches, and other domains.
+
+### Creating the blueprint file
 
 Automation blueprints are YAML files (with the `.yaml` extension) and live in the `<config>/blueprints/automation/` folder. You can create as many subdirectories in this folder as you want.
 
 To get started with our blueprint, we're going to copy the above automation YAML and save it in that directory with the name `motion_light_tutorial.yaml`.
 
-## Add basic blueprint metadata
+#### Add basic blueprint metadata
 
 Home Assistant needs to know about the blueprint. This is achieved by adding a `blueprint:` section. It should contain the `domain` of the integration it is for (`automation`) and `name`, the name of your blueprint. Optionally, you can also include a `description` for your blueprint.
 
@@ -56,7 +70,7 @@ blueprint:
   domain: automation
 ```
 
-## Define the configurable parts as inputs
+#### Define the configurable parts as inputs
 
 Now we have to decide what steps we want to make configurable. We want to make it as re-usable as possible, without losing its original intent of turning on a light-based on a motion sensor.
 
@@ -87,7 +101,7 @@ action:
 
 {% endraw %}
 
-## Add the inputs to the metadata
+#### Add the inputs to the metadata
 
 All parts that are marked as inputs need to be added to the metadata. The minimum is that we add their names as used in the automation:
 
@@ -101,7 +115,9 @@ blueprint:
     target_light:
 ```
 
-## Use it via `configuration.yaml`
+For more information on blueprint inputs, refer to the documentation of the [blueprint schema](/docs/blueprint/schema/#input)
+
+## Using your blueprint via `configuration.yaml`
 
 With the bare minimum metadata added, your blueprint is ready to use.
 
@@ -117,11 +133,15 @@ automation tutorial:
         entity_id: light.kitchen
 ```
 
-Reload automations and your new automation should popup. Because we configured the exact values as the original automation, they should work exactly the same.
+Reload automations and your new automation should pop up. Because we configured the exact values as the original automation, they should work exactly the same.
 
-## Adding user friendly names to the inputs
+## Improving the inputs
 
-Blueprints are easier to use if it's easy to see what each field is used for. We can improve this experience by adding names and descriptions to our inputs:
+Blueprints are easier to use if it's easy to see what each field is used for. 
+
+### Add a user friendly names to the inputs
+
+We can improve this experience by adding names and descriptions to our inputs:
 
 ```yaml
 blueprint:
@@ -137,7 +157,7 @@ blueprint:
       description: The lights to keep in sync.
 ```
 
-## Describing the inputs
+### Describe the inputs
 
 Our blueprint doesn't currently describe what the inputs should contain. Without this information, Home Assistant will offer the user an empty text box.
 
@@ -157,15 +177,17 @@ blueprint:
       description: This sensor will be synchronized with the light.
       selector:
         entity:
-          domain: binary_sensor
-          device_class: motion
+          filter:
+            - domain: binary_sensor
+            - device_class: motion
     target_light:
       name: Lights
       description: The lights to keep in sync.
       selector:
         target:
           entity:
-            domain: light
+            filter:
+              - domain: light
 ```
 
 By limiting our blueprint to working with lights and motion sensors, we unlock a couple of benefits: the UI will be able to limit suggested values to lights and motion sensors instead of all devices. It will also allow the user to pick an area to control the lights in.
@@ -187,15 +209,17 @@ blueprint:
       description: This sensor will be synchronized with the light.
       selector:
         entity:
-          domain: binary_sensor
-          device_class: motion
+          filter:
+            - domain: binary_sensor
+            - device_class: motion
     target_light:
       name: Lights
       description: The lights to keep in sync.
       selector:
         target:
           entity:
-            domain: light
+            filter:
+              - domain: light
 
 trigger:
   - platform: state
@@ -213,9 +237,10 @@ action:
 
 {% endraw %}
 
-## Use it via the UI
+## Using the blueprint via the UI
 
-To configure it via the UI, go to **{% my config %}** and then **{% my blueprints %}**. Find the "Motion Light Tutorial" blueprint and click on "Create Automation".
+1. To configure your blueprint via the UI, go to {% my blueprints title="**Settings** > **Automations & Scenes** > **Blueprints**" %}.
+2. Find the **Motion Light Tutorial** blueprint and select **Create Automation**.
 
 <div class='note'>
 Don't forget to reload automations after you make changes to your blueprint to have the UI and the automation integration pick up the latest blueprint changes.
@@ -223,22 +248,42 @@ Don't forget to reload automations after you make changes to your blueprint to h
 
 ![Screenshot of the blueprint UI](/images/blueprints/tutorial-ui.png)
 
+## Video Tutorial
+
+This video tutorial explains how to create a blueprint that toggles a light on motion when the lux value is below a certain threshold.
+
+<lite-youtube videoid="ZxxxZ9Vci3I" videotitle="Blueprints in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
+
 ## Share the love
 
 The final step is to share this blueprint with others. For this tutorial we're going to share it on GitHub Gists.
 
-### Informal Sharing
+### Share informally
 
 For this tutorial, we're going to share it on GitHub Gists. This is a good option if you don't want to publish your blueprint to a larger audience.
 
-- Go to [GitHub Gists](https://gist.github.com/)
-- Gist description: blueprint tutorial
-- Filename including extension: `motion_light_tutorial.yaml`
-- Content is the content of the blueprint file.
-- Click the "Create Gist" button
-
-You can now copy the URL of your new Gist and share it with other people. They can import it by going to **Settings** -> **Automations & Scenes** -> **Blueprints** and clicking on the blue "Import Blueprint" button.
+1. Go to [GitHub Gists](https://gist.github.com/)
+   - **Gist description**: blueprint tutorial
+   - **Filename including extension**: `motion_light_tutorial.yaml`
+   - **Content** is the content of the blueprint file.
+2. Select **Create Gist**.
+3. To share your blueprint with other people, copy the URL of your new Gist. They can import it by going to {% my blueprint_import title="**Settings** > **Automations & Scenes** > **Blueprints**" %} and select **Import blueprint**.
+4. Celebrate! Cheers to you. You created your first blueprint and helped someone in the community.
 
 ### Share on the Blueprint Exchange
 
 If you follow the [Rules and format for posting](/get-blueprints), you can share your blueprint on the Home Assistant Blueprint Exchange forum. This option is accessible to the general Home Assistant community but recommended only for your original blueprints. Please don't post this tutorial to the Blueprint Exchange, but instead, remember this as an option for releasing your real blueprints.
+
+## Related topics
+
+**Prerequisites**
+- [Editing the configuration file](/docs/configuration/)
+- [YAML](/docs/configuration/yaml/), and specifically, [YAML used in automations](/docs/automation/yaml/)
+- [Scripts](/docs/scripts/)
+
+**Blueprints**
+
+- [Blueprint selectors](/docs/blueprint/selectors/)
+- [Blueprint schema](/docs/blueprint/schema/)
+- [About blueprints](/docs/blueprint/)
+- [Using automation blueprints](/docs/automation/using_blueprints/)

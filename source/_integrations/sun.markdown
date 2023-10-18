@@ -38,7 +38,7 @@ If that is the case, you can configure it as described in the next paragraphs.
 
 ## YAML Configuration
 
-Alternatlively, this integration can be configured and set up manually via YAML
+Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the sun integration in your installation, add the
 following to your `configuration.yaml` file:
 
@@ -51,22 +51,24 @@ sun:
 <img src='/images/screenshots/more-info-dialog-sun.png' />
 </p>
 
-## Implementation Details
+## Automation trigger
 
 The sun's event listener will call the service when the sun rises or sets with
 an offset.
 
-The sun event need to have the type 'sun', which service to call,
-which event (sunset or sunrise) and the offset.
+The sun trigger need to have the type 'sun', which event (sunset or sunrise) and an optional offset.
 
-```json
-{
-    "type": "sun",
-    "service": "switch.turn_on",
-    "event": "sunset",
-    "offset": "-01:00:00"
-}
+```yaml
+trigger:
+  - platform: sun
+    event: sunrise
+    offset: "-01:00:01"
 ```
+
+| Key name | Description |
+| --------- | ----------- |
+| `event` | Possible values: `sunset` or `sunrise`
+| `offset` | An optional offset for the sun event trigger, in a positive or negative number of seconds, or specified in `HH:MM:SS` (after sun event trigger) or `-HH:MM:SS` (before sun event trigger).
 
 ### Maintains entity `sun.sun`
 

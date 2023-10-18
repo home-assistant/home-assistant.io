@@ -29,7 +29,7 @@ To use this integration in your installation, add the following to your `configu
 wake_on_lan:
 ```
 
-### Component services
+### Integration services
 
 Available services: `send_magic_packet`.
 
