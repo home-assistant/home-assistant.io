@@ -9,9 +9,9 @@ your smart home. Issue commands and get responses!
 <lite-youtube videoid="ziebKt4XLZQ" videotitle="Wake word demo on $13 ATOM Echo in Home Assistant
 "></lite-youtube>
 
-## Required material
+## Prerequisites
 
-- Home Assistant 2023.10
+- Home Assistant 2023.10, installed with the Home Assistant Operating System
 - [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - The password to your 2.4&nbsp;GHz Wi-Fi network
 - Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS)
