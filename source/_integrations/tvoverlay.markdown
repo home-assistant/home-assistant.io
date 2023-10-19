@@ -1,5 +1,5 @@
 ---
-title: TvOverlay Notifications for Android TV
+title: TvOverlay
 description: TvOverlay Notifications for Android TV
 ha_category:
   - Notifications
@@ -14,27 +14,25 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-The [TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay) Notifications for Android TV integration makes it possible to send notifications to your Android TV. An overlay with the message content will display on the Android TV screen for a configurable period of time. Sending images and icons are supported too. Icons are essentially the same as images, but small in size and displayed on the left of the notification. You can further customize the notifications like adding app title, badge, source name etc. TvOverlay also supports sending persistent notifications. These are small icon with a text. You can make it visible and hide based on the service call data attributes.
+The [TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay) Notifications for Android TV integration allows you to send notifications to your Android TV. These notifications can include messages, images, and icons, with the option to customize them by adding app titles, badges, source names, and more. You can even send persistent notifications that feature a small icon and text, and you can control their visibility based on service call data attributes.
 
-The notifications are in the global scope of your Android TV device. They will be displayed regardless of which application is running.
+There are two apps for TVOverlay: one for your Android smartphone, called ([TvOverlay Remote](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlayremote)), used for configuring and sending notifications, and another for your Android TV, named ([TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay)), which receives the notifications. To display notifications from Home Assistant on your Android TV, you must install the "TvOverlay" app, which is available on the Google Play store.
 
-There are two apps for TvOVerlay: one for your Android smartphone ([TvOverlay Remote](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlayremote)) to configure and send notifications. And another one for your Android TV ([TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay)) to receive the notifications. It is required to install the app on your Android TV to display the notifications sent from Home Assistant. The app is available at Google Play store.
+The notifications on your Android TV are in the global scope, meaning they will appear on the screen regardless of which application you are currently running.
 
 {% include integrations/config_flow.md %}
 
 ## Services
 
-The following options can be specified inside the data field for the notify service call:
-
-### Service
-
-Once loaded, the `notify.[name_of_your_tv]` platform will expose a service that can be called to send notifications.
+Once the TvOverlay integration is loaded, the `notify.[name_of_your_tv]` platform will expose a service that can be called to send notifications.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `message`              |       no | Body of the notification.
 | `title`                |      yes | Title of the notification.
 | `data`                 |      yes | Additional data attributes to customize the notifications, see below.
+
+The following options can be specified inside the data field for the notify service call:
 
 {% configuration %}
 id:
@@ -107,7 +105,7 @@ app_title: "Home Assistant"
 source_name: "Notify"
 app_icon: "mdi:home-assistant"
 badge_icon: "mdi:bell"
-badge_color: "#FF41E09A"
+badge_color: "#41E09A"
 position: "top_right"
 image: "https://picsum.photos/200/100"
 duration: 10
@@ -122,12 +120,12 @@ text_color: "#FFFFFF"
 shape: "circle"
 border_color: "#FFFFFF"
 badge_icon: "mdi:bell"
-badge_color: "#FF41E09A"
+badge_color: "#41E09A"
 bg_color: "#000000"
 visible: true
 ```
 
-## Service data for sending images and icons
+### Service data for sending images
 
 The following attributes can be placed inside `data` for send `image` and `app_icon`.
 
@@ -176,7 +174,7 @@ image:
   auth: "digest"
 ```
 
-Example for posting image from mdi icon:
+Examples for posting image from mdi icon:
 
 ```yaml
 image: "mdi:home-assistant"
@@ -220,19 +218,21 @@ app_icon:
   auth: "digest"
 ```
 
-Example of an automation with an service call:
+## Automation service call examples
+
+Example of an automation service call:
 
 {% raw %}
 
 ```yaml
-service: notify.living_room_tv
+service: notify.tvoverlay
 data:
-  title: "Alert!"
+  title: "Motion Alert!"
   message: "There is a motion detected at front gate."
   data:
     id: "motion_alert_1"
-    app_title: "Motion"
-    source_name: "Front Gate"
+    app_title: "Home Assistant"
+    source_name: "Notify"
     app_icon: "mdi:motion-sensor"
     badge_icon: "mdi:camera"
     badge_color: "#B00020"
@@ -248,7 +248,7 @@ Example of an automation service call to show a Persistent Notification:
 {% raw %}
 
 ```yaml
-service: notify.living_room_tv
+service: notify.tvoverlay
 data:
   message: "Motion Alert"
   data:
@@ -271,7 +271,7 @@ Example of an automation service call to hide a Persistent Notification:
 {% raw %}
 
 ```yaml
-service: notify.living_room_tv
+service: notify.tvoverlay
 data:
   message: "Motion Alert"
   data:
