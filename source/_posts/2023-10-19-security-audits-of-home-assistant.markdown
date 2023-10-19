@@ -12,7 +12,7 @@ categories:
 
 _Summary: Home Assistant had two security audits done as part of our regular security assessments. You are safe. No authentication bypasses have been found. We did fix issues related to attackers potentially tricking users to take over their instance. All fixes are included in Home Assistant 2023.9 and the latest Home Assistant apps for iOS and Android. Please make sure you’re up-to-date._
 
-Security is very important to us at Home Assistant and Nabu Casa. Being open source makes it easy to let anyone audit our code – and based on reported issues – people do. However, you also need to hire people to do an actual security audit to ensure that all the important code has been covered.
+Security is very important to us at Home Assistant and Nabu Casa. Being open source makes it easy to let anyone audit our code &mdash; and based on reported issues &mdash; people do. However, you also need to hire people to do an actual security audit to ensure that all the important code has been covered.
 
 Subscribing to [Home Assistant Cloud](https://www.nabucasa.com/) provides funding for the ongoing development and maintenance of Home Assistant, including external security audits. To ensure that our security is top-notch, Nabu Casa hired Cure53 to perform a security audit of critical parts of Home Assistant. [Cure53](https://cure53.de/) is a well-known cybersecurity firm that in the past found vulnerabilities in [Mastodon](https://arstechnica.com/security/2023/07/mastodon-fixes-critical-tootroot-vulnerability-allowing-node-hijacking/) and [Ring products](https://foundation.mozilla.org/en/blog/mozilla-publishes-ring-doorbell-vulnerability-following-amazons-apathy/).
 
