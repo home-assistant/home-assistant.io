@@ -54,7 +54,7 @@ hide_state:
 state_content:
   required: false
   description: >
-    Content to display for the state. Can be `state`, `last-changed` or any attribute of the entity. Can be either a string with a single item, or a list of string item. Default depends of the entity domain.
+    Content to display for the state. Can be `state`, `last-changed`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
   type: [string, list]
 tap_action:
   required: false
