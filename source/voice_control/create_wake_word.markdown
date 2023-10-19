@@ -10,9 +10,9 @@ Depending on the word, training a model on your own wake word may take a few ite
 
 ## Prerequisites
 
-- latest version of Home Assistant
+- Latest version of Home Assistant, installed with the Home Assistant Operating System
 - [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
-- successfully completed the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/) tutorial
+- Successfully completed the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/) tutorial
 
 ## To create your own wake word
 
