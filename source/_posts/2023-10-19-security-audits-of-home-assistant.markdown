@@ -20,10 +20,10 @@ Cure53 found issues in Home Assistant of which 3 were marked as “critical” s
 
 > The quality of the codebase was impressive on the whole, whilst the architecture and frameworks deployed in all relevant application areas resilient design paradigms in general. Frontend security in particular exhibited ample opportunities for hardening, as compounded by the Critical associated risks identified. Nonetheless, once these have been mitigated, an exemplary security posture will certainly be attainable.
 
-In August the [GitHub Security Lab](https://securitylab.github.com/) also did an audit of Home Assistant. They found six non-critical issues across Home Assistant Core and our iOS and Android apps. Two of the issues overlapped with Cure53. All reported issues have been fixed and released.
+In August, the [GitHub Security Lab](https://securitylab.github.com/) also audited Home Assistant. They found six non-critical issues across Home Assistant Core and our iOS and Android apps. Two of the issues overlapped with Cure53. All reported issues have been fixed and released.
 
-I want to thank both teams for their audits, reported issues and keeping our users safe 🙏
+We want to thank both teams for their audits, reported issues, and keeping our users safe 🙏
 
-All found issues have been added to [our security page](/security). This page has been updated to include an ongoing timeline of reported issues, the person who disclosed it and a link to the issue report on GitHub.
+All found issues have been added to [our security page](/security). This page has been updated to include an ongoing timeline of reported issues, the person who disclosed it, and a link to the issue report on GitHub.
 
 _If you think you have found a security issue, check out [our security page](/security) on how to report this to Home Assistant._

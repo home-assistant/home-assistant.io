@@ -115,7 +115,7 @@ Severity: _Critical_
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-cr83-q7r2-7f5q)_  
 Assigned CVE: _[CVE-2023-41896](https://nvd.nist.gov/vuln/detail/CVE-2023-41896)_  
 Discovered by: _[Cure53](https://cure53.de/) (Funded by [Nabu Casa](https://www.nabucasa.com/))_  
-Fixed in: _Home Assistant Core 2023.9 & home-assistant-js-websocket 8.2.0 (npm)_  
+Fixed in: _Home Assistant Core 2023.9 & `home-assistant-js-websocket` 8.2.0 (npm)_  
 
 **2023-10-19: Lack of XFO header allows clickjacking**  
 Severity: _Critical_  
