@@ -4,7 +4,7 @@ description: Instructions on how to integrate Deako Smart Lighting into Home Ass
 ha_category:
   - Switch
 ha_iot_class: Local Polling
-ha_release: 0.7.2
+ha_release: 2023.10.4
 ha_domain: deako
 ha_platforms:
   - light
