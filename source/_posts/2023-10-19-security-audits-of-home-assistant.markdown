@@ -18,7 +18,7 @@ Subscribing to [Home Assistant Cloud](https://www.nabucasa.com/) provides fundin
 
 Cure53 found issues in Home Assistant of which 3 were marked as “critical” severity. The critical issues would allowed an attacker to trick users and steal login credentials. All reported issues have been addressed as part of Home Assistant 2023.9, released on September 6, 2023. No authentication bypass issues have been found. According to Cure53’s report:
 
-> The quality of the codebase was impressive on the whole, whilst the architecture and frameworks deployed in all relevant application areas install resilient design paradigms in general. Frontend security in particular exhibited ample opportunities for hardening, as compounded by the Critical associated risks identified. Nonetheless, once these have been mitigated, an exemplary security posture will certainly be attainable.
+> The quality of the codebase was impressive on the whole, whilst the architecture and frameworks deployed in all relevant application areas resilient design paradigms in general. Frontend security in particular exhibited ample opportunities for hardening, as compounded by the Critical associated risks identified. Nonetheless, once these have been mitigated, an exemplary security posture will certainly be attainable.
 
 In August the [GitHub Security Lab](https://securitylab.github.com/) also did an audit of Home Assistant. They found six non-critical issues across Home Assistant Core and our iOS and Android apps. Two of the issues overlapped with Cure53. All reported issues have been fixed and released.
 
