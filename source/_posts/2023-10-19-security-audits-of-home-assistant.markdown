@@ -24,6 +24,6 @@ In August, the [GitHub Security Lab](https://securitylab.github.com/) also audit
 
 We want to thank both teams for their audits, reported issues, and keeping our users safe 🙏
 
-All found issues have been added to [our security page](/security). This page has been updated to include an ongoing timeline of reported issues, the person who disclosed it, and a link to the issue report on GitHub.
+All found issues have been added to [our security page](/security). This page has been updated to include an ongoing timeline of reported issues, who disclosed it, and a link to the issue report on GitHub.
 
 _If you think you have found a security issue, check out [our security page](/security) on how to report this to Home Assistant._
