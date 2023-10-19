@@ -10,7 +10,7 @@ categories:
   - Announcements
 ---
 
-_Summary: Home Assistant had two security audits done as part of our regular security assessments. You are safe and no authentication bypasses have been found. We did fix issues related to attackers potentially tricking users to take over their instance. All fixes are included in Home Assistant 2023.9 and the latest Home Assistant apps for iOS and Android. Please make sure you’re up-to-date._
+_Summary: Home Assistant had two security audits done as part of our regular security assessments. You are safe. No authentication bypasses have been found. We did fix issues related to attackers potentially tricking users to take over their instance. All fixes are included in Home Assistant 2023.9 and the latest Home Assistant apps for iOS and Android. Please make sure you’re up-to-date._
 
 Security is very important to us at Home Assistant and Nabu Casa. Being open source makes it easy to let anyone audit our code – and based on reported issues – people do. However, you also need to hire people to do an actual security audit to ensure that all the important code has been covered.
 
