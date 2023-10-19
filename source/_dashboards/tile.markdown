@@ -25,11 +25,11 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites the name of entity.
+  description: Overwrites the entity name.
   type: string
 icon:
   required: false
-  description: Overwrites the icon of entity.
+  description: Overwrites the entity icon.
   type: string
 color:
   required: false
@@ -46,6 +46,16 @@ vertical:
   description: Displays the icon above the name and state.
   type: boolean
   default: false
+hide_state:
+  required: false
+  description: Hide the entity state.
+  type: boolean
+  default: false
+state_content:
+  required: false
+  description: >
+    Content to display for the state. Can be `state`, `last-changed` or any attribute of the entity. Can be either a string with a single item, or a list of string item. Default depends of the entity domain.
+  type: [string, list]
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
@@ -86,6 +96,16 @@ show_entity_picture: true
 type: tile
 entity: person.anne_therese
 vertical: true
+hide_state: true
+```
+
+```yaml
+type: tile
+entity: light.living_room
+state_content: 
+  - state
+  - brightness
+  - last-changed
 ```
 
 ```yaml
