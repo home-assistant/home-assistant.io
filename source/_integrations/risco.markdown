@@ -49,8 +49,6 @@ you might need to either disconnect your system from the cloud, or set up a prox
 
 The local version of the integration does not support events, and the `arming` state, but provides an additional binary sensor per zone (with the `_alarmed` suffix) that signals whether this zone is currently triggering an alarm.
 
-If the integration fails to set up, you can try to increase the optional **Communication delay** parameter to wait for the specified seconds between opening the connection and starting the communication with the panel.
-
 {% include integrations/config_flow.md %}
 
 ## Options
@@ -64,6 +62,8 @@ Require pin code to arm:
   description: When checked, you'll need to enter your pin code when arming through Home Assistant.
 Require pin code to disarm:
   description: When checked, you'll need to enter your pin code when disarming through Home Assistant.
+Communication delay (in seconds):
+  description: If the integration fails to set up, you can try to increase the time to wait between opening the connection and starting the communication with the panel.
 {% endconfiguration_basic %}
 
 Apart from these options, you can also define a custom mapping between your Home Assistant Alarm states and the Risco arming modes.
