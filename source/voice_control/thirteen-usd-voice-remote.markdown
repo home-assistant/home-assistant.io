@@ -22,7 +22,7 @@ your smart home. Issue commands and get responses!
 
 As a first step, you need to install the openWakeWord add on. This must be installed before setting up the ATOM Echo.
 
-1. Go to {% my supervisor_addon addon="openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
+1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
 2. Start the add-on.
 3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
    - Under **Discovered**, you should now see the **Wyoming** integration.
