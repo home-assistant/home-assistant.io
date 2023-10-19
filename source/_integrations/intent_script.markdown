@@ -45,7 +45,7 @@ intent:
       default: false
       type: boolean
     script_mode:
-      description: The [script mode](https://www.home-assistant.io/integrations/script/#script-modes) in which to run the intent script. Use this to set the desired behavior if the intent should be able to run multiple times in parallel.
+      description: The [script mode](https://www.home-assistant.io/integrations/script/#script-modes) in which to run the intent script. Use this to define if the intent should be able to run multiple times in parallel.
       required: false
       default: single
       type: string
