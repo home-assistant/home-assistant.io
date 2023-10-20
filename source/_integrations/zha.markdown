@@ -336,6 +336,7 @@ from the same group:
   Currently `qr_code` supports QR Install Codes from:
 
   - Aqara
+  - Bosch
   - Consciot
   - Embrighten
 
