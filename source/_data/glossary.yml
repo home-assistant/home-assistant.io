@@ -246,7 +246,7 @@
     Home Assistant can attempt to connect to it. This may be in the form of a host name, URL,
     IP address or some other type of network identifier.
   excerpt: >-
-    A device running that communicates with other devices on a network.
+    A device that communicates with other devices on a network.
   link: https://en.wikipedia.org/wiki/Host_(network)
   aliases:
     - hosts
