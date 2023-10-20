@@ -16,6 +16,7 @@ layout: null
 /feature-requests https://community.home-assistant.io/c/feature-requests
 /issues https://github.com/home-assistant/core/issues
 /community https://community.home-assistant.io/
+/latest-security-alert /security/
 
 # Link to latest release note
 /latest-release-notes/ {{ recent_release_post.url }}{{ site.patch_version_notes }} 302!
