@@ -7,6 +7,7 @@ ha_category:
   - Button
   - Climate
   - Cover
+  - Event
   - Fan
   - Hub
   - Humidifier
