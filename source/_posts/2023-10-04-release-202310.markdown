@@ -494,6 +494,11 @@ The Mazda integration has been removed from Home Assistant. The library that Hom
 - Bump ZHA dependencies ([@puddly] - [#102358])
 - Bump vehicle to 2.0.0 ([@joostlek] - [#102379])
 - Update aioairzone to v0.6.9 ([@Noltari] - [#102383])
+- Bump aioesphomeapi to 18.0.6 ([@bdraco] - [#102195])
+- Bump dbus-fast to 2.12.0 ([@bdraco] - [#102206])
+- Bump bluetooth-data-tools to 1.13.0 ([@bdraco] - [#102208])
+- Fix temperature setting for multi-setpoint z-wave device ([@kpine] - [#102395])
+- Bump aioesphomeapi to 18.0.7 ([@bdraco] - [#102399])
 
 [#100044]: https://github.com/home-assistant/core/pull/100044
 [#101386]: https://github.com/home-assistant/core/pull/101386
@@ -522,12 +527,17 @@ The Mazda integration has been removed from Home Assistant. The library that Hom
 [#102158]: https://github.com/home-assistant/core/pull/102158
 [#102174]: https://github.com/home-assistant/core/pull/102174
 [#102178]: https://github.com/home-assistant/core/pull/102178
+[#102195]: https://github.com/home-assistant/core/pull/102195
+[#102206]: https://github.com/home-assistant/core/pull/102206
+[#102208]: https://github.com/home-assistant/core/pull/102208
 [#102209]: https://github.com/home-assistant/core/pull/102209
 [#102289]: https://github.com/home-assistant/core/pull/102289
 [#102344]: https://github.com/home-assistant/core/pull/102344
 [#102358]: https://github.com/home-assistant/core/pull/102358
 [#102379]: https://github.com/home-assistant/core/pull/102379
 [#102383]: https://github.com/home-assistant/core/pull/102383
+[#102395]: https://github.com/home-assistant/core/pull/102395
+[#102399]: https://github.com/home-assistant/core/pull/102399
 [@Archomeda]: https://github.com/Archomeda
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@DeerMaximum]: https://github.com/DeerMaximum
@@ -544,6 +554,7 @@ The Mazda integration has been removed from Home Assistant. The library that Hom
 [@jbouwh]: https://github.com/jbouwh
 [@jesserockz]: https://github.com/jesserockz
 [@joostlek]: https://github.com/joostlek
+[@kpine]: https://github.com/kpine
 [@pnbruckner]: https://github.com/pnbruckner
 [@puddly]: https://github.com/puddly
 [@raman325]: https://github.com/raman325
