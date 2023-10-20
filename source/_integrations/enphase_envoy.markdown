@@ -44,6 +44,7 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
 - Sensors for the state of the Enpower's 4 load-shedding relays
 - A switch allowing you to take your system on-grid and off-grid. Note that the Enpower has a slight delay built-in between receiving these commands and actually switching the system on or off grid.
 - A switch allowing you to enable or disable charging the Encharge/IQ Batteries from the power grid.
+- Support for changing the battery storage mode between full backup, self consumption, and savings mode and setting the reserve battery level for outages.
 
 ## Envoy authentication requirements
 
