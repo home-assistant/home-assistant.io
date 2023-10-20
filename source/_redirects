@@ -221,7 +221,7 @@ layout: null
 /components /integrations
 
 # Renamed integrations
-/integrationss/air_pollutants /integrations/air_quality
+/integrations/air_pollutants /integrations/air_quality
 /integrations/calendar.google /integrations/google
 /integrations/climacell /integrations/tomorrowio
 /integrations/generic_ip_camera /integrations/generic
