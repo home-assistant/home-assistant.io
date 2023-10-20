@@ -20,6 +20,10 @@ There are two apps for TVOverlay: one for your Android smartphone, called ([TvOv
 
 The notifications on your Android TV are in the global scope, meaning they will appear on the screen regardless of which application you are currently running.
 
+![Screenshot of TvOverlay Notification](/images/screenshots/tvoverlay-notification.jpg)
+
+![Screenshot of TvOverlay Persistent Notification](/images/screenshots/tvoverlay-persistent-notification.jpg)
+
 {% include integrations/config_flow.md %}
 
 ## Services
