@@ -619,12 +619,40 @@ A motion detection device which can be represented by a [binary sensor](/integra
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
-- Configuration payload with derived device name:  `{"name": null, "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
+- Configuration payload with derived device name:  
+```json
+{
+   "name":null,
+   "device_class":"motion",
+   "state_topic":"homeassistant/binary_sensor/garden/state",
+   "unique_id":"motion01ad",
+   "device":{
+      "identifiers":[
+         "01ad"
+      ],
+      "name":"Garden"
+   }
+}
+```
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together. We can set "name" to `null` if we want to inherit the device name for the entity. If we set an entity name, the `friendly_name` will be a combination of the device and entity name. If `name` is left away and a `device_class` is set, the entity name part will be derived from the `device_class`.
 
-- Example configuration payload with no name set and derived `device_class` name: `{"device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
+- Example configuration payload with no name set and derived `device_class` name:
+```json
+{
+   "name":null,
+   "device_class":"motion",
+   "state_topic":"homeassistant/binary_sensor/garden/state",
+   "unique_id":"motion01ad",
+   "device":{
+      "identifiers":[
+         "01ad"
+      ],
+      "name":"Garden"
+   }
+}
+```
 
 If no name is set, a default name will be set by MQTT ([see the MQTT platform documentation](#mqtt-discovery)).
 
@@ -653,10 +681,46 @@ For more details please refer to the [MQTT testing section](/integrations/mqtt/#
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
 - Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: `{"device_class": "temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}","unique_id": "temp01ae",  "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" }}`
+- Configuration payload no1: 
+```json
+{
+   "device_class":"temperature",
+   "state_topic":"homeassistant/sensor/sensorBedroom/state",
+   "unit_of_measurement":"°C",
+   "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+   "unique_id":"temp01ae",
+   "device":{
+      "identifiers":[
+         "bedroom01ae"
+      ],
+      "name":"Bedroom"
+   }
+}
+```
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: `{"device_class": "humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}","unique_id": "hum01ae", "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" } }`
-- Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
+- Configuration payload no2: 
+```json
+{
+   "device_class":"humidity",
+   "state_topic":"homeassistant/sensor/sensorBedroom/state",
+   "unit_of_measurement":"%",
+   "value_template":"{% raw %}{{ value_json.humidity}}{% endraw %}",
+   "unique_id":"hum01ae",
+   "device":{
+      "identifiers":[
+         "bedroom01ae"
+      ],
+      "name":"Bedroom"
+   }
+}
+```
+- Common state payload: 
+```json
+{
+   "temperature":23.20,
+   "humidity":43.70
+}
+```
 
 #### Entities with command topics
 
@@ -665,7 +729,21 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
-- Payload:  `{"name": "Irrigation", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}`
+- Payload:  
+```json
+{
+   "name":"Irrigation",
+   "command_topic":"homeassistant/switch/irrigation/set",
+   "state_topic":"homeassistant/switch/irrigation/state",
+   "unique_id":"irr01ad",
+   "device":{
+      "identifiers":[
+         "garden01ad"
+      ],
+      "name":"Garden"
+   }
+}
+```
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 ```bash
@@ -686,7 +764,15 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - Command topic: `homeassistant/switch/irrigation/set`
 - State topic: `homeassistant/switch/irrigation/state`
-- Configuration payload: `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", "stat_t": "~/state"}`
+- Configuration payload: 
+```json
+{
+   "~":"homeassistant/switch/irrigation",
+   "name":"garden",
+   "cmd_t":"~/set",
+   "stat_t":"~/state"
+}
+```
 
 #### Another example using abbreviations topic name and base topic
 
@@ -828,7 +914,12 @@ The MQTT notification support is different than for the other [notification](/in
 **Call Service** section from **Developer Tools** -> **Services** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
 ```json
-{"payload": "Test message from HA", "topic": "home/notification", "qos": 0, "retain": 0}
+{
+   "~":"homeassistant/switch/irrigation",
+   "name":"garden",
+   "cmd_t":"~/set",
+   "stat_t":"~/state"
+}
 ```
 
 <p class='img'>
