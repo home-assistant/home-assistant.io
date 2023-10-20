@@ -242,8 +242,8 @@
 - term: Host
   definition: >-
     A device that can communicate with other devices on a network. During setup and configuration,
-    an input requesting a *Host* typically refers to a device's network address so that
-    Home Assistant can attempt to connect to it. This may be in the form of a host name, URL,
+    an input requesting a **Host** typically refers to a device's network address so that
+    Home Assistant can attempt to connect to it. This may be in the form of a hostname, URL,
     IP address or some other type of network identifier.
   excerpt: >-
     A device that can communicate with other devices on a network.
