@@ -20,7 +20,7 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
 
 </div>
 
-- 800 series controllers
+- 800 series controllers (with some caveats, see notes)
   - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
 - 700 series controllers
@@ -62,6 +62,10 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 - [Z-Wave.Me Z-Way](/integrations/zwave_me)
 
 ## Controller Notes
+
+### 800 Series Controllers
+
+Some features are not supported with 800 series controllers yet. You can find the full list of supported and unsupported features with 800 seires controllers [here](https://github.com/zwave-js/node-zwave-js/issues/5257).
 
 ### Aeotec Z-Stick
 
