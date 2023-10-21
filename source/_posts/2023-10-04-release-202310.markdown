@@ -42,7 +42,7 @@ Enjoy the release!
 - [Release 2023.10.1 - October 6](#release-2023101---october-6)
 - [Release 2023.10.2 - October 12](#release-2023102---october-12)
 - [Release 2023.10.3 - October 13](#release-2023103---october-13)
-- [Release 2023.10.4 - October 20](#release-2023104---october-20)
+- [Release 2023.10.4 - October 21](#release-2023104---october-21)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -463,7 +463,7 @@ The Mazda integration has been removed from Home Assistant. The library that Hom
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@starkillerOG]: https://github.com/starkillerOG
 
-## Release 2023.10.4 - October 20
+## Release 2023.10.4 - October 21
 
 - Fix Spotify media position update value ([@Archomeda] - [#100044])
 - Fix error handling on subscribe when mqtt is not initialized ([@jbouwh] - [#101832])
