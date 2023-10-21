@@ -14,15 +14,15 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-The [TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay) Notifications for Android TV integration allows you to send notifications to your Android TV. These notifications can include messages, images, and icons, with the option to customize them by adding app titles, badges, source names, and more. You can even send persistent notifications featuring a small icon and text, and you can control their visibility based on service call data attributes.
+The TvOverlay Notifications for Android TV integration allows you to send notifications to your Android/Google TV. These notifications can include messages, images, and icons, with the option to customize them by adding app titles, badges, source names, and more. You can even send persistent notifications featuring a small icon and text, and you can control their visibility based on service call data attributes.
 
-There are two apps related to TvOverlay: one for your Android smartphone, called ([TvOverlay Remote](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlayremote)), which is used for configuring and sending notifications; and another for your Android TV, simply named ([TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay)), which receives the notifications. To display notifications from Home Assistant on your Android TV, you need to install the [TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay) app, available on the Google Play store.
+There are two apps related to TvOverlay: one for your Android smartphone, called ([TvOverlay Remote](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlayremote)), which is used for configuring and sending notifications; and another for your Android/Google TV, named ([TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay)), which receives the notifications. To display notifications from Home Assistant on your Android/Google TV, you need to install the [TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay) app, available on the Google Play store.
 
 The notifications on your Android TV have a global scope, meaning they will appear on the screen regardless of the application you are currently using.
 
-![Screenshot of TvOverlay Notification](/images/screenshots/tvoverlay-notification.jpg)
+![Screenshot of TvOverlay Notification](/images/screenshots/tvoverlay-notification.png)
 
-![Screenshot of TvOverlay Persistent Notification](/images/screenshots/tvoverlay-persistent-notification.jpg)
+![Screenshot of TvOverlay Persistent Notification](/images/screenshots/tvoverlay-persistent-notification.png)
 
 {% include integrations/config_flow.md %}
 
