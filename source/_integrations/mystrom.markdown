@@ -39,8 +39,8 @@ Supported devices are:
 
 Two sensors are available for switches:
 
-- temperature
-- energy consumption
+- Temperature
+- Energy consumption
 
 {%include integrations/config_flow.md %}
 
