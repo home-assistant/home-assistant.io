@@ -17,6 +17,7 @@ At the moment there are no configuration options available for these cards, you 
 </p>
 
 This card will allow you to pick what data to show. Changing it in this card will influence the data in all other cards.
+Specific dates and ranges can be selected by opening the date range picker. The current period can be compared to the previous one using the compare data option within the menu.
 
 ### Example
 ```yaml
