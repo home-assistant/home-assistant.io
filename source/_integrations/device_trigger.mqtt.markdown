@@ -101,9 +101,24 @@ Note that it is not necessary to provide the full device information in each mes
 - Discovery topic: `homeassistant/device_automation/0x90fd9ffffedf1266/action_arrow_left_click/config`
 - Discovery payload:
 
-  ```json
-  {"automation_type":"trigger","type":"action","subtype":"arrow_left_click","payload":"arrow_left_click","topic":"zigbee2mqtt/0x90fd9ffffedf1266/action","device":{"identifiers":["zigbee2mqtt_0x90fd9ffffedf1266"],"name":"0x90fd9ffffedf1266","sw_version":"Zigbee2MQTT 1.14.0","model":"TRADFRI remote control (E1524/E1810)","manufacturer":"IKEA"}}
-  ```
+```json
+{
+    "automation_type": "trigger",
+    "type": "action",
+    "subtype": "arrow_left_click",
+    "payload": "arrow_left_click",
+    "topic": "zigbee2mqtt/0x90fd9ffffedf1266/action",
+    "device": {
+        "identifiers": [
+            "zigbee2mqtt_0x90fd9ffffedf1266"
+        ],
+        "name": "0x90fd9ffffedf1266",
+        "sw_version": "Zigbee2MQTT 1.14.0",
+        "model": "TRADFRI remote control (E1524/E1810)",
+        "manufacturer": "IKEA"
+    }
+}
+```
 
 - Trigger topic: `zigbee2mqtt/0x90fd9ffffedf1266/action`
 - Trigger payload: `arrow_left_click`
@@ -113,9 +128,20 @@ Note that it is not necessary to provide the full device information in each mes
 - Discovery topic: `homeassistant/device_automation/0x90fd9ffffedf1266/action_arrow_right_click/config`
 - Discovery payload:
 
-  ```json
-   {"automation_type":"trigger","type":"action","subtype":"arrow_right_click","payload":"arrow_right_click","topic":"zigbee2mqtt/0x90fd9ffffedf1266/action","device":{"identifiers":["zigbee2mqtt_0x90fd9ffffedf1266"]}}
-   ```
+```json
+{
+    "automation_type": "trigger",
+    "type": "action",
+    "subtype": "arrow_right_click",
+    "payload": "arrow_right_click",
+    "topic": "zigbee2mqtt/0x90fd9ffffedf1266/action",
+    "device": {
+        "identifiers": [
+            "zigbee2mqtt_0x90fd9ffffedf1266"
+        ]
+    }
+}   
+```
 
 - Trigger topic: `zigbee2mqtt/0x90fd9ffffedf1266/action`
 - Trigger payload: `arrow_right_click`
