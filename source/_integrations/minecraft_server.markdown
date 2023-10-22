@@ -6,7 +6,7 @@ ha_category:
   - Binary Sensor
   - Sensor
 ha_iot_class: Local Polling
-ha_quality_scale: silver
+ha_quality_scale: gold
 ha_config_flow: true
 ha_codeowners:
   - '@elmurato'
