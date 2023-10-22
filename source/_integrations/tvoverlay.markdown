@@ -14,7 +14,7 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-The TvOverlay Notifications for Android TV integration allows you to send notifications to your Android/Google TV. These notifications can include messages, images, and icons, with the option to customize them by adding app titles, badges, source names, and more. You can even send persistent notifications featuring a small icon and text, and you can control their visibility based on service call data attributes.
+The TvOverlay integration allows you to send notifications to your Android/Google TV. These notifications can include messages, images, and icons, with the option to customize them by adding app titles, badges, source names, and more. You can even send persistent notifications featuring a small icon and text, and you can control their visibility based on service call data attributes.
 
 There are two apps related to TvOverlay: one for your Android smartphone, called ([TvOverlay Remote](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlayremote)), which is used for configuring and sending notifications; and another for your Android/Google TV, named ([TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay)), which receives the notifications. To display notifications from Home Assistant on your Android/Google TV, you need to install the [TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay) app, available on the Google Play store.
 
