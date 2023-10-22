@@ -65,7 +65,16 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 
 ### 800 Series Controllers
 
-Some features are not supported with 800 series controllers yet. You can find the full list of supported and unsupported features with 800 seires controllers [here](https://github.com/zwave-js/node-zwave-js/issues/5257).
+Some features are not supported with 800 series controllers yet.
+Unsupported
+ - Long Range
+ - NVM Backup/Restore 
+Supported
+ - Device inclusion + exclusion (Basic and SmartStart)
+ - Setting Device Configuration Values
+ - Getting Device Configuration Values
+ - Command Classes: Multilevel Switch v2 and v4, Color Switch v1, and Config v1 and v2
+ - Device Heal
 
 ### Aeotec Z-Stick
 
