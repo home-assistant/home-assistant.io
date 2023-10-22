@@ -4,7 +4,6 @@ description: "Tami4 Edge Integration"
 ha_release: 2023.11
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
-ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
   - '@Guy293'
