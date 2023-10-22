@@ -43,6 +43,7 @@ Enjoy the release!
 - [Release 2023.10.2 - October 12](#release-2023102---october-12)
 - [Release 2023.10.3 - October 13](#release-2023103---october-13)
 - [Release 2023.10.4 - October 21](#release-2023104---october-21)
+- [Release 2023.10.5 - October 22](#release-2023105---october-22)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -560,6 +561,16 @@ The Mazda integration has been removed from Home Assistant. The library that Hom
 [@raman325]: https://github.com/raman325
 [@synesthesiam]: https://github.com/synesthesiam
 [@tronikos]: https://github.com/tronikos
+
+## Release 2023.10.5 - October 22
+
+- Downgrade ZHA dependency bellows ([@puddly] - [#102471])
+- Bump async-upnp-client to 0.36.2 ([@StevenLooman] - [#102472])
+
+[#102471]: https://github.com/home-assistant/core/pull/102471
+[#102472]: https://github.com/home-assistant/core/pull/102472
+[@StevenLooman]: https://github.com/StevenLooman
+[@puddly]: https://github.com/puddly
 
 ## Need help? Join the community!
 
