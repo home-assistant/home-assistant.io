@@ -74,7 +74,7 @@ Supported
  - Setting Device Configuration Values
  - Getting Device Configuration Values
  - Command Classes: Multilevel Switch v2 and v4, Color Switch v1, and Config v1 and v2
- - Device Heal
+ - Route Rebuild
 
 ### Aeotec Z-Stick
 
