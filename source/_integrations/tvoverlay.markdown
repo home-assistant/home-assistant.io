@@ -14,9 +14,9 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-The TvOverlay integration allows you to send notifications to your Android/Google TV. These notifications can include messages, images, and icons, with the option to customize them by adding app titles, badges, source names, and more. You can even send persistent notifications featuring a small icon and text, and you can control their visibility based on service call data attributes.
+The TvOverlay integration allows you to send notifications to your Android/Google TV. These notifications can include messages, images, and icons, with the option to customize them by adding app titles, badges, source names, and more. You can even send persistent notifications featuring a small icon and text, and you can control their visibility and display duration based on service call data attributes.
 
-There are two apps related to TvOverlay: one for your Android smartphone, called ([TvOverlay Remote](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlayremote)), which is used for configuring and sending notifications; and another for your Android/Google TV, named ([TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay)), which receives the notifications. To display notifications from Home Assistant on your Android/Google TV, you need to install the [TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay) app, available on the Google Play store.
+There are two apps related to TvOverlay: one for your Android smartphone, called ([TvOverlay Remote](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlayremote)), which is used for configuring and sending notifications from smartphone; and another for your Android/Google TV, named ([TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay)), which receives the notifications. To display notifications from Home Assistant on your Android/Google TV, you need to install the [TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay) app, available on the Google Play store.
 
 The notifications on your Android TV have a global scope, meaning they will appear on the screen regardless of the application you are currently using.
 
@@ -52,11 +52,11 @@ source_name:
   default: Notify
   type: string
 app_icon:
-  description: "The App Icon to be displayed in the notification. See below app_icon service data for options"
+  description: "The App Icon to be displayed in the notification. See below app_icon service data for options."
   default: Home Assistant Logo
   type: string
 badge_icon:
-  description: "A small mdi icon, (eg: `(mdi:bell)`) badge to be displayed in the notification."
+  description: "A small [mdi icon](https://pictogrammers.com/library/mdi) badge, (eg: `(mdi:bell)`) to be displayed in the notification."
   default: mdi:bell
   type: string
 badge_color:
@@ -68,15 +68,15 @@ image:
   default: None
   type: string
 position:
-  description: "Options: `bottom_right`, `bottom_left`, `top_right`, `top_left`."
+  description: "Options: `bottom_right`, `bottom_left`, `top_right`, `top_left`. Default: `top_right`."
   default: top-right
   type: string
 duration:
-  description: "The duration in seconds (eg: `10` for 10 seconds) for which the notification will be displayed."
+  description: "The duration in seconds (eg: `10` for 10 seconds) for which the notification will be displayed. Default: `5`."
   default: 5
   type: integer
 is_persistent:
-  description: "If set to `true`, a persistent notification will be displayed. Only the following options are applicable for persistent notifications."
+  description: "If set to `true`, a persistent notification will be displayed. Following extra options are applicable only for persistent notifications. Default: `false`"
   default: false
   type: boolean
 text_color:
@@ -84,7 +84,7 @@ text_color:
   default: #FFFFFF
   type: string
 shape:
-  description: "Border shape of the persistent notification. Options: `circle`, `rounded`, `rectangular`."
+  description: "Border shape of the persistent notification. Options: `circle`, `rounded`, `rectangular`. Default: `circle`."
   default: #FFFFFF
   type: string
 border_color:
@@ -96,12 +96,12 @@ bg_color:
   default: #FFFFFF
   type: string
 visible:
-  description: "Using the same message `id`, a persistent notification can be shown (`true`) or hidden (`false`)."
+  description: "Using the same message `id`, a persistent notification can be shown (`true`) or hidden (`false`). Default: `true`."
   default: true
   type: boolean
 {% endconfiguration %}
 
-This is a fully customized YAML that you can use within the `data` field to preview the notification's appearance (refer to the service call examples at the end of this page).
+This is a fully customized YAML that you can use within the `data` field to preview the notification's appearance (refer to the Automation service call examples at the end of this page).
 
 ```yaml
 id: "my_message"
@@ -140,7 +140,7 @@ You can include the following attributes inside `data` for sending `images` and 
 | `app_icon`             |      yes | Groups the attributes for `app_icon` upload. If it's present, you must provide either `url`, `path`, or `mdi_icon`.
 | `url`                  |      yes | URL of an image file. Can be placed inside `image` and `app_icon`.
 | `path`                 |      yes | Local path of an image file. Can be placed inside `image` and `app_icon`.
-| `mdi_icon`             |      yes | [Material Design Icons](https://pictogrammers.com/library/mdi), (eg: `mdi:home-assistant`). Can be placed inside `image` and `app_icon`.
+| `mdi_icon`             |      yes | [mdi icons](https://pictogrammers.com/library/mdi), (eg: `mdi:home-assistant`). Can be placed inside `image` and `app_icon`.
 | `username`             |      yes | Username if the URL requires authentication. Is placed inside `image`, `app_icon` or both`.
 | `password`             |      yes | Password if the URL requires authentication. Is placed inside `image`, `app_icon` or both.
 | `auth`                 |      yes | Can be set to `basic` or `digest` authentication.
@@ -148,6 +148,8 @@ You can include the following attributes inside `data` for sending `images` and 
 ## Examples for image and app_icon
 
 Example for posting image from a public URL:
+
+Please note that the `url` is validated against [allowlist_external_urls](https://www.home-assistant.io/docs/configuration/basic/#allowlist_external_urls) in the `configuration.yaml`.
 
 ```yaml
 image: "https://picsum.photos/200/100"
@@ -165,7 +167,7 @@ image:
 
 Example for posting image from local path:
 
-Please note that the `path` is validated against `allowlist_external_dirs` in the `configuration.yaml`.
+Please note that the `path` is validated against [allowlist_external_dirs](https://www.home-assistant.io/docs/configuration/basic/#allowlist_external_dirs) in the `configuration.yaml`.
 
 ```yaml
 image: "/path/to/image.png"
