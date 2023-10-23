@@ -46,6 +46,6 @@ In this step, you will create the owner's account of Home Assistant. This accoun
     ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
 
 7. Finally, select **Finish**.
-   - Now you're brought to the Home Assistant web interface. If some of your devices were discovered and setup automatically, this default dashboard may already show some of your devices.
+   - Now you're brought to the Home Assistant web interface. If some of your devices were discovered and set up automatically, this default dashboard may already show some of your devices.
 
 {% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}

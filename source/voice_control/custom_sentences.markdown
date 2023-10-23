@@ -13,7 +13,7 @@ This is the easiest method to get started with custom sentences for automations.
 If you have not set up voice control yet, set up the hardware first. For instructions, refer to one of the following tutorials:
 
 - [World's most private voice assistant](/voice_control/worlds-most-private-voice-assistant/): Using a classic landline phone
-- [$13 voice remote for Home Assistant](/voice_control/thirteen-usd-voice-remote/): Using a button with speaker and mic
+- [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/): Using a button with speaker and mic
 - [Assist for Apple](/voice_control/apple/): Using your iPhone, Mac, or Apple watch
 - [Assist for Android](/voice_control/android/): Using your Android phone, tablet, or a Wear OS watch
 
