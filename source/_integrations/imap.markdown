@@ -226,7 +226,7 @@ template:
         id: "custom_event"
         event_data:
           sender: "no-reply@smartconnect.apc.com"
-  - sensor:
+    sensor:
     - name: "Previous Day Energy Use"
       unit_of_measurement: "kWh"
       state: >
