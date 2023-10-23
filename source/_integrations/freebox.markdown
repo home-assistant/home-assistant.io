@@ -7,6 +7,7 @@ ha_category:
   - Presence Detection
   - Sensor
   - Switch
+  - Alarm Panel
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -21,6 +22,7 @@ ha_platforms:
   - device_tracker
   - sensor
   - switch
+  - alarm_control_panel
 ha_zeroconf: true
 ha_integration_type: integration
 ---
@@ -35,6 +37,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch) to control Wi-Fi
 - [Camera](#camera)
 - [Binary sensors](#binary)
+- [Alarm control panel](#alarm_control_panel)
 
 {% include integrations/config_flow.md %}
 
@@ -143,3 +146,9 @@ This service will reboot your Freebox router. It does not take any parameter. Be
 ## Switch
 
 This platform offers you a switch to toggle the Wi-Fi on or off. This will toggle all Wi-Fi interfaces of the router (all SSID and all bands).
+
+## Alarm control panel
+
+This platform offers you view status and control the Freebox Alarm Panel
+
+
