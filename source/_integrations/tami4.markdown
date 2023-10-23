@@ -16,8 +16,4 @@ You can boil water and get filter / UV information, such as when you need to rep
 
 You can easily pair your device by confirming your phone number which is registered with your Edge app account.
 
-## Configuration
-
-Add a new Integration in Home Assistant and select Tami4.
-Then, enter your phone number which you used to register
-to the Edge app and confirm the code with the SMS you've received.
+{% include integrations/config_flow.md %}
