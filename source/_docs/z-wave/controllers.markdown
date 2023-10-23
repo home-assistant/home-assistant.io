@@ -66,7 +66,9 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 ### 800 Series Controllers
 
 Z-Wave JS and Z-Wave JS UI do not support the following features available on most 800 series controllers.
-Unsupported
+
+Unsupported:
+
  - Long Range
  - NVM Backup/Restore
 
