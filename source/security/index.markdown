@@ -93,7 +93,7 @@ Fixed in: _Home Assistant for iOS 2023.7_
 Severity: _Low_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-qhhj-7hrc-gqj5)_  
 Assigned CVE: _[CVE-2023-41893](https://nvd.nist.gov/vuln/detail/CVE-2023-41893)_  
-Discovered by: _[Cure53](https://cure53.de/) (Funded by [Nabu Casa](https://www.nabucasa.com/)) and [Peter Stöckli](https://github.com/p-) ([GitHub Security Lab](https://securitylab.github.com/))_  
+Discovered by: _[Cure53](https://cure53.de/) (Funded by [Nabu Casa](https://www.nabucasa.com/))_  
 Fixed in: _Home Assistant Core 2023.9_  
 
 **2023-10-19: Full takeover via javascript URI in auth_callback login**  
@@ -114,7 +114,7 @@ Fixed in: _Home Assistant Core 2023.9_
 Severity: _Critical_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-cr83-q7r2-7f5q)_  
 Assigned CVE: _[CVE-2023-41896](https://nvd.nist.gov/vuln/detail/CVE-2023-41896)_  
-Discovered by: _[Cure53](https://cure53.de/) (Funded by [Nabu Casa](https://www.nabucasa.com/)) and [Peter Stöckli](https://github.com/p-) ([GitHub Security Lab](https://securitylab.github.com/))_  
+Discovered by: _[Cure53](https://cure53.de/) (Funded by [Nabu Casa](https://www.nabucasa.com/))_  
 Fixed in: _Home Assistant Core 2023.9 & `home-assistant-js-websocket` 8.2.0 (npm)_  
 
 **2023-10-19: Lack of XFO header allows clickjacking**  
