@@ -65,28 +65,28 @@ The following is a list of past security advisories that have been published by 
 **2023-10-19: Actions expression injection in `helpers/version/action.yml`**  
 Severity: _Low (This is an internal project)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-jff5-5j3g-vhqc)_  
-Discovered by: _[jorgectf](https://github.com/jorgectf), [p-](https://github.com/p-) ([GitHub Security Lab](https://securitylab.github.com/))_  
+Discovered by: _[Jorge Rosillo](https://github.com/jorgectf), [Peter Stöckli](https://github.com/p-) ([GitHub Security Lab](https://securitylab.github.com/))_  
 Fixed in: _Home Assistant GitHub Actions released on September 5, 2023_  
 
 **2023-10-19: Arbitrary URL load in Android WebView in `MyActivity.kt`**  
 Severity: _High (CVSS: 8.6)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-jvpm-q3hq-86rg)_  
 Assigned CVE: _[CVE-2023-41898](https://nvd.nist.gov/vuln/detail/CVE-2023-41898)_  
-Discovered by: _[atorralba](https://github.com/atorralba) ([GitHub Security Lab](https://securitylab.github.com/))_  
+Discovered by: _[Tony Torralba](https://github.com/atorralba) ([GitHub Security Lab](https://securitylab.github.com/))_  
 Fixed in: _Home Assistant for Android 2023.9.2_  
 
 **2023-10-19: Partial Server-Side Request Forgery in Core**  
 Severity: _Low_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-4r74-h49q-rr3h)_  
 Assigned CVE: _[CVE-2023-41899](https://nvd.nist.gov/vuln/detail/CVE-2023-41899)_  
-Discovered by: _[pwntester](https://github.com/pwntester) ([GitHub Security Lab](https://securitylab.github.com/))_  
+Discovered by: _[Alvaro Muñoz](https://github.com/pwntester) ([GitHub Security Lab](https://securitylab.github.com/))_  
 Fixed in: _Home Assistant Core 2023.9_  
 
 **2023-10-19: Client-Side Request Forgery in iOS/macOS native Apps**  
 Severity: _High (CVSS: 8.6)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-h2jp-7grc-9xpp)_  
 Assigned CVE: _[CVE-2023-44385](https://nvd.nist.gov/vuln/detail/CVE-2023-44385)_  
-Discovered by: _[pwntester](https://github.com/pwntester) ([GitHub Security Lab](https://securitylab.github.com/))_  
+Discovered by: _[Alvaro Muñoz](https://github.com/pwntester) ([GitHub Security Lab](https://securitylab.github.com/))_  
 Fixed in: _Home Assistant for iOS 2023.7_  
 
 **2023-10-19: Account takeover via auth_callback login**  
