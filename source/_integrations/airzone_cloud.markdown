@@ -61,6 +61,8 @@ For each Airzone zone (thermostat), the following *binary sensors* are created:
 
 ## Climate
 
+For each Airzone Aidoo (HVAC Wi-Fi controller), a climate entity is created.
+
 For each Airzone zone (thermostat), a climate entity is created.
 
 **HVAC mode can only be changed on a *parent zone*.**
