@@ -276,6 +276,25 @@ _All these can be extended if your usage calls for more resources._
     More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
     </div>
+
+- title: Unraid
+  content: |
+    1. Download the **.qcow2** image above and decompress it. (**Extract all** in Windows)
+    2. Store the image in the **isos** share on your server
+    3. Make sure "Settings" -> "VM manager" -> "Enable VMs" is enabled
+    4. Create a new virtual machine: VMS -> ADD VM
+    5. Select type **Linux** and give the VM a name and a description.
+    6. Select the CPU cores you want to let the VM use and give it some memory. 
+    7. Under **Primary vDisk Location** select *Manual* and then select the qcow2 image.
+    8. Select your keyboard language under **VM Console Keyboard**
+    9. Select *virtio* under **Network model**
+    10. Select any USB-devices that you want to pass through to Home Assistant, such as Zigbee- or Zwave-controllers
+    11. **Deselect** "Start VM after creation"
+    10. Click **CREATE**
+    11. Click on **the name** of your new VM and click on the capacity number for your disk. Here you can expand the disk to whatever your needs are. Default 32GB.
+    12. Click on **the icon** of your new VM and select *start with console(VNC)*.
+
+
 {% unless page.installation_type == 'macos' %}
 - title: KVM (virt-manager)
   content: |
