@@ -290,9 +290,9 @@ _All these can be extended if your usage calls for more resources._
     9. Select *virtio* under **Network model**
     10. Select any USB-devices that you want to pass through to Home Assistant, such as Zigbee- or Zwave-controllers
     11. **Deselect** "Start VM after creation"
-    10. Click **CREATE**
-    11. Click on **the name** of your new VM and click on the capacity number for your disk. Here you can expand the disk to whatever your needs are. Default 32GB.
-    12. Click on **the icon** of your new VM and select *start with console(VNC)*.
+    12. Click **CREATE**
+    13. Click on **the name** of your new VM and click on the capacity number for your disk. Here you can expand the disk to whatever your needs are. Default 32GB.
+    14. Click on **the icon** of your new VM and select *start with console(VNC)*.
 
 
 {% unless page.installation_type == 'macos' %}
