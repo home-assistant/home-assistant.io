@@ -25,4 +25,4 @@ The Assist icon doesn't show up? Make sure the [conversation](/integrations/conv
 
 _Assist was introduced in Home Assistant 2023.2._
 
-<lite-youtube videoid="sQ7X7jz1SrA" videotitle="Assist on Apple HomePod"></lite-youtube>
+<lite-youtube videoid="ziebKt4XLZQ" videotitle="Wake word demo on $13 ATOM Echo in Home Assistant"></lite-youtube>

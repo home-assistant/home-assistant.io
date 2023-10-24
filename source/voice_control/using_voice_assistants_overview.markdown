@@ -9,7 +9,7 @@ But you can make Assist the default digital assistant and [start it on an Androi
 
 You can also create your own [custom sentences](/voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation) to start an automation. For example, you could say "Clean the floor when I'm gone" to start the vacuum after you left your home zone. For the full list of new features and some videos, head over to the [chapter 3 blog post](/blog/2023/07/20/year-of-the-voice-chapter-3/) or watch the stream.
 
-<lite-youtube videoid="sXzItFksYFA" videotitle="Year of the Voice CHapter 3"></lite-youtube>
+<lite-youtube videoid="sXzItFksYFA" videotitle="Year of the Voice Chapter 3"></lite-youtube>
 
 While the video below does not include these latest changes, it gives a good overview of some of the basics.
 

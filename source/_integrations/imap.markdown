@@ -226,22 +226,22 @@ template:
         id: "custom_event"
         event_data:
           sender: "no-reply@smartconnect.apc.com"
-  - sensor:
-    - name: "Previous Day Energy Use"
-      unit_of_measurement: "kWh"
-      state: >
-       {{ trigger.event.data["text"]
-         | regex_findall_index("\*Yesterday's Energy Use:\* ([0-9]+) kWh") }}
-    - name: "Previous Day Cost"
-      unit_of_measurement: "$"
-      state: >
+    sensor:
+      - name: "Previous Day Energy Use"
+        unit_of_measurement: "kWh"
+        state: >
         {{ trigger.event.data["text"]
-          | regex_findall_index("\*Yesterday's estimated energy cost:\* \$([0-9.]+)") }}
-    - name: "Billing Cycle Total"
-      unit_of_measurement: "$"
-      state: >
-        {{ trigger.event.data["text"]
-          | regex_findall_index("\ days:\* \$([0-9.]+)") }}
+          | regex_findall_index("\*Yesterday's Energy Use:\* ([0-9]+) kWh") }}
+      - name: "Previous Day Cost"
+        unit_of_measurement: "$"
+        state: >
+          {{ trigger.event.data["text"]
+            | regex_findall_index("\*Yesterday's estimated energy cost:\* \$([0-9.]+)") }}
+      - name: "Billing Cycle Total"
+        unit_of_measurement: "$"
+        state: >
+          {{ trigger.event.data["text"]
+            | regex_findall_index("\ days:\* \$([0-9.]+)") }}
 ```
 
 {% endraw %}
