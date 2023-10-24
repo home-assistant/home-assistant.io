@@ -15,7 +15,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-This platform allows you to connect to your [Todoist Projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every 15 minutes.
+This platform allows you to connect to your [Todoist projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every 15 minutes.
 
 
 A calendar entity will be `on` if you have a task due in that project. It will be `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. 
@@ -26,7 +26,7 @@ You need to determine your Todoist API token. Go to the [**Integrations** > **De
 
 {% include integrations/config_flow.md %}
 
-## Custom Projects
+## Custom projects
 
 You can manually configure the Todoist calendar (only) integration using `configuration.yaml` which can specify "custom" projects which match against criteria you set. You should
 prefer the above instructions for configuring Todoist from the UI.
@@ -98,10 +98,10 @@ Home Assistant does its best to [determine what task in each project is "most" i
 
 {% enddetails %}
 
-## To-do List Entity
+## To-do list entity
 
 See the [todo](/integrations/todo/) integration for details on how to manage
-items on the Todoist to-do list including services for creating and
+items on the Todoist to-do list, including services for creating and
 deleting to-do items.
 
 Todoist completed to-do items are not visible in Home Assistant because they
@@ -109,7 +109,7 @@ are not returned by the Todoist REST API. Marking a To-do item as completed is
 effectively deleting it from Home Assistant, though completed tasks are visible in
 the Todoist UI.
 
-## Calendar Entity attributes
+## Calendar entity attributes
 
  - **offset_reached**: Not used.
 
