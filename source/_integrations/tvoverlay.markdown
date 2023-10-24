@@ -72,7 +72,7 @@ position:
   default: top-right
   type: string
 duration:
-  description: "The duration in seconds (eg: `10` for 10 seconds) for which the notification will be displayed. Default: `5`."
+  description: "The duration in seconds (eg: `10` for 10 seconds) or a string formatted duration (eg: `1d2h3m4s`) for which the notification will be displayed. Default: `5`."
   default: 5
   type: integer
 is_persistent:
@@ -126,7 +126,7 @@ border_color: "#FFFFFF"
 badge_icon: "mdi:bell"
 badge_color: "#41E09A"
 bg_color: "#000000"
-duration: 300
+duration: "1m30s
 visible: true
 ```
 
@@ -173,14 +173,9 @@ Please note that the `path` is validated against [allowlist_external_dirs](https
 image: "/path/to/image.png"
 ```
 
-Example for posting image from a protected local path:
-
 ```yaml
 image: 
   path: "/path/to/image.png"
-  username: "optional username, if necessary"
-  password: "optional password, if necessary"
-  auth: "digest"
 ```
 
 Examples for posting image from [mdi icon](https://pictogrammers.com/library/mdi):
@@ -204,6 +199,11 @@ Example for posting app_icon from local path:
 
 ```yaml
 app_icon: "/path/to/file.png"
+```
+
+```yaml
+app_icon:
+  path: "/path/to/image.png"
 ```
 
 Example for posting app_icon from [mdi icon](https://pictogrammers.com/library/mdi):
@@ -251,7 +251,7 @@ data:
     badge_icon: "mdi:camera"
     badge_color: "#B00020"
     position: "top_right"
-    duration: 10
+    duration: "10m"
     image: "https://picsum.photos/300/200"
 ```
 
@@ -274,7 +274,7 @@ data:
     badge_icon: "mdi:bell"
     badge_color: "#B00020"
     bg_color: "#000000"
-    duration: 60
+    duration: "2m"
     visible: true
 ```
 
