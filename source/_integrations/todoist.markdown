@@ -18,7 +18,7 @@ ha_config_flow: true
 This platform allows you to connect to your [Todoist Projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every 15 minutes.
 
 
-A calendar entity will be `on` if you have a task due in that project or `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. 
+A calendar entity will be `on` if you have a task due in that project. It will be `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. 
 
 ## Prerequisites
 
@@ -101,12 +101,12 @@ Home Assistant does its best to [determine what task in each project is "most" i
 ## To-do List Entity
 
 See the [todo](/integrations/todo/) integration for details on how to manage
-items on the Todoist To-do list including services for creating and
-deleting To-do items.
+items on the Todoist to-do list including services for creating and
+deleting to-do items.
 
-Todoist completed To-do items are not visible in Home Assistant because they
+Todoist completed to-do items are not visible in Home Assistant because they
 are not returned by the Todoist REST API. Marking a To-do item as completed is
-effectively delete it from Home Assistant, though completed tasks are visible in
+effectively deleting it from Home Assistant, though completed tasks are visible in
 the Todoist UI.
 
 ## Calendar Entity attributes
@@ -140,12 +140,12 @@ the Todoist UI.
 ## Services
 
 You may use the services from the [todo](/integrations/todo/) integration for
-creating, updating, or deleting To-do Items on the To-do List.
+creating, updating, or deleting to-do items on the to-do list.
 
 Todoist also comes with an additional service, `todoist.new_task` that offers
 more advanced attributes when creating a Todoist task. You can specify labels
 and a project, or you can leave them blank, and the task will go to your
-"Inbox" project.
+**Inbox** project.
 
 Here are two example JSON payloads resulting in the same task:
 
@@ -192,4 +192,4 @@ Here are two example JSON payloads resulting in the same task:
 - **reminder_date_lang** (*Optional*): When `reminder_date_string` is set, it is possible to set the language.
   Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
 
-- **reminder_date** (*Optional*): When should user be reminded of this task, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format (in UTC timezone). Mutually exclusive with `reminder_date_string`.
+- **reminder_date** (*Optional*): When should the user be reminded of this task, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format (in UTC timezone). Mutually exclusive with `reminder_date_string`.
