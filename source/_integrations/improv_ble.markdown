@@ -7,7 +7,7 @@ ha_category:
   - Other
 ha_codeowners:
   - '@emontnemery'
-ha_domain: improv_via_ble
+ha_domain: improv_ble
 ha_integration_type: device
 ---
 
