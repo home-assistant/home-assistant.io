@@ -14,6 +14,7 @@ ha_domain: withings
 ha_platforms:
   - binary_sensor
   - sensor
+  - calendar
 ha_integration_type: integration
 ---
 
@@ -57,3 +58,14 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 
 The integration will automatically detect if you can use webhooks. This will enable the integration only to update when there is new data.
 The binary sensor for sleep will only work if the integration can establish webhooks with Withings.
+
+## Available data
+
+The integration provides several entities, some of which dynamically enabled based on the data present.
+
+For example, measurement senors like weight will only work when there has been data registered for it in the last 14 days. So if you start using a new device, for example something to measure your temperature or you manually update a value in the app, the sensor will automatically appear.
+
+Sleep sensors will only be created if the integration can find sleep data for you in the last day.
+
+For the workout calendar and the workout and activity sensors, it's the same, but 14 days.
+
