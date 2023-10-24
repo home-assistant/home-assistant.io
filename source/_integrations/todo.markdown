@@ -1,5 +1,5 @@
 ---
-title: To-do Lists
+title: To-do List
 description: Instructions on how to use To-do Lists within Home Assistant.
 ha_domain: todo
 ha_release: 2023.11
@@ -15,15 +15,7 @@ The To-do List integration provides todo list entities, allowing other integrati
 to integrate To-do Lists into Home Assistant. To-do lists are shown on the To-do list
 dashboard for tracking items and whether or not they have been completed.
 
-<div class='note'>
-
-To-do List entities are here to be consumed and provided by other integrations.
-
-This page, therefore, does not provide instructions on how to create To-do
-entities. Please see the ["To-do List" category](/integrations/#to-do-list) on the
-integrations page to find integrations offering To-do List entities.
-
-</div>
+{% include integrations/building_block_integration.md %}
 
 ## Viewing and managing To-do lists
 
