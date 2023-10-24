@@ -125,7 +125,7 @@ For generation 2 hardware it's possible to select if a device's input is connect
 ## Event entities (generation 1)
 
 If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
-(Important to note: for relay devices, this is not the same as the binary sensor - it doesn't track the state of a relay, it only fires events when an detached switch is turned from `off` to `on`, and doesn't fire when a detached switch is turned from `on` to `off`)
+(Important to note: for relay devices, this is not the same as the binary sensor - it doesn't track the state of a relay, it only fires events when a detached switch is turned from `off` to `on`, and doesn't fire when a detached switch is turned from `on` to `off`)
 
 ## Event entities (generation 2)
 
