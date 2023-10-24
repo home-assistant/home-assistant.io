@@ -61,11 +61,11 @@ The binary sensor for sleep will only work if the integration can establish webh
 
 ## Available data
 
-The integration provides several entities, some of which dynamically enabled based on the data present.
+The integration provides several entities, some of which are dynamically enabled if data is available.
 
-For example, measurement senors like weight will only work when there has been data registered for it in the last 14 days. So if you start using a new device, for example something to measure your temperature or you manually update a value in the app, the sensor will automatically appear.
+For example, measurement sensors like weight only work when data has been registered in the last 14 days. So if you start using a new device, for example, to measure your temperature or you manually update a value in the app, the sensor automatically appears.
 
-Sleep sensors will only be created if the integration can find sleep data for you in the last day.
+Sleep sensors are only created if the integration can find sleep data for you within the last day.
 
 For the workout calendar and the workout and activity sensors, it's the same, but 14 days.
 
