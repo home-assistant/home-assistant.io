@@ -15,7 +15,7 @@ ha_integration_type: integration
 ---
 
 The **Local to-do list** integration allows you to create to-do lists in Home Assistant.
-To-do Lists are shown on the To-do List dashboard for tracking items and whether
+To-do lists are shown on the **To-do list** dashboard for tracking items and whether
 or not they have been completed.
 
 See the [**To-do list** integration](/integrations/todo) for additional details
