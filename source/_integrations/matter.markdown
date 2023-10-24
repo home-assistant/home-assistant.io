@@ -196,6 +196,17 @@ Did you test a device that is not listed below? It would be greatly appreciated 
 [Eve Door & Window on Amazon](https://amzn.to/3RIU6ml)
 [Eve Motion on Amazon](https://amzn.to/3jDujiP)
 
+### Leviton Decora Smart Switches (D215S)
+
+- You will need a My Leviton account and app, and must first connect the switch to the app through the cloud.
+- [Upgrade to Matter-supported firmware](https://decorasmartsupport.leviton.com/hc/en-us/articles/11638969410331)
+- If you want to break Leviton's connection to the switch (and the hole in your firewall), factory reset the swtich before pairing with Matter.
+- Ensure IPv6 is enabled on your HA host, and your phone and HA host are on the same network/VLAN as the switch.
+- The Matter pairing code for the switch is found in the My Leviton app.  There's also a QR code, but it's worthless with a single phone.
+- Place the switch in pairing mode by holding the top for about 7 seconds until the LED turns amber.
+- Add the device through "Add Matter Device" with the pairing code.
+- Doesn't always work on the first try.
+
 ### Nanoleaf (Essentials) Matter bulbs and Lightstrips
 
 - Although the products work great once commissioned, multiple users have reported that commissioning them can be a bit difficult and requires some patience and multiple resets or optimizations to your home network.
