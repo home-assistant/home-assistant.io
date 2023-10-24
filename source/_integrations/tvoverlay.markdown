@@ -74,7 +74,7 @@ position:
 duration:
   description: "The duration in seconds (eg: `10` for 10 seconds) or a string formatted duration (eg: `1d2h3m4s`) for which the notification will be displayed. Default: `5`."
   default: 5
-  type: integer
+  type: string
 is_persistent:
   description: "If set to `true`, a persistent notification will be displayed. Following extra options are applicable only for persistent notifications. Default: `false`"
   default: false
@@ -112,7 +112,7 @@ badge_icon: "mdi:bell"
 badge_color: "#41E09A"
 position: "top_right"
 image: "https://picsum.photos/200/100"
-duration: 10
+duration: "10"
 ```
 
 Customized YAML for Persistent Notifications:
@@ -126,7 +126,7 @@ border_color: "#FFFFFF"
 badge_icon: "mdi:bell"
 badge_color: "#41E09A"
 bg_color: "#000000"
-duration: "1m30s
+duration: "1m30s"
 visible: true
 ```
 
