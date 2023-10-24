@@ -125,6 +125,7 @@ For generation 2 hardware it's possible to select if a device's input is connect
 ## Event entities (generation 1)
 
 If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
+(Important to note: for relay devices, this is not the same as the binary sensor - it doesn't track the state of a relay, it only fires events when an detached switch is turned from `off` to `on`, and doesn't fire when a detached switch is turned from `on` to `off`)
 
 ## Event entities (generation 2)
 
@@ -135,6 +136,9 @@ If the **Input Mode** of the switch connected to the device is set to `Button`, 
 If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events under the type `shelly.click` when the switch is used. You can use these events in your automations.
 
 Also, some devices do not add an entity for the button/switch. For example, the Shelly Button1 has only one entity for the battery level. It does not have an entity for the button itself. To trigger automations based on button presses, use the `shelly.click` event.
+
+In addition to this, for Shelly relays, if you configure the switch as `detached`, then `shelly.click` event will only be fired when the switch is turned from `off` to `on` and won't be fired when turned from `on` to `off`.
+In these instances, it's best to use the `binary_sensor` state of the `input` in your automations. (for more details, see: [shelly1-configured-as-detached-edge-switch](https://community.home-assistant.io/t/shelly1-configured-as-detached-edge-switch)
 
 ### Listening for events
 
