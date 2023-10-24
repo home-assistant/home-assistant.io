@@ -79,7 +79,7 @@ is_persistent:
   description: "If set to `true`, a persistent notification will be displayed. Following extra options are applicable only for persistent notifications. Default: `false`"
   default: false
   type: boolean
-text_color:
+message_color:
   description: "The `message` text color for persistent notification. Any 6 or 8 digit [Hex color](https://htmlcolorcodes.com/color-picker). eg: `#FFFFFF`."
   default: #FFFFFF
   type: string
@@ -120,7 +120,7 @@ Customized YAML for Persistent Notifications:
 ```yaml
 id: "my_persistent_message"
 is_persistent: true
-text_color: "#FFFFFF"
+message_color: "#FFFFFF"
 shape: "circle"
 border_color: "#FFFFFF"
 badge_icon: "mdi:bell"
@@ -268,7 +268,7 @@ data:
   data:
     id: "alert_1"
     is_persistent: true
-    text_color: "#FFFFFF"
+    message_color: "#FFFFFF"
     shape: "circle"
     border_color: "#41E09A"
     badge_icon: "mdi:bell"
