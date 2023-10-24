@@ -281,7 +281,7 @@ _All these can be extended if your usage calls for more resources._
   content: |
     1. Download the **.qcow2** image above and decompress it. (**Extract all** in Windows)
     2. Store the image in the **isos** share on your server.
-    3. Make sure **Settings** > **VM manager** > **Enable VMs** is enabled.
+    3. Make sure under **Settings** > **VM manager**, **Enable VMs** is enabled.
     4. Create a new virtual machine: **VMS** > **Add VM**.
     5. Select type **Linux** and give the VM a name and a description.
     6. Select the CPU cores you want to let the VM use and give it some memory. 
@@ -291,7 +291,7 @@ _All these can be extended if your usage calls for more resources._
     10. Select **virtio** under **Network model**.
     11. Select any USB-devices that you want to pass through to Home Assistant, such as Zigbee- or Z-Wave controllers.
     12. Deselect **Start VM after creation**.
-    13. Click **CREATE**.
+    13. Select **Create**.
     14. Select the name of your new VM and select the capacity number for your disk. Here, you can expand the disk to whatever your needs are. The default is 32&nbsp;GB.
     15. Select the icon of your new VM and select **start with console (VNC)**.
 
