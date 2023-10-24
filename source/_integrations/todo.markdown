@@ -2,7 +2,7 @@
 title: To-do Lists
 description: Instructions on how to use To-do Lists within Home Assistant.
 ha_domain: todo
-ha_release: 2023.10
+ha_release: 2023.11
 ha_category:
   - To-do List
 ha_quality_scale: internal
@@ -31,7 +31,7 @@ Each To-do list is represented as its own entity in Home Assistant and can be
 viewed and managed on a to-do list dashboard. You can find the to-do list dashboard
 in the main sidebar of your Home Assistant instance.
 
-## The state of an To-do List entity
+## The state of a To-do List entity
 
 The state of a To-do List entity is a number, which represents the number of
 incomplete items in the list.
