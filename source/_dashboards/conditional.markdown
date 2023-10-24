@@ -85,12 +85,12 @@ entity:
   type: string
 state:
   required: false
-  description: Entity state is equal to this value.*
-  type: string
+  description: Entity state is equal to this value. Can contain an array of states.*
+  type: [list, string]
 state_not:
   required: false
-  description: Entity state is unequal to this value.*
-  type: string
+  description: Entity state is unequal to this value. Can contain an array of states.*
+  type: [list, string]
 {% endconfiguration %}
 
 *one is required (`state` or `state_not`)
