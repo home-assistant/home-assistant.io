@@ -281,7 +281,7 @@ _All these can be extended if your usage calls for more resources._
   content: |
     1. Download the **.qcow2** image above and decompress it. (**Extract all** in Windows)
     2. Store the image in the **isos** share on your server.
-    3. Make sure "Settings" -> "VM manager" -> "Enable VMs" is enabled.
+    3. Make sure **Settings** > **VM manager** > **Enable VMs** is enabled.
     4. Create a new virtual machine: VMS -> ADD VM.
     5. Select type **Linux** and give the VM a name and a description.
     6. Select the CPU cores you want to let the VM use and give it some memory. 
