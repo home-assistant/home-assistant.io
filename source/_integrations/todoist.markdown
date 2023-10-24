@@ -3,6 +3,7 @@ title: Todoist
 description: Instructions on how to integrate Todoist into Home Assistant.
 ha_category:
   - Calendar
+  - To-do List
 ha_iot_class: Cloud Polling
 ha_release: 0.54
 ha_codeowners:
@@ -14,7 +15,10 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-This platform allows you to connect to your [Todoist Projects](https://todoist.com) as [calendar](/integrations/calendar/) entities. A calendar entity will be `on` if you have a task due in that project or `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. All tasks get updated roughly every 15 minutes.
+This platform allows you to connect to your [Todoist Projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every 15 minutes.
+
+
+A calendar entity will be `on` if you have a task due in that project or `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. 
 
 ## Prerequisites
 
@@ -24,7 +28,10 @@ You need to determine your Todoist API token. Go to the [**Integrations** > **De
 
 ## Custom Projects
 
-You can manually configure the integration using `configuration.yaml` which can specify "custom" projects which match against criteria you set.
+You can manually configure the Todoist calendar (only) integration using `configuration.yaml` which can specify "custom" projects which match against criteria you set. You should
+prefer the above instructions for configuring Todoist from the UI.
+
+{% details "Manual custom projects configuration" %}
 
 {% configuration %}
 token:
@@ -89,6 +96,14 @@ You can mix-and-match these attributes to create all sorts of custom projects. Y
 
 Home Assistant does its best to [determine what task in each project is "most" important](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/todoist/calendar.py), and it's that task which has its state reported. You can access the other tasks you have due soon via the `all_tasks` array (see below).
 
+{% enddetails %}
+
+## To-do Entities
+
+See the [todo](/integrations/todo/) integration for details on how to manage
+items on the Todoist To-do list including services for creating and
+deleting To-do items.
+
 ## Calendar Entity attributes
 
  - **offset_reached**: Not used.
@@ -119,7 +134,13 @@ Home Assistant does its best to [determine what task in each project is "most" i
 
 ## Services
 
-Todoist also comes with access to a service, `todoist.new_task`. This service can be used to create a new Todoist task. You can specify labels and a project, or you can leave them blank, and the task will go to your "Inbox" project.
+You may use the services from the [todo](/integrations/todo/) integration for
+creating, updating, or deleting To-do Items on the To-do List.
+
+Todoist also comes with an additional service, `todoist.new_task` that offers
+more advanced attributes when creating a Todoist task. You can specify labels
+and a project, or you can leave them blank, and the task will go to your
+"Inbox" project.
 
 Here are two example JSON payloads resulting in the same task:
 
