@@ -98,11 +98,16 @@ Home Assistant does its best to [determine what task in each project is "most" i
 
 {% enddetails %}
 
-## To-do Entities
+## To-do List Entity
 
 See the [todo](/integrations/todo/) integration for details on how to manage
 items on the Todoist To-do list including services for creating and
 deleting To-do items.
+
+Todoist completed To-do items are not visible in Home Assistant because they
+are not returned by the Todoist REST API. Marking a To-do item as completed is
+effectively delete it from Home Assistant, though completed tasks are visible in
+the Todoist UI.
 
 ## Calendar Entity attributes
 
@@ -188,5 +193,3 @@ Here are two example JSON payloads resulting in the same task:
   Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
 
 - **reminder_date** (*Optional*): When should user be reminded of this task, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format (in UTC timezone). Mutually exclusive with `reminder_date_string`.
-
-Note that there's (currently) no way to mark tasks as done through Home Assistant; task names do not necessarily have to be unique, so you could find yourself in a situation where you close the wrong task.
