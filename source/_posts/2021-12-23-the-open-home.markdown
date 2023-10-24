@@ -1,6 +1,6 @@
 ---
 title: "The Open Home"
-description: "Our vision for the smart home: privacy, choice and durability."
+description: "Our vision for the smart home: privacy, choice and sustainability."
 date: 2021-12-23 00:01:00
 date_formatted: "December 23, 2021"
 author: Paulus Schoutsen
@@ -13,7 +13,9 @@ og_image: /images/blog/2021-12-open-home/social.png
 
 The Open Home is our vision for the smart home. It defines the values that we put at the heart of every decision we make at Home Assistant. It's woven into our architecture, licensing, community and everything else.
 
-The Open Home is about **privacy**, **choice** and **durability**.
+The Open Home is about **privacy**, **choice** and **sustainability**.
+
+_The original vision used "durability" instead of "sustainability". This value was changed as [part of our 10 year anniversary](https://www.youtube.com/watch?v=EmLV6lJLzSU&t=3651s)._
 
 _If you prefer video, skip [to the end](#state-of-the-open-home)._
 
@@ -31,13 +33,15 @@ Devices in your home gather data about itself and their surroundings. Your data.
 
 **Choice** for the Open Home means that devices need to make the gathered data available through local APIs. This avoids vendor lock-in and allows users to create their own smart home with devices from different manufacturers.
 
-## Durability
+## Sustainability
 
-If there is one thing that technology firms are very good at, it is launching new products. However, maintaining the products and making sure they keep working is an afterthought for most. The result is that vendors can decide to no longer support your device, crippling it's features or even prevent it from working at all.
+Humans emit CO<sub>2</sub> into the atmosphere, causing the climate to change and the world to heat up. One way we can all help with this is to ensure that our individual energy and waste footprint is as small as possible. Our homes represent a substantial part of this.
 
-As we install more and more devices in our home, durability is becoming more and more important. We shouldn't have to buy everything new every couple of years because the manufacturer decided to move on.
+For the Open Home, longevity of a device should not be an afterthought. If there is one thing that technology firms are very good at, it is launching new products. However, maintaining the products and making sure they keep working is an afterthought for most. The result is that vendors can decide to no longer support your device, crippling it's features or even prevent it from working at all.
 
-**Durability** for the Open Home means that devices are designed and built to keep working. Not just this year, but for the next decade.
+As we install more and more devices in our home, sustainability is becoming more and more important. We shouldn't have to buy everything new every couple of years because the manufacturer decided to move on.
+
+**Sustainability** for the Open Home means that devices are designed and built to keep working and use as little energy as possible. Not just this year, but for the next decade. If they outlive their original purpose, they should be able to be reused or repurposed for something else.
 
 ## State of the Open Home
 
