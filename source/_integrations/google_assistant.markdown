@@ -73,14 +73,14 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     4. In the **Credentials** view, select **Create credentials** and next **Service account**.
         1. **Service account name**: Give your account a self-selected name.
         2. Select **Create and Continue**.
-        3. **Select a role**: **Service Accounts** and **Service Account Token Creator**.
+        3. Under **Select a role**, select **Service Accounts** > **Service Account Token Creator**.
         4. Select **Continue**.
         5. Select **Done**.
-    5. Under **Service Accounts** there should now be an account called [name from 4.1]@[projectname].iam.gserviceaccount.com.
-    6. Click on the pencil button of that service account.
+    5. Under **Service Accounts**, there should now be an account called [name from 4.1]@[projectname].iam.gserviceaccount.com.
+    6. Select the pencil button of that service account.
     7. Go to **Keys** and **ADD KEY**.
     8. Create a private key, make sure it is in JSON format.
-    9. This will start a download of a JSON file. 
+    9. This will start a download of a JSON file.
         1. Rename the file to `SERVICE_ACCOUNT.JSON`.
         2. Add this file to your config-folder. This will be the same folder as your `configuration.yaml`.
     10. Go back to [Google Cloud Platform](https://console.cloud.google.com/) and select **Close**.
@@ -95,11 +95,11 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 <div class='note'>
 
-If you've added Home Assistant to your phone's home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant redirecting back to the Google Home app.
+If you've added Home Assistant to your phone's home screen, you have to first remove it from the home screen. Otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant redirecting back to the Google Home app.
 
 </div>
 
-### Allow Other Users
+### Allow other users
 
 If you want to allow other household users to control the devices:
 
@@ -111,7 +111,7 @@ If you want to allow other household users to control the devices:
     2. Select **Select a role** and choose **Project** > **Viewer**.
     3. Select **SAVE**.
     4. Copy and share the Actions project link (`https://console.actions.google.com/project/YOUR_PROJECT_ID/simulator`) with the new user.
-5. Have the new user open the link with their own Google account, agree to the Terms of Service popup. Then select **Start Testing**, select **VERSION - Draft** in the dropdown, and select **Done**.
+5. Have the new user open the link with their own Google account, agree to the **Terms of Service** popup. Then select **Start Testing**, select **VERSION - Draft** in the dropdown, and select **Done**.
 6. Have the new user go to their **Google Assistant** app to add `[test] your app name` to their account.
 
 ### Enable Device Sync
@@ -162,7 +162,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 2. Select **Develop** on the top of the page, then select **Actions** located in the hamburger menu on the top left.
 3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by selecting the **Upload JavaScript files** button.
 4. Add device scan configuration:
-   1. Select **+ New scan config** if no configuration exists
+   1. Select **+ New scan config** if no configuration exists.
    2. Select **MDNS**.
    3. Set **MDNS service name** to `_home-assistant._tcp.local`
    4. Select **Add field**, then under **Select a field**, choose **Name**.
@@ -297,7 +297,7 @@ Some of these devices may not display correctly in the Google Home app, such as 
 
 </div>
 
-### Secure Devices
+### Secure devices
 
 Certain devices are considered secure. This includes devices in the `lock` domain, the `alarm_control_panel` domain, as well as `covers` with device types `door`, `garage`, or `gate`.
 
