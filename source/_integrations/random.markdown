@@ -22,16 +22,16 @@ The `random` integration simply creates random values or state. This can be usef
 
 
 ## Configuration
-The preferred way to configure timer helpers is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button; next choose the {% my config_flow_start domain=random title="Random" %} option.
+The preferred way to configure timer helpers is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}** and select the add button; next choose the {% my config_flow_start domain=random title="Random" %} option.
 
-You can also click the following button to be redirected to the Helpers page of your Home Assistant instance.
+You can also select the following button to be redirected to the Helpers page of your Home Assistant instance.
 
 {% my helpers badge %}
 
 To be able to add Helpers via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `timer:` to your `configuration.yaml` first, then you can use the UI.
 
-## Binary Sensor
-The random binary sensor is creating random states (`true`, 1, `on` or `false`, 0, `off`).
+## Binary sensor
+The random binary sensor creates random states (`true`, 1, `on` or `false`, 0, `off`).
 
 ### YAML configuration
 To create the random binary sensor, add the following lines to your `configuration.yaml` file:
@@ -51,7 +51,7 @@ name:
 {% endconfiguration %}
 
 ## Sensor
-The random sensor is creating random sensor values (integers) out of a given range. Returned values form a [discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), meaning that each integer value in the range configured is equally likely to be drawn.
+The random sensor creates random sensor values (integers) out of a given range. Returned values form a [discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), meaning that each integer value in the range configured is equally likely to be drawn.
 
 ### YAML configuration
 To create the random sensor, add the following lines to your `configuration.yaml` file:
@@ -83,18 +83,3 @@ unit_of_measurement:
   required: false
   type: string
 {% endconfiguration %}
-
-### Examples
-
-In this section you find am example of how this sensor can be used.
-
-Create a random sensor called "My random sensor" which will return a number between 10 (minimum) and 500 (maximum).
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: random
-    name: "My random sensor"
-    minimum: 10
-    maximum: 500
-```
