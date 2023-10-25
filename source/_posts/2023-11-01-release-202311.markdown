@@ -1,0 +1,592 @@
+---
+layout: post
+title: "2023.11 TODO: Release title"
+description: "The beta release notes for Home Assistant 2023.11"
+date: 2023-10-25 00:00:00
+date_formatted: "November 1, 2023"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2023-11/social.png
+---
+
+<!--<a href='/integrations/#version/2023.11'><img src='/images/blog/2023-11/social.png' style='border: 0;box-shadow: none;'></a>-->
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+These are the beta release notes for Home Assistant Core 2023.11 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/UI/dashboards:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+### If you are using Matter with this beta release <!-- omit in toc -->
+
+We now have a beta flag/option on the main (stable) version of the add-on.
+Toggle that to transform the add-on to the "beta channel". If you are
+participating in the beta, enabling this option is strongly recommended.
+
+---
+
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2023.11! 🎉
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+<!--more-->
+
+- [There is a lot todo!](#there-is-a-lot-todo)
+- [Shopping lists are now TODOs too!](#shopping-lists-are-now-todos-too)
+- [Integrations providings your todos](#integrations-providings-your-todos)
+- [Custom state content for Tile cards](#custom-state-content-for-tile-cards)
+- [Matter 1.2 is here!](#matter-12-is-here)
+- [Custom date ranges in the energy dashboard!](#custom-date-ranges-in-the-energy-dashboard)
+- [New conditions for the conditional card](#new-conditions-for-the-conditional-card)
+- [Restart in safe mode](#restart-in-safe-mode)
+- [Set up Improv devices, directly from Home Assistant!](#set-up-improv-devices-directly-from-home-assistant)
+- [Configuring script fields for your script in the UI](#configuring-script-fields-for-your-script-in-the-ui)
+- [Country selector](#country-selector)
+- [Type checking in your templates](#type-checking-in-your-templates)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+<!--
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=#)
+1 November 2023, at 12:00 PDT / 21:00 CEST!
+
+<lite-youtube videoid="#" videotitle="Home Assistant 2023.11 Release Party"></lite-youtube>
+-->
+
+## There is a lot todo!
+
+There are lots of things to do and that is what [@allenporter] realized too!
+We now have a new entity type in Home Assistant: `todo`!
+
+A todo entity represents a lists of tasks, and the state of the entity
+will be the amount of tasks that are still open.
+
+Besides the entities, it also comes with a bunch of new services you can
+use to manage your tasks. For example, you could automate the creation of
+tasks based on things happening in your house, or even create tasks from
+your automations!
+
+_insert image of local todo list in the dashboard_
+
+You can create one, or more todo lists and view and manage them by selecting
+the new **To-do lists** in the sidebar.
+
+Thanks [@allenporter], for this amazing adition to Home Assistant!
+
+[@allenporter]: https://github.com/allenporter
+
+## Shopping lists are now TODOs too!
+
+These todo-lists look a lot like the shopping list, right? Yup!
+So, shopping list integration has been updated to use the new todo entity type.
+Once you upgrade to this release, your shopping list will automatically be
+converted to a todo list.
+
+<img class="no-shadow" src='/images/blog/2023-11/todo-shopping-list.png' alt='Screenshot showing the shopping list, which now is a todo list.'>
+
+## Integrations providings your todos
+
+This release brings the local todo-list and the shopping list, but there is more!
+Now we have a todo entity, we can also start using it in other integrations that,
+for example, get their data (and thus your todo lists) from an external service.
+
+You can now integrate your Todoist and Google Tasks todo lists in Home Assistant!
+
+_insert image of to a nicely/fully loaded todo dashboard_
+
+## Custom state content for Tile cards
+
+Tile card now display the state of the entity in the card. But what if you want
+to display something else? [@piitaya] to the rescue! 
+
+You can now customize it to you liking. Show the state of the entity, any of its
+attributes, or a combination of both!
+
+<img class="no-shadow" src='/images/blog/2023-11/customize-tile-card-state-content.png' alt='Screenshot showing the configuration dialog of the tile card, which now allows you to set custom state contents.'>
+
+This not only works for the climate entities, but for all entities! You could,
+for example, add the brightness % of a light or the battery level of a sensor.
+Simply add the attribute to the state content and drag and drop them in the
+order you want them to appear.
+
+[@piitaya]: https://github.com/piitaya
+
+## Matter 1.2 is here!
+
+The Connectivity Standards Alliance has launched[version 1.2 of the Matter specification](https://csa-iot.org/newsroom/matter-1-2-arrives-with-nine-new-device-types-improvements-across-the-board/), together with a new version of the Official Matter SDK, which is not only prepared for new device types but also contains all kinds of smaller stability- and bug fixes.
+
+Although you can not yet benefit of any of the new device types yet until actual devices are released, we have bumped our Matter implementation to version 1.2 to benefit from the stability improvements and to be prepared for the new device types.
+
+Interesting fact: Did you know that Home Assistant is used as a test platform by many device manufacturers ? This potentially means that devices will be implemented and tested on the Home Assistant Matter controller before others, cool!
+
+## Custom date ranges in the energy dashboard!
+
+The energy dashboard now allows you to select a custom date range. This allows
+you to see the energy usage of your home over a specific period.
+
+<img class="no-shadow" src='/images/blog/2023-11/date-range-energy-dashboard.png' alt='Screenshot showing the energy dashboard, which now allows you to select a custom date range.'>
+
+Thanks, [@TillFleisch]!
+
+[@TillFleisch]: https://github.com/TillFleisch
+
+## New conditions for the conditional card
+
+The [conditional card](/dashboards/conditional/) is a great way to show or hide
+cards conditionally. For example, you can show a card only when the sun is
+setting, or when you are home.
+
+When using such a state, you also match it against multiple values. For example,
+you can show a card when the sun is setting or when the sun is below the
+horizon in a single condition.
+
+But even more interesting, [@piitaya] added a whole bunch of new conditions
+to this card for you to use!
+
+[@piitaya]: https://github.com/piitaya
+
+### User condition <!-- omit in toc -->
+
+The user condition allows you to show or hide cards based on the user that is
+currently logged in. This is useful if you have multiple users in your Home
+Assistant instance and want to show or hide cards based on who is logged in.
+
+<img class="no-shadow" src='/images/blog/2023-11/conditional-card-per-user.png' alt='Screenshot showing the configuration dialog of the conditional card, which now allows you to set which users to show the card at.'>
+
+### Numeric state condition <!-- omit in toc -->
+
+Similar to the state condition, the numeric state condition allows you to show
+or hide cards based on the state of a numeric entity. This is useful if you
+want to show or hide cards based on the temperature, humidity, or any other
+numeric entity.
+
+<img class="no-shadow" src='/images/blog/2023-11/conditional-card-numeric-state.png' alt='Screenshot showing the configuration dialog of the conditional card, which you can now configure an numeric condition on when to show the card.'>
+
+### Screen condition <!-- omit in toc -->
+
+Last but not least, the screen condition allows you to show or hide cards based
+on the screen size of the device you are viewing Home Assistant on.
+
+For example, you could show some cards only when viewing Home Assistant on a
+desktop or tablet, and hide them when viewing Home Assistant on a mobile device.
+
+<img class="no-shadow" src='/images/blog/2023-11/conditional-card-screen-type.png' alt='Screenshot showing the configuration dialog of the conditional card, which you can now configure an numeric condition on when to show the card.'>
+
+## Restart in safe mode
+
+You can now restart Home Assistant in safe mode. This will disable all custom
+integrations and custom dashboard resources.
+
+This is useful if you are experiencing issues with Home Assistant and want to
+rule out custom integrations or custom dashboard resources as the cause.
+
+<img class="no-shadow" src='/images/blog/2023-11/restart-in-safe-mode.png' alt='Screenshot showing the restart dialog, which now provides a new option: Restart Home Assistant in safe mode.'>
+
+Want to get out of safe mode again? Just restart Home Assistant one more time.
+
+This is helpful! Thanks, [@emontnemery]!
+
+[@emontnemery]: https://github.com/emontnemery
+
+## Set up Improv devices, directly from Home Assistant!
+
+If you bought a device that supports [Improv Wi-Fi](https://improv-wifi.com/)
+over Bluetooth, and you are using Bluetooth in Home Assistant, you can now
+set up your device directly from Home Assistant itself!
+
+Home Assistant will discover your brand new device, and will help you set it up
+and get it connected to your Wi-Fi network and add it to Home Assistant.
+
+<video width="680px" controls autoplay loop muted playsinline>
+  <source src="https://user-images.githubusercontent.com/195327/278046046-dfcf3501-2563-4a1d-aac2-d4c27587d932.mp4" type="video/mp4">
+</video>
+
+Improv Wi-Fi is also supported by [ESPHome](https://esphome.io/components/esp32_improv#improv-via-ble).
+
+## Configuring script fields for your script in the UI
+
+Scripts have a really cool feature: fields. Fields allow you to define
+variables in your script you can pass in when calling your script as a service,
+which you can then use in your script. For example, you could create a script
+that sends a notification to a specific person, and use a field to define the
+message you want to send.
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/32912880/276089825-a3c1587c-d446-4a03-a79b-d4f6b0373924.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+## Country selector
+
+A new selector is available, that allows you to select a country. This is
+selector can be used in your Blueprints, or, in the new script field editor
+mentioned above. Thanks, [@gjohansson-ST]!
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/62932417/273396112-687c0d44-be26-4ce9-ac68-89495bfa61a7.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+## Type checking in your templates
+
+Last, but not least, [@raman325] extended our template engine with the ability
+to check the type of a variable. This allows you to do things like:
+
+{% raw %}
+
+```yaml
+{% if my_var is list %}
+  # Do something
+{% endif %}
+```
+
+and
+
+```yaml
+{% if my_var is datetime %}
+  # Do something
+{% endif %}
+```
+
+{% endraw %}
+
+Read more about [complex type checking in our documentation](/docs/configuration/templating/#complex-type-checking).
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- The nice little two-pane view you see in the todo list, has also been
+  added to the calendar dashboard. Nice [@bramkragten]!
+- [ZHA] will now raise a repair issue, if it found out the network settings
+  have changed externally. This helps you getting up and running again in
+  no time. Thanks, [@puddly]!
+- The [Fitbit] integration got a complete overhaul, can be set up via the UI
+  and now supports Fitbit nutrition sensors. Thanks, [@allenporter]!
+- [@rappenze] added event entities support to the [Fibaro] integration. Cool!
+- The [HomeKit Bridge] now handles changes in capabilities of devices and the
+  removal/addition of devices automatically! Thanks, [@bdraco]!
+
+[@bdraco]: https://github.com/bdraco
+[HomeKit Bridge]: /integrations/homekit
+[@puddly]: https://github.com/puddly
+[ZHA]: /integrations/zha
+[Fibaro]: /integrations/fibaro
+[@rappenze]: https://github.com/rappenze
+[Fitbit]: /integrations/fitbit
+[@allenporter]: https://github.com/allenporter
+[@bramkragten]: https://github.com/bramkragten
+
+
+Candidates to process:
+
+- Implement Airzone Cloud Aidoo climate support ([@Noltari] - [#101011])
+- Add media player to System Bridge integration ([@timmo001] - [#97532])
+- Add Queue sensor to Radarr ([@tkdrob] - [#79723])
+- Add support for Minecraft Server Bedrock Edition ([@elmurato] - [#100925])
+- Add rising sensor to sun ([@sheldonip] - [#93276])
+- Add brake pads condition based service attributes for BMW ([@rikroe] - [#101847])
+- Promote Withings to Platinum quality ([@joostlek] - [#102069])
+- Add sensors for myStrom plugs ([@MadMonkey87] - [#97024])
+- Add switch platform to Comelit SmartHome ([@chemelli74] - [#102233])
+- Add better connection management for Idasen Desk ([@abmantis] - [#102135])
+- Add more diagnostic sensors to iRobot ([@Xitee1] - [#84995])
+- Add energy price number entities to Wallbox ([@hesselonline] - [#101840])
+- Add sensor platform to Comelit SmartHome ([@chemelli74] - [#102465])
+- Add serial_number to device registry entries ([@emontnemery] - [#102334])
+- Add activity sensors to Withings ([@joostlek] - [#102501])
+- Add Nephelometry sensor to waqi ([@joostlek] - [#102298])
+- Only add Withings sleep sensors when we have data ([@joostlek] - [#102578])
+- Support Lidl christmas light effects in deCONZ ([@Kane610] - [#102731])
+- Add cleaning binary sensor to Roborock ([@Lash-L] - [#102748])
+- Add Climate to switchbot cloud integration ([@SeraphicRav] - [#101660])
+
+## New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Google Tasks]**, added by [@allenporter]<br />
+  Access your Google Tasks to-do list from the new todo dashboard.
+- **[Improv BLE]**, added by [@emontnemery]<br />
+  Get your Improv Wi-Fi enabled devices onboarding onto your Wi-Fi network with ease.
+- **[Local to-do list]**, added by [@allenporter]<br />
+  Create and manage your own, Home Assistant, local todo list.
+- **[Tami4 Edge / Edge+]**, added by [@Guy293]<br />
+  Integrate your Tami water bar, boil water and get filter sensors.
+- **[To-do list]**, added by [@allenporter]<br />
+  New entity type that provides todo list capabilties for other integrations to use.
+
+[@allenporter]: https://github.com/allenporter
+[@emonemery]: https://github.com/emontnemery
+[@Guy293]: https://github.com/Guy293
+[Google Tasks]: /integrations/google_tasks
+[Improv BLE]: /integrations/improv_ble
+[Local to-do list]: /integrations/local_todo
+[Tami4 Edge / Edge+]: /integrations/tami4
+[To-do list]: /integrations/todo
+
+This release also has a new virtual integration. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. The following virtual integration has been added:
+
+- **[Cribl]**, provided by [Splunk]
+- **[Eastron]**, provided by [HomeWizard Energy]
+- **[Portland General Electric]** provided by [Opower]
+
+[Cribl]: /integrations/cribl
+[Eastron]: /integrations/eastron
+[HomeWizard Energy]: /integrations/homewizard
+[Opower]: /integrations/opower
+[Portland General Electric]: /integrations/portlandgeneral
+[Splunk]: /integrations/splunk
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[Fitbit]**, done by [@allenporter]
+- **[Random]**, done by [@joostlek]
+
+[@allenporter]: https://github.com/allenporter
+[@joostlek]: https://github.com/joostlek
+[Fitbit]: /integrations/fitbit
+[Random]: /integrations/random
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking changes
+
+{% details "Demo" %}
+
+In the unlikely event that you are using the demo integration, you will need to
+ensure that your YAML configuration for demo integration is only enabled via
+the integration domain key, and not via the entity platform configration. The
+latter has been removed.
+
+```yaml
+# Example configuration.yaml
+
+# This is correct
+demo:
+
+# This no longer works and should be removed
+light:
+  - platform: demo
+```
+
+([@gjohansson-ST] - [#100867]) ([documentation](/integrations/homekit))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#100867]: https://github.com/home-assistant/core/pull/100867
+
+{% enddetails %}
+
+{% details "OpenUV" %}
+
+The OpenUV "UV Level" sensor has updated its possible state values so that
+translations can occur. The new values are:
+
+- `extreme`
+- `high`
+- `low`
+- `moderate`
+- `very_high`
+
+If you previously used the state values of this sensor in your automations,
+you will need to update them to use the new values.
+
+([@bachya] - [#101978]) ([documentation](/integrations/openuv))
+
+[@bachya]: https://github.com/bachya
+[#101978]: https://github.com/home-assistant/core/pull/101978
+
+{% enddetails %}
+
+{% details "OpenWeatherMap" %}
+
+The OpenWeatherMap rain and snow sensors, now have a different unit of measurement (`mm/h` instead of `mm`) and a different device class (`precipitation_itensity` instead of `precipitation`).
+
+([@MatteoGheza] - [#101485]) ([documentation](/integrations/openweathermap))
+
+[@MatteoGheza]: https://github.com/MatteoGheza
+[#101485]: https://github.com/home-assistant/core/pull/101485
+
+{% enddetails %}
+
+{% details "Transmission" %}
+
+The option to set a custom polling interval has been removed. If you were using
+custom interval and really need it, you can use the `homeassistant.update_entity`
+in an automation to poll at your custom pace. See our documentation on
+[defining a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval)
+for more information.
+
+([@engrbm87] - [#98858]) ([documentation](/integrations/transmission))
+
+[@engrbm87]: https://github.com/engrbm87
+[#98858]: https://github.com/home-assistant/core/pull/98858
+
+{% enddetails %}
+
+{% details "WeatherFlow" %}
+
+The VOC device class has been removed from the air density sensor and
+its unit of measurement has been changed to to kg/m³.
+
+([@natekspencer] - [#101777]) ([documentation](/integrations/weatherflow))
+
+[@natekspencer]: https://github.com/natekspencer
+[#101777]: https://github.com/home-assistant/core/pull/101777
+
+{% enddetails %}
+
+{% details "Withings" %}
+
+The Withings sleep sensors will now show only the data of last night instead
+of an aggregation of the data since the day before noon.
+
+([@joostlek] - [#101993]) ([documentation](/integrations/withings))
+
+[@joostlek]: https://github.com/joostlek
+[#101993]: https://github.com/home-assistant/core/pull/101993
+
+{% enddetails %}
+
+{% details "World Air Quality Index (WAQI)" %}
+
+The state attributes of the WAQI air quality sensor have been moved to their own
+sensors. The previous state attributes are now deprecated and will be removed in
+2024.5.
+
+If you are using the state attributes of the WAQI air quality sensor, you will
+need to update your automations to use the new sensors.
+
+([@joostlek] - [#101217]) ([documentation](/integrations/waqi))
+
+[@joostlek]: https://github.com/joostlek
+[#101217]: https://github.com/home-assistant/core/pull/101217
+
+{% enddetails %}
+
+{% details "ZHA (King of Fans)" %}
+
+Improved support for King of Fans (Hampton Bay) breaks previous workarounds
+such as template fans ([example](https://community.home-assistant.io/t/king-of-fans-mr101z-missing-max-setting/267131/45))
+or automations/scripts that set fan speed percentage or preset.
+
+If you have an automation that sets speed it will now be at one speed higher.
+If you set speed at 100% before it would actually set the speed at 75% but now
+it will be 100%. If you have an automation that sets the preset to 'on' to get
+100% speed, now the request will fail and you will have to change the speed
+to 100% instead.
+
+([@tronikos] - [#101859]) ([documentation](/integrations/zha))
+
+[@tronikos]: https://github.com/tronikos
+[#101859]: https://github.com/home-assistant/core/pull/101859
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+Multiple WebSocket commands have been renamed based on [this change in Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/getting-started/migrating-to-v12?id=renamed-network-heal-to-rebuild-routes).
+
+With this release, you will need to update your zwave-js-server instance.
+You must use zwave-js-server `1.33.0` or greater (schema `32`).
+
+  - If you use the Z-Wave JS add-on, you need at least version `0.2.1`.
+  - If you use the Z-Wave JS UI add-on, you need at least version `2.2.3`.
+  - If you use the Z-Wave JS UI Docker container, you need at least version `9.2.3`.
+  - If you run your own Docker container or some other installation method,
+    you will need to update your zwave-js-server instance to at least `1.33.0`.
+
+([@raman325] - [#102790]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#102790]: https://github.com/home-assistant/core/pull/102790
+
+---
+
+Basic Command Class values were previously exposed as `number` entities and were disabled by default. They are now exposed as `light` entities and are enabled by default. If you have scripts or automations that use any of these `number` entities, they should be updated to use the new `light` entities instead. Any previously created `number` entities for this Command Class can safely be deleted once you have validated that your scripts and automations are up to date.
+
+([@raman325] - [#101438]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#101438]: https://github.com/home-assistant/core/pull/101438
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Removal of deprecated unit conversion utilities](https://developers.home-assistant.io/blog/2023/10/03/conversion-functions-cleanup/)
+
+[devblog]: https://developers.home-assistant.io/blog/i
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Eight Sleep** has been removed. The API has changed and is no longer
+  accessible, making the integration unusable.
+  ([@raman325] - [#102669])
+- **IMAP email content** has been removed. This functionality is now available
+  in the [IMAP] integration. Users have been assisted to migrate to the new
+  integration in the past months.
+  ([@jbouwh] - [#101233])
+- **Shiftr** has been removed. Shiftr.io closed their platform and is no longer
+  available.
+  ([@stefanroelofs] - [#102224])
+
+[@jbouwh]: https://github.com/jbouwh
+[@raman325]: https://github.com/raman325
+[@stefanroelofs]: https://github.com/stefanroelofs
+[#101233]: https://github.com/home-assistant/core/pull/101233
+[#102224]: https://github.com/home-assistant/core/pull/102224
+[#102669]: https://github.com/home-assistant/core/pull/102669
+[IMAP]: /integrations/imap
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2023.11](/changelogs/core-2023.11)

@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_domain: google
 ha_platforms:
   - calendar
+  - diagnostics
 ha_codeowners:
   - '@allenporter'
 ha_integration_type: integration

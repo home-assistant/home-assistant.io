@@ -14,6 +14,7 @@ ha_domain: mystrom
 ha_platforms:
   - binary_sensor
   - light
+  - sensor
   - switch
 ha_integration_type: integration
 ---

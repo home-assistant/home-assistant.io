@@ -1,5 +1,5 @@
 ---
-title: To-do List
+title: To-do
 description: Instructions on how to use To-do Lists within Home Assistant.
 ha_domain: todo
 ha_release: 2023.11
