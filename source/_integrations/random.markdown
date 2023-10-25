@@ -43,7 +43,7 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
-  default: Random Binary Sensor
+  default: Random binary sensor
 {% endconfiguration %}
 
 ## Sensor
@@ -63,7 +63,7 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
-  default: Random Sensor
+  default: Random sensor
 minimum:
   description: Lower limit for the values.
   required: false
