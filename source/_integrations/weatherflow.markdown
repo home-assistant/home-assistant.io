@@ -56,3 +56,7 @@ Additionally the following diagnostic sensors are available:
 - Battery voltage
 - Signal strength
 - Uptime
+
+## Networking notes
+
+This integration relies on the ability of Home Assistant to receive `UDP` traffic on port `50222`. You may run into trouble if you have a more complex network setup utilizing either VLANs or multiple subnets.

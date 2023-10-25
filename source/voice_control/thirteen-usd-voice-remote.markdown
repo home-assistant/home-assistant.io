@@ -9,12 +9,12 @@ your smart home. Issue commands and get responses!
 <lite-youtube videoid="ziebKt4XLZQ" videotitle="Wake word demo on $13 ATOM Echo in Home Assistant
 "></lite-youtube>
 
-## Required material
+## Prerequisites
 
-- Home Assistant 2023.10
+- Home Assistant 2023.10, installed with the Home Assistant Operating System
 - [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - The password to your 2.4&nbsp;GHz Wi-Fi network
-- Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS) 
+- Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS)
 - [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
 - USB-C cable to connect the ATOM Echo
 
@@ -22,12 +22,12 @@ your smart home. Issue commands and get responses!
 
 As a first step, you need to install the openWakeWord add-on. This must be installed before setting up the ATOM Echo.
 
-1. Go to {% my supervisor_addon addon="openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
+1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
 2. Start the add-on.
 3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-   - Under **Discovered**, you should now see the **openWakeWord** integration.
+   - Under **Discovered**, you should now see the **Wyoming** integration.
    - Select **Configure** and **Submit**.
-   - **Result**: You have successfully installed the openWakeWord add-on and integration.
+   - **Result**: You have successfully installed the openWakeWord add-on and Wyoming integration.
 
 ## Adding a wake word to your voice assistant
 
@@ -46,6 +46,20 @@ As a first step, you need to install the openWakeWord add-on. This must be insta
    - Once you have it all set up, you can [create your own wake words](/voice_control/create_wake_word/). 
 
 ## Installing the software onto the ATOM Echo
+
+If you have used the ATOM Echo on Home Assistant before and have it installed via ESPHome add-on, you first need to remove its configuration.
+
+### To delete the ATOM Echo configuration from ESPHome
+
+1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}, and select the ESPHome integration.
+   - Under **Devices**, next to the **M5Stack Atom Echo a61920** entry, select the three-dots menu.
+   - Select **Delete**.
+2. Make sure you have [access to the configuration files](/common-tasks/os/#configuring-access-to-files).
+   - If you have never done this before, [install the file editor add-on](/common-tasks/os/#installing-and-using-the-file-editor-add-on).
+3. Access the config files and open the **esphome** folder.
+4. If there is a configuration file for the ATOM Echo, delete it.
+
+### To install the software on your ATOM Echo
 
 Before you can use this device with Home Assistant, you need to install a bit of software on it.
 
@@ -71,21 +85,25 @@ Before you can use this device with Home Assistant, you need to install a bit of
        - When prompted, select your network from the list and enter the credentials to your 2.4&nbsp;GHz Wi-Fi network.
        - Select **Connect**.
        - The ATOM Echo now joined your network. Select **Add to Home Assistant**.
-4. This opens the **My** link to Home Assistant. 
+4. This opens the **My** link to Home Assistant.
    - If you have not used My Home Assistant before, you will need to configure it. If your Home Assistant URL is not accessible on `http://homeassistant.local:8123`, replace it with the URL to your Home Assistant instance.
    - Open the link.
    ![Open My link](/images/assist/esp32-atom-flash-06.png)
 5. Select **OK**. 
    
    ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
-6. To add the newly discovered device, select the ATOM Echo from the list.
-   - Add your ATOM Echo to a room and select **Finish**. 
-7. You should now see the **ESPHome** integration.
+6. If, at this stage, a dialog opens, prompting you to enter the connection settings of your ESPHome node, it means there is already a configuration set up for that ESPHome device.
+   - Close the dialog and perform the procedure on [deleting the ATOM Echo configuration from ESPHome](/voice_control/thirteen-usd-voice-remote/#to-delete-the-atom-echo-configuration-from-esphome).
+   - Restart Home Assistant.
+   - Then, under {% my integrations title="**Settings** > **Devices & Services**" %}, your ATOM Echo should be discovered.
+7. To add the newly discovered device, select the ATOM Echo from the list.
+   - Add your ATOM Echo to a room and select **Finish**.
+8. You should now see the **ESPHome** integration.
    ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
-8. Select the **ESPHome** integration. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
+9.  Select the **ESPHome** integration. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
    ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-new-03.png)
    - Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
-9. Congratulations! You can now voice control Home Assistant using a button with a built-in microphone. Now give some commands.
+10. Congratulations! You can now voice control Home Assistant using a button with a built-in microphone. Now give some commands.
 
 ## Controlling Home Assistant over the ATOM Echo
 
@@ -111,6 +129,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 2. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
    - Under **M5Stack ATOM Echo**, select **1 device**.
 3. Disable **Use wake word**.
+   
    ![Toggle to enable/disable wake word](/images/assist/wake_word_disable_on_atom_echo.png)
 4. To start using push-to-talk, press the flat button with rounded shape on your ATOM Echo.
    - The rectangular button on the side is the reset button. Do not press that one.

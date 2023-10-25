@@ -10,6 +10,10 @@ The speech-to-text option is [Whisper](https://github.com/openai/whisper). It's 
 
 For text-to-speech we have developed [Piper](https://github.com/rhasspy/piper). Piper is a fast, local neural text-to-speech system that sounds great and is optimized for the Raspberry Pi 4. It supports [many languages](https://rhasspy.github.io/piper-samples/). On a Raspberry Pi, using medium quality models, it can generate 1.6s of voice in a second.
 
+## Prerequisites
+
+- Home Assistant Operating System
+
 ## Installing a local Assist pipeline
 
 For the quickest way to get your local Assist pipeline started, follow these steps:
