@@ -31,14 +31,50 @@ To add `Flume` to your installation, go to **Settings** -> **Devices & Services*
 
 ## Notifications
 
-Flume notifications are available via binary sensors. To clear the notifications, you will need to use your Flume app or go to: [https://portal.flumewater.com/notifications](https://portal.flumewater.com/notifications) and clear the notification in question.
+Flume notifications are available via the service `flume.list_notifications`.
 
-The following notifications are supported:
+The following notifications are available via binary sensors:
 
 - Bridge disconnected
 - High flow
 - Leak detected
+- Low battery
 
+To clear the notifications, you will need to use your Flume app or go to: [https://portal.flumewater.com/notifications](https://portal.flumewater.com/notifications) and clear the notification in question.
+
+Example of an automation that sends a Home Assistant notification of the most recent usage alert:
+
+```yaml
+alias: "Notify: flume"
+trigger:
+  - platform: time_pattern
+    minutes: /5
+condition: []
+action:
+  - service: flume.list_notifications
+    data:
+      config_entry: <flume config entry>
+    response_variable: notifications
+  - if:
+      - condition: template
+        value_template: >-
+          {{ notifications.notifications | selectattr("type", "equalto", 1) |
+          sort(attribute="created_datetime", reverse=true) | length  > 0 }}
+    then:
+      - service: notify.all
+        data:
+          message: >-
+            {%- set usage_alert = notifications.notifications |
+            selectattr("type", "equalto", 1) |
+            sort(attribute="created_datetime", reverse=true) | first %}
+            {{ usage_alert.message }}
+          title: >-
+            {%- set usage_alert = notifications.notifications |
+            selectattr("type", "equalto", 1) |
+            sort(attribute="created_datetime", reverse=true) | first %}
+            {{ usage_alert.title }}
+mode: single
+```
 
 ## Configuration for Binary Sensor
 
