@@ -46,7 +46,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     6. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` in the **Fulfillment URL** textbox, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
     7. Select **Save**.
     8. Select the three little dots (more) icon in the upper right corner, select **Project settings**.
-    9. Make note of the **Project ID** that are listed on the **GENERAL** tab of the **Settings** page.
+    9. Make note of the **Project ID** that are listed on the **General** tab of the **Settings** page.
 2. **Account linking** is required for your app to interact with Home Assistant.
     1. Start by going back to the **Overview** tab.
     2. Select on **Setup account linking** under the **Quick Setup** section of the **Overview** page.
@@ -74,17 +74,16 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
         1. **Service account name**: Give your account a self-selected name.
         2. Select **Create and Continue**.
         3. Under **Select a role**, select **Service Accounts** > **Service Account Token Creator**.
-        4. Select **Continue**.
-        5. Select **Done**.
+        4. Select **Continue** and then **Done**.
     5. Under **Service Accounts**, there should now be an account called [name from 4.1]@[projectname].iam.gserviceaccount.com.
     6. Select the pencil button of that service account.
-    7. Go to **Keys** and **ADD KEY**.
+    7. Go to **Keys** and **Add key**.
     8. Create a private key, make sure it is in JSON format.
     9. This will start a download of a JSON file.
         1. Rename the file to `SERVICE_ACCOUNT.JSON`.
         2. Add this file to your config-folder. This will be the same folder as your `configuration.yaml`.
     10. Go back to [Google Cloud Platform](https://console.cloud.google.com/) and select **Close**.
-    11. Then select **SAVE**.
+    11. Then select **Save**.
     12. Go to the **Search products and resources** and search for **Homegraph API** and select it.
     13. Enable the HomeGraph API.
 
@@ -106,12 +105,12 @@ If you want to allow other household users to control the devices:
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Select **Test** on the top of the page, then select **Simulator** located to the page left, then click the three little dots (more) icon in the upper right corner of the console.
 3. Select **Manage user access**. This redirects you to the Google Cloud Platform IAM permissions page.
-4. Select **GRANT ACCESS** at the top of the page.
+4. Select **Grant access** at the top of the page.
     1. Enter the email address of the user you want to add.
     2. Select **Select a role** and choose **Project** > **Viewer**.
-    3. Select **SAVE**.
+    3. Select **Save**.
     4. Copy and share the Actions project link (`https://console.actions.google.com/project/YOUR_PROJECT_ID/simulator`) with the new user.
-5. Have the new user open the link with their own Google account, agree to the **Terms of Service** popup. Then select **Start Testing**, select **VERSION - Draft** in the dropdown, and select **Done**.
+5. Have the new user open the link with their own Google account, agree to the **Terms of Service** popup. Then select **Start Testing**, select **Version - Draft** in the dropdown, and select **Done**.
 6. Have the new user go to their **Google Assistant** app to add `[test] your app name` to their account.
 
 ### Enable device sync
@@ -121,13 +120,13 @@ If you want to support active reporting of state to Google's server (configurati
 1. Service Account
     1. In the Google Cloud Platform Console, go to the [Create Service account key](https://console.cloud.google.com/iam-admin/serviceaccounts/create) page.
     2. At the top left of the page next to "Google Cloud Platform" logo, select your project created in the Actions on Google console. Confirm this by reviewing the project ID and it ensure it matches.
-    3. From the Service account list, select **CREATE SERVICE ACCOUNT**.
+    3. From the Service account list, select **Create service account**.
     4. In the **Service account name** field, enter a name.
     5. In the **Service account ID** field, enter an ID.
-    6. From the **Role** list, select **Service Accounts** > **Service Account Token Creator**.
-    7. Select **CONTINUE** and then **DONE**. You are returned to the service account list, and your new account is shown.
+    6. Under **Select a role**, select **Service Accounts** > **Service Account Token Creator**.
+    7. Select **Continue** and then **Done**. You are returned to the service account list, and your new account is shown.
     8. Select the three dots menu under **Actions** next to your new account, and select **Manage keys**. You are taken to a **Keys** page.
-    9. Select **ADD KEY** then **Create new key**. Leave the **key type** as **JSON** and select **CREATE**. A JSON file that contains your key downloads to your computer.
+    9. Select **Add key** then **Create new key**. Leave the **key type** as **JSON** and select **Create**. A JSON file that contains your key downloads to your computer.
     10. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
     11. Select **Close**.
 2. HomeGraph API
