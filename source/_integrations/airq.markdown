@@ -21,7 +21,7 @@ This integration allows integrating the sensors, provided by your [air-Q](https:
 
 {% include integrations/config_flow.md %}
 
-During the configuration, the user is prompted for the IP address of the device or the first 5 characters of the serial number, as well as the device password.
+During the initial configuration, the user is prompted for the IP address of the device or the first 5 characters of the serial number, as well as the device password.
 
 For this integration to communicate with the device, both must be connected to the same Wi-Fi network.
 
@@ -86,3 +86,13 @@ PM1, PM25, and PM10 correspond to concentrations of particulates with diameter l
 Virus Index uses CO2 as a proxy for potential aerosol load and can be seen as an indicator of ventilation sufficiency (0 %: insufficient ventilation, 100 %: all fine).
 
 Virtual sensors "Relative Pressure" and "Virus Index" are introduced in firmware v1.80.0 but deactivated by default. You can activate them in the air-Q mobile application under "Advanced settings".
+
+## Additional configuration
+
+After the integration is initialised, the user can configure any of the following three parameter:
+
+- **Polling interval in seconds**. Default: 10 seconds. Can be specified as a number greater than 1. The frequency of data generation by the device itself varies depending on the number of sensors included in the device (the more sensors, the more time the air-Q requires to produce the next batch of readings), but typically remains above 1–2 seconds. Furthermore, frequent polling of the device can have a negative impact on the performance of the smartphone app.
+
+- **Show values averaged by the device**. Default: on. In its default configuration, air-Q averages the stream of sensor values, and the strength of this averaging can be configured on the device side (not exposed through the HA). However, this integration allows to switch between polling the averaged the raw data from the device. To poll noisy sensor readings from the device, switch this feature off
+
+- **Clip negative values**. Default: on. For baseline calibration purposes, certain sensor values may briefly become negative. The default behavior is to clip such values to 0.
