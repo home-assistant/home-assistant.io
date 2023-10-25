@@ -31,9 +31,7 @@ To add `Flume` to your installation, go to **Settings** -> **Devices & Services*
 
 ## Notifications
 
-Flume notifications are available via the service `flume.list_notifications`.
-
-The following notifications are available via binary sensors:
+Flume notifications are fetched every 5 minutes and are available via the service `flume.list_notifications`. Some notifications are available via the following binary sensors:
 
 - Bridge disconnected
 - High flow
@@ -53,7 +51,7 @@ condition: []
 action:
   - service: flume.list_notifications
     data:
-      config_entry: <flume config entry>
+      config_entry: 1234 # replace this with your config entry id
     response_variable: notifications
   - if:
       - condition: template
