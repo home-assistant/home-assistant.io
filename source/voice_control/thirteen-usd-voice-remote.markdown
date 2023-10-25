@@ -20,7 +20,7 @@ your smart home. Issue commands and get responses!
 
 ## Installing the openWakeWord add-on
 
-As a first step, you need to install the openWakeWord add on. This must be installed before setting up the ATOM Echo.
+As a first step, you need to install the openWakeWord add-on. This must be installed before setting up the ATOM Echo.
 
 1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
 2. Start the add-on.
@@ -64,14 +64,14 @@ If you have used the ATOM Echo on Home Assistant before and have it installed vi
 Before you can use this device with Home Assistant, you need to install a bit of software on it.
 
 1. Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.
-   - Select the **Connect** button below. If your browser does not support web serial, there is no button but a text.
+   - Select the **Connect** button below. If your browser does not support web serial, you will see a warning instead of a button.
 
       <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
    - **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/firmware/blob/main/voice-assistant/m5stack-atom-echo.yaml).
 
 2. Connect the ATOM Echo to your computer.
-   - In the popup window, view the available ports.
+   - In the pop-up window, view the available ports.
    - Plug the USB-C cable into the ATOM Echo and connect it to your computer.
    - In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
      - Depending on your computer, the entry might look different.
