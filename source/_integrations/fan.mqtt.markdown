@@ -25,8 +25,8 @@ To enable MQTT fans in your installation, add the following to your `configurati
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  fan:
-    - command_topic: "bedroom_fan/on/set"
+  - fan:
+      command_topic: "bedroom_fan/on/set"
 ```
 
 {% configuration %}
@@ -80,7 +80,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -147,7 +147,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the fan.
+  description: The name of the fan. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Fan
@@ -223,12 +223,12 @@ payload_oscillation_on:
   type: string
   default: oscillate_on
 payload_reset_percentage:
-  description: A special payload that resets the `percentage` state attribute to `None` when received at the `percentage_state_topic`.
+  description: A special payload that resets the `percentage` state attribute to `unknown` when received at the `percentage_state_topic`.
   required: false
   type: string
   default: 'None'
 payload_reset_preset_mode:
-  description: A special payload that resets the `preset_mode` state attribute to `None` when received at the `preset_mode_state_topic`.
+  description: A special payload that resets the `preset_mode` state attribute to `unknown` when received at the `preset_mode_state_topic`.
   required: false
   type: string
   default: 'None'
@@ -270,7 +270,7 @@ preset_modes:
   type: [list]
   default: []
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -321,8 +321,8 @@ There are 10 speeds within the speed range, so  `percentage_step` = 100 / 10 ste
 ```yaml
 # Example using percentage based speeds with preset modes configuration.yaml
 mqtt:
-  fan:
-    - name: "Bedroom Fan"
+  - fan:
+      name: "Bedroom Fan"
       state_topic: "bedroom_fan/on/state"
       command_topic: "bedroom_fan/on/set"
       direction_state_topic: "bedroom_fan/direction/state"
@@ -358,8 +358,8 @@ This example demonstrates how to use command templates with JSON output.
 ```yaml
 # Example configuration.yaml with command templates
 mqtt:
-  fan:
-    - name: "Bedroom Fan"
+  - fan:
+      name: "Bedroom Fan"
       command_topic: "bedroom_fan/on/set"
       command_template: "{ state: '{{ value }}'}"
       direction_command_template: "{{ iif(value == 'forward', 'fwd', 'rev') }}"
@@ -387,8 +387,8 @@ This example shows how to configure a fan that doesn't use `forward` and `backwa
 ```yaml
 # Example configuration.yaml with direction templates
 mqtt:
-  fan:
-    - name: "Bedroom Fan"
+  - fan:
+      name: "Bedroom Fan"
       direction_command_template: "{{ iif(value == 'forward', 'fwd', 'rev') }}"
       direction_value_template: "{{ iif(value == 'fwd', 'forward', 'reverse') }}"
 ```

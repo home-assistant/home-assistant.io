@@ -19,8 +19,8 @@ To enable MQTT Number in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  number:
-    - command_topic: my-device/threshold
+  - number:
+      command_topic: my-device/threshold
 ```
 
 {% configuration %}
@@ -66,7 +66,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -154,7 +154,7 @@ mode:
   type: string
   default: '"auto"'
 name:
-  description: The name of the Number.
+  description: The name of the Number. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
 object_id:
@@ -167,12 +167,12 @@ optimistic:
   type: boolean
   default: "`true` if no `state_topic` defined, else `false`."
 payload_reset:
-  description: A special payload that resets the state to `None` when received on the `state_topic`.
+  description: A special payload that resets the state to `unknown` when received on the `state_topic`.
   required: false
   type: string
   default: '"None"'
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0

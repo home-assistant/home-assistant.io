@@ -10,6 +10,10 @@ The speech-to-text option is [Whisper](https://github.com/openai/whisper). It's 
 
 For text-to-speech we have developed [Piper](https://github.com/rhasspy/piper). Piper is a fast, local neural text-to-speech system that sounds great and is optimized for the Raspberry Pi 4. It supports [many languages](https://rhasspy.github.io/piper-samples/). On a Raspberry Pi, using medium quality models, it can generate 1.6s of voice in a second.
 
+## Prerequisites
+
+- Home Assistant Operating System
+
 ## Installing a local Assist pipeline
 
 For the quickest way to get your local Assist pipeline started, follow these steps:
@@ -46,9 +50,10 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Under **Speech-to-text**, select **faster-whisper**.
    - Under **Text-to-speech**, select **piper**.
    - Depending on your language, you may be able to select different language variants.
+   - If you like, [set up a wake word](/voice_control/create_wake_word/).
 
-1. That's it. You ensured your voice commands can be processed locally on your device.
-1. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
+3. That's it. You ensured your voice commands can be processed locally on your device.
+4. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
    - Otherwise you won't be able to control them by voice.
 
 ## Fine-tuning Whisper and Piper for your setup
@@ -59,3 +64,10 @@ View some of the options in the video below. Explained by Mike Hansen, creator o
 <lite-youtube videoid="Tk-pnm7FY7c" videoStartAt="1589" videotitle="Configure your local Assist pipeline for your setup"></lite-youtube>
 
 The options are also documented in the add-on itself. Go to the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} or the {% my supervisor_addon addon="core_piper" title="**Piper**" %} add-on and open the **Documentation** page.
+
+## Related topics
+
+- [Create your own wake word](/voice_control/create_wake_word/)
+- [Expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices)
+- [Whisper for speech-to-text](https://github.com/openai/whisper)
+- [Piper for text-to-speech](https://github.com/rhasspy/piper)

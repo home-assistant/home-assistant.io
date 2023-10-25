@@ -57,6 +57,8 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Release 2023.7.1 - July 6](#release-202371---july-6)
+- [Release 2023.7.2 - July 13](#release-202372---july-13)
+- [Release 2023.7.3 - July 21](#release-202373---july-21)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
@@ -519,6 +521,246 @@ We welcome the following new integrations in this release:
 [yamaha_musiccast docs]: /integrations/yamaha_musiccast/
 [zha docs]: /integrations/zha/
 
+## Release 2023.7.2 - July 13
+
+- Fix ESPHome deep sleep devices staying unavailable after unexpected disconnect ([@bdraco] - [#96354]) ([esphome docs])
+- Bump pydaikin 2.10.5 ([@mover85] - [#95656]) ([daikin docs])
+- Bump pywemo from 0.9.1 to 1.1.0 ([@esev] - [#95951]) ([wemo docs])
+- Get MyStrom device state before checking support ([@joostlek] - [#96004]) ([mystrom docs])
+- Refactor async_get_hass to rely on threading.local instead of a ContextVar ([@jbouwh] - [#96005]) ([mqtt docs])
+- Use explicit device naming for Switchbot ([@joostlek] - [#96011]) ([switchbot docs])
+- Remove openhome from discovery component ([@bazwilliams] - [#96021]) ([discovery docs])
+- UPB explicit device name ([@joostlek] - [#96042]) ([upb docs])
+- Use default MyStrom devicetype if not present ([@joostlek] - [#96070]) ([mystrom docs])
+- Fix implicit use of device name in Slimproto ([@frenck] - [#96081]) ([slimproto docs])
+- Fix implicit device name for RainMachine `update` entity ([@bachya] - [#96094]) ([rainmachine docs])
+- Use explicit device name for Yalexs BLE ([@joostlek] - [#96105]) ([yalexs_ble docs])
+- Fix reference to translation reference in buienradar translations ([@jbouwh] - [#96119]) ([buienradar docs])
+- Bump goalzero to 0.2.2 ([@tkdrob] - [#96121]) ([goalzero docs])
+- Fix implicitly using device name in Yale Smart Living ([@gjohansson-ST] - [#96161]) ([yale_smart_alarm docs])
+- Bump bthome to 2.12.1 ([@Ernst79] - [#96166]) ([bthome docs])
+- Use explicit device name for Stookwijzer ([@joostlek] - [#96184]) ([stookwijzer docs])
+- Enable retries on rainbird devices by loading model and version ([@allenporter] - [#96190]) ([rainbird docs])
+- Fix race fetching ESPHome dashboard when there are no devices set up ([@bdraco] - [#96196]) ([esphome docs])
+- Bump Roborock to v0.30.0 ([@Lash-L] - [#96268]) ([roborock docs])
+- Use explicit device naming for Escea ([@joostlek] - [#96270]) ([escea docs])
+- Fix ZHA serialization issue with warning devices ([@puddly] - [#96275]) ([zha docs])
+- Bump reolink_aio to 0.7.3 ([@starkillerOG] - [#96284]) ([reolink docs])
+- Bump aiohomekit to 2.6.7 ([@bdraco] - [#96291]) ([homekit_controller docs])
+- Add has entity name to Blink ([@joostlek] - [#96322]) ([blink docs])
+- Fix extra verbiage in Ridwell rotating category sensor ([@bachya] - [#96345]) ([ridwell docs])
+- Update RestrictedPython to 6.1 ([@frenck] - [#96358]) ([python_script docs])
+- Add explicit device naming to Led BLE ([@joostlek] - [#96421]) ([led_ble docs])
+- Always add guest wifi qr code entity in AVM Fritz!Tools ([@mib1185] - [#96435]) ([fritz docs])
+- Fix mixed case service schema registration ([@bdraco] - [#96448])
+- Ensure ESPHome dashboard connection recovers if its down when core starts ([@bdraco] - [#96449]) ([esphome docs])
+
+[#95656]: https://github.com/home-assistant/core/pull/95656
+[#95908]: https://github.com/home-assistant/core/pull/95908
+[#95951]: https://github.com/home-assistant/core/pull/95951
+[#96004]: https://github.com/home-assistant/core/pull/96004
+[#96005]: https://github.com/home-assistant/core/pull/96005
+[#96006]: https://github.com/home-assistant/core/pull/96006
+[#96011]: https://github.com/home-assistant/core/pull/96011
+[#96021]: https://github.com/home-assistant/core/pull/96021
+[#96042]: https://github.com/home-assistant/core/pull/96042
+[#96070]: https://github.com/home-assistant/core/pull/96070
+[#96081]: https://github.com/home-assistant/core/pull/96081
+[#96094]: https://github.com/home-assistant/core/pull/96094
+[#96105]: https://github.com/home-assistant/core/pull/96105
+[#96119]: https://github.com/home-assistant/core/pull/96119
+[#96121]: https://github.com/home-assistant/core/pull/96121
+[#96161]: https://github.com/home-assistant/core/pull/96161
+[#96166]: https://github.com/home-assistant/core/pull/96166
+[#96184]: https://github.com/home-assistant/core/pull/96184
+[#96190]: https://github.com/home-assistant/core/pull/96190
+[#96196]: https://github.com/home-assistant/core/pull/96196
+[#96268]: https://github.com/home-assistant/core/pull/96268
+[#96270]: https://github.com/home-assistant/core/pull/96270
+[#96275]: https://github.com/home-assistant/core/pull/96275
+[#96284]: https://github.com/home-assistant/core/pull/96284
+[#96291]: https://github.com/home-assistant/core/pull/96291
+[#96322]: https://github.com/home-assistant/core/pull/96322
+[#96345]: https://github.com/home-assistant/core/pull/96345
+[#96354]: https://github.com/home-assistant/core/pull/96354
+[#96358]: https://github.com/home-assistant/core/pull/96358
+[#96421]: https://github.com/home-assistant/core/pull/96421
+[#96435]: https://github.com/home-assistant/core/pull/96435
+[#96448]: https://github.com/home-assistant/core/pull/96448
+[#96449]: https://github.com/home-assistant/core/pull/96449
+[@Ernst79]: https://github.com/Ernst79
+[@Lash-L]: https://github.com/Lash-L
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bazwilliams]: https://github.com/bazwilliams
+[@bdraco]: https://github.com/bdraco
+[@esev]: https://github.com/esev
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@mib1185]: https://github.com/mib1185
+[@mover85]: https://github.com/mover85
+[@puddly]: https://github.com/puddly
+[@starkillerOG]: https://github.com/starkillerOG
+[@tkdrob]: https://github.com/tkdrob
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[blink docs]: /integrations/blink/
+[bthome docs]: /integrations/bthome/
+[buienradar docs]: /integrations/buienradar/
+[daikin docs]: /integrations/daikin/
+[discovery docs]: /integrations/discovery/
+[escea docs]: /integrations/escea/
+[esphome docs]: /integrations/esphome/
+[fritz docs]: /integrations/fritz/
+[goalzero docs]: /integrations/goalzero/
+[homekit_controller docs]: /integrations/homekit_controller/
+[led_ble docs]: /integrations/led_ble/
+[mqtt docs]: /integrations/mqtt/
+[mystrom docs]: /integrations/mystrom/
+[python_script docs]: /integrations/python_script/
+[rainbird docs]: /integrations/rainbird/
+[rainmachine docs]: /integrations/rainmachine/
+[reolink docs]: /integrations/reolink/
+[ridwell docs]: /integrations/ridwell/
+[roborock docs]: /integrations/roborock/
+[slimproto docs]: /integrations/slimproto/
+[stookwijzer docs]: /integrations/stookwijzer/
+[switchbot docs]: /integrations/switchbot/
+[upb docs]: /integrations/upb/
+[wemo docs]: /integrations/wemo/
+[yale_smart_alarm docs]: /integrations/yale_smart_alarm/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+[zha docs]: /integrations/zha/
+
+## Release 2023.7.3 - July 21
+
+- Use device class naming for SimpliSafe ([@joostlek] - [#96093]) ([simplisafe docs])
+- Always try PullPoint with ONVIF ([@bdraco] - [#96377]) ([onvif docs])
+- Bump vallox-websocket-api to 3.3.0 ([@slovdahl] - [#96493]) ([vallox docs]) (dependency)
+- Fix Vallox fan entity naming ([@slovdahl] - [#96494]) ([vallox docs])
+- Bump devolo_plc_api to 1.3.2 ([@Shutgun] - [#96499]) ([devolo_home_network docs]) (dependency)
+- Support MyStrom switch 120 ([@joostlek] - [#96535]) ([mystrom docs])
+- Defer SSDP UPNP server start until the started event ([@bdraco] - [#96555]) ([ssdp docs])
+- Handle empty strings for ESPHome UOMs ([@bdraco] - [#96556]) ([esphome docs])
+- Bump onvif-zeep-async to 3.1.12 ([@bdraco] - [#96560]) ([onvif docs]) (dependency)
+- Fix daikin missing key after migration ([@mover85] - [#96575]) ([daikin docs])
+- Ensure androidtv_remote does not block startup of HA ([@quthla] - [#96582]) ([androidtv_remote docs])
+- Bump pyrainbird to 2.1.1 ([@allenporter] - [#96601]) ([rainbird docs]) (dependency)
+- Bump pyrainbird to 3.0.0 ([@allenporter] - [#96610]) ([rainbird docs]) (dependency)
+- Fix SmartThings Cover Set Position (for window shades) ([@andrewsayre] - [#96612]) ([smartthings docs]) (dependency)
+- Improve imap error handling for config entry ([@jbouwh] - [#96724]) ([imap docs])
+- Use explicit device name for Stookalert ([@joostlek] - [#96755]) ([stookalert docs])
+- Prevent otbr creating multiple config entries ([@emontnemery] - [#96783]) ([otbr docs])
+- Fix check for HA Yellow radio in otbr config flow ([@emontnemery] - [#96789]) ([otbr docs])
+- Update PyYAML to 6.0.1 ([@cdce8p] - [#96800]) (dependency)
+- Update pycocotools to 2.0.6 ([@cdce8p] - [#96831]) ([tensorflow docs]) (dependency)
+- Add username to Reauth flow in Honeywell ([@mkmer] - [#96850]) ([honeywell docs])
+- bump python-Roborock to 0.30.1 ([@Lash-L] - [#96877]) ([roborock docs]) (dependency)
+- Avoid infinite loop on corrupt stream recording ([@uvjustin] - [#96881]) ([stream docs])
+- Bump AIOSomecomfort to 0.0.15 in Honeywell ([@mkmer] - [#96904]) ([honeywell docs]) (dependency)
+- Fix timer switch in Sensibo ([@gjohansson-ST] - [#96911]) ([sensibo docs])
+- Disable wheels building for pycocotools ([@frenck] - [#96937])
+- Fix esphome entity ids in test ([@bdraco] - [#96965]) ([esphome docs])
+- Add custom bypass night arming to SIA alarm codes ([@etnoy] - [#95736]) ([sia docs])
+- Upgrade pymazda to 0.3.10 ([@bdr99] - [#96954]) ([mazda docs]) (dependency)
+- Fix OTBR tests on RC ([@frenck] - [#96966]) ([otbr docs])
+- Update aiohttp to 3.8.5 ([@frenck] - [#96945]) (dependency)
+- Remove stateclass from Systemmonitor process sensor ([@joostlek] - [#96973]) ([systemmonitor docs])
+- Fix task leak on config entry unload/retry ([@bdraco] - [#96981])
+- Bump env_canada to v0.5.36 ([@michaeldavie] - [#96987]) ([environment_canada docs])
+- Update pyfibaro dependency ([@rappenze] - [#97004]) ([fibaro docs]) (dependency)
+
+[#95736]: https://github.com/home-assistant/core/pull/95736
+[#95908]: https://github.com/home-assistant/core/pull/95908
+[#96006]: https://github.com/home-assistant/core/pull/96006
+[#96093]: https://github.com/home-assistant/core/pull/96093
+[#96377]: https://github.com/home-assistant/core/pull/96377
+[#96487]: https://github.com/home-assistant/core/pull/96487
+[#96493]: https://github.com/home-assistant/core/pull/96493
+[#96494]: https://github.com/home-assistant/core/pull/96494
+[#96499]: https://github.com/home-assistant/core/pull/96499
+[#96535]: https://github.com/home-assistant/core/pull/96535
+[#96555]: https://github.com/home-assistant/core/pull/96555
+[#96556]: https://github.com/home-assistant/core/pull/96556
+[#96560]: https://github.com/home-assistant/core/pull/96560
+[#96575]: https://github.com/home-assistant/core/pull/96575
+[#96582]: https://github.com/home-assistant/core/pull/96582
+[#96601]: https://github.com/home-assistant/core/pull/96601
+[#96610]: https://github.com/home-assistant/core/pull/96610
+[#96612]: https://github.com/home-assistant/core/pull/96612
+[#96724]: https://github.com/home-assistant/core/pull/96724
+[#96755]: https://github.com/home-assistant/core/pull/96755
+[#96783]: https://github.com/home-assistant/core/pull/96783
+[#96789]: https://github.com/home-assistant/core/pull/96789
+[#96800]: https://github.com/home-assistant/core/pull/96800
+[#96831]: https://github.com/home-assistant/core/pull/96831
+[#96850]: https://github.com/home-assistant/core/pull/96850
+[#96877]: https://github.com/home-assistant/core/pull/96877
+[#96881]: https://github.com/home-assistant/core/pull/96881
+[#96904]: https://github.com/home-assistant/core/pull/96904
+[#96911]: https://github.com/home-assistant/core/pull/96911
+[#96937]: https://github.com/home-assistant/core/pull/96937
+[#96945]: https://github.com/home-assistant/core/pull/96945
+[#96954]: https://github.com/home-assistant/core/pull/96954
+[#96965]: https://github.com/home-assistant/core/pull/96965
+[#96966]: https://github.com/home-assistant/core/pull/96966
+[#96973]: https://github.com/home-assistant/core/pull/96973
+[#96981]: https://github.com/home-assistant/core/pull/96981
+[#96987]: https://github.com/home-assistant/core/pull/96987
+[#97004]: https://github.com/home-assistant/core/pull/97004
+[@Lash-L]: https://github.com/Lash-L
+[@Shutgun]: https://github.com/Shutgun
+[@allenporter]: https://github.com/allenporter
+[@andrewsayre]: https://github.com/andrewsayre
+[@balloob]: https://github.com/balloob
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@emontnemery]: https://github.com/emontnemery
+[@etnoy]: https://github.com/etnoy
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@michaeldavie]: https://github.com/michaeldavie
+[@mkmer]: https://github.com/mkmer
+[@mover85]: https://github.com/mover85
+[@quthla]: https://github.com/quthla
+[@rappenze]: https://github.com/rappenze
+[@slovdahl]: https://github.com/slovdahl
+[@uvjustin]: https://github.com/uvjustin
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[androidtv_remote docs]: /integrations/androidtv_remote/
+[daikin docs]: /integrations/daikin/
+[devolo_home_network docs]: /integrations/devolo_home_network/
+[environment_canada docs]: /integrations/environment_canada/
+[esphome docs]: /integrations/esphome/
+[fibaro docs]: /integrations/fibaro/
+[honeywell docs]: /integrations/honeywell/
+[imap docs]: /integrations/imap/
+[mazda docs]: /integrations/mazda/
+[mystrom docs]: /integrations/mystrom/
+[onvif docs]: /integrations/onvif/
+[otbr docs]: /integrations/otbr/
+[rainbird docs]: /integrations/rainbird/
+[roborock docs]: /integrations/roborock/
+[sensibo docs]: /integrations/sensibo/
+[sia docs]: /integrations/sia/
+[simplisafe docs]: /integrations/simplisafe/
+[smartthings docs]: /integrations/smartthings/
+[ssdp docs]: /integrations/ssdp/
+[stookalert docs]: /integrations/stookalert/
+[stream docs]: /integrations/stream/
+[systemmonitor docs]: /integrations/systemmonitor/
+[tensorflow docs]: /integrations/tensorflow/
+[vallox docs]: /integrations/vallox/
+
 ## Integrations now available to set up from the UI
 
 The following integrations are now available via the Home Assistant UI:
@@ -648,7 +890,7 @@ the backup was initiated (`%Y-%m-%d %H:%M:%S`, for example,
 
 The behavior of Hyperion lights has changed:
 
-Turning off the light entity will only clear the priority you have configured during the integration setup. Other Home Assistant independent light sources in Hyperion might still be active and cause light to be emitted. If you want to turn the light off entirely, regardless of active light sources, you can enable the `switch.[instance]_led_device` entity that acts as a global switch. 
+Turning off the light entity will only clear the priority you have configured during the integration setup. Other Home Assistant independent light sources in Hyperion might still be active and cause light to be emitted. If you want to turn the light off entirely, regardless of active light sources, you can enable the `switch.[instance]_led_device` entity that acts as a global switch.
 
 External effects that are unrelated to the Hyperion light source (such as USB capture) have been removed from the light entity. To control them, enable the respective disabled-by-default switch entity.
 

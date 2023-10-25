@@ -17,8 +17,7 @@ a device or service but remains stateless from the Home Assistant perspective.
 It can be compared to a real live momentary switch, push-button, or some other
 form of a stateless switch.
 
-The button entities cannot be implemented manually, but can be provided by
-other integrations.
+{% include integrations/building_block_integration.md %}
 
 ## The state of a button
 

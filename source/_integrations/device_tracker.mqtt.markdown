@@ -20,11 +20,12 @@ To use this device tracker in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  device_tracker:
-  - name: "annetherese_n4"
-    state_topic: "location/annetherese"
-  - name: "paulus_oneplus"
-    state_topic: "location/paulus"
+  - device_tracker:
+      name: "annetherese_n4"
+      state_topic: "location/annetherese"
+  - device_tracker:
+      name: "paulus_oneplus"
+      state_topic: "location/paulus"
 ```
 
 {% configuration %}
@@ -70,7 +71,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -162,7 +163,7 @@ payload_reset:
   type: string
   default: "None"
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -253,8 +254,8 @@ The following example shows how to configure the same device tracker through con
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  device_tracker:
-    - name: "My Tracker"
+  - device_tracker:
+      name: "My Tracker"
       state_topic: "a4567d663eaf/state"
       payload_home: "home"
       payload_not_home: "not_home"

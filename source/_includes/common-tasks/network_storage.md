@@ -30,9 +30,9 @@ To list all your currently connected network storages, go to **{% my storage tit
 ### Add a new network storage
 
 1. Go to **{% my storage title="Settings > System > Storage" %}** in the UI.
-1. Select **Add network storage**.
-1. Fill out all the information for your network storage.
-1. Select **Connect**.
+2. Select **Add network storage**.
+3. Fill out all the information for your network storage.
+4. Select **Connect**.
 
 <p class='img'>
   <picture>
@@ -85,10 +85,10 @@ By default, the first network storage of type **Backup** that you add will be se
 If you want to change the default backup target, you can do the following:
 
 1. Go to **{% my backup title="Settings > System > Backups" %}** in the UI.
-1. Select the menu in the top right of the screen and select the **Change default backup location** option.
-1. In the dialog, there is a single option to set the default backup target.
-1. Choose the one you want from the list.
-1. Select **Save**.
+2. Select the menu in the top right of the screen and select the **Change default backup location** option.
+3. In the dialog, there is a single option to set the default backup target.
+4. Choose the one you want from the list.
+5. Select **Save**.
 
 This list will contain all the network storage targets you have added of usage type **Backup**. It also contains another option to set it back to use `/backup` again.
 

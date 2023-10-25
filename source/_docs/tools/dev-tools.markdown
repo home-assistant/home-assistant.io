@@ -3,19 +3,22 @@ title: "Developer Tools"
 description: "Description of the Developer Tools."
 ---
 
-The frontend contains a section called "Developer Tools".
+The frontend contains a section called **Developer Tools**.
 
 <p class='img'>
 <img src='/images/screenshots/developer-tools.png' />
 Screenshot of Home Assistant's Developer Tools.
 </p>
 
-| Section |Description |
-| ------- |----- |
-| States | Sets the representation of an entity |
-| Services | Calls services from integrations |
-| Events | Fires events |
-| Templates | Renders templates |
+| Section    |Description                                                          |
+| ---------- |---------------------------------------------------------------------|
+| YAML       | Lets you validate the configuration and trigger a reload or restart |
+| States     | Sets the representation of an entity                                |
+| Services   | Calls services from integrations                                    |
+| Template   | Renders templates                                                   |
+| Events     | Fires events                                                        |
+| Statistics | Shows a list of long-term statistic entities                        |
+| Assist     | Lets you see how Home Assistant Assist processes a sentence         |
 
 ## What can I do with Developer Tools?
 
@@ -126,3 +129,16 @@ Another use of the {% my developer_statistics title="statistics developer tool" 
 icon. Use date & time to search for the incorrect data point and adjust the value.
 
 ![Screenshot showing adjusting the long-term statistic history value](/images/blog/2022-04/adjust-statistics.png)
+
+## Assist
+
+The **Assist** tab lets you see how Home Assistant's Assist processes a sentence.
+
+If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*. 
+- Assist found a matching intent: *HassGetState*.
+- It found entities matching the domain: *lights*.
+- The lights have the state *on*.
+- The lights are in the area *office*. 
+- The targets are the narrowed-down entities in scope.
+
+![Example use of assist developer tools](/images/docs/developer-tools/Assist.png)

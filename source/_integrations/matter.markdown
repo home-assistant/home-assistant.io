@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - event
   - light
   - lock
   - sensor
@@ -52,7 +53,7 @@ Home Assistant, as a Matter controller, only supports **control** of Matter devi
 
 ## Thread
 
-Matter goes hand-in-hand with (but is not the same as) [Thread](<https://en.wikipedia.org/wiki/Thread_(network_protocol)>), which is a low power Radio mesh networking techology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport for Matter.
+Matter goes hand-in-hand with (but is not the same as) [Thread](<https://en.wikipedia.org/wiki/Thread_(network_protocol)>), which is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport for Matter.
 
 Thread devices become directly addressable by Matter controllers (such as Home Assistant) thanks to the use of so-called Thread Border Routers, which are in fact just devices that are both within your network and have a Thread chip builtin and thus act as a "router" between the Thread radio signal and your local network. These border routers (you will probably end up having multiple of them in your house) make sure that your Thread-based devices are reachable on your regular network and thus can be controlled with Matter. Examples of Thread Borders routers are the Apple TV 4K, HomePod (gen 2 or Mini), and the Google Nest Hub V2, so devices that you may already own. Besides that, all kind of other border routers are available, built-in to hardware appliances or software solutions based on OpenThread Border Router, such as the add-on we provide to use with the built-in Zigbee/Thread chip of the [Home Assistant Yellow](/yellow/) or the [Home Assistant SkyConnect](/skyconnect/) dongle.
 
@@ -79,7 +80,7 @@ For devices where Home Assistant provides a native integration (with local API),
 
 ![image](/images/integrations/matter/matter_thread_infographic.webp)
 
-Image taken from [this excellent article by The Verge](https://www.theverge.com/23165855/thread-smart-home-protocol-matter-apple-google-interview) about Matter that shows the landcape of Matter, Thread, Border routers and bridges in a nice visualized way.
+Image taken from [this excellent article by The Verge](https://www.theverge.com/23165855/thread-smart-home-protocol-matter-apple-google-interview) about Matter that shows the landscape of Matter, Thread, Border routers and bridges in a nice visualized way.
 
 {% include integrations/config_flow.md %}
 
@@ -87,7 +88,7 @@ For communicating with Matter devices, the Home Assistant integration runs its o
 
 ### Supported installation types
 
-It is recommended to run the Matter add-on on Home Assistant OS. This is currently the best-supported option. 
+It is recommended to run the Matter add-on on Home Assistant OS. This is currently the best-supported option.
 
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
 
@@ -153,17 +154,17 @@ This method will allow you to share a device that was added to Google Home to Ho
 
 ## Experiment with Matter using a ESP32 dev board
 
-You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lightning app.
+You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lighting app.
 
 NOTE for Android users: You need to follow the instructions at the bottom of the page to add the test device to the Google developer console, otherwise commissioning will fail. iOS users will not have this issue but they will get a prompt during commissioning asking if you trust the development device.
 
 1. Make sure you use Google Chrome or Microsoft Edge browser.
 2. Open https://nabucasa.github.io/matter-example-apps/
 3. Attach the ESP32 device using a USB cable.
-4. Select the radio button next to the example you like to set up, in case of an M5 Stamp, click **Lightning app for M5STAMP C3**.
+4. Select the radio button next to the example you like to set up, in case of an M5 Stamp, click **Lighting app for M5STAMP C3**.
 5. Select **Connect**.
 6. In the popup dialog that appears, choose the correct serial device. This will usually be something like "cu-usbserial" or alike.
-7. Click **Install Matter Lightning app example** and let it install the firmware on the device. This will take a few minutes.
+7. Click **Install Matter Lighting app example** and let it install the firmware on the device. This will take a few minutes.
 8. Once the device is flashed with the Matter firmware, connect to the device again but this time choose **Logs & console**.
 9. You are presented with a console interface where you see live logging of events. This is an interactive shell where you can type commands. For a list of all commands, type **matter help** and press enter.
 10. To add the device, we need the QR code. In the console, type in `matter onboardingcodes ble` and copy/paste the URL into your browser.
@@ -211,7 +212,7 @@ The Philips Hue V2 bridge supports Matter. You can enable Matter support in the 
 
 ### SwitchBot Hub 2
 
-SwitchBot has released a (beta) firmware update to enable Matter support on their Hub 2.  The SwitchBot Hub 2 is a Matter bridge device. It is bridging some of the devices, such as curtain motors, into Matter.
+SwitchBot has released a (beta) firmware update to enable Matter support on their Hub 2. The SwitchBot Hub 2 is a Matter bridge device. It is bridging some of the devices, such as curtain motors, into Matter.
 
 - To use Matter, in the SwitchBot app, enable Matter bridge support. Then, copy the code and use that to commission the Hub to Home Assistant. Another option is to use a second device to scan the QR code.
 - Device support is limited. You bridge specific devices to Matter by adding them as **Secondary device** in the app. Note that not all SwitchBot devices can be bridged.
@@ -234,7 +235,7 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 
 ### General recommendations
 
-- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Not using Home Assistant OS is at your own risk. We do provide some [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) on how to run the Matter Server as a Docker container. The documentation includes a description of the host and networking requirements. 
+- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Not using Home Assistant OS is at your own risk. We do provide some [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) on how to run the Matter Server as a Docker container. The documentation includes a description of the host and networking requirements.
 
 - To use Thread devices you will need a Thread Network with at least one Thread Border Router in your network nearby the Thread device(s). Apple users need for example the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub V2. Use the Thread integration in Home Assistant to diagnose your Thread network(s).
 

@@ -22,8 +22,8 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - "@AngellusMortis"
-  - "@bdraco"
+  - '@AngellusMortis'
+  - '@bdraco'
 ha_domain: unifiprotect
 ha_platforms:
   - binary_sensor
@@ -119,10 +119,10 @@ you can stream your camera in Home Assistant. This may already be enabled by def
 check that this is done. To check and enable the feature:
 
 1. Open UniFi Protect and click on _Devices_.
-1. Select the camera you want to ensure can stream in UniFi Protect.
-1. Click the _Settings_ tab in the top right.
-1. Expand the _Advanced_ section at the bottom.
-1. Enable a minimum 1 stream out of the 3 available. The Stream with the Highest resolution is the default enabled one.
+2. Select the camera you want to ensure can stream in UniFi Protect.
+3. Click the _Settings_ tab in the top right.
+4. Expand the _Advanced_ section at the bottom.
+5. Enable a minimum 1 stream out of the 3 available. The Stream with the Highest resolution is the default enabled one.
 
 {% include integrations/config_flow.md %}
 
@@ -302,6 +302,8 @@ These URLs work great when trying to send notifications. Home Assistant will aut
 | `/api/unifiprotect/video/{nvr_id}/{camera_id}/{start}/{end}` | Proxies a MP4 video clip from UniFi Protect for a specific camera. Start and end must be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html). |
 
 `nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect integration. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any entity provided by the UniFi Protect integration that can be reversed to a UniFi Protect camera (i.e., an entity ID of a detected object sensor).
+
+The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Developer Tools** > **States**" %} and find the event when the sensor started detecting motion.
 
 ## Troubleshooting
 

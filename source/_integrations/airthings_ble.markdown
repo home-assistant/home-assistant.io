@@ -8,6 +8,7 @@ ha_release: '2022.11'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@vincegio'
+  - '@LaStrada'
 ha_domain: airthings_ble
 ha_bluetooth: true
 ha_platforms:
@@ -34,9 +35,10 @@ This integration uses the last 6 digits of the serial number.
 
 ## Supported Devices
 
-- Wave
-- Wave+
-- Wave mini
+- Wave gen. 1
+- Wave Radon
+- Wave Mini
+- Wave Plus
 
 ## Sensors
 
