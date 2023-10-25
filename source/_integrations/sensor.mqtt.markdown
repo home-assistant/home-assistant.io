@@ -211,7 +211,20 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### JSON attributes topic configuration
 
-The example sensor below shows a configuration example which uses a JSON dict: `{"ClientName": <string>, "IP": <string>, "MAC": <string>, "RSSI": <string>, "HostName": <string>, "ConnectedSSID": <string>}` in a separate topic `home/sensor1/attributes` to add extra attributes. It also makes use of the `availability` topic.
+The example sensor below shows a configuration example which uses the following separate topic and JSON structure to add extra attributes.
+
+Topic: `home/sensor1/attributes`
+ ```json
+ {
+    "ClientName": <string>,
+    "IP": <string>,
+    "MAC": <string>,
+    "RSSI": <string>,
+    "HostName": <string>,
+    "ConnectedSSID": <string>
+}
+ ```
+ It also makes use of the `availability` topic.
 
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
 
@@ -236,7 +249,22 @@ mqtt:
 
 ### JSON attributes template configuration
 
-The example sensor below shows a configuration example which uses a JSON dict: `{"Timer1":{"Arm": <status>, "Time": <time>}, "Timer2":{"Arm": <status>, "Time": <time>}}` on topic `tele/sonoff/sensor` with a template to add `Timer1.Arm` and `Timer1.Time` as extra attributes. To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_template` to: {% raw %}`"{{ {'Arm': value_json.Timer1} | tojson }}"`{% endraw %}.
+The example sensor below shows a configuration example which uses the following topic and JSON structure with a template to add `Timer1.Arm` and `Timer1.Time` as extra attributes.
+
+Topic: `tele/sonoff/sensor`
+```json
+{
+    "Timer1": {
+        "Arm": <status>,
+        "Time": <time>
+    },
+    "Timer2": {
+        "Arm": <status>,
+        "Time": <time>
+    }
+}
+``` 
+To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_template` to: {% raw %}`"{{ {'Arm': value_json.Timer1} | tojson }}"`{% endraw %}.
 
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.
 
@@ -289,8 +317,18 @@ mqtt:
 
 If you are using the [OwnTracks](/integrations/owntracks) and enable the reporting of the battery level then you can use an MQTT sensor to keep track of your battery. A regular MQTT message from OwnTracks looks like this:
 
-```bash
-owntracks/tablet/tablet {"_type":"location","lon":7.21,"t":"u","batt":92,"tst":144995643,"tid":"ta","acc":27,"lat":46.12}
+Topic: `owntracks/tablet/tablet`
+```json
+{
+    "_type": "location",
+    "lon": 7.21,
+    "t": "u",
+    "batt": 92,
+    "tst": 144995643,
+    "tid": "ta",
+    "acc": 27,
+    "lat": 46.12
+} 
 ```
 
 Thus the trick is extracting the battery level from the payload.
@@ -313,8 +351,8 @@ mqtt:
 
 If you are using a DHT sensor and a NodeMCU board (esp8266), you can retrieve temperature and humidity with a MQTT sensor. A code example can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_sensor_dht22). A regular MQTT message from this example looks like this:
 
+Topic: `office/sensor1`
 ```json
-office/sensor1
   {
     "temperature": 23.20,
     "humidity": 43.70
