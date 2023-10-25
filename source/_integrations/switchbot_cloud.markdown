@@ -35,7 +35,6 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - IR appliances exposed through the different hubs:
   - ON/OFF for all appliance types excepted "Others"
   - Air Conditioner
-  - Fan
 
 
 <div class='note warning'>
