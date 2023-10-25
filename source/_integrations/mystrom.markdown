@@ -29,12 +29,18 @@ There is currently support for the following device types within Home Assistant:
 The myStrom integration allows you to control your [myStrom](https://mystrom.ch/) Wi-Fi Bulbs and Wi-Fi Switches. Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
 
 Supported devices are:
- - Switch CH v1 (101)
- - Bulb (102)
- - LED strip (105)
- - Switch CH v2 (106)
- - Switch EU (107)
- - Switch Zero (120)
+
+- Switch CH v1 (101)
+- Bulb (102)
+- LED strip (105)
+- Switch CH v2 (106)
+- Switch EU (107)
+- Switch Zero (120)
+
+Two sensors are available for switches:
+
+- Temperature
+- Energy consumption
 
 {%include integrations/config_flow.md %}
 
