@@ -7,6 +7,7 @@ ha_category:
   - Camera
   - Hub
   - Sensor
+  - Switch
 ha_release: '0.40'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -18,6 +19,7 @@ ha_platforms:
   - binary_sensor
   - camera
   - sensor
+  - switch
 ha_dhcp: true
 ha_integration_type: integration
 ---
