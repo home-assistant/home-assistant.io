@@ -32,9 +32,9 @@ You can also click the following button to be redirected to the Helpers page of 
 
 To be able to add Helpers via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `timer:` to your `configuration.yaml` first, then you can use the UI.
 
-# YAML configuration
+## YAML configuration
 
-## Binary Sensor
+### Binary Sensor
 
 To create the random binary sensor, add the following lines to your `configuration.yaml` file:
 
@@ -52,7 +52,7 @@ name:
   default: Random Binary Sensor
 {% endconfiguration %}
 
-## Sensor
+### Sensor
 
 To create the random sensor, add the following lines to your `configuration.yaml` file:
 
