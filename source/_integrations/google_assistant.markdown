@@ -114,7 +114,7 @@ If you want to allow other household users to control the devices:
 5. Have the new user open the link with their own Google account, agree to the **Terms of Service** popup. Then select **Start Testing**, select **VERSION - Draft** in the dropdown, and select **Done**.
 6. Have the new user go to their **Google Assistant** app to add `[test] your app name` to their account.
 
-### Enable Device Sync
+### Enable device sync
 
 If you want to support active reporting of state to Google's server (configuration option `report_state`) and synchronize Home Assistant devices with the Google Home app (`google_assistant.request_sync` service), you will need to create a service account. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration. This allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting)).
 
@@ -136,7 +136,7 @@ If you want to support active reporting of state to Google's server (configurati
     3. Select **Enable HomeGraph API**.
 3. Try "OK Google, sync my devices" - the Google Home app should import your exposed Home Assistant devices and prompt you to assign them to rooms.
 
-### Enable Local Fulfillment
+### Enable local fulfillment
 
 Google Assistant devices can send their commands locally to Home Assistant allowing them to respond faster.
 
@@ -175,7 +175,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 
 You can debug the setup by following [these instructions](https://developers.home.google.com/local-home/test#debugging_from_chrome).
 
-### YAML Configuration
+### YAML configuration
 
 Now add your setup to your `configuration.yaml` file, such as:
 
@@ -317,7 +317,7 @@ The automatic room assignment will not work when multiple homes are set up in yo
 
 </div>
 
-### Climate Operation Modes
+### Climate operation modes
 
 There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.
 Here are the modes that are currently available:
