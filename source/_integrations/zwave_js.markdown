@@ -380,6 +380,18 @@ Call this service to use the Command Class API directly. In most cases, the `zwa
 | `method_name`          | yes      | The name of the method that is being called from the CC API.                                                                                                                                                                                                                                                           |
 | `parameters`           | yes      | A list of parameters to pass to the CC API method.                                                                                                                                                                                                                                                                     |
 
+### Service `zwave_js.refresh_notifications_by_type`
+
+This service will refresh the notifications of a given type on a device that
+supports the Notification Command Class.
+
+| Service Data Attribute | Required | Description                                            |
+| ---------------------- | -------- | ------------------------------------------------------ |
+| `entity_id`            | no       | Entity (or list of entities) to refresh notifications for. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                         |
+| `device_id`            | no       | Device ID (or list of device IDs) to refresh notifications for. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                         |
+| `area_id`              | no       | Area ID (or list of area IDs) for devices/entities to refresh notifications for. At least one `entity_id`, `device_id`, or `area_id` must be provided. |
+| `notification_type`            | yes      | The type of notification to refresh.              |
+
 ### Service `zwave_js.reset_meter`
 
 This service will reset the meters on a device that supports the Meter Command Class.
