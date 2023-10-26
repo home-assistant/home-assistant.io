@@ -528,10 +528,8 @@ to 100% instead.
 
 {% details "Z-Wave" %}
 
-Multiple WebSocket commands have been renamed based on [this change in Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/getting-started/migrating-to-v12?id=renamed-network-heal-to-rebuild-routes).
-
 With this release, you will need to update your zwave-js-server instance.
-You must use zwave-js-server `1.33.0` or greater (schema `32`).
+You must use zwave-js-server `1.33.0` or greater (schema `33`).
 
   - If you use the Z-Wave JS add-on, you need at least version `0.2.1`.
   - If you use the Z-Wave JS UI add-on, you need at least version `2.2.3`.
