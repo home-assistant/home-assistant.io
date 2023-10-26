@@ -4,7 +4,7 @@ title: "Installing a local Assist pipeline"
 
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant.
 
-For each component you can choose from different options. We have prepared a speech-to-text and text-to-speech option that runs fully local.
+For each component you can choose from different options. There is a speech-to-text and text-to-speech option that runs entirely local.
 
 The speech-to-text option is [Whisper](https://github.com/openai/whisper). It's an open source AI model that supports [various languages](https://github.com/openai/whisper#available-models-and-languages). We use a forked version called [faster-whisper](https://github.com/guillaumekln/faster-whisper). On a Raspberry Pi 4, it takes around 8 seconds to process incoming voice commands. On an Intel NUC it is done in under a second.
 
@@ -50,7 +50,9 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Under **Speech-to-text**, select **faster-whisper**.
    - Under **Text-to-speech**, select **piper**.
    - Depending on your language, you may be able to select different language variants.
-   - If you like, [set up a wake word](/voice_control/create_wake_word/).
+   - If you like, pick one of the predefined wake words.
+     - You can even [define your own a wake word](/voice_control/create_wake_word/). This is not difficult to do, but you will need to set aside a bit of time for this. It is not a 2-click operation.
+     ![Select wake word](/images/assist/assist_predefined_wakeword.png)
 
 3. That's it. You ensured your voice commands can be processed locally on your device.
 4. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
