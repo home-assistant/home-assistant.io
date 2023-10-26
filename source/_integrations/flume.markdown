@@ -64,7 +64,7 @@ action:
           message: >-
             "{%- set usage_alert == notifications.notifications |
             selectattr('type', 'equalto', 1) |
-            sort(attribute='created_datetime', reverse=true) | first %}
+            sort(attribute == 'created_datetime', reverse == true) | first %}
             {{ usage_alert.message }}"
           title: >-
             "{%- set usage_alert == notifications.notifications |
