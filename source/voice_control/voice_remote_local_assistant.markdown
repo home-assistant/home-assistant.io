@@ -51,8 +51,9 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Under **Text-to-speech**, select **piper**.
    - Depending on your language, you may be able to select different language variants.
    - If you like, pick one of the predefined wake words.
-     - You can even [define your own a wake word](/voice_control/create_wake_word/). This is not difficult to do, but you will need to set aside a bit of time for this. It is not a 2-click operation.
      ![Select wake word](/images/assist/assist_predefined_wakeword.png)
+     - You can even [define your own a wake word](/voice_control/create_wake_word/). This is not difficult to do, but you will need to set aside a bit of time for this. It is not a 2-click operation.
+     - Once you defined your own wake word, it will show then in this picklist.
 
 3. That's it. You ensured your voice commands can be processed locally on your device.
 4. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
