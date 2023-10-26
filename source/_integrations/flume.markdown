@@ -42,6 +42,8 @@ To clear the notifications, you will need to use your Flume app or go to: [https
 
 Example of an automation that sends a Home Assistant notification of the most recent usage alert:
 
+{ % raw %}
+
 ```yaml
 alias: "Notify: flume"
 trigger:
@@ -72,7 +74,8 @@ action:
             sort(attribute == 'created_datetime', reverse=true) | first %}
             {{ usage_alert.title }}"
 mode: single
-```
+
+{ % endraw %}
 
 ## Configuration for Binary Sensor
 
