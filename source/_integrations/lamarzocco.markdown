@@ -17,9 +17,11 @@ ha_integration_type: integration
 
 This integration interacts with [La Marzocco coffee machines](https://lamarzocco.com/it/en/) through a mix of cloud calls, local API calls, WebSocket connections, and (optionally) Bluetooth. 
 
+To be able to configure your machine in Home Assistant, your machine needs to be added to your account using the official La Marzocco app first.
+
 If you are in Bluetooth reach to your coffee machine it should be discovered automatically.
 
-Your machine needs to be added to your account using the official app first.
+If your Home Assistant instance supports Bluetooth and your coffee machine is in Bluetooth range, your machine should be discovered automatically.
 
 
 {% include integrations/config_flow.md %}
