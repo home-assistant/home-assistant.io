@@ -15,7 +15,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-This integration interacts with [La Marzocco coffee machines]() through a mix of cloud calls, local API calls, WebSocket connections and (optionally) Bluetooth. 
+This integration interacts with [La Marzocco coffee machines](https://lamarzocco.com/it/en/) through a mix of cloud calls, local API calls, WebSocket connections and (optionally) Bluetooth. 
 
 If you are in Bluetooth reach to your coffee machine it should be discovered automatically.
 
