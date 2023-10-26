@@ -233,6 +233,7 @@ layout: null
 /integrations/pollen /integrations/iqvia
 /integrations/polling /integrations/telegram_polling
 /integrations/ritassist /integrations/fleetgo
+/integrations/senseme /integrations/baf
 /integrations/synologydsm /integrations/synology_dsm
 /integrations/telegram_chatbot /integrations/telegram_bot
 /integrations/vlc-telnet /integrations/vlc_telnet
