@@ -50,7 +50,7 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Under **Speech-to-text**, select **faster-whisper**.
    - Under **Text-to-speech**, select **piper**.
    - Depending on your language, you may be able to select different language variants.
-   - If you like, pick one of the predefined wake words. You can then start
+   - If you like, pick one of the predefined wake words.
      ![Select wake word](/images/assist/assist_predefined_wakeword.png)
      - You can even [define your own a wake word](/voice_control/create_wake_word/). This is not difficult to do, but you will need to set aside a bit of time for this.
      - Once you defined your own wake word, it will show in this pick list.
