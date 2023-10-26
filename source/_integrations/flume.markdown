@@ -58,8 +58,8 @@ action:
   - if:
       - condition: template
         value_template: >-
-          "{{ (notifications.notifications | selectattr('type', 'equalto', 1)  | 
-          sort(attribute == 'created_datetime', reverse == true) | length  > 0) }}"
+          "{{ notifications.notifications | selectattr('type', 'equalto', 1) | 
+          sort(attribute == 'created_datetime', reverse == true) | length  > 0 }}"
     then:
       - service: notify.all
         data:
@@ -74,6 +74,7 @@ action:
             sort(attribute == 'created_datetime', reverse=true) | first %}
             {{ usage_alert.title }}"
 mode: single
+```
 
 { % endraw %}
 
