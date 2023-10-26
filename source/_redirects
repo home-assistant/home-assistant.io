@@ -225,6 +225,7 @@ layout: null
 /integrations/calendar.google /integrations/google
 /integrations/climacell /integrations/tomorrowio
 /integrations/generic_ip_camera /integrations/generic
+/integrations/homewizard_energy /integrations/homewizard
 /integrations/input_slider /integrations/input_number
 /integrations/leviton /integrations/leviton_z_wave
 /integrations/light.switch /integrations/switch_as_x
