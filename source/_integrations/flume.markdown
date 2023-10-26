@@ -62,15 +62,15 @@ action:
       - service: notify.all
         data:
           message: >-
-            {%- set usage_alert = notifications.notifications |
+            "{%- set usage_alert = notifications.notifications |
             selectattr("type", "equalto", 1) |
             sort(attribute="created_datetime", reverse=true) | first %}
-            {{ usage_alert.message }}
+            {{ usage_alert.message }}"
           title: >-
-            {%- set usage_alert = notifications.notifications |
+            "{%- set usage_alert = notifications.notifications |
             selectattr("type", "equalto", 1) |
             sort(attribute="created_datetime", reverse=true) | first %}
-            {{ usage_alert.title }}
+            {{ usage_alert.title }}"
 mode: single
 ```
 
