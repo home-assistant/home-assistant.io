@@ -32,6 +32,10 @@ Local Access Token:
   description: "The local access token for your bridge. You can find it in the tedee app under \"Bridge Settings\" -> \"Local API\"."
   required: false
   type: string
+Home Assistant Token:
+  description: "Long lived access token for Home Assistant. This is to allow the bridge to push status updates to Home Assistant. Can be created at the bottom of your Home Assistant user profile."
+  required: false
+  type: string
 Use Cloud:
   description: "Use cloud connections to communicate with your bridge?"
   required: false
