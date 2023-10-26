@@ -49,7 +49,6 @@ alias: "Notify: flume"
 trigger:
   - platform: time_pattern
     minutes: /5
-condition: []
 action:
   - service: flume.list_notifications
     data:
@@ -73,7 +72,6 @@ action:
             selectattr('type', 'equalto', 1) |
             sort(attribute == 'created_datetime', reverse=true) | first %}
             {{ usage_alert.title }}
-mode: single
 ```
 
 {% endraw %}
