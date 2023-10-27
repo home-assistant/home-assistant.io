@@ -33,11 +33,7 @@ These credentials are the same as the ones for [Nest](/integrations/nest), [Goog
 These are not the same as the one for [Google Calendar](/integrations/google).
 If you have already set up the correct credentials, you can do step 1 and then skip to step 13 on the below instructions.
 
-{% details "Generate client ID and client secret" %}
-
 {% include integrations/google_client_secret.md %}
-
-{% enddetails %}
 
 {% include integrations/config_flow.md %}
 

@@ -4,6 +4,8 @@
 {% capture api %}{{ include.api | default: page.api }}{% endcapture %}
 {% capture api_link %}{{ include.api_link | default: page.api_link }}{% endcapture %}
 
+{% details "Generate Client ID and Client Secret" %}
+
 This section explains how to generate a client ID and client secret on
 [Google Developers Console]({{ google_dev_console_link }}).
 
@@ -36,3 +38,5 @@ This section explains how to generate a client ID and client secret on
     - If you need to find these credentials again at any point, then navigate to **APIs & Services** > **Credentials**, and you will see **Home Assistant Credentials** (or whatever you named them in the previous step) under **OAuth 2.0 Client IDs**.
     - To view both the **Client ID** and **Client secret**, select the pencil icon. This will take you to the settings page for these credentials, and the information will be on the right-hand side of the page.
 16. Congratulations! You are now the keeper of a client secret. Guard it in your treasure box.
+
+{% enddetails %}
