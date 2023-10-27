@@ -4,7 +4,7 @@ title: "Creating a cloud Assist pipeline"
 
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant.
 
-You can use Assist out of the box by typing into it's text field. But the main goal is to use a voice command. A speech-to-text pipeline is used so that you can speak to the assistant. For Assist to be able to talk to you, you need to set up a text-to-speech engine. You can use these engines fully locally on your own hardware. To learn how, [follow this procedure](/voice_control/create_wake_word/).
+You can use Assist out of the box by typing into its text field. But the main goal is to use a voice command. A speech-to-text engine is used so that you can speak to the assistant. For Assist to be able to talk to you, you need to set up a text-to-speech engine. You can use these engines fully locally on your own hardware. To learn how, [follow this procedure](/voice_control/create_wake_word/).
 
 If you have Home Assistant Cloud, there is a default assistant set up automatically. The advantage of using Home Assistant Cloud is that there is more powerful hardware at play. This makes for faster processing and an overall more smooth experience. This procedure shows how to tweak the settings of the assistant that is set up with Home Assistant Cloud.
 
@@ -19,7 +19,7 @@ To have the fastest processing voice assistant experience, follow these steps:
 
 1. If you haven't done this already, [enable Home Assistant Cloud](https://www.nabucasa.com/config/).
 2. As soon as you're connected to Home Assistant Cloud, a voice assistant has been created for you.
-   - This voice assistant is using text-to-speech and a speech-to-text engine based on the region settings of your Home Assistant user.
+   - This voice assistant is using text-to-speech and speech-to-text engines based on the region settings of your Home Assistant user.
 3. To view the settings, go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and under **Assist**, select **Home Assistant Cloud**.
      ![Select the Home Assistant Cloud voice assistant](/images/assist/assistants_ha_cloud.png)
 

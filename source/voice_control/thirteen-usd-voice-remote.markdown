@@ -28,7 +28,7 @@ your smart home. Issue commands and get responses!
    - If the **Text-to-speech** and **Speech-to-text** sections do not provide language selectors, this means you do not have an Assist pipeline set up.
    - Set up [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
 5. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
-6. To define the wake word engine, under **Wake word**, select **openwakeword**.
+6. To define the wake word engine, under **Wake word**, select **openWakeWord**.
    - Then, select **ok nabu**.
    - If you created a new assistant, select **Create**.
    - If you edited an existing assistant, select **Update**.
