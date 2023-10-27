@@ -17,16 +17,15 @@ To get started, we suggest the ODROID N2+, the board that powers our [Home Assis
 If unavailable, we also recommend the [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e).
 
 
-Home Assistant bundles (US market): 
+Home Assistant bundles (US market):
 
-The bundles come with Home Assistant pre-installed. 
+The bundles come with Home Assistant pre-installed.
 
 - [ODROID N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935?ref=eeb6nfw07e)
 - [ODROID N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399?ref=eeb6nfw07e)
 - ODROID M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831?ref=eeb6nfw07e)
 - ODROID M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367?ref=eeb6nfw07e)
 - [ODROID M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC ](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
-- ODROID XU4: 2 GB RAM / [32 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729352471?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748782305559?ref=eeb6nfw07e)
 
 Variants without pre-installed Home Assistant:
 
@@ -40,16 +39,6 @@ Variants without pre-installed Home Assistant:
 - [Case](https://ameridroid.com/products/odroid-n2-case?ref=eeb6nfw07e)
 
 *These are affiliated links. We get commissions for purchases made through links in this post.*
-
-{% endif %}
-
-{% if page.installation_type == 'tinkerboard' %}
-
-### Suggested hardware
-
-We will need a few things to get started with installing Home Assistant. The links below lead to Amazon US. If you’re not in the US, you should be able to find it in web stores in your country.
-
-- [Asus Tinkerboard S](https://amzn.to/3fFIcbI)
 
 {% endif %}
 
