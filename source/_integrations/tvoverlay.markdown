@@ -14,7 +14,7 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-The TvOverlay integration allows you to send notifications to your Android/Google TV. These notifications can include messages, images, and icons, with the option to customize them by adding app titles, badges, source names, and more. You can even send persistent notifications featuring a small icon and text, and you can control their visibility and display duration based on service call data attributes.
+The TvOverlay integration allows you to send notifications to your Android/Google TV. These notifications can include messages, images, videos and icons, with the option to customize them by adding app titles, badges, source names, and more. You can even send persistent notifications featuring a small icon and text, and you can control their visibility and display duration based on service call data attributes.
 
 There are two apps related to TvOverlay: one for your Android smartphone, called ([TvOverlay Remote](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlayremote)), which is used for configuring and sending notifications from smartphone; and another for your Android/Google TV, named ([TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay)), which receives the notifications. To display notifications from Home Assistant on your Android/Google TV, you need to install the [TvOverlay](https://play.google.com/store/apps/details?id=com.tabdeveloper.tvoverlay) app, available on the Google Play store.
 
@@ -67,6 +67,10 @@ image:
   description: "An image to be send in the notification. See below image service data for options."
   default: None
   type: string
+video:
+  description: "A video URL to display the live video in the notification. Supports `RTSP`, `HLS`, `DASH` and `SmoothStreaming`. If you specify both `image` and `video`, then only `video` will be used in the notification."
+  default: None
+  type: string
 position:
   description: "Options: `bottom_right`, `bottom_left`, `top_right`, `top_left`. Default: `top_right`."
   default: top-right
@@ -113,6 +117,18 @@ badge_color: "#41E09A"
 position: "top_right"
 image: "https://picsum.photos/200/100"
 duration: "10"
+```
+
+```yaml
+id: "my_message"
+app_title: "Home Assistant"
+source_name: "Notify"
+app_icon: "mdi:home-assistant"
+badge_icon: "mdi:bell"
+badge_color: "#41E09A"
+position: "top_right"
+video: "rtsp://user:pass@192.168.1.50/stream2"
+duration: "1m"
 ```
 
 Customized YAML for Persistent Notifications:
@@ -251,7 +267,7 @@ data:
     badge_icon: "mdi:camera"
     badge_color: "#B00020"
     position: "top_right"
-    duration: "10m"
+    duration: "10s"
     image: "https://picsum.photos/300/200"
 ```
 
