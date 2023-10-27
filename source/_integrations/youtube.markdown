@@ -13,6 +13,9 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: service
+google_dev_console_link: https://console.cloud.google.com/apis/library/youtube.googleapis.com
+api: YouTube Data API v3
+api_link: https://console.cloud.google.com/apis/library/youtube.googleapis.com?project=home-assistant-17698
 ---
 
 The YouTube integration allows you to connect YouTube channels to Home Assistant.
@@ -30,31 +33,7 @@ These credentials are the same as the ones for [Nest](/integrations/nest), [Goog
 These are not the same as the one for [Google Calendar](/integrations/google).
 If you have already set up the correct credentials, you can do step 1 and then skip to step 13 on the below instructions.
 
-{% details "Generate Client ID and Client Secret" %}
-
-This section explains how to generate a Client ID and Client Secret on
-[Google Developers Console](https://console.cloud.google.com/apis/library/youtube.googleapis.com).
-
-1. First, go to the Google Developers Console to enable the [YouTube Data API v3](https://console.cloud.google.com/apis/library/youtube.googleapis.com?project=home-assistant-17698)
-2. The wizard will ask you to choose a project to manage your application. Select a project and select **Continue**.
-3. Verify that your YouTube Data API v3 was enabled and select **Go to credentials**.
-4. Navigate to **APIs & Services** (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials)
-5. Click on the field on the left of the screen, **OAuth Consent Screen**.
-6. Select **External** and **Create**.
-7. Set the **App Name** (the name of the application asking for consent) to anything you want, e.g., *Home Assistant*.
-8. You then need to select a **Support email**. To do this, from the dropdown menu, select your email address.
-9. You finally need to complete the section: **Developer contact information**. To do this, enter your email address (the same as above is fine).
-10. Scroll to the bottom and select **Save and Continue**. You don't have to fill out anything else, or it may enable additional review.
-11. You will then be automatically taken to the **Scopes** page. You do not need to add any scopes here, so select **Save and Continue** to move to the **Optional info** page. You do not need to add anything to the **Optional info** page, so select **Save and Continue**, which will take you to the **Summary** page. Select **Back to Dashboard**.
-12. Select **OAuth consent screen** again and set *Publish Status* to **Production**. Otherwise your credentials will expire every 7 days.
-13. Make sure **Publishing status** is set to production.
-14. Select **Credentials** in the menu on the left-hand side of the screen, then select **Create credentials** (at the top of the screen), then select **OAuth client ID**.
-15. Set the Application type to **Web application** and give this credential set a name (like "Home Assistant Credentials").
-16. Add `https://my.home-assistant.io/redirect/oauth` to **Authorized redirect URIs** then select **Create**. This is not a placeholder and is the URI that must be used.
-17. You will then be presented with a pop-up saying **OAuth client created** showing **Your Client ID** and **Your Client Secret**. Make a note of these (for example, copy and paste them into a text editor), as you will need them shortly. Once you have noted these strings, select **OK**. If you need to find these credentials again at any point, then navigate to **APIs & Services** > **Credentials**, and you will see **Home Assistant Credentials** (or whatever you named them in the previous step) under **OAuth 2.0 Client IDs**. To view both the **Client ID** and **Client secret**, select the pencil icon. This will take you to the settings page for these credentials, and the information will be on the right-hand side of the page.
-18. Double-check that the **YouTube Data API v3** has been automatically enabled. To do this, select **Library** from the menu, then search for **YouTube Data API v3**. If it is enabled, you will see **API Enabled** with a green tick next to it. If it is not enabled, then enable it.
-
-{% enddetails %}
+{% include integrations/google_client_secret.md %}
 
 {% include integrations/config_flow.md %}
 

@@ -18,32 +18,23 @@ your smart home. Issue commands and get responses!
 - [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
 - USB-C cable to connect the ATOM Echo
 
-## Installing the openWakeWord add-on
-
-As a first step, you need to install the openWakeWord add on. This must be installed before setting up the ATOM Echo.
-
-1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
-2. Start the add-on.
-3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-   - Under **Discovered**, you should now see the **Wyoming** integration.
-   - Select **Configure** and **Submit**.
-   - **Result**: You have successfully installed the openWakeWord add-on and Wyoming integration.
-
 ## Adding a wake word to your voice assistant
 
-1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
-2. Give your assistant a name, for example the wake word you are going to use.
-3. Select the language you are going to use to speak to Home Assistant.
+1. Install the openWakeWord add-on:
+   - Follow steps 1-3 of the procedure on [installing the openWakeWord add-on](/voice_control/install_wake_word_add_on). 
+2. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
+3. Give your assistant a name, for example the wake word you are going to use.
+4. Select the language you are going to use to speak to Home Assistant.
    - If the **Text-to-speech** and **Speech-to-text** sections do not provide language selectors, this means you do not have an Assist pipeline set up.
    - Set up [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
-4. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
-5. To define the wake word engine, under **Wake word**, select **openwakeword**.
+5. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
+6. To define the wake word engine, under **Wake word**, select **openWakeWord**.
    - Then, select **ok nabu**.
    - If you created a new assistant, select **Create**.
    - If you edited an existing assistant, select **Update**.
    - **Result**: You now have a voice assistant that listens to a wake word.
-6. For the first run, it is recommended to use **ok nabu**, just to test the setup.
-   - Once you have it all set up, you can [create your own wake words](/voice_control/create_wake_word/). 
+7. For the first run, it is recommended to use **ok nabu**, just to test the setup.
+   - Once you have it all set up, you can [create your own wake words](/voice_control/create_wake_word/).
 
 ## Installing the software onto the ATOM Echo
 
@@ -64,14 +55,14 @@ If you have used the ATOM Echo on Home Assistant before and have it installed vi
 Before you can use this device with Home Assistant, you need to install a bit of software on it.
 
 1. Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.
-   - Select the **Connect** button below. If your browser does not support web serial, there is no button but a text.
+   - Select the **Connect** button below. If your browser does not support web serial, you will see a warning instead of a button.
 
       <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
    - **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/firmware/blob/main/voice-assistant/m5stack-atom-echo.yaml).
 
 2. Connect the ATOM Echo to your computer.
-   - In the popup window, view the available ports.
+   - In the pop-up window, view the available ports.
    - Plug the USB-C cable into the ATOM Echo and connect it to your computer.
    - In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
      - Depending on your computer, the entry might look different.
