@@ -4,12 +4,12 @@
 {% capture api %}{{ include.api | default: page.api }}{% endcapture %}
 {% capture api_link %}{{ include.api_link | default: page.api_link }}{% endcapture %}
 
-{% details "Generate Client ID and Client Secret" %}
+{% details "Generate client ID and client Secret" %}
 
 This section explains how to generate a client ID and client secret on
 [Google Developers Console]({{ google_dev_console_link }}).
 
-1. First, go to the Google Developers Console to enable [{{ api }}]({{ api_link }}).
+1. First, go to the Google Developers Console to enable [{{ api }}]({{ api_link }}) {% if page.api2 %} and [{{ page.api2 }}]({{ page.api2_link }}) {% endif %}.
 2. Select **Create project**, enter a project name and select **Create**.
 3. **Enable** the {{ api }} and select **Create credentials**.
 4. Navigate to **APIs & Services** (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials).
@@ -18,10 +18,10 @@ This section explains how to generate a client ID and client secret on
    - Set the **App name** (the name of the application asking for consent) to anything you want, e.g., *Home Assistant*.
 6. You then need to select a **Support email**.
    - From the dropdown menu, select your email address.
-7.  Under **Developer contact information**, enter your email address (the same as above is fine).
-8.  Scroll to the bottom and select **Save and continue**.
+7. Under **Developer contact information**, enter your email address (the same as above is fine).
+8. Scroll to the bottom and select **Save and continue**.
     - You don't have to fill out anything else, or it may enable additional review.
-9.  You will then be automatically taken to the **Scopes** page.
+9. You will then be automatically taken to the **Scopes** page.
     - You do not need to add any scopes here. Select **Save and continue** to move to the **Test users** page.
     - You do not need to add anything to the **Test users** page. Select **Save and continue**, which will take you to the **Summary** page.
     - Select **Back to dashboard**.
