@@ -3,6 +3,7 @@ title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
 ha_category:
   - Binary Sensor
+  - Image
   - Number
   - Select
   - Sensor
@@ -18,6 +19,7 @@ ha_codeowners:
 ha_domain: roborock
 ha_platforms:
   - binary_sensor
+  - image
   - diagnostics
   - number
   - select
@@ -111,6 +113,10 @@ Do not disturb - This enables _Do not disturb_ during the time frame you have se
 ### Number
 
 Volume - This allows you to control the volume of the robot's voice. For example, when it states "Starting cleaning". This allows you to set the volume to 0%, while the app limits it to 20%.
+
+### Image
+
+You are able to see all of of the maps within your roborock account - keep in mind they are device specific. The maps require the cloud api in order to communicate as the maps are seemingly stored on the cloud (if someone can figure out a way around this - contributions are always welcome.)
 
 
 ## FAQ
