@@ -82,6 +82,10 @@ The integration also provides a media player. This allows you control the curren
 
 This integration is available as a media source to use with the media browser integration. You can browse and view media from your system to media players such as your web browser and other supported media players.
 
+## Update
+
+The integration provides an update component, which will notify you when a new version of the app is avaliable.
+
 ## Services
 
 ### Notifications `notify.system_bridge_hostname`
