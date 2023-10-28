@@ -84,7 +84,7 @@ This integration is available as a media source to use with the media browser in
 
 ## Update
 
-The integration provides an update component, which will notify you when a new version of the app is avaliable.
+The integration provides an update component, which will notify you when a new version of the app is available.
 
 ## Services
 
