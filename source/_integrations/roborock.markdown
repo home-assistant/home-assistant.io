@@ -53,6 +53,8 @@ Mop intensity - How hard you would like your vacuum to mop.
 
 ### Binary sensor
 
+Cleaning - States if the vacuum has a clean currently active. This is on when the robot is actively moving around or when the robot returns to the dock when the battery is low but a clean is still active and will resume later.
+
 Mop attached - States if the mop is currently attached.
 
 Mop drying status - Only available on docks with drying capabilites - States if the mop is currently being driven.
