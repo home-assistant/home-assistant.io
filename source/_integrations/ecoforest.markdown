@@ -61,8 +61,6 @@ The Ecoforest integration exposes multiple sensors to monitor various features:
 - alarm: a sensor for the current alarm of the device. Possible values are: air depression, pellets, CPU overheating, unknown.
 - depression: a sensor for the current depression air entrance
 - working_hours: a sensor with the duration working time of the device
-- working_state: a sensor with the working state of the device
-- working_level: a sensor with the working level of the device
 - ignitions: a sensor for the number of ignitions of the device
 - live_pulse: a sensor for the current duration of the live pulse
 - pulse_offset: a sensor for the current duration of the waiting pulse
