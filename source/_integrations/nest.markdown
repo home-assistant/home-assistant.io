@@ -327,27 +327,28 @@ This feature is enabled by the following permissions:
 
 ### Google Home App Notification Settings
 
-The Google Home App Notifications settings control which the event notifications are sent to your phone phone. However, those settings can also affect what gets published to the Pub/Sub feed. For example, if you enable “away-only notifications”, HASS will only receive events when your phone is away from home.
+The Google Home App Notifications settings control not only which notifications are sent to your phone,
+but they also affect what gets published to the Pub/Sub feed.
 
-The impact of these settings on what gets published to the feed may vary by camera model.
+For example, if you enable “away-only notifications”, HASS will only receive events when your phone is away from home.
+
+Another thing that may not be intuitive, is that seeing the event your device history does not mean it's was published to the feed.
+However, if you are getting push notifications the settings are likely working.
+
+Note: The exact settings and affect to feed  may vary by camera model or app version.
+
+If you are still not getting notifications you can read this [troubleshooting guide from Google]
+(https://support.google.com/googlenest/answer/9230439#zippy=%2Cyour-camera-detected-something-but-you-didnt-get-a-camera-alert)
 
 {% details "Google Home App Notification Settings" %}
 
-(In Progress)
 
-| Device                                                                           | Notifications: Push    | Notifications: Away-Only | Seen: Motion    | Seen: Person    |
-| -------------------------------------------------------------------------------- | :--------------------: | :----------------------: | :-------------: | :-------------: |
-| Nest Cam (indoor, wired)<br>Nest Cam (outdoor, battery)                          | Required               | † Recommended            | † Recommended   | † Recommended   |
-| Nest Cam Indoor<br>Nest Cam IQ Indoor<br>Nest Cam IQ Outdoor<br>Nest Cam Outdoor |                        |                          |                 |                 |
-| Nest Cam with floodlight                                                         |                        |                          |                 |                 |
-| Nest Doorbell (battery)                                                          |                        |                          |                 |                 |
-| Nest Doorbell (wired, 1st gen)                                                   |                        |                          |                 |                 |
-| Nest Doorbell (wired, 2nd gen)                                                   | Required               | † Recommended            | † Recommended   | † Recommended   |
-| Nest Hub Max                                                                     |                        |                          |                 |                 |
-
-† Events will only be published when owner is detected as away from home.
-
-†† Only events of the selected type will be published
+| Google Home App Setting  | Notes                                                                                 |
+| ------------------------ | :-----------------------------------------------------------------------------------: |
+| Notifications: Push      | Required for detection event to be published                                          |
+| Notifications: Away-Only | Events will only be published when owner is detected as away from home                |
+| Seen: Motion             | Only `motion` events will be published                                                |
+| Seen: Person             | Only `Person` events will be published                                                |
 
 ![Screenshot of Google Home App Notification Settings](/images/integrations/nest/google_home_notification_settings.png)
 
