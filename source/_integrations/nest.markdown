@@ -322,16 +322,14 @@ This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to know when there's a camera event*
 - *Allow Home Assistant to know when there's a doorbell event*
-- *Other permissions in the Nest or Google Home apps*.
+- *Other permissions and notification settings in the Nest or Google Home apps*.
 </div>
 
-### Google Home App Settings
+### Google Home App Notification Settings
 
-The Google Home App settings control which the event notifications you get on your phone, but those settings can also affect what gets published to the Pub/Sub feed. 
+The Google Home App Notifications settings control which the event notifications are sent to your phone phone. However, those settings can also affect what gets published to the Pub/Sub feed. For example, if you enable “away-only notifications”, HASS will only receive events when your phone is away from home. 
 
-For example, if you enable “away-only notifications”, HASS will only receive events when your phone is away from home. 
-
-The effect of these settings on what gets published to the feed may vary by camera model.
+The impact of these settings on what gets published to the feed may vary by camera model.
 
 {% details "Google Home App Notification Settings" %}
 
