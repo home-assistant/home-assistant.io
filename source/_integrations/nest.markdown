@@ -328,17 +328,19 @@ This feature is enabled by the following permissions:
 ### Google Home App Notification Settings
 
 The Google Home App Notifications settings control not only which notifications are sent to your phone,
-but they also affect what gets published to the Pub/Sub feed.
+but also what gets published to the Pub/Sub feed.
 
-For example, if you enable “away-only notifications”, HASS will only receive events when your phone is away from home.
+For example, if you enable *Away-only notifications*, Home Assistant will only receive events when your phone is away from home.
 
 Another thing that may not be intuitive, is that seeing the event your device history does not mean it's was published to the feed.
 However, if you are getting push notifications the settings are likely working.
 
 Note: The exact settings and affect to feed  may vary by camera model or app version.
 
-If you are still not getting notifications you can read this [troubleshooting guide from Google]
+
+If you are still not getting notifications you can read this [troubleshooting guide from Google]<!-- textlint-disable -->
 (https://support.google.com/googlenest/answer/9230439#zippy=%2Cyour-camera-detected-something-but-you-didnt-get-a-camera-alert)
+<!-- textlint-enable -->
 
 {% details "Google Home App Notification Settings" %}
 
