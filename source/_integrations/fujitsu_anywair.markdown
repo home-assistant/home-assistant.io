@@ -2,11 +2,9 @@
 title: Fujitsu anywAIR
 description: Instructions on how to integrate Fujitsu anywAIR controller into Home Assistant.
 ha_category:
-  - Binary Sensor
   - Climate
   - Cover
   - Light
-  - Select
   - Sensor
   - Update
 ha_release: 0.117
