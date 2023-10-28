@@ -325,6 +325,34 @@ This feature is enabled by the following permissions:
 - *Other permissions in the Nest or Google Home apps*.
 </div>
 
+### Google Home App Settings
+
+The Google Home App settings control which the event notifications you get on your phone, but those settings can also affect what gets published to the Pub/Sub feed. 
+
+For example, if you enable “away-only notifications”, HASS will only receive events when your phone is away from home. 
+
+The effect of these settings on what gets published to the feed may vary by camera model.
+
+{% details "Google Home App Notification Settings" %}
+
+(In Progress)
+
+| Device                                                                           | Notifications: Push    | Notifications: Away-Only | Seen: Motion    | Seen: Person    | 
+| -------------------------------------------------------------------------------- | :--------------------: | :----------------------: | :-------------: | :-------------: |
+| Nest Cam (indoor, wired)<br>Nest Cam (outdoor, battery)                          |                        |                          |                 |                 |
+| Nest Cam Indoor<br>Nest Cam IQ Indoor<br>Nest Cam IQ Outdoor<br>Nest Cam Outdoor |                        |                          |                 |                 |
+| Nest Cam with floodlight                                                         |                        |                          |                 |                 |
+| Nest Doorbell (battery)                                                          | Required               | † Recommended            | †† Recommended  | †† Recommended  |
+| Nest Doorbell (wired, 1st gen)                                                   |                        |                          |                 |                 |
+| Nest Doorbell (wired, 2nd gen)                                                   | Required               | † Recommended            | †† Recommended  | †† Recommended  |
+| Nest Hub Max                                                                     |                        |                          |                 |                 |
+
+† Events will only be published when owner is detected as away from home.
+
+†† Only events of the selected type will be published
+
+{% enddetails %}
+
 ## Media Source
 
 The Nest [Media Source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
@@ -574,6 +602,8 @@ logger:
 ```
 
 - It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `subscriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
+
+- *Not receiving camera motion and person events*: assuming the integration is correctly configured (e.g. oauth and SDM API is setup correctly, you can see camera streams, and permissions are correctly set in [Partner Connections Manager](https://nestservices.google.com/partnerconnections)), but you are still not seeing events, it's possible you need to adjust Google Home App settings. See the [Cameras: Automation: Google Home App Settings](#google-home-app-settings)
 
 # Works With Nest API
 
