@@ -16,6 +16,7 @@ ha_platforms:
   - media_player
   - notify
   - sensor
+  - update
 ha_zeroconf: true
 ha_integration_type: device
 ---
