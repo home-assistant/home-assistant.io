@@ -9,6 +9,7 @@ ha_category:
   - Switch
   - Time
   - Vacuum
+  - Button
 ha_iot_class: Local Polling
 ha_release: 2023.5
 ha_config_flow: true
@@ -25,6 +26,7 @@ ha_platforms:
   - switch
   - time
   - vacuum
+  - button
 ha_integration_type: integration
 ---
 
@@ -111,6 +113,18 @@ Do not disturb - This enables _Do not disturb_ during the time frame you have se
 ### Number
 
 Volume - This allows you to control the volume of the robot's voice. For example, when it states "Starting cleaning". This allows you to set the volume to 0%, while the app limits it to 20%.
+
+### Button
+
+There are currently four buttons that allow you to reset the various maintenance items on your vacuum. This cannot be undone after pressing - so they are disabled by default to make sure you know what you are doing before you click on them.
+
+Reset sensor consumable - The sensors on your vacuum are intended to be cleaned after 30 hours of use
+
+Reset side brush consumable - The side brush is expected to be replaced every 200 hours.
+
+Reset main brush consumable - the Main brush/ roller is expected ot be replaced every 300 hours.
+
+Reset air filter - the Air filter is expected to be replaced every 150 hours.
 
 
 ## FAQ
