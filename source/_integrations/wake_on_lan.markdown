@@ -159,4 +159,4 @@ data:
   mac: 00:11:22:33:44:55
 ```
 
-Save the automation. Now when you active `PRESS` on the helper button in the UI, Home Assistant will send a wake packet to the configured MAC.
+Save the automation. Now when you activate `PRESS` on the helper button in the UI, Home Assistant will send a wake packet to the configured MAC.
