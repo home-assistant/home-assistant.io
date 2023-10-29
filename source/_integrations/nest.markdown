@@ -347,10 +347,10 @@ If you are still not getting notifications you can read this [troubleshooting gu
 
 | Google Home App Setting  | Notes                                                                                 |
 | ------------------------ | :-----------------------------------------------------------------------------------: |
-| Notifications: Push      | Required for detection event to be published                                          |
-| Notifications: Away-Only | Events will only be published when owner is detected as away from home                |
-| Seen: Motion             | Only `motion` events will be published                                                |
-| Seen: Person             | Only `Person` events will be published                                                |
+| Notifications: Push      | Required for any detection event to be published                                      |
+| Notifications: Away-Only | Events will only be published when user is detected as away from home                 |
+| Seen: Motion             | Required for `Motion` events to be published                                          |
+| Seen: Person             | Required for `Person` events to be published                                          |
 
 ![Screenshot of Google Home App Notification Settings](/images/integrations/nest/google_home_notification_settings.png)
 
