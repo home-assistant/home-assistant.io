@@ -40,7 +40,7 @@ Add a new To-do Item. A To-do list `target` is selected with a [Target Selector]
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `item` | no | the name of the To-do Item. | Submit Income Tax Return
+| `item` | no | the name of the to-do Item. | Submit income tax return
 
 This is a full example of service call in YAML:
 
@@ -58,37 +58,37 @@ Update a To-do Item. A To-do list `target` is selected with a [Target Selector](
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `item` | no | The name of the To-do Item to update. | Submit Income Tax Return
-| `rename` | yes | The new name of the To-do Item. | Something else
+| `item` | no | The name of the to-do Item to update. | Submit income tax return
+| `rename` | yes | The new name of the to-do Item. | Something else
 | `status` | yes | The overall status of the To-do Item. |  `needs_action` or `completed`
 
 At least one of `rename` or `status` is required. This is a full example of
-a service call that updates the status  and the name of a To-do Item.
+a service call that updates the status and the name of a to-do Item.
 
 ```yaml
 service: todo.update_item
 target:
   entity_id: todo.personal_tasks
 data:
-  item: "Submit Income Tax Return"
+  item: "Submit income tax return"
   rename: "Something else"
   status: "completed"
 ```
 
 ### Service `todo.remove_item`
 
-Removing a To-do Item. A To-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+Removing a To-do Item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector), and the `data` payload supports the following fields:
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `item` | yes | The name of the To-do Item. | Submit Income Tax Return
+| `item` | yes | The name of the to-do Item. | Submit income tax return
 
-This is a full example of a service call that delete's a To-do Item with the specified name.
+This is a full example of a service call that deletes a to-do Item with the specified name.
 
 ```yaml
 service: todo.delete_item
 target:
   entity_id: todo.personal_tasks
 data:
-  item: "Submit Income Tax Return"
+  item: "Submit income tax return"
 ```
