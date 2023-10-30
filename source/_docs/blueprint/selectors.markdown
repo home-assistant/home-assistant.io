@@ -1297,8 +1297,8 @@ for example, `23:59:59`.
 ## Trigger selector
 
 The triggers selector allows the user to input one or more triggers.
-On the user interface, the trigger part of the automation editor will be shown.
-The value of the input will contain a list of triggers.
+On the user interface, the trigger part of the automation editor is shown.
+The value of the input contains a list of triggers.
 
 ![Screenshot of an trigger selector](/images/blueprints/selector-trigger.png)
 
