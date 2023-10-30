@@ -32,7 +32,7 @@ These are not the same as the one for [Google Calendar](/integrations/google).
 
 {% include integrations/config_flow.md %}
 
-{% include integrations/oauth.md %}
+{% include integrations/google_oauth.md %}
 
 ## Troubleshooting
 

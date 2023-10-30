@@ -51,6 +51,8 @@ These credentials are the same as the ones for [Nest](/integrations/nest) or [Go
 
 {% include integrations/config_flow.md %}
 
+The integration setup will next give you instructions to enter the [Application Credentials](/integrations/application_credentials/) (OAuth Client ID and Client Secret) and authorize Home Assistant to access your Google Assistant API.
+
 {% details "Authorization steps" %}
 
 1. Continue through the steps of selecting the account you want to authorize.
