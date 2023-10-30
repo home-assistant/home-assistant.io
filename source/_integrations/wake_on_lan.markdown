@@ -134,15 +134,18 @@ shell_command:
   turn_off_TARGET: "ssh hass@TARGET sudo pm-suspend"
 ```
 
-## Helper Button with Automation
+## Helper button with automation
 
-A switch defined with the `wake_on_lan` platform will render in the UI with both 'on' and 'off' clickable actions. If you don't intend to use the `turn_off` functionality then using a virtual button & automation will look cleaner and less confusing. It will only have one action.
+A switch defined with the `wake_on_lan` platform will render in the UI with both 'on' and 'off' clickable actions. If you don't intend to use the `turn_off` functionality, then using a virtual button & automation will look cleaner and less confusing. It will only have one action.
 
-First define a new helper button. Go to **{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the `+ Create Helper` button. Choose `Button` and give it a name. A button named "Wake PC" will render like this:
+1. First, define a new helper button. 
+    - Go to **{% my helpers title="Settings > Devices & Services > Helpers" %}** and select the **+ Create helper** button. Choose **Button** and give it a name. A button named "Wake PC" will render like this:
 
 ![image](https://github.com/home-assistant/home-assistant.io/assets/252209/10e468a0-45c8-4ee7-b69d-596db3845b14)
 
-Then create a new Automation. Go to **{% my automations title="Settings > Automations & Scenes" %}** and click on `+ Create Automation`. The trigger will be on `State` and the entity will be the button you created. Continuin your example, the trigger yaml will look like:
+2. Then, create a new automation. Go to **{% my automations title="Settings > Automations & scenes" %}** and select **+ Create Automation**. 
+    - The trigger will be on `State` and the entity will be the button you created. 
+    - Continuing your example, the trigger YAML will look like this:
 
 ```yaml
 platform: state
@@ -150,7 +153,10 @@ entity_id:
   - input_button.wake_pc
 ```
 
-For the action select "Call service" and choose "Wake on LAN: Send magic packet". Type in the target MAC address. (Do not change the broadcast port unless you've configured your device to listen to a different port.) Continuing our example, the action yaml looks like:
+3. For the action, select **Call service** and choose **Wake on LAN: Send magic packet**. 
+4. Type in the target MAC address. 
+    - Do not change the broadcast port unless you've configured your device to listen to a different port.
+    - Continuing our example, the action YAML looks like this:
 
 ```yaml
 service: wake_on_lan.send_magic_packet
@@ -159,4 +165,4 @@ data:
   mac: 00:11:22:33:44:55
 ```
 
-Save the automation. Now when you activate `PRESS` on the helper button in the UI, Home Assistant will send a wake packet to the configured MAC.
+5. Save the automation. Now, when you activate `PRESS` on the helper button in the UI, Home Assistant will send a wake packet to the configured MAC.
