@@ -139,7 +139,7 @@ This platform offers you sensors to monitor:
 
 ## Alarm control panel
 
-This platform offers you view and control Freebox alarm control panel
+This integration allows you to view and control the Freebox alarm control panel.
 
 
 
