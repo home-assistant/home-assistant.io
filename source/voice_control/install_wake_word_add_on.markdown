@@ -1,5 +1,5 @@
 ---
-title: "Installing the openWakeWord add-on"
+title: "Enabling a wake word"
 ---
 
 To use wake words, you need to install the openWakeWord add-on.
