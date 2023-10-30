@@ -31,4 +31,7 @@ The value reported is an overall AQ index for the location. The values of the in
 | 101 - 150 | **Unhealthy for Sensitive Groups** | Members of sensitive groups may experience health effects. The general public is not likely to be affected                                                                    |
 | 151 - 200 |           **Unhealthy**            | Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects                                                       |
 | 201 - 300 |         **Very unhealthy**         | Health warnings of emergency conditions. The entire population is more likely to be affected                                                                                  |
-| 301+      |           **Hazardous**            | Health alert: everyone may experience more serious health effects                                                                                                             |
+| 301+      |           **Hazardous**            | Health alert: everyone may experience more serious health effects                                                                                                
+
+
+Further information about AQI can be found [on the EPA's AirNOW website](https://www.airnow.gov/aqi/aqi-basics/).
