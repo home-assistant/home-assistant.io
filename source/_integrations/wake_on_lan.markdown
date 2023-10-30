@@ -147,22 +147,22 @@ A switch defined with the `wake_on_lan` platform will render in the UI with both
     - The trigger will be on `State` and the entity will be the button you created. 
     - Continuing your example, the trigger YAML will look like this:
 
-```yaml
-platform: state
-entity_id:
-  - input_button.wake_pc
-```
+      ```yaml
+      platform: state
+      entity_id:
+        - input_button.wake_pc
+      ```
 
 3. For the action, select **Call service** and choose **Wake on LAN: Send magic packet**. 
 4. Type in the target MAC address. 
     - Do not change the broadcast port unless you've configured your device to listen to a different port.
     - Continuing our example, the action YAML looks like this:
 
-```yaml
-service: wake_on_lan.send_magic_packet
-data:
-  broadcast_port: 9
-  mac: 00:11:22:33:44:55
-```
+      ```yaml
+      service: wake_on_lan.send_magic_packet
+      data:
+        broadcast_port: 9
+        mac: 00:11:22:33:44:55
+      ```
 
 5. Save the automation. Now, when you activate `PRESS` on the helper button in the UI, Home Assistant will send a wake packet to the configured MAC.
