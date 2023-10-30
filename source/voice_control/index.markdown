@@ -6,18 +6,23 @@ title: Assist - Talking to Home Assistant
 
 Assist is our feature to allow you to control Home Assistant using natural language. It is built on top of an open voice foundation and powered by knowledge provided by our community.
 
+Assist is available to use on most platforms that can interface with Home Assistant. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>:
+
+The easiest way to get started with Assist is probably by using it on your phone.
+
+- Inside the Home Assistant app in the top-right corner, select the Assist icon.
+- On Apple devices via [Siri and Assist shortcuts](/voice_control/apple).
+- On Android phones as the default [digital assistant or home screen shortcut](/voice_control/android)
+- On Wear OS watches as the default digital assistant or using [Assist tile or complication](//voice_control/android/#assist-on-wear-os). 
+
+
+You can also set a wake word, so that Assist starts  
+
 _Want to use Home Assistant with Google Assistant or Amazon Alexa? Get started with [Home Assistant Cloud](https://www.nabucasa.com/config/)._
 
 With Assist, you can use the [built-in sentences](/voice_control/builtin_sentences) to control entities and areas, or [create your own](/voice_control/custom_sentences).
 
 [List of supported languages.](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages)
-
-Assist is available to use on most platforms that can interface with Home Assistant. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>:
-
-- Inside the Home Assistant app in the top-right corner
-- On Apple devices via [Siri and Assist shortcuts](/voice_control/apple)
-- On Android phones as the default digital assistant or home screen shortcut
-- On Wear OS watches as the default digital assistant or using [Assist tile or complication](/voice_control/android)
 
 Did Assist not understand your sentence? [Contribute them.](https://developers.home-assistant.io/docs/voice/intent-recognition/)
 
