@@ -21,7 +21,7 @@ your smart home. Issue commands and get responses!
 ## Adding a wake word to your voice assistant
 
 1. Install the openWakeWord add-on:
-   - Follow steps 1-3 of the procedure on [installing the openWakeWord add-on](/voice_control/install_wake_word_add_on). 
+   - Follow steps 1-3 of the procedure on [enabling a wake word](/voice_control/install_wake_word_add_on). 
 2. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
 3. Give your assistant a name, for example the wake word you are going to use.
 4. Select the language you are going to use to speak to Home Assistant.
