@@ -89,7 +89,7 @@ The easiest way to check if the integration is working is to check [My Google Ac
   - Routines don't work.
   - Broadcast doesn't work with IPv6.
   - Broadcast to specific rooms often doesn't work for non-English languages.
-  - Commands that need to verify your identity through voice match don't work.
+  - Commands that need to verify your identity through voice match do not work.
 
 ## Configuration
 
