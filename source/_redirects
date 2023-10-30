@@ -222,9 +222,10 @@ layout: null
 
 # Renamed integrations
 /integrationss/air_pollutants /integrations/air_quality
+/integrations/calendar.google /integrations/google
 /integrations/climacell /integrations/tomorrowio
 /integrations/generic_ip_camera /integrations/generic
-/integrations/google /integrations/google_translate
+/integrations/homewizard_energy /integrations/homewizard
 /integrations/input_slider /integrations/input_number
 /integrations/leviton /integrations/leviton_z_wave
 /integrations/light.switch /integrations/switch_as_x
@@ -232,6 +233,7 @@ layout: null
 /integrations/pollen /integrations/iqvia
 /integrations/polling /integrations/telegram_polling
 /integrations/ritassist /integrations/fleetgo
+/integrations/senseme /integrations/baf
 /integrations/synologydsm /integrations/synology_dsm
 /integrations/telegram_chatbot /integrations/telegram_bot
 /integrations/vlc-telnet /integrations/vlc_telnet
@@ -489,6 +491,7 @@ layout: null
 /integrations/device_tracker.trackr /more-info/removed-integration 301
 /integrations/dht /more-info/removed-integration 301
 /integrations/digitalloggers /more-info/removed-integration 301
+/integrations/discovery /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dyson /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301
@@ -512,8 +515,9 @@ layout: null
 /integrations/htu21d /more-info/removed-integration 301
 /integrations/huawei_router /more-info/removed-integration 301
 /integrations/hydroquebec /more-info/removed-integration 301
-/integrations/ialarm /more-info/removed-integration 301
+/integrations/ialarm_xr /more-info/removed-integration 301
 /integrations/iota /more-info/removed-integration 301
+/integrations/lifx_legacy /more-info/removed-integration 301
 /integrations/linksys_ap /more-info/removed-integration 301
 /integrations/linky /more-info/removed-integration 301
 /integrations/liveboxplaytv /more-info/removed-integration 301
