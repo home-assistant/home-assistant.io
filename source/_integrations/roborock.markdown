@@ -116,7 +116,7 @@ Volume - This allows you to control the volume of the robot's voice. For example
 
 ### Image
 
-You are able to see all of of the maps within your roborock account - keep in mind they are device specific. The maps require the cloud api in order to communicate as the maps are seemingly stored on the cloud (if someone can figure out a way around this - contributions are always welcome.)
+You can see all the maps within your Roborock account. Keep in mind that they are device-specific. The maps require the cloud API to communicate as the maps are seemingly stored on the cloud. If someone can figure out a way around this - contributions are always welcome.
 
 
 ## FAQ
