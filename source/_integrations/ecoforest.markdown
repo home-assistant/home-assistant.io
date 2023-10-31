@@ -60,8 +60,8 @@ The Ecoforest integration exposes multiple sensors to monitor various features:
 - status: a sensor for the current status of the device. Possible values are: off, starting, pre-heating, on, shutting down, standby, alarm.
 - alarm: a sensor for the current alarm of the device. Possible values are: air depression, pellets, CPU overheating, unknown.
 - depression: a sensor for the current depression air entrance
-- working_hours: a sensor with the duration working time of the device
-- ignitions: a sensor for the number of ignitions of the device
+- working_hours: a sensor for the total number of working hours of the device
+- ignitions: a sensor for the total number of ignitions of the device
 - live_pulse: a sensor for the current duration of the live pulse
 - pulse_offset: a sensor for the current duration of the waiting pulse
 - extractor: a sensor for the current extractor velocity
