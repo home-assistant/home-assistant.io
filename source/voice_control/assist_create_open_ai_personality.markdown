@@ -4,6 +4,8 @@ title: "Create a personality with OpenAI"
 
 You can give your voice assistant personality by using OpenAI. This requires an OpenAI account. For what we do in this tutorial, the free trial option is sufficient. No need to leave your credit card information.
 
+<lite-youtube videoid="eLx8_NAqptk" videotitle="Give your voice assistant personality using the OpenAI integration"></lite-youtube>
+
 ## Prerequisites
 
 This tutorial assumes you have a few things set up already:
