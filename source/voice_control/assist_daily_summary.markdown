@@ -10,7 +10,7 @@ We will be using OpenAI, which requires an OpenAI account. For what we do in thi
 
 This tutorial assumes you have a few things set up already:
 
-- [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/integrations/assist_pipeline)
+- [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [local assistant pipeline](/voice_control/voice_remote_local_assistant/).
 
 This tutorial was done using the **Local calendar**, the **Meteorologisk institutt**,  and the **Telegram** integrations. It has not been tested with other integrations of the notifications or calendar category.
 
@@ -79,5 +79,12 @@ We are using a blueprint (courtesy of [@allenporter]) that polls calendar events
 6. To test the automation, select the three dots on your automation, and select **Run**.
    - You should now receive a notification from Assist in your messenger app.
 
-
 [@allenporter]: https://github.com/allenporter
+
+## Related topics
+
+- [Home Assistant Cloud](https://www.nabucasa.com)
+- [Local assistant pipeline](/voice_control/voice_remote_local_assistant/)
+- [Local calendar](/integrations/local_calendar/)
+- [Telegram notification](/integrations/telegram/#setup-example)
+- [Create a Mario personality](/voice_control/assist_create_open_ai_personality/)
