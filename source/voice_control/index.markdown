@@ -37,6 +37,8 @@ _Want to use Home Assistant with Google Assistant or Amazon Alexa? Get started w
 
 With the Voice over IP integration, you can even use an [analog phone](/voice_control/worlds-most-private-voice-assistant/) to talk to Assist.
 
+<lite-youtube videoid="0YJzLIMrnGk" videotitle="Using an analog phone to control Home Assistant"></lite-youtube>
+
 ### ESPHome
 
 And of course you can use [ESPHome devices](/voice_control/thirteen-usd-voice-remote/), to create your own awesome Assistant device. Like @piitaya did with his 3D printed R5 droid.
@@ -48,6 +50,12 @@ And of course you can use [ESPHome devices](/voice_control/thirteen-usd-voice-re
 You can [enable a wake word](/voice_control/install_wake_word_add_on) to activate Assist. There are predefined wake words, such as "OK Nabu", but you can also [define your own wake word](/voice_control/create_wake_word/)
 
 <lite-youtube videoid="ziebKt4XLZQ" videotitle="Wake word demonstration on $13 ATOM Echo in Home Assistant"></lite-youtube>
+
+## Create an assistant with an OpenAI personality
+
+Want to talk to Super Mario? Or another figure? If you want Assist to respond in a fun way, you can create an assistant with an [OpenAI personality](/voice_control/assist_create_open_ai_personality/).
+
+<lite-youtube videoid="eLx8_NAqptk" videotitle="Give your voice assistant personality using the OpenAI integration"></lite-youtube>
 
 ## Supported languages and sentences
 
@@ -63,7 +71,7 @@ _Assist was introduced in Home Assistant 2023.2._
 
 - [Home Assistant Cloud](https://www.nabucasa.com/config/)
 - [Assist on Android](/voice_control/android)
-- [Assist on Wear OS](//voice_control/android/#assist-on-wear-os)
+- [Assist on Wear OS](/voice_control/android/#assist-on-wear-os)
 - [Siri and Assist shortcuts](/voice_control/apple)
 - [Assist dashboard button](/voice_control/start_assist_from_dashboard/)
 - [Build a 13$ voice remote using an ESPHome device](/voice_control/thirteen-usd-voice-remote/)
