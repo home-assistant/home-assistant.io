@@ -12,10 +12,10 @@ Home Assistant’s wake words are leveraging a new project called [openWakeWord]
 
 openWakeWord is created with 4 goals in mind:
 
-- Be fast enough for real-world usage
-- Be accurate enough for real-world usage
-- Have a simple model architecture and inference process
-- Require little to no manual data collection to train new models
+- Be fast enough for real-world usage.
+- Be accurate enough for real-world usage.
+- Have a simple model architecture and inference process.
+- Require little to no manual data collection to train new models.
 
 ### Training the model
 
