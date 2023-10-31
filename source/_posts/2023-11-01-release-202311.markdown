@@ -468,6 +468,29 @@ for more information.
 
 {% enddetails %}
 
+{% details "Västtrafik" %}
+
+Västtrafik has upgraded all infrastructure for handling external access,
+including handling user accounts for 3rd party applications.
+
+This means that users of the older infrastructure now need to migrate to use
+the new environment. Create a new account at
+[https://developer.vasttrafik.se](https://developer.vasttrafik.se),
+then [create a new application](https://developer.vasttrafik.se/applications)
+and subscribe to the Planera Resa v4 API.
+
+Next replace your old client identifier and secret in your Home Assistant
+configuration.
+
+For more information, see [this official post](https://developer.vasttrafik.se/news/3) from Västtrafik.
+
+([@Miicroo] - [#102570]) ([documentation](/integrations/vasttrafik))
+
+[@Miicroo]: https://github.com/Miicroo
+[#102570]: https://github.com/home-assistant/core/pull/102570
+
+{% enddetails %}
+
 {% details "WeatherFlow" %}
 
 The VOC device class has been removed from the air density sensor and
