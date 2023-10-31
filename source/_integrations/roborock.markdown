@@ -116,15 +116,15 @@ Volume - This allows you to control the volume of the robot's voice. For example
 
 ### Button
 
-There are currently four buttons that allow you to reset the various maintenance items on your vacuum. This cannot be undone after pressing - so they are disabled by default to make sure you know what you are doing before you click on them.
+There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason,  they are disabled by default to make sure they are not pressed unintentionally.
 
-Reset sensor consumable - The sensors on your vacuum are intended to be cleaned after 30 hours of use
+Reset sensor consumable - The sensors on your vacuum are expected to be cleaned after 30 hours of use.
 
 Reset side brush consumable - The side brush is expected to be replaced every 200 hours.
 
-Reset main brush consumable - the Main brush/ roller is expected ot be replaced every 300 hours.
+Reset main brush consumable - The main brush/ roller is expected to be replaced every 300 hours.
 
-Reset air filter - the Air filter is expected to be replaced every 150 hours.
+Reset air filter - The Air filter is expected to be replaced every 150 hours.
 
 
 ## FAQ
