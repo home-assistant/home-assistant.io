@@ -4,6 +4,8 @@ title: "Daily summary by Assist"
 
 In this tutorial, we are creating an automation that has Assist send you a daily summary. Assist will tell you about the weather and your calendar events today. It will also send you the summary to your messenger.
 
+<img class='no-shadow' src='/images/assist/assist-daily-summary.png' alt='Daily summary notification'>
+
 We will be using OpenAI, which requires an OpenAI account. For what we do in this tutorial, the free trial option is sufficient. No need to leave your credit card information.
 
 ## Prerequisites
