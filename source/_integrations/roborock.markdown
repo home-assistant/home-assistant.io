@@ -124,7 +124,7 @@ Reset side brush consumable - The side brush is expected to be replaced every 20
 
 Reset main brush consumable - The main brush/ roller is expected to be replaced every 300 hours.
 
-Reset air filter - The Air filter is expected to be replaced every 150 hours.
+Reset air filter - The air filter is expected to be replaced every 150 hours.
 
 
 ## FAQ
