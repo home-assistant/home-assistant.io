@@ -25,7 +25,7 @@ The easiest way to get started with Assist is probably by using it on your phone
 
 Assist is also available on watches:
 
-- On Wear OS watches as the default digital assistant or using [Assist tile or complication](//voice_control/android/#assist-on-wear-os).
+- On Wear OS watches as the default digital assistant or using [Assist tile or complication](/voice_control/android/#assist-on-wear-os/).
 
 <lite-youtube videoid="Dr_ZCbt8w5k" videotitle="Assist on Wear OS"></lite-youtube>
 
