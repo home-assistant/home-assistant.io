@@ -116,7 +116,7 @@ Volume - This allows you to control the volume of the robot's voice. For example
 
 ### Button
 
-There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason,  they are disabled by default to make sure they are not pressed unintentionally.
+There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason, the buttons are disabled by default to make sure they are not pressed unintentionally.
 
 Reset sensor consumable - The sensors on your vacuum are expected to be cleaned after 30 hours of use.
 
