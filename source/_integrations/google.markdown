@@ -26,10 +26,10 @@ You need to configure developer credentials to allow Home Assistant to access yo
 This section explains how to generate a Client ID and Client Secret on
 [Google Developers Console](https://console.developers.google.com/start/api?id=calendar).
 
-1. First go to the [Google Developers Console](https://console.developers.google.com/start/api?id=calendar)
+1. First go to the [Google Developers Console](https://console.developers.google.com/start/api?id=calendar).
 2. The wizard will ask you to choose a project to manage your application. Select a project and click continue.
 3. Verify that your calendar API was enabled and click 'Go to credentials'
-4. Navigate to APIs & Services (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials)
+4. Navigate to APIs & Services (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials).
 5. Click on the field on the left of the screen, **OAuth Consent Screen**.
 6. Select **External** and **Create**.
 7. Set the *App Name* (the name of the application asking for consent) to anything you want e.g.  *Home Assistant*.
@@ -48,7 +48,6 @@ This section explains how to generate a Client ID and Client Secret on
 {% include integrations/config_flow.md %}
 
 The integration setup will next give you instructions to enter the [Application Credentials](/integrations/application_credentials/) (OAuth Client ID and Client Secret) and authorize Home Assistant to access your account and Calendars.
-
 
 {% details "OAuth and Device Authorization steps" %}
 

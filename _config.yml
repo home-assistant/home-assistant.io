@@ -221,13 +221,6 @@ installation:
         - name: "Raspberry Pi 3"
           key: "rpi3-64"
 
-    tinkerboard:
-      board: ASUS Tinkerboard
-      installation_media: "eMMC module or SD card"
-      variants:
-        - name: "ASUS Tinkerboard"
-          key: "tinker"
-
     generic-x86-64:
       board: Generic x86-64
       installation_media: "storage device"
