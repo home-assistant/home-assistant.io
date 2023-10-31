@@ -20,6 +20,7 @@ ha_platforms:
 ha_dhcp: true
 ha_integration_type: integration
 ---
+## This integration is broken and unlikely to ever be reliable. Chamberlain / LiftMaster / MyQ is hostile to 3rd party use of their API. Consider using a different brand if you want a garage door opener that works with HomeAssistant.
 
 The MyQ integration lets you control MyQ-Enabled garage doors and/or lamps through Home Assistant. Device names in Home Assistant are generated based on the names defined in your MyQ Device mobile app.
 
