@@ -110,22 +110,25 @@ converted to a todo list.
 
 <img class="no-shadow" src='/images/blog/2023-11/todo-shopping-list.png' alt='Screenshot showing the shopping list, which now is a todo list.'>
 
-## Integrations providings your todos
+## Integrations providing your todos
 
 This release brings the local todo-list and the shopping list, but there is more!
 Now we have a todo entity, we can also start using it in other integrations that,
 for example, get their data (and thus your todo lists) from an external service.
 
-You can now integrate your Todoist and Google Tasks todo lists in Home Assistant!
+You can now integrate your [Todoist] and [Google Tasks] todo lists in Home Assistant!
 
 _insert image of to a nicely/fully loaded todo dashboard_
+
+[Todoist]: /integrations/todoist
+[Google Tasks]: /integrations/google_tasks
 
 ## Custom state content for Tile cards
 
 Tile card now display the state of the entity in the card. But what if you want
 to display something else? [@piitaya] to the rescue! 
 
-You can now customize it to you liking. Show the state of the entity, any of its
+You can now customize it to your liking. Show the state of the entity, any of its
 attributes, or a combination of both!
 
 <img class="no-shadow" src='/images/blog/2023-11/customize-tile-card-state-content.png' alt='Screenshot showing the configuration dialog of the tile card, which now allows you to set custom state contents.'>
@@ -139,11 +142,11 @@ order you want them to appear.
 
 ## Matter 1.2 is here!
 
-The Connectivity Standards Alliance has launched[version 1.2 of the Matter specification](https://csa-iot.org/newsroom/matter-1-2-arrives-with-nine-new-device-types-improvements-across-the-board/), together with a new version of the Official Matter SDK, which is not only prepared for new device types but also contains all kinds of smaller stability- and bug fixes.
+The Connectivity Standards Alliance has launched [version 1.2 of the Matter specification](https://csa-iot.org/newsroom/matter-1-2-arrives-with-nine-new-device-types-improvements-across-the-board/), together with a new version of the Official Matter SDK, which is not only prepared for new device types but also contains all kinds of smaller stability- and bug fixes.
 
 Although you can not yet benefit of any of the new device types yet until actual devices are released, we have bumped our Matter implementation to version 1.2 to benefit from the stability improvements and to be prepared for the new device types.
 
-Interesting fact: Did you know that Home Assistant is used as a test platform by many device manufacturers ? This potentially means that devices will be implemented and tested on the Home Assistant Matter controller before others, cool!
+Interesting fact: Did you know that Home Assistant is used as a test platform by many device manufacturers? This potentially means that devices will be implemented and tested on the Home Assistant Matter controller before others; cool!
 
 ## Custom date ranges in the energy dashboard!
 
@@ -559,7 +562,7 @@ changes and new features available for your integration: Be sure to follow our
 
 - [Removal of deprecated unit conversion utilities](https://developers.home-assistant.io/blog/2023/10/03/conversion-functions-cleanup/)
 
-[devblog]: https://developers.home-assistant.io/blog/i
+[devblog]: https://developers.home-assistant.io/blog/
 
 ## Farewell to the following
 
