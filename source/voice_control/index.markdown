@@ -49,7 +49,7 @@ And of course you can use [ESPHome devices](/voice_control/thirteen-usd-voice-re
 
 You can [enable a wake word](/voice_control/install_wake_word_add_on) to activate Assist. There are predefined wake words, such as "OK Nabu", but you can also [define your own wake word](/voice_control/create_wake_word/)
 
-<lite-youtube videoid="ziebKt4XLZQ" videotitle="Wake word demonstration on $13 ATOM Echo in Home Assistant"></lite-youtube>
+<lite-youtube videoid="Eyoqvw8qLLc" videotitle="Happy HAlloween"></lite-youtube>
 
 ## Create an assistant with an OpenAI personality
 
