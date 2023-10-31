@@ -81,7 +81,7 @@ Removing a To-do Item. A to-do list `target` is selected with a [Target Selector
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `item` | yes | The name of the to-do Item. | Submit income tax return
+| `item` | no | The name of the to-do Item. | Submit income tax return
 
 This is a full example of a service call that deletes a to-do Item with the specified name.
 
