@@ -45,7 +45,7 @@ You can use the service `google_mail.set_vacation` to set vacation options.
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `enabled` | yes | Turn this off to end vacation responses. | True
-| `title` | | no | The subject for the email. | Vacation
+| `title` | no | The subject for the email. | Vacation
 | `message` | yes | Body of the email. | I am on vacation.
 | `plain_text` | no | Choose to send message in plain text or HTML. | True
 | `restrict_contacts` | no | Restrict automatic reply to contacts. | True
