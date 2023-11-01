@@ -117,6 +117,34 @@ The following sensors are available in the library:
 The inverter does not provide any data for the energy which is going to the grid directly.
 </div>
 
+#### Common Template Sensors
+
+##### Energy to Grid Total
+
+{% raw %}
+
+```yaml
+template:
+  - sensor:
+    - name: "Plenticore Energy PV to Grid Total (Template)"
+      unit_of_measurement: "kWh"
+      device_class: energy
+      state_class: total
+      state: >
+        {% set yield = states('sensor.scb_energy_yield_total') | float %}
+        {% set batteryToHome = states('sensor.scb_home_consumption_from_battery_total') | float %}
+        {% set pvToHome = states('sensor.scb_home_consumption_from_pv_total') | float %}
+        {{ yield - pvToHome - batteryToHome }}
+```
+
+The `sensor.scb_energy_yield_total` entity contains the total energy including
+the energy delivered to the home and also the energy from the battery to the
+home (Think of it like all energy that leaves the inverter on the AC side).
+Hence to get the energy to the grid the energy from the battery and pv to the
+home have to be subtracted.
+
+{% endraw %}
+
 ### Settings Sensors
 
 The following sensors are available in the library:
