@@ -51,7 +51,7 @@ Enjoy the release!
 - [Matter 1.2 is here!](#matter-12-is-here)
 - [Custom date ranges in the energy dashboard!](#custom-date-ranges-in-the-energy-dashboard)
 - [New conditions for the conditional card](#new-conditions-for-the-conditional-card)
-- [Restart in safe mode](#restart-in-safe-mode)
+- [Restarting into safe mode](#restarting-into-safe-mode)
 - [Set up Improv devices, directly from Home Assistant!](#set-up-improv-devices-directly-from-home-assistant)
 - [Configuring script fields for your script in the UI](#configuring-script-fields-for-your-script-in-the-ui)
 - [Country selector](#country-selector)
@@ -222,17 +222,20 @@ desktop or tablet, and hide them when viewing Home Assistant on a mobile device.
 
 <img class="no-shadow" src='/images/blog/2023-11/conditional-card-screen-type.png' alt='Screenshot showing the configuration dialog of the conditional card, which you can now configure an numeric condition on when to show the card.'>
 
-## Restart in safe mode
+## Restarting into safe mode
 
-You can now restart Home Assistant in safe mode. This will disable all custom
-integrations and custom dashboard resources.
+You can now restart Home Assistant in safe mode. This mode will disable all
+custom integrations and custom frontend resources (for example, custom cards
+and themes).
 
-This is useful if you are experiencing issues with Home Assistant and want to
-rule out custom integrations or custom dashboard resources as the cause.
+It is useful if you are experiencing issues with your Home Assistant and want to
+quickly rule out custom integrations or custom dashboard resources as the cause
+of these issues.
 
 <img class="no-shadow" src='/images/blog/2023-11/restart-in-safe-mode.png' alt='Screenshot showing the restart dialog, which now provides a new option: Restart Home Assistant in safe mode.'>
 
-Want to get out of safe mode again? Just restart Home Assistant one more time.
+Want to get out of safe mode again? Just restart Home Assistant one more time,
+and everything will be back to normal.
 
 This is helpful! Thanks, [@emontnemery]!
 
