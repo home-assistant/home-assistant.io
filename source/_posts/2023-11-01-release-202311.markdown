@@ -116,7 +116,7 @@ you've put in your dashboard.
 ## Integrations providing your to-dos
 
 But wait! There is more besides local to-do lists and shopping lists.
-Now we have a to-do entity, we can also start using it with other integrations
+Now that we have a to-do entity, we can also start using it with other integrations
 that, for example, can get your to-do lists from an external service.
 
 As of this release, you can bring in your [Todoist] and [Google Tasks]
@@ -202,17 +202,17 @@ dashboard.
 
 <img class="no-shadow" src='/images/blog/2023-11/conditional-card-per-user.png' alt='Screenshot showing the configuration dialog of the conditional card, which now allows you to set which users to show the card at.'>
 
-The screenshot above shows how the card is only shown when the user is
+The screenshot above shows how the card is only shown when the user
 who is logged in is Frenck. It is hidden for all other users.
 
 ### Numeric state condition <!-- omit in toc -->
 
 Similar to the state condition, the numeric state condition allows you to show
-or hide cards based on the state of a entity, only this time, based on its
+or hide cards based on the state of an entity, only this time, based on its
 numeric value. Useful if you want to show or hide cards based on temperature,
 humidity, or any other numeric entity.
 
-<img class="no-shadow" src='/images/blog/2023-11/conditional-card-numeric-state.png' alt='Screenshot showing the configuration dialog of the conditional card, which you can now configure an numeric condition on when to show the card.'>
+<img class="no-shadow" src='/images/blog/2023-11/conditional-card-numeric-state.png' alt='Screenshot showing the configuration dialog of the conditional card, on which you can now configure a numeric condition when to show the card.'>
 
 In the screenshot above, this thermostat card will only be shown on the dashboard
 when the temperature outside has dropped below 18 degrees Celsius.
@@ -265,7 +265,7 @@ it to Home Assistant.
 be freely adopted and implemented by any hardware creator, no matter how big
 or small. Improv Wi-Fi is also supported by [ESPHome](https://esphome.io/components/esp32_improv#improv-via-ble).
 
-Nice job on this one [@emonemery]!
+Nice job on this one [@emontnemery]!
 
 [@emontnemery]: https://github.com/emontnemery
 
@@ -285,7 +285,7 @@ when you created your scripts in YAML format.
 But not anymore! Thanks to [@karwosts], you can now also configure your
 script fields in the UI!
 
-<img class="no-shadow" src='/images/blog/2023-11/script-fields.png' alt='Screenshot showing the scripts fields in the UI while editting a script in the script editor.'>
+<img class="no-shadow" src='/images/blog/2023-11/script-fields.png' alt='Screenshot showing the scripts fields in the UI while editing a script in the script editor.'>
 
 You can find the fields in the script editor when selecting the three dots
 in the top right corner of the editor and selecting **Add fields** from the
@@ -366,7 +366,7 @@ We welcome the following new integrations in this release:
 [Tami4 Edge / Edge+]: /integrations/tami4
 [To-do list]: /integrations/todo
 
-This release also has a new virtual integration. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. The following virtual integration has been added:
+This release also has a new virtual integration. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. The following virtual integrations have been added:
 
 - **[Cribl]**, provided by [Splunk]
 - **[Eastron]**, provided by [HomeWizard Energy]
@@ -427,7 +427,7 @@ light:
   - platform: demo
 ```
 
-([@gjohansson-ST] - [#100867]) ([documentation](/integrations/homekit))
+([@gjohansson-ST] - [#100867]) ([documentation](/integrations/demo))
 
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [#100867]: https://github.com/home-assistant/core/pull/100867
