@@ -47,8 +47,8 @@ Enjoy the release!
 - [There is a lot to-do!](#there-is-a-lot-to-do)
 - [Shopping lists are now to-do's too!](#shopping-lists-are-now-to-dos-too)
 - [Integrations providing your to-dos](#integrations-providing-your-to-dos)
-- [Customize the information shown in your Tile cards](#customize-the-information-shown-in-your-tile-cards)
 - [Matter 1.2 is here!](#matter-12-is-here)
+- [Customize the information shown in your Tile cards](#customize-the-information-shown-in-your-tile-cards)
 - [Select any date range in the energy dashboard](#select-any-date-range-in-the-energy-dashboard)
 - [New conditions for the conditional card](#new-conditions-for-the-conditional-card)
 - [Restarting into safe mode](#restarting-into-safe-mode)
@@ -130,6 +130,25 @@ above all, provides you with the power of Home Assistant to automate on them.
 [Todoist]: /integrations/todoist
 [Google Tasks]: /integrations/google_tasks
 
+## Matter 1.2 is here!
+
+The Connectivity Standards Alliance has launched
+[version 1.2 of the Matter specification](https://csa-iot.org/newsroom/matter-1-2-arrives-with-nine-new-device-types-improvements-across-the-board/),
+together with a new version of the Official Matter SDK, which is not only
+prepared for new device types but also contains all kinds of smaller
+stability- and bug fixes.
+
+<center><img src='/images/supported_brands/matter.png' alt='Matter logo' class='no-shadow'></center><br>
+
+Although you can only benefit from the new device types once actual devices are
+released, we have upgraded our Matter implementation to version 1.2 to benefit
+from the stability improvements and to be prepared for the new device types.
+
+**Interesting fact**: Did you know that Home Assistant is used as a test
+platform by many device manufacturers? This potentially means that devices will
+be implemented and tested on the Home Assistant Matter controller before
+others; cool!
+
 ## Customize the information shown in your Tile cards
 
 Tile card now displays the entity's state information on the card.
@@ -149,25 +168,6 @@ Simply add the attribute to the state content and drag and drop them in the
 order you want them to appear.
 
 [@piitaya]: https://github.com/piitaya
-
-## Matter 1.2 is here!
-
-The Connectivity Standards Alliance has launched
-[version 1.2 of the Matter specification](https://csa-iot.org/newsroom/matter-1-2-arrives-with-nine-new-device-types-improvements-across-the-board/),
-together with a new version of the Official Matter SDK, which is not only
-prepared for new device types but also contains all kinds of smaller
-stability- and bug fixes.
-
-<center><img src='/images/supported_brands/matter.png' alt='Matter logo' class='no-shadow'></center><br>
-
-Although you can only benefit from the new device types once actual devices are
-released, we have upgraded our Matter implementation to version 1.2 to benefit
-from the stability improvements and to be prepared for the new device types.
-
-**Interesting fact**: Did you know that Home Assistant is used as a test
-platform by many device manufacturers? This potentially means that devices will
-be implemented and tested on the Home Assistant Matter controller before
-others; cool!
 
 ## Select any date range in the energy dashboard
 
