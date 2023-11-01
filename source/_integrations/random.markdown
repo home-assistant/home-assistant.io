@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Sensor
   - Utility
+  - Helper
 ha_iot_class: Local Polling
 ha_release: 0.32
 ha_quality_scale: internal
@@ -19,13 +20,17 @@ ha_integration_type: integration
 
 The `random` integration simply creates random values or state. This can be useful if you want to test automation rules or run an interactive demo. It generates a new state every time it is polled.
 
-## Binary Sensor
 
-The `random` binary sensor platform is creating random states (`true`, 1, `on` or `false`, 0, `off`).
+## Configuration
+The preferred way to configure random helpers is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}** and select the add button; next, select the {% my config_flow_start domain=page.ha_domain title=page.title %} option.
 
-### Configuration
+To be able to add Helpers via the user interface, you should have `default_config:` in your `configuration.yaml`. It should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `random:` to your `configuration.yaml` first, then you can use the UI.
 
-To enable the random binary sensor, add the following lines to your `configuration.yaml` file:
+## Binary sensor
+The random binary sensor creates random states (`true`, 1, `on` or `false`, 0, `off`).
+
+### YAML configuration
+To create the random binary sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -38,16 +43,14 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
-  default: Random Binary Sensor
+  default: Random binary sensor
 {% endconfiguration %}
 
 ## Sensor
+The random sensor creates random sensor values (integers) out of a given range. Returned values form a [discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), meaning that each integer value in the range configured is equally likely to be drawn.
 
-The `random` sensor platform is creating random sensor values (integers) out of a given range. Returned values form a [discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), meaning that each integer value in the range configured is equally likely to be drawn.
-
-### Configuration
-
-To enable the random sensor, add the following lines to your `configuration.yaml` file:
+### YAML configuration
+To create the random sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -60,7 +63,7 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
-  default: Random Sensor
+  default: Random sensor
 minimum:
   description: Lower limit for the values.
   required: false
@@ -76,18 +79,3 @@ unit_of_measurement:
   required: false
   type: string
 {% endconfiguration %}
-
-### Examples
-
-In this section you find am example of how this sensor can be used.
-
-Create a random sensor called "My random sensor" which will return a number between 10 (minimum) and 500 (maximum).
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: random
-    name: "My random sensor"
-    minimum: 10
-    maximum: 500
-```
