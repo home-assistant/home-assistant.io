@@ -71,9 +71,9 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 There are many things to do in our lives, which is what
 [@allenporter] realized too! We now have a new entity type
-in Home Assistant: [`todo` entities](/integrations/todo)!
+in Home Assistant: [To-do list entities](/integrations/todo)!
 
-A to-do entity represents a list of tasks, and its state is the amount of
+A to-do list entity represents a list of tasks, and its state is the amount of
 uncompleted tasks that are still open. You can create one or more (fully local)
 to-do lists and view and manage them by selecting the new **To-do lists**
 item in the sidebar.
@@ -116,8 +116,8 @@ you've put in your dashboard.
 ## Integrations providing your to-dos
 
 But wait! There is more besides local to-do lists and shopping lists.
-Now that we have a to-do entity, we can also start using it with other integrations
-that, for example, can get your to-do lists from an external service.
+Now that we have a to-do list entity, we can also start using it with other
+integrations that, for example, can get your to-do lists from an external service.
 
 As of this release, you can bring in your [Todoist] and [Google Tasks]
 to-do lists to Home Assistant as well!
@@ -225,7 +225,7 @@ on the screen size of the device you are viewing Home Assistant on.
 For example, you could show some cards only when viewing Home Assistant on a
 desktop or tablet and hide them when viewing Home Assistant on a mobile device.
 
-<img class="no-shadow" src='/images/blog/2023-11/conditional-card-screen-type.png' alt='Screenshot showing the configuration dialog of the conditional card, which you can now configure an numeric condition on when to show the card.'>
+<img class="no-shadow" src='/images/blog/2023-11/conditional-card-screen-type.png' alt='Screenshot showing the configuration dialog of the conditional card, which you can now configure to show the card only on a specific screen type.'>
 
 The screenshot shows how the control of the garage door is only shown on
 mobile, as it is most often used from mobile when arriving at home.
