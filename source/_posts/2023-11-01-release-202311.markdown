@@ -52,7 +52,7 @@ Enjoy the release!
 - [Custom date ranges in the energy dashboard!](#custom-date-ranges-in-the-energy-dashboard)
 - [New conditions for the conditional card](#new-conditions-for-the-conditional-card)
 - [Restarting into safe mode](#restarting-into-safe-mode)
-- [Set up Improv devices, directly from Home Assistant!](#set-up-improv-devices-directly-from-home-assistant)
+- [Set up Improv devices directly from Home Assistant!](#set-up-improv-devices-directly-from-home-assistant)
 - [Configuring script fields for your script in the UI](#configuring-script-fields-for-your-script-in-the-ui)
 - [Country selector](#country-selector)
 - [Type checking in your templates](#type-checking-in-your-templates)
@@ -241,20 +241,25 @@ This is helpful! Thanks, [@emontnemery]!
 
 [@emontnemery]: https://github.com/emontnemery
 
-## Set up Improv devices, directly from Home Assistant!
+## Set up Improv devices directly from Home Assistant!
 
 If you bought a device that supports [Improv Wi-Fi](https://improv-wifi.com/)
 over Bluetooth, and you are using Bluetooth in Home Assistant, you can now
 set up your device directly from Home Assistant itself!
 
-Home Assistant will discover your brand new device, and will help you set it up
-and get it connected to your Wi-Fi network and add it to Home Assistant.
+Plug in the power of your brand-new device, and Home Assistant will discover
+it and help you set it up by connecting it to your Wi-Fi network and adding 
+it to Home Assistant.
 
-<video width="680px" controls autoplay loop muted playsinline>
-  <source src="https://user-images.githubusercontent.com/195327/278046046-dfcf3501-2563-4a1d-aac2-d4c27587d932.mp4" type="video/mp4">
-</video>
+<img class="no-shadow" src='/images/blog/2023-11/improv-wifi.png' alt='Screenshot showing a discovered Improv Wi-Fi device over Bluetooth, which can be set up and added to your Wi-Fi network straight from Home Assistant.'>
 
-Improv Wi-Fi is also supported by [ESPHome](https://esphome.io/components/esp32_improv#improv-via-ble).
+[Improv Wi-Fi](https://improv-wifi.com/) is a fully open standard that can
+be freely adopted and implemented by any hardware creator, no matter how big
+or small. Improv Wi-Fi is also supported by [ESPHome](https://esphome.io/components/esp32_improv#improv-via-ble).
+
+Nice job on this one [@emonemery]!
+
+[@emontnemery]: https://github.com/emontnemery
 
 ## Configuring script fields for your script in the UI
 
