@@ -52,9 +52,9 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [There is a lot todo!](#there-is-a-lot-todo)
-- [Shopping lists are now TODOs too!](#shopping-lists-are-now-todos-too)
-- [Integrations providings your todos](#integrations-providings-your-todos)
+- [There is a lot to-do!](#there-is-a-lot-to-do)
+- [Shopping lists are now to-do's too!](#shopping-lists-are-now-to-dos-too)
+- [Integrations providing your to-dos](#integrations-providing-your-to-dos)
 - [Custom state content for Tile cards](#custom-state-content-for-tile-cards)
 - [Matter 1.2 is here!](#matter-12-is-here)
 - [Custom date ranges in the energy dashboard!](#custom-date-ranges-in-the-energy-dashboard)
@@ -77,46 +77,63 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 <lite-youtube videoid="QlpC0LFM8l8" videotitle="Home Assistant 2023.11 Release Party"></lite-youtube>
 
-## There is a lot todo!
+## There is a lot to-do!
 
-There are lots of things to do and that is what [@allenporter] realized too!
-We now have a new entity type in Home Assistant: `todo`!
+There are many things to do in our lives, which is what
+[@allenporter] realized too! We now have a new entity type
+in Home Assistant: [`todo` entities](/integrations/todo)!
 
-A todo entity represents a lists of tasks, and the state of the entity
-will be the amount of tasks that are still open.
+A to-do entity represents a list of tasks, and its state is the amount of
+uncompleted tasks that are still open. You can create one or more (fully local)
+to-do lists and view and manage them by selecting the new **To-do lists**
+item in the sidebar.
 
-Besides the entities, it also comes with a bunch of new services you can
-use to manage your tasks. For example, you could automate the creation of
-tasks based on things happening in your house, or even create tasks from
-your automations!
+<img class="no-shadow" src='/images/blog/2023-11/todo-local.png' alt='Screenshot showing the new to-do lists dashboard, where you can manage multiple to-do lists and even create new ones.'>
 
-_insert image of local todo list in the dashboard_
+Besides the entities, there are also new services available allowing you
+to automate on your to-do lists as well. Use automations to create, complete, or
+clean up tasks on your to-do lists.
 
-You can create one, or more todo lists and view and manage them by selecting
-the new **To-do lists** in the sidebar.
+So, what can you do with all of this? A lot! For example, you can create
+a to-do list for your groceries, automate a list of house chores for your kids
+or other household members, or automatically put a task on a list to replace
+the batteries of a sensor when it is low. You could even send a push notification
+to your phone when you are near the home improvement store and have items on
+a to-do list that you need to buy there.
 
-Thanks [@allenporter], for this amazing adition to Home Assistant!
+Thanks [@allenporter], and everyone involved, for this amazing addition to
+Home Assistant! We can now check this one off from our wishlist! ✔
 
 [@allenporter]: https://github.com/allenporter
 
-## Shopping lists are now TODOs too!
+## Shopping lists are now to-do's too!
 
-These todo-lists look a lot like the shopping list, right? Yup!
-So, shopping list integration has been updated to use the new todo entity type.
-Once you upgrade to this release, your shopping list will automatically be
-converted to a todo list.
+These to-do lists look a lot like the shopping list, right? Correct!
 
-<img class="no-shadow" src='/images/blog/2023-11/todo-shopping-list.png' alt='Screenshot showing the shopping list, which now is a todo list.'>
+They are very much alike, and that is why we have moved the shopping list
+to a to-do list as well! Once you upgrade to this release, your existing
+shopping list will be automatically converted to a to-do list.
 
-## Integrations providing your todos
+<img class="no-shadow" src='/images/blog/2023-11/todo-shopping-list.png' alt='Screenshot showing the shopping list, which now is a to-do list.'>
 
-This release brings the local todo-list and the shopping list, but there is more!
-Now we have a todo entity, we can also start using it in other integrations that,
-for example, get their data (and thus your todo lists) from an external service.
+But that is not all; we also updated the **Shopping list** card for your
+dashboards, now fittingly named **To-do list card**, to support multiple
+to-do lists. You can now select which to-do list you want to show on the card
+you've put in your dashboard.
 
-You can now integrate your [Todoist] and [Google Tasks] todo lists in Home Assistant!
+<img class="no-shadow" src='/images/blog/2023-11/todo-list-card.png' alt='Screenshot showing configuration of a to-do list card, that allows selecting the to-do list to display.'>
 
-_insert image of to a nicely/fully loaded todo dashboard_
+## Integrations providing your to-dos
+
+But wait! There is more besides local to-do lists and shopping lists.
+Now we have a to-do entity, we can also start using it with other integrations
+that, for example, can get your to-do lists from an external service.
+
+As of this release, you can bring in your [Todoist] and [Google Tasks]
+to-do lists to Home Assistant as well!
+
+This is awesome, as it brings all these to-do lists together in one place, and
+above all, provides you with the power of Home Assistant to automate on them.
 
 [Todoist]: /integrations/todoist
 [Google Tasks]: /integrations/google_tasks
