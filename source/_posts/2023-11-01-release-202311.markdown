@@ -184,33 +184,40 @@ A great addition to the energy dashboard. Thanks, [@TillFleisch]!
 
 The [conditional card](/dashboards/conditional/) is a great way to show or hide
 cards conditionally. For example, you can show a card only when the sun is
-setting, or when you are home.
+setting or when you are home.
 
 When using such a state, you also match it against multiple values. For example,
 you can show a card when the sun is setting or when the sun is below the
 horizon in a single condition.
 
 But even more interesting, [@piitaya] added a whole bunch of new conditions
-to this card for you to use!
+to this card for you to use! Let's dive in...
 
 [@piitaya]: https://github.com/piitaya
 
 ### User condition <!-- omit in toc -->
 
-The user condition allows you to show or hide cards based on the user that is
-currently logged in. This is useful if you have multiple users in your Home
-Assistant instance and want to show or hide cards based on who is logged in.
+The user condition allows you to show or hide cards based on the user who is
+currently logged in. Useful if you have multiple users in your Home Assistant
+instance and want to show or hide cards based on who is looking at the
+dashboard.
 
 <img class="no-shadow" src='/images/blog/2023-11/conditional-card-per-user.png' alt='Screenshot showing the configuration dialog of the conditional card, which now allows you to set which users to show the card at.'>
+
+The screenshot above shows how the card is only shown when the user is
+who is logged in is Frenck. It is hidden for all other users.
 
 ### Numeric state condition <!-- omit in toc -->
 
 Similar to the state condition, the numeric state condition allows you to show
-or hide cards based on the state of a numeric entity. This is useful if you
-want to show or hide cards based on the temperature, humidity, or any other
-numeric entity.
+or hide cards based on the state of a entity, only this time, based on its
+numeric value. Useful if you want to show or hide cards based on temperature,
+humidity, or any other numeric entity.
 
 <img class="no-shadow" src='/images/blog/2023-11/conditional-card-numeric-state.png' alt='Screenshot showing the configuration dialog of the conditional card, which you can now configure an numeric condition on when to show the card.'>
+
+In the screenshot above, this thermostat card will only be shown on the dashboard
+when the temperature outside has dropped below 18 degrees Celsius.
 
 ### Screen condition <!-- omit in toc -->
 
@@ -218,9 +225,12 @@ Last but not least, the screen condition allows you to show or hide cards based
 on the screen size of the device you are viewing Home Assistant on.
 
 For example, you could show some cards only when viewing Home Assistant on a
-desktop or tablet, and hide them when viewing Home Assistant on a mobile device.
+desktop or tablet and hide them when viewing Home Assistant on a mobile device.
 
 <img class="no-shadow" src='/images/blog/2023-11/conditional-card-screen-type.png' alt='Screenshot showing the configuration dialog of the conditional card, which you can now configure an numeric condition on when to show the card.'>
+
+The screenshot shows how the control of the garage door is only shown on
+mobile, as it is most often used from mobile when arriving at home.
 
 ## Restarting into safe mode
 
