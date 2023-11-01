@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: weatherkit
 ha_integration_type: integration
 ha_platforms:
+  - sensor
   - weather
 ---
 
@@ -19,6 +20,7 @@ The Apple WeatherKit integration obtains current weather and forecasts (hourly a
 There is currently support for the following device types within Home Assistant:
 
 - Weather
+- Sensor
 
 ## Requirements
 

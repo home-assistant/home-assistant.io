@@ -7,6 +7,7 @@ ha_category:
   - Button
   - Climate
   - Cover
+  - Event
   - Fan
   - Hub
   - Humidifier
@@ -30,6 +31,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - event
   - fan
   - humidifier
   - light
@@ -165,7 +167,15 @@ Some features can be accessed from the menu of integration itself. As they are n
 
 ### Device panel
 
-The following features can be accessed from the device panel of a Z-Wave device:
+#### Controller
+
+The following features can be accessed from the device panel of a Z-Wave controller:
+
+- **Factory reset:** Exercise extreme caution when using this action! Once initiated, your controller will be reset to factory settings, it will forget all devices it is paired with, it will establish a new network ID that will prevent any recovery of your old network, and all Z-Wave devices for this network will be removed from Home Assistant. If there are any devices still paired with the controller when it is reset, they will have to go through the exclusion process before they can be re-paired.
+
+#### Network devices
+
+The following features can be accessed from the device panel of any Z-Wave device on your network aside from the controller:
 
 ![Z-Wave device panel](/images/integrations/z-wave/z-wave-device-info.png)
 

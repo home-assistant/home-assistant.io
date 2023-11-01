@@ -45,8 +45,7 @@ This integration allows:
 ## Prerequisites
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
-These credentials are the same as the ones for [Nest](/integrations/nest) or [Google Sheets](/integrations/google_sheets).
-If you have already set up credentials, you can do step 1 and then skip to step 13 on the below instructions.
+These credentials are the same as the ones for [Nest](/integrations/nest) or [Google Sheets](/integrations/google_sheets), [YouTube](/integrations/youtube), and [Google Mail](/integrations/google_mail).
 
 {% include integrations/google_client_secret.md %}
 
@@ -89,6 +88,7 @@ The easiest way to check if the integration is working is to check [My Google Ac
   - Routines don't work.
   - Broadcast doesn't work with IPv6.
   - Broadcast to specific rooms often doesn't work for non-English languages.
+  - Commands that need to verify your identity through voice match do not work.
 
 ## Configuration
 

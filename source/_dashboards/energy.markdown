@@ -17,6 +17,7 @@ At the moment there are no configuration options available for these cards, you 
 </p>
 
 This card will allow you to pick what data to show. Changing it in this card will influence the data in all other cards.
+Specific dates and ranges can be selected by opening the date range picker. The current period can be compared to the previous one using the compare data option within the menu.
 
 ### Example
 ```yaml
@@ -181,7 +182,17 @@ type: energy-self-sufficiency-gauge
 
 The devices energy graph show the energy usage per device, it is sorted by usage.
 
-### Example
+By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
+
+### Examples
+
 ```yaml
 type: energy-devices-graph
+```
+
+The following example limits the number of shown devices to 5:
+
+```yaml
+type: energy-devices-graph
+max_devices: 5
 ```

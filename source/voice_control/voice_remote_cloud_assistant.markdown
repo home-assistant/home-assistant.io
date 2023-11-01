@@ -46,6 +46,6 @@ To have the fastest processing voice assistant experience, follow these steps:
 ## Related topics
 
 - [Enable Home Assistant Cloud](https://www.nabucasa.com/config/)
-- [Installing the openWakeWord add-on](/voice_control/install_wake_word_add_on/)
+- [Enabling a wake word](/voice_control/install_wake_word_add_on/)
 - [Create your own wake word](/voice_control/create_wake_word/)
 - [Expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices)

@@ -322,8 +322,39 @@ This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to know when there's a camera event*
 - *Allow Home Assistant to know when there's a doorbell event*
-- *Other permissions in the Nest or Google Home apps*.
+- *Other permissions and notification settings in the Nest or Google Home apps*.
 </div>
+
+### Google Home App Notification Settings
+
+The Google Home App Notifications settings control not only which notifications are sent to your phone,
+but also what gets published to the Pub/Sub feed.
+
+For example, if you enable *Away-only notifications*, Home Assistant will only receive events when your phone is away from home.
+
+Another thing that may not be intuitive, is that seeing the event in your device history does not mean it was published to the feed.
+However, if you are getting push notifications, the settings are likely working.
+
+Note: The exact settings and effect they have on the feed may vary by camera model or app version.
+
+
+If you are still not getting notifications, you can read this [troubleshooting guide from Google]<!-- textlint-disable -->
+(https://support.google.com/googlenest/answer/9230439#zippy=%2Cyour-camera-detected-something-but-you-didnt-get-a-camera-alert)
+<!-- textlint-enable -->
+
+{% details "Google Home App Notification Settings" %}
+
+
+| Google Home App Setting  | Notes                                                                                 |
+| ------------------------ | :-----------------------------------------------------------------------------------: |
+| Notifications: Push      | Required for any detection event to be published                                      |
+| Notifications: Away-Only | Events will only be published when a user is detected as away from home                 |
+| Seen: Motion             | Required for `Motion` events to be published                                          |
+| Seen: Person             | Required for `Person` events to be published                                          |
+
+![Screenshot of Google Home App Notification Settings](/images/integrations/nest/google_home_notification_settings.png)
+
+{% enddetails %}
 
 ## Media Source
 
@@ -574,6 +605,8 @@ logger:
 ```
 
 - It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `subscriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
+
+- *Not receiving camera motion and person events*: assuming the integration is correctly configured (for example, the oauth and SDM API are set up correctly, you can see camera streams, and permissions are correctly set in [Partner Connections Manager](https://nestservices.google.com/partnerconnections)): If you are then still not seeing events, it's possible you need to adjust the Google Home App settings. Refer to the [Cameras: Automation: Google Home App Settings](#google-home-app-settings) for details.
 
 # Works With Nest API
 

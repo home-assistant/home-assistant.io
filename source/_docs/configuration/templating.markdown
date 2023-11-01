@@ -916,6 +916,27 @@ The numeric functions and filters raise an error if the input is not a valid num
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 
+### Complex type checking
+
+In addition to strings and numbers, Python (and Jinja) supports lists, sets, and dictionaries. To help you with testing these types, you can use the following tests:
+
+- `x is list` will return whether `x` is a `list` or not (e.g. `[1, 2] is list` will return `True`).
+- `x is set` will return whether `x` is a `set` or not (e.g. `{1, 2} is set` will return `True`).
+- `x is tuple` will return whether `x` is a `tuple` or not (e.g. `(1, 2) is tuple` will return `True`).
+- `x is datetime` will return whether `x` is a `datetime` or not (e.g. `datetime(2020, 1, 1, 0, 0, 0) is datetime` will return `True`).
+- `x is string_like` will return whether `x` is a string, bytes, or bytearray object.
+
+Note that, in Home Assistant, Jinja has built-in tests for `boolean` (`True`/`False`), `callable` (any function), `float` (a number with a decimal), `integer` (a number without a decimal), `iterable` (a value that can be iterated over such as a `list`, `set`, `string`, or generator), `mapping` (mainly `dict` but also supports other dictionary like types), `number` (`float` or `int`), `sequence` (a value that can be iterated over and indexed such as `list` and `string`), and `string`.
+
+### Type conversions
+
+While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to a `tuple` or `set`. To help you with using these types, you can use the following functions:
+
+- `set(x)` will convert any iterable `x` to a `set` (e.g. `set([1, 2]) == {1, 2}`)
+- `tuple(x)` will convert any iterable `x` to a `tuple` (e.g. `tuple("abc") == ("a", "b", "c")`)
+
+Note that, in Home Assistant, to convert a value to a `list`, a `string`, an `int`, or a `float`, Jinja has built-in functions with names that correspond to each type.
+
 ### Functions and filters to process raw data
 
 These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.

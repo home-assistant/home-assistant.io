@@ -248,7 +248,7 @@ layout: null
 /docs/assist/apple/ /voice_control/apple/
 /docs/assist/builtin_sentences/ /voice_control/builtin_sentences/
 /docs/assist/custom_sentences/ /voice_control/custom_sentences/
-/docs/assist/using_voice_assistants_overview/ /voice_control/using_voice_assistants_overview/
+/docs/assist/using_voice_assistants_overview/ /voice_control/
 /docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
 /docs/assist/troubleshooting/ /voice_control/troubleshooting/
@@ -496,6 +496,7 @@ layout: null
 /integrations/dyson /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301
 /integrations/ee_brightbox /more-info/removed-integration 301
+/integrations/eight_sleep /more-info/removed-integration 301
 /integrations/envirophat /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
@@ -556,6 +557,7 @@ layout: null
 /integrations/ruter /more-info/removed-integration 301
 /integrations/salt /more-info/removed-integration 301
 /integrations/sensehat /more-info/removed-integration 301
+/integrations/shiftr /more-info/removed-integration 301
 /integrations/sht31 /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301

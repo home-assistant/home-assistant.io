@@ -4,7 +4,19 @@
 {% capture api %}{{ include.api | default: page.api }}{% endcapture %}
 {% capture api_link %}{{ include.api_link | default: page.api_link }}{% endcapture %}
 
-{% details "Generate client ID and client Secret" %}
+
+### Scenario 1: You already have credentials
+
+In this case, all you need to do is enable the API:
+
+1. Go the Google Developers Console [{{ api }}]({{ api_link }}) {% if page.api2 %} and [{{ page.api2 }}]({{ page.api2_link }}) {% endif %}.
+2. Confirm the project and **Enable** the API.
+3. Continue with the steps described in the [Configuration](#configuration) section.
+### Scenario 2: You do not have credentials set up yet
+
+In this case, you need to generate a client secret first:
+
+{% details "To generate client ID and client secret" %}
 
 This section explains how to generate a client ID and client secret on
 [Google Developers Console]({{ google_dev_console_link }}).
