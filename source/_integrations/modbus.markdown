@@ -1318,11 +1318,13 @@ sensors:
       description: "Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer"
       required: false
       type: float
-    register_size:
-      description: "Use this field together with count to define a non-standard number of bytes in the request. Only available using `data_type: custom`. Can be useful when working with devices that don't follow the modbus standard, use this value to define a custom registe size. By defult this value is 2 bytes which is what is defined in the modbus standard."
+    register_size_bytes:
+      description: "Use this field to define a non-standard number of bytes in the request. Only set this value when working when devices that don't fully implement the modbus standard, this values is 2 bytes by the standard.
+      It cannot be used when `data_type: string` where each character is 8 bit.
+      The valid values are `1`, `2`, `4` or `8`"
       required: false
       type: integer
-      default: 2
+      default: 2      
 {% endconfiguration %}
 
 <div class='note'>
