@@ -15,7 +15,7 @@ og_image: /images/blog/2023-11/social.png
 
 <a href='/integrations/#version/2023.11'><img src='/images/blog/2023-11/social.png' style='border: 0;box-shadow: none;'></a>
 
-Home Assistant 2023.11! 🎉
+Home Assistant 2023.11! 🎃
 
 It seems like I forgot to come up with a release title for this release and left
 a placeholder in the title. If I only could have it on a to-do list somewhere... 🤔
