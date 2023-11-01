@@ -273,16 +273,27 @@ Nice job on this one [@emonemery]!
 
 ## Configuring script fields for your script in the UI
 
-Scripts have a really cool feature: fields. Fields allow you to define
-variables in your script you can pass in when calling your script as a service,
-which you can then use in your script. For example, you could create a script
-that sends a notification to a specific person, and use a field to define the
-message you want to send.
+Scripts have a really neat feature: [fields](/integrations/script/#fields).
+Fields allow you to define variables in your script that you can pass in when
+calling your script as a service.
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/32912880/276089825-a3c1587c-d446-4a03-a79b-d4f6b0373924.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+For example, you could create a script that sends a notification to a
+specific person and use a field to define the message you want to send.
+
+These fields support [our UI selectors](/docs/blueprint/selectors/), so you
+can provide a UI for your script fields. However, this was only available
+when you created your scripts in YAML format.
+
+But not anymore! Thanks to [@karwosts], you can now also configure your
+script fields in the UI!
+
+<img class="no-shadow" src='/images/blog/2023-11/script-fields.png' alt='Screenshot showing the scripts fields in the UI while editting a script in the script editor.'>
+
+You can find the fields in the script editor when selecting the three dots
+in the top right corner of the editor and selecting **Add fields** from the
+drop-down menu.
+
+[@karwosts]: https://github.com/karwosts
 
 ## Country selector
 
