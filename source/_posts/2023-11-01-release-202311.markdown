@@ -15,40 +15,32 @@ og_image: /images/blog/2023-11/social.png
 
 <a href='/integrations/#version/2023.11'><img src='/images/blog/2023-11/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+Home Assistant 2023.11! 🎉
 
-These are the beta release notes for Home Assistant Core 2023.11 (and is thus a
-work in progress).
+It seems like I forgot to come up with a release title for this release and left
+a placeholder in the title. If I only could have it on a to-do list somewhere... 🤔
 
-If you encounter any issues with the beta release, please report them on GitHub:
+Before we dive into this pretty massive release, I want to quickly look back
+at two amazing things that happened in the past month.
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/UI/dashboards:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+First, we presented [chapter 4 of the Year of the Voice](/blog/2023/10/12/year-of-the-voice-chapter-4-wakewords/),
+which introduced the new wake word feature in Home Assistant. This really
+brings the voice assistant experience to the next level, and we are super
+excited about it! Like have you seen the [R5-based voice assistant droid](https://www.youtube.com/watch?v=vQ7Hmeume9g)? 😍
 
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
+Second, we had a security audit performed on Home Assistant by one of the top
+security auditors in the world! You can read all about it in the [blog post](/blog/2023/10/19/security-audits-of-home-assistant/).
+A big shout out to everybody subscribed to [Home Assistant Cloud](https://www.nabucasa.com),
+as you enable us to do these things! 🥰
 
-Issues introduced in the beta are processed with priority.
+Alright, about this release! It is huge! I love the tile card, and the ability
+to easily customize the information it shows now is just. 🤩 But mostly, I'm
+super stoked about the new to-do lists, which will probably become a very
+central part of my household.
 
-### If you are using Matter with this beta release <!-- omit in toc -->
+Enjoy the release!
 
-We now have a beta flag/option on the main (stable) version of the add-on.
-Toggle that to transform the add-on to the "beta channel". If you are
-participating in the beta, enabling this option is strongly recommended.
-
----
-
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-Home Assistant Core 2023.11! 🎉
-
-Thanks for helping out testing the beta! ❤️
-
-Enjoy the (beta) release!
+../Frenck
 
 <!--more-->
 
