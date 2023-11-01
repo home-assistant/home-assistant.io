@@ -191,6 +191,35 @@ hvac_modes:
   type: list
 {% endconfiguration %}
 
+### Climate preset modes
+
+Widget that displays buttons or a dropdown to control the preset mode for a [climate](/integrations/climate).
+
+```yaml
+features:
+  - type: "climate-preset-modes"
+    style: icons
+    preset_modes:
+      - none
+      - eco
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`climate-preset-modes`"
+  type: string
+style:
+  required: false
+  description: "`icons` or `dropdown`"
+  type: string
+  default: dropdown
+preset_modes:
+  required: true
+  description: List of modes to show on the card. The list can contain `none`, `eco`, and more (depending on your provider).
+  type: list
+{% endconfiguration %}
+
 ### Cover open/close
 
 Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
@@ -449,4 +478,223 @@ operation_modes:
   required: true
   description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand` and `off`.
   type: list
+{% endconfiguration %}
+
+### Button
+
+A button to press a [button](/integrations/button) or run scripts or automations.
+
+```yaml
+features:
+  - type: "button"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`button`"
+  type: string
+{% endconfiguration %}
+
+### Toggle
+
+A toggle to turn on and off a [switch](/integrations/switch) or a [light](/integrations/light) or an [automation](/integrations/automation).
+
+```yaml
+features:
+  - type: "toggle"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`toggle`"
+  type: string
+{% endconfiguration %}
+
+### Datetime Input
+
+Show an input to edit the state of an [input_datetime](/integrations/input_datetime) entity.
+
+```yaml
+features:
+  - type: "datetime"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`datetime`"
+  type: string
+{% endconfiguration %}
+
+### Text Input
+
+Show an input to edit the state of an [text](/integrations/text) entity.
+
+```yaml
+features:
+  - type: "text"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`text`"
+  type: string
+{% endconfiguration %}
+
+### Update
+
+A widget that shows skip and install buttons for an [update](/integrations/update) entity.
+
+```yaml
+features:
+  - type: "update"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`update`"
+  type: string
+{% endconfiguration %}
+
+### Select options
+
+A widget that shows a dropdown or buttons for a [select](/integrations/select) entity.
+
+```yaml
+features:
+  - type: "select-options"
+    style: dropdown
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`select-options`"
+  type: string
+style:
+  required: false
+  description: "`buttons` or `dropdown`"
+  type: string
+  default: dropdown
+{% endconfiguration %}
+
+### Number Input
+
+A widget that shows a slider or buttons for a [input_number](/integrations/input_number) entity.
+
+```yaml
+features:
+  - type: "number"
+    style: buttons
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`number`"
+  type: string
+style:
+  required: false
+  description: "`slider` or `buttons`"
+  type: string
+  default: slider
+{% endconfiguration %}
+
+### Media Volume
+
+A widget that shows a slider or buttons for a [media_player](/integrations/media_player) entity's volume.
+
+```yaml
+features:
+  - type: "media-volume"
+    style: buttons
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`media-volume`"
+  type: string
+style:
+  required: false
+  description: "`slider` or `buttons`"
+  type: string
+  default: slider
+{% endconfiguration %}
+
+### Media Controls
+
+A widget that shows buttons to control a [media_player](/integrations/media_player) entity.
+
+```yaml
+features:
+  - type: "media-controls"
+    use_extended_controls: true
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`media-controls`"
+  type: string
+use_extended_controls:
+  required: true
+  description: "Whether to show extended controls"
+  type: boolean
+{% endconfiguration %}
+
+### Entity
+
+A widget that shows/controls the state of another entity (useful for putting a ceiling fan control in your climate tile).
+
+```yaml
+features:
+  - type: "entity"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`entity`"
+  type: string
+entity:
+  required: true
+  description: Entity ID.
+  type: string
+name:
+  required: false
+  description: Overwrites the name of entity.
+  type: string
+icon:
+  required: false
+  description: Overwrites the icon of entity.
+  type: string
+color:
+  required: false
+  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-color-tokens) or hex color code.
+  type: string
+  default: state
+show_entity_picture:
+  required: false
+  description: If your entity has a picture, it will replace the icon.
+  type: boolean
+  default: false
+hide_state:
+  required: false
+  description: Hide the entity state.
+  type: boolean
+  default: false
+state_content:
+  required: false
+  description: >
+    Content to display for the state. Can be `state`, `last-changed`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
+  type: [string, list]
+icon_tap_action:
+  required: false
+  description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the "more-info" dialog.
+  type: map
 {% endconfiguration %}
