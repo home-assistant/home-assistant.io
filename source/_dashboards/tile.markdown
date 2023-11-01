@@ -645,6 +645,7 @@ use_extended_controls:
   required: true
   description: "Whether to show extended controls"
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Entity
