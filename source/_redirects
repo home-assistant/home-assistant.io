@@ -248,7 +248,7 @@ layout: null
 /docs/assist/apple/ /voice_control/apple/
 /docs/assist/builtin_sentences/ /voice_control/builtin_sentences/
 /docs/assist/custom_sentences/ /voice_control/custom_sentences/
-/docs/assist/using_voice_assistants_overview/ /voice_control/using_voice_assistants_overview/
+/docs/assist/using_voice_assistants_overview/ /voice_control/
 /docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
 /docs/assist/troubleshooting/ /voice_control/troubleshooting/

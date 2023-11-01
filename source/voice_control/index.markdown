@@ -6,6 +6,8 @@ title: Assist - Talking to Home Assistant
 
 Assist is our feature to allow you to control Home Assistant using natural language. It is built on top of an open voice foundation and powered by knowledge provided by our community.
 
+<lite-youtube videoid="Eyoqvw8qLLc" videotitle="Happy HAlloween"></lite-youtube>
+
 ## Supported platforms
 
 Assist is available to use on most platforms that can interface with Home Assistant. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>:
