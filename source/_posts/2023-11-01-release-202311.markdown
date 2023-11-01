@@ -420,7 +420,7 @@ other news about building an Open Home; straight into your inbox.
 
 In the unlikely event that you are using the demo integration, you will need to
 ensure that your YAML configuration for demo integration is only enabled via
-the integration domain key, and not via the entity platform configration. The
+the integration domain key and not via the entity platform configuration. The
 latter has been removed.
 
 ```yaml
@@ -464,7 +464,9 @@ you will need to update them to use the new values.
 
 {% details "OpenWeatherMap" %}
 
-The OpenWeatherMap rain and snow sensors, now have a different unit of measurement (`mm/h` instead of `mm`) and a different device class (`precipitation_itensity` instead of `precipitation`).
+The OpenWeatherMap rain and snow sensors now have a different unit
+of measurement (`mm/h` instead of `mm`) and a different device
+class (`precipitation_itensity` instead of `precipitation`).
 
 ([@MatteoGheza] - [#101485]) ([documentation](/integrations/openweathermap))
 
@@ -475,7 +477,7 @@ The OpenWeatherMap rain and snow sensors, now have a different unit of measureme
 
 {% details "Transmission" %}
 
-The option to set a custom polling interval has been removed. If you were using
+The option to set a custom polling interval has been removed. If are using
 custom interval and really need it, you can use the `homeassistant.update_entity`
 in an automation to poll at your custom pace. See our documentation on
 [defining a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval)
@@ -513,8 +515,8 @@ For more information, see [this official post](https://developer.vasttrafik.se/n
 
 {% details "WeatherFlow" %}
 
-The VOC device class has been removed from the air density sensor and
-its unit of measurement has been changed to to kg/m³.
+The VOC device class has been removed from the air density sensor, and
+its unit of measurement has been changed to kg/m³.
 
 ([@natekspencer] - [#101777]) ([documentation](/integrations/weatherflow))
 
@@ -525,7 +527,7 @@ its unit of measurement has been changed to to kg/m³.
 
 {% details "Withings" %}
 
-The Withings sleep sensors will now show only the data of last night instead
+The Withings sleep sensors will now show only the data from last night instead
 of an aggregation of the data since the day before noon.
 
 ([@joostlek] - [#101993]) ([documentation](/integrations/withings))
@@ -557,11 +559,11 @@ Improved support for King of Fans (Hampton Bay) breaks previous workarounds
 such as template fans ([example](https://community.home-assistant.io/t/king-of-fans-mr101z-missing-max-setting/267131/45))
 or automations/scripts that set fan speed percentage or preset.
 
-If you have an automation that sets speed it will now be at one speed higher.
-If you set speed at 100% before it would actually set the speed at 75% but now
-it will be 100%. If you have an automation that sets the preset to 'on' to get
-100% speed, now the request will fail and you will have to change the speed
-to 100% instead.
+If you have an automation that sets speed, it will now be at one speed higher.
+If you set the speed at 100% before, it would actually set the speed at 75%,
+but now it will be 100%. If you have an automation that sets the preset to
+'on' to get 100% speed, now the request will fail, and you will have to
+change the speed to 100% instead.
 
 ([@tronikos] - [#101859]) ([documentation](/integrations/zha))
 
@@ -588,7 +590,14 @@ You must use zwave-js-server `1.33.0` or greater (schema `33`).
 
 ---
 
-Basic Command Class values were previously exposed as `number` entities and were disabled by default. They are now exposed as `light` entities and are enabled by default. If you have scripts or automations that use any of these `number` entities, they should be updated to use the new `light` entities instead. Any previously created `number` entities for this Command Class can safely be deleted once you have validated that your scripts and automations are up to date.
+Basic Command Class values were previously exposed as `number` entities and
+were disabled by default. They are now exposed as `light` entities
+and are enabled by default.
+
+If you have scripts or automations that use any of these `number` entities,
+they should be updated to use the new `light` entities instead. Any previously
+created `number` entities for this Command Class can safely be deleted once
+you have validated that your scripts and automations are up to date.
 
 ([@raman325] - [#101438]) ([documentation](/integrations/zwave_js))
 
@@ -601,6 +610,7 @@ If you are a custom integration developer and want to learn about breaking
 changes and new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
+- [Country selector](https://developers.home-assistant.io/blog/2023/10/12/country_selector/)
 - [Removal of deprecated unit conversion utilities](https://developers.home-assistant.io/blog/2023/10/03/conversion-functions-cleanup/)
 
 [devblog]: https://developers.home-assistant.io/blog/
@@ -616,7 +626,7 @@ The following integrations are also no longer available as of this release:
   in the [IMAP] integration. Users have been assisted to migrate to the new
   integration in the past months.
   ([@jbouwh] - [#101233])
-- **Shiftr** has been removed. Shiftr.io closed their platform and is no longer
+- **Shiftr** has been removed. Shiftr.io closed its platform and is no longer
   available.
   ([@stefanroelofs] - [#102224])
 
