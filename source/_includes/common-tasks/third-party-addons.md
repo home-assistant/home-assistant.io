@@ -6,12 +6,6 @@ Home Assistant allows anyone to create add-on repositories to share their add-on
 https://github.com/home-assistant/hassio-addons-example
 ```
 
-You can also add a development branch from a given repository by appending its name following a hashtag.
-
-```text
-https://github.com/home-assistant/hassio-addons-example#dev
-```
-
 <div class='note warning'>
 Home Assistant cannot guarantee the quality or security of third-party add-ons. Use at your own risk.
 </div>
