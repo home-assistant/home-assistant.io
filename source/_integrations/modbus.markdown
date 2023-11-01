@@ -1613,10 +1613,4 @@ and restart Home Assistant, reproduce the problem, and include the log in the is
 
 # Building on top of modbus
 
- - [modbus Binary Sensor](#configuring-platform-binary-sensor)
- - [modbus Climate](#configuring-platform-climate)
- - [modbus Cover](#configuring-platform-cover)
- - [modbus Fan](#configuring-platform-fan)
- - [modbus Light](#configuring-platform-light)
- - [modbus Sensor](#configuring-platform-sensor)
- - [modbus Switch](#configuring-platform-switch)
+The only recommended way is to inherit the entities needed.
