@@ -157,11 +157,22 @@ order you want them to appear.
 
 ## Matter 1.2 is here!
 
-The Connectivity Standards Alliance has launched [version 1.2 of the Matter specification](https://csa-iot.org/newsroom/matter-1-2-arrives-with-nine-new-device-types-improvements-across-the-board/), together with a new version of the Official Matter SDK, which is not only prepared for new device types but also contains all kinds of smaller stability- and bug fixes.
+The Connectivity Standards Alliance has launched
+[version 1.2 of the Matter specification](https://csa-iot.org/newsroom/matter-1-2-arrives-with-nine-new-device-types-improvements-across-the-board/),
+together with a new version of the Official Matter SDK, which is not only
+prepared for new device types but also contains all kinds of smaller
+stability- and bug fixes.
 
-Although you can not yet benefit of any of the new device types yet until actual devices are released, we have bumped our Matter implementation to version 1.2 to benefit from the stability improvements and to be prepared for the new device types.
+<center><img src='/images/supported_brands/matter.png' alt='Matter logo' class='no-shadow'></center><br>
 
-Interesting fact: Did you know that Home Assistant is used as a test platform by many device manufacturers? This potentially means that devices will be implemented and tested on the Home Assistant Matter controller before others; cool!
+Although you can only benefit from the new device types once actual devices are
+released, we have upgraded our Matter implementation to version 1.2 to benefit
+from the stability improvements and to be prepared for the new device types.
+
+**Interesting fact**: Did you know that Home Assistant is used as a test
+platform by many device manufacturers? This potentially means that devices will
+be implemented and tested on the Home Assistant Matter controller before
+others; cool!
 
 ## Custom date ranges in the energy dashboard!
 
