@@ -298,50 +298,49 @@ drop-down menu.
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- The nice little two-pane view you see in the todo list, has also been
+- The [HomeKit Bridge] now handles changes in the capabilities of devices
+  and the removal/addition of devices automatically! Thanks, [@bdraco]!
+- The lovely new two-pane view you see in the to-do lists has also been
   added to the calendar dashboard. Nice [@bramkragten]!
-- [ZHA] will now raise a repair issue, if it found out the network settings
-  have changed externally. This helps you getting up and running again in
+- [ZHA] will now raise a repair issue if it finds out the network settings
+  have changed externally. This helps you get up and running again in
   no time. Thanks, [@puddly]!
-- The [Fitbit] integration got a complete overhaul, can be set up via the UI
+- [@gjohansson-ST] added a brand new [country selector] that can be used
+  in your Blueprints and script fields. Nice!
+- The [Withings] integration has reached the platinum quality mark. Thanks,
+  [@joostlek]! Job well done!
+- We now have better connection management for the [IKEA IDÅSEN desk].
+  Nice [@abmantis]!
+- The [Fitbit] integration got a complete overhaul, can be set up via the UI,
   and now supports Fitbit nutrition sensors. Thanks, [@allenporter]!
+- The [SwitchBot Cloud] integration now supports climate devices.
+  Thanks, [@SeraphicRav]!
 - [@rappenze] added event entities support to the [Fibaro] integration. Cool!
-- The [HomeKit Bridge] now handles changes in capabilities of devices and the
-  removal/addition of devices automatically! Thanks, [@bdraco]!
+- The [System Bridge] integration now supports media players. Thanks, [@timmo001]!
+- [@raman325] extended our template engine with the ability to
+  [check the type of a variable]. Super helpful for complex templates! Thanks!
 
-[@bdraco]: https://github.com/bdraco
-[HomeKit Bridge]: /integrations/homekit
-[@puddly]: https://github.com/puddly
-[ZHA]: /integrations/zha
-[Fibaro]: /integrations/fibaro
-[@rappenze]: https://github.com/rappenze
-[Fitbit]: /integrations/fitbit
+[@abmantis]: https://github.com/abmantis
 [@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
 [@bramkragten]: https://github.com/bramkragten
-
-
-Candidates to process:
-
-- Implement Airzone Cloud Aidoo climate support ([@Noltari] - [#101011])
-- Add media player to System Bridge integration ([@timmo001] - [#97532])
-- Add Queue sensor to Radarr ([@tkdrob] - [#79723])
-- Add support for Minecraft Server Bedrock Edition ([@elmurato] - [#100925])
-- Add rising sensor to sun ([@sheldonip] - [#93276])
-- Add brake pads condition based service attributes for BMW ([@rikroe] - [#101847])
-- Promote Withings to Platinum quality ([@joostlek] - [#102069])
-- Add sensors for myStrom plugs ([@MadMonkey87] - [#97024])
-- Add switch platform to Comelit SmartHome ([@chemelli74] - [#102233])
-- Add better connection management for Idasen Desk ([@abmantis] - [#102135])
-- Add more diagnostic sensors to iRobot ([@Xitee1] - [#84995])
-- Add energy price number entities to Wallbox ([@hesselonline] - [#101840])
-- Add sensor platform to Comelit SmartHome ([@chemelli74] - [#102465])
-- Add serial_number to device registry entries ([@emontnemery] - [#102334])
-- Add activity sensors to Withings ([@joostlek] - [#102501])
-- Add Nephelometry sensor to waqi ([@joostlek] - [#102298])
-- Only add Withings sleep sensors when we have data ([@joostlek] - [#102578])
-- Support Lidl christmas light effects in deCONZ ([@Kane610] - [#102731])
-- Add cleaning binary sensor to Roborock ([@Lash-L] - [#102748])
-- Add Climate to switchbot cloud integration ([@SeraphicRav] - [#101660])
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@puddly]: https://github.com/puddly
+[@raman325]: https://github.com/raman325
+[@rappenze]: https://github.com/rappenze
+[@SeraphicRav]: https://github.com/SeraphicRav
+[@timmo001]: https://github.com/timmo001
+[check the type of a variable]: /docs/configuration/templating/#complex-type-checking
+[country selector]: /docs/blueprint/selectors/#country-selector
+[Fibaro]: /integrations/fibaro
+[Fitbit]: /integrations/fitbit
+[HomeKit Bridge]: /integrations/homekit
+[IKEA IDÅSEN desk]: /integrations/idasen_desk
+[SwitchBot Cloud]: /integrations/switchbot_cloud
+[System Bridge]: /integrations/system_bridge
+[Withings]: /integrations/withings
+[ZHA]: /integrations/zha
 
 ## New integrations
 
