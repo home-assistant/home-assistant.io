@@ -100,10 +100,10 @@ The following sensors are available in the library:
 | Energy Yield Month      | kWh  | Energy yield of the current month. |
 | Energy Yield Year       | kWh  | Energy yield of the current year. |
 | Energy Yield Total      | kWh  | Energy yield total. |
-| Energy Discharge to Grid Day    | kWh  | Energy discharged to the Grid of the current day. |
-| Energy Discharge to Grid Month  | kWh  | Energy discharged to the Grid of the current month. |
-| Energy Discharge to Grid Year   | kWh  | Energy discharged to the Grid of the current year. |
-| Energy Discharge to Grid Total  | kWh  | Energy discharged to the Grid total. |
+| Energy Discharge to Grid Day    | kWh  | Energy discharged from battery to the Grid of the current day. |
+| Energy Discharge to Grid Month  | kWh  | Energy discharged from battery to the Grid of the current month. |
+| Energy Discharge to Grid Year   | kWh  | Energy discharged from battery to the Grid of the current year. |
+| Energy Discharge to Grid Total  | kWh  | Energy discharged from battery to the Grid total. |
 | Battery Charge from Grid Day    | kWh  | Energy charged to the battery from the Grid of the current day. |
 | Battery Charge from Grid Month  | kWh  | Energy charged to the battery from the Grid of the current month. |
 | Battery Charge from Grid Year   | kWh  | Energy charged to the battery from the Grid of the current year. |
@@ -112,6 +112,10 @@ The following sensors are available in the library:
 | Battery Charge from PV Month  | kWh  | Energy charged to the battery from the PV of the current month. |
 | Battery Charge from PV Year   | kWh  | Energy charged to the battery from the PV of the current year. |
 | Battery Charge from PV Total  | kWh  | Energy charged to the battery from the PV total. |
+
+<div class='note'>
+The inverter does not provide any data for the energy which is going to the grid directly.
+</div>
 
 ### Settings Sensors
 
