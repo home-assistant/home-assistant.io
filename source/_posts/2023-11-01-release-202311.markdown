@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2023.11 To-do: Release title"
+title: "2023.11 To-do: Add release title"
 description: "Introducing a brand new to-do entity type and use it locally with Todoist or Google Tasks. Matter 1.2 is here! New conditions for the conditional card to tailor your dashboards, select custom date ranges in the energy dashboard, restart in safe mode to help troubleshoot, set up Improv Wi-Fi devices directly from Home Assistant, and more!"
 date: 2023-11-01 00:00:00
 date_formatted: "November 1, 2023"
