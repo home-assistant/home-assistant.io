@@ -54,8 +54,6 @@ Enjoy the release!
 - [Restarting into safe mode](#restarting-into-safe-mode)
 - [Set up Improv devices directly from Home Assistant!](#set-up-improv-devices-directly-from-home-assistant)
 - [Configuring script fields for your script in the UI](#configuring-script-fields-for-your-script-in-the-ui)
-- [Country selector](#country-selector)
-- [Type checking in your templates](#type-checking-in-your-templates)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -294,42 +292,6 @@ in the top right corner of the editor and selecting **Add fields** from the
 drop-down menu.
 
 [@karwosts]: https://github.com/karwosts
-
-## Country selector
-
-A new selector is available, that allows you to select a country. This is
-selector can be used in your Blueprints, or, in the new script field editor
-mentioned above. Thanks, [@gjohansson-ST]!
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/62932417/273396112-687c0d44-be26-4ce9-ac68-89495bfa61a7.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
-
-## Type checking in your templates
-
-Last, but not least, [@raman325] extended our template engine with the ability
-to check the type of a variable. This allows you to do things like:
-
-{% raw %}
-
-```yaml
-{% if my_var is list %}
-  # Do something
-{% endif %}
-```
-
-and
-
-```yaml
-{% if my_var is datetime %}
-  # Do something
-{% endif %}
-```
-
-{% endraw %}
-
-Read more about [complex type checking in our documentation](/docs/configuration/templating/#complex-type-checking).
 
 ## Other noteworthy changes
 
