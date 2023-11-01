@@ -47,7 +47,7 @@ Enjoy the release!
 - [There is a lot to-do!](#there-is-a-lot-to-do)
 - [Shopping lists are now to-do's too!](#shopping-lists-are-now-to-dos-too)
 - [Integrations providing your to-dos](#integrations-providing-your-to-dos)
-- [Custom state content for Tile cards](#custom-state-content-for-tile-cards)
+- [Customize the information shown in your Tile cards](#customize-the-information-shown-in-your-tile-cards)
 - [Matter 1.2 is here!](#matter-12-is-here)
 - [Custom date ranges in the energy dashboard!](#custom-date-ranges-in-the-energy-dashboard)
 - [New conditions for the conditional card](#new-conditions-for-the-conditional-card)
@@ -130,17 +130,20 @@ above all, provides you with the power of Home Assistant to automate on them.
 [Todoist]: /integrations/todoist
 [Google Tasks]: /integrations/google_tasks
 
-## Custom state content for Tile cards
+## Customize the information shown in your Tile cards
 
-Tile card now display the state of the entity in the card. But what if you want
-to display something else? [@piitaya] to the rescue! 
+Tile card now displays the entity's state information on the card.
+But what if you want to display something else? [@piitaya] to the rescue!
 
-You can now customize it to your liking. Show the state of the entity, any of its
+You can now customize it to your liking. Show the entity's state, any of its
 attributes, or a combination of both!
 
-<img class="no-shadow" src='/images/blog/2023-11/customize-tile-card-state-content.png' alt='Screenshot showing the configuration dialog of the tile card, which now allows you to set custom state contents.'>
+<p class='img'>
+<img src='/images/blog/2023-11/customize-tile-card-state-content.png'></a>
+You can add any attribute of the entity to the state content of the tile card.
+</p>
 
-This not only works for the climate entities, but for all entities! You could,
+This not only works for the climate entities but for all entities! You could,
 for example, add the brightness % of a light or the battery level of a sensor.
 Simply add the attribute to the state content and drag and drop them in the
 order you want them to appear.
