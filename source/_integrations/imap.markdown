@@ -119,7 +119,7 @@ search:
 folder:
   description: The IMAP folder configuration
 text:
-  description: The email body `text` of the message. By default, only the first 2048 bytes of the body text will be available, the rest will be clipped off. You can increase the maximum text size of the body, but this is not advised and will never guarantee that the whole message text is available. A better practice is using a custom event data template (advanced settings), that can be used to parse the whole message, not limited by size. The rendered result will then be added as attribute `custom` to the event data to be used for automations.
+  description: The email body `text` of the message. By default, only the first 2048 bytes of the body text will be available, the rest will be clipped off. You can increase the maximum text size of the body, but this is not advised and will never guarantee that the whole message text is available. A better practice is using a custom event data template (advanced settings) that can be used to parse the whole message, not limited by size. The rendered result will then be added as attribute `custom` to the event data to be used for automations.
 sender:
   description: The `sender` of the message
 subject:
