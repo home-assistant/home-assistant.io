@@ -54,7 +54,7 @@ Enjoy the (beta) release!
 
 - [There is a lot todo!](#there-is-a-lot-todo)
 - [Shopping lists are now TODOs too!](#shopping-lists-are-now-todos-too)
-- [Integrations providings your todos](#integrations-providings-your-todos)
+- [Integrations providing your todos](#integrations-providing-your-todos)
 - [Custom state content for Tile cards](#custom-state-content-for-tile-cards)
 - [Matter 1.2 is here!](#matter-12-is-here)
 - [Custom date ranges in the energy dashboard!](#custom-date-ranges-in-the-energy-dashboard)
