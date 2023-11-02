@@ -6,6 +6,7 @@ ha_category:
   - System Monitor
 ha_release: 0.88
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@rohankapoorcom'
   - '@erwindouna'
