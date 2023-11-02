@@ -9,6 +9,8 @@ ha_codeowners:
   - '@emontnemery'
 ha_domain: improv_ble
 ha_integration_type: device
+ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
 The Improv via BLE integration allows connecting devices implementing Improv via BLE to Wi-Fi.
@@ -22,4 +24,3 @@ Discovered devices will show up in the discovered section on the integrations pa
 ## Prerequisites
 
 The [Bluetooth](/integrations/bluetooth) integration must be enabled and functional.
-

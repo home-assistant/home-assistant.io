@@ -5,17 +5,18 @@ ha_category:
   - Health
   - Sensor
 ha_release: 0.99
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - '@vangorra'
   - '@joostlek'
 ha_domain: withings
 ha_platforms:
   - binary_sensor
-  - sensor
   - calendar
+  - diagnostics
+  - sensor
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 The Withings integration consumes data from various health products produced by [Withings](https://www.withings.com).
@@ -68,4 +69,3 @@ For example, measurement sensors like weight only work when data has been regist
 Sleep sensors are only created if the integration can find sleep data for you within the last day.
 
 Workout calendar and the workout and activity sensors show if the latest available data point is no older than 14 days.
-
