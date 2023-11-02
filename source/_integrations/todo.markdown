@@ -86,7 +86,7 @@ Removing a To-do Item. A to-do list `target` is selected with a [Target Selector
 This is a full example of a service call that deletes a to-do Item with the specified name.
 
 ```yaml
-service: todo.delete_item
+service: todo.remove_item
 target:
   entity_id: todo.personal_tasks
 data:
