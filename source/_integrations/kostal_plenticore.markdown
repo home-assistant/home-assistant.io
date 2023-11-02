@@ -140,7 +140,7 @@ template:
 The `sensor.scb_energy_yield_total` entity contains the total energy. This includes
 both the energy delivered to the home as well as the energy from the battery to the
 home. Think of it like all energy that leaves the inverter on the AC side.
-Hence, to calculate the amount of energy flowing into the grid, you have to subtract the energy from the battery and pv to the
+Hence, to calculate the amount of energy flowing into the grid, you have to subtract the energy from the battery and PV to the
 home.
 
 {% endraw %}
