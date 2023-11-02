@@ -3,7 +3,7 @@ title: TvOverlay
 description: TvOverlay Notifications for Android TV
 ha_category:
   - Notifications
-ha_release: 2023.11
+ha_release: 2023.12
 ha_config_flow: true
 ha_domain: tvoverlay
 ha_iot_class: Local Push
