@@ -114,12 +114,12 @@ The following sensors are available in the library:
 | Battery Charge from PV Total  | kWh  | Energy charged to the battery from the PV total. |
 
 <div class='note'>
-The inverter does not provide any data for the energy which is going to the grid directly.
+The inverter does not provide any data on the energy that is going to the grid directly.
 </div>
 
-#### Common Template Sensors
+#### Common template sensors
 
-##### Energy to Grid Total
+##### Energy to grid total
 
 {% raw %}
 
@@ -137,11 +137,11 @@ template:
         {{ yield - pvToHome - batteryToHome }}
 ```
 
-The `sensor.scb_energy_yield_total` entity contains the total energy including
-the energy delivered to the home and also the energy from the battery to the
-home (Think of it like all energy that leaves the inverter on the AC side).
-Hence to get the energy to the grid the energy from the battery and pv to the
-home have to be subtracted.
+The `sensor.scb_energy_yield_total` entity contains the total energy. This includes
+both the energy delivered to the home as well as the energy from the battery to the
+home. Think of it like all energy that leaves the inverter on the AC side.
+Hence, to calculate the amount of energy flowing into the grid, you have to subtract the energy from the battery and pv to the
+home.
 
 {% endraw %}
 
