@@ -37,13 +37,13 @@ services provided by some To-do List entities are described below or you can rea
 
 ### Service `todo.list_items`
 
-Get To-do items from a To-do list. A To-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+Get to-do items from a to-do list. A to-do list `target` is selected with a [target selector](/docs/blueprint/selectors/#target-selector). The `data` payload supports the following fields:
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `status` | yes | Only return To-do items with this status. |  `needs_action`, `completed`
+| `status` | yes | Only return to-do items with this status. |  `needs_action`, `completed`
 
-This is a full example that returns all To-do items with any status:
+This is a full example that returns all to-do items with any status:
 
 ```yaml
 service: todo.list_items
