@@ -1,0 +1,517 @@
+---
+layout: post
+title: "2023.12: Beta release notes"
+description: "The beta release notes for Home Assistant 2023.12"
+date: 2023-11-29 00:00:00
+date_formatted: "December 6, 2023"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2023-12/social.png
+---
+
+<a href='/integrations/#version/2023.12'><img src='/images/blog/2023-12/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+These are the beta release notes for Home Assistant Core 2023.12 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/UI/dashboards:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2023.12! 🎉
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+<!--more-->
+
+- [Login page has been re-designed](#login-page-has-been-re-designed)
+- [New thermostat card](#new-thermostat-card)
+- [History dashboard showing long-term statistics](#history-dashboard-showing-long-term-statistics)
+- [Number feature for tile cards](#number-feature-for-tile-cards)
+- [Options for the default dashboard](#options-for-the-default-dashboard)
+- [More to-do!](#more-to-do)
+- [Re-import blueprints](#re-import-blueprints)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+<!--
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=#)
+6 December 2023, at 12:00 PST / 21:00 CET!
+-->
+
+<lite-youtube videoid="#" videotitle="Home Assistant 2023.12 Release Party"></lite-youtube>
+
+## Login page has been re-designed
+
+The login page of Home Assistant has been re-designed to be more modern and
+match [recent redesign of the Home Assistant onboarding](/blog/2023/09/06/release-20239/#onboarding).
+
+When Home Assistant detects you are on your local home network, you will be
+greeted by this lovely new login page.
+
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5662298/285754001-5c918c38-8570-4a4c-a478-12cbfbd6dedc.png' alt='Temporary screenshot that needs to be replaced.'>
+
+Just click on your user profile, and it will request your password, just like
+before. Of course, when logging in from outside of your home network,
+we can't do this as that would give away some of your privacy.
+
+When you are outside of your home network, the login page will look like this:
+
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5662298/285753904-4a4aca42-104f-4ebd-8170-034dd2a8cfc8.png' alt='Temporary screenshot that needs to be replaced.'>
+
+## New thermostat card
+
+[Home Assistant 2023.9 introduced](/blog/2023/09/06/release-20239/#new-climate-humidifier-and-water-heater-entity-dialogs)
+a beautiful new entity dialog for thermostat entities. Many have been asking
+for a similar design for the thermostat card as well. Well, here it is!
+
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/284530915-91331dd1-1bff-4dcf-8d68-6aefa5608d2a.png' alt='Temporary screenshot that needs to be replaced.'>
+
+Maybe you have noticed, but in the screenshot above, features of the tile card
+are visisble! The buttons for HVAC mode and the presets are now also available
+for the thermostat card. You can configure the card to show them or not, by
+default, they are hidden.
+
+Oh, the same design has been applied to the humifier and water heater cards
+of course 😎.
+
+## History dashboard showing long-term statistics
+
+The history dashboard has gotten some love from [@karwosts] this release, he
+added a big improvement to all the graph shown there.
+
+Previously, the graphs would only show the state history, which is limited
+to a few days, until the data is removed. This is not always very useful,
+for example, when you want to look back further in time.
+
+[@karwosts] came up with a solution for this, and the history dashboard now
+combines the state history with the recorded long-term statistics, to provide
+you insights into the past.
+
+<img class="no-shadow" src='https://user-images.githubusercontent.com/32912880/275918628-dea821b9-5449-4777-8f84-0524eecb0ff9.gif' alt='Temporary screenshot that needs to be replaced.'>
+
+[@karwosts]: https://github.com/karwosts
+
+## Number feature for tile cards
+
+The tile card is a very powerful card, and [@JosephAbbey] is even extending it
+this release!
+
+The tile card now has a "number" new feature you can use, that works number
+entities and helpers. This allows you to control the number entity from the
+tile card directly, and provides the choice to use it as a slider or as an
+input with up/down buttons.
+
+<img class="no-shadow" src='https://user-images.githubusercontent.com/66320873/281064552-05269372-241b-453c-80e8-4706bbf7582d.png' alt='Temporary screenshot that needs to be replaced.'>
+
+[@JosephAbbey]: https://github.com/JosephAbbey
+
+## Options for the default dashboard
+
+The default dashboard Home Assitant generates for you, now has options that
+will allow you to change the behavior of it. You can now configure the
+default dashboard to hide certain areas, hide entities that don't belong
+to an area and the option to hide the energy summary card.
+
+<img class="no-shadow" src='/images/blog/2023-12/default-dashboard-options.png' alt='Temporary screenshot that needs to be replaced.'>
+
+This is a first step in making the dashboards configurable. When adding a
+new dashboard, we will now also give you to option to start with an empty
+one, or create a new default dashboard.
+
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/282859942-d29c0716-d496-49be-bbfe-493e9215efcb.png' alt='Temporary screenshot that needs to be replaced.'>
+
+## More to-do!
+
+The first iteration for support for to-do lists was added in the [last release](/blog/2023/11/01/release-202311/#there-is-a-lot-to-do),
+and there has been continued work on this feature to expand it further.
+
+First of all, there are two new services available:
+
+- A new service to list all items on a to-do list (`todo.get_items`).
+- A new service to remove completed items from a to-do list (`todo.remove_completed_items`).
+
+Also, when viewing a to-do list from the Home Assistant interface, you can
+now copy/paste or bookmark the URL, which will always bring you back to the
+same to-do list.
+
+Additionally, the to-do list now supports due dates and descriptions. However,
+this is only available manually using services, there is no UI support for it
+yet, however, that is being worked on.
+
+Lastly, integration started to add support for the to-do list feature. For example,
+the [CalDAV] integration now supports adding to-do items to your CalDAV server, and
+with [Picnic] and [OurGroceries] you can now manage your shopping list. In case
+of Picnic, it will even look up the product you add to your shopping list and
+add the product in your shopping cart.
+
+[CalDAV]: /integrations/caldav
+[Picnic]: /integrations/picnic
+[OurGroceries]: /integrations/ourgroceries
+
+## Re-import blueprints
+
+If you use Blueprints, [created by our awesome community](https://community.home-assistant.io/c/blueprints/38),
+you might have noticed that when you import a blueprint, it will not update
+when the blueprint is updated. And the only option you had was to manually
+adjust the YAML of the blueprint to make it match the latest version published
+by the author.
+
+As of this release, we want to provide a small improvement to this. Imported
+blueprints will now show a button to re-import the blueprint from the source
+you imported it from. This will overwrite the blueprint in your Home Assistant
+instance with the latest version.
+
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/286546997-aae00d21-f8c6-448f-ae88-7bd3d3d0c0aa.png' alt='Temporary screenshot that needs to be replaced.'>
+
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/285043706-3a32fcb0-fbac-4f35-83f9-825c922c7b11.png' alt='Temporary screenshot that needs to be replaced.'>
+
+**Please note**: This feature will overwrite your existing Blueprint with the latest
+version published by the author. If you have made changes to the blueprint, or
+the newer version of the blueprint is not compatible with your current setup,
+your automations or script might need manual adjustments.
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- We have a brand new [trigger selector] for you to use in your Blueprints
+  and scripts. Thanks, [@piitaya]!
+- That is not all for selectors, [@schelv] added support for Kelvin to the
+  [color temperature selector]. Nice!
+- If you use the [IKEA IDÅSEN] desk, you will now have an height sensor!
+  Thanks [@abmantis]!
+- The [ESPHome] integration had many performance improvements, making it faster
+  and more reliable. Thanks [@bdraco]!
+- [@Lash-L] added support for displaying maps from your [Roborock] vacuums!
+  Awesome!
+- Services with response now support handling responses when multiple entities
+  are targeted. Nice! Thanks [@eifinger]!
+- The [ViCare] received tons of love from [@CFenner], keep up the good work!
+- The media browser now has support for toggling between grid and list view.
+  Thanks [@karwosts]!
+- [@emontnemery] worked hard to improve all error messages that originate from
+  manual YAML configuration. The messages should now be more detailed, more
+  readable, and point out correctly which file and file line the error is
+  located at. Awesome!
+- [@karwosts] created a UI when you want to add selectors to your script field!
+  Very nicely done!
+- Error shown by Home Assistant, can now be translated! While tons of places,
+  still need to adopt this, it is a big and user-friendly step forward!
+  Outstanding job [@jbouwh]!
+
+[@abmantis]: https://github.com/abmantis
+[@bdraco]: https://github.com/bdraco
+[@CFenner]: https://github.com/CFenner
+[@eifinger]: https://github.com/eifinger
+[@emonstnemery]: https://github.com/emontnemery
+[@jbouwh]: https://github.com/jbouwh
+[@Lash-L]: https://github.com/Lash-L
+[@piitaya]: https://github.com/piitaya
+[@schelv]: https://github.com/schelv 
+[color temperature selector]: /docs/blueprint/selectors/#color-temperature-selector
+[ESPHome]: /integrations/esphome
+[IKEA IDÅSEN]: /integrations/idasen_desk
+[Roborock]: /integrations/roborock
+[trigger selector]: /docs/blueprint/selectors/#trigger-selector
+[ViCare]: /integrations/vicare
+
+## New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Komfovent]**, added by [@ProstoSanja]<br />
+  Integrate and control your Komfovent ventilation unit.
+- **[Linear Garage Door]**, added by [@IceBotYT]<br />
+  Lets you control and automate your Linear garage doors.
+- **[MyPermobil]**, added by [@IsakNyberg]<br />
+  Provides various sensors for your Permobil wheelchair.
+- **[OurGroceries]**, added by [@OnFreund]<br />
+  Integrate with the OurGroceries shopping lists.
+- **[V2C]**, added by [@dgomes]<br />
+  Monitoring and control of a local V2C Trydan EVSE.
+- **[Devialet]**, added by [@fwestenberg]<br />
+  Control your wireless Devialet speakers.
+
+[@dgomes]: https://github.com/dgomes
+[@fwestenberg]: https://github.com/fwestenberg
+[@IceBotYT]: https://github.com/IceBotYT
+[@IsakNyberg]: https://github.com/IsakNyberg
+[@OnFreund]: https://github.com/OnFreund
+[@ProstoSanja]: https://github.com/ProstoSanja
+[Devialet]: /integrations/devialet
+[dgomes]: /integrations/v2c
+[Komfovent]: /integrations/komfovent
+[Linear Garage Door]: /integrations/linear_garage_door
+[MyPermobil]: /integrations/mypermobil
+[OurGroceries]: /integrations/ourgroceries
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[CalDAV]**, done by [@allenporter]
+- **[Fast.com]**, done by [@erwindouna]
+- **[Ping]**, done by [@jpbede]
+
+[@allenporter]: https://github.com/allenporter
+[@erwindouna]: https://github.com/erwindouna
+[@jpbede]: https://github.com/jpbede
+[CalDAV]: /integrations/caldav
+[Fast.com]: /integrations/fastdotcom
+[Ping]: /integrations/ping
+[V2C]: /integrations/v2c
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+{% details "Calendar" %}
+
+`calendar.list_events` uses an outdated response data format and is now
+deprecated, pending for removal in Home Assistant 2024.6.
+
+Please use `calendar.get_events`, which supports multiple entities, instead.
+
+([@eifinger] - [#102481]) ([documentation](/integrations/calendar))
+
+[@eifinger]: https://github.com/eifinger
+[#102481]: https://github.com/home-assistant/core/pull/102481
+
+{% enddetails %}
+
+{% details "Counter" %}
+
+The previously deprecated `counter.configure` service has been removed.
+
+([@gjohansson-ST] - [#103204]) ([documentation](/integrations/counter))
+
+[@frenck]: https://github.com/gjohansson-ST
+[#103204]: https://github.com/home-assistant/core/pull/103204
+
+{% enddetails %}
+
+{% details "DSMR" %}
+
+DSMR entities will not automatically update on each received DSMR telegram
+when the value between telegrams has not changed.
+
+If you rely on this, for example, for graphing, please refer to the
+[statistics integration](/integrations/statistics/).
+
+([@gigatexel] - [#104037]) ([documentation](/integrations/dsmr))
+
+[@gigatexel]: https://github.com/gigatexel
+[#104037]: https://github.com/home-assistant/core/pull/104037
+
+---
+
+For users using the 5B version: The previous gas sensor (Gas consumption)
+will change to Gas consumption mbusX. Also multiple gas sensors will be possible.
+
+([@dupondje] - [#84097]) ([documentation](/integrations/dsmr))
+
+[@dupondje]: https://github.com/dupondje
+[#84097]: https://github.com/home-assistant/core/pull/84097
+
+{% enddetails %}
+
+{% details "EZVIZ" %}
+
+The previously depreacted detection sensitivity service has been removed.
+
+([@gjohansson-ST] - [#103392]) ([documentation](/integrations/ezviz))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#103392]: https://github.com/home-assistant/core/pull/103392
+
+{% enddetails %}
+
+{% details "Home Assistant API" %}
+
+When calling a service from the Home Assistant REST API, the service used to be
+cancelled on connection drop. If you relied on that behavior, you would need
+to revisit the logic. With this change, a connection drop will not cancel
+the service call.
+
+Also, a REST post to call a service with the `/api/services/<domain>/<service>`
+endpoint will no longer timeout after 10 seconds.
+
+([@Shulyaka] - [#102657]) ([@MartinHjelmare] - [#104709]) ([documentation](/integrations/api))
+
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@Shulyaka]: https://github.com/Shulyaka
+[#102657]: https://github.com/home-assistant/core/pull/102657
+[#104709]: https://github.com/home-assistant/core/pull/104709
+
+{% enddetails %}
+
+{% details "HomeWizard Energy" %}
+
+The HomeWizard HWE-SKE (the wall plugs), SDM230, and SDM630 provided duplicate
+sensors for energy import and export: A total and a tariff of 1.
+
+As there is only a single tariff available on those, the total and tariff 1
+are always the same. To clean this up, tariff 1 has been removed.
+
+If you used this sensor in your energy dashboard, you will need to configure
+your energy dashboard to use the total import/export sensor instead.
+
+([@frenck] - [#104493]) ([documentation](/integrations/homewizard))
+
+[@frenck]: https://github.com/frenck
+[#104493]: https://github.com/home-assistant/core/pull/104493
+
+{% enddetails %}
+
+{% details "Nibe Heat Pump" %}
+
+S-Series entities priority-3102, hot-water-demand-mode-40057 and oper-mode-40238
+is changed from a number entity to a select entity with mapping values for the
+possible choices.
+
+If you have the old number entities enabled, you can delete them since they
+will no longer be provided by the integration.
+
+([@elupus] - [#103788]) ([documentation](/integrations/nibe_heatpump))
+
+[@elupus]: https://github.com/elupus
+[#103788]: https://github.com/home-assistant/core/pull/103788
+
+{% enddetails %}
+
+{% details "Open Exchange Rates" %}
+
+Remove rounding of the exchange rate.
+
+Exchange rates are generally more sensitive to small changes and some quotes
+need many decimal numbers to be accurate. The Open Exchange Rates service will
+provide different number of significant digits for different quotes.
+
+You can change the display precision or use a template sensor if you want
+to customize the rounding of the value.
+
+([@MartinHjelmare] - [#103972]) ([documentation](/integrations/openexchangerates))
+
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[#103972]: https://github.com/home-assistant/core/pull/103972
+
+{% enddetails %}
+
+{% details "SMTP" %}
+
+The SMTP integration will send images as attachments to a plain text email
+instead of HTML in-line when the `html` field is not set.
+
+Previous behavior was to send all images as HTML in-line even when the `html`
+field was not set. To continue sending images as in-line, please set the
+optional `html` field and include the images
+as `<img src="cid:image_name.ext">` within the HTML block as described in the
+[documentation](/integrations/smtp/#usage).
+
+([@aptalca] - [#93562]) ([documentation](/integrations/smtp))
+
+[@aptalca]: https://github.com/aptalca
+[#93562]: https://github.com/home-assistant/core/pull/93562
+
+{% enddetails %}
+
+{% details "Trafikverket Weather Station" %}
+
+Trafikverket Weather has changed its endpoint and is no longer providing the
+information for wind direction and precipitation in plain text so
+therefore these sensors has been removed.
+
+- Wind direction text
+- Precipitation name
+
+([@gjohansson-ST] - [#104165]) ([documentation](/integrations/trafikverket_weatherstation))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#104165]: https://github.com/home-assistant/core/pull/104165
+
+{% enddetails %}
+
+{% details "Weather" %}
+
+`weather.get_forecast` uses an outdated response data format and is now
+deprecated, pending for removal in Home Assistant 2024.6.
+
+Please use `weather.get_forecasts`, which supports multiple entities, instead.
+
+([@eifinger] - [#102534]) ([documentation](/integrations/weather))
+
+[@eifinger]: https://github.com/eifinger
+[#102534]: https://github.com/home-assistant/core/pull/102534
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Config processing and error handling](https://developers.home-assistant.io/blog/2023/11/27/config-validation-and-error-handling/)
+- [Exception handling during service calls and translation support](https://developers.home-assistant.io/blog/2023/11/30/service-exceptions-and-translations/)
+- [Public Addon Config](https://developers.home-assistant.io/blog/2023/11/06/public-addon-config)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **MyQ** has been removed. Read all about it in our [blog post](/blog/2023/11/06/removal-of-myq-integration/).
+  ([@Lash-L] - [#103565])
+- **eQ-3 Bluetooth Smart Thermostats** has been removed. The integration has
+  been in an non-functional state for a long time.
+  ([@rytilahti] - [#94698])
+
+[@Lash-L]: https://github.com/Lash-L
+[#103565]: https://github.com/home-assistant/core/pull/103565
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2023.12](/changelogs/core-2023.12)
