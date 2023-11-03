@@ -11,25 +11,24 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `caldav` platform allows you to connect to your WebDAV calendar and generate binary sensors. A different sensor will be created for each individual calendar, or you can specify custom calendars which match a criteria you define (more on that below). These sensors will be `on` if you have an on going event in that calendar or `off` if the event is later in time, or if there is no event at all. The WebDAV calendar get updated roughly every 15 minutes.
+The CalDAV integration allows you to connect your WebDAV calendar to Home Assistant.
+Each calenddar is a [calendar](/integrations/calendar) entity which can be used
+to trigger automations based on the the start or end of an event using criteria
+such as the event name or description. The WebDAV calendar is updated roughly
+every 15 minutes.
 
-## Prerequisites
+{% include integrations/config_flow.md %}
 
-You need to have a CalDAV server and credentials for it. This integration was tested against [Baikal](https://sabre.io/baikal/) but any integration complying with the RFC4791 should work. [Nextcloud](https://nextcloud.com/) and [Owncloud](https://owncloud.org/) work fine.
+During the configuraiton flow you will be asked for the CalDAV server and credentials
+for it. An example CalDAV URL is `https://caldav.icloud.com/`.
 
-{% details "Notes for Home Assistant Core Installations" %}
+This integration was tested against [iCloud Calendar](https://www.icloud.com/calendar/), [Nextcloud](https://nextcloud.com/), [Owncloud](https://owncloud.org/), [Baikal](https://sabre.io/baikal/). Any integration complying with the RFC4791 should work.
 
-You might need some additional system packages to compile the Python CalDAV library. On a Debian based system, install them by:
+## Manual Configuration
 
-```bash
-sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
-```
+You may also manually WebDAV calendar in Home Assistant by adding the following section to your `configuration.yaml` file:
 
-{% enddetails %}
-
-## Basic Setup
-
-To integrate a WebDAV calendar in Home Assistant, add the following section to your `configuration.yaml` file:
+{% details Manual configuration examples %}
 
 ```yaml
 # Example configuration.yaml entry for baikal
@@ -67,9 +66,9 @@ calendar:
     url: https://caldav.icloud.com
 ```
 
-This example will generate default binary sensors for each calendar you have in your account. Those calendars will be `on` when there is an ongoing event and `off` if not. Events that last a whole day are ignored in those calendars. You have to setup custom calendars in order to take them into account or for advanced event filtering.
+This example will generate default binary sensors for each calendar you have in your account. Those calendars will be `on` when there is an ongoing event and `off` if not. Events that last a whole day are ignored in those calendars.
 
-## Custom calendars
+All day events are not supported by default when configured using yaml.
 
 You have the possibility to create multiple binary sensors for events that match certain conditions.
 
@@ -139,9 +138,30 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-## Sensor attributes
+{% enddetails %}
 
-- **offset_reached**: If set in the event title and parsed out will be on/off once the offset in the title in minutes is reached. So the title Very important meeting !! `-10` would trigger this attribute to be on 10 minutes before the event starts. This should be in the format of `HH:MM` or `MM`.
+
+## Calendar Event Automations
+
+Individual Calendar *Events* can power automations such as:
+
+- Turn on a light at the *start* of the event named *Front Yard Light*
+- Send a notification *5 minutes before the start of any event*
+- Stop the media player *30 minutes after* the *end* of the event named *Exercise*.
+
+See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
+
+## Calendar Entity Attributes
+
+The calendar entity has additional attributes related to a single next upcoming event.
+
+<div class='note'>
+
+Using the entity state and attributes is more error prone and less flexible than using Calendar Automations. The calendar entity itself may only track a single upcoming active event and can't handle multiple events with the same start time, or overlapping events.
+
+</div>
+
+- **offset_reached**: If set in the event title and parsed out will be on/off once the offset in the title in minutes is reached. So the title Very important meeting `!! -10` would trigger this attribute to be on 10 minutes before the event starts. This should be in the format of `HH:MM` or `MM`. This attribute is not available when configured from the UI.
 - **all_day**: `True/False` if this is an all day event. Will be `False` if there is no event found.
 - **message**: The event title with the `search` values extracted. So in the above example for `offset_reached` the message would be set to Very important meeting
 - **description**: The event description.
@@ -149,53 +169,22 @@ verify_ssl:
 - **start_time**: Start time of event.
 - **end_time**: End time of event.
 
-## Examples
+## Troubleshooting
 
-All events of the calendars "private" and "holidays". Note that all day events are not included.
+{% details "Home Assistant Core Installations" %}
 
-```yaml
-# Example configuration.yaml entry for nextcloud
-calendar:
-  - platform: caldav
-    url: https://nextcloud.example.com/remote.php/dav
-    username: "me"
-    password: !secret caldav
-    calendars:
-      - private
-      - holidays
+You might need some additional system packages to compile the Python CalDAV library. On a Debian based system, install them by:
+
+```bash
+sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
 ```
 
-Full example with automation to wake up to music if not holiday. Prerequisite: you have a calendar named "work" where you create calendar entries containing "Holiday".
+{% enddetails %}
 
-Custom calendar names are built from the main calendar + name of the custom calendar. Using the option of `'.*'` will load all calendar events.
+{% details "iCloud" %}
 
-```yaml
-# configuration.yaml
-calendar:
-  - platform: caldav
-    url: https://nextcloud.example.com/remote.php/dav
-    username: "me"
-    password: !secret caldav
-    custom_calendars:
-      - name: holiday
-        calendar: work
-        search: "Holiday"
-      - name: vacation
-        calendar: vacation
-        search: ".*"
+You may be required to use [app specific passwords](https://support.apple.com/en-us/102654)
+to generate a new password for use by Home Assistant to avoid sharing your iCloud account
+password.
 
-# automations.yaml
-- id: wakeup
-  alias: "worktime wakeup"
-  trigger:
-    platform: time
-    at: "06:40:00"
-  action:
-  - service: media_player.media_play
-    target:
-      entity_id: media_player.bedroom
-  condition:
-  - condition: state
-    entity_id: calendar.work_holiday
-    state: "off"
-```
+{% enddetails %}
