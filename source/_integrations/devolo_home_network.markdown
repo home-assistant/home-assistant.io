@@ -82,7 +82,7 @@ Currently the following device types within Home Assistant are supported.
 - Turn on/off the device LEDs
   - Is enabled by default
 
-## Update
+### Update
 
 - Update the firmware of a device.
   - Is enabled by default but will only give a result if regular checks are enabled on the device.
