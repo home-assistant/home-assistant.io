@@ -1320,8 +1320,8 @@ sensors:
       type: float
     register_size_bytes:
       description: "Use this field to define a non-standard number of bytes in the request. Only set this value when working when devices that don't fully implement the modbus standard, this values is 2 bytes by the standard.
-      It cannot be used when `data_type: string` where each character is 8 bit.
-      The valid values are `1`, `2`, `4` or `8`"
+      This field is ignored when `data_type: string`, `data_type: int8` or `data_type: uint8`
+      The valid values are `2`, `4` or `8`"
       required: false
       type: integer
       default: 2      
