@@ -53,7 +53,7 @@ Transfer playback from one player to another.
 
 ## Roon endpoint volume control via Home Assistant
 
-For media players that are not fully integrated into roon, it is possible to use Home Assistant to implement a volume control sevice. This allows the native Roon apps to change the volume of an endpoint via automation in Home Assistant.
+For media players that are not fully integrated into roon, it is possible to use Home Assistant to implement a volume control service. This allows the native Roon apps to change the volume of an endpoint via automation in Home Assistant.
 
 For example if you have an amplifier where the volume can be controlled by Home Assistant (perhaps via an integration, or using an IR Blaster) you can have the roon apps use these to change volume.
 
