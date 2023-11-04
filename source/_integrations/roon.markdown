@@ -69,7 +69,7 @@ The Roon volume control will now show plus and minus buttons rather that a volum
 
 ### Automation in Home Assistant
 
-Clicking on the plus and minus buttons in Roon can now trigger an automation in the volume control entity matching the media_player in home assistant.
+Clicking on the plus and minus buttons in Roon can now trigger an automation in the volume control entity matching the media_player in Home Assistant.
 
 In this autimation you can use Home Assistant services to provide `volume_up` and `volume_down`.
 
