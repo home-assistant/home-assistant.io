@@ -66,11 +66,9 @@ calendar:
     url: https://caldav.icloud.com
 ```
 
-This example will generate default binary sensors for each calendar you have in your account. Those calendars will be `on` when there is an ongoing event and `off` if not. Events that last a whole day are ignored in those calendars.
-
 All day events are not supported by default when configured using yaml.
 
-You have the possibility to create multiple binary sensors for events that match certain conditions.
+The examples below create calendar entities that match specific search criteria.
 
 ```yaml
 # Example configuration.yaml entry
@@ -88,7 +86,7 @@ calendar:
         search: "Warmup"
 ```
 
-This will create two binary sensors for the calendar name Agenda: "HomeOffice" and "WarmupFlat". Those sensors will be `on` if there is an ongoing event matching the regular expression specified in `search`. In custom calendars, events that last a whole day are taken into account.
+This will create two entities for the calendar name Agenda: "HomeOffice" and "WarmupFlat" with events matching the regular expression specified in `search`. In custom calendars, events that last a whole day are taken into account.
 
 Please note that if you use the `custom_calendars` option, only those calendars will be loaded. You cannot use `calendars` and `custom_calendars` in the same configuration.
 
@@ -111,7 +109,7 @@ calendars:
   type: list
 custom_calendars:
   required: false
-  description: Details on any custom binary sensor calendars you want to create. Using this will only load the custom calendars supplied. No other calendars will load.
+  description: Details on any custom calendars you want to create. Using this will only load the custom calendars supplied. No other calendars will load.
   type: list
   keys:
     name:
