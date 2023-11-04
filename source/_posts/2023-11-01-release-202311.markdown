@@ -70,7 +70,7 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 ## There is a lot to-do!
 
 There are many things to do in our lives, which is what
-[@allenporter] realized too! We now have a new entity type
+[@allenporter] realized, too! We now have a new entity type
 in Home Assistant: [To-do list entities](/integrations/todo)!
 
 A to-do list entity represents a list of tasks, and its state is the amount of
@@ -347,15 +347,15 @@ noteworthy changes this release:
 We welcome the following new integrations in this release:
 
 - **[Google Tasks]**, added by [@allenporter]<br />
-  Access your Google Tasks to-do list from the new todo dashboard.
+  Access your Google Tasks to-do list from the new to-do dashboard.
 - **[Improv BLE]**, added by [@emontnemery]<br />
   Get your Improv Wi-Fi enabled devices onboarding onto your Wi-Fi network with ease.
 - **[Local to-do list]**, added by [@allenporter]<br />
-  Create and manage your own, Home Assistant, local todo list.
+  Create and manage your own, Home Assistant, local to-do list.
 - **[Tami4 Edge / Edge+]**, added by [@Guy293]<br />
   Integrate your Tami water bar, boil water and get filter sensors.
 - **[To-do list]**, added by [@allenporter]<br />
-  New entity type that provides todo list capabilties for other integrations to use.
+  New entity type that provides to-do list capabilties for other integrations to use.
 
 [@allenporter]: https://github.com/allenporter
 [@emonemery]: https://github.com/emontnemery
