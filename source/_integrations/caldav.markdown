@@ -12,7 +12,7 @@ ha_integration_type: integration
 ---
 
 The CalDAV integration allows you to connect your WebDAV calendar to Home Assistant.
-Each calenddar is a [calendar](/integrations/calendar) entity which can be used
+Each calendar is a [calendar](/integrations/calendar) entity which can be used
 to trigger automations based on the the start or end of an event using criteria
 such as the event name or description. The WebDAV calendar is updated roughly
 every 15 minutes.
@@ -26,7 +26,7 @@ This integration was tested against [iCloud Calendar](https://www.icloud.com/cal
 
 ## Manual Configuration
 
-You may also manually WebDAV calendar in Home Assistant by adding the following section to your `configuration.yaml` file:
+You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your `configuration.yaml` file:
 
 {% details Manual configuration examples %}
 
