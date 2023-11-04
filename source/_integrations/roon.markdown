@@ -77,18 +77,18 @@ Here is an example automation using an IR blaster to control `media_player_study
 
 ```yaml
 alias: Roon Study Volume
-description: "Allow the roon app to change volume via HA using an IR blaster"
+description: ""
 trigger:
   - platform: state
     entity_id:
-      - media_player.study_volume_control
+      - event.study_roon_volume
 action:
   - choose:
       - conditions:
           - condition: state
-            entity_id: media_player.study_volume_control
-            attribute: event_type
+            entity_id: event.study_roon_volume
             state: volume_up
+            attribute: event_type
         sequence:
           - service: remote.send_command
             data:
@@ -101,7 +101,7 @@ action:
               entity_id: remote.ir_blaster
       - conditions:
           - condition: state
-            entity_id: media_player.study_volume_control
+            entity_id: event.study_roon_volume
             attribute: event_type
             state: volume_down
         sequence:
@@ -115,5 +115,6 @@ action:
             target:
               entity_id: remote.ir_blaster
 mode: queued
+
 ```
 
