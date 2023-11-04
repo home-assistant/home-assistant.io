@@ -57,7 +57,7 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
-- [Release 2023.11.1 - November 3](#release-2023111---november-3)
+- [Release 2023.11.1 - November 4](#release-2023111---november-4)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -392,7 +392,7 @@ The following integrations are now available via the Home Assistant UI:
 [Fitbit]: /integrations/fitbit
 [Random]: /integrations/random
 
-## Release 2023.11.1 - November 3
+## Release 2023.11.1 - November 4
 
 - Bump python-holidays to 0.35 ([@gjohansson-ST] - [#103092])
 - Bump aiowaqi to 3.0.0 ([@joostlek] - [#103166])
@@ -409,8 +409,19 @@ The following integrations are now available via the Home Assistant UI:
 - Fix Matter 1.2 locks with specific unlatch/unbolt support ([@marcelveldt] - [#103275])
 - Fix firmware update failure ([@raman325] - [#103277])
 - Bump opower to 0.0.39 ([@tronikos] - [#103292])
+- Bump reolink-aio to 0.7.14 and improve typing of Reolink ([@starkillerOG] - [#103129])
+- Bump py_nextbusnext to v1.0.2 to fix TypeError ([@ViViDboarder] - [#103214])
+- Add script to convert zwave_js device diagnostics to fixture ([@raman325] - [#102799])
+- Fix typo in Todoist config flow ([@jpbede] - [#103317])
+- Remove extra from traccar webhook ([@ludeeus] - [#103319])
+- Report correct weather condition at night for Met ([@jrieger] - [#103334])
+- Handle UniFi traffic rules not supported on older versions ([@Kane610] - [#103346])
+- Fix sensor unique id in Islamic prayer times ([@engrbm87] - [#103356])
+- Fix zwave_js cover bug for Window Covering CC values ([@raman325] - [#103289])
 
+[#102799]: https://github.com/home-assistant/core/pull/102799
 [#103092]: https://github.com/home-assistant/core/pull/103092
+[#103129]: https://github.com/home-assistant/core/pull/103129
 [#103164]: https://github.com/home-assistant/core/pull/103164
 [#103166]: https://github.com/home-assistant/core/pull/103166
 [#103169]: https://github.com/home-assistant/core/pull/103169
@@ -418,6 +429,7 @@ The following integrations are now available via the Home Assistant UI:
 [#103196]: https://github.com/home-assistant/core/pull/103196
 [#103210]: https://github.com/home-assistant/core/pull/103210
 [#103211]: https://github.com/home-assistant/core/pull/103211
+[#103214]: https://github.com/home-assistant/core/pull/103214
 [#103239]: https://github.com/home-assistant/core/pull/103239
 [#103245]: https://github.com/home-assistant/core/pull/103245
 [#103262]: https://github.com/home-assistant/core/pull/103262
@@ -425,21 +437,34 @@ The following integrations are now available via the Home Assistant UI:
 [#103274]: https://github.com/home-assistant/core/pull/103274
 [#103275]: https://github.com/home-assistant/core/pull/103275
 [#103277]: https://github.com/home-assistant/core/pull/103277
+[#103289]: https://github.com/home-assistant/core/pull/103289
 [#103292]: https://github.com/home-assistant/core/pull/103292
+[#103317]: https://github.com/home-assistant/core/pull/103317
+[#103319]: https://github.com/home-assistant/core/pull/103319
+[#103334]: https://github.com/home-assistant/core/pull/103334
+[#103346]: https://github.com/home-assistant/core/pull/103346
+[#103356]: https://github.com/home-assistant/core/pull/103356
 [@CoMPaTech]: https://github.com/CoMPaTech
+[@Kane610]: https://github.com/Kane610
+[@ViViDboarder]: https://github.com/ViViDboarder
 [@Xitee1]: https://github.com/Xitee1
 [@bdraco]: https://github.com/bdraco
 [@cgarwood]: https://github.com/cgarwood
 [@elupus]: https://github.com/elupus
+[@engrbm87]: https://github.com/engrbm87
 [@farmio]: https://github.com/farmio
 [@frenck]: https://github.com/frenck
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@jbouwh]: https://github.com/jbouwh
 [@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@jrieger]: https://github.com/jrieger
+[@ludeeus]: https://github.com/ludeeus
 [@marcelveldt]: https://github.com/marcelveldt
 [@mkmer]: https://github.com/mkmer
 [@pjanuario]: https://github.com/pjanuario
 [@raman325]: https://github.com/raman325
+[@starkillerOG]: https://github.com/starkillerOG
 [@tronikos]: https://github.com/tronikos
 
 ## Need help? Join the community!
