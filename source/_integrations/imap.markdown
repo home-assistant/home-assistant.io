@@ -67,12 +67,12 @@ Yahoo also requires the character set `US-ASCII`.
 
 </div>
 
-### Selecting an alternate SSL cipher list or disable SSL verification (advanced mode)
+### Selecting an alternate SSL cipher list or disabling SSL verification (advanced mode)
 
-If the default IMAP server settings do not work, you might try to set an alternate SLL cipher list.
-The SSL cipher list option allows to select the list of SSL ciphers to be accepted from this endpoint. `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_)
+If the default IMAP server settings do not work, you might try to set an alternate SSL cipher list.
+The SSL cipher list option allows you to select the list of SSL ciphers to be accepted from this endpoint: `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
 
-If you are using self signed certificates can can turn of SSL verification.
+If you are using self signed certificates, you can turn off SSL verification.
 
 <div class='note info'>
 
