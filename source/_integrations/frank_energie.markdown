@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Frank Energie integration connects the [Frank Energie](https://www.energyzero.nl/) API platform with Home Assistant.
+The Frank Energie integration connects the [Frank Energie](https://www.frankenergie.nl/) API platform with Home Assistant.
 
 This integration allows you to access real-time energy and gas prices from Frank Energie, providing insights into daily price trends and enabling you to adjust your consumption accordingly. Additionally, it offers personalized pricing and invoice information.
 
