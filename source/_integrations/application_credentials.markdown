@@ -40,9 +40,7 @@ You may then visit **Integrations** and setup the integration.
 
 ## Configuration
 
-Application Credentials supports the `redirect_url` setting which will override the default redirect_url behavior for OAuth
-AuthorizationServer redirect_uri.with cloud based integrations.  For example, when the 'my' module is installed,
-the default redirect_url is set to `https://my.home-assistant.io/redirect/oauth`.
+Application Credentials supports the `redirect_url` setting which will override the default redirect_url behavior for OAuth AuthorizationServer redirect_uri.with cloud based integrations. For example, when the 'my' module is installed, the default redirect_url is set to `https://my.home-assistant.io/redirect/oauth`.
 
 ```yaml
 # Example configuration.yaml entry
