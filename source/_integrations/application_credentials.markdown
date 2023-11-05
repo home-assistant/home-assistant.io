@@ -36,3 +36,16 @@ when setting up for the first time. You may also manually enter credentials with
 ![Manual setup](/images/integrations/application_credentials/application-credential-setup.png)
 
 You may then visit **Integrations** and setup the integration.
+
+
+## Configuration
+
+Application Credentials supports the `redirect_url` setting which will override the default redirect_url behavior for OAuth
+AuthorizationServer redirect_uri.with cloud based integrations.  For example, when the 'my' module is installed,
+the default redirect_url is set to `https://my.home-assistant.io/redirect/oauth`.
+
+```yaml
+# Example configuration.yaml entry
+application_credentials:
+  redirect_uri: https://my.personal.home/redirect/oauth
+```
