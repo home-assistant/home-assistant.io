@@ -48,3 +48,7 @@ The integration can discover most Bluetooth-enabled Oral-B toothbrushes. Brushes
 - Time - total brushing time in seconds.
 - Toothbrush state - whether the toothbrush is running, idle.
 - Battery - toothbrush battery percentage.
+
+<div class='note'>
+Updates of the battery sensor require an active bluetooth connection and relatively close proximity. If you are using a [bluetooth proxy](https://www.home-assistant.io/integrations/bluetooth/#remote-adapters-bluetooth-proxies), please ensure it supports active connections. All other sensors (i.e., all sensors except the battery sensor) will update with active or passive connections. 
+</div>
