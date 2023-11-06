@@ -32,6 +32,6 @@ Because we cannot continue to work around Chamberlain Group if they keep blockin
 
 For now, if you are a MyQ owner, we’re afraid you are in the ‘small percentage of users’ Chamberlain Group refuses to serve. We recommend buying [ratgdo].
 
-Ratgdo is a fully local, ESPHome-based, solution that is compatible with MyQ’s security+ protocol and can be installed on an existing MyQ system by connecting three wires. It offers the same garage door controls that MyQ does, and even adds features that MyQ does not have, like motion events, controlling the light and locking out wired remotes.
+Ratgdo is a fully local, ESPHome-based, solution that is compatible with MyQ’s security+ protocol and can be installed on an existing MyQ system by connecting three wires. It offers the same garage door controls that MyQ does and even adds features that MyQ does not have, like motion events, controlling the light, and locking out wired remotes.
 
 [ratgdo]: https://paulwieland.github.io/ratgdo/
