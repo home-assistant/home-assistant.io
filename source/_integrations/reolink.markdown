@@ -155,6 +155,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Buzzer on event
 - Email on event
 - FTP upload
+- HDR*
 
 For NVRs, a global switch for Record, Push, Buzzer, Email, and FTP will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
 
