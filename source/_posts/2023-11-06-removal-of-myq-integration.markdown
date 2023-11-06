@@ -9,7 +9,7 @@ comments: true
 categories: Public-Service-Announcement
 ---
 
-**TL;DR:** The MyQ integration will be removed from Home Assistant in release 2023.12 on December 6, 2023. Chamberlain Group, the owners of MyQ, have released a public statement saying they will continue blocking access to third-party apps, like the MyQ integration. For current MyQ users, we recommend replacing MyQ with local solutions such as the ESPHome-based [ratgdo].
+**TL;DR:** The MyQ integration will be removed from Home Assistant in release 2023.12 on December 6, 2023. Chamberlain Group, the owners of MyQ, have released a public statement saying they will continue blocking access to third-party apps, like the MyQ integration. For current MyQ users we recommend [ratgdo], a device that physically connects to your MyQ garage door opener and allows you to control it locally.
 
 If you own a garage door opener from Chamberlain or Liftmaster, you are probably familiar with MyQ. It’s a cloud-based smart home brand owned by Chamberlain Group, best known for its smart garage devices. MyQ is also currently one of the most problematic integrations for Home Assistant users. The MyQ garage door opener integration has, for the past months, been in a state of [constant repair](https://community.home-assistant.io/t/the-current-state-of-myq-from-the-codeowner/630623) as the integration breaks, is fixed, and then breaks again. This is a direct result of actions taken by MyQ to block access from third parties.
 
@@ -30,6 +30,8 @@ Once a company decides to be hostile to its customers, the only way we can win i
 
 Because we cannot continue to work around Chamberlain Group if they keep blocking access to third parties, the MyQ integration will be removed from Home Assistant in the upcoming 2023.12 release on December 6, 2023. We are very disappointed that it has come to this and sincerely hope that Chamberlain Group is willing to reconsider its position. We would happily welcome this integration back if Chamberlain Group would work with us for the good of their customers.
 
-For now, if you are a MyQ owner, we’re afraid you are in the ‘small percentage of users’ Chamberlain Group refuses to serve. We recommend modifying your garage door opener to have local control and skip the MyQ service entirely. For most users, the ESPHome-based [ratgdo] will be the easiest choice. Ratgdo is a fully local solution that is compatible with MyQ’s security+ protocol and can be installed on an existing MyQ system by connecting three wires. It offers the same garage door controls that MyQ does, and even adds features that MyQ does not have, like motion events, controlling the light and locking out wired remotes. But you can also look at the many other smart garage options and DIY solutions that are suggested by users in our [community forum](https://community.home-assistant.io/search?q=garage%20door%20opener).
+For now, if you are a MyQ owner, we’re afraid you are in the ‘small percentage of users’ Chamberlain Group refuses to serve. We recommend buying [ratgdo].
+
+Ratgdo is a fully local, ESPHome-based, solution that is compatible with MyQ’s security+ protocol and can be installed on an existing MyQ system by connecting three wires. It offers the same garage door controls that MyQ does, and even adds features that MyQ does not have, like motion events, controlling the light and locking out wired remotes.
 
 [ratgdo]: https://paulwieland.github.io/ratgdo/
