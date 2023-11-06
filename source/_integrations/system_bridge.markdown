@@ -16,6 +16,7 @@ ha_platforms:
   - media_player
   - notify
   - sensor
+  - update
 ha_zeroconf: true
 ha_integration_type: device
 ---
@@ -81,6 +82,10 @@ The integration also provides a media player. This allows you control the curren
 ## Media Source
 
 This integration is available as a media source to use with the media browser integration. You can browse and view media from your system to media players such as your web browser and other supported media players.
+
+## Update
+
+The integration provides an update component, which will notify you when a new version of the app is available.
 
 ## Services
 
