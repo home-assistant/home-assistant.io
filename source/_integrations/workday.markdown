@@ -73,7 +73,6 @@ The response data field `check_date` is providing:
 
 | Response data | Description | Example |
 | ---------------------- | ----------- | -------- |
-| `date` | Date provided by the user. | "2023-12-25"
 | `workday` | Is date a workday. | True
 
 ## Automation example
