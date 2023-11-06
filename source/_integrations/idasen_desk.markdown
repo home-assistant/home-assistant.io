@@ -9,6 +9,7 @@ ha_category:
 ha_domain: idasen_desk
 ha_bluetooth: true
 ha_platforms:
+  - button
   - cover
 ha_integration_type: integration
 ha_codeowners:
@@ -32,3 +33,7 @@ Home Assistant will display a list of addresses of the available desks, and you 
 <div class='note'>
 If you see an "No unconfigured devices found" message, make sure that the desk is in Bluetooth pairing mode. For that, press the small button with the Bluetooth logo on the controller until it starts blinking (about 3 seconds).
 </div>
+
+## Connect/Disconnect buttons
+
+This integration provides two buttons to connect and disconnect to/from the desk using Bluetooth. These can be used to automate connecting to the desk only when needed, for example, to avoid keeping a constant connection when the available connection slots are limited.
