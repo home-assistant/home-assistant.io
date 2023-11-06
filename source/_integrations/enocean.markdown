@@ -29,18 +29,23 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor) - Wall switches
 - [Sensor](#sensor) - Power meters, temperature sensors, humidity sensors and window handles
-- [Light](#light) - Dimmers
+- [Light](#light) - Dimmers, on/off
 - [Switch](#switch)
 
 However, due to the wide range of message types, not all devices will work without code changes.
 The following devices have been confirmed to work out of the box:
 
 - Eltako FUD61 dimmer
+- Eltako FUD14 dimmer
+- Eltako FSG14 dimmer
+- Eltako FSR14-4x switching actuator
+- Eltako FSR14-2x switching actuator
 - Eltako FT55 battery-less wall switch
 - Jung ENOA590WW battery-less wall switch
 - Omnio WS-CH-102-L-rw battery-less wall switch
 - Permundo PSC234 (switch and power monitor)
 - EnOcean STM-330 temperature sensor
+- Eltako FTR65DS temperature sensor
 - Hoppe SecuSignal window handle from Somfy
 
 If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/specifications/) (EEP). If it does, it will most likely work. The available profiles are usually listed somewhere in the device manual.
@@ -49,7 +54,13 @@ Support for tech-in messages is not implemented.
 
 {% include integrations/config_flow.md %}
 
-Despite the UI-based configuration of the hub, the entities are still configured using YAML see next chapters).
+Despite the UI-based configuration of the hub, the entities are still configured using YAML (see next chapters).
+
+**Note** Record the Base ID printed on the USB300 device. Append your imaginary virtual device id between 0x00-0xFF to create a `sender_id` in case you're using dimming or switching actuators in RS485 bus (at least Eltako).
+
+- BaseID=0xFF,0xC6,0xEA,0x00
+- VirtualID=0x01
+- sender_id=0xFF,0xC6,0xEA,0x01 (used in `configuration.yaml`)
 
 ## Binary Sensor
 
@@ -125,16 +136,30 @@ You can find the `event_data` `id` by going to {% my developer_events title="Dev
 
 ## Light
 
-An EnOcean light can take many forms. Currently only one type has been tested: Eltako FUD61 dimmer.
+An EnOcean light can take many forms. There are dimming and switching actuators. Currently the following types of actuators are tested:
+
+- Eltako FUD61 dimmer
+- Eltako FUD14 dimmer (on RS485 bus)
+- Eltako FSG14 dimmer (on RS485 bus)
+- Eltako FSR14-4x switching actuator (on RS485 bus)
+- Eltako FSR14-2x switching actuator (on RS485 bus)
 
 To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: enocean
+  - platform: enocean # A dimming actuator
     id: [0x01,0x90,0x84,0x3C]
     sender_id: [0xFF,0xC6,0xEA,0x04]
+  - platform: enocean 
+    id: [0x01,0x90,0x84,0x3D]
+    brightness: 128 # A dimming actuator with default brightness (0-255)
+    sender_id: [0xFF,0xC6,0xEA,0x05]
+  - platform: enocean
+    id: [0x01,0x90,0x84,0x3E]
+    color_mode: onoff  # A switching actuator
+    sender_id: [0xFF,0xC6,0xEA,0x06]
 ```
 
 {% configuration %}
@@ -151,16 +176,30 @@ name:
   required: false
   default: EnOcean Light
   type: string
+brightness:
+  description: Default brightness of light. (0-255)
+  required: false
+  type: integer
+color_mode:
+  description: Operating mode of the actuator, brightness or onoff.
+  required: false
+  default: brightness
+  type: string
 {% endconfiguration %}
 
 ## Sensor
 
 The EnOcean sensor platform currently supports the following device types:
 
-- [power sensor](#power-sensor)
-- [humidity sensor](#humidity-sensor)
-- [temperature sensor](#temperature-sensor)
-- [window handle](#window-handle)
+- [Binary Sensor](#binary-sensor)
+- [Automation example](#automation-example)
+- [Light](#light)
+- [Sensor](#sensor)
+  - [Power sensor](#power-sensor)
+  - [Humidity sensor](#humidity-sensor)
+  - [Temperature sensor](#temperature-sensor)
+  - [Window handle](#window-handle)
+- [Switch](#switch)
  
 To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
@@ -226,7 +265,10 @@ sensor:
 
 ### Temperature sensor
 
-This sensor has been tested with a generic STM-330 sensor, which is used in most indoor temperature sensor devices. 
+This sensor has been tested with:
+
+- A generic STM-330 sensor, which is used in most indoor temperature sensor devices
+- Eltako FTR65DS wireless temperature controller
 
 The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/specifications/) are supported:
 
