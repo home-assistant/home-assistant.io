@@ -12,10 +12,13 @@ ha_integration_type: integration
 ---
 
 The CalDAV integration allows you to connect your WebDAV calendar to Home Assistant.
-Each calendar is a [calendar](/integrations/calendar) entity which can be used
-to trigger automations based on the the start or end of an event using criteria
-such as the event name or description. The WebDAV calendar is updated roughly
-every 15 minutes.
+Each calendar is represented as either:
+
+-  A [calendar](/integrations/calendar) entity which can be used to trigger automations based on the the start or end of an event using criteria such as the event name or description.
+- A [todo](/integrations/todo) entity which tracks the number of active items
+on the to-do list.
+
+The WebDAV entities are updated roughly every 15 minutes. 
 
 {% include integrations/config_flow.md %}
 
@@ -26,7 +29,7 @@ This integration was tested against [iCloud Calendar](https://www.icloud.com/cal
 
 ## Manual Configuration
 
-You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your `configuration.yaml` file:
+You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your `configuration.yaml` file. This method does not support to-do lists.
 
 {% details Manual configuration examples %}
 
@@ -166,6 +169,12 @@ Using the entity state and attributes is more error prone and less flexible than
 - **location**: The event Location.
 - **start_time**: Start time of event.
 - **end_time**: End time of event.
+
+## To-do Entity
+
+The todo entity is the number of incomplete items on the to-do list. See the
+[todo integration](/integrations/todo) documentation for details and available
+services that can be used in automations.
 
 ## Troubleshooting
 
