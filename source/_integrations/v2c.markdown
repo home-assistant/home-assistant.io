@@ -30,4 +30,4 @@ To configure the V2C integration you will need to enter the IP Address of your T
 
 The V2C integration currently exposes the follow sensors:
 
-- charge_power: a sensor for the current power charging your vehicule
+- charge_power: a sensor for the current power charging your vehicle
