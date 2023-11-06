@@ -176,6 +176,8 @@ Because the availability of actual Matter devices (and their documentation) is s
 
 Did you test a device that is not listed below? It would be greatly appreciated if you share your experience either on the Matter discord channel or contribute a PR (or suggestion) to this documentation page so you can help others, thanks in advance!
 
+### Aqara Door and Window Sensor P2
+
 ### Aqara M2 Hub
 
 - Bridges Aqara (Zigbee) devices connected to the hub to Matter.
@@ -210,6 +212,8 @@ The Philips Hue V2 bridge supports Matter. You can enable Matter support in the 
 - Device events for example for dimmer remotes are not supported.
 - Only basic control of lights is supported, no scenes, events, effects etc.
 
+### SONOFF MINI Extreme Wi-Fi Smart Switch (Matter-enabled)
+
 ### SwitchBot Hub 2
 
 SwitchBot has released a (beta) firmware update to enable Matter support on their Hub 2. The SwitchBot Hub 2 is a Matter bridge device. It is bridging some of the devices, such as curtain motors, into Matter.
@@ -230,6 +234,10 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 - This device is available in the US only.
 
 [TP-Link Tapo P125M on Amazon](https://amzn.to/3RILJah)
+
+### TUO Contact Sensor Door & Window
+
+### TUO Smart Button
 
 ## Troubleshooting
 
