@@ -184,6 +184,12 @@ This does the same as pressing the "Check for latest version" in the Reolink app
 Unfortunately this does not always shows the latest available firmware (also not in the Reolink applications).
 The latest firmware can be downloaded from the [Reolink download center](https://reolink.com/download-center/) and uploaded to the camera/NVR manually.
 
+## Media browser for playback of recordings
+
+Depending on the support of the camera, the Reolink integration will provide a media browser through which recorded videos of the camera can be accessed.
+In the sidebar select "Media" -> "Reolink", select the **camera** you want to see recordings of, optionally select if you want a high or low **resolution** stream, select the recording **date**, here all available video files of that day will be shown.
+Recordings up to 1 month old can be viewed in Home Assistant.
+
 ## Tested models
 
 The following models have been tested and confirmed to work:
