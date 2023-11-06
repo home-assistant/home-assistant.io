@@ -57,6 +57,7 @@ This integration provides the following sensors:
 | Memory Used          | Memory (RAM) used in GB                             |
 | Memory Used %        | Memory (RAM) % used                                 |
 | Operating System     | Version information of the Operating System         |
+| Processes            | Shows count of processes on the system              |
 | Version              | System Bridge Version                               |
 
 These sensors are also available, but are not enabled by default:
