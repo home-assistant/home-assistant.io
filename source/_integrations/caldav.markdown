@@ -3,16 +3,18 @@ title: CalDAV
 description: Instructions on how to integrate a WebDav calendar into Home Assistant.
 ha_category:
   - Calendar
+  - To-do List
 ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_domain: caldav
 ha_platforms:
   - calendar
+  - todo
 ha_integration_type: integration
 ---
 
-The CalDAV integration allows you to connect your WebDAV calendar to Home Assistant.
-Each calendar is represented as either:
+The CalDAV integration allows you to connect your WebDAV calendar to Home Assistant
+as one of these entity types:
 
 -  A [calendar](/integrations/calendar) entity which can be used to trigger automations based on the the start or end of an event using criteria such as the event name or description.
 - A [todo](/integrations/todo) entity which tracks the number of active items
