@@ -24,7 +24,7 @@ ha_integration_type: device
 [System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to the device such as opening a URL or sending keyboard keypresses.
 ## Prerequisites
 ### Version
-This integration requires System Bridge 3.1.1 and above. Any older version will not work.
+This integration requires System Bridge 3.10.0 and above. Any older version will not work.
 ### API Key
 You will need your API key. This can be found following the documentation [here](https://system-bridge.timmo.dev/docs/running).
 {% include integrations/config_flow.md %}
@@ -149,6 +149,58 @@ Here is an example action that will open a URL in the device's browser:
 ##### Audio (`data` parameter)
 
 This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file (an MP3 for example).
+
+### Service `system_bridge.get_process_by_id`
+
+Returns a process by its pid.
+
+```yaml
+service: system_bridge.get_process_by_id
+data:
+  bridge: "deviceid"
+  id: 17752
+```
+
+Example response:
+
+```yaml
+id: 17752
+name: steam.exe
+cpu_usage: 0.9
+created: 1698951361.6117153
+memory_usage: 0.23782578821487121
+path: C:\Program Files (x86)\Steam\steam.exe
+status: running
+username: hostname\user
+working_directory: null
+```
+
+### Service `system_bridge.get_processes_by_name`
+
+Returns a count and a list of processes matching the name provided.
+
+```yaml
+service: system_bridge.get_processes_by_name
+data:
+  bridge: "deviceid"
+  name: discord
+```
+
+Example response:
+
+```yaml
+count: 1
+processes:
+  - id: 11196
+    name: Discord.exe
+    cpu_usage: 0.3
+    created: 1698951365.770648
+    memory_usage: 0.07285296297215042
+    path: C:\Users\user\AppData\Local\Discord\app\Discord.exe
+    status: running
+    username: hostname\user
+    working_directory: null
+```
 
 ### Service `system_bridge.open_path`
 
