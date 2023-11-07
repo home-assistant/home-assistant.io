@@ -1,5 +1,5 @@
 ---
-title: Ecoforest
+title: V2C 
 description: Instructions on how to integrate V2C Trydan EVSE with Home Assistant.
 ha_category:
   - Car
@@ -22,7 +22,7 @@ There is currently support for the following device platforms within Home Assist
 
 ## Prerequisites
 
-To configure the V2C integration you will need to enter the IP address of your Trydan EVSE.
+To configure the V2C integration you will need to enter the IP Address of your Trydan EVSE.
 
 {% include integrations/config_flow.md %}
 
