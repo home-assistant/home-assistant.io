@@ -20,7 +20,8 @@ ha_integration_type: integration
 ---
 
 Supervisor integration allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.
-This integration is already installed if you run Home Assistant OS or Supervised.
+This integration is already installed if you run Home Assistant OS or Supervised. Please note that this integration
+cannot be installed on Home Assistant Container or Core (Python venv) installation types.
 
 ## Sensor entities
 
