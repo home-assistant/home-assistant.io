@@ -30,7 +30,7 @@ ffmpeg:
 ffmpeg_bin:
   description: The name or path to the `ffmpeg` binary.
   required: false
-  default: ffmpeg
+  default: "`ffmpeg`"
   type: string
 {% endconfiguration %}
 

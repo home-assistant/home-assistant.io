@@ -46,7 +46,7 @@ resource:
   description: "Resource part of JID, e.g., your_name@jabber.org/`HA-cabin`."
   required: false
   type: string
-  default: home-assistant
+  default: "`home-assistant`"
 password:
   description: The password for your given Jabber account.
   required: true

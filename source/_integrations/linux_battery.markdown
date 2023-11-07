@@ -37,6 +37,6 @@ battery:
 system:
   description: "The local system type. Support `linux` and `android`."
   required: false
-  default: linux
+  default: "`linux`"
   type: string
 {% endconfiguration %}
