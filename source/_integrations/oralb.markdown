@@ -50,5 +50,5 @@ The integration can discover most Bluetooth-enabled Oral-B toothbrushes. Brushes
 - Battery - toothbrush battery percentage.
 
 <div class='note'>
-Updates of the battery sensor require an active bluetooth connection and relatively close proximity. If you are using a [bluetooth proxy](https://www.home-assistant.io/integrations/bluetooth/#remote-adapters-bluetooth-proxies), please ensure it supports active connections. All other sensors (i.e., all sensors except the battery sensor) will update with active or passive connections. 
+Updates of the battery sensor require an active Bluetooth connection and relatively close proximity. If you use a [bluetooth proxy](https://www.home-assistant.io/integrations/bluetooth/#remote-adapters-bluetooth-proxies), please ensure it supports active connections. All the other sensors update with active or passive connections. 
 </div>
