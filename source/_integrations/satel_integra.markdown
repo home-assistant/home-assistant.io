@@ -71,9 +71,9 @@ partitions:
       required: true
       type: string    
     arm_home_mode:
-      description: The mode in which the partition is armed when 'arm home' is used. Possible options are `1`,`2` or `3`. For more information on what the differences are between them, please refer to Satel Integra manual.
+      description: The mode in which the partition is armed when 'arm home' is used. Possible options are `0`,`1`,`2` or `3`. For more information on what the differences are between them, please refer to Satel Integra manual.
       required: false
-      default: 1
+      default: 0
       type: integer
 zones:
   description: "This parameter lists the zones (or inputs) that will be visible by Home Assistant. For each zone, a proper ID must be given as well as its name. The name is arbitrary and does not need to match the one specified in Satel Integra alarm configuration."
