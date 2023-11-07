@@ -15,9 +15,9 @@ Wake words are special words or phrases that tell a voice assistant that a comma
 
 ### The approach
 
-To avoid being limited to specific hardware, the wake word detection is done inside Home Assistant. Voice satellite devices constantly sample current audio in your room for voice. When it detects voice, the satellite sends audio to Home Assistant where it checks, if the wake word was said and handle the command that followed it.
+To avoid being limited to specific hardware, the wake word detection is done inside Home Assistant. Voice satellite devices constantly sample current audio in your room for voice. When it detects voice, the satellite sends audio to Home Assistant where it checks if the wake word was said and handle the command that followed it.
 
-This way, any device that streams audio can be turned into a voice satellite, even if it isn't powerful enough to run wake word detection locally. It also allows our developer community to experiment with wake word models without having to shrink the model to run on a low-powered voice satellite device.
+This means any device that streams audio can be turned into a voice satellite, even if it isn't powerful enough to run wake word detection locally. It also allows our developer community to experiment with wake word models without having to shrink the model to run on a low-powered voice satellite device.
 
 <p class='img'>
 <img src='/images/blog/2023-10-12-year-of-the-voice-chapter-4/wake-word-architecture.png'>
@@ -28,7 +28,7 @@ Overview of the wake word architecture
 
 1. The quality of the captured audio differs between devices. A speakerphone with multiple microphones and audio processing chips captures voice very cleanly. A device with a single microphone and no post-processing? Not so much. We compensate for poor audio quality with audio post-processing inside Home Assistant and users can use better speech-to-text models to improve accuracy like the one included with Home Assistant Cloud.
 
-2. Another drawback of this approach is that each satellite requires ongoing resources inside Home Assistant while it’s streaming audio. With our current approach, users can run 5 voice satellites without overwhelming a Raspberry Pi 4 (assuming all satellites are streaming at the same time). To scale up, we’ve updated [the Wyoming protocol][wyoming] to allow users to run wake word detection on an external server. Wyoming is our protocol allowing to run parts of a voice assistant in other programs and/or computers.
+2. Each satellite requires ongoing resources inside Home Assistant while it’s streaming audio. Currently, users can have 5 voice satellites streaming audio at the same time without overwhelming a Raspberry Pi 4. To scale up, we’ve updated [the Wyoming protocol][wyoming] to allow users to run wake word detection on an external server.
 
 ## About the openWakeWord add-on
 
