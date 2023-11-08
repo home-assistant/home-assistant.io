@@ -194,7 +194,7 @@ This service will update a configuration parameter. To update multiple partial p
 | `bitmask`              | no       | The bitmask for a partial parameter in hex (0xff) or decimal (255) format. If the name of the parameter is provided, this is not needed. Cannot be combined with value_size or value_format.                       |
 | `value`                | yes      | The target value for the parameter as the integer value or the state label. The state label is case sensitive.                                                  |
 | `value_size`                | no      | The size of the target parameter value, either 1, 2, or 4. Used in combination with value_format when a config parameter is not defined in your device's configuration file. Cannot be combined with bitmask.                                                  |
-| `value_format`                | no      | The format of the target parameter value,  for signed integer, 1 for unsigned integer, 2 for enumerated, 3 for bitfield. Used in combination with value_size when a config parameter is not defined in your device's configuration file. Cannot be combined with bitmask.                                                  |
+| `value_format`                | no      | The format of the target parameter value, 0 for signed integer, 1 for unsigned integer, 2 for enumerated, 3 for bitfield. Used in combination with value_size when a config parameter is not defined in your device's configuration file. Cannot be combined with bitmask.                                                  |
 
 #### Examples of setting a single parameter value
 
