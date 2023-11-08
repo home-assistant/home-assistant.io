@@ -30,4 +30,8 @@ To configure the V2C integration you will need to enter the IP address of your T
 
 The V2C integration currently exposes the follow sensors:
 
-- charge_power: a sensor for the current power charging your vehicle
+- charge_power: current power charging your vehicle
+- charge_energy: energy transfered to your car during the current charging session
+- charge_time: time spent in the current charging session
+- house_power: power consumed by your household (you need to install and configure through the V2C App the CT supplied with your EVSE)
+- house_power: power produced by your photovoltaic system (you need to install and configure through the V2C App the CT supplied with your EVSE)
