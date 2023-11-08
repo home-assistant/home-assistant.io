@@ -127,14 +127,17 @@ For configuration of the garadget as a MQTT cover:
 ```yaml
 cover:
   - platform: mqtt
-    name: "Garage Door"
-    command_topic: "garadget/device_name/command"
-    state_topic: "garadget/device_name/status"
-    payload_open: "open"
-    payload_close: "close"
-    value_template: "{{ value_json.status }}"
+    
 
 mqtt:
+  cover:
+    - name: "Garage Door"
+      command_topic: "garadget/device_name/command"
+      state_topic: "garadget/device_name/status"
+      payload_open: "open"
+      payload_close: "close"
+      payload_stop: "stop"
+      value_template: "{{ value_json.status }}"
   sensor:
     - name: "Garage Door Since"
       state_topic: "garadget/device_name/status"
