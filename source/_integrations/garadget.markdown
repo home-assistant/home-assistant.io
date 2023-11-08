@@ -133,6 +133,18 @@ cover:
     payload_open: "open"
     payload_close: "close"
     value_template: "{{ value_json.status }}"
+
+mqtt:
+  sensor:
+    - name: "Garage Door Since"
+      state_topic: "garadget/device_name/status"
+      value_template: '{{ value_json.time }}'
+
+    - name: "Large Garage Door Brightness"
+      state_topic: "garadget/device_name/status"
+      unit_of_measurement: '%'
+      value_template: '{{ value_json.bright }}'
+
 ```
 
 Replace device_name with the name of the device provided when configuring garadget.
