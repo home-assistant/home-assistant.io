@@ -48,11 +48,13 @@ Additionally, we also support to trigger smarthome templates.
 - FRITZ!Box 6490 Cable
 - [FRITZ!Box 6591 Cable](https://en.avm.de/products/fritzbox/fritzbox-6591-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
+- [FRITZ!Box 7590 AX](https://en.avm.de/products/fritzbox/fritzbox-7590-ax/)
 - FRITZ!Box 7490
 - FRITZ!Box 7430
 - [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
 - [FRITZ!DECT 210](https://en.avm.de/products/fritzdect/fritzdect-210/)
 - [FRITZ!DECT 301](https://en.avm.de/products/fritzdect/fritzdect-301/)
+- [FRITZ!DECT 302](https://en.avm.de/products/fritzdect/fritzdect-302/)
 - [FRITZ!DECT 500](https://en.avm.de/products/fritzdect/fritzdect-500/)
 - [Eurotronic Comet DECT](https://eurotronic.org/produkte/dect-ule-heizkoerperthermostat/comet-dect/)
 - [Magenta SmartHome LED E27 Color](https://www.smarthome.de/geraete/smarthome-led-lampe-e27-farbig-weiss)
