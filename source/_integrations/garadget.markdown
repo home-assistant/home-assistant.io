@@ -125,10 +125,6 @@ As of firmware release 1.17 the garadget device has native support for MQTT. The
 For configuration of the garadget as a MQTT cover:
 
 ```yaml
-cover:
-  - platform: mqtt
-    
-
 mqtt:
   cover:
     - name: "Garage Door"
