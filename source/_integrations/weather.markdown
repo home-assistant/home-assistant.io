@@ -24,9 +24,10 @@ Home Assistant currently supports free web services some of which require regist
 ## State and state attributes
 
 A weather entity's state is used to indicate the current overall conditions, e.g. 'cloudy' or 'sunny'.
+
 ### Condition mapping
 
-The `weather` platform only knows the below listed conditions. The reason for this is that for these conditions is an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) available and mapped in the frontend.
+The `weather` entity can provide the conditions listed below as its state:
 
 - 'clear-night'
 - 'cloudy'
