@@ -91,11 +91,11 @@ cover:
         required: false
         type: action
       set_cover_position:
-        description: Defines an action to set to a cover position (between `0` and `100`).
+        description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` will contain the entity's set position.
         required: false
         type: action
       set_cover_tilt_position:
-        description: Defines an action to set the tilt of a cover (between `0` and `100`).
+        description: Defines an action to set the tilt of a cover (between `0` and `100`). The variable `tilt` will contain the entity's set tilt position.
         required: false
         type: action
       optimistic:
