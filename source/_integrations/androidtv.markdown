@@ -2,7 +2,8 @@
 title: Android Debug Bridge
 description: Instructions on how to integrate Android and Fire TV devices into Home Assistant.
 ha_category:
-  - Media player
+  - Media Player
+  - Remote
 ha_release: 0.7.6
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -13,6 +14,7 @@ ha_domain: androidtv
 ha_platforms:
   - diagnostics
   - media_player
+  - remote
 ha_integration_type: device
 ---
 
@@ -243,3 +245,99 @@ The solution to this problem is the `state_detection_rules` configuration parame
 - `'audio_state'` = try to use the `audio_state` property to determine the state
 
 To determine what these rules should be, you can use the `androidtv.adb_command` service with the command `GET_PROPERTIES`, as described in the [androidtv.adb_command](#androidtvadb_command) section.
+
+## Remote
+
+The integration supports the `remote` platform. The remote allows you to send commands to your device with the `remote.send_command` service. You can send either keys or ADB shell commands to your Android / Fire TV device. The supported keys vary between Android models and version.
+
+{% details "Full keycodes list" %}
+
+**Power Keys**
+Key|Description
+---|-----------
+"POWER"|Power Toggle
+"SLEEP"|Sleep Mode
+"RESUME"|Resume
+"SUSPEND"|Suspend Mode
+"WAKEUP"|Wake Up
+____________
+
+**Input Keys**
+Key|Description
+---|-----------
+"COMPONENT1"|Component1
+"COMPONENT2"|Component2
+"COMPOSITE1"|Composite1
+"COMPOSITE2"|Composite2
+"HDMI1"|HDMI1
+"HDMI2"|HDMI2
+"HDMI3"|HDMI3
+"HDMI4"|HDMI4
+"INPUT"|Change Input
+"SAT"|Sat
+"VGA"|VGA
+_____________
+
+**Volume Keys**
+Key|Description
+---|-----------
+"VOLUME_DOWN"|Volume Down
+"VOLUME_UP"|Volume Up
+"MUTE"|Volume Mute
+________________
+
+**Color Keys**
+Key|Description
+---|-----------
+"BLUE"|Blue
+"GREEN"Green
+"YELLOW"|Yellow
+"RED"|Red
+_____________
+
+**Other Keys**
+Key|Description
+---|-----------
+"BACK"|Back
+"CENTER"|Center
+"DOWN"|Down
+"END"|End
+"ENTER"|Enter
+"ESCAPE"|Escape
+"FAST_FORWARD"|Fast Forward
+"HOME"|Home
+"LEFT"|Left
+"MENU"|Menu
+"MOVE_HOME"|Move Home
+"PAIRING"|Pairing
+"REWIND"|Rewind
+"RIGHT"|Right
+"SEARCH"|Search
+"SETTINGS"|Settings
+"SYSDOWN"|Sysdown
+"SYSLEFT"|Sysleft
+"SYSRIGHT"|Sysright
+"SYSUP"|Sysup
+"TEXT"|Text
+"TOP"|Top
+"UP"|Up
+
+{% enddetails %}
+
+You can also send others Android keys using the syntax `input keyevent {key}`, replacing `{key}` with the Android numeric key event. Refer to [Android TV KeyEvent](https://developer.android.com/reference/android/view/KeyEvent) for details.
+
+**Example to send sequence of commands:**
+
+```yaml
+service: remote.send_command
+target:
+  device_id: 12345f9b4c9863e28ddd52c87dcebe05
+data:
+  command:
+    - MENU
+    - RIGHT
+    - UP
+    - UP
+    - ENTER
+
+```
