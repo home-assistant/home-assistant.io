@@ -31,3 +31,9 @@ To configure the V2C integration you will need to enter the IP address of your T
 The V2C integration currently exposes the follow sensors:
 
 - charge_power: a sensor for the current power charging your vehicle
+
+## Number
+
+The V2C integration currently exposes the following number entity:
+
+- intensity: current used to transfer energy to your vehicle
