@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: v2c
 ha_platforms:
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
