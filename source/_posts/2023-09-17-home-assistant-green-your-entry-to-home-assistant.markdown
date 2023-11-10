@@ -25,10 +25,9 @@ Home Assistant Green contains everything you need for Home Assistant in one box.
 Home Assistant Green alongside Home Assistant Yellow and Home Assistant Blue
 </p>
 
-On the inside, Home Assistant Green runs on a powerful 1.8 GHz quad-core CPU. Memory and storage are amply provided with 4 GB of RAM and 32 GB of eMMC, more than enough to keep you running Home Assistant on the device for a long time. When your smart home grows, you can use <a href="/skyconnect">Home Assistant SkyConnect</a> to add Zigbee and Matter support or one of many third-party USB devices available to expand Home Assistant Green with other smart standards like Z-Wave or Bluetooth.
+On the inside, Home Assistant Green runs on a powerful 1.8&nbsp;GHz quad-core CPU. Memory and storage are amply provided with 4&nbsp;GB of RAM and 32&nbsp;GB of eMMC, more than enough to keep you running Home Assistant on the device for a long time. Connecting to your existing smart home platforms lets you instantly use your devices that communicate over Zigbee, Matter, or other smart standards. And when your smart home grows, you can use <a href="/skyconnect">Home Assistant SkyConnect</a> to add Zigbee and Thread radios (Thread support under development) or one of many third-party USB devices available to expand Home Assistant Green with other smart standards like Z-Wave or Bluetooth.
 
 On the outside, Home Assistant Green has a stunning translucent enclosure design revealing the hub's inner hardware. Unlike some other smart home devices, it looks great in your home decor. The bottom of the case also functions as the hub's heat sink and is made of a solid piece of black, anodized aluminum. And, of course, this case features [the new Home Assistant logo][logo-blog] on top as a nice subtle mosaic pattern.
-
 
 <p class='img'>
 <img src="/images/blog/2023-09-ha10/green-specs.jpeg" alt="Home Assistant Green has 1.8 GHz quad-code CPU, 4 GB of RAM and 32 GB of eMMC storage.">
@@ -43,11 +42,9 @@ For more information about Home Assistant Green, [visit our product page](/green
 
 <br>
 
-To celebrate [the 10th anniversary of Home Assistant][10ha-blog], we are making an anniversary batch of 1000 Home Assistant Green hubs available for sale via our partner Seeed Studio. You can order your Home Assistant Green right now:
+To celebrate [the 10th anniversary of Home Assistant][10ha-blog], we made an anniversary batch of 1000 Home Assistant Green hubs available. This batch has sold out, but Home Assistant Green will become widely available through our existing distributor network starting in November. You can pre-order your Home Assistant Green at our product page:
 
-<a href="https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html" class="btn">Order at Seeed Studio</a>
-
-If this anniversary batch sells out before you can get one, don't worry! At the end of October, the Home Assistant Green will become widely available through our existing distributor network. Keep an eye on the <a href="/green">Home Assistant Green</a> website for availability!
+<a href="/green" class="btn">Home Assistant Green</a>
 
 [logo-blog]: /blog/2023/09/17/a-refreshed-logo-for-home-assistant/
 [10ha-blog]: /blog/2023/09/17/10-years-home-assistant/

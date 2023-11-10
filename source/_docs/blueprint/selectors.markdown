@@ -28,6 +28,7 @@ The following selectors are currently available:
 - [Config entry selector](#config-entry-selector)
 - [Constant selector](#constant-selector)
 - [Conversation agent selector](#conversation-agent-selector)
+- [Country selector](#country-selector)
 - [Date selector](#date-selector)
 - [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
@@ -51,6 +52,7 @@ The following selectors are currently available:
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
+- [Trigger selector](#trigger-selector)
 
 Interactive demos of each of these selectors can be found on the
 [Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
@@ -426,6 +428,32 @@ date:
 
 The output of this selector will contain the date in Year-Month-Day
 (`YYYY-MM-DD`) format, for example, `2022-02-22`.
+
+## Country selector
+
+The country selector allows a user to pick a country from a list of countries.
+
+![Screenshot of a country selector](/images/blueprints/country_selector.png)
+
+```yaml
+country:
+```
+
+{% configuration entity %}
+countries:
+  description: A list of countries to pick from, this should be ISO 3166 country codes.
+  type: list
+  default: The available countries in the Home Assistant frontend
+  required: false
+no_sort:
+  description: >
+    Should the options be sorted by name, if set to true, the order of the provided countries is kept.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is an ISO 3166 country code.
 
 ## Date & time selector
 
@@ -1265,3 +1293,26 @@ time:
 
 The output of this selector will contain the time in 24-hour format,
 for example, `23:59:59`.
+
+## Trigger selector
+
+The triggers selector allows the user to input one or more triggers.
+On the user interface, the trigger part of the automation editor is shown.
+The value of the input contains a list of triggers.
+
+![Screenshot of an trigger selector](/images/blueprints/selector-trigger.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+trigger:
+```
+
+The output of this selector is a list of triggers. For example:
+
+```yaml
+# Example trigger selector output result
+- platform: numeric_state
+  entity_id: "sensor.outside_temperature"
+  below: 20
+```∏

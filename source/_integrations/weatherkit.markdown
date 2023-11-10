@@ -3,14 +3,15 @@ title: Apple WeatherKit
 description: Instructions on how to set up Apple WeatherKit with Home Assistant.
 ha_category:
   - Weather
-ha_release: "2023.10"
-ha_iot_class: "Cloud Polling"
+ha_release: '2023.10'
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@tjhorner'
 ha_domain: weatherkit
 ha_integration_type: integration
 ha_platforms:
+  - sensor
   - weather
 ---
 
@@ -19,6 +20,7 @@ The Apple WeatherKit integration obtains current weather and forecasts (hourly a
 There is currently support for the following device types within Home Assistant:
 
 - Weather
+- Sensor
 
 ## Requirements
 
@@ -49,4 +51,11 @@ You can add a new WeatherKit integration entry now that you have all the credent
 - **Apple team ID**: `ABC123DEFG`
   - This value can be found in the top-right of the Apple Developer website.
 - **Private key**: `-----BEGIN PRIVATE KEY----- [...]`
-  - Open the `.p8` file you downloaded earlier in a text editor and copy the contents into this field.
+  - Open the `.p8` file you downloaded earlier in a text editor and copy the _entire_ contents into this field, including the header and footer.
+
+### Troubleshooting
+
+If you are having issues setting up the integration, please make sure the following are true:
+
+- You are entering the key exactly as it appears in the `.p8` file, including the header and footer.
+- There are no leading or trailing spaces in other configuration values.

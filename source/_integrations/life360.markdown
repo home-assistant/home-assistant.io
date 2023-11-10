@@ -10,6 +10,7 @@ ha_codeowners:
   - '@pnbruckner'
 ha_domain: life360
 ha_platforms:
+  - button
   - device_tracker
 ha_integration_type: integration
 ---

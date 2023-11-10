@@ -13,10 +13,14 @@ ha_domain: system_bridge
 ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
+  - media_player
+  - notify
   - sensor
+  - update
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
+
 [System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to the device such as opening a URL or sending keyboard keypresses.
 ## Prerequisites
 ### Version
@@ -53,6 +57,7 @@ This integration provides the following sensors:
 | Memory Used          | Memory (RAM) used in GB                             |
 | Memory Used %        | Memory (RAM) % used                                 |
 | Operating System     | Version information of the Operating System         |
+| Processes            | Shows count of processes on the system              |
 | Version              | System Bridge Version                               |
 
 These sensors are also available, but are not enabled by default:
@@ -69,9 +74,19 @@ These sensors are also available, but are not enabled by default:
 | GPU Power Usage        | GPU power usage                    |
 | GPU Temperature        | The current temperature of the GPU |
 
+## Media player
+
+The integration also provides a media player. This allows you control the currently playing media on your device.
+
+> This is currently only supported devices running System Bridge on Windows.
+
 ## Media Source
 
 This integration is available as a media source to use with the media browser integration. You can browse and view media from your system to media players such as your web browser and other supported media players.
+
+## Update
+
+The integration provides an update component, which will notify you when a new version of the app is available.
 
 ## Services
 

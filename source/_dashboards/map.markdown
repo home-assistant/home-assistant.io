@@ -91,7 +91,7 @@ name:
 label_mode:
   required: false
   default: name
-  description: When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. 
+  description: When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
   type: string
 focus:
   required: false

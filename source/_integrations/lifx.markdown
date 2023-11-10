@@ -17,9 +17,6 @@ ha_platforms:
   - select
   - sensor
 ha_integration_type: integration
-ha_codeowners:
-  - '@bdraco'
-ha_quality_scale: platinum
 ha_dhcp: true
 ---
 

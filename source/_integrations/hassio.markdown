@@ -141,10 +141,11 @@ Create a full backup.
 
 | Service Data Attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name` | yes | Name of the backup file. Default is current date and time
+| `name` | yes | By default, the current date and time are used in your local time, which you have set in your general settings.
 | `password` | yes | Optional password for backup
 | `compressed` | yes | `false` to create uncompressed backups
 | `location` | yes | Alternate backup location instead of using the default location for backups
+| `homeassistant_exclude_database` | yes | Exclude the Home Assistant database file from backup
 
 ### Service hassio.backup_partial
 
@@ -154,10 +155,12 @@ Create a partial backup.
 | ---------------------- | -------- | ----------- |
 | `addons` | yes | List of add-on slugs to backup
 | `folders` | yes | List of directories to backup
-| `name` | yes | Name of the backup file. Default is current date and time
+| `name` | yes | Name of the backup file. Default is the current date and time in the user's local time
 | `password` | yes | Optional password for backup
 | `compressed` | yes | `false` to create uncompressed backups
 | `location` | yes | Alternate backup location instead of using the default location for backups
+| `homeassistant` | yes | Include Home Assistant and associated config in backup
+| `homeassistant_exclude_database` | yes | Exclude the Home Assistant database file from backup
 
 ### Service hassio.restore_full
 

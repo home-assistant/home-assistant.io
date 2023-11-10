@@ -43,6 +43,8 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
 - Sensors for grid status
 - Sensors for the state of the Enpower's 4 load-shedding relays
 - A switch allowing you to take your system on-grid and off-grid. Note that the Enpower has a slight delay built-in between receiving these commands and actually switching the system on or off grid.
+- A switch allowing you to enable or disable charging the Encharge/IQ Batteries from the power grid.
+- Support for changing the battery storage mode between full backup, self-consumption, and savings mode and setting the reserve battery level for outages.
 
 ## Envoy authentication requirements
 
@@ -59,3 +61,6 @@ When the mode entity is set to standard, you can simply set the state of the rel
 
 ### Battery Level
 When the relay mode is set to battery level, the relays will turn on and off based on the remaining battery level of your Encharge batteries. Two number entities are available to control the cutoff and restore levels for the relays. When the battery level drops below the cutoff level, the relays will turn off. When the battery level rises above the restore level, the relays will turn back on.
+
+## Polling Interval
+The default polling interval is 60 seconds. To customize the polling interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify the envoy device as a target of the service using the `+ choose device` button. Updating the envoy will also update the related devices like the inverters; there is no need to split them into separate entities or add all inverter devices. When using multiple Envoys, add them as targets or create separate custom polling intervals as needed.

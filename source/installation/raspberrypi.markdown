@@ -39,8 +39,8 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 
 1. Download and install the Raspberry Pi Imager on your computer as described under [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/). 
    ![Install Raspberry Pi Imager](/images/installation/rpi_imager.png)
-2. Open the Raspberry Pi Imager.
-    ![Open Raspberry Pi Imager](/images/installation/rpi-imager-start.png)
+2. Open the Raspberry Pi Imager and select your Raspberry Pi device.
+    ![Open Raspberry Pi Imager](/images/installation/rpi_imager_start.png)
 3. Choose the operating system:
    1. Select **Choose OS**.
    2. Select **Other specific-purpose OS** > **Home assistants and home automation** > **Home Assistant**.
@@ -51,9 +51,9 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
    2. Select your SD card.
     ![Select the storage](/images/installation/rpi-select-sd-card.png)
 5. Write the installer onto the SD card:
-   1. To start the process, select **Write**.
+   1. To start the process, select **Next**.
    2. Wait for the Home Assistant OS to be written to the SD card.
-    ![Select write](/images/installation/rpi-select-write.png)
+    ![Select write](/images/installation/rpi_choose_next.png)
 6. Eject the SD card.
 
 ### Start up your Raspberry Pi

@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The HomeKit integration allows you to make your Home Assistant entities available in Apple HomeKit,
+The HomeKit Bridge integration allows you to make your Home Assistant entities available in Apple HomeKit,
 so they can be controlled from Apple's Home app and Siri; even if those devices do not natively support HomeKit.
 
 Please make sure that you have read the [considerations](#considerations) listed below to save you
@@ -26,7 +26,7 @@ some trouble later. However, if you do encounter issues, check out the
 <div class="note">
 
   If you want to control HomeKit-only devices with Home Assistant,
-  check out the [HomeKit controller](/integrations/homekit_controller/) integration, 
+  check out the [HomeKit Device](/integrations/homekit_controller/) integration, 
   which provides the possibility to pull HomeKit-enabled devices into Home Assistant.
 
 </div>
@@ -154,23 +154,23 @@ homekit:
               required: false
               type: string
             linked_battery_sensor:
-              description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `sensor` entity to use as the battery of the accessory.
               required: false
               type: string
             linked_doorbell_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `binary_sensor` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications.
               required: false
               type: string
             linked_humidity_sensor:
-              description: The `entity_id` of a `sensor` entity to use as the humidity sensor of the humidifier/dehumidifier accessory. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `sensor` entity to use as the humidity sensor of the humidifier/dehumidifier accessory.
               required: false
               type: string
             linked_motion_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications.
               required: false
               type: string
             linked_obstruction_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the obstruction sensor of the garage door (cover) accessory to enable obstruction state tracking. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `binary_sensor` entity to use as the obstruction sensor of the garage door (cover) accessory to enable obstruction state tracking.
               required: false
               type: string
             low_battery_threshold:
@@ -193,7 +193,7 @@ homekit:
                   required: true
                   type: string
             type:
-              description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`.
               required: false
               type: string
               default: '`switch`'
@@ -277,7 +277,7 @@ homekit:
 
 ## Setup
 
-To enable the HomeKit integration in Home Assistant, add the following to your configuration file:
+To enable the HomeKit Bridge integration in Home Assistant, add the following to your configuration file:
 
 ```yaml
 # Example for HomeKit setup
@@ -631,7 +631,7 @@ If your camera supports native H.264 streams, Home Assistant can avoid convertin
 
 #### Multiple camera streams
 
-Multiple streams can be configured with the `stream_count` configuration option. If you alter the number of streams, you must [reset the accessory](#resetting-accessories).
+Multiple streams can be configured with the `stream_count` configuration option.
 
 #### Camera audio is not streaming
 

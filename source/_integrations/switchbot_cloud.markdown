@@ -12,6 +12,7 @@ ha_codeowners:
   - '@SeraphicRav'
 ha_domain: switchbot_cloud
 ha_platforms:
+  - climate
   - switch
 ha_config_flow: true
 ha_integration_type: integration
@@ -21,7 +22,7 @@ The SwitchBot Cloud integration allows you to control SwitchBot [devices](https:
 
 ## Prerequisites
 
-In order to use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in Profiles>Preferences>Developer Options.
+In order to use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in **Profiles** > **Preferences** > **Developer Options**. If **Developer Options** is not present in preferences, tap the App Version (e.g. 6.24) several times (5~15 times) in succession to open the **Developer Options**.
 
 Please note, device names configured in the SwitchBot app are transferred into Home Assistant.
 
@@ -31,8 +32,12 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 - Plug (Wi-Fi only, only available in Japan)
 - Plug Mini, both the original and HomeKit-enabled
-- Remotes exposed through the different hubs excepted "Others" (State is inferred from previous commands in Home Assistant and might not reflect reality if you use other ways to control the device)
+
+- IR appliances exposed through the different hubs:
+  - ON/OFF for all appliance types excepted "Others"
+  - Air Conditioner
+
 
 <div class='note warning'>
-Only the switch platform is currently supported.
+For IR Appliances, the state is inferred from previous commands in Home Assistant and might not reflect reality if you use other ways to control the device.
 </div>

@@ -1,12 +1,12 @@
 ---
-title: "I'm Locked Out!"
+title: "I'm locked out!"
 description: "Options for regaining access"
 ---
 
 The sections below deal with recovering from a situation where you are not able to sign in,
 or need to recover your data.
 
-## Forgot Password
+## Forgot password
 
 ### Home Assistant (including Supervised)
 
@@ -30,7 +30,9 @@ Use this procedure if you know the username, and you can access the [Home Assist
    - If you are using a Home Assistant Green, refer to the following procedure:
      - [Using the terminal](https://green.home-assistant.io/guides/use-terminal/)
 2. Once you have opened the Home Assistant command line, enter the following command:
-      `auth reset --username existing_user --password new_password`
+   - Note: `existing_user` is a placeholder. Replace it with your user name.
+   - Note: `new_password` is a placeholder. Replace it with your new password.
+   - **Command**: `auth reset --username existing_user --password new_password`
 3. You can now log in to Home Assistant using this new password.
 
 #### To reset a user's password, via the container command line
@@ -62,13 +64,19 @@ If you are running Home Assistant in a container, you can use the command line i
 
 #### Start a new onboarding process
 
-If you lose the password associated with the owner account and the steps above do not work to reset the password, the only way to resolve this is to delete *all* the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
+If you lose the password associated with the owner account and the steps above do not work to reset the password, the only way to resolve this is to start a new onboarding process. If you have an external backup with an administrator account of which you still know the login credentials, you can restore that backup. If you do not have a backup, resetting the device will erase all data.
 
-- `auth`
-- `auth_provider.homeassistant`
-- `onboarding`
-- `hassio`
-- `cloud`
+- If you have a Home Assistant Green, [reset the Green](https://green.home-assistant.io/guides/reset/).
+- If you have a Home Assistant Yellow, [reset the Yellow](https://yellow.home-assistant.io/guides/factory-reset/).
+- If you have a Raspberry Pi, delete *all* the authentication data.
+  - Shut down Home Assistant.
+  - Remove your SD card and access it from your PC.
+  - Delete the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
+    - `auth`
+    - `auth_provider.homeassistant`
+    - `onboarding`
+    - `hassio`
+    - `cloud`
 
 ## Recovering Data for Home Assistant (including Supervised)
 

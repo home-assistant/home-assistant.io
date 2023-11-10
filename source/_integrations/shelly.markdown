@@ -262,16 +262,16 @@ The firmware limits the transition time to 5 seconds.
 
 The integration offers device services which can be triggered by a configuration button.
 
-### OTA update
+### OTA firmware update
 
 Trigger device OTA firmware update.
 
-#### Buttons
+#### Update entities
 
-- OTA Update
-  - triggers the OTA update process for latest stable version
-- OTA Update Beta (_disabled by default_)
-  - triggers the OTA update process for latest beta version
+- Firmware update
+  - triggers the OTA firmware update process to the latest stable version
+- Beta firmware update (_disabled by default_)
+  - triggers the OTA firmware update process to the latest beta version
 
 ### Reboot
 
@@ -324,5 +324,6 @@ Please check from the device Web UI that the configured server is reachable.
 - Only supports firmware 0.8 and later for generation 2 devices
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
-- OTA update service does not support battery-powered devices
+- For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
+- Using the `homeassistant.update_entity` service for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).
 - Frequency sensors for generation 2 energy monitoring devices are supported by firmware 1.0.0 beta 6 or later.

@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@OttoWinter'
   - '@jesserockz'
+  - '@kbx81'
   - '@bdraco'
 ha_domain: esphome
 ha_zeroconf: true
@@ -31,6 +32,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - text
   - update
 ha_integration_type: device
 ha_dhcp: true

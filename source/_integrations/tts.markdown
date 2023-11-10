@@ -17,6 +17,8 @@ ha_integration_type: entity
 
 Text-to-speech (TTS) enables Home Assistant to speak to you.
 
+{% include integrations/building_block_integration.md %}
+
 ## Services
 
 ### Service speak

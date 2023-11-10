@@ -92,7 +92,8 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 ### Recommended Zigbee radio adapters and modules
 
 - Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
-  - [Home Assistant SkyConnect](/skyconnect/)
+  - [Home Assistant SkyConnect](/skyconnect/) (EFR32MG21-based USB dongle)
+  - [Home Assistant Yellow](/yellow/) with integrated EFR32MG21 radio
   - [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)
   - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs-usb-adapter.html)/POPP ZB-Stick (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
   - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs-zigbee-shield.html) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
@@ -108,7 +109,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 - Silicon Labs EmberZNet based radios using legacy hardware using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
   - [ITead Sonoff ZBBridge](https://itead.cc/product/sonoff-zbbridge/) (Note! [WiFi-based bridges are not recommended for ZHA with EZSP radios](https://github.com/home-assistant/home-assistant.io/issues/17170). Also, this first has to be flashed with [Tasmota firmware and Silabs EmberZNet NCP EZSP UART Host firmware to use as Serial-to-IP adapter](https://www.digiblur.com/2020/07/how-to-use-sonoff-zigbee-bridge-with.html))
   - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee Ember 3581 USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/walthowd/husbzb-firmware))
-  - [Bitron Video/Smabit BV AV2010/10 USB-Stick](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/) with Silicon Labs Ember 3587
+  - [Bitron Video/Smabit BV AV2010/10 USB-Stick](https://manuals.smabit.eu/len/av2010_10.html) with Silicon Labs Ember 3587
   - Telegesis ETRX357USB/ETRX357USB-LR/ETRX357USB-LRS+8M (Note! These first have to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware))
 - Texas Instruments based radios using legacy hardware (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
   - [CC2538 USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters) (no longer recommended as only got deprecated old end-of-life firmware)
@@ -195,7 +196,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------ |
 | [ITead SONOFF Zigbee 3.0 USB Dongle Plus V2 Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)        | USB              | 1A86:55D4                      |
 | [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-P" (CC2652P variant)](https://itead.cc/product/sonoff-zigbee-3-0-usb-dongle-plus/) | USB              | 10C4:EA60                      |
-| [Bitron Video/SMaBiT BV AV2010/10](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/)                                        | USB              | 10C4:8B34                      |
+| [Bitron Video/SMaBiT BV AV2010/10](https://manuals.smabit.eu/len/av2010_10.html)                                                            | USB              | 10C4:8B34                      |
 | [ConBee II](https://phoscon.de/conbee2)                                                                                                     | USB              | 1CF1:0030                      |
 | [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)                                         | USB              | 10C4:8A2A                      |
 | [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/)                                                                      | USB              | 10C4:EA60                      |
@@ -335,6 +336,7 @@ from the same group:
   Currently `qr_code` supports QR Install Codes from:
 
   - Aqara
+  - Bosch
   - Consciot
   - Embrighten
 
