@@ -7,11 +7,11 @@ ha_iot_class: Cloud Polling
 ha_release: 2023.11
 ha_config_flow: true
 ha_domain: google_tasks
-ha_platforms:
-  - todo
 ha_codeowners:
   - '@allenporter'
 ha_integration_type: integration
+ha_platforms:
+  - todo
 ---
 
 The **Google Tasks** integration allows you to connect your [Google Tasks](https://support.google.com/tasks/answer/7675772) to Home Assistant. The integration adds a [to-do list entity](/integrations/todo) for

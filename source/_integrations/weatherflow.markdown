@@ -1,18 +1,19 @@
 ---
-title: "WeatherFlow"
-description: "Instructions on how to integrate your WeatherFlow tempest into Home Assistant."
-ha_release: "2023.10"
-ha_category: 
-  - Sensor
+title: WeatherFlow
+description: Instructions on how to integrate your WeatherFlow tempest into Home Assistant.
+ha_release: '2023.10'
+ha_category:
   - Environment
+  - Sensor
 ha_platforms:
   - sensor
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@natekspencer'
   - '@jeeftor'
 ha_domain: weatherflow
+ha_integration_type: hub
 ---
 
 This integration is a local-only WeatherFlow integration that reads weather data from all [WeatherFlow Tempest](https://weatherflow.com/tempest-weather-system/) compatible weather station on the local network.

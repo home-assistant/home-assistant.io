@@ -10,6 +10,7 @@ ha_codeowners:
   - '@pschmitt'
   - '@cyr-ius'
   - '@shenxn'
+  - '@Xitee1'
 ha_domain: roomba
 ha_config_flow: true
 ha_dhcp: true

@@ -1,5 +1,5 @@
 ---
-title: "Assist - Default Sentences"
+title: "Assist - default sentences"
 ---
 
 Home Assistant comes with built-in sentences [contributed by the community](https://github.com/home-assistant/intents/) for [dozens of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
@@ -41,8 +41,8 @@ To get an idea of the specific sentences that are supported for your language, y
 
         ![Example of a folder of assistant sentence test files](/images/assist/intents-test-files.png)
         
-    - The screenshot below shows sentences used to test the command to turn on the lights. Note that *Living room* here is just a place holder. 
-        It could be any area that you have in your home. 
+    - The screenshot below shows sentences used to test the command to turn on the lights. Note that *Living room* here is just a place holder.
+        It could be any area that you have in your home.
 
         ![Example of a set of test sentences](/images/assist/assist-test-file-light-turn-on.png)
 
@@ -50,11 +50,16 @@ To get an idea of the specific sentences that are supported for your language, y
     - On GitHub, in the [tests](https://github.com/home-assistant/intents/tree/main/tests) folder, open the subfolder for your language.
     - Open the file of interest.
 
-        ![Sentences definition for turning on the light](/images/assist/assist-sentence-definition-01.png) 
+        ![Sentences definition for turning on the light](/images/assist/assist-sentence-definition-01.png)
 
         - () mean alternative elements.
         - [] mean optional elements.
         - <> mean an expansion rule. The view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml)   file.
         - The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/).
 
+## Related topics
 
+- [Create aliases](/voice_control/aliases/)
+- [Create your own sentences](/voice_control/custom_sentences/)
+- [Template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/)
+- [Sentence test cases](https://github.com/home-assistant/intents/tree/main/sentences)
