@@ -10,6 +10,7 @@ ha_codeowners:
   - '@dgomes'
 ha_domain: v2c
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ---
