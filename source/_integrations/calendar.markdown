@@ -201,7 +201,7 @@ with calendar events within a date range.
 | ---------------------- | -------- | ----------- | --------|
 | `start_date_time` | yes | Return active events after this time (exclusive). When not set, defaults to now. | 2019-03-10 20:00:00
 | `end_date_time` | yes | Return active events before this time (exclusive). Cannot be used with 'duration'. | 2019-03-10 23:00:00
-| `duration` | yes | Return active events from start_date_time until the specified duration. | `days: 2`
+| `duration` | yes | Return active events from start_date_time until the specified duration. Cannot be used with 'end_date_time'. | `days: 2`
 
 <div class='note'>
 
