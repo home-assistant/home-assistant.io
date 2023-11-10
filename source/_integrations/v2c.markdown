@@ -26,6 +26,14 @@ To configure the V2C integration you will need to enter the IP address of your T
 
 {% include integrations/config_flow.md %}
 
+## Binary Sensor
+
+The V2C integration currently exposes the following binary sensors:
+
+- connected: indicates if the EVSE is connected to the car
+- charging: indicates an ongoing charging session
+- ready: indicates you may disconnect from the car
+
 ## Sensor
 
 The V2C integration currently exposes the follow sensors:
