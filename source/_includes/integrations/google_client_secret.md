@@ -23,7 +23,7 @@ This section explains how to generate a client ID and client secret on
 
 1. First, go to the Google Developers Console to enable [{{ api }}]({{ api_link }}) {% if page.api2 %} and [{{ page.api2 }}]({{ page.api2_link }}) {% endif %}.
 2. Select **Create project**, enter a project name and select **Create**.
-3. **Enable** the {{ api }} and select **Create credentials**.
+3. **Enable** the {{ api }}.
 4. Navigate to **APIs & Services** (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials).
 5. In the left sidebar, select **OAuth consent screen**.
    - Select **External** and **Create**.
