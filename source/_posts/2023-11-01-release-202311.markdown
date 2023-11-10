@@ -537,6 +537,17 @@ The following integrations are now available via the Home Assistant UI:
 [#103671]: https://github.com/home-assistant/core/pull/103671
 [#103692]: https://github.com/home-assistant/core/pull/103692
 [#103706]: https://github.com/home-assistant/core/pull/103706
+[@bieniu]: https://github.com/bieniu
+[@Noltari]: https://github.com/Noltari
+[@mdz]: https://github.com/mdz
+[@cgtobi]: https://github.com/cgtobi
+[@mib1185]: https://github.com/mib1185
+[@janiversen]: https://github.com/janiversen
+[@dupondje]: https://github.com/dupondje
+[@edenhaus]: https://github.com/edenhaus
+[@jesserockz]: https://github.com/jesserockz
+[@epenet]: https://github.com/epenet
+[@suaveolent]: https://github.com/suaveolent
 
 ## Need help? Join the community!
 
