@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - device_tracker
 ha_integration_type: integration
+ha_config_flow: true
 ha_codeowners:
   - '@jpbede'
 ---
@@ -22,11 +23,13 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Presence Detection](#presence-detection)
 
+{% include integrations/config_flow.md %}
+
 ## Binary Sensor
 
 The `ping` binary sensor platform allows you to use `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
 
-To use this sensor in your installation, add the following to your `configuration.yaml` file:
+To use this sensor in your installation, either use the "My" button above or add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -85,7 +88,7 @@ The `ping` device tracker platform offers presence detection by using `ping` to 
 
 ### Configuration
 
-To use this presence detection in your installation, add the following to your `configuration.yaml` file:
+To use this presence detection in your installation, either use the "My" button above add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
