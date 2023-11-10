@@ -77,7 +77,7 @@ data:
 
 ### Service `todo.remove_item`
 
-Removing a to-do Item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector), and the `data` payload supports the following fields:
+Removing a to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector), and the `data` payload supports the following fields:
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
