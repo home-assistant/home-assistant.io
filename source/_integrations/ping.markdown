@@ -13,6 +13,8 @@ ha_platforms:
   - binary_sensor
   - device_tracker
 ha_integration_type: integration
+ha_codeowners:
+  - '@jpbede'
 ---
 
 There is currently support for the following device types within Home Assistant:

@@ -8,6 +8,7 @@ ha_release: '2022.11'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@vincegio'
+  - '@LaStrada'
 ha_domain: airthings_ble
 ha_bluetooth: true
 ha_platforms:

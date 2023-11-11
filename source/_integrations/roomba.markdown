@@ -10,6 +10,7 @@ ha_codeowners:
   - '@pschmitt'
   - '@cyr-ius'
   - '@shenxn'
+  - '@Xitee1'
 ha_domain: roomba
 ha_config_flow: true
 ha_dhcp: true
@@ -48,6 +49,12 @@ The Roomba Integration will add the following sensors.
 Sensors:
 - roomba_battery_level : The status of your battery
 - roomba_bin_full (if Roomba has the capacity to do) : Bin Full status
+- roomba_missions_cancelled: Total missions that have been canceled
+- roomba_missions_failed: Total missions that have failed
+- roomba_missions_successful: Total successful missions
+- roomba_missions_total: All total missions together
+- roomba_scrubs_count: Total amount of how often the robot has executed "scrub"
+- roomba_total_cleaning_time: How long the robot has spend cleaning (total) (in hours)
 
 ### Manually retrieving your credentials
 

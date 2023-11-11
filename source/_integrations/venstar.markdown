@@ -14,6 +14,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@garbled1'
+  - '@jhollowe'
 ha_config_flow: true
 ha_integration_type: integration
 ---

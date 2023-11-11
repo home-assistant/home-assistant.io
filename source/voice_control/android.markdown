@@ -134,3 +134,9 @@ Depending on your watch, you can assign Assist to a button so that you can start
       
      ![List of assistants](/images/assist/android_watch_7.png)
 3. Now, use your key and speak a command.
+
+## Related topics
+
+- [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/)
+- [Exposing devices to Assist](/voice_control/voice_remote_expose_devices/)
+- [Starting Assist from your dashboard](/voice_control/start_assist_from_dashboard/)

@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The HomeKit integration allows you to make your Home Assistant entities available in Apple HomeKit,
+The HomeKit Bridge integration allows you to make your Home Assistant entities available in Apple HomeKit,
 so they can be controlled from Apple's Home app and Siri; even if those devices do not natively support HomeKit.
 
 Please make sure that you have read the [considerations](#considerations) listed below to save you
@@ -26,7 +26,7 @@ some trouble later. However, if you do encounter issues, check out the
 <div class="note">
 
   If you want to control HomeKit-only devices with Home Assistant,
-  check out the [HomeKit controller](/integrations/homekit_controller/) integration, 
+  check out the [HomeKit Device](/integrations/homekit_controller/) integration, 
   which provides the possibility to pull HomeKit-enabled devices into Home Assistant.
 
 </div>
@@ -154,23 +154,23 @@ homekit:
               required: false
               type: string
             linked_battery_sensor:
-              description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `sensor` entity to use as the battery of the accessory.
               required: false
               type: string
             linked_doorbell_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `binary_sensor` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications.
               required: false
               type: string
             linked_humidity_sensor:
-              description: The `entity_id` of a `sensor` entity to use as the humidity sensor of the humidifier/dehumidifier accessory. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `sensor` entity to use as the humidity sensor of the humidifier/dehumidifier accessory.
               required: false
               type: string
             linked_motion_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications.
               required: false
               type: string
             linked_obstruction_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the obstruction sensor of the garage door (cover) accessory to enable obstruction state tracking. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `binary_sensor` entity to use as the obstruction sensor of the garage door (cover) accessory to enable obstruction state tracking.
               required: false
               type: string
             low_battery_threshold:
@@ -193,7 +193,7 @@ homekit:
                   required: true
                   type: string
             type:
-              description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`.
               required: false
               type: string
               default: '`switch`'
@@ -277,7 +277,7 @@ homekit:
 
 ## Setup
 
-To enable the HomeKit integration in Home Assistant, add the following to your configuration file:
+To enable the HomeKit Bridge integration in Home Assistant, add the following to your configuration file:
 
 ```yaml
 # Example for HomeKit setup
@@ -324,7 +324,7 @@ It is recommended to only edit a HomeKit instance in the UI that was created in 
 
 ### Accessory mode
 
-When exposing a Camera, Activity based remote (a `remote` that supports activities), Lock, or Television media player (a `media_player` with device class `tv`) to HomeKit, `mode` must be set to `accessory`, and the relevant `include` filter should be setup to only include a single entity.
+When exposing a Camera, Activity based remote (a `remote` that supports activities), Lock, or Television media player (a `media_player` with device class `tv` or `receiver`) to HomeKit, `mode` must be set to `accessory`, and the relevant `include` filter should be setup to only include a single entity.
 
 To quickly add all accessory mode entities in the UI:
 
@@ -412,6 +412,7 @@ The following integrations are currently supported:
 | lock | DoorLock | Support for `lock / unlock`. |
 | media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
 | media_player | TelevisionMediaPlayer | All media players that have `tv` as their `device_class`.  Represented as Television and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later. |
+| media_player | ReceiverMediaPlayer | All media players that have `receiver` as their `device_class`.  Represented as Receiver and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later. |
 | sensor | TemperatureSensor | All sensors that have `°C` or `°F` as their `unit_of_measurement` and `temperature` as their `device_class`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`. |
 | sensor | AirQualitySensor | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization). |
@@ -430,7 +431,7 @@ Bridged device triggers are represented as a single press button on stateless pr
 
 ## iOS Remote Widget
 
-Entities exposed as `TelevisionMediaPlayer` are controllable within the Apple Remote widget in
+Entities exposed as `TelevisionMediaPlayer` and `ReceiverMediaPlayer` are controllable within the Apple Remote widget in
 Control Center. Play, pause, volume up and volume down should work out of the box depending on the `supported_features`
 of the entity. However, if your television can be controlled in other ways outside of the `media_player` entity, (e.g.,
 service calls to an IR blaster), it is possible to build an automation to take advantage of these events.
@@ -594,7 +595,7 @@ To use the HomeKit integration with multiple different Home Assistant instances 
 
 Although we try our best, some entities don't work with the HomeKit integration yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works, unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [core/issues/new](https://github.com/home-assistant/core/issues/new)
 
-If you have any iOS 12.x devices signed into your iCloud account, media player entities with `device_class: tv` may trigger this condition. Filtering the entity or signing the iOS 12.x device out of iCloud should resolve the issue after restarting other devices.
+If you have any iOS 12.x devices signed into your iCloud account, media player entities with `device_class: tv` or `device_class: receiver` may trigger this condition. Filtering the entity or signing the iOS 12.x device out of iCloud should resolve the issue after restarting other devices.
 
 #### Accessories are all listed as not responding
 
@@ -610,9 +611,9 @@ See [resetting accessories](#resetting-accessories) and [Unpairing and Re-pairin
 
 Try removing the entity from HomeKit and then adding it again. If you are adding this configuration option to an existing entity in HomeKit, any changes you make to this entity's configuration options won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
 
-#### My media player is not showing up as a television accessory
+#### My media player is not showing up as a television or receiver accessory
 
-Media Player entities with `device_class: tv` will show up as Television accessories on devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed supported features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
+Media Player entities with `device_class: tv` or `device_class: receiver` will show up as Television or Receiver accessories on devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed supported features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
 
 The [Universal Media Player](/integrations/universal/#harmony-remote-example) has an example of how it can be used to wrap existing entities to enable them to be used as a Television accessory in HomeKit.
 
@@ -630,7 +631,7 @@ If your camera supports native H.264 streams, Home Assistant can avoid convertin
 
 #### Multiple camera streams
 
-Multiple streams can be configured with the `stream_count` configuration option. If you alter the number of streams, you must [reset the accessory](#resetting-accessories).
+Multiple streams can be configured with the `stream_count` configuration option.
 
 #### Camera audio is not streaming
 

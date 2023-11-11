@@ -117,7 +117,7 @@ Restrict any and all watering activities from staring for a time period.
 
 ### `rainmachine.start_program`
 
-Start a RainnMachine program.
+Start a RainMachine program.
 
 ### `rainmachine.start_zone`
 

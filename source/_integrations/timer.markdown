@@ -23,11 +23,8 @@ However, automations using the `timer.finished` event **will not** trigger if th
 </div>
 
 ## Configuration
-The preferred way to configure timer helpers is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button; next choose the {% my config_flow_start domain=timer title="Timer" %} option.
 
-You can also click the following button to be redirected to the Helpers page of your Home Assistant instance.
-
-{% my helpers badge %}
+The preferred way to configure timer helpers is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button; next choose the {% my config_flow_start domain=page.ha_domain title=page.title %} option.
 
 To be able to add Helpers via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `timer:` to your `configuration.yaml` first, then you can use the UI.
 
@@ -91,7 +88,7 @@ Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/
 
 ### Service `timer.start`
 
-Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the new default for the timer until Home Assistant is restarted (which loads your default values). The duration can be specified as a number of seconds or the easier to read `01:23:45` format.  
+Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the duration for the timer until it finishes or is canceled, which then will reset the duration back to the original configured value. The duration can be specified as a number of seconds or the easier to read `01:23:45` format.  
 You can also use `entity_id: all` and all active timers will be started.
 
 | Service data attribute | Optional | Description |

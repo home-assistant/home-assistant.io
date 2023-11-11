@@ -30,9 +30,9 @@ For a quick introduction on how to get started with Android TV Remote, check out
 
 ## Media player
 
-This integration adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](https://www.home-assistant.io/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](https://www.home-assistant.io/integrations/universal/) integration.
+This integration adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](/integrations/universal/) integration. See [Using with Google Cast](#using-with-google-cast) section for more details.
 
-Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels.
+Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels. Only `url` and `channel` media types are supported.
 
 ### Launching apps
 
@@ -72,7 +72,7 @@ target:
 
 ### Switch channels
 
-You can pass the channel number to switch the channel. The channel number must be an integer.
+You can pass the channel number to switch channels. The channel number must be an integer.
 
 Example:
 
@@ -85,6 +85,46 @@ data:
 target:
   entity_id: media_player.living_room_tv
 ```
+
+### Using with Google Cast
+
+Android TV Remote integration provides information about the power status of the device and gives you the ability to control playback. However, it does not provide information about the currently playing content (media title, duration, play/pause state, etc.). In turn, [Google Cast](/integrations/cast/) integration does not provide reliable information about the power status of the device (e.g. on Android TV Home Screen) and does not allow to control playback in Android apps without [MediaSession](https://developer.android.com/reference/android/media/session/MediaSession) support. However, it can display full information about the content being played in supported apps. For convenience, you can combine two media players into one using [Universal Media Player](/integrations/universal/) integration. Universal Media Player will automatically select the appropriate active media player entity.
+
+{% details "Example YAML configuration" %}
+
+Replace `media_player.living_room_tv_remote` with your Android TV Remote media player entity ID.
+Replace `media_player.living_room_tv_cast` with your Google Cast media player entity ID.
+
+```yaml
+media_player:
+  - platform: universal
+    name: living_room_tv
+    unique_id: living_room_tv
+    device_class: tv
+    children:
+      - media_player.living_room_tv_remote
+      - media_player.living_room_tv_cast
+    browse_media_entity: media_player.living_room_tv_cast
+    commands:
+      turn_off:
+        service: media_player.turn_off
+        data:
+          entity_id: media_player.living_room_tv_remote
+      turn_on:
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.living_room_tv_remote
+      volume_up:
+        service: media_player.volume_up
+        data:
+          entity_id: media_player.living_room_tv_remote
+      volume_down:
+        service: media_player.volume_down
+        data:
+          entity_id: media_player.living_room_tv_remote
+```
+
+{% enddetails %}
 
 ## Remote
 

@@ -11,24 +11,24 @@ ha_codeowners:
   - '@chemelli74'
 ha_iot_class: Local Polling
 ha_platforms:
+  - button
   - device_tracker
-ha_ssdp: false
+  - sensor
 ha_integration_type: integration
 ---
 
 The Vodafone Station integration allows you to control your [Vodafone Station](https://www.vodafone.it/privati/area-supporto/assistenza-dispositivi/vodafone-station.html) based router.
 
+<div class="note">
+The integration supports only Sercomm models so far.
+</div>
+
 There is support for the following platform types within Home Assistant:
 
 - **Device tracker** - presence detection by looking at connected devices.
+- **Sensor** - external IP address, uptime, firmware, resources and network monitors.
+- **Button** - restart router, dsl/fiber/internet key connections.
 {% include integrations/config_flow.md %}
-
-## Configuration
-
-The configuration in the UI asks for a a few information: host, username, password and SSL.
-Depending on the model of the router, the login URL can be based on http:// or https://.
-The default username is `vodafone`.
-
 
 ## Integration options
 
@@ -43,10 +43,9 @@ To change the settings, go to {% my integrations title="**Settings** > **Devices
 
 **Note**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.
 
-
 ### Tested models
 
-This integartion was tested against the following models:
+This integration was tested against the following models from Sercomm:
 
-  - Vodafone Power Station 
-  - Vodafone WiFi 6 Station
+- Vodafone Power Station (SHG3000)
+- Vodafone WiFi 6 Station (RHG3006)
