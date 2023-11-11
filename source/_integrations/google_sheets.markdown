@@ -26,7 +26,8 @@ The integration currently only has access to that one document that is created d
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
 These credentials are the same as the ones for [Nest](/integrations/nest), [YouTube](/integrations/youtube), and [Google Mail](/integrations/google_mail).
-These are not the same as the one for [Google Calendar](/integrations/google).
+These are not the same as *Device Auth* credentials previously recommended for [Google Calendar](/integrations/google).
+
 
 {% include integrations/google_client_secret.md %}
 
