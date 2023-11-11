@@ -24,7 +24,7 @@ Under the **Official add-ons** section, you will find the **File editor** add-on
 Now let's make a change using the file editor: we are going to change the name, location, unit system, and time zone of your Home Assistant installation.
 
  - Click the folder icon in the top left of the file editor window to open the file browser sidebar.
- - Click the `configuration.yaml` file (in the `/config/` folder) to load it into the main file editor window.
+ - Click the `configuration.yaml` file (in the `/homeassistant/` folder) to load it into the main file editor window.
  - Add the following to this file (preferably at the very top, but it ultimately doesn't matter):
  ```yaml
      homeassistant:

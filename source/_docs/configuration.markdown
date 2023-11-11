@@ -22,7 +22,7 @@ Right under the version you are running, you will find what path Home Assistant 
 
 _If you use Home Assistant Container, you can find `configuration.yaml` in the config folder that you mounted in your container._
 
-_If you use Home Assistant Operating System, you can find `configuration.yaml` in the `/config` folder of the installation._
+_If you use Home Assistant Operating System, you can find `configuration.yaml` in the `/homeassistant` or `/config` folder depending on what add-on you use to access it, if you are unsure which to use check the documentation for the add-on you are using to access it, from inside Core this is always `/config`. So if you use a full path in your configuration you need to use `/config` as the prefix regardless of what your add-on uses._
 
 _If you use Home Assistant Core, you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeassistant`)._
 
