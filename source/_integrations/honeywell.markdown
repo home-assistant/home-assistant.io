@@ -48,6 +48,8 @@ The climate platform integrates Honeywell US-based thermostats into Home Assista
 
 All [climate services](/integrations/climate) are supported except set_swing_mode.
 
+There is a "known" issue related to setting temperature from HomeAssistant with some thermostats.  If your instance recieves errors when setting the temperature above or below some value, go the the Honeywell web page and set the tempurature to the max or min for the mode you are using, then adjust from HomeAssistant.
+
 ## Sensor
 
 The sensor platform integrates inside and outside temperature and humidity into Home Assistant as sensors for each device. Not every supported thermostat will support all sensors.
