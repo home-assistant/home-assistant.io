@@ -101,7 +101,7 @@ The last schedule that was active is determined the same way long-tapping the to
 Example:
 
 ```yaml
-# Example script set hvac_mode to auto = schedule active
+# Example script climate.set_hvac_mode to auto = schedule active
 script:
   lisa_reactivate_last_schedule:
     sequence:
@@ -110,6 +110,25 @@ script:
           entity_id: climate.lisa_bios
         data:
           hvac_mode: auto
+```
+
+#### Turn on / turn off
+
+Service: `climate.turn_off`, `climate.turn_on` (Adam only)
+
+These services will switch the Adam regulation mode (= HVAC system mode) to off or on, affecting the operation of all connected thermostats.
+`climate.turn_on` will activate the previously selected heating or cooling mode.
+
+Example:
+
+```yaml
+# Example script climate.turn_off
+script:
+  turn_heating_on:
+    sequence:
+      - service: climate.turn_off
+        target:
+          entity_id: climate.lisa_bios
 ```
 
 #### Change climate schedule
