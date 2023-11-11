@@ -82,13 +82,13 @@ script:
           entity_id: climate.anna
 ```
 
-#### Set HVAC mode (limited to schedule active / not active)
+#### Set HVAC mode
 
 Service: `climate.set_hvac_mode`
 
 Available options include `off` (Adam only) `auto`, `cool`, `heat`, and `heat_cool` (Anna with Elga only).
 
-The meaning of `off` is that the Adam regulation is set to off. This means that the connected HVAC-system does not heat or cool, only the domestic hot water heating is active.
+The meaning of `off` is that the Adam regulation is set to off. This means that the connected HVAC-system does not heat or cool, only the domestic hot water heating function, when available, is active.
 
 The meaning of `cool` or `heat` is that there is no schedule active, i.e. the system is in cooling- or heating-mode, the system will be active if the roomtemperature is above/below the thermostat setpoint.
 
