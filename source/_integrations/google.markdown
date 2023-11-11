@@ -13,6 +13,9 @@ ha_platforms:
 ha_codeowners:
   - '@allenporter'
 ha_integration_type: integration
+google_dev_console_link: https://console.developers.google.com/apis/credentials
+api: Google Calendar API
+api_link: https://console.cloud.google.com/apis/library/calendar-json.googleapis.com
 ---
 
 The *Google Calendar* integration allows you to connect your [Google Calendar](https://calendar.google.com) to Home Assistant. The integration adds calendar entities that are shown on the *Calendar* dashboard, and can be used for automations based on any event, or limited to specific matching criteria.
