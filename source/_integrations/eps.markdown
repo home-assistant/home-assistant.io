@@ -1,9 +1,8 @@
 ---
-title: EPS
-description: Instructions on how to integrate EPS alarms into Home Assistant.
-ha_category:
-  - Alarm
-ha_iot_class: Cloud Polling
+title: "EPS"
+description: "Instructions on how to integrate EPS alarms into Home Assistant."
+ha_category: "Alarm"
+ha_iot_class: "Cloud Polling"
 ha_config_flow: true
 ha_release: '2023.11'
 ha_domain: EPS
