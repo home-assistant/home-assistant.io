@@ -22,7 +22,7 @@ The *Google Calendar* integration allows you to connect your [Google Calendar](h
 You need to configure developer credentials to allow Home Assistant to access your Google Account. The current recommended approach is to create *Web Auth* credentials for Google Calendar since
 the same credentials work for all Google integrations. Previously, this integration only supported
 *Device Auth* and those credentials are no longer recommended. You can continue to use *Device Auth*
-credentials but the only work with Google Calendar.
+credentials but they will only work with Google Calendar.
 
 {% include integrations/google_client_secret.md %}
 
