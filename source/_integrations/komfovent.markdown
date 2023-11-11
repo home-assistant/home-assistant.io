@@ -3,7 +3,7 @@ title: Komfovent
 description: Instructions on how to integrate Komfovent ventilation units into Home Assistant.
 ha_category:
   - Climate
-ha_release: 2023.7
+ha_release: 2023.12
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@ProstoSanja'
