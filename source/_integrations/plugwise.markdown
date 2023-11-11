@@ -33,12 +33,12 @@ The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Ada
 
 Platforms available - depending on your Smile and setup include:
 
- - `climate` (for the Anna and Lisa products, or a single Tom)
+ - `climate` (for the Anna, Jip and Lisa products, or a single Tom)
  - `sensor` (for all relevant products including the Smile P1)
  - `binary_sensor` (for showing the status of e.g. domestic hot water heating or secondary heater)
- - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
- - `select` (for changing a thermostat schedule)
- - `number` (for changing a boiler setpoint)
+ - `switch` (for Plugs connected to Adam, or Circles and Stealths connected to a Stretch)
+ - `select` (for changing a thermostat schedule, a regulation mode (Adam only))
+ - `number` (for changing a boiler setpoint, Circlesa temperature offset)
 
 The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
@@ -86,7 +86,11 @@ script:
 
 Service: `climate.set_hvac_mode`
 
-Available options include `auto`, `heat`, and `cool` (only when there is a cooling option available). The meaning of `auto` is that a schedule is active and the thermostat will change presets accordingly. The meaning of `heat/cool` is that there is no schedule active, i.e., the active preset or manually set temperature is used to control the climate in your house or rooms.
+Available options include `off` (Adam only) `auto`, `cool`, `heat`, and `heat_cool` (Anna with Elga only). 
+The meaning of `off` is that the Adam regulation is set to off. This means that the connected HVAC-system does not heat or cool, only the domestic hot water heating is active.
+The meaning of `cool` or `heat` is that there is no schedule active, i.e. the system is in cooling- or heating-mode, the system will be active if the roomtemperature is above/below the thermostat setpoint.
+The meaning of `heat/cool` is that there is no schedule active, i.e., the active preset or manually set temperature is used to control the climate in your house or rooms.
+The meaning of `auto` is that a schedule is active and the thermostat will change presets/setpoints accordingly.
 The last schedule that was active is determined the same way long-tapping the top of Anna works.
 
 Example:
