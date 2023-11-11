@@ -13,7 +13,7 @@ ha_platforms:
 ha_codeowners:
   - '@allenporter'
 ha_integration_type: integration
-google_dev_console_link: https://console.cloud.google.com/apis/library/calendar-json.googleapis.com
+google_dev_console_link: https://console.developers.google.com/apis/credentials
 api: Google Calendar API
 api_link: https://console.cloud.google.com/apis/library/calendar-json.googleapis.com
 ---
