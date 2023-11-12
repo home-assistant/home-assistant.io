@@ -123,12 +123,12 @@ The following sensors are available in the library:
 | Sum power of all PV DC inputs | W | Sum all power from all PV inputs. |
 
 <div class='note'>
-The inverter does not provide any data about the energy that is fed into the grid directly, but the pykoplenti library provides it via virtual process data.
+The inverter does not provide any data about the energy that is fed into the grid directly, but the `pykoplenti` library provides it via virtual process data.
 </div>
 
 #### Configuration of Energy Dashboard
 
-The following sensors can be used in the energy dashboard:
+The following sensors can be used in the [Energy Dashboard](/docs/energy/):
 
 | Energy Dashboard | Sensor |
 |------------------|:-------|
