@@ -122,6 +122,11 @@ sequence:
   type: list
 {% endconfiguration %}
 
+### Video Tutorial
+This video tutorial explains how scripts work, how to use fields in scripts, and how to use response variables in scripts.
+
+<lite-youtube videoid="vD_xckjQxRk" videotitle="Mastering Scripts in Home Assistant: A Comprehensive Guide" posterquality="maxresdefault"></lite-youtube>
+
 ### Script Modes
 
 Mode | Description
