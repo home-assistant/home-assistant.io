@@ -10,8 +10,8 @@ ha_codeowners:
   - '@pavoni'
 ha_domain: roon
 ha_platforms:
-  - media_player
   - event
+  - media_player
 ha_integration_type: integration
 ---
 
