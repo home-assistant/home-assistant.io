@@ -63,9 +63,9 @@ The first step is to tell Roon to use Home Assistant to make volume changes. You
 
 ![Roon volume options](/images/integrations/roon/roon_volume_options.png)
 
-One of the options shown is Volume Control. Alongside the normal roon options (such as DSP Volume) you will see a series of options called Home Assistant: ~Zone Name~. Choose the option that matches the zone you are configuring.
+One of the options shown is Volume Control. Alongside the normal roon options (such as DSP Volume) you will see a series of options called Home Assistant: *Zone Name*. Choose the option that matches the zone you are configuring.
 
-The Roon volume control will now show plus and minus buttons rather that a volume control slider.
+The Roon volume control will now show plus and minus buttons rather than a volume control slider.
 
 ### Automation in Home Assistant
 
