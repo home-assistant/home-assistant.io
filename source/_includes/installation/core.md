@@ -102,3 +102,22 @@ If this address doesn't work you may also try `http://localhost:8123` or `http:/
 When you run the `hass` command for the first time, it will download, install and cache the necessary libraries/dependencies. This procedure may take anywhere between 5 to 10 minutes. During that time, you may get a **site cannot be reached** error when accessing the web interface. This will only happen the first time. Subsequent restarts will be much faster.
 
 </div>
+
+### Enable shell auto-completion
+
+Bash or ZSH auto-completion features can be used with the `hass` command.
+For example, if you use bash, you can add the following to your `~/.bashrc` file:
+
+```bash
+eval "$(register-python-argcomplete hass)"
+```
+
+For more information, see [argcomplete](https://kislyuk.github.io/argcomplete/) documentation.
+
+<div class='note warning'>
+
+If you followed all steps of this guide, `hass` run from a virtual environment.
+Auto-completion will work as soon as you wil have activated this virtual environment.
+While `hass` cannot directly be ran, no completion will be available.
+
+</div>
