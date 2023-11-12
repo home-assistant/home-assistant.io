@@ -87,8 +87,8 @@ action:
       - conditions:
           - condition: state
             entity_id: event.study_roon_volume
-            state: volume_up
             attribute: event_type
+            state: volume_up
         sequence:
           - service: remote.send_command
             data:
