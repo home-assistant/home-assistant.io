@@ -32,7 +32,7 @@ This section explains how to generate a client ID and client secret on
    - From the dropdown menu, select your email address.
 7. Under **Developer contact information**, enter your email address (the same as above is fine).
 8. Scroll to the bottom and select **Save and continue**.
-    - Adding other information to this page (like an app logo) may trigger an additional review process from Google and delay setup by days.
+    - You don't have to fill out anything else here. Adding other information to this page (like an app logo) may trigger an additional review process from Google and delay setup by days.
 9. You will then be automatically taken to the **Scopes** page.
     - You do not need to add any scopes here. Select **Save and continue** to move to the **Test users** page.
     - You do not need to add anything to the **Test users** page. Select **Save and continue**, which will take you to the **Summary** page.
