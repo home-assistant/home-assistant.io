@@ -102,8 +102,8 @@ Use this service when you make changes to your configuration via velbuslink.
 
 ## VMB7IN and the Energy dashboard
 
-The VMB7IN does not repport what the counter is counting, because of this we need to let Home Assistant know what device class each counter is, in case the counter is counting an energy device everything will work out of the box.
-But in case the VMB7IN channel is a water or gas counter you will need to make some modifications in your configuration.yaml.
+In some cases, the VMB7IN sensor does not report what the counter is counting. If the counter is related to an energy device, everything will work out of the box.
+But if the VMB7IN sensor is a water or gas counter, you will need to specify this in your configuration.yaml file.
 
 ```yaml
 homeassistant:
