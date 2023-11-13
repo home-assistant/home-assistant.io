@@ -581,30 +581,30 @@ support_url:
 ### How to use discovery messages
 
 When MQTT discovery is set up, and a device or service sends a discovery message,
-an MQTT entity, tag or device automation will set up directly after receiving the message.
-When Home Assistant is restarting, discovered MQTT items with a unique ID will be unavailable till a new
-discovery messages is received. Other MQTT items without a unique will not be added at startup.
+an MQTT entity, tag, or device automation will be set up directly after receiving the message.
+When Home Assistant is restarting, discovered MQTT items with a unique ID will be unavailable until a new
+discovery message is received. MQTT items without a unique ID will not be added at startup.
 So a device or service using MQTT discovery must make sure a configuration message is offered
-after the `mqtt` integration has been (re)started. There are 2 common approaches to make sure the
+after the **MQTT** integration has been (re)started. There are 2 common approaches to make sure the
 discovered items are set up at startup:
 
-1. Using Birth and Will messages to trigger
+1. Using Birth and Will messages to trigger setup
 2. Using retained messages
 
-Finally, it is a best practice to publish your device or services availability status.
+Finally, it is a best practice to publish your device or service availability status.
 
 #### Use the Birth and Will messages to trigger discovery
 
-When the `mqtt` integrations is starting up, a birth message is published at `homeassistant/status` by default.
+When the **MQTT** integration starts, a birth message is published at `homeassistant/status` by default.
 A device or service connected to the shared `mqtt` broker can subscribe to this topic and use an `online` message
 to trigger discovery messages. See also the [birth and last will messages](/integrations/mqtt/#birth-and-last-will-messages)
-section. After the configs have been published the state topics will need an update, so they need to be republished.
+section. After the configs have been published, the state topics will need an update, so they need to be republished.
 
 #### Using retained config messages
 
 An alternative method for a device or service is to publish discovery messages with a `retain` flag. This will make sure
-discovery messages are replayed when the `mqtt` integration connects to the broker.
-After the configs have been published the state topics will need an update.
+discovery messages are replayed when the **MQTT** integration connects to the broker.
+After the configs have been published, the state topics will need an update.
 
 #### Using retained state messages
 
@@ -616,19 +616,18 @@ that this messages will be replayed, so the state can restore for this topic.
 <div class='note warning'>
 
 A disadvantage of using retained messages is that these messages retain at the broker,
-even when the device or service stops working and even after the the system or broker restarts.
-They can cause ghost entities that keep coming back.
+even when the device or service stops working. They are retained even after the system or broker has been restarted.
+Retained messages can create ghost entities that keep coming back.
 <br><br>
-Try to avoid sending unneeded discovery messages as this can cause an excessive system load,
-especially when a lot of entities are set up.
+Especially when you have many entities, (unneeded) discovery messages can cause excessive system load. For this reason, use discovery messages with caution.
 
 </div>
 
 ### Using Availability topics
 
-A device or service can announce it's availability by publishing a Birth message and set Will message message at the broker.
-When the device or service looses connection to the broker, the broker will publish the Will message.
-This allows the `mqtt` integration to make an entity unavailable.
+A device or service can announce its availability by publishing a Birth message and set a Will message at the broker.
+When the device or service loses connection to the broker, the broker will publish the Will message.
+This allows the **MQTT** integration to make an entity unavailable.
 
 Platform specific availability settings are available for `mqtt` entity platforms only.
 
@@ -655,7 +654,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_topic:
