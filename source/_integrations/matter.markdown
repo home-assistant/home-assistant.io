@@ -170,67 +170,6 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 10. To add the device, we need the QR code. In the console, type in `matter onboardingcodes ble` and copy/paste the URL into your browser.
 11. Use the QR code to add the device using one of the above instructions on your phone, e.g. using the Home Assistant Companion app.
 
-## Known working devices
-
-Because the availability of actual Matter devices (and their documentation) is sparse, we provide a list of all known working devices that are tested by the Home Assistant Matter developers and/or the community to help you find the device you need. Note: The list below is ordered alphabetically, and some links contain affiliate links.
-
-Did you test a device that is not listed below? It would be greatly appreciated if you share your experience either on the Matter discord channel or contribute a PR (or suggestion) to this documentation page so you can help others, thanks in advance!
-
-### Aqara M2 Hub
-
-- Bridges Aqara (Zigbee) devices connected to the hub to Matter.
-- You need to enable Matter support/firmware in the Aqara app.
-- You will need an Aqara (cloud) account and the app before you can use Matter.
-- See [this Aqara landingpage](https://www.aqara.com/en/article-1583275073188196352.html) for more information, including what devices are bridged.
-- Device events, for example for the wall rockers and Cube, are not supported.
-
-### Eve Energy (power plug), Eve Door & Window (contact sensor), Eve Motion (motion sensor)
-
-- If you see a Matter logo on the box, the device runs Matter already and you can add it to HA immediately.
-- If there is a Thread logo, you need to install the Matter firmware using the Eve app.
-- No Matter logo and no Thread logo on the box? The device is not Matter compatible.
-- The energy metering feature of the Eve plug will not work in Home Assistant (Apple only feature).
-- Eve has just released official Matter support so ignore any documentation about the beta program.
-
-[Eve Energy on Amazon](https://amzn.to/3YuO62P)
-[Eve Door & Window on Amazon](https://amzn.to/3RIU6ml)
-[Eve Motion on Amazon](https://amzn.to/3jDujiP)
-
-### Nanoleaf (Essentials) Matter bulbs and Lightstrips
-
-- Although the products work great once commissioned, multiple users have reported that commissioning them can be a bit difficult and requires some patience and multiple resets or optimizations to your home network.
-- Check the [Nanoleaf Matter infopage](https://nanoleaf.me/en-EU/integration/matter/) for all supported products and instructions.
-
-### Philips Hue (V2) Bridge
-
-The Philips Hue V2 bridge supports Matter. You can enable Matter support in the Hue app. You can then commission it to Home Assistant and other fabrics.
-
-- Binding the Hue bridge to Home Assistant does not make sense because you will lose functionality over the default Hue integration in Home Assistant, such as button press events and (dynamic) scenes.
-- You will need a Hue/Signify (cloud) account and the app before you can use Matter.
-- Device events for example for dimmer remotes are not supported.
-- Only basic control of lights is supported, no scenes, events, effects etc.
-
-### SwitchBot Hub 2
-
-SwitchBot has released a (beta) firmware update to enable Matter support on their Hub 2. The SwitchBot Hub 2 is a Matter bridge device. It is bridging some of the devices, such as curtain motors, into Matter.
-
-- To use Matter, in the SwitchBot app, enable Matter bridge support. Then, copy the code and use that to commission the Hub to Home Assistant. Another option is to use a second device to scan the QR code.
-- Device support is limited. You bridge specific devices to Matter by adding them as **Secondary device** in the app. Note that not all SwitchBot devices can be bridged.
-- Enabling Matter support does not convert the actual SwitchBot devices into matter devices. Those still need to be within the Bluetooth range of the hub.
-- Bridged SwitchBot devices appear with a rather technical name in Home Assistant. This is a known issue.
-
-
-### Tasmota
-
-Tasmota supports Matter over IP on all ESP32 based devices (in experimental phase). Follow the [instructions](https://tasmota.github.io/docs/Matter/).
-
-### TP-Link Tapo P125M (power plug)
-
-- Look for the _M_ addition in the model name. A device without the M (regular P125) is not Matter compliant.
-- This device is available in the US only.
-
-[TP-Link Tapo P125M on Amazon](https://amzn.to/3RILJah)
-
 ## Troubleshooting
 
 ### General recommendations
