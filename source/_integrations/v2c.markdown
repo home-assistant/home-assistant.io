@@ -51,7 +51,7 @@ The V2C integration currently exposes the following sensors:
 
 The V2C integration currently exposes the following number entity:
 
-- intensity: current used to transfer energy to your vehicle
+- intensity: current (in A) used to transfer the energy to your vehicle
 
 ## Switch
 
