@@ -99,6 +99,24 @@ Use this service when you make changes to your configuration via velbuslink.
 | `interface`            | no       | The port used to connect to the bus (the same one used during configuration). |
 | `address`              | no       | The module address in decimal format, which is displayed on the device list on the integration page, if provided the service will only clear the cache for this model, without an address, the full velbuscache will be cleared. |
 
+
+## VMB7IN and the Energy dashboard
+
+In some cases, the VMB7IN sensor does not report what the counter is counting. If the counter is related to an energy device, everything will work out of the box.
+But if the VMB7IN sensor is a water or gas counter, you will need to specify this in your configuration.yaml file.
+
+```yaml
+homeassistant:
+  customize:
+    sensor.eau_counter:
+      device_class: water
+```
+
+The device_class attribute can have 2 values:
+- gas: if the counter represents a gas meter
+- water: if the counter represents a water meter
+
+
 ## Example automation
 
 The Velbus integration allows you to link a Velbus button (i.e., a button of a [VMBGPOD](https://www.velbus.eu/products/view/?id=416302&lang=en) module) to a controllable entity of Home Assistant.
