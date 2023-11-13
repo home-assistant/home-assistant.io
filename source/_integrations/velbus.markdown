@@ -113,8 +113,8 @@ homeassistant:
 ```
 
 The device_class attribute can have 2 values:
-- gas: in this case the counter is a gas meter
-- water: in this the counter is used to measure a water meter
+- gas: if the counter represents a gas meter
+- water: if the counter represents a water meter
 
 
 ## Example automation
