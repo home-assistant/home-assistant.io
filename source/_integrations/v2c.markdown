@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: v2c
 ha_platforms:
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -28,6 +29,12 @@ To configure the V2C integration you will need to enter the IP address of your T
 
 ## Sensor
 
-The V2C integration currently exposes the follow sensors:
+The V2C integration currently exposes the following sensors:
 
 - charge_power: a sensor for the current power charging your vehicle
+
+## Switch
+
+The V2C integration currently exposes the following switches:
+
+- pause session: pause the charging session
