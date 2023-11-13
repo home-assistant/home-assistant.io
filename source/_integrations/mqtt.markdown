@@ -610,8 +610,8 @@ After the configs have been published, the state topics will need an update.
 
 State updates also need to be re-published after a config as been processed.
 This can also be done by publishing `retained` messages. As soon as a config is received (or replayed from a retained message),
-the setup will subscribe any state topics, an this will trigger, if a retained message is available at a state topic,
-that this messages will be replayed, so the state can restore for this topic.
+the setup will subscribe any state topics. If a retained message is available at a state topic,
+ this message will be replayed so that the state can be restored for this topic.
 
 <div class='note warning'>
 
