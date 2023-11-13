@@ -10,6 +10,7 @@ ha_codeowners:
   - '@dgomes'
 ha_domain: v2c
 ha_platforms:
+  - number
   - binary_sensor
   - sensor
   - switch
@@ -45,6 +46,12 @@ The V2C integration currently exposes the following sensors:
 - charge_time: Time spent in the current charging session.
 - house_power: Power consumed by your household. This data is available if you installed and configured the settings in the V2C app for the <abbr title="current transformer">CT</abbr> clamp that was supplied with your <abbr title="electric vehicle supply equipment">EVSE</abbr>).
 - fv_power: Power produced by your photovoltaic system. This data is available if you installed and configured the settings in the V2C app for the <abbr title="current transformer">CT</abbr> clamp that was supplied with your <abbr title="electric vehicle supply equipment">EVSE</abbr>).
+
+## Number
+
+The V2C integration currently exposes the following number entity:
+
+- intensity: current used to charge your vehicle
 
 ## Switch
 
