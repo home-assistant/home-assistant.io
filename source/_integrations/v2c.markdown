@@ -10,6 +10,7 @@ ha_codeowners:
   - '@dgomes'
 ha_domain: v2c
 ha_platforms:
+  - binary_sensor
   - sensor
   - switch
 ha_integration_type: integration
@@ -26,6 +27,14 @@ There is currently support for the following device platforms within Home Assist
 To configure the V2C integration you will need to enter the IP address of your Trydan EVSE.
 
 {% include integrations/config_flow.md %}
+
+## Binary Sensor
+
+The V2C integration currently exposes the following binary sensors:
+
+- connected: indicates if the EVSE is connected to the car
+- charging: indicates an ongoing charging session
+- ready: indicates you may disconnect from the car
 
 ## Sensor
 
