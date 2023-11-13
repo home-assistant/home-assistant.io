@@ -21,7 +21,7 @@ To use your MQTT sensor in your installation, add the following to your `configu
 mqtt:
   sensor:
     - name: "Bedroom Temperature"
-    - state_topic: "home/bedroom/temperature"
+      state_topic: "home/bedroom/temperature"
 ```
 
 {% configuration %}
