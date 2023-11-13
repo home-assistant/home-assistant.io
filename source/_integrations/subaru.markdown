@@ -68,7 +68,7 @@ This integration supports remote locking and unlocking of vehicle doors. If door
 The current lock status is always unknown due to the fact that the Subaru API does not report this data.
 </p>
 
-### Unlock Specific Door
+### Unlock specific door
 
 In addition to the standard services built into the lock entity, this integration also provides a  `subaru.unlock_specific_door` service to specify a door to unlock.
 
@@ -78,7 +78,7 @@ The service requires the `door` parameter which may be set to one of the followi
 - `driver`: unlocks only the driver's door
 - `tailgate`: unlocks only the tailgate (not all vehicles support this option)
 
-## Device Tracker
+## Device tracker
 
 Tracks the most recently reported location of the vehicle. The vehicle reports its location when it is turned off. If enabled, the [polling option](#options) will also update the vehicle location.
 
