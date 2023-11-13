@@ -24,7 +24,7 @@ The Google Mail integration allows you to connect your [Google Mail](https://mai
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
 These credentials are the same as the ones for [Nest](/integrations/nest) and [Google Sheets](/integrations/google_sheets) and [YouTube](/integrations/youtube).
-These are not the same as the one for [Google Calendar](/integrations/google).
+These are not the same as *Device Auth* credentials previously recommended for [Google Calendar](/integrations/google).
 
 {% include integrations/google_client_secret.md %}
 
