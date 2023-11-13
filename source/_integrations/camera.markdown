@@ -81,7 +81,7 @@ Both `duration` and `lookback` options are suggestions, but should be consistent
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`. |
-| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/{{ entity_id.name }}.mp4`{% endraw %}. |
+| `filename`             |      no  | Template of a file name. |
 | `duration`             |      yes | Target recording length (in seconds). Default: 30 |
 | `lookback`             |      yes | Target lookback period (in seconds) to include in addition to duration.  Only available if there is currently an active HLS stream. Default: 0 |
 
@@ -97,7 +97,7 @@ action:
   target:
     entity_id: camera.yourcamera
   data:
-    filename: '/tmp/{{ entity_id.name }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+    filename: '/tmp/camera.yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
 ```
 
 {% endraw %}
