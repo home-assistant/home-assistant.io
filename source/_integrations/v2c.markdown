@@ -33,5 +33,5 @@ The V2C integration currently exposes the follow sensors:
 - charge_power: Current power charging your vehicle.
 - charge_energy: Energy transferred to your car during the current charging session.
 - charge_time: Time spent in the current charging session.
-- house_power: Power consumed by your household. This data is available if you installed and configured the settings in the V2C app for the <abbr title="current transformer">CT</abbr> clamp that was supplied with your <abbr title="electric vehicle support equipment">EVSE</abbr>).
-- fv_power: Power produced by your photovoltaic system. This data is available if you installed and configured the settings in the V2C app for the <abbr title="current transformer">CT</abbr> clamp that was supplied with your <abbr title="electric vehicle support equipment">EVSE</abbr>).
+- house_power: Power consumed by your household. This data is available if you installed and configured the settings in the V2C app for the <abbr title="current transformer">CT</abbr> clamp that was supplied with your <abbr title="electric vehicle supply equipment">EVSE</abbr>).
+- fv_power: Power produced by your photovoltaic system. This data is available if you installed and configured the settings in the V2C app for the <abbr title="current transformer">CT</abbr> clamp that was supplied with your <abbr title="electric vehicle supply equipment">EVSE</abbr>).
