@@ -116,8 +116,6 @@ For more information, see [argcomplete](https://kislyuk.github.io/argcomplete/) 
 
 <div class='note warning'>
 
-If you followed all steps of this guide, `hass` run from a virtual environment.
-Auto-completion will work as soon as you wil have activated this virtual environment.
-While `hass` cannot directly be ran, no completion will be available.
+If you've followed all the steps in this guide `hass` has been installed in a virtual environment. Auto completion will only work when that environment is **activated**. You can tell when the virtual environment is active because your terminal prompt will include `(homeassistant)`.
 
 </div>
