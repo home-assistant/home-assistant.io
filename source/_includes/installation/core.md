@@ -105,12 +105,46 @@ When you run the `hass` command for the first time, it will download, install an
 
 ### Enable shell auto-completion
 
-Bash or ZSH auto-completion features can be used with the `hass` command.
-For example, if you use bash, you can add the following to your `~/.bashrc` file:
+Your shell auto-completion features can be used with the `hass` command.
+First of all, you must register `hass` for auto-completion.
+
+If you use bash, add the following to your `~/.bashrc` file:
 
 ```bash
 eval "$(register-python-argcomplete hass)"
 ```
+
+For ZSH, add the following in `~/.zshrc`:
+
+```bash
+autoload -U bashcompinit
+bashcompinit
+eval "$(register-python-argcomplete hass)"
+```
+
+<div class='note'>
+
+Two first lines are relevant only if you have not enabled bashcompinit yet.
+
+</div>
+
+For tcsh, add the following in `~/.tcshrc`:
+
+```bash
+eval `register-python-argcomplete --shell tcsh hass`
+```
+
+If you use fish, run the following command from your terminal:
+
+```bash
+register-python-argcomplete --shell fish pipx >~/.config/fish/completions/pipx.fish
+```
+
+<div class='note'>
+
+It is not required to be in the config file, only run once.
+
+</div>
 
 For more information, see [argcomplete](https://kislyuk.github.io/argcomplete/) documentation.
 
