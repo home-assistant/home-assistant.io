@@ -210,7 +210,7 @@ Send a poll.
 | `open_period`             | yes      | Amount of time in seconds the poll will be active after creation, 5-600.                                                                                                       |
 | `disable_notification`    | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `timeout`                 | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                            |
-| `reply_to_message_id`      | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                           |
+| `reply_to_message_id`     | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %} |
 
 ### Service `telegram_bot.edit_message`
 
