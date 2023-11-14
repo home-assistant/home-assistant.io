@@ -28,7 +28,7 @@ Supported units:
 The following devices are supported by the underlying `lupupy` Python library and integrated into Home Assistant.
 
 - **Alarm Control Panel**: Displays the alarm status and controls arming, disarming and home modus.
-- **Binary Sensor**: Displays the status of binary sensors. Door, window, water and smoke sensors are supported.
+- **Binary Sensor**: Displays the status of binary sensors. Door, window, water, and smoke sensors are supported.
 - **Switch**: Turn off and on your Lupus power switches.
 
 ## Configuration
