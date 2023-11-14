@@ -35,7 +35,7 @@ Some To-do List integrations allow Home Assistant to manage the To-do Items in t
 services provided by some To-do List entities are described below or you can read more about [Service Calls](/docs/scripts/service-calls/).
 
 
-### Service `todo.list_items`
+### Service `todo.get_items`
 
 Get to-do items from a to-do list. A to-do list `target` is selected with a [target selector](/docs/blueprint/selectors/#target-selector). The `data` payload supports the following fields:
 
@@ -43,16 +43,15 @@ Get to-do items from a to-do list. A to-do list `target` is selected with a [tar
 | ---------------------- | -------- | ----------- | --------|
 | `status` | yes | Only return to-do items with this status. |  `needs_action`, `completed`
 
-This is a full example that returns all to-do items with any status:
+This is a full example that returns all to-do items that have not been completed:
 
 ```yaml
-service: todo.list_items
+service: todo.get_items
 target:
   entity_id: todo.personal_tasks
 data:
   status:
     - needs_action
-    - completed
 ```
 
 ### Service `todo.add_item`
