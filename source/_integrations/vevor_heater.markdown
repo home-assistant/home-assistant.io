@@ -4,7 +4,7 @@ description: Instructions on how to integrate Vevor BLE heaters into Home Assist
 ha_category:
   - Sensor
 ha_bluetooth: true
-ha_release: '2023.11'
+ha_release: '2023.12'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@iotmaestro'
