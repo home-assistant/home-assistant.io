@@ -7,7 +7,6 @@ ha_category:
 ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@muppet3000'
 ha_domain: growatt_server
 ha_platforms:
   - sensor
