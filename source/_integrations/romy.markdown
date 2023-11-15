@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `romy` integration allows you to control your [ROMY](https://romyrobot.eu/) vacuum robot.
+The `romy` integration allows you to control your [ROMY](https://www.romyrobot.com) vacuum robot.
 
 This integration currently supports the following models:
 
@@ -58,4 +58,4 @@ You have to enable the local interface first with a password, this is printed as
 
 ### ROMY robot interface protocol
 
-Is available as download under [romy-robot-interface-protocol](https://romyrobot.eu/pages/romy-robot-interface-protocol)
+Is available as download under [romy-robot-interface-protocol](https://www.romyrobot.com/en-AT/romy-robot-interface-protocol)
