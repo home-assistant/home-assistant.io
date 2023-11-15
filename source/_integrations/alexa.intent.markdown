@@ -398,7 +398,7 @@ Alexa will now respond with a random phrase each time. You can use the include f
 ## Workaround for having to say the skill's name
 Like me, would you prefer to use the run script (or run scene) intents without using the skill's name. e.g instead of saying `Alexa ask Home Assistant to run <some script>` you'd prefer to say `Alexa <some script>` on a dev skill?
 
-If so, a quick and perhaps a touch dirty, workaround is to use Alexa routines as well. Configure a routine in the Alexa app that responds to the command you want to use (e..g 'Alexa, turn on the dryer' and runs a customised action that would be the full phrase that you configured in your Skill e.g. 'Alexa, ask Home Assistant to run the dryer on script'
+One workaround to achieve this is to use Alexa routines as well. Configure a routine in the Alexa app that responds to the command you want to use (e.g 'Alexa, turn on the dryer'). This routine should include a customised action that contains the full phrase you configured in your Skill (e.g. 'Alexa, ask Home Assistant to run the dryer on script').
 
 [amazon-dev-console]: https://developer.amazon.com
 [large-icon]: /images/integrations/alexa/alexa-512x512.png
