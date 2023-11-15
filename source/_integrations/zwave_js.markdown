@@ -420,8 +420,6 @@ This service will set the configuration of a lock.
 | `entity_id`            | no       | Lock entity or list of entities to set the usercode. |
 | `operation_type`       | yes       | Lock operation type, one of `timed` or `constant`.   |
 | `lock_timeout`       | no       | Seconds until lock mode times out. Should only be used if operation type is `timed`.   |
-| `outside_handles_can_open_door_configuration`       | no       | Which outside handles can open the door. Defaults to all `true` if not specified.   |
-| `inside_handles_can_open_door_configuration`       | no       | Which inside handles can open the door. Defaults to all `true` if not specified.   |
 | `auto_relock_time`       | no       | Duration in seconds until lock returns to secure state. Only enforced when operation type is `constant`.   |
 | `hold_and_release_time`       | no       | Duration in seconds the latch stays retracted.   |
 | `twist_assist`       | no       | Enable Twist Assist.   |
