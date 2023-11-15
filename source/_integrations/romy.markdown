@@ -54,7 +54,7 @@ Currently supported sensors are:
 
 ### local HTTP interface password
 
-You have to enable the local interface first with a password, this is printend as QR Code on a label directly under the dustbin inside the robot.
+You have to enable the local interface first with a password, this is printed as QR Code on a label directly under the dustbin inside the robot.
 
 ### ROMY robot interface protocol
 
