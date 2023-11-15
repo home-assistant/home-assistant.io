@@ -19,7 +19,7 @@ ha_integration_type: integration
 
 The `romy` integration allows you to control your [ROMY](https://romyrobot.eu/) vacuum robot.
 
-This integration supports currently following models:
+This integration currently supports the following models:
 
 - ROMY C5
 - ROMY L6 Performance
