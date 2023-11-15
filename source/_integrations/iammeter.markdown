@@ -18,7 +18,7 @@ ha_integration_type: integration
 The [WEM3050T](https://www.iammeter.com/products/3phase-meter-3050t) is the latest three-phase/split-phase meter, released by IAMMETER on Nov 2023.
 The WEM3050T provides nearly all of the features the WEM3080T provides, with the exception of the cloud service.
 The WEM3050T can be integrated into Home Assistant by [all of the methods](https://community.home-assistant.io/t/four-ways-to-integrate-the-electricity-usage-monitor-iammeter-into-the-home-assistant/485520/) that WEM3080T supports.
-Because there is no cloud service by default,  the WEM3050T is much cheaper than the WEM3080T.
+Because there is no cloud service by default, the WEM3050T is much cheaper than the WEM3080T.
 
 
 
