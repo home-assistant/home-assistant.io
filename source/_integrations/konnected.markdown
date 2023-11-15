@@ -24,7 +24,7 @@ The `konnected` integration lets you connect wired sensors and switches to a Kon
 
 <div class='note warning'>
   
-This integration is deprecated in favor [Konnected's ESPHome firmware](https://support.konnected.io/add-a-konnected-device-to-home-assistant-with-esphome) and will not receive updates. ESPHome connects locally and natively to Home Assistant and doesn't need this custom integration. Konnected recommends that new users getting started with a Konnected device flash their devices with ESPHome based firmware for the [Konnected Alarm Panel](https://install.konnected.io/esphome) and [Garage Door Opener](https://support.konnected.io/installing-the-garage-door-opener-with-home-assistant) instead of using this integration.
+This integration is deprecated in favor of [Konnected's ESPHome firmware](https://support.konnected.io/add-a-konnected-device-to-home-assistant-with-esphome) and will not receive updates. ESPHome connects locally and natively to Home Assistant and doesn't need this custom integration. Konnected recommends that new users getting started with a Konnected device flash their devices with ESPHome based firmware for the [Konnected Alarm Panel](https://install.konnected.io/esphome) and [Garage Door Opener](https://support.konnected.io/installing-the-garage-door-opener-with-home-assistant) instead of using this integration.
 
 </div>
 
