@@ -141,4 +141,4 @@ Button entities are available for triggering like a one-time charge of the water
 
 ## Number
 
-Number entities are available for abjusting the heating curve shift & slope.
+Number entities are available for adjusting the heating curve shift and slope.
