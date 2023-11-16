@@ -19,7 +19,7 @@ The Soundavo WS66i 6-Zone Amplifier integration allows you to control the [Sound
 
 {% include integrations/config_flow.md %}
 
-## Configuration Notes
+## Configuration notes
 
 Enter the IP Address of the WS66i amplifier when prompted to connect to the device and hit submit. It will detect the number of connected amplifiers and present each zone as an entity.
 
@@ -29,6 +29,6 @@ Enter the IP Address of the WS66i amplifier when prompted to connect to the devi
 
 Once detected, you can add them to an area.
 
-## Source Management
+## Source management
 
 You can configure source names by hitting the **CONFIGURE** button in the integration card.

@@ -48,7 +48,7 @@ password:
   type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 To enable the binary sensor platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your `configuration.yaml` file:
 

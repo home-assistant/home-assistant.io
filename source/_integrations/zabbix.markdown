@@ -112,7 +112,7 @@ zabbix:
       - sensor.time
 ```
 
-## Configure Filter
+## Configure filter
 
 By default, no entity will be excluded. To limit which entities are being published to Zabbix, you can use the `include` and `exclude` parameters.
 

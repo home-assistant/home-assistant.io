@@ -68,7 +68,7 @@ automation:
     - service: velux.reboot_gateway
 ```
 
-## Velux Active (KIX 300)
+## Velux active (KIX 300)
 
 The Velux Active (KIX 300) set is not supported by this integration. To integrate Velux Active (KIX 300) with Home Assistant, you can use the [HomeKit Controller](/integrations/homekit_controller) integration and get full control over your windows, curtains, covers, the air quality sensor KLA 300, etc.
 

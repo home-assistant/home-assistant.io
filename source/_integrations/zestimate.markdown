@@ -43,7 +43,7 @@ zpid:
   type: list
 {% endconfiguration %}
 
-### Additional Attributes
+### Additional attributes
 
 The following additional attributes are also available via the sensor.
 

@@ -32,7 +32,7 @@ The Yamaha MusicCast integration implements the grouping services. There are som
 - It is not possible to let mediaplayer entities of the same device (e.g., different zones) be in distinct groups.
 - If a non-main zone is the master of a group, it is not possible to let other mediaplayers of the same device join this group.
 
-## Play Media functionality
+## Play media functionality
 
 The MusicCast integration supports the Home Assistant media browser for all streaming services, your device supports. For services such as Deezer, you have to log in using the official MusicCast app. In addition, local HTTP URLs can be played back using this service. This includes the Home Assistant text-to-speech services.
 
@@ -66,7 +66,7 @@ data:
 
 Depending on the features supported by the device, several entities will be added for every MusicCast Device. Some of the entities are related to the MusicCast device and some are related to a zone of the device. All device and main zone related entities will be assigned to the Home Assistant device of the main zone. Entities related to other zones will be assigned to the Home Assistant device of the corresponding zone.
 
-### Number Entities
+### Number entities
 
 The following entities will be added, if they are supported by the MusicCast device:
 - Equalizer (configuration, zone level)
@@ -80,7 +80,7 @@ The following entities will be added, if they are supported by the MusicCast dev
 - DTS Dialogue Control (configuration, zone level)
   - Control the volume of dialogues for DTS:X content
 
-### Select Entities
+### Select entities
 The following entities will be added, if they are supported by the MusicCast device:
 - Dimmer (configuration, device level)
   - Set the display brightness
@@ -99,7 +99,7 @@ The following entities will be added, if they are supported by the MusicCast dev
 - Link Audio Quality (configuration, zone level)
   - Set the audio quality for grouped speakers
 
-### Switch Entities
+### Switch entities
 The following entities will be added, if they are supported by the MusicCast device:
 - Speaker A (configuration, device level)
   - A switch to turn on the speaker set A
