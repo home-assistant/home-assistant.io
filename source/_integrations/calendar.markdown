@@ -70,7 +70,7 @@ away from the current time, or your trigger might not fire.
 See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) 
 for additional trigger data available for conditions or actions.
 
-### Automation Recipes
+### Automation recipes
 
 Below are a few example ways you can use Calendar triggers.
 

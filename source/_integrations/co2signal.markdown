@@ -25,6 +25,6 @@ To configure and use this integration, you need to obtain a free API key from El
 
 {% include integrations/config_flow.md %}
 
-## Sensor Types
+## Sensor types
 
 When configured, the platform will create two sensors for each configured location: the carbon intensity expressed in `gCO2eq/kWh` and a percentage of how much the grid relies on fossil fuels for production.

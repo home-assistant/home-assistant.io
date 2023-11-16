@@ -34,7 +34,7 @@ EcoNet devices may be represented by one or more platforms.
 - [Sensor](#sensor)
 - [Water Heater](#water-heater)
 
-### Binary Sensor
+### Binary sensor
 
 The EcoNet Binary Sensor platform lets you view binary states of sensors associated with your EcoNet thermostat or water heater. For example, if the device is currently running.
 
@@ -46,6 +46,6 @@ The EcoNet Climate platform lets you control your EcoNet thermostat. Multi-zone 
 
 The EcoNet Sensor platform lets you view sensors associated with your EcoNet thermostat or water heater. For example, alert count or available hot water.
 
-### Water Heater
+### Water heater
 
 The EcoNet Water Heater platform lets you control your EcoNet water heater. Water Heaters do not report the current water temperature.

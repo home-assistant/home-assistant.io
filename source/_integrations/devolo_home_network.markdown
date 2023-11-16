@@ -34,11 +34,11 @@ The devolo Home Network integration allows you to monitor your PLC network.
 
 {% include integrations/config_flow.md %}
 
-## Device Types
+## Device types
 
 Currently the following device types within Home Assistant are supported.
 
-### Binary Sensors
+### Binary sensors
 
 - Device attached to the router
   - Updates every 5 minutes
@@ -57,7 +57,7 @@ Currently the following device types within Home Assistant are supported.
   - Updates every 15 seconds if changes are detected
   - Is enabled by default
 
-### Presence Detection
+### Presence detection
 
 - Detect presence of devices connected to the main or the guest wifi
   - Updates every 15 seconds

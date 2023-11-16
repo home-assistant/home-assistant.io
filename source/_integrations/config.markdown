@@ -34,7 +34,7 @@ This section enables you to manage your Home Assistant users.
 
 This section enables you to manage the name, location, and unit system of your Home Assistant installation.
 
-### Server Control
+### Server control
 
 This section enables you to control Home Assistant from within Home Assistant. Check your configuration, reload the core, groups, scripts, automations, and the Home Assistant process itself with a single mouse click.
 
