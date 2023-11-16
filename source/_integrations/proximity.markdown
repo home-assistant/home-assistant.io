@@ -26,11 +26,12 @@ The following sensor entities will be created
 
 ### Distance
 
-Distance from the monitored zone in an unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection.
+For each tracked device or person, the distance from the monitored zone in an unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection.
+You can use the [Min/Max](/integrations/min_max) integration to determine the nearest and furthest distance.
 
 ### Direction of travel
 
-Direction of the closest device or person to the monitored zone. Values are:
+For each tracked device or person, the direction of travel to or from the monitored zone. Values are:
 
 - `not_set`
 - `arrived`
