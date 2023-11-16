@@ -29,7 +29,7 @@ State | Description
 `on` | The condition for the alert is true.
 `off` | The condition for the alert is true but it was acknowledged.
 
-### Basic Example
+### Basic example
 
 The `alert` integration makes use of any of the `notification` integrations. To
 setup the `alert` integration, first, you must setup a `notification` integration.
@@ -215,7 +215,7 @@ following notification.
 For example, if the garage door opens at 2:00, a notification will be
 sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
 
-### Message Templates
+### Message templates
 
 It may be desirable to have the alert notifications include information
 about the state of the entity. [Templates][template]

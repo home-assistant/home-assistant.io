@@ -23,7 +23,7 @@ You will need the device's Samba password, which [can be found on the unit](http
 
 {% include integrations/config_flow.md %}
 
-## Sensor Types
+## Sensor types
 
 AirVisual Pro devices create a variety of sensors:
 

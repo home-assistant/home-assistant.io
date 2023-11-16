@@ -34,7 +34,7 @@ You need to enable telnet on your router if you choose to use `protocol: telnet`
 
 </div>
 
-### Sensors Configuration
+### Sensors configuration
 
 These sensors are automatically created and associated to the router device:
 

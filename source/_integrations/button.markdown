@@ -53,7 +53,7 @@ This service can be called to trigger a button press for that entity.
     entity_id: button.my_button
 ```
 
-## Device Class
+## Device class
 
 The way these buttons are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/).
 The following device classes are supported for buttons:

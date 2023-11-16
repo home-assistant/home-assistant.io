@@ -396,7 +396,7 @@ elements:
         movement: zoom_out
 ```
 
-## Advanced Configuration
+## Advanced configuration
 
 You can also use this more advanced configuration example:
 

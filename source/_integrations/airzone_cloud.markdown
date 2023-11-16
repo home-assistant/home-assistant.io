@@ -45,7 +45,7 @@ Password:
   description: "Cloud API password"
 {% endconfiguration_basic %}
 
-## Binary Sensors
+## Binary sensors
 
 For each Airzone system (HVAC machine), the following *binary sensors* are created:
 

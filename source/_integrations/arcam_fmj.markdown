@@ -73,7 +73,7 @@ To trigger this IR command add an automation on the event `arcam.turn_on` filter
 the `entity_id` of the `media_player` zone entity. This can be added using device automations
 or manually using normal automations.
 
-### Serial Port to network gateway
+### Serial port to network gateway
 
 Use a network to a serial port gateway to connect to the serial port of the
 receiver. The serial port is always available and can power on the device.

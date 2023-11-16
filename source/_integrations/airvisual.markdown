@@ -73,7 +73,7 @@ AQI | Status | Description
 - **Sample Sensor Name:** `sensor.us_air_pollution_level`
 - **Example Sensor Value:** `Moderate`
 
-### Main Pollutant
+### Main pollutant
 
 - **Description:** This sensor displays the pollutant whose value is currently highest.
 - **Sample Sensor Name:** `sensor.us_main_pollutant`

@@ -59,7 +59,7 @@ The integration will create sensor entities for a variety of aspects:
 - Each zone that is temperature-controlled will have a sensor to show the temperature (disabled by default), and how open the damper is.
 - Each zone with a wireless temperature or motion sensor will have a sensor that reports its wireless RSSI.
 
-### Binary Sensor
+### Binary sensor
 
 The integration will create a binary sensor for each zone that has a motion sensor.
 
