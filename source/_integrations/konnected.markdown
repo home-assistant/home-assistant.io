@@ -22,6 +22,12 @@ ha_integration_type: integration
 
 The `konnected` integration lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
 
+<div class='note warning'>
+  
+This integration is deprecated in favor of [Konnected's ESPHome firmware](https://support.konnected.io/add-a-konnected-device-to-home-assistant-with-esphome) and will not receive updates. ESPHome connects locally and natively to Home Assistant and doesn't need this custom integration. If you are getting started with a Konnected device, do not use this integration. Instead, flash your device with ESPHome-based firmware for the [Konnected Alarm Panel](https://install.konnected.io/esphome) and [Garage Door Opener](https://support.konnected.io/installing-the-garage-door-opener-with-home-assistant).
+
+</div>
+
 Visit the [Konnected.io website](https://konnected.io) for more information about the Konnected Alarm Panel board and compatible hardware.
 
 <div class='note info'>
