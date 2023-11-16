@@ -135,7 +135,7 @@ devices:
               type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 The `numato` binary_sensor platform allows you to operate the GPIOs of your
 [Numato](https://numato.com) 32 port USB GPIO expander in binary input mode.
@@ -168,7 +168,7 @@ state.
 The `numato` switch platform allows you to operate the GPIOs of your
 [Numato](https://numato.com) 32 port USB GPIO expander in output mode.
 
-## IO Ports
+## IO ports
 
 The IO port numbers used in this configuration refer to the port numbers
 printed on the PCB. Note that the Sensor platform can be configured on ports

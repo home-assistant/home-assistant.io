@@ -58,7 +58,7 @@ The following bridges are reported to work with this integration:
 The 16 character API key needed to setup the Home Assistant integration needs to be retrieved by first connecting the blind/bridge to the official app of its respective brand.
 In that app the key can often be found by clicking multiple times on specific places on the "About" page.
 
-### Motion Blinds app
+### Motion blinds app
 
 The Motion Blinds API uses a 16 character key that can be retrieved from the official "Motion Blinds" app for [IOS](https://apps.apple.com/us/app/motion-blinds/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
 

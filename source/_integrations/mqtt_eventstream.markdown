@@ -37,7 +37,7 @@ ignore_event:
   type: list
 {% endconfiguration %}
 
-## Multiple Instances
+## Multiple instances
 
 Events from multiple instances can be aggregated to a single parent instance by subscribing to a wildcard topic from the parent instance.
 

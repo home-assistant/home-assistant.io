@@ -131,7 +131,7 @@ resources:
           default: false
 {% endconfiguration %}
 
-### Full Example
+### Full example
 
 ```yaml
 # Example configuration.yaml entry

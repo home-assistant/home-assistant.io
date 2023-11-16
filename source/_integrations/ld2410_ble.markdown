@@ -25,7 +25,7 @@ You can currently configure the settings for motion/static triggers by USB with 
 
 (This integration may not work if you reconfigure the default password or the number of gates.)
 
-## Sensors Provided
+## Sensors provided
 
 The following sensors are provided:
 

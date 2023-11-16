@@ -48,7 +48,7 @@ linode:
     type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 The `linode` binary sensor platform allows you to monitor your Linode nodes.
 

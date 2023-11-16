@@ -28,7 +28,7 @@ The Medcom Bluetooth integration will automatically discover devices once the [B
 
 To limit the load on the Bluetooth radio on the Home Assistant side, the integration only polls for a reading every 5 minutes, which should be adequate for ongoing background monitoring. An Inspector BLE battery should last several months with continuous use before needing replacement.
 
-## Supported Devices
+## Supported devices
 
 - Medcom Inspector BLE
 
