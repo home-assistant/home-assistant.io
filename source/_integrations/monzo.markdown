@@ -35,6 +35,8 @@ Before adding the Monzo integration, you'll need to create a [Monzo developer ac
 - Description: Eg: Used by the Monzo Home Assistant Integration
 - Confidentiality: Confidential
 
+Make sure to **copy the URL shown** - don't replace it with your own URL.
+
 Once submitted, you can proceed with adding the integration, filling in the OAuth details for the client you've created in the Monzo developer portal.
 
 **Important** - After authorizing Home Assistant access via email, for security you'll also need to verify again from within the Monzo app. A reminder to do this will be displayed in Home Assistant before completing the installation - don't proceed until you've done this from the popup in the mobile app.
