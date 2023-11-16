@@ -17,7 +17,7 @@ To add the Calendar card to your user interface, click the menu (three dots at t
 
 All options for this card can be configured via the user interface.
 
-## Card Settings
+## Card settings
 
 {% configuration_basic %}
 Title:
@@ -30,7 +30,7 @@ Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 {% endconfiguration_basic %}
 
-## YAML Configuration
+## YAML configuration
 
 The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 

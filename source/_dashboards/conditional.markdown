@@ -13,7 +13,7 @@ To add the Conditional card to your user interface, click the menu (three dots a
 
 Most options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
 The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
@@ -95,7 +95,7 @@ state_not:
 
 *one is required (`state` or `state_not`)
 
-### Numeric State
+### Numeric state
 
 Tests if an entity state matches the thresholds.
 
