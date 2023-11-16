@@ -115,7 +115,7 @@ To enable debug logging for an integration, go to **Settings** > **Devices & Ser
 
 Once you enable debug logging, you ideally need to make the error happen. Run your automation, change up your device or whatever was giving you an error and then come back and disable the debug logging. Disabling the debug logging is the same as enabling, but now the button says **Disable Debug Logging**. After you disable it, you will be automatically prompted you to download your log file. Save this to a safe location to upload later.
 
-### Download Diagnostics
+### Download diagnostics
 
 After you download logs, you will also want to download the diagnostics for the integration giving you trouble. If the integration provides diagnostics, it will appear in the three dot menu next to the integration configuration.
 

@@ -9,13 +9,13 @@ description: "Material Design Icons in the Home Assistant frontend"
 
 Home Assistant utilizes the community-driven [Material Design Icons](https://pictogrammers.com/library/mdi/) (MDI) project for icons in the frontend. The icon library is a superset of the base icon library provided by Google and contains thousands of community-made icons for very specific applications, industries, and use-cases.
 
-## Default Icons
+## Default icons
 
 Every entity in Home Assistant has a default icon assigned to it. There are way too many to list out here, but you'll see them in your dashboard. You can [customize any of your entities](/docs/configuration/customizing-devices/#icon) to change the icons displayed to you.
 
-## Finding Icons
+## Finding icons
 
-### Icon Picker
+### Icon picker
 
 The most common way you can find icons is by using the icon picker built right into Home Assistant. Click into the "Icon" field when customizing an entity and start typing. The list will filter to icons that match your search criteria. You can also scroll through all available icons when the field is empty.
 

@@ -248,7 +248,7 @@ Don't forget to reload automations after you make changes to your blueprint to h
 
 ![Screenshot of the blueprint UI](/images/blueprints/tutorial-ui.png)
 
-## Video Tutorial
+## Video tutorial
 
 This video tutorial explains how to create a blueprint that toggles a light on motion when the lux value is below a certain threshold.
 

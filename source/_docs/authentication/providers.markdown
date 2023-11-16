@@ -53,7 +53,7 @@ homeassistant:
 
 If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically.
 
-### Trusted Networks
+### Trusted networks
 
 The Trusted Networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "allowlisting"). For example, you can allowlist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
 
@@ -152,7 +152,7 @@ homeassistant:
 
 Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, then you can change to use Home Assistant Authentication Provider to login, if you access your Home Assistant instance from outside network.
 
-### Command Line
+### Command line
 
 The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
 

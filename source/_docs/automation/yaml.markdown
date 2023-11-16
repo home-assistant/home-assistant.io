@@ -112,7 +112,7 @@ action:
   type: list
 {% endconfiguration %}
 
-### Automation Modes
+### Automation modes
 
 Mode | Description
 -|-
@@ -127,7 +127,7 @@ Mode | Description
 
 
 
-## YAML Example
+## YAML example
 
 Example of a YAML based automation that you can add to `configuration.yaml`.
 
@@ -262,7 +262,7 @@ If you want to migrate your manual automations to use the editor, you'll have to
 
 {% endraw %}
 
-### Deleting Automations
+### Deleting automations
 
 When automations remain visible in the Home Assistant Dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
 

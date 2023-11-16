@@ -38,7 +38,7 @@ automation:
       - delay: 300  # seconds (=5 minutes)
 ```
 
-## Example Queued
+## Example queued
 
 Sometimes an automation is doing an action on a device that does not support multiple simultaneous actions. In such cases, a queue can be used. In that case, the automation will be executed once it's current invocation and queue are done.
 
