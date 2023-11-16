@@ -62,7 +62,7 @@ This integration supports the following services (see [Climate](/integrations/cl
 Currently selection of custom timeframes in Extend, Away and boost modes is not supported. The default settings can be changed on the device.
 </div>
 
-## Water Heater
+## Water heater
 
 The Water Heater reports current and target temperature for Domestic Hot Water demand, as well as boiler status (heating or idle). This can be used to detect hot water demand, such as a running shower or tap water.
 Setting target values is currently not supported.

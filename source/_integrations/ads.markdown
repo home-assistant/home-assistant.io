@@ -74,7 +74,7 @@ Service parameters:
 - **adstype**: Specify the type of the variable. Use one of the following: `int`, `byte`, `uint`, `bool`
 - **value**: The value that will be written in the variable.
 
-## Binary Sensor
+## Binary sensor
 
 The `ads` binary sensor platform can be used to monitor a boolean value on your ADS device.
 

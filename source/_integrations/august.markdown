@@ -76,7 +76,7 @@ While most entities can be updated via the push API, August/Yale does not offer 
 - Lock Battery sensor
 - Lock Operation sensor
 
-## Binary Sensor
+## Binary sensor
 
 If you have an August Doorbell, once you have enabled the August integration, you should see following sensors:
 

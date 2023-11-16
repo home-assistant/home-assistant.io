@@ -46,7 +46,7 @@ api_key:
   type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 The `bloomsky` binary sensor platform allows you to get data from your BloomSky device.
 

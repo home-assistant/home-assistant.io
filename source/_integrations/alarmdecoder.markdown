@@ -43,7 +43,7 @@ You will be prompted to select a protocol (i.e. `socket` or `serial`). Depending
 
 Once AlarmDecoder has been set up according to the instructions above, the arming settings and zones can be configured by selecting _Options_ on the _AlarmDecoder_ card on the **{% my integrations title="Settings -> Devices & Services" %}** page.
 
-### Arming Settings
+### Arming settings
 
 There are currently 3 arming settings for AlarmDecoder (shown below).
 
@@ -71,7 +71,7 @@ When prompted, enter the number of the zone you'd like to edit. Press _Submit_ t
 
 When prompted, enter the number of the zone you'd like to remove. Press _Submit_ to move to the next screen where the existing zone settings will be pre-filled. Clear the _Zone Name_ field and press _Submit_.
 
-#### Zone Settings
+#### Zone settings
 
 The settings for zones are described below:
 

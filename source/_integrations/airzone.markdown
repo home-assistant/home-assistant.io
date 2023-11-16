@@ -41,7 +41,7 @@ ID:
   description: "Airzone System ID (only needed if System ID 0 is not supported on your device)"
 {% endconfiguration_basic %}
 
-## Binary Sensors
+## Binary sensors
 
 For each Airzone system (HVAC machine), the following *binary sensors* are created:
 
@@ -97,6 +97,6 @@ For each Airzone zone (Thermostat), the following *sensors* are created:
 | humidity            | Current zone relative humidity.    |
 | temperature         | Current zone temperature.          |
 
-## Water Heater
+## Water heater
 
 For each Airzone device a *water heater entity* is created if supported.

@@ -84,7 +84,7 @@ filter:
       type: list
 {% endconfiguration %}
 
-## Configure Filter
+## Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Apache Kafka`, you can use the `filter` parameter.
 

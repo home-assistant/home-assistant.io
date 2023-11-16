@@ -30,7 +30,7 @@ or using an [input boolean helper](/integrations/input_boolean).
 
 {% include integrations/building_block_integration.md %}
 
-### Device Class
+### Device class
 
 Knowing a sensor is binary impacts how the sensor's current state may be
 represented in Home Assistant's UI (see [Dashboards](/dashboards/)). Opposing states

@@ -27,7 +27,7 @@ There is currently support for the following entities within the Apple TV device
 
 {% include integrations/config_flow.md %}
 
-## Media Player
+## Media player
 
 The Apple TV media player platform will create a Media Player entity for each
 Apple TV discovered on your network.

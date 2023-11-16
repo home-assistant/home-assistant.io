@@ -35,7 +35,7 @@ The Bravia TV integration supports two types of authentication:
 
 For more information, see [IP Control Authentication](https://pro-bravia.sony.net/develop/integrate/ip-control/index.html#ip-control-authentication).
 
-## Common Issues
+## Common issues
 
 ### TV does not generate new pin
 
@@ -44,11 +44,11 @@ If you have previously set up your TV with any Home Assistant instances via PIN 
 - On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Disable and re-enable the **Control remotely** after. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidance.
 - Reset your TV to factory condition.
 
-## Media Browser
+## Media browser
 
 Using the Media Browser, you can view a list of all installed applications and TV channels and launch them.
 
-## Play Media service
+## Play media service
 
 The `play_media` service can be used in a automation or script to switch to a specified application or TV channel. It selects the best matching application or channel according to the `media_content_id`:
 

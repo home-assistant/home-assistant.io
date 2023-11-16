@@ -38,7 +38,7 @@ Integrates [Big Ass Fans](https://www.bigassfans.com/) devices into Home Assista
 
 ## Platforms
 
-### Binary Sensor
+### Binary sensor
 
 For devices that support Auto Comfort and are running firmware 3.1 or later, an occupancy sensor entity is available. The sensor has a hold time of about 5 minutes and pushes state updates.
 

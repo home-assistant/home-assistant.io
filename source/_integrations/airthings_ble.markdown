@@ -33,7 +33,7 @@ There are two ways of retrieving the 10-digit serial number of a Wave device:
 
 This integration uses the last 6 digits of the serial number.
 
-## Supported Devices
+## Supported devices
 
 - Wave gen. 1
 - Wave Radon

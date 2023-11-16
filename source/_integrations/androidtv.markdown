@@ -60,7 +60,7 @@ Configure State Detection Rules:
   description: Here you can configure a list of rules where the rule key is the app IDs and whose values are lists of state detection rules. As example a valid value for a detection rule is `["standby", {"playing":{"media_session_state":4}}, {"paused":{"media_session_state":3, "wake_lock_size":4}}]`. Note that rule values must be always inside square bracket (`[...]`). See the section [Custom State Detection](#custom-state-detection) for more info.
 {% endconfiguration_basic %}
 
-## ADB Setup
+## ADB setup
 
 This integration works by sending ADB commands to your Android / Fire TV device. There are two ways to accomplish this.
 
@@ -94,7 +94,7 @@ To configure ADB server on integration setup, you need to enable [advanced mode]
 
 Using this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android / Fire TV device and report back to Home Assistant. To use this option, add the `adb_server_ip` option to your configuration. If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
 
-## ADB Troubleshooting
+## ADB troubleshooting
 
 If the setup for your Android or Fire TV device fails, then there is probably an issue with your ADB connection. Here are some possible causes.
 
