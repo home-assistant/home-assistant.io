@@ -52,7 +52,7 @@ Use the sign-out service to sign the connected controller out of a HEOS account.
 
 ### Service `media_player.play_media`
 
-#### Play Favorite
+#### Play favorite
 
 You can play a HEOS favorite by number or name with the `media_player.play_media` service. Example service data payload:
 
@@ -68,7 +68,7 @@ media_content_id: "1"
 | `media_content_type`   | no       | Set to the value `favorite`
 | `media_content_id`     | no       | (i.e., `1`) or name (i.e., `Thumbprint Radio`) of the HEOS favorite
 
-#### Play Playlist
+#### Play playlist
 
 You can play a HEOS playlist with the `media_player.play_media` service. Example service data payload:
 

@@ -65,7 +65,7 @@ For Home Assistant Host, the following sensors are available:
 | Disk Total | no | Total space (in GB) on the device
 | Disk Used | no | Used space (in GB) on the device
 
-## Binary Sensor entities
+## Binary sensor entities
 
 For each installed add-on Supervisor provides following binary sensors:
 

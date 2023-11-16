@@ -41,13 +41,13 @@ Options supported:
 - **Effects to hide**: An optional selection of effects to hide from the light effects
   list. New effects added to the Hyperion server will be shown by default.
 
-## Hyperion Instances
+## Hyperion instances
 
 This integration supports multiple Hyperion instances running on a single Hyperion
 server. As instances are added/removed on the Hyperion UI, they will automatically be
 added/removed from Home Assistant.
 
-## Light Entity
+## Light entity
 
 The default light entity will send data to Hyperion on the priority you have configured 
 during integration setup. When turned off, it will clear the configured priority again. 
@@ -61,7 +61,7 @@ a global switch (see Advanced Entities).
 The effect list is dynamically pulled from the Hyperion server. Additionally, there
 will be a 'Solid' effect to switch (back) to showing a solid color only.
 
-## Hyperion Camera
+## Hyperion camera
 
 A Hyperion camera entity is created that shows a stream of the input to Hyperion (e.g., a
 USB Capture device). This could be used to show a small "preview window" next to TV
@@ -71,7 +71,7 @@ Please note that only the currently live Hyperion priority can be streamed, and 
 streamable sources will actually stream content (e.g., USB Capture Devices will work, but
 static colors will not).
 
-## Advanced Entities
+## Advanced entities
 
 The Hyperion integration comes with a series of disabled-by-default entities for
 advanced usecases. These entities expose 'raw' underlying Hyperion API components for

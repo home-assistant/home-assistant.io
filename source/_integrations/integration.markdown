@@ -44,7 +44,7 @@ Integration time:
 {% endconfiguration_basic %}
 
 
-## YAML Configuration
+## YAML configuration
 
 Alternatively, this integration can be configured and set up manually via YAML
 as well. To enable the Integration sensor in your installation, add the

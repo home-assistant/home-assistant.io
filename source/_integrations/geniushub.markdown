@@ -39,7 +39,7 @@ Currently, there is no support for altering zone schedules, although entities ca
 
 There are limitations due to the differences between the Genius Hub and Home Assistant schemas (e.g.,  HA has no **Footprint** mode) - use the service handlers, below, for this functionality.
 
-### Service Handlers
+### Service handlers
 
 Home Assistant is obligated to place restrictions upon integrations such as **geniushub** to maintain compatibility with other ecosystems (e.g.,  Google Home) and so not all of the **geniushub** functionality is available via the web UI. Some of this missing functionality is exposed via integration-specific service handlers:
 
@@ -60,7 +60,7 @@ Climate and Water Heater entities will report their current temperature, setpoin
 
 **Footprint** mode is only available to **Radiator** zones that have room sensors.
 
-### Switch Entities
+### Switch entities
 
 Switch entities will report back their state; other properties are available via their state attributes. Currently, HA switches do not have modes/presets, so the Home Assistant `state` will be *reported* as:
 
@@ -125,7 +125,7 @@ This alert may be useful to see if the CH is being turned on whilst you're on a 
 
 {% endraw %}
 
-## State Attributes
+## State attributes
 
 Many zone/device properties are available via the corresponding entity's state attributes. For example, in the case of **Radiator**-derived `Climate` entities (note 'status'):
 
