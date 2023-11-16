@@ -17,12 +17,12 @@ ha_integration_type: integration
 
 This integration sets up integration with [Plaato](https://www.plaato.io/) Airlock and Keg.
 
-### Plaato airlock
+### Plaato Airlock
 
 A tool for beer brewers that wants a unique insight into the fermentation process.
 With this integration, you get all your fermentation data available in Home Assistant!
 
-### Plaato keg
+### Plaato Keg
 
 The first all-in-one system that keeps a track of important aspects of your keg’s, including:
 
