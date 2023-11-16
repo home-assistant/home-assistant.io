@@ -166,7 +166,7 @@ For devices which are also controlled in other ways or often goes out of sync wi
 
 With this service you can tell Sensibo if your device is currently running or not without sending a new command to you device.
 
-### Pure boost
+### Pure Boost
 
 You can configure your Pure Boost settings using the services `sensibo.enable_pure_boost`.
 
@@ -178,7 +178,7 @@ Using Geo integration for Pure Boost is only possible by pre-configuration of Pr
 
 You can enable a timer with a custom delay using the service `sensibo.enable_timer` that is provided.
 
-### Climate react
+### Climate React
 
 You can configure your Climate React settings using the services `sensibo.enable_climate_react`.
 
