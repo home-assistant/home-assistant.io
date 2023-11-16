@@ -37,9 +37,9 @@ Currently only the SkyBell HD is supported by this platform.
 
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+## Integration entities
 
-### Binary Sensor
+### Binary sensor
 
 Each added configuration entry will create the following binary sensors:
 

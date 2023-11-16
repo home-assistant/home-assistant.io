@@ -26,7 +26,7 @@ Off time:
   description: The time when the sensor should turn off.
 {% endconfiguration_basic %}
 
-## YAML Configuration
+## YAML configuration
 
 Alternatlively, this integration can be configured and set up manually via YAML instead. This has some additional functionality over the UI version.
 

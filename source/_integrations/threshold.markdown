@@ -33,7 +33,7 @@ Upper limit:
   description: The upper threshold which the observed value is compared against.
 {% endconfiguration_basic %}
 
-## YAML Configuration
+## YAML configuration
 
 Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the Integration sensor in your installation, add the

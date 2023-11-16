@@ -19,7 +19,7 @@ The Starling Bank sensor platform allows you to monitor your account balance dat
 
 You can find more information about Starling Bank at [their website](https://www.starlingbank.com/). Information on their API can be found on their [developers site](https://developer.starlingbank.com/).
 
-## Access Token
+## Access token
 
 Once you have your own Starling bank account you will need to sign up for a Starling developer account [here](https://developer.starlingbank.com/signup). You won't need to do any development but you will need to get a "Personal Access Token" that will allow the integration to access your account balance.
 

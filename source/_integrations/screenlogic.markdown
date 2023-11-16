@@ -49,7 +49,7 @@ Sets the operation of any connected color-capable lights.
 
 ## Reference
 
-### Color Modes
+### Color modes
 
 | color_mode   | Name         | Description                                                                                               |
 | ------------ | ------------ | --------------------------------------------------------------------------------------------------------- |

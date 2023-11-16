@@ -69,7 +69,7 @@ automation:
 
 {% endraw %}
 
-## Binary Sensor
+## Binary sensor
 
 The `spc` platform allows you to get data from your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) binary sensors from within Home Assistant.
 

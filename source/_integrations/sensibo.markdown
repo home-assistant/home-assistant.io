@@ -76,20 +76,20 @@ You can reset your filter check by using the button available on climate devices
 
 By pressing the button, you tell your device that you have cleaned or replaced the filter.
 
-## Number Entities
+## Number entities
 
 By using the number entities you can calibrate the temperature and hunmidity of your device.
 
 These entities are disabled by default.
 
-## Select Entities
+## Select entities
 
 For supported devices, this integration provides support to set the following modes by the select entity:
 
 - Horizontal swing
 - Light
 
-## Sensor Entities
+## Sensor entities
 
 For all devices, these sensors are available:
 
@@ -130,7 +130,7 @@ For climate devices, these sensors are available:
 - Climate React low temperature threshold
 - Climate React high temperature threshold
 
-## Switch Entities
+## Switch entities
 
 For climate devices, these switches are available:
 
@@ -146,7 +146,7 @@ For Pure devices, this integration provides support to enable/disable Pure Boost
 
 To customize the settings of Pure Boost, you can use the custom `sensibo.enable_pure_boost` service. See [Pure Boost](#pure-boost)
 
-## Custom Services
+## Custom services
 
 ### Full state
 
@@ -166,7 +166,7 @@ For devices which are also controlled in other ways or often goes out of sync wi
 
 With this service you can tell Sensibo if your device is currently running or not without sending a new command to you device.
 
-### Pure Boost
+### Pure boost
 
 You can configure your Pure Boost settings using the services `sensibo.enable_pure_boost`.
 
@@ -178,7 +178,7 @@ Using Geo integration for Pure Boost is only possible by pre-configuration of Pr
 
 You can enable a timer with a custom delay using the service `sensibo.enable_timer` that is provided.
 
-### Climate React
+### Climate react
 
 You can configure your Climate React settings using the services `sensibo.enable_climate_react`.
 
