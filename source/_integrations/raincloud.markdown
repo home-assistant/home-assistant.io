@@ -48,7 +48,7 @@ password:
   type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
 

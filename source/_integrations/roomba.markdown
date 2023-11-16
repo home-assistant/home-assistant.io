@@ -42,7 +42,7 @@ The Roomba's MQTT server only allows a single connection. Enabling continuous mo
 
 </div>
 
-## Integration Entities
+## Integration entities
 
 The Roomba Integration will add the following sensors.
 

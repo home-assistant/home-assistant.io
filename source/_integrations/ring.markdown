@@ -38,7 +38,7 @@ This integration does NOT allow for live viewing of your Ring camera within Home
 
 {% include integrations/config_flow.md %}
 
-## Binary Sensor
+## Binary sensor
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Currently, it supports doorbell, external chimes and stickup cameras.
 

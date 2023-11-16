@@ -21,7 +21,7 @@ The Ridwell integration allows users to track waste recycling pickups scheduled 
 
 {% include integrations/config_flow.md %}
 
-## Pickup Types
+## Pickup types
 
 The pickup sensor contains a `pickup_types` state attribute, which contains:
 

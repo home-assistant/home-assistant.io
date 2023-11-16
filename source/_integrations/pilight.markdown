@@ -81,7 +81,7 @@ pilight:
       - 42
 ```
 
-## Binary Sensor
+## Binary sensor
 
 The `pilight` binary sensor platform implements the [pilight hub](#configuration) binary sensor functionality. There are two types of Pilight binary sensor configuration: a normal sensor which sends the on and off cyclical state and a trigger sensor which sends only a trigger when an event happened (for example lots of cheap PIR motion detectors).
 

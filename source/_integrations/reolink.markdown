@@ -235,7 +235,7 @@ However, these cameras can work with this integration through an NVR in which th
 - E1
 - Reolink Lumus
 
-## Initial Setup
+## Initial setup
 
 A brand new Reolink camera first needs to be connected to the network and initialized. During initialization, the credentials for the camera need to be set.
 There are serveral ways to achieve this.

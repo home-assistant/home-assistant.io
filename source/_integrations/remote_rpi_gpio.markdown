@@ -22,7 +22,7 @@ Note that for virtual environments, you may need to set an environment variable 
 
 `Environment = GPIOZERO_PIN_FACTORY=pigpio PIGPIO_ADDR=YOUR_RPi_IP_ADDRESS`
 
-## Binary Sensor
+## Binary sensor
 
 The `remote_rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of a remote [Raspberry Pi](https://www.raspberrypi.org/).
 

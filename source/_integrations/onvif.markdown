@@ -33,7 +33,7 @@ The ONVIF camera integration allows you to use an [ONVIF](https://www.onvif.org/
 If running Home assistant Core in a venv, ensure that libxml2 and libxslt python interfaces are installed via your package manager.
 </div>
 
-### Configuration Notes
+### Configuration notes
 
 Most of the ONVIF devices support more than one audio/video profile. Each profile provides different image quality, or in the case of an NVR, separate connected cameras. This integration will add entities for all compatible profiles with the video encoding set to H.264. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. You may disable unwanted entities through the Home Assistant UI.
 
@@ -55,7 +55,7 @@ By default, the integration will only enable the camera entity for the first H26
 - If additional camera entities are available for other profiles, try enabling those entities.
 - Set the `Extra FFmpeg arguments` to `-pred 1 -ss 00:00:05 -frames:v 1` to cause the snapshot to be taken 5 seconds into the stream.
 
-### Supported Sensors
+### Supported sensors
 
 This integration uses the ONVIF pullpoint subscription API to process events into sensors that will be automatically added to Home Assistant.  Below is a list of currently supported event topics along with the entities they create.
 
@@ -101,7 +101,7 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 | `move_mode` | PTZ moving mode. Allowed values: `ContinuousMove`, `RelativeMove`, `AbsoluteMove`, `GotoPreset`, `Stop`. Default :`RelativeMove` |
 | `continuous_duration` | Set ContinuousMove delay in seconds before stopping the move. Allowed values: floating point numbers or integer. Default : 0.5 |
 
-### Supported Switches
+### Supported switches
 
 This integration uses the ONVIF auxiliary command and imaging service to send certain settings and information to the camera via switch entities. Below is a list of currently supported switches.
 

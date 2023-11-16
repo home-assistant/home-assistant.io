@@ -114,7 +114,7 @@ Another good source of this data would be the [Mi Flora](/integrations/miflora) 
 
 If the sensor data is within the min/max values the status will be `ok`, if not the status will be `problem`. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.
 
-## Data Source
+## Data source
 
 The main sources of the data will usually be a [MiFlora sensor](/integrations/miflora) or a [MQTT sensor](/integrations/sensor.mqtt/) receiving the data from a [PlantGateway](https://github.com/ChristianKuehnel/plantgateway).
 
