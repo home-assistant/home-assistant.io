@@ -129,7 +129,7 @@ Connection parameters are set up when adding the integration and can be changed 
 
 Use `route back` if your tunneling server is located on a different network.
 
-### KNX secure
+### KNX Secure
 
 The KNX integration supports IP Secure and Data Secure .
 
