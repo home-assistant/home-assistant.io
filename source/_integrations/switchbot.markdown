@@ -47,7 +47,7 @@ Please note, device names configured in the SwitchBot app are not transferred in
 
 {% include integrations/config_flow.md %}
 
-## Supported Devices
+## Supported devices
 
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)

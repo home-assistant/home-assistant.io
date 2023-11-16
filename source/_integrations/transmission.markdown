@@ -26,7 +26,7 @@ Your Transmission client must first be configured to allow remote access. In you
 
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+## Integration entities
 
 The Transmission integration will add the following sensors and switches.
 
@@ -44,7 +44,7 @@ The Transmission integration will add the following sensors and switches.
 - `switch.transmission_switch`: A switch to start/stop all torrents.
 - `switch.transmission_turtle_mode`: A switch to enable turtle mode (a.k.a. alternative speed limits).
 
-## Event Automation
+## Event automation
 
 The Transmission integration is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus containing the torrent name and ID, which can be used with automations.
 

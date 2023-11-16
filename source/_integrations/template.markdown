@@ -400,7 +400,7 @@ template:
 
 [trigger-doc]: /docs/automation/trigger
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how to set up a Trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>

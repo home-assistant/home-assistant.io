@@ -106,7 +106,7 @@ Happy printing!
 
 ![NFC Cards](/images/blog/2020-09-15-home-assistant-tags/cards.jpg)
 
-## Tag Scanned events
+## Tag scanned events
 
 When a tag is scanned, the `tag_scanned` event is fired. This event contains the values:
 

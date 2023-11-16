@@ -23,7 +23,7 @@ This integration is by default enabled, unless you've disabled or removed the [`
 ssdp:
 ```
 
-## Discovered Integrations
+## Discovered integrations
 
 The following integrations are automatically discovered by the SSDP integration:
 

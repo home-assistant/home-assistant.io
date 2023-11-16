@@ -28,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
 </div>
 
-## Presence Detection
+## Presence detection
 
 The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker integration page](/integrations/device_tracker/) than desirable. It is recommended to use [Ping](/integrations/ping) or [Nmap](/integrations/nmap_tracker) instead.
 

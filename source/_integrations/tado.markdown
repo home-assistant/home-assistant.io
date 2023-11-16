@@ -44,7 +44,7 @@ The Tado thermostats are internet connected thermostats. There exists an unoffic
 
 It currently supports presenting the current temperature, the setting temperature and the current operation mode. The operation mode can be set to manual, auto and off. If no user is at home anymore, all Tado zones show the away-state (Only with Tado assist mode). Manually switching between home-mode and away-mode is also supported. Manually switching to auto-mode is only supported with Tado assist mode. Any Tado climate card can be switched between these presence modes, this changes the setting for the entire home.
 
-## Presence Detection
+## Presence detection
 
 The `tado` device tracker is using the [Tado Smart Thermostat](https://www.tado.com/) and its support for person presence detection based on smartphone location by geofencing.
 

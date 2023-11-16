@@ -30,7 +30,7 @@ To use the integration you must be a premium tractive client.
 
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+## Integration entities
 
 The Tractive integration adds one device tracker and several sensors and switches per registered pet:
 

@@ -151,7 +151,7 @@ sensor:
 {% endraw %}
 
 
-## Binary Sensor
+## Binary sensor
 
 The TCP Binary Sensor is a type of [TCP Sensor](#sensor) which is either "off" or "on". In order to use this sensor type, in addition to the configuration for the TCP Sensor, you must supply a `value_on` value to represent what is returned when the device is turned on.
 

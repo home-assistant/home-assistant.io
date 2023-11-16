@@ -91,7 +91,7 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% enddetails %}
 
-## Binary Sensor
+## Binary sensor
 
 The Toon integration provides the following binary sensors:
 
