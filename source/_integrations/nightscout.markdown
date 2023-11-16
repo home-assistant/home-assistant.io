@@ -28,7 +28,7 @@ If you have a sensor session running, and you have enabled the Nightscout integr
 The icon changes to indicate the direction or trend, of the glucose readings.
 The state is the last reading from Nightscout, and you can see other information about the reading in the sensor's attributes.
 
-### Example Automation
+### Example automation
 
 ```yaml
 - id: "1234567890123"

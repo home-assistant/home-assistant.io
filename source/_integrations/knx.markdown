@@ -79,7 +79,7 @@ As a Home Assistant KNX user, you can start a FREE KNX online training and get a
 
 {% include integrations/config_flow.md %}
 
-## Basic Configuration
+## Basic configuration
 
 In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files. See [Splitting up the configuration](/docs/configuration/splitting_configuration/).
 
@@ -129,7 +129,7 @@ Connection parameters are set up when adding the integration and can be changed 
 
 Use `route back` if your tunneling server is located on a different network.
 
-### KNX Secure
+### KNX secure
 
 The KNX integration supports IP Secure and Data Secure .
 
@@ -264,7 +264,7 @@ automation:
           address: "0/4/21"
 ```
 
-### Register Event
+### Register event
 
 The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses configured in the `event` key in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
 
@@ -284,7 +284,7 @@ type:
   required: false
 {% endconfiguration %}
 
-### Register Exposure
+### Register exposure
 
 The `knx.exposure_register` service can be used to register (or unregister) exposures to the KNX bus. Exposures defined in `configuration.yaml` can not be unregistered. Per address only one exposure can be registered. See [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus)
 
@@ -373,7 +373,7 @@ respond_to_read:
   default: true
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors.
 
@@ -1664,7 +1664,7 @@ device_class:
   type: string
 {% endconfiguration %}
 
-### Value Types
+### Value types
 
 | KNX DPT | type                          | size in byte |           range            | unit           |
 | ------: | ----------------------------- | -----------: | :------------------------: | -------------- |

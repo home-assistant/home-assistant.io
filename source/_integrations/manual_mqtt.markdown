@@ -193,7 +193,7 @@ alarm_control_panel:
 
 Refer to the [Manual Alarm Control page](/integrations/manual#examples) for more real-life examples on how to use this panel.
 
-## MQTT Control
+## MQTT control
 
 The state of this alarm can be controlled using [MQTT](/integrations/mqtt/). Ensure you've configured that before adding this component.
 

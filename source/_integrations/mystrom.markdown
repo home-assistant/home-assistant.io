@@ -66,7 +66,7 @@ $ curl http://[IP_ADDRESS]/api/v1/device/[MAC_ADDRESS]
 }
 ```
 
-## Binary Sensor
+## Binary sensor
 
 The `mystrom` binary sensor platform allows you to use [myStrom Wifi Buttons](https://mystrom.ch/wifi-button/) with Home Assistant. The myStrom Wifi Buttons support three and the myStrom WiFi Button + four different push pattern:
 

@@ -35,7 +35,7 @@ This integration will create these sensors:
 - `nzbget_size`: Amount of data downloaded since server start in MB.
 - `nzbget_speed_limit`: Download queue speed limit in MB/s.
 
-## Event Automation
+## Event automation
 
 The NZBGet integration continuously monitors nzbget's download history. When a download completes, an event usable for automation is triggered on the Home Assistant Bus.
 
