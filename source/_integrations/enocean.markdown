@@ -51,7 +51,7 @@ Support for tech-in messages is not implemented.
 
 Despite the UI-based configuration of the hub, the entities are still configured using YAML see next chapters).
 
-## Binary Sensor
+## Binary sensor
 
 This can typically be one of those batteryless wall switches.
 Tested with:

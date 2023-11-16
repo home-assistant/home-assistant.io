@@ -42,7 +42,7 @@ There is currently support for the following device types within Home Assistant:
 
 Additionally, we also support to trigger smarthome templates.
 
-#### Tested Devices
+#### Tested devices
 
 - [FRITZ!Box 5590 Fiber](https://en.avm.de/products/fritzbox/fritzbox-5590-fiber/)
 - FRITZ!Box 6490 Cable

@@ -44,7 +44,7 @@ access_token:
   type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 The `digital_ocean` binary sensor platform allows you to monitor your Digital Ocean droplets.
 
