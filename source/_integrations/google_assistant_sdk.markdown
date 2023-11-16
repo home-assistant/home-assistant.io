@@ -123,7 +123,7 @@ If you want to enable personal commands (e.g. "remind me tomorrow at 9 pm to tak
 1. In the Developer Tools > Services, issue a query that requires personal results, e.g. call `google_assistant_sdk.send_text_command` with `command: "what is my name"`
 2. On your phone you should receive a notification "Allow personal answers" "Allow Google Assistant to answer your questions about your calendar, trips, and more"
 3. DO NOT tap on ALLOW (it won't work until you enter a device name). Instead tap on the notification text.
-4. If the app doesn't open you need to retry on an older Android device. There has been a report that emulator with Android 5.6 worked for them.
+4. If the app doesn't open you need to retry on an a device running Android 12. If you don't have such a device you can use an Android emulator.
 5. Tap on Device Name, enter any device name (like Home Assistant), and tap on OK.
 6. Only after having a non empty device name enable the checkbox next to Personal results.
 
