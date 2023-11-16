@@ -78,7 +78,7 @@ These are the properties available for a [MQTT trigger](/docs/automation/trigger
 | `trigger.payload_json` | Dictionary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
-### Numeric State
+### Numeric state
 
 These are the properties available for a [Numeric State trigger](/docs/automation/trigger/#numeric-state-trigger).
 
@@ -146,7 +146,7 @@ These are the properties available for a [Time trigger](/docs/automation/trigger
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
 
-### Time Pattern
+### Time pattern
 
 These are the properties available for a [Time Pattern trigger](/docs/automation/trigger/#time-pattern-trigger).
 
@@ -155,7 +155,7 @@ These are the properties available for a [Time Pattern trigger](/docs/automation
 | `trigger.platform` | Hardcoded: `time_pattern`
 | `trigger.now` | DateTime object that triggered the time_pattern trigger.
 
-### Persistent Notification
+### Persistent notification
 
 These properties are available for a [Persistent Notification trigger](/docs/automation/trigger/#persistent-notification-trigger).
 

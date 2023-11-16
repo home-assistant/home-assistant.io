@@ -93,7 +93,7 @@ light: !include lights.yaml
 
 More information about this feature can also be found at [splitting configuration](/docs/configuration/splitting_configuration/).
 
-## Common Issues
+## Common issues
 
 ### found character '\t'
 

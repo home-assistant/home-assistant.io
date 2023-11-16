@@ -57,7 +57,7 @@ initial_state:
   default: None
 {% endconfiguration %}
 
-### Device Class
+### Device class
 
 Device class is currently supported by the following platforms:
 

@@ -78,7 +78,7 @@ If you lose the password associated with the owner account and the steps above d
     - `hassio`
     - `cloud`
 
-## Recovering Data for Home Assistant (including Supervised)
+## Recovering data for Home Assistant (including Supervised)
 
 Unless your SD card/data is corrupted, you can still get to your files or troubleshoot further.
 There are a few routes:
@@ -101,7 +101,7 @@ You will then be at the Home Assistant CLI, where you can run the custom command
 - `dns logs` for checking DNS
 - etc (typing `help` will show more)
 
-## Accessing Files from the SD/HDD
+## Accessing files from the SD/HDD
 
 ### Remove the SD and access the files from another computer
 

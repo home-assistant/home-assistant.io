@@ -65,7 +65,7 @@ extensions:
 
 - [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
 
-### Reusing Templates
+### Reusing templates
 
 You can write reusable Jinja templates by adding them to a `custom_templates` folder under your
 configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
@@ -102,7 +102,7 @@ In your automations, you could then reuse this macro by importing it:
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
 
-### Limited Templates
+### Limited templates
 
 Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
 
@@ -418,7 +418,7 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
-### Config Entries
+### Config entries
 
 - `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
 

@@ -75,7 +75,7 @@ action:
 The output of this selector is a list of actions. For example:
 
 ```yaml
-# Example Action selector output result
+# Example action selector output result
 - service: scene.turn_on
   target:
     entity_id: scene.watching_movies
@@ -96,7 +96,7 @@ selected add-on.
 This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
-# Example Add-on selector
+# Example add-on selector
 addon:
 ```
 
@@ -201,10 +201,10 @@ The output of this selector is the area ID, or (in case `multiple` is set to
 `true`) a list of area IDs.
 
 ```yaml
-# Example Area selector output result, when multiple is set to false
+# Example area selector output result, when multiple is set to false
 living_room
 
-# Example Area selector output result, when multiple is set to true
+# Example area selector output result, when multiple is set to true
 - living_room
 - kitchen
 ```
@@ -346,7 +346,7 @@ condition:
 The output of this selector is a list of conditions. For example:
 
 ```yaml
-# Example Condition selector output result
+# Example condition selector output result
 - condition: numeric_state
   entity_id: "sensor.outside_temperature"
   below: 20
@@ -567,10 +567,10 @@ The output of this selector is the device ID, or (in case `multiple` is set to
 `true`) a list of devices IDs.
 
 ```yaml
-# Example Device selector output result, when multiple is set to false
+# Example device selector output result, when multiple is set to false
 faadde5365842003e8ca55267fe9d1f4
 
-# Example Device selector output result, when multiple is set to true
+# Example device selector output result, when multiple is set to true
 - faadde5365842003e8ca55267fe9d1f4
 - 3da77cb054352848b9544d40e19de562
 ```

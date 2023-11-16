@@ -69,7 +69,7 @@ _Attention! Installing CT clamp sensor devices requires opening your electrical 
 
 Some energy providers will provide you real-time information about your usage and have this data integrated into Home Assistant.
 
-### Manual Integration
+### Manual integration
 
 If you manually integrate your sensors, for example, using the [MQTT](/integrations/mqtt) or [Template](/integrations/template) integrations: Make sure you set and provide the `device_class`, `state_class`, and `unit_of_measurement` for those sensors.
 

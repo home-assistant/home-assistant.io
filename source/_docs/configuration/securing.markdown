@@ -13,7 +13,7 @@ Here's the summary of what you *must* do to secure your Home Assistant system:
   - **Note**: Storing secrets in `secrets.yaml` does not encrypt them.
 - Regularly keep the system up to date
 
-## Remote Access
+## Remote access
 
 If you want secure remote access, the easiest option is to use [Home Assistant cloud](/cloud/) by which you also [support](https://www.nabucasa.com/about/) the founders of Home Assistant.
 

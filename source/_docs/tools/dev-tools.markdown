@@ -58,7 +58,7 @@ brightness: 255
 rgb_color: [255, 0, 0]
 ```
 
-## Template Editor
+## Template editor
 
 The Template Editor provides a way to quickly test templates prior to placing them into automations and scripts. A code editor is on the left side and your real-time output is displayed in the preview on the right side.
 
