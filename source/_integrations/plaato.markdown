@@ -17,12 +17,12 @@ ha_integration_type: integration
 
 This integration sets up integration with [Plaato](https://www.plaato.io/) Airlock and Keg.
 
-### Plaato Airlock
+### Plaato airlock
 
 A tool for beer brewers that wants a unique insight into the fermentation process.
 With this integration, you get all your fermentation data available in Home Assistant!
 
-### Plaato Keg
+### Plaato keg
 
 The first all-in-one system that keeps a track of important aspects of your keg’s, including:
 
@@ -36,7 +36,7 @@ To configure a Plaato device, you must set it up via the integrations panel in t
 
 You have two options to choose from: webhook and `auth_token.` The webhook is only available for the Airlock at the moment.
 
-### Auth Token
+### Auth token
 
 To be able to query the API an `auth_token` is required which can be obtained by following [these](https://intercom.help/plaato/en/articles/5004720-auth_token) instructions.
 

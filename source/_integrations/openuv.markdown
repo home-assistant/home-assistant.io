@@ -48,7 +48,7 @@ To generate an API key, log in at [the OpenUV website](https://www.openuv.io/).
 | Skin Type 5 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 5](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
 | Skin Type 6 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 6](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
 
-## Updating Data
+## Updating data
 
 <div class='note warning'>
 OpenUV does _not_ automatically update data for its entities! Users must manually
@@ -80,7 +80,7 @@ _all_ of these entities.
 To protect against possible API call waste, all calls to `homeassistant.update_entity`
 that reference an OpenUV entity are throttled to a minimum of 15 minutes between calls.
 
-### Protection Window
+### Protection window
 
 The Protection Window binary sensor will be `on` when sunblock protection should be used.
 

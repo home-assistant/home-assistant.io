@@ -32,7 +32,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-### Binary Sensor
+### Binary sensor
 
 The following binary sensors are added for each Powerwall:
 
@@ -75,7 +75,7 @@ The following switches are added for each Powerwall:
 
 - Off-Grid operation - Take your Powerwall off-grid (simulate a grid outage)
 
-### Device Info
+### Device info
 
 - Model Number
 - Firmware Revision

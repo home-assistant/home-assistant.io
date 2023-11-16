@@ -73,7 +73,7 @@ The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is im
 
 </div>
 
-## Binary Sensor
+## Binary sensor
 
 Each Point exposes the following binary sensors:
 

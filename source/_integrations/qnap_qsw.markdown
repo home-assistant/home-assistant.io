@@ -35,7 +35,7 @@ Password:
   description: "Password"
 {% endconfiguration_basic %}
 
-## Binary Sensors
+## Binary sensors
 
 The following *binary sensors* are created:
 

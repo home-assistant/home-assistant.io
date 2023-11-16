@@ -41,7 +41,7 @@ During setup, you will need to log in as a server administrator. The integration
 
 If your router enforces DNS rebind protection, connections to the local `plex.direct` hostname may fail (see [Plex documentation](https://support.plex.tv/articles/206225077-how-to-use-secure-server-connections/#dnsrebinding)). To avoid this, configure your router to allow DNS rebinding for `plex.direct` by following the instructions in the documentation link.
 
-### Integration Options
+### Integration options
 
 Several options are provided to adjust the behavior of `media_player` entities. These can be changed at **Plex** -> **Options** on the Integrations page.
 
@@ -53,7 +53,7 @@ Several options are provided to adjust the behavior of `media_player` entities. 
 
 **Ignore Plex Web clients**: Do not create `media_player` entities for Plex Web clients.
 
-### Manual Configuration
+### Manual configuration
 
 Alternatively, you can manually configure a Plex server connection by selecting the "Configure Plex server manually" when configuring a Plex integration. This option is only available to users in "Advanced Mode". This will allow you to specify the server connection options which will be validated before setup is completed. The available options are described below:
 
@@ -146,7 +146,7 @@ Notifications of new releases of Plex Media Server are shown using an Update ent
 
 Automatic upgrades of Plex Media Server can be triggered for some installation types, such as Windows and certain NAS devices.
 
-## Media Player
+## Media player
 
 The Plex media player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls (if supported by the streaming device).
 
@@ -224,7 +224,7 @@ media_content_type: PLAYLIST
 media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
 ```
 
-#### TV Episode
+#### TV episode
 
 | Service data attribute | Description                                                                                                                                                                                                                                                                                                            |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -276,7 +276,7 @@ media_content_type: movie
 media_content_id: '{ "library_name": "Adult Movies", "title": "Blade" }'
 ```
 
-#### Advanced Searches
+#### Advanced searches
 
 Instead of searching for a specific known piece of media, many additional parameters are available to run more powerful searches. This can also be used when a simple search for a title has multiple matches, such as with movie remakes.
 
@@ -344,7 +344,7 @@ The search will attempt to guess the type of media based on the search parameter
 | Plex Desktop & Web | Controls are unavailable (as of June 2022) |
 | Plex HTPC          | None                                       |
 
-## Sonos Playback
+## Sonos playback
 
 To play Plex music directly to Sonos speakers, the following requirements must be met:
 
@@ -372,7 +372,7 @@ media_content_type: playlist
 media_content_id: 'plex://{ "playlist_name": "Party Mix" }'
 ```
 
-## Additional Services
+## Additional services
 
 ### Service `plex.refresh_library`
 

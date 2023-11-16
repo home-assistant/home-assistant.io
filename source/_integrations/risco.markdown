@@ -22,7 +22,7 @@ ha_integration_type: integration
 
 This integration connects with Risco Alarms, in one of two ways:
 
-## Risco Cloud (recommended)
+## Risco cloud (recommended)
 
 The integration will connect with your alarm over [Risco Cloud](https://riscocloud.com/).
 This is easiest to configure, and is widely supported, but is cloud based, and requires polling. 
@@ -89,7 +89,7 @@ And in the reverse direction:
 | Arm Away | Arm |
 | Arm Home | Partial Arm |
 
-## Supported Platforms:
+## Supported platforms:
 
 - [Alarm Control Panel](/integrations/alarm_control_panel/)
 - [Binary Sensor](/integrations/binary_sensor/)

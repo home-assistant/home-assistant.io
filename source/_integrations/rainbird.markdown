@@ -34,12 +34,12 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-## Configuration Options
+## Configuration options
 
 The integration has a configuration option to change the default amount of time that the irrigation
 will run when turning on a zone switch (default is 6 minutes). This can be overridden with a service call (see below).
 
-## Binary Sensor
+## Binary sensor
 
 The `rainsensor` sensor will tell if you if the device has detected rain.
 

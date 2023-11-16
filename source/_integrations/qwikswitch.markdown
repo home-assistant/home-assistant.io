@@ -121,7 +121,7 @@ The list of recognized commands can be extended for Keyfobs, door sensors, and P
 
 On some QS Mobile servers button events are only generated for switches added to the QS Mobile application, so it might be best to test button presses through the `/&listen` API
 
-### Qwikswitch Sensors
+### Qwikswitch sensors
 
 The sensor configuration is a list of sensors. Depending on the type of sensor, it will be a sensor or binary_sensor.
 
