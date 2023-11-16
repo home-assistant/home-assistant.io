@@ -22,7 +22,7 @@ The `volvooncall` integration offers integration with the [Volvo Cars App](https
 
 {% include integrations/config_flow.md %}
 
-### Available Resources
+### Available resources
 
 The list of currently available resources:
 

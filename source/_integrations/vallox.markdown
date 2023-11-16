@@ -34,7 +34,7 @@ The **number** platform allows to control supply air temperatures.
 
 {% include integrations/config_flow.md %}
 
-## Profile Switching
+## Profile switching
 
 For convenient switching of ventilation profiles in the GUI, just click on the `Vallox` fan entity to get a drop-down menu to select from. Alternatively, the service `fan/set_preset_mode` can be used.
 
@@ -45,7 +45,7 @@ The four standard Vallox profiles are supported:
 - `Boost`
 - `Fireplace`
 
-## Fan Services
+## Fan services
 
 ### Service `vallox.set_profile_fan_speed_home`
 

@@ -105,7 +105,7 @@ action:
     name: Home
 ```
 
-## Binary Sensor
+## Binary sensor
 
 The `zoneminder` binary sensor platform lets you monitor the availability of your [ZoneMinder](https://www.zoneminder.com) install.
 

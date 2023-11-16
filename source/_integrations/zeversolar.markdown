@@ -26,7 +26,7 @@ get the Zeversolar IP address.
 
 {% include integrations/config_flow.md %}
 
-## Sensor Types
+## Sensor types
 
 When configured, the integration will create two sensors for each configured inverter:
 

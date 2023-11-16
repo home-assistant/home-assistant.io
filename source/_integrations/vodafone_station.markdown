@@ -39,7 +39,7 @@ To change the settings, go to {% my integrations title="**Settings** > **Devices
 
 ## Additional info
 
-### Device Tracker
+### Device tracker
 
 **Note**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.
 

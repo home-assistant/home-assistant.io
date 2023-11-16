@@ -112,7 +112,7 @@ Eco mode reduces the target temperature by 3°C, whereas Comfort mode sets the t
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
 | `preset_mode` | no | New value of preset mode.
 
-## Water Heater
+## Water heater
 
 It is not possible to turn on/off water heating via the Water Heater integration since this would conflict with the operation modes of the heating integration. Therefore the operation mode of that integration is just available as an attribute and cannot be modified.
 

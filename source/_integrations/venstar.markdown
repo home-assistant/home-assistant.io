@@ -50,7 +50,7 @@ The following values are supported for the preset_mode state attribute:
 
 Note - Please ensure that you update your thermostat to the latest firmware. Initially tested on firmware 5.10 and currently VH6.79.  
 
-### Enabling Local API
+### Enabling local API
 Local API mode needs to be enabled on the thermostat itself. It cannot be enabled using the Venstar mobile apps or Skyport cloud service. Exact steps vary across different [series](https://venstar.com/thermostats/) of thermostats:
 
 - [ColorTouch](https://venstar.com/thermostats/colortouch/)

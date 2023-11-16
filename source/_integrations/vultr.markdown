@@ -187,7 +187,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### Additional Examples
+### Additional examples
 
 Full example that produces `switch.amazing_server`, assuming a subscription that has an ID of `123456` and a label of `Web Server`:
 

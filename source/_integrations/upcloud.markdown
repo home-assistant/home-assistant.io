@@ -30,7 +30,7 @@ Set up your API user credentials in your [UpCloud control panel](https://hub.upc
 
 {% include integrations/config_flow.md %}
 
-## Binary Sensor
+## Binary sensor
 
 A binary sensor entity is set up for all discovered servers.
 
