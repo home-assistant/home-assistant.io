@@ -208,7 +208,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Service button
+### Service call button
 
 This entity creates a button (with arbitrary text) that can be used to call a service.
 
@@ -392,7 +392,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-## Options exemptions
+## Options for exemptions
 
 {% configuration badges %}
 user:
