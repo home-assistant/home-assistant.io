@@ -140,7 +140,7 @@ period:
 stat_type: change
 ```
 
-### Rolling Window
+### Rolling window
 
 {% configuration %}
 duration:

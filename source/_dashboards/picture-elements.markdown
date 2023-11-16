@@ -16,7 +16,7 @@ The cards allow you to position icons or text and even services on an image base
 
 To add the Picture Elements card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
-## YAML Configuration
+## YAML configuration
 
 This card can only be configured in YAML.
 
@@ -79,7 +79,7 @@ There are several different element types that can be added to a Picture Element
 - [Conditional](#conditional-element)
 - [Custom](#custom-elements)
 
-### State Badge
+### State badge
 
 This element creates a badge representing the state of an entity.
 
@@ -115,7 +115,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-### State Icon
+### State icon
 
 This element represents an entity state using an icon.
 
@@ -160,7 +160,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### State Label
+### State label
 
 This element represents an entity's state via text.
 
@@ -208,7 +208,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Service Call Button
+### Service button
 
 This entity creates a button (with arbitrary text) that can be used to call a service.
 
@@ -236,7 +236,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Icon Element
+### Icon element
 
 This element creates a static icon that is not linked to the state of an entity.
 
@@ -276,7 +276,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Image Element
+### Image element
 
 This creates an image element that overlays the background image.
 
@@ -342,7 +342,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Conditional Element
+### Conditional element
 
 Much like the Conditional card, this element will let you show its sub-elements based on entity states.
 
@@ -374,7 +374,7 @@ elements:
   type: list
 {% endconfiguration %}
 
-### Custom Elements
+### Custom elements
 
 The process for creating and referencing custom elements is the same as for custom cards.
 Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card)
@@ -392,7 +392,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-## Options For Exemptions
+## Options exemptions
 
 {% configuration badges %}
 user:
@@ -502,7 +502,7 @@ elements:
       left: 10%
 ```
 
-### Images Example
+### Images example
 
 ```yaml
 type: picture-elements
@@ -551,7 +551,7 @@ elements:
       width: 5%
 ```
 
-### Conditional Example
+### Conditional example
 
 ```yaml
 type: picture-elements

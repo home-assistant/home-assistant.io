@@ -20,7 +20,7 @@ Buttons will appear on the card for the entities in the area including fan, ligh
 
 If a camera is added to the area you can show the camera feed instead of the area picture.
 
-## YAML Configuration
+## YAML configuration
 
 The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 

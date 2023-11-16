@@ -21,7 +21,7 @@ To add the History Graph card to your user interface, click the menu (three dots
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
 The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 

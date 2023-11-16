@@ -9,7 +9,7 @@ The Entities card is the most common type of card. It groups items together into
 
 To add the Entities card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
-## YAML Configuration
+## YAML configuration
 
 The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 

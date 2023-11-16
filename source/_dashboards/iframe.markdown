@@ -20,7 +20,7 @@ All options for this card can be configured via the user interface.
 You can't embed sites using HTTP if you are using HTTPS for your Home Assistant.
 </div>
 
-## YAML Configuration
+## YAML configuration
 
 The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
