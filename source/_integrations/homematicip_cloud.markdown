@@ -222,7 +222,7 @@ Executable by administrators or within the context of an automation:
 - `homematicip_cloud.dump_hap_config`: Dump the configuration of the Homematic IP Access Point(s).
 - `homematicip_cloud.reset_energy_counter`: Reset energy counter of measuring actuators.
 
-### Service Examples
+### Service examples
 
 `accesspoint_id` (SGTIN) is optional for all services and only relevant if you have multiple Homematic IP Accesspoints connected to HA. If empty, service will be called for all configured Homematic IP Access Points.
 The `accesspoint_id` (SGTIN) can be found on top of the integration page, or on the back of your Homematic IP Accesspoint.

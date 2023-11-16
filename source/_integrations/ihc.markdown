@@ -83,7 +83,7 @@ If you want an easier way to get the IHC resource ids, you can download the [Alt
 
 See the manual of each device type for configuration options.
 
-## Binary Sensor
+## Binary sensor
 
 Before you can use the IHC Binary Sensor platform, you must setup the IHC integration.
 

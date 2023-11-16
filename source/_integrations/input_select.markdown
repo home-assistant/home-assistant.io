@@ -69,7 +69,7 @@ Because YAML defines [booleans](https://yaml.org/type/bool.html) as equivalent, 
 
 </div>
 
-### Restore State
+### Restore state
 
 If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
@@ -129,7 +129,7 @@ scene:
 ```
 
 
-## Automation Examples
+## Automation examples
 
 The following example shows the usage of the `input_select.select_option` service in an automation:
 

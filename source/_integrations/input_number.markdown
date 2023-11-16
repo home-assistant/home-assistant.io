@@ -94,7 +94,7 @@ configuration without restarting Home Assistant itself.
 | `reload` | | Reload `input_number` configuration |
 | `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_number` entities
 
-### Restore State
+### Restore state
 
 If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping. Please note that `initial` is only available in a YAML configuration and not via the Home Assistant user interface.
 
@@ -110,7 +110,7 @@ scene:
       input_number.example_number: 13
 ```
 
-## Automation Examples
+## Automation examples
 
 Here's an example of `input_number` being used as a trigger in an automation.
 

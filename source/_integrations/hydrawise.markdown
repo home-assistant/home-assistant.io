@@ -39,7 +39,7 @@ To set up the Hydrawise integration, you must first obtain an API Key.
 
 {% include integrations/config_flow.md %}
 
-## Binary Sensor
+## Binary sensor
 
 Binary sensor entities are created for the controller:
 
@@ -67,7 +67,7 @@ Switches are added for each zone, controlling:
 - Smart watering features
 - Manual watering
 
-### Switch Operation
+### Switch operation
 
 When `auto_watering` is `on` the irrigation zone will follow the Smart Watering schedule set through the Hydrawise [mobile or web app](https://www.hydrawise.com). When the `auto_watering` switch is `off` the zone's Smart Watering schedule is suspended for 1 year.
 

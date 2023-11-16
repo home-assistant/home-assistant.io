@@ -69,7 +69,7 @@ Sensors for Water meter:
 - **Active usage (L/min)**: Flow of water that is measured at that time.
 - **Total usage (m³)**: Total water usage since the installation of the HomeWizard Water meter.
 
-## Energy Socket
+## Energy socket
 
 The Energy Socket outlet state and status light can be controlled. There are two switches:
 

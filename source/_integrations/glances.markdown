@@ -41,7 +41,7 @@ For details about auto-starting `glances`, please refer to [Start Glances throug
 
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+## Integration entities
 
 Glances integration will add the following sensors if available in the platform:
 

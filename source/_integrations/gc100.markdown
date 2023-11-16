@@ -47,7 +47,7 @@ port:
   type: integer
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 To enable this sensor, you first have to set up [gc100](#configuration), and add the following lines to your `configuration.yaml` file:
 
