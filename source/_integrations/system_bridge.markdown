@@ -30,10 +30,12 @@ You will need your API key. This can be found following the documentation [here]
 {% include integrations/config_flow.md %}
 ## Binary Sensors
 This integration provides the following binary sensors:
-| Name                  | Description                        |
-| --------------------- | ---------------------------------- |
-| Battery Is Charging   | Whether the battery is charging    |
-| New Version Available | Whether a new version is available |
+| Name                  | Description                         |
+| --------------------- | ----------------------------------- |
+| Battery Is Charging   | Whether the battery is charging     |
+| Camera In Use         | Whether the camera/webcam is in use |
+| Pending Reboot        | Whether a reboot is pending         |
+| New Version Available | Whether a new version is available  |
 ## Sensors
 
 This integration provides the following sensors:
