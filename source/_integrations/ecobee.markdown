@@ -157,7 +157,7 @@ Besides the standard services provided by the Home Assistant [Climate](/integrat
 - `ecobee.set_dst_mode`
 - `ecobee.set_mic_mode`
 - `ecobee.set_occupancy_modes`
-- `ecobee.set_active_sensors`
+- `ecobee.set_sensors_in_climate`
 
 ### Service `ecobee.create_vacation`
 
