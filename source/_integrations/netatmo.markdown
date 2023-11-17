@@ -87,19 +87,32 @@ The `netatmo` switch platform provides support for Legrand/BTicino switches and 
 
 `set_camera_light_mode`
 
-Set the outdoor camera light mode. This requires an entity id and a valid state.
+Set the outdoor camera light mode.
+
+| Service data attribute | Required | Description                |
+| ---------------------- | -------- | -------------------------- |
+| `camera_light_mode`    | Yes      | Outdoor camera light mode. |
 
 ### Set Schedule
 
 `set_schedule`
 
-Set the heating schedule. This requires an entity id and a schedule name.
+Set the heating schedule.
+
+| Service data attribute | Required | Description                           |
+| ---------------------- | -------- | ------------------------------------- |
+| `schedule_name`        | Yes      | The name of the schedule to activate. |
 
 ### Set preset mode with end datetime
 
 `set_preset_mode_with_end_datetime`
 
 Set the preset mode for a Netatmo climate device. The preset mode must match a preset mode configured at Netatmo.
+
+| Service data attribute | Required | Description                                                |
+| ---------------------- | -------- | ---------------------------------------------------------- |
+| `preset_mode`          | Yes      | Climate preset mode such as Schedule, Away or Frost Guard. |
+| `end_datetime`         | Yes      | Date & time the preset will be active until.               |
 
 ### Set Temperature
 
@@ -124,11 +137,19 @@ Clears any temperature setting for a Netatmo climate device reverting it to the 
 
 Set a list of persons as at home. Person's name must match a name known by the Netatmo Smart Indoor Camera.
 
+| Service data attribute | Required | Description    |
+| ---------------------- | -------- | -------------- |
+| `persons`              | Yes      | List of names. |
+
 ### Set Person Away
 
 `set_person_away`
 
 Set a person away. If no person is set the home will be marked as empty. Person's name must match a name known by the Netatmo Smart Indoor Camera.
+
+| Service data attribute | Required | Description    |
+| ---------------------- | -------- | -------------- |
+| `person`               | Yes      | Person's name. |
 
 ### (Un-)Register Webhooks
 
