@@ -39,9 +39,9 @@ Protocol:
 
 ## Camera streams
 
-This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, Snapshots Main, and Snapshots Sub.
-The Sub stream camera entity is enabled by default; the other streams are disabled by default.
-The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
+This integration creates a few camera entities, one for each stream type with different resolutions: Clear, Fluent, Balanced, Snapshots Clear, and Snapshots Fluent.
+The Fluent stream camera entity is enabled by default; the other streams are disabled by default.
+The Snapshots stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
 Dual lens cameras provide additional streams for the second lens.
 
 ## Binary sensors
