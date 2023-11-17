@@ -1,6 +1,6 @@
 ---
 type: card
-title: "Markdown Card"
+title: "Markdown card"
 sidebar_label: Markdown
 description: "The Markdown card is used to render Markdown"
 ---
@@ -18,7 +18,7 @@ To add the Markdown card to your user interface, click the menu (three dots at t
 
 ## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:

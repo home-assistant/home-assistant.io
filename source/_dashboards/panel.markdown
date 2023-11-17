@@ -1,11 +1,11 @@
 ---
 type: view
-title: Panel View
+title: Panel view
 sidebar_label: Panel
 description: "The panel view shows a single card in the full width of the screen."
 ---
 
-The view must have exactly one card. This card is rendered full-width. 
+The view must have exactly one card. This card is rendered full-width.
 
 This view doesn't have support for badges.
 

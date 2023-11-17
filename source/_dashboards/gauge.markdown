@@ -17,13 +17,13 @@ Screenshot of the Gauge card.
 Screenshot of the Gauge card in needle mode.
 </p>
 
-To add the Gauge card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+To add the Gauge card to your user interface, select the menu (three dots at the top right of the screen) and then **Edit dashboard**. Select the **Add card** button in the bottom right corner and select from the card picker.
 
 All options for this card can be configured via the user interface.
 
 ## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:

@@ -14,9 +14,9 @@ Screenshot of the Entity Filter card.
 
 This type of card can also be used together with other cards that allow multiple entities, allowing you to use [glance](/dashboards/glance/) or [picture-glance](/dashboards/picture-glance/). By default, it uses the [entities](/dashboards/entities/) card model.
 
-To add the Entity Filter card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+To add the Entity Filter card to your user interface, select the menu (three dots at the top right of the screen) and then **Edit dashboard**. Select the **Add card** button in the bottom right corner and select from the card picker.
 
-## YAML Configuration
+## YAML configuration
 
 This card can only be configured in YAML.
 
@@ -45,7 +45,7 @@ show_empty:
   default: true
 {% endconfiguration %}
 
-### Options For Entities
+### Options for entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configurations:
 
@@ -80,7 +80,7 @@ state_filter:
   type: list
 {% endconfiguration %}
 
-### Options For state_filter
+### Options for state_filter
 
 If you define `state_filter` as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
 

@@ -9,13 +9,13 @@ The Conditional card displays another card based on conditions.
 
 Note: if there are multiple conditions there will be treated as an 'and' condition. This means that for the card to show, _all_ conditions must be met.
 
-To add the Conditional card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker. Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
+To add the Conditional card to your user interface, select the menu (three dots at the top right of the screen) and then **Edit dashboard**. Select the **Add card** button in the bottom right corner and select from the card picker. Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
 
 Most options for this card can be configured via the user interface.
 
 ## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
