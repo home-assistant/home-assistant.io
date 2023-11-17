@@ -44,7 +44,8 @@ When run on Windows systems, the round trip time attributes are rounded to the n
 ## Presence Detection
 
 The `ping` device tracker platform offers presence detection by using `ping` to send ICMP echo requests. This can be useful when devices are running a firewall and are blocking UDP or TCP packets but responding to ICMP requests (like Android phones). This tracker doesn't need to know the MAC address since the host can be on a different subnet. This makes this an option to detect hosts on a different subnet when `nmap` or other solutions don't work since `arp` doesn't work.
-This sensor is disabled by default. 
+
+The device tracker is disabled by default and can be enabled in the UI.
 
 <div class='note'>
   Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
