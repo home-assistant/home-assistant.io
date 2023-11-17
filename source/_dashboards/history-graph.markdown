@@ -50,7 +50,7 @@ show_names:
   default: true
 logarithmic_scale:
   required: false
-  description: If true, numerical values on the vertical axis will be displayed with a logarithmic scale.
+  description: If true, numerical values on the Y-axis will be displayed with a logarithmic scale.
   type: boolean
   default: false
 {% endconfiguration %}
