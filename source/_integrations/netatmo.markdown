@@ -101,6 +101,23 @@ Set the heating schedule. This requires an entity id and a schedule name.
 
 Set the preset mode for a Netatmo climate device. The preset mode must match a preset mode configured at Netatmo.
 
+### Set Temperature
+
+`set_temperature`
+
+Sets the target temperature for a Netatmo climate device with an optional end date & time.
+
+| Service data attribute | Required | Description                                                                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `target_temperature`   | Yes      | The target temperature for the device.                                                                                 |
+| `end_datetime`         | No       | Date & time the target temperature will be active until. If not provided, the Netatmo default of 3 hours will be used. |
+
+### Clear Temperature Setting
+
+`clear_temperature_setting`
+
+Clears any temperature setting for a Netatmo climate device reverting it to the current preset or schedule.
+
 ### Set Person Home
 
 `set_persons_home`
