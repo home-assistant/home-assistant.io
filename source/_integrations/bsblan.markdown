@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-This integration integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
+The **BSB-Lan** {% term integration %} integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
 
 BSBLan is a device that is made by `Frederik Holst` and `Ulf Dieckmann` for documentation and with
 the help of many other contributors.

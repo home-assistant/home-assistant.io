@@ -2,7 +2,7 @@
 title: Bluetooth Tracker
 description: Instructions for integrating Bluetooth tracking within Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Polling
 ha_release: 0.18
 ha_domain: bluetooth_tracker

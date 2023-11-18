@@ -13,7 +13,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-With the Cloudflare integration, you can keep your Cloudflare DNS records up to date.
+With the **Cloudflare** {% term integration %}, you can keep your Cloudflare DNS records up to date.
 
 The integration runs every hour, but can also be triggered by running the {% my developer_services title="`cloudflare.update_records` service" service="cloudflare.update_records" %}.
 
@@ -31,7 +31,7 @@ An easy way to create this is to start with the "Edit zone DNS" template then ad
 
 ### Usage of external service
 
-This integration uses the whoami service from [home-assistant/services.home-assistant.io](https://github.com/home-assistant/services.home-assistant.io) to set the public IP address.
+This integration uses the whoami {% term service %} from [home-assistant/services.home-assistant.io](https://github.com/home-assistant/services.home-assistant.io) to set the public IP address.
 
 ### Limitations
 

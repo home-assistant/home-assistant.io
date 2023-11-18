@@ -1,8 +1,8 @@
 ---
-title: "MQTT Binary Sensor"
+title: "MQTT binary sensor"
 description: "Instructions on how to integrate MQTT binary sensors within Home Assistant."
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.9
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -158,7 +158,7 @@ name:
   description: The name of the binary sensor. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
-  default: MQTT Binary Sensor
+  default: MQTT binary sensor
 object_id:
   description: Used instead of `name` for automatic generation of `entity_id`
   required: false

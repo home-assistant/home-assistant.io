@@ -1,6 +1,6 @@
 ---
-title: "Template Cover"
-description: "Instructions on how to integrate Template Covers into Home Assistant."
+title: "Template cover"
+description: "Instructions on how to integrate template covers into Home Assistant."
 ha_category:
   - Cover
 ha_release: 0.48
@@ -130,7 +130,7 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('cover.source', 'open') }}`{% endraw %}
 
-## Optimistic Mode
+## Optimistic mode
 
 In optimistic mode, the cover position state is maintained internally. This mode
 is automatically enabled if neither [`value_template`](#value_template) or
@@ -160,7 +160,7 @@ If both a [`value_template`](#value_template) and a [`position_template`](#posit
 
 In this section you will find some real-life examples of how to use this cover.
 
-### Garage Door
+### Garage door
 
 This example converts a garage door with a controllable switch and position
 sensor into a cover. The condition check is optional, but suggested if you
@@ -204,7 +204,7 @@ cover:
 
 {% endraw %}
 
-### Multiple Covers
+### Multiple covers
 
 This example allows you to control two or more covers at once.
 
@@ -296,7 +296,7 @@ automation:
 
 {% endraw %}
 
-### Change The Icon
+### Change the icon
 
 This example shows how to change the icon based on the cover state.
 
@@ -331,7 +331,7 @@ cover:
 
 {% endraw %}
 
-### Change The Entity Picture
+### Change the entity picture
 
 This example shows how to change the entity picture based on the cover state.
 

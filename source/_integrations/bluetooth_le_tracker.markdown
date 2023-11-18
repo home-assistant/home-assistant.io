@@ -2,7 +2,7 @@
 title: Bluetooth LE Tracker
 description: Instructions for integrating bluetooth low-energy tracking within Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Push
 ha_release: 0.27
 ha_domain: bluetooth_le_tracker
@@ -17,7 +17,7 @@ Devices discovered are stored with 'BLE_' as the prefix for device mac addresses
 
 ## Setup
 
-This integration requires the [Bluetooth](/integrations/bluetooth) integration to be enabled and functional.
+This {% term integration %} requires the [Bluetooth](/integrations/bluetooth) integration to be enabled and functional.
 
 ## Configuration
 
