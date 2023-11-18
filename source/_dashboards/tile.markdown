@@ -12,7 +12,7 @@ The tile card gives you a quick overview of your entity. The card allows you to 
   Screenshot of tile cards.
 </p>
 
-To add the tile card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Tile** from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 {% configuration %}
 type:

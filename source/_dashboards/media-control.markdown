@@ -12,7 +12,7 @@ The media control card is used to display [media player](/integrations/#media-pl
 Screenshot of the media control card.
 </p>
 
-To add the media control card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

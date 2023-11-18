@@ -12,7 +12,7 @@ The picture entity card displays an entity in the form of an image. Instead of i
   Background changes according to the entity state.
 </p>
 
-To add the picture entity card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

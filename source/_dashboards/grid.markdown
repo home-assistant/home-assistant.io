@@ -1,18 +1,18 @@
 ---
 type: card
-title: "Grid Card"
+title: "Grid card"
 sidebar_label: Grid
-description: "The Grid card allows you to show multiple cards in a grid."
+description: "The grid card allows you to show multiple cards in a grid."
 ---
 
-The Grid card allows you to show multiple cards in a grid. It will first fill the columns, automatically adding new rows as needed.
+The grid card allows you to show multiple cards in a grid. It will first fill the columns, automatically adding new rows as needed.
 
 <p class='img'>
   <img src='/images/dashboards/grid.png' alt='Screenshot of the grid card'>
-  Screenshot of the Grid card.
+  Screenshot of the grid card.
 </p>
 
-To add the Grid card to your user interface, select the menu (three dots at the top right of the screen) and then **Edit dashboard**. Select the **Add card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 

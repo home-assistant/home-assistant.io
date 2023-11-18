@@ -12,7 +12,7 @@ The picture card allows you to set an image to use for navigation to various pat
 Screenshot of the picture card.
 </p>
 
-To add the picture card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

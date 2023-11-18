@@ -14,7 +14,7 @@ Screenshot of the shopping list card.
 
 Setup of the [shopping list integration](/integrations/shopping_list/) is required.
 
-To add the shopping list card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 

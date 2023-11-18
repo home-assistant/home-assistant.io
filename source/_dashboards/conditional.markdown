@@ -5,11 +5,12 @@ sidebar_label: Conditional
 description: The Conditional card displays another card based on conditions.
 ---
 
-The Conditional card displays another card based on conditions.
+The conditional card displays another card based on conditions.
 
 Note: if there are multiple conditions there will be treated as an 'and' condition. This means that for the card to show, _all_ conditions must be met.
 
-To add the Conditional card to your user interface, select the menu (three dots at the top right of the screen) and then **Edit dashboard**. Select the **Add card** button in the bottom right corner and select from the card picker. Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
+{% include dashboard/edit_dashboard.md %}
+Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
 
 Most options for this card can be configured via the user interface.
 

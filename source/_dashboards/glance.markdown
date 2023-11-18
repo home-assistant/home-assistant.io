@@ -1,18 +1,18 @@
 ---
 type: card
-title: "Glance Card"
+title: "Glance card"
 sidebar_label: Glance
-description: "The Glance card is useful to group multiple sensors in a compact overview."
+description: "The glance card is useful to group multiple sensors in a compact overview."
 ---
 
-The Glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/dashboards/entity-filter/) cards to create dynamic cards.
+The glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/dashboards/entity-filter/) cards to create dynamic cards.
 
 <p class='img'>
 <img src='/images/dashboards/glance_card.png' alt='Screenshot of the glance card'>
-Screenshot of the Glance card.
+Screenshot of the glance card.
 </p>
 
-To add the Glance card to your user interface, select the menu (three dots at the top right of the screen) and then **Edit dashboard**. Select the **Add card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 

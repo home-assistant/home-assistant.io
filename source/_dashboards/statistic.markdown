@@ -16,7 +16,9 @@ If your sensor doesn't work with statistics, check [this](/more-info/statistics/
 Screenshot of the statistic card for a temperature sensor.
 </p>
 
-To add the statistic card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Statistic** from the card picker. All options for this card can be configured via the user interface, but if you want more options for the period, you will have to define them in `yaml`.
+{% include dashboard/edit_dashboard.md %}
+
+All options for this card can be configured via the user interface, but if you want more options for the period, you will have to define them in `yaml`.
 
 {% configuration %}
 type:

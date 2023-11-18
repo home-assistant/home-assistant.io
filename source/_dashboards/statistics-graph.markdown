@@ -21,7 +21,7 @@ Statistics are gathered every 5 minutes for sensors that support it. It will eit
 
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
-To add the statistics graph card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 

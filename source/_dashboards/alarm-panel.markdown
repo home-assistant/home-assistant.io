@@ -12,7 +12,7 @@ The alarm panel card allows you to arm and disarm your [alarm control panel](/in
 Screenshot of the alarm panel card.
 </p>
 
-To add the alarm panel card to your user interface, select the menu (three dots at the top right of the screen) and then **Edit dashboard**. Select the **Add card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 

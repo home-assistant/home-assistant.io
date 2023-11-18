@@ -2,22 +2,22 @@
 type: card
 title: "Gauge Card"
 sidebar_label: Gauge
-description: "The Gauge card is a basic card that allows visually seeing sensor data."
+description: "The gauge card is a basic card that allows visually seeing sensor data."
 ---
 
-The Gauge card is a basic card that allows visually seeing sensor data.
+The gauge card is a basic card that allows visually seeing sensor data.
 
 <p class='img'>
 <img src='/images/dashboards/gauge_card.gif' alt='Screenshot of the Gauge card'>
-Screenshot of the Gauge card.
+Screenshot of the gauge card.
 </p>
 
 <p class='img'>
 <img src='/images/dashboards/gauge_needle_card.png' alt='Screenshot of the Gauge card in needle mode'>
-Screenshot of the Gauge card in needle mode.
+Screenshot of the gauge card in needle mode.
 </p>
 
-To add the Gauge card to your user interface, select the menu (three dots at the top right of the screen) and then **Edit dashboard**. Select the **Add card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 

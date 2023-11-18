@@ -7,7 +7,7 @@ description: "The horizontal stack card allows you to stack together multiple ca
 
 The horizontal stack card allows you to stack together multiple cards, so they always sit next to each other in the space of one column.
 
-To add the horizontal stack card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

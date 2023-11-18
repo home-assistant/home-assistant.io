@@ -5,14 +5,14 @@ sidebar_label: Weather forecast
 description: "The weather forecast card displays the weather. Very useful to include on interfaces that people display on the wall."
 ---
 
-The weather forecast card displays the weather. Very useful to include on interfaces that people display on the wall.
+The weather forecast card displays the weather. This card is particularly useful on wall-mounted displays.
 
 <p class='img'>
   <img src='/images/dashboards/weather.png' alt='Screenshot of the weather card'>
   Screenshot of the weather card.
 </p>
 
-To add the weather card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 ## Card settings
 

@@ -12,7 +12,7 @@ The picture glance card shows an image and corresponding entity states as an ico
   Picture glance card for a living room.
 </p>
 
-To add the picture glance card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 
