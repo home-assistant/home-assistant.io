@@ -17,7 +17,7 @@ Every entity in Home Assistant has a default icon assigned to it. There are way 
 
 ### Icon picker
 
-The most common way you can find icons is by using the icon picker built right into Home Assistant. Click into the "Icon" field when customizing an entity and start typing. The list will filter to icons that match your search criteria. You can also scroll through all available icons when the field is empty.
+The most common way you can find icons is by using the icon picker built right into Home Assistant. Select the "Icon" field when customizing an entity and start typing. The list will filter to icons that match your search criteria. You can also scroll through all available icons when the field is empty.
 
 <p class='img'>
   <img src='/images/screenshots/icon-picker.png' alt='Icon Picker in Home Assistant' />

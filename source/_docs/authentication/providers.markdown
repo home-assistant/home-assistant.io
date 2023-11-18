@@ -55,7 +55,7 @@ If you don't specify any `auth_providers` section in the `configuration.yaml` fi
 
 ### Trusted networks
 
-The Trusted Networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "allowlisting"). For example, you can allowlist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
+The trusted networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "allowlisting"). For example, you can allowlist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
 
 When you log in from one of these networks, you will be asked which user account to use and won't need to enter a password.
 
@@ -154,7 +154,7 @@ Assuming you have only the owner created though onboarding process, no other use
 
 ### Command line
 
-The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
+The command line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
 
 This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/bob1de/ldap-auth-sh), for instance. Please note, this will only work when using the Home Assistant Core installation type.
 

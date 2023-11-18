@@ -688,7 +688,7 @@ automation:
 
 ### Input datetime
 
-The Entity ID of an [Input Datetime](/integrations/input_datetime/).
+The entity ID of an [input datetime](/integrations/input_datetime/).
 
 | has_date | has_time | Description                              |
 | -------- | -------- | ---------------------------------------- |
