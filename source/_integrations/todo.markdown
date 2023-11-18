@@ -61,6 +61,11 @@ Add a new To-do Item. A To-do list `target` is selected with a [Target Selector]
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `item` | no | the name of the to-do Item. | Submit income tax return
+| `due_date` | yes | The date the to-do item is expected to be completed. | 2024-04-10
+| `due_date_time` | yes | The date and time the to-do item is expected to be completed. | 2024-04-10 23:00:00
+| `description` | yes | A more complete description of than that provided by the summary | Collect all necessary documents and submit the final return
+
+Only one of `due_date` or `due_date_time` may be specified.
 
 This is a full example of service call in YAML:
 
@@ -70,6 +75,8 @@ target:
   entity_id: todo.personal_tasks
 data:
   item: "Submit Income Tax Return"
+  due_date: "2024-04-10"
+  description: "Collect all necessary documents and submit the final return"
 ```
 
 ### Service `todo.update_item`
@@ -81,9 +88,11 @@ Update a To-do Item. A To-do list `target` is selected with a [Target Selector](
 | `item` | no | The name of the to-do Item to update. | Submit income tax return
 | `rename` | yes | The new name of the to-do Item. | Something else
 | `status` | yes | The overall status of the To-do Item. |  `needs_action` or `completed`
+| `due_date` | yes | The date the to-do item is expected to be completed. | 2024-04-10
+| `due_date_time` | yes | The date and time the to-do item is expected to be completed. | 2024-04-10 23:00:00
+| `description` | yes | A more complete description of than that provided by the summary | Collect all necessary documents and submit the final return
 
-At least one of `rename` or `status` is required. This is a full example of
-a service call that updates the status and the name of a to-do Item.
+At least one of `rename` or `status` is required. Only one of `due_date` or `due_date_time` may be specified. This is a full example of a service call that updates the status and the name of a to-do Item.
 
 ```yaml
 service: todo.update_item
