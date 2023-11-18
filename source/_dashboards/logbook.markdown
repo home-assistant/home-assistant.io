@@ -1,18 +1,18 @@
 ---
 type: card
-title: "Logbook Card"
+title: "Logbook card"
 sidebar_label: Logbook
-description: "The Logbook card displays entries from the logbook for specific entities."
+description: "The logbook card displays entries from the logbook for specific entities."
 ---
 
-The Logbook card displays entries from the logbook for specific entities.
+The logbook card displays entries from the logbook for specific entities.
 
 <p class='img'>
   <img src='/images/dashboards/logbook.png' alt='Screenshot of the logbook card'>
-  Screenshot of the Logbook card.
+  Screenshot of the logbook card.
 </p>
 
-To add the Logbook card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 ## Card settings
 
@@ -29,7 +29,7 @@ Theme:
 
 ## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
