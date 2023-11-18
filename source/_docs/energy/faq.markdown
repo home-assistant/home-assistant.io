@@ -33,11 +33,11 @@ To accomplish such, you can use the [utility_meter integration](/integrations/ut
 
 If you do not see the Energy panel in the sidebar, make sure you have not removed [`default_config:`](/integrations/default_config/) from your `configuration.yaml`. If you have, you will need to add the `energy:` integration manually.
 
-## Troubleshooting missing entities 
+## Troubleshooting missing entities
 
 ### Condition
 
-You are trying to add a sensor to the energy dashboard, but it does not appear in the selection list. 
+You are trying to add a sensor to the energy dashboard, but it does not appear in the selection list.
 
 ### Resolution
 

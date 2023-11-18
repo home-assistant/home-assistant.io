@@ -1,9 +1,9 @@
 ---
-title: "Quick Bar"
+title: "Quick bar"
 description: "Dialog for quickly accessing entities or running commands."
 ---
 
-The "Quick Bar" allows you to quickly look up entities or run commands without needing to navigate away from your current view (Similar to the "quick open" feature in VS Code, Chrome Developer Tools, etc).
+The **Quick bar** allows you to quickly look up entities or run commands without needing to navigate away from your current view (Similar to the "quick open" feature in VS Code, Chrome Developer Tools, etc).
 
 It can be launched from anywhere in the frontend using [hotkeys](#hotkeys).
 
