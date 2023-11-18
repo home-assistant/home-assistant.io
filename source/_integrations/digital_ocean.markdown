@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Digital Ocean** allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/{% term integration %} ) droplets from Home Assistant.
+The **Digital Ocean** {% term integration %} allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

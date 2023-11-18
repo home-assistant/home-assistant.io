@@ -18,7 +18,7 @@ and fix your reported problem quicker.
 
 <p class='img'>
 <img class="no-shadow" src='/images/blog/2022-02/diagnostics.png' alt='Screenshot showing the Download Diagnostics button on a Sonos device page'>
-Screenshot of the Download diagnostics button on the device page
+Screenshot of the download diagnostics button on the device page
 </p>
 
 Diagnostics data is provided by an integration, and can be downloaded

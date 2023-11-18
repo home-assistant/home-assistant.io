@@ -316,7 +316,7 @@ The `entity_id` name will be `platform.device_name`, where `device_name` is defi
 
 The entity of a physical keypad. Can be in 4 different modes (`arm_away`, `arm_home`, `arm_night` or `disarmed`). Changing the state will do an audible notification from the keypad.
 
-The Device also exposes a new event type `deconz_alarm_event` which reflects signals not supported within the Alarm control panel platform.
+The Device also exposes a new event type `deconz_alarm_event` which reflects signals not supported within the alarm control panel platform.
 The Payload consists of an event (`emergency`, `fire`, `invalid_code` or `panic`).
 
 ### Binary sensor
