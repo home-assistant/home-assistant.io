@@ -80,7 +80,7 @@ These are the properties available for a [MQTT trigger](/docs/automation/trigger
 
 ### Numeric state
 
-These are the properties available for a [Numeric State trigger](/docs/automation/trigger/#numeric-state-trigger).
+These are the properties available for a [numeric state trigger](/docs/automation/trigger/#numeric-state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -148,7 +148,7 @@ These are the properties available for a [Time trigger](/docs/automation/trigger
 
 ### Time pattern
 
-These are the properties available for a [Time Pattern trigger](/docs/automation/trigger/#time-pattern-trigger).
+These are the properties available for a [time pattern trigger](/docs/automation/trigger/#time-pattern-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -157,7 +157,7 @@ These are the properties available for a [Time Pattern trigger](/docs/automation
 
 ### Persistent notification
 
-These properties are available for a [Persistent Notification trigger](/docs/automation/trigger/#persistent-notification-trigger).
+These properties are available for a [persistent notification trigger](/docs/automation/trigger/#persistent-notification-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
