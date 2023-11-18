@@ -48,4 +48,4 @@ The EcoNet Sensor platform lets you view sensors associated with your EcoNet the
 
 ### Water heater
 
-The EcoNet water heater platform lets you control your EcoNet water heater. water heaters do not report the current water temperature.
+The EcoNet water heater platform lets you control your EcoNet water heater. Water heaters do not report the current water temperature.
