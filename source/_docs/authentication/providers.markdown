@@ -1,5 +1,5 @@
 ---
-title: "Authentication Providers"
+title: "Authentication providers"
 description: "Guide on configuring different auth providers."
 ---
 
@@ -103,7 +103,7 @@ allow_bypass_login:
   type: boolean
 {% endconfiguration %}
 
-#### Trusted Users Examples
+#### Trusted users examples
 
 ```yaml
 homeassistant:
@@ -131,7 +131,7 @@ In above example, if user try to access Home Assistant from 192.168.0.1, they wi
 
 Specially, you can use `group: GROUP_ID` to assign all users in certain `user group` to be available to choose. Group and users can be mix and match.
 
-#### Skip Login Page Examples
+#### Skip login page examples
 
 This is a feature to allow you to bring back some of the experience before the user system was implemented. You can directly jump to the main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose from in the login form. 
 
