@@ -1,6 +1,6 @@
 ---
 title: "Authentication providers"
-description: "Guide on configuring different auth providers."
+description: "Guide on configuring different authentication providers."
 ---
 
 <div class='note warning'>

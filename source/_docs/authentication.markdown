@@ -107,7 +107,7 @@ This will allow you to open Home Assistant at `http://homeassistant.home:8123/`
 
 ### Stuck on loading data
 
-Some ad blocking software, such as Wipr, also blocks web sockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
+Some ad blocking software, such as Wipr, also blocks WebSockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
 
 ### Migrating from pre 0.77
 

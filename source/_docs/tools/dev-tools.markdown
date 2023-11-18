@@ -3,7 +3,7 @@ title: "Developer tools"
 description: "Description of the developer tools."
 ---
 
-The frontend contains a section called **Developer tools**.
+The dashboard contains a section called **Developer tools**.
 
 <p class='img'>
 <img src='/images/screenshots/developer-tools.png' />

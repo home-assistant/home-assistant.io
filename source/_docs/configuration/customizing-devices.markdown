@@ -7,8 +7,8 @@ description: "Simple customization for entities."
 
 You can use the UI to change the entity ID and friendly name of supported entities. To do this:
 
-1. Select the {% term entity %}, either from the frontend or by clicking the info button next to the entity in the Developer Tools "States" tab.
-2. Click on the cog icon in the right corner of the entity's dialog
+1. Select the {% term entity %}, either from the frontend or by selecting the info button next to the entity in the Developer Tools "States" tab.
+2. Select the cog icon in the right corner of the entity's dialog
 ![Entity dialog box.](/images/docs/configuration/customizing-entity-dialog.png)
 3. Enter the new name or the new entity ID (remember not to change the domain of the entity - the part before the `.`)
 ![Settings for entity.](/images/docs/configuration/customizing-entity.png)
