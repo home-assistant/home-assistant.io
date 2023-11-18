@@ -31,7 +31,7 @@ An easy way to create this is to start with the "Edit zone DNS" template then ad
 
 ### Usage of external service
 
-This integration uses the whoami {% term service %} from [home-assistant/services.home-assistant.io](https://github.com/home-assistant/services.home-assistant.io) to set the public IP address.
+This integration uses the whoami service from [home-assistant/services.home-assistant.io](https://github.com/home-assistant/services.home-assistant.io) to set the public IP address.
 
 ### Limitations
 

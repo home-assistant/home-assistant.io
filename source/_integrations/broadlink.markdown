@@ -552,7 +552,7 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 
 This is the code we need to transmit again to replicate the same remote function.
 
-### Using Node Red to transmit codes
+### Using Node-RED to transmit codes
 
 1. Drag another RM node on the same flow we created earlier. The RM node should be configured to the RM device created earlier by default.
 2. In the Action field, select - Set from msg.payload -.

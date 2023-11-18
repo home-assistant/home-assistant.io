@@ -84,7 +84,7 @@ name:
   description: Name of the REST binary sensor.
   required: false
   type: template
-  default: REST binary sensor
+  default: REST Binary Sensor
 icon:
   description: Defines a template for the icon of the entity.
   required: false

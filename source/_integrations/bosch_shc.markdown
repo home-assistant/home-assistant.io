@@ -49,7 +49,7 @@ The cover platform allows you to control your covers. Cover devices are added fo
 
 The sensor platform allows you to monitor the states of your temperature, humidity, purity, air quality, power, energy, and valve tappet sensors. Sensor devices are added for each of the following devices:
 
-- thermostat
+- Thermostat
 - Wall Thermostat
 - Twinguard
 - Smart Plug
