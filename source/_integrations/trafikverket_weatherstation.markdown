@@ -24,7 +24,7 @@ Showing weather information provided by [Trafikverket](https://www.trafikverket.
 
 ## Prerequisites
 
-Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obtain the API key.
+Please click [here](https://data.trafikverket.se/home) and register to obtain the API key.
 
 {% include integrations/config_flow.md %}
 
@@ -32,17 +32,15 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 - Air temperature.
 - Road temperature.
 - Relative humidity.
-- Type of precipitation (Swedish text).
+- Precipitation type.
+- Precipitation amount
 - Wind direction in degrees.
-- Rough wind direction in twelve variants (Swedish text).
-- Average wind speed during the last 10 minutes.
+- Wind speed
 - Maximum wind speed measured during the last 30 minutes.
-- Amount of precipitation.
-- Amount of precipitation in thirteen variants (Swedish text).
 
 ## Weather stations
 
-Click [here](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/606442.17/6886316.22/&Layers=RoadWeather%2b) to get a map of valid weather stations. Once a station is found, copy the name according to the below picture and paste it in your `configuration.yaml` file as the `station` variable.
+Click [here](https://www.trafikverket.se/trafikinformation/vag/?map_x=473143.67679&map_y=6622458.53332&map_z=2&map_l=100000001000000) to get a map of valid weather stations. Once a station is found, copy the name according to the below picture and paste it as the `station` variable.
 
 <p class='img'>
   <img src='/images/screenshots/get_trafikverket_weather_station_example.png' />
