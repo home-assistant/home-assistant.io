@@ -2,7 +2,7 @@
 title: Soundavo WS66i 6-Zone Amplifier
 description: Instructions on how to integrate WS66i 6-Zone Home Audio Controller into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 2022.6
 ha_config_flow: true
 ha_iot_class: Local Polling

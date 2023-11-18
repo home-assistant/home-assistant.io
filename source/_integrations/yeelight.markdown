@@ -27,7 +27,7 @@ The Yeelight integration allows you to control your Yeelight Wi-Fi bulbs with Ho
 There is support for the following device types within Home Assistant:
 
 - **Light** - The Yeelight platform for supporting lights.
-- **Binary Sensor** - The Yeelight platform for supporting binary sensors. Currently, only nightlight mode sensor for ceiling lights.
+- **Binary sensor** - The Yeelight platform for supporting binary sensors. Currently, only nightlight mode sensor for ceiling lights.
 
 {% include integrations/config_flow.md %}
 

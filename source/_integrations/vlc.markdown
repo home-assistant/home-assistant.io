@@ -2,7 +2,7 @@
 title: VLC media player
 description: Instructions on how to integrate VLC media player into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_domain: vlc

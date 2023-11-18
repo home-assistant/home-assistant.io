@@ -2,7 +2,7 @@
 title: LG webOS Smart TV
 description: Instructions on how to integrate a LG webOS Smart TV within Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Notifications
 ha_iot_class: Local Push
 ha_release: 0.18
@@ -23,7 +23,7 @@ The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS S
 
 There is currently support for the following device types within Home Assistant:
 
-- [Media Player](/integrations/media_player/)
+- [Media player](/integrations/media_player/)
 - [Notifications](/integrations/notify/)
 
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.

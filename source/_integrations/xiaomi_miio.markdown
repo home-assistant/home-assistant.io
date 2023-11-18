@@ -7,7 +7,7 @@ ha_category:
   - Health
   - Hub
   - Light
-  - Presence Detection
+  - Presence detection
   - Remote
   - Vacuum
 ha_iot_class: Local Polling

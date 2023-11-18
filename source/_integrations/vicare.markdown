@@ -24,7 +24,7 @@ Most recent network-connected Viessmann heating devices (e.g., gas boilers) shou
 There is currently support for the following device types within Home Assistant:
 
 - [Climate](#climate) (Heating)
-- [Water Heater](#water-heater) (Domestic Hot Water)
+- [Water heater](#water-heater) (Domestic Hot Water)
 - [Sensor](#sensor) (Sensor)
 - [Button](#button) (Button)
 
@@ -114,11 +114,11 @@ Eco mode reduces the target temperature by 3°C, whereas Comfort mode sets the t
 
 ## Water heater
 
-It is not possible to turn on/off water heating via the Water Heater integration since this would conflict with the operation modes of the heating integration. Therefore the operation mode of that integration is just available as an attribute and cannot be modified.
+It is not possible to turn on/off water heating via the water heater integration since this would conflict with the operation modes of the heating integration. Therefore the operation mode of that integration is just available as an attribute and cannot be modified.
 
 ### Supported services `water_heater.vicare_water`
 
-The following services of the [Water Heater integration](/integrations/water_heater/) are provided by the ViCare integration: `set_temperature`
+The following services of the [water heater integration](/integrations/water_heater/) are provided by the ViCare integration: `set_temperature`
 
 #### Service `set_temperature`
 

@@ -2,9 +2,9 @@
 title: Xbox
 description: Instructions on how to set up Xbox devices in Home Assistant.
 ha_category:
-  - Binary Sensor
-  - Media Player
-  - Media Source
+  - Binary sensor
+  - Media player
+  - Media source
   - Remote
 ha_iot_class: Cloud Polling
 ha_release: 0.117
@@ -34,9 +34,9 @@ Because it uses the Home Assistant Cloud account linking service you **must** ha
 
 </div>
 
-## Media Player
+## Media player
 
-The Xbox media player platform will create Media Player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
+The Xbox media player platform will create Media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
 
 ### Service `play_media`
 
@@ -241,7 +241,7 @@ elements:
       overflow: hidden
 ```
 
-## Binary Sensor
+## Binary sensor
 
 The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship -> Favorite** to have that person automatically pulled into Home Assistant.
 
@@ -267,7 +267,7 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 | `sensor.{gamertag}_account_tier` | Disabled | Shows your friend's Xbox Live account tier (Gold or Silver).             |
 | `sensor.{gamertag}_gold_tenure`  | Disabled | Shows how long your friend has had Xbox Live Gold.                       |
 
-## Media Source
+## Media source
 
 The Xbox media source platform allows you to use the Media Browser panel to view both your own, and community, gameclips or screenshots for games that you have installed on any of your consoles. As with any other media source integration, you are also able to send these clips to supported media players like Chromecast.
 

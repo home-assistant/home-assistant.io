@@ -4,7 +4,7 @@ description: Instructions on how to configure UniFi Network integration with Uni
 ha_category:
   - Hub
   - Image
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Switch
   - Update
@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Button](#button)
 - [Image](#image)
-- [Presence Detection](#presence-detection)
+- [Presence detection](#presence-detection)
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)

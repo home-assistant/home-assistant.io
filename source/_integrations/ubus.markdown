@@ -2,7 +2,7 @@
 title: OpenWrt (ubus)
 description: Instructions on how to integrate OpenWRT routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.7.6
 ha_iot_class: Local Polling
 ha_domain: ubus

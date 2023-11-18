@@ -3,7 +3,7 @@ title: Ubiwizz
 description: Connect and control your Ubiwizz devices using the Overkiz integration
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
@@ -16,7 +16,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
-  - Water Heater
+  - Water heater
 ha_domain: ubiwizz
 ha_integration_type: virtual
 ha_supporting_domain: overkiz

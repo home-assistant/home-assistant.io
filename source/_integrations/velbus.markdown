@@ -2,7 +2,7 @@
 title: Velbus
 description: Access and control your Velbus devices.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Hub

@@ -3,7 +3,7 @@ title: Zigbee Home Automation
 description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
@@ -51,8 +51,8 @@ ZHA uses an open-source Python library implementing a hardware-independent Zigbe
 
 This integration currently supports the following device types within Home Assistant:
 
-- [Alarm Control Panel](/integrations/alarm_control_panel/)
-- [Binary Sensor](/integrations/binary_sensor/)
+- [Alarm control panel](/integrations/alarm_control_panel/)
+- [Binary sensor](/integrations/binary_sensor/)
 - [Button](/integrations/button/)
 - [Climate](/integrations/climate/) (beta)
 - [Cover](/integrations/cover/)

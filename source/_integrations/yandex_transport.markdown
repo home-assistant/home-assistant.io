@@ -71,7 +71,7 @@ sensor:
       - 677к
 ```
 
-## Options For Entities
+## Options for entities
 
 You can configure view information about the next bus using dashboard card.
 To enable displaying the relative time in your `default_view` add the following lines:

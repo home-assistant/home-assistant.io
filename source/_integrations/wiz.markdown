@@ -2,7 +2,7 @@
 title: WiZ
 description: Instructions on setting up WiZ within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Light
   - Number
   - Sensor

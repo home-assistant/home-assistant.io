@@ -2,7 +2,7 @@
 title: Vera
 description: Instructions on how to setup Vera Z-Wave hubs and configure devices within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Hub
@@ -37,7 +37,7 @@ The newer Ezlo hubs use a different firmware and are not supported by this integ
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Cover
 - Light
 - Lock

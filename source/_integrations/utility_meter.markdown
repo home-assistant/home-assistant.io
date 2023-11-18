@@ -65,7 +65,7 @@ If the meter reset cycle and reset offsets are to limited for your use case,
 consider using the YAML configuration below, which support CRON-style patterns
 that provide a greater flexibility.
 
-## YAML Configuration
+## YAML configuration
 
 Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the Integration sensor in your installation, add the

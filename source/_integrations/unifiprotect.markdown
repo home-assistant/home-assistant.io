@@ -2,15 +2,15 @@
 title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Camera
   - Doorbell
   - Hub
   - Light
   - Lock
-  - Media Player
-  - Media Source
+  - Media player
+  - Media source
   - Number
   - Select
   - Sensor
@@ -223,7 +223,7 @@ Your main UniFi Protect NVR device also gets a number of diagnostics sensors tha
 - **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
 - **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
-## Media Source
+## Media source
 
 A media source is provided for your UniFi Protect cameras so you can fetch video clips and event thumbnails.
 

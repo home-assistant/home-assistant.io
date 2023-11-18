@@ -2,7 +2,7 @@
 title: Volumio
 description: How to set up the Volumio media player integration
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.41
 ha_iot_class: Local Polling
 ha_config_flow: true

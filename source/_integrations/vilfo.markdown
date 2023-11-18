@@ -5,7 +5,7 @@ ha_release: '0.106'
 ha_category:
   - Network
   - Sensor
-  - System Monitor
+  - System monitor
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:

@@ -2,9 +2,9 @@
 title: UpCloud
 description: Instructions on how to integrate UpCloud within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Switch
-  - System Monitor
+  - System monitor
 ha_release: 0.65
 ha_config_flow: true
 ha_iot_class: Cloud Polling
@@ -21,7 +21,7 @@ The `upcloud` integration allows you to access the information about your [UpClo
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Switch](#switch)
 
 ## Setup
