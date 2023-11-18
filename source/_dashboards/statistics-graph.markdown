@@ -66,7 +66,7 @@ hide_legend:
   default: false
 {% endconfiguration %}
 
-### Options for entities
+### Options for `entities`
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 

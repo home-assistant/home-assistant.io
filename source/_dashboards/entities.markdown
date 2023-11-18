@@ -54,7 +54,7 @@ footer:
   type: map
 {% endconfiguration %}
 
-## Options for entities
+## Options for `entities`
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration.
 

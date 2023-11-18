@@ -74,7 +74,7 @@ period:
 stat_type: change
 ```
 
-## Options for period
+## Options for `period`
 
 Periods can be configured in 3 different ways:
 
