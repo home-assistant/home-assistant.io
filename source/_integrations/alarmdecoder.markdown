@@ -59,17 +59,17 @@ Each {% term zone %} that's added to AlarmDecoder will have its own [binary sens
 
 #### Adding a new zone
 
-When prompted, enter the number of the {% term zone %} you'd like to add. Press _Submit_ to move to the next screen where you'll be prompted for the [zone settings](#zone-settings). Press _Submit_ again to save.
+When prompted, enter the number of the {% term zone %} you'd like to add. Select _Submit_ to move to the next screen, where you'll be prompted for the [zone settings](#zone-settings). Select _Submit_ again to save.
 
 **Note:** The zone number that was entered will appear as an attribute on the binary sensor entity that's created in order to easily edit the zone settings at a later time.
 
 #### Editing an existing zone
 
-When prompted, enter the number of the {% term zone %} you'd like to edit. Press _Submit_ to move to the next screen where the existing zone settings will be pre-filled. Edit the zone settings and press _Submit_ to save the changes.
+When prompted, enter the number of the {% term zone %} you'd like to edit. Select _Submit_ to move to the next screen, where the existing zone settings will be pre-filled. Edit the zone settings and select _Submit_ to save the changes.
 
 #### Removing an existing zone
 
-When prompted, enter the number of the {% term zone %} you'd like to remove. Press _Submit_ to move to the next screen where the existing zone settings will be pre-filled. Clear the _Zone Name_ field and press _Submit_.
+When prompted, enter the number of the {% term zone %} you'd like to remove. Select _Submit_ to move to the next screen, where the existing zone settings will be pre-filled. Clear the _Zone Name_ field and select _Submit_.
 
 #### Zone settings
 

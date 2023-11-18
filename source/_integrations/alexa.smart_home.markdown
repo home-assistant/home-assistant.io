@@ -512,7 +512,7 @@ The following platforms are currently supported:
 
 ### Alarm control panel
 
-Arm and disarm Alarm control panel entities. Ask Alexa for the state of the Alarm control panel entity.
+Arm and disarm Alarm control panel entities. Ask Alexa for the state of the alarm control panel entity.
 
 - _"Alexa, arm my home in away mode."_
 - _"Alexa, arm my home."_
@@ -521,27 +521,27 @@ Arm and disarm Alarm control panel entities. Ask Alexa for the state of the Alar
 
 #### Arming
 
-The Alarm control panel state must be in the `disarmed` state before arming. Alexa does not support switching from an armed state without first disarming, e.g., switching from `armed_home` to `armed_night`.
+The alarm control panel state must be in the `disarmed` state before arming. Alexa does not support switching from an armed state without first disarming, e.g., switching from `armed_home` to `armed_night`.
 
-The Alarm control panel state `armed_custom_bypass` isn't supported by Alexa and is treated as `armed_home`.
+The alarm control panel state `armed_custom_bypass` isn't supported by Alexa and is treated as `armed_home`.
 
 <div class="note">
 
-Alexa does not support arming with voice PIN at this time. Therefore if the Alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
-The Alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override `code_arm_required` to `false` and expose the Alarm control panel during discovery.
+Alexa does not support arming with voice PIN at this time. Therefore if the alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
+The alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [entity customization tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override `code_arm_required` to `false` and expose the alarm control panel during discovery.
 
 </div>
 
 #### Disarming
 
-Users must opt-in to the disarm by voice feature in the Alexa App. Alexa will require a 4 digit voice personal identification number (PIN) for disarming. Configure a 4 digit PIN in the Alexa app, or use an existing 4 digit PIN code configured for the Alarm control panel.
+Users must opt-in to the disarm by voice feature in the Alexa App. Alexa will require a 4 digit voice personal identification number (PIN) for disarming. Configure a 4 digit PIN in the Alexa app, or use an existing 4 digit PIN code configured for the alarm control panel.
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_security_system_pin.png' target='_blank'>
   <img height='460' src='/images/integrations/alexa/alexa_app_security_system_pin.png' alt='Screenshot: Alexa App Security System PIN'/></a>
 </p>
 
-To use the existing code configured for the Alarm control panel the `code` must be 4 digits and the `code_format` attribute must be `number`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
+To use the existing code configured for the alarm control panel the `code` must be 4 digits and the `code_format` attribute must be `number`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
 
 The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` service. If the `alarm_control_panel.alarm_disarm` service fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
 

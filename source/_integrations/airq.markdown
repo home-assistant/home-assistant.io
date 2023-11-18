@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **air-O** {% term integration %} allows integrating the sensors, provided by your [air-Q](https://www.air-q.com/) device, into Home Assistant.
+The **air-Q** {% term integration %} allows integrating the sensors, provided by your [air-Q](https://www.air-q.com/) device, into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
