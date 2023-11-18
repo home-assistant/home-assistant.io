@@ -202,7 +202,7 @@ double_tap_action:
       default: none
 {% endconfiguration %}
 
-## Options for `confirmation`
+## Options for confirmation
 
 If you define confirmation as an object instead of boolean, you can add more customization and configurations.
 
@@ -229,7 +229,7 @@ exemptions:
   type: list
 {% endconfiguration %}
 
-## Options for `exemptions`
+## Options for exemptions
 
 {% configuration exemptions %}
 user:

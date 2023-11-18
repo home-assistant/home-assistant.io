@@ -45,7 +45,7 @@ show_empty:
   default: true
 {% endconfiguration %}
 
-### Options for `entities`
+### Options for entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configurations:
 
@@ -80,7 +80,7 @@ state_filter:
   type: list
 {% endconfiguration %}
 
-### Options for `state_filter`
+### Options for state filter
 
 If you define `state_filter` as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
 

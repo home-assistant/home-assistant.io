@@ -88,7 +88,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-### Options for `entities`
+### Options for entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -132,7 +132,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-### Options for `exemptions`
+### Options for exemptions
 
 {% configuration badges %}
 user:
