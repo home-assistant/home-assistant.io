@@ -2,7 +2,7 @@
 title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Hub
   - Light
@@ -36,7 +36,7 @@ There is currently support for the following device types within Home Assistant:
 - [Light](#lights)
 - [Switch](#switches)
 - [Sensor](#sensors)
-- [Binary Sensor](#binary-sensors)
+- [Binary sensor](#binary-sensors)
 - [Siren](#sirens)
 
 {% include integrations/config_flow.md %}

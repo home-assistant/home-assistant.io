@@ -2,9 +2,9 @@
 title: Renault
 description: Instructions on how to integrate Renault car into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Car
-  - Presence Detection
+  - Presence detection
   - Select
   - Sensor
 ha_release: 2021.8

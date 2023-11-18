@@ -2,7 +2,7 @@
 title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Number
   - Select
   - Sensor
