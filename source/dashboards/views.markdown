@@ -73,7 +73,7 @@ views:
       ...
 ```
 
-### Options for visible
+### Options for `visible`
 
 If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
 
