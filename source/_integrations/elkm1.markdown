@@ -4,7 +4,7 @@ description: Instructions to setup the Elk-M1 controller.
 ha_release: 0.81
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Hub
   - Light
@@ -36,7 +36,7 @@ The Elk-M1 controller is manufactured by [Elk Products](https://www.elkproducts.
 There is currently support for the following device types within Home Assistant:
 
 - **Alarm** - An ElkM1 area (also known as partition) is represented as an `alarm_control_panel`.
-- **Binary Sensor** - ElkM1 zones that have 4 states (i.e.: are not analog zones) are represented as `binary_sensor` entities. `Normal` is `off` and any of the other values is `on`.
+- **Binary sensor** - ElkM1 zones that have 4 states (i.e.: are not analog zones) are represented as `binary_sensor` entities. `Normal` is `off` and any of the other values is `on`.
 - **Climate** - An ElkM1 thermostat is represented as a `climate` entity.
 - **Light** - An ElkM1 light (which can be X10, Insteon, UPB) is represented as a `light`.
 - **Scene** - ElkM1 tasks are represented as `scene` entities.
@@ -46,13 +46,13 @@ There is currently support for the following device types within Home Assistant:
 The implementation follows the Elk Products ElkM1 "ASCII Protocol & Interface 
 Specification, Revision 1.84" document. This document can be found on the Internet.
 
-## ElkM1 Configuration and Version
+## ElkM1 configuration and version
 
 In order for the ElkM1 integration to work to its fullest with Home Assistant the
 ElkM1 panel must be configured correctly. This section describes the configuration
 required on the ElkM1 panel.
 
-### ElkM1 Version
+### ElkM1 version
 
 ElkM1 should be running:
 
@@ -63,7 +63,7 @@ Force arm away and stay are available in 5.3.0 or higher.
 
 Many features will work with lower versions of the ElkM1. Check the "ElkM1 RS232 Protocol" manual for details.
 
-### ELK-M1XEP Version
+### ELK-M1XEP version
 
 The ELK-M1XEP is the Ethernet controller board for the ElkM1. If connecting the integration
 in secure mode the version of the ELK-M1XEP determines which secure protocol is supported.
@@ -440,7 +440,7 @@ The `event_data` contains the following:
 
 ## Services
 
-Besides the standard Home Assistant services for Alarm Control Panel, Climate, Light, Scene, Sensor,
+Besides the standard Home Assistant services for Alarm control panel, Climate, Light, Scene, Sensor,
 and Switch the ElkM1 integration offers these additional services:
 
 - `elkm1.alarm_arm_home_instant`

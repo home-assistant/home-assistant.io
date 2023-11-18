@@ -1,5 +1,5 @@
 ---
-title: "MQTT Device Trigger"
+title: "MQTT Device trigger"
 description: "Instructions on how to integrate MQTT device triggers within Home Assistant."
 ha_category:
   - Device Automation

@@ -10,7 +10,7 @@ ha_domain: dialogflow
 ha_integration_type: integration
 ---
 
-The `dialogflow` integration is designed to be used with the [webhook](https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook) integration of [Dialogflow](https://cloud.google.com/dialogflow/docs/). When a conversation ends with a user, Dialogflow sends an action and parameters to the webhook.
+The **Dialogflow** {% term integration %} is designed to be used with the [webhook](https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook) integration of [Dialogflow](https://cloud.google.com/dialogflow/docs/). When a conversation ends with a user, Dialogflow sends an action and parameters to the webhook.
 
 To be able to receive messages from Dialogflow, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
 

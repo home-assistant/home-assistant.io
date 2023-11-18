@@ -2,10 +2,10 @@
 title: devolo Home Network
 description: Instructions on how to integrate devolo Home Network devices with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Image
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Switch
   - Update
