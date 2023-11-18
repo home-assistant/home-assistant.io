@@ -2,7 +2,7 @@
 title: Netdata
 description: Instructions on how to integrate Netdata within Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_codeowners:

@@ -63,20 +63,20 @@ To help with development of this integration, enable `info` level logging for `h
 
 | Topic(s) | Entity Type | Device Class | Description |
 |----------|-------------|--------------|-------------|
-| Motion Alarm | Binary Sensor | Motion | Generic motion alarm. |
-| Field Detection | Binary Sensor | Motion | Polygonal field detection determines if each object in the scene is inside or outside the polygon. |
-| Cell Motion Detection | Binary Sensor | Motion | Cell based motion detection determined by placing a grid over the video source and determining changes. |
-| Motion Region Detector | Binary Sensor | Motion | Detects any motion against the specified motion region. The rule is configured for an area defined by a polygon. |
-| Detected Sound | Binary Sensor | Sound | Device detected sound. |
-| Digital Input | Binary Sensor | None | A digital input was triggered on the device. Amcrest is known to use this as a doorbell button press on the AD410. |
-| Relay Triggered | Binary Sensor | None | Device relay output was triggered. |
-| Image Too Blurry | Binary Sensor | Problem | Device reports blurry image. |
-| Image Too Dark | Binary Sensor | Problem | Device reports dark image. |
-| Image Too Bright | Binary Sensor | Problem | Device reports bright image. |
-| Global Scene Change | Binary Sensor | Problem | Device reports a large portion of the video content changing.  The cause can be tamper actions like camera movement or coverage. |
-| Tamper Detector | Binary Sensor | Problem |  Detects any kind of tampering to the image sensor. |
-| Storage Failure | Binary Sensor | Problem | Storage failure on device. |
-| Recording Job State | Binary Sensor | None | Whether or not the device is actively recording. |
+| Motion Alarm | Binary sensor | Motion | Generic motion alarm. |
+| Field Detection | Binary sensor | Motion | Polygonal field detection determines if each object in the scene is inside or outside the polygon. |
+| Cell Motion Detection | Binary sensor | Motion | Cell based motion detection determined by placing a grid over the video source and determining changes. |
+| Motion Region Detector | Binary sensor | Motion | Detects any motion against the specified motion region. The rule is configured for an area defined by a polygon. |
+| Detected Sound | Binary sensor | Sound | Device detected sound. |
+| Digital Input | Binary sensor | None | A digital input was triggered on the device. Amcrest is known to use this as a doorbell button press on the AD410. |
+| Relay Triggered | Binary sensor | None | Device relay output was triggered. |
+| Image Too Blurry | Binary sensor | Problem | Device reports blurry image. |
+| Image Too Dark | Binary sensor | Problem | Device reports dark image. |
+| Image Too Bright | Binary sensor | Problem | Device reports bright image. |
+| Global Scene Change | Binary sensor | Problem | Device reports a large portion of the video content changing.  The cause can be tamper actions like camera movement or coverage. |
+| Tamper Detector | Binary sensor | Problem |  Detects any kind of tampering to the image sensor. |
+| Storage Failure | Binary sensor | Problem | Storage failure on device. |
+| Recording Job State | Binary sensor | None | Whether or not the device is actively recording. |
 | Processor Usage | Sensor | Percent | Device processor usage. |
 | Last Reboot | Sensor | Timestamp | When the device was last rebooted. |
 | Last Reset | Sensor | Timestamp | When the device was last reset. |

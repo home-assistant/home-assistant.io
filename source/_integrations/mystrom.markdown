@@ -2,7 +2,7 @@
 title: myStrom
 description: Instructions on how to integrate myStrom WiFi Switches and Bulbs into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Light
   - Switch
 ha_release: 0.43
@@ -22,7 +22,7 @@ ha_integration_type: integration
 There is currently support for the following device types within Home Assistant:
 
 - [Lights and switches](#lights-and-switches)
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
   - [Setup of myStrom Buttons](#setup-of-mystrom-buttons)
 
 ## Lights and switches

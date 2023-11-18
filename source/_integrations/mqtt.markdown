@@ -220,8 +220,8 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
-- [Device Tracker](/integrations/device_tracker.mqtt/)
-- [Device Trigger](/integrations/device_trigger.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
+- [Device trigger](/integrations/device_trigger.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
@@ -237,10 +237,10 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 - [Update](/integrations/update.mqtt/)
-- [Tag Scanner](/integrations/tag.mqtt/)
+- [Tag scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
-- [Water Heater](/integrations/water_heater.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
@@ -974,7 +974,7 @@ mqtt:
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
-- [Device Tracker](/integrations/device_tracker.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
@@ -992,7 +992,7 @@ mqtt:
 - [Text](/integrations/text.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
-- [Water Heater](/integrations/water_heater.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 

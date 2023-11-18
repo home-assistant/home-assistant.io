@@ -2,7 +2,7 @@
 title: OpenTherm Gateway
 description: Control your OpenTherm Gateway from Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Hub
   - Sensor
@@ -23,7 +23,7 @@ The `opentherm_gw` integration is used to control the [OpenTherm Gateway](https:
 
 The following device types are currently supported within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Climate
 - Sensor
 
