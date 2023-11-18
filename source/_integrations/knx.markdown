@@ -3,7 +3,7 @@ title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 featured: true
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
@@ -56,7 +56,7 @@ The integration requires a local KNX/IP interface or router. Through this, it wi
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Button](#button)
 - [Climate](#climate)
 - [Cover](#cover)

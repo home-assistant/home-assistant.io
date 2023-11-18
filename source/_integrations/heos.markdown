@@ -2,7 +2,7 @@
 title: Denon HEOS
 description: Instructions on how to integrate Denon HEOS into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.92
 ha_iot_class: Local Push
 ha_config_flow: true

@@ -2,7 +2,7 @@
 title: Linux Battery
 description: Instructions on how to integrate Linux Battery information into Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_release: 0.28
 ha_iot_class: Local Polling
 ha_codeowners:

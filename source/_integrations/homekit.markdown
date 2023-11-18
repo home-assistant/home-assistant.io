@@ -423,7 +423,7 @@ The following integrations are currently supported:
 | water_heater | WaterHeater | All `water_heater` devices. |
 | device_automation | DeviceTriggerAccessory | All devices that support triggers. |
 
-# Device Triggers
+# Device triggers
 
 Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Settings > Devices & Services" %}**. To use this feature, Advanced Mode must be enabled in your user profile.
 

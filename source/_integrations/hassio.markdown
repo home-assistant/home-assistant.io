@@ -2,7 +2,7 @@
 title: Home Assistant Supervisor
 description: Control Supervisor Add-ons and OS from Home Assistant
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
   - Update
 ha_iot_class: Local Polling

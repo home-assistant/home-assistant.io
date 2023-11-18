@@ -3,7 +3,7 @@ title: HomematicIP Cloud
 description: Instructions for integrating HomematicIP into Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
@@ -36,7 +36,7 @@ The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as
 There is currently support for the following device types within Home Assistant:
 
 - Alarm
-- Binary Sensor
+- Binary sensor
 - Button
 - Climate
 - Cover

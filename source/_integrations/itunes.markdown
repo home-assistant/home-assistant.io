@@ -2,7 +2,7 @@
 title: Apple iTunes
 description: Instructions on how to integrate iTunes into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.7.3
 ha_iot_class: Local Polling
 ha_domain: itunes

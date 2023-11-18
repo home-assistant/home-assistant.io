@@ -2,7 +2,7 @@
 title: laundrify
 description: Instructions on how to integrate laundrify within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 2022.6
 ha_iot_class: Cloud Polling
 ha_domain: laundrify
@@ -18,7 +18,7 @@ Monitor the status of your washing machine or dryer within Home Assistant using 
 
 The following device types are currently supported by the integration:
 
-- Binary Sensor
+- Binary sensor
 
 ## Generate an Auth Code
 

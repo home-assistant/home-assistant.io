@@ -4,7 +4,7 @@ description: Instructions how to use Life360 to track devices in Home Assistant.
 ha_release: 0.95
 ha_config_flow: true
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@pnbruckner'

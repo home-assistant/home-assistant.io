@@ -3,7 +3,7 @@ title: Konnected.io
 description: Connect wired alarm sensors and siren using the NodeMCU based Konnected Alarm Panel
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Sensor
   - Switch
 ha_iot_class: Local Push
@@ -38,7 +38,7 @@ Always ensure your panel is running the [latest firmware](https://help.konnected
 
 The integration currently supports the following device types in Home Assistant:
 
-- Binary Sensor: Wired door and window sensors, motion detectors, glass-break detectors, leak sensors, smoke & CO detectors or any open/close switch.
+- Binary sensor: Wired door and window sensors, motion detectors, glass-break detectors, leak sensors, smoke & CO detectors or any open/close switch.
 - Switch: Actuate a siren, strobe, buzzer or relay module.
 - Sensor: Periodic measurements from DHT temperature/humidity sensors and DS18B20 temperature sensors.
 
@@ -72,12 +72,12 @@ Once configuration is completed you'll see a Konnected.io entry in **Settings** 
 
 The settings for each panel can be accessed by selecting the entry in **Settings** -> **Devices & Services** -> **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure these settings at any time and once completed the settings will be immediately applied.
 
-The settings UI starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that, you'll be prompted, for each zone that is not disabled, to configure details of the zones' behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.  
+The settings UI starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that, you'll be prompted, for each zone that is not disabled, to configure details of the zones' behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.  
 **Note some zones do not support all behaviors. The UI will reflect specific options available to each zone.**
 
-##### Binary Sensor:
+##### Binary sensor:
 
-**Binary Sensor Type:** The type of sensor connected to the zone.
+**Binary sensor Type:** The type of sensor connected to the zone.
 
 **Name (optional)** The friendly name for the entity associated with the zone.
 
@@ -115,7 +115,7 @@ Once all zones are configured you'll be presented with the configuration for add
 
 **Override API host URL (optional):** The host info to use if you checked **Override default Home Assistant API host panel URL** in the step above. This is ignored if **Override default Home Assistant API host panel URL** is unchecked.
 
-### YAML Configuration
+### YAML configuration
 
 If you prefer you can utilize a `konnected` section in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them. If using `configuration.yaml` the configuration will be one-time imported when going through the Configuration Flow for the panel. **Note that you must still complete the UI based setup before the integration will be configured and entities created/accessible.**
 
