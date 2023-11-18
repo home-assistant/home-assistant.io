@@ -338,6 +338,8 @@
     a scene can specify that light A should be turned on and light B should
     be bright red.
   link: /integrations/scene/
+  aliases:
+    - scenes
 
 - term: Script
   definition: >
@@ -396,6 +398,8 @@
     State changes can be used as the source of triggers. The current state can be used in conditions.
     
   link: /docs/configuration/state_object/
+  aliases:
+    - states
   excerpt: >
     The state holds the information of interest of an entity, for example, if a light is on or off. Each entity has exactly one state and the state only holds one value at a time. However, entities can store attributes related to that state such as brightness, color, or a unit of measurement.
 
@@ -411,6 +415,8 @@
     service or data from the trigger values. This allows automations to generate
     dynamic actions.
   link: /docs/automation/templating/
+  aliases:
+    - templates
 
 - term: Thread
   definition: >-
@@ -425,6 +431,8 @@
     A trigger is a set of values or conditions of a platform that are defined
     to cause an automation to run.
   link: /docs/automation/trigger/
+  aliases:
+    - triggers
 
 - term: TTS
   definition: >-
