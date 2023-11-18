@@ -63,7 +63,7 @@ Being open-source like Home Assistant, the material design icons library is alwa
 
 </div>
 
-### Suggesting a iew Icon
+### Suggesting a new icon
 
 If you have an idea for an icon that isn't currently in the library, but are not interested in creating it yourself, [open a new icon suggestion](https://github.com/Templarian/MaterialDesign/issues/new?assignees=&labels=Icon+Request&template=1_icon_request.yml).
 
