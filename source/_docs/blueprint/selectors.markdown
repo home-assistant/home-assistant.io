@@ -716,7 +716,7 @@ light.living_room
 An example entity selector that, will only show entities that are:
 
 - Provided by the [ZHA](/integrations/zha) integration.
-- From the [Binary Sensor](/integrations/binary_sensor) domain.
+- From the [Binary sensor](/integrations/binary_sensor) domain.
 - Have presented themselves as devices of a motion device class.
 - Allows selecting one or more entities.
 

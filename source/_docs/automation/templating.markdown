@@ -1,5 +1,5 @@
 ---
-title: "Automation Trigger Variables"
+title: "Automation trigger variables"
 description: "List all available variables made available by triggers."
 ---
 
@@ -7,13 +7,13 @@ Automations support [templating](/docs/configuration/templating/) in the same wa
 
 The template variable `this` is also available when evaluating any `trigger_variables` declared in the configuration.
 
-## Available this Data
+## Available `this` data
 
-The variable `this` is the [state object](/docs/configuration/state_object) of the automation at the moment of triggering the actions. State objects also contain context data which can be used to identify the user that caused a script or automation to execute. Note that `this` will not change while executing the actions.
+The variable `this` is the [state object](/docs/configuration/state_object) of the automation at the moment of triggering the actions. State objects also contain context data which can be used to identify the user that caused a {% term script %} or {% term automation %} to execute. Note that `this` will not change while executing the {% term actions %}.
 
-## Available Trigger Data
+## Available trigger data
 
-The variable `trigger` is an object that contains details about which trigger triggered the automation.
+The variable `trigger` is an object that contains details about which {% term trigger %} triggered the automation.
 
 Templates can use the data to modify the actions performed by the automation or displayed in a message. For example, you could create an automation that multiple sensors can trigger and then use the sensor's location to specify a light to activate; or you could send a notification containing the friendly name of the sensor that triggered it.
 

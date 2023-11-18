@@ -3,7 +3,7 @@ title: "Automation YAML"
 description: "How to use the automation integration with YAML."
 ---
 
-Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an automation, select the automation, click on the menu button in the top right then on **Edit in YAML**.
+Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an {% term automation %}, select the automation, click on the menu button in the top right then on **Edit in YAML**.
 
 The UI will write your automations to `automations.yaml`. This file is managed by the UI and should not be edited manually.
 
@@ -70,7 +70,7 @@ trigger_variables:
       description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/configuration/templating/#limited-templates) can be used."
       type: any
 mode:
-  description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation Modes](#automation-modes)."
+  description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation modes](#automation-modes)."
   required: false
   type: string
   default: single
@@ -124,7 +124,6 @@ Mode | Description
 <p class='img'>
   <img src='/images/integrations/script/script_modes.jpg'>
 </p>
-
 
 
 ## YAML example

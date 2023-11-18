@@ -46,7 +46,7 @@ script:
 
 {% endraw %}
 
-### Important Template Rules
+### Important template rules
 
 There are a few very important rules to remember when adding templates to YAML:
 
@@ -57,7 +57,7 @@ There are a few very important rules to remember when adding templates to YAML:
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
-### Enabled Jinja Extensions
+### Enabled Jinja extensions
 
 Jinja supports a set of language extensions that add new functionality to the language.
 To improve the experience of writing Jinja templates, we have enabled the following
@@ -325,7 +325,7 @@ List of lights that are on with a brightness of 255:
 
 {% endraw %}
 
-### Working with Groups
+### Working with groups
 
 Not supported in [limited templates](#limited-templates).
 
@@ -1066,7 +1066,7 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_template title="Developer Tools -> Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to **{% my developer_template title="Developer Tools > Template" %}**, create your output in "Template editor", and check the result.
 
 {% raw %}
 

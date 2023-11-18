@@ -3,7 +3,7 @@ title: "check_config"
 description: "Script to perform a check of the current configuration"
 ---
 
-Test any changes to your `configuration.yaml` file before launching Home Assistant. This script allows you to test changes without the need to restart Home Assistant.
+Test any changes to your `configuration.yaml` file before launching Home Assistant. This {% term script %} allows you to test changes without the need to restart Home Assistant.
 
 ```bash
 hass --script check_config
