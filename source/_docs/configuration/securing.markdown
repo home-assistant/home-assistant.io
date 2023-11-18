@@ -15,7 +15,7 @@ Here's the summary of what you *must* do to secure your Home Assistant system:
 
 ## Remote access
 
-If you want secure remote access, the easiest option is to use [Home Assistant cloud](/cloud/) by which you also [support](https://www.nabucasa.com/about/) the founders of Home Assistant.
+If you want secure remote access, the easiest option is to use [Home Assistant Cloud](/cloud/) by which you also [support](https://www.nabucasa.com/about/) the founders of Home Assistant.
 
 Another option is to use TLS/SSL via the add-on [Duck DNS](/integrations/duckdns/) integrating Let's Encrypt.
 
