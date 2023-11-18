@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `airnow` integration uses the [AirNow](https://www.airnow.gov/) web service
+The **AirNow** {% term integration %} uses the [AirNow](https://www.airnow.gov/) web service
 as a source for air quality data for your location.
 
 ## Setup

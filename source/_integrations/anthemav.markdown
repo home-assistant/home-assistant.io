@@ -2,7 +2,7 @@
 title: Anthem A/V Receivers
 description: Instructions on how to integrate Anthem A/V Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Push
 ha_release: 0.37
 ha_domain: anthemav

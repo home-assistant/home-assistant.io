@@ -1,5 +1,5 @@
 ---
-title: "IFTTT Alarm Control Panel"
+title: "IFTTT Alarm control panel"
 description: "Instructions on how to integrate IFTTT-controlled security systems into Home Assistant."
 ha_category:
   - Alarm

@@ -3,7 +3,7 @@ title: Airzone Cloud
 description: Instructions on how to integrate Airzone Cloud within Home Assistant.
 ha_release: 2023.6
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_iot_class: Cloud Polling
 ha_config_flow: true

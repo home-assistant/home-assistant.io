@@ -1,5 +1,5 @@
 ---
-title: "MQTT Alarm Control Panel"
+title: "MQTT Alarm control panel"
 description: "Instructions on how to integrate MQTT capable Alarm Panels into Home Assistant."
 ha_category:
   - Alarm

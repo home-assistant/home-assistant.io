@@ -26,7 +26,7 @@ You can add Agent DVR via integrations using the IP address and port of the serv
   Please ensure you are using Agent DVR v2.6.1.0 +
 </div>
 
-## Alarm Control Panel
+## Alarm control panel
 
 Reports on the current alarm status and can be used to arm and disarm the system.
 

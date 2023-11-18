@@ -24,7 +24,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Advantage Air integration allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
+The **Advantage Air** {% term integration %} allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
 
 ## Prerequisites
 

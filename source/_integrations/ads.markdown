@@ -2,7 +2,7 @@
 title: ADS
 description: Connect Home Assistant to TwinCAT devices via the ADS interface
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Hub
   - Light
@@ -24,7 +24,7 @@ The ADS (automation device specification) describes a device-independent and fie
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)

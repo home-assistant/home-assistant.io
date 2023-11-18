@@ -1,6 +1,6 @@
 ---
-title: Alarm Control Panel
-description: Instructions on how to integrate Alarm Control Panels into Home Assistant.
+title: Alarm control panel
+description: Instructions on how to integrate Alarm control panels into Home Assistant.
 ha_category:
   - Alarm
 ha_release: 0.7.3
