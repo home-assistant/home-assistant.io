@@ -85,18 +85,18 @@ If the setup process fails and you see an error message such as *Authentication 
 
 If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how to set up Google Calendar in Home Assistant and how you can trigger an automation based on a calendar event.
 
 <lite-youtube videoid="r2WbpxKDOD4" videotitle="How To Use Calendar Events in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
 
-## Calendar Entities
+## Calendar entities
 
 Each Google Calendar from *My Calendars* ([more info](https://support.google.com/calendar/answer/37095)) is represented as a [calendar](/integrations/calendar) entity in Home Assistant.
 
 For example, your calendar named *Personal* is created as entity `calendar.personal`. You may rename an entity, or disable any entities which you don't need.
 
-## Calendar Event Automations
+## Calendar event automations
 
 Individual Calendar *Events* are what powering automations such as:
 
@@ -106,7 +106,7 @@ Individual Calendar *Events* are what powering automations such as:
 
 See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
 
-## Calendar Entity Attributes
+## Calendar entity attributes
 
 The calendar entity has additional attributes related to a single next upcoming event.
 
@@ -173,7 +173,7 @@ data:
 
 {% enddetails %}
 
-## More Configuration
+## More configuration
 
 
 {% details "More Configuration" %}

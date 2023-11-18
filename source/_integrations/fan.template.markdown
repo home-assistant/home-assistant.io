@@ -1,6 +1,6 @@
 ---
-title: "Template Fan"
-description: "Instructions how to setup the Template fans within Home Assistant."
+title: "Template fan"
+description: "Instructions how to setup the template fans within Home Assistant."
 ha_category:
   - Fan
 ha_release: 0.69
@@ -9,13 +9,13 @@ ha_quality_scale: internal
 ha_domain: template
 ---
 
-The `template` platform creates fans that combine integrations and provides the
+The **Template** {% term integration %} creates fans that combine integrations and provides the
 ability to run scripts or invoke services for each of the `turn_on`, `turn_off`, `set_percentage`,
 `set_preset_mode`, `set_oscillating`, and `set_direction` commands of a fan.
 
 ## Configuration
 
-To enable Template Fans in your installation, add the following to your
+To enable template fans in your installation, add the following to your
 `configuration.yaml` file:
 
 {% raw %}
@@ -151,7 +151,7 @@ When converting a fan with 3 speeds from the old fan entity model, the following
 
 ## Examples
 
-### Helper Fan
+### Helper fan
 
 This example uses an input_boolean and an input_number to mimic a fan, and 
 the example shows multiple service calls for set_percentage.  
@@ -189,7 +189,7 @@ fan:
 
 {% endraw %}
 
-### Preset Modes Fan
+### Preset modes fan
 
 This example uses an existing fan with only a percentage. It extends the 
 percentage value into useable preset modes without a helper entity.

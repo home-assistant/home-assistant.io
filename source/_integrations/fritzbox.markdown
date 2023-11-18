@@ -2,7 +2,7 @@
 title: AVM FRITZ!SmartHome
 description: Instructions on how to integrate AVM Fritz!DECT components into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Light
@@ -33,7 +33,7 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Climate
 - Cover
 - Light
@@ -67,7 +67,7 @@ Additionally, we also support to trigger smarthome templates.
 The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with "fritz" followed by four random numbers. Under properties on the right it says "created automatically". Prior to FRITZ!OS 7.24 the default username was "admin".
 </div>
 
-## Switches & Thermostats
+## Switches & thermostats
 
 To get AVM FRITZ!DECT switches (e.g. FRITZ!DECT 400/440) or thermostats (e.g. FRITZ!DECT 301) follow the [configuration instructions](#configuration) above.
 
