@@ -5,7 +5,7 @@ sidebar_label: Button
 description: "The Button card allows you to add buttons to perform tasks."
 ---
 
-The Button card allows you to add buttons to perform tasks.
+The button card allows you to add buttons to perform tasks.
 
 <p class='img'>
 <img src='/images/dashboards/entity_button_card.png' alt='Screenshot of three button cards'>

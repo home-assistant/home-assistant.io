@@ -112,7 +112,7 @@ double_tap_action:
 
 ## Special row elements
 
-Rather than only displaying an entity's state as a text output, the Entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
+Rather than only displaying an entity's state as a text output, the entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
 
 ### Attribute
 
