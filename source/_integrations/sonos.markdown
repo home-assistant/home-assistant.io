@@ -2,7 +2,7 @@
 title: Sonos
 description: Instructions on how to integrate Sonos devices into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Sensor
 featured: true
 ha_release: 0.7.3
@@ -187,7 +187,7 @@ data:
 
 ## Services
 
-The Sonos integration makes various custom services available in addition to the [standard Media Player services](/integrations/media_player/#services).
+The Sonos integration makes various custom services available in addition to the [standard media player services](/integrations/media_player/#services).
 
 ### Service `sonos.snapshot`
 

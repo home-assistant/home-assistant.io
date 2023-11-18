@@ -3,8 +3,8 @@ title: Synology DSM
 description: Instructions on how to integrate the Synology DSM sensor within Home Assistant.
 ha_category:
   - Camera
-  - Media Source
-  - System Monitor
+  - Media source
+  - System monitor
   - Update
 ha_release: 0.32
 ha_iot_class: Local Polling
@@ -128,7 +128,7 @@ Reboot the NAS.
 
 Shutdown the NAS.
 
-## Media Source
+## Media source
 
 A media source is provided for your [Synology Photos](https://www.synology.com/en-global/dsm/feature/photos).
 
