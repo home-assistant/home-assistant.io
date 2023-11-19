@@ -21,7 +21,7 @@ For a full list of compatible integrations, refer to the [integrations](/integra
 Once an integration has been added, the hardware and/or data are represented in Home Assistant as [devices and entities](#devices--entities).
 
 ## Entities
-Entities are the base building block to hold data in home assistant. Examples are sensors, input and output peripherals, and non-physical data records. Entities have one or more of numeric values, states and other components. It may be helpful to review specific types of entities in the [developer's reference](https://developers.home-assistant.io/docs/core/entity)
+{% term Entities %} are the base building block to hold data in Home Assistant. An {% term entity%} represents a {% term sensor %}, actor, or function in Home Assistant. {% term Entities %} are used to monitor physical properties or to control other entities. An entity is usually part of a {% term device %} or a {% term service %}. Entities have {% term states %}.
 
 ## Devices 
 
