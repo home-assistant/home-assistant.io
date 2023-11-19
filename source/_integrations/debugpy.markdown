@@ -12,7 +12,7 @@ ha_iot_class: Local Push
 ha_integration_type: service
 ---
 
-The Remote Python debugger {% term integration %} allows you to use the Visual Studio Code
+The **Remote Python debugger** {% term integration %} allows you to use the Visual Studio Code
 Python debug tooling with a remote Home Assistant instance.
 
 It uses Microsoft's `debugpy` library which is the successor of `ptvsd`, and

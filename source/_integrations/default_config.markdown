@@ -38,7 +38,7 @@ This {% term integration %} is a meta-component and configures a default set of 
 - [Logger](/integrations/logger/) (`logger`)
 - [Map](/integrations/map/) (`map`)
 - [Media source](/integrations/media_source/) (`media_source`)
-- [Mobile App Support](/integrations/mobile_app/) (`mobile_app`)
+- [Mobile app support](/integrations/mobile_app/) (`mobile_app`)
 - [My Home Assistant](/integrations/my/) (`my`)
 - [Network](/integrations/network/) (`network`)
 - [Person](/integrations/person/) (`person`)
