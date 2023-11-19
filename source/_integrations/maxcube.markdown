@@ -2,7 +2,7 @@
 title: eQ-3 MAX!
 description: Instructions on how to integrate eQ-3 MAX! components with Home Assistant via eQ-3 MAX! Cube.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
 ha_release: '0.40'
 ha_iot_class: Local Polling
@@ -17,7 +17,7 @@ ha_integration_type: integration
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Climate
 
 Limitations:

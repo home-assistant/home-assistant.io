@@ -3,7 +3,7 @@ title: Fast.com
 description: How to integrate Fast.com within Home Assistant.
 ha_category:
   - Sensor
-  - System Monitor
+  - System monitor
 ha_release: 0.88
 ha_iot_class: Cloud Polling
 ha_codeowners:

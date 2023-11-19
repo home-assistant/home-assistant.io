@@ -3,9 +3,9 @@ title: "Automation Trigger"
 description: "All the different ways how automations can be triggered."
 ---
 
-Triggers are what starts the processing of an automation rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
+Triggers are what starts the processing of an {% term automation %} rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
 
-An automation can be triggered by an event, a certain entity state, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
+An {% term automation %} can be triggered by an {% term event %}, a certain {% term entity %} {% term state %}, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
 
 - [Trigger ID](#trigger-id)
 - [Trigger variables](#trigger-variables)
@@ -34,6 +34,7 @@ An automation can be triggered by an event, a certain entity state, at a given t
 All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (i.e., several triggers of different types that should all turn some entity on).
 
 ### Video tutorial
+
 This video tutorial explains how trigger IDs work.
 
 <lite-youtube videoid="fE_MYcXYwMI" videotitle="How to use Trigger IDs in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
@@ -687,7 +688,7 @@ automation:
 
 ### Input datetime
 
-The Entity ID of an [Input Datetime](/integrations/input_datetime/).
+The entity ID of an [input datetime](/integrations/input_datetime/).
 
 | has_date | has_time | Description                              |
 | -------- | -------- | ---------------------------------------- |

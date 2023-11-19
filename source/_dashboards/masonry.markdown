@@ -1,6 +1,6 @@
 ---
 type: view
-title: Masonry View
+title: Masonry view
 sidebar_label: Masonry (default)
 description: "The default panel layout uses a masonry algorithme."
 ---

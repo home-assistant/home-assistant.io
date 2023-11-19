@@ -43,11 +43,6 @@ light:
           data:
             value: "{{ color_temp }}"
             entity_id: input_number.temperature_input
-        set_white_value:
-          service: input_number.set_value
-          data:
-            value: "{{ white_value }}"
-            entity_id: input_number.white_value_input
         set_color:
           - service: input_number.set_value
             data:

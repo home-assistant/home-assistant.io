@@ -65,7 +65,7 @@ This channel or a user ID has to be used as the target when calling the notifica
 
 When adding the Discord integration you will be asked for an API Key. Enter the hidden **Token** of your bot to link your Discord integration to the bot you created and allow Home Assistant to send messages as that bot.
 
-## Discord Service Data
+## Discord service data
 
 The following attributes can be placed inside the `data` key of the service call for extended functionality:
 

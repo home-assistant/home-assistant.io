@@ -387,7 +387,7 @@ The following automation example shows how to capture the custom event `event_li
 
 {% endraw %}
 
-## Repeat a Group of Actions
+## Repeat a group of actions
 
 This action allows you to repeat a sequence of other actions. Nesting is fully supported.
 There are three ways to control how many times the sequence will be run.
@@ -564,7 +564,7 @@ For example:
 ```
 {% endraw %}
 
-### Repeat Loop Variable
+### Repeat loop variable
 
 A variable named `repeat` is defined within the repeat action (i.e., it is available inside `sequence`, `while` & `until`.)
 It contains the following fields:

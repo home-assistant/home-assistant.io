@@ -3,7 +3,7 @@ title: Risco
 description: Instructions on how to integrate Risco alarms into HA using Risco Cloud.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Switch
 ha_release: '0.115'
 ha_iot_class: Local Push
@@ -91,7 +91,7 @@ And in the reverse direction:
 
 ## Supported platforms:
 
-- [Alarm Control Panel](/integrations/alarm_control_panel/)
-- [Binary Sensor](/integrations/binary_sensor/)
+- [Alarm control panel](/integrations/alarm_control_panel/)
+- [Binary sensor](/integrations/binary_sensor/)
 - [Sensor](/integrations/sensor/)
 - [Switch](/integrations/switch/)

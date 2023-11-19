@@ -2,7 +2,7 @@
 title: FFmpeg
 description: Instructions on how to integrate FFmpeg within Home Assistant.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_release: 0.29
 ha_domain: ffmpeg
 ha_platforms:

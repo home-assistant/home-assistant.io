@@ -1,5 +1,5 @@
 ---
-title: Home Assistant Frontend
+title: Home Assistant frontend
 description: Offers a frontend to Home Assistant.
 ha_category:
   - Other
@@ -47,7 +47,7 @@ frontend:
     type: string
 {% endconfiguration %}
 
-## Defining Themes
+## Defining themes
 
 ### Theme format
 
@@ -153,7 +153,7 @@ For more details about splitting up the configuration into multiple files, see [
 
 Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
 
-## Setting Themes
+## Setting themes
 
 There are two themes-related services:
 
@@ -170,7 +170,7 @@ There are two themes-related services:
 If no dark mode backend theme is set, the light mode theme will also be used in dark mode.
 The backend theme settings will be saved and restored on a restart of Home Assistant.
 
-### Manual Theme Selection
+### Manual theme selection
 
 When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
 This will overrule the theme settings set by the above service calls, and will only be applied to the current device.
@@ -200,7 +200,7 @@ For other devices (`es5` mode) you can use `extra_js_url_es5`, this will be load
 
 The ES5 and module version will never both be loaded, depending on if the device supports `import` the module of ES5 version will be loaded.
 
-### Manual Language Selection
+### Manual language selection
 
 The browser language is automatically detected. To use a different language, go to the user profile page (accessed by clicking your user account initials at the bottom of the sidebar) and select one. It will be applied immediately.
 

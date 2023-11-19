@@ -3,7 +3,7 @@ title: Verisure
 description: Instructions on how to setup Verisure devices within Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Hub
   - Lock
@@ -36,11 +36,11 @@ There is currently support for the following device types within Home Assistant:
 - Switch (Smartplug)
 - Sensor (Thermometers and Hygrometers)
 - Lock
-- Binary Sensor (Door & Window)
+- Binary sensor (Door & Window)
 
 {% include integrations/config_flow.md %}
 
-## Alarm Control Panel
+## Alarm control panel
 
 The Verisure alarm control panel platform allows you to control your [Verisure](https://www.verisure.com/) Alarms.
 

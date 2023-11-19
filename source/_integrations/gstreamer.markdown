@@ -1,8 +1,8 @@
 ---
 title: GStreamer
-description: Instructions on how to integrate Gstreamer into Home Assistant.
+description: Instructions on how to integrate GStreamer into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.39
 ha_iot_class: Local Push
 ha_domain: gstreamer

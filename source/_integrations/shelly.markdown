@@ -2,7 +2,7 @@
 title: Shelly
 description: Integrate Shelly devices
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Energy
   - Light

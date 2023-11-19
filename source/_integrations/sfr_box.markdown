@@ -21,7 +21,7 @@ The SFR Box integration offers integration with the **SFR** broadband router.
 
 This integration provides the following platforms:
 
-- Binary Sensors - such as ADSL status.
+- Binary sensors - such as ADSL status.
 - Buttons - such as reboot.
 - Sensors - such as ADSL line status, attenuation, noise and data rate.
 

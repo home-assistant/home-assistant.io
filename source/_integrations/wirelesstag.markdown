@@ -2,7 +2,7 @@
 title: Wireless Sensor Tags
 description: Instructions on how to integrate your Wireless Tags sensors within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Sensor
   - Switch
@@ -18,11 +18,11 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `wirelesstag` implementation allows you to integrate your [wirelesstag.net](https://wirelesstag.net/) sensors tags in Home Assistant.
+The **Wireless Sensor Tags** {% term integration %} allows you to integrate your [wirelesstag.net](https://wirelesstag.net/) sensors tags in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 

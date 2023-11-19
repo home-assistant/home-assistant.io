@@ -2,7 +2,7 @@
 title: Samsung Smart TV
 description: Instructions on how to integrate a Samsung Smart TV into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
 ha_release: 0.13
 ha_iot_class: Local Push

@@ -12,9 +12,9 @@ Actions can be enabled on:
 - [Glance](/dashboards/glance/)
 - [Light](/dashboards/light/)
 - [Picture](/dashboards/picture/)
-- [Picture Element](/dashboards/picture-elements/)
-- [Picture Entity](/dashboards/picture-entity/)
-- [Picture Glance](/dashboards/picture-glance/)
+- [Picture element](/dashboards/picture-elements/)
+- [Picture entity](/dashboards/picture-entity/)
+- [Picture glance](/dashboards/picture-glance/)
 
 ## Tap-Action
 
@@ -202,7 +202,7 @@ double_tap_action:
       default: none
 {% endconfiguration %}
 
-## Options For Confirmation
+## Options for confirmation
 
 If you define confirmation as an object instead of boolean, you can add more customization and configurations.
 
@@ -229,7 +229,7 @@ exemptions:
   type: list
 {% endconfiguration %}
 
-## Options For Exemptions
+## Options for exemptions
 
 {% configuration exemptions %}
 user:

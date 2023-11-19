@@ -1,11 +1,11 @@
 ---
-title: "Automation Modes"
+title: "Automation modes"
 description: "How to use and configure automation modes."
 ---
 
-An automation can be triggered while it is already running.
+An {% term automation %} can be triggered while it is already running.
 
-The automation's `mode` configuration option controls what happens when the automation is triggered while the actions are still running from a previous trigger.
+The automation's `mode` configuration option controls what happens when the automation is triggered while the {% term actions %} are still running from a previous {% term trigger %}.
 
 Mode | Description
 -|-

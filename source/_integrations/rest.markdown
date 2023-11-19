@@ -2,7 +2,7 @@
 title: RESTful
 description: Instructions on how to integrate REST sensors and binary sensors into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_release: 0.7.4
 ha_iot_class: Local Polling

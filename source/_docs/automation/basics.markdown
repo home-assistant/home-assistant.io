@@ -1,5 +1,5 @@
 ---
-title: "Understanding Automations"
+title: "Understanding automations"
 description: "A breakdown of what an automation consists of."
 ---
 

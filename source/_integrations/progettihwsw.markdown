@@ -2,7 +2,7 @@
 title: ProgettiHWSW Automation
 description: Instructions on how to integrate the ProgettiHWSW remote relay boards into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - DIY
   - Switch
 ha_release: 0.115

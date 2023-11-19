@@ -2,7 +2,7 @@
 title: StreamLabs
 description: Instructions on how to integrate Streamlabs Water devices with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_release: '0.95'
 ha_iot_class: Cloud Polling
@@ -23,7 +23,7 @@ Access to the StreamLabs Water API is not free, you must have a StreamPlus™ su
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Sensor
 
 In preparation for using this integration you will need to request an API key following the instructions in the [StreamLabs API Getting Started Section](https://developer.streamlabswater.com/docs/getting-started.html). Be sure to request an API key and not an OAuth token.

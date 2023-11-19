@@ -1,5 +1,5 @@
 ---
-title: "Automation Editor"
+title: "Automation editor"
 description: "Instructions on how to use the automation editor."
 ---
 

@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This integration allows you to connect your [STALL WIFFI](https://stall.biz) devices directly to Home Assistant.
+This **Wiffi** {% term integration %} allows you to connect your [STALL WIFFI](https://stall.biz) devices directly to Home Assistant.
 
 {% include integrations/config_flow.md %}
 

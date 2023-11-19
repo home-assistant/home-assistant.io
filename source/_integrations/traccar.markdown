@@ -4,7 +4,7 @@ description: Instructions how to use Traccar GPS tracker to track devices in Hom
 ha_release: 0.83
 ha_category:
   - Car
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:

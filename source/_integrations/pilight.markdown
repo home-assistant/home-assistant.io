@@ -2,7 +2,7 @@
 title: Pilight
 description: Instructions on how to setup Pilight within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - DIY
   - Sensor
   - Switch
@@ -27,7 +27,7 @@ The received and supported RF codes are put on the event bus of Home Assistant a
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Light](#light)
