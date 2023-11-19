@@ -20,7 +20,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The Environment Canada integration provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
+The **Environment Canada** {% term integration %} provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
 
 {% include integrations/config_flow.md %}
 
@@ -45,7 +45,7 @@ The integration will create the entities listed below. Some of the entities are 
 
 ### Sensors
 
-#### Conditions and Forecasts
+#### Conditions and forecasts
 
 - Current condition
 - Forecast summary
@@ -55,7 +55,7 @@ The integration will create the entities listed below. Some of the entities are 
 - Humidity
 - Visibility
 - UV index
-- Air Quality (AQHI)
+- Air quality (AQHI)
 
 #### Temperature
 

@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Deutscher Wetterdienst Weather Warnings integration uses the [Deutscher Wetterdienst (DWD)](https://www.dwd.de) as a source for current and advance weather warnings. The configured sensor checks for data every 15 minutes.
+The **Deutscher Wetterdienst Weather Warnings** {% term integration %} uses the [Deutscher Wetterdienst (DWD)](https://www.dwd.de) as a source for current and advance weather warnings. The configured sensor checks for data every 15 minutes.
 
 {% include integrations/config_flow.md %}
 

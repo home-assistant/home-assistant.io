@@ -4,7 +4,7 @@ description: Instructions on how to integrate a Honeywell Evohome/TCC system wit
 ha_category:
   - Climate
   - Hub
-  - Water Heater
+  - Water heater
 ha_release: '0.80'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
+The **Evohome** {% term integration %} links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
 
 - the Honeywell Evohome CH/DHW system, and
 - the Honeywell Mobile Access Kit with a Round Thermostat
@@ -61,7 +61,7 @@ scan_interval:
 
 This is an IoT cloud-polling integration and the recommended minimum `scan_interval` is 180 seconds. Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by the vendor. There is little value in shorter intervals, as this integration will automatically force a refresh shortly after any configuration changes.
 
-## Locations and Zones
+## Locations and zones
 
 TCC systems are implemented as a _location_, which consist of 1-12 _zones_ and, optionally, a DHW controller:
 
@@ -88,7 +88,7 @@ Note that TCC devices may well measure temperatures with very high precision, bu
 
 Therefore, depending upon the above, Home Assistant will display/record current temperatures with a precision of either 0.5 °C or 0.1 °C (it's highest supported precision).
 
-## System modes, Zone overrides and Inheritance
+## System modes, zone overrides and inheritance
 
 TCC locations can support up to six distinct operating modes: **Auto**, **AutoWithEco**, **Away**, **DayOff**, **HeatingOff**, and **Custom**. Not all systems support all modes.
 
@@ -181,7 +181,7 @@ The `duration` can be up to 24 hours, after which the zone mode will revert to s
 
 This service call is used to set a zone, as identified by its `entity_id`, to **FollowSchedule**.
 
-## Useful Jinja Templates
+## Useful Jinja templates
 
 The actual operating mode of Evohome entities can be tracked via their state attributes, which includes a JSON data structure for the current state called `status`.
 
