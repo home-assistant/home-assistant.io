@@ -3,7 +3,7 @@ title: Overkiz
 description: Instructions on how to integrate hubs whom use the Overkiz platform with Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
@@ -16,7 +16,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
-  - Water Heater
+  - Water heater
 ha_release: 2022.2
 ha_config_flow: true
 ha_iot_class: Cloud Polling

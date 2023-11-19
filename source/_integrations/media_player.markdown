@@ -1,8 +1,8 @@
 ---
-title: Media Player
+title: Media player
 description: Instructions on how to setup your media players with Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: media_player
