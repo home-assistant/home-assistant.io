@@ -1,6 +1,6 @@
 ---
 title: UptimeRobot
-description: Instructions on how to set up Uptime Robot within Home Assistant.
+description: Instructions on how to set up UptimeRobot within Home Assistant.
 ha_category:
   - System monitor
 ha_release: 0.72

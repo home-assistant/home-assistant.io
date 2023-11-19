@@ -36,7 +36,7 @@ Because it uses the Home Assistant Cloud account linking service you **must** ha
 
 ## Media player
 
-The Xbox media player platform will create Media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
+The Xbox media player platform will create media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
 
 ### Service `play_media`
 
