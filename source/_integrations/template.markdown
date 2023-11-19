@@ -648,7 +648,7 @@ template:
 
 {% endraw %}
 
-### State based binary sensor - Device tracker sensor with Latitude and Longitude Attributes
+### State based binary sensor - device tracker sensor with latitude and longitude attributes
 
 This example shows how to combine a non-GPS (e.g., NMAP) and GPS device tracker while still including latitude and longitude attributes
 

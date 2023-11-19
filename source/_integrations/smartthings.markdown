@@ -138,7 +138,7 @@ Support for additional platforms will be added in the future.
 
 ### Binary sensor
 
-The SmartThings Binary sensor platform lets you view devices that have binary sensor-related capabilities. A Binary sensor entity will be created for each attribute (below) supported by the device.
+The SmartThings binary sensor platform lets you view devices that have binary sensor-related capabilities. A binary sensor entity will be created for each attribute (below) supported by the device.
 
 | Capability                                                                                                                            | Attribute      | On-Value   |
 | ------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------- |
