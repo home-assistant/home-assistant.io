@@ -79,7 +79,7 @@ This {% term integration %} provides `number` entities to control the following,
 
 ## Sensor entities
 
-This inte{% term integration %}gration provides sensors for the following information from WLED:
+This {% term integration %} provides sensors for the following information from WLED:
 
 - Estimated current (in mA).
 - Uptime (disabled by default)
