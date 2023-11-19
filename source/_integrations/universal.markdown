@@ -68,7 +68,7 @@ name:
   required: true
   type: string
 children:
-  description: Ordered list of child media players that this {% term entity %} will control.
+  description: Ordered list of child media players that this entity will control.
   required: false
   type: list
 active_child_template:
