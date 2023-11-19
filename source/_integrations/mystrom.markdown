@@ -23,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Lights and switches](#lights-and-switches)
 - [Binary sensor](#binary-sensor)
-  - [Setup of myStrom Buttons](#setup-of-mystrom-buttons)
+  - [Setup of myStrom buttons](#setup-of-mystrom-buttons)
 
 ## Lights and switches
 

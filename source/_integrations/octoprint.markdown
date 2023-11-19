@@ -2,7 +2,7 @@
 title: OctoPrint
 description: Integration between OctoPrint and Home Assistant.
 ha_category:
-  - 3D Printing
+  - 3D printing
   - Binary sensor
   - Button
   - Sensor

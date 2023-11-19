@@ -40,7 +40,7 @@ To generate an API key, log in at [the OpenUV website](https://www.openuv.io/).
 | Current UV Index               | Sensor        | UV Index (numerical value)                                                                                                  |
 | Current UV Level               | Sensor        | UV Level (as literal)                                                                                                       |
 | Max UV Index                   | Sensor        | max UV Index for the day (at solar noon)                                                                                    |
-| Protection Window              | Binary sensor | whether sunblock protection should be used                                                                                  |
+| Protection window              | Binary sensor | whether sunblock protection should be used                                                                                  |
 | Skin Type 1 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 1](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
 | Skin Type 2 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 2](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
 | Skin Type 3 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 3](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
