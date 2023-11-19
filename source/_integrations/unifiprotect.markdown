@@ -47,7 +47,7 @@ The **UniFi Protect** {% term integration %} adds support for retrieving camera 
 
 ### Hardware support
 
-This {% term integrations %} supports all UniFi OS Consoles that can run UniFi Protect. Currently, this includes:
+This {% term integration %} supports all UniFi OS Consoles that can run UniFi Protect. Currently, this includes:
 
 - Any UniFi Protect Network Video Recorder (**[UNVR](https://store.ui.com/collections/unifi-protect-nvr/products/unvr)** or **[UNVRPRO](https://store.ui.com/collections/unifi-protect-nvr/products/unvr-pro)**)
 - Any UniFi "Dream" device (**[UDMPRO](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/udm-pro)**, **[UDR](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-router)**, or **[UDMSE](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-machine-se)**), _except the base UniFi Dream Machine/UDM_
