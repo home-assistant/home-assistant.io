@@ -88,15 +88,15 @@ attributes:
   required: false
   type: string
 browse_media_entity:
-  description: Allows override the browse media {% term entity %} to desired media player.
+  description: Allows override the browse media entity to desired media player.
   required: false
   type: string
 device_class:
-  description: The device class that this {% term entity %} represents. Can be `tv`, `speaker`, or `receiver`.
+  description: The device class that this entity represents. Can be `tv`, `speaker`, or `receiver`.
   required: false
   type: string
 unique_id:
-  description: A unique identifier for this {% term entity %}. Needs to be unique within the `media_player` platform.
+  description: A unique identifier for this entity. Needs to be unique within the `media_player` platform.
   required: false
   type: string
 {% endconfiguration %}

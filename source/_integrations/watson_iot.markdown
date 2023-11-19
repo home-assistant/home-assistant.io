@@ -59,7 +59,7 @@ exclude:
   type: map
   keys:
     entities:
-      description: The list of {% term entity %} ids to be excluded from recording to Watson IoT Platform.
+      description: The list of entity ids to be excluded from recording to Watson IoT Platform.
       required: false
       type: list
     domains:

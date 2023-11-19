@@ -45,7 +45,7 @@ name:
   required: true
   type: template
 unique_id:
-  description: An ID that uniquely identifies this weather {% term entity %}. Set this to a unique value to allow customization through the UI.
+  description: An ID that uniquely identifies this weather entity. Set this to a unique value to allow customization through the UI.
   required: false
   type: string
 condition_template:

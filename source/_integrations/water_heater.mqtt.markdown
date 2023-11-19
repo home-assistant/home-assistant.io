@@ -49,7 +49,7 @@ availability:
       required: false
       type: template
 availability_mode:
-  description: When `availability` is configured, this controls the conditions needed to set the {% term entity %} to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the {% term entity %} is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the {% term entity %} is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
@@ -115,7 +115,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Flag which defines if the {% term entity %} should be enabled when first added.
+  description: Flag which defines if the entity should be enabled when first added.
   required: false
   type: boolean
   default: true
@@ -125,7 +125,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the {% term entity %}.
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
   default: None
@@ -134,7 +134,7 @@ initial:
   required: false
   type: integer
 icon:
-  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the {% term entity %}."
+  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:

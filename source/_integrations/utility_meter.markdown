@@ -33,7 +33,7 @@ Sensors created with this {% term integration %} are persistent, so values are r
 Name:
   description: The name the sensor should have. It can be changed again later.
 Input sensor:
-  description: The sensor {% term entity %} providing utility readings (energy, water, gas, heating).
+  description: The sensor entity providing utility readings (energy, water, gas, heating).
 Meter reset cycle:
   description: >
     How often to reset the counter. If the offered reset cycles do not match

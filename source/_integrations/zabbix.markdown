@@ -64,7 +64,7 @@ exclude:
   keys:
     entities:
       type: [string, list]
-      description: The list of {% term entity %} ids to be excluded from being published to Zabbix.
+      description: The list of entity ids to be excluded from being published to Zabbix.
       required: false
     entity_globs:
       type: [string, list]
@@ -81,7 +81,7 @@ include:
   keys:
     entities:
       type: [string, list]
-      description: The list of {% term entity %} ids to be included in being published to Zabbix.
+      description: The list of entity ids to be included in being published to Zabbix.
       required: false
     entity_globs:
       type: [string, list]

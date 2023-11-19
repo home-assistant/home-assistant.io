@@ -119,7 +119,7 @@ host:
   required: true
   type: string
 name:
-  description: Nickname for your device that will be used to generate the device's {% term entity %} ID. If multiple Vizio devices are configured, the value must be unique for each entry.
+  description: Nickname for your device that will be used to generate the device's entity ID. If multiple Vizio devices are configured, the value must be unique for each entry.
   required: false
   type: string
   default: Vizio SmartCast
