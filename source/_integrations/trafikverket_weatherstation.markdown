@@ -40,7 +40,7 @@ Please click [here](https://data.trafikverket.se/home) and register to obtain th
 
 ## Weather stations
 
-Click [here](https://www.trafikverket.se/trafikinformation/vag/?map_x=473143.67679&map_y=6622458.53332&map_z=2&map_l=100000001000000) to get a map of valid weather stations. Once a station is found, copy the name according to the below picture and paste it as the `station` variable.
+To get a map of valid weather stations, open the [trafikverket website](https://www.trafikverket.se/trafikinformation/vag/?map_x=473143.67679&map_y=6622458.53332&map_z=2&map_l=100000001000000). Once a station is found, copy the name according to the below picture and paste it as the `station` variable.
 
 <p class='img'>
   <img src='/images/screenshots/get_trafikverket_weather_station_example.png' />
