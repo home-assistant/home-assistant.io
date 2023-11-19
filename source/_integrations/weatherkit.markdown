@@ -15,7 +15,7 @@ ha_platforms:
   - weather
 ---
 
-The Apple WeatherKit integration obtains current weather and forecasts (hourly and daily) from Apple Weather. It is the most direct replacement for those coming from the Dark Sky API since Apple bought Dark Sky and implemented its technology into their weather service.
+The **Apple WeatherKit** {% term integration %} obtains current weather and forecasts (hourly and daily) from Apple Weather. It is the most direct replacement for those coming from the Dark Sky API since Apple bought Dark Sky and implemented its technology into their weather service.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -24,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Requirements
 
-You will need a [paid Apple Developer Program account](https://developer.apple.com/support/compare-memberships/) to use this integration.
+You will need a [paid Apple Developer Program account](https://developer.apple.com/support/compare-memberships/) to use this {% term integration %}.
 
 {% include integrations/config_flow.md %}
 
@@ -44,7 +44,7 @@ You will need to obtain the appropriate credentials which you will use to connec
     3. For the identifier, Apple recommends using a reverse-DNS style name, like `com.example.homeassistant`.
     4. Save the identifier you used. This is your **Service ID**.
 
-You can add a new WeatherKit integration entry now that you have all the credentials. Using the details from earlier, it should look something like this:
+You can add a new WeatherKit {% term integration %} entry now that you have all the credentials. Using the details from earlier, it should look something like this:
 
 - **Key ID**: `ABC123DEFG`
 - **Service ID**: `com.example.homeassistant`
@@ -55,7 +55,7 @@ You can add a new WeatherKit integration entry now that you have all the credent
 
 ### Troubleshooting
 
-If you are having issues setting up the integration, please make sure the following are true:
+If you are having issues setting up the {% term integration %}, please make sure the following are true:
 
 - You are entering the key exactly as it appears in the `.p8` file, including the header and footer.
 - There are no leading or trailing spaces in other configuration values.

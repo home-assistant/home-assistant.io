@@ -2,7 +2,7 @@
 title: OpenWrt (ubus)
 description: Instructions on how to integrate OpenWRT routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.7.6
 ha_iot_class: Local Polling
 ha_domain: ubus
@@ -87,7 +87,7 @@ See the [device tracker integration page](/integrations/device_tracker/) for ins
 
 If you find that this never creates `known_devices.yaml`, or if you need more information on the communication chain between Home Assistant and OpenWrt, follow these steps to grab the packet stream and gain insight into what's happening.
 
-### Increase Log Level
+### Increase log level
 
 1. On your Home Assistant device, stop Home Assistant
 2. Adjust `configuration.yaml` to log more detail for the `device_tracker` integration.
@@ -128,7 +128,7 @@ If you find that this never creates `known_devices.yaml`, or if you need more in
     17-04-28 10:50:34 INFO (Thread-7) [homeassistant.components.device_tracker.ubus] Checking ARP
     ```
 
-### Inspect Packets With TCPDump
+### Inspect packets with TCPDump
 
 _These steps require that `tcpdump` is installed on your Home Assistant device, and that you have a utility such as [Wireshark](https://www.wireshark.org) for viewing the packets. It also assumes that Home Assistant is communicating with your router over HTTP and not HTTPS._
 

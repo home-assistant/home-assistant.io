@@ -1,6 +1,6 @@
 ---
-title: "Template Vacuum"
-description: "Instructions how to setup Template vacuums within Home Assistant."
+title: "Template vacuum"
+description: "Instructions how to setup template vacuums within Home Assistant."
 ha_category:
   - Vacuum
 ha_release: 0.96
@@ -106,7 +106,7 @@ vacuum:
 
 ### Template and action variables
 
-State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an {% term entity %}'s state and attribute in templates and actions.
 
 ## Examples
 
@@ -180,7 +180,7 @@ vacuum:
 
 {% endraw %}
 
-### Add Custom Attributes
+### Add custom attributes
 
 This example shows how to add custom attributes.
 

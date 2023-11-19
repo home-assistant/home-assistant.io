@@ -18,13 +18,13 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The Version integration can display the current Home Assistant Core versions.
+The **Version** {% term integration %} can display the current Home Assistant Core versions.
 
 {% include integrations/config_flow.md %}
 
 ## Version sources
 
-With this integration you can select various sources to get a version from.
+With this {% term integration %} you can select various sources to get a version from.
 
 {% configuration_basic %}
   "Local installation":
@@ -46,12 +46,12 @@ With this integration you can select various sources to get a version from.
 
 ## Entities
 
-The entities created by this integration depends on which source you set it up with (you can also set up the integration multiple times to use more sources).
+The entities created by this {% term integration %} depends on which source you set it up with (you can also set up the {% term integration %} multiple times to use more sources).
 
 ### Sensor
 
-For all sources the integration will create a [sensor](/integrations/sensor) entity that displays the newest version published to that source.
+For all sources the {% term integration %} will create a [sensor](/integrations/sensor) {% term entity %} that displays the newest version published to that source.
 
 ### Binary Sensor
 
-For all sources (except for the ["Local installation"](#local-installation) source) the integration will create a [binary_sensor](/integrations/binary_sensor) entity that show if there is a newer version than the one you are currently running published to that source.
+For all sources (except for the ["Local installation"](#local-installation) source) the {% term integration %} will create a [binary_sensor](/integrations/binary_sensor) {% term entity %} that show if there is a newer version than the one you are currently running published to that source.

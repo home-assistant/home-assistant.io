@@ -19,7 +19,7 @@ The `usgs_earthquakes_feed` platform lets you integrate a GeoJSON feed provided 
   <img src='/images/screenshots/usgs-earthquake-hazards-program-feed-entities.png' />
 </p>
 
-Entities are generated, updated and removed automatically with each update from the feed. Each entity defines latitude and longitude and will be shown on the map automatically. The distance in kilometers is available as the state of each entity.
+Entities are generated, updated and removed automatically with each update from the feed. Each {% term entity %} defines latitude and longitude and will be shown on the map automatically. The distance in kilometers is available as the state of each {% term entity %}.
 
 <p class='img'>
   <img src='/images/screenshots/usgs-earthquake-hazards-program-feed-map.png' />
@@ -65,7 +65,7 @@ longitude:
   default: Longitude defined in your `configuration.yaml`
 {% endconfiguration %}
 
-### Supported Feed Types
+### Supported feed types
 
 | Description                            | Feed Type                            |
 |----------------------------------------|--------------------------------------|
@@ -91,9 +91,9 @@ longitude:
 | Past 30 Days - All Earthquakes         | `past_month_all_earthquakes`         |
 
 
-## State Attributes
+## State attributes
 
-The following state attributes are available for each entity in addition to the standard ones:
+The following state attributes are available for each {% term entity %} in addition to the standard ones:
 
 | Attribute          | Description |
 |--------------------|-------------|
@@ -109,7 +109,7 @@ The following state attributes are available for each entity in addition to the 
 | type               | Type of seismic event: "earthquake" or "quarry". |
 
 
-## Full Configuration
+## Full configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -121,7 +121,7 @@ geo_location:
     latitude: 35.899722
     longitude: -120.432778
 ```
-## Card Example
+## Card example
 
 Assuming you configure this service using `feed_type: past_week_all_earthquakes`, you can create a corresponding map card in a dashboard with the following card:
 ```yaml
