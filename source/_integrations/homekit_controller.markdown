@@ -196,7 +196,7 @@ There is currently support for the following device types (also called *domains*
 - Fan
 - Air quality
 - Humidifier (HomeKit humidifiers and dehumidifiers)
-- Automation Triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
+- Automation triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
 
 <div class='note'>
 

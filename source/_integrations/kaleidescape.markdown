@@ -36,7 +36,7 @@ This integration is intended for the automation of Kaleidescape players with a m
 
 ## Media player
 
-The Kaleidescape media player platform will create a [Media player](/integrations/media_player/) entity for the device. This entity will display the currently playing media and playback controls.
+The Kaleidescape media player platform will create a [media player](/integrations/media_player/) entity for the device. This entity will display the currently playing media and playback controls.
 
 ## Remote
 
