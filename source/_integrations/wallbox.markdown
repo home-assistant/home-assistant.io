@@ -25,26 +25,26 @@ The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](ht
 
 The {% term integration %} adds the following sensors:
 
-- Added Energy
-- Added Range
-- Charging Power
-- Charging Speed
-- Charging Time
+- Added energy
+- Added range
+- Charging power
+- Charging speed
+- Charging time
 - Cost
-- Current Mode
-- Depot Price
-- Energy Price
-- Max Available Power
-- State of Charge
-- Status Description
-- Max Charging Current
+- Current mode
+- Depot price
+- Energy price
+- Max available power
+- State of charge
+- Status description
+- Max charging current
 
 ## Number
 
 The {% term integration %} adds the following number entities:
 
-- Max Charging Current
-- Energy Price
+- Max charging current
+- Energy price
 
 The number {% term entity %} is only loaded if the supplied username has sufficient rights to change the Max. Charging Current.
 
