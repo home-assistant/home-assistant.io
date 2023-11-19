@@ -2,7 +2,7 @@
 title: Gardena Bluetooth
 description: Instructions on how to integrate Gardena Bluetooth devices within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Number
   - Sensor
   - Switch

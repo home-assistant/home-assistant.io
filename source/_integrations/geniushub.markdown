@@ -2,11 +2,11 @@
 title: Genius Hub
 description: Instructions on how to integrate a Genius Hub with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Sensor
   - Switch
-  - Water Heater
+  - Water heater
 ha_release: 0.92
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -30,7 +30,7 @@ It uses the [geniushub](https://pypi.org/project/geniushub-client/) client libra
 Each zone controlled by your Genius Hub will be exposed as either a:
 
 - `Climate` entity, for **Radiator** and **Wet Underfloor** zones, and
-- `Water Heater` entity, for **Hot Water Temperature** zones and
+- `Water heater` entity, for **Hot Water Temperature** zones and
 - `Switch` entity, for **On/Off** zones
 
 **Group** zones are not supported.
@@ -47,9 +47,9 @@ Home Assistant is obligated to place restrictions upon integrations such as **ge
 - `set_zone_override`: change the zone's setpoint _for a specified duration_ (up to 24h), and
 - `set_zone_mode`: change the zone's mode to one of `off`, `timer` or (if supported by the zone) `footprint`
 
-### Climate and Water Heater Entities
+### Climate and water heater entities
 
-Climate and Water Heater entities will report their current temperature, setpoint and mode; other properties (e.g.,  occupied state) are available via their state attributes (see examples below). The Genius Hub mode will be reported as/set to:
+Climate and water heater entities will report their current temperature, setpoint and mode; other properties (e.g.,  occupied state) are available via their state attributes (see examples below). The Genius Hub mode will be reported as/set to:
 
 |    GH mode    | HA Operation | HA Preset |
 | :-----------: | :----------: | :-------: |
@@ -73,10 +73,10 @@ Individual smart plugs are not yet exposed as switches - you can create one zone
 
 ### Devices
 
-Each Device controlled by your Genius Hub will be exposed as either a:
+Each device controlled by your Genius Hub will be exposed as either a:
 
 - `Sensor` entity with a % battery, for any Device with a battery (e.g., a Genius Valve), or
-- `Binary Sensor` entity with on/off state for any Device that is a switch (e.g., Smart Plugs, DCRs)
+- `Binary sensor` entity with on/off state for any Device that is a switch (e.g., Smart Plugs, DCRs)
 
 Such entities will report back their primary state and `assigned_zone`. If the Hub is directly polled using Option 1 (see below), then some additional state attributes such as `last_comms` (last communications time) are also available.
 

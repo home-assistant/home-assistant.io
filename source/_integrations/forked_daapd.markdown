@@ -2,7 +2,7 @@
 title: OwnTone
 description: Instructions on how to integrate an OwnTone server into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: '0.110'
 ha_iot_class: Local Push
 ha_domain: forked_daapd

@@ -4,7 +4,7 @@ description: Instructions on how to integrate Freebox routers into Home Assistan
 ha_category:
   - Camera
   - Network
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Switch
 ha_release: 0.85
