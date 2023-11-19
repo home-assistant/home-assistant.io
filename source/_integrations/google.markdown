@@ -83,7 +83,7 @@ to all the Google Calendars available to your linked account.
 
 If the setup process fails and you see an error message such as *Authentication code expired, please try again* you may want to try the flow again. You may also check the logs for additional error messages that may indicate a misconfiguration such as an invalid client id or secret.
 
-If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
+If you have an error with your credentials, you can delete them in the [application credentials](/integrations/application_credentials/) user interface.
 
 ### Video tutorial
 This video tutorial explains how to set up Google Calendar in Home Assistant and how you can trigger an automation based on a calendar event.
@@ -104,7 +104,7 @@ Individual Calendar *Events* are what powering automations such as:
 - Send a notification *5 minutes before the start of any event*
 - Stop the media player *30 minutes after* the *end* of the event named *Exercise*.
 
-See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
+See [calendar automations](/integrations/calendar#automation) for an overview, and read more about [calendar trigger variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
 
 ## Calendar entity attributes
 

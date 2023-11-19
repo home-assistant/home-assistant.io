@@ -1,6 +1,6 @@
 ---
 title: GStreamer
-description: Instructions on how to integrate Gstreamer into Home Assistant.
+description: Instructions on how to integrate GStreamer into Home Assistant.
 ha_category:
   - Media player
 ha_release: 0.39
