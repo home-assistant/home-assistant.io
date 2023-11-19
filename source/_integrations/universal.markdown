@@ -14,7 +14,7 @@ ha_integration_type: integration
 
 A Universal Media Player can combine multiple existing entities in Home Assistant into a single media player {% term entity %}. This is used to create a single media player {% term entity %} that can control an entire media center.
 
-Multiple media player entities may be controlled from a Universal Media Player. Additionally, the Universal Media Player can enable volume and power commands to be directed to other Home Assistant entities. This enables the media player power and volume commands to control devices like a television, amplifier or audio receiver, for example.
+Multiple media player entities may be controlled from a universal media player. Additionally, the universal media player can enable volume and power commands to be directed to other Home Assistant entities. This enables the media player power and volume commands to control devices like a television, amplifier or audio receiver, for example.
 
 A Universal Media Player is created in `configuration.yaml` as follows.
 
