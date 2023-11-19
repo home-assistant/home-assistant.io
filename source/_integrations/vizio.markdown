@@ -1,6 +1,6 @@
 ---
 title: VIZIO SmartCast
-description: Instructions on how to integrate Vizio SmartCast TVs and sound bars into Home Assistant.
+description: Instructions on how to integrate VIZIO SmartCast TVs and sound bars into Home Assistant.
 ha_category:
   - Media player
 ha_release: 0.49
@@ -49,7 +49,7 @@ This {% term integration %} requires an access token in order to communicate wit
 
 ### Pair using the Home Assistant frontend
 
- - **Using `configuration.yaml`:** If you have a `vizio` entry in `configuration.yaml` but don't provide an access token value in your configuration, after you initialize Home Assistant, you will see a Vizio SmartCast device ready to be configured. When you open the configuration window, you will be guided through the pairing process. While Home Assistant will store the access token for the life of your `vizio` {% term entity %}, it is a good idea to note the access token value displayed in the window and add it to your `configuration.yaml`. This will ensure that you will not have to go through the pairing process again in the future if you decide to rebuild your Home Assistant instance.
+ - **Using `configuration.yaml`:** If you have a `vizio` entry in `configuration.yaml` but don't provide an access token value in your configuration, after you initialize Home Assistant, you will see a VIZIO SmartCast device ready to be configured. When you open the configuration window, you will be guided through the pairing process. While Home Assistant will store the access token for the life of your `vizio` {% term entity %}, it is a good idea to note the access token value displayed in the window and add it to your `configuration.yaml`. This will ensure that you will not have to go through the pairing process again in the future if you decide to rebuild your Home Assistant instance.
 - **Using discovery or manual setup through the Integrations menu:** To initiate the pairing process, submit your initial configuration with an empty Access Token value.
 
 ### Pair manually using the CLI
@@ -104,7 +104,7 @@ You will need the authentication token returned by this command to configure Hom
 
 ## Configuration
 
-To add your Vizio TV to your installation, add the following to your `configuration.yaml` file:
+To add your VIZIO TV to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -119,10 +119,14 @@ host:
   required: true
   type: string
 name:
+<<<<<<< Updated upstream
   description: Nickname for your device that will be used to generate the device's entity ID. If multiple Vizio devices are configured, the value must be unique for each entry.
+=======
+  description: Nickname for your device that will be used to generate the device's {% term entity %} ID. If multiple VIZIO devices are configured, the value must be unique for each entry.
+>>>>>>> Stashed changes
   required: false
   type: string
-  default: Vizio SmartCast
+  default: VIZIO SmartCast
 access_token:
   description: Authentication token you received in the last step of the pairing process. This token is only needed if your device is a TV, and you can opt not to provide it in your configuration and instead go through the pairing process via the Home Assistant frontend.
   required: false
@@ -138,7 +142,7 @@ volume_step:
   type: integer
   default: 1
 apps:
-  description: Use this section to define app specific settings (only applicable for Vizio Smart TVs).
+  description: Use this section to define app specific settings (only applicable for VIZIO Smart TVs).
   required: false
   type: map
   keys:
@@ -208,7 +212,7 @@ If there is an app you want to be able to launch from Home Assistant that isn't 
 
 ### Obtaining a list of valid apps to include or exclude
 
-The list of apps that are provided by default is statically defined [here](https://github.com/vkorn/pyvizio/blob/master/pyvizio/const.py#L23). If you'd prefer a more concise list, you can either view the source list of a Vizio Smart TV in the Home Assistant frontend, or run the following command (requires `pyvizio` to be installed locally):
+The list of apps that are provided by default is statically defined [here](https://github.com/vkorn/pyvizio/blob/master/pyvizio/const.py#L23). If you'd prefer a more concise list, you can either view the source list of a VIZIO Smart TV in the Home Assistant frontend, or run the following command (requires `pyvizio` to be installed locally):
 
 ```bash
 pyvizio --ip=0 get-apps-list
@@ -216,7 +220,7 @@ pyvizio --ip=0 get-apps-list
 
 ## Service `vizio.update_setting`
 
-This service allows you to update a setting on a given Vizio device. You will need to know the type of setting and the name of the setting to call this service. You can determine this by using the SmartCast app and going to device settings for your target device. The setting type is the lowercase version of the first menu item you'd select (e.g., display, audio, system), and the setting name is what you see in the app, but spaces are replaced with underscores and it is also all lowercase (e.g., AV delay would be called `av_delay`).
+This service allows you to update a setting on a given VIZIO device. You will need to know the type of setting and the name of the setting to call this service. You can determine this by using the SmartCast app and going to device settings for your target device. The setting type is the lowercase version of the first menu item you'd select (e.g., display, audio, system), and the setting name is what you see in the app, but spaces are replaced with underscores and it is also all lowercase (e.g., AV delay would be called `av_delay`).
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
