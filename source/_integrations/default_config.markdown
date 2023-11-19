@@ -48,7 +48,7 @@ This {% term integration %} is a meta-component and configures a default set of 
 - [Simple Service Discovery Protocol (SSDP)](/integrations/ssdp/) (`ssdp`)
 - [Stream](/integrations/stream/) (`stream`)
 - [Sun](/integrations/sun/) (`sun`)
-- [System Health](/integrations/system_health/) (`system_health`)
+- [System health](/integrations/system_health/) (`system_health`)
 - [Tag](/integrations/tag/) (`tag`)
 - [Timer](/integrations/timer/) (`timer`)
 - [USB](/integrations/usb/) (`usb`)
