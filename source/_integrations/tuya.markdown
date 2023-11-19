@@ -2,7 +2,7 @@
 title: Tuya
 description: Instructions on how to set up the Tuya hub within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Climate
   - Cover

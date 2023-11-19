@@ -2,9 +2,9 @@
 title: Starlink
 description: Instructions on how to integrate Starlink into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
-  - Device Tracker
+  - Device tracker
   - Network
   - Sensor
   - Switch

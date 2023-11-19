@@ -2,7 +2,7 @@
 title: SkyBell
 description: Instructions on how to integrate your Skybell HD devices within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Doorbell
   - Light
@@ -27,7 +27,7 @@ The `skybell` implementation allows you to integrate your [Skybell.com](http://w
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/integrations/skybell/#binary-sensor)
+- [Binary sensor](/integrations/skybell/#binary-sensor)
 - [Camera](/integrations/skybell/#camera)
 - [Light](/integrations/skybell/#light)
 - [Sensor](/integrations/skybell/#sensor)

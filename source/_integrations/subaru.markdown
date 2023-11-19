@@ -4,7 +4,7 @@ description: Instructions on how to setup your Subaru account with Home Assistan
 ha_category:
   - Car
   - Lock
-  - Presence Detection
+  - Presence detection
   - Sensor
 ha_release: 2021.3
 ha_iot_class: Cloud Polling

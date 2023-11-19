@@ -3,7 +3,7 @@ title: SNMP
 description: Instructions on how to integrate SNMP into Home Assistant.
 ha_category:
   - Network
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Switch
 ha_iot_class: Local Polling
@@ -20,7 +20,7 @@ A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Manage
 
 There is currently support for the following device types within Home Assistant:
 
-- [Presence Detection](#presence-detection)
+- [Presence detection](#presence-detection)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
