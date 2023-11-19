@@ -3,7 +3,7 @@ title: QNAP QSW
 description: Instructions on how to integrate QNAP QSW within Home Assistant.
 ha_release: 2022.5
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Sensor
   - Update
@@ -39,13 +39,13 @@ Password:
 
 The following *binary sensors* are created:
 
-| Binary Sensor       | Description                        |
+| Binary sensor       | Description                        |
 | :------------------ | :--------------------------------- |
 | anomaly             | Device anomaly.                    |
 
 The following *binary sensors* are created for each port (or LACP):
 
-| Binary Sensor       | Description                        |
+| Binary sensor       | Description                        |
 | :------------------ | :--------------------------------- |
 | link                | Link status.                       |
 

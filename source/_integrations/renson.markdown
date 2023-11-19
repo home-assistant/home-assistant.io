@@ -2,7 +2,7 @@
 title: Renson
 description: Instructions on how to integrate Renson Endura Delta sensors into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Fan
   - Number
