@@ -81,6 +81,10 @@ Even though most Overkiz hubs support adding Z-Wave, Hue, and Sonos devices, thi
 
 During peak hours, it could happen that the Overkiz platform is unable to execute your command. The integration will try to retry this command, however, this is not guaranteed to succeed.
 
+**Execution queue is full on gateway**
+
+The Overkiz API only supports 10 requests in its execution queue. If you try to command more devices at the same time, for example with a group, this will fail with `EXEC_QUEUE_FULL`. To work around this, you can create a scenario in the corresponding application, and call that scenario instead after sync it in the integration.
+
 ### Internet connectivity required
 
 This integration communicates via the cloud-based Overkiz API. The Somfy TaHoma v2 and the Somfy TaHoma Switch offer the [Somfy TaHoma Developer Mode (local API)](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode), which is not supported in Home Assistant yet.
