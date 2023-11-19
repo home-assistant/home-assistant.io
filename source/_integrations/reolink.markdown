@@ -53,6 +53,7 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI person detection
 - AI vehicle detection
 - AI pet detection
+- AI animal detection
 - AI face detection
 
 These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
@@ -80,10 +81,12 @@ Depending on the supported features of the camera, number entities are added for
 - AI person sensitivity
 - AI vehicle sensitivity
 - AI pet sensitivity
+- AI animal sensitivity
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
 - AI pet delay*
+- AI animal delay*
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
@@ -92,7 +95,7 @@ Depending on the supported features of the camera, number entities are added for
 
 "Floodlight turn on brightness" controls the brightness of the floodlight when it is turned on internally by the camera (see "Floodlight mode" select entity) or when using the "Floodlight" light entity.
 
-When the camera is not moved and no person/pet/vehicle is detected for the "Guard return time" in seconds, and the "Guard return" switch is ON, the camera will move back to the guard position.
+When the camera is not moved and no person/pet/animal/vehicle is detected for the "Guard return time" in seconds, and the "Guard return" switch is ON, the camera will move back to the guard position.
 
 When a Reolink doorbell is pressed the quick reply message from the "Auto quick reply message" select entity will be played after "Auto quick reply time" seconds, unless the "Auto quick reply message" is set to off.
 
