@@ -103,7 +103,7 @@ Set the heating schedule.
 | ---------------------- | -------- | ------------------------------------- |
 | `schedule_name`        | Yes      | The name of the schedule to activate. |
 
-### Set preset mode with end datetime
+### Set preset mode with end date & time
 
 `set_preset_mode_with_end_datetime`
 
@@ -114,16 +114,27 @@ Set the preset mode for a Netatmo climate device. The preset mode must match a p
 | `preset_mode`          | Yes      | Climate preset mode such as Schedule, Away or Frost Guard. |
 | `end_datetime`         | Yes      | Date & time the preset will be active until.               |
 
-### Set Temperature
+### Set temperature with end date & time
 
-`set_temperature`
+`set_temperature_with_end_datetime`
 
-Sets the target temperature for a Netatmo climate device with an optional end date & time.
+Sets the target temperature for a Netatmo climate device with an end date & time.
 
-| Service data attribute | Required | Description                                                                                                            |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `target_temperature`   | Yes      | The target temperature for the device.                                                                                 |
-| `end_datetime`         | No       | Date & time the target temperature will be active until. If not provided, the Netatmo default of 3 hours will be used. |
+| Service data attribute | Required | Description                                              |
+| ---------------------- | -------- | -------------------------------------------------------- |
+| `target_temperature`   | Yes      | The target temperature for the device.                   |
+| `end_datetime`         | Yes      | Date & time the target temperature will be active until. |
+
+### Set temperature with time period
+
+`set_temperature_with_time_period`
+
+Sets the target temperature for a Netatmo climate device with a time period it will be active for.
+
+| Service data attribute | Required | Description                                            |
+| ---------------------- | -------- | ------------------------------------------------------ |
+| `target_temperature`   | Yes      | The target temperature for the device.                 |
+| `time_period`          | Yes      | Time period the target temperature will be active for. |
 
 ### Clear Temperature Setting
 
