@@ -31,12 +31,23 @@ Please click [here](https://data.trafikverket.se/home) and register to obtain th
 ## Entities provided by the integration
 - Air temperature.
 - Road temperature.
+- Dew point
 - Relative humidity.
 - Precipitation type.
 - Precipitation amount
 - Wind direction in degrees.
 - Wind speed
-- Maximum wind speed measured during the last 30 minutes.
+
+### Entities provided but not enabled by default
+- Maximum wind speed measured during the last 30 minutes
+- Measurement time
+- Visible distance
+- Road ice depth
+- Road snow depth
+- Road water depth
+- Road water equivalent depth
+- Wind measurement height
+- Data modified time 
 
 ## Weather stations
 
