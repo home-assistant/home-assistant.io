@@ -75,7 +75,7 @@ If the device doesn't seem to work and all you see is the state "unavailable" on
 
 ### Device options
 
-Clicking the **Configure** button on the WeMo {% term integration %} will bring up some additional options that can be configured for WeMo devices.
+Selecting the **Configure** button on the WeMo {% term integration %} will bring up some additional options that can be configured for WeMo devices.
 
 ![Device Options](/images/integrations/wemo/device_options.png)
 

@@ -24,7 +24,7 @@ Most recent network-connected Viessmann heating devices (e.g., gas boilers) shou
 There is currently support for the following device types within Home Assistant:
 
 - [Climate](#climate) (Heating)
-- [Water heater](#water-heater) (Domestic Hot Water)
+- [Water heater](#water-heater) (Domestic hot water)
 - [Sensor](#sensor) (Sensor)
 - [Button](#button) (Button)
 

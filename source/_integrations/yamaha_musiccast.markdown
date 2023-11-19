@@ -72,7 +72,7 @@ The following entities will be added, if they are supported by the MusicCast dev
 - Equalizer (configuration, zone level)
   - One number {% term entity %} each is added for high, mid and low
 - Tone Control (configuration, zone level)
-  - One number ent{% term entity %}ity each is added for bass and treble
+  - One number {% term entity %} each is added for bass and treble
 - Dialogue Level (configuration, zone level)
   - Set the volume of dialogues in relation to the general volume
 - Dialogue Lift (configuration, zone level)

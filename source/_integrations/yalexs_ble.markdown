@@ -56,7 +56,7 @@ Lock operation requires setting up an encrypted connection highly sensitive to l
 
 ## Push updates
 
-Some locks only send push updates when they have an active HomeKit pairing. If your lock is not sending push updates, ensure it's paired with a HomeKit using an iOS device or the HomeKit controller integ{% term integration %}ration. The lock cannot be paired via HomeKit Controller and the Yale Access Bluetooth {% term integration %} on the same Home Assistant instance as they will both try to access the lock simultaneously and fail.
+Some locks only send push updates when they have an active HomeKit pairing. If your lock is not sending push updates, ensure it's paired with a HomeKit using an iOS device or the HomeKit controller {% term integration %}. The lock cannot be paired via HomeKit Controller and the Yale Access Bluetooth {% term integration %} on the same Home Assistant instance as they will both try to access the lock simultaneously and fail.
 
 One easy way to fix this is to create a new/second home in the Apple Home app and add the lock to that new home. Push updates should occur as intended after the lock is added.
 

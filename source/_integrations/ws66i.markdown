@@ -21,7 +21,7 @@ The **Soundavo WS66i 6-Zone Amplifier** {% term integration %} allows you to con
 
 ## Configuration notes
 
-Enter the IP Address of the WS66i amplifier when prompted to connect to the device and hit submit. It will detect the number of connected amplifiers and present each zone as an {% term entity %}.
+Enter the IP address of the WS66i amplifier when prompted to connect to the device and hit submit. It will detect the number of connected amplifiers and present each zone as an {% term entity %}.
 
 - 1 Amplifier: Zones 11..16
 - 2 Amplifiers: Zones 11..16, Zones 21..26
