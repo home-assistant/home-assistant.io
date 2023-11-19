@@ -65,7 +65,7 @@ The absolute **minimal** software version is `[v1.20.0](https://community.ui.com
 
 **Early Access releases are not supported by Home Assistant.**
 
-Using Early Access versions will likely cause your UniFi Protect {% term integrations %} to break unexpectedly.
+Using Early Access versions will likely cause your UniFi Protect {% term integration %} to break unexpectedly.
 
 </div>
 
