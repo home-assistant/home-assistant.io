@@ -89,6 +89,7 @@ Depending on the supported features of the camera, number entities are added for
 - Auto track limit right
 - Auto track disappear time
 - Auto track stop time
+- Day night switch threshold*
 
 "Floodlight turn on brightness" controls the brightness of the floodlight when it is turned on internally by the camera (see "Floodlight mode" select entity) or when using the "Floodlight" light entity.
 
@@ -97,6 +98,8 @@ When the camera is not moved and no person/pet/vehicle is detected for the "Guar
 When a Reolink doorbell is pressed the quick reply message from the "Auto quick reply message" select entity will be played after "Auto quick reply time" seconds, unless the "Auto quick reply message" is set to off.
 
 If the "Auto tracking" switch entity is enabled, and a object disappears from view OR stops moving for the "Auto track disappear time"/"Auto track stop time", the camera goes back to its original position.
+
+"Day night switch threshold" detemines at which light level the camera switches from Color to Black&White, this value is only applicable if the "Day night mode" select is on Auto.
 
 ## Button entities
 
