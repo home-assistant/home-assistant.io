@@ -20,7 +20,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Xbox integration allows you to control Xbox One (or newer) consoles from Home Assistant.
+The **Xbox** {% term integration %} allows you to control Xbox One (or newer) consoles from Home Assistant.
 
 Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant Cloud account linking service.
 
@@ -99,7 +99,7 @@ command:
 delay_sec: 0.1
 ```
 
-### Picture Elements Card
+### Picture elements card
 
 Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It utilizes the services detailed above. Replace `remote.xboxone_remote` and `media_player.xboxone` with the names of your entities and enjoy! Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
 
@@ -269,13 +269,13 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 
 ## Media source
 
-The Xbox media source platform allows you to use the Media Browser panel to view both your own, and community, gameclips or screenshots for games that you have installed on any of your consoles. As with any other media source integration, you are also able to send these clips to supported media players like Chromecast.
+The Xbox media source platform allows you to use the Media Browser panel to view both your own, and community, gameclips or screenshots for games that you have installed on any of your consoles. As with any other media source {% term integration %}, you are also able to send these clips to supported media players like Chromecast.
 
 <div class="note">
 It can take up to a couple of days for newly installed applications to appear in the media browser.
 </div>
 
-## Manual Configuration
+## Manual configuration
 
 <div class="note">
 These steps are not required, nor will they be supported if issues are encountered.
@@ -291,7 +291,7 @@ If you prefer not to use the Home Assistant account linking service, you may man
 - On the App Page, navigate to "Certificates & secrets"
   - Generate a new client secret and save for later use
 
-You may then add the credentials to [Application Credentials](/integrations/application_credentials/) and then setup the integration.
+You may then add the credentials to [Application Credentials](/integrations/application_credentials/) and then setup the {% term integration %}.
 
 {% details "I have manually disabled My Home Assistant" %}
 

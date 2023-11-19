@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `zabbix` integration is the main integration to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.
+The **Zabbix** {% term integration %} is the main {% term integration %} to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.
 
 It is possible to publish Home Assistant state changes to Zabbix. In Zabbix a host has to be created which will contain the Home Assistant states as individual items. These items are automatically created using Zabbix Low-Level Discovery (LLD). In order to make setup in Zabbix easy, you can use this [template](/assets/integrations/zabbix/zbx_template_home_assistant.xml) for the host.
 
@@ -22,7 +22,7 @@ There is currently also support for the following device types within Home Assis
 
 ## Configuration
 
-To set the Zabbix integration up, add the following information to your `configuration.yaml` file:
+To set the Zabbix {% term integration %} up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -64,7 +64,7 @@ exclude:
   keys:
     entities:
       type: [string, list]
-      description: The list of entity ids to be excluded from being published to Zabbix.
+      description: The list of {% term entity %} ids to be excluded from being published to Zabbix.
       required: false
     entity_globs:
       type: [string, list]
@@ -81,7 +81,7 @@ include:
   keys:
     entities:
       type: [string, list]
-      description: The list of entity ids to be included in being published to Zabbix.
+      description: The list of {% term entity %} ids to be included in being published to Zabbix.
       required: false
     entity_globs:
       type: [string, list]

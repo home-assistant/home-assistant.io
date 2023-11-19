@@ -10,9 +10,9 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The `water_heater` integration is built for the controlling and monitoring of hot water heaters.
+The **Water heater** {% term integration %} is built for the controlling and monitoring of hot water heaters.
 
-To enable this integration, pick one of the platforms, and add it to your `configuration.yaml`:
+To enable this {% term integration %}, pick one of the platforms, and add it to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,9 +40,9 @@ Sets target temperature of water heater device.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at the `entity_id` of water heater devices to control. Use `entity_id: all` to target all.
 | `temperature` | no | New target temperature for water heater
-| `operation_mode` | yes | Operation mode to set the temperature to. This defaults to current_operation mode if not set, or set incorrectly. For a list of possible modes, refer to the integration documentation.
+| `operation_mode` | yes | Operation mode to set the temperature to. This defaults to current_operation mode if not set, or set incorrectly. For a list of possible modes, refer to the {% term integration %} documentation.
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:

@@ -15,13 +15,13 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Soundavo WS66i 6-Zone Amplifier integration allows you to control the [Soundavo Whole-Home Audio Amplifier](https://www.soundavo.com/products/ws-66i) via the local network. This amplifier is an upgrade of the amplifier sold by [Monoprice](https://www.monoprice.com/product?p_id=10761) that adds 2 built-in wireless streamers and an Ethernet port for control over LAN.
+The **Soundavo WS66i 6-Zone Amplifier** {% term integration %} allows you to control the [Soundavo Whole-Home Audio Amplifier](https://www.soundavo.com/products/ws-66i) via the local network. This amplifier is an upgrade of the amplifier sold by [Monoprice](https://www.monoprice.com/product?p_id=10761) that adds 2 built-in wireless streamers and an Ethernet port for control over LAN.
 
 {% include integrations/config_flow.md %}
 
 ## Configuration notes
 
-Enter the IP Address of the WS66i amplifier when prompted to connect to the device and hit submit. It will detect the number of connected amplifiers and present each zone as an entity.
+Enter the IP Address of the WS66i amplifier when prompted to connect to the device and hit submit. It will detect the number of connected amplifiers and present each zone as an {% term entity %}.
 
 - 1 Amplifier: Zones 11..16
 - 2 Amplifiers: Zones 11..16, Zones 21..26

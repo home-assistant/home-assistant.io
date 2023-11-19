@@ -17,13 +17,13 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The Wallbox integration pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station.
+The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station.
 
 {% include integrations/config_flow.md %}
 
 ## Sensors
 
-The integration adds the following sensors:
+The {% term integration %} adds the following sensors:
 
 - Added Energy
 - Added Range
@@ -41,17 +41,17 @@ The integration adds the following sensors:
 
 ## Number
 
-The integration adds the following number entities:
+The {% term integration %} adds the following number entities:
 
 - Max Charging Current
 - Energy Price
 
-The number entity is only loaded if the supplied username has sufficient rights to change the Max. Charging Current.
+The number {% term entity %} is only loaded if the supplied username has sufficient rights to change the Max. Charging Current.
 
 ## Lock
 
-The integration adds a lock entity, allowing you to lock the charger. Please note, this only works with a user with admin rights.
+The {% term integration %} adds a lock {% term entity %}, allowing you to lock the charger. Please note, this only works with a user with admin rights.
 
 ## Switch
 
-The integration adds a switch entity, allowing you to pause/resume the charging process.
+The {% term integration %} adds a switch {% term entity %}, allowing you to pause/resume the charging process.

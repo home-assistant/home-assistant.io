@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-A Universal Media player can combine multiple existing entities in Home Assistant into a single media player entity. This is used to create a single media player entity that can control an entire media center.
+A Universal Media Player can combine multiple existing entities in Home Assistant into a single media player {% term entity %}. This is used to create a single media player {% term entity %} that can control an entire media center.
 
 Multiple media player entities may be controlled from a Universal Media Player. Additionally, the Universal Media Player can enable volume and power commands to be directed to other Home Assistant entities. This enables the media player power and volume commands to control devices like a television, amplifier or audio receiver, for example.
 
@@ -68,7 +68,7 @@ name:
   required: true
   type: string
 children:
-  description: Ordered list of child media players that this entity will control.
+  description: Ordered list of child media players that this {% term entity %} will control.
   required: false
   type: list
 active_child_template:
@@ -88,26 +88,26 @@ attributes:
   required: false
   type: string
 browse_media_entity:
-  description: Allows override the browse media entity to desired media player.
+  description: Allows override the browse media {% term entity %} to desired media player.
   required: false
   type: string
 device_class:
-  description: The device class that this entity represents. Can be `tv`, `speaker`, or `receiver`.
+  description: The device class that this {% term entity %} represents. Can be `tv`, `speaker`, or `receiver`.
   required: false
   type: string
 unique_id:
-  description: A unique identifier for this entity. Needs to be unique within the `media_player` platform.
+  description: A unique identifier for this {% term entity %}. Needs to be unique within the `media_player` platform.
   required: false
   type: string
 {% endconfiguration %}
 
-The Universal Media Player will primarily imitate one of its `children`. The Universal Media Player will control the first child on the list that is active (not idle/off). The Universal Media Player will also inherit its state from the first active child if a `state_template` is not provided. Entities in the `children:` list must be media players, but the state template can contain any entity.
+The Universal Media Player will primarily imitate one of its `children`. The Universal Media Player will control the first child on the list that is active (not idle/off). The Universal Media Player will also inherit its state from the first active child if a `state_template` is not provided. Entities in the `children:` list must be media players, but the state template can contain any {% term entity %}.
 
-Using `active_child_template` will allow you to specify an active entity if the default behavior is unsuitable for your task. The template must return the `entity_id` of the child that will be selected as active or `None` to return the default behavior.
+Using `active_child_template` will allow you to specify an active {% term entity %} if the default behavior is unsuitable for your task. The template must return the `entity_id` of the child that will be selected as active or `None` to return the default behavior.
 
 It is recommended that the command `turn_on`, the command `turn_off`, and the attribute `state` all be provided together. The `state` attribute indicates if the media player is on or off. If `state` indicates the media player is off, this status will take precedence over the states of the children. If all the children are idle/off and `state` is on, the Universal Media Player's state will be on. If not provided, the `toggle` command will delegate to `turn_on` or `turn_off` based on the `state`.
 
-It is also recommended that the command `volume_up`, the command `volume_down`, the command `volume_mute`, and the attribute `is_volume_muted` all be provided together. The attribute `is_volume_muted` should return either True or the on state when the volume is muted. The `volume_mute` service should toggle the mute setting.
+It is also recommended that the command `volume_up`, the command `volume_down`, the command `volume_mute`, and the attribute `is_volume_muted` all be provided together. The attribute `is_volume_muted` should return either True or the on state when the volume is muted. The `volume_mute` {% term service %} should toggle the mute setting.
 
 When providing `select_source` as a command, it is recommended to also provide the attributes `source`, and `source_list`. The `source` attribute is the currently select source, while the `source_list` attribute is a list of all available sources.
 
@@ -119,7 +119,7 @@ The `browse_media_entity` parameter allows you to specify which media player wil
 
 ### Chromecast & Kodi control with switches
 
-In this example, a switch is available to control the power to the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The `turn_on` and `turn_off` commands will be redirected to the television, and the volume commands will be redirected to an audio receiver. The `select_source` command will be passed directly to an A/V receiver.
+In this example, a switch is available to control the power to the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other {% term entity %} in Home Assistant. The `turn_on` and `turn_off` commands will be redirected to the television, and the volume commands will be redirected to an audio receiver. The `select_source` command will be passed directly to an A/V receiver.
 
 The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the universal media player will change to reflect its status.
 
@@ -278,7 +278,7 @@ automation:
 
 {% endraw %}
 
-### Harmony Remote Example
+### Harmony remote example
 
 The complete configuration is:
 

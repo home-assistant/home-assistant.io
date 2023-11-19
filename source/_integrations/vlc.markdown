@@ -15,7 +15,7 @@ The `vlc` platform allows you to control [VLC media player](https://www.videolan
 
 <div class='note'>
 
-The VLC media player integration, is currently only available for installations that are based on the Home Assistant Core in a Python virtual environment.
+The **VLC media player** {% term integration %}, is currently only available for installations that are based on the Home Assistant Core in a Python virtual environment.
 
 </div>
 

@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `vultr` integration allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
+The **Vultr** {% term integration %} allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

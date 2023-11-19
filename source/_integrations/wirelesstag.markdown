@@ -18,7 +18,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `wirelesstag` implementation allows you to integrate your [wirelesstag.net](https://wirelesstag.net/) sensors tags in Home Assistant.
+The **Wireless Sensor Tags** {% term integration %} allows you to integrate your [wirelesstag.net](https://wirelesstag.net/) sensors tags in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

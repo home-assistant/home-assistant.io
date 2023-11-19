@@ -1,6 +1,6 @@
 ---
-title: "Template Vacuum"
-description: "Instructions how to setup Template vacuums within Home Assistant."
+title: "Template vacuum"
+description: "Instructions how to setup template vacuums within Home Assistant."
 ha_category:
   - Vacuum
 ha_release: 0.96
@@ -66,7 +66,7 @@ vacuum:
             required: true
             type: template          
       availability_template:
-        description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+        description: Defines a template to get the `available` state of the {% term entity %}. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the {% term entity %} will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the {% term entity %} will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
         required: false
         type: template
         default: true
@@ -106,7 +106,7 @@ vacuum:
 
 ### Template and action variables
 
-State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an {% term entity %}'s state and attribute in templates and actions.
 
 ## Examples
 
@@ -180,7 +180,7 @@ vacuum:
 
 {% endraw %}
 
-### Add Custom Attributes
+### Add custom attributes
 
 This example shows how to add custom attributes.
 

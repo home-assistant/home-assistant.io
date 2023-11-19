@@ -7,8 +7,8 @@ ha_release: 0.54
 ha_domain: mqtt
 ---
 
-The `mqtt` vacuum integration allows you to control your MQTT-enabled vacuum.
-The initial state of the MQTT vacuum entity will set to `unknown` and can be reset by a device by sending a `null` payload as state.
+The `mqtt` vacuum {% term integration %} allows you to control your MQTT-enabled vacuum.
+The initial state of the MQTT vacuum {% term entity %} will set to `unknown` and can be reset by a device by sending a `null` payload as state.
 
 ## Configuration
 
@@ -39,7 +39,7 @@ availability:
       required: false
       type: template
 availability_mode:
-  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  description: When `availability` is configured, this controls the conditions needed to set the {% term entity %} to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the {% term entity %} is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the {% term entity %} is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
@@ -251,7 +251,7 @@ Possible MQTT payloads:
 - `clean_spot` - Initialize a spot cleaning cycle
 - `locate` - Locate the vacuum (typically by playing a song)
 
-### Send Custom Command
+### Send custom command
 
 Vacuum send_command allows three parameters:
 

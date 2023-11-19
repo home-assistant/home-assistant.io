@@ -21,7 +21,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Yale Smart Living integration provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.
+The **Yale Smart Living** {% term integration %} provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -50,4 +50,4 @@ Provides support for pressing the panic button to trigger the alarm. Be careful 
 
 The lock platform requires a code for unlocking but no code for locking.
 
-The integration can be configured to provide a default code that is used if no code is supplied and the number of digits required.
+The {% term integration %} can be configured to provide a default code that is used if no code is supplied and the number of digits required.

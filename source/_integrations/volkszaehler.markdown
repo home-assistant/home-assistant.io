@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `volkszaehler` sensor platform is consuming the system information provided by the [Volkszaehler](https://wiki.volkszaehler.org/) API.
+The **Volkszaehler** {% term integration %} is consuming the system information provided by the [Volkszaehler](https://wiki.volkszaehler.org/) API.
 
 ## Configuration
 
