@@ -95,7 +95,7 @@ If you want to downgrade to another Early Access version, you must have [Remote 
 
 </div>
 
-### Local sser
+### Local user
 
 You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
 It is recommended you use the Administrator or a user with full read/write access to get the most out of the integration,
