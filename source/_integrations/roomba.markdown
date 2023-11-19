@@ -22,7 +22,7 @@ ha_integration_type: integration
 ha_zeroconf: true
 ---
 
-The **Roomba** {% term integrations %}  allows you to control your [iRobot Roomba](https://www.irobot.com/roomba) vacuum or [iRobot Braava](https://www.irobot.com/braava) m-series mop.
+The **Roomba** {% term integrations %} allows you to control your [iRobot Roomba](https://www.irobot.com/roomba) vacuum or [iRobot Braava](https://www.irobot.com/braava) m-series mop.
 
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-roomba.png' />
@@ -44,7 +44,7 @@ The Roomba's MQTT server only allows a single connection. Enabling continuous mo
 
 ## Integration entities
 
-The **Roomba** {% term integrations %}  will add the following sensors.
+The **Roomba** {% term integrations %} will add the following sensors.
 
 Sensors:
 - roomba_battery_level : The status of your battery
@@ -63,7 +63,7 @@ Before trying to retrieve your credentials manually, make sure than cannot be re
 1. Make sure the Roomba app is closed on all of your devices.
 2. Follow the instructions in Home Assistant to retrieve the credentials.
 
-To manually retrieve both the BLID (username) and the password, refer to the instructions in the [Roomba 980](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password) or [dority 980](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) repository.
+If automatic retrieval does not work, you can retrieve the credentials manually. To manually retrieve both the BLID (username) and the password, refer to the instructions in the [Roomba 980](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password) or [dority 980](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) repository.
 
 For Home Assistant Container, the following command retrieves the BLID (username) and password:
 
