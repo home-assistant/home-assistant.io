@@ -358,7 +358,7 @@ If you are still not getting notifications, you can read this [troubleshooting g
 
 ## Media source
 
-The Nest [Media source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
+The Nest [media source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
 
 The table above describes which devices support event image snapshots or 10-frame mp4 video clips for recent events.
 
