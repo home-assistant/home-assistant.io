@@ -3,7 +3,7 @@ title: ColorExtractor
 description: Instructions how to integrate the Color Extractor into Home Assistant.
 ha_release: 0.118
 ha_category:
-  - Image Processing
+  - Image processing
 ha_domain: color_extractor
 ha_codeowners:
   - '@GenericStudent'
@@ -11,8 +11,8 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The color extractor integration will extract the predominant color from a given image and apply that color to a target light.
-Useful as part of an automation.
+The **ColorExtractor** {% term integration %} will extract the predominant color from a given image and apply that color to a target light.
+Useful as part of an {% term automation %}.
 
 {% include integrations/config_flow.md %}
 
@@ -20,7 +20,7 @@ Useful as part of an automation.
 
 Because `color_extractor.turn_on` will then call `light.turn_on`, you can pass any valid [`light.turn_on`](/integrations/light#service-lightturn_on) parameters (`rgb_color` will be set for you though) as those will be passed along.
 
-Passing the key `color_extract_url` to the service call will download the linked image and extract the predominant color from it. Passing the key `color_extract_path` to the service call will process the image file from local storage instead. `color_extract_url` and `color_extract_path` are exclusive and cannot be used together.
+Passing the key `color_extract_url` to the {% term service %} call will download the linked image and extract the predominant color from it. Passing the key `color_extract_path` to the service call will process the image file from local storage instead. `color_extract_url` and `color_extract_path` are exclusive and cannot be used together.
 
 |Key                  | Example                               | Description                                                                   |
 |---------------------|---------------------------------------|-------------------------------------------------------------------------------|
@@ -30,7 +30,7 @@ Passing the key `color_extract_url` to the service call will download the linked
 
 <div class="note">
   
-  Please ensure any [external URLs](/docs/configuration/basic/#allowlist_external_urls) or [external files](/docs/configuration/basic/#allowlist_external_dirs) are authorized for use. You will receive error messages if this integration is not allowed access to these external resources.
+  Please ensure any [external URLs](/docs/configuration/basic/#allowlist_external_urls) or [external files](/docs/configuration/basic/#allowlist_external_dirs) are authorized for use. You will receive error messages if this {% term integration %} is not allowed access to these external resources.
   
 </div>
 
@@ -38,17 +38,17 @@ Passing the key `color_extract_url` to the service call will download the linked
 
 Add the parameter key `color_extract_url` to the service call.
 
-This service allows you to pass in the URL of an image, have it downloaded, get the predominant color from it, and then set a light's RGB value to it.
+This {% term service %} allows you to pass in the URL of an image, have it downloaded, get the predominant color from it, and then set a light's RGB value to it.
 
 ### File Service Call
 
 Add the parameter key `color_extract_path` to the service call.
 
-This service is very similar to the URL service above, except it processes a file from the local file storage.
+This {% term service %} is very similar to the URL service above, except it processes a file from the local file storage.
 
 ## Example Automations
 
-Example usage in an automation, taking the album art present on a Chromecast and supplying it to `light.shelf_leds` whenever it changes:
+Example usage in an {% term automation %}, taking the album art present on a Chromecast and supplying it to `light.shelf_leds` whenever it changes:
 
 {% raw %}
 

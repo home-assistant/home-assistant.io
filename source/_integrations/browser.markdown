@@ -10,7 +10,7 @@ ha_domain: browser
 ha_integration_type: integration
 ---
 
-The `browser` integration provides a service to open URLs in the default browser on the host machine.
+The **Browser** {% term integration %} provides a service to open URLs in the default browser on the host machine.
 
 ## Configuration
 
@@ -23,7 +23,7 @@ browser:
 
 ### Services
 
-Once loaded, the `browser` platform will expose services that can be called to perform various actions.
+Once loaded, the `browser` platform will expose {% term services %} that can be called to perform various {% term actions %}.
 
 Available services: `browser/browse_url`.
 
@@ -33,7 +33,7 @@ Available services: `browser/browse_url`.
 
 ### Usage
 
-To use this service, choose **Call Service** from the **Developer Tools**. Choose the service *browser/browse_url* from the list of **Available services:** and enter the URL into the **Service Data** field and hit **CALL SERVICE**.
+To use this {% term service %}, choose **Call Service** from the **Developer Tools**. Choose the service *browser/browse_url* from the list of **Available services:** and enter the URL into the **Service Data** field and hit **CALL SERVICE**.
 
 ```json
 {"url": "http://www.google.com"}

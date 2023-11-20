@@ -2,7 +2,7 @@
 title: Bosch SHC
 description: Integrate Bosch SHC.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Hub
   - Sensor
@@ -22,11 +22,11 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The Bosch SHC integration allows you to connect your [Bosch Smart Home Controller](https://www.bosch-smarthome.com) to Home Assistant in order to control and monitor your Bosch Smart Home devices.
+The **Bosch SHC** {% term integration %} allows you to connect your [Bosch Smart Home Controller](https://www.bosch-smarthome.com) to Home Assistant in order to control and monitor your Bosch Smart Home devices.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Cover](#cover)
 - [Sensor](#sensor)
 - [Switch](#switch)

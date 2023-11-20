@@ -2,7 +2,7 @@
 title: Command Line
 description: Instructions on how to integrate the Command Line utility within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Notifications
   - Sensor
@@ -690,7 +690,7 @@ command_line:
 ```
 {% endraw%}
 
-### Control Foscam Motion Sensor
+### Control Foscam motion sensor
 
 This switch will control the motion sensor of Foscam Webcams which Support CGI
 Commands ([Source](https://www.iltucci.com/blog/wp-content/uploads/2018/12/Foscam-IPCamera-CGI-User-Guide-V1.0.4.pdf)).
