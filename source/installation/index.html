@@ -7,315 +7,558 @@ toc: true
 ---
 
 <div class="intro">
-    <p>
-        The first step to getting started with Home Assistant is to install it on a device. There are many ways to run it for all kinds of scenarios and all kinds of skill levels.
-    </p>
+  <p>
+    The first step to getting started with Home Assistant is to install it on a
+    device. There are many ways to run it for all kinds of scenarios and all
+    kinds of skill levels.
+  </p>
 </div>
 
 {% include installation_survey.html %}
 
 <div class="installations">
-    <span class="label easiest">Easiest</span>
+  <span class="label easiest">Easiest</span>
 
-    <h2>Plug and play with Home Assistant Green</h2>
-    <p>The affordable Home Assistant Green is the easiest way you can start using Home Assistant. It's plug-and-play and comes with Home Assistant already installed.</p>
-    
-    <div class="installations-card">
-        <div class="material-card text">
-            <div class="content-container">
-                <div class="image">
-                    <img src="/images/green/hero.jpg">
-                </div>
-                <div class="content">
-                    <h3>Home Assistant Green</h3>
-                    <p>The easiest way to get started with Home Assistant</p>
-                    <div class="columns">
-                        <div><b>SKILLS REQUIRED</b>
-                            <ul><li>Basic smart home setup skills</li></ul></div>
-                        <div><b>TOOLS REQUIRED</b>
-                            <ul><li>Ethernet connection</li></ul></div>
-                    </div>
-                    <div class="buttons">
-                    <a href="/green" class="button accent">Get Home Assistant Green {% include assets/chevron_right.html %}</a>
-                    <a href="https://green.home-assistant.io" class="button" target="_blank">View tutorial {% include assets/chevron_right.html %}</a>
-                </div>         
-                </div>
-            </div>
+  <h2>Plug and play with Home Assistant Green</h2>
+  <p>
+    The affordable Home Assistant Green is the easiest way you can start using
+    Home Assistant. It's plug-and-play and comes with Home Assistant already
+    installed.
+  </p>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="image">
+          <img src="/images/green/hero.jpg" />
         </div>
-    </div>
-
-    <span class="label easy">Easy</span>
-
-    <h2>DIY with Raspberry Pi</h2>
-    <p>Raspberry Pi, a mini low-cost computer, is one of the most popular platforms for running Home Assistant. If you want to learn how to DIY, this is a good way to start and gain experience.</p>
-    
-    <div class="installations-card">
-        <div class="material-card text">
-            <div class="content-container">
-                <div class="image">
-                    <img src="https://images.prismic.io/rpf-products/6aebb638-e088-4b28-bbfd-67eae784ca3b_PI_5_FEATURE.jpg?auto=compress%2Cformat&fit=max&w=600&h=400&fm=webp">
-                </div>
-                <div class="content">
-                    <h3>Install Home Assistant on Raspberry Pi</h3>
-                    <p>A low-cost DIY solution to get started with Home Assistant</p>
-                    <div class="columns">
-                        <div><b>SKILLS REQUIRED</b>
-                            <ul><li>Assembling a Raspberry Pi setup</li><li>Flashing a Raspberry Pi</li></ul></div>
-                        <div><b>TOOLS REQUIRED</b>
-                            <ul><li>Raspberry Pi 3 / 4 / or newer</li><li>MicroSD card</li><li>Ethernet connection</li></ul></div>
-                    </div>
-                    <div class="buttons">
-                    <a href="https://amzn.to/2S0Gcl1" class="button accent">Get Raspberry Pi {% include assets/chevron_right.html %}</a>
-                    <a href="/installation/raspberrypi" class="button">View tutorial {% include assets/chevron_right.html %}</a>
-                </div>         
-                </div>
+        <div class="content">
+          <h3>Home Assistant Green</h3>
+          <p>The easiest way to get started with Home Assistant</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Basic smart home setup skills</li>
+              </ul>
             </div>
-        </div>
-    </div>
-
-    <span class="label intermediate">Intermediate</span>
-
-    <h2>Customize with Home Assistant Yellow</h2>
-    <p>The extensible Home Assistant Yellow comes with all the ingredients you need to help you build a robust smart home. All you need to do is to bring your own Raspberry Pi Compute Module.</p>
-
-    <div class="installations-card">
-        <div class="material-card text">
-            <div class="content-container">
-                <div class="image">
-                    <img src="/images/yellow/yellow_hero.jpg">
-                </div>
-                <div class="content">
-                    <h3>Home Assistant Yellow</h3>
-                    <p>The powerful way to run Home Assistant</p>
-                    <div class="columns">
-                        <div><b>SKILLS REQUIRED</b>
-                            <ul><li>Very basic electronics skills akin to building a PC</li><li>Flashing a Raspberry Pi</li></ul></div>
-                        <div><b>TOOLS REQUIRED</b>
-                            <ul><li>Raspberry Pi Compute Module 4</li><li>Ethernet connection</li><li>USB storage drive</li><li>Screwdriver</li></ul></div>
-                    </div>
-                    <div class="buttons">
-                    <a href="/yellow" class="button accent">Get Home Assistant Yellow {% include assets/chevron_right.html %}</a>
-                    <a href="https://yellow.home-assistant.io" class="button" target="_blank">View tutorial {% include assets/chevron_right.html %}</a>
-                </div>         
-                </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Ethernet connection</li>
+              </ul>
             </div>
+          </div>
+          <div class="buttons">
+            <a href="/green" class="button accent"
+              >Get Home Assistant Green {% include assets/chevron_right.html
+              %}</a
+            >
+            <a
+              href="https://green.home-assistant.io"
+              class="button"
+              target="_blank"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <span class="label hard">Hard</span>
+  <span class="label easy">Easy</span>
 
-    <h2>Home Assistant Operating System</h2>
-    <p>Home Assistant can repurpose and be installed on all sorts of hardware, such as ODroid and generic x86-64 machines. Home Assistant Operating System allows you to install Home Assistant on these devices even if you have little to no Linux experience.</p>
+  <h2>DIY with Raspberry Pi</h2>
+  <p>
+    Raspberry Pi, a mini low-cost computer, is one of the most popular platforms
+    for running Home Assistant. If you want to learn how to DIY, this is a good
+    way to start and gain experience.
+  </p>
 
-    <div class="installations-card">
-        <div class="material-card text">
-            <div class="content-container">
-                <div class="icon">
-                    <img src="/images/installation/odroid.png">
-                </div>
-                <div class="content">
-                    <h3>Install Home Assistant on ODroid devices</h3>
-                    <p>A more powerful alternative to Raspberry Pi</p>
-                    <div class="columns">
-                        <div><b>SKILLS REQUIRED</b>
-                            <ul><li>Understanding of hardware requirements</li><li>Writing boot images to your boot medium</li></ul></div>
-                        <div><b>TOOLS REQUIRED</b>
-                            <ul><li>An Odroid device</li><li>MicroSD card</li><li>Ethernet connection</li></ul></div>
-                    </div>
-                    <div class="buttons">
-                    <a href="/installation/odroid" class="button">View tutorial {% include assets/chevron_right.html %}</a>
-                </div>         
-                </div>
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="image">
+          <img
+            src="https://images.prismic.io/rpf-products/6aebb638-e088-4b28-bbfd-67eae784ca3b_PI_5_FEATURE.jpg?auto=compress%2Cformat&fit=max&w=600&h=400&fm=webp"
+          />
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on Raspberry Pi</h3>
+          <p>A low-cost DIY solution to get started with Home Assistant</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Assembling a Raspberry Pi setup</li>
+                <li>Flashing a Raspberry Pi</li>
+              </ul>
             </div>
-        </div>
-    </div>
-
-    <div class="installations-card">
-        <div class="material-card text">
-            <div class="content-container">
-                <div class="icon">
-                    <img src="/images/installation/generic-x86-64.svg">
-                </div>
-                <div class="content">
-                    <h3>Install Home Assistant on x86-64 machines</h3>
-                    <p>Repurpose workstation hardware to run Home Assistant</p>
-                    <div class="columns">
-                        <div><b>SKILLS REQUIRED</b>
-                            <ul><li>Building a PC or formatting a PC from scratch</li><li>Writing boot images to your boot medium</li></ul></div>
-                        <div><b>TOOLS REQUIRED</b>
-                            <ul><li>An x86-64 machine</li><li>Storage hard drive</li><li>USB stick</li><li>Ethernet connection</li></ul></div>
-                    </div>
-                    <div class="buttons">
-                    <a href="/installation/generic-x86-64" class="button">View tutorial {% include assets/chevron_right.html %}</a>
-                </div>         
-                </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Raspberry Pi 3 / 4 / or newer</li>
+                <li>MicroSD card</li>
+                <li>Ethernet connection</li>
+              </ul>
             </div>
+          </div>
+          <div class="buttons">
+            <a href="https://amzn.to/2S0Gcl1" class="button accent"
+              >Get Raspberry Pi {% include assets/chevron_right.html %}</a
+            >
+            <a href="/installation/raspberrypi" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <span class="label expert">Expert</span>
+  <span class="label intermediate">Intermediate</span>
 
-    <h2>Advanced installation methods</h2>
-<p>Home Assistant offers four different installation methods. We recommend using Home Assistant Operating System, but other methods are available for experienced users for their specific needs, for example, running Home Assistant in a virtualized environment (e.g. Proxmox), or on top of an existing operating system (e.g. Windows, macOS, Linux):</p>
-<ul>
-<li><b>Home Assistant Container:</b> Standalone container-based installation of Home Assistant Core (e.g. Docker).</li>
-<li><b>Home Assistant Supervised:</b> Manual installation of the Supervisor.</li>
-<li><b>Home Assistant Core:</b> Manual installation using Python virtual environment.</li>
-</ul>
-    <p>Please note that these installation methods, while they provide some columnsibility for advanced users, they may also have some major limitations on usage of Add-ons and other important Home Assistant features. Compare installation methods here.</p>
+  <h2>Customize with Home Assistant Yellow</h2>
+  <p>
+    The extensible Home Assistant Yellow comes with all the ingredients you need
+    to help you build a robust smart home. All you need to do is to bring your
+    own Raspberry Pi Compute Module.
+  </p>
 
-    <div class="installations-card">
-        <div class="material-card text">
-            <div class="content-container">
-                <div class="icon">
-                    <img src="/images/installation/linux.svg">
-                </div>
-                <div class="content">
-                    <h3>Install Home Assistant on Linux</h3>
-                    <p>Use Home Assistant OS, Container, Supervised, or Core</p>
-                    <div class="columns">
-                        <div><b>SKILLS REQUIRED</b>
-                            <ul><li>Advanced knowledge of Linux</li><li>Using Linux command line</li><li>Using Docker Compose (for HA Container)</li></ul></div>
-                        <div><b>TOOLS REQUIRED</b>
-                            <ul><li>Machine with Linux installed</li></ul></div>
-                    </div>
-                    <div class="buttons">
-                    <a href="/installation/linux" class="button">View tutorial {% include assets/chevron_right.html %}</a>
-                </div>         
-                </div>
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="image">
+          <img src="/images/yellow/yellow_hero.jpg" />
+        </div>
+        <div class="content">
+          <h3>Home Assistant Yellow</h3>
+          <p>The powerful way to run Home Assistant</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Very basic electronics skills akin to building a PC</li>
+                <li>Flashing a Raspberry Pi</li>
+              </ul>
             </div>
-        </div>
-    </div>
-
-    <div class="installations-card">
-        <div class="material-card text">
-            <div class="content-container">
-                <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="2038" height="2500" viewBox="0 0 496.255 608.728"><path d="M273.81 52.973C313.806.257 369.41 0 369.41 0s8.271 49.562-31.463 97.306c-42.426 50.98-90.649 42.638-90.649 42.638s-9.055-40.094 26.512-86.971zM252.385 174.662c20.576 0 58.764-28.284 108.471-28.284 85.562 0 119.222 60.883 119.222 60.883s-65.833 33.659-65.833 115.331c0 92.133 82.01 123.885 82.01 123.885s-57.328 161.357-134.762 161.357c-35.565 0-63.215-23.967-100.688-23.967-38.188 0-76.084 24.861-100.766 24.861C89.33 608.73 0 455.666 0 332.628c0-121.052 75.612-184.554 146.533-184.554 46.105 0 81.883 26.588 105.852 26.588z" fill="#999"/></svg>
-                </div>
-                <div class="content">
-                    <h3>Install Home Assistant on macOS</h3>
-                    <p>Use Home Assistant OS on a VM, or install Core</p>
-                    <div class="columns">
-                        <div><b>SKILLS REQUIRED</b>
-                            <ul><li>Advanced knowledge of macOS</li><li>Using macOS command line</li></ul></div>
-                        <div><b>TOOLS REQUIRED</b>
-                            <ul><li>Machine with macOS installed</li></ul></div>
-                    </div>
-                    <div class="buttons">
-                    <a href="/installation/macos" class="button">View tutorial {% include assets/chevron_right.html %}</a>
-                </div>         
-                </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Raspberry Pi Compute Module 4</li>
+                <li>Ethernet connection</li>
+                <li>USB storage drive</li>
+                <li>Screwdriver</li>
+              </ul>
             </div>
+          </div>
+          <div class="buttons">
+            <a href="/yellow" class="button accent"
+              >Get Home Assistant Yellow {% include assets/chevron_right.html
+              %}</a
+            >
+            <a
+              href="https://yellow.home-assistant.io"
+              class="button"
+              target="_blank"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="installations-card">
-        <div class="material-card text">
-            <div class="content-container">
-                <div class="icon">
-                    <svg width="2490" height="2500" viewBox="0 0 256 257" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><path d="M0 36.357L104.62 22.11l.045 100.914-104.57.595L0 36.358zm104.57 98.293l.08 101.002L.081 221.275l-.006-87.302 104.494.677zm12.682-114.405L255.968 0v121.74l-138.716 1.1V20.246zM256 135.6l-.033 121.191-138.716-19.578-.194-101.84L256 135.6z" fill="#00ADEF"/></svg>
-                </div>
-                <div class="content">
-                    <h3>Install Home Assistant on Windows</h3>
-                    <p>Use Home Assistant OS on a VM, or Core on WSL</p>
-                    <div class="columns">
-                        <div><b>SKILLS REQUIRED</b>
-                            <ul><li>Advanced knowledge of Windows</li><li>Using Linux command line</li></ul></div>
-                        <div><b>TOOLS REQUIRED</b>
-                            <ul><li>Machine with Windows installed</li><li>VirtualBox (for VM)</li><li>Windows Subsystem for Linux (for Core)</li></ul></div>
-                    </div>
-                    <div class="buttons">
-                    <a href="/installation/windows" class="button">View tutorial {% include assets/chevron_right.html %}</a>
-                </div>         
-                </div>
+  <span class="label hard">Hard</span>
+
+  <h2>Home Assistant Operating System</h2>
+  <p>
+    Home Assistant can repurpose and be installed on all sorts of hardware, such
+    as ODroid and generic x86-64 machines. Home Assistant Operating System
+    allows you to install Home Assistant on these devices even if you have
+    little to no Linux experience.
+  </p>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="icon">
+          <img src="/images/installation/odroid.png" />
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on ODroid devices</h3>
+          <p>A more powerful alternative to Raspberry Pi</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Understanding of hardware requirements</li>
+                <li>Writing boot images to your boot medium</li>
+              </ul>
             </div>
-        </div>
-    </div>
-
-    <div class="installations-card">
-        <div class="material-card text">
-            <div class="content-container">
-                <div class="icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M10,19H13V22H10V19M12,2C17.35,2.22 19.68,7.62 16.5,11.67C15.67,12.67 14.33,13.33 13.67,14.17C13,15 13,16 13,17H10C10,15.33 10,13.92 10.67,12.92C11.33,11.92 12.67,11.33 13.5,10.67C15.92,8.43 15.32,5.26 12,5A3,3 0 0,0 9,8H6A6,6 0 0,1 12,2Z" /></svg>
-                </div>
-                <div class="content">
-                    <h3>Install Home Assistant on other systems</h3>
-                    <p>Use Home Assistant on virtual machines, NAS, and more</p>
-                    <div class="columns">
-                        <div><b>SKILLS REQUIRED</b>
-                            <ul><li>Advanced knowledge of Windows</li><li>Using Linux command line</li></ul></div>
-                        <div><b>TOOLS REQUIRED</b>
-                            <ul><li>Machine with Windows installed</li><li>VirtualBox (for VM)</li><li>Windows Subsystem for Linux (for Core)</li></ul></div>
-                    </div>
-                    <div class="buttons">
-                    <a href="/installation/alternative" class="button">View tutorial {% include assets/chevron_right.html %}</a>
-                </div>         
-                </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>An Odroid device</li>
+                <li>MicroSD card</li>
+                <li>Ethernet connection</li>
+              </ul>
             </div>
+          </div>
+          <div class="buttons">
+            <a href="/installation/odroid" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="icon">
+          <img src="/images/installation/generic-x86-64.svg" />
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on x86-64 machines</h3>
+          <p>Repurpose workstation hardware to run Home Assistant</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Building a PC or formatting a PC from scratch</li>
+                <li>Writing boot images to your boot medium</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>An x86-64 machine</li>
+                <li>Storage hard drive</li>
+                <li>USB stick</li>
+                <li>Ethernet connection</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="/installation/generic-x86-64" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class="label expert">Expert</span>
+
+  <h2>Advanced installation methods</h2>
+  <p>
+    Home Assistant offers four different installation methods. We recommend
+    using Home Assistant Operating System, but other methods are available for
+    experienced users for their specific needs, for example, running Home
+    Assistant in a virtualized environment (e.g. Proxmox), or on top of an
+    existing operating system (e.g. Windows, macOS, Linux):
+  </p>
+  <ul>
+    <li>
+      <b>Home Assistant Container:</b> Standalone container-based installation
+      of Home Assistant Core (e.g. Docker).
+    </li>
+    <li>
+      <b>Home Assistant Supervised:</b> Manual installation of the Supervisor.
+    </li>
+    <li>
+      <b>Home Assistant Core:</b> Manual installation using Python virtual
+      environment.
+    </li>
+  </ul>
+  <p>
+    Please note that these installation methods, while they provide some
+    columnsibility for advanced users, they may also have some major limitations
+    on usage of Add-ons and other important Home Assistant features. Compare
+    installation methods here.
+  </p>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="icon">
+          <img src="/images/installation/linux.svg" />
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on Linux</h3>
+          <p>Use Home Assistant OS, Container, Supervised, or Core</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Advanced knowledge of Linux</li>
+                <li>Using Linux command line</li>
+                <li>Using Docker Compose (for HA Container)</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Machine with Linux installed</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="/installation/linux" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="2038"
+            height="2500"
+            viewBox="0 0 496.255 608.728"
+          >
+            <path
+              d="M273.81 52.973C313.806.257 369.41 0 369.41 0s8.271 49.562-31.463 97.306c-42.426 50.98-90.649 42.638-90.649 42.638s-9.055-40.094 26.512-86.971zM252.385 174.662c20.576 0 58.764-28.284 108.471-28.284 85.562 0 119.222 60.883 119.222 60.883s-65.833 33.659-65.833 115.331c0 92.133 82.01 123.885 82.01 123.885s-57.328 161.357-134.762 161.357c-35.565 0-63.215-23.967-100.688-23.967-38.188 0-76.084 24.861-100.766 24.861C89.33 608.73 0 455.666 0 332.628c0-121.052 75.612-184.554 146.533-184.554 46.105 0 81.883 26.588 105.852 26.588z"
+              fill="#999"
+            />
+          </svg>
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on macOS</h3>
+          <p>Use Home Assistant OS on a VM, or install Core</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Advanced knowledge of macOS</li>
+                <li>Using macOS command line</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Machine with macOS installed</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="/installation/macos" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="icon">
+          <svg
+            width="2490"
+            height="2500"
+            viewBox="0 0 256 257"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid"
+          >
+            <path
+              d="M0 36.357L104.62 22.11l.045 100.914-104.57.595L0 36.358zm104.57 98.293l.08 101.002L.081 221.275l-.006-87.302 104.494.677zm12.682-114.405L255.968 0v121.74l-138.716 1.1V20.246zM256 135.6l-.033 121.191-138.716-19.578-.194-101.84L256 135.6z"
+              fill="#00ADEF"
+            />
+          </svg>
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on Windows</h3>
+          <p>Use Home Assistant OS on a VM, or Core on WSL</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Advanced knowledge of Windows</li>
+                <li>Using Linux command line</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Machine with Windows installed</li>
+                <li>VirtualBox (for VM)</li>
+                <li>Windows Subsystem for Linux (for Core)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="/installation/windows" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M10,19H13V22H10V19M12,2C17.35,2.22 19.68,7.62 16.5,11.67C15.67,12.67 14.33,13.33 13.67,14.17C13,15 13,16 13,17H10C10,15.33 10,13.92 10.67,12.92C11.33,11.92 12.67,11.33 13.5,10.67C15.92,8.43 15.32,5.26 12,5A3,3 0 0,0 9,8H6A6,6 0 0,1 12,2Z"
+            />
+          </svg>
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on other systems</h3>
+          <p>Use Home Assistant on virtual machines, NAS, and more</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Advanced knowledge of Windows</li>
+                <li>Using Linux command line</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Machine with Windows installed</li>
+                <li>VirtualBox (for VM)</li>
+                <li>Windows Subsystem for Linux (for Core)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="/installation/alternative" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <h2>Compare installation methods</h2>
 
 <div class="compare-installations">
-    <table>
-    <th></th><th>HA OS<sup>1</sup></th><th>Container<sup>1</sup></th><th>Core<sup>1</sup></th><th>Supervised<sup>1</sup></th>
+  <table>
+    <th></th>
+    <th>HA OS<sup>1</sup></th>
+    <th>Container<sup>1</sup></th>
+    <th>Core<sup>1</sup></th>
+    <th>Supervised<sup>1</sup></th>
     <tr>
-        <td><a href="/docs/automation" target="_blank">Automations</a></td>
-        <td>✅</td><td>✅</td><td>✅</td><td>✅</td>
+      <td><a href="/docs/automation" target="_blank">Automations</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
     </tr>
     <tr>
-        <td><a href="/dashboards" target="_blank">Dashboards</a></td>
-        <td>✅</td><td>✅</td><td>✅</td><td>✅</td>
+      <td><a href="/dashboards" target="_blank">Dashboards</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
     </tr>
     <tr>
-        <td><a href="/integrations" target="_blank">Integrations</a></td>
-        <td>✅</td><td>✅</td><td>✅</td><td>✅</td>
+      <td><a href="/integrations" target="_blank">Integrations</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
     </tr>
     <tr>
-        <td><a href="/docs/blueprint" target="_blank">Blueprints</a></td>
-        <td>✅</td><td>✅</td><td>✅</td><td>✅</td>
+      <td><a href="/docs/blueprint" target="_blank">Blueprints</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
     </tr>
     <tr>
-        <td>Uses container</td>
-        <td>✅</td><td>✅</td><td>❌</td><td>✅</td>
+      <td>Uses container</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>❌</td>
+      <td>✅</td>
     </tr>
     <tr>
-        <td><a href="/docs/glossary/#home-assistant-supervisor" target="_blank">Supervisor</a></td>
-        <td>✅</td><td>❌</td><td>❌</td><td>✅</td>
+      <td>
+        <a href="/docs/glossary/#home-assistant-supervisor" target="_blank"
+          >Supervisor</a
+        >
+      </td>
+      <td>✅</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>✅</td>
     </tr>
     <tr>
-        <td><a href="/addons" target="_blank">Add-ons<a></td>
-        <td>✅</td><td>❌</td><td>❌</td><td>✅</td>
+      <td><a href="/addons" target="_blank">Add-ons</a></td>
+      <td>✅</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>✅</td>
     </tr>
     <tr>
-        <td><a href="/common-tasks/os/#backups" target="_blank">Backups</a></td>
-        <td>✅</td><td>✅<sup>2</sup></td><td>✅<sup>2</sup></td><td>✅</td>
+      <td><a href="/common-tasks/os/#backups" target="_blank">Backups</a></td>
+      <td>✅</td>
+      <td>✅<sup>2</sup></td>
+      <td>✅<sup>2</sup></td>
+      <td>✅</td>
     </tr>
     <tr>
-        <td>Managed Restore</td>
-        <td>✅</td><td>❌<sup>3</sup></td><td>❌<sup>3</sup></td><td>✅</td>
+      <td>Managed Restore</td>
+      <td>✅</td>
+      <td>❌<sup>3</sup></td>
+      <td>❌<sup>3</sup></td>
+      <td>✅</td>
     </tr>
     <tr>
-        <td>Managed OS</td>
-        <td>✅</td><td>❌</td><td>❌</td><td>❌</td>
+      <td>Managed OS</td>
+      <td>✅</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
     </tr>
-</table>
+  </table>
 </div>
 
-<sub>1: Names are abbreviated. The full names of the installation methods are: <ul>
+<sub
+  >1: Names are abbreviated. The full names of the installation methods are:
+  <ul>
     <li style="margin-top: 0.4em">Home Assistant Operating System</li>
     <li style="margin-top: 15px">Home Assistant Container</li>
     <li style="margin-top: 15px">Home Assistant Core</li>
     <li style="margin-top: 15px">Home Assistant Supervised</li>
-</ul></sub>
+  </ul></sub
+>
 <p>
-<sub>2: Backups for Home Assistant Core and Home Assistant Container is provided by the <a href="/integrations/backup" target="_blank"><code>backup</code> integration</a>.</sub></p>
+  <sub
+    >2: Backups for Home Assistant Core and Home Assistant Container is provided
+    by the
+    <a href="/integrations/backup" target="_blank"
+      ><code>backup</code> integration</a
+    >.</sub
+  >
+</p>
 <p>
-<sub>3: Backups for Home Assistant Core and Home Assistant Container are either a tool to migrate to HAOS or a completely manual restore of the backup.</sub></p>
+  <sub
+    >3: Backups for Home Assistant Core and Home Assistant Container are either
+    a tool to migrate to HAOS or a completely manual restore of the backup.</sub
+  >
+</p>
 <p></p>
 
 <p><i>We get commissions for purchases made through links in this post.</i></p>
