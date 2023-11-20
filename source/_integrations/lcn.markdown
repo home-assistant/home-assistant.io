@@ -2,7 +2,7 @@
 title: LCN
 description: Instructions on how to integrate LCN components with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Hub
@@ -33,7 +33,7 @@ With this setup sending and receiving commands to and from LCN modules is possib
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)

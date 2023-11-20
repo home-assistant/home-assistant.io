@@ -3,7 +3,7 @@ title: HomeKit Device
 description: Instructions for how to integrate your HomeKit devices within Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Fan
@@ -185,18 +185,18 @@ This section describes how to add a HomeKit [compatible device](#supported-devic
 
 There is currently support for the following device types (also called *domains*) within Home Assistant. They are listed with their default types.
 
-- Alarm Control Panel (HomeKit security system)
+- Alarm control panel (HomeKit security system)
 - Climate (HomeKit thermostats and air conditioners)
 - Cover (HomeKit garage door openers, windows, or window coverings)
 - Light (HomeKit lights)
 - Lock (HomeKit lock)
 - Switch (HomeKit switches, outlets and valves)
-- Binary Sensor (HomeKit motion, contact, occupancy, carbon monoxide and smoke sensors)
+- Binary sensor (HomeKit motion, contact, occupancy, carbon monoxide and smoke sensors)
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 - Fan
-- Air Quality
+- Air quality
 - Humidifier (HomeKit humidifiers and dehumidifiers)
-- Automation Triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
+- Automation triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
 
 <div class='note'>
 

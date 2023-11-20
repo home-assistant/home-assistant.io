@@ -2,7 +2,7 @@
 title: IHC Controller
 description: Instructions on how to integrate the IHC integrations with Home Assistant
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Light
   - Sensor
@@ -22,7 +22,7 @@ IHC Controller integration for Home Assistant allows you to connect the LK IHC c
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Light](#light)
 - [Switch](#switch)

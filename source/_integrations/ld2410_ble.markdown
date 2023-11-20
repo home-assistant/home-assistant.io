@@ -2,7 +2,7 @@
 title: LD2410 BLE
 description: Instructions on how to integrate LD2410 BLE devices into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
   - Sensor
 ha_bluetooth: true
 ha_release: 2023.2

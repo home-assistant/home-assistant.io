@@ -2,7 +2,7 @@
 title: Kaleidescape
 description: Instructions on how to integrate Kaleidescape into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
   - Sensor
 ha_release: '2022.4'
@@ -34,9 +34,9 @@ This integration is intended for the automation of Kaleidescape players with a m
 
 {% include integrations/config_flow.md %}
 
-## Media Player
+## Media player
 
-The Kaleidescape media player platform will create a [Media Player](/integrations/media_player/) entity for the device. This entity will display the currently playing media and playback controls.
+The Kaleidescape media player platform will create a [media player](/integrations/media_player/) entity for the device. This entity will display the currently playing media and playback controls.
 
 ## Remote
 
