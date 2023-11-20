@@ -29,7 +29,8 @@ The `tts.speak` service supports `language` and on some platforms also `options`
 
 ```yaml
 service: tts.speak
-target: tts.example
+target:
+  entity_id: tts.example
 data:
   media_player_entity_id: media_player.kitchen
   message: "May the force be with you."
