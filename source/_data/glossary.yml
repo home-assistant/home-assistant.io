@@ -215,7 +215,7 @@
 - term: Integration
   definition: >-
     Integrations connect and integrate Home Assistant with devices, services,
-    and more. It contains all the logic to handle
+    and more. They contain all the logic to handle
     vendor- and device-specific implementations, such as authentication or
     specific protocols. The integration brings such device-specific elements into Home Assistant in a standardized
     way. For example, the [Hue](/integrations/hue) integration integrates
