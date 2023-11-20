@@ -99,7 +99,7 @@ When a Reolink doorbell is pressed the quick reply message from the "Auto quick 
 
 If the "Auto tracking" switch entity is enabled, and a object disappears from view OR stops moving for the "Auto track disappear time"/"Auto track stop time", the camera goes back to its original position.
 
-"Day night switch threshold" detemines at which light level the camera switches from Color to Black&White, this value is only applicable if the "Day night mode" select is on Auto.
+**Day night switch threshold** determines at which light level the camera switches from **Color** to **Black & white**. This value only applies if the **Day night mode** select is on **Auto**.
 
 ## Button entities
 
