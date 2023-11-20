@@ -37,3 +37,13 @@ If you see an "No unconfigured devices found" message, make sure that the desk i
 ## Connect/Disconnect buttons
 
 This integration provides two buttons to connect and disconnect to/from the desk using Bluetooth. These can be used to automate connecting to the desk only when needed, for example, to avoid keeping a constant connection when the available connection slots are limited.
+
+## Sensors
+
+{% configuration_basic %}
+
+Height:
+  description: The current height of the desk, in meters.
+
+{% endconfiguration_basic %}
+
