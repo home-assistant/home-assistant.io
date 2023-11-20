@@ -51,6 +51,6 @@ Another big thing is the addition of GTFS support. You probably don't know it, b
 [Raspberry PI]: /integrations/rpi_camera
 [Z-Wave]: /integrations/zwave/#climate
 
-### Breaking changes
+### Backward-incompatible changes
 
-As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to `execute_service` in their script configs. This should be `service`.
+As of now we are not aware of any backward-incompatible changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to `execute_service` in their script configs. This should be `service`.

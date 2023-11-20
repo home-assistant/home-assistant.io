@@ -35,7 +35,7 @@ After two weeks of hard work I'm proud to announce the release of Home Assistant
 
 <!--more-->
 
-#### Breaking changes
+#### Backward-incompatible changes
 
 As part of this release we did some cleanup which introduced backwards incompatible changes:
 
