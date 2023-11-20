@@ -27,9 +27,9 @@ The LinknLink integration allows you to control and monitor LinknLink universal 
 
 ## Entities and subdomains
 
-There is no more need to set up platforms, except for custom IR/RF switches. Once the device is configured, all entities will be created automatically.
+There is no more need to set up platforms except for custom IR/RF switches. Once the device is configured all entities will be created automatically.
 
-The entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to click _Update_ to save your changes when you're done.
+The entities have the same name as the device by default. To change the name, icon, or entity id select the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to select _Update_ to save your changes when you're done.
 
 The entities are divided into four subdomains:
 
