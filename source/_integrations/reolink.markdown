@@ -90,13 +90,13 @@ Depending on the supported features of the camera, number entities are added for
 - Auto track disappear time
 - Auto track stop time
 
-"Floodlight turn on brightness" controls the brightness of the floodlight when it is turned on internally by the camera (see "Floodlight mode" select entity) or when using the "Floodlight" light entity.
+**Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
-When the camera is not moved and no person/pet/vehicle is detected for the "Guard return time" in seconds, and the "Guard return" switch is ON, the camera will move back to the guard position.
+When the camera is not moved and no person/pet/vehicle is detected for the **Guard return time** in seconds, and the **Guard return** switch is ON, the camera will move back to the guard position.
 
-When a Reolink doorbell is pressed the quick reply message from the "Auto quick reply message" select entity will be played after "Auto quick reply time" seconds, unless the "Auto quick reply message" is set to off.
+When a Reolink doorbell is pressed the quick reply message from the **Auto quick reply message** select entity will be played after **Auto quick reply time** seconds, unless the **Auto quick reply message** is set to off.
 
-If the "Auto tracking" switch entity is enabled, and a object disappears from view OR stops moving for the "Auto track disappear time"/"Auto track stop time", the camera goes back to its original position.
+If the **Auto tracking** switch entity is enabled, and a object disappears from view OR stops moving for the **Auto track disappear time**/**Auto track stop time**, the camera goes back to its original position.
 
 ## Button entities
 
