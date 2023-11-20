@@ -3,7 +3,7 @@ title: ASUSWRT
 description: Instructions on how to integrate ASUSWRT into Home Assistant.
 ha_category:
   - Hub
-  - Presence Detection
+  - Presence detection
   - Sensor
 ha_release: 0.83
 ha_config_flow: true

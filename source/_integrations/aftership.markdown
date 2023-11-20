@@ -2,7 +2,7 @@
 title: AfterShip
 description: Instructions on how to set up AfterShip sensors within Home Assistant.
 ha_category:
-  - Postal Service
+  - Postal service
 ha_release: 0.85
 ha_iot_class: Cloud Polling
 ha_domain: aftership

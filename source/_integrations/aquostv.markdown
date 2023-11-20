@@ -2,7 +2,7 @@
 title: Sharp Aquos TV
 description: Instructions on how to integrate a Sharp Aquos TV into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_domain: aquostv

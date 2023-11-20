@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Airly integration uses the [Airly](https://airly.eu/) web service as a source for air quality data for your location.
+The **Airly** {% term integration %} uses the [Airly](https://airly.eu/) web service as a source for air quality data for your location.
 
 ## Setup
 
