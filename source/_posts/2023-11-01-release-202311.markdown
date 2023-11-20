@@ -60,7 +60,7 @@ Enjoy the release!
 - [Release 2023.11.1 - November 4](#release-2023111---november-4)
 - [Release 2023.11.2 - November 10](#release-2023112---november-10)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -565,7 +565,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking changes
+## Backward-incompatible changes
 
 {% details "Demo" %}
 

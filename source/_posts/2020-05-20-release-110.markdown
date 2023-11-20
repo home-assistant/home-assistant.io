@@ -299,7 +299,7 @@ you've enabled advanced mode on your user profile.
   happens, it will be prevented and write an error message to your log,
   similar to how the I/O detection does it (released in [0.109](/blog/2020/04/29/release-109/#detection-of-blocking-io-in-the-event-loop)).
 
-- The ISY994 got a major upgrade! While it has quite a few breaking changes, it
+- The ISY994 got a major upgrade! While it has quite a few backward-incompatible changes, it
   is now available via the UI and many bug are squashed. Thanks [@shbatm]!
 
 ## New Integrations
@@ -353,7 +353,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Manual Alarm Panel** - When going from state `disarmed` to any other (armed)
   state such as `armed_away`, the state will be `arming` instead of `pending` during
@@ -512,10 +512,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
   significant update to the original module used to communicate with the ISY.
   ([@shbatm] - [#35212], [#35338], [#35413], [#35391] ) ([isy994 docs])
 
-  As part of the update and many bug fixes, some breaking changes were introduced:
+  As part of the update and many bug fixes, some backward-incompatible changes were introduced:
 
   <details>
-    <summary>Click see all breaking changes for ISY994</summary>
+    <summary>Click see all backward-incompatible changes for ISY994</summary>
 
     - Remove ISY Climate Module support: the ISY Climate Module was retired by
       UDI on 3/30/2020: UDI Announcement, support has been removed from the module,

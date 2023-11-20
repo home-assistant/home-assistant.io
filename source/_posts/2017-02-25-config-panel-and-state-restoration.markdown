@@ -61,13 +61,13 @@ Thanks to [Fabian][@fabaff] we have a great re-organized documentation. Is it pe
 
 Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don't worry any longer. [Johann][@kellerza] has added the foundation for state restoration to Home Assistant. For the initial release support has been added to `input_select` and `input_boolean` components. We will be adding this to more integrations in the future.
 
-## Breaking changes to customize and Z-Wave "customize"
+## Backward-incompatible changes to customize and Z-Wave "customize"
 
 A couple of releases ago we introduced a new way of doing `customize`. It became a list that allowed different ways of matching the config to the entity.
 
 We realized that this was leading into a rabbit hole that we had to get out off. Besides making it unnecessarily complicated it also blocked the road to config panels. And who doesn't like config panels?
 
-So starting this release, we had to make some breaking changes to right the wrong. We will be releasing an online tool to help you convert your config to the new format later today.
+So starting this release, we had to make some backward-incompatible changes to right the wrong. We will be releasing an online tool to help you convert your config to the new format later today.
 
 [**Update: the online tool can be found here.**](https://jsfiddle.net/balloob/d2e56q6f/74/)
 
@@ -207,7 +207,7 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 
  - Prevent discovered services and devices to be handled twice (@colinodell)
 
-#### Breaking changes
+#### Backward-incompatible changes
 
  - VolvoOnCall has been extended with more features and had to be converted to a component
  - Limitlessled support for Bridge v6 and RGBWW bulbs require users to specify `version` and `port

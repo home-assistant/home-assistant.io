@@ -64,7 +64,7 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
 
 This should fix occasional performance problems that some people have reported.
 
-### Breaking changes
+### Backward-incompatible changes
 
  - We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now `Tèst Mörê` will become `test_more` instead of `tst_mr`.
  - Command line switches will now use the specified object ID for their entity ID instead of basing it off the name.

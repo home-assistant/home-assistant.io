@@ -122,7 +122,7 @@ Write data to add-on stdin.
 
 ### Service hassio.addon_update
 
-Update add-on. This service should be used with caution since add-on updates can contain breaking changes. It is highly recommended that you review release notes/change logs before updating an add-on.
+Update add-on. This service should be used with caution since add-on updates can contain backward-incompatible changes. It is highly recommended that you review release notes/change logs before updating an add-on.
 
 | Service Data Attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

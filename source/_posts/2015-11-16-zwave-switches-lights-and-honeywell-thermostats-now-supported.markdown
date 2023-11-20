@@ -19,7 +19,7 @@ homeassistant:
       icon: "mdi:air-conditioner"
 ```
 
-#### Breaking changes
+#### Backward-incompatible changes
 
  - Any existing zone icon will have to be replaced with one from [Material Design Icons].
  - LimitlessLED light services require colors to be specified in RGB instead of XY.

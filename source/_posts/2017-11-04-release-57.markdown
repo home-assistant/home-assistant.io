@@ -44,7 +44,7 @@ This means that we processed over 20 Pull requests per day. The result was alrea
 
 ## IKEA TRÅDFRI
 
-Good news and bad news on this front. The bad news is that IKEA changed the internal API for TRÅDFRI with a firmware update, breaking the Home Assistant integration. The good news is that they were nice enough to [email us with instructions on the breaking changes][ikea email].
+Good news and bad news on this front. The bad news is that IKEA changed the internal API for TRÅDFRI with a firmware update, breaking the Home Assistant integration. The good news is that they were nice enough to [email us with instructions on the backward-incompatible changes][ikea email].
 
 Long time contributor [@lwis] jumped on the case and managed to migrate our integration in Home Assistant in time for this release. Great work!
 
@@ -107,7 +107,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - IKEA TRÅDFRI: We no longer support entering the key in the configuration. ([@lwis] - [#10282]) ([tradfri docs]) (breaking change)
 - API.AI was renamed to [Dialogflow](/integrations/dialogflow/). This requires to rename the entry in your `configuration.yaml` file from `apiai:` to `dialogflow`. ([@fabaff] - [#10006]) ([dialogflow docs]) (breaking change)

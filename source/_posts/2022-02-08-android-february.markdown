@@ -14,7 +14,7 @@ og_image: /images/blog/2022-02-android/Companion.png
 
 Hey Everyone! It's time for the next Android release and we are really excited to get this one out. Lots of changes for all versions of the app, including Wear OS and Quest devices.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 We have a pretty big release this month with a lot of changes going on. Some of these changes are noticeable as soon as you update the app, so let's cover those first.
 
@@ -42,7 +42,7 @@ A big thank you to [JBassett] for kicking off this feature and working hard to s
 
 ### Sensor Changes
 
-The remaining breaking changes in this release are related to 2 sensors offered by all versions of the app.
+The remaining backward-incompatible changes in this release are related to 2 sensors offered by all versions of the app.
 
 -  [Do Not Disturb Sensor] - No longer available on devices running Android 5 or lower. This sensor, which was previously offered to all supported Android versions, has been updated to use the official Android API instead of the undocumented one. The Android API is only available on devices running Android 6+. Older devices will no longer see this sensor in the Manage Sensors screen.
 -  [Last Used App Sensor] - This sensor previously reported its state as the application label. We realized that this is not always unique, multiple apps can have the exact same name. The state has changed to report the package id which is guaranteed to be unique. The application name is now available as an attribute.
@@ -53,7 +53,7 @@ This next feature of the release is also going to be immediately noticeable upon
 
 ![Screenshot of changelog](/images/blog/2022-02-android/changelog.png)
 
-The changelog prompt will be maintained by contributors of the app as we do not think it will be user friendly to show GitHub commit messages. This allows us to highlight the above breaking changes to all users so they no longer have surprises going forward. Thank you to [dshokouhi] for adding this feature.
+The changelog prompt will be maintained by contributors of the app as we do not think it will be user friendly to show GitHub commit messages. This allows us to highlight the above backward-incompatible changes to all users so they no longer have surprises going forward. Thank you to [dshokouhi] for adding this feature.
 
 ## Wear OS Updates
 

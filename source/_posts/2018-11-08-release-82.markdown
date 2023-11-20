@@ -89,7 +89,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Migrate Mailgun to use the webhook component ([@rohankapoorcom] - [#17464]) ([ifttt docs]) ([mailgun docs]) ([notify docs]) ([automation.webhook docs]) (breaking change)
 - Migrate twilio webhooks to the webhook component ([@rohankapoorcom] - [#17715]) ([twilio docs]) (breaking change)

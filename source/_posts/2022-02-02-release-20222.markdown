@@ -25,7 +25,7 @@ Over 2,500 contributions make this release the largest one we have ever
 shipped! Including 15 brand-new integrations and 13 existing integrations,
 which are now available to set up via the user interface.
 
-Now don't be scared when you look at the breaking changes section. It is a lot,
+Now don't be scared when you look at the backward-incompatible changes section. It is a lot,
 however, most of those are cleanup of old deprecations, or caused by things
 moving to the UI. No better way to start a fresh year, than by cleaning up 🧹
 
@@ -65,7 +65,7 @@ Enjoy the release!
 - [Release 2022.2.8 - February 16](#release-202228---february-16)
 - [Release 2022.2.9 - February 18](#release-202229---february-18)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -1021,7 +1021,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change

@@ -45,7 +45,7 @@ Enjoy the release!
 - [Release 2023.10.4 - October 21](#release-2023104---october-21)
 - [Release 2023.10.5 - October 22](#release-2023105---october-22)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
 Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=-GDonruFfKc)
@@ -588,7 +588,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking changes
+## Backward-incompatible changes
 
 {% details "HomeKit Bridge" %}
 
