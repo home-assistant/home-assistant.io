@@ -44,6 +44,11 @@ intent:
       required: false
       default: false
       type: boolean
+    mode:
+      description: The [script mode](https://www.home-assistant.io/integrations/script/#script-modes) in which to run the intent script. Use this to define if the intent should be able to run multiple times in parallel.
+      required: false
+      default: single
+      type: string
     card:
       description: Card to display.
       required: false
