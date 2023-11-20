@@ -95,7 +95,7 @@ When the LED blinks for the first time, press and hold the button to sweep the f
 
 The codes will be stored in the same way as the IR codes. You don't need to specify `command_type` to send them because this information is stored in the first byte of the code.
 
-_Tip:_ Click Notifications in the sidebar after calling the service and follow the instructions to make sure you are pressing the button at the right time.
+_Tip:_ Select Notifications in the sidebar after calling the service and follow the instructions to make sure you are pressing the button at the right time.
 
 #### Learning a sequence of commands
 
