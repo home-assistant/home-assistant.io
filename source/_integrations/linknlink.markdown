@@ -142,7 +142,7 @@ script:
           alternative: true
 ```
 
-When the LED blinks for the first time, press the button you want to learn. Then wait for the LED to blink again and press the same button. By doing so, two different codes will be learned for the same command, and they will be sent alternately at each call.
+When the LED blinks for the first time, press the button you want to learn. Then wait for the LED to blink again and press the same button. This wil cause two different codes will be learned for the same command and they will be sent alternately at each call.
 
 #### Learned codes storage location
 
