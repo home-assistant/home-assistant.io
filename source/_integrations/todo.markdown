@@ -112,3 +112,15 @@ target:
 data:
   item: "Submit income tax return"
 ```
+
+### Service `todo.remove_completed_items`
+
+Removing all compledted To-do items. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector).
+
+This is a full example of a service call that deletes all compledted to-do items.
+
+```yaml
+service: todo.remove_completed_items
+target:
+  entity_id: todo.personal_tasks
+```
