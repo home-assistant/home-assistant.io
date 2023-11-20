@@ -49,17 +49,17 @@ The **Roomba** {% term integrations %} will add the following sensors.
 Sensors:
 
 - **Battery**: The status of your battery
-- **Bin full** (if Roomba has the capacity to do): Bin Full status
-- **Canceled missions**: Total missions that have been canceled
-- **Failed missions**: Total missions that have failed
-- **Successful missions**: Total successful missions
-- **Total missions**: All total missions together
-- **Scrubs**: Total number of times the robot has executed "scrub"
-- **Total cleaning time**: How long the robot has spend cleaning (total) (in hours)
+- **Bin full** (if Roomba has the capacity to do): If the bin is full
+- **Canceled missions**: Total number of missions that have been canceled
+- **Failed missions**: Total number of missions that have failed
+- **Successful missions**: Total number of successful missions
+- **Total missions**: The total number of all missions
+- **Scrubs**: Total number of times the robot has executed a "scrub"
+- **Total cleaning time**: How many hours the robot has spent cleaning in total
 
-### Manually retrieving your credentials
+### Retrieving your credentials
 
-Before trying to retrieve your credentials manually, make sure than cannot be retrieved automatically from your device.
+Check if the credentials can be retrieved directly from your device:
 
 1. Make sure the Roomba app is closed on all of your devices.
 2. Follow the instructions in Home Assistant to retrieve the credentials.
