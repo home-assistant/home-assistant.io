@@ -115,9 +115,9 @@ data:
 
 ### Service `todo.remove_completed_items`
 
-Removing all compledted To-do items. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector).
+Removing all completed To-do items. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector).
 
-This is a full example of a service call that deletes all compledted to-do items.
+This is a full example of a service call that deletes all completed to-do items.
 
 ```yaml
 service: todo.remove_completed_items
