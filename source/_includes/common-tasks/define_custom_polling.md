@@ -11,22 +11,4 @@ If you want to define a specific interval at which your device is being polled f
    - Define any trigger and condition you like.
    - Under action, select **Call service** and use the [`homeassistant.update_entity` service](/integrations/homeassistant/#service-homeassistantupdate_entity).
    ![Update entity](/images/screenshots/custom_polling_02.png)
-   - Example in YAML.
-
-      ```yaml
-      automation:
-         - alias: "Only update weather information every 20 minutes when I'm home"
-            trigger:
-               - platform: time_pattern
-                 minutes: "/20"
-            condition:
-               - condition: state
-                 entity_id: device_tracker.cynthia
-                 state: home
-            action:
-               - service: homeassistant.update_entity
-                 target:
-                   entity_id: weather.home
-      ```
-
 4. Save your new automation to poll for data.
