@@ -42,7 +42,8 @@ This integration provides two buttons to connect and disconnect to/from the desk
 
 {% configuration_basic %}
 
-**Height**: The current height of the desk, in meters.
+Height:
+  description: The current height of the desk, in meters.
 
 {% endconfiguration_basic %}
 
