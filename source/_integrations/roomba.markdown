@@ -47,14 +47,15 @@ The Roomba's MQTT server only allows a single connection. Enabling continuous mo
 The **Roomba** {% term integrations %} will add the following sensors.
 
 Sensors:
-- roomba_battery_level : The status of your battery
-- roomba_bin_full (if Roomba has the capacity to do) : Bin Full status
-- roomba_missions_cancelled: Total missions that have been canceled
-- roomba_missions_failed: Total missions that have failed
-- roomba_missions_successful: Total successful missions
-- roomba_missions_total: All total missions together
-- roomba_scrubs_count: Total amount of how often the robot has executed "scrub"
-- roomba_total_cleaning_time: How long the robot has spend cleaning (total) (in hours)
+
+- **Battery**: The status of your battery
+- **Bin full** (if Roomba has the capacity to do): Bin Full status
+- **Canceled missions**: Total missions that have been canceled
+- **Failed missions**: Total missions that have failed
+- **Successful missions**: Total successful missions
+- **Total missions**: All total missions together
+- **Scrubs**: Total number of times the robot has executed "scrub"
+- **Total cleaning time**: How long the robot has spend cleaning (total) (in hours)
 
 ### Manually retrieving your credentials
 
