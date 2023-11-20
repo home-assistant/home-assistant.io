@@ -53,6 +53,7 @@ Sensors:
 - **Canceled missions**: Total number of missions that have been canceled
 - **Failed missions**: Total number of missions that have failed
 - **Successful missions**: Total number of successful missions
+- **Average mission time**: The amount of time a mission took on average
 - **Total missions**: The total number of all missions
 - **Scrubs**: Total number of times the robot has executed a "scrub"
 - **Total cleaning time**: How many hours the robot has spent cleaning in total
