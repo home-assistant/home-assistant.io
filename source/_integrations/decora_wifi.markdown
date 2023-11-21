@@ -41,4 +41,3 @@ password:
   type: string
 {% endconfiguration %}
 
-After a restart, you should see your new device under "Entities".
