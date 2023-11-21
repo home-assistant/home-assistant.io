@@ -114,9 +114,9 @@ Depending on the supported features of the camera, button entities are added for
 - Guard set current position
 - Restart*
 
-PTZ left, right, up, down, zoom in and zoom out will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
+**PTZ left**, **right**, **up**, **down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
 
-"Guard set current position" will set the current position as the new guard position.
+**Guard set current position** will set the current position as the new guard position.
 
 ## Select entities
 
@@ -129,9 +129,9 @@ Depending on the supported features of the camera, select entities are added for
 - Auto track method (Digital, Digital first, Pan/Tilt first)
 - Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
 
-PTZ preset positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
+**PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
-Auto quick reply messages can be recorded in the Reolink app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
+**Auto quick reply messages** can be recorded in the Reolink app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
 
 ## Siren entities
 
@@ -156,7 +156,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Email on event
 - FTP upload
 
-For NVRs, a global switch for Record, Push, Buzzer, Email, and FTP will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
+For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and **FTP** will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
 
 ## Light entities
 
@@ -166,9 +166,9 @@ Depending on the supported features of the camera, light entities are added for:
 - Infra red lights in night mode
 - Status LED
 
-When the floodlight entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the "Floodlight mode" select entity.
+When the **floodlight** entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the **Floodlight mode** select entity.
 
-When IR light entity is OFF always OFF, when ON IR LEDs will be on when the camera is in night vision mode, see the "Day night mode" select entity.
+When **IR light** entity is OFF always OFF, when ON IR LEDs will be on when the camera is in night vision mode, see the **Day night mode** select entity.
 
 ## Sensor entities
 
@@ -290,7 +290,7 @@ However, ONVIF push has some additional network configuration requirements:
 
 - Reolink products can not push motion events to an HTTPS address (SSL).
 Therefore, make sure a (local) HTTP address at which HA is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
-A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device".
+A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device.
 
 - Since a HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
 Therefore, ensure no Global SSL certificate is configured in the [`configuration.yaml` under HTTP](/integrations/http/#ssl_certificate).
