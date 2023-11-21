@@ -62,7 +62,15 @@ It is recommended that you run the UniFi Network application in a dedicated virt
 
 ## Button
 
-Provides the ability to restart a UniFi device. This feature requires admin privileges.
+Button entities requires admin privileges to use.
+
+### Power cycle PoE
+
+Use this button entity to cycle power output of a PoE port to cause a connected device to restart.
+
+### Restart UniFi device
+
+Use this button entity to restart a select UniFi device.
 
 ## Image
 
