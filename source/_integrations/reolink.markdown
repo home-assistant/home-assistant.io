@@ -238,19 +238,27 @@ However, these cameras can work with this integration through an NVR in which th
 ## Initial setup
 
 A brand new Reolink camera first needs to be connected to the network and initialized. During initialization, the credentials for the camera need to be set.
-There are serveral ways to achieve this.
+There are several ways to achieve this.
 
-### Reolink app/client
+### To connect Reolink via app/client
 
-The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/). Follow the on-screen instructions.  In Home Assistant, use the credentials you just configured in the Reolink app/client.
+The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/).
 
-### Web browser
+1. Follow the on-screen instructions.  
+2. In Home Assistant, use the credentials you just configured in the Reolink app/client.
 
-When your camera has a LAN port (most Wi-Fi cameras also have a LAN port), first connect the camera to your network using a LAN cable.
-Find the IP address of the camera (for example by checking in your router) and go to the IP address in a web browser.
-Follow the on-screen instructions to first setup the credentials (use the same credentials in Home Assistant).
-If it is a Wi-Fi camera, go to **settings** (gear icon) > **Network** and fill in your Wi-Fi SSID and password. After that you can disconnect the LAN cable and the camera will automatically switch to the Wi-Fi connection.
-Now set up the Reolink Home Assistant integration using the credentials you just specified.
+### To connect Reolink via Web browser
+
+When your camera has a LAN port (most Wi-Fi cameras also have a LAN port):
+
+   1. First connect the camera to your network using a LAN cable.
+   2. Find the IP address of the camera (for example by checking in your router) and go to the IP address in a web browser.
+   3. Follow the on-screen instructions to first setup the credentials (use the same credentials in Home Assistant).
+   4. If it is a Wi-Fi camera:
+      - Go to **settings** (gear icon) > **Network** and fill in your Wi-Fi SSID and password.
+        - If you have both a 2.4 GHz and 5 GHz network, check your camera's user guide to see which operating frequency is supported.
+      - After that you can disconnect the LAN cable and the camera will automatically switch to the Wi-Fi connection.
+   5. Now set up the Reolink Home Assistant integration using the credentials you just specified.
 
 ### QR code
 
