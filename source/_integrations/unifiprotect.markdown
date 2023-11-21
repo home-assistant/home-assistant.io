@@ -254,7 +254,7 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 
 ## Services
 
-### {% term Service %} unifiprotect.set_default_doorbell_text
+### Service unifiprotect.set_default_doorbell_text
 
 Sets the default doorbell message. This will be the message that is automatically selected when a message "expires".
 
@@ -263,7 +263,7 @@ Sets the default doorbell message. This will be the message that is automaticall
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
 | `message`              | No       | The default message for your Doorbell. Must be less than 30 characters.                                     |
 
-### {% term Service %} unifiprotect.add_doorbell_text
+### Service unifiprotect.add_doorbell_text
 
 Adds a new custom message for Doorbells.
 
@@ -272,7 +272,7 @@ Adds a new custom message for Doorbells.
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
 | `message`              | No       | New custom message to add for Doorbells. Must be less than 30 characters.                                   |
 
-### {% term Service %} unifiprotect.remove_doorbell_text
+### Service unifiprotect.remove_doorbell_text
 
 Removes an existing message for Doorbells.
 
@@ -281,7 +281,7 @@ Removes an existing message for Doorbells.
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
 | `message`              | No       | Existing custom message to remove for Doorbells.                                                            |
 
-### {% term Service %} unifiprotect.set_chime_paired_doorbells
+### Service unifiprotect.set_chime_paired_doorbells
 
 Use to set the paired doorbell(s) with a smart chime.
 
