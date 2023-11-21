@@ -102,7 +102,7 @@ If the **Auto tracking** switch entity is enabled, and a object disappears from 
 
 Depending on the supported features of the camera, button entities are added for:
 
-- PTZ stop
+- <abbr title="pan, tilt, and zoom">PTZ</abbr> stop
 - PTZ left
 - PTZ right
 - PTZ up
@@ -124,7 +124,7 @@ Depending on the supported features of the camera, select entities are added for
 
 - Floodlight mode (Off, Auto, Schedule)
 - Day night mode (Auto, Color, Black&White)
-- PTZ preset
+- <abbr title="pan, tilt, and zoom">PTZ</abbr> preset
 - Auto quick reply message
 - Auto track method (Digital, Digital first, Pan/Tilt first)
 - Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
@@ -240,14 +240,14 @@ However, these cameras can work with this integration through an NVR in which th
 A brand new Reolink camera first needs to be connected to the network and initialized. During initialization, the credentials for the camera need to be set.
 There are several ways to achieve this.
 
-### To connect Reolink via app/client
+### Connecting Reolink via app/client
 
 The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/).
 
 1. Follow the on-screen instructions.  
 2. In Home Assistant, use the credentials you just configured in the Reolink app/client.
 
-### To connect Reolink via a web browser
+### Connecting Reolink via a web browser
 
 When your camera has a LAN port (most Wi-Fi cameras also have a LAN port):
 
@@ -273,10 +273,15 @@ Normally, the digits are printed directly under the QR code. Alternatively, you 
 
 Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and connect to your Wi-Fi.
 
+## Showing the camera in the dashboard
+
+1. One way to show the camera in the dashboard is by using the picture glance card.
+2. For example, you can place arrow buttons on the card to [control the camera](/dashboards/picture-glance/#creating-a-card-to-control-the-camera).
+
 ## Troubleshooting
 
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
-- Ensure at least one of the HTTP/HTTPS ports is enabled in the [windows](https://reolink.com/software-and-manual/)/web client under `Settings`->`Network`->`Advanced`->`Port Settings`, see [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
+- Ensure at least one of the HTTP/HTTPS ports is enabled in the [windows](https://reolink.com/software-and-manual/)/web client under **Settings** > **Network** > **Advanced** > **Port Settings**, see [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 - Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.
@@ -295,3 +300,8 @@ A valid address could, for example, be `http://192.168.1.10:8123` where `192.168
 - Since a HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
 Therefore, ensure no Global SSL certificate is configured in the [`configuration.yaml` under HTTP](/integrations/http/#ssl_certificate).
 An SSL certificate can still be enforced for external connections, by, for instance, using the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) or [NGINX Proxy Manager add-on](https://github.com/hassio-addons/addon-nginx-proxy-manager) instead of a globally enforced SSL certificate.
+
+## Related topics
+
+- [Controlling the camera from the dashboard](/dashboards/picture-glance/#creating-a-card-to-control-the-camera)
+- [Reolink product page](https://reolink.com/)
