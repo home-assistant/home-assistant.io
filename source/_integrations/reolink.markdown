@@ -187,7 +187,7 @@ The latest firmware can be downloaded from the [Reolink download center](https:/
 ## Media browser for playback of recordings
 
 Depending on the support of the camera, the Reolink integration will provide a media browser through which recorded videos of the camera can be accessed.
-In the sidebar select "Media" -> "Reolink", select the **camera** you want to see recordings of, optionally select if you want a high or low **resolution** stream, select the recording **date**, here all available video files of that day will be shown.
+In the sidebar, select "Media" > "Reolink" and select the **camera** of which you want to see recordings. Optionally, select if you want a high or low **resolution** stream and select the recording **date**. Here, all available video files of that day will be shown.
 Recordings up to 1 month old can be viewed in Home Assistant.
 
 ## Tested models
