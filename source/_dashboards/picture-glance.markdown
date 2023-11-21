@@ -5,7 +5,7 @@ sidebar_label: Picture glance
 description: "The picture glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog."
 ---
 
-The picture glance card shows an image and lets you place small icons of entity states on top of that card to control those entities from there. The entities shown on the right side of the image allow toggle actions, others show the more information dialog.
+The picture glance card shows an image and lets you place small icons of entity states on top of that card to control those entities from there. In the image below: the entities on the right allow toggle actions, the others show the more information dialog.
 
 <p class='img'>
   <img src='/images/dashboards/picture_glance.gif' alt='Picture glance card for a living room'>
