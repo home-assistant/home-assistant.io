@@ -247,7 +247,7 @@ The recommended way is to use the [Reolink mobile app, Windows, or Mac client](h
 1. Follow the on-screen instructions.  
 2. In Home Assistant, use the credentials you just configured in the Reolink app/client.
 
-### To connect Reolink via Web browser
+### To connect Reolink via a web browser
 
 When your camera has a LAN port (most Wi-Fi cameras also have a LAN port):
 
