@@ -162,7 +162,7 @@ If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> (can be mov
 </p>
 
 1. Select your camera entity.
-    - **Image** and **Image path** are not required.
+    - **Image path** and **Image entity** are not required.
     ![Select camera entity](/images/dashboards/picture_glance_card_select_camera_entity.png)
 2. If you want something to happen when you tap the card itself, define a tap action.
    - Here, we toggle a light.
@@ -172,7 +172,7 @@ If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> (can be mov
 4. Select **Show code editor**.
 5. For each of the entities, specify an icon, as indicated in the YAML example.
 6. For the buttons to react on press (instead of bringing up the dialog):
-   - for each of the entities, under `tap_action`, call a `button.press` service.
+   - For each of the entities, under `tap_action`, call a `button.press` service.
 
     ```yaml
     camera_view: live
