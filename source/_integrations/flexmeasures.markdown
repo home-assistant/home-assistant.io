@@ -22,7 +22,7 @@ ha_quality_scale: silver
 
 The `flexmeasures` integration offers an integration with [FlexMeasures](https://flexmeasures.io/) instances to schedule flexible energy assets.
 
-FlexMeasures can be used to schedule batteries, EV's, heat storage, and other assets. The current integration only supports car batteries and batteries optimizations. Shiftable energy assets like dishwashing machines are currently not supported in the integration. The integration offers the following sensor and services:
+FlexMeasures can be used to schedule batteries, EV's, heat storage, and other assets. The current integration only supports car batteries and battery optimizations. Shiftable energy assets like dishwashing machines are currently not supported in the integration. The integration offers the following sensor and services:
 
 - A sensor for flexible asset schedules
 - A service to retrieve a schedule
