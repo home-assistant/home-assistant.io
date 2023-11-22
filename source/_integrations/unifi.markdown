@@ -62,7 +62,7 @@ It is recommended that you run the UniFi Network application in a dedicated virt
 
 ## Button
 
-Button entities requires admin privileges to use.
+The Button entities will only be available and usable if the integration has an UniFi Network account with administrator privileges.
 
 ### Power cycle PoE
 
