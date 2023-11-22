@@ -66,7 +66,7 @@ Button entities requires admin privileges to use.
 
 ### Power cycle PoE
 
-Use this button entity to cycle power output of a PoE port to cause a connected device to restart.
+Use the **Power cycle PoE** button entity to power cycle one specific PoE port to cause the connected device to restart.
 
 ### Restart UniFi device
 
