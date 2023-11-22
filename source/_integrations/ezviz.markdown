@@ -81,7 +81,7 @@ If your EZVIZ camera supports warning sounds, you can use this service to set th
 
 ### Service `ezviz.ptz`
 
-If your EZVIZ camera supports PTZ, you will be able to pan or tilt your camera.
+If your EZVIZ camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan or tilt your camera.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
@@ -149,7 +149,7 @@ Once triggered, the siren will automatically deactivate after 60 seconds (EZVIZ 
 
 ### PTZ
 
-PTZ up/down/left/right buttons are available on supported PTZ cameras for pan and tilt control.
+<abbr title="pan, tilt, and zoom">PTZ</abbr> up/down/left/right buttons are available on supported <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras for pan and tilt control.
 
 ### Warning sound
 
@@ -166,3 +166,7 @@ The image entity represents the last detected event from a camera and visually r
 ## Troubleshooting
 
 - `authentication failed`: The authentication requires an EZVIZ account with two-step verification disabled. Google, Facebook, TikTok, or other Oauth-based accounts will not work.
+
+## Related topics
+
+- [Controlling the camera from the dashboard](/dashboards/picture-glance/#creating-a-card-to-control-the-camera)

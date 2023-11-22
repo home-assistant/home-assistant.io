@@ -87,7 +87,7 @@ If you are running into trouble with this sensor, please refer to the [Troublesh
 
 ### Service `onvif.ptz`
 
-If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.
+If your ONVIF camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan, tilt or zoom your camera.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
@@ -95,7 +95,7 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 | `tilt` | Tilt direction. Allowed values: `UP`, `DOWN`, `NONE` |
 | `pan` | Pan direction. Allowed values: `RIGHT`, `LEFT`, `NONE` |
 | `zoom` | Zoom. Allowed values: `ZOOM_IN`, `ZOOM_OUT`, `NONE` |
-| `distance` | Distance coefficient. Sets how much PTZ should be executed in one request. Allowed values: floating point numbers, 0 to 1. Default : 0.1 |
+| `distance` | Distance coefficient. Sets how much <abbr title="pan, tilt, and zoom">PTZ</abbr> should be executed in one request. Allowed values: floating point numbers, 0 to 1. Default : 0.1 |
 | `speed` | Speed coefficient. Sets how fast PTZ will be executed. Allowed values: floating point numbers, 0 to 1. Default : 0.5 |
 | `preset` | PTZ preset profile token. Sets the preset profile token which is executed with GotoPreset. |
 | `move_mode` | PTZ moving mode. Allowed values: `ContinuousMove`, `RelativeMove`, `AbsoluteMove`, `GotoPreset`, `Stop`. Default :`RelativeMove` |

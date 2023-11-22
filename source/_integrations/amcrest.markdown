@@ -226,7 +226,7 @@ Service data attribute | Optional | Description
 
 ### Service `goto_preset`
 
-This service will cause the camera to move to one of the PTZ locations configured within the camera.
+This service will cause the camera to move to one of the <abbr title="pan, tilt, and zoom">PTZ</abbr> locations configured within the camera.
 
 Service data attribute | Optional | Description
 -|-|-
@@ -244,7 +244,7 @@ Service data attribute | Optional | Description
 
 ### Service `start_tour`/`stop_tour`
 
-These services start or stop the camera's PTZ tour function.
+These services start or stop the camera's <abbr title="pan, tilt, and zoom">PTZ</abbr> tour function.
 
 Service data attribute | Optional | Description
 -|-|-
@@ -252,7 +252,7 @@ Service data attribute | Optional | Description
 
 ### Service `ptz_control`
 
-If your Amcrest or Dahua camera supports PTZ, you will be able to pan, tilt or zoom your camera.  
+If your Amcrest or Dahua camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan, tilt or zoom your camera.  
 
 Service data attribute | Optional | Description
 -|-|-
