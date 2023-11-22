@@ -1,5 +1,5 @@
 ---
-title: "Linear Garage Door"
+title: "Linear garage door"
 description: "Control Linear garage doors"
 ha_release: "2023.12"
 ha_category:
