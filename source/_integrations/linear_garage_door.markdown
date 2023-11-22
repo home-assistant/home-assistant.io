@@ -1,7 +1,7 @@
 ---
 title: "Linear Garage Door"
 description: "Control Linear garage doors"
-ha_release: "2023.5"
+ha_release: "2023.12"
 ha_category:
   - Cover
 ha_iot_class: "Cloud Polling"
