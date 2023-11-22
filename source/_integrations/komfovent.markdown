@@ -29,10 +29,10 @@ This integration currently supports the following features:
 - Setting the operating mode
   
 ### N.B: Password!  
-It is highly suggested you change the password before integrating the unit with the Home Assistant. 
-1. To access the webinterface of the device, in the browser, enter the IP address of the unit.
+It is highly suggested you change the password before integrating the unit with Home Assistant. 
+1. To access the device's web interface, enter the unit's IP address in the browser.
 2. Change the password in the settings. 
-    - The password has a **max size of 10 characters** in Komfovent units. Longer passwords are truncated here, but not on the login screen.
-    -  When you try and fail at login, before recovering the password, check if your password is longer than 10 characters. Drop all characters after 10 and try again.
+    - The password has a **maximum size of 10 characters** in Komfovent units. Longer passwords are truncated here but not on the login screen.
+    -  When you try and fail to login, before recovering the password, check if your password is longer than 10 characters. Drop all characters after 10 and try again.
 
 {% include integrations/config_flow.md %}
