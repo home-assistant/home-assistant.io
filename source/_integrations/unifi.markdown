@@ -70,7 +70,7 @@ Use the **Power cycle PoE** button entity to power cycle one specific PoE port t
 
 ### Restart UniFi device
 
-Use this button entity to restart a select UniFi device.
+Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch PoE supply is not affected.
 
 ## Image
 
