@@ -67,4 +67,3 @@ Additional sensors will be created for each room sensor accessory assigned to a 
 | -------------------- | ----------------------------------------------------------------- |
 | Room Temperature     | The temperature reported from a room sensor accessory             |
 | Room Humidity        | The humidity reported from a room accessory                       |
-
