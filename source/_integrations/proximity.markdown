@@ -58,11 +58,15 @@ This video tutorial explains how to set up geofencing in Home Assistant using th
 <lite-youtube videoid="pjAyRN5UiBg" videotitle="Geofencing in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
 
 {% configuration %}
-zone:
-  description: The zone to which this integration is measuring the distance to. Default is the home zone.
-  required: false
+friendly_name:
+  description: The name of the proximity entity.
+  required: true
   type: map
   keys:
+    zone:
+      description: The zone to which this integration is measuring the distance to. Default is the `home` zone.
+      required: false
+      type: string
     ignored_zones:
       description: Where proximity is not calculated for a device or person (either the device being monitored or ones being compared (e.g., work or school).
       required: false

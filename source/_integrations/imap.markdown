@@ -54,11 +54,12 @@ By default, this integration will count unread emails. By configuring the search
 ### Selecting a charset supported by the imap server
 
 Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US-ASCII` as charset:
-  - Server: `outlook.office365.com`
-  - Port: `993`
-  - Username: Your full email address
-  - Password: Your password
-  - Charset: `US-ASCII`
+
+- Server: `outlook.office365.com`
+- Port: `993`
+- Username: Your full email address
+- Password: Your password
+- Charset: `US-ASCII`
 
 <div class="note">
 
@@ -93,7 +94,6 @@ The enforce polling option is an advanced setting. The option is available only 
 
 Email providers may limit the number of reported emails. The number may be less than the limit (10,000 at least for Yahoo) even if you set the `IMAP search` to reduce the number of results. If you are not getting expected events and cleaning your Inbox or the configured folder is not desired, set up an email filter for the specific sender to go into a new folder. Then create a new config entry or modify the existing one with the desired folder.
 
-
 ### Using events
 
 When a new message arrives or a message is removed within the defined search command scope, the `imap` integration will send a custom [event](/docs/automation/trigger/#event-trigger) that can be used to trigger an automation.
@@ -119,7 +119,7 @@ search:
 folder:
   description: The IMAP folder configuration
 text:
-  description: The email body `text` of the message (by default, only the first 2048 bytes will be available.)
+  description: The email body `text` of the message. By default, only the first 2048 bytes of the body text will be available, the rest will be clipped off. You can increase the maximum text size of the body, but this is not advised and will never guarantee that the whole message text is available. A better practice is using a custom event data template (advanced settings) that can be used to parse the whole message, not limited by size. The rendered result will then be added as attribute `custom` to the event data to be used for automations.
 sender:
   description: The `sender` of the message
 subject:

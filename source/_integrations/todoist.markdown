@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: todoist
 ha_platforms:
   - calendar
+  - todo
 ha_integration_type: integration
 ha_config_flow: true
 ---

@@ -100,10 +100,10 @@ The following sensors are available in the library:
 | Energy Yield Month      | kWh  | Energy yield of the current month. |
 | Energy Yield Year       | kWh  | Energy yield of the current year. |
 | Energy Yield Total      | kWh  | Energy yield total. |
-| Energy Discharge to Grid Day    | kWh  | Energy discharged to the Grid of the current day. |
-| Energy Discharge to Grid Month  | kWh  | Energy discharged to the Grid of the current month. |
-| Energy Discharge to Grid Year   | kWh  | Energy discharged to the Grid of the current year. |
-| Energy Discharge to Grid Total  | kWh  | Energy discharged to the Grid total. |
+| Energy Discharge to Grid Day    | kWh  | Energy discharged from battery to the Grid of the current day. |
+| Energy Discharge to Grid Month  | kWh  | Energy discharged from battery to the Grid of the current month. |
+| Energy Discharge to Grid Year   | kWh  | Energy discharged from battery to the Grid of the current year. |
+| Energy Discharge to Grid Total  | kWh  | Energy discharged from battery to the Grid total. |
 | Battery Charge from Grid Day    | kWh  | Energy charged to the battery from the Grid of the current day. |
 | Battery Charge from Grid Month  | kWh  | Energy charged to the battery from the Grid of the current month. |
 | Battery Charge from Grid Year   | kWh  | Energy charged to the battery from the Grid of the current year. |
@@ -112,6 +112,38 @@ The following sensors are available in the library:
 | Battery Charge from PV Month  | kWh  | Energy charged to the battery from the PV of the current month. |
 | Battery Charge from PV Year   | kWh  | Energy charged to the battery from the PV of the current year. |
 | Battery Charge from PV Total  | kWh  | Energy charged to the battery from the PV total. |
+
+<div class='note'>
+The inverter does not provide any data on the energy that is going to the grid directly.
+</div>
+
+#### Common template sensors
+
+##### Energy to grid total
+
+{% raw %}
+
+```yaml
+template:
+  - sensor:
+    - name: "Plenticore Energy PV to Grid Total (Template)"
+      unit_of_measurement: "kWh"
+      device_class: energy
+      state_class: total
+      state: >
+        {% set yield = states('sensor.scb_energy_yield_total') | float %}
+        {% set batteryToHome = states('sensor.scb_home_consumption_from_battery_total') | float %}
+        {% set pvToHome = states('sensor.scb_home_consumption_from_pv_total') | float %}
+        {{ yield - pvToHome - batteryToHome }}
+```
+
+The `sensor.scb_energy_yield_total` entity contains the total energy. This includes
+both the energy delivered to the home as well as the energy from the battery to the
+home. Think of it like all energy that leaves the inverter on the AC side.
+Hence, to calculate the amount of energy flowing into the grid, you have to subtract the energy from the battery and PV to the
+home.
+
+{% endraw %}
 
 ### Settings Sensors
 
