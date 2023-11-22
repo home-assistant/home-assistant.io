@@ -62,7 +62,7 @@ It is recommended that you run the UniFi Network application in a dedicated virt
 
 ## Button
 
-The Button entities will only be available and usable if the integration has an UniFi Network account with administrator privileges.
+The Button entities will only be available and usable if the integration has a UniFi Network account with administrator privileges.
 
 ### Power cycle PoE
 
@@ -70,7 +70,7 @@ Use the **Power cycle PoE** button entity to power cycle one specific PoE port t
 
 ### Restart UniFi device
 
-Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch PoE supply is not affected.
+Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch, the PoE supply is not affected.
 
 ## Image
 
