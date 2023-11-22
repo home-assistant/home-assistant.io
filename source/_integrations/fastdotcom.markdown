@@ -35,4 +35,4 @@ By default, a speed test will be run every hour. The user can manually run a spe
 
 - When running on Raspberry Pi 3 or older, the maximum speed is limited by its 100 Mbit/s LAN adapter.
 - The sensor will return the maximum measured speed during a 15-second test.
-- Speed tests consume data depending on your internet speed, make sure to consider this if your internet connection has limited bandwidth.
+- Speed tests consume data depending on your internet speed. Make sure to consider this if your internet connection has limited bandwidth.
