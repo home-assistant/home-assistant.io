@@ -599,17 +599,21 @@ The following integrations are now available via the Home Assistant UI:
 - Bump bimmer_connected to 0.14.3 ([@rikroe] - [#104282])
 - Bump pyrainbird to 4.0.1 ([@allenporter] - [#104293])
 - Bump pychromecast to 13.0.8 ([@emontnemery] - [#104320])
+- Bump ical to 6.0.0 ([@allenporter] - [#103482])
+- Bump ical to 6.1.0 ([@allenporter] - [#103759])
 
 [#101603]: https://github.com/home-assistant/core/pull/101603
 [#103164]: https://github.com/home-assistant/core/pull/103164
 [#103264]: https://github.com/home-assistant/core/pull/103264
 [#103301]: https://github.com/home-assistant/core/pull/103301
+[#103482]: https://github.com/home-assistant/core/pull/103482
 [#103532]: https://github.com/home-assistant/core/pull/103532
 [#103582]: https://github.com/home-assistant/core/pull/103582
 [#103607]: https://github.com/home-assistant/core/pull/103607
 [#103688]: https://github.com/home-assistant/core/pull/103688
 [#103737]: https://github.com/home-assistant/core/pull/103737
 [#103744]: https://github.com/home-assistant/core/pull/103744
+[#103759]: https://github.com/home-assistant/core/pull/103759
 [#103760]: https://github.com/home-assistant/core/pull/103760
 [#103761]: https://github.com/home-assistant/core/pull/103761
 [#103762]: https://github.com/home-assistant/core/pull/103762
@@ -677,7 +681,6 @@ The following integrations are now available via the Home Assistant UI:
 [@rikroe]: https://github.com/rikroe
 [@suaveolent]: https://github.com/suaveolent
 [@tschamm]: https://github.com/tschamm
-
 
 ## Need help? Join the community!
 
