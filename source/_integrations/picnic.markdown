@@ -24,7 +24,7 @@ This integration provides the following sensors. Some sensors are disabled by de
 
 | Name                           | Description                                                                                                                                         |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cart items count               | The amount of different products currently in the cart.                                                                                             |
+| Picnic shopping cart           | The amount of different products currently in the cart.                                                                                             |
 | Cart total price               | The total price for products currently in the cart.                                                                                                 |
 | Selected slot start            | Start of the selected delivery slot, `unknown` if none is selected.                                                                             |
 | Selected slot end              | End of the selected delivery slot, `unknown` if none is selected.                                                                               |
