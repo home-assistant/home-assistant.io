@@ -3,7 +3,7 @@ title: SmartThings
 description: Instructions on setting up SmartThings within Home Assistant.
 featured: true
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Fan
@@ -124,7 +124,7 @@ Event data payloads are logged at the debug level, see [debugging](#debugging) f
 
 SmartThings represents devices as a set of [capabilities](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities) and the SmartThings integration maps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Fan](#fan)
@@ -136,9 +136,9 @@ SmartThings represents devices as a set of [capabilities](https://developer-prev
 
 Support for additional platforms will be added in the future.
 
-### Binary Sensor
+### Binary sensor
 
-The SmartThings Binary Sensor platform lets you view devices that have binary sensor-related capabilities. A Binary Sensor entity will be created for each attribute (below) supported by the device.
+The SmartThings binary sensor platform lets you view devices that have binary sensor-related capabilities. A binary sensor entity will be created for each attribute (below) supported by the device.
 
 | Capability                                                                                                                            | Attribute      | On-Value   |
 | ------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------- |

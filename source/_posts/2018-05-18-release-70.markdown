@@ -53,7 +53,7 @@ Another cool one this release is [Facebox][image_processing.facebox docs]. It wi
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - Converted SABnzbd to a component. Set it up using the new config:
   ```yaml

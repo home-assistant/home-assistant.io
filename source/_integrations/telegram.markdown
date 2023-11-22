@@ -20,16 +20,16 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
   - Bots are not allowed to contact users. You need to make the first contact from the user for which you want to set up the bot.
 
 1. Tell Telegram to create a bot for you:
-  - In Telegram, open a chat with @BotFather and enter `/newbot`.
-  - Follow the instructions on screen and give your bot a name.
-  - BotFather will give you a link to your new bot and an HTTP API token.
+   - In Telegram, open a chat with @BotFather and enter `/newbot`.
+   - Follow the instructions on screen and give your bot a name.
+   - BotFather will give you a link to your new bot and an HTTP API token.
      - Store the token somewhere safe.
 2. To get a chat ID, send any message to the [GetIDs bot](https://t.me/getidsbot).
-  - Then, enter `/start`. 
-  - The bot will return your chat ID and the user name.
+   - Then, enter `/start`. 
+   - The bot will return your chat ID and the user name.
 3. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot):
-  - Paste this into your [configuration file](/docs/configuration/):
-  - Replace the `api_key` and the `allowed_chat_ids` with your data.
+   - Paste this into your [configuration file](/docs/configuration/):
+   - Replace the `api_key` and the `allowed_chat_ids` with your data.
   
       ```yaml
       # Telegram Bot
@@ -41,8 +41,8 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
       ```
 
 4. Create a notifier:
-  - Paste this into your configuration file: 
-  - Replace the `name` and the `chat_id` with your data.
+   - Paste this into your configuration file: 
+   - Replace the `name` and the `chat_id` with your data.
   
       ```yaml
       # Notifier
@@ -51,21 +51,21 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
           name: "sarah"
           chat_id: 44441111
       ```
-    - Restart Home Assistant.
+   - Restart Home Assistant.
 
 5. From the conversation with BotFather, select the link to open a chat with your new bot.
 6. In the chat with the new bot, enter `/start`.
 7. Test the service:
-  - Go to [**Developer tools** > **Services** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
-  - Paste this into the YAML file:
-  - Replace the `service` and the `message` with your data.
+   - Go to [**Developer tools** > **Services** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
+   - Paste this into the YAML file:
+   - Replace the `service` and the `message` with your data.
   
       ```yaml
       service: notify.sarah
       data:
         message: "Yay! A message from Home Assistant."
       ```
-  - Select **Call service**. You should now get a message.
+   - Select **Call service**. You should now get a message.
 
 8. You can do more with this. Check out the configuration descriptions and examples below.
 

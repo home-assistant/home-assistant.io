@@ -200,7 +200,7 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 - [Core](/common-tasks/core/#configuration-check)
 - [Supervised](/common-tasks/supervised/#configuration-check)
 
-## Advanced Usage
+## Advanced usage
 
 We offer four advanced options to include whole directories at once. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
 

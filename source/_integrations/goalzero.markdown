@@ -22,7 +22,7 @@ This Goal Zero Yeti integration pulls data from a Wifi-enabled [Goal Zero Yeti](
 
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+## Integration entities
 
 Each added configuration entry will create the following binary sensors:
 

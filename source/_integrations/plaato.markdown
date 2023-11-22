@@ -36,7 +36,7 @@ To configure a Plaato device, you must set it up via the integrations panel in t
 
 You have two options to choose from: webhook and `auth_token.` The webhook is only available for the Airlock at the moment.
 
-### Auth Token
+### Auth token
 
 To be able to query the API an `auth_token` is required which can be obtained by following [these](https://intercom.help/plaato/en/articles/5004720-auth_token) instructions.
 

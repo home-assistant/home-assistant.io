@@ -2,7 +2,7 @@
 title: Seven Segments OCR
 description: Instructions on how to use OCR for seven segments displays into Home Assistant.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_release: 0.45
 og_image: /images/screenshots/ssocr.png
 ha_iot_class: Local Polling

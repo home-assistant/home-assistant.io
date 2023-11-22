@@ -20,13 +20,15 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
 
 </div>
 
-- 800 series controllers
+- 800 series controllers (with some caveats, see notes)
   - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
 - 700 series controllers
   - Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)
   - Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
   - Zooz S2 Stick 700 (ZST10 700)
+  - HomeSeer SmartStick+ G3
+  - HomeSeer Z-NET G3
 
 - 500 series controllers
   - Aeotec Z-Stick Gen5 (see note below)
@@ -35,6 +37,8 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
   - Sigma Designs UZB stick
   - Vision USB stick - Gen5
   - Z-Wave.Me UZB1 stick
+  - HomeSeer SmartStick+ G2
+  - HomeSeer Z-NET G2
 
 - Raspberry Pi modules
   - Aeotec Z-Pi 7 Raspberry Pi HAT/Shield (ZWA025, 700 series)
@@ -48,7 +52,7 @@ If you are just starting out, we recommend that you purchase a 700 series contro
   If you're using Home Assistant OS, Supervised, or Container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
 </div>
 
-## Stick Alternatives
+## Stick alternatives
 
 The alternative to a stick is a hub that supports Z-Wave. Home Assistant supports the following hubs with Z-Wave support:
 
@@ -57,7 +61,16 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 - [SmartThings](/integrations/smartthings/)
 - [Z-Wave.Me Z-Way](/integrations/zwave_me)
 
-## Controller Notes
+## Controller notes
+
+### 800 Series Controllers
+
+Z-Wave JS and Z-Wave JS UI do not support the following features available on most 800 series controllers.
+
+Unsupported:
+
+ - Long Range
+ - NVM Backup/Restore
 
 ### Aeotec Z-Stick
 

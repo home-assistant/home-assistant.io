@@ -1,11 +1,11 @@
 ---
 type: card
-title: "Statistic Card"
+title: "Statistic card"
 sidebar_label: Statistic
-description: "The Statistic card allows you to display a statistical value for an entity."
+description: "The statistic card allows you to display a statistical value for an entity."
 ---
 
-The Statistic card allows you to display a statistical value for an entity.
+The statistic card allows you to display a statistical value for an entity.
 
 Statistics are gathered every 5 minutes for sensors that support it. It will either keep the `min`, `max` and `mean` of a sensors value for a specific period, or the `sum` for a metered entity.
 
@@ -16,7 +16,9 @@ If your sensor doesn't work with statistics, check [this](/more-info/statistics/
 Screenshot of the statistic card for a temperature sensor.
 </p>
 
-To add the Statistic card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Statistic** from the card picker. All options for this card can be configured via the user interface, but if you want more options for the period, you will have to define them in `yaml`.
+{% include dashboard/edit_dashboard.md %}
+
+All options for this card can be configured via the user interface, but if you want more options for the period, you will have to define them in `yaml`.
 
 {% configuration %}
 type:
@@ -72,7 +74,7 @@ period:
 stat_type: change
 ```
 
-## Options For Period
+## Options for period
 
 Periods can be configured in 3 different ways:
 
@@ -140,7 +142,7 @@ period:
 stat_type: change
 ```
 
-### Rolling Window
+### Rolling window
 
 {% configuration %}
 duration:

@@ -8,7 +8,6 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
   - '@gjohansson-ST'
-  - '@epenet'
 ha_domain: scrape
 ha_platforms:
   - sensor
@@ -283,4 +282,3 @@ scrape:
         select: "div.nk-tb-item:nth-child(3) > div:nth-child(3) > span:nth-child(1) > span:nth-child(1)"
 
 ```
-

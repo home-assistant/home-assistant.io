@@ -3,11 +3,7 @@
 {% assign percentage = 100.0 | times: active_installations | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
 <section class="aside-module grid__item one-whole lap-one-half">
   <div class='brand-logo-container section'>
-    {%- if page.logo -%}
-      <img src='/images/supported_brands/{{ page.logo }}' />
-    {%- else -%}
       <img src='https://brands.home-assistant.io/{% if page.ha_brand %}brands{% else %}_{% endif %}/{{ domain }}/logo.png' srcset='https://brands.home-assistant.io/{% if page.ha_brand %}brands{% else %}_{% endif %}/{{ page.ha_domain }}/logo@2x.png 2x' />
-    {%- endif -%}
 
     {%- if page.ha_config_flow and domain -%}
       {% my config_flow_start badge domain=domain %}
@@ -36,7 +32,7 @@
     {%- else -%}
       The {{ page.title | default: page.name }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }}
 
-      {%- if page.ha_iot_standard -%}
+      {%- if page.ha_iot_standard or page.ha_integration_type == "entity" -%}
         .
       {%- else -%}
         , and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/integrations" target="_blank" rel="noopener">
@@ -78,19 +74,4 @@
     <a href="https://github.com/home-assistant/core/issues?q=is%3Aissue+is%3Aopen+label%3A%22integration%3A+{{ domain }}%22" target="_blank"><i class="icon-bug"></i> View known issues</a>
   </div>
   {%- endif -%}
-
-
-  {%- if page.ha_category.first -%}
-    <div class='section'>
-    <h1 class="title delta">Categories</h1>
-    <ul class='divided'>
-    {%- for category in page.ha_category -%}
-      <li>
-        <a href='/integrations/#{{ category | slugify }}'>{{ category }}</a>
-      </li>
-    {%- endfor -%}
-    </ul>
-    </div>
-  {%- endif -%}
-
 </section>

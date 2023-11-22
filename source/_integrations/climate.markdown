@@ -11,7 +11,9 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Climate integration allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.
+The **Climate** {% term integration %} allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.
+
+{% include integrations/building_block_integration.md %}
 
 ## Services
 
@@ -21,7 +23,7 @@ Available services: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.
 
 <div class='note'>
 
-Not all climate services may be available for your platform. You can check which climate services are available under **Developer Tools** -> **Services**.
+Not all climate {% term services %}  may be available for your platform. You can check which climate services are available under **Developer Tools** -> **Services**.
 
 </div>
 

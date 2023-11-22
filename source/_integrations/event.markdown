@@ -2,7 +2,7 @@
 title: Event
 description: Instructions on how to use event entities in Home Assistant.
 ha_category:
-  - Events
+  - Event
 ha_release: 2023.8
 ha_quality_scale: internal
 ha_domain: event
@@ -17,7 +17,7 @@ These events are stateless. For example, a doorbell does not have a state like b
 
 The event entity can capture these events in the physical world and makes them available in Home Assistant as an entity.
 
-Please note, the event integration cannot be directly used; you cannot create your own event entities using this integration. This integration is a building block for other integrations to use, enabling them to create event entities for you.
+{% include integrations/building_block_integration.md %}
 
 ## The state of an event entity
 
@@ -43,7 +43,7 @@ Besides the timestamp of the last event, the event entity also keeps track of th
 
 This allows you, for example, to trigger a different action when the button on a remote control is pressed once or twice, if your remote control is capable of emitting these different types of events.
 
-When combining that with the [choose action](/docs/scripts/#choose-a-group-of-actions) script, you can assign multiple different actions to a single event entity. In the following example, pressing the button on the remote once or twice will trigger a different scene:
+When combining that with the [choose action](/docs/scripts/#choose-a-group-of-actions) script, you can assign multiple different actions to a single event entity. In the following example, short- or long-pressing the button on the remote will trigger a different scene:
 
 ```yaml
 trigger:
@@ -53,19 +53,19 @@ action:
   - alias: "Choose an action based on the type of event"
     choose:
       - conditions:
-        - alias: "Normal evening scene if the button was pressed once"
+        - alias: "Normal evening scene if the button was pressed"
           condition: state
           entity_id: event.hue_remote_control_on_button
           attribute: "event_type"
-          state: "single_press"
+          state: "short_release"
         sequence:
           - scene: scene.living_room_evening
       - conditions:
-        - alias: "Move"
+        - alias: "Scene for watching a movie if the button was long-pressed"
           condition: state
           entity_id: event.hue_remote_control_on_button
           attribute: "event_type"
-          state: "single_press"
+          state: "long_release"
         sequence:
           - scene: scene.living_room_movie
 ```

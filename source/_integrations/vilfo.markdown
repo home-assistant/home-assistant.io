@@ -5,7 +5,7 @@ ha_release: '0.106'
 ha_category:
   - Network
   - Sensor
-  - System Monitor
+  - System monitor
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `Vilfo Router` integration allows you to observe the state of your [Vilfo Router](https://www.vilfo.com) from Home Assistant.
+The **Vilfo Router** {% term integration %} allows you to observe the state of your [Vilfo Router](https://www.vilfo.com) from Home Assistant.
 
 It currently supports reporting the current load of the device in percent and the current uptime measured in minutes.
 

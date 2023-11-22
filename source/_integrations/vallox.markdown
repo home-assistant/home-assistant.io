@@ -22,9 +22,9 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `vallox` integration lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
+The **Vallox** {% term integration %} lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
 
-The **fan** platform of this integration allows you to turn on/off the complete unit via the toggle switch, control fan speed and select a ventilation profile.
+The **fan** platform of this {% term integration %} allows you to turn on/off the complete unit via the toggle switch, control fan speed and select a ventilation profile.
 
 The **sensor** platform exposes a number of relevant metrics like fan speed, various air temperatures, and humidity.
 
@@ -34,18 +34,18 @@ The **number** platform allows to control supply air temperatures.
 
 {% include integrations/config_flow.md %}
 
-## Profile Switching
+## Profile switching
 
-For convenient switching of ventilation profiles in the GUI, just click on the `Vallox` fan entity to get a drop-down menu to select from. Alternatively, the service `fan/set_preset_mode` can be used.
+For convenient switching of ventilation profiles in the GUI, just click on the `Vallox` fan {% term entity %} to get a drop-down menu to select from. Alternatively, the service `fan/set_preset_mode` can be used.
 
 The four standard Vallox profiles are supported:
 
-- `At Home`
+- `Home`
 - `Away`
 - `Boost`
 - `Fireplace`
 
-## Fan Services
+## Fan services
 
 ### Service `vallox.set_profile_fan_speed_home`
 

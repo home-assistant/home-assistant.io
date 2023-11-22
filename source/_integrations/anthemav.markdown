@@ -2,7 +2,7 @@
 title: Anthem A/V Receivers
 description: Instructions on how to integrate Anthem A/V Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Push
 ha_release: 0.37
 ha_domain: anthemav
@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 Both [Anthem]'s current and last generation of A/V Receivers and Processors support IP-based, network control. This Home Assistant platform adds proper "local push" support for any of these receivers on your network.
 
-## Supported Models
+## Supported models
 
 ### A/V Receiver
 
@@ -28,7 +28,7 @@ Both [Anthem]'s current and last generation of A/V Receivers and Processors supp
 
 - [AVM 60](https://www.anthemav.com/products-current/model=avm-60/page=overview)
 
-### Distribution Solution
+### Distribution solution
 
 - [MDX 8](https://www.anthemav.com/products-current/type=distribution/model=mdx-8/page=overview), [MDX 16](https://www.anthemav.com/products-current/type=distribution/model=mdx-16/page=overview)
 - Martin Logan [MDA 8](https://www.martinlogan.com/en/product/mda8), [MDA 16](https://www.martinlogan.com/en/product/mda16)

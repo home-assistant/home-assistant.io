@@ -17,16 +17,15 @@ To get started, we suggest the ODROID N2+, the board that powers our [Home Assis
 If unavailable, we also recommend the [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e).
 
 
-Home Assistant bundles (US market): 
+Home Assistant bundles (US market):
 
-The bundles come with Home Assistant pre-installed. 
+The bundles come with Home Assistant pre-installed.
 
 - [ODROID N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935?ref=eeb6nfw07e)
 - [ODROID N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399?ref=eeb6nfw07e)
 - ODROID M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831?ref=eeb6nfw07e)
 - ODROID M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367?ref=eeb6nfw07e)
 - [ODROID M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC ](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
-- ODROID XU4: 2 GB RAM / [32 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729352471?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748782305559?ref=eeb6nfw07e)
 
 Variants without pre-installed Home Assistant:
 
@@ -40,16 +39,6 @@ Variants without pre-installed Home Assistant:
 - [Case](https://ameridroid.com/products/odroid-n2-case?ref=eeb6nfw07e)
 
 *These are affiliated links. We get commissions for purchases made through links in this post.*
-
-{% endif %}
-
-{% if page.installation_type == 'tinkerboard' %}
-
-### Suggested hardware
-
-We will need a few things to get started with installing Home Assistant. The links below lead to Amazon US. If you’re not in the US, you should be able to find it in web stores in your country.
-
-- [Asus Tinkerboard S](https://amzn.to/3fFIcbI)
 
 {% endif %}
 
@@ -121,10 +110,9 @@ sudo apt install libfuse2
    If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
 {% endif %}
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
-3. Select **Flash from URL**.
-![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
-
-4. Copy the URL for the image. If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}:
+3. Download the image to your computer.
+   - Copy the URL for the image.
+   - If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}.
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
@@ -155,17 +143,20 @@ sudo apt install libfuse2
 
 _Select and copy the URL or use the "copy" button that appear when you hover it._
 
-5. Paste the URL for the {{site.installation.types[page.installation_type].board}} image into Balena Etcher and select **OK**.
-![Screenshot of the Etcher software showing the URL bar with a URL pasted in.](/images/installation/etcher2.png)
-6. When Balena Etcher has downloaded the image, click **Select target**.
-[Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
+
+4. Paste the URL into your browser to start the download.
+5. Select **Flash from file** and select the image you just downloaded.
+   - **Flash from URL** does not work on some systems.
+
+  ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
+6. **Select target**.
+![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
 7. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
 ![Screenshot of the Etcher software showing teh targets available.](/images/installation/etcher4.png)
 8. Select **Flash!** to start writing the image.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
 9. When Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
-    - If you are having issues with Balena Etcher, rather than installing from URL, download the file. Then, install from file.
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
@@ -267,12 +258,33 @@ _All these can be extended if your usage calls for more resources._
     <div class="note info">
 
     By default, VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
-    the `discard` option must be enabled:
+    the `discard` option must be enabled using your host machine's terminal:
     ```bash
     VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
     ```
+    More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
     </div>
+
+- title: Unraid
+  content: |
+    1. Download the **.qcow2** image above and decompress it. (**Extract all** in Windows)
+    2. Store the image in the **isos** share on your server.
+    3. Make sure under **Settings** > **VM manager**, **Enable VMs** is enabled.
+    4. Create a new virtual machine: **VMS** > **Add VM**.
+    5. Select type **Linux** and give the VM a name and a description.
+    6. Select the CPU cores you want to let the VM use and give it some memory. 
+    7. Under **Primary vDisk Location**, select **Manual** and then select the qcow2 image.
+    8. Select your keyboard language under **VM Console Keyboard**.
+    9. Select **br0** under **Network Source**.
+    10. Select **virtio** under **Network model**.
+    11. Select any USB-devices that you want to pass through to Home Assistant, such as Zigbee- or Z-Wave controllers.
+    12. Deselect **Start VM after creation**.
+    13. Select **Create**.
+    14. Select the name of your new VM and select the capacity number for your disk. Here, you can expand the disk to whatever your needs are. The default is 32&nbsp;GB.
+    15. Select the icon of your new VM and select **start with console (VNC)**.
+
+
 {% unless page.installation_type == 'macos' %}
 - title: KVM (virt-manager)
   content: |
@@ -359,6 +371,8 @@ _All these can be extended if your usage calls for more resources._
 3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 
 {% endif %}
+
+{% include installation_survey.html %}
 
 With the Home Assistant Operating System installed and accessible, you can continue with onboarding.
 

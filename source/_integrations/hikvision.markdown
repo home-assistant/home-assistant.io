@@ -2,7 +2,7 @@
 title: Hikvision
 description: Instructions on how to set up Hikvision camera binary sensors within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.35
 ha_iot_class: Local Push
 ha_codeowners:

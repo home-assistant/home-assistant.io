@@ -17,9 +17,6 @@ ha_platforms:
   - select
   - sensor
 ha_integration_type: integration
-ha_codeowners:
-  - '@bdraco'
-ha_quality_scale: platinum
 ha_dhcp: true
 ---
 
@@ -238,7 +235,7 @@ The LIFX integration currently has to poll the device every few seconds, as oppo
 
 Discoveries from control protocols that are not desired can be ignored in the UI. LIFX devices that support HAP will be discovered by both methods if they have not been added to native HomeKit using an Apple iOS or macOS device. It is possible to set up control of the device in Home Assistant using both protocols simultaneously by configuring both the LIFX integration and the HomeKit Controller integration for the same device.
 
-## LIFX Switch
+## LIFX switch
 
 The LIFX integration does not support the LIFX Switch. However, the [HomeKit Controller](/integrations/homekit_controller) integration can be used instead for
 [LIFX Switch running firmware 3.90](https://support.lifx.com/en_us/switch-3-90-update-rk4zYiXVq) or higher. Follow the LIFX
@@ -248,7 +245,7 @@ When using the [HomeKit Controller](/integrations/homekit_controller) integratio
 [stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant.
 Relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
 
-## Troubleshooting Discovery
+## Troubleshooting discovery
 
 ### Lights
 

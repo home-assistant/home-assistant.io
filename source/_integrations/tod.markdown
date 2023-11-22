@@ -2,7 +2,7 @@
 title: Times of the Day
 description: Instructions on how to integrate Times of the Day binary sensors within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Helper
 ha_release: 0.89
 ha_iot_class: Calculated
@@ -26,7 +26,7 @@ Off time:
   description: The time when the sensor should turn off.
 {% endconfiguration_basic %}
 
-## YAML Configuration
+## YAML configuration
 
 Alternatlively, this integration can be configured and set up manually via YAML instead. This has some additional functionality over the UI version.
 

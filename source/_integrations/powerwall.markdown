@@ -2,7 +2,7 @@
 title: Tesla Powerwall
 description: Instructions on how to integrate Tesla Power Walls into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Energy
   - Sensor
   - Switch
@@ -26,13 +26,13 @@ The `powerwall` integration allows you to integrate your [Tesla Powerwall](https
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
 {% include integrations/config_flow.md %}
 
-### Binary Sensor
+### Binary sensor
 
 The following binary sensors are added for each Powerwall:
 
@@ -75,7 +75,7 @@ The following switches are added for each Powerwall:
 
 - Off-Grid operation - Take your Powerwall off-grid (simulate a grid outage)
 
-### Device Info
+### Device info
 
 - Model Number
 - Firmware Revision

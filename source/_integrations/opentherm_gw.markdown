@@ -2,7 +2,7 @@
 title: OpenTherm Gateway
 description: Control your OpenTherm Gateway from Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Hub
   - Sensor
@@ -19,11 +19,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `opentherm_gw` integration is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.
+The `opentherm_gw` integration is used to control the [OpenTherm Gateway](https://otgw.tclcode.com/) from Home Assistant.
 
 The following device types are currently supported within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Climate
 - Sensor
 
@@ -41,7 +41,7 @@ The following configuration options are available:
 name:
   description: "The friendly name used for the OpenTherm Gateway and its entities. This is used to generate the display name of the created device and all related entities.<br/>Examples: `Thermostat`, `Living Room`"
 path or url:
-  description: "Path to the OpenTherm Gateway device as supported by [PySerial](https://pythonhosted.org/pyserial/url_handlers.html). This is usually either a path to a serial device in `/dev/` if the gateway is connected via serial or USB or a URL in the form of `socket://[IP address]:[port]` if it is connected over the network.<br/>Examples: `/dev/ttyUSB0`, `socket://192.168.0.250:7686`"
+  description: "Path to the OpenTherm Gateway device as supported by [PySerial](https://pythonhosted.org/pyserial/url_handlers.html). This is usually either a path to a serial device in `/dev/` if the gateway is connected via serial or USB, or a URL in the form of `socket://[IP address]:[port]` if it is connected over the network.<br/>Examples: `/dev/ttyUSB0`, `socket://192.168.0.250:7686`"
 id:
   description: "The `gateway_id` for this OpenTherm Gateway. This is used to identify this specific gateway in service calls and to generate the entity IDs for the entities related to this gateway. The entered value will be slugified, i.e. all spaces and special characters will be converted to underscores and any accents will be removed from their characters. The default value is the slugified version of the `name` given above.<br/>Examples: `thermostat`, `living_room`"
 {% endconfiguration_basic %}
@@ -51,12 +51,13 @@ Please make sure no other device or application is connected to the OpenTherm Ga
 </div>
 
 <div class='note'>
-The precision and floor_temperature settings that were supported in configuration.yaml entries have been lost upon import of the configuration.yaml entry into the Integrations panel. You can now configure them as per the following Options paragraph.
+The precision and floor_temperature settings that were supported in configuration.yaml entries have been lost upon import of the `configuration.yaml` entry into the Integrations panel. You can now configure them as per the following Options paragraph.
 </div>
 
 # Options
 
-The OpenTherm Gateway can be further configured through the integration settings in the web interface
+The OpenTherm Gateway can be further configured through the integration settings in the web interface.
+
 The following options are available:
 {% configuration_basic %}
 Read Precision:
@@ -82,8 +83,8 @@ Reset the OpenTherm Gateway.
 ### Service `set_central_heating_ovrd`
 
 Set the central heating override option on the gateway.
-When overriding the control setpoint (via a [set_control_setpoint](#service-opentherm_gwset_control_setpoint) service call with a temperature value other than 0), the gateway automatically enables the central heating override to start heating. This service can then be used to control the central heating override status.
-To return control of the central heating to the thermostat, call the [set_control_setpoint](#service-opentherm_gwset_control_setpoint) service with temperature value 0.
+When overriding the control setpoint (via a [set_control_setpoint](#service-opentherm_gwset_control_setpoint) service call with a temperature value other than `0`), the gateway automatically enables the central heating override to start heating. This service can then be used to control the central heating override status.
+To return control of the central heating to the thermostat, call the [set_control_setpoint](#service-opentherm_gwset_control_setpoint) service with temperature value `0`.
 **You will only need this if you are writing your own software thermostat.**
 
 | Service data attribute | Optional | Description                                                                              |
@@ -136,19 +137,19 @@ been configured to let the room unit control when to keep a
 small amount of water preheated, this command can influence
 that.
 
-| Service data attribute | Optional | Description                                                                                                                              |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                                                                      |
-| `dhw_override`         | no       | The domestic hot water override state. Value should be 0 or 1 to enable the override in off or on state, or "A" to disable the override. |
+| Service data attribute | Optional | Description                                                                                                                                    |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                                                                            |
+| `dhw_override`         | no       | The domestic hot water override state. Value should be `0` or `1` to enable the override in off or on state, or `"A"` to disable the override. |
 
 ### Service `opentherm_gw.set_hot_water_setpoint`
 
 Set the domestic hot water setpoint on the OpenTherm Gateway. Not all boilers support this feature.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                   |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                                                                                                                                                                                           |
-| `temperature`          | no       | The domestic hot water setpoint to set on the gateway. Values between 0 and 90 are accepted, but not all boilers support this range. Check the values of the `slave_dhw_min_setp` and `slave_dhw_max_setp` sensors to see the supported range on your boiler. |
+| Service data attribute | Optional | Description                                                                                                                                                                                                                                                       |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                                                                                                                                                                                               |
+| `temperature`          | no       | The domestic hot water setpoint to set on the gateway. Values between `0` and `90` are accepted, but not all boilers support this range. Check the values of the `slave_dhw_min_setp` and `slave_dhw_max_setp` sensors to see the supported range on your boiler. |
 
 ### Service `opentherm_gw.set_gpio_mode`
 
@@ -158,7 +159,7 @@ For an explanation of the possible modes, see [GPIO modes](#gpio-modes)
 | Service data attribute | Optional | Description                                         |
 | ---------------------- | -------- | --------------------------------------------------- |
 | `gateway_id`           | no       | The `gateway_id` as specified during configuration. |
-| `id`                   | no       | The GPIO ID, `A` or `B`.                            |
+| `id`                   | no       | The GPIO ID; `A` or `B`.                            |
 | `mode`                 | no       | The GPIO mode to be set.                            |
 
 ### Service `opentherm_gw.set_led_mode`
@@ -413,7 +414,7 @@ Not all boilers and thermostats properly support all OpenTherm features, so not 
   Solar storage unit temperature.
 
 
-## Binary Sensors
+## Binary sensors
 
 The following `binary_sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the data source (`boiler`, `gateway` or `thermostat`) and the `gateway_id` of the gateway to which it belongs. All `binary_sensor` entities are disabled by default.
 <p class='note'>

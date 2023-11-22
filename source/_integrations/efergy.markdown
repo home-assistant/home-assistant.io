@@ -27,7 +27,7 @@ To get an app token:
 3. Click on App tokens
 4. Click "Add token"
 
-## Integration Entities
+## Integration entities
 
 The following sensors will be created:
 

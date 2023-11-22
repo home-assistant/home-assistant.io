@@ -35,18 +35,6 @@ action_topic:
     Valid values: `off`, `heating`, `cooling`, `drying`, `idle`, `fan`.
   required: false
   type: string
-aux_command_topic:
-  description: The MQTT topic to publish commands to switch auxiliary heat.
-  required: false
-  type: string
-aux_state_template:
-  description: A template to render the value received on the `aux_state_topic` with.
-  required: false
-  type: template
-aux_state_topic:
-  description: The MQTT topic to subscribe for changes of the auxiliary heat mode. If this is not set, the auxiliary heat mode works in optimistic mode (see below).
-  required: false
-  type: string
 availability:
   description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
   required: false
@@ -183,7 +171,7 @@ fan_modes:
 initial:
   description: Set the initial target temperature. The default value depends on the temperature unit and will be 21° or 69.8°F.
   required: false
-  type: integer
+  type: float
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -421,7 +409,7 @@ value_template:
 
 If a property works in *optimistic mode* (when the corresponding state topic is not set), Home Assistant will assume that any state changes published to the command topics did work and change the internal state of the entity immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the entity is only updated when the requested update is confirmed by the device through the state topic. You can enforce optimistic mode by setting the `optimistic` option to `true`. When set, the internal state will always be updated, even when a state topic is defined.
 
-## Using Templates
+## Using templates
 
 For all `*_state_topic`s, a template can be specified that will be used to render the incoming payloads on these topics. Also, a default template that applies to all state topics can be specified as `value_template`. This can be useful if you received payloads are e.g., in JSON format. Since in JSON, a quoted string (e.g., `"foo"`) is just a string, this can also be used for unquoting.
 

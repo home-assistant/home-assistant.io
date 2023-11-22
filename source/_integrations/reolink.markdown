@@ -17,6 +17,7 @@ ha_platforms:
   - light
   - number
   - select
+  - sensor
   - siren
   - switch
   - update
@@ -28,7 +29,7 @@ The integration allows you to control [Reolink](https://reolink.com/) NVRs or ca
 
 {% include integrations/config_flow.md %}
 
-A Reolink user account with admin privileges is needed for the proper operation of this integration.
+On the Reolink device, a user account with admin privileges is needed for the proper operation of this integration.
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
@@ -76,22 +77,26 @@ Depending on the supported features of the camera, number entities are added for
 - Guard return time
 - Motion sensitivity
 - AI face sensitivity
-- AI people sensitivity
+- AI person sensitivity
 - AI vehicle sensitivity
 - AI pet sensitivity
+- AI face delay*
+- AI person delay*
+- AI vehicle delay*
+- AI pet delay*
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
 - Auto track disappear time
 - Auto track stop time
 
-"Floodlight turn on brightness" controls the brightness of the floodlight when it is turned on internally by the camera (see "Floodlight mode" select entity) or when using the "Floodlight" light entity.
+**Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
-When the camera is not moved and no person/pet/vehicle is detected for the "Guard return time" in seconds, and the "Guard return" switch is ON, the camera will move back to the guard position.
+When the camera is not moved and no person/pet/vehicle is detected for the **Guard return time** in seconds, and the **Guard return** switch is ON, the camera will move back to the guard position.
 
-When a Reolink doorbell is pressed the quick reply message from the "Auto quick reply message" select entity will be played after "Auto quick reply time" seconds, unless the "Auto quick reply message" is set to off.
+When a Reolink doorbell is pressed the quick reply message from the **Auto quick reply message** select entity will be played after **Auto quick reply time** seconds, unless the **Auto quick reply message** is set to off.
 
-If the "Auto tracking" switch entity is enabled, and a object disappears from view OR stops moving for the "Auto track disappear time"/"Auto track stop time", the camera goes back to its original position.
+If the **Auto tracking** switch entity is enabled, and a object disappears from view OR stops moving for the **Auto track disappear time**/**Auto track stop time**, the camera goes back to its original position.
 
 ## Button entities
 
@@ -103,13 +108,15 @@ Depending on the supported features of the camera, button entities are added for
 - PTZ up
 - PTZ down
 - PTZ calibrate
+- PTZ zoom in*
+- PTZ zoom out*
 - Guard go to
 - Guard set current position
 - Restart*
 
-PTZ left, right, up and down will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
+**PTZ left**, **right**, **up**, **down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
 
-"Guard set current position" will set the current position as the new guard position.
+**Guard set current position** will set the current position as the new guard position.
 
 ## Select entities
 
@@ -122,9 +129,9 @@ Depending on the supported features of the camera, select entities are added for
 - Auto track method (Digital, Digital first, Pan/Tilt first)
 - Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
 
-PTZ preset positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
+**PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
-Auto quick reply messages can be recorded in the Reolink app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
+**Auto quick reply messages** can be recorded in the Reolink app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
 
 ## Siren entities
 
@@ -149,7 +156,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Email on event
 - FTP upload
 
-For NVRs, a global switch for Record, Push, Buzzer, Email, and FTP will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
+For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and **FTP** will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
 
 ## Light entities
 
@@ -159,14 +166,15 @@ Depending on the supported features of the camera, light entities are added for:
 - Infra red lights in night mode
 - Status LED
 
-When the floodlight entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the "Floodlight mode" select entity.
+When the **floodlight** entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the **Floodlight mode** select entity.
 
-When IR light entity is OFF always OFF, when ON IR LEDs will be on when the camera is in night vision mode, see the "Day night mode" select entity.
+When **IR light** entity is OFF always OFF, when ON IR LEDs will be on when the camera is in night vision mode, see the **Day night mode** select entity.
 
 ## Sensor entities
 
 Depending on the supported features of the camera, the following sensor entities are added:
 
+- PTZ pan position
 - Wi-Fi signal*
 
 ## Update entity
@@ -210,8 +218,9 @@ The following models have been tested and confirmed to work:
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
+- [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
-- [Reolink Duo Floodlight PoE](https://reolink.com/product/reolink-duo-floodlight-poe/)
+- Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
 - Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))
 - Reolink Video Doorbell ([PoE](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi](https://reolink.com/product/reolink-video-doorbell-wifi/))
 
@@ -226,22 +235,30 @@ However, these cameras can work with this integration through an NVR in which th
 - E1
 - Reolink Lumus
 
-## Initial Setup
+## Initial setup
 
 A brand new Reolink camera first needs to be connected to the network and initialized. During initialization, the credentials for the camera need to be set.
-There are serveral ways to achieve this.
+There are several ways to achieve this.
 
-### Reolink app/client
+### To connect Reolink via app/client
 
-The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/). Follow the on-screen instructions.  In Home Assistant, use the credentials you just configured in the Reolink app/client.
+The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/).
 
-### Web browser
+1. Follow the on-screen instructions.  
+2. In Home Assistant, use the credentials you just configured in the Reolink app/client.
 
-When your camera has a LAN port (most Wi-Fi cameras also have a LAN port), first connect the camera to your network using a LAN cable.
-Find the IP address of the camera (for example by checking in your router) and go to the IP address in a web browser.
-Follow the on-screen instructions to first setup the credentials (use the same credentials in Home Assistant).
-If it is a Wi-Fi camera, go to **settings** (gear icon) > **Network** and fill in your Wi-Fi SSID and password. After that you can disconnect the LAN cable and the camera will automatically switch to the Wi-Fi connection.
-Now set up the Reolink Home Assistant integration using the credentials you just specified.
+### To connect Reolink via a web browser
+
+When your camera has a LAN port (most Wi-Fi cameras also have a LAN port):
+
+   1. First connect the camera to your network using a LAN cable.
+   2. Find the IP address of the camera (for example by checking in your router) and go to the IP address in a web browser.
+   3. Follow the on-screen instructions to first setup the credentials (use the same credentials in Home Assistant).
+   4. If it is a Wi-Fi camera:
+      - Go to **settings** (gear icon) > **Network** and fill in your Wi-Fi SSID and password.
+        - If you have both a 2.4 GHz and 5 GHz network, check your camera's user guide to see which operating frequency is supported.
+      - After that you can disconnect the LAN cable and the camera will automatically switch to the Wi-Fi connection.
+   5. Now set up the Reolink Home Assistant integration using the credentials you just specified.
 
 ### QR code
 
@@ -263,6 +280,8 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 - Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.
+- Reolink cameras can support a limited amount of simultaneous connections. Therefore using third-party software like Frigate, Blue Iris, or Scrypted, or using the ONVIF integration at the same time can cause the camera to drop connections. This results in short unavailabilities of the Reolink entities in Home Assistant. Especially when the connections are coming from the same device (IP) where Home Assistant is running, the Reolink cameras can get confused, dropping one connection in favor of the other originating from the same host IP. If you experience disconnections/unavailabilities of the entities, please first temporarily shut down the other connections (like Frigate) to diagnose if that is the problem. If that is indeed the problem, you could try moving the third-party software to a different host (IP address) since that is known to solve the problem most of the time. You could also try switching the protocol to FLV on Home Assistant and/or the third-party software, as that is known to be less resource-intensive on the camera.
+- If the integration and the browser can't connect to the camera even after you enable the HTTP/HTTPS ports, try to create a new user on the camera; that fixes the problem in some cases.
 
 ### Reducing latency of motion events
 
@@ -271,7 +290,7 @@ However, ONVIF push has some additional network configuration requirements:
 
 - Reolink products can not push motion events to an HTTPS address (SSL).
 Therefore, make sure a (local) HTTP address at which HA is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
-A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device".
+A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device.
 
 - Since a HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
 Therefore, ensure no Global SSL certificate is configured in the [`configuration.yaml` under HTTP](/integrations/http/#ssl_certificate).

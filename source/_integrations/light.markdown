@@ -13,6 +13,8 @@ ha_integration_type: entity
 
 This integration allows you to track and control various light bulbs. Read the integration documentation for your particular light hardware to learn how to enable it.
 
+{% include integrations/building_block_integration.md %}
+
 ### Default turn-on values
 
 To set the default color, brightness and transition values when the light is turned on, create a custom `light_profiles.csv`, normally located in the default configuration folder where you find `configuration.yaml`.
@@ -113,6 +115,7 @@ Turns one or multiple lights off.
 | ---------------------- | -------- | ----------- |
 | `entity_id`  | no  | String or list of strings that point at `entity_id`s of lights. To target all lights, set `entity_id` to `all`.
 | `transition` | yes | Integer that represents the time the light should take to transition to the new state in seconds.
+| `flash`      | yes | Tell light to flash, can be either value `short` or `long`.
 
 ### Service `light.toggle`
 

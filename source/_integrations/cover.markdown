@@ -13,7 +13,9 @@ ha_integration_type: entity
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.
 
-## Device Class
+{% include integrations/building_block_integration.md %}
+
+## Device class
 
 The way these {% term sensors %} are displayed in the {% term frontend %} can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for covers:
 

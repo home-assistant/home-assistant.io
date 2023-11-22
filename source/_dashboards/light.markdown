@@ -1,24 +1,24 @@
 ---
 type: card
-title: "Light Card"
+title: "Light card"
 sidebar_label: Light
-description: "The Light card allows you to change the brightness of the light."
+description: "The light card allows you to change the brightness of the light."
 ---
 
-The Light card allows you to change the brightness of the light.
+The light card allows you to change the brightness of the light.
 
 <p class='img'>
 <img src='/images/dashboards/light_card.png' alt='Screenshot of the Light card'>
-Screenshot of the Light card.
+Screenshot of the light card.
 </p>
 
-To add the Light card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:

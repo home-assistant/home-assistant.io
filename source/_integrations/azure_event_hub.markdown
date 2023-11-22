@@ -40,7 +40,7 @@ Not filtering domains or entities will send every event to Azure Event Hub, thus
 Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
 </div>
 
-### Filter Configuration
+### Filter configuration
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Azure Event Hub`, you can use the `filter` parameter.
 

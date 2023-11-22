@@ -1,17 +1,17 @@
 ---
 type: card
-title: "Vertical Stack Card"
-sidebar_label: Vertical Stack
-description: "The Vertical Stack card allows you to group multiple cards so they always sit in the same column."
+title: "Vertical stack card"
+sidebar_label: Vertical stack
+description: "The vertical stack card allows you to group multiple cards so they always sit in the same column."
 ---
 
-The Vertical Stack card allows you to group multiple cards so they always sit in the same column.
+The vertical stack card allows you to group multiple cards so they always sit in the same column.
 
-To add the Vertical Stack card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:

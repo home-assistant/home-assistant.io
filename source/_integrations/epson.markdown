@@ -2,7 +2,7 @@
 title: Epson
 description: Instructions on how to integrate Epson projector into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.72
 ha_iot_class: Local Polling
 ha_domain: epson
@@ -14,8 +14,8 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `epson` platform allows you to control a Epson projector from Home Assistant.
-**Device has to be turned on during initial configuration.**
+The **Epson** {% term integration %} allows you to control a Epson projector from Home Assistant.
+**The device has to be turned on during initial configuration.**
 When you want to add a device for the first time, turn it on before following the integration steps.
 
 {% include integrations/config_flow.md %}

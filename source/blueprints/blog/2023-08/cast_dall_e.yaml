@@ -1,0 +1,72 @@
+blueprint:
+  name: Cast Dall-E generated images
+  description: |
+    Generate an image using your voice and show it on a screen.
+    Requirements:
+      - OpenAI Conversation configured
+      - A Cast-compatible media player
+  domain: automation
+  author: JLo
+  homeassistant:
+    min_version: 2023.7.99
+  input:
+    assist_command:
+      name: Assist Command
+      description: |
+        The Assist command you will use to generate the picture. 
+        You can change the overall sentence to match your style and language. 
+        **WARNING** you **MUST** include `{prompt}` in order to pass that variable to OpenAI.
+      default: "Show me a picture of {prompt}"
+      selector:
+        text:
+    open_ai_generation_size:
+      name: Image Size (px)
+      description: "Note: Bigger images take more time to generate"
+      default: "512"
+      selector:
+        select:
+          options:
+            - "256"
+            - "512"
+            - "1024"
+    open_ai_config_entry:
+      name: OpenAI Configuration
+      description: The OpenAI configuration entry to generate the image
+      selector:
+        config_entry:
+          integration: "openai_conversation"
+    media_player:
+      name: Media player
+      description: Media player to show the picture
+      selector:
+        entity:
+          filter:
+            integration: "cast"
+            domain: "media_player"
+    additional_conditions:
+      name: Additional conditions
+      description: |
+        Extra conditions you may want to add to this automation 
+        (Example: Home occupied, TV on, etc)
+      default: []
+      selector:
+        condition:
+
+trigger:
+  - platform: conversation
+    command: !input assist_command
+condition: !input additional_conditions
+action:
+  - service: openai_conversation.generate_image
+    data:
+      size: !input open_ai_generation_size
+      config_entry: !input open_ai_config_entry
+      prompt: "{{trigger.slots.prompt}}"
+    response_variable: generated_image
+  - service: media_player.play_media
+    data:
+      media_content_type: image/jpeg
+      media_content_id: "{{generated_image.url}}"
+    target:
+      entity_id: !input media_player
+mode: single

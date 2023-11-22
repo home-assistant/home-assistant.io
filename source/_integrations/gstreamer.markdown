@@ -1,8 +1,8 @@
 ---
 title: GStreamer
-description: Instructions on how to integrate Gstreamer into Home Assistant.
+description: Instructions on how to integrate GStreamer into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.39
 ha_iot_class: Local Push
 ha_domain: gstreamer
@@ -68,7 +68,7 @@ On a Raspberry Pi, you may need to add the Home Assistant user to the `audio` gr
 sudo usermod -a -G audio <ha_user>
 ```
 
-## Example Usage
+## Example usage
 
 ### Using with TTS
 

@@ -2,21 +2,21 @@
 type: card
 title: "Picture Card"
 sidebar_label: Picture
-description: "The Picture card allows you to set an image to use for navigation to various paths in your interface or to call a service."
+description: "The picture card allows you to set an image to use for navigation to various paths in your interface or to call a service."
 ---
 
-The Picture card allows you to set an image to use for navigation to various paths in your interface or to call a service.
+The picture card allows you to set an image to use for navigation to various paths in your interface or to call a service.
 
 <p class='img'>
 <img src='/images/dashboards/picture.png' alt='Screenshot of the picture card'>
 Screenshot of the picture card.
 </p>
 
-To add the Picture card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:

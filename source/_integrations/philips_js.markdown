@@ -3,7 +3,7 @@ title: Philips TV
 description: Instructions on how to add Philips TVs to Home Assistant.
 ha_category:
   - Light
-  - Media Player
+  - Media player
   - Remote
 ha_iot_class: Local Polling
 ha_release: 0.34

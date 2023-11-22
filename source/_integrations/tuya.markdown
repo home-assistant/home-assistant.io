@@ -2,7 +2,7 @@
 title: Tuya
 description: Instructions on how to set up the Tuya hub within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Climate
   - Cover
@@ -174,7 +174,7 @@ If no devices show up in Home Assistant:
 
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
 
-## Related Documents
+## Related documents
 
 - [Tuya Integration Documentation Page](https://github.com/tuya/tuya-home-assistant)
 - [Supported Tuya Device Category](https://github.com/tuya/tuya-home-assistant/blob/main/docs/supported_devices.md)

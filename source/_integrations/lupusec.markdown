@@ -3,7 +3,7 @@ title: Lupus Electronics LUPUSEC
 description: Instructions on integrating Lupusec home security with Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Switch
 ha_release: 0.83
@@ -26,8 +26,8 @@ Supported units:
 
 The following devices are supported by the underlying `lupupy` Python library and integrated into Home Assistant.
 
-- **Alarm Control Panel**: Displays the alarm status and controls arming, disarming and home modus.
-- **Binary Sensor**: Displays the status of binary sensors. Currently only Door and window sensors are supported.
+- **Alarm control panel**: Displays the alarm status and controls arming, disarming and home modus.
+- **Binary sensor**: Displays the status of binary sensors. Currently only door and window sensors are supported.
 - **Switch**: Turn off and on your Lupus power switches.
 
 ## Configuration

@@ -2,7 +2,7 @@
 title: Denon HEOS
 description: Instructions on how to integrate Denon HEOS into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.92
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/shop/amplifiersmrs/heosavr) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:
+The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/category/heos/) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:
 
 - Each device is represented as a media player entity
 - View the currently playing media
@@ -52,7 +52,7 @@ Use the sign-out service to sign the connected controller out of a HEOS account.
 
 ### Service `media_player.play_media`
 
-#### Play Favorite
+#### Play favorite
 
 You can play a HEOS favorite by number or name with the `media_player.play_media` service. Example service data payload:
 
@@ -68,7 +68,7 @@ media_content_id: "1"
 | `media_content_type`   | no       | Set to the value `favorite`
 | `media_content_id`     | no       | (i.e., `1`) or name (i.e., `Thumbprint Radio`) of the HEOS favorite
 
-#### Play Playlist
+#### Play playlist
 
 You can play a HEOS playlist with the `media_player.play_media` service. Example service data payload:
 

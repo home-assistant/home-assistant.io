@@ -9,6 +9,7 @@ ha_domain: slack
 ha_iot_class: Cloud Push
 ha_codeowners:
   - '@tkdrob'
+  - '@fletcherau'
 ha_platforms:
   - notify
   - sensor
@@ -42,10 +43,11 @@ In `Features/OAuth and Permissions/OAuth Tokens for Your Workspace`:
 
 ![](/images/integrations/slack/oauth-tokens-for-workspace.png)
 
+6. Ensure that the bot user is added to the channel in which you want it to post. This can be completed in several ways:
 
-Ensure that the bot user is added to the channel in which you want it to post. 
-In Slack, tag the bot user in a message, then add it to the channel. 
-
+- Using `/invite @bot` from the channel
+- Tagging the bot user in a message, then adding it to the channel via the Slackbot prompt.
+- Channel settings -> `Integrations` -> `Add apps`
 
 #### Sample App Manifest
 
@@ -142,6 +144,7 @@ The following attributes can be placed inside the `data` key of the service call
 | `file`                   |      yes | A file to include with the message; see below.
 | `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` (note that the `message` is required nonetheless).
 | `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).
+| `thread_ts`              |      yes | Sends the message as a reply to a specified parent message.
 
 Note that using `file` will ignore all usage of `blocks` and `blocks_template` (as Slack does not support those frameworks in messages that accompany uploaded files).
 
@@ -242,4 +245,13 @@ target: "#general"
 title: "Reminder"
 data:
   blocks: []
+```
+
+Send a message as reply to an existing message. `thread_ts` can be retrieved via a script utilising [Bolt](https://slack.dev/bolt-python/tutorial/getting-started), any other Slack library, or the Slack API directly.
+
+```yaml
+message: "Here's some supplementary information that doesn't need to be present in the channel directly."
+target: "#general"
+data:
+  thread_ts: "1684736481.064129"
 ```

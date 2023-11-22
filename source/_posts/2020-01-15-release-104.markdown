@@ -29,7 +29,7 @@ We are starting this new year with a packed release! So let us dive in!
 - [In other news](/blog/2020/01/15/release-104/#in-other-news)
 - [New Integrations](/blog/2020/01/15/release-104/#new-integrations)
 - [New Platforms](/blog/2020/01/15/release-104/#new-platforms)
-- [Breaking Changes](/blog/2020/01/15/release-104/#breaking-changes)
+- [Backward-incompatible changes](/blog/2020/01/15/release-104/#backward-incompatible-changes)
 - [Beta Fixes](/blog/2020/01/15/release-104/#beta-fixes)
 - [All changes](/blog/2020/01/15/release-104/#all-changes)
 
@@ -89,7 +89,7 @@ Furthermore, time to say bye-bye, to all generated entity groups
 (`group.all_*`). Chances are, you have never heard of those because they were
 hidden. However, if you rely on those groups for your automations, you
 need to adjust those automations.
-Check out the [breaking changes section](#breaking-changes) for more information.
+Check out the [backward-incompatible changes section](#backward-incompatible-changes) for more information.
 
 ## Add a device to Lovelace
 
@@ -215,7 +215,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __Default groups__ - Entity integrations will no longer automatically maintain the hidden groups with all of their entities. The following groups are no longer automatically created and maintained:
 

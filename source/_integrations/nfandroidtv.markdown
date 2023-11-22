@@ -43,7 +43,7 @@ position:
   type: string
 color:
   description: "Has to be one of: `grey`, `black`, `indigo`, `green`, `red`, `cyan`, `teal`, `amber` or `pink`."
-  default: grey
+  default: "`grey`"
   type: string
 transparency:
   description: "Has to be one of: `0%`, `25%`, `50%`, `75%` or `100%`."

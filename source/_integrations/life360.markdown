@@ -4,12 +4,13 @@ description: Instructions how to use Life360 to track devices in Home Assistant.
 ha_release: 0.95
 ha_config_flow: true
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@pnbruckner'
 ha_domain: life360
 ha_platforms:
+  - button
   - device_tracker
 ha_integration_type: integration
 ---
@@ -20,6 +21,8 @@ The `life360` integration allows you to detect presence using the [unofficial AP
 
 You must first [create a Life360 account](https://app.life360.com/sign-up).
 Individual Members must enable Location Sharing in their Life360 app to show up as a tracked entity in Home Assistant.
+
+> When adding your Life360 account to Home Assistant, you must use the email address associated with your Life360 account, not the phone number.
 
 {% include integrations/config_flow.md %}
 
@@ -66,6 +69,10 @@ See [Zone documentation](/integrations/zone/#home-zone) for details about how Ho
   longitude: YY.YYY
   radius: ZZZ
 ```
+
+## Polling Location
+
+A button is also provided that has the ability to poll for a user's location when pressed.
 
 ## Disclaimer
 

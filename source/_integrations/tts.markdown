@@ -2,7 +2,7 @@
 title: Text-to-speech (TTS)
 description: Instructions on how to set up text-to-speech (TTS) with Home Assistant.
 ha_category:
-  - Media Source
+  - Media source
   - Text-to-speech
 ha_release: 0.35
 ha_codeowners:
@@ -17,6 +17,8 @@ ha_integration_type: entity
 
 Text-to-speech (TTS) enables Home Assistant to speak to you.
 
+{% include integrations/building_block_integration.md %}
+
 ## Services
 
 ### Service speak
@@ -27,7 +29,8 @@ The `tts.speak` service supports `language` and on some platforms also `options`
 
 ```yaml
 service: tts.speak
-target: tts.example
+target:
+  entity_id: tts.example
 data:
   media_player_entity_id: media_player.kitchen
   message: "May the force be with you."

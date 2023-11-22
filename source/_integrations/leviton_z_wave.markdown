@@ -7,7 +7,7 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/z-wave'
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover

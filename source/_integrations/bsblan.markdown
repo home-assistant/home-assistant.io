@@ -1,7 +1,6 @@
 ---
 title: BSB-Lan
 description: Instructions on how to integrate BSBLan device into Home Assistant.
-logo: bsblan.png
 ha_category:
   - Climate
 ha_release: '0.110'
@@ -13,10 +12,10 @@ ha_domain: bsblan
 ha_platforms:
   - climate
   - diagnostics
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-This integration integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
+The **BSB-Lan** {% term integration %} integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
 
 BSBLan is a device that is made by `Frederik Holst` and `Ulf Dieckmann` for documentation and with
 the help of many other contributors.

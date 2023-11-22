@@ -11,7 +11,9 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The `vacuum` integration enables the ability to control home cleaning robots within Home Assistant.
+The **Vacuum** {% term integration %} enables the ability to control home cleaning robots within Home Assistant.
+
+{% include integrations/building_block_integration.md %}
 
 ## Services
 

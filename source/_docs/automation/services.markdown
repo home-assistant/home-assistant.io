@@ -1,5 +1,5 @@
 ---
-title: "Automation Services"
+title: "Automation services"
 description: "How to use the various automation services."
 ---
 
@@ -7,7 +7,7 @@ The automation integration has services to control automations, like turning aut
 
 ## Service {% my developer_call_service service="automation.turn_on" %}
 
-This service enables the automation's triggers.
+This service enables the automation's {% term triggers %}.
 
 Service data attribute | Optional | Description
 -|-|-
@@ -15,7 +15,7 @@ Service data attribute | Optional | Description
 
 ## Service {% my developer_call_service service="automation.turn_off" %}
 
-This service disables the automation's triggers, and optionally stops any currently active actions.
+This service disables the automation's {% term triggers %}, and optionally stops any currently active {% term actions %}.
 
 Service data attribute | Optional | Description
 -|-|-
@@ -32,7 +32,7 @@ Service data attribute | Optional | Description
 
 ## Service {% my developer_call_service service="automation.trigger" %}
 
-This service will trigger the action of an automation. By default it bypasses any conditions, though that can be changed via the `skip_condition` attribute.
+This service will trigger the {% term action %} of an {% term automation %}. By default it bypasses any conditions, though that can be changed via the `skip_condition` attribute.
 
 Service data attribute | Optional | Description
 -|-|-

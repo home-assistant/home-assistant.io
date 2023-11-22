@@ -58,7 +58,7 @@ This release includes code contributed by 31 different people. The biggest chang
 
 - Media Player cover art would not work when an API password was set. Thanks to [@maddox] for reporting it and [@balloob] for the fix.
 
-### Breaking changes
+### Backward-incompatible changes
 
  - A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:
 

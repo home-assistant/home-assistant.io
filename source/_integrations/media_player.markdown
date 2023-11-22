@@ -1,8 +1,8 @@
 ---
-title: Media Player
+title: Media player
 description: Instructions on how to setup your media players with Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: media_player
@@ -12,6 +12,8 @@ ha_integration_type: entity
 ---
 
 Interacts with media players on your network.
+
+{% include integrations/building_block_integration.md %}
 
 ## Services
 
@@ -176,7 +178,7 @@ Allows to group media players together for synchronous playback. Only works on s
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Unjoin this media player from any player groups.     |
 
-### Device Class
+### Device class
 
 The way media players are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for media players:
 

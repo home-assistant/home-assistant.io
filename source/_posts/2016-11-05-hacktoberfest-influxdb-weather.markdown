@@ -108,7 +108,7 @@ Our website has now an additional category called "Ecosystem". This will become 
 - [iOS](/ecosystem/ios/)
 - SceneGen
 
-### Breaking changes
+### Backward-incompatible changes
 
 - The Yahoo Finance platform supports now multiple stock. Please adjust your configuration.
 - Deprecated components `garage_door`, `rollershutter`, `thermostat`, and `hvac` have been removed.

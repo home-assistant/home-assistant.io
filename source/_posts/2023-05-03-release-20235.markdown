@@ -52,7 +52,7 @@ Enjoy the release!
 - [Release 2023.5.3 - May 14](#release-202353---may-14)
 - [Release 2023.5.4 - May 23](#release-202354---may-23)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -657,7 +657,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 {% details "Accuweather" %}
 

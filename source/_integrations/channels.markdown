@@ -2,7 +2,7 @@
 title: Channels
 description: Instructions on how to integrate Channels into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.65
 ha_iot_class: Local Polling
 ha_domain: channels

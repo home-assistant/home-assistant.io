@@ -2,8 +2,9 @@
 title: Starlink
 description: Instructions on how to integrate Starlink into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
+  - Device tracker
   - Network
   - Sensor
   - Switch
@@ -16,6 +17,7 @@ ha_domain: starlink
 ha_platforms:
   - binary_sensor
   - button
+  - device_tracker
   - diagnostics
   - sensor
   - switch
@@ -39,7 +41,7 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 - Downlink throughput - The amount of data being downloaded through Starlink
 - Last boot time - The time Starlink was last turned on
 
-### Binary Sensor
+### Binary sensor
 
 - Update available - Whether there is an update pending install
 - Obstructed - Whether Dishy is currently obstructed
@@ -59,3 +61,7 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 ### Switch
 
 - Stowed - Controls whether Dishy is stowed
+
+### Device tracker
+
+- Device location - Tracks the location of Dishy. Note you need to allow location access on the local network via the Starlink app for this to work. This is disabled by default in the Starlink app and is thus disabled by default in Home Assistant.

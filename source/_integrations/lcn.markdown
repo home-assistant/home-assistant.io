@@ -2,7 +2,7 @@
 title: LCN
 description: Instructions on how to integrate LCN components with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Hub
@@ -33,7 +33,7 @@ With this setup sending and receiving commands to and from LCN modules is possib
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
@@ -332,7 +332,7 @@ switches:
       type: string
 {% endconfiguration %}
 
-## LCN Addresses
+## LCN addresses
 
 LCN hardware devices connected to the LCN bus are called _modules_. LCN modules are addressed by their numeric id in the range (5..254).
 
@@ -364,7 +364,7 @@ s0.g7
 
 Leading zeroes in the segment id or module/group id can be omitted. If the `connection_id` is omitted, the first connection defined in the [configuration](#configuration) will be used.
 
-## LCN Constants
+## LCN constants
 
 The platforms and service calls use several predefined constants as parameters.
 
@@ -421,7 +421,7 @@ Examples: `a1`, `a5`, `d8`.
 
 ## Platforms
 
-### Binary Sensor
+### Binary sensor
 
 The `lcn` binary sensor platform allows the monitoring of the following [LCN](https://www.lcn.eu/) binary data sources:
 
@@ -497,7 +497,7 @@ The `lcn` switch platform allows the control of the following [LCN](https://www.
 - Output ports
 - Relays
 
-## Additional Features
+## Additional features
 
 ### Transponder, fingerprint sensor and code lock
 

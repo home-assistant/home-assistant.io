@@ -1,22 +1,22 @@
 ---
 type: card
-title: "Picture Glance Card"
-sidebar_label: Picture Glance
-description: "The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog."
+title: "Picture glance card"
+sidebar_label: Picture glance
+description: "The picture glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog."
 ---
 
-The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog.
+The picture glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog.
 
 <p class='img'>
   <img src='/images/dashboards/picture_glance.gif' alt='Picture glance card for a living room'>
   Picture glance card for a living room.
 </p>
 
-To add the Picture Glance card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -88,7 +88,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-### Options For Entities
+### Options for entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -132,7 +132,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-### Options For Exemptions
+### Options for exemptions
 
 {% configuration badges %}
 user:

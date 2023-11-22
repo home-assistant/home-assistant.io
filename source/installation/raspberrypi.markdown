@@ -16,11 +16,14 @@ Please remember to ensure you're using an [appropriate power supply](https://www
 
 </div>
 
+Before installing Home Assistant, you might want to <a href="/installation#compare-installation-methods">compare installation methods</a>. Most notably, 
+<a href="/addons">add-ons</a> are only available with the Home Assistant Operating System.
+
 ## Suggested Hardware
 
 We will need a few things to get started with installing Home Assistant. Links below lead to Amazon US. If you’re not in the US, you should be able to find these items in web stores in your country.
 
-- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 is ok too, if you have one laying around). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) to find official distributors with stock.
+- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 Model B is ok too, but the Model A does not have enough RAM). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) to find official distributors with stock.
 - [Power Supply for Raspberry Pi 4](https://amzn.to/2ReZ2Vq) or [Power Supply for Raspberry Pi 3](https://amzn.to/2R8yG7h)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32&nbsp;GB or bigger card is recommended.
 - SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
@@ -36,8 +39,8 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 
 1. Download and install the Raspberry Pi Imager on your computer as described under [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/). 
    ![Install Raspberry Pi Imager](/images/installation/rpi_imager.png)
-2. Open the Raspberry Pi Imager.
-    ![Open Raspberry Pi Imager](/images/installation/rpi-imager-start.png)
+2. Open the Raspberry Pi Imager and select your Raspberry Pi device.
+    ![Open Raspberry Pi Imager](/images/installation/rpi_imager_start.png)
 3. Choose the operating system:
    1. Select **Choose OS**.
    2. Select **Other specific-purpose OS** > **Home assistants and home automation** > **Home Assistant**.
@@ -48,9 +51,9 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
    2. Select your SD card.
     ![Select the storage](/images/installation/rpi-select-sd-card.png)
 5. Write the installer onto the SD card:
-   1. To start the process, select **Write**.
+   1. To start the process, select **Next**.
    2. Wait for the Home Assistant OS to be written to the SD card.
-    ![Select write](/images/installation/rpi-select-write.png)
+    ![Select write](/images/installation/rpi_choose_next.png)
 6. Eject the SD card.
 
 ### Start up your Raspberry Pi
@@ -67,6 +70,8 @@ If you are running an older Windows version or have a stricter network configura
 
 Congratulations! You finished the Raspberry Pi setup!
 
+{% include installation_survey.html %}
+
 With the Home Assistant Operating System installed and accessible, you can now continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
@@ -80,10 +85,10 @@ Use this procedure if Raspberry Pi Imager is not supported by your platform.
 
 1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
-3. Select **Flash from URL**.
-![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 
-4. Copy the correct URL for the Raspberry Pi 3 or 4 (Note: there are 2 different links below!):
+3. Download the image to your computer.
+   - Copy the correct URL for the Raspberry Pi 3 or 4 (Note: there are 2 different links below!):
+
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
 
@@ -99,15 +104,18 @@ Use this procedure if Raspberry Pi Imager is not supported by your platform.
 
 _Select and copy the URL or use the "copy" button that appear when you hover it._
 
-1. Paste the URL for the image into Balena Etcher and select **OK**.
-![Screenshot of the Etcher software showing the URL bar with a URL pasted in.](/images/installation/etcher2.png)
-2. When Balena Etcher has downloaded the image, select **Select target**.
+4. Paste the URL into your browser to start the download.
+5. Select **Flash from file** and select the image you just downloaded.
+   - **Flash from URL** does not work on some systems.
+
+  ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
+6. **Select target**.
 ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
-3. Select the SD card you want to use for your installation.
+7. Select the SD card you want to use for your installation.
 ![Screenshot of the Etcher software showing teh targets available.](/images/installation/etcher4.png)
-4. Select **Flash!** to start writing the image.
+8. Select **Flash!** to start writing the image.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-5. Once Balena Etcher has finished writing the image, you will see a confirmation.
+9. Once Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 

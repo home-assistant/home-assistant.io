@@ -8,7 +8,7 @@ ha_category:
   - Environment
   - Hub
   - Light
-  - Media Source
+  - Media source
   - Sensor
   - Switch
   - Weather
@@ -94,6 +94,12 @@ Set the outdoor camera light mode. This requires an entity id and a valid state.
 `set_schedule`
 
 Set the heating schedule. This requires an entity id and a schedule name.
+
+### Set preset mode with end datetime
+
+`set_preset_mode_with_end_datetime`
+
+Set the preset mode for a Netatmo climate device. The preset mode must match a preset mode configured at Netatmo.
 
 ### Set Person Home
 
