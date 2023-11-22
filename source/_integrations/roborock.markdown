@@ -4,6 +4,7 @@ description: Instructions on how to integrate Roborock vacuums into Home Assista
 ha_category:
   - Binary Sensor
   - Button
+  - Image
   - Number
   - Select
   - Sensor
@@ -20,6 +21,7 @@ ha_domain: roborock
 ha_platforms:
   - binary_sensor
   - button
+  - image
   - diagnostics
   - number
   - select
@@ -125,6 +127,10 @@ Reset side brush consumable - The side brush is expected to be replaced every 20
 Reset main brush consumable - The main brush/ roller is expected to be replaced every 300 hours.
 
 Reset air filter - The air filter is expected to be replaced every 150 hours.
+
+### Image
+
+You can see all the maps within your Roborock account. Keep in mind that they are device-specific. The maps require the cloud API to communicate as the maps are seemingly stored on the cloud. If someone can figure out a way around this - contributions are always welcome.
 
 
 ## FAQ
