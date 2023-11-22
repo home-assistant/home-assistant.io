@@ -152,6 +152,10 @@ state_filter:
 entity: switch.decorative_lights
 ```
 
+### Examples
+
+This section lists a few examples of how the picture glance card can be used.
+
 ### Creating a card to control the camera
 
 If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> (can be moved in different directions), you can use the picture glance card to control the camera.
