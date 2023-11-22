@@ -61,10 +61,10 @@ This integration provides the following sensors:
 | Next Period Time    | The next time the thermostat will change    |
 | Setpoint Status     | A description of the setpoint of the device |
 
-Additional sensors will be created for each room assigned to a thermostat device, if applicable:
+Additional sensors will be created for each room sensor accessory assigned to a thermostat device, if applicable:
 
 | Name                 | Description                                                       |
 | -------------------- | ----------------------------------------------------------------- |
-| Average Temperature  | The average temperature reported from room accessorsies           |
-| Average Humidity     | The average humidity reported from room accessories               |
-| Overall Motion       | On if any movement is detected by room accessories, Off otherwise |
+| Room Temperature     | The temperature reported from a room sensor accessory             |
+| Room Humidity        | The humidity reported from a room accessory                       |
+
