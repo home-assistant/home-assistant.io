@@ -126,11 +126,11 @@ PTZ left, right, up, down, zoom in and zoom out will continually move the camera
 
 ### Service reolink.ptz_move
 
-Some Reolink PTZ cameras are capable of moving at different speeds. For those cameras, the `reolink.ptz_move` service can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in** or **zoom out** entity which allows specifying the speed attribute. If the PTZ button entities for a specific camera are not shown under "choose entity" under "targets" of the `reolink.ptz_move` service, it means that camera does not support custom ptz speeds.
+Some Reolink PTZ cameras are capable of moving at different speeds. For those cameras, the `reolink.ptz_move` service can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in** or **zoom out** entity which allows specifying the speed attribute. If the PTZ button entities for a specific camera are not shown under "choose entity" under "targets" of the `reolink.ptz_move` service, it means that camera does not support custom PTZ speeds.
 
 | Service data attribute | Optional | Description                                                                              |
 | ---------------------- | -------- | -----------------------------------------------------------------------------------------|
-| `entity_id`            |      no  | Name of the reolink ptz button entity to control. For example `button.trackmix_ptz_left` |
+| `entity_id`            |      no  | Name of the reolink PTZ button entity to control. For example `button.trackmix_ptz_left` |
 | `speed`                |      no  | PTZ move speed. For example `10`                                                         |
 
 ## Select entities
