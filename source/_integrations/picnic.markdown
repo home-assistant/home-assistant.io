@@ -43,7 +43,7 @@ This integration provides the following sensors. Some sensors are disabled by de
 
 ## Shopping cart
 
-This integration provides a _read-only_ list containing the content of your shopping cart. This list is provided as a [to-do list](https://rc.home-assistant.io/integrations/todo/) and can also be found in the to-do list dashboard in the main sidebar of your Home Assistant instance. 
+This integration provides a _read-only_ list containing the content of your shopping cart. This list is provided as a [to-do list](/integrations/todo/) and can also be found in the to-do list dashboard in the main sidebar of your Home Assistant instance. 
 
 ## Services
 
