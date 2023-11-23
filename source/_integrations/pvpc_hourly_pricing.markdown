@@ -41,11 +41,11 @@ Set also your contracted power (in kW) for the two power periods that apply with
 In case you did nothing after the tariff change on 2021-06-01, both powers are equal, and the same you had for your existing contract.
 
 To access extra price sensors from ESIOS API, like the price for the **excess energy from self-consumption**, or the electricity price in the open market (useful if your provider indexes its price with it), 
-you must **request a personal token** by mailing to [consultasios@ree.es](mailto:consultasios@ree.es?subject=Personal%20token%20request), 
-and then enable the API Token option for this integration.
+you must **request a personal token** by mailing to [consultasios@ree.es](mailto:consultasios@ree.es?subject=Personal%20token%20request).
+Then, enable the API Token option for this integration.
 
-You can set up the integration 2 times (one for each geographic zone) by adding them again through the integrations panel,
-and you can change the configuration anytime by going to the integration's options.
+You can set up the integration 2 times; one for each geographic zone. To do this, add them again through the integrations panel under {% my integrations title="**Settings** > **Devices & services**" %}.
+You can change the configuration anytime in the integration options.
 
 <div class='note'>
 
