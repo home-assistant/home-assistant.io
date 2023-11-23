@@ -53,12 +53,12 @@ This can be utilized the following ways:
 ### Preset override duration
 
 By default, all overrides (when operation is not in "Auto" mode) are constant. It is possible to change this
-to  let overrides end when the week profile changes next (same as duration "Now" in the Nobø Energy mobile app)
+to let overrides end when the week profile changes next (same as duration "Now" in the Nobø Energy mobile app)
 in the integration configuration.
 
 ### Week profiles
 
-The week profiles are retrieved from the hub, and it is possible to change current week profile for a zone
+The week profiles are retrieved from the hub. It is possible to change the current week profile for a zone
 using a selector. Week profiles must be created and edited using the Nobø Energy mobile app.
 
 ### No preset "Off"
@@ -67,9 +67,11 @@ Nobø heaters do not support preset "Off". This is not a limitation of the integ
 Nobø system (perhaps related to frozen pipes due to frost in Nordic regions). 
 "Away" temperature is fixed to 7°C and cannot be altered. On/off receivers will be off when the zone is in "Away" status.
 
-A possible workaround to turn heaters completely off, is to create a week profile (in the Nobø Energy mobile app) where
-all days are set to state off. To turn a zone off, select this week profile for the zone. To turn a zone on again,
-switch to the normal week profile for the zone.
+To turn heaters completely off, follow these steps (this is a workaround solution): 
+1. In the Nobø Energy mobile app, create a week profile.
+    - In this profile, set all days to state off. 
+2. To turn a zone off, select this week profile for the zone. 
+3. To turn a zone on again, switch to the normal week profile for the zone.
 
 For more information, see the [Nobø Ecohub manual](https://help.nobo.no/en/user-manual/before-you-start/what-is-a-weekly-program/).
 
