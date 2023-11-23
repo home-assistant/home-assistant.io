@@ -311,4 +311,8 @@ alert:
       tag: garage-door
 ```
 
+### Home Assistant Startup
+
+On startup of Home Assistant, an alert will fire if the entity is in an alerting state.
+
 [template]: /docs/configuration/templating/
