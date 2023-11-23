@@ -396,9 +396,14 @@ text: !include alexa_confirm.yaml
 Alexa will now respond with a random phrase each time. You can use the include for as many different intents as you like so you only need to create the list once.
 
 ## Workaround for having to say the skill's name
-Users may wish to run script and scene intents without using the skill's name. For example, `Alexa <some script>` may be preferrable to `Alexa ask Home Assistant to run <some script>` due to the length.
 
-One workaround to achieve this is to use Alexa routines as well. Configure a routine in the Alexa app that responds to the command you want to use (e.g 'Alexa, turn on the dryer'). This routine should include a customised action that contains the full phrase you configured in your Skill (e.g. 'Alexa, ask Home Assistant to run the dryer on script').
+Sometimes, you want to run script or scene intents without using the skill's name. For example, `Alexa <some script>` instead of `Alexa ask Home Assistant to run <some script>` because it is shorter.
+
+You can do this by using Alexa routines. 
+1. Configure a routine in the Alexa app that responds to the command you want to use:
+   -  For example, 'Alexa, turn on the dryer'. 
+2.  Make sure this routine includes a customized action that contains the full phrase you configured in your skill:
+     - For example, 'Alexa, ask Home Assistant to run the dryer on script'.
 
 [amazon-dev-console]: https://developer.amazon.com
 [large-icon]: /images/integrations/alexa/alexa-512x512.png
