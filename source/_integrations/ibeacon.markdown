@@ -29,17 +29,20 @@ iBeacon Devices are tracked by a combination of the following data:
 - UUID (universally unique identifier) is a 128-bit identifier that is generally set the same for all iBeacons at the same physical location.
 - Major is an integer to differentiate between iBeacons with the same UUID.
 - Minor is an integer to differentiate between iBeacons with the same UUID and Major value.
+  (The value 40004 has a special behavior, see below.)
 - MAC address (except for devices with a randomized MAC address)
 
 Consider setting up your iBeacons with a schema similar to the following:
 
-- uuid=UUID major=1000 minor=1000 Downstairs Front Room
-- uuid=UUID major=1000 minor=1001 Downstairs Bathroom
-- uuid=UUID major=2000 minor=1001 Upstairs Main Bedroom
-- uuid=UUID major=2000 minor=1002 Upstairs Guest Bedroom
-- uuid=UUID major=3000 minor=1000 Attic
+- uuid=UUID major=1000 minor=40004 Downstairs Front Room
+- uuid=UUID major=1001 minor=40004 Downstairs Bathroom
+- uuid=UUID major=2000 minor=40004 Upstairs Main Bedroom
+- uuid=UUID major=2001 minor=40004 Upstairs Guest Bedroom
+- uuid=UUID major=3000 minor=40004 Attic
 
 iBeacon devices that do not have stable Major and Minor values are not supported. The system automatically removes iBeacon devices with unstable Major and Minor values once ten (10) or more Major and Minor values have been seen with the same UUID from an iBeacon device with a fixed MAC address.
+
+Moreover, iBeacon devices that do not broadcast their device name are ignored (to avoid flooding your system with devices that are not real beacons). If a real iBeacon device does not broadcast its name, its detection can be forced by using the special Minor value `40004`).
 
 ## Considering an iBeacon Away
 
