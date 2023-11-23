@@ -47,8 +47,8 @@ We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-as
 
 #### Reading the meter via a IEC62056-21
 
-The IEC62056-21 is a common protocol in not only electric meters. It uses infrared port to read data.
-[Aquaticus](https://github.com/aquaticus) has created an [ESPHome component](https://community.home-assistant.io/t/new-iec62056-21-component/555236) for reading this data. [PiggyMeter](https://aquaticus.info/meter.html) is a complete project that allows easy instalation.
+The IEC62056-21 is a common protocol not only for electric meters. It uses an infrared port to read data.
+[Aquaticus](https://github.com/aquaticus) has created an [ESPHome component](https://community.home-assistant.io/t/new-iec62056-21-component/555236) for reading this data. [PiggyMeter](https://aquaticus.info/meter.html) is a complete project that allows easy installation.
 ![Photo of PiggyMeter attached to an electricity meter](https://aquaticus.info/_images/meter_and_probe.png)
 
 #### Using (Smart Message Language) interface
