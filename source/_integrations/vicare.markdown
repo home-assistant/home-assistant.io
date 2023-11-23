@@ -141,4 +141,4 @@ Button entities are available for triggering like a one-time charge of the water
 
 ## Number
 
-Number entities are available to adjust values like the predefined temperature for different heating programs.
+Number entities are available to adjust values like the predefined temperature for different heating programs or the heating curve shift and slope.
