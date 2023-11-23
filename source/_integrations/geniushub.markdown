@@ -10,7 +10,7 @@ ha_category:
 ha_release: 0.92
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@zxdavb'
+  - '@manzanotti'
 ha_domain: geniushub
 ha_platforms:
   - binary_sensor

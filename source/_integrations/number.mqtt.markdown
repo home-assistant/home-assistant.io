@@ -19,8 +19,8 @@ To enable MQTT Number in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  number:
-    - command_topic: my-device/threshold
+  - number:
+      command_topic: my-device/threshold
 ```
 
 {% configuration %}
@@ -61,12 +61,12 @@ command_topic:
   required: true
   type: string
 device:
-  description: "Information about the device this Number is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this Number is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -106,7 +106,8 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/number/#device-class) of the number.
+  description: The [type/class](/integrations/number/#device-class) of the number. The `device_class` can be `null`.
+  default: None
   required: false
   type: device_class
   default: None
@@ -153,7 +154,7 @@ mode:
   type: string
   default: '"auto"'
 name:
-  description: The name of the Number.
+  description: The name of the Number. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
 object_id:
@@ -166,12 +167,12 @@ optimistic:
   type: boolean
   default: "`true` if no `state_topic` defined, else `false`."
 payload_reset:
-  description: A special payload that resets the state to `None` when received on the `state_topic`.
+  description: A special payload that resets the state to `unknown` when received on the `state_topic`.
   required: false
   type: string
   default: '"None"'
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -194,7 +195,8 @@ unique_id:
   required: false
   type: string
 unit_of_measurement:
-  description: Defines the unit of measurement of the sensor, if any.
+  description: Defines the unit of measurement of the sensor, if any. The `unit_of_measurement` can be `null`.
+  Default: None
   required: false
   type: string
 value_template:

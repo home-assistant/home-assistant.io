@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Compensation integration consumes the state from other sensors. It exports the compensated value as state and the following values as attributes: `entity_id` and `coefficients`.  A single polynomial, linear by default, is fit to all data points provided.
+The Compensation {% term integration %} consumes the {% term state %} from other {% term sensors %}. It exports the compensated value as state in a separate {% term entity %} and the following values as attributes: `entity_id` and `coefficients`.  A single polynomial, linear by default, is fit to all data points provided.
 
 ## Configuration
 
@@ -27,6 +27,20 @@ compensation:
     source: media_player.yamaha_receiver
     attribute: volume_level
     unit_of_measurement: dB
+    data_points:
+      - [0.2, -80.0]
+      - [1.0, 0.0]
+
+  media_player_db_volume:
+    source: media_player.yamaha_receiver_zone_2
+    attribute: volume_level
+    unit_of_measurement: dB
+    # Ensure that the sensor's value will not have a state lower than -80.0
+    # when the source sensors value is less than 0.2
+    lower_limit: true
+    # Ensure that the sensor's value will not have a state greater than 0.0
+    # when the source sensors value is greater than 1.0
+    upper_limit: true
     data_points:
       - [0.2, -80.0]
       - [1.0, 0.0]
@@ -63,4 +77,14 @@ unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
   type: string
+lower_limit:
+  description: "Enables a lower limit for the sensor. The lower limit is defined by the data collections (`data_points`) lowest `uncompensated_value`. For example, if the lowest `uncompensated_value` value is `1.0` and the paired `compensated_value` is `0.0`, any `source` state less than `1.0` will produce a compensated state of `0.0`."
+  required: false
+  type: boolean
+  default: false
+upper_limit:
+  description: "Enables an upper limit for the sensor. The upper limit is defined by the data collections (`data_points`) greatest `uncompensated_value`. For example, if the greatest `uncompensated_value` value is `5.0` and the paired `compensated_value` is `10.0`, any `source` state greater than `5.0` will produce a compensated state of `10.0`."
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}

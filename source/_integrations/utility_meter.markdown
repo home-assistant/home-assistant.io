@@ -55,6 +55,10 @@ Net consumption:
 Delta values:
   description: >
     Enable this if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value.
+Periodically resetting:
+  description: >
+    Enable this if the source sensor state is expected to reset to 0, for example, a smart plug that resets on boot.
+    When this option is disabled (for example, if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and the last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
 {% endconfiguration_basic %}
 
 If the meter reset cycle and reset offsets are to limited for your use case,
@@ -117,6 +121,11 @@ tariffs:
   required: false
   default: []
   type: list
+periodically_resetting:
+  description: Enable this if the source sensor state is expected to reset to 0, for example, a smart plug that resets on boot. When this option is disabled (for example, if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and the last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 <p class='note warning'>
@@ -234,7 +243,7 @@ utility_meter:
 
 ## Advanced Configuration for DSMR users
 
-When using the [DSMR component](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` component.
+When using the [DSMR integration](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` integration.
 
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
 
@@ -242,7 +251,7 @@ If you want to create a daily and monthly sensor for each tariff, you have to tr
 - `sensor.energy_consumption_tarif_2` for tarif 2 power (for example peak)
 - `sensor.gas_consumption` for gas consumption
 
-So, tracking daily and monthly consumption for each sensor, will require setting up 6 entries under the `utility_meter` component.
+So, tracking daily and monthly consumption for each sensor, will require setting up 6 entries under the `utility_meter` integration.
 
 ```yaml
 utility_meter:

@@ -51,4 +51,4 @@ If you have two solar sensors named `Solar1` and `Solar2` you would use:
 
 In the Grid Consumption settings, select `MainsConsumption.wh`  
 In the Return to grid settings, select `MainsExport.wh`  
-In the Solar production settings, select `Solar.wh`  
+In the Solar production settings, select `Solar.wh`

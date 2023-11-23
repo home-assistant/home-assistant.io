@@ -44,7 +44,7 @@ This section enables you to control Home Assistant from within Home Assistant. C
 
 ### Persons
 
-This section enables you to associate users with their device tracker entities using the person component.
+This section enables you to associate users with their device tracker entities using the person integration.
 
 ### Entities
 

@@ -23,7 +23,7 @@ This integration allows you to write Python scripts that are exposed as services
 Other imports like `min`, `max` are available as builtins. See the [python_script](https://github.com/home-assistant/core/blob/dev/homeassistant/components/python_script/__init__.py) source code for up-to-date information on the available objects inside the script.
   
 
-[hass-api]: /developers/development_hass_object/
+[hass-api]: https://developers.home-assistant.io/docs/dev_101_hass/
 [logger-api]: https://docs.python.org/3.7/library/logging.html#logger-objects
 
 <div class='note'>
@@ -126,6 +126,14 @@ The above `python_script` can be called using the following YAML as an input.
     entity_id: light.bedroom
   data:
     rgb_color: [255, 0, 0]
+```
+
+Services can also respond with data. Retrieving this data in your Python script can be done by setting the `blocking` and `return_response` arguments of the `hass.services.call` function to `True`. This is shown in the example below, in this case, retrieving the weather forecast and putting it into a variable:
+
+```python
+# get_forecast.py
+service_data = {"type": "daily", "entity_id": "weather.YOUR_HOME"}
+current_forecast = hass.services.call("weather", "get_forecast", service_data, blocking=True, return_response=True)
 ```
 
 ## Documenting your Python scripts

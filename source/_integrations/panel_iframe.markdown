@@ -37,7 +37,7 @@ panel_iframe:
 
 {% configuration %}
 panel_iframe:
-  description: Enables the panel_iframe component. Only allowed once.
+  description: Enables the panel_iframe integration. Only allowed once.
   required: true
   type: map
   keys:

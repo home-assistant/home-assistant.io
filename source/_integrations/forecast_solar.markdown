@@ -71,6 +71,7 @@ The Forecast.Solar integration mainly provides sensors that you can use in your
 automations.
 
 - Estimated Energy Production - Today (in kWh)
+- Estimated Energy Production - Remaining Today (in kWh)
 - Estimated Energy Production - Tomorrow (in kWh)
 - Estimated Energy Production - This Hour (in kWh)
 - Estimated Energy Production - Next Hour (in kWh)
@@ -99,8 +100,8 @@ If you like the Forecast.Solar service, or are interested in more frequent data
 updates (based on a higher data resolution), you could [sign up for one
 of their plans](https://doc.forecast.solar/doku.php?id=account_models#compare_plans).
 
-To enable the use of the API key with this integration, go to {% my integrations %}, 
-click "Configure" on the Forecast.Solar integration instance and enter the
+To enable the use of the API key with this integration, go to {% my integrations %}. 
+Select the Forecast.Solar integration, then select **Configure**. Enter the
 API key for your account.
 
 ## Tweaking the estimations
@@ -130,8 +131,7 @@ a more realistic forecast graph.
 To adjust the configuration settings for your Forecast.Solar integration
 instance:
 
-- Browse to your Home Assistant instance.
-- In the sidebar click on _**{% my config icon %}**_.
-- From the configuration menu select: _**{% my integrations %}**_.
-- If multiple instances of {{ name }} are configured, choose the instance you want to configure.
-- Click on _**"Configure"**_.
+1. Browse to your Home Assistant instance.
+2. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+3. If multiple instances of {{ name }} are configured, choose the instance you want to configure.
+4. Select **Configure**.

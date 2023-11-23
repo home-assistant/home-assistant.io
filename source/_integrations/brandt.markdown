@@ -2,7 +2,7 @@
 title: Brandt Smart Control
 description: Connect and control your Brandt Smart Control devices using the Overkiz integration
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Binary Sensor
   - Button
   - Climate

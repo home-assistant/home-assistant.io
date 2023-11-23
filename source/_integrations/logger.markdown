@@ -25,7 +25,7 @@ logger:
 The log severity level is `warning` if the logger integration is not enabled in `configuration.yaml`.
 
 To log all messages and ignore events lower than critical for specified
-components:
+integrations:
 
 ```yaml
 # Example configuration.yaml entry
@@ -37,7 +37,7 @@ logger:
 ```
 
 To ignore all messages lower than critical and log event for specified
-components:
+integrations:
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,7 +59,7 @@ logger:
     # log level for SmartThings lights
     homeassistant.components.smartthings.light: info
 
-    # log level for a custom component
+    # log level for a custom integration
     custom_components.my_integration: debug
 
     # log level for the `aiohttp` Python package
@@ -85,7 +85,7 @@ where **namespace** is the *<component_namespace>* currently logging.
     type: map
     keys:
       '&lt;component_namespace&gt;':
-        description: Logger namespace of the component. See [log_level](#log-levels).
+        description: Logger namespace of the integration. See [log_level](#log-levels).
         type: string
   filters:
     description: Regular Expression logging filters.
@@ -93,7 +93,7 @@ where **namespace** is the *<component_namespace>* currently logging.
     type: map
     keys:
       '&lt;component_namespace&gt;':
-        description: Logger namespace of the component and a list of Regular Expressions. See [Log Filters](#log-filters).
+        description: Logger namespace of the integration and a list of Regular Expressions. See [Log Filters](#log-filters).
         type: list
 {% endconfiguration %}
 

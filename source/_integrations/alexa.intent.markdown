@@ -70,7 +70,7 @@ Next you need to create a Lambda function.
 - Click your Lambda Function icon in the middle of the diagram and scroll down, you will see a `Function code` window.
 - Clear the example code and copy the Python script from this [GitHub Gist](https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da).
 - Click the `Deploy` button of the `Function code` window.
-- Scroll down again and you will find `Environment variables`, click on `Edit` button and add the following environment variables as needed:
+- Scroll down again and pick the `Configuration' tab, select it and on the left you will now find `Environment variables`, click on `Edit` button and add the following environment variables as needed:
   - BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
   - NOT_VERIFY_SSL *(optional)*: set to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
   - DEBUG *(optional)*: set to *True* to log debugging messages.
@@ -195,6 +195,8 @@ The names must exactly match the scene names (minus underscores - Amazon discard
 
 In the new Alexa Skills Kit, you can also create synonyms for slot type values, which can be used in place of the base value in utterances. Synonyms will be replaced with their associated slot value in the intent request sent to the Alexa API endpoint, but only if there are not multiple synonym matches. Otherwise, the value of the synonym that was spoken will be used.
 
+If you want to use the `Optional ID` field next to or instead of the Synonym value, you can simply append "_Id" at the end of the template variable e.g. `Scene_Id`.
+
 <p class='img'>
 <img src='/images/integrations/alexa/scene_slot_synonyms.png' />
 Custom slot values with synonyms.
@@ -217,6 +219,8 @@ intent_script:
       service: scene.turn_on
       target:
         entity_id: scene.{{ Scene | replace(" ", "_") }}
+      data:
+        id: {{ Scene_Id }}
     speech:
       type: plain
       text: OK
@@ -394,5 +398,5 @@ Alexa will now respond with a random phrase each time. You can use the include f
 [amazon-dev-console]: https://developer.amazon.com
 [large-icon]: /images/integrations/alexa/alexa-512x512.png
 [small-icon]: /images/integrations/alexa/alexa-108x108.png
-[templates]: /topics/templating/
+[templates]: /docs/configuration/templating/
 [generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token

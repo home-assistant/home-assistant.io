@@ -12,7 +12,7 @@ ha_domain: mopeka
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Mopeka](https://www.mopekaiot.com/) devices into Home Assistant.

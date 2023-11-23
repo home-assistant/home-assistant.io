@@ -62,9 +62,13 @@ homeassistant:
     recording: /mnt/recordings
 ```
 
-Please note, that the folder must be accessible locally. Home Assistant
-cannot connect to external or remote network shares using this configuration
-option.
+<div class='note'>
+
+  If you want to use media from a network storage, the network storage must first be connected first. Refer to [these instructions on how to connect network storage](/common-tasks/os/#network-storage).
+
+  The media from the network storage is then automatically added to the local media browser.
+
+</div>
 
 ## Playing media from a Media Source
 

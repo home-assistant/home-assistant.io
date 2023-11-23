@@ -15,6 +15,8 @@ ha_platforms:
   - button
   - diagnostics
   - light
+  - sensor
+  - switch
 ha_integration_type: device
 ---
 
@@ -27,6 +29,7 @@ integration:
 
 - [Elgato Key Light](https://www.elgato.com/en/key-light)
 - [Elgato Key Light Air](https://www.elgato.com/en/key-light-air)
+- [Elgato Key Light Mini](https://www.elgato.com/en/key-light-mini)
 - [Elgato Ring Light](https://www.elgato.com/en/ring-light)
 - [Elgato Light Strip](https://www.elgato.com/en/light-strip)
 
@@ -39,6 +42,23 @@ allows you to control the color temperature, brightness, and its on/off state.
 
 When using the Elgato Light Strip, color support is automatically detected
 and enabled in Home Assistant.
+
+## Other entities
+
+Besides the above mentioned light entity, this integration also provides other
+secondary entities that can be useful for monitoring and controlling your
+Elgato light.
+
+### Sensors
+
+If you have a Key Light Mini, Home Assistant will provide an additional
+sensor that indicates the level of your battery in percent (%).
+
+### Switches
+
+If you have a Key Light Mini, Home Assistant will provide an additional
+switch that allows the control of the "Studio mode" of your light. When
+studio mode is enabled, your battery will not be used and bypassed.
 
 ## Services
 

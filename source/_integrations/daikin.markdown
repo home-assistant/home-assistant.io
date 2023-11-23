@@ -45,7 +45,8 @@ There is currently support for the following device types within Home Assistant:
 <div class='note'>
 
 - The integration for BRP072Cxx and SKYFi based units need API-key / password respectively. The API-key/password can be found on a sticker under the front cover. The other models are auto detected and the API-key and password field must be left empty.
-  
+- BRP084Cxx firmware update from 1.19.0 to 2.8.0 breaks local API there is however ongoing work in fixing local API support again.
+
 </div>
 
 {% include integrations/config_flow.md %}

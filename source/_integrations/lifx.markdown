@@ -17,10 +17,6 @@ ha_platforms:
   - select
   - sensor
 ha_integration_type: integration
-ha_codeowners:
-  - '@bdraco'
-  - '@Djelibeybi'
-ha_quality_scale: platinum
 ha_dhcp: true
 ---
 
@@ -126,7 +122,7 @@ script:
 
 ### Hardware effects
 
-The Flame (`lifx_effect_flame`), Morph (`lifx.effect_morph`) and Move (`lifx.effect_move`) effects are hardware-based and only work on specific LIFX devices. Flame and Morph are available on the LIFX Tile and Candle, while the Move effect requires a LIFX Z, Lightstrip, or Beam.
+The Flame (`lifx.effect_flame`), Morph (`lifx.effect_morph`) and Move (`lifx.effect_move`) effects are hardware-based and only work on specific LIFX devices. Flame and Morph are available on the LIFX Tile and Candle, while the Move effect requires a LIFX Z, Lightstrip, or Beam.
 
 All hardware-based effects can be stopped and started regardless of the device's power state, but the default behavior for each service is to turn the device on when starting an effect. Set the `power_on` attribute of the service to `false` to override this default.
 

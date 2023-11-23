@@ -10,7 +10,6 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: sonos
 ha_codeowners:
-  - '@cgtobi'
   - '@jjlawren'
 ha_ssdp: true
 ha_platforms:
@@ -117,19 +116,38 @@ Sonos accepts a variety of `media_content_id` formats in the `media_player.play_
 
 Music services which require an account (e.g., Spotify) must first be configured using the Sonos app.
 
+Playing TTS (text-to-speech) or audio files as alerts (e.g., a doorbell or alarm) is possible by setting the `announce` argument to `true`. Using `announce` will play the provided media URL as an overlay, gently lowering the current music volume and automatically restoring to the original level when finished. An optional `volume` argument can also be provided in the `extra` dictionary to play the alert at a specific volume level. Note that older Sonos hardware or legacy firmware versions ("S1") may not fully support these features. Additionally, see [Network Requirements](#network-requirements) for use in restricted networking environments.
+
 An optional `enqueue` argument can be added to the service call. If `true`, the media will be appended to the end of the playback queue. If not provided or `false` then the queue will be replaced.
 
 ### Examples:
 
-This is an example service call that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver):
+Below is an example service call that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver) using the `announce` feature and its associated (optional) `volume` parameter:
 
 ```yaml
 service: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
+  announce: true
   media_content_type: "music"
   media_content_id: "http://192.168.1.50:8123/local/sound_files/doorbell-front.mp3"
+  extra:
+    volume: 20
+```
+
+The standard `tts.<source>_say` services do not accept the `volume` parameter directly. To set the `volume` for a TTS announcement, you can use a TTS Media Source URL with the standard `media_player.play_media` service:
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  announce: true
+  media_content_id: >
+    media-source://tts/cloud?message="I am very loud"
+  media_content_type: "music"
+  extra:
+    volume: 80
 ```
 
 Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. An example service call using a playlist URI:
@@ -163,7 +181,8 @@ target:
   entity_id: media_player.sonos
 data:
   media_content_type: "music"
-  media_content_id: 'plex://{ "library_name": "Music", "artist_name": "M83", "album_name": "Hurry Up, We're Dreaming" }'
+  media_content_id: >
+    plex://{ "library_name": "Music", "artist_name": "M83", "album_name": "Hurry Up, We're Dreaming" }
 ```
 
 ## Services
@@ -296,6 +315,8 @@ action:
 ## Network requirements
 
 To work optimally, the Sonos devices must be able to connect back to the Home Assistant host on TCP port 1400. This will allow the push-based updates to work properly. If this port is blocked or otherwise unreachable from the Sonos devices, the integration will fall back to a polling mode which is slower to update and much less efficient. The integration will alert the user if this problem is detected.
+
+Playing audio using the `announce` option or TTS requires TCP port 1443 on each Sonos device to be reachable from the Home Assistant host.
 
 See [Advanced use](#advanced-use) below for additional configuration options which may be needed to address this issue in setups with more complex network topologies.
 

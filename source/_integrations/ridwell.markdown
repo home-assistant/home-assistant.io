@@ -10,6 +10,7 @@ ha_codeowners:
   - '@bachya'
 ha_config_flow: true
 ha_platforms:
+  - calendar
   - diagnostics
   - sensor
   - switch
@@ -24,9 +25,9 @@ The Ridwell integration allows users to track waste recycling pickups scheduled 
 
 The pickup sensor contains a `pickup_types` state attribute, which contains:
 
-* The items being picked up during this particular event
-* The category of each item
-* The quantity of each item
+- The items being picked up during this particular event
+- The category of each item
+- The quantity of each item
 
 For example:
 

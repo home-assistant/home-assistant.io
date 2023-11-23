@@ -6,6 +6,7 @@ show_title: true
 toc: true
 ---
 
+{% include installation_survey.html %}
 
 <div class="intro">
     <p>
@@ -37,7 +38,40 @@ toc: true
 </div>
 
 <div class="installations">
-
+    <h2>Home Assistant Green</h2>
+    <a href="/installation/green" class="installations-card">
+        <div class="material-card text">
+            <div class="content-container">
+                <div>
+                    <img src="/images/installation/green-logo-square.png">
+                </div>
+                <div>
+                    <b>Home Assistant Green</b>
+                    <ul>
+                        <li>Home Assistant Operating System</li>
+                    </ul>
+                </div>
+            </div>
+            {% include assets/chevron_right.html %}
+        </div>
+    </a>
+    <h2>Home Assistant Yellow</h2>
+    <a href="/installation/yellow" class="installations-card">
+        <div class="material-card text">
+            <div class="content-container">
+                <div>
+                    <img src="/images/installation/yellow-logo-square.png">
+                </div>
+                <div>
+                    <b>Home Assistant Yellow</b>
+                    <ul>
+                        <li>Home Assistant Operating System</li>
+                    </ul>
+                </div>
+            </div>
+            {% include assets/chevron_right.html %}
+        </div>
+    </a>
     <h2>Raspberry Pi</h2>
     <a href="/installation/raspberrypi" class="installations-card">
         <div class="material-card text">
@@ -76,27 +110,7 @@ toc: true
             </div>
             {% include assets/chevron_right.html %}
         </div>
-    </a>
-
-    <h2>ASUS Tinkerboard</h2>
-    <a href="/installation/tinkerboard" class="installations-card">
-        <div class="material-card text">
-            <div class="content-container">
-                <div>
-                    <img src="/images/installation/tinkerboard.png">
-                </div>
-                <div>
-                    <b>ASUS Tinkerboard</b>
-                    <ul>
-                        <li>Home Assistant Operating System</li>
-                        <li>Home Assistant Container</li>
-                        <li>Home Assistant Core</li>
-                    </ul>
-                </div>
-            </div>
-            {% include assets/chevron_right.html %}
-        </div>
-    </a>
+    </a>  
 
     <h2>Generic x86-64</h2>
     <a href="/installation/generic-x86-64" class="installations-card">
@@ -195,10 +209,10 @@ toc: true
 
 </div>
 
-<h2>Compare Installation Methods</h2>
+<h2>Compare installation methods</h2>
 
 <table class="compare-installations">
-    <th></th><th>OS</th><th>Container</th><th>Core</th><th>Supervised</th>
+    <th></th><th>HA OS<sup>1</sup></th><th>Container<sup>1</sup></th><th>Core<sup>1</sup></th><th>Supervised<sup>1</sup></th>
     <tr>
         <td><a href="/docs/automation" target="_blank">Automations</a></td>
         <td>✅</td><td>✅</td><td>✅</td><td>✅</td>
@@ -229,7 +243,11 @@ toc: true
     </tr>
     <tr>
         <td><a href="/common-tasks/os/#backups" target="_blank">Backups</a></td>
-        <td>✅</td><td>✅<sup>1</sup></td><td>✅<sup>1</sup></td><td>✅</td>
+        <td>✅</td><td>✅<sup>2</sup></td><td>✅<sup>2</sup></td><td>✅</td>
+    </tr>
+    <tr>
+        <td>Managed Restore</td>
+        <td>✅</td><td>❌<sup>3</sup></td><td>❌<sup>3</sup></td><td>✅</td>
     </tr>
     <tr>
         <td>Managed OS</td>
@@ -237,6 +255,14 @@ toc: true
     </tr>
 </table>
 
-<sub>1: Backups for Home Assistant Core and Home Assistant Container is provided by the <a href="/integrations/backup" target="_blank"><code>backup</code> integration</a>.</sub>
-
-{% include getting-started/next_step.html step="onboarding" link="/getting-started/onboarding" %}
+<sub>1: Names are abbreviated. The full names of the installation methods are: <ul>
+    <li style="margin-top: 0.4em">Home Assistant Operating System</li>
+    <li style="margin-top: 15px">Home Assistant Container</li>
+    <li style="margin-top: 15px">Home Assistant Core</li>
+    <li style="margin-top: 15px">Home Assistant Supervised</li>
+</ul></sub>
+<p>
+<sub>2: Backups for Home Assistant Core and Home Assistant Container is provided by the <a href="/integrations/backup" target="_blank"><code>backup</code> integration</a>.</sub></p>
+<p>
+<sub>3: Backups for Home Assistant Core and Home Assistant Container are either a tool to migrate to HAOS or a completely manual restore of the backup.</sub></p>
+<p></p>

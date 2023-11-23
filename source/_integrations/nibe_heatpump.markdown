@@ -17,6 +17,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - water_heater
 ha_integration_type: integration
 ---
 
@@ -28,9 +29,12 @@ Supported devices:
 - S1145/S1155
 - F1245/F1255
 - F1355/F1355
+- S2125
+- S320/S325
 - F370
 - F470
 - F730
+- S735
 - F750
 - SMO40
 - SMOS40

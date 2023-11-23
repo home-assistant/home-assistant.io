@@ -23,6 +23,8 @@ Name:
   description: The name of the location where the weather platform is located. If not set, the name will be the name set on the weather entity
 Show Forecast:
   description: Check this if you would like to show the upcoming forecast under the current weather.
+Forecast type:
+  description: Select the forecast to display between "Daily", "Hourly" and "Twice daily".
 Secondary Info Attribute:
   description: Here you can specify a secondary attribute to show under the current temperature. Ex. Extrema, Precipitation, Humidity. If not set, it will default to Extrema (High/Low) if available, if not available then Precipitation and if precipitation isn't available then Humidity.
 Theme:
@@ -60,6 +62,11 @@ show_forecast:
   description: Show next hours/days forecast.
   type: boolean
   default: true
+forecast_type:
+  required: true
+  description: Type of forecast to display, one of `daily`, `hourly` or `twice_daily`.
+  type: string
+  default: Automatically selects in order of `daily`, `hourly` and `twice_daily`.
 secondary_info_attribute:
   required: false
   description: Which attribute to display under the temperature.
@@ -86,8 +93,11 @@ double_tap_action:
 ### Example
 
 ```yaml
+show_current: true
+show_forecast: true
 type: weather-forecast
 entity: weather.openweathermap
+forecast_type: daily
 ```
 
 ### Advanced

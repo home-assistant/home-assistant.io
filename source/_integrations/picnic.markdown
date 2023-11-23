@@ -41,6 +41,10 @@ This integration provides the following sensors. Some sensors are disabled by de
 | Next delivery slot start       | Start of the next delivery's delivery slot. |
 | Next delivery slot end         | End of the next delivery's delivery slot. |
 
+## Shopping cart
+
+This integration provides a _read-only_ list containing the content of your shopping cart. This list is provided as a [to-do list](/integrations/todo/) and can also be found in the to-do list dashboard in the main sidebar of your Home Assistant instance. 
+
 ## Services
 
 ### Service `picnic.add_product`

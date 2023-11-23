@@ -125,7 +125,7 @@ you specify a `target` parameter when sending the notification), you can use the
 `group` notification to wrap them for an alert.
 Simply create a `group` notification type with a single notification member
 (such as `twilio_sms`) specifying the required parameters other than `message`
-provided by the `alert` component:
+provided by the `alert` integration:
 
 ```yaml
 - platform: group
@@ -290,6 +290,25 @@ but you will still receive the done message.
     - service: alert.turn_off
       target:
         entity_id: alert.garage_door
+```
+
+Notifications sent to Home Assistant Companion apps support [replacing](https://companion.home-assistant.io/docs/notifications/notifications-basic/#replacing) and [clearing](https://companion.home-assistant.io/docs/notifications/notifications-basic/#replacing) notifications. To use these functions with alerts, set a `tag` in the message data, send `clear_notification` as the `done_message`, and use `mobile_app_*` as the notifier:
+
+```yaml
+alert:
+  garage_door:
+    name: Garage is open
+    done_message: clear_notification
+    entity_id: input_boolean.garage_door
+    state: "on"
+    repeat: 30
+    can_acknowledge: true
+    skip_first: true
+    notifiers:
+      - mobile_app_ryan
+      - mobile_app_kristen
+    data:
+      tag: garage-door
 ```
 
 [template]: /docs/configuration/templating/

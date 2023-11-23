@@ -17,8 +17,8 @@ To enable MQTT Update in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  update:
-    - state_topic: topic-installed
+  - update:
+      state_topic: topic-installed
       latest_version_topic: topic-latest
 ```
 
@@ -64,12 +64,12 @@ command_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this Update is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this Update is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -109,7 +109,8 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/update/#device-classes) of the update to set the icon in the frontend.
+  description: The [type/class](/integrations/update/#device-classes) of the update to set the icon in the frontend. The `device_class` can be `null`.
+  default: None
   required: false
   type: device_class
   default: None
@@ -153,7 +154,7 @@ latest_version_topic:
   required: false
   type: string
 name:
-  description: The name of the Select.
+  description: The name of the Update. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
 object_id:
@@ -165,7 +166,7 @@ payload_install:
   required: false
   type: string
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -191,7 +192,7 @@ title:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this Select. If two Selects have the same unique ID Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this Update. If two Updates have the same unique ID Home Assistant will raise an exception.
   required: false
   type: string
 value_template:
@@ -215,8 +216,8 @@ This is an example of Update entity configuration for Shelly Gen1 device.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  update:
-    - name: "Shelly Plug S Firmware Update"
+  - update:
+      name: "Shelly Plug S Firmware Update"
       title: "Shelly Plug S Firmware"
       release_url: "https://shelly-api-docs.shelly.cloud/gen1/#changelog"
       entity_picture: "https://brands.home-assistant.io/_/shelly/icon.png"
@@ -255,8 +256,8 @@ For the above JSON payload, the `update` entity configuration should look like t
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  update:
-    - name: "Amazing Device Update"
+  - update:
+      name: "Amazing Device Update"
       title: "Device Firmware"
       state_topic: "amazing-device/state-topic"
       device_class: "firmware"
@@ -286,8 +287,8 @@ For the above JSON payload, the `update` entity configuration should look like t
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  update:
-    - name: "Amazing Device Update"
+   update:
+      name: "Amazing Device Update"
       title: "Device Firmware"
       state_topic: "amazing-device/state-topic"
       value_template: "{{ {'installed_version': value_json.installed_ver, 'latest_version': value_json.new_ver } | to_json }}"

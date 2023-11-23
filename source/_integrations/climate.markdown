@@ -11,7 +11,9 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Climate integration allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.
+The climate integration allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.
+
+{% include integrations/building_block_integration.md %}
 
 ## Services
 

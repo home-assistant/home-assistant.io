@@ -37,7 +37,7 @@ Precision:
 
 ## YAML Configuration
 
-Alternatlively, this integration can be configured and set up manually via YAML
+Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the Integration sensor in your installation, add the
 following to your `configuration.yaml` file:
 

@@ -34,7 +34,7 @@ The Yamaha MusicCast integration implements the grouping services. There are som
 
 ## Play Media functionality
 
-The MusicCast integration supports the Home Assistant media browser for all streaming services, your device supports. For services such as Deezer, you have to log in using the official MusicCast app. In addition, local HTTP URLs can be played back using this service. This includes the Home Assistant text to speech services.
+The MusicCast integration supports the Home Assistant media browser for all streaming services, your device supports. For services such as Deezer, you have to log in using the official MusicCast app. In addition, local HTTP URLs can be played back using this service. This includes the Home Assistant text-to-speech services.
 
 It is also possible to recall NetUSB presets using the play media service. To do so "presets:<preset_num>" has to be used as `media_content_id` in the service call.
 
@@ -125,7 +125,7 @@ In this section known problems and their resolution are documented.
 ### Errors on handling UDP messages
 
 The Yamaha MusicCast integration is working with updates sent from the device to Home Assistant instead of pulling all information every few seconds. There is no error correction mechanism in these messages, so that only 100% correct messages can be processed. Whenever there is a corrupt message the Yamaha MusicCast integration will update all device information and log an error message like these:
-* `Received invalid message: <message>`
-* `Received non UTF-8 compliant message: b'<binary>'`
+- `Received invalid message: <message>`
+- `Received non UTF-8 compliant message: b'<binary>'`
 
 If you receive these errors frequently, you should first try to disconnect your MusicCast devices from the power, wait 30 seconds and reconnect them to the power. If this does not help, you can try to use a LAN cable instead of WiFi to connect the device to the network.

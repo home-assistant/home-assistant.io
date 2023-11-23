@@ -49,7 +49,7 @@ chart_type:
   type: string
 stat_types:
   required: false
-  description: The statistics types to render. `min`, `max`, `mean`, `sum`, `state`
+  description: The statistics types to render. `min`, `max`, `mean`, `sum`, `state`, `change`
   type: list
 title:
   required: false
@@ -57,8 +57,13 @@ title:
   type: string
 period:
   required: false
-  description: The period of the rendered graph. `5minute`, `hour`, `day` or `month` 
+  description: The period of the rendered graph. `5minute`, `hour`, `day`, `week` or `month` 
   type: string  
+hide_legend:
+  required: false
+  description:  If true, the legend will be hidden.
+  type: boolean  
+  default: false
 {% endconfiguration %}
 
 ### Options For Entities

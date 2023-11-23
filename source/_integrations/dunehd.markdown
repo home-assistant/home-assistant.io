@@ -7,8 +7,6 @@ ha_iot_class: Local Polling
 ha_release: 0.34
 ha_domain: dunehd
 ha_config_flow: true
-ha_codeowners:
-  - '@bieniu'
 ha_platforms:
   - media_player
 ha_integration_type: integration

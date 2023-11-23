@@ -15,9 +15,9 @@ We are going to help you make your first changes to `configuration.yaml`. To do 
 
 ![Add-on store.](/images/hassio/screenshots/dashboard.png)
 
-Under the "Official add-ons" section you will find the File editor add-on.
+Under the **Official add-ons** section, you will find the **File editor** add-on.
 
- - Click on File Editor and click on **Install**. When installation is complete, the UI will go to the add-on details page for the file editor.
+ - Click on **File editor** and click on **Install**. When the installation is complete, the UI will go to the add-on details page for the file editor.
  - Now start the add-on by clicking on **Start**.
  - Open the user interface by clicking on **Open Web UI**.
 
@@ -41,8 +41,8 @@ Now let's make a change using the file editor: we are going to change the name, 
 </div>
 
  - Click the save icon in the top right to commit changes.
- - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by navigating to {% my server_controls title="Developer Tools -> YAML" %} and and then clicking on the **Check configuration** button. When it's valid, it will show the text "Configuration valid!". In order for the **Check Configuration**" button to be visible, you must enable "Advanced Mode" on your user profile.
- - Now Restart Home Assistant. You can do so by either using the **Restart** option in the ⚙ menu of the File Editor UI or by navigating to {% my system_dashboard title="Settings -> System" %} and then clicking on the **Restart** button on the top right of the page.
+ - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by navigating to {% my server_controls title="Developer Tools > YAML" %} and and then clicking on the **Check configuration** button. When it's valid, it will show the text "Configuration valid!". In order for the **Check Configuration**" button to be visible, you must enable **Advanced Mode** on your user profile.
+ - Now restart Home Assistant. You can do so by either using the **Restart** option in the ⚙ menu of the File Editor UI or by navigating to {% my system_dashboard title="Settings > System" %} and then clicking on the **Restart** button on the top right of the page.
 
 ![Screenshot of the "General" page in the configuration panel.](/images/screenshots/configuration-validation.png)
 
@@ -56,6 +56,6 @@ Now let's make a change using the file editor: we are going to change the name, 
 
 Maybe you are not a big fan of our web editor and want to use a text editor on your computer instead. This is possible by sharing the configuration over the network using the Samba add-on, which can also be installed from the Home Assistant add-on store. This will make your configuration accessible via the network tab on your computer.
 
-Go to the add-on store and look for Samba in the core section. After you have installed the add-on, click on START. Home Assistant should now be available in the networking tab on your computer.
+Go to the add-on store and look for Samba in the core section. After you have installed the add-on, click on **Start**. Home Assistant should now be available in the networking tab on your computer.
 
 We suggest that to edit `configuration.yaml`, you use the free text editor [Visual Studio Code](https://code.visualstudio.com/) in combination with the [Home Assistant Configuration Helper extension](https://marketplace.visualstudio.com/items?itemName=keesschollaart.vscode-home-assistant).

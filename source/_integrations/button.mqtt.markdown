@@ -17,8 +17,8 @@ The `mqtt` button platform lets you send an MQTT message when the button is pres
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  button:
-    - command_topic: "home/bedroom/switch1/reboot"
+  - button:
+      command_topic: "home/bedroom/switch1/reboot"
 ```
 
 {% configuration %}
@@ -67,12 +67,12 @@ command_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this button is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this button is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -112,8 +112,9 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/button/#device-class) of the button to set the icon in the frontend.
+  description: The [type/class](/integrations/button/#device-class) of the button to set the icon in the frontend. The `device_class` can be `null`.
   required: false
+  default: None
   type: device_class
   default: None
 enabled_by_default:
@@ -144,7 +145,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name to use when displaying this button.
+  description: The name to use when displaying this button. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Button
@@ -168,7 +169,7 @@ payload_press:
   type: string
   default: "PRESS"
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -200,8 +201,8 @@ The example below shows a full configuration for a button.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  button:
-    - unique_id: bedroom_switch_reboot_btn
+  - button:
+      unique_id: bedroom_switch_reboot_btn
       name: "Restart Bedroom Switch"
       command_topic: "home/bedroom/switch1/commands"
       payload_press: "restart"

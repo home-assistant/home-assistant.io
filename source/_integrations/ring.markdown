@@ -23,7 +23,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.
+The Ring integration allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 
 <p class='note'>
-This component does NOT allow for live viewing of your Ring camera within Home Assistant.
+This integration does NOT allow for live viewing of your Ring camera within Home Assistant.
 </p>
 
 {% include integrations/config_flow.md %}

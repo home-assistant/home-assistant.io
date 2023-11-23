@@ -89,6 +89,27 @@ target:
   device_id: a674c90eca95eca91f6020415de07713
 ```
 
+**Service `set_config`**
+
+You can use the service `fully_kiosk.set_config` to change the many configuration parameters of Fully Kiosk Browser.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | no | Device ID (or list of device IDs) to load the URL on.
+| `key` | no | The configuration parameter key. The list of available keys can be found in the Fully Kiosk Browser remote admin panel by clicking the **Show keys** button.
+| `value` | no | The value to set the configuration parameter to.
+
+Example:
+
+```yaml
+service: fully_kiosk.set_config
+data:
+  key: "startURL"
+  value: "https://home-assistant.io"
+target:
+  device_id: a674c90eca95eca91f6020415de07713
+```
+
 **Service `start_application`**
 
 You can use the service `fully_kiosk.start_application` to have the tablet launch the specified app.

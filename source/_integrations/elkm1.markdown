@@ -553,3 +553,18 @@ Speak a word. The list of words is defined in the ElkM1 ASCII Protocol documenta
 | ---------------------- | -------- | ----------- |
 | `word` | no | Word to speak.
 | `prefix` | yes | Prefix to identify panel when multiple panels configured.
+
+## Debugging
+Debug logs are often required to solve an issue. Follow the instructions on [Enabling debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
+
+Sometimes, for example, a problem can occur while starting Home Assistant. In this case, follow these instructions.
+Add the following to your `configuration.yaml` file in your Home Assistant `config` directory:
+
+```yaml
+logger:
+  logs:
+    elkm1_lib: debug
+    homeassistant.components.elkm1: debug
+```
+
+After updating your configuration file, restart Home Assistant. The debug logs will be in the file `homeassistant.log` in the `config` directory.

@@ -16,11 +16,12 @@ ha_codeowners:
   - '@2Fake'
   - '@Shutgun'
 ha_domain: devolo_home_control
-ha_quality_scale: silver
+ha_quality_scale: gold
 ha_platforms:
   - binary_sensor
   - climate
   - cover
+  - diagnostics
   - light
   - sensor
   - siren

@@ -15,7 +15,7 @@ ha_integration_type: integration
 ---
 
 The FAA Delays integration collects and displays information about delays at US Airports based on the
-[FAA's National Airspace System Status](https://www.fly.faa.gov/ois/).
+[FAA's National Airspace System Status](https://nasstatus.faa.gov/).
 
 Data measured includes:
 
@@ -30,12 +30,7 @@ Data measured includes:
 
 The airport entered must be a valid IATA
 airport code for an airport in the US. You can find this by looking up the 
-FAA Identifier at [Airnav](https://airnav.com/airports/). Officially the FAA
-only supports the airports listed below, but all airports will return data.
-
-Supported airports: BOS, LGA, TEB, EWR, JFK, PHL, PIT, IAD, BWI, DCA, RDU,
-CLT, ATL, MCO, TPA, MCO, FLL, MIA, DTW, CLE, MDW, ORD, IND, CVG, BNA, MEM,
-STL, MCI, MSP, DFW, IAH, DEN, SLC, PHX, LAS, SAN, LAX, SJC, SFO, PDX, SEA
+FAA Identifier at [Airnav](https://airnav.com/airports/).
 
 ## Additional Delay Information
 
@@ -57,4 +52,3 @@ listed below:
 - Closure
   - Start of closure (begin)
   - End of closure (end)
-  - Closure reason

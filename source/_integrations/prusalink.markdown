@@ -17,8 +17,11 @@ ha_platforms:
 ha_dhcp: true
 ---
 
-The PrusaLink integration allows you to monitor your [Prusa 3D printer](https://www.prusa3d.com) and its progress with your Home Assistant installation.
+The PrusaLink integration allows you to monitor your [Prusa 3D printer](https://www.prusa3d.com) and its progress with your Home Assistant installation. This integration works with Prusa MINI and Prusa MK4.
+This integration requires PrusaLink v2. If you have the Prusa MINI, you need to run firmware 4.4.0 or later.
+
+To obtain the API key:
+ - On your printer, navigate to **Settings** > **Network** > **PrusaLink**. 
+ - The API key is shown at the bottom of the screen.
 
 {% include integrations/config_flow.md %}
-
-This integration requires PrusaLink v2. If you have the Prusa MINI, you need to run firmware 4.4.0 or later.

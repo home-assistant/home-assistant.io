@@ -20,10 +20,10 @@ To successfully implement this platform, the Home Assistant host should be capab
 
 In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found for each models.
 
-* [Yi 720p](https://github.com/fritz-smh/yi-hack)
-* [Yi Home 17CN / 27US / 47US / 1080p Home / Dome / 1080p Dome](https://github.com/shadow-1/yi-hack-v3)
-* [Recent Yi 1080p Home / 1080p Dome](https://github.com/roleoroleo/yi-hack-MStar)
-* [Xiaofang 1080p Camera](https://github.com/samtap/fang-hacks)
+- [Yi 720p](https://github.com/fritz-smh/yi-hack)
+- [Yi Home 17CN / 27US / 47US / 1080p Home / Dome / 1080p Dome](https://github.com/shadow-1/yi-hack-v3)
+- [Recent Yi 1080p Home / 1080p Dome](https://github.com/roleoroleo/yi-hack-MStar)
+- [Xiaofang 1080p Camera](https://github.com/samtap/fang-hacks)
 
 Once installed, please ensure that you have enabled FTP.
 

@@ -8,8 +8,6 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.34
 ha_quality_scale: internal
-ha_codeowners:
-  - '@fabaff'
 ha_domain: threshold
 ha_config_flow: true
 ha_platforms:

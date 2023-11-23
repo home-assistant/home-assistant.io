@@ -6,6 +6,7 @@ ha_category:
   - Camera
   - Environment
   - Sensor
+  - Weather
 ha_release: 0.14
 ha_iot_class: Cloud Polling
 ha_domain: bloomsky
@@ -131,4 +132,4 @@ monitored_conditions:
       description: Voltage
 {% endconfiguration %}
 
-More conditions are available using the [BloomSky binary sensor](#binary-sensor) component.
+More conditions are available using the [BloomSky binary sensor](#binary-sensor) integration.

@@ -13,6 +13,7 @@ ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaelarnauts'
+  - '@chiefdragon'
 ha_domain: tado
 ha_config_flow: true
 ha_homekit: true
@@ -41,7 +42,7 @@ There is currently support for the following device types within Home Assistant:
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
-It currently supports presenting the current temperature, the setting temperature and the current operation mode. The operation mode can be set to manual, auto and off. If no user is at home anymore, all Tado zones show the away-state (Only with Tado assist mode). Manually switching between home-mode and away-mode is also supported. Any Tado climate card can be switched between these presence modes, this changes the setting for the entire home.
+It currently supports presenting the current temperature, the setting temperature and the current operation mode. The operation mode can be set to manual, auto and off. If no user is at home anymore, all Tado zones show the away-state (Only with Tado assist mode). Manually switching between home-mode and away-mode is also supported. Manually switching to auto-mode is only supported with Tado assist mode. Any Tado climate card can be switched between these presence modes, this changes the setting for the entire home.
 
 ## Presence Detection
 
@@ -134,7 +135,7 @@ You can use the service `tado.set_water_heater_timer` to set your water heater t
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
-| `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
+| `entity_id`            | yes      | String, Name of entity e.g., `water_heater.hot_water`                  |
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
 

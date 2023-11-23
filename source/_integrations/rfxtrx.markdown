@@ -57,9 +57,9 @@ logger:
 
 ## Supported protocols
 
-Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either.
+Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either. The RFXcom transceiver loses significant sensitivity when more protocols are enabled. **Warning**: enabling the "BlindsT0" protocol blocks receiving any other protocol.
 
-If your 433.92 product is not showing in the logs, you may need to enable additional protocols. You can do this by configuring the device itself using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) to enable the required protocol, or you can configure the device in Home Assistant by configuring the [Protocols](#protocols).
+If your 433.92 MHz product is not showing in the logs, you may need to enable additional protocols. You can do this by configuring the device itself using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) to enable the required protocol, or you can configure the device in Home Assistant by configuring the [Protocols](#protocols).
 
 ## ser2net
 
@@ -138,7 +138,7 @@ To add the device, enter the value unaltered in the Event Code field, and click 
 
 #### Convert switch event to dimming event
 
-To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) component.
+To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) integration.
 
 To convert a switch to a dimmable light, make sure the event contains a dimming command. You can usually convert a command by changing one byte.
 

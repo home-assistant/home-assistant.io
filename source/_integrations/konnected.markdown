@@ -338,56 +338,11 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 | 6                          | RX          | 9        | GPIO3        |
 | ALARM or OUT               | D8          | 8        | GPIO15       |
 
-## Revision History
-
-### 0.112
-- Note that Device ID is used for Konnected Alarm Panel Pro and note that it is available on the status page.
-
-### 0.108
-
-- Multiple output states for a zone. Details on configuring additional panel behaviors via the UI.
-
-### 0.106
-
-- Added information on configuration and options flow. Mention that alarm panel FW should be updated before connecting.
-
-### 0.91
-
-- Improved Unique ID generation for Konnected switches
-
-### 0.90
-
-- Added support for `dht` and `ds18b20` temperature sensors
-- Added Unique IDs
-
-### 0.80
-
-- Added ability to specify `host` and `port` to set up devices without relying on discovery.
-- Added `discovery` and `blink` configuration options to enable/disable these features.
-
-### 0.79
-
-- Added `inverse` configuration option for binary sensors.
-
-### 0.77
-
-- Added support for momentary and beep/blink switches. [[#15973](https://github.com/home-assistant/home-assistant/pull/15973)]
-- Decouple entity initialization from discovery, enabling devices to recover faster after a Home Assistant reboot. [[#16146](https://github.com/home-assistant/home-assistant/pull/16146)]
-- **Breaking change:** Device `id` in `configuration.yaml` must now be the full 12-character device MAC address. Previously, omitting the first 6 characters was allowed.
-
-### 0.72
-
-- Adds `api_host` configuration option [[#14896](https://github.com/home-assistant/home-assistant/pull/14896)]
-
-### 0.70
-
-- Initial release
-
 ## Binary Sensor
 
 The `konnected` binary sensor allows you to monitor wired door sensors, window sensors, motion sensors, smoke detectors, CO detectors, glass-break sensors, water leak sensors or any other simple wired open/close circuit attached to a NodeMCU ESP8266 Wi-Fi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
 
-This integration supports all of the built-in device classes of the generic [Binary Sensor](/integrations/binary_sensor/) component.
+This integration supports all of the built-in device classes of the generic [Binary Sensor](/integrations/binary_sensor/) integration.
 
 ## Switch
 

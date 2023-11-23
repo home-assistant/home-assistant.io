@@ -321,6 +321,24 @@ condition:
   state: input_select.guest_mode
 ```
 
+You can also use templates in the `for` option.
+
+{% raw %}
+
+```yaml
+condition:
+  condition: state
+  entity_id: device_tracker.paulus
+  state: "home"
+  for:
+    minutes: "{{ states('input_number.lock_min')|int }}"
+    seconds: "{{ states('input_number.lock_sec')|int }}"
+```
+
+{% endraw %}
+
+The `for` template(s) will be evaluated when the condition is tested.
+
 ### Sun condition
 
 #### Sun state condition
@@ -514,7 +532,7 @@ It's also supported in script or automation `condition` actions:
 
 {% endraw %}
 
-[template]: /topics/templating/
+[template]: /docs/configuration/templating/
 [automation-templating]: /getting-started/automation-templating/
 
 ## Time condition

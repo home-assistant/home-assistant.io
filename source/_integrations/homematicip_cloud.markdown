@@ -9,12 +9,13 @@ ha_category:
   - Cover
   - Hub
   - Light
+  - Lock
   - Sensor
   - Switch
 ha_iot_class: Cloud Push
 ha_release: 0.66
 ha_config_flow: true
-ha_quality_scale: platinum
+ha_quality_scale: silver
 ha_domain: homematicip_cloud
 ha_platforms:
   - alarm_control_panel
@@ -23,6 +24,7 @@ ha_platforms:
   - climate
   - cover
   - light
+  - lock
   - sensor
   - switch
   - weather
@@ -33,15 +35,16 @@ The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as
 
 There is currently support for the following device types within Home Assistant:
 
-* Alarm
-* Binary Sensor
-* Button
-* Climate
-* Cover
-* Light
-* Sensor
-* Switch
-* Weather
+- Alarm
+- Binary Sensor
+- Button
+- Climate
+- Cover
+- Light
+- Lock
+- Sensor
+- Switch
+- Weather
 
 {% include integrations/config_flow.md %}
 
@@ -86,108 +89,112 @@ Within this delay the device registration should be completed in the App, otherw
 
 ## Implemented and tested devices
 
-* homematicip_cloud.alarm_control_panel
-  * Combined Alarm Control Panal with INTERNAL and EXTERNAL Security zones (*HmIP-SecurityZone*)
+- homematicip_cloud.alarm_control_panel
+  - Combined Alarm Control Panal with INTERNAL and EXTERNAL Security zones (*HmIP-SecurityZone*)
 
-* homematicip_cloud.binary_sensor
-  * Access Point Cloud Connection (*HmIP-HAP, HmIP-HAP-B1*)
-  * Acceleration Sensor (*HMIP-SAM*)
-  * Inclination and vibration Sensor (*HMIP-STV*)
-  * Window and door contact (*HmIP-SWDO, HmIP-SWDO-PL, HmIP-SWDO-I, HmIP-SWDM, HmIP-SWDM-B2*)
-  * Contact Interface flush-mount – 1x channel (*HmIP-FCI1*)
-  * Contact Interface flush-mount – 6x channels (*HmIP-FCI6*)
-  * Contact Interface (*HmIP-SCI*)
-  * Window Rotary Handle Sensor (*HmIP-SRH*)
-  * Smoke sensor and alarm (*HmIP-SWSD*)
-  * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
-  * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
-  * Presence Sensor – indoor (*HmIP-SPI*)
-  * Rain Sensor (*HmIP-SRD*)
-  * Water Sensor (*HmIP-SWD*)
-  * Remote Control - 8x buttons (*HmIP-RC8*) (battery only)
-  * Wall-mount Remote Control - 2x buttons (*HmIP-WRC2*) (battery only)
-  * Wall-mount Remote Control - flat - 2x buttons (*HmIP-WRCC2*) (battery only)
-  * Wall-mount Remote Control - 6x buttons (*HmIP-WRC6*) (battery only)
-  * Key Ring Remote Control - 4x buttons (*HmIP-KRC4*) (battery only)
-  * Key Ring Remote Control - alarm  (*HmIP-KRCA*) (battery only)
-  * Alarm Siren (*HmIP-ASIR, -B1*) (battery only)
-  * Remote Control for brand switches – 2x buttons (*HmIP-BRC2*) (battery only)
-  * Pluggable Power Supply Monitoring (*HmIP-PMFS*)
-  * Wired Inbound module – 32x channels (*HMIPW-DRI32*)
+- homematicip_cloud.binary_sensor
+  - Access Point Cloud Connection (*HmIP-HAP, HmIP-HAP-B1*)
+  - Acceleration Sensor (*HMIP-SAM*)
+  - Inclination and vibration Sensor (*HMIP-STV*)
+  - Window and door contact (*HmIP-SWDO, HmIP-SWDO-PL, HmIP-SWDO-I, HmIP-SWDM, HmIP-SWDM-B2*)
+  - Contact Interface flush-mount – 1x channel (*HmIP-FCI1*)
+  - Contact Interface flush-mount – 6x channels (*HmIP-FCI6*)
+  - Contact Interface (*HmIP-SCI*)
+  - Window Rotary Handle Sensor (*HmIP-SRH*)
+  - Smoke sensor and alarm (*HmIP-SWSD*)
+  - Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
+  - Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
+  - Presence Sensor – indoor (*HmIP-SPI*)
+  - Rain Sensor (*HmIP-SRD*)
+  - Water Sensor (*HmIP-SWD*)
+  - Remote Control - 8x buttons (*HmIP-RC8*) (battery only)
+  - Wall-mount Remote Control - 2x buttons (*HmIP-WRC2*) (battery only)
+  - Wall-mount Remote Control - flat - 2x buttons (*HmIP-WRCC2*) (battery only)
+  - Wall-mount Remote Control - 6x buttons (*HmIP-WRC6*) (battery only)
+  - Key Ring Remote Control - 4x buttons (*HmIP-KRC4*) (battery only)
+  - Key Ring Remote Control - alarm  (*HmIP-KRCA*) (battery only)
+  - Alarm Siren (*HmIP-ASIR, -B1*) (battery only)
+  - Remote Control for brand switches – 2x buttons (*HmIP-BRC2*) (battery only)
+  - Pluggable Power Supply Monitoring (*HmIP-PMFS*)
+  - Wired Inbound module – 32x channels (*HMIPW-DRI32*)
 
-* homematicip_cloud.button
-  * Wall Mounted Garage Door Controller (*HmIP-WGC*)
+- homematicip_cloud.button
+  - Wall Mounted Garage Door Controller (*HmIP-WGC*)
 
-* homematicip_cloud.climate
-  * Climate group (*HmIP-HeatingGroup*)
-  * This includes temperature/humidity measures for climate devices of a room delivered by:
-    * Wall-mounted thermostat (*HmIP-WTH, HmIP-WTH-2, HmIP-WTH-B*)
-    * Brand Wall-mounted thermostat (*HmIP-BWTH, HmIP-BWTH-24*)
-    * Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
-    * Temperature and humidity sensor (*HmIP-STH*)
-    * Temperature and humidity Sensor with display (*HmIP-STHD*)
-    * Alpha IP Wall Thermostat Display (*ALPHA-IP-RBG*)
-    * Alpha IP Wall Thermostat Display analog (*ALPHA-IP-RBGa*)
-  * There is no need to directly support the following devices by Home Assistant, because their integration is done by the required wall thermostats:
-    * Floor Heating Actuator – 6x channels, 230V (*HMIP-FAL230-C6*)
-    * Floor Heating Actuator – 10x channels, 230V (*HMIP-FAL230-C10*)
-    * Floor Heating Actuator – 6x channels, 24V (*HMIP-FAL24-C6*)
-    * Floor Heating Actuator – 10x channels, 24V (*HMIP-FAL24-C10*)
-    * Floor Heating Actuator – 12x channels, motorized (*HMIP-FALMOT-C12*)
+- homematicip_cloud.climate
+  - Climate group (*HmIP-HeatingGroup*)
+  - This includes temperature/humidity measures for climate devices of a room delivered by:
+    - Wall-mounted thermostat (*HmIP-WTH, HmIP-WTH-2, HmIP-WTH-B*)
+    - Brand Wall-mounted thermostat (*HmIP-BWTH, HmIP-BWTH-24*)
+    - Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
+    - Temperature and humidity sensor (*HmIP-STH*)
+    - Temperature and humidity Sensor with display (*HmIP-STHD*)
+    - Alpha IP Wall Thermostat Display (*ALPHA-IP-RBG*)
+    - Alpha IP Wall Thermostat Display analog (*ALPHA-IP-RBGa*)
+  - There is no need to directly support the following devices by Home Assistant, because their integration is done by the required wall thermostats:
+    - Floor Heating Actuator – 6x channels, 230V (*HMIP-FAL230-C6*)
+    - Floor Heating Actuator – 10x channels, 230V (*HMIP-FAL230-C10*)
+    - Floor Heating Actuator – 6x channels, 24V (*HMIP-FAL24-C6*)
+    - Floor Heating Actuator – 10x channels, 24V (*HMIP-FAL24-C10*)
+    - Floor Heating Actuator – 12x channels, motorized (*HMIP-FALMOT-C12*)
 
-* homematicip_cloud.cover
-  * Shutter actuator for brand-mount (*HmIP-BROLL*)
-  * Shutter actuator for flush-mount (*HmIP-FROLL*)
-  * Blind Actuator for brand switches (*HmIP-BBL*)
-  * Blind Actuator for DIN rail mount – 4x channels (*HMIP-DRBLI4*)
-  * Blind Actuator for flush-mount (*HmIP-FBL*)
-  * Garage door module for Tormatic (*HmIP-MOD_TM*)
-  * Module for Hoermann drives (*HMIP-MOD-HO*)
-  * Hunter Douglas & erfal window blinds (*HMIP-HDM1*)
+- homematicip_cloud.cover
+  - Shutter actuator for brand-mount (*HmIP-BROLL*)
+  - Shutter actuator for flush-mount (*HmIP-FROLL*)
+  - Blind Actuator for brand switches (*HmIP-BBL*)
+  - Blind Actuator for DIN rail mount – 4x channels (*HMIP-DRBLI4*)
+  - Blind Actuator for flush-mount (*HmIP-FBL*)
+  - Garage door module for Tormatic (*HmIP-MOD_TM*)
+  - Module for Hoermann drives (*HMIP-MOD-HO*)
+  - Hunter Douglas & erfal window blinds (*HMIP-HDM1*)
 
-* homematicip_cloud.light
-  * Switch actuator and meter for brand switches (*HmIP-BSM*)
-  * Dimming actuator for brand switches (*HmIP-BDT*)
-  * Dimming actuator flush-mount (*HmIP-FDT*)
-  * Pluggable Dimmer – trailing edge (*HmIP-PDT*)
-  * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
-  * Wired Dimmer module – 3x channels (*HMIPW-DRD3*)
+- homematicip_cloud.light
+  - Switch actuator and meter for brand switches (*HmIP-BSM*)
+  - Dimming actuator for brand switches (*HmIP-BDT*)
+  - Dimming actuator flush-mount (*HmIP-FDT*)
+  - Pluggable Dimmer – trailing edge (*HmIP-PDT*)
+  - Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
+  - Wired Dimmer module – 3x channels (*HMIPW-DRD3*)
 
-* homematicip_cloud.sensor
-  * Access Point Duty Cycle (*HmIP-HAP, HmIP-HAP-B1*)
-  * Wall Mounted Thermostat (*HmIP-WTH, HmIP-WTH2, HmIP-WTH-B*)
-  * Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
-  * Temperature and Humidity Sensor without display - indoor (*HmIP-STH*)
-  * Temperature and Humidity Sensor with display - indoor (*HmIP-STHD*)
-  * Temperature and Humidity sensor - outdoor (*HmIP-STHO, -A*)
-  * Temperature sensor with external probes - 2-way (*HmIP-STE2-PCB*)
-  * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
-  * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
-  * Presence Sensor – indoor (*HmIP-SPI*)
-  * Light Sensor - outdoor (*HmIP-SLO*)
-  * Passage Sensor with Direction Recognition (*HmIP-SPDR*) (delta counter)
-  * Alpha IP Wall Thermostat Display (*ALPHA-IP-RBG*)
-  * Alpha IP Wall Thermostat Display analog (*ALPHA-IP-RBGa*)
+- homematicip_cloud.lock
+  - Door Lock Drive - currently, usage just without a pin is possible (*HmIP-DLD*)
 
-* homematicip_cloud.switch
-  * Pluggable Switch (*HmIP-PS*)
-  * Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, HmIP-PSM-IT, HmIP-PSM-UK, HmIP-PSM-PE*)
-  * Switch Actuator and Meter – flush-mount (*HmIP-FSM, HmIP-FSM16*)
-  * Switch Actuator with Push-button Input – flush-mount (*HmIP-FSI16*)
-  * Open Collector Module Receiver - 8x channels (*HmIP-MOD-OC8*)
-  * Multi IO Box - 2x (*HmIP-MIOB*)
-  * Switch Circuit Board - 1x channels (*HmIP-PCBS*)
-  * Switch Circuit Board - 2x channels (*HmIP-PCBS2*)
-  * Printed Circuit Board Switch Battery (*HmIP-PCBS-BAT*)
-  * Switch Actuator for heating systems – 2x channels (*HmIP-WHS2*)
-  * Wired Switch Actuator – 8x channels (*HMIPW-DRS8*)
-  * Switch Actuator for DIN rail mount – 4x channels (*HMIP-DRSI4*)
-  * Switch Actuator for DIN rail mount – 1x channels (*HMIP-DRSI1*)
+- homematicip_cloud.sensor
+  - Access Point Duty Cycle (*HmIP-HAP, HmIP-HAP-B1*)
+  - Wall Mounted Thermostat (*HmIP-WTH, HmIP-WTH2, HmIP-WTH-B*)
+  - Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
+  - Temperature and Humidity Sensor without display - indoor (*HmIP-STH*)
+  - Temperature and Humidity Sensor with display - indoor (*HmIP-STHD*)
+  - Temperature and Humidity sensor - outdoor (*HmIP-STHO, -A*)
+  - Temperature sensor with external probes - 2-way (*HmIP-STE2-PCB*)
+  - Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
+  - Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
+  - Presence Sensor – indoor (*HmIP-SPI*)
+  - Light Sensor - outdoor (*HmIP-SLO*)
+  - Passage Sensor with Direction Recognition (*HmIP-SPDR*) (delta counter)
+  - Alpha IP Wall Thermostat Display (*ALPHA-IP-RBG*)
+  - Alpha IP Wall Thermostat Display analog (*ALPHA-IP-RBGa*)
 
-* homematicip_cloud.weather
-  * Weather Sensor – basic (*HmIP-SWO-B*)
-  * Weather Sensor – plus (*HmIP-SWO-PL*)
-  * Weather Sensor – pro (*HmIP-SWO-PR*)
+- homematicip_cloud.switch
+  - Pluggable Switch (*HmIP-PS*)
+  - Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, HmIP-PSM-IT, HmIP-PSM-UK, HmIP-PSM-PE*)
+  - Switch Actuator and Meter – flush-mount (*HmIP-FSM, HmIP-FSM16*)
+  - Switch Actuator with Push-button Input – flush-mount (*HmIP-FSI16*)
+  - Open Collector Module Receiver - 8x channels (*HmIP-MOD-OC8*)
+  - Multi IO Box - 2x (*HmIP-MIOB*)
+  - Switch Circuit Board - 1x channels (*HmIP-PCBS*)
+  - Switch Circuit Board - 2x channels (*HmIP-PCBS2*)
+  - Printed Circuit Board Switch Battery (*HmIP-PCBS-BAT*)
+  - Switch Actuator for heating systems – 2x channels (*HmIP-WHS2*)
+  - Wired Switch Actuator – 8x channels (*HMIPW-DRS8*)
+  - Switch Actuator for DIN rail mount – 4x channels (*HMIP-DRSI4*)
+  - Switch Actuator for DIN rail mount – 1x channels (*HMIP-DRSI1*)
+  - Switch Actuator - 2x channels (*HmIP-BS2*)
+
+- homematicip_cloud.weather
+  - Weather Sensor – basic (*HmIP-SWO-B*)
+  - Weather Sensor – plus (*HmIP-SWO-PL*)
+  - Weather Sensor – pro (*HmIP-SWO-PR*)
   
 ## What to do, if a device is missing in Home Assistant
 
@@ -315,13 +322,13 @@ action:
 Push button devices are only available with a battery sensor. This is due to a limitation of the vendor API (eq3).
 It's not possible to detect a key press event on these devices at the moment.
 
-  * Remote Control - 8x buttons (*HmIP-RC8*)
-  * Wall-mount Remote Control for brand switches - 2x buttons (*HmIP-BRC2*)
-  * Motion Detector for 55mm frames - indoor (HmIP-SMI55)(Push button)
-  * Wall-mount Remote Control - 2x buttons (*HmIP-WRC2*)
-  * Wall-mount Remote Control - flat - 2x buttons (*HmIP-WRCC2*)
-  * Wall-mount Remote Control - 6x buttons (*HmIP-WRC6*)
-  * Key Ring Remote Control - 4x buttons (*HmIP-KRC4*)
-  * Key Ring Remote Control - alarm  (*HmIP-KRCA*)
-  * Wall-mount Remote Control – flat (*HmIP-WRCC2*)
-  * Rotary Button (*HmIP-WRCR*)
+  - Remote Control - 8x buttons (*HmIP-RC8*)
+  - Wall-mount Remote Control for brand switches - 2x buttons (*HmIP-BRC2*)
+  - Motion Detector for 55mm frames - indoor (HmIP-SMI55)(Push button)
+  - Wall-mount Remote Control - 2x buttons (*HmIP-WRC2*)
+  - Wall-mount Remote Control - flat - 2x buttons (*HmIP-WRCC2*)
+  - Wall-mount Remote Control - 6x buttons (*HmIP-WRC6*)
+  - Key Ring Remote Control - 4x buttons (*HmIP-KRC4*)
+  - Key Ring Remote Control - alarm  (*HmIP-KRCA*)
+  - Wall-mount Remote Control – flat (*HmIP-WRCC2*)
+  - Rotary Button (*HmIP-WRCR*)

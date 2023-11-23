@@ -128,7 +128,7 @@ command_topic:
   required: true
   type: string
 qos:
-  description: The maximum QoS level for subscribing and publishing to MQTT messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0

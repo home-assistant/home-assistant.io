@@ -125,7 +125,7 @@ inspiring others.
 ## New neural voices for Nabu Casa Cloud TTS
 
 If you have a [Nabu Casa Home Assistant Cloud][cloud] subscription, this release
-brings in some really nice goodness for you. The Text-to-Speech service offered
+brings in some really nice goodness for you. The text-to-speech service offered
 by Nabu Casa has been extended and now supports a lot of new voices in many
 different languages.
 

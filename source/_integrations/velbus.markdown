@@ -23,21 +23,13 @@ ha_platforms:
   - cover
   - diagnostics
   - light
+  - select
   - sensor
   - switch
 ha_integration_type: hub
 ---
 
 The `velbus` integration is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
-
-There is currently support for the following device types within Home Assistant:
-
-- Binary Sensor
-- Climate
-- Sensor
-- Switch
-- Cover
-- Light
 
 The pushbutton LEDs of input modules are disabled by default. These can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
 

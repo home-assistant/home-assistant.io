@@ -827,7 +827,7 @@ and thus can be safely removed from your YAML configuration after upgrading.
 
 {% enddetails %}
 
-{% details "Microsoft Text-to-Speech (TTS)" %}
+{% details "Microsoft text-to-speech (TTS)" %}
 
 
 The default voice is changed to `JennyNeural`; The previous default `ZiraRUS`

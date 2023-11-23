@@ -3,19 +3,22 @@ title: "Developer Tools"
 description: "Description of the Developer Tools."
 ---
 
-The frontend contains a section called "Developer Tools".
+The frontend contains a section called **Developer Tools**.
 
 <p class='img'>
 <img src='/images/screenshots/developer-tools.png' />
 Screenshot of Home Assistant's Developer Tools.
 </p>
 
-| Section |Description |
-| ------- |----- |
-| States | Sets the representation of an entity |
-| Services | Calls services from integrations |
-| Events | Fires events |
-| Templates | Renders templates |
+| Section    |Description                                                          |
+| ---------- |---------------------------------------------------------------------|
+| YAML       | Lets you validate the configuration and trigger a reload or restart |
+| States     | Sets the representation of an entity                                |
+| Services   | Calls services from integrations                                    |
+| Template   | Renders templates                                                   |
+| Events     | Fires events                                                        |
+| Statistics | Shows a list of long-term statistic entities                        |
+| Assist     | Lets you see how Home Assistant Assist processes a sentence         |
 
 ## What can I do with Developer Tools?
 
@@ -114,3 +117,28 @@ Event 0 fired 9:53 AM:
     }
 }
 ```
+
+## Statistics
+
+The **Statistics** tab shows a list of long-term statistic entities. If the long term statistics is not working for an entity, a **Fix Issue** link is shown. Select it to view a description of the issue. There might also be an option to fix the issue.
+
+![Statistics issue message](/images/docs/developer-tools/statistics_issue.png)
+
+Another use of the {% my developer_statistics title="statistics developer tool" %} is to correct any measurements. Select the
+<svg width="24" height="24" viewBox="0 0 24 24"><path d="M22,13V22H2V19L22,13M21.68,7.06L16.86,4.46L17.7,7.24L7.58,10.24C6.63,8.95 4.82,8.67 3.53,9.62C2.24,10.57 1.96,12.38 2.91,13.67C3.85,14.97 5.67,15.24 6.96,14.29C7.67,13.78 8.1,12.97 8.14,12.09L18.26,9.09L19.1,11.87L21.68,7.06Z" /></svg>
+icon. Use date & time to search for the incorrect data point and adjust the value.
+
+![Screenshot showing adjusting the long-term statistic history value](/images/blog/2022-04/adjust-statistics.png)
+
+## Assist
+
+The **Assist** tab lets you see how Home Assistant's Assist processes a sentence.
+
+If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*. 
+- Assist found a matching intent: *HassGetState*.
+- It found entities matching the domain: *lights*.
+- The lights have the state *on*.
+- The lights are in the area *office*. 
+- The targets are the narrowed-down entities in scope.
+
+![Example use of assist developer tools](/images/docs/developer-tools/Assist.png)

@@ -86,7 +86,7 @@ zones:
       type: string
 {% endconfiguration %}
 
-#### Time period dictionary example
+### Time period dictionary example
 
 ```yaml
 scan_interval:

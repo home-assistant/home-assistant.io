@@ -8,7 +8,6 @@ ha_iot_class: Local Polling
 ha_release: '0.30'
 ha_quality_scale: internal
 ha_codeowners:
-  - '@fabaff'
   - '@ThomDietrich'
 ha_domain: statistics
 ha_platforms:
@@ -30,11 +29,11 @@ The `statistics` integration is different to [Long-term Statistics](https://deve
 
 ## Characteristics
 
-The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and/or `max_age`, as most characteristics are directly influenced by these settings.
+The following options for the configuration parameter `state_characteristic` are available as staticical characteristics. Pay close attention to the correct configuration of `sampling_size` and/or `max_age`, as most characteristics are directly influenced by these settings.
 
 ### Numeric Source Sensor
 
-The following characteristics are supported for `sensor` source sensors:
+The following are supported for `sensor` source sensors `state_characteristic`:
 
 | State Characteristic | Description |
 | -------------------- | ----------- |
@@ -53,6 +52,7 @@ The following characteristics are supported for `sensor` source sensors:
 | `distance_99_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 99% of all stored values fall into a range of returned size.
 | `distance_absolute` | The difference or "spread" between the extreme values of measurements. Equals `value_max` minus `value_min`.
 | `mean` | The average value computed for all measurements. Be aware that this does not take into account uneven time intervals between measurements.
+| `mean_circular` | The [circular mean](https://en.wikipedia.org/wiki/Circular_mean) for angular measurements (_e.g._ wind direction). Assumes that measurements are expressed in degrees (_e.g._, 180° or -90°), and outputs the mean in positive degrees (0-360°).
 | `median` | The [median](https://en.wikipedia.org/wiki/Mode_(statistics)#Comparison_of_mean,_median_and_mode) value computed for all measurements.
 | `noisiness` | A simplified version of a signal-to-noise ratio. A high value indicates a quickly changing source sensor value, a small value will be seen for a steady source sensor. The absolute change between subsequent source sensor measurement values is summed up and divided by the number of intervals.
 | `percentile` | [Percentiles](https://en.wikipedia.org/wiki/Percentile) divide the range of a distribution of all considered source sensor measurements into 100 continuous intervals of equal probability. The characteristic calculates the value for which a given percentage of source sensor measurements are smaller in value. The 20th percentile is the value below which 20 percent of the measurements may be found. The additional configuration parameters `percentile` is needed, see below.
@@ -67,7 +67,7 @@ The following characteristics are supported for `sensor` source sensors:
 
 ### Binary Source Sensor
 
-The following characteristic are supported for `binary_sensor` source sensors:
+The following are supported for `binary_sensor` source sensors `state_characteristic`:
 
 | State Characteristic | Description |
 | -------------------- | ----------- |
@@ -120,7 +120,7 @@ sensor:
 
 {% configuration %}
 entity_id:
-  description: The source sensor to observe and compute statistical characteristics for. Only [sensors](/integrations/sensor/) and [binary sensor](/integrations/binary_sensor/) are supported.
+  description: The source sensor to observe and compute statistical characteristics for. Only [sensors](/integrations/sensor/) and [binary sensors](/integrations/binary_sensor/) are supported.
   required: true
   type: string
 name:
@@ -129,7 +129,7 @@ name:
   default: Stats
   type: string
 state_characteristic:
-  description: The characteristic that should be used as the state of the statistics sensor (see table above).
+  description: The characteristic that should be used as the state of the statistics sensor (see tables above).
   required: true
   type: string
 sampling_size:
@@ -158,4 +158,6 @@ unique_id:
 
 ### An important note on `max_age` and `sampling_size`
 
-The `max_age` option is only valid within the measured samples specified by `sampling_size` (default 20). Specify a wide-enough `sampling_size` if using an extended max-age (e.g., when looking for `max_age` 1 hour, a sensor that produces one measurement a minute should have at least a `sampling_size` of 60.
+If both `max_age` and `sampling_size` are given, the considered samples are those within the `max_age` time window but limited to the number of `sample_size` newest samples.  Specify a wide-enough `sampling_size` if using an extended `max_age` (e.g., when looking for `max_age` 1 hour, a sensor that produces one measurement per minute should have at least a `sampling_size` of 60 to use all samples within the `max_age` timeframe.)
+
+If only `sample_size` is given there is no time limit. If only `max_age` is given the considered number of samples is unlimited.

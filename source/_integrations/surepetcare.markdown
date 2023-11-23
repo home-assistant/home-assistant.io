@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `surepetcare` component allows you to get information on your Sure Petcare Connect Pet or Cat Flap.
+The Sure Petcare integration allows you to get information on your Sure Petcare Connect Pet or Cat Flap.
 
 {% include integrations/config_flow.md %}
 

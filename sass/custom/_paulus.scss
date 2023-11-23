@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-$primary-color: #049cdb;
+$primary-color: #1abcf2;
 
 .site-header {
   position: relative;
@@ -171,6 +171,79 @@ a.integration-alert {
   .links a {
     font-weight: 400;
     text-transform: none;
+  }
+}
+
+.installation-survey {
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, .12);
+  border-radius: 4px;
+  padding-bottom: 64px;
+
+  h4 {
+    margin: 0 0 8px !important;
+
+    a {
+      text-decoration: none !important;
+      color: #000;
+    }
+  }
+
+  .links a {
+    font-weight: 400;
+    text-transform: none;
+  }
+}
+
+
+.survey-button {
+  padding-top: 8px;
+  button {
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 28px;
+    color: #fff;
+    background-color: #03a9f4;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
+  }
+  button::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.2;
+    border-radius: 4px;
+  }
+  button:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.14), 0 1px 7px 0 rgba(0,0,0,.12), 0 3px 1px -1px rgba(0,0,0,.2);
+  }
+  button:hover::before {
+    background-color: rgba(255,255,255,.8);
+  }
+  button:focus {
+    outline: none;
+  }
+  button:focus::before {
+    background-color: white;
+  }
+  button:active::before {
+    background-color: grey;
+  }
+  :host([active]) button {
+    color: rgba(0, 0, 0, 0.38);
+    background-color: rgba(0, 0, 0, 0.12);
+    box-shadow: none;
+    cursor: unset;
+    pointer-events: none;
+  }
+  .hidden {
+    display: none;
   }
 }
 
@@ -386,7 +459,7 @@ dt:hover a.title-link {
 
   img {
     border-radius: 3px;
-    width: 36px;
+    height: 36px;
     margin-right: 10px;
   }
 
@@ -563,11 +636,23 @@ div.note {
 
     img {
       vertical-align: middle;
+      height: 120px;
     }
 
     i {
       font-size: 2em;
       padding: 0 5px;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+
+      svg {
+        height: 48px;
+        padding: 10px 4px;
+        fill: currentColor;
+      }
     }
   }
 
@@ -849,6 +934,8 @@ code {
 a.my {
   img {
     border: 0px;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
 

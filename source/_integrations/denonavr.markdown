@@ -3,7 +3,7 @@ title: Denon AVR Network Receivers
 description: Instructions on how to integrate Denon AVR Network Receivers into Home Assistant.
 ha_category:
   - Media Player
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: 0.7.2
 ha_domain: denonavr
 ha_codeowners:
@@ -48,8 +48,12 @@ Known supported devices:
 - Denon AVR-X4400H
 - Denon AVR-X4500H
 - Denon AVR-X4700H
+- Denon AVC-X4800H
 - Denon AVR-X6500H
 - Denon AVR-X6700H
+- Denon AVR-X7200W
+- Denon AVR-X8500H
+- Denon AVR-1713
 - Denon AVR-1912
 - Denon AVR-2112CI
 - Denon AVR-2312CI
@@ -60,6 +64,7 @@ Known supported devices:
 - Denon AVR-S650H
 - Denon AVR-S710W
 - Denon AVR-S720W
+- Denon AVR-S740H
 - Denon AVR-S750H
 - Denon AVR-S760H
 - Denon AVR-S940H
@@ -69,6 +74,8 @@ Known supported devices:
 - Marantz AV7702
 - Marantz AV7703
 - Marantz AV7704
+- Marantz CINEMA 50
+- Marantz CINEMA 70s
 - Marantz M-CR510
 - Marantz M-CR511
 - Marantz M-CR603
@@ -76,15 +83,20 @@ Known supported devices:
 - Marantz M-CR611
 - Marantz SR5006
 - Marantz SR5008
+- Marantz SR5010
 - Marantz SR5011
+- Marantz SR5015
 - Marantz SR6007 - SR6012
 - Marantz SR7007
+- Marantz SR7010
 - Marantz SR7012
 - Marantz SR8015
 - Marantz NR1504
 - Marantz NR1506
+- Marantz NR1509
 - Marantz NR1510
 - Marantz NR1602
+- Marantz NR1603
 - Marantz NR1604
 - Marantz NR1606
 - Marantz NR1607
@@ -106,14 +118,19 @@ host:
   description: IP address of the device, e.g., 192.168.1.32. If not set, auto-discovery is used.
 show_all_sources:
   description: If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed. Some receivers have a bug that marks all sources as deleted in the interface. In this case, this option could help.
-zone1:
-  description: Specifies if zone 1 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
 zone2:
-  description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports. Some receivers do not support a second zone.
+  description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
+zone3:
+  description: Specifies if zone 3 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports. Some receivers do not support a second zone.
 update_audyssey:
   description: Specifies if Audyssey settings should be updated. This can take up to 10 seconds for some receivers.
   required: false
   default: false
+  type: boolean
+use_telnet:
+  description: Specifies if a telnet connection should be used to receive device status updates. Using telnet provides realtime updates (local push) for many values but each receiver is limited to a single connection. If you enable this setting, no other connection to your device can be made via telnet. This will be set to true for new installations of the integration but false for existing installs to prevent compatibility issues.
+  required: false
+  default: true
   type: boolean
 {% endconfiguration_basic %}
 

@@ -40,7 +40,7 @@ For convenient switching of ventilation profiles in the GUI, just click on the `
 
 The four standard Vallox profiles are supported:
 
-- `At Home`
+- `Home`
 - `Away`
 - `Boost`
 - `Fireplace`

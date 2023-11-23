@@ -5,7 +5,7 @@ description: "More information on how to set up local media sources in Home Assi
 
 Home Assistant has a local media folder. Any audio or video files placed in this folder will be accessible via the media browser.
 
-The easiest way to manage your local media is using the {% my supervisor_addon title="Samba" addon="core_samba" %}.
+The easiest way to manage your local media is using {% my supervisor_addon title="Samba" addon="core_samba" %}.
 
 ## Using custom folders
 

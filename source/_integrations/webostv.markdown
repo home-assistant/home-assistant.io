@@ -7,7 +7,6 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.18
 ha_codeowners:
-  - '@bendavid'
   - '@thecode'
 ha_domain: webostv
 ha_config_flow: true
@@ -24,8 +23,8 @@ The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS S
 
 There is currently support for the following device types within Home Assistant:
 
-- [Media Player](#media-player)
-- [Notifications](#notifications)
+- [Media Player](/integrations/media_player/)
+- [Notifications](/integrations/notify/)
 
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
@@ -121,7 +120,7 @@ Available services: `button`, `command`
 | Service data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
-| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
+| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `YELLOW`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
 
 ### Service `webostv.command`
 

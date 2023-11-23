@@ -14,6 +14,9 @@ ha_integration_type: entity
 Home Assistant can give you an interface which is similar to a classic alarm system.
 Please see [manual alarm](/integrations/manual) or [template alarm](/integrations/alarm_control_panel.template) for alarm configuration.
 
+
+{% include integrations/building_block_integration.md %}
+
 ### Services
 
 Depending on features supported by a specific integration alarm may expose the following services:

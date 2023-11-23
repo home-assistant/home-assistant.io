@@ -7,20 +7,14 @@ ha_category:
 ha_domain: color_extractor
 ha_codeowners:
   - '@GenericStudent'
+ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `color_extractor` integration will extract the predominant color from a given image and apply that color to a target light.
+The color extractor integration will extract the predominant color from a given image and apply that color to a target light.
 Useful as part of an automation.
 
-## Configuration
-
-To enable the `color_extractor` service in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-color_extractor:
-```
+{% include integrations/config_flow.md %}
 
 ## Services
 
@@ -36,7 +30,7 @@ Passing the key `color_extract_url` to the service call will download the linked
 
 <div class="note">
   
-  Please ensure any [external URLs](/docs/configuration/basic/#allowlist_external_urls) or [external files](/docs/configuration/basic/#allowlist_external_dirs) are authorized for use, you will receive error messages if this component is not allowed access to these external resources.
+  Please ensure any [external URLs](/docs/configuration/basic/#allowlist_external_urls) or [external files](/docs/configuration/basic/#allowlist_external_dirs) are authorized for use. You will receive error messages if this integration is not allowed access to these external resources.
   
 </div>
 

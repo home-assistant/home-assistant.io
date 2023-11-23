@@ -8,7 +8,7 @@ ha_category:
   - Hub
   - Sensor
   - Switch
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_dhcp: true
 ha_codeowners:
@@ -34,7 +34,7 @@ The Pentair ScreenLogic integration allows you to integrate your Pentair Intelli
 
 ScreenLogic options are set via **Settings** -> **Devices & Services** -> **Pentair ScreenLogic** -> **Options**.
 
-* Seconds between scans - How many seconds between each polling of the ScreenLogic gateway.
+-= Seconds between scans - How many seconds between each polling of the ScreenLogic gateway.
 
 ## Services
 

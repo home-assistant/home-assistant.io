@@ -14,15 +14,13 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing-api/dev_guide/index.html).
+The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://www.here.com/docs/bundle/routing-api-developer-guide-v8/page/README.html).
 
 ## Setup
 
-You need to register for an API key (REST & XYZ HUB API/CLI) by following the instructions [here](https://developer.here.com/tutorials/getting-here-credentials/).
+You need to register for an API key by following the instructions in the [API Developer Guide](https://www.here.com/docs/bundle/routing-api-developer-guide-v8/page/topics/send-request.html).
 
-HERE offers a Freemium Plan which includes 250,000 free Transactions per month. For the Routing API, one transaction equals one request with one starting point (no multi stop). If you are not [updating sensors on demand](#updating-sensors-on-demand-using-automation) you can track 28 routes without exceeding the limit. More information can be found [here](https://knowledge.here.com/csm_kb?id=public_kb_csm_details&number=KB0016433)
-
-By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to re-enable your account as described [here](https://knowledge.here.com/csm_kb?id=public_kb_csm_details&number=KB0016434)
+HERE offers a Limited Plan which includes 1000 free transactions per day. If you are not [updating sensors on demand](#updating-sensors-on-demand-using-automation), you can track 3 routes without exceeding the limit. You can provide payment details to increase this to 5000 free transactions per day. More information can be found [on the pricing page](https://www.here.com/get-started/pricing)
 
 {% include integrations/config_flow.md %}
 

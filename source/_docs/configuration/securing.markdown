@@ -9,7 +9,8 @@ One major advantage of Home Assistant is that it is not dependent on cloud servi
 
 Here's the summary of what you *must* do to secure your Home Assistant system:
 
-- Configure [secrets](/docs/configuration/secrets/) (but do remember to back them up)
+- Centralize sensitive data in [secrets](/docs/configuration/secrets/) (but do remember to back them up)
+  - **Note**: Storing secrets in `secrets.yaml` does not encrypt them.
 - Regularly keep the system up to date
 
 ## Remote Access

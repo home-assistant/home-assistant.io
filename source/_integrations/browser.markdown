@@ -14,7 +14,7 @@ The `browser` integration provides a service to open URLs in the default browser
 
 ## Configuration
 
-To load this component, add the following lines to your `configuration.yaml`:
+To load this integration, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry

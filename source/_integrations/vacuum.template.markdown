@@ -1,7 +1,8 @@
 ---
 title: "Template Vacuum"
 description: "Instructions how to setup Template vacuums within Home Assistant."
-ha_category: Vacuum
+ha_category:
+  - Vacuum
 ha_release: 0.96
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -111,7 +112,7 @@ State-based template entities have the special template variable `this` availabl
 
 ### Control vacuum with Harmony Hub
 
-This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote component](/integrations/harmony).
+This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote integration](/integrations/harmony).
 
 ```yaml
 vacuum:

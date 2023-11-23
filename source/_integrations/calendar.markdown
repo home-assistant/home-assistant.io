@@ -14,19 +14,15 @@ The calendar integration provides calendar entities, allowing other integrations
 to integrate calendars into Home Assistant. Calendars are shown on the calendar
 dashboard and can be used with automations.
 
-A calendar entity has a state and attributes representing the next event (only).
-A calendar trigger is much more flexible, has fewer limitations, and is
-recommended for automations instead of using the entity state.
-
-<div class='note'>
-
-Calendar entities are here to be consumed and provided by other integrations.
-
-This page, therefore, does not provide instructions on how to create calendar
+This page does not provide instructions on how to create calendar
 entities. Please see the ["Calendar" category](/integrations/#calendar) on the
 integrations page to find integration offering calendar entities.
 
-</div>
+{% include integrations/building_block_integration.md %}
+
+A calendar entity has a state and attributes representing the next event (only).
+A calendar trigger is much more flexible, has fewer limitations, and is
+recommended for automations instead of using the entity state.
 
 ## Viewing and managing calendars
 
@@ -156,10 +152,11 @@ Add a new calendar event. A calendar `target` is selected with a [Target Selecto
 | `summary` | no | Acts as the title of the event. | Bowling
 | `description` | yes | The description of the event. | Birthday bowling
 | `start_date_time` | yes | The date and time the event should start. | 2019-03-10 20:00:00
-| `end_date_time` | yes | The date and time the event should end. | 2019-03-10 23:00:00
+| `end_date_time` | yes | The date and time the event should end (exclusive). | 2019-03-10 23:00:00
 | `start_date` | yes | The date the whole day event should start. | 2019-03-10
-| `end_date` | yes | The date the whole day event should end. | 2019-03-11
+| `end_date` | yes | The date the whole day event should end (exclusive). | 2019-03-11
 | `in` | yes | Days or weeks that you want to create the event in. | "days": 2
+| `location` | yes | The location of the event. | Bowling center
 
 
 <div class='note'>
@@ -179,3 +176,76 @@ data:
   start_date: "2022-10-01"
   end_date: "2022-10-02"
 ```
+
+Home Assistant Calendars do not allow zero duration Calendar events. The following would create a one minute long event starting "now". This could be used to record an external event in a Calendar.
+
+{% raw %}
+```yaml
+service: calendar.create_event
+target:
+  entity_id: calendar.device_automation_schedules
+data:
+  summary: "Example"
+  start_date_time: "{{ now() }}"
+  end_date_time: "{{ now() + timedelta(minutes=1) }}"
+```
+{% endraw %}
+
+
+### Service `calendar.list_events`
+
+This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+with calendar events within a date range.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `start_date_time` | yes | Return active events after this time (exclusive). When not set, defaults to now. | 2019-03-10 20:00:00
+| `end_date_time` | yes | Return active events before this time (exclusive). Cannot be used with 'duration'. | 2019-03-10 23:00:00
+| `duration` | yes | Return active events from start_date_time until the specified duration. | `days: 2`
+
+<div class='note'>
+
+Use only one of `end_date_time` or `duration`.
+
+</div>
+
+
+{% raw %}
+```yaml
+service: calendar.list_events
+target:
+  entity_id: calendar.school
+data:
+  duration:
+    hours: 24
+response_variable: agenda
+```
+{% endraw %}
+
+The response data field `events` is a list of events with these fields:
+
+| Response data | Description | Example |
+| ---------------------- | ----------- | -------- |
+| `summary` | The title of the event. | Bowling
+| `description` | The description of the event. | Birthday bowling
+| `start` | The date or date time the event starts. | 2019-03-10 20:00:00
+| `end` | The date or date time the event ends (exclusive). | 2019-03-10 23:00:00
+| `location` | The location of the event. | Bowling center
+
+This example uses a template with response data in another service call:
+
+{% raw %}
+```yaml
+service: notify.gmail_com
+data:
+  target: gduser1@workspacesamples.dev
+  title: Daily agenda for {{ now().date() }}
+  message: >-
+    Your agenda for today:
+    <p>
+    {% for event in agenda.events %}
+    {{ event.start}}: {{ event.summary }}<br>
+    {% endfor %}
+    </p>
+```
+{% endraw %}

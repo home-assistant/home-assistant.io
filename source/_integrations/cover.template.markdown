@@ -54,11 +54,11 @@ cover:
         required: false
         type: string
       value_template:
-        description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `value_template` and a `position_template`](#combining_value_template_and_position_template) are specified, only `opening` and `closing` are set from the `value_template`.
+        description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `value_template` and a `position_template`](#combining_value_template_and_position_template) are specified, only `opening` and `closing` are set from the `value_template`. If the template produces a `None` value the state will be set to `unknown`.
         required: false
         type: template
       position_template:
-        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open).
+        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value the current position will be set to `unknown`.
         required: false
         type: template
       icon_template:
@@ -109,7 +109,7 @@ cover:
         type: boolean
         default: false
       tilt_template:
-        description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).
+        description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).  If the template produces a `None` value the current tilt state will be set to `unknown`.
         required: false
         type: template
 {% endconfiguration %}
@@ -149,7 +149,7 @@ If both a [`value_template`](#value_template) and a [`position_template`](#posit
 | value_template output | result |
 | ------------- |-------------|
 | open | state defined by `position_template` |
-| close | state defined by `position_template` |
+| closed | state defined by `position_template` |
 | true | state defined by `position_template` |
 | false | state defined by `position_template` |
 | opening | state set to `opening` |

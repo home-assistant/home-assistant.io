@@ -14,6 +14,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@garbled1'
+  - '@jhollowe'
 ha_config_flow: true
 ha_integration_type: integration
 ---
@@ -49,7 +50,29 @@ The following values are supported for the preset_mode state attribute:
 
 Note - Please ensure that you update your thermostat to the latest firmware. Initially tested on firmware 5.10 and currently VH6.79.  
 
-Local API mode needs to be enabled via the thermostat's *Menu > WiFi > Local API Options > Local API - ON*
+### Enabling Local API
+Local API mode needs to be enabled on the thermostat itself. It cannot be enabled using the Venstar mobile apps or Skyport cloud service. Exact steps vary across different [series](https://venstar.com/thermostats/) of thermostats:
+
+- [ColorTouch](https://venstar.com/thermostats/colortouch/)
+  - **Menu** > **WiFi** > **Local API Option** > **[Local API - ON](https://www.youtube.com/watch?v=kB_HcJ3kqCg&t=51s)**.
+
+- [EXPLORER](https://venstar.com/thermostats/explorer/) / [EXPLORER IAQ](https://venstar.com/thermostats/explorer-iaq/)
+  - Press **SETUP**.
+  - Press **MODE** repeatedly until you see [LOCAL API](https://www.youtube.com/watch?v=HRmWFwfQAhU&t=276s).
+  - Press **WARMER** to toggle "ON".
+  - Press **SETUP** to exit.
+
+- [EXPLORER Mini](https://venstar.com/thermostats/explorermini/)
+  - Press and hold **MODE** + **FAN** together for 5 seconds.
+  - Press **MODE** repeatedly until you see "API".
+  - Press **WARMER** to toggle "ON".
+  - Press **MODE** + **FAN** together to exit.
+
+If the local API is successfully enabled on the thermostat, you should see some basic API info when you navigate to its IP address in a web browser:
+
+```json
+{"api_ver":7,"type":"commercial","model":"VYG-4800","firmware":"2.22.19"}
+```
 
 {% include integrations/config_flow.md %}
 

@@ -13,7 +13,6 @@ ha_release: 0.98
 ha_codeowners:
   - '@CoMPaTech'
   - '@bouwew'
-  - '@brefra'
   - '@frenck'
 ha_config_flow: true
 ha_domain: plugwise
@@ -29,8 +28,8 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-This enables [Plugwise](https://www.plugwise.com) components with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
-The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and the [Stretch](https://www.plugwise.com/nl_NL/het-systeem) products. See below list for more details.
+This enables [Plugwise](https://www.plugwise.com) integrations with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
+The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and the Stretch products (not in sale). See below list for more details.
 
 Platforms available - depending on your Smile and setup include:
 

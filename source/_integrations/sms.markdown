@@ -122,6 +122,7 @@ Note: E3372h-153 and E3372h-510 need to be unlocked [this guide](http://blog.asi
 - [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1) (note: Devices with firmware versions 22.XX need to be unlocked using [this guide](https://community.home-assistant.io/t/trouble-setting-up-huawei-e3531s-2-with-sms-notifications-via-gsm-modem-integration/462737/9?u=alexschmitz222))
 - [Huawei E3272](https://www.amazon.com/Huawei-E3272s-506-Unlocked-Americas-Europe/dp/B00HBL51OQ)
 - ZTE K3565-Z
+- Lenovo F5521gw (mPCI-E)
 
 ### List of modems known to NOT work
 

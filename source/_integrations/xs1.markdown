@@ -86,7 +86,7 @@ Home Assistant can combine temperature sensors and climate actuators into a sing
 
 ## Examples
 
-In this section, you find some real-life examples of how to use this component.
+In this section, you find some real-life examples of how to use this integration.
 
 ### Full configuration
 

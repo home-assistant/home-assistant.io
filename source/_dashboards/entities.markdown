@@ -65,7 +65,7 @@ entity:
   type: string
 type:
   required: false
-  description: "Sets a custom card type: `custom:my-custom-card`"
+  description: "Sets a custom card type: `custom:my-custom-card`. It also can be used to force entities with a default special row format to render as a simple state. You can do this by setting the type: `simple-entity`. This can be used, for example, to replace a helper with an editable control with a read-only value."
   type: string
 name:
   required: false
@@ -227,7 +227,7 @@ entities:
       required: false
       description: If false, the button name is not shown.
       type: boolean
-      default: "true"
+      default: "false"
     show_icon:
       required: false
       description: If false, the icon is not shown.
@@ -292,30 +292,13 @@ type:
   type: string
 conditions:
   required: true
-  description: List of entity IDs and matching states.
+  description: List of conditions to check. See [available conditions](/dashboards/conditional/#card-conditions).
   type: list
-  keys:
-    entity:
-      required: true
-      description: Entity ID.
-      type: string
-    state:
-      required: false
-      description: Entity state is equal to this value.*
-      type: string
-    state_not:
-      required: false
-      description: Entity state is unequal to this value.*
-      type: string
 row:
   required: true
   description: Row to display if all conditions match. Can be any of the various supported rows described on this page.
   type: map
 {% endconfiguration %}
-
-*one is required (`state` or `state_not`)
-
-Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
 
 ### Divider
 

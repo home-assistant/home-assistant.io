@@ -2,7 +2,7 @@
 title: Hive
 description: Instructions on how to integrate Hive devices with Home Assistant.
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Binary Sensor
   - Climate
   - Hub

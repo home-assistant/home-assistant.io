@@ -7,7 +7,6 @@ ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
   - '@fabaff'
-  - '@frenck'
 ha_domain: cpuspeed
 ha_config_flow: true
 ha_platforms:

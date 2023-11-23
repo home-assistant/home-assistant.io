@@ -18,8 +18,8 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - climate
-  - light
   - fan
+  - light
   - number
   - sensor
   - switch

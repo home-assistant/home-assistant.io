@@ -2,7 +2,7 @@
 title: Overkiz
 description: Instructions on how to integrate hubs whom use the Overkiz platform with Home Assistant.
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Binary Sensor
   - Button
   - Climate
@@ -19,7 +19,7 @@ ha_category:
   - Water Heater
 ha_release: 2022.2
 ha_config_flow: true
-ha_iot_class: Cloud Polling
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@imicknl'
   - '@vlebourl'
@@ -54,15 +54,13 @@ The Overkiz (by Somfy) integration platform is used by many different vendors, l
 - Atlantic Cozytouch
 - Hitachi Hi Kumo
 - Nexity Eugénie
-- Rexel Energeasy Connect
 - Somfy Connectivity Kit
-- Somfy Connexoon IO
-- Somfy Connexoon RTS
-- Somfy TaHoma
-- Somfy TaHoma Beecon
-- Somfy TaHoma Switch
+- Somfy Connexoon IO _(local API available)_
+- Somfy Connexoon RTS _(local API available)_
+- Somfy TaHoma _(local API available)_
+- Somfy TaHoma Beecon _(local API available)_
+- Somfy TaHoma Switch _(local API available)_
 - Thermor Cozytouch
-
 
 ## Supported devices
 
@@ -84,10 +82,16 @@ During peak hours, it could happen that the Overkiz platform is unable to execut
 
 ### Internet connectivity required
 
-This integration communicates via the cloud-based Overkiz API. The Somfy TaHoma v2 and the Somfy TaHoma Switch offer the [Somfy TaHoma Developer Mode (local API)](https://developer.somfy.com/developer-mode), which is not supported in Home Assistant yet.
+This integration communicates via the cloud-based Overkiz API in most cases. Depending on your hub and devices, there are options which communicate over your local network.
 
-Another option if you are only using Somfy IO compatible devices is to purchase a Velux KLF200 hub and use [the Velux integration](/integrations/velux/) which has a local API.
+#### Local API via Somfy TaHoma Developer Mode
+
+The Somfy TaHoma v2, Somfy Connexoon and Somfy TaHoma Switch support the [Somfy TaHoma Developer Mode (local API)](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode). During setup, you can choose **Local API**. This allows you to use the local API in Home Assistant. Climate devices are not supported via the Somfy TaHoma Developer Mode.
 
 #### Local API via HomeKit Controller
 
-If your hub (e.g. Somfy TaHoma) supports HomeKit natively, your setup code will be added as a sensor in Home Assistant. Look up your hub in Home Assistant and retrieve the value from the 'HomeKit Setup Code' sensor. You can now configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant and benefit from local support. Only a [limited set of devices is supported](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
+If your hub (e.g. Somfy Connectivity Kit) supports HomeKit natively, your setup code will be added as a sensor in Home Assistant. Find your hub in Home Assistant and retrieve the value from the **HomeKit Setup Code** sensor. You can now configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant and benefit from local support. Only a [limited set of devices is supported](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
+
+#### Local API via Velux KLF200 hub
+
+If you are only using Somfy IO-compatible devices, you could purchase a Velux KLF200 hub and use [the Velux integration](/integrations/velux/) which has a local API. 

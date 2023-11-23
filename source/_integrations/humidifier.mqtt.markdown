@@ -25,12 +25,22 @@ To enable MQTT humidifiers in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  humidifier:
-    - command_topic: "bedroom_humidifier/on/set"
+  - humidifier:
+      command_topic: "bedroom_humidifier/on/set"
       target_humidity_command_topic: "bedroom_humidifier/humidity/set"
 ```
 
 {% configuration %}
+action_template:
+  description: A template to render the value received on the `action_topic` with.
+  required: false
+  type: template
+action_topic:
+  description: >-
+    The MQTT topic to subscribe for changes of the current action.
+    Valid values: `off`, `humidifying`, `drying`, `idle`
+  required: false
+  type: string
 availability:
   description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
   required: false
@@ -67,6 +77,14 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+current_humidity_template:
+  description: A template with which the value received on `current_humidity_topic` will be rendered.
+  required: false
+  type: template
+current_humidity_topic:
+  description: The MQTT topic on which to listen for the current humidity. A `"None"` value received will reset the current humidity. Empty values (`'''`) will be ignored.
+  required: false
+  type: string
 command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic`.
   required: false
@@ -76,12 +94,12 @@ command_topic:
   required: true
   type: string
 device:
-  description: "Information about the device this humidifier is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this humidifier is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -121,7 +139,7 @@ device:
       required: false
       type: string
 device_class:
-  description: The device class of the MQTT device. Must be either `humidifier` or `dehumidifier`.
+  description: The device class of the MQTT device. Must be either `humidifier`, `dehumidifier` or `null`.
   required: false
   type: string
   default: humidifier
@@ -163,7 +181,7 @@ min_humidity:
   type: integer
   default: 0
 name:
-  description: The name of the humidifier.
+  description: The name of the humidifier. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT humidifier
@@ -197,12 +215,12 @@ payload_on:
   type: string
   default: "ON"
 payload_reset_humidity:
-  description: A special payload that resets the `target_humidity` state attribute to `None` when received at the `target_humidity_state_topic`.
+  description: A special payload that resets the `target_humidity` state attribute to an `unknown` state when received at the `target_humidity_state_topic`. When received at `current_humidity_topic` it will reset the current humidity state.
   required: false
   type: string
   default: 'None'
 payload_reset_mode:
-  description: A special payload that resets the `mode` state attribute to `None` when received at the `mode_state_topic`.
+  description: A special payload that resets the `mode` state attribute to an `unknown` state when received at the `mode_state_topic`.
   required: false
   type: string
   default: 'None'
@@ -221,7 +239,7 @@ target_humidity_state_topic:
 target_humidity_state_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value for the humidifier `target_humidity` state.
   required: false
-  type: string
+  type: template
 mode_command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `mode_command_topic`.
   required: false
@@ -237,14 +255,14 @@ mode_state_topic:
 mode_state_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value for the humidifier `mode` state.
   required: false
-  type: string
+  type: template
 modes:
   description: List of available modes this humidifier is capable of running at. Common examples include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto` and `baby`. These examples offer built-in translations but other custom modes are allowed as well.  This attribute ust be configured together with the `mode_command_topic` attribute.
   required: false
   type: [list]
   default: []
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -260,7 +278,7 @@ state_topic:
 state_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value from the state."
   required: false
-  type: string
+  type: template
 unique_id:
   description: An ID that uniquely identifies this humidifier. If two humidifiers have the same unique ID, Home Assistant will raise an exception.
   required: false
@@ -286,11 +304,13 @@ The example below shows a full configuration for a MQTT humidifier including mod
 ```yaml
 # Example configuration.yaml
 mqtt:
-  humidifier:
-    - name: "Bedroom humidifier"
+  - humidifier:
+      name: "Bedroom humidifier"
       device_class: "humidifier"
       state_topic: "bedroom_humidifier/on/state"
+      action_topic: "bedroom_humidifier/action"
       command_topic: "bedroom_humidifier/on/set"
+      current_humidity_topic: "bedroom_humidifier/humidity/current"
       target_humidity_command_topic: "bedroom_humidifier/humidity/set"
       target_humidity_state_topic: "bedroom_humidifier/humidity/state"
       mode_state_topic: "bedroom_humidifier/mode/state"

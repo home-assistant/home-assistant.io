@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Global Caché [GC-100](https://www.globalcache.com/products/gc-100/) can be integrated into Home Assistant. GC-100 is a TCP-controllable
+The Global Caché GC-100 can be integrated into Home Assistant. GC-100 is a TCP-controllable
 hardware device which has an array of relays, RS232 serial ports, and flexible ports which can be programmed to be either digital inputs or IR blaster outputs. There are a variety of submodels of the GC-100 which have different amounts of each I/O type.
 
 There is currently support for the following device types within Home Assistant:

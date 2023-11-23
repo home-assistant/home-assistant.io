@@ -111,7 +111,7 @@ So, this release will bring in a bunch of new media sources.
 
 Your Cameras! Your Lovelace Dashboards! You can just pick one of your cameras
 or Lovelace dashboards and "Play" them on a supported device
-(like a Google Nest Hub or television). But also text to speech!
+(like a Google Nest Hub or television). But also text-to-speech!
 
 <img class="no-shadow" src='/images/blog/2022-03/pick-tts.png' alt='Screenshot showing playing TTS as a media action'>
 

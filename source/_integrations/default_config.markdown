@@ -14,6 +14,7 @@ ha_integration_type: system
 This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:
 
 - [Automation](/integrations/automation/) (`automation`)
+- [Assist pipeline](/integrations/assist_pipeline/) (`assist_pipeline`)
 - [Backup](/integrations/backup/) (`backup`)
 - [Bluetooth](/integrations/bluetooth/) (`bluetooth`)
 - [Configuration](/integrations/config/) (`config`)
@@ -39,6 +40,7 @@ This integration is a meta-component and configures a default set of integration
 - [Media Source](/integrations/media_source/) (`media_source`)
 - [Mobile App Support](/integrations/mobile_app/) (`mobile_app`)
 - [My Home Assistant](/integrations/my/) (`my`)
+- [Network](/integrations/network/) (`network`)
 - [Person](/integrations/person/) (`person`)
 - [Schedule](/integrations/schedule/) (`schedule`)
 - [Scene](/integrations/scene/) (`scene`)

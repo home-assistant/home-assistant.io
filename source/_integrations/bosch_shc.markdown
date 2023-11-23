@@ -38,6 +38,7 @@ There is currently support for the following device types within Home Assistant:
 The binary sensor platform allows you to monitor the states of your shutter contact and battery sensors. Binary sensor devices are added for each of the following devices:
 
 - Shutter Contact
+- Shutter Contact II
 - Battery powered devices
 
 ### Cover

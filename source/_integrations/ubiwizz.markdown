@@ -2,7 +2,7 @@
 title: Ubiwizz
 description: Connect and control your Ubiwizz devices using the Overkiz integration
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Binary Sensor
   - Button
   - Climate

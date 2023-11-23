@@ -14,7 +14,7 @@ ha_integration_type: helper
 
 The `input_number` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
-The preferred way to configure an input number is via the user interface at **Settings** -> **Devices & Services** -> **Helpers**. Click the add button and then choose the **Number** option.
+The preferred way to configure an input number is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_number" title="Number" %}** option.
 
 To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
 If you removed `default_config:` from you configuration, you must add `input_number:` to your `configuration.yaml` first, then you can use the UI.
@@ -96,7 +96,7 @@ configuration without restarting Home Assistant itself.
 
 ### Restore State
 
-If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping. Please note that `initial` is only available in a YAML configuration and not via the Home Assistant user interface.
 
 ### Scenes
 

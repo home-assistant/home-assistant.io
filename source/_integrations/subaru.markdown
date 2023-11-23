@@ -4,6 +4,7 @@ description: Instructions on how to setup your Subaru account with Home Assistan
 ha_category:
   - Car
   - Lock
+  - Presence Detection
   - Sensor
 ha_release: 2021.3
 ha_iot_class: Cloud Polling
@@ -12,13 +13,14 @@ ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
 ha_platforms:
+  - device_tracker
   - diagnostics
   - lock
   - sensor
 ha_integration_type: integration
 ---
 
-This integration retrieves vehicle information and actuates remote services provided by [Subaru STARLINK](https://www.subaru.com/engineering/starlink/safety-security.html) (currently only available in USA and Canada).
+This integration retrieves vehicle information and actuates remote services provided by [Subaru STARLINK](https://www.subaru.com/subaru-starlink/starlink-safety-and-security.html) (currently only available in USA and Canada).
 
 This integration requires a telematics equipped Subaru and an active vehicle subscription to the Subaru STARLINK service. Before using this integration, you must first register and have login credentials to [MySubaru](https://www.mysubaru.com).
 
@@ -34,7 +36,7 @@ Subaru has deployed two generations of telematics, Gen 1 and Gen 2. The latter o
 | Outback   | 2016-2019 | 2020+ |
 | WRX       | 2017+     |       |
 
-In addition to the telematics generational differences, there are two levels of STARLINK subscriptions, "Safety Plus" and "Security Plus". All remote services (such as locks) require a "Security Plus" level subscription.
+In addition to the telematics generational differences, there are two levels of STARLINK subscriptions, "Safety Plus" and "Security Plus". All remote services (such as locks and location tracking) require a "Security Plus" level subscription.
 
 {% include integrations/config_flow.md %}
 
@@ -66,6 +68,11 @@ This integration supports remote locking and unlocking of vehicle doors.
 <p class='note'>
 The current lock status is always unknown due to the fact that the Subaru API does not report this data.
 </p>
+
+## Device Tracker
+
+Tracks the most recently reported location of the vehicle. The vehicle reports its location when it is turned off.
+
 
 ## Options
 

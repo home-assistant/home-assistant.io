@@ -54,6 +54,7 @@ See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kas
 - KP125
 - KP401
 - EP10
+- EP25
 
 ### Power Strips
 
@@ -95,6 +96,12 @@ See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kas
 - KL430
 
 Other bulbs may also work, but with limited color temperature range (2700-5000). If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
+
+## Unsupported devices
+
+### Plugs
+
+- KP125M (supported via [Matter](/integrations/matter/#tp-link-tapo-p125m-power-plug), but without energy monitoring features)
 
 ### Random Effect - Service `tplink.random_effect`
 
@@ -156,6 +163,7 @@ The light strips allow setting a sequence effect.
 | `segments` | List of segments (0 for all) |
 | `brightness` | Initial brightness |
 | `duration` | Duration |
+| `repeat_times` | Repetitions (0 for continuous) |
 | `transition` | Transition |
 | `spread` | Speed of spread |
 | `direction` | Direction |

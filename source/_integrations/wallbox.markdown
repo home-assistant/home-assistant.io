@@ -41,9 +41,10 @@ The integration adds the following sensors:
 
 ## Number
 
-The integration adds the following number entity:
+The integration adds the following number entities:
 
 - Max Charging Current
+- Energy Price
 
 The number entity is only loaded if the supplied username has sufficient rights to change the Max. Charging Current.
 

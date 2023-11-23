@@ -367,6 +367,7 @@ The following sensor types are supported:
 - Consumption sensor
 - Daylight
 - Humidity sensor
+- Moisture sensor
 - Light level sensor
 - Power sensor
 - Pressure sensor

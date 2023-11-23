@@ -83,8 +83,20 @@ method:
 name:
   description: Name of the REST binary sensor.
   required: false
-  type: string
+  type: template
   default: REST Binary Sensor
+icon:
+  description: Defines a template for the icon of the entity.
+  required: false
+  type: template
+picture:
+  description: Defines a template for the entity picture of the entity.
+  required: false
+  type: template
+availability:
+  description: Defines a template if the entity state is available or not.
+  required: false
+  type: template
 device_class:
   description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false

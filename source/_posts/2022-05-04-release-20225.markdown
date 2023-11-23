@@ -1562,7 +1562,7 @@ Home Assistant startup, instead of to "unknown".
 
 {% enddetails %}
 
-{% details "Text-to-Speech (TTS)" %}
+{% details "text-to-speech (TTS)" %}
 
 The TTS `base_url` option is deprecated. Please, configure internal/external
 URL instead.

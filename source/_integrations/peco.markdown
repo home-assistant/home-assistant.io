@@ -22,6 +22,10 @@ To learn more about PECO, visit [**their about page**](https://www.peco.com/Abou
 
 This integration is only for PECO customers. To see if your county is supported, take a look at [**their outage map**](https://www.peco.com/Outages/CheckOutageStatus/Pages/OutageMap.aspx).
 
+ 
+
+PECO Is a registered trademark of Exelon Business Services Co., LLC
+
 </div>
 
 {% include integrations/config_flow.md %}

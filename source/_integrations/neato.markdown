@@ -2,6 +2,7 @@
 title: Neato Botvac
 description: Instructions on how to integrate your Neato within Home Assistant.
 ha_category:
+  - Button
   - Camera
   - Sensor
   - Switch
@@ -14,6 +15,7 @@ ha_codeowners:
   - '@Santobert'
 ha_domain: neato
 ha_platforms:
+  - button
   - camera
   - sensor
   - switch
@@ -28,6 +30,7 @@ There is support for the following platform types within Home Assistant:
 - **Camera** - allows you to view the latest cleaning map.
 - **Sensor** - allows you to view the battery level.
 - **Switch** - allows you to enable or disable the schedule.
+- [**Button**](#button) - allows you to dismiss an alert visible in the app.
 - [**Vacuum**](#vacuum)
 
 ## Prerequisites
@@ -72,6 +75,10 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 After the update to firmware 4.0 (which adds cleaning maps) there is also support for displaying the maps of the Botvac D3 Connected and Botvac D5 Connected robots. More information on how to update can be found [here](https://support.neatorobotics.com/hc/en-us/articles/115004320694-Software-Update-4-0-for-Neato-Botvac-Connected-D3-D5-).
 
 </div>
+
+## Button
+
+Each `neato` vacuum has a _Dismiss alert_ button. This allows to dismiss an alert visible in the app (e.g. dust bin full) and preventing the vacuum to start cleaning.
 
 ## Vacuum
 

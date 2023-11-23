@@ -230,3 +230,16 @@ kitchen_fade_on:
 ## Notes
 
 - A UPB device does not always report its current state. For example, if you call `upb.light_fade_start` and then, a few seconds later, call `upb.light_fade_stop`, the selected UPB device will not report its new brightness level. However, if you then call `homeassistant.update_entity` it will make the UPB device report its current state to Home Assistant.
+- Alterations to your UPB configuration with UpStart must be re-exported. The exported UPE file must have the same filename in the Home Assistant `config` directory.
+
+## Debugging
+Debug logs are often required to solve an issue. To enable UPB debug logs add the following to your `configuration.yaml` file in your Home Assistant `config` directory:
+
+```yaml
+logger:
+  logs:
+    upb_lib: debug
+    homeassistant.components.upb: debug
+```
+
+After updating your configuration file, restart Home Assistant. The debug logs will be in the file `homeassistant.log` in the `config` directory.

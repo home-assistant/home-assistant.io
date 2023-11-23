@@ -37,7 +37,7 @@ These devices have been sold under at least the following brands:
 - [Atom Lighting](https://atomlighting.com.au/)
 - [ATX LED](https://atxledinc.com/)
 - [Brilliant](https://www.brilliantlightsource.com/)
-- [Designers Fountain](https://designersftn.com/default.dmx)
+- [Designers Fountain](https://designersfountain.com/)
 - [Evoluziona](https://tecnolite.mx/)
 - [Fischer & Honsel](https://fischer-honsel.com/)
 - [Gauss](https://gauss.ru/smartlight/products/)
@@ -47,12 +47,12 @@ These devices have been sold under at least the following brands:
 - [Lednify](https://lednify.com/)
 - [Leyton](https://www.leyton-lighting.co.uk/)
 - [Liteline](https://www.liteline.com/page/oncloud)
-- [Lutec](https://www.lutec.com/highlight/wiz)
+- [Lutec](https://www.lutec.com/segments/connected)
 - [Philips Smart LED lights with WiZ Connected](https://www.usa.lighting.philips.com/consumer/smart-wifi-led)
 - [Spex](https://spexlighting.com/pages/smart-lights)
 - [SLV](https://www.slv.com/)
 - [Trenz](https://trenzlighting.com/pages/smart-lights)
-- [Trio](https://wiz.trio-lighting.com/en/)
+- [Trio](https://wiz.trio-lighting.com/)
 - [Wofi](https://wofi-wiz.com/)
 
 The integration can report the state of occupancy sensors that have been linked to a device.
@@ -61,8 +61,8 @@ The integration can report the state of occupancy sensors that have been linked 
 
 ## Connect WiZ devices to your network
 
-To connect a WiZ device to your Wi-Fi network, please follow the instructions in the [WiZ app](https://www.wizconnected.com/en/consumer/app/) (available for iOS and Android).
-If you have further questions, please have a look at the [WiZ Support Page](https://www.wizconnected.com/en/consumer/support/).
+To connect a WiZ device to your Wi-Fi network, please follow the instructions in the [WiZ app](https://www.wizconnected.com/en-us/explore-wiz/app) (available for iOS and Android).
+If you have further questions, please have a look at the [WiZ Support Page](https://www.wizconnected.com/en-us/support/faq).
 
 ### Enable local connectivity
 

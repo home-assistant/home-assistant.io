@@ -14,6 +14,7 @@ ha_codeowners:
   - '@thegardenmonkey'
 ha_domain: vesync
 ha_platforms:
+  - diagnostics
   - fan
   - light
   - sensor
@@ -91,7 +92,7 @@ itself. Note that prior versions of the integration exposed these as state attri
 | `sensor.<outlet name>_energy_use_yearly`  | Total energy usage for year start from 12:01AM on Jan 1 in kWh          | 105.25  |
 
 ## Fan & Air Quality Sensors
-All VeSync air purifiers expose the remaining filter life, and some also expose air quality measurements.
+All VeSync air purifiers expose the remaining filter lifetime, and some also expose air quality measurements.
 
 | Sensor                                  | Description                                                        | Example |
 | --------------------------------------- | ------------------------------------------------------------------ | ------- |

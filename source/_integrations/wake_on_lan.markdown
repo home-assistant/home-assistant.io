@@ -29,13 +29,13 @@ To use this integration in your installation, add the following to your `configu
 wake_on_lan:
 ```
 
-### Component services
+### Integration services
 
 Available services: `send_magic_packet`.
 
 #### Service `wake_on_lan.send_magic_packet`
 
-Send a _magic packet_ to wake up a device with 'Wake-On-LAN' capabilities.
+Send a _magic packet_ to wake up a device with 'Wake on LAN' capabilities.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
@@ -52,13 +52,13 @@ Sample service data:
 ```
 
 <div class='note'>
-This usually only works if the Target Device is connected to the same network. Routing the WakeOnLan packet to a different subnet requires a special configuration on your router or may not be possible.
-The Service to Route the packet is most likely named "IP Helper" which may support WakeOnLan, but not all Routers support this.
+This usually only works if the target device is connected to the same network. Routing the magic packet to a different subnet requires a special configuration on your router or may not be possible.
+The service to route the packet is most likely named "IP Helper". It may support Wake on LAN, but not all routers support this.
 </div>
 
 ## Switch
 
-The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
+The `wake_on_lan` (WOL) switch integration allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
 
 ### Switch configuration
 
@@ -133,3 +133,36 @@ switch:
 shell_command:
   turn_off_TARGET: "ssh hass@TARGET sudo pm-suspend"
 ```
+
+## Helper button with automation
+
+A switch defined with the `wake_on_lan` platform will render in the UI with both 'on' and 'off' clickable actions. If you don't intend to use the `turn_off` functionality, then using a virtual button & automation will look cleaner and less confusing. It will only have one action.
+
+1. First, define a new helper button. 
+    - Go to **{% my helpers title="Settings > Devices & Services > Helpers" %}** and select the **+ Create helper** button. Choose **Button** and give it a name. A button named "Wake PC" will render like this:
+
+    ![image](https://github.com/home-assistant/home-assistant.io/assets/252209/10e468a0-45c8-4ee7-b69d-596db3845b14)
+
+2. Then, create a new automation. Go to **{% my automations title="Settings > Automations & scenes" %}** and select **+ Create Automation**. 
+    - The trigger will be on `State` and the entity will be the button you created. 
+    - Continuing your example, the trigger YAML will look like this:
+
+      ```yaml
+      platform: state
+      entity_id:
+        - input_button.wake_pc
+      ```
+
+3. For the action, select **Call service** and choose **Wake on LAN: Send magic packet**.
+4. Type in the target MAC address.
+    - Do not change the broadcast port unless you've configured your device to listen to a different port.
+    - Continuing our example, the action YAML looks like this:
+
+      ```yaml
+      service: wake_on_lan.send_magic_packet
+      data:
+        broadcast_port: 9
+        mac: 00:11:22:33:44:55
+      ```
+
+5. Save the automation. Now, when you activate `PRESS` on the helper button in the UI, Home Assistant will send a wake packet to the configured MAC.
