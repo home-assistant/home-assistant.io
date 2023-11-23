@@ -397,7 +397,7 @@ Alexa will now respond with a random phrase each time. You can use the include f
 
 ## Workaround for having to say the skill's name
 
-Sometimes, you want to run script or scene intents without using the skill's name. For example, 'Alexa <some script>' instead of 'Alexa ask Home Assistant to run <some script>' because it is shorter.
+Sometimes, you want to run script or scene intents without using the skill's name. For example, 'Alexa `<some script>`' instead of 'Alexa ask Home Assistant to run `<some script>`' because it is shorter.
 
 You can do this by using Alexa routines. 
 1. Configure a routine in the Alexa app that responds to the command you want to use:
