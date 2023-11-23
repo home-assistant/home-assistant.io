@@ -176,3 +176,30 @@ Save the persistent states (for entities derived from RestoreEntity) immediately
 Maintain the normal periodic saving interval.
 
 Normally these states are saved at startup, every 15 minutes and at shutdown.
+
+### Service `homeassistant.delete_scene`
+
+Any scene that you have created with the `scene.create` service can also be deleted on demand with the `homeassistant.delete_scene` service.
+
+You will need to pass in the `entity_id` of such a scene. As opposed to the `scene_id` used for creation, the `entity_id` must also include the `scene` domain.
+
+If the scene was not previously created by `scene.create`, the service call will fail and an error will appear in the logs.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |       no | The entity_id of the dynamically created scene you want to delete.  |
+
+#### Example
+
+```yaml
+# Example automation
+automation:
+  trigger:
+    platform: state
+    entity_id: sun.sun
+    to: below_horizon
+  action:
+    - service: homeassistant.delete_scene
+      data:
+        entity_id: scene.my_scene
+```
