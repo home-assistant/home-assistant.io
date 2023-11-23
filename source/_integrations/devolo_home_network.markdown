@@ -64,9 +64,9 @@ Currently the following device types within Home Assistant are supported.
 - Number of PLC devices in the same PLC network
   - Updates every 5 minutes
   - Is disabled by default because it typically rarely changes
-- PLC phyrates
+- PLC PHY rates
   - Updates every 5 minutes
-  - Phyrates to/from the device attached to the router are enabled by default, all other disabled
+  - PHY rates to/from the device attached to the router are enabled by default, all other disabled
 
 ### Switch
 
