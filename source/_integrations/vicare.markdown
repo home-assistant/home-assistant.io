@@ -12,6 +12,7 @@ ha_platforms:
   - button
   - climate
   - diagnostics
+  - number
   - sensor
   - water_heater
 ha_dhcp: true
@@ -27,6 +28,7 @@ There is currently support for the following device types within Home Assistant:
 - [Water Heater](#water-heater) (Domestic Hot Water)
 - [Sensor](#sensor) (Sensor)
 - [Button](#button) (Button)
+- [Number](#number)
 
 {% include integrations/config_flow.md %}
 
@@ -136,3 +138,7 @@ Additional data from ViCare is available as separate sensors. The sensors are au
 ## Button
 
 Button entities are available for triggering like a one-time charge of the water heater.
+
+## Number
+
+Number entities are available for adjusting the heating curve shift and slope.
