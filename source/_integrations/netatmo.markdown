@@ -111,8 +111,8 @@ Set the preset mode for a Netatmo climate device. The preset mode must match a p
 
 | Service data attribute | Required | Description                                                |
 | ---------------------- | -------- | ---------------------------------------------------------- |
-| `preset_mode`          | Yes      | Climate preset mode such as Schedule, Away or Frost Guard. |
-| `end_datetime`         | Yes      | Date & time the preset will be active until.               |
+| `preset_mode`          | Yes      | Climate preset mode such as Schedule, Away, or Frost Guard. |
+| `end_datetime`         | Yes      | Date & time until which the preset will be active.               |
 
 ### Set temperature with end date & time
 
@@ -129,14 +129,14 @@ Sets the target temperature for a Netatmo climate device with an end date & time
 
 `set_temperature_with_time_period`
 
-Sets the target temperature for a Netatmo climate device with a time period it will be active for.
+Sets the target temperature for a Netatmo climate device as well as the time period during which this target temperature applies.
 
 | Service data attribute | Required | Description                                            |
 | ---------------------- | -------- | ------------------------------------------------------ |
 | `target_temperature`   | Yes      | The target temperature for the device.                 |
-| `time_period`          | Yes      | Time period the target temperature will be active for. |
+| `time_period`          | Yes      | Time period during which the target temperature is applied. |
 
-### Clear Temperature Setting
+### Clear temperature setting
 
 `clear_temperature_setting`
 
