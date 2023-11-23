@@ -17,11 +17,11 @@ Integrates [Flexit](https://www.flexit.no/en/) Nordic series air handling unit i
 
 To configure the integration, you need to obtain IP address and Device ID for the unit.
 
-1. Open Flexit Go app on your mobile.
-2. Use "Find product" button on tha main screen.
-3. Select your device and press "Connect".
-4. Enter installer code (default: 1000) and press "Login".
-5. Open "More" menu -> Installer -> Communication -> BACnet settings.
-6. Note down "IP address" and "Device ID".
+1. Open the Flexit Go app on your mobile.
+2. On the main screen, select the **Find product** button.
+3. Select your device and select **Connect**.
+4. Enter the installer code (default: 1000) and select **Login**.
+5. Go to **More** > **Installer** > **Communication**  > **BACnet settings**.
+6. Note down the **IP address** and **Device ID**.
 
 {% include integrations/config_flow.md %}
