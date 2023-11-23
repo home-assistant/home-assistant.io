@@ -29,13 +29,13 @@ Create an application:
 1. Ensure you have selected *Withings public cloud* (instead of Withings US medical cloud)
 2. Create an application
 3. Application creation: Public creation.
-  * Read and accept the terms if you're happy by pressing **Next**
+  - Read and accept the terms if you're happy by pressing **Next**
 4. Information:
-  * Target environment: *Development*
-  * Application name: [any name]
-  * Application description: [any description]
-  * Registered URLs: [replace with your Home Assistant address e.g. https://my.home-assistant.io/redirect/oauth]
-  * Change logo: Optional.
+  - Target environment: *Development*
+  - Application name: [any name]
+  - Application description: [any description]
+  - Registered URLs: [replace with your Home Assistant address e.g. https://my.home-assistant.io/redirect/oauth]
+  - Change logo: Optional.
 
 Once saved, the *ClientID* and *Secret* fields will be populated. You will need these in the next step.
 
