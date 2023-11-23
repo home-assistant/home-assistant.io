@@ -5,7 +5,7 @@ ha_category:
   - Light
   - Media Player
   - Remote
-  - Binary Sensor
+  - Binary sensor
 ha_iot_class: Local Polling
 ha_release: 0.34
 ha_codeowners:
@@ -145,10 +145,10 @@ Some TV's allow you to sync the processed ambilight color data to your Philips H
 The integration exposes a "Ambilight+Hue" switch entity when your TV supports it which enables you to toggle this.
 
 
-## Binary Sensor
+## Binary sensor
 
-Some newer OS version support live TV recording functions via the API.\
-For those TV'S this integration supports two entities:
+Some newer OS versions support live TV recording functions via the API.
+For those TVs, this integration supports two entities:
 
 - New recording available
 - Recording ongoing
