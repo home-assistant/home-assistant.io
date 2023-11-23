@@ -101,22 +101,22 @@ light:
         type: template
         default: optimistic
       hs_template:
-        description: Defines a template to get the hs color of the light. Must render a tuple (hue, saturation)
+        description: Defines a template to get the HS color of the light. Must render a tuple (hue, saturation).
         required: false
         type: template
         default: optimistic
       rgb_template:
-        description: Defines a template to get the rgb color of the light. Must render a tuple or a list (red, green, blue)
+        description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
         required: false
         type: template
         default: optimistic
       rgbw_template:
-        description: Defines a template to get the rgbw color of the light. Must render a tuple or a list (red, green, blue, white)
+        description: Defines a template to get the RGBW color of the light. Must render a tuple or a list (red, green, blue, white).
         required: false
         type: template
         default: optimistic
       rgbww_template:
-        description: Defines a template to get the rgbww color of the light. Must render a tuple or a list (red, green, blue, cold white, warm white)
+        description: Defines a template to get the RGBWW color of the light. Must render a tuple or a list (red, green, blue, cold white, warm white).
         required: false
         type: template
         default: optimistic
@@ -175,15 +175,15 @@ light:
         required: false
         type: action
       set_rgb:
-        description: "Defines an action to run when the light is given a rgb color command. Available variables: `rgb` as a tuple, `r`, `g` and `b`"
+        description: "Defines an action to run when the light is given an RGB color command. Available variables: `rgb` as a tuple, `r`, `g` and `b`."
         required: false
         type: action
       set_rgbw:
-        description: "Defines an action to run when the light is given a rgbw color command. Available variables: `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b` and `w`"
+        description: "Defines an action to run when the light is given an RGBW color command. Available variables: `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b` and `w`."
         required: false
         type: action
       set_rgbww:
-        description: "Defines an action to run when the light is given a rgbww color command. Available variables: `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`, `b`, `cw` and `ww`"
+        description: "Defines an action to run when the light is given an RGBWW color command. Available variables: `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`, `b`, `cw` and `ww`."
         required: false
         type: action
       set_effect:
@@ -208,7 +208,7 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 Transition doesn't have its own script, it will instead be passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts.
-Brightness will be passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts if the corresponding parameter is also in the call. In this case the brightness script (`set_level`) will not be called.
+Brightness will be passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts if the corresponding parameter is also in the call. In this case, the brightness script (`set_level`) will not be called.
 If only brightness is passed to `light.turn_on` service call then `set_level` script is called.
 
 ## Examples
@@ -365,7 +365,7 @@ light:
 
 {% endraw %}
 
-### Make a Global light entity for a multi segments WLED light
+### Make a global light entity for a multi-segment WLED light
 
 This example shows how to group together 2 RGBW segments from the same WLED controller into a single usable light
 
