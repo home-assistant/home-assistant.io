@@ -22,7 +22,7 @@ The V2C integration allows monitoring and control of a local [V2C](https://v2c.c
 There is currently support for the following platforms within Home Assistant:
 
 - [Sensor](#sensor)
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Number](#number)
 - [Switch](#switch)
 
