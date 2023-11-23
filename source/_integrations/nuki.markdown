@@ -36,7 +36,7 @@ For faster updates, the callback function of the Nuki bridge can be used. This r
   Token:
     description: Token to authenticate against the Nuki bridge HTTP API.
   Use an encrypted token for authentication:
-    description: Use encrypted token for API calls to the bridge. This should only be deactivated if you experience issues with the API (authentication, etc). Default is `True`.
+    description: Use an encrypted token for API calls to the bridge. This should only be deactivated if you experience issues with the API (authentication, etc). The default is `True`.
 {% endconfiguration_basic %}
 
 ## Services
