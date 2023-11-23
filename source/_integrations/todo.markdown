@@ -4,7 +4,7 @@ description: Instructions on how to use to-do lists within Home Assistant.
 ha_domain: todo
 ha_release: 2023.11
 ha_category:
-  - To-do List
+  - To-do list
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -27,7 +27,6 @@ in the main sidebar of your Home Assistant instance.
 
 The state of a to-do list entity is a number, which represents the number of
 incomplete items in the list.
-
 
 ## Services
 
