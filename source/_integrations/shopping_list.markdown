@@ -3,7 +3,7 @@ title: Shopping list
 description: Instructions on how to integrate a Shopping list into Home Assistant using Intent.
 ha_category:
   - Intent
-  - To-do List
+  - To-do list
 ha_release: '0.50'
 ha_config_flow: true
 ha_quality_scale: internal
@@ -76,7 +76,7 @@ Sort all items by name in the shopping list.
 |------------------------|----------|---------------------------------------------------------------------|
 | `reverse`              |      yes | Whether to sort in reverse (_descending_) order. (default: `False`) |
 
-## Using in Automations
+## Using in automations
 
 A `shopping_list_updated` event is triggered when items in the list are modified, with the following data payload attached to it. This can be used to trigger automations such as sending a push notification when someone adds an item to the shopping list, which when clicked, will open the list.
 

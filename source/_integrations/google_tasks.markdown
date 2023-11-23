@@ -2,7 +2,7 @@
 title: Google Tasks
 description: Instructions on how to use Google Tasks in Home Assistant.
 ha_category:
-  - To-do List
+  - To-do list
 ha_iot_class: Cloud Polling
 ha_release: 2023.11
 ha_config_flow: true

@@ -2,7 +2,7 @@
 title: Configuration
 description: Instructions on how to setup the configuration panel for Home Assistant.
 ha_category:
-  - Front End
+  - Front end
 ha_release: 0.39
 ha_quality_scale: internal
 ha_codeowners:
