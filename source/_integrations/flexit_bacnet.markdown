@@ -15,7 +15,7 @@ Integrates [Flexit](https://www.flexit.no/en/) Nordic series air handling unit i
 
 ## Prerequisites
 
-To configure the integration, you need to obtain IP address and Device ID for the unit.
+To configure the integration, you need to obtain the IP address and Device ID for the unit.
 
 1. Open the Flexit Go app on your mobile.
 2. On the main screen, select the **Find product** button.
