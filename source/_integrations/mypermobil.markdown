@@ -4,7 +4,7 @@ description: Instructions on how to integrate Permobil wheelchair into Home Assi
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: '2023.6.3'
+ha_release: 2023.12
 ha_domain: permobil
 ha_codeowners:
   - '@IsakNyberg'
