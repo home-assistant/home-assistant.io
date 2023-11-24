@@ -27,7 +27,7 @@ sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
 
 {% enddetails %}
 
-## Basic Setup
+## Basic setup
 
 To integrate a WebDAV calendar in Home Assistant, add the following section to your `configuration.yaml` file:
 

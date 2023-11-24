@@ -1,5 +1,5 @@
 ---
-title: "MQTT Button"
+title: "MQTT button"
 description: "Instructions on how to integrate MQTT buttons into Home Assistant."
 ha_category:
   - Button

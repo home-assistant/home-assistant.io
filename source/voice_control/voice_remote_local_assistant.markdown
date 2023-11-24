@@ -4,11 +4,15 @@ title: "Installing a local Assist pipeline"
 
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant.
 
-For each component you can choose from different options. We have prepared a speech-to-text and text-to-speech option that runs fully local.
+For each component you can choose from different options. There is a speech-to-text and text-to-speech option that runs entirely local.
 
 The speech-to-text option is [Whisper](https://github.com/openai/whisper). It's an open source AI model that supports [various languages](https://github.com/openai/whisper#available-models-and-languages). We use a forked version called [faster-whisper](https://github.com/guillaumekln/faster-whisper). On a Raspberry Pi 4, it takes around 8 seconds to process incoming voice commands. On an Intel NUC it is done in under a second.
 
 For text-to-speech we have developed [Piper](https://github.com/rhasspy/piper). Piper is a fast, local neural text-to-speech system that sounds great and is optimized for the Raspberry Pi 4. It supports [many languages](https://rhasspy.github.io/piper-samples/). On a Raspberry Pi, using medium quality models, it can generate 1.6s of voice in a second.
+
+## Prerequisites
+
+- Home Assistant Operating System
 
 ## Installing a local Assist pipeline
 
@@ -46,6 +50,10 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Under **Speech-to-text**, select **faster-whisper**.
    - Under **Text-to-speech**, select **piper**.
    - Depending on your language, you may be able to select different language variants.
+   - If you like, pick one of the predefined wake words.
+     ![Select wake word](/images/assist/assist_predefined_wakeword.png)
+     - You can even [define your own a wake word](/voice_control/create_wake_word/). This is not difficult to do, but you will need to set aside a bit of time for this.
+     - Once you defined your own wake word, it will show in this pick list.
 
 3. That's it. You ensured your voice commands can be processed locally on your device.
 4. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
@@ -59,3 +67,10 @@ View some of the options in the video below. Explained by Mike Hansen, creator o
 <lite-youtube videoid="Tk-pnm7FY7c" videoStartAt="1589" videotitle="Configure your local Assist pipeline for your setup"></lite-youtube>
 
 The options are also documented in the add-on itself. Go to the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} or the {% my supervisor_addon addon="core_piper" title="**Piper**" %} add-on and open the **Documentation** page.
+
+## Related topics
+
+- [Create your own wake word](/voice_control/create_wake_word/)
+- [Expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices)
+- [Whisper for speech-to-text](https://github.com/openai/whisper)
+- [Piper for text-to-speech](https://github.com/rhasspy/piper)

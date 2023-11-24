@@ -2,10 +2,10 @@
 title: StarLine
 description: Instructions on how to setup your StarLine account with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Car
   - Lock
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Switch
 ha_release: 0.103
@@ -27,10 +27,10 @@ The `starline` integration lets you retrieve data of your [StarLine](https://www
 
 This integration provides the following platforms:
 
-- Binary Sensors: Hand brake, hood, trunk, alarm status and doors lock state.
+- Binary sensors: Hand brake, hood, trunk, alarm status and doors lock state.
 - Device tracker: The location of your car.
 - Lock: Control the lock of your car.
-- Sensors: Battery level, SIM card balance, GSM signal level, Fuel Volume, Mileage, OBD Errors, interior temperature and engine temperature.
+- Sensors: Battery level, SIM card balance, GSM signal level, fuel volume, mileage, OBD errors, interior temperature and engine temperature.
 - Switches: Start/stop engine, heater (webasto), additional channel and sound the horn.
 - Services: Update the state, set update frequency. More details can be found [here](#services).
 

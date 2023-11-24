@@ -105,7 +105,7 @@ context:
   user_id: null
 ```
 
-## Calling Services
+## Calling services
 
 The following example shows how to call a service from `python_script`. This script takes two parameters: `entity_id` (required), `rgb_color` (optional) and calls `light.turn_on` service by setting the brightness value to `255`.
 

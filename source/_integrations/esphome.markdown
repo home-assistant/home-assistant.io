@@ -32,6 +32,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - text
   - update
 ha_integration_type: device
 ha_dhcp: true

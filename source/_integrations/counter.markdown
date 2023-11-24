@@ -17,8 +17,8 @@ The Counter integration allows one to count occurrences fired by automations.
 ## Configuration
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
-**{% my helpers title="Settings -> Devices & Services -> Helpers" %}** and click the add button;
-next choose the **{% my config_flow_start domain=counter title="Counter" %}** option.
+**{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button;
+next choose the **{% my config_flow_start domain=page.ha_domain title=page.title %}** option.
 
 To be able to add **Helpers** via the user interface you should have
 `default_config:` in your `configuration.yaml`, it should already be there by
@@ -77,7 +77,7 @@ counter:
 
 Pick an icon that from [Material Design Icons](https://pictogrammers.com/library/mdi/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance` or `mdi:motorbike`.
 
-### Restore State
+### Restore state
 
 This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity has `restore` set to `true`, which is the default. To disable this feature, set `restore` to `false`.
 

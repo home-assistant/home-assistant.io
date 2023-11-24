@@ -23,7 +23,7 @@ Before installing Home Assistant, you might want to <a href="/installation#compa
 
 We will need a few things to get started with installing Home Assistant. Links below lead to Amazon US. If you’re not in the US, you should be able to find these items in web stores in your country.
 
-- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 is ok too, if you have one laying around). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) to find official distributors with stock.
+- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 Model B is ok too, but the Model A does not have enough RAM). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) to find official distributors with stock.
 - [Power Supply for Raspberry Pi 4](https://amzn.to/2ReZ2Vq) or [Power Supply for Raspberry Pi 3](https://amzn.to/2R8yG7h)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32&nbsp;GB or bigger card is recommended.
 - SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
@@ -39,8 +39,8 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 
 1. Download and install the Raspberry Pi Imager on your computer as described under [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/). 
    ![Install Raspberry Pi Imager](/images/installation/rpi_imager.png)
-2. Open the Raspberry Pi Imager.
-    ![Open Raspberry Pi Imager](/images/installation/rpi-imager-start.png)
+2. Open the Raspberry Pi Imager and select your Raspberry Pi device.
+    ![Open Raspberry Pi Imager](/images/installation/rpi_imager_start.png)
 3. Choose the operating system:
    1. Select **Choose OS**.
    2. Select **Other specific-purpose OS** > **Home assistants and home automation** > **Home Assistant**.
@@ -51,9 +51,9 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
    2. Select your SD card.
     ![Select the storage](/images/installation/rpi-select-sd-card.png)
 5. Write the installer onto the SD card:
-   1. To start the process, select **Write**.
+   1. To start the process, select **Next**.
    2. Wait for the Home Assistant OS to be written to the SD card.
-    ![Select write](/images/installation/rpi-select-write.png)
+    ![Select write](/images/installation/rpi_choose_next.png)
 6. Eject the SD card.
 
 ### Start up your Raspberry Pi

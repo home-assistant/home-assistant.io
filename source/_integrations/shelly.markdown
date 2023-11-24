@@ -2,7 +2,7 @@
 title: Shelly
 description: Integrate Shelly devices
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Energy
   - Light
@@ -325,4 +325,5 @@ Please check from the device Web UI that the configured server is reachable.
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
+- Using the `homeassistant.update_entity` service for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).
 - Frequency sensors for generation 2 energy monitoring devices are supported by firmware 1.0.0 beta 6 or later.

@@ -3,7 +3,7 @@ title: Overkiz
 description: Instructions on how to integrate hubs whom use the Overkiz platform with Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
@@ -16,7 +16,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
-  - Water Heater
+  - Water heater
 ha_release: 2022.2
 ha_config_flow: true
 ha_iot_class: Cloud Polling
@@ -80,6 +80,10 @@ Even though most Overkiz hubs support adding Z-Wave, Hue, and Sonos devices, thi
 **Server busy, please try again later. (Too many executions)**
 
 During peak hours, it could happen that the Overkiz platform is unable to execute your command. The integration will try to retry this command, however, this is not guaranteed to succeed.
+
+**Execution queue is full on gateway**
+
+The Overkiz API only supports 10 requests in its execution queue. If you try to command more devices at the same time, for example with a group, this will fail with `EXEC_QUEUE_FULL`. To work around this, you can create a scenario in the corresponding application and call that scenario instead after syncing it in the integration.
 
 ### Internet connectivity required
 

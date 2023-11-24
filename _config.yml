@@ -109,9 +109,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2023
-current_minor_version: 10
-current_patch_version: 1
-date_released: 2023-10-06
+current_minor_version: 11
+current_patch_version: 3
+date_released: 2023-11-22
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -220,13 +220,6 @@ installation:
           key: "rpi4-64"
         - name: "Raspberry Pi 3"
           key: "rpi3-64"
-
-    tinkerboard:
-      board: ASUS Tinkerboard
-      installation_media: "eMMC module or SD card"
-      variants:
-        - name: "ASUS Tinkerboard"
-          key: "tinker"
 
     generic-x86-64:
       board: Generic x86-64

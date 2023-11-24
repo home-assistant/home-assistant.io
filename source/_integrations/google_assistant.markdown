@@ -46,7 +46,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     6. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` in the **Fulfillment URL** textbox, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
     7. Select **Save**.
     8. Select the three little dots (more) icon in the upper right corner, select **Project settings**.
-    9. Make note of the **Project ID** that are listed on the **GENERAL** tab of the **Settings** page.
+    9. Make note of the **Project ID** that are listed on the **General** tab of the **Settings** page.
 2. **Account linking** is required for your app to interact with Home Assistant.
     1. Start by going back to the **Overview** tab.
     2. Select on **Setup account linking** under the **Quick Setup** section of the **Overview** page.
@@ -73,18 +73,17 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     4. In the **Credentials** view, select **Create credentials** and next **Service account**.
         1. **Service account name**: Give your account a self-selected name.
         2. Select **Create and Continue**.
-        3. **Select a role**: **Service Accounts** and **Service Account Token Creator**.
-        4. Select **Continue**.
-        5. Select **Done**.
-    5. Under **Service Accounts** there should now be an account called [name from 4.1]@[projectname].iam.gserviceaccount.com.
-    6. Click on the pencil button of that service account.
-    7. Go to **Keys** and **ADD KEY**.
+        3. Under **Select a role**, select **Service Accounts** > **Service Account Token Creator**.
+        4. Select **Continue** and then **Done**.
+    5. Under **Service Accounts**, there should now be an account called [name from 4.1]@[projectname].iam.gserviceaccount.com.
+    6. Select the pencil button of that service account.
+    7. Go to **Keys** and **Add key**.
     8. Create a private key, make sure it is in JSON format.
-    9. This will start a download of a JSON file. 
+    9. This will start a download of a JSON file.
         1. Rename the file to `SERVICE_ACCOUNT.JSON`.
         2. Add this file to your config-folder. This will be the same folder as your `configuration.yaml`.
     10. Go back to [Google Cloud Platform](https://console.cloud.google.com/) and select **Close**.
-    11. Then select **SAVE**.
+    11. Then select **Save**.
     12. Go to the **Search products and resources** and search for **Homegraph API** and select it.
     13. Enable the HomeGraph API.
 
@@ -95,39 +94,39 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 <div class='note'>
 
-If you've added Home Assistant to your phone's home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant redirecting back to the Google Home app.
+If you've added Home Assistant to your phone's home screen, you have to first remove it from the home screen. Otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant redirecting back to the Google Home app.
 
 </div>
 
-### Allow Other Users
+### Allow other users
 
 If you want to allow other household users to control the devices:
 
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Select **Test** on the top of the page, then select **Simulator** located to the page left, then click the three little dots (more) icon in the upper right corner of the console.
 3. Select **Manage user access**. This redirects you to the Google Cloud Platform IAM permissions page.
-4. Select **GRANT ACCESS** at the top of the page.
+4. Select **Grant access** at the top of the page.
     1. Enter the email address of the user you want to add.
     2. Select **Select a role** and choose **Project** > **Viewer**.
-    3. Select **SAVE**.
+    3. Select **Save**.
     4. Copy and share the Actions project link (`https://console.actions.google.com/project/YOUR_PROJECT_ID/simulator`) with the new user.
-5. Have the new user open the link with their own Google account, agree to the Terms of Service popup. Then select **Start Testing**, select **VERSION - Draft** in the dropdown, and select **Done**.
+5. Have the new user open the link with their own Google account, agree to the **Terms of Service** popup. Then select **Start Testing**, select **Version - Draft** in the dropdown, and select **Done**.
 6. Have the new user go to their **Google Assistant** app to add `[test] your app name` to their account.
 
-### Enable Device Sync
+### Enable device sync
 
 If you want to support active reporting of state to Google's server (configuration option `report_state`) and synchronize Home Assistant devices with the Google Home app (`google_assistant.request_sync` service), you will need to create a service account. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration. This allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting)).
 
 1. Service Account
     1. In the Google Cloud Platform Console, go to the [Create Service account key](https://console.cloud.google.com/iam-admin/serviceaccounts/create) page.
     2. At the top left of the page next to "Google Cloud Platform" logo, select your project created in the Actions on Google console. Confirm this by reviewing the project ID and it ensure it matches.
-    3. From the Service account list, select **CREATE SERVICE ACCOUNT**.
+    3. From the Service account list, select **Create service account**.
     4. In the **Service account name** field, enter a name.
     5. In the **Service account ID** field, enter an ID.
-    6. From the **Role** list, select **Service Accounts** > **Service Account Token Creator**.
-    7. Select **CONTINUE** and then **DONE**. You are returned to the service account list, and your new account is shown.
+    6. Under **Select a role**, select **Service Accounts** > **Service Account Token Creator**.
+    7. Select **Continue** and then **Done**. You are returned to the service account list, and your new account is shown.
     8. Select the three dots menu under **Actions** next to your new account, and select **Manage keys**. You are taken to a **Keys** page.
-    9. Select **ADD KEY** then **Create new key**. Leave the **key type** as **JSON** and select **CREATE**. A JSON file that contains your key downloads to your computer.
+    9. Select **Add key** then **Create new key**. Leave the **key type** as **JSON** and select **Create**. A JSON file that contains your key downloads to your computer.
     10. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
     11. Select **Close**.
 2. HomeGraph API
@@ -136,7 +135,7 @@ If you want to support active reporting of state to Google's server (configurati
     3. Select **Enable HomeGraph API**.
 3. Try "OK Google, sync my devices" - the Google Home app should import your exposed Home Assistant devices and prompt you to assign them to rooms.
 
-### Enable Local Fulfillment
+### Enable local fulfillment
 
 Google Assistant devices can send their commands locally to Home Assistant allowing them to respond faster.
 
@@ -162,7 +161,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 2. Select **Develop** on the top of the page, then select **Actions** located in the hamburger menu on the top left.
 3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by selecting the **Upload JavaScript files** button.
 4. Add device scan configuration:
-   1. Select **+ New scan config** if no configuration exists
+   1. Select **+ New scan config** if no configuration exists.
    2. Select **MDNS**.
    3. Set **MDNS service name** to `_home-assistant._tcp.local`
    4. Select **Add field**, then under **Select a field**, choose **Name**.
@@ -175,7 +174,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 
 You can debug the setup by following [these instructions](https://developers.home.google.com/local-home/test#debugging_from_chrome).
 
-### YAML Configuration
+### YAML configuration
 
 Now add your setup to your `configuration.yaml` file, such as:
 
@@ -297,13 +296,13 @@ Some of these devices may not display correctly in the Google Home app, such as 
 
 </div>
 
-### Secure Devices
+### Secure devices
 
 Certain devices are considered secure. This includes devices in the `lock` domain, the `alarm_control_panel` domain, as well as `covers` with device types `door`, `garage`, or `gate`.
 
 By default, secure devices cannot be opened by Google Assistant unless a `secure_devices_pin` code is set up. To allow opening, set the `secure_devices_pin` to something. You will then be prompted to speak the pin when opening the device. Closing or locking these devices does not require a pin.
 
-If a code is set for the Alarm Control Panel, it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to `false`, the system will arm without prompting for the pin.
+If a code is set for the Alarm control panel, it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to `false`, the system will arm without prompting for the pin.
 
 ### Room/Area support
 
@@ -317,7 +316,7 @@ The automatic room assignment will not work when multiple homes are set up in yo
 
 </div>
 
-### Climate Operation Modes
+### Climate operation modes
 
 There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.
 Here are the modes that are currently available:

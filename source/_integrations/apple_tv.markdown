@@ -2,7 +2,7 @@
 title: Apple TV
 description: Instructions on how to integrate Apple TV devices into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Multimedia
   - Remote
 ha_iot_class: Local Push
@@ -27,7 +27,7 @@ There is currently support for the following entities within the Apple TV device
 
 {% include integrations/config_flow.md %}
 
-## Media Player
+## Media player
 
 The Apple TV media player platform will create a Media Player entity for each
 Apple TV discovered on your network.

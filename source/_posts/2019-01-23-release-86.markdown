@@ -36,11 +36,11 @@ The Zigbee team is also planning a bunch of cool things for 2019. Direct device 
   Screenshot of the Zigbee management panel.
 </p>
 
-## Noteworthy breaking changes
+## Noteworthy backward-incompatible changes
 
 Update: the entity ID one was too harsh, it's now a warning.
 
-This release also includes two noteworthy breaking changes. One is a follow-up on the slugify breaking change from last release. We did not update the validation check for config options that need to be valid slugs. This means that some of your config values might be invalid. Keep an eye at the console as we have a new message to tell you which ones are wrong.
+This release also includes two noteworthy backward-incompatible changes. One is a follow-up on the slugify breaking change from last release. We did not update the validation check for config options that need to be valid slugs. This means that some of your config values might be invalid. Keep an eye at the console as we have a new message to tell you which ones are wrong.
 
 The following things are not allowed in entity IDs:
 
@@ -126,7 +126,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Automation: Split time_pattern triggers from time trigger ([@armills] - [#19825]) ([automation.interval docs]) ([automation.time docs]) (breaking change)
 - Each instance of Home Assistant will now generate it's own unique webhook url for Geofencyto use. One will need to be generated and provided to the iOS app to replace the existing url: `https://myhome.duckdns.org/api/geofency?api_password=HA_PASSWORD` ([@rohankapoorcom] - [#18951]) ([geofency docs]) (breaking change)

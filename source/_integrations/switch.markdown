@@ -20,7 +20,7 @@ Keeps track which switches are in your environment, their state and allows you t
 
 {% include integrations/building_block_integration.md %}
 
-## Device Class
+## Device class
 
 The way these switches are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for switches:
 

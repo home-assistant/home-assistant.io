@@ -3,7 +3,7 @@ title: System Bridge
 description: How to integrate the System Bridge integration into Home Assistant.
 ha_category:
   - Sensor
-  - System Monitor
+  - System monitor
 ha_release: 2021.6
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -13,6 +13,7 @@ ha_domain: system_bridge
 ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
+  - media_player
   - notify
   - sensor
 ha_zeroconf: true
@@ -23,10 +24,10 @@ ha_integration_type: device
 ## Prerequisites
 ### Version
 This integration requires System Bridge 3.1.1 and above. Any older version will not work.
-### API Key
+### API key
 You will need your API key. This can be found following the documentation [here](https://system-bridge.timmo.dev/docs/running).
 {% include integrations/config_flow.md %}
-## Binary Sensors
+## Binary sensors
 This integration provides the following binary sensors:
 | Name                  | Description                        |
 | --------------------- | ---------------------------------- |
@@ -71,7 +72,13 @@ These sensors are also available, but are not enabled by default:
 | GPU Power Usage        | GPU power usage                    |
 | GPU Temperature        | The current temperature of the GPU |
 
-## Media Source
+## Media player
+
+The integration also provides a media player. This allows you control the currently playing media on your device.
+
+> This is currently only supported devices running System Bridge on Windows.
+
+## Media source
 
 This integration is available as a media source to use with the media browser integration. You can browse and view media from your system to media players such as your web browser and other supported media players.
 

@@ -1,8 +1,8 @@
 ---
-title: "Xiaomi Binary Sensor"
+title: "Xiaomi binary sensor"
 description: "Instructions on how to setup the Xiaomi binary sensors within Home Assistant."
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: "0.50"
 ha_iot_class: Local Push
 ha_domain: xiaomi_aqara
@@ -342,7 +342,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
 
 {% endraw %}
 
-#### Vibration Sensor
+#### Vibration sensor
 
 This automation toggles the living room lamp on vibration/tilt.
 

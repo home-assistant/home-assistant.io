@@ -2,9 +2,9 @@
 title: Roku
 description: Instructions how to integrate Roku devices into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Hub
-  - Media Player
+  - Media player
   - Remote
   - Select
   - Sensor
@@ -33,7 +33,7 @@ The Roku integration allows you to control a [Roku](https://www.roku.com/) devic
 
 There is currently support for the following device types within Home Assistant:
 
-- Media Player
+- Media player
 - Remote
 
 ## Remote
@@ -85,7 +85,7 @@ data:
     - select
 ```
 
-## Media Player
+## Media player
 
 When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant UI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device.
 

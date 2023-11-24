@@ -15,7 +15,6 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Whois integration allows you to perform daily WHOIS lookups against your owned domains. This provides you with information such as `expiration_date`, `name_servers` and `registrar` details.
-
+The **Whois** {% term integration %} allows you to perform daily WHOIS lookups against your owned domains. This provides you with information such as `expiration_date`, `name_servers` and `registrar` details.
 
 {% include integrations/config_flow.md %}

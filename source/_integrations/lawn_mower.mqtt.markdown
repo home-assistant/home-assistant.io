@@ -1,8 +1,8 @@
 ---
-title: "MQTT Lawn Mower"
+title: "MQTT lawn mower"
 description: "Instructions on how to integrate MQTT lawn mowers into Home Assistant."
 ha_category:
-  - Lawn Mower
+  - Lawn mower
 ha_release: 2023.9
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -12,7 +12,7 @@ The `mqtt` `lawn_mower` platform allows controlling a lawn mower over MQTT.
 
 ## Configuration
 
-To enable MQTT Lawn Mower in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT lawn mower in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

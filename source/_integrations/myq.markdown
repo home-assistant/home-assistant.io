@@ -2,7 +2,7 @@
 title: MyQ
 description: Instructions on how to integrate MyQ-Enabled garage door covers into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Light
 ha_release: 0.39
@@ -25,7 +25,7 @@ The MyQ integration lets you control MyQ-Enabled garage doors and/or lamps throu
 
 {% include integrations/config_flow.md %}
 
-### Binary Sensor
+### Binary sensor
 
 Your MyQ gateway will appear as a binary sensor that shows if the device is connected.
 

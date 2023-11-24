@@ -77,3 +77,33 @@ intent:
           required: true
           type: template
 {% endconfiguration %}
+
+## Using the action response
+
+When using a `speech` template, data returned from the executed action are
+available in the `action_response` variable.
+
+{% raw %}
+
+```yaml
+conversation:
+    EventCountToday:
+      - "How many meetings do I have today?"
+
+intent_script:
+  EventCountToday:
+    action:
+      - service: calendar.list_events
+        target:
+          entity_id: calendar.my_calendar
+        data_template:
+          start_date_time: "{{ today_at('00:00') }}"
+          duration: { "hours": 24 }
+        response_variable: result                     # get service response
+      - stop: ""
+        response_variable: result                     # and return it
+    speech:
+      text: "{{ action_response.events | length }}"   # use the action's response
+```
+
+{% endraw %}
