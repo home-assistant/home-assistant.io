@@ -178,14 +178,18 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 ### Write the image to your boot medium
 
-1. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.
-{% if page.installation_type == 'odroid' %}
-   If you are using ODROID M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
 
-   If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
-{% endif %}
-2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
-3. Download the image to your computer.
+1. **Notice**: This procedure will write the Home Assistant Operating System onto your device.
+   - This means you will lose all the data as well as the previously installed operating system.
+   - Back up your data before continuing with the next step.
+2. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.
+    {% if page.installation_type == 'odroid' %}
+      If you are using ODROID M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
+
+      If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
+    {% endif %}
+3. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
+4. Download the image to your computer.
    - Copy the URL for the image.
    - If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}.
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
@@ -219,18 +223,18 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 _Select and copy the URL or use the "copy" button that appear when you hover it._
 
 
-4. Paste the URL into your browser to start the download.
-5. Select **Flash from file** and select the image you just downloaded.
+5. Paste the URL into your browser to start the download.
+6. Select **Flash from file** and select the image you just downloaded.
    - **Flash from URL** does not work on some systems.
 
   ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
-6. **Select target**.
+7. **Select target**.
 ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
-7. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
+8. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
 ![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
-8. Select **Flash!** to start writing the image.
+9. Select **Flash!** to start writing the image.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-9. When Balena Etcher has finished writing the image, you will see a confirmation.
+10. When Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
