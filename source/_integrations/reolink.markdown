@@ -124,6 +124,15 @@ PTZ left, right, up, down, zoom in and zoom out will continually move the camera
 
 "Guard set current position" will set the current position as the new guard position.
 
+### Service reolink.ptz_move
+
+Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` service can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` service, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
+
+| Service data attribute | Optional | Description                                                                              |
+| ---------------------- | -------- | -----------------------------------------------------------------------------------------|
+| `entity_id`            |      no  | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
+| `speed`                |      no  | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                         |
+
 ## Select entities
 
 Depending on the supported features of the camera, select entities are added for:
