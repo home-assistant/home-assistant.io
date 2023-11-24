@@ -115,7 +115,7 @@ action:
 
 ### Text message with an attachment
 
-This example assumes you have an image stored in the default `www`-folder in Home Assistant Operating System (not Docker).
+This example assumes you have an image stored in the default `www`-folder in Home Assistant Operating System.
 
 
 ```yaml
