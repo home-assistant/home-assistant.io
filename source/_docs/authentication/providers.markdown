@@ -182,8 +182,8 @@ local_only = true
 Leading and trailing whitespace, as well as lines starting with `#` are ignored. The following variables are supported. More may be added in the future.
 
 - `name`: The real name of the user to be displayed in their profile.
-- `group`: The user group, use value `system-admin` for administrator (this is the default) or `system-users` for regular users.
-- `local_only`: The user can only log in from the local network if you set the value to `true`. If you do not define this variable, the user will be able to log in from anywhere.
+- `group`: The user group uses the value `system-admin` for administrator (this is the default) or `system-users` for regular users.
+- `local_only`: The user can only log in from the local network if you set the value to `true`. If you do not define this variable, the user can log in from anywhere.
 
 Stderr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
 
