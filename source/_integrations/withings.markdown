@@ -25,15 +25,19 @@ The **Withings** {% term integration %} consumes data from various health produc
 
 You must have a developer account to distribute the data. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
 
-Values for your account:
+Create an application:
+1. Ensure you have selected *Withings public cloud* (instead of Withings US medical cloud)
+2. Create an application
+3. Application creation: Public creation.
+  - Read and accept the terms if you're happy by pressing **Next**
+4. Information:
+  - Target environment: *Development*
+  - Application name: [any name]
+  - Application description: [any description]
+  - Registered URLs: `https://my.home-assistant.io/redirect/oauth`
+  - Change logo: Optional.
 
-- Logo: Any reasonable picture will do.
-- Description: Personal app for collecting my data.
-- Contact Email: Your email address
-- Callback Uri: `https://my.home-assistant.io/redirect/oauth`.
-- Company: Home Assistant
-
-Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You will need these in the next step.
+Once saved, the *ClientID* and *Secret* fields will be populated. You will need these in the next step.
 
 {% details "I have manually disabled My Home Assistant" %}
 
