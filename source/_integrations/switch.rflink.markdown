@@ -1,7 +1,6 @@
 ---
 title: "RFLink Switch"
 description: "Instructions on how to integrate RFLink switches into Home Assistant."
-logo: rflink.png
 ha_category:
   - Switch
 ha_iot_class: Assumed State

@@ -14,6 +14,8 @@ ha_integration_type: entity
 A scene entity is an entity that can restore the state of a group of entities.
 Scenes can be user-defined or can be provided through an integration.
 
+{% include integrations/building_block_integration.md %}
+
 ## The state of a scene
 
 The scene entity is stateless, as in, it cannot have a state like the `on` or
@@ -165,7 +167,7 @@ You need to pass a `scene_id` in lowercase and with underscores instead of space
 
 If the scene was previously created by `scene.create`, it will be overwritten. If the scene was created by YAML, nothing happens but a warning in your log files.
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how scenes work and how you can utilize scenes on the fly.
 
 <lite-youtube videoid="JW9PC6ptXcM" videotitle="Scenes on Steroids in Home Assistant - How To - Tutorial" posterquality="maxresdefault"></lite-youtube>

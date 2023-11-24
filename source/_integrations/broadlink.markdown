@@ -23,7 +23,7 @@ ha_dhcp: true
 ha_integration_type: integration
 ---
 
-The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
+The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
 
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
@@ -38,9 +38,9 @@ The Broadlink integration allows you to control and monitor Broadlink universal 
 
 There is no more need to set up platforms, except for custom IR/RF switches. Once the device is configured, all entities will be created automatically.
 
-The entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to click _Update_ to save your changes when you're done.
+The {% term entities %} have the same name as the device by default. To change the name, icon or entity id, select the entity on the frontend and select the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to select **Update** to save your changes when you're done.
 
-The entities are divided into four subdomains:
+The {% term entities %} are divided into four subdomains:
 
 - [Remote](#remote)
 - [Sensor](#sensor)
@@ -49,7 +49,7 @@ The entities are divided into four subdomains:
 
 ## Remote
 
-The `remote` entities allow you to learn and send codes with universal remotes. They are created automatically when you configure devices with IR/RF capabilities.
+The `remote` {% term entities %} allow you to learn and send codes with universal remotes. They are created automatically when you configure devices with IR/RF capabilities.
 
 ### Learning commands
 
@@ -327,15 +327,15 @@ script:
 
 ## Sensor
 
-The `sensor` entities allow you to monitor Broadlink sensors. These entities are created automatically when you configure a device that has sensors.
+The `sensor` {% term entities %} allow you to monitor Broadlink sensors. These entities are created automatically when you configure a device that has sensors.
 
 ## Light
 
-The `light` entities allow you to control Broadlink lights. You can turn them on and off, change brightness, adjust the color or set a color temperature. These entities are created automatically when you configure a device that has lights.
+The `light` {% term entities %} allow you to control Broadlink lights. You can turn them on and off, change brightness, adjust the color or set a color temperature. These entities are created automatically when you configure a device that has lights.
 
 ## Switch
 
-The `switch` entities allow you to control and monitor Broadlink smart plugs, power strips and switches. You can turn them on and off, and you can monitor their state and power consumption, when available. These entities are created automatically when you configure a device that has switches.
+The `switch` {% term entities %} allow you to control and monitor Broadlink smart plugs, power strips and switches. You can turn them on and off, and you can monitor their state and power consumption, when available. These entities are created automatically when you configure a device that has switches.
 
 You can also define custom IR/RF switches to be controlled with universal remote devices.
 
@@ -552,7 +552,7 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 
 This is the code we need to transmit again to replicate the same remote function.
 
-### Using Node red to Transmit Codes
+### Using Node-RED to transmit codes
 
 1. Drag another RM node on the same flow we created earlier. The RM node should be configured to the RM device created earlier by default.
 2. In the Action field, select - Set from msg.payload -.

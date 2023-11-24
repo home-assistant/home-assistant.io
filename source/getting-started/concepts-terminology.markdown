@@ -20,7 +20,10 @@ For a full list of compatible integrations, refer to the [integrations](/integra
 
 Once an integration has been added, the hardware and/or data are represented in Home Assistant as [devices and entities](#devices--entities).
 
-## Devices & entities
+## Entities
+{% term Entities %} are the base building block to hold data in Home Assistant. An {% term entity%} represents a {% term sensor %}, actor, or function in Home Assistant. {% term Entities %} are used to monitor physical properties or to control other entities. An entity is usually part of a {% term device %} or a {% term service %}. Entities have {% term states %}.
+
+## Devices 
 
 Devices are a logical grouping for one or more entities. A {% term device %} may represent a physical device which can have one or more sensors. The sensors appear as entities associated to the device. For example, a motion sensor is represented as a device. It may provide motion detection, temperature, and light levels as entities. Entities have states such as *detected* when motion is detected and *clear* when there is no motion.
 

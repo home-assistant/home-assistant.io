@@ -1,8 +1,8 @@
 ---
-title: "MQTT Lawn Mower"
+title: "MQTT lawn mower"
 description: "Instructions on how to integrate MQTT lawn mowers into Home Assistant."
 ha_category:
-  - Lawn Mower
+  - Lawn mower
 ha_release: 2023.9
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -12,7 +12,7 @@ The `mqtt` `lawn_mower` platform allows controlling a lawn mower over MQTT.
 
 ## Configuration
 
-To enable MQTT Lawn Mower in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT lawn mower in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -159,7 +159,7 @@ optimistic:
   description: Flag that defines if the lawn mower works in optimistic mode.
   required: false
   type: boolean
-  default: "`true` if no `state_topic` defined, else `false`."
+  default: "`true` if no `activity_state_topic` defined, else `false`."
 pause_command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `pause_command_topic`. The `value` parameter in the template will be set to `pause`.
   required: false

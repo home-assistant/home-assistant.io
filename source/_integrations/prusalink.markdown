@@ -2,7 +2,7 @@
 title: PrusaLink
 description: Instructions on monitoring Prusa 3D printers using PrusaLink.
 ha_category:
-  - 3D Printing
+  - 3D printing
 ha_iot_class: Local Polling
 ha_release: '2022.9'
 ha_config_flow: true

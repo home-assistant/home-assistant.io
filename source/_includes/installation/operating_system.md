@@ -17,16 +17,15 @@ To get started, we suggest the ODROID N2+, the board that powers our [Home Assis
 If unavailable, we also recommend the [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e).
 
 
-Home Assistant bundles (US market): 
+Home Assistant bundles (US market):
 
-The bundles come with Home Assistant pre-installed. 
+The bundles come with Home Assistant pre-installed.
 
 - [ODROID N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935?ref=eeb6nfw07e)
 - [ODROID N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399?ref=eeb6nfw07e)
 - ODROID M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831?ref=eeb6nfw07e)
 - ODROID M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367?ref=eeb6nfw07e)
 - [ODROID M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC ](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
-- ODROID XU4: 2 GB RAM / [32 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729352471?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748782305559?ref=eeb6nfw07e)
 
 Variants without pre-installed Home Assistant:
 
@@ -40,16 +39,6 @@ Variants without pre-installed Home Assistant:
 - [Case](https://ameridroid.com/products/odroid-n2-case?ref=eeb6nfw07e)
 
 *These are affiliated links. We get commissions for purchases made through links in this post.*
-
-{% endif %}
-
-{% if page.installation_type == 'tinkerboard' %}
-
-### Suggested hardware
-
-We will need a few things to get started with installing Home Assistant. The links below lead to Amazon US. If you’re not in the US, you should be able to find it in web stores in your country.
-
-- [Asus Tinkerboard S](https://amzn.to/3fFIcbI)
 
 {% endif %}
 
@@ -276,6 +265,26 @@ _All these can be extended if your usage calls for more resources._
     More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
     </div>
+
+- title: Unraid
+  content: |
+    1. Download the **.qcow2** image above and decompress it. (**Extract all** in Windows)
+    2. Store the image in the **isos** share on your server.
+    3. Make sure under **Settings** > **VM manager**, **Enable VMs** is enabled.
+    4. Create a new virtual machine: **VMS** > **Add VM**.
+    5. Select type **Linux** and give the VM a name and a description.
+    6. Select the CPU cores you want to let the VM use and give it some memory. 
+    7. Under **Primary vDisk Location**, select **Manual** and then select the qcow2 image.
+    8. Select your keyboard language under **VM Console Keyboard**.
+    9. Select **br0** under **Network Source**.
+    10. Select **virtio** under **Network model**.
+    11. Select any USB-devices that you want to pass through to Home Assistant, such as Zigbee- or Z-Wave controllers.
+    12. Deselect **Start VM after creation**.
+    13. Select **Create**.
+    14. Select the name of your new VM and select the capacity number for your disk. Here, you can expand the disk to whatever your needs are. The default is 32&nbsp;GB.
+    15. Select the icon of your new VM and select **start with console (VNC)**.
+
+
 {% unless page.installation_type == 'macos' %}
 - title: KVM (virt-manager)
   content: |

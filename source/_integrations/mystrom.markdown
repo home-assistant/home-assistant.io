@@ -2,7 +2,7 @@
 title: myStrom
 description: Instructions on how to integrate myStrom WiFi Switches and Bulbs into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Light
   - Switch
 ha_release: 0.43
@@ -14,6 +14,7 @@ ha_domain: mystrom
 ha_platforms:
   - binary_sensor
   - light
+  - sensor
   - switch
 ha_integration_type: integration
 ---
@@ -21,20 +22,26 @@ ha_integration_type: integration
 There is currently support for the following device types within Home Assistant:
 
 - [Lights and switches](#lights-and-switches)
-- [Binary Sensor](#binary-sensor)
-  - [Setup of myStrom Buttons](#setup-of-mystrom-buttons)
+- [Binary sensor](#binary-sensor)
+  - [Setup of myStrom buttons](#setup-of-mystrom-buttons)
 
 ## Lights and switches
 
 The myStrom integration allows you to control your [myStrom](https://mystrom.ch/) Wi-Fi Bulbs and Wi-Fi Switches. Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
 
 Supported devices are:
- - Switch CH v1 (101)
- - Bulb (102)
- - LED strip (105)
- - Switch CH v2 (106)
- - Switch EU (107)
- - Switch Zero (120)
+
+- Switch CH v1 (101)
+- Bulb (102)
+- LED strip (105)
+- Switch CH v2 (106)
+- Switch EU (107)
+- Switch Zero (120)
+
+Two sensors are available for switches:
+
+- Temperature
+- Energy consumption
 
 {%include integrations/config_flow.md %}
 
@@ -59,7 +66,7 @@ $ curl http://[IP_ADDRESS]/api/v1/device/[MAC_ADDRESS]
 }
 ```
 
-## Binary Sensor
+## Binary sensor
 
 The `mystrom` binary sensor platform allows you to use [myStrom Wifi Buttons](https://mystrom.ch/wifi-button/) with Home Assistant. The myStrom Wifi Buttons support three and the myStrom WiFi Button + four different push pattern:
 

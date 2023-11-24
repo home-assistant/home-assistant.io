@@ -2,7 +2,7 @@
 title: YoLink
 description: Instructions on how to integrate YoLink Devices into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Light

@@ -215,12 +215,12 @@ payload_on:
   type: string
   default: "ON"
 payload_reset_humidity:
-  description: A special payload that resets the `target_humidity` state attribute to `None` when received at the `target_humidity_state_topic`.
+  description: A special payload that resets the `target_humidity` state attribute to an `unknown` state when received at the `target_humidity_state_topic`. When received at `current_humidity_topic` it will reset the current humidity state.
   required: false
   type: string
   default: 'None'
 payload_reset_mode:
-  description: A special payload that resets the `mode` state attribute to `None` when received at the `mode_state_topic`. When received at `current_humidity_topic` it will reset the current humidity state.
+  description: A special payload that resets the `mode` state attribute to an `unknown` state when received at the `mode_state_topic`.
   required: false
   type: string
   default: 'None'

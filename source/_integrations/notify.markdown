@@ -15,6 +15,8 @@ The `notify` integration makes it possible to send notifications to a wide varie
 
 If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/). The Persistent Notification integration is also available as an automatically configured notifier. See [its documentation](/integrations/persistent_notification/) for more details.
 
+{% include integrations/building_block_integration.md %}
+
 ## Service
 
 Once loaded, the `notify` platform will expose a service that can be called to send notifications.

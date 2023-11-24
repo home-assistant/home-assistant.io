@@ -4,7 +4,7 @@ description: Instructions on how to setup Atag integration.
 ha_category:
   - Climate
   - Sensor
-  - Water Heater
+  - Water heater
 ha_release: 0.109
 ha_iot_class: Local Polling
 ha_domain: atag
@@ -22,7 +22,7 @@ The `Atag` integration allows Home Assistant to connect to [Atag One](https://ww
 The integration implements the following platforms:
 
 - Climate
-- Water Heater
+- Water heater
 - Sensor
 
 {% include integrations/config_flow.md %}
@@ -62,9 +62,9 @@ This integration supports the following services (see [Climate](/integrations/cl
 Currently selection of custom timeframes in Extend, Away and boost modes is not supported. The default settings can be changed on the device.
 </div>
 
-## Water Heater
+## Water heater
 
-The Water Heater reports current and target temperature for Domestic Hot Water demand, as well as boiler status (heating or idle). This can be used to detect hot water demand, such as a running shower or tap water.
+The water heater reports current and target temperature for Domestic Hot Water demand, as well as boiler status (heating or idle). This can be used to detect hot water demand, such as a running shower or tap water.
 Setting target values is currently not supported.
 
 ## Sensor

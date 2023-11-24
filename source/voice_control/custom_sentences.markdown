@@ -1,5 +1,5 @@
 ---
-title: "Assist - Custom Sentences"
+title: "Assist - custom sentences"
 ---
 
 You may add your own sentences to the intent recognizer by either extending an [existing intent](https://developers.home-assistant.io/docs/intent_builtin/) or creating a new one. You may also [customize responses](#customizing-responses) for existing intents.
@@ -13,7 +13,7 @@ This is the easiest method to get started with custom sentences for automations.
 If you have not set up voice control yet, set up the hardware first. For instructions, refer to one of the following tutorials:
 
 - [World's most private voice assistant](/voice_control/worlds-most-private-voice-assistant/): Using a classic landline phone
-- [$13 voice remote for Home Assistant](/voice_control/thirteen-usd-voice-remote/): Using a button with speaker and mic
+- [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/): Using a button with speaker and mic
 - [Assist for Apple](/voice_control/apple/): Using your iPhone, Mac, or Apple watch
 - [Assist for Android](/voice_control/android/): Using your Android phone, tablet, or a Wear OS watch
 
@@ -122,7 +122,7 @@ intent_script:
 
 {% endraw %}
 
-## Customizing Responses
+## Customizing responses
 
 Responses for existing intents can be customized as well in `config/custom_sentences/<language>`:
 
@@ -138,3 +138,12 @@ responses:
 ```
 
 {% endraw %}
+
+
+## Related topics
+
+- [View existing intents](https://developers.home-assistant.io/docs/intent_builtin/)
+- [Create aliases](/voice_control/aliases/)
+- [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/)
+- [Assist for Apple](/voice_control/apple/)
+- [Assist for Android](/voice_control/android/)
