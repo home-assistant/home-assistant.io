@@ -82,7 +82,7 @@ The BIOS configuration is now complete.
 Next, we need to write the Home Assistant Operating System image to the "boot medium", which is the medium your x86-64 hardware will boot from when it is running Home Assistant.
 
 <div class='note'>
-HAOS has no integrated installer that writes the image automatically. You must write it manually using a tool like Balena Etcher or the **Restore Disks** function from Ubuntu.
+HAOS has no integrated installer that writes the image automatically. You must write it manually using a tool like Balena Etcher or the <b>Restore Disks</b> function from Ubuntu.
 </div>
 
 Typically an internal medium like S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non-removable eMMC is used for the x86-64 boot medium. Alternatively, an external medium can be used such as a USB SDD, though this is not recommended.
