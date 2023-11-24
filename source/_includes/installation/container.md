@@ -17,6 +17,7 @@ Installation with Docker is straightforward. Adjust the following command so tha
 
 - `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it.
 - `MY_TIME_ZONE` is a [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), like `TZ=America/Los_Angeles`.
+- D-Bus is optional but required if you plan to use the [Bluetooth integration](/integrations/bluetooth).
 
 {% endif %}
 
