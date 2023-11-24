@@ -50,3 +50,4 @@ This {% term integration %} was tested against the following models from Sercomm
 
 - Vodafone Power Station (SHG3000)
 - Vodafone WiFi 6 Station (RHG3006)
+- Vodafone Gigabox (SHG3000) - supplied by [Vodafone Ireland](https://deviceguides.vodafone.ie/vodafone/gigabox-windows-10/)
