@@ -30,7 +30,7 @@ There are a few ways that you can use Amazon Alexa and Home Assistant together.
   - Support for viewing and controlling devices with the Alexa mobile app.
 - [Create a Custom Alexa Skill to build custom commands](/integrations/alexa.intent/)
 - [Create a new Flash Briefing source](/integrations/alexa.flash_briefings/)
-- Alternative: use the [Emulated Hue integration](/integrations/emulated-hue) to trick Alexa into thinking Home Assistant is a Philips Hue hub.
+- Alternative: use the [Emulated Hue integration](/integrations/emulated_hue) to trick Alexa into thinking Home Assistant is a Philips Hue hub.
 
 ### Requirements
 

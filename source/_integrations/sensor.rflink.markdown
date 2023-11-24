@@ -1,7 +1,6 @@
 ---
 title: "RFLink Sensor"
 description: "Instructions on how to integrate RFLink sensors into Home Assistant."
-logo: rflink.png
 ha_category:
   - Sensor
 ha_iot_class: Local Push

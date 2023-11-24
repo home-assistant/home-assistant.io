@@ -4,7 +4,7 @@ description: "Instructions to add an integration."
 ---
 Let's start by adding your first {% term integration %} so that you can see and change a smart home {% term device %}.
 
-From the sidebar, click on {% my integrations title="Settings > Devices & Services" %}. At this screen you will be able to set up integrations with Home Assistant. You might notice a *discovered* section. This section contains integrations that were found on your network and can easily be added with a few clicks. If your integrations are not discovered, click the **Add integration** button in the lower right and search for your integration in that list.
+From the sidebar, select {% my integrations title="Settings > Devices & Services" %}. At this screen you will be able to set up integrations with Home Assistant. You might notice a **Discovered** section. This section contains integrations that were found on your network and can easily be added with a few clicks. If your integrations are not discovered, click the **Add integration** button in the lower right and search for your integration in that list.
 
 In this example, we'll add a Chromecast to Home Assistant. Chromecast uses the [Google Cast integration](/integrations/cast). Although the below example has already discovered the device, let's add it manually.
 

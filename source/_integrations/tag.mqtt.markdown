@@ -1,8 +1,8 @@
 ---
-title: "MQTT Tag Scanner"
+title: "MQTT tag scanner"
 description: "Instructions on how to integrate MQTT scanner within Home Assistant."
 ha_category:
-  - Tag Scanner
+  - Tag scanner
 ha_release: 0.116
 ha_iot_class: Configurable
 ha_domain: mqtt

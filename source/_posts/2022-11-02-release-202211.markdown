@@ -58,7 +58,7 @@ Sunday, November 13, 2022 (11:00 AM PST / 20:00 CET).
 - [Release 2022.11.4 - November 20](#release-2022114---november-20)
 - [Release 2022.11.5 - November 30](#release-2022115---november-30)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
 ## Tile card
@@ -794,7 +794,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change

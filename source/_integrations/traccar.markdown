@@ -4,7 +4,7 @@ description: Instructions how to use Traccar GPS tracker to track devices in Hom
 ha_release: 0.83
 ha_category:
   - Car
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -17,11 +17,11 @@ ha_integration_type: integration
 
 `Traccar` uses GPS for tracking and has support for over 1500 different types of devices. One option is to track the [Traccar Client](https://www.traccar.org/client/) app on a smartphone via `webhook`. The other option is to connect to an existing [Traccar Server](https://www.traccar.org/server/) installation which is also available as Home Assistant add-on.
 
-## Traccar Client
+## Traccar client
 
 To configure Traccar Client, you must set it up via the integrations panel in the configuration screen. This will give you the webhook URL to use during mobile device configuration. This URL has to be set in the Traccar app.
 
-## Traccar Server
+## Traccar server
 
 To integrate Traccar Server in Home Assistant, add the following section to your `configuration.yaml` file:
 

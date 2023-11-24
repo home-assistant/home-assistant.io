@@ -1,6 +1,6 @@
 ---
 type: card
-title: "Tile Card"
+title: "Tile card"
 sidebar_label: Tile
 description: "The tile card gives you a quick overview of your entity. The card allows you to toggle the entity, show the more-info dialog, or custom actions."
 ---
@@ -9,10 +9,10 @@ The tile card gives you a quick overview of your entity. The card allows you to 
 
 <p class='img'>
   <img src='/images/dashboards/tile_card.png' alt='Screenshot of tile cards'>
-  Screenshot of Tile cards.
+  Screenshot of tile cards.
 </p>
 
-To add the Tile card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Tile** from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 {% configuration %}
 type:
@@ -25,11 +25,11 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites the name of entity.
+  description: Overwrites the entity name.
   type: string
 icon:
   required: false
-  description: Overwrites the icon of entity.
+  description: Overwrites the entity icon.
   type: string
 color:
   required: false
@@ -46,6 +46,16 @@ vertical:
   description: Displays the icon above the name and state.
   type: boolean
   default: false
+hide_state:
+  required: false
+  description: Hide the entity state.
+  type: boolean
+  default: false
+state_content:
+  required: false
+  description: >
+    Content to display for the state. Can be `state`, `last-changed`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
+  type: [string, list]
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
@@ -86,6 +96,16 @@ show_entity_picture: true
 type: tile
 entity: person.anne_therese
 vertical: true
+hide_state: true
+```
+
+```yaml
+type: tile
+entity: light.living_room
+state_content: 
+  - state
+  - brightness
+  - last-changed
 ```
 
 ```yaml

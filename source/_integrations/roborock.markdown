@@ -2,6 +2,7 @@
 title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
 ha_category:
+  - Binary sensor
   - Number
   - Select
   - Sensor
@@ -16,6 +17,7 @@ ha_codeowners:
   - '@Lash-L'
 ha_domain: roborock
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - number
   - select
@@ -49,19 +51,42 @@ Mop mode - Describes how to mop the floor. On some firmware, it is called 'mop r
 
 Mop intensity - How hard you would like your vacuum to mop.
 
+### Binary sensor
+
+Cleaning - States if the vacuum has a clean currently active. This is on when the robot is actively moving around or when the robot returns to the dock when the battery is low but a clean is still active and will resume later.
+
+Mop attached - States if the mop is currently attached.
+
+Mop drying status - Only available on docks with drying capabilites - States if the mop is currently being driven.
+
+Water box attached - States if the water box is currently attached.
+
+Water shortage - States if the water box is low on water - 'Ok' if it has not detected a water shortage.
+
+
 ### Sensor
 
 Cleaning area - How much area the vacuum has cleaned in its current run.  If the vacuum is not currently cleaning, how much area it has cleaned during its last run.
 
 Cleaning time - How long the vacuum has been cleaning for. If the vacuum is not currently cleaning, how long it cleaned for in its last run.
 
+Cleaning progress - Only available on some newer devices - what percent of the current cleaning is completed.
+
+Dock error - Only available on the non-basic docks - The current error of the vacuum or 'Ok' if none exist
+
 Main brush time left - How much time is left before Roborock recommends you replace your main brush.
+
+Mop drying remaining time - Only available on the non-basic docks - How much time is left until the mop is dry and ready to continue cleaning.
 
 Side brush time left - How much time is left before Roborock recommends you replace your side brush.
 
 Filter time left - How much time is left before Roborock recommends you replace your vacuum's air filter.
 
 Status - The current status of your vacuum. This typically describes the action that is currently being run. For example, 'spot_cleaning' or 'docking'.
+
+Last clean begin - the last time that your vacuum started cleaning.
+
+Last clean end - The last time that your vacuum finished cleaning.
 
 Total cleaning time - The lifetime cleaning duration of your vacuum.
 
@@ -115,7 +140,7 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
 3. Search your logs for 'Got home data' and find the attribute rooms.
 4. Write the rooms down; they have a name and 6 digit ID.
 5. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %}. Select your vacuum as the entity and `get_room_mapping` as the command.
-6. Go back to your logs and look at the response to `get_room_mapping`. This is a list of the 6-digit IDs you saw earlier to 2-digit IDs. In your original list of room names and 6-digit IDs, replace the 6-digit ID with its pairing 2-digit ID.
+6. Go back to your logs and look at the response to `get_room_mapping`. This is a list of the 6-digit IDs you saw earlier to 2-digit IDs (use the first number, for instance `16` in `[16, '14000663', 12]` ([internal room id, unique room id, room type])). In your original list of room names and 6-digit IDs, replace the 6-digit ID with its pairing 2-digit ID.
 7. Now, you have the 2-digit ID that your vacuum uses to describe a room.
 8. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 

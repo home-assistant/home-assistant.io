@@ -3,7 +3,7 @@ title: Proximity
 description: Instructions on how to setup Proximity monitoring within Home Assistant.
 ha_category:
   - Automation
-  - Presence Detection
+  - Presence detection
 ha_release: 0.13
 ha_quality_scale: internal
 ha_domain: proximity
@@ -52,17 +52,21 @@ proximity:
     unit_of_measurement: mi
 ```
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how to set up geofencing in Home Assistant using the proximity integration.
 
 <lite-youtube videoid="pjAyRN5UiBg" videotitle="Geofencing in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
 
 {% configuration %}
-zone:
-  description: The zone to which this integration is measuring the distance to. Default is the home zone.
-  required: false
+friendly_name:
+  description: The name of the proximity entity.
+  required: true
   type: map
   keys:
+    zone:
+      description: The zone to which this integration is measuring the distance to. Default is the `home` zone.
+      required: false
+      type: string
     ignored_zones:
       description: Where proximity is not calculated for a device or person (either the device being monitored or ones being compared (e.g., work or school).
       required: false

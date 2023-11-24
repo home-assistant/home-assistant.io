@@ -4,7 +4,7 @@ description: Instructions on how to integrate Freebox routers into Home Assistan
 ha_category:
   - Camera
   - Network
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Switch
 ha_release: 0.85
@@ -34,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Device tracker](#presence-detection) for connected devices
 - [Switch](#switch) to control Wi-Fi
 - [Camera](#camera)
+- [Binary sensors](#binary)
 
 {% include integrations/config_flow.md %}
 
@@ -95,7 +96,7 @@ Only the routers with Freebox OS are supported:
 - Freebox V6 also known as Freebox Revolution
 - Freebox mini 4k
 
-## Presence Detection
+## Presence detection
 
 This platform offers presence detection by keeping track of the devices connected to a [Freebox](https://www.free.fr/freebox/) router.
 
@@ -126,6 +127,12 @@ The health status of each RAID array can be monitored with a diagnostics binary 
 ## Camera
 
 Cameras are only available in Freebox V7 (also known as Freebox Delta).
+
+## Binary
+This platform offers you sensors to monitor:
+- motion sensor
+- door opener 
+- plastic cover 
 
 ## Service
 

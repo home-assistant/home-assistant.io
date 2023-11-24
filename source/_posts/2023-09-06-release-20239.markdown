@@ -46,8 +46,9 @@ Bram
 - [New integrations](#new-integrations)
 - [Release 2023.9.1 - September 8](#release-202391---september-8)
 - [Release 2023.9.2 - September 12](#release-202392---september-12)
+- [Release 2023.9.3 - September 24](#release-202393---september-24)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
 Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=JSNRrWk9IHs)
@@ -314,40 +315,40 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 
 ## Release 2023.9.1 - September 8
 
-- Fix the Hydrawise status sensor ([@dknowles2] - [#99271]) ([hydrawise docs])
-- Fix tradfri asyncio.wait ([@cdce8p] - [#99730]) ([tradfri docs])
-- Handle alexa invalid climate temp adjustment ([@jbouwh] - [#99740]) ([alexa docs])
-- Revert "Bump pyoverkiz to 1.10.1 (#97916)" ([@joostlek] - [#99742]) ([overkiz docs])
-- Fix Freebox disk free space sensor ([@Quentame] - [#99757]) ([freebox docs])
-- Fix Freebox Home battery sensor ([@Quentame] - [#99756]) ([freebox docs])
+- Fix the Hydrawise status sensor ([@dknowles2] - [#99271])
+- Fix tradfri asyncio.wait ([@cdce8p] - [#99730])
+- Handle alexa invalid climate temp adjustment ([@jbouwh] - [#99740])
+- Revert "Bump pyoverkiz to 1.10.1 (#97916)" ([@joostlek] - [#99742])
+- Fix Freebox disk free space sensor ([@Quentame] - [#99757])
+- Fix Freebox Home battery sensor ([@Quentame] - [#99756])
 - Bump sense_energy to 0.12.1 ([@bdraco] - [#99763])
-- Add support for more busy codes for Epson ([@pszafer] - [#99771]) ([epson docs])
-- Bump `aiorecollect` to 2023.09.0 ([@bachya] - [#99780]) ([recollect_waste docs])
-- Bump pyenphase to 1.9.3 ([@bdraco] - [#99787]) ([enphase_envoy docs])
-- Bump pylutron-caseta to v0.18.2 ([@swamplynx] - [#99789]) ([lutron_caseta docs])
-- Fix missing dew point and humidity in tomorrowio forecasts ([@lymanepp] - [#99793]) ([tomorrowio docs])
-- Always set severity level flag on render_template error events ([@emontnemery] - [#99804]) ([websocket_api docs])
-- Improve error handling in /api/states POST ([@emontnemery] - [#99810]) ([api docs])
-- Use correct config entry id in Livisi ([@joostlek] - [#99812]) ([livisi docs])
-- Fix missing name and identifiers for ELKM1 connected devices ([@bdraco] - [#99828]) ([elkm1 docs])
-- Bump aiovodafone to 0.1.0 ([@chemelli74] - [#99851]) ([vodafone_station docs])
-- Bump dbus-fast to 1.95.0 ([@bdraco] - [#99749]) ([bluetooth docs])
-- Bump dbus-fast to 1.95.2 ([@bdraco] - [#99852]) ([bluetooth docs])
-- Bump ZHA dependencies ([@puddly] - [#99855]) ([zha docs])
-- Fix NOAA tides warnings ([@jbouwh] - [#99856]) ([noaa_tides docs])
-- Upgrade bluetooth deps to fix timeout behavior on py3.11 ([@bdraco] - [#99879]) ([bluetooth docs])
-- Update frontend to 20230908.0 ([@bramkragten] - [#99939]) ([frontend docs])
-- Bump pymodbus v3.5.0 ([@janiversen] - [#99343]) ([modbus docs])
-- Bump pymodbus v.3.5.1 ([@janiversen] - [#99940]) ([modbus docs])
-- Bump pyenphase to v1.11.0 ([@joostlek] - [#99941]) ([enphase_envoy docs])
-- Fix key error MQTT binary_sensor when no name is set ([@jbouwh] - [#99943]) ([mqtt docs])
-- Bump zeroconf to 0.93.1 ([@bdraco] - [#99516]) ([zeroconf docs])
-- Bump zeroconf to 0.96.0 ([@bdraco] - [#99549]) ([zeroconf docs])
-- Bump zeroconf to 0.97.0 ([@bdraco] - [#99554]) ([zeroconf docs])
-- Bump zeroconf to 0.98.0 ([@bdraco] - [#99748]) ([zeroconf docs])
-- Make WS command render_template not give up if initial render raises ([@emontnemery] - [#99808]) ([websocket_api docs])
-- Bump hatasmota to 0.7.1 ([@emontnemery] - [#99818]) ([tasmota docs])
-- Bump millheater to 0.11.2 ([@Danielhiversen] - [#99683]) ([mill docs])
+- Add support for more busy codes for Epson ([@pszafer] - [#99771])
+- Bump `aiorecollect` to 2023.09.0 ([@bachya] - [#99780])
+- Bump pyenphase to 1.9.3 ([@bdraco] - [#99787])
+- Bump pylutron-caseta to v0.18.2 ([@swamplynx] - [#99789])
+- Fix missing dew point and humidity in tomorrowio forecasts ([@lymanepp] - [#99793])
+- Always set severity level flag on render_template error events ([@emontnemery] - [#99804])
+- Improve error handling in /api/states POST ([@emontnemery] - [#99810])
+- Use correct config entry id in Livisi ([@joostlek] - [#99812])
+- Fix missing name and identifiers for ELKM1 connected devices ([@bdraco] - [#99828])
+- Bump aiovodafone to 0.1.0 ([@chemelli74] - [#99851])
+- Bump dbus-fast to 1.95.0 ([@bdraco] - [#99749])
+- Bump dbus-fast to 1.95.2 ([@bdraco] - [#99852])
+- Bump ZHA dependencies ([@puddly] - [#99855])
+- Fix NOAA tides warnings ([@jbouwh] - [#99856])
+- Upgrade bluetooth deps to fix timeout behavior on py3.11 ([@bdraco] - [#99879])
+- Update frontend to 20230908.0 ([@bramkragten] - [#99939])
+- Bump pymodbus v3.5.0 ([@janiversen] - [#99343])
+- Bump pymodbus v.3.5.1 ([@janiversen] - [#99940])
+- Bump pyenphase to v1.11.0 ([@joostlek] - [#99941])
+- Fix key error MQTT binary_sensor when no name is set ([@jbouwh] - [#99943])
+- Bump zeroconf to 0.93.1 ([@bdraco] - [#99516])
+- Bump zeroconf to 0.96.0 ([@bdraco] - [#99549])
+- Bump zeroconf to 0.97.0 ([@bdraco] - [#99554])
+- Bump zeroconf to 0.98.0 ([@bdraco] - [#99748])
+- Make WS command render_template not give up if initial render raises ([@emontnemery] - [#99808])
+- Bump hatasmota to 0.7.1 ([@emontnemery] - [#99818])
+- Bump millheater to 0.11.2 ([@Danielhiversen] - [#99683])
 
 [#99271]: https://github.com/home-assistant/core/pull/99271
 [#99343]: https://github.com/home-assistant/core/pull/99343
@@ -400,72 +401,42 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 [@pszafer]: https://github.com/pszafer
 [@puddly]: https://github.com/puddly
 [@swamplynx]: https://github.com/swamplynx
-[abode docs]: /integrations/abode/
-[accuweather docs]: /integrations/accuweather/
-[acmeda docs]: /integrations/acmeda/
-[adax docs]: /integrations/adax/
-[adguard docs]: /integrations/adguard/
-[ads docs]: /integrations/ads/
-[alexa docs]: /integrations/alexa/
-[api docs]: /integrations/api/
-[bluetooth docs]: /integrations/bluetooth/
-[elkm1 docs]: /integrations/elkm1/
-[enphase_envoy docs]: /integrations/enphase_envoy/
-[epson docs]: /integrations/epson/
-[freebox docs]: /integrations/freebox/
-[frontend docs]: /integrations/frontend/
-[hydrawise docs]: /integrations/hydrawise/
-[livisi docs]: /integrations/livisi/
-[lutron_caseta docs]: /integrations/lutron_caseta/
-[mill docs]: /integrations/mill/
-[modbus docs]: /integrations/modbus/
-[mqtt docs]: /integrations/mqtt/
-[noaa_tides docs]: /integrations/noaa_tides/
-[overkiz docs]: /integrations/overkiz/
-[recollect_waste docs]: /integrations/recollect_waste/
-[tasmota docs]: /integrations/tasmota/
-[tomorrowio docs]: /integrations/tomorrowio/
-[tradfri docs]: /integrations/tradfri/
-[vodafone_station docs]: /integrations/vodafone_station/
-[websocket_api docs]: /integrations/websocket_api/
-[zeroconf docs]: /integrations/zeroconf/
-[zha docs]: /integrations/zha/
 
 ## Release 2023.9.2 - September 12
 
-- Remove modbus pragma no cover and solve nan ([@janiversen] - [#99221]) ([modbus docs])
-- Bugfix: Electric Kiwi reduce interval so oauth doesn't expire ([@mikey0000] - [#99489]) ([electric_kiwi docs])
-- Read modbus data before scan_interval ([@janiversen] - [#99243]) ([modbus docs])
-- Make modbus retry fast on read errors ([@janiversen] - [#99576]) ([modbus docs])
-- Fix Soma cover tilt ([@ratsept] - [#99717]) ([soma docs])
-- Cache device trigger info during ZHA startup ([@puddly] - [#99764]) ([zha docs])
-- Airthings BLE unique id migration ([@LaStrada] - [#99832]) ([airthings_ble docs])
-- Update RestrictedPython to 6.2 ([@cdce8p] - [#99955]) ([python_script docs])
-- Bump bleak to 0.21.1 ([@bdraco] - [#99960]) ([bluetooth docs])
-- Bump python-roborock to 33.2 ([@Lash-L] - [#99962]) ([roborock docs])
-- Handle disconnects in zwave_js repair flow ([@raman325] - [#99964]) ([zwave_js docs])
-- Bump plugwise to v0.32.2 ([@bouwew] - [#99973]) ([plugwise docs])
-- Bump bluetooth-auto-recovery to 1.2.3 ([@bdraco] - [#99979]) ([bluetooth docs])
-- Avoid probing ipp printers for unique_id when it is available via mdns ([@bdraco] - [#99982]) ([ipp docs])
-- Bump pymodbus to v3.5.2 ([@janiversen] - [#99988]) ([modbus docs])
-- Bump pywaze to 0.4.0 ([@eifinger] - [#99995]) ([waze_travel_time docs])
-- Bump systembridgeconnector to 3.8.2 ([@timmo001] - [#100051]) ([system_bridge docs])
-- Bump aiovodafone to 0.2.0 ([@chemelli74] - [#100062]) ([vodafone_station docs])
-- Remove Comelit alarm data retrieval ([@chemelli74] - [#100067]) ([comelit docs])
-- Fix addon slug validation ([@mdegat01] - [#100070]) ([hassio docs])
-- Remove duplicated word in enphase description text ([@greiginsydney] - [#100098]) ([enphase_envoy docs])
-- Fix TriggerEntity.async_added_to_hass ([@emontnemery] - [#100119]) ([template docs])
-- Bump hatasmota to 0.7.2 ([@emontnemery] - [#100129]) ([tasmota docs])
-- Update frontend to 20230911.0 ([@bramkragten] - [#100139]) ([frontend docs])
-- Fix devices not always reporting IP - bump aiounifi to v62 ([@Kane610] - [#100149]) ([unifi docs])
-- Fix AVM Fritz!Tools update entity ([@mib1185] - [#100151]) ([fritz docs])
-- Bump ZHA dependencies ([@puddly] - [#100156]) ([zha docs])
-- Bump zwave-js-server-python to 0.51.2 ([@raman325] - [#100159]) ([zwave_js docs])
-- Adjust tasmota sensor device class and icon mapping ([@emontnemery] - [#100168]) ([tasmota docs])
-- Bump hatasmota to 0.7.3 ([@emontnemery] - [#100169]) ([tasmota docs])
-- Bump Ultraheat to version 0.5.7 ([@vpathuis] - [#100172]) ([landisgyr_heat_meter docs])
-- Fix entity name attribute on mqtt entity is not removed on update ([@jbouwh] - [#100187]) ([mqtt docs])
-- Bump hass-nabucasa from 0.70.0 to 0.71.0 ([@ludeeus] - [#100193]) ([cloud docs])
+- Remove modbus pragma no cover and solve nan ([@janiversen] - [#99221])
+- Bugfix: Electric Kiwi reduce interval so oauth doesn't expire ([@mikey0000] - [#99489])
+- Read modbus data before scan_interval ([@janiversen] - [#99243])
+- Make modbus retry fast on read errors ([@janiversen] - [#99576])
+- Fix Soma cover tilt ([@ratsept] - [#99717])
+- Cache device trigger info during ZHA startup ([@puddly] - [#99764])
+- Airthings BLE unique id migration ([@LaStrada] - [#99832])
+- Update RestrictedPython to 6.2 ([@cdce8p] - [#99955])
+- Bump bleak to 0.21.1 ([@bdraco] - [#99960])
+- Bump python-roborock to 33.2 ([@Lash-L] - [#99962])
+- Handle disconnects in zwave_js repair flow ([@raman325] - [#99964])
+- Bump plugwise to v0.32.2 ([@bouwew] - [#99973])
+- Bump bluetooth-auto-recovery to 1.2.3 ([@bdraco] - [#99979])
+- Avoid probing ipp printers for unique_id when it is available via mdns ([@bdraco] - [#99982])
+- Bump pymodbus to v3.5.2 ([@janiversen] - [#99988])
+- Bump pywaze to 0.4.0 ([@eifinger] - [#99995])
+- Bump systembridgeconnector to 3.8.2 ([@timmo001] - [#100051])
+- Bump aiovodafone to 0.2.0 ([@chemelli74] - [#100062])
+- Remove Comelit alarm data retrieval ([@chemelli74] - [#100067])
+- Fix addon slug validation ([@mdegat01] - [#100070])
+- Remove duplicated word in enphase description text ([@greiginsydney] - [#100098])
+- Fix TriggerEntity.async_added_to_hass ([@emontnemery] - [#100119])
+- Bump hatasmota to 0.7.2 ([@emontnemery] - [#100129])
+- Update frontend to 20230911.0 ([@bramkragten] - [#100139])
+- Fix devices not always reporting IP - bump aiounifi to v62 ([@Kane610] - [#100149])
+- Fix AVM Fritz!Tools update entity ([@mib1185] - [#100151])
+- Bump ZHA dependencies ([@puddly] - [#100156])
+- Bump zwave-js-server-python to 0.51.2 ([@raman325] - [#100159])
+- Adjust tasmota sensor device class and icon mapping ([@emontnemery] - [#100168])
+- Bump hatasmota to 0.7.3 ([@emontnemery] - [#100169])
+- Bump Ultraheat to version 0.5.7 ([@vpathuis] - [#100172])
+- Fix entity name attribute on mqtt entity is not removed on update ([@jbouwh] - [#100187])
+- Bump hass-nabucasa from 0.70.0 to 0.71.0 ([@ludeeus] - [#100193])
 
 [#100051]: https://github.com/home-assistant/core/pull/100051
 [#100062]: https://github.com/home-assistant/core/pull/100062
@@ -525,37 +496,137 @@ This release also has a new virtual integration. Virtual integrations are stubs 
 [@ratsept]: https://github.com/ratsept
 [@timmo001]: https://github.com/timmo001
 [@vpathuis]: https://github.com/vpathuis
-[abode docs]: /integrations/abode/
-[accuweather docs]: /integrations/accuweather/
-[acmeda docs]: /integrations/acmeda/
-[adax docs]: /integrations/adax/
-[adguard docs]: /integrations/adguard/
-[ads docs]: /integrations/ads/
-[airthings_ble docs]: /integrations/airthings_ble/
-[bluetooth docs]: /integrations/bluetooth/
-[cloud docs]: /integrations/cloud/
-[comelit docs]: /integrations/comelit/
-[electric_kiwi docs]: /integrations/electric_kiwi/
-[enphase_envoy docs]: /integrations/enphase_envoy/
-[fritz docs]: /integrations/fritz/
-[frontend docs]: /integrations/frontend/
-[hassio docs]: /integrations/hassio/
-[ipp docs]: /integrations/ipp/
-[landisgyr_heat_meter docs]: /integrations/landisgyr_heat_meter/
-[modbus docs]: /integrations/modbus/
-[mqtt docs]: /integrations/mqtt/
-[plugwise docs]: /integrations/plugwise/
-[python_script docs]: /integrations/python_script/
-[roborock docs]: /integrations/roborock/
-[soma docs]: /integrations/soma/
-[system_bridge docs]: /integrations/system_bridge/
-[tasmota docs]: /integrations/tasmota/
-[template docs]: /integrations/template/
-[unifi docs]: /integrations/unifi/
-[vodafone_station docs]: /integrations/vodafone_station/
-[waze_travel_time docs]: /integrations/waze_travel_time/
-[zha docs]: /integrations/zha/
-[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2023.9.3 - September 24
+
+- Always update unit of measurement of the utility_meter on state change ([@dgomes] - [#99102])
+- Netgear catch no info error ([@starkillerOG] - [#100212])
+- Bump python-roborock to 0.34.0 ([@Lash-L] - [#100236])
+- Bump pynetgear to 0.10.10 ([@starkillerOG] - [#100242])
+- Fix incorrect off peak translation key for Roborock ([@Lash-L] - [#100246])
+- Bump pyenphase to 1.11.2 ([@cgarwood] - [#100249])
+- Bump pyenphase to 1.11.3 ([@cgarwood] - [#100255])
+- Bump sensirion-ble to 0.1.1 ([@akx] - [#100271])
+- Future proof assist_pipeline.Pipeline ([@emontnemery] - [#100277])
+- Bump pyenphase to 1.11.4 ([@cgarwood] - [#100288])
+- Bump yalexs-ble to 2.3.0 ([@bdraco] - [#100007])
+- Bump yalexs to 1.9.0 ([@bdraco] - [#100305])
+- Update Mill library to 0.11.5, handle rate limiting ([@Danielhiversen] - [#100315])
+- Remove _next_refresh variable in update coordinator ([@elupus] - [#100323])
+- Fix timeout issue in devolo_home_network ([@Shutgun] - [#100350])
+- Fix Airthings ble migration ([@LaStrada] - [#100362])
+- Try Reolink ONVIF long polling if ONVIF push not supported ([@starkillerOG] - [#100375])
+- Bump reolink-aio to 0.7.10 ([@starkillerOG] - [#100376])
+- Add missing timer service translation ([@steffenrapp] - [#100388])
+- Fix current condition in IPMA ([@dgomes] - [#100412])
+- Bump yolink-api to 0.3.1 ([@matrixd2] - [#100426])
+- Fix timer reload description ([@edenhaus] - [#100433])
+- bump pywaze to 0.5.0 ([@eifinger] - [#100456])
+- Fix error is measurement is not sent by AirNow ([@asymworks] - [#100477])
+- Only get meteo france alert coordinator if it exists ([@joostlek] - [#100493])
+- Fix broken reconnect capability of fritzbox_callmonitor ([@frimtec] - [#100526])
+- Fix xiaomi_miio button platform regression ([@rytilahti] - [#100527])
+- Fix Roborock send command service calling not being enum ([@Lash-L] - [#100574])
+- Adjust hassfest.manifest based on config.action ([@raman325] - [#100577])
+- Fix ecobee aux_heat_off always returns to HEAT ([@robinlee09201] - [#100630])
+- Bump python-roborock to 0.34.1 ([@Lash-L] - [#100652])
+- Bump zwave-js-server-python to 0.51.3 ([@raman325] - [#100665])
+- Fix mqtt light rgbww update without state topic ([@jbouwh] - [#100707])
+- Bump aiocomelit to 0.0.8 ([@chemelli74] - [#100714])
+- Fix handling of unit system change in sensor ([@emontnemery] - [#100715])
+- Bump ZHA dependencies ([@puddly] - [#100732])
+- Bump intents to 2023.9.22 ([@synesthesiam] - [#100737])
+- Fix weather template forecast attributes ([@gjohansson-ST] - [#100748])
+- Fix rainbird unique id ([@allenporter] - [#99704])
+- Bump ring-doorbell to 0.7.3 ([@sdb9696] - [#100688])
+- Update home-assistant/wheels to 2023.09.1 ([@frenck] - [#100758])
+- Bump pyschlage to 2023.9.0 ([@dknowles2] - [#99624])
+- Bump pyschlage to 2023.9.1 ([@dknowles2] - [#100760])
+- Add strong to fan mode for Sensibo ([@gjohansson-ST] - [#100773])
+- Update home-assistant/builder to 2023.09.0 ([@frenck] - [#100797])
+- Fix Comelit device info ([@chemelli74] - [#100587])
+
+[#100007]: https://github.com/home-assistant/core/pull/100007
+[#100212]: https://github.com/home-assistant/core/pull/100212
+[#100223]: https://github.com/home-assistant/core/pull/100223
+[#100236]: https://github.com/home-assistant/core/pull/100236
+[#100242]: https://github.com/home-assistant/core/pull/100242
+[#100246]: https://github.com/home-assistant/core/pull/100246
+[#100249]: https://github.com/home-assistant/core/pull/100249
+[#100255]: https://github.com/home-assistant/core/pull/100255
+[#100271]: https://github.com/home-assistant/core/pull/100271
+[#100277]: https://github.com/home-assistant/core/pull/100277
+[#100288]: https://github.com/home-assistant/core/pull/100288
+[#100305]: https://github.com/home-assistant/core/pull/100305
+[#100315]: https://github.com/home-assistant/core/pull/100315
+[#100323]: https://github.com/home-assistant/core/pull/100323
+[#100350]: https://github.com/home-assistant/core/pull/100350
+[#100362]: https://github.com/home-assistant/core/pull/100362
+[#100375]: https://github.com/home-assistant/core/pull/100375
+[#100376]: https://github.com/home-assistant/core/pull/100376
+[#100388]: https://github.com/home-assistant/core/pull/100388
+[#100412]: https://github.com/home-assistant/core/pull/100412
+[#100426]: https://github.com/home-assistant/core/pull/100426
+[#100433]: https://github.com/home-assistant/core/pull/100433
+[#100456]: https://github.com/home-assistant/core/pull/100456
+[#100477]: https://github.com/home-assistant/core/pull/100477
+[#100493]: https://github.com/home-assistant/core/pull/100493
+[#100526]: https://github.com/home-assistant/core/pull/100526
+[#100527]: https://github.com/home-assistant/core/pull/100527
+[#100574]: https://github.com/home-assistant/core/pull/100574
+[#100577]: https://github.com/home-assistant/core/pull/100577
+[#100587]: https://github.com/home-assistant/core/pull/100587
+[#100630]: https://github.com/home-assistant/core/pull/100630
+[#100652]: https://github.com/home-assistant/core/pull/100652
+[#100665]: https://github.com/home-assistant/core/pull/100665
+[#100688]: https://github.com/home-assistant/core/pull/100688
+[#100707]: https://github.com/home-assistant/core/pull/100707
+[#100714]: https://github.com/home-assistant/core/pull/100714
+[#100715]: https://github.com/home-assistant/core/pull/100715
+[#100732]: https://github.com/home-assistant/core/pull/100732
+[#100737]: https://github.com/home-assistant/core/pull/100737
+[#100748]: https://github.com/home-assistant/core/pull/100748
+[#100758]: https://github.com/home-assistant/core/pull/100758
+[#100760]: https://github.com/home-assistant/core/pull/100760
+[#100773]: https://github.com/home-assistant/core/pull/100773
+[#100797]: https://github.com/home-assistant/core/pull/100797
+[#99102]: https://github.com/home-assistant/core/pull/99102
+[#99624]: https://github.com/home-assistant/core/pull/99624
+[#99704]: https://github.com/home-assistant/core/pull/99704
+[#99741]: https://github.com/home-assistant/core/pull/99741
+[#99950]: https://github.com/home-assistant/core/pull/99950
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@LaStrada]: https://github.com/LaStrada
+[@Lash-L]: https://github.com/Lash-L
+[@Shutgun]: https://github.com/Shutgun
+[@akx]: https://github.com/akx
+[@allenporter]: https://github.com/allenporter
+[@asymworks]: https://github.com/asymworks
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cgarwood]: https://github.com/cgarwood
+[@chemelli74]: https://github.com/chemelli74
+[@dgomes]: https://github.com/dgomes
+[@dknowles2]: https://github.com/dknowles2
+[@edenhaus]: https://github.com/edenhaus
+[@eifinger]: https://github.com/eifinger
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@frimtec]: https://github.com/frimtec
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@matrixd2]: https://github.com/matrixd2
+[@puddly]: https://github.com/puddly
+[@raman325]: https://github.com/raman325
+[@robinlee09201]: https://github.com/robinlee09201
+[@rytilahti]: https://github.com/rytilahti
+[@sdb9696]: https://github.com/sdb9696
+[@starkillerOG]: https://github.com/starkillerOG
+[@steffenrapp]: https://github.com/steffenrapp
+[@synesthesiam]: https://github.com/synesthesiam
 
 ## Need help? Join the community!
 
@@ -573,7 +644,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking changes
+## Backward-incompatible changes
 
 {% details "BMW Connected Drive" %}
 

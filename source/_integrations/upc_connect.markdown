@@ -2,7 +2,7 @@
 title: UPC Connect Box
 description: Instructions on how to integrate UPC ConnectBox into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.36
 ha_codeowners:
   - '@pvizeli'

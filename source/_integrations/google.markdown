@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_domain: google
 ha_platforms:
   - calendar
+  - diagnostics
 ha_codeowners:
   - '@allenporter'
 ha_integration_type: integration
@@ -25,10 +26,10 @@ You need to configure developer credentials to allow Home Assistant to access yo
 This section explains how to generate a Client ID and Client Secret on
 [Google Developers Console](https://console.developers.google.com/start/api?id=calendar).
 
-1. First go to the [Google Developers Console](https://console.developers.google.com/start/api?id=calendar)
+1. First go to the [Google Developers Console](https://console.developers.google.com/start/api?id=calendar).
 2. The wizard will ask you to choose a project to manage your application. Select a project and click continue.
 3. Verify that your calendar API was enabled and click 'Go to credentials'
-4. Navigate to APIs & Services (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials)
+4. Navigate to APIs & Services (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials).
 5. Click on the field on the left of the screen, **OAuth Consent Screen**.
 6. Select **External** and **Create**.
 7. Set the *App Name* (the name of the application asking for consent) to anything you want e.g.  *Home Assistant*.
@@ -47,7 +48,6 @@ This section explains how to generate a Client ID and Client Secret on
 {% include integrations/config_flow.md %}
 
 The integration setup will next give you instructions to enter the [Application Credentials](/integrations/application_credentials/) (OAuth Client ID and Client Secret) and authorize Home Assistant to access your account and Calendars.
-
 
 {% details "OAuth and Device Authorization steps" %}
 
@@ -83,20 +83,20 @@ to all the Google Calendars available to your linked account.
 
 If the setup process fails and you see an error message such as *Authentication code expired, please try again* you may want to try the flow again. You may also check the logs for additional error messages that may indicate a misconfiguration such as an invalid client id or secret.
 
-If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
+If you have an error with your credentials, you can delete them in the [application credentials](/integrations/application_credentials/) user interface.
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how to set up Google Calendar in Home Assistant and how you can trigger an automation based on a calendar event.
 
 <lite-youtube videoid="r2WbpxKDOD4" videotitle="How To Use Calendar Events in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
 
-## Calendar Entities
+## Calendar entities
 
 Each Google Calendar from *My Calendars* ([more info](https://support.google.com/calendar/answer/37095)) is represented as a [calendar](/integrations/calendar) entity in Home Assistant.
 
 For example, your calendar named *Personal* is created as entity `calendar.personal`. You may rename an entity, or disable any entities which you don't need.
 
-## Calendar Event Automations
+## Calendar event automations
 
 Individual Calendar *Events* are what powering automations such as:
 
@@ -104,9 +104,9 @@ Individual Calendar *Events* are what powering automations such as:
 - Send a notification *5 minutes before the start of any event*
 - Stop the media player *30 minutes after* the *end* of the event named *Exercise*.
 
-See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
+See [calendar automations](/integrations/calendar#automation) for an overview, and read more about [calendar trigger variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
 
-## Calendar Entity Attributes
+## Calendar entity attributes
 
 The calendar entity has additional attributes related to a single next upcoming event.
 
@@ -173,7 +173,7 @@ data:
 
 {% enddetails %}
 
-## More Configuration
+## More configuration
 
 
 {% details "More Configuration" %}

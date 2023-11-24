@@ -13,7 +13,7 @@ ha_integration_type: entity
 
 A speech-to-text (STT) entity allows other integrations or applications to stream speech data to the STT API and get text back.
 
-The speech-to-text entities cannot be implemented manually, but can be provided by integrations.
+{% include integrations/building_block_integration.md %}
 
 ## The state of a speech-to-text entity
 

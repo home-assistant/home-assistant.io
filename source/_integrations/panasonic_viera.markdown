@@ -2,7 +2,7 @@
 title: Panasonic Viera
 description: Instructions on how to integrate a Panasonic Viera TV with Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
 ha_release: 0.17
 ha_iot_class: Local Polling
@@ -18,7 +18,7 @@ The Panasonic Viera integration allows you to control a Panasonic Viera TV.
 
 There is currently support for the following device types within Home Assistant:
 
-- Media Player
+- Media player
 - [Remote](#remote)
 
 {% include integrations/config_flow.md %}

@@ -191,7 +191,11 @@ payload_open:
   description: The payload sent to the lock to open it.
   required: false
   type: string
-  default: OPEN
+payload_reset:
+  description: A special payload that resets the state to `unknown` when received on the `state_topic`.
+  required: false
+  type: string
+  default: '"None"'
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
