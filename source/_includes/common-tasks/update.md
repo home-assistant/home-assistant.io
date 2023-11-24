@@ -3,11 +3,11 @@
 Best practice for updating a Home Assistant installation:
 
 1. Backup your installation{% if page.installation == "os" or page.installation == "supervised" %}, using the backup functionality Home Assistant offers{% endif %}.
-1. Check the release notes for breaking changes on [Home Assistant release notes](/blog/categories/core/). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f` / `CMD + f`) and search for **Breaking Changes**.
+2. Check the release notes for breaking changes on [Home Assistant release notes](/blog/categories/core/). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f` / `CMD + f`) and search for **Breaking Changes**.
 {% if page.installation == "os" or page.installation == "supervised" %}
-1. Select "Create backup before updating" in case you encounter an issue that requires a rollback.
-1. Update Home Assistant.
-1. Review persistent notifications and log to see if there are any issues with your configuration that need to be addressed.
+3. Select "Create backup before updating" in case you encounter an issue that requires a rollback.
+4. Update Home Assistant.
+5. Review persistent notifications and log to see if there are any issues with your configuration that need to be addressed.
 {% endif %}
 
 {% if page.installation == "os" or page.installation == "supervised" %}
@@ -55,8 +55,8 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
   content: |
 
     ```bash
-    docker-compose pull homeassistant
-    docker-compose up -d
+    docker compose pull homeassistant
+    docker compose up -d
     ```
 
 {% endtabbed_block %}

@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: honeywell
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
@@ -33,13 +34,13 @@ Home Assistant is integrated with the following devices through [https://mytotal
 
 - Thermostats
   - Every thermostat is exposed as a climate entity
-  - Known working devices: [TH6320R1004](https://customer.resideo.com/en-US/Pages/Product.aspx?cat=HonECC%2520Catalog&pid=TH6320R1004/U), [RTH9585WF1004](https://www.honeywellhome.com/us/en/products/air/thermostats/wifi-thermostats/wifi-color-touchscreen-thermostat-rth9585wf1004-u/)
+  - Known working devices: [TH6320R1004](https://customer.resideo.com/en-US/Pages/Product.aspx?cat=HonECC%2520Catalog&pid=TH6320R1004/U), [RTH9585WF1004](https://www.honeywellhome.com/us/en/products/air/thermostats/wifi-thermostats/wifi-color-touchscreen-thermostat-rth9585wf1004-u/), [RTH6580WF](https://www.honeywellhome.com/us/en/products/air/thermostats/wifi-thermostats/wifi-7-day-programmable-thermostat-rth6580wf1001-u1/)
 - Sensors
-  - A Temperature sensor entity.
-  - A Humidity sensor entity.
-  - Known working devices: [C7089R1013](https://customer.resideo.com/en-US/Pages/Product.aspx?cat=HonECC%20Catalog&pid=C7089R1013/U)
+  - A Temperature sensor entity
+  - A Humidity sensor entity
+  - Known working devices: [C7089R1013](https://customer.resideo.com/en-US/Pages/Product.aspx?cat=HonECC%20Catalog&pid=C7089R1013/U), [RTH6580WF](https://www.honeywellhome.com/us/en/products/air/thermostats/wifi-thermostats/wifi-7-day-programmable-thermostat-rth6580wf1001-u1/)
 
-Others devices like Security systems are not currently supported by this integration
+Other devices like Security systems are not currently supported by this integration.
 
 ## Climate
 
@@ -49,10 +50,12 @@ All [climate services](/integrations/climate) are supported except set_swing_mod
 
 ## Sensor
 
-The sensor platform integrates outside temperature and outside humidity into Home Assistant as sensors for each device.
+The sensor platform integrates inside and outside temperature and humidity into Home Assistant as sensors for each device. Not every supported thermostat will support all sensors.
 
 This integration will add Home Assistant sensors for the following:
 |Sensor|Value|
 --- | ---
 |Outdoor temperature | Average temperature of all Honeywell Wireless Outdoor Sensors|
 |Outdoor humidity | Average humidity of all Honeywell Wireless Outdoor Sensors|
+|Indoor temperature | Current temperature as measured at the specific thermostat|
+|Indoor humidity | Current humidity as measured at the specific thermostat|

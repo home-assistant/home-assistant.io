@@ -6,8 +6,8 @@ ha_category:
   - Text-to-speech
 ha_release: 0.35
 ha_codeowners:
-  - "@home-assistant/core"
-  - "@pvizeli"
+  - '@home-assistant/core'
+  - '@pvizeli'
 ha_domain: tts
 ha_quality_scale: internal
 ha_platforms:
@@ -16,6 +16,8 @@ ha_integration_type: entity
 ---
 
 Text-to-speech (TTS) enables Home Assistant to speak to you.
+
+{% include integrations/building_block_integration.md %}
 
 ## Services
 

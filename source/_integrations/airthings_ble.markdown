@@ -8,6 +8,7 @@ ha_release: '2022.11'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@vincegio'
+  - '@LaStrada'
 ha_domain: airthings_ble
 ha_bluetooth: true
 ha_platforms:
@@ -18,7 +19,7 @@ ha_integration_type: integration
 
 Integrates Airthings BLE sensors into Home Assistant.
 
-[Airthings](https://www.airthings.com/) provide different sensors for measuring the air quality. The focus specially on Radon sensors.
+[Airthings](https://www.airthings.com/) provide different devices for measuring the air quality. Initially focusing on radon gas sensors, each device provides a number of different sensors to monitor typical contaminants that's presence contributes to bad air quality in the home.
 
 Requires Airthings hardware and a compatible Bluetooth dongle.
 
@@ -34,9 +35,10 @@ This integration uses the last 6 digits of the serial number.
 
 ## Supported Devices
 
-- Wave
-- Wave+
-- Wave mini
+- Wave gen. 1
+- Wave Radon
+- Wave Mini
+- Wave Plus
 
 ## Sensors
 

@@ -152,7 +152,7 @@ binary_sensor:
 
 This `pilight` sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g., _uuid_) can be set to distinguish between multiple pilight devices. To use a pilight sensor the pilight Home Assistant hub has to be set up.
 
-To use your sensor via pilight, make sure it is [supported](https://wiki.pilight.org/protocols) and add the following to your `configuration.yaml` file:
+To use your sensor via pilight, make sure it is [supported](https://manual.pilight.org/protocols/index.html) and add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

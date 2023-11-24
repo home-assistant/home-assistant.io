@@ -1,5 +1,5 @@
 ---
-title: Microsoft text-to-speech (TTS)
+title: Microsoft Text-to-Speech (TTS)
 description: Instructions on how to set up Microsoft text-to-speech with Home Assistant.
 ha_category:
   - Text-to-speech

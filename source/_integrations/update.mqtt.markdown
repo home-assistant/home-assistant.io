@@ -17,8 +17,8 @@ To enable MQTT Update in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  update:
-    - state_topic: topic-installed
+  - update:
+      state_topic: topic-installed
       latest_version_topic: topic-latest
 ```
 
@@ -69,7 +69,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -154,7 +154,7 @@ latest_version_topic:
   required: false
   type: string
 name:
-  description: The name of the Update.
+  description: The name of the Update. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
 object_id:
@@ -166,7 +166,7 @@ payload_install:
   required: false
   type: string
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -216,8 +216,8 @@ This is an example of Update entity configuration for Shelly Gen1 device.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  update:
-    - name: "Shelly Plug S Firmware Update"
+  - update:
+      name: "Shelly Plug S Firmware Update"
       title: "Shelly Plug S Firmware"
       release_url: "https://shelly-api-docs.shelly.cloud/gen1/#changelog"
       entity_picture: "https://brands.home-assistant.io/_/shelly/icon.png"
@@ -256,8 +256,8 @@ For the above JSON payload, the `update` entity configuration should look like t
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  update:
-    - name: "Amazing Device Update"
+  - update:
+      name: "Amazing Device Update"
       title: "Device Firmware"
       state_topic: "amazing-device/state-topic"
       device_class: "firmware"
@@ -287,8 +287,8 @@ For the above JSON payload, the `update` entity configuration should look like t
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  update:
-    - name: "Amazing Device Update"
+   update:
+      name: "Amazing Device Update"
       title: "Device Firmware"
       state_topic: "amazing-device/state-topic"
       value_template: "{{ {'installed_version': value_json.installed_ver, 'latest_version': value_json.new_ver } | to_json }}"

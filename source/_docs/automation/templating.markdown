@@ -92,6 +92,17 @@ These are the properties available for a [Numeric State trigger](/docs/automatio
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has met above/below criteria, if any.
 
+### Sentence
+
+These are the properties available for a [Sentence trigger](/docs/automation/trigger/#sentence-trigger).
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `conversation`
+| `trigger.sentence` | Text of the sentence that was matched
+| `trigger.slots`    | Object with matched slot values
+| `trigger.details` | Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains: <ul><li>`name` - name of the slot</li><li>`text` - matched text</li><li>`value` - output value (see [lists](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>
+
 ### State
 
 These are the properties available for a [State trigger](/docs/automation/trigger/#state-trigger).

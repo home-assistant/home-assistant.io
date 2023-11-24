@@ -2,6 +2,7 @@
 title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
+  - Climate
   - Light
   - Remote
   - Sensor
@@ -12,6 +13,7 @@ ha_codeowners:
   - '@danielhiversen'
   - '@felipediel'
   - '@L-I-Am'
+  - '@eifinger'
 ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
@@ -25,6 +27,7 @@ ha_integration_type: integration
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
 
+- Thermostats: `Hysen HY02B05H` and `Floureon HY03WE`
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
 - Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
@@ -42,10 +45,15 @@ The entities have the same name as the device by default. To change the name, ic
 
 The entities are divided into four subdomains:
 
+- [Climate](#climate)
 - [Remote](#remote)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Light](#light)
+
+## Climate
+
+The `climate` entities allow you to monitor and control Broadlink thermostats.
 
 ## Remote
 
@@ -157,7 +165,7 @@ When the LED blinks for the first time, press the button you want to learn. Then
 
 #### Learned codes storage location
 
-The learned codes are stored in `/configuration/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#setting-up-custom-irrf-switches) or to send them as [base64 codes](#sending-a-base64-code), but beware: the files in the .storage folder _should never be edited manually_.
+The learned codes are stored in `/config/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#setting-up-custom-irrf-switches) or to send them as [base64 codes](#sending-a-base64-code), but beware: the files in the .storage folder _should never be edited manually_.
 
 ### Sending commands
 
@@ -282,11 +290,11 @@ script:
 
 You can use `remote.delete_command` to remove commands that you've learned with the `remote.learn_command` service.
 
-| Service data attribute | Optional | Description                           |
-| ---------------------- | -------- | ------------------------------------- |
-| `entity_id`            | no       | ID of the remote.                     |
-| `device`               | no       | Name of the device.                   |
-| `command`              | no       | Names of the commands to be deleted.  |
+| Service data attribute | Optional | Description                          |
+| ---------------------- | -------- | ------------------------------------ |
+| `entity_id`            | no       | ID of the remote.                    |
+| `device`               | no       | Name of the device.                  |
+| `command`              | no       | Names of the commands to be deleted. |
 
 #### Deleting a command
 
@@ -656,9 +664,9 @@ After a success, do one of the following two options:
     ```
 
 2. To learn a button hold RF code, hold the button you wish to learn for 1-2 seconds then immediately press enter.  
-    * You will see the same prompts for a short press as shown above. You should see it return a different base64 code.
-    * Test the base64 code to ensure it performs the button 'hold' command as expected, rather than the button 'press' command.
-    * This might take some trial and error to get the hold timing right before hitting enter to scan for the code.
+    - You will see the same prompts for a short press as shown above. You should see it return a different base64 code.
+    - Test the base64 code to ensure it performs the button 'hold' command as expected, rather than the button 'press' command.
+    - This might take some trial and error to get the hold timing right before hitting enter to scan for the code.
 
 ### Conversion of codes from other projects
 

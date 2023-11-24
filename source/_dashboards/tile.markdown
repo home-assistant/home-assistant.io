@@ -25,11 +25,11 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites the name of entity.
+  description: Overwrites the entity name.
   type: string
 icon:
   required: false
-  description: Overwrites the icon of entity.
+  description: Overwrites the entity icon.
   type: string
 color:
   required: false
@@ -46,6 +46,16 @@ vertical:
   description: Displays the icon above the name and state.
   type: boolean
   default: false
+hide_state:
+  required: false
+  description: Hide the entity state.
+  type: boolean
+  default: false
+state_content:
+  required: false
+  description: >
+    Content to display for the state. Can be `state`, `last-changed`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
+  type: [string, list]
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
@@ -86,6 +96,16 @@ show_entity_picture: true
 type: tile
 entity: person.anne_therese
 vertical: true
+hide_state: true
+```
+
+```yaml
+type: tile
+entity: light.living_room
+state_content: 
+  - state
+  - brightness
+  - last-changed
 ```
 
 ```yaml
@@ -93,9 +113,9 @@ type: tile
 entity: vacuum.ground_floor
 features:
   - type: vacuum-commands
-      commands:
-        - start_pause
-        - return_home
+    commands:
+      - start_pause
+      - return_home
 ```
 
 ## Available color tokens
@@ -138,9 +158,42 @@ modes:
   type: list
 {% endconfiguration %}
 
+### Climate HVAC modes
+
+Widget that displays buttons to control the HVAC mode for a [climate](/integrations/climate).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/climate_hvac_modes.png' alt='Screenshot of the tile card with the climate HVAC modes feature'>
+  Screenshot of the tile card with the climate HVAC modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-hvac-modes"
+    hvac_modes:
+      - auto
+      - heat_cool
+      - heat
+      - cool
+      - dry
+      - fan_only
+      - "off"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`climate-hvac-modes`"
+  type: string
+hvac_modes:
+  required: true
+  description: List of modes to show on the card. The list can contain `auto`, `heat_cool`, `heat`, `cool`, `dry`, `fan_only` and `off`.
+  type: list
+{% endconfiguration %}
+
 ### Cover open/close
 
-Widget that display buttons to open, close or stop a [cover](/integrations/cover).
+Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
 
 <p class='img'>
   <img src='/images/dashboards/tile-features/cover_open_close.png' alt='Screenshot of the tile card with open/close feature'>
@@ -159,9 +212,30 @@ type:
   type: string
 {% endconfiguration %}
 
+### Cover position
+
+Widget that displays a slider to control the position for a [cover](/integrations/cover).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/cover_position.png' alt='Screenshot of the tile card with the cover position feature'>
+  Screenshot of the tile card with the cover position feature
+</p>
+
+```yaml
+features:
+  - type: "cover-position"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`cover-position`"
+  type: string
+{% endconfiguration %}
+
 ### Cover tilt
 
-Widget that display buttons to open, close or stop a [cover](/integrations/cover).
+Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
 
 <p class='img'>
   <img src='/images/dashboards/tile-features/cover_tilt.png' alt='Screenshot of the tile card with tilt feature'>
@@ -180,9 +254,30 @@ type:
   type: string
 {% endconfiguration %}
 
+### Cover tilt position
+
+Widget that displays a slider to control the tilt position for a [cover](/integrations/cover).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/cover_tilt_position.png' alt='Screenshot of the tile card with the cover tilt position feature'>
+  Screenshot of the tile card with the cover tilt position feature
+</p>
+
+```yaml
+features:
+  - type: "cover-tilt-position"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`cover-tilt-position`"
+  type: string
+{% endconfiguration %}
+
 ### Fan speed
 
-Widget that display speed controls for a [fan](/integrations/fan).
+Widget that displays speed controls for a [fan](/integrations/fan).
 
 <p class='img'>
   <img src='/images/dashboards/tile-features/fan_speed.png' alt='Screenshot of the tile card with fan speed feature'>
@@ -201,9 +296,37 @@ type:
   type: string
 {% endconfiguration %}
 
+### Lawn mower commands
+
+Widget that displays buttons to control a [lawn mower](/integrations/lawn_mower).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/lawn_mower_commands.png' alt='Screenshot of the tile card with the lawn mower commands feature'>
+  Screenshot of the tile card with the lawn mower commands feature
+</p>
+
+```yaml
+features:
+  - type: "lawn-mower-commands"
+    commands:
+      - start_pause
+      - dock
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`lawn-mower-commands`"
+  type: string
+commands:
+  required: true
+  description: List of commands to show on the card. The list can contain `start_pause` and `dock`.
+  type: list
+{% endconfiguration %}
+
 ### Light brightness
 
-Widget that display a slider to select the brightness for a [light](/integrations/light).
+Widget that displays a slider to select the brightness for a [light](/integrations/light).
 
 <p class='img'>
   <img src='/images/dashboards/tile-features/light_brightness.png' alt='Screenshot of the tile card with light brightness feature'>
@@ -222,9 +345,51 @@ type:
   type: string
 {% endconfiguration %}
 
+### Light color temp
+
+Widget that displays a slider to select the color temperature for a [light](/integrations/light).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/light_color_temp.png' alt='Screenshot of the tile card with the light color temperature feature'>
+  Screenshot of the tile card with the light color temperature feature
+</p>
+
+```yaml
+features:
+  - type: "light-color-temp"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`light-color-temp`"
+  type: string
+{% endconfiguration %}
+
+### Target temperature
+
+Widget that displays buttons to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/target_temperature.png' alt='Screenshot of the tile card with the target temperature feature'>
+  Screenshot of the tile card with the target temperature feature
+</p>
+
+```yaml
+features:
+  - type: "target-temperature"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`target-temperature`"
+  type: string
+{% endconfiguration %}
+
 ### Vacuum commands
 
-Widget that display buttons to control a [vacuum](/integrations/vacuum).
+Widget that displays buttons to control a [vacuum](/integrations/vacuum).
 
 <p class='img'>
   <img src='/images/dashboards/tile-features/vacuum_commands.png' alt='Screenshot of the tile card with vacuum commands feature'>
@@ -250,5 +415,38 @@ type:
 commands:
   required: true
   description: List of commands to show on the card. The list can contain `start_pause`, `stop`, `clean_spot`, `locate` and `return_home`.
+  type: list
+{% endconfiguration %}
+
+### Water heater operation modes
+
+Widget that displays buttons to control the operation mode of a [water heater](/integrations/water_heater).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/water_heater_operation_modes.png' alt='Screenshot of the tile card with the water heater operation modes feature'>
+  Screenshot of the tile card with the water heater operation modes feature
+</p>
+
+```yaml
+features:
+  - type: "water-heater-operation-modes"
+    operation_modes:
+      - electric
+      - gas
+      - heat_pump
+      - eco
+      - performance
+      - high_demand
+      - "off"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`water-heater-operation-modes`"
+  type: string
+operation_modes:
+  required: true
+  description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand` and `off`.
   type: list
 {% endconfiguration %}

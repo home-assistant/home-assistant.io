@@ -8,9 +8,6 @@ body, html {
 a {
   color: $link-color;
   text-decoration: none;
-  &:visited {
-    color: darken($link-color, 10%);
-  }
   .menu & {
     color: $link-color;
   }

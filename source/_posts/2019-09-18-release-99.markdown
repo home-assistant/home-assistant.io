@@ -266,12 +266,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
       password: password
   ```
 
-* **Radiotherm** - Update climate attributes. Automations may break if the user is checking against the previous "mode" or "fan" attributes or previous mode or fan attribute values. - ([@dieselrabbit] - [#26465]) ([radiotherm docs])
+- **Radiotherm** - Update climate attributes. Automations may break if the user is checking against the previous "mode" or "fan" attributes or previous mode or fan attribute values. - ([@dieselrabbit] - [#26465]) ([radiotherm docs])
 
   - The old "mode" attribute is now supported via "hvac_action" attribute.
   - The old "fan" attribute now called "fan_action" to follow "hvac_action" .
 
-* **SolarEdge** - Monitored conditions are no longer supported. - ([@Cereal2nd] - [#26282]) ([solaredge docs])
+- **SolarEdge** - Monitored conditions are no longer supported. - ([@Cereal2nd] - [#26282]) ([solaredge docs])
 
 - **SMA** - Removes deprecated SMA config - ([@balloob] - [#26306]) ([sma docs])
 

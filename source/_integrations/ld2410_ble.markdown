@@ -21,7 +21,7 @@ Integrates LD2410 BLE sensors from [Hi-Link](http://www.hlktech.net/) into Home 
 
 {% include integrations/config_flow.md %}
 
-You can currently configure the settings for motion/static triggers by USB with either the [desktop software](https://drive.google.com/drive/folders/1p4dhbEJA3YubyIjIIC7wwVsSo8x29Fq-?usp=sharing) or the Bluetooth [mobile app](https://www.pgyer.com/Lq8p).
+You can currently configure the settings for motion/static triggers by USB with either the [desktop software](https://drive.google.com/drive/folders/1p4dhbEJA3YubyIjIIC7wwVsSo8x29Fq-?usp=sharing) via Bluetooth. Download HLKRadarTool on [Google Play](https://play.google.com/store/apps/details?id=com.hlk.hlkradartool) or the [App Store](https://apps.apple.com/app/hlkradartool/id1638651152).
 
 (This integration may not work if you reconfigure the default password or the number of gates.)
 

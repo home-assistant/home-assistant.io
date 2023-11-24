@@ -7,6 +7,7 @@ ha_category:
   - Climate
   - Select
   - Sensor
+  - Water Heater
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: airzone
@@ -16,6 +17,7 @@ ha_platforms:
   - diagnostics
   - select
   - sensor
+  - water_heater
 ha_codeowners:
   - '@Noltari'
 ha_integration_type: integration
@@ -76,6 +78,12 @@ For each Airzone zone (Thermostat), the following *selects* are created:
 
 ## Sensors
 
+For the Airzone DHW, the following *sensors* are created:
+
+| Condition           | Description                        |
+| :------------------ | :--------------------------------- |
+| temperature         | Current DHW temperature.           |
+
 For the Airzone WebServer, the following *sensors* are created:
 
 | Condition           | Description                        |
@@ -88,3 +96,7 @@ For each Airzone zone (Thermostat), the following *sensors* are created:
 | :------------------ | :--------------------------------- |
 | humidity            | Current zone relative humidity.    |
 | temperature         | Current zone temperature.          |
+
+## Water Heater
+
+For each Airzone device a *water heater entity* is created if supported.

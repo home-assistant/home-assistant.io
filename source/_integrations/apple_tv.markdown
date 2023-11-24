@@ -22,7 +22,7 @@ The Apple TV integration allows you to control an Apple TV (any generation).
 
 There is currently support for the following entities within the Apple TV device:
 
-- [Media Player](#media_player)
+- [Media Player](#media-player)
 - [Remote](#remote)
 
 {% include integrations/config_flow.md %}
@@ -43,12 +43,12 @@ launch specific content in applications.
 
 Examples of some `Deep Links` for popular applications:
 
-| App       | URL |
-|-----------| --- |
-| YouTube   | youtube://www.youtube.com/watch?v=dQw4w9WgXcQ
-| Netflix   | https://www.netflix.com/title/80234304
-| Disney+   | https://www.disneyplus.com/series/the-beatles-get-back/7DcWEeWVqrkE
-| Apple TV+ | https://tv.apple.com/show/severance/umc.cmc.1srk2goyh2q2zdxcx605w8vtx
+| App       | URL                                                                   |
+| --------- | --------------------------------------------------------------------- |
+| YouTube   | youtube://www.youtube.com/watch?v=dQw4w9WgXcQ                         |
+| Netflix   | https://www.netflix.com/title/80234304                                |
+| Disney+   | https://www.disneyplus.com/series/the-beatles-get-back/7DcWEeWVqrkE   |
+| Apple TV+ | https://tv.apple.com/show/severance/umc.cmc.1srk2goyh2q2zdxcx605w8vtx |
 
 The simplest way to find useful `Deep Links` is to use the “Share” feature in iOS
 or macOS versions of the App. Share sheets will often have a “Copy” or
@@ -112,11 +112,11 @@ The following commands are currently available:
 
 ### Service `send_command`
 
-| Service data<br>attribute | Optional | Description  |
-| ------------------------- | -------- | ------------ |
-| `entity_id`               | no       | `entity_id` of the Apple TV |
-| `command`                 | no       | Command, or list of commands to be sent |
-| `num_repeats`             | yes      | Number of times to repeat the commands |
+| Service data<br>attribute | Optional | Description                                                                                    |
+| ------------------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| `entity_id`               | no       | `entity_id` of the Apple TV                                                                    |
+| `command`                 | no       | Command, or list of commands to be sent                                                        |
+| `num_repeats`             | yes      | Number of times to repeat the commands                                                         |
 | `delay_secs`              | yes      | Interval in seconds between one send and another <br> This is a `float` value e.g. 1, 1.2 etc. |
 
 ### Examples

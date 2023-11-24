@@ -4,6 +4,7 @@ description: Instructions on how to setup your Subaru account with Home Assistan
 ha_category:
   - Car
   - Lock
+  - Presence Detection
   - Sensor
 ha_release: 2021.3
 ha_iot_class: Cloud Polling
@@ -12,6 +13,7 @@ ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
 ha_platforms:
+  - device_tracker
   - diagnostics
   - lock
   - sensor
@@ -34,7 +36,7 @@ Subaru has deployed two generations of telematics, Gen 1 and Gen 2. The latter o
 | Outback   | 2016-2019 | 2020+ |
 | WRX       | 2017+     |       |
 
-In addition to the telematics generational differences, there are two levels of STARLINK subscriptions, "Safety Plus" and "Security Plus". All remote services (such as locks) require a "Security Plus" level subscription.
+In addition to the telematics generational differences, there are two levels of STARLINK subscriptions, "Safety Plus" and "Security Plus". All remote services (such as locks and location tracking) require a "Security Plus" level subscription.
 
 {% include integrations/config_flow.md %}
 
@@ -66,6 +68,11 @@ This integration supports remote locking and unlocking of vehicle doors.
 <p class='note'>
 The current lock status is always unknown due to the fact that the Subaru API does not report this data.
 </p>
+
+## Device Tracker
+
+Tracks the most recently reported location of the vehicle. The vehicle reports its location when it is turned off.
+
 
 ## Options
 

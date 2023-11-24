@@ -41,9 +41,9 @@ sensor:
 
 Every ten minutes, it'll fetch the last ten minutes average of the following measurements:
 
-  * Temperature
-  * Humidity
-  * Co2
-  * VOC
-  * PM2.5
-  * [Index](https://help.foobot.io/hc/en-us/articles/204814371-What-does-central-number-mean-)
+  - Temperature
+  - Humidity
+  - Co2
+  - VOC
+  - PM2.5
+  - [Index](https://help.foobot.io/hc/en-us/articles/204814371-What-does-central-number-mean-)

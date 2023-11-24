@@ -24,8 +24,11 @@ The following selectors are currently available:
 - [Backup location selector](#backup-location-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
+- [Condition selector](#condition-selector)
 - [Config entry selector](#config-entry-selector)
 - [Constant selector](#constant-selector)
+- [Conversation agent selector](#conversation-agent-selector)
+- [Country selector](#country-selector)
 - [Date selector](#date-selector)
 - [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
@@ -49,6 +52,7 @@ The following selectors are currently available:
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
+- [Trigger selector](#trigger-selector)
 
 Interactive demos of each of these selectors can be found on the
 [Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
@@ -326,6 +330,29 @@ max_mireds:
 
 The output of this selector is the number of mired selected, for example, `243`.
 
+## Condition selector
+
+The condition selector allows the user to input one or more conditions.
+On the user interface, the condition part of the automation editor will be shown.
+The value of the input will contain a list of conditions.
+
+![Screenshot of an condition selector](/images/blueprints/selector-condition.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+condition:
+```
+
+The output of this selector is a list of conditions. For example:
+
+```yaml
+# Example Condition selector output result
+- condition: numeric_state
+  entity_id: "sensor.outside_temperature"
+  below: 20
+```
+
 ## Config entry selector
 
 The config entry selector allows the user to select an integration
@@ -358,12 +385,34 @@ is that the constant selector has no value when it's not enabled.
 The selector's value must be configured, and optionally, a label.
 
 ```yaml
-boolean:
+constant:
   value: true
   label: Enabled
 ```
 
-The output of this selector is the configured value when the toggle is on, it has not output otherwise.
+The output of this selector is the configured value when the toggle is on, it has no output otherwise.
+
+## Conversation agent selector
+
+The conversation agent selector allows picking a conversation agent.
+
+![Screenshot of a conversation agent selector](/images/blueprints/selector-conversation-agent.png)
+
+The selector has 1 option, `language`. This filters the conversation agents shown, depending on the language.
+
+```yaml
+conversation_agent:
+  language: en
+```
+
+{% configuration conversation_agent %}
+language:
+  description: Limits the list of conversation agents to those supporting the specified language.
+  type: string
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the ID of the conversation agent.
 
 ## Date selector
 
@@ -379,6 +428,32 @@ date:
 
 The output of this selector will contain the date in Year-Month-Day
 (`YYYY-MM-DD`) format, for example, `2022-02-22`.
+
+## Country selector
+
+The country selector allows a user to pick a country from a list of countries.
+
+![Screenshot of a country selector](/images/blueprints/country_selector.png)
+
+```yaml
+country:
+```
+
+{% configuration entity %}
+countries:
+  description: A list of countries to pick from, this should be ISO 3166 country codes.
+  type: list
+  default: The available countries in the Home Assistant frontend
+  required: false
+no_sort:
+  description: >
+    Should the options be sorted by name, if set to true, the order of the provided countries is kept.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is an ISO 3166 country code.
 
 ## Date & time selector
 
@@ -939,6 +1014,12 @@ translation_key:
     for more information.
   type: string
   required: false
+sort:
+  description: >
+    Display options in alphabetical order.
+  type: boolean
+  required: false
+  default: false
 {% endconfiguration %}
 
 Alternatively, a mapping can be used for the options. When you want to return
@@ -1147,6 +1228,10 @@ multiline:
   type: boolean
   default: false
   required: false
+prefix:
+  description: An optional prefix to show before the text input box.
+  type: string
+  required: false
 suffix:
   description: An optional suffix to show after the text input box.
   type: string
@@ -1182,7 +1267,13 @@ installed in Home Assistant.
 theme:
 ```
 
-This selector does not have any other options; therefore, it only has its key.
+{% configuration theme %}
+include_default:
+  description: Includes Home Assistant default theme in the list.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
 
 The output of this selector will contain the selected theme, for example:
 `waves_dark`.
@@ -1202,3 +1293,26 @@ time:
 
 The output of this selector will contain the time in 24-hour format,
 for example, `23:59:59`.
+
+## Trigger selector
+
+The triggers selector allows the user to input one or more triggers.
+On the user interface, the trigger part of the automation editor is shown.
+The value of the input contains a list of triggers.
+
+![Screenshot of an trigger selector](/images/blueprints/selector-trigger.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+trigger:
+```
+
+The output of this selector is a list of triggers. For example:
+
+```yaml
+# Example trigger selector output result
+- platform: numeric_state
+  entity_id: "sensor.outside_temperature"
+  below: 20
+```∏

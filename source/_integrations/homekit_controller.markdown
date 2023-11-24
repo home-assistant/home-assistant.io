@@ -19,8 +19,8 @@ ha_iot_class: Local Push
 ha_bluetooth: true
 ha_config_flow: true
 ha_codeowners:
-  - "@Jc2k"
-  - "@bdraco"
+  - '@Jc2k'
+  - '@bdraco'
 ha_domain: homekit_controller
 ha_zeroconf: true
 ha_platforms:
@@ -31,6 +31,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - event
   - fan
   - humidifier
   - light
@@ -43,68 +44,79 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The [HomeKit](https://developer.apple.com/apple-home/) Device integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
+The [HomeKit](https://developer.apple.com/apple-home/) Device integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit Bridge](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
 
-The integration will automatically detect HomeKit compatible devices that are ready to pair if the [`zeroconf`](/integrations/zeroconf/) integration is enabled. This is enabled by default on new installations via the [`default_config`](/integrations/default_config/) integration.
+# Adding a HomeKit device
 
-To see which devices have been discovered see the "Integrations" page in your Home Assistant dashboard. When you click on "Configure" you can enter your HomeKit PIN and the device should be added to your Home Assistant instance. If your device is currently paired with an Apple device via HomeKit, you will need to reset it in order to pair it with Home Assistant. Once Home Assistant is configured to work with the device, you can export it back to Siri and Apple Home with the [`HomeKit`](/integrations/homekit/) integration.
+There are different methods to add a HomeKit device to Home Assistant:
 
-## Supported devices
+- [via Ethernet or Wi-Fi](#adding-a-homekit-device-via-ethernet-or-wi-fi)
+- [via Bluetooth](#adding-a-homekit-device-through-bluetooth)
+- via Thread
+  - [by using Home Assistant’s preferred Thread network](#adding-a-homekit-device-to-a-thread-network-via-home-assistant)
+  - [by using Apple Thread border router](#adding-a-homekit-device-via-apple-thread-border-router)
 
-There is currently support for the following device types within Home Assistant:
+## Adding a HomeKit device via Ethernet or Wi-Fi
 
-- Alarm Control Panel (HomeKit security system)
-- Climate (HomeKit thermostats and air conditioners)
-- Cover (HomeKit garage door openers, windows, or window coverings)
-- Light (HomeKit lights)
-- Lock (HomeKit lock)
-- Switch (HomeKit switches, outlets and valves)
-- Binary Sensor (HomeKit motion, contact, occupancy, carbon monoxide and smoke sensors)
-- Sensor (HomeKit humidity, temperature, co2 and light level sensors)
-- Fan
-- Air Quality
-- Humidifier (HomeKit humidifiers and dehumidifiers)
-- Automation Triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
-
-<div class='note'>
-
-If your device is not on this list then you may still be able to pair it, and it will be visible in the Device Registry. But Home Assistant may not create entities for it.
-
-</div>
-
-HomeKit IP accessories for these device types may work with some caveats:
-
-- If the device is Wi-Fi based and has no physical controls or screen then you may need an Apple HomeKit device like an iPhone or iPad to get the accessory onto your Wi-Fi network. For example, for a Koogeek LS1 you must add the accessory to HomeKit on your iOS device, then remove it from the iOS device. This leaves the LS1 in an unpaired state but still on your Wi-Fi. Home Assistant can then find it and pair with it.
-- You need to know the HomeKit PIN. There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
-
-The integration will poll your devices, but it will also automatically enable push updates for accessories that support it.
-
-## Adding a HomeKit device through Bluetooth
-
-The integration will automatically discover Bluetooth devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. Bluetooth devices may take significantly longer to pair than IP devices. Battery-powered devices may require pressing a button on the device to wake it before pairing can be successful.
+The HomeKit Device integration automatically detects HomeKit [compatible devices](#supported-devices) on your network when they are ready to pair.
 
 ### Prerequisites
 
+- If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`](/integrations/zeroconf/) to your `configuration.yaml` file.
+- Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
+   - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
+- Make sure your device is powered up.
+- Make sure the device is on your network, but not paired with another HomeKit controller. Depending on the device, you need to follow a different set of steps:
+  - If your device is not already in your network: Join the device to your network:
+    - Follow the instructions of the manufacturer on how to join the device to the network
+    - If the device is HomeKit only (for example the Koogeek LS1 light strip), pair it with the Apple Home app, then follow the next step.
+  - If your device is in your network but is paired with an Apple device via HomeKit: **Remove** the device from the Apple Home app.
+    - Otherwise you won't be able to pair it with Home Assistant.
+  - **Explanation:** Adding the device to the Home app and then removing it again has two effects:
+    - It adds the device to your network. It stays in the network even after you removed it from the app.
+    - Removing the device from the app opens it up for pairing with Home Assistant's HomeKit Device integration directly. HomeKit devices can only be paired to a single controller at once.
+
+
+### To add a HomeKit device via Ethernet or Wi-Fi
+
+1. The device should have been discovered under **{% my integrations title="Settings > Devices & Services" %}**.
+2. On the HomeKit Device integration, select **Configure**.
+     
+     ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
+3. Enter your HomeKit pairing code.
+   - Add the device to a room and select **Finish**.
+   - The device should now be added to your Home Assistant instance.
+4. Once Home Assistant is configured to work with the device, you can export it back to Siri and Apple Home with the [`HomeKit Bridge`](/integrations/homekit/) integration.
+
+## Adding a HomeKit device through Bluetooth
+
+You can add a HomeKit [compatible device](#supported-devices) to Home Assistant via [Bluetooth](/integrations/bluetooth).
+
+### Prerequisites
+
+- Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
+   - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 - If your Home Assistant instance does not natively support Bluetooth, use an ESPHome Bluetooth proxy.
   - A proxy can also be helpful if your Home Assistant device is too far away from the device you are trying to pair.
 - If your HomeKit device has been used with Thread before, or is still paired with iOS, reset the device.
   - HomeKit devices can only be paired to a single controller at once.
   - If it has been in a Thread network before, the device might remember the Thread credentials of a different network. A reset makes sure the device is not connected to any Thread network.
 
-## To add a HomeKit device through Bluetooth
+### To add a HomeKit device through Bluetooth
 
 1. Power up your HomeKit device.
    - If you have Bluetooth enabled, the device should be discovered under **{% my integrations title="Settings > Devices & Services" %}**.
-1. Under **{% my integrations title="Settings > Devices & Services" %}**, on the HomeKit integration, select **Configure**.
-   ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
-1. To pair the device, enter the HomeKit pairing code. The code is on the device itself or the packaging.
+2. On the HomeKit Bridge integration, select **Configure**.
+     
+     ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
+3. To pair the device, enter the HomeKit pairing code.
    - To pair a battery-powered device, you may need to press a button on the device to wake it.
    - Bluetooth devices may take significantly longer to pair than IP devices.
    - Add the device to a room and **Finish**.
 
 ## Adding a HomeKit device to a Thread network via Home Assistant
 
-There are two methods to add a HomeKit device to a Thread network:
+There are two methods to add a HomeKit [compatible device](#supported-devices) to a Thread network:
 
 - via Home Assistant's preferred Thread network
 - via [Apple Thread border router](#adding-a-homekit-device-to-home-assistant-via-apple-thread-border-router)
@@ -125,22 +137,22 @@ This section describes how to add it via Home Assistant's preferred Thread netwo
 ### To add a HomeKit device to a Thread network via Home Assistant
 
 1. To open the device configuration page, on the **HomeKit** integration, select the **device**.
-1. Under **Diagnostic**, you can see the **Thread Status** as **Disabled**.
+2. Under **Diagnostic**, you can see the **Thread Status** as **Disabled**.
    ![Device configuration page](/images/integrations/homekit_controller/homekit_controller_add_02.png)
-1. To enable Thread, under **Configuration**, select **Press**. This will provision the preferred Thread credentials.
+3. To enable Thread, under **Configuration**, select **Press**. This will provision the preferred Thread credentials.
    - The status has now changed:
      - Depending on the device type, the mesh size and health, the Thread status can be **Child**, **Router**, or **Leader**.
        ![Thread status](/images/integrations/homekit_controller/homekit_controller_add_02.png)
    - That's it. Your HomeKit device now communicates via Thread.
 
-## Adding a HomeKit device to Home Assistant via Apple Thread border router
+## Adding a HomeKit device via Apple Thread border router
 
-There are two methods to add a HomeKit device to a Thread network:
+There are two methods to add a HomeKit [compatible device](#supported-devices) to a Thread network:
 
 - via [Home Assistant's preferred Thread network](#adding-a-homekit-device-to-a-thread-network-via-home-assistant)
 - via Apple Thread border router
 
-This section describes how to add a HomeKit device using an Apple Thread border router device such as a HomePod mini.
+This section describes how to add a HomeKit [compatible device](#supported-devices) using an Apple Thread border router device such as a HomePod mini.
 
 ### Prerequisites
 
@@ -149,25 +161,50 @@ This section describes how to add a HomeKit device using an Apple Thread border 
 - Make sure your Home Assistant instance is on the same network (LAN) as the border router.
 - Make sure the HomeKit device has been paired in the Apple Home app (using the iOS Home app).
 
-### To add a HomeKit device to Home Assistant via Apple Thread border router
+### To add a HomeKit device via Apple Thread border router
 
 1. Remove the HomeKit device from the Apple Home app. Don't reset the device.
    - This leaves the Thread network details on the HomeKit device.
    - The device will be automatically discovered by the HomeKit controller integration in Home Assistant.
    - It will appear as a discovered device over Thread.
-1. Under **{% my integrations title="Settings > Devices & Services" %}**, on the HomeKit integration, select **Configure**.
+2. Under **{% my integrations title="Settings > Devices & Services" %}**, on the HomeKit integration, select **Configure**.
 
    ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
 
-1. To pair the device, enter the HomeKit pairing code. The code is on the device itself or the packaging.
+3. To pair the device, enter the HomeKit pairing code. The code is on the device itself or the packaging.
    - To pair a battery-powered device, you may need to press a button on the device to wake it.
    - Bluetooth devices may take significantly longer to pair than IP devices.
    - Add the device to a room and **Finish**.
-1. To open the device configuration page, on the **HomeKit** integration, select the **device**.
-1. Under **Diagnostic**, check the status:
+4. To open the device configuration page, on the **HomeKit** integration, select the **device**.
+5. Under **Diagnostic**, check the status:
    - Depending on the device type, the mesh size and health, the Thread status can be **Child**, **Router**, or **Leader**.
      ![Thread status](/images/integrations/homekit_controller/homekit_controller_add_02.png)
    - That's it. Your HomeKit device now communicates via Thread.
+
+## Supported devices
+
+There is currently support for the following device types (also called *domains*) within Home Assistant. They are listed with their default types.
+
+- Alarm Control Panel (HomeKit security system)
+- Climate (HomeKit thermostats and air conditioners)
+- Cover (HomeKit garage door openers, windows, or window coverings)
+- Light (HomeKit lights)
+- Lock (HomeKit lock)
+- Switch (HomeKit switches, outlets and valves)
+- Binary Sensor (HomeKit motion, contact, occupancy, carbon monoxide and smoke sensors)
+- Sensor (HomeKit humidity, temperature, co2 and light level sensors)
+- Fan
+- Air Quality
+- Humidifier (HomeKit humidifiers and dehumidifiers)
+- Automation Triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
+
+<div class='note'>
+
+  If your device is not on this list then you may still be able to pair it, and it will be visible in the Device Registry. But Home Assistant may not create entities for it.
+
+</div>
+
+The integration will enable push updates. Devices that connect through Wi-Fi or Ethernet may fall back to only polling if the connection is unstable.
 
 ## 'Stateless' switches and sensors
 

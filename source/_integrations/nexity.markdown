@@ -2,7 +2,7 @@
 title: Nexity Eugénie
 description: Connect and control your Nexity Eugénie devices using the Overkiz integration
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Binary Sensor
   - Button
   - Climate

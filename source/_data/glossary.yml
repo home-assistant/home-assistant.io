@@ -76,6 +76,15 @@
     such as on or off.
   link: /integrations/binary_sensor
 
+- term: Blueprint
+  definition: >-
+    A blueprint is a script or automation configuration with certain parts marked as configurable. This allows users to create multiple scripts or automations based on the same blueprint, with each having its own configuration-specific settings. Blueprints are shared by the community on the [blueprints exchange](https://community.home-assistant.io/c/blueprints-exchange/53) in the forum.
+  link: /docs/blueprint/
+  excerpt: >-
+    A blueprint is a script or automation configuration with certain parts marked as configurable. This allows users to create multiple scripts or automations based on the same blueprint, with each having its own configuration-specific settings.
+  aliases:
+    - blueprints
+
 - term: Component
   definition: >-
     Better known as: Integrations. Integrations used to be known as components.
@@ -230,6 +239,18 @@
     Home Assistant OS, the Home Assistant Operating System, is an embedded,
     minimalistic, operating system designed to run the Home Assistant ecosystem.
 
+- term: Host
+  definition: >-
+    A device that can communicate with other devices on a network. During setup and configuration,
+    an input requesting a **Host** typically refers to a device's network address so that
+    Home Assistant can attempt to connect to it. This may be in the form of a hostname, URL,
+    IP address or some other type of network identifier.
+  excerpt: >-
+    A device that can communicate with other devices on a network.
+  link: https://en.wikipedia.org/wiki/Host_(network)
+  aliases:
+    - hosts
+
 - term: Integration
   definition: >-
     Integrations connect and integrates Home Assistant with devices, services,
@@ -374,7 +395,7 @@
 
     State changes can be used as the source of triggers. The current state can be used in conditions.
     
-  link: /docs/scripts/configuration/state_object/
+  link: /docs/configuration/state_object/
   excerpt: >
     The state holds the information of interest of an entity, for example, if a light is on or off. Each entity has exactly one state and the state only holds one value at a time. However, entities can store attributes related to that state such as brightness, color, or a unit of measurement.
 

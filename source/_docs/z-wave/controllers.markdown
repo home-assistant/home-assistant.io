@@ -20,13 +20,15 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
 
 </div>
 
-- 800 series controllers
+- 800 series controllers (with some caveats, see notes)
   - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
 - 700 series controllers
   - Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)
   - Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
   - Zooz S2 Stick 700 (ZST10 700)
+  - HomeSeer SmartStick+ G3
+  - HomeSeer Z-NET G3
 
 - 500 series controllers
   - Aeotec Z-Stick Gen5 (see note below)
@@ -35,6 +37,8 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
   - Sigma Designs UZB stick
   - Vision USB stick - Gen5
   - Z-Wave.Me UZB1 stick
+  - HomeSeer SmartStick+ G2
+  - HomeSeer Z-NET G2
 
 - Raspberry Pi modules
   - Aeotec Z-Pi 7 Raspberry Pi HAT/Shield (ZWA025, 700 series)
@@ -58,6 +62,15 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 - [Z-Wave.Me Z-Way](/integrations/zwave_me)
 
 ## Controller Notes
+
+### 800 Series Controllers
+
+Z-Wave JS and Z-Wave JS UI do not support the following features available on most 800 series controllers.
+
+Unsupported:
+
+ - Long Range
+ - NVM Backup/Restore
 
 ### Aeotec Z-Stick
 
@@ -128,13 +141,13 @@ You should also check the README for details on the overlays. You might find it 
 
 This procedure has been tested with the following modules:
 
-  * Aeotec Z-Pi 7 Raspberry Pi HAT/Shield
-  * Z-Wave.Me RaZberry 7
-  * Z-Wave.Me RaZberry 7 Pro
+  - Aeotec Z-Pi 7 Raspberry Pi HAT/Shield
+  - Z-Wave.Me RaZberry 7
+  - Z-Wave.Me RaZberry 7 Pro
 
 1. Make sure the module is properly seated on the Home Assistant Yellow. 
    ![Aeotec Z-Pi 7 on Home Assistant Yellow](/images/docs/z-wave/zpi-7-yellow.jpg).
-1. Carefully [close the case](https://yellow.home-assistant.io/guides/add-ssd-existing-installation/#reassembling-top-part) and power up Home Assistant Yellow.
-1. Follow the procedure on [setting up a Z-Wave JS server](/integrations/zwave_js/#setting-up-a-z-wave-js-server).
+2. Carefully [close the case](https://yellow.home-assistant.io/guides/add-ssd-existing-installation/#reassembling-top-part) and power up Home Assistant Yellow.
+3. Follow the procedure on [setting up a Z-Wave JS server](/integrations/zwave_js/#setting-up-a-z-wave-js-server).
    1. In step 2, follow the manual setup steps to install the Z-Wave integration.
-   1. in Step 4, you will be prompted to choose a **Device path**. Choose **ttyAMA0**.
+   2. in Step 4, you will be prompted to choose a **Device path**. Choose **ttyAMA0**.

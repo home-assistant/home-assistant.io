@@ -3,6 +3,7 @@ title: Matter (BETA)
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
   - Cover
   - Light
   - Lock
@@ -16,8 +17,10 @@ ha_codeowners:
 ha_domain: matter
 ha_platforms:
   - binary_sensor
+  - climate
   - cover
   - diagnostics
+  - event
   - light
   - lock
   - sensor
@@ -50,7 +53,7 @@ Home Assistant, as a Matter controller, only supports **control** of Matter devi
 
 ## Thread
 
-Matter goes hand-in-hand with (but is not the same as) [Thread](<https://en.wikipedia.org/wiki/Thread_(network_protocol)>), which is a low power Radio mesh networking techology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport for Matter.
+Matter goes hand-in-hand with (but is not the same as) [Thread](<https://en.wikipedia.org/wiki/Thread_(network_protocol)>), which is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport for Matter.
 
 Thread devices become directly addressable by Matter controllers (such as Home Assistant) thanks to the use of so-called Thread Border Routers, which are in fact just devices that are both within your network and have a Thread chip builtin and thus act as a "router" between the Thread radio signal and your local network. These border routers (you will probably end up having multiple of them in your house) make sure that your Thread-based devices are reachable on your regular network and thus can be controlled with Matter. Examples of Thread Borders routers are the Apple TV 4K, HomePod (gen 2 or Mini), and the Google Nest Hub V2, so devices that you may already own. Besides that, all kind of other border routers are available, built-in to hardware appliances or software solutions based on OpenThread Border Router, such as the add-on we provide to use with the built-in Zigbee/Thread chip of the [Home Assistant Yellow](/yellow/) or the [Home Assistant SkyConnect](/skyconnect/) dongle.
 
@@ -77,31 +80,19 @@ For devices where Home Assistant provides a native integration (with local API),
 
 ![image](/images/integrations/matter/matter_thread_infographic.webp)
 
-Image taken from [this excellent article by The Verge](https://www.theverge.com/23165855/thread-smart-home-protocol-matter-apple-google-interview) about Matter that shows the landcape of Matter, Thread, Border routers and bridges in a nice visualized way.
+Image taken from [this excellent article by The Verge](https://www.theverge.com/23165855/thread-smart-home-protocol-matter-apple-google-interview) about Matter that shows the landscape of Matter, Thread, Border routers and bridges in a nice visualized way.
 
 {% include integrations/config_flow.md %}
 
 For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" in a separate process which will be launched as an add-on. This add-on runs the controller software and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
 
-The only supported configuration (for now) for the Matter integration is by running the officially provided Home Assistant Matter add-on. Running the [Matter server](https://github.com/home-assistant-libs/python-matter-server) by any other means is at your own risk and is currently not officially supported.
+### Supported installation types
 
-## Current state of the integration
+It is recommended to run the Matter add-on on Home Assistant OS. This is currently the best-supported option.
 
-While the support for Matter is evolving, we will regularly update the Matter integration with new features or device support. Because it might be hard to track what's supported and what's not, we list the current state here and try to update this information regularly.
+If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
 
-Supported platforms (device types):
-
-- Binary sensor: We have so far tested door/window sensors and motion sensors, but others will probably work too.
-- Climate: Support for thermostat devices is in development now.
-- Cover: Has been implemented, but support for a tilt feature is still missing.
-- Lights: All features (in the Matter specification) should be supported, including color control, etc.
-- Locks: Basic lock control has been implemented, but not all devices and features are supported yet.
-- Sensor: We have tested Illuminance and temperature sensors, but others will probably work too.
-- Switch: Powerplugs should work (note: no support for energy metering yet in Matter).
-
-Note that a single Matter device can exist on multiple platforms. For example, a Motion sensor also has a temperature sensor and an illuminance sensor on board.
-
-If you own a (bridged) Matter device and you are missing controls for this device, create an issue on [GitHub](https://github.com/home-assistant/home-assistant.io) and make sure to post your Integration diagnostics there. In some cases, we can easily extend the existing platform support based on your diagnostics dump.
+Running Matter on a Home Assistant Core installation is not supported.
 
 ## Adding Matter devices to Home Assistant
 
@@ -160,23 +151,20 @@ This method will allow you to share a device that was added to Google Home to Ho
 
 <lite-youtube videoid="-B4WWevd2JI" videotitle="Share Matter device from Google Home to Home Assistant"></lite-youtube>
 
-<p class='note'>
-At this time it is not yet possible to share a device from Home Assistant to another platform. This feature should be added after the Matter SDK 1.1 is released.
-</p>
 
 ## Experiment with Matter using a ESP32 dev board
 
-You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lightning app.
+You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lighting app.
 
 NOTE for Android users: You need to follow the instructions at the bottom of the page to add the test device to the Google developer console, otherwise commissioning will fail. iOS users will not have this issue but they will get a prompt during commissioning asking if you trust the development device.
 
 1. Make sure you use Google Chrome or Microsoft Edge browser.
 2. Open https://nabucasa.github.io/matter-example-apps/
 3. Attach the ESP32 device using a USB cable.
-4. Select the radio button next to the example you like to set up, in case of an M5 Stamp, click **Lightning app for M5STAMP C3**.
+4. Select the radio button next to the example you like to set up, in case of an M5 Stamp, click **Lighting app for M5STAMP C3**.
 5. Select **Connect**.
 6. In the popup dialog that appears, choose the correct serial device. This will usually be something like "cu-usbserial" or alike.
-7. Click **Install Matter Lightning app example** and let it install the firmware on the device. This will take a few minutes.
+7. Click **Install Matter Lighting app example** and let it install the firmware on the device. This will take a few minutes.
 8. Once the device is flashed with the Matter firmware, connect to the device again but this time choose **Logs & console**.
 9. You are presented with a console interface where you see live logging of events. This is an interactive shell where you can type commands. For a list of all commands, type **matter help** and press enter.
 10. To add the device, we need the QR code. In the console, type in `matter onboardingcodes ble` and copy/paste the URL into your browser.
@@ -194,7 +182,6 @@ Did you test a device that is not listed below? It would be greatly appreciated 
 - You need to enable Matter support/firmware in the Aqara app.
 - You will need an Aqara (cloud) account and the app before you can use Matter.
 - See [this Aqara landingpage](https://www.aqara.com/en/article-1583275073188196352.html) for more information, including what devices are bridged.
-- Thermostat devices (climate platform) are not supported yet (but are currently in development).
 - Device events, for example for the wall rockers and Cube, are not supported.
 
 ### Eve Energy (power plug), Eve Door & Window (contact sensor), Eve Motion (motion sensor)
@@ -209,19 +196,29 @@ Did you test a device that is not listed below? It would be greatly appreciated 
 [Eve Door & Window on Amazon](https://amzn.to/3RIU6ml)
 [Eve Motion on Amazon](https://amzn.to/3jDujiP)
 
-### Nanoleaf Matter bulbs and Lightstrips
+### Nanoleaf (Essentials) Matter bulbs and Lightstrips
 
 - Although the products work great once commissioned, multiple users have reported that commissioning them can be a bit difficult and requires some patience and multiple resets or optimizations to your home network.
 - Check the [Nanoleaf Matter infopage](https://nanoleaf.me/en-EU/integration/matter/) for all supported products and instructions.
 
 ### Philips Hue (V2) Bridge
 
-The Philips Hue V2 bridge supports Matter since a recent update (the beta program closed, it is now officially available). You can enable Matter support from the Hue app after which you can commission it to Home Assistant and other fabrics.
+The Philips Hue V2 bridge supports Matter. You can enable Matter support in the Hue app. You can then commission it to Home Assistant and other fabrics.
 
 - Binding the Hue bridge to Home Assistant does not make sense because you will lose functionality over the default Hue integration in Home Assistant, such as button press events and (dynamic) scenes.
 - You will need a Hue/Signify (cloud) account and the app before you can use Matter.
 - Device events for example for dimmer remotes are not supported.
 - Only basic control of lights is supported, no scenes, events, effects etc.
+
+### SwitchBot Hub 2
+
+SwitchBot has released a (beta) firmware update to enable Matter support on their Hub 2. The SwitchBot Hub 2 is a Matter bridge device. It is bridging some of the devices, such as curtain motors, into Matter.
+
+- To use Matter, in the SwitchBot app, enable Matter bridge support. Then, copy the code and use that to commission the Hub to Home Assistant. Another option is to use a second device to scan the QR code.
+- Device support is limited. You bridge specific devices to Matter by adding them as **Secondary device** in the app. Note that not all SwitchBot devices can be bridged.
+- Enabling Matter support does not convert the actual SwitchBot devices into matter devices. Those still need to be within the Bluetooth range of the hub.
+- Bridged SwitchBot devices appear with a rather technical name in Home Assistant. This is a known issue.
+
 
 ### Tasmota
 
@@ -229,7 +226,7 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 
 ### TP-Link Tapo P125M (power plug)
 
-- Look for the M addition in the model name, a device without the M (regular P125) is not Matter compliant.
+- Look for the _M_ addition in the model name. A device without the M (regular P125) is not Matter compliant.
 - This device is available in the US only.
 
 [TP-Link Tapo P125M on Amazon](https://amzn.to/3RILJah)
@@ -238,15 +235,18 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 
 ### General recommendations
 
-- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS (version 10 and above) because of kernel patches to solve routing issues. Not using HAOS (and thus the official Matter add-on) is at your own risk.
+- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Not using Home Assistant OS is at your own risk. We do provide some [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) on how to run the Matter Server as a Docker container. The documentation includes a description of the host and networking requirements.
 
 - To use Thread devices you will need a Thread Network with at least one Thread Border Router in your network nearby the Thread device(s). Apple users need for example the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub V2. Use the Thread integration in Home Assistant to diagnose your Thread network(s).
 
-- Start simple and work from there, keep your network easy and add for example an ESP32 test device. Once that works, move on to the next step or more devices.
+- Start simple and work from there, keep your network simple and add for example an ESP32 test device. Once that works, move on to the next step or more devices.
 
 - Realize that you are an early adopter, both on the hardware side and on the software (controller) side so you may run into compatibility issues or features that are still missing. Report any issues you may find and help out others if you find a workaround or tested a device.
 
-- Make sure IPv6 (multicast) traffic travels freely from your network to the Home Assistant host. There is no requirement to have an IPv6-enabled internet connection or DHCPv6 server. However, IPv6 support has to be enabled (it's enabled by default on Home Assistant OS).
+- Make sure IPv6 (multicast) traffic travels freely from your network to the Home Assistant host. There is no requirement to have an IPv6-enabled internet connection or DHCPv6 server. However, IPv6 support has to be enabled on Home Assistant. Go to **{% my network title="Settings > System > Network" %}**, and make sure **IPv6** is set to **Automatic** or **static**, depending on your network setup. If you're unsure, use **Automatic**.
+
+- For more detailed information on network configuration, refer to the [README of the Matter server repository](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md).
+
 
 ### I do not see the button "Commission using the Companion app"
 
@@ -266,4 +266,4 @@ Also see this [extended troubleshooting guide](https://developers.home.google.co
 
 The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use Wi-Fi (including Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use Thread must be joined to Thread networks for which there is at least one border router connected to the Home Assistant LAN.
 
-Investigate your network topology if you experience any issues with discovering devices (like the initial commission keeps failing) or if devices become unavailable randomly. For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nicely with enterprise networking solutions like VLANs, Multicast filtering, and IGMP snooping. Try to keep your network as simple and flat as possible to avoid issues.
+If you experience any issues with discovering devices (for example, if the initial commission keeps failing or if devices become unavailable randomly), investigate your network topology. For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and may not integrate well with enterprise networking solutions like VLANs, Multicast filtering, and (malfunctioning) IGMP snooping. To avoid issues, try to keep your network topology as simple and flat as possible.

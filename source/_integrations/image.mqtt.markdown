@@ -25,14 +25,8 @@ To enable this image in your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  image:
-    - topic: zanzito/shared_locations/my-device
-```
-
-The sample configuration above can be tested by publishing an image to the topic from the console:
-
-```shell
-mosquitto_pub -h <mqtt_broker> -t zanzito/shared_locations/my-device -f <image_filename.jpg>
+  - image:
+      url_topic: mynas/status/url
 ```
 
 {% configuration %}
@@ -73,7 +67,7 @@ availability_topic:
   required: false
   type: string
 content_type:
-  description: The content type of and image data message received on `image_topic`. This option cannot be used with the `from_url_topic` because the content type is derived when downloading the image.
+  description: The content type of and image data message received on `image_topic`. This option cannot be used with the `url_topic` because the content type is derived when downloading the image.
   required: false
   type: string
   default: image/jpeg
@@ -83,7 +77,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -159,7 +153,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the image.
+  description: The name of the image. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
 object_id:
@@ -180,7 +174,7 @@ url_topic:
   type: string
 {% endconfiguration %}
 
-### Example receiving images from from a URL
+### Example receiving images from a URL
 
 Add the configuration below to your `configuration.yaml`.
 
@@ -195,8 +189,30 @@ mosquitto_pub -h <mqtt_broker> -t mynas/status/url -m "https://design.home-assis
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  image:
-    - from_url_topic: mynas/status/url
+  - image:
+      url_topic: mynas/status/url
+```
+
+{% endraw %}
+
+### Example receiving images from a file
+
+Add the configuration below to your `configuration.yaml`.
+
+To test it, publish an image URL to the topic from the console:
+
+```shell
+mosquitto_pub -h <mqtt_broker> -t mynas/status/file -f <logo.png>
+```
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  - image:
+      image_topic: mynas/status/file
+      content_type: image/png
 ```
 
 {% endraw %}

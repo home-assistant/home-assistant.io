@@ -56,6 +56,10 @@ authentication:
   description:  Type of the HTTP authentication. `basic` or `digest`.
   required: false
   type: string
+availability:
+  description: Defines a template if the entity state is available or not.
+  required: false
+  type: template
 device_class:
   description: Sets the [class of the device](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
   required: false

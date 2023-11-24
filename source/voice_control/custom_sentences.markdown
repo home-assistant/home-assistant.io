@@ -1,5 +1,5 @@
 ---
-title: "Assist - Custom Sentences"
+title: "Assist - custom sentences"
 ---
 
 You may add your own sentences to the intent recognizer by either extending an [existing intent](https://developers.home-assistant.io/docs/intent_builtin/) or creating a new one. You may also [customize responses](#customizing-responses) for existing intents.
@@ -12,22 +12,24 @@ This is the easiest method to get started with custom sentences for automations.
 
 If you have not set up voice control yet, set up the hardware first. For instructions, refer to one of the following tutorials:
 
-- [World's most private voice assistant](/voice_control/worlds-most-private-voice-assistant/): Using a phone.
-- [$13 voice remote for Home Assistant](/voice_control/thirteen-usd-voice-remote/): Using a button with speaker and mic.
+- [World's most private voice assistant](/voice_control/worlds-most-private-voice-assistant/): Using a classic landline phone
+- [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/): Using a button with speaker and mic
+- [Assist for Apple](/voice_control/apple/): Using your iPhone, Mac, or Apple watch
+- [Assist for Android](/voice_control/android/): Using your Android phone, tablet, or a Wear OS watch
 
 ### To add a custom sentence to trigger an automation
 
 1. Under **{% my automations title="Settings > Automations & Scenes" %}**, in the bottom right corner, select **Create automation**.
-1. In the **Trigger** drop-down menu, select **Sentence**.
-1. Enter one or more sentences that you would like to trigger an automation.
-   * Do not use punctuation.
-   * You can add multiple sentences. They will then all trigger that automation.
+2. In the **Trigger** drop-down menu, select **Sentence**.
+3. Enter one or more sentences that you would like to trigger an automation.
+   - Do not use punctuation.
+   - You can add multiple sentences. They will then all trigger that automation.
    ![Add a custom sentence](/images/assist/sentence_trigger_01.png)
-1. To test the automation, go to **Overview** and in the top right corner, open Assist.
+4. To test the automation, go to **Overview** and in the top right corner, open Assist.
    - Enter one of the sentences.
-1. If it did not work out, checkout the [troubleshooting](/voice_control/troubleshooting/) section.
+5. If it did not work out, checkout the [troubleshooting](/voice_control/troubleshooting/) section.
    - One of the causes could be that the device you're targeting has not been exposed to Assist.
-1. Pick up your voice control device and speak the custom sentence.
+6. Pick up your voice control device and speak the custom sentence.
    - Your automation should now be triggered.
 
 ## Setting up custom sentences in configuration.yaml
@@ -120,7 +122,7 @@ intent_script:
 
 {% endraw %}
 
-## Customizing Responses
+## Customizing responses
 
 Responses for existing intents can be customized as well in `config/custom_sentences/<language>`:
 
@@ -136,3 +138,12 @@ responses:
 ```
 
 {% endraw %}
+
+
+## Related topics
+
+- [View existing intents](https://developers.home-assistant.io/docs/intent_builtin/)
+- [Create aliases](/voice_control/aliases/)
+- [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/)
+- [Assist for Apple](/voice_control/apple/)
+- [Assist for Android](/voice_control/android/)

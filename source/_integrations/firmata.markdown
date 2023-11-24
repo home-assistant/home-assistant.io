@@ -133,7 +133,7 @@ lights:
       required: false
       default: 255
       type: integer
-binary_sensor:
+binary_sensors:
   description: Digital or analog high/low input to configure
   required: false
   type: list
@@ -155,7 +155,7 @@ binary_sensor:
       required: false
       default: False
       type: boolean
-sensor:
+sensors:
   description: Analog input to configure
   required: false
   type: list

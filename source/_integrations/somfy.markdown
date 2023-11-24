@@ -2,7 +2,7 @@
 title: Somfy
 description: Connect and control your Somfy devices using the Overkiz integration
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Binary Sensor
   - Button
   - Climate

@@ -12,6 +12,7 @@ ha_platforms:
   - button
   - climate
   - diagnostics
+  - number
   - sensor
   - water_heater
 ha_dhcp: true
@@ -27,6 +28,7 @@ There is currently support for the following device types within Home Assistant:
 - [Water Heater](#water-heater) (Domestic Hot Water)
 - [Sensor](#sensor) (Sensor)
 - [Button](#button) (Button)
+- [Number](#number)
 
 {% include integrations/config_flow.md %}
 
@@ -43,6 +45,8 @@ The required Client ID can be obtained as follows:
 4. Copy the Client ID from the Viessmann portal and enter this in the API Key field in Home Assistant.
 
 The `heating_type` can either be `auto` to automatically find the most suitable type for your device or one of `gas`, `oil`, `pellets`, `heatpump`, `fuelcell`, `hybrid`.
+
+Important: the redirect URI that you configure requires that you perform the initial setup on a device that has the ViCare application installed. If your device does not know how to handle the `vicare://` URL, you will receive an **Invalid credentials** notification and the setup procedure will fail. This means: install the ViCare app on your phone and set up the integration from your phone.
 
 Multiple device instances might be generated depending on the number of burners and/or circuits of your installation. If there is more than a single instance all devices are suffixed with the circuit or burner ID.
 
@@ -134,3 +138,7 @@ Additional data from ViCare is available as separate sensors. The sensors are au
 ## Button
 
 Button entities are available for triggering like a one-time charge of the water heater.
+
+## Number
+
+Number entities are available for adjusting the heating curve shift and slope.

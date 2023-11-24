@@ -6,6 +6,7 @@ ha_category:
   - Camera
   - Environment
   - Sensor
+  - Weather
 ha_release: 0.14
 ha_iot_class: Cloud Polling
 ha_domain: bloomsky

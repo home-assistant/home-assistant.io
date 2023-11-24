@@ -1,6 +1,5 @@
 ---
 title: Wiffi
-logo: wiffi.png
 description: Support for WIFFI devices from stall.biz, e.g., Weatherman, Rainyman, ...
 ha_category:
   - DIY

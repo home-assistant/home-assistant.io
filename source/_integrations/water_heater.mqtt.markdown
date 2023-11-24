@@ -19,8 +19,8 @@ To enable this water heater platform in your installation, first add the followi
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  water_heater:
-    - name: Boiler
+  - water_heater:
+      name: Boiler
       mode_command_topic: "basement/boiler/mode/set"
 ```
 
@@ -75,7 +75,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -158,7 +158,7 @@ mode_command_template:
   required: false
   type: template
 mode_command_topic:
-  description: The MQTT topic to publish commands to change the Water Heater operation mode. Use with `mode_command_template` if you only want to publish the power state.
+  description: The MQTT topic to publish commands to change the Water Heater operation mode.
   required: false
   type: string
 mode_state_template:
@@ -175,7 +175,7 @@ modes:
   default: ['off', 'eco', 'electric', 'gas', 'heat_pump', 'high_demand', 'performance']
   type: list
 name:
-  description: The name of the Water Heater.
+  description: The name of the Water Heater. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Water Heater
@@ -208,6 +208,14 @@ payload_on:
   required: false
   type: string
   default: "ON"
+power_command_template:
+  description: A template to render the value sent to the `power_command_topic` with. The `value` parameter is the payload set for `payload_on` or `payload_off`.
+  required: false
+  type: template
+power_command_topic:
+  description: The MQTT topic to publish commands to change the water heater power state. Sends the payload configured with `payload_on` if the water heater is turned on via the `water_heater.turn_on`, or the payload configured with `payload_off` if the water heater is turned off via the `water_heater.turn_off` service. Note that `optimistic` mode is not supported through `water_heater.turn_on` and `water_heater.turn_off` services. When called, these services will send a power command to the device but will not optimistically update the state of the water heater. The water heater device should report its state back via `mode_state_topic`.
+  required: false
+  type: string
 precision:
   description: The desired precision for this device. Can be used to match your actual water heater's precision. Supported values are `0.1`, `0.5` and `1.0`.
   required: false
@@ -267,8 +275,8 @@ Say you receive the operation mode `"off"` via your `mode_state_topic`, but the 
 
 ```yaml
 mqtt:
-  water_heater:
-    - name: Boiler
+  - water_heater:
+      name: Boiler
       modes:
         - "off"
         - "eco"
@@ -293,8 +301,8 @@ A full configuration example looks like the one below.
 ```yaml
 # Full example configuration.yaml entry
 mqtt:
-  water_heater:
-    - name: Boiler
+  - water_heater:
+      name: Boiler
       modes:
         - "off"
         - "eco"

@@ -13,7 +13,7 @@ The `facebox` image processing platform allows you to detect and recognize faces
 
 ## Setup
 
-Facebox runs in a Docker container and it is recommended that you run this container on a x86 machine with a minimum of 2 GB RAM (an ARM version is not available). On your machine with Docker, run the Facebox container with:
+Facebox runs in a Docker container, and it is recommended that you run this container on a x86 machine (an ARM version is not available) with a minimum of 2 GB RAM. On your machine with Docker, run the Facebox container with:
 
 ```bash
 MB_KEY="INSERT-YOUR-KEY-HERE"
@@ -37,13 +37,13 @@ services:
       - MB_FACEBOX_DISABLE_RECOGNITION=false
 ```
 
-You can run Facebox with a username and password by adding `-e "MB_BASICAUTH_USER=my_username" -e "MB_BASICAUTH_PASS=my_password"` but bear in mind that the integration does not encrypt these credentials and this approach does not guarantee security on an unsecured network.
+You can run Facebox with a username and password by adding `-e "MB_BASICAUTH_USER=my_username" -e "MB_BASICAUTH_PASS=my_password"`, but bear in mind that the integration does not encrypt these credentials, and this approach does not guarantee security on an unsecured network.
 
 After you created an account at [Machinebox](https://machinebox.io/account), you can grab your `MB_KEY` at [your Account page](https://developer.veritone.com/machinebox/overview).
 
-If you only require face detection (number of faces) you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` in the `docker run` command.
+If you only require face detection (counting the number of faces), you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` in the `docker run` command.
 
-If your host machine does not support [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) and you experience issues running the `machinebox/facebox` image there is an alternative image without AVX support available at `machinebox/facebox_noavx`(*HINT*: This image is currently not supported by machinebox and should only be used if necessary) 
+If your host machine does not support [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) and you experience issues running the `machinebox/facebox` image, there is an alternative image without AVX support available at `machinebox/facebox_noavx` (*HINT*: This image is currently not supported by machinebox and should only be used if necessary).
 
 ## Configuration
 
@@ -83,7 +83,7 @@ source:
   type: map
   keys:
     entity_id:
-      description: A camera entity id to get picture from.
+      description: A camera entity ID to get picture from.
       required: true
       type: string
     name:
@@ -121,9 +121,9 @@ The service `facebox.teach_face` can be used to teach Facebox faces.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | Entity ID of Facebox entity.
-| `name` | no | The name to associate with a face.
-| `file_path` | no | The path to the image file.
+| `entity_id` | no | Entity ID of Facebox entity. |
+| `name` | no | The name to associate with a face.|
+| `file_path` | no | The path to the image file.  |
 
 A valid service data example:
 
@@ -169,7 +169,7 @@ system_log:
   fire_event: true
 ```
 
-you can create an automation to receive notifications on Facebox errors:
+You can create an automation to receive notifications on Facebox errors:
 
 {% raw %}
 

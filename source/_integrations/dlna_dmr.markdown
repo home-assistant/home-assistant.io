@@ -41,17 +41,17 @@ Show incompatible media when browsing:
 
 DLNA devices can support a range of features. Depending on the device itself, the following [media_player](/integrations/media_player/#services) services may be supported:
 
-* `media_player.volume_up`, `media_player.volume_down`, and `media_player.volume_set`
-* `media_player.volume_mute`
-* `media_player.media_play`
-* `media_player.media_pause` and `media_player.media_play_pause`
-* `media_player.media_stop`
-* `media_player.media_next_track`
-* `media_player.media_previous_track`
-* `media_player.play_media`
-* `media_player.shuffle_set`
-* `media_player.repeat_set`
-* `media_player.select_sound_mode`
+- `media_player.volume_up`, `media_player.volume_down`, and `media_player.volume_set`
+- `media_player.volume_mute`
+- `media_player.media_play`
+- `media_player.media_pause` and `media_player.media_play_pause`
+- `media_player.media_stop`
+- `media_player.media_next_track`
+- `media_player.media_previous_track`
+- `media_player.play_media`
+- `media_player.shuffle_set`
+- `media_player.repeat_set`
+- `media_player.select_sound_mode`
 
 ## Playing media
 

@@ -292,4 +292,23 @@ but you will still receive the done message.
         entity_id: alert.garage_door
 ```
 
+Notifications sent to Home Assistant Companion apps support [replacing](https://companion.home-assistant.io/docs/notifications/notifications-basic/#replacing) and [clearing](https://companion.home-assistant.io/docs/notifications/notifications-basic/#replacing) notifications. To use these functions with alerts, set a `tag` in the message data, send `clear_notification` as the `done_message`, and use `mobile_app_*` as the notifier:
+
+```yaml
+alert:
+  garage_door:
+    name: Garage is open
+    done_message: clear_notification
+    entity_id: input_boolean.garage_door
+    state: "on"
+    repeat: 30
+    can_acknowledge: true
+    skip_first: true
+    notifiers:
+      - mobile_app_ryan
+      - mobile_app_kristen
+    data:
+      tag: garage-door
+```
+
 [template]: /docs/configuration/templating/

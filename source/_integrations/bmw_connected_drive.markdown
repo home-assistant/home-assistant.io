@@ -135,10 +135,6 @@ The `button.<your_vehicle>_find_vehicle` button requests the vehicle to update t
 
 </div>
 
-### Update the state / refresh from cloud
-
-The `button.<vehicle_model>_refresh_from_cloud` button fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles.
-
 ## Selects
 
 If you have a (PH)EV, you can control the charging process through Home Assistant. The selects are created automatically depending on your vehicle's capabilities and can be pressed/executed from the UI or using the `select.select_option` service. For more information, please see the [select documentation](/integrations/select/).

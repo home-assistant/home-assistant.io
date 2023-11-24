@@ -125,7 +125,7 @@ In this section known problems and their resolution are documented.
 ### Errors on handling UDP messages
 
 The Yamaha MusicCast integration is working with updates sent from the device to Home Assistant instead of pulling all information every few seconds. There is no error correction mechanism in these messages, so that only 100% correct messages can be processed. Whenever there is a corrupt message the Yamaha MusicCast integration will update all device information and log an error message like these:
-* `Received invalid message: <message>`
-* `Received non UTF-8 compliant message: b'<binary>'`
+- `Received invalid message: <message>`
+- `Received non UTF-8 compliant message: b'<binary>'`
 
 If you receive these errors frequently, you should first try to disconnect your MusicCast devices from the power, wait 30 seconds and reconnect them to the power. If this does not help, you can try to use a LAN cable instead of WiFi to connect the device to the network.

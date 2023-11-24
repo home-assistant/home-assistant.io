@@ -14,19 +14,15 @@ The calendar integration provides calendar entities, allowing other integrations
 to integrate calendars into Home Assistant. Calendars are shown on the calendar
 dashboard and can be used with automations.
 
-A calendar entity has a state and attributes representing the next event (only).
-A calendar trigger is much more flexible, has fewer limitations, and is
-recommended for automations instead of using the entity state.
-
-<div class='note'>
-
-Calendar entities are here to be consumed and provided by other integrations.
-
-This page, therefore, does not provide instructions on how to create calendar
+This page does not provide instructions on how to create calendar
 entities. Please see the ["Calendar" category](/integrations/#calendar) on the
 integrations page to find integration offering calendar entities.
 
-</div>
+{% include integrations/building_block_integration.md %}
+
+A calendar entity has a state and attributes representing the next event (only).
+A calendar trigger is much more flexible, has fewer limitations, and is
+recommended for automations instead of using the entity state.
 
 ## Viewing and managing calendars
 

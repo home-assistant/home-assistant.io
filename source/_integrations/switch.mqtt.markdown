@@ -25,8 +25,8 @@ To enable this switch in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  switch:
-    - command_topic: "home/bedroom/switch1/set"
+  - switch:
+      command_topic: "home/bedroom/switch1/set"
 ```
 
 {% configuration %}
@@ -68,7 +68,7 @@ availability_topic:
   type: string
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
-  required: false
+  required: true
   type: string
 device:
   description: "Information about the device this switch is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
@@ -76,7 +76,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -148,7 +148,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name to use when displaying this switch.
+  description: The name to use when displaying this switch. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Switch
@@ -182,7 +182,7 @@ payload_on:
   type: string
   default: "ON"
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -232,8 +232,8 @@ The example below shows a full configuration for a switch.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  switch:
-    - unique_id: bedroom_switch
+  - switch:
+      unique_id: bedroom_switch
       name: "Bedroom Switch"
       state_topic: "home/bedroom/switch1"
       command_topic: "home/bedroom/switch1/set"
@@ -248,7 +248,19 @@ mqtt:
       retain: true
 ```
 
-For a check, you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually:
+For a check, you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually. First, we can simulate the availability message sent for the switch:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1/available -m "online"
+```
+
+We can simulate the switch being turned on by publishing the "ON" command message:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1/set -m "ON"
+```
+
+Finally, we can simulate the switch reporting back the changed state to Home Assistant:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
@@ -269,8 +281,8 @@ The configuration will look like the example below:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  switch:
-    - name: bathroom
+  - switch:
+      name: bathroom
       state_topic: "home/bathroom/gpio/13"
       command_topic: "home/bathroom/gpio/13"
       payload_on: "1"

@@ -14,9 +14,9 @@ ha_integration_type: entity
 
 Keeps track on `number` entities in your environment, their state, and allows you to control them. This integration allows other integrations to get a value input from user within a range.
 
-Number entities cannot be implemented manually, but can be provided by other
-integrations. If you are looking for a way to create a number entity,
-please take a look at the [Number helper](/integrations/input_number).
+{% include integrations/building_block_integration.md %}
+
+If you are looking for a way to create a number entity, please take a look at the [Number helper](/integrations/input_number).
 
 ## Device Class
 
@@ -46,6 +46,7 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **nitrogen_monoxide**: Concentration of Nitrogen Monoxide in µg/m³
 - **nitrous_oxide**: Concentration of Nitrous Oxide in µg/m³
 - **ozone**: Concentration of Ozone in µg/m³
+- **ph**: Potential hydrogen (pH) value of a water solution
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
 - **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³

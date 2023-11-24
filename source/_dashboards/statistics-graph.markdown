@@ -64,6 +64,11 @@ hide_legend:
   description:  If true, the legend will be hidden.
   type: boolean  
   default: false
+logarithmic_scale:
+  required: false
+  description: If true, numerical values on the Y-axis will be displayed with a logarithmic scale.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Options For Entities

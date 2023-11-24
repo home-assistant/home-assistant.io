@@ -13,6 +13,8 @@ ha_integration_type: entity
 
 Image processing enables Home Assistant to process images from [cameras](/integrations/#camera). Only camera entities are supported as sources.
 
+{% include integrations/building_block_integration.md %}
+
 ## ALPR
 
 ALPR entities have a vehicle counter attribute `vehicles` and all found plates are stored in the `plates` attribute.

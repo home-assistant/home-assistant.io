@@ -128,7 +128,7 @@ The commands that can be sent to the TV depends on the model of your TV. To disp
 ```yaml
 service: remote.send_command
 target:
-  entity_id: media_player.bravia_tv
+  entity_id: remote.bravia_tv
 data:
   command: "Down"
 ```

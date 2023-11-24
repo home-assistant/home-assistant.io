@@ -3,6 +3,11 @@ title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
+  - Helper
+  - Image
+  - Number
+  - Select
   - Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
@@ -18,6 +23,7 @@ ha_platforms:
   - button
   - cover
   - fan
+  - image
   - light
   - lock
   - number
@@ -26,7 +32,8 @@ ha_platforms:
   - switch
   - vacuum
   - weather
-ha_integration_type: integration
+ha_integration_type: helper
+ha_config_flow: true
 ---
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
@@ -42,9 +49,19 @@ Sensors, binary (on/off) sensors, buttons, images, numbers and selects are cover
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor, binary sensor, button, image, number and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+Sensor and binary sensor can be configured using [UI](#ui-configuration) or [YAML](#yaml-configuration) file.
+
+Button, image, number, and select template entities are defined in your YAML configuration files under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
+
+# UI configuration
+
+Sensor template and binary sensor template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
+
+To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your `configuration.yaml`. It should already be there by default unless you removed it.
+
+# YAML configuration
 
 ## State-based template binary sensors, buttons, images, numbers, selects and sensors
 
@@ -107,6 +124,10 @@ unique_id:
   description: The unique ID for this config block. This will be prefixed to all unique IDs of all entities in this block.
   required: false
   type: string
+action:
+  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything via services, in particular services with [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  required: false
+  type: list
 sensor:
   description: List of sensors
   required: true
@@ -247,7 +268,92 @@ image:
       required: false
       type: boolean
       default: true
-"[all sensor, binary sensor, button, image, number, select entities]":
+weather:
+  description: List of weather entities
+  required: true
+  type: map
+  keys:
+    condition_template:
+      description: The current weather condition.
+      required: true
+      type: template
+    temperature_template:
+      description: The current temperature.
+      required: true
+      type: template
+    dew_point_template:
+      description: The current dew point.
+      required: false
+      type: template
+    apparent_temperature_template:
+      description: The current apparent (feels-like) temperature.
+      required: false
+      type: template
+    temperature_unit:
+      description: Unit for temperature_template output. Valid options are °C, °F, and K.
+      required: false
+      type: string
+    humidity_template:
+      description: The current humidity.
+      required: true
+      type: template
+    pressure_template:
+      description: The current air pressure.
+      required: false
+      type: template
+    pressure_unit:
+      description: Unit for pressure_template output. Valid options are Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, psi.
+      required: false
+      type: string
+    wind_speed_template:
+      description: The current wind speed.
+      required: false
+      type: template
+    wind_gust_speed_template:
+      description: The current wind gust speed.
+      required: false
+      type: template
+    wind_speed_unit:
+      description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
+      required: false
+      type: string
+    wind_bearing_template:
+      description: The current wind bearing.
+      required: false
+      type: template
+    ozone_template:
+      description: The current ozone level.
+      required: false
+      type: template
+    cloud_coverage_template:
+      description: The current cloud coverage.
+      required: false
+      type: template
+    visibility_template:
+      description: The current visibility.
+      required: false
+      type: template
+    visibility_unit:
+      description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      required: false
+      type: string
+    forecast_daily_template:
+      description: Daily forecast data.
+      required: false
+      type: template
+    forecast_hourly_template:
+      description: Hourly forecast data.
+      required: false
+      type: template
+    forecast_twice_daily_template:
+      description: Twice daily forecast data.
+      required: false
+      type: template
+    precipitation_unit:
+      description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      required: false
+      type: string
+"[all sensor, binary sensor, button, image, number, select, weather entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map
@@ -293,6 +399,11 @@ template:
 ```
 
 [trigger-doc]: /docs/automation/trigger
+
+### Video Tutorial
+This video tutorial explains how to set up a Trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
+
+<lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
 ## Template and action variables
 
@@ -654,6 +765,36 @@ template:
 ```
 
 {% endraw %}
+
+### Trigger based handling of service response data
+
+This example demonstrates how to use an `action` to call a [service with response data](/docs/scripts/service-calls/#use-templates-to-handle-response-data)
+and use the response in a template.
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: /1
+    action:
+      - service: weather.get_forecast
+        data:
+          type: hourly
+        target:
+          entity_id: weather.home
+        response_variable: hourly
+    sensor:
+      - name: Weather Forecast Hourly
+        unique_id: weather_forecast_hourly
+        state: "{{ now().isoformat() }}"
+        attributes:
+          forecast: "{{ hourly.forecast }}"
+```
+
+{% endraw %}
+
 
 ## Legacy binary sensor configuration format
 

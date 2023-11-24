@@ -2,7 +2,7 @@
 title: Atlantic Cozytouch
 description: Connect and control your Atlantic Cozytouch devices using the Overkiz integration
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Binary Sensor
   - Button
   - Climate

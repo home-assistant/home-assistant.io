@@ -20,7 +20,7 @@ If your entity is not supported, or you cannot customize what you need via this 
 
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
-#### Possible values
+### Possible values
 
 {% configuration customize %}
 friendly_name:
@@ -57,7 +57,7 @@ initial_state:
   default: None
 {% endconfiguration %}
 
-#### Device Class
+### Device Class
 
 Device class is currently supported by the following platforms:
 

@@ -1,19 +1,19 @@
 ---
-title: Loqed Touch Smart Lock
+title: LOQED Touch Smart Lock
 description: Instructions on how to integrate a Loqed Touch Smart Lock
 ha_category:
   - Lock
 ha_release: 2023.7
 ha_iot_class: Local Push
 ha_codeowners:
-  - "@mikewoudenbergs"
+  - '@mikewoudenberg'
 ha_domain: loqed
 ha_platforms:
   - lock
   - sensor
 ha_config_flow: true
-ha_dhcp: true
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 Integrate your LOQED Touch Smart Lock with Home Assistant. The lock instantly notifies Home Assistant of a lock state change and you can change the lock state yourself.
@@ -57,4 +57,3 @@ On [LOQED personal access token website](https://integrations.production.loqed.c
 
 1. Login with your LOQED App e-mail address (you need to be admin).
 2. Select **delete** on the Personal Access Token you used when creating this integration.
-

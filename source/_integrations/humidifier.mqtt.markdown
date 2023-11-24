@@ -25,8 +25,8 @@ To enable MQTT humidifiers in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  humidifier:
-    - command_topic: "bedroom_humidifier/on/set"
+  - humidifier:
+      command_topic: "bedroom_humidifier/on/set"
       target_humidity_command_topic: "bedroom_humidifier/humidity/set"
 ```
 
@@ -99,7 +99,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -181,7 +181,7 @@ min_humidity:
   type: integer
   default: 0
 name:
-  description: The name of the humidifier.
+  description: The name of the humidifier. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT humidifier
@@ -215,12 +215,12 @@ payload_on:
   type: string
   default: "ON"
 payload_reset_humidity:
-  description: A special payload that resets the `target_humidity` state attribute to `None` when received at the `target_humidity_state_topic`.
+  description: A special payload that resets the `target_humidity` state attribute to an `unknown` state when received at the `target_humidity_state_topic`. When received at `current_humidity_topic` it will reset the current humidity state.
   required: false
   type: string
   default: 'None'
 payload_reset_mode:
-  description: A special payload that resets the `mode` state attribute to `None` when received at the `mode_state_topic`. When received at `current_humidity_topic` it will reset the current humidity state.
+  description: A special payload that resets the `mode` state attribute to an `unknown` state when received at the `mode_state_topic`.
   required: false
   type: string
   default: 'None'
@@ -262,7 +262,7 @@ modes:
   type: [list]
   default: []
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -304,8 +304,8 @@ The example below shows a full configuration for a MQTT humidifier including mod
 ```yaml
 # Example configuration.yaml
 mqtt:
-  humidifier:
-    - name: "Bedroom humidifier"
+  - humidifier:
+      name: "Bedroom humidifier"
       device_class: "humidifier"
       state_topic: "bedroom_humidifier/on/state"
       action_topic: "bedroom_humidifier/action"

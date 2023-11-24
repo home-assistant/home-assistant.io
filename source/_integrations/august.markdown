@@ -43,8 +43,11 @@ The `august` integration allows you to integrate your [August](https://august.co
 | Yale Assure Lock 2 | yes |
 | Yale Conexis L1 | yes |
 | Yale Conexis L2 | yes |
+| Yale Doorman L3 | yes |
 | Yale Linus | yes |
 | Yale Smart Safe | yes |
+
+Other devices not listed above have not been tested and may not function as expected.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -65,11 +68,13 @@ The August Wi-Fi Smart Lock (Gen 4) uses different battery technology (lithium-i
 		
 Other August locks expect to be powered by AA alkaline (non-rechargeable) batteries. Rechargeable batteries in these locks will result in incorrect reporting of battery charge.
 
-## Known Unsupported Devices
+## Push updates not available for some entities
 
-- The Yale Doorman L3
+While most entities can be updated via the push API, August/Yale does not offer a push API for some data, which means these entities will update slower:
 
-Other devices not listed above have not been tested and may not function as expected.
+- Doorbell ding sensor (Doorman models only)
+- Lock Battery sensor
+- Lock Operation sensor
 
 ## Binary Sensor
 

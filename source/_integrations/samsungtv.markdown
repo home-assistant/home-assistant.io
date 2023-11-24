@@ -23,36 +23,7 @@ ha_integration_type: device
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
 
-### Setup
-
-Go to the integrations page in your configuration and click on new integration -> Samsung TV.
-If your TV is on and you have enabled [SSDP](/integrations/ssdp) discovery, it's likely that you just have to confirm the detected device.
-
-When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
-
-### YAML Configuration
-
-YAML configuration is around for people that prefer YAML.
-To use this integration, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-samsungtv:
-  - host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: "The hostname or IP of the Samsung Smart TV, e.g., `192.168.0.10`."
-  required: true
-  type: string
-name:
-  description: The name you would like to give to the Samsung Smart TV.
-  required: false
-  type: string
-{% endconfiguration %}
-
-After saving the YAML configuration, the TV must be turned on _before_ launching Home Assistant in order for the TV to be registered the first time.
+{% include integrations/config_flow.md %}
 
 ### Turn on action
 

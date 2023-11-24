@@ -25,9 +25,9 @@ Notes:
 - The string inputs for `Substring *` allow you to force the integration to use a particular route or avoid a particular route in its time travel calculation. These inputs are case insensitive and matched against the description of the route.
 - When using the `Avoid Toll Roads?`, `Avoid Subscription Roads?` and `Avoid Ferries?` options, be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behavior is that Waze will route you over roads having subscription options. It is therefor best is to set both `Avoid Toll Roads?` and `Avoid Subscription Roads?` or `Avoid Ferries?` if needed and experiment to ensure the desired outcome.
 
-## Manual Polling
+## Defining a custom polling interval
 
-Some users want more control over polling intervals. To use more granular polling, you can disable automated polling. Go to {% my integrations title="**Settings** > **Devices & Services**" %}, and on the **Waze Travel Time** integration, select the cogwheel. On the integration entry, select the three dots. Then, select **System options** and toggle the button to disable polling. To manually trigger a polling request, call the [`homeassistant.update_entity` service](/integrations/homeassistant/#service-homeassistantupdate_entity) as needed, either manually or via automations.
+{% include common-tasks/define_custom_polling.md %}
 
 ## Example using dynamic destination
 

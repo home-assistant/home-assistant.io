@@ -48,10 +48,14 @@ The following bridges are reported to work with this integration:
  - D1554 Connector mini-bridge
  - DD7002B Brel-Home box
  - D1554 Brel Home USB plug
+ - Brel HUB-03
 
 {% include integrations/config_flow.md %}
 
 ## Retrieving the API Key
+
+The 16 character API key needed to setup the Home Assistant integration needs to be retrieved by first connecting the blind/bridge to the official app of its respective brand.
+In that app the key can often be found by clicking multiple times on specific places on the "About" page.
 
 ### Motion Blinds app
 

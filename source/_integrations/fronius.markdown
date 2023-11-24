@@ -6,7 +6,6 @@ ha_category:
   - Energy
   - Sensor
 ha_codeowners:
-  - '@nielstron'
   - '@farmio'
 ha_config_flow: true
 ha_domain: fronius

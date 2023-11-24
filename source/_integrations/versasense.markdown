@@ -9,7 +9,7 @@ ha_category:
   - Switch
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@flamm3blemuff1n'
+  - '@imstevenxyz'
 ha_domain: versasense
 ha_platforms:
   - sensor

@@ -21,8 +21,6 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@icemanch'
-  - '@bdraco'
-ha_quality_scale: platinum
 ha_config_flow: true
 ha_dhcp: true
 ha_integration_type: integration

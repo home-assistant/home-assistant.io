@@ -14,10 +14,10 @@ ha_domain: mystrom
 ha_platforms:
   - binary_sensor
   - light
+  - sensor
   - switch
 ha_integration_type: integration
 ---
-
 
 There is currently support for the following device types within Home Assistant:
 
@@ -27,7 +27,21 @@ There is currently support for the following device types within Home Assistant:
 
 ## Lights and switches
 
-The myStrom integration allows you to control your [myStrom](https://mystrom.ch/) WiFi Bulbs and WiFi Switches. Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
+The myStrom integration allows you to control your [myStrom](https://mystrom.ch/) Wi-Fi Bulbs and Wi-Fi Switches. Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
+
+Supported devices are:
+
+- Switch CH v1 (101)
+- Bulb (102)
+- LED strip (105)
+- Switch CH v2 (106)
+- Switch EU (107)
+- Switch Zero (120)
+
+Two sensors are available for switches:
+
+- Temperature
+- Energy consumption
 
 {%include integrations/config_flow.md %}
 
@@ -130,4 +144,3 @@ curl -d "double=get://192.168.1.3:8123/api/mystrom?api_password%3Dapi_password%2
 The command-line tool [`mystrom`](https://github.com/fabaff/python-mystrom) is a helper to configure myStrom buttons.
 
 If you have set [`login_attempts_threshold`](/integrations/http/) and forget to include the `api_password` for an action and that action is triggered then after the threshold is reached will the button no longer work because it is banned. See [IP filtering and banning](/integrations/http/#ip-filtering-and-banning) about how to revert the banning.
-

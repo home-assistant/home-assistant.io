@@ -34,7 +34,7 @@ weather:
     temperature_template: "{{ states('sensor.temperature') | float }}"
     temperature_unit: "°C"
     humidity_template: "{{ states('sensor.humidity') | float }}"
-    forecast_template: "{{ state_attr('weather.my_region', 'forecast') }}"
+    forecast_daily_template: "{{ state_attr('weather.my_region', 'forecast') }}"
 ```
 
 {% endraw %}
@@ -43,7 +43,7 @@ weather:
 name:
   description: Name to use in the frontend.
   required: true
-  type: string
+  type: template
 unique_id:
   description: An ID that uniquely identifies this weather entity. Set this to a unique value to allow customization through the UI.
   required: false
@@ -116,8 +116,16 @@ visibility_unit:
   description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
   required: false
   type: string
-forecast_template:
+forecast_daily_template:
   description: Daily forecast data.
+  required: false
+  type: template
+forecast_hourly_template:
+  description: Hourly forecast data.
+  required: false
+  type: template
+forecast_twice_daily_template:
+  description: Twice daily forecast data.
   required: false
   type: template
 precipitation_unit:

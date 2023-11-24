@@ -42,11 +42,6 @@ show_name:
   description: Show name.
   type: boolean
   default: "true"
-show_icon:
-  required: false
-  description: Show icon.
-  type: boolean
-  default: "true"
 {% endconfiguration %}
 
 ## Entity Filter Badge

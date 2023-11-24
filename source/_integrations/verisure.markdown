@@ -14,7 +14,6 @@ ha_iot_class: Cloud Polling
 ha_domain: verisure
 ha_codeowners:
   - '@frenck'
-  - '@niro1987'
 ha_platforms:
   - alarm_control_panel
   - binary_sensor

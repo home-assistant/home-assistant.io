@@ -1,7 +1,8 @@
 ---
 title: "Template Vacuum"
 description: "Instructions how to setup Template vacuums within Home Assistant."
-ha_category: Vacuum
+ha_category:
+  - Vacuum
 ha_release: 0.96
 ha_iot_class: Local Push
 ha_quality_scale: internal

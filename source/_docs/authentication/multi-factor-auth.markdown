@@ -7,8 +7,8 @@ The Multi-factor Authentication (MFA) modules require you to solve a second chal
 
 A password can be compromised in a number of ways, for example, it can be guessed if it is a simple password. MFA provides a second level of defense by requiring:
 
-* something you know, like your username and password, and
-* something you have, like a one-time password sent to your phone.
+- something you know, like your username and password, and
+- something you have, like a one-time password sent to your phone.
 
 You can use MFA with any of the other authentication providers. If more than one MFA module is enabled, you can choose one when you log in.
 

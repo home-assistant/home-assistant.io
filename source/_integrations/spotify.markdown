@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_quality_scale: silver
 ha_codeowners:
   - '@frenck'
+  - '@joostlek'
 ha_domain: spotify
 ha_zeroconf: true
 ha_platforms:
