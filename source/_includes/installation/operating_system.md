@@ -1,4 +1,4 @@
-## Install Home Assistant Operating System
+# Install Home Assistant Operating System
 
 {% assign release_url = "https://github.com/home-assistant/operating-system/releases/download" %}
 
@@ -8,7 +8,7 @@ Follow this guide if you want to get started with Home Assistant easily or if yo
 
 {% if page.installation_type == 'odroid' %}
 
-### Suggested hardware
+## Suggested hardware
 
 We will need a few things to get started with installing Home Assistant. The links below lead to Ameridroid. If you’re not in the US, you should be able to find these items in web stores in your country.
 
@@ -47,14 +47,20 @@ Variants without pre-installed Home Assistant:
 <div class='note'>
 <b>Prerequisites</b>
 
-This guide assumes that you have a dedicated {{ site.installation.types[page.installation_type].board }} PC (typically an Intel or AMD-based system) available to exclusively run Home Assistant Operating System. The system must be 64-bit capable and able to boot using UEFI. Pretty much all systems produced in the last 10 years support the UEFI boot mode.
+This guide assumes that you have a dedicated {{ site.installation.types[page.installation_type].board }} PC to exclusively run the Home Assistant Operating System.
+
+- This is typically an Intel or AMD-based system.
+- The system must be 64-bit capable and be able to boot using UEFI. 
+  - Most systems produced in the last 10 years support the UEFI boot mode.
 
 <b>Summary</b>
 
-You will need to configure your {{ site.installation.types[page.installation_type].board }} PC to use UEFI boot mode, then write the HAOS (Home Assistant OS) disk image to your boot medium. There are two ways to do this listed below.
+1. First, you will need to configure your {{ site.installation.types[page.installation_type].board }} PC to use UEFI boot mode.
+2. Then, write the Home Assistant Operating System disk image to your boot medium. 
+
 </div>
 
-### Configure the BIOS on your x86-64 hardware
+## Configure the BIOS on your x86-64 hardware
 
 To boot Home Assistant OS, the BIOS needs to have UEFI boot mode enabled and Secure Boot disabled. The following screenshots are from a 7th generation Intel NUC system. The BIOS menu will likely look different on your system. However, the options should still be present and named similarly.
 
@@ -71,35 +77,104 @@ To boot Home Assistant OS, the BIOS needs to have UEFI boot mode enabled and Sec
 
 The BIOS configuration is now complete.
 
+## Write HAOS onto your x86-64 hardware
+
 Next, we need to write the Home Assistant Operating System image to the "boot medium", which is the medium your x86-64 hardware will boot from when it is running Home Assistant.
 
 <div class='note'>
-HAOS has no integrated installer that writes the image automatically, you must write it manually using e.g. Etcher.
+HAOS has no integrated installer that writes the image automatically. You must write it manually using a tool like Balena Etcher or the **Restore Disks** function from Ubuntu.
 </div>
 
 Typically an internal medium like S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non-removable eMMC is used for the x86-64 boot medium. Alternatively, an external medium can be used such as a USB SDD, though this is not recommended.
 
 To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 different methods:
 
-1. Write the HAOS disk image from your desktop computer directly to the boot medium (e.g. using a USB to S-ATA adapter).
-If you can use this method, proceed to "[Write the image to your boot medium](#write-the-image-to-your-boot-medium)" and follow all steps. If you have non-removable internal mediums or don't have the necessary adapter, try the next method instead.
+  **Method 1**: Recommended method. It also works on laptops and PCs with internal hard disks. This method boots Ubuntu from a USB device and installs the Home Assistant Operating System from there.
 
-2. Create a "live operating system" on a USB device running e.g. Ubuntu ([how-to guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Insert it into your system and boot the live operating system. Then follow from step 2 in "[Write the image to your boot medium](#write-the-image-to-your-boot-medium)".
+  **Method 2**: With this method, you write the Home Assistant Operating disk image directly onto a boot medium. The steps are a bit more complex. If you have non-removable internal mediums (for example because you are using a laptop) or do not have the necessary adapter (for example an USB to eMMC adapter) use method 1 instead.
 
-{% details "Ubuntu dependencies for Etcher" %}
+### Method 1: Installing HAOS via Ubuntu from a USB device
 
-When installing Etcher on Ubuntu you may need to install the fuse dependency first,
-to do this run the following commands in the terminal:
+#### Required material
 
-```bash
-sudo add-apt-repository universe
-sudo apt update
-sudo apt install libfuse2
-```
+- Computer
+- The target x86-64 hardware, on which you want to install the Home Assistant Operating System (HAOS)
+- USB device
+- Internet connection
 
-{% enddetails %}
+#### To install HAOS via Ubuntu from a USB device
 
-{% endif %}
+1. **Notice**: This procedure will write the Home Assistant Operating System onto your device.
+   - This means you will lose all the data as well as the previously installed operating system.
+   - Back up your data before continuing with the next step.
+2. Create a so called *live operating system* on a USB device:
+   - Follow the ([Ubuntu instructions](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)) on writing an Ubuntu iso file onto a USB device.
+3. Insert the USB device into the system on which you want to run Home Assistant.
+   - Boot the live operating system.
+   - The system then starts Ubuntu.
+4. In Ubuntu, open a browser and download the image to your computer.
+      - Copy the URL for the image.
+  
+      {% if site.installation.types[page.installation_type].variants.size > 1 %}
+      {% tabbed_block %}
+      {% for variant in site.installation.types[page.installation_type].variants %}
+
+      - title: {{ variant.name }}
+        content: |
+
+          ```text
+          {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+          ```
+
+          {% if variant.key == "odroid-n2" %}
+          [Guide: Flashing Odroid-N2 using OTG-USB](/hassio/flashing_n2_otg/)
+          {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
+            _(64-bit is recommended)_
+          {% endif %}
+
+      {% endfor %}
+      {% endtabbed_block %}
+      {% else %}
+
+      ```text
+      {% assign board_key = site.installation.types[page.installation_type].variants[0].key %}
+      {{release_url}}/{{site.data.version_data.hassos[board_key]}}/haos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
+      ```
+
+      {% endif %}
+
+      _Select and copy the URL or use the "copy" button that appear when you hover it._
+
+
+       - Paste the URL into your browser to start the download.
+
+
+      {% endif %}
+
+5. In Ubuntu, in the bottom left corner, select **Show Applications**.
+6. In the applications, search and open **Disks** and start restoring the HOAS image:
+   1. In **Disks**, select the external USB device.
+   2. On top of the screen, select the three dots menu and select **Restore Disk Image...**.
+      ![Restore disk image: select three dots menu](/images/installation/ubuntu_restore_disk_image.png)
+   3. Select the image you just downloaded.
+      ![Restore disk image: select three dots menu](/images/installation/select_haos.png)
+   4. Select **Start Restoring...**.
+      ![Restore disk image: select three dots menu](/images/installation/start_restoring.png)
+   5. Confirm by selecting **Restore**.
+      ![Restore disk image: select three dots menu](/images/installation/restore.png)
+   6. In the partitions overview, you should now see the **hassos-boot** partition.
+      ![Restore disk image: select three dots menu](/images/installation/hassos_boot_partition.png)
+      - Select the **Play** button.
+      - The Home Assistant Operating System is now being installed on your system.
+
+### Method 2: Installing HAOS directly from a boot medium
+
+#### Required material
+
+- Computer
+- The target x86-64 hardware, on which you want to install the Home Assistant Operating System (HAOS)
+- Boot medium
+- Internet connection
 
 ### Write the image to your boot medium
 
@@ -152,7 +227,7 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 6. **Select target**.
 ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
 7. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
-![Screenshot of the Etcher software showing teh targets available.](/images/installation/etcher4.png)
+![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
 8. Select **Flash!** to start writing the image.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
 9. When Balena Etcher has finished writing the image, you will see a confirmation.
@@ -162,9 +237,10 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 
 {% if page.installation_type == 'generic-x86-64' %}
 
-- If you used your desktop system to write the HAOS image directly to a boot medium like an S-ATA SSD, connect this back to your {{ site.installation.types[page.installation_type].board }} system.
 
-- If you used a live operating system (e.g. Ubuntu), shut it down and remove the live operating system USB device.
+- If you used a live operating system (Ubuntu, Method 1), shut it down and remove the live operating system USB device.
+
+- If you used your desktop system to write the HAOS image directly to a boot medium like an S-ATA SSD (Method 2), connect this back to your {{ site.installation.types[page.installation_type].board }} system.
 
 1. Plug in an Ethernet cable that is connected to the network.
 2. Power the system on. If you have a screen connected to the {{site.installation.types[page.installation_type].board}} system, after a minute or so the Home Assistant welcome banner will appear in the console.
