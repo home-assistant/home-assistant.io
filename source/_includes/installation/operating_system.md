@@ -112,45 +112,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 3. Insert the USB flash drive into the system on which you want to run Home Assistant.
    - Boot the live operating system.
    - The system then starts Ubuntu.
-4. In Ubuntu, open a browser and download the image to your computer.
-      - Copy the URL for the image.
-  
-      {% if site.installation.types[page.installation_type].variants.size > 1 %}
-      {% tabbed_block %}
-      {% for variant in site.installation.types[page.installation_type].variants %}
-
-      - title: {{ variant.name }}
-        content: |
-
-          ```text
-          {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
-          ```
-
-          {% if variant.key == "odroid-n2" %}
-          [Guide: Flashing Odroid-N2 using OTG-USB](/hassio/flashing_n2_otg/)
-          {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
-            _(64-bit is recommended)_
-          {% endif %}
-
-      {% endfor %}
-      {% endtabbed_block %}
-      {% else %}
-
-      ```text
-      {% assign board_key = site.installation.types[page.installation_type].variants[0].key %}
-      {{release_url}}/{{site.data.version_data.hassos[board_key]}}/haos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
-      ```
-
-      {% endif %}
-
-      _Select and copy the URL or use the "copy" button that appear when you hover it._
-
-
-       - Paste the URL into your browser to start the download.
-
-
-      {% endif %}
-
+4. In Ubuntu, open a browser and [download the image][generic-x86-64] to your computer.
 5. In Ubuntu, in the bottom left corner, select **Show Applications**.
 6. In the applications, search and open **Disks** and start restoring the HOAS image:
    1. In **Disks**, on the left side, select the internal disk device you want to install HAOS onto.
@@ -174,8 +136,13 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 - Boot medium
 - Internet connection
 
+#### Write the image to your boot medium
+
+{% else %}
+
 ### Write the image to your boot medium
 
+{% endif %}
 
 1. **Notice**: This procedure will write the Home Assistant Operating System onto your device.
    - This means you will lose all the data as well as the previously installed operating system.
