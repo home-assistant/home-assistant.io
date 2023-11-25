@@ -25,6 +25,12 @@ The MyQ integration lets you control MyQ-Enabled garage doors and/or lamps throu
 
 {% include integrations/config_flow.md %}
 
+### Please Read
+
+Please read the following :
+(https://www.home-assistant.io/blog/2023/11/06/removal-of-myq-integration/)
+
+
 ### Binary sensor
 
 Your MyQ gateway will appear as a binary sensor that shows if the device is connected.
