@@ -99,7 +99,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 - Computer
 - The target x86-64 hardware, on which you want to install the Home Assistant Operating System (HAOS)
-- USB device
+- USB flash drive
 - Internet connection
 
 #### To install HAOS via Ubuntu from a USB device
@@ -107,9 +107,9 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 1. **Notice**: This procedure will write the Home Assistant Operating System onto your device.
    - This means you will lose all the data as well as the previously installed operating system.
    - Back up your data before continuing with the next step.
-2. Create a so called *live operating system* on a USB device:
+2. Create a so called *live operating system* on a USB flash drive:
    - Follow the ([Ubuntu instructions](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)) on writing an Ubuntu iso file onto a USB device.
-3. Insert the USB device into the system on which you want to run Home Assistant.
+3. Insert the USB flash drive into the system on which you want to run Home Assistant.
    - Boot the live operating system.
    - The system then starts Ubuntu.
 4. In Ubuntu, open a browser and download the image to your computer.
@@ -153,7 +153,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 5. In Ubuntu, in the bottom left corner, select **Show Applications**.
 6. In the applications, search and open **Disks** and start restoring the HOAS image:
-   1. In **Disks**, select the external USB device.
+   1. In **Disks**, on the left side, select the internal disk device you want to install HAOS onto.
    2. On top of the screen, select the three dots menu and select **Restore Disk Image...**.
       ![Restore disk image: select three dots menu](/images/installation/ubuntu_restore_disk_image.png)
    3. Select the image you just downloaded.
@@ -163,8 +163,6 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
    5. Confirm by selecting **Restore**.
       ![Restore disk image: select three dots menu](/images/installation/restore.png)
    6. In the partitions overview, you should now see the **hassos-boot** partition.
-      ![Restore disk image: select three dots menu](/images/installation/hassos_boot_partition.png)
-      - Select the **Play** button.
       - The Home Assistant Operating System is now being installed on your system.
 
 ### Method 2: Installing HAOS directly from a boot medium
