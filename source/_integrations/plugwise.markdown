@@ -92,7 +92,7 @@ The meaning of `off` is that the Adam regulation is set to off. This means that 
 
 The meaning of `cool` or `heat` is that there is no schedule active. For example, if the system is manually set to cooling- or heating-mode, the system will be active if the room temperature is above/below the thermostat setpoint.
 
-The meaning of `heat/cool` is that there is no schedule active, i.e. the system is in automatic cooling- or heating-mode, the active preset or manually set temperature is used to control the HVAC-system.
+The meaning of `heat/cool` is that there is no schedule active. For example, if the system is in automatic cooling- or heating-mode, the active preset or manually set temperature is used to control the HVAC system.
 
 The meaning of `auto` is that a schedule is active and the thermostat will change presets/setpoints accordingly.
 
