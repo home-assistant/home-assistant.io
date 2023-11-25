@@ -89,20 +89,20 @@ Typically an internal medium like S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non-
 
 To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 different methods:
 
-  **Method 1**: Recommended method. It also works on laptops and PCs with internal hard disks. This method boots Ubuntu from a USB device and installs the Home Assistant Operating System from there.
+  **Method 1**: Recommended method. It also works on laptops and PCs with internal hard disks. This method boots Ubuntu from a USB flash drive and installs the Home Assistant Operating System from there.
 
   **Method 2**: With this method, you write the Home Assistant Operating disk image directly onto a boot medium. The steps are a bit more complex. If you have non-removable internal mediums (for example because you are using a laptop) or do not have the necessary adapter (for example an USB to eMMC adapter) use method 1 instead.
 
-### Method 1: Installing HAOS via Ubuntu from a USB device
+### Method 1: Installing HAOS via Ubuntu booting from a USB flash drive
 
 #### Required material
 
 - Computer
 - The target x86-64 hardware, on which you want to install the Home Assistant Operating System (HAOS)
-- USB flash drive
+- USB flash drive (USB thumb drive is sufficient, it should be at least 4GB in size)
 - Internet connection
 
-#### To install HAOS via Ubuntu from a USB device
+#### To install HAOS via Ubuntu from a USB flash drive
 
 1. **Notice**: This procedure will write the Home Assistant Operating System onto your device.
    - This means you will lose all the data as well as the previously installed operating system.
