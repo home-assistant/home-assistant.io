@@ -90,7 +90,7 @@ Available options include `off` (Adam only) `auto`, `cool`, `heat`, and `heat_co
 
 The meaning of `off` is that the Adam regulation is set to off. This means that the connected HVAC-system does not heat or cool, only the domestic hot water heating function, when available, is active.
 
-The meaning of `cool` or `heat` is that there is no schedule active, i.e. the system is manually set to cooling- or heating-mode, the system will be active if the room temperature is above/below the thermostat setpoint.
+The meaning of `cool` or `heat` is that there is no schedule active. For example, if the system is manually set to cooling- or heating-mode, the system will be active if the room temperature is above/below the thermostat setpoint.
 
 The meaning of `heat/cool` is that there is no schedule active, i.e. the system is in automatic cooling- or heating-mode, the active preset or manually set temperature is used to control the HVAC-system.
 
