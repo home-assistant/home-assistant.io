@@ -50,7 +50,7 @@ The following attributes can be placed inside `data` for extended functionality.
 | ---------------------- | -------- | ----------- |
 | `image_url`            |      yes | Attach an image to the message.
 
-The image URL must start with http, and as outlined from Microsoft in the [Documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#common-properties-for-all-cards), the picture must be on a publicly available location.
+The image must be an HTTPS URL, and as outlined by Microsoft in the [Documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#common-properties-for-all-cards), the picture must be on a publicly available location.
 
 Example for posting file from URL:
 
