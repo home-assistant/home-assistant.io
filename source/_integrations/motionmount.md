@@ -6,6 +6,8 @@ ha_category:
 ha_release: '2023.12.0'
 ha_iot_class: Local Push
 ha_config_flow: true
+ha_platforms:
+  - number
 ha_codeowners:
   - '@RJPoelstra'
 ha_domain: motionmount
