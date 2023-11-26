@@ -42,5 +42,5 @@ A total of 11 sensors are available:
   The distance the wheelchair has traveled today.
 - **Number of adjustments**
   The number of adjustments sessions today. Multiple different adjustment within a short time period are counted as a single sessions.
-- **Record number of adjustments**
+- **Highest number of adjustments**
   The highest number of adjustments ever recorded in a single day.
