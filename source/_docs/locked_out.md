@@ -45,7 +45,7 @@ If you are running Home Assistant in a container, you can use the command line i
 4. `exit` to exit the container command line
 5. `docker restart homeassistant` to restart the container.
 
-#### To reset a user's password, as an Owner via the web interface
+#### To reset a user's password, as an owner via the web interface
 
 1. In the bottom left, select your user to go to the {% my profile title="**Profile**" %} page and make sure **Advanced Mode** is activated.
 2. Go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the password.
