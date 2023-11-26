@@ -471,6 +471,7 @@ source/_integrations/msteams.markdown @peroyvind
 source/_integrations/mullvad.markdown @meichthys
 source/_integrations/mutesync.markdown @currentoor
 source/_integrations/my.markdown @home-assistant/core
+source/_integrations/mypermobil @IsakNyberg
 source/_integrations/mysensors.markdown @MartinHjelmare @functionpointer
 source/_integrations/mystrom.markdown @fabaff
 source/_integrations/nam.markdown @bieniu
