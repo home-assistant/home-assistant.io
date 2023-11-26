@@ -43,4 +43,4 @@ A total of 11 sensors are available:
 - **Number of adjustments**
   The number of adjustments sessions today. Multiple different adjustment within a short time period are counted as a single sessions.
 - **Record number of adjustments**
-  The record number of adjustments in a single day.
+  The highest number of adjustments ever recorded in a single day.
