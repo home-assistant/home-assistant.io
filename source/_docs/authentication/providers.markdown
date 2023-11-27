@@ -29,8 +29,9 @@ You can supply more than one, for example:
 homeassistant:
   auth_providers:
     - type: homeassistant
-    - type: legacy_api_password
-      api_password: !secret http_password
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.0.0/24
 ```
 
 ## Available auth providers
@@ -193,31 +194,4 @@ Any leading and trailing whitespace is stripped from usernames before they're pa
 
 <div class='note'>
 For now, meta variables are only respected the first time a particular user is authenticated. Upon subsequent authentications of the same user, the previously created user object with the old values is reused.
-</div>
-
-### Legacy API password
-
-<div class='note warning'>
-This is a legacy feature for backwards compatibility and will be dropped in a future release. You should move to one of the other auth providers.
-</div>
-
-Activating this auth provider will allow you to authenticate with the API password set in the HTTP integration.
-
-```yaml
-homeassistant:
-  auth_providers:
-   - type: legacy_api_password
-     api_password: !secret http_password
-```
-
-`api_password` is required option since 0.90 release.
-
-Activating this auth provider will also allow you to provide the API password using an authentication header to make requests against the Home Assistant API. This feature will be dropped in the future in favor of long-lived access tokens.
-
-If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically if `api_password` was configured under `http` section.
-
-<div class='note warning'>
-
-[Issue 16441](https://github.com/home-assistant/core/issues/16441): the legacy API password auth provider, won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
-
 </div>
