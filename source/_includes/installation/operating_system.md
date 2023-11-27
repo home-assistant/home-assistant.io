@@ -1,12 +1,12 @@
 # Install Home Assistant Operating System
 
-{% assign release_url = "https://github.com/home-assistant/operating-system/releases/download" %}
+{% assign release_url = "<https://github.com/home-assistant/operating-system/releases/download>" %}
 
 {% if site.installation.types[page.installation_type].board %}
 
 Follow this guide if you want to get started with Home Assistant easily or if you have little to no Linux experience.
 
-{% if page.installation_type == 'odroid' %}
+{% if page.installation_type == 'ODROID' %}
 
 ## Suggested hardware
 
@@ -16,7 +16,6 @@ To get started, we suggest the ODROID N2+, the board that powers our [Home Assis
 
 If unavailable, we also recommend the [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e).
 
-
 Home Assistant bundles (US market):
 
 The bundles come with Home Assistant pre-installed.
@@ -25,7 +24,7 @@ The bundles come with Home Assistant pre-installed.
 - [ODROID N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399?ref=eeb6nfw07e)
 - ODROID M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831?ref=eeb6nfw07e)
 - ODROID M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367?ref=eeb6nfw07e)
-- [ODROID M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC ](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
+- [ODROID M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
 
 Variants without pre-installed Home Assistant:
 
@@ -50,13 +49,13 @@ Variants without pre-installed Home Assistant:
 This guide assumes that you have a dedicated {{ site.installation.types[page.installation_type].board }} PC to exclusively run the Home Assistant Operating System.
 
 - This is typically an Intel or AMD-based system.
-- The system must be 64-bit capable and be able to boot using UEFI. 
+- The system must be 64-bit capable and be able to boot using UEFI.
   - Most systems produced in the last 10 years support the UEFI boot mode.
 
 <b>Summary</b>
 
 1. First, you will need to configure your {{ site.installation.types[page.installation_type].board }} PC to use UEFI boot mode.
-2. Then, write the Home Assistant Operating System disk image to your boot medium. 
+2. Then, write the Home Assistant Operating System disk image to your boot medium.
 
 </div>
 
@@ -114,10 +113,10 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 4. When prompted, make sure to select **Try Ubuntu**. This runs Ubuntu on the stick, which is what we need.
    - The system then starts Ubuntu.
    - Connect your system to your network and make sure it has internet access.
-4. In Ubuntu, open a browser and open [this procedure](/installation/generic-x86-64).
+5. In Ubuntu, open a browser and open [this procedure](/installation/generic-x86-64).
    - From there, [download the image][generic-x86-64] to your computer.
-5. In Ubuntu, in the bottom left corner, select **Show Applications**.
-6. In the applications, search and open **Disks** and start restoring the HOAS image:
+6. In Ubuntu, in the bottom left corner, select **Show Applications**.
+7. In the applications, search and open **Disks** and start restoring the HOAS image:
    1. In **Disks**, on the left side, select the internal disk device you want to install HAOS onto.
    2. On top of the screen, select the three dots menu and select **Restore Disk Image...**.
       ![Restore disk image: select three dots menu](/images/installation/ubuntu_restore_disk_image.png)
@@ -133,7 +132,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
    6. In the partitions overview, you should now see the **hassos-boot** partition.
       - The Home Assistant Operating System is now being installed on your system.
         ![Restore disk image: Restoring...](/images/installation/haos_restoring.png)
-7. Once the Home Assistant Operating System is installed, remove the external USB flash drive and shut down the system.
+8. Once the Home Assistant Operating System is installed, remove the external USB flash drive and shut down the system.
    - Your Home Assistant server is now set up and you can start using it.
    - To use it, proceed as described under [start up your generic x86-64](/installation/generic-x86-64#start-up-your-generic-x86-64).
 
@@ -158,7 +157,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
    - This means you will lose all the data as well as the previously installed operating system.
    - Back up your data before continuing with the next step.
 2. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.
-    {% if page.installation_type == 'odroid' %}
+    {% if page.installation_type == 'ODROID' %}
       If you are using ODROID M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
 
       If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
@@ -181,7 +180,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
     {% if variant.key == "odroid-n2" %}
     [Guide: Flashing Odroid-N2 using OTG-USB](/hassio/flashing_n2_otg/)
     {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
-      _(64-bit is recommended)_
+      *(64-bit is recommended)*
     {% endif %}
 
 {% endfor %}
@@ -195,8 +194,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 {% endif %}
 
-_Select and copy the URL or use the "copy" button that appear when you hover it._
-
+*Select and copy the URL or use the "copy" button that appear when you hover it.*
 
 5. Paste the URL into your browser to start the download.
 6. Select **Flash from file** and select the image you just downloaded.
@@ -215,7 +213,6 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
 {% if page.installation_type == 'generic-x86-64' %}
-
 
 - If you used a live operating system (Ubuntu, Method 1), shut it down and remove the live operating system USB device.
 
@@ -263,7 +260,7 @@ If you are running an older Windows version or have a stricter network configura
 ### Download the appropriate image
 
 - [VirtualBox][vdi] (.vdi)
-{% if page.installation_type == 'windows' or page.installation_type == 'linux' %}
+{% if page.installation_type == 'windows' or page.installation_type == 'Linux' %}
 - [KVM][qcow2] (.qcow2)
 - [Vmware Workstation][vmdk] (.vmdk)
 {% elsif page.installation_type == 'alternative' %}
@@ -278,8 +275,9 @@ After downloading, decompress the image. If the image comes in a ZIP file, for e
 
 Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines, we recommend installing Home Assistant OS directly on a [Home Assistant Yellow](/installation/yellow), a [Raspberry Pi](/installation/raspberrypi), or an [ODROID](/installation/odroid).
 
-{% if page.installation_type == 'macos' %}
-- If VirtualBox is not supported on your Mac, and you have experience using virtual machines, you can try running the Home Assistant Operating system on [UTM](https://mac.getutm.app/). 
+{% if page.installation_type == 'macOS' %}
+
+- If VirtualBox is not supported on your Mac, and you have experience using virtual machines, you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
 {% endif %}
 
 ### Create the virtual machine
@@ -292,7 +290,7 @@ Minimum recommended assignments:
 - 32 GB Storage
 - 2vCPU
 
-_All these can be extended if your usage calls for more resources._
+*All these can be extended if your usage calls for more resources.*
 
 ### Hypervisor specific configuration
 
@@ -314,9 +312,11 @@ _All these can be extended if your usage calls for more resources._
 
     By default, VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
     the `discard` option must be enabled using your host machine's terminal:
+
     ```bash
     VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
     ```
+
     More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
     </div>
@@ -328,7 +328,7 @@ _All these can be extended if your usage calls for more resources._
     3. Make sure under **Settings** > **VM manager**, **Enable VMs** is enabled.
     4. Create a new virtual machine: **VMS** > **Add VM**.
     5. Select type **Linux** and give the VM a name and a description.
-    6. Select the CPU cores you want to let the VM use and give it some memory. 
+    6. Select the CPU cores you want to let the VM use and give it some memory.
     7. Under **Primary vDisk Location**, select **Manual** and then select the qcow2 image.
     8. Select your keyboard language under **VM Console Keyboard**.
     9. Select **br0** under **Network Source**.
@@ -339,8 +339,8 @@ _All these can be extended if your usage calls for more resources._
     14. Select the name of your new VM and select the capacity number for your disk. Here, you can expand the disk to whatever your needs are. The default is 32&nbsp;GB.
     15. Select the icon of your new VM and select **start with console (VNC)**.
 
+{% unless page.installation_type == 'macOS' %}
 
-{% unless page.installation_type == 'macos' %}
 - title: KVM (virt-manager)
   content: |
     1. Create a new virtual machine in `virt-manager`.
@@ -356,9 +356,11 @@ _All these can be extended if your usage calls for more resources._
 
 - title: KVM (virt-install)
   content: |
+
     ```bash
     virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --import --graphics none --boot uefi
     ```
+
     <div class="note info">
     If you have a USB dongle to attach, you need to add the option `--hostdev busID.deviceId`. You can discover these IDs via the `lsusb` command.
     As example, if `lsusb` output is:
@@ -379,12 +381,14 @@ _All these can be extended if your usage calls for more resources._
     ```bash
     virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --import --graphics none --boot uefi --hostdev 003.003
     ```
-    Note that this configuration (bus 003, device 003) is just an example, your dongle could be on another bus and/or with another device ID. 
+
+    Note that this configuration (bus 003, device 003) is just an example, your dongle could be on another bus and/or with another device ID.
     Please check the correct IDs of your USB dongle with `lsusb`.
     </div>
+
 {% endunless %}
 
-{% if page.installation_type == 'windows' or page.installation_type == 'linux' %}
+{% if page.installation_type == 'windows' or page.installation_type == 'Linux' %}
 
 - title: Vmware Workstation
   content: |
