@@ -82,10 +82,10 @@ The BIOS configuration is now complete.
 Next, we need to write the Home Assistant Operating System image to the "boot medium", which is the medium your x86-64 hardware will boot from when it is running Home Assistant.
 
 <div class='note'>
-HAOS has no integrated installer that writes the image automatically. You must write it manually using a tool like Balena Etcher or the <b>Restore Disks</b> function from Ubuntu.
+HAOS has no integrated installer that writes the image automatically. You will write it manually using either the <b>Disks</b> utility from Ubuntu or Balena Etcher.
 </div>
 
-Typically an internal medium like S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non-removable eMMC is used for the x86-64 boot medium. Alternatively, an external medium can be used such as a USB SDD, though this is not recommended.
+Typically, an internal medium like S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non-removable eMMC is used for the x86-64 boot medium. Alternatively, an external medium can be used such as a USB SDD, though this is not recommended.
 
 To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 different methods:
 
@@ -107,25 +107,35 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 1. **Notice**: This procedure will write the Home Assistant Operating System onto your device.
    - This means you will lose all the data as well as the previously installed operating system.
    - Back up your data before continuing with the next step.
-2. Create a so called *live operating system* on a USB flash drive:
-   - Follow the ([Ubuntu instructions](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)) on writing an Ubuntu iso file onto a USB device.
+2. Create a *live operating system* on a USB flash drive:
+   - Follow the ([Ubuntu instructions](https://ubuntu.com/tutorials/try-ubuntu-before-you-install) on writing an Ubuntu iso file onto a USB device.
 3. Insert the USB flash drive into the system on which you want to run Home Assistant.
    - Boot the live operating system.
+4. When prompted, make sure to select **Try Ubuntu**. This runs Ubuntu on the stick, which is what we need.
    - The system then starts Ubuntu.
-4. In Ubuntu, open a browser and [download the image][generic-x86-64] to your computer.
+   - Connect your system to your network and make sure it has internet access.
+4. In Ubuntu, open a browser and open [this procedure](/installation/generic-x86-64).
+   - From there, [download the image][generic-x86-64] to your computer.
 5. In Ubuntu, in the bottom left corner, select **Show Applications**.
 6. In the applications, search and open **Disks** and start restoring the HOAS image:
    1. In **Disks**, on the left side, select the internal disk device you want to install HAOS onto.
    2. On top of the screen, select the three dots menu and select **Restore Disk Image...**.
       ![Restore disk image: select three dots menu](/images/installation/ubuntu_restore_disk_image.png)
    3. Select the image you just downloaded.
-      ![Restore disk image: select three dots menu](/images/installation/select_haos.png)
+      ![Restore disk image: select image](/images/installation/select_haos.png)
    4. Select **Start Restoring...**.
-      ![Restore disk image: select three dots menu](/images/installation/start_restoring.png)
+      ![Restore disk image: start restoring](/images/installation/start_restoring.png)
    5. Confirm by selecting **Restore**.
-      ![Restore disk image: select three dots menu](/images/installation/restore.png)
+      ![Restore disk image: select Restore](/images/installation/restore.png)
+      - If you are getting an **Error unmounting filesystem** error message, stating that the **target is busy**:
+      - Most likely, you are running Ubuntu on your internal disk. Instead, you need to run it on your stick.
+        - Go back to step 3 and during start up, make sure you select **Try Ubuntu** (and NOT **Install Ubuntu**).
    6. In the partitions overview, you should now see the **hassos-boot** partition.
       - The Home Assistant Operating System is now being installed on your system.
+        ![Restore disk image: Restoring...](/images/installation/haos_restoring.png)
+7. Once the Home Assistant Operating System is installed, remove the external USB flash drive and shut down the system.
+   - Your Home Assistant server is now set up and you can start using it.
+   - To use it, proceed as described under [start up your generic x86-64](/installation/generic-x86-64#start-up-your-generic-x86-64).
 
 ### Method 2: Installing HAOS directly from a boot medium
 
