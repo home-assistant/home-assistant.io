@@ -1,6 +1,6 @@
 # Install Home Assistant Operating System
 
-{% assign release_url = "<https://github.com/home-assistant/operating-system/releases/download>" %}
+{% assign release_url = "https://github.com/home-assistant/operating-system/releases/download" %}
 
 {% if site.installation.types[page.installation_type].board %}
 
