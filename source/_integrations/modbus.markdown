@@ -539,7 +539,7 @@ The master configuration like device_class are automatically copied to the slave
 
 ## Configuring climate entities
 
-The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature.
+The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature, HVAC mode and fan state.
 
 Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
@@ -632,6 +632,67 @@ climates:
               type: [integer, list]
             state_heat_cool:
               description: "Value corresponding to HVAC Heat/Cool mode."
+              required: false
+              type: [integer, list]
+    fan_mode_register:
+      description: "Configuration of register for Fan mode"
+      required: false
+      type: map
+      keys:
+        address:
+          description: "Address of Fan mode register."
+          required: true
+          type: integer
+        write_registers:
+          description: "Request type, use `write_registers` if true  else `write_register`.
+            If more than one value is specified for a specific mode, only the first one is used for writing to the register."
+          required: false
+          type: boolean
+          default: false
+        values:
+          description: "Mapping between the register values and Fan modes
+            This is typically used to control one of: Speed, Direction or On/Off state."
+          required: true
+          type: map
+          keys:
+            state_fan_on:
+              description: "Value corresponding to Fan On mode."
+              required: false
+              type: [integer, list]
+            state_fan_off:
+              description: "Value corresponding to Fan Off mode."
+              required: false
+              type: [integer, list]
+            state_fan_low:
+              description: "Value corresponding to Fan Low mode."
+              required: false
+              type: [integer, list]
+            state_fan_medium:
+              description: "Value corresponding to Fan Medium mode."
+              required: false
+              type: [integer, list]
+            state_fan_high:
+              description: "Value corresponding to Fan High mode."
+              required: false
+              type: [integer, list]
+            state_fan_auto:
+              description: "Value corresponding to Fan Auto mode."
+              required: false
+              type: [integer, list]
+            state_fan_top:
+              description: "Value corresponding to Fan Top mode."
+              required: false
+              type: [integer, list]
+            state_fan_middle:
+              description: "Value corresponding to Fan Middle mode."
+              required: false
+              type: [integer, list]
+            state_fan_focus:
+              description: "Value corresponding to Fan Focus mode."
+              required: false
+              type: [integer, list]
+            state_fan_diffuse:
+              description: "Value corresponding to Fan Diffuse mode."
               required: false
               type: [integer, list]
     hvac_onoff_register:
