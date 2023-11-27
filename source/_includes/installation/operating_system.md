@@ -10,7 +10,7 @@ Follow this guide if you want to get started with Home Assistant easily or if yo
 
 ## Suggested hardware
 
-We will need a few things to get started with installing Home Assistant. The links below lead to Ameridroid. If you’re not in the US, you should be able to find these items in web stores in your country.
+You will need a few things to get started with installing Home Assistant. The links below lead to Ameridroid. If you’re not in the US, you should be able to find these items in web stores in your country.
 
 To get started, we suggest the ODROID N2+, the board that powers our [Home Assistant Blue](/blue/), or the ODROID M1.
 
@@ -78,7 +78,7 @@ The BIOS configuration is now complete.
 
 ## Write HAOS onto your x86-64 hardware
 
-Next, we need to write the Home Assistant Operating System image to the "boot medium", which is the medium your x86-64 hardware will boot from when it is running Home Assistant.
+Next, you need to write the Home Assistant Operating System image to the *boot medium*, which is the medium your x86-64 hardware will boot from when it is running Home Assistant.
 
 <div class='note'>
 HAOS has no integrated installer that writes the image automatically. You will write it manually using either the <b>Disks</b> utility from Ubuntu or Balena Etcher.
@@ -110,7 +110,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
    - Follow the ([Ubuntu instructions](https://ubuntu.com/tutorials/try-ubuntu-before-you-install) on writing an Ubuntu iso file onto a USB device.
 3. Insert the USB flash drive into the system on which you want to run Home Assistant.
    - Boot the live operating system.
-4. When prompted, make sure to select **Try Ubuntu**. This runs Ubuntu on the stick, which is what we need.
+4. When prompted, make sure to select **Try Ubuntu**. This runs Ubuntu on the USB flash device.
    - The system then starts Ubuntu.
    - Connect your system to your network and make sure it has internet access.
 5. In Ubuntu, open a browser and open [this procedure](/installation/generic-x86-64).
@@ -273,7 +273,7 @@ If you are running an older Windows version or have a stricter network configura
 
 After downloading, decompress the image. If the image comes in a ZIP file, for example, unzip it.
 
-Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines, we recommend installing Home Assistant OS directly on a [Home Assistant Yellow](/installation/yellow), a [Raspberry Pi](/installation/raspberrypi), or an [ODROID](/installation/odroid).
+Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines, install Home Assistant OS directly on a [Home Assistant Yellow](/installation/yellow), a [Raspberry Pi](/installation/raspberrypi), or an [ODROID](/installation/odroid).
 
 {% if page.installation_type == 'macOS' %}
 
