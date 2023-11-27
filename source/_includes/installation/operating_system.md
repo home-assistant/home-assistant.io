@@ -98,7 +98,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 - Computer
 - The target x86-64 hardware, on which you want to install the Home Assistant Operating System (HAOS)
-- USB flash drive (USB thumb drive is sufficient, it should be at least 4GB in size)
+- USB flash drive (USB thumb drive is sufficient, it should be at least 4&nbsp;GB in size)
 - Internet connection
 
 #### To install HAOS via Ubuntu from a USB flash drive
@@ -137,6 +137,8 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
    - To use it, proceed as described under [start up your generic x86-64](/installation/generic-x86-64#start-up-your-generic-x86-64).
 
 ### Method 2: Installing HAOS directly from a boot medium
+
+Use this method only if Method 1 does not work for you.
 
 #### Required material
 
@@ -198,7 +200,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 5. Paste the URL into your browser to start the download.
 6. Select **Flash from file** and select the image you just downloaded.
-   - **Flash from URL** does not work on some systems.
+   - Do not use **Flash from URL**. It does not work on some systems.
 
   ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
 7. **Select target**.
@@ -214,9 +216,9 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 {% if page.installation_type == 'generic-x86-64' %}
 
-- If you used a live operating system (Ubuntu, Method 1), shut it down and remove the live operating system USB device.
+- If you used [Ubuntu's disk utility](/installation/generic-x86-64#method-1-installing-haos-via-ubuntu-booting-from-a-usb-flash-drive) for the installation, shut it down and remove the live operating system USB device.
 
-- If you used your desktop system to write the HAOS image directly to a boot medium like an S-ATA SSD (Method 2), connect this back to your {{ site.installation.types[page.installation_type].board }} system.
+- If you used [Balena Etcher](/installation/generic-x86-64#method-2-installing-haos-directly-from-a-boot-medium), connect this back to your {{ site.installation.types[page.installation_type].board }} system.
 
 1. Plug in an Ethernet cable that is connected to the network.
 2. Power the system on. If you have a screen connected to the {{site.installation.types[page.installation_type].board}} system, after a minute or so the Home Assistant welcome banner will appear in the console.
