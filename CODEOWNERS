@@ -98,7 +98,7 @@ source/_integrations/bosch_shc.markdown @tschamm
 source/_integrations/brandt.markdown @imicknl @vlebourl @tetienne @nyroDev
 source/_integrations/braviatv.markdown @bieniu @Drafteed
 source/_integrations/brel_home.markdown @starkillerOG
-source/_integrations/broadlink.markdown @danielhiversen @felipediel @L-I-Am
+source/_integrations/broadlink.markdown @danielhiversen @felipediel @L-I-Am @eifinger
 source/_integrations/brother.markdown @bieniu
 source/_integrations/brottsplatskartan.markdown @gjohansson-ST
 source/_integrations/brunt.markdown @eavanvalkenburg
@@ -471,7 +471,7 @@ source/_integrations/msteams.markdown @peroyvind
 source/_integrations/mullvad.markdown @meichthys
 source/_integrations/mutesync.markdown @currentoor
 source/_integrations/my.markdown @home-assistant/core
-source/_integrations/myq.markdown @ehendrix23 @Lash-L
+source/_integrations/mypermobil @IsakNyberg
 source/_integrations/mysensors.markdown @MartinHjelmare @functionpointer
 source/_integrations/mystrom.markdown @fabaff
 source/_integrations/nam.markdown @bieniu

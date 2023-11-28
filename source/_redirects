@@ -498,6 +498,7 @@ layout: null
 /integrations/ee_brightbox /more-info/removed-integration 301
 /integrations/eight_sleep /more-info/removed-integration 301
 /integrations/envirophat /more-info/removed-integration 301
+/integrations/eq3btsmart /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
 /integrations/flunearyou /more-info/removed-integration 301
@@ -529,6 +530,7 @@ layout: null
 /integrations/mazda /more-info/removed-integration 301
 /integrations/mcp23017 /more-info/removed-integration 301
 /integrations/mhz19 /more-info/removed-integration 301
+/integrations/myq /blog/2023/11/06/removal-of-myq-integration/ 301
 /integrations/miflora /integrations/xiaomi_ble
 /integrations/mitemp_bt /integrations/xiaomi_ble
 /integrations/mopar /more-info/removed-integration 301

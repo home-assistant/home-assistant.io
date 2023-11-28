@@ -192,6 +192,27 @@ automation:
           source: HDMI 1
 ```
 
+## Deleting dynamically created scenes
+
+Any scene that you have created with the `scene.create` service can also be deleted on demand with the `scene.delete` service.
+
+You will need to pass in the `entity_id` of such a scene. As opposed to the `scene_id` used for creation, the `entity_id` must also include the `scene` domain.
+
+If the scene was not previously created by `scene.create`, the service call will fail and an error will appear in the logs.
+
+```yaml
+# Example automation
+automation:
+  trigger:
+    platform: state
+    entity_id: sun.sun
+    to: below_horizon
+  action:
+    - service: scene.delete
+      data:
+        entity_id: scene.my_scene
+```
+
 The following example turns off some entities as soon as a window opens. The states of the entities are restored after the window is closed again.
 
 ```yaml

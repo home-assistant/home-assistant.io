@@ -29,8 +29,9 @@ You can supply more than one, for example:
 homeassistant:
   auth_providers:
     - type: homeassistant
-    - type: legacy_api_password
-      api_password: !secret http_password
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.0.0/24
 ```
 
 ## Available auth providers
@@ -175,11 +176,15 @@ When `meta: true` is set in the auth provider's configuration, your command can 
 
 ```txt
 name = John Doe
+group = system-users
+local_only = true
 ```
 
 Leading and trailing whitespace, as well as lines starting with `#` are ignored. The following variables are supported. More may be added in the future.
 
 - `name`: The real name of the user to be displayed in their profile.
+- `group`: The user group uses the value `system-admin` for administrator (this is the default) or `system-users` for regular users.
+- `local_only`: The user can only log in from the local network if you set the value to `true`. If you do not define this variable, the user can log in from anywhere.
 
 Stderr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
 
@@ -189,31 +194,4 @@ Any leading and trailing whitespace is stripped from usernames before they're pa
 
 <div class='note'>
 For now, meta variables are only respected the first time a particular user is authenticated. Upon subsequent authentications of the same user, the previously created user object with the old values is reused.
-</div>
-
-### Legacy API password
-
-<div class='note warning'>
-This is a legacy feature for backwards compatibility and will be dropped in a future release. You should move to one of the other auth providers.
-</div>
-
-Activating this auth provider will allow you to authenticate with the API password set in the HTTP integration.
-
-```yaml
-homeassistant:
-  auth_providers:
-   - type: legacy_api_password
-     api_password: !secret http_password
-```
-
-`api_password` is required option since 0.90 release.
-
-Activating this auth provider will also allow you to provide the API password using an authentication header to make requests against the Home Assistant API. This feature will be dropped in the future in favor of long-lived access tokens.
-
-If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically if `api_password` was configured under `http` section.
-
-<div class='note warning'>
-
-[Issue 16441](https://github.com/home-assistant/core/issues/16441): the legacy API password auth provider, won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
-
 </div>
