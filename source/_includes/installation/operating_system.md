@@ -105,7 +105,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 1. **Notice**: This procedure will write the Home Assistant Operating System onto your device.
    - This means you will lose all the data as well as the previously installed operating system.
-   - Back up your data before continuing with the next step.
+   - Back up your data before carrying out this procedure.
 2. Create a *live operating system* on a USB flash drive:
    - Follow the [Ubuntu instructions](https://ubuntu.com/tutorials/try-ubuntu-before-you-install) on writing an Ubuntu iso file onto a USB device.
 3. Insert the USB flash drive into the system on which you want to run Home Assistant.
