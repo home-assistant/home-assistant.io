@@ -5,13 +5,13 @@ description: "Decorate your dashboard cards with quick controls."
 
 Some dashboard cards have support for features.These widgets add quick controls to the card. Supported features depend on the card and entity capabilities. Multiple features can be added to a single card.
 
-<p class='img'><img src='/images/dashboards/features/screenshot-tile-feature-grid.png' alt="Screenshot of tile cards with a features.">
-Screenshot of tile cards with a features.
+<p class='img'><img src='/images/dashboards/features/screenshot-tile-feature-grid.png' alt="Screenshot of tile cards with features.">
+Screenshot of tile cards with features.
 </p>
 
 ## Alarm modes
 
-Widget that display buttons to arm and disarm an [alarm](/integrations/alarm_control_panel).
+Widget that displays buttons to arm and disarm an [alarm](/integrations/alarm_control_panel).
 
 <p class='img'>
   <img src='/images/dashboards/features/alarm_modes.png' alt='Screenshot of the tile card with alarm modes feature'>
@@ -37,7 +37,7 @@ type:
   type: string
 modes:
   required: true
-  description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass` and `disarmed`.
+  description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass`, and `disarmed`.
   type: list
 {% endconfiguration %}
 
@@ -70,7 +70,7 @@ type:
   type: string
 hvac_modes:
   required: true
-  description: List of modes to show on the card. The list can contain `auto`, `heat_cool`, `heat`, `cool`, `dry`, `fan_only` and `off`.
+  description: List of modes to show on the card. The list can contain `auto`, `heat_cool`, `heat`, `cool`, `dry`, `fan_only`, and `off`.
   type: list
 {% endconfiguration %}
 
@@ -318,7 +318,7 @@ type:
   type: string
 commands:
   required: true
-  description: List of commands to show on the card. The list can contain `start_pause`, `stop`, `clean_spot`, `locate` and `return_home`.
+  description: List of commands to show on the card. The list can contain `start_pause`, `stop`, `clean_spot`, `locate`, and `return_home`.
   type: list
 {% endconfiguration %}
 
@@ -351,6 +351,6 @@ type:
   type: string
 operation_modes:
   required: true
-  description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand` and `off`.
+  description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand`, and `off`.
   type: list
 {% endconfiguration %}
