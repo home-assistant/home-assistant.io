@@ -22,6 +22,11 @@ The PrusaLink integration allows you to monitor your [Prusa 3D printer](https://
 
 This integration integration has been updated to utilize the latest v1 API endpoints, which require firmware version 4.7.0 or later. If you own a Prusa Mini, please make sure your printer is running firmware 5.1.0 or a more recent version, as firmware versions 4.7.x and 5.0.x are not available for this model.
 
+Firmware update guides can be found here:
+
+ - [Prusa Mini](https://help.prusa3d.com/article/firmware-updating-mini-mini_124784)
+ - [Prusa MK4/XL](https://help.prusa3d.com/article/how-to-update-firmware-mk4-xl_453086)
+
 To obtain the host name, username and password:
 
  - On your printer, navigate to **Settings** > **Network** > **PrusaLink**.
