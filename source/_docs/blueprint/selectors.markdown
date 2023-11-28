@@ -1212,7 +1212,7 @@ The output of this selector is a template string.
 
 ## Text selector
 
-The text selector can be used to input a text string. The value of the input will contain the selected text.
+The text selector can be used to input a text string or a list of  text strings, based on if `multiple` is set to `true`. The value of the input will contain the selected text.
 
 ![Screenshot of text selectors](/images/blueprints/selector-text.png)
 
@@ -1251,6 +1251,12 @@ autocomplete:
     This supplies the [HTML `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete).
     Any value supported by the HTML attribute is valid.
   type: string
+  required: false
+multiple:
+  description: >
+    Allows adding list of text strings. If set to `true`, the resulting value of this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
   required: false
 {% endconfiguration %}
 
