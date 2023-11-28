@@ -219,9 +219,9 @@ Use this method only if Method 1 does not work for you.
 
 {% if page.installation_type == 'generic-x86-64' %}
 
-- If you used [Ubuntu's disk utility](/installation/generic-x86-64#method-1-installing-haos-via-ubuntu-booting-from-a-usb-flash-drive) for the installation, shut it down and remove the live operating system USB device.
+- If you used method 1 for the installation, make sure the USB flash drive is removed from the system.
 
-- If you used [Balena Etcher](/installation/generic-x86-64#method-2-installing-haos-directly-from-a-boot-medium), connect this back to your {{ site.installation.types[page.installation_type].board }} system.
+- If you used method 2 for the installation, install the boot medium into your x86-64 hardware.
 
 1. Plug in an Ethernet cable that is connected to the network.
 2. Power the system on. If you have a screen connected to the {{site.installation.types[page.installation_type].board}} system, after a minute or so the Home Assistant welcome banner will appear in the console.
