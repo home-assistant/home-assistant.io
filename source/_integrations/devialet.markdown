@@ -21,7 +21,7 @@ The **Devialet** integration lets you control your [Devialet](https://www.devial
 <div class='note'>
 
 - For a stereo setup, only one of the speakers need to be configured.
-- Make sure your Devialet firmware version is >= 2.16.1. Otherwise, expect functions not to work.
+- Make sure your Devialet firmware version is 2.16.1 or later. Otherwise, expect functions not to work.
 - Assigning a fixed IP address to your speakers is highly recommended.
 
 </div>
