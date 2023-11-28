@@ -3,7 +3,7 @@ title: "Features for dashboard cards"
 description: "Decorate your dashboard cards with quick controls."
 ---
 
-Some dashboard cards have support for features.These widgets add quick controls to the card. Supported features depend on the card and entity capabilities. Multiple features can be added to a single card.
+Some dashboard cards have support for features. These widgets add quick controls to the card. Supported features depend on the card and entity capabilities. Multiple features can be added to a single card.
 
 <p class='img'><img src='/images/dashboards/features/screenshot-tile-feature-grid.png' alt="Screenshot of tile cards with features.">
 Screenshot of tile cards with features.
