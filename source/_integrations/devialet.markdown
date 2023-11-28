@@ -37,4 +37,4 @@ Known supported devices:
 
 ## Turning off the device
 
-The media player `turn off`  button and service `media_player.turn_off` will turn off all the devices of the designated system. Exiting OFF mode is only possible by pressing a physical button on each device.
+The media player `turn off`  button and the service `media_player.turn_off` will turn off all the devices of the designated system. Exiting OFF mode is only possible by pressing a physical button on each device.
