@@ -2,131 +2,86 @@
 title: Rain Bird
 description: Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant.
 ha_category:
+  - Binary Sensor
+  - Calendar
   - Irrigation
   - Sensor
   - Switch
+ha_config_flow: true
 ha_release: 0.61
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@konikvranik'
+  - '@allenporter'
 ha_domain: rainbird
+ha_platforms:
+  - binary_sensor
+  - calendar
+  - number
+  - sensor
+  - switch
+ha_integration_type: integration
 ---
 
 This `rainbird` integration allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Sensor](#sensor)
+- [Binary Sensor](#binary-sensor)
+- [Calendar](#calendar)
+- [Number](#number)
 - [Switch](#switch)
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable it, add the following to your `configuration.yaml` file:
+## Configuration Options
 
-```yaml
-# Example configuration.yaml entry
-rainbird:
-  host: IP_ADDRESS_OF_MODULE
-  password: YOUR_PASSWORD
-  trigger_time: 360
+The integration has a configuration option to change the default amount of time that the irrigation
+will run when turning on a zone switch (default is 6 minutes). This can be overridden with a service call (see below).
 
-```
+## Binary Sensor
 
-{% configuration %}
-host:
-  description: IP Address of the Module
-  required: true
-  type: string
-password:
-  description: The password for accessing the module.
-  required: true
-  type: string
-trigger_time:
-  description: Irrigation time. The time will be rounded down to whole minutes.
-  required: true
-  type: time
-zones:
-  description: Dictionary of zone configurations
-  required: false
-  type: map
-  keys:
-    ZONE_NUMBER:
-      description: Zone ID
-      type: map
-      keys:
-        friendly_name:
-          description: Friendly name to see in GUI
-          required: false
-          type: string
-        trigger_time:
-          description: Irrigation time. Seconds are ignored.
-          required: false
-          type: time
-{% endconfiguration %}
+The `rainsensor` sensor will tell if you if the device has detected rain.
 
+## Calendar
 
-More complex configuration using all possible features could look like this example:
-```yaml
-# Example configuration.yaml entry
-rainbird:
-  - host: IP_ADDRESS_OF_MODULE
-    password: YOUR_PASSWORD
-    trigger_time: 6
-    zones:
-      1:
-        friendly_name: My zone 1
-        trigger_time:
-          minutes: 6
-      2:
-        friendly_name: My zone 2
-        trigger_time: 2
-  - host: IP_ADDRESS_OF_ANOTHER_MODULE
-    password: YOUR_ANOTHER_PASSWORD
-    trigger_time: 0:06
-    zones:
-      1:
-        friendly_name: My zone 1
-        trigger_time: 0:06
-      3:
-        friendly_name: My zone 3
-        trigger_time: 0:05
-```
-<div class='note'>
-Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
-</div>
+Some Rain Bird devices support automatic irrigation schedules configured with the Rain Bird app.
+and are available in Home Assistant as a [Calendar](https://www.home-assistant.io/integrations/calendar/) entity. You can view the program schedule in the UI, or trigger other automations
+based on the irrigation start or end time.
 
-## Sensor
+## Number
 
-This `rainbird` sensor allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
-
-The integration adds `rainsensor` and `raindelay` sensors and their `binary_sensor` alternatives.
+The Rain Delay Number Entity lets you set and view  the number of days, if any, the automatic irrigation schedule has been delayed.
 
 ## Switch
-
-This `rainbird` switch platform allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
 
 Switches are automatically added for all available zones of configured controllers.
 
 ## Services
 
-The Rain Bird switch platform exposes a service to start a single irrigation for a given duration.
+The integration exposes services to give additional control over a Rain Bird device.
 
-| Service | Description |
-| ------- | ----------- |
-| rainbird.start_irrigation | Set a duration state attribute for a switch and turn the irrigation on.|
+### `rainbird.start_irrigation`
 
-The service can be used as part of an automation script. For example:
+Start a Rain Bird zone for a set number of minutes. This service accepts a Rain Bird sprinkler
+zone switch entity and allows a custom duration unlike the switch.
+
+| Service Data Attribute | Optional | Description                                           |
+| ---------------------- | -------- | ----------------------------------------------------- |
+| `entity_id`            | no       | The Rain Bird Sprinkler zone switch to turn on.       |
+| `duration`             | no       | Number of minutes for this zone to be turned on.      |
+
 
 ```yaml
 # Example configuration.yaml automation entry
 automation:
-  - alias: Turn irrigation on
+  - alias: "Turn irrigation on"
     trigger:
-      platform: time
-      at: '5:30:00'
+      - platform: time
+        at: "5:30:00"
     action:
-      service: rainbird.start_irrigation
-      entity_id: switch.sprinkler_1
-      data:
-        duration: 5
+      - service: rainbird.start_irrigation
+        data:
+          entity_id: switch.rain_bird_sprinkler_1
+          duration: 5
 ```

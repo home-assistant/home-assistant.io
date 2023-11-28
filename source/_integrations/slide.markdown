@@ -2,13 +2,16 @@
 title: Slide
 description: Instructions on how to integrate the Innovation in Motion Slide covers with Home Assistant.
 ha_category:
-  - Hub
   - Cover
+  - Hub
 ha_iot_class: Cloud Polling
 ha_release: 0.99
 ha_codeowners:
   - '@ualex73'
 ha_domain: slide
+ha_platforms:
+  - cover
+ha_integration_type: integration
 ---
 
 The `slide` implementation allows you to integrate your [slide.store](https://slide.store/) devices in Home Assistant using the [official API](https://documenter.getpostman.com/view/6223391/S1Lu2pSf?version=latest).

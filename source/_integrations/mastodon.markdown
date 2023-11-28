@@ -8,6 +8,9 @@ ha_codeowners:
   - '@fabaff'
 ha_domain: mastodon
 ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
+ha_integration_type: integration
 ---
 
 The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver notifications from Home Assistant.
@@ -15,6 +18,7 @@ The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver no
 ### Setup
 
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.
+If you want to grant only required accesses, uncheck all checkboxes then check only **read:accounts** and **write:statuses**.
 
 ### Configuration
 

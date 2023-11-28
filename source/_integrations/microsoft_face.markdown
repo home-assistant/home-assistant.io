@@ -6,26 +6,27 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.37
 ha_domain: microsoft_face
+ha_integration_type: integration
 ---
 
 The `microsoft_face` integration platform is the main integration for Microsoft
 Azure Cognitive service
-[Face](https://azure.microsoft.com/en-us/services/cognitive-services/face/).
+[Face](https://azure.microsoft.com/products/cognitive-services/vision-services).
 All data are stored in your own private instance in the Azure cloud.
 
 ## Setup
 
 You need an API key, which is free, but requires an
-[Azure registration](https://azure.microsoft.com/en-us/free/) using your
+[Azure registration](https://azure.microsoft.com/free/) using your
 Microsoft ID. The free resource (*F0*) is limited to 20 requests per minute and
 30k requests in a month. If you don't want to use the Azure cloud, you can also
 get an API key by registering with
-[cognitive-services](https://azure.microsoft.com/en-us/try/cognitive-services/).
+[cognitive-services](https://azure.microsoft.com/try/cognitive-services/).
 Please note that all keys on cognitive services must be recreated every 90 days.
 
 ## Configuration
 
-To enable the Microsoft Face component,
+To enable the Microsoft Face integration,
 add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -67,7 +68,7 @@ via the Frontend, a script, or the REST API.
 ```yaml
 service: microsoft_face.create_group
 data:
-  name: 'Family'
+  name: "Family"
 ```
 
 - *microsoft_face.create_person*
@@ -77,7 +78,7 @@ data:
 service: microsoft_face.create_person
 data:
   group: family
-  name: 'Hans Maier'
+  name: "Hans Maier"
 ```
 
 You need to add an image of a person. You can add multiple images for every
@@ -90,7 +91,7 @@ send a local image to your Azure resource.
 service: microsoft_face.face_person
 data:
   group: family
-  name: 'Hans Maier'
+  name: "Hans Maier"
   camera_entity: camera.door
 ```
 

@@ -5,7 +5,9 @@ date: 2018-05-27 00:01:00
 date_formatted: "May 27, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's time for release 0.70. It's a little later than expected because of a major overhaul of how our frontend is build. It should not have any impact on how the frontend looks or behaves. Thanks to all the people running the beta who helped test this. Right now it looks like Firefox is still having some issues running the Hass.io panel. We're working on releasing a fix for that soon.

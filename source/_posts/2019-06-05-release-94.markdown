@@ -5,7 +5,9 @@ date: 2019-06-05 04:11:03
 date_formatted: "June 5, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-06-release-94/google-ui.png
 ---
 
@@ -205,9 +207,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
     ```
 
  - __Plex__
-   * Configuration option `include_non_clients` has been removed. The component was unnecessarily complicated with separate update methods for Plex devices and Plex sessions. This change always updates all known Plex clients regardless of type. The previous design also had issues where the Plex sessions are never polled if there are no Plex clients connected at startup and only 'session' client types connect after that point. This leads to a failure to discover new devices. This is a breaking change if the config option `include_non_clients` is being used since it has been removed. ([@jjlawren] - [#24038]) ([plex docs])
+   - Configuration option `include_non_clients` has been removed. The component was unnecessarily complicated with separate update methods for Plex devices and Plex sessions. This change always updates all known Plex clients regardless of type. The previous design also had issues where the Plex sessions are never polled if there are no Plex clients connected at startup and only 'session' client types connect after that point. This leads to a failure to discover new devices. This is a breaking change if the config option `include_non_clients` is being used since it has been removed. ([@jjlawren] - [#24038]) ([plex docs])
 
-   * Configuration options use_custom_entity_ids and entity_namespace have been removed. This change will prepend the display name (and therefore the default entity_id) of each newly created entity with 'Plex' for easy identification. Users may customize each display name and entity_id as desired via the Entity Registry. Entities created before this PR will not be affected as the unique_id remains the same. ([@jjlawren] - [#24072]) ([plex docs])
+   - Configuration options use_custom_entity_ids and entity_namespace have been removed. This change will prepend the display name (and therefore the default entity_id) of each newly created entity with 'Plex' for easy identification. Users may customize each display name and entity_id as desired via the Entity Registry. Entities created before this PR will not be affected as the unique_id remains the same. ([@jjlawren] - [#24072]) ([plex docs])
 
 - __Verisure__ - Base entity_id of alarm_control_panel on alias of installation set by giid rather than first installation. This is a breaking change as it will change entity_id of alarm_control_panel in cases where a user is configuring an installation using giid that is not the first installation. ([@tkjacobsen] - [#23606]) ([verisure docs])
 - __Zestimate__ - Changed name property to return Zestimate and the property address. This will make it easier to distinguish multiple Zestimate sensor entities in the UI and is a breaking change as it will change entity_id of Zestimate sensors. If you have automations relying on your Zestimate sensor(s) you may need to revisit them to fix the ID's to the new ones. Also, you may need to update your Zestimate sensor(s) in your Lovelace UI. ([@dreed47] - [#23770]) ([zestimate docs])

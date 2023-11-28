@@ -8,11 +8,14 @@ ha_release: 0.81
 ha_codeowners:
   - '@cisasteelersfan'
 ha_domain: quantum_gateway
+ha_platforms:
+  - device_tracker
+ha_integration_type: integration
 ---
 
-The `quantum_gateway` device tracker platform offers presence detection by looking at connected devices to a Verizon Fios gateway.
+The `quantum_gateway` device tracker platform offers presence detection by looking at devices connected to a Verizon Fios gateway.
 
-It was tested with a Verizon Fios-G1100 Quantum Gateway.
+It was tested with a Verizon Fios-G1100 and G3100 Quantum Gateway.
 
 ## Configuration
 

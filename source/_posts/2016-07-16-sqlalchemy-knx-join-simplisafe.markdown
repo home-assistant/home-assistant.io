@@ -5,7 +5,9 @@ date: 2016-07-16 12:00:00 +0000
 date_formatted: "July 16, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's time for Home Assistant 0.24 and it's full of new integration for your Home. It contains some structural changes to our history which requires action from your end, so please keep reading.

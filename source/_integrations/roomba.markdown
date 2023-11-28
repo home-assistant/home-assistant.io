@@ -1,5 +1,5 @@
 ---
-title: iRobot Roomba
+title: iRobot Roomba and Braava
 description: Instructions on how to integrate your Wi-Fi enabled Roomba and Braava within Home Assistant.
 ha_category:
   - Vacuum
@@ -10,8 +10,16 @@ ha_codeowners:
   - '@pschmitt'
   - '@cyr-ius'
   - '@shenxn'
+  - '@Xitee1'
 ha_domain: roomba
 ha_config_flow: true
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - vacuum
+ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 The `roomba` integration allows you to control your [iRobot Roomba](https://www.irobot.com/roomba) vacuum or [iRobot Braava](https://www.irobot.com/braava) m-series mop.
@@ -21,47 +29,12 @@ The `roomba` integration allows you to control your [iRobot Roomba](https://www.
 </p>
 
 <div class='note'>
-This platform has been tested and is confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 960, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690.
+  
+This integration has been tested and confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 960, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690. For auto-discovery, you will need to initiate a Roomba reboot. For example, by holding the clean button for up to 20 seconds on an i7 or 980. [More information about rebooting your robot](https://homesupport.irobot.com/s/article/9087).
+
 </div>
 
-## Configuration
-
-To add your Roomba to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with + sign and from the list of integrations select iRobot Roomba.
-
-To add your Roomba vacuum to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-roomba:
-  - host: IP_ADDRESS_OR_HOSTNAME
-    blid: BLID
-    password: PASSWORD
-```
-
-{% configuration %}
-host:
-  description: The hostname or IP address of the Roomba.
-  required: true
-  type: string
-blid:
-  description: The username (BLID) for your device.
-  required: true
-  type: string
-password:
-  description: The password for your device.
-  required: true
-  type: string
-continuous:
-  description: Whether to operate in continuous mode.
-  required: false
-  type: boolean
-  default: true
-delay:
-  description: Custom connection delay (in seconds) for periodic mode
-  required: false
-  type: integer
-  default: 1
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 
@@ -76,30 +49,21 @@ The Roomba Integration will add the following sensors.
 Sensors:
 - roomba_battery_level : The status of your battery
 - roomba_bin_full (if Roomba has the capacity to do) : Bin Full status
+- roomba_missions_cancelled: Total missions that have been canceled
+- roomba_missions_failed: Total missions that have failed
+- roomba_missions_successful: Total successful missions
+- roomba_missions_total: All total missions together
+- roomba_scrubs_count: Total amount of how often the robot has executed "scrub"
+- roomba_total_cleaning_time: How long the robot has spend cleaning (total) (in hours)
 
-### Multiple Roomba vacuums
-
-```yaml
-# Example configuration.yaml entry
-roomba:
-  - host: IP_ADDRESS_OR_HOSTNAME_1
-    blid: BLID_1
-    password: PASSWORD_1
-  - host: IP_ADDRESS_OR_HOSTNAME_2
-    blid: BLID_2
-    password: PASSWORD_2
-    continuous: false
-    delay: 5
-```
-
-### Retrieving your credentials
+### Manually retrieving your credentials
 
 Please refer to [here](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password) or [here](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) to retrieve both the BLID (username) and the password.
 
 For Home Assistant Container, the following command retrieves the BLID (username) and password:
 
 ```shell
-docker exec -it CONTAINER_NAME_OR_ID python -c 'import roomba.entry_points; roomba.entry_points.password()' ROOMBA_IP
+docker exec -it CONTAINER_NAME_OR_ID python -c 'import roombapy.entry_points; roombapy.entry_points.password()' ROOMBA_IP
 ```
 
 <div class='note'>
@@ -107,3 +71,18 @@ docker exec -it CONTAINER_NAME_OR_ID python -c 'import roomba.entry_points; room
 The command to retrieve the credentials does not need any additional software to be installed because it uses the built-in [roombapy](https://github.com/pschmitt/roombapy) package and [password](https://github.com/pschmitt/roombapy/blob/1.6.1/roomba/entry_points.py#L20) function deployed with Home Assistant.
 
 </div>
+
+#### Retrieving credentials from the cloud with dorita980
+
+The underlying Python library is currently unable to retrieve the credentials from some newer models (e.g. J7). See [this issue](https://github.com/pschmitt/roombapy/issues/97) for details. Luckily, the password can be retrieved from the cloud using a tool provided by the [dorita980](https://github.com/koalazak/dorita980) library. Follow [these instructions](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) to do this, you should receive output of the form:
+
+```shell
+Found 1 robot(s)!
+Robot "RoombaJ7" (sku: j715800 SoftwareVer: sapphire+22.21.1+2022-06-02-570490a425b+Firmware-Production+70):
+BLID=> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Password=> XXXXXXXXXXXXXXXXXXXXXXXXXXXXX <= Yes, all this string.
+
+Use this credentials in dorita980 lib :)
+```
+
+Copy the password (everything between `=>` and `<=`, not including leading and trailing whitespace) into the Home Assistant password dialog.

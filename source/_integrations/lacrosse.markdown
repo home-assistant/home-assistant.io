@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.58
 ha_iot_class: Local Polling
 ha_domain: lacrosse
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `lacrosse` sensor platform is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
@@ -14,6 +17,7 @@ The `lacrosse` sensor platform is using the data provided by a [Jeelink](https:/
 
 - Technoline TX 29 IT (temperature only)
 - Technoline TX 29 DTH-IT (including humidity)
+- TFA Dostmann LaCrosse sensors (type 30.3147.IT)
 
 ## Setup
 
@@ -28,6 +32,12 @@ Or, when using Docker containers:
 ```bash
 docker exec -it <containername> pylacrosse -d /dev/ttyUSB0 scan
 ```
+
+If you are using the Home Assistant OS or Supervised installation method, these
+methods are not available for you. The use of an additional computer to figure
+out the ID is advised.
+
+For TX 29 DTH-IT sensors you can also read the ID from the display and calculate the ID as followed: `hex2dec(ID_on_display) / 4`.
 
 ## Configuration
 
@@ -98,7 +108,6 @@ sensor:
 
 To setup a LaCrosse sensor with multiple sensors, add the following to your `configuration.yaml` file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -119,4 +128,3 @@ sensor:
         type: battery
         id: 72
 ```
-{% endraw %}

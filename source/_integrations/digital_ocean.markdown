@@ -2,14 +2,18 @@
 title: Digital Ocean
 description: Instructions on how to integrate the Digital Ocean within Home Assistant.
 ha_category:
-  - System Monitor
   - Binary Sensor
   - Switch
+  - System Monitor
 ha_release: '0.30'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: digital_ocean
+ha_platforms:
+  - binary_sensor
+  - switch
+ha_integration_type: integration
 ---
 
 The `digital_ocean` integration allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.

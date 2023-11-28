@@ -8,41 +8,22 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@dgomes'
-  - '@abmantis'
 ha_domain: ipma
+ha_platforms:
+  - sensor
+  - weather
+ha_integration_type: integration
 ---
 
 The `ipma` weather platform uses the [Instituto Português do Mar e Atmosfera](https://www.ipma.pt/) as a source for current and forecast meteorological data.
 
-## Configuration
+There is currently support for the following device types within Home Assistant:
 
-To add the IPMA weather platform to your installation, add the following to your `configuration.yaml` file:
+- Sensor
+  - Risk of Fire for your location
+  - UV Index for your district
+- Weather (current state and forecast)
 
-```yaml
-# Example configuration.yaml entry
-weather:
-  - platform: ipma
-```
+{% include integrations/config_flow.md %}
 
-{% configuration %}
-name:
-  description:  The name you would like to give to the weather station.
-  required: false
-  type: string
-  default: The name of the used station
-latitude:
-  description: Latitude of the location for which you want weather information.
-  required: false
-  type: string
-  default: Home Assistant global latitude configuration
-longitude:
-  description: Longitude of the location for which you want weather information.
-  required: false
-  type: string
-  default: Home Assistant global longitude configuration
-mode:
-  description: "The forecast type. Can be `hourly` or `daily`."
-  required: false
-  type: string
-  default: "`daily`"
-{% endconfiguration %}
+IPMA provides both *hourly* (72h) and *daily* (10 days) forecasts, but you must choose which one will be exposed by the weather entity during initial setup of the integration.

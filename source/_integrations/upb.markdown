@@ -10,17 +10,21 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@gwww'
 ha_domain: upb
+ha_platforms:
+  - light
+  - scene
+ha_integration_type: integration
 ---
 
 The UPB integration allows Home Assistant to connect to a Universal Powerline Bus Powerline Interface Module (UPB PIM) to get status and control UPB devices and UPB links. The UPB PIM may be connected either to a serial port or over TCP. The integration implements the following platforms:
 - Light
 - Scene
 
-## Configuration
+## Prerequisites
 
-To add UPB to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Universal Powerline Bus (UPB)**.
+The UPB integration requires that an export from the `UPStart` UPB configuration program. To create an export, in `UPStart`, click the UPB button in the top left and select **Export to File**. This will create a file with the `.upe` extension. The file must be placed in the configuration directory of your Home Assistant installation.
 
-The UPB integration requires that an export from the `UPStart` UPB configuration program. To create an export, in `UPStart`, click the UPB button in the top left and select **Export to File**. This will create a file with the `.upe` extension. The file must be placed somewhere in your Home Assistant installation, for example, in the configuration directory.
+{% include integrations/config_flow.md %}
 
 ## Device Configuration
 
@@ -171,18 +175,18 @@ Start a scene blinking.
 ```yaml
 #automation:
 
-- alias: 'Specific scene activated'
-  description: 'Trigger when scene 9 on network 42 is activated'
+- alias: "'Specific scene activated'"
+  description: "Trigger when scene 9 on network 42 is activated"
   trigger:
     platform: event
     event_type: upb.scene_changed
     event_data:
       command: activated
-      address: '42_9'
+      address: "42_9"
   action:
     service: persistent_notification.create
     data:
-      title: 'Scene Activated'
+      title: "Scene Activated"
       message: >
         Activated scene 9 on network 42: {{trigger.event.data.command}}, {{trigger.event.data.address}}
 
@@ -192,30 +196,33 @@ Start a scene blinking.
 #script:
  
 all_lights_on:
-  alias: 'All Lights On'
-  description: 'Activate two UPB scenes named interior_lights and exterior_lights'
+  alias: "All Lights On"
+  description: "Activate two UPB scenes named interior_lights and exterior_lights"
   sequence:
     - service: scene.turn_on
-      entity_id: 
-        - scene.interior_lights
-        - scene.exterior_lights
+      target:
+        entity_id: 
+          - scene.interior_lights
+          - scene.exterior_lights
 
 all_lights_off:
-  alias: 'All Lights Off'
-  description: 'Deactivate two UPB scenes named interior_lights and exterior_lights'
+  alias: "All Lights Off"
+  description: "Deactivate two UPB scenes named interior_lights and exterior_lights"
   sequence:
     - service: upb.scene_deactivate
-      entity_id: 
-        - scene.interior_lights
-        - scene.exterior_lights
+      target:
+        entity_id: 
+          - scene.interior_lights
+          - scene.exterior_lights
 
 kitchen_fade_on:
-  alias: 'Kitchen Fade to On'
-  description: 'Turn on kitchen light to 75% over a period of 10 seconds'
+  alias: "Kitchen Fade to On"
+  description: "Turn on kitchen light to 75% over a period of 10 seconds"
   sequence:
     - service: upb.light_fade_start
-      data:
+      target:
         entity_id: light.kitchen
+      data:
         brightness_pct: 75
         rate: 10
 ```
@@ -223,3 +230,16 @@ kitchen_fade_on:
 ## Notes
 
 - A UPB device does not always report its current state. For example, if you call `upb.light_fade_start` and then, a few seconds later, call `upb.light_fade_stop`, the selected UPB device will not report its new brightness level. However, if you then call `homeassistant.update_entity` it will make the UPB device report its current state to Home Assistant.
+- Alterations to your UPB configuration with UpStart must be re-exported. The exported UPE file must have the same filename in the Home Assistant `config` directory.
+
+## Debugging
+Debug logs are often required to solve an issue. To enable UPB debug logs add the following to your `configuration.yaml` file in your Home Assistant `config` directory:
+
+```yaml
+logger:
+  logs:
+    upb_lib: debug
+    homeassistant.components.upb: debug
+```
+
+After updating your configuration file, restart Home Assistant. The debug logs will be in the file `homeassistant.log` in the `config` directory.

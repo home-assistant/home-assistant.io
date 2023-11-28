@@ -9,25 +9,24 @@ ha_config_flow: true
 ha_codeowners:
   - '@nielstron'
 ha_domain: syncthru
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+ha_integration_type: integration
 ---
 
-The Samsung SyncThru Printer platform allows you to read current data from your local Samsung printer.
+The Samsung SyncThru Printer platform allows Home Assistant to read current data from a local Samsung printer.  
 
-It usually provides information about the device's state, the left amount of ink or toner and the state of paper trays.
+Depending on device abilities, the following separate sensors are created if supported:
 
-## Configuration
+- Whether the printer is online
+- Whether the printer is in an error state
+- Black, cyan, magenta and yellow toner fill level
+- Black, cyan, magenta and yellow drum state
+- First to fifth paper input tray state
+- First to sixth paper output tray state
 
-Go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Samsung SyncThru Printer**.
+In order for a device to be discovered automatically, SSPD / UPnP (under Network settings) must be enabled.
 
-If your printer is on and you have enabled [SSDP](/integrations/ssdp/) discovery, it's likely that the printer is automatically discovered. In that case, you shouldn't need any information to complete configuration - simply confirm that the information displayed is correct.
-
-The following information is displayed in separate sensors, if it is available:
-
- - Black, cyan, magenta and yellow toner fill level
- - Black, cyan, magenta and yellow drum state
- - First to fifth paper input tray state
- - First to sixth paper output tray state
-
-<div class="note warning">
-Note that this component or parts thereof may not work if the language of your printer is not configured to be English.
-</div>
+{% include integrations/config_flow.md %}

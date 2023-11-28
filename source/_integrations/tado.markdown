@@ -2,72 +2,47 @@
 title: Tado
 description: Instructions on how to integrate Tado devices with Home Assistant.
 ha_category:
-  - Hub
+  - Binary Sensor
   - Climate
-  - Water Heater
+  - Hub
   - Presence Detection
   - Sensor
+  - Water Heater
+  - Weather
 ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaelarnauts'
-  - '@bdraco'
+  - '@chiefdragon'
 ha_domain: tado
 ha_config_flow: true
+ha_homekit: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - device_tracker
+  - sensor
+  - water_heater
+ha_dhcp: true
+ha_integration_type: integration
 ---
 
-The `tado` integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
+The Tado integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
 
 There is currently support for the following device types within Home Assistant:
 
+- Binary Sensor - for some additional information of the zones.
 - Climate - for every Tado zone.
 - Water Heater - for water heater zones.
 - [Presence Detection](#presence-detection)
 - Sensor - for some additional information of the zones.
+- Weather - for information about the current weather at the location of your Tado home.
 
-## Configuration
-
-To use your Tado thermostats in your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tado**.
-
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry with multiple accounts
-tado:
-  - username: YOUR_USERNAME1
-    password: YOUR_PASSWORD1
-  - username: YOUR_USERNAME2
-    password: YOUR_PASSWORD2
-```
-
-In case of single account works as well:
-
-```yaml
-# Example configuration.yaml entry with single account
-tado:
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Your username for [my.tado.com](https://my.tado.com/).
-  required: true
-  type: string
-password:
-  description: Your password for [my.tado.com](https://my.tado.com/).
-  required: true
-  type: string
-fallback:
-  description: Indicates if you want to fallback to Smart Schedule on the next Schedule change, or stay in Manual mode until you set the mode back to Auto.
-  required: false
-  type: boolean
-  default: true
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
-It currently supports presenting the current temperature, the setting temperature and the current operation mode. The operation mode can be set to manual, auto and off. If no user is at home anymore, all Tado zones show the away-state (Only with Tado assist mode). Manually switching between home-mode and away-mode is also supported. Any Tado climate card can be switched between these presence modes, this changes the setting for the entire home.
+It currently supports presenting the current temperature, the setting temperature and the current operation mode. The operation mode can be set to manual, auto and off. If no user is at home anymore, all Tado zones show the away-state (Only with Tado assist mode). Manually switching between home-mode and away-mode is also supported. Manually switching to auto-mode is only supported with Tado assist mode. Any Tado climate card can be switched between these presence modes, this changes the setting for the entire home.
 
 ## Presence Detection
 
@@ -96,7 +71,7 @@ password:
   required: true
   type: string
 home_id:
-  description: The id of your home of which you want to track devices. If provided, the Tado device tracker will tack *all* devices known to Tado associated with this home. See below how to find it.
+  description: The id of your home of which you want to track devices. If provided, the Tado device tracker will track *all* devices known to Tado associated with this home. See below how to find it.
   required: false
   type: integer
 {% endconfiguration %}
@@ -150,8 +125,9 @@ You can use the service `tado.set_climate_timer` to set your Tado climate device
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
-| `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | no       | String, The required target temperature e.g., `20.5`                   |
+| `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00` |
+| `overlay`              | yes      | Override your defaults setting. NB dont set this and the time period   |
 
 ### Service `tado.set_water_heater_timer`
 
@@ -159,9 +135,19 @@ You can use the service `tado.set_water_heater_timer` to set your water heater t
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
-| `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
+| `entity_id`            | yes      | String, Name of entity e.g., `water_heater.hot_water`                  |
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
+
+### Service `tado.set_climate_temperature_offset`
+
+You can use the service `tado.set_climate_temperature_offset` to set the temperature offset for Tado climate devices.
+
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
+| `offset`               | no       | Float, Offset you would like to set                                    |
+
 
 Examples:
 
@@ -171,12 +157,47 @@ script:
   boost_heating:
     sequence:
       - service: tado.set_climate_timer
-        data:
+        target:
           entity_id: climate.heating
+        data:
           time_period: "01:30:00"
           temperature: 25
       - service: tado.set_water_heater_timer
-        data:
+        target:
           entity_id: water_heater.hot_water
+        data:
           time_period: "01:30:00"
 ```
+
+{% raw %}
+```yaml
+# Example automation to set temperature offset based on another thermostat value
+automation:
+    # Trigger if the state of either thermostat changes
+    trigger:
+    - platform: state
+      entity_id:
+        - sensor.temp_sensor_room
+        - sensor.tado_temperature
+    
+    # Check if the room temp is more than 0.5 away from the tado thermostat reading condition. The sensors default to room temperature (20) when the reading is in error:
+    condition:
+    - condition: template
+      value_template: >
+        {% set tado_temp = states('sensor.tado_temperature')|float(20) %}
+        {% set room_temp = states('sensor.temp_sensor_room')|float(20) %}
+        {{ (tado_temp - room_temp) | abs > 0.5 }}
+    
+    # Work out what the new offset should be (tado temp less the room temp but add the current offset value) and turn that to a negative value for setting as the new offset
+    action:
+    - service: tado.set_climate_temperature_offset
+      target:
+        entity_id: climate.tado
+      data:
+        offset: >
+          {% set tado_temp = states('sensor.tado_temperature')|float(20) %}
+          {% set room_temp = states('sensor.temp_sensor_room')|float(20) %}
+          {% set current_offset = state_attr('climate.tado', 'offset_celsius') %}
+          {{ (-(tado_temp - room_temp) + current_offset)|round(1) }}
+```
+{% endraw %}

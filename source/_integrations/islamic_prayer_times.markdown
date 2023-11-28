@@ -9,34 +9,32 @@ ha_config_flow: true
 ha_domain: islamic_prayer_times
 ha_codeowners:
   - '@engrbm87'
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The Islamic Prayer Times (`islamic_prayer_times`) integration displays the various prayer times for Muslims as sensors.
 
 This platform calculates prayer times using the following calculation methods:
 
-- University of Islamic Sciences in Karachi
+- Shia Ithna-Ansari
 - Islamic Society of North America
+- University of Islamic Sciences, Karachi
 - Muslim World League
-- Umm Al-Qura University in Makkah
+- Umm Al-Qura University, Makkah
+- Egyptian General Authority of Survey
+- Institute of Geophysics, University of Tehran
+- Gulf Region
+- Kuwait
+- Qatar
+- Majlis Ugama Islam Singapura, Singapore
+- Union Organization islamic de France
+- Diyanet İşleri Başkanlığı, Turkiye
+- Spiritual Administration of Muslims of Russia
+- Moonsighting Committee Worldwide
 
-## Configuration
-
-Set up the integration through **Configuration -> Integrations -> Islamic Prayer Times**. To import the configuration from `configuration.yaml` remove any previously configured sensors with platform type `islamic_prayer_times` and add the following lines:
-
-```yaml
-# Example configuration.yaml entry
-islamic_prayer_times:
-
-```
-
-{% configuration %}
-calculation_method:
-  required: false
-  default: 'isna'
-  type: string
-  description: "The calculation method used for prayer times.  Must be one of: `karachi`, `isna`, `mwl`, `makkah`."
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Integration Sensors
 
@@ -51,9 +49,26 @@ sensors:
   - isha: Show the isha prayer time for today.
   - midnight: Show the midnight for today which is the end of isha prayer. This is a calculated field and is not the same as 12AM.
 
-```yaml
-# Example configuration.yaml using a non-default calculation method
-islamic_prayer_times:
-    calculation_method: makkah
+## Configuration
 
-```
+### Prayer calcuation method
+
+Default: Islamic Society of North America
+
+A prayer times calculation method. Methods identify various schools of thought about how to compute the timings. If not specified, it defaults to Islamic Society of North America.
+
+### Latatude Adjustment Method
+
+Default: Middle of the night 
+
+Method for adjusting times higher latitudes - for instance, if you are checking timings in the UK or Sweden.
+
+### Midnight mode
+
+Default: Standard (mid sunset to sunrise)
+
+### School
+
+Default: Shafi
+
+Method for adjusting Asr time calcuation, if not specified, it defaults to Shafi.

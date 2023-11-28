@@ -10,10 +10,11 @@ ha_codeowners:
   - '@shenxn'
   - '@swetoast'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+ha_integration_type: integration
 ---
 
-The `rpi_power` integration allows you to detect [bad power supply](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md) on Raspberry Pi. 
+The `rpi_power` integration allows you to detect [bad power supply](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply-warnings) on Raspberry Pi.
 
-## Configuration
-
-This integration can only be set up through UI. Go to *Configuration* -> *Integration*. Click the *+* button and search for Raspberry Pi Power Supply Checker.
+{% include integrations/config_flow.md %}

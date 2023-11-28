@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/frontend'
 ha_domain: panel_iframe
+ha_integration_type: integration
 ---
 
 The `panel_iframe` support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar and can contain external resources like the web frontend of your router, your monitoring system, or your media server.
@@ -22,19 +23,21 @@ To enable Panel iFrames in your installation, add the following to your `configu
 # Example configuration.yaml entry
 panel_iframe:
   router:
-    title: 'Router'
-    url: 'http://192.168.1.1'
+    title: "Router"
+    url: "http://192.168.1.1"
   fridge:
-    title: 'Fridge'
-    url: 'http://192.168.1.5'
+    title: "Fridge"
+    url: "http://192.168.1.5"
+    icon: mdi:fridge
   otherapp:
-    title: 'Other App'
-    url: '/otherapp'
+    title: "Other App"
+    url: "/otherapp"
+    require_admin: true
 ```
 
 {% configuration %}
 panel_iframe:
-  description: Enables the panel_iframe component. Only allowed once.
+  description: Enables the panel_iframe integration. Only allowed once.
   required: true
   type: map
   keys:
@@ -64,6 +67,6 @@ panel_iframe:
 
 <div class='note warning'>
 
-Do **not** create one that is named `lovelace` it will overwrite Lovelace causing it to never load.
+Do **not** create one that is named `lovelace` it will overwrite existing Dashboards, causing it to never load.
 
 </div>

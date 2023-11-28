@@ -18,7 +18,7 @@ Amazon Alexa provides a Smart Home API for richer home automation control withou
 
 It takes considerable effort to configure. Your Home Assistant instance must be accessible from the Internet, and you need to create an Amazon Developer account and an Amazon Web Services (AWS) account. An easier solution is to use [Home Assistant Cloud](/integrations/cloud/).
 
-The [Emulated Hue integration][emulated-hue-component] provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
+The [Emulated Hue integration][emulated-hue-integration] provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
 
 <div class='note'>
 
@@ -39,53 +39,94 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
   - [Test the Lambda Function](#test-the-lambda-function)
 - [Configure the Smart Home Service Endpoint](#configure-the-smart-home-service-endpoint)
 - [Account Linking](#account-linking)
-- [Alexa Smart Home Component Configuration](#alexa-smart-home-component-configuration)
+- [Alexa Smart Home Integration Configuration](#alexa-smart-home-integration-configuration)
 - [Supported Platforms](#supported-platforms)
+  - [Alarm Control Panel](#alarm-control-panel)
+    - [Arming](#arming)
+    - [Disarming](#disarming)
+  - [Alert, Automation, Group](#alert-automation-group)
+  - [Binary Sensor](#binary-sensor)
+    - [Routines](#routines)
+  - [Button, Input Button](#button-input-button)
+    - [Routines](#routines-1)
+    - [Doorbell Announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
+    - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
+  - [Camera](#camera)
+  - [Climate](#climate)
+    - [Set Thermostat Temperature](#set-thermostat-temperature)
+    - [Thermostat Mode](#thermostat-mode)
+  - [Cover](#cover)
+    - [Open/Close/Raise/Lower](#opencloseraiselower)
+    - [Set Cover Position](#set-cover-position)
+    - [Set Cover Tilt](#set-cover-tilt)
+    - [Garage Doors](#garage-doors)
+  - [Event entities](#event-entities)
+    - [Doorbell Events](#doorbell-events)
+  - [Fan](#fan)
+    - [Fan Speed](#fan-speed)
+    - [Fan Preset Mode](#fan-preset-mode)
+    - [Fan Direction](#fan-direction)
+    - [Fan Oscillation](#fan-oscillation)
+  - [Humidifier](#humidifier)
+    - [Humidifier target humidity](#humidifier-target-humidity)
+    - [Humidifier Mode](#humidifier-mode)
+  - [Image Processing](#image-processing)
+    - [Presence Detection Notification](#presence-detection-notification)
+  - [Input Number and Number](#input-number-and-number)
+  - [Light](#light)
+    - [Brightness](#brightness)
+    - [Color Temperature](#color-temperature)
+    - [Color](#color)
+  - [Lock](#lock)
+    - [Unlocking](#unlocking)
+  - [Media Player](#media-player)
+    - [Change Channel](#change-channel)
+    - [Speaker Volume](#speaker-volume)
+    - [Equalizer Mode](#equalizer-mode)
+    - [Inputs](#inputs)
+    - [Playback State](#playback-state)
+  - [Scene](#scene)
+  - [Script](#script)
+  - [Sensor](#sensor)
+  - [Switch, Input Boolean](#switch-input-boolean)
+    - [Routines](#routines-2)
+  - [Timer](#timer)
+  - [Vacuum](#vacuum)
 - [Alexa Web-Based App](#alexa-web-based-app)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
 
 ## Requirements
 
-- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will work, but a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) is recommended. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
-- Amazon Developer Account. Sign up [here](https://developer.amazon.com).
+- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will work, but a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) is recommended. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant, using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
+- An Amazon Developer Account. Sign up [here](https://developer.amazon.com).
 - An [Amazon Web Services (AWS)](https://aws.amazon.com/free/) account is required to host the Lambda function for your Alexa Smart Home Skill. [AWS Lambda](https://aws.amazon.com/lambda/pricing/) is free to use for up to 1-million requests and 1GB outbound data transfer per month.
 
 ## Create an Amazon Alexa Smart Home Skill
 
-- Sign in [Alexa Developer Console][alexa-dev-console], you can create your free account on the sign in page.
-- Go to `Alexa Skills` page if you are not, click `Create Skill` button to start the process.
-- Input `Skill name` as you like, select your skill's `Default language`.
+- Sign into the [Alexa Developer Console][alexa-dev-console], you can create your free account on the sign-in page. Note this *must* be created with the same Amazon account you use on your Alexa devices and app.
+- Go to `Alexa Skills` page if you are not, then click the `Create Skill` button to start the process.
+- Input `Skill name` as you like, then select your skill's `Default language`.
 - Select `Smart Home` and `Provision your own`, then click `Create skill` button at top right corner.
 
 <p class='img'>
   <img src='/images/integrations/alexa/create_a_new_skill.png' alt='Screenshot: Create Smart Home skill'>
 </p>
 
-- In next screen, make sure *v3* is selected in `Payload version`.
-- Now, you have created a skeleton of Smart Home skill. Next step we will do some "real" developer work. You can keep Alexa Developer Console opened, we need change the skill configuration later.
+- In next screen, make sure *v3* is selected in `Payload version` and take note of your `Skill ID`
+- Now, you have created a skeleton of Smart Home skill. In the next step we will do some "real" developer work. Keep Alexa Developer Console open, we will need to change the skill configuration later.
 
 ## Create an AWS Lambda Function
 
-Alexa Smart Home skill will trigger a AWS Lambda function to process the request, we will write a small piece of code hosted as an Lambda function basically redirect the request to your Home Assistant instance, then the Alexa integration in Home Assistant will process the request and send back the response. Your Lambda function will deliver the response back to Alexa.
+We will write a small piece of code hosted as an AWS Lambda function that will redirect requests from the Alexa Smart Home skill to your Home Assistant instance, then the Alexa integration in Home Assistant will process the request and send back the response. The Lambda function will then deliver the response back to the Alexa Smart Home skill.
 
-<div class='info'>
-
-There already are some great tutorials and solutions in our community to achieve same goal "Create your Alexa Smart Home Skill to connect Home Assistant", for example: [haaska](https://github.com/mike-grant/haaska/wiki).
-
-You can follow this document or others, but you cannot mixed-match different solutions since they may have different design.
-
-Amazon also provided a [step-by-step guide](https://developer.amazon.com/docs/smarthome/steps-to-build-a-smart-home-skill.html) to create a Smart Home Skill, however you have to adapt its sample code to match Home Assistant API.
-
-</div>
-
-OK, let's go. You first need sign in your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tire benefit. You don't need worry the cost if your account already pass the first 12 months, AWS provides up to 1 million Lambda request, 1GB outbound data and all inbound data for free, every month, all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for details.
+OK, let's go. You first need to sign in to your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tier benefit. You don't need to worry about the cost if your account has already passed the first 12 months, as AWS provides up to 1 million Lambda requests, 1GB of outbound data and all inbound data for free, every month, for all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for more details.
 
 ### Create an IAM Role for Lambda
 
-First thing you need to do after sing in [AWS console](https://console.aws.amazon.com/) is to create an IAM Role for Lambda execution. AWS has very strict access control, you have to specific define and assign the permissions.
+The first thing you need to do after signing into the [AWS console](https://console.aws.amazon.com/) is to create an IAM Role for Lambda execution. AWS has very strict access control, so you have to specifically define and assign the required permissions.
 
-- Click `Services` in top navigation bar, expand the menu to display all AWS services, click `IAM` under `Security, Identity, & Compliance` section to navigate to IAM console. Or you may use this [link](https://console.aws.amazon.com/iam/home)
+- Click `Services` in the top navigation bar, expand the menu to display all AWS services, then under the `Security, Identity, & Compliance` section click `IAM` to navigate to the IAM console. Or you may use this [link](https://console.aws.amazon.com/iam/home)
 - Click `Roles` in the left panel, then click `Create role`, select `AWS Service` -> `Lambda` in the first page of the wizard, then click `Next: Permissions`
 - Select `AWSLambdaBasicExecutionRole` policy, then click `Next: Tags`. (Tips: you can use the search box to filter the policy)
 
@@ -93,32 +134,32 @@ First thing you need to do after sing in [AWS console](https://console.aws.amazo
   <img src='/images/integrations/alexa/create_iam_role_attach_permission.png' alt='Screenshot: Attach permission policy to IAM role'>
 </p>
 
-- You can skip `Add tags` page, click `Next: Review`.
-- Give your new role a name, such as `AWSLambdaBasicExecutionRole-SmartHome`, then click `Create role` button. You should be able to find your new role in the roles list now.
+- Give your new role a name, such as `AWSLambdaBasicExecutionRole-SmartHome`, then click the `Create role` button at the bottom of the page. You should be able to find your new role in the roles list now.
 
 ### Add Code to the Lambda Function
 
 Next you need create a Lambda function.
 
-- Click `Services` in top navigation bar, expand the menu to display all AWS services, click `Lambda` under `Compute` section to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
-- **IMPORTANT - Alexa Skills are only supported in certain AWS reigons** Your current server location will be displayed on the top right corner (for example, Ohio), make sure you select the server closest to your location / region based on your Amazon account's country, whilst also ensuring that it is within one of the supported reigons for Alexa Skills otherwise this will not work!
+- Click `Services` in top navigation bar, expand the menu to display all AWS services, then under `Compute` section click `Lambda` to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
+- **IMPORTANT - Alexa Skills are only supported in certain AWS regions** Your current server location will be displayed on the top right corner (for example, Ohio), make sure you select the server closest to your location / region based on your Amazon account's country, whilst also ensuring that it is within one of the supported regions for Alexa Skills otherwise this will not work!
   - **US East (N.Virginia)** region for English (US) or English (CA) skills
   - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   - **US West (Oregon)** region for Japanese and English (AU) skills.
 
-- Click `Functions` in the left navigation bar, display list of your Lambda functions.
+- Click `Functions` in the left navigation bar, to display the list of your Lambda functions.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
-- Select *Python 3.6* or *Python 3.7* as `Runtime`.
-- Make sure select *Use an existing role* as `Execution role`, then select the role you just created from `Existing role` list.
-- Click `Create function`, then you can configuration detail of Lambda function.
-- Under `Configuration` tab, expand `Designer` (if it isn't already expanded), then click `+ Add trigger` in the left part of the panel, then click `Alexa Smart Home` from the drop down list to add a Alexa Smart Home trigger to your Lambda function.
-- You will then be prompted to input the `Skill ID` from the skill you created in previous step. (Tips: you may need switch back to Alexa Developer Console to copy the `Skill ID`.) Then click `Add`.
-- Click your Lambda function icon in the middle of the diagram (above Layers), scroll down you will see a `Function code` window.
-- Clear the example code, copy the Python script from: [https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b](https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b) (modified code to support Alexa's proactive mode, see details below)
-- Scroll down a little bit, you will find `Environment variables`, you need add 1 environment variable and, if required, 3 optional variables. This is done by selecting `Manage environment variables` then adding the following:
-  - *(required)* Key = BASE_URL, Value = your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
+- Select *Python 3.9*, *Python 3.8* or *Python 3.7* as `Runtime`.
+- Expand the `Change default execution role` dropdown and make sure to select *Use an existing role* as `Execution role`, then select the role you just created from `Existing role` list.
+- Click `Create function`, then you can configure the details of Lambda function.
+- Expand the `Function overview` (if it isn't already expanded), then click `+ Add trigger` in the left part of the panel, then click `Alexa Smart Home` from the drop down list to add an Alexa Smart Home trigger to your Lambda function.
+- You will then be prompted to input the `Skill ID` from the skill you created in previous step. (Tip: you may need switch back to Alexa Developer Console to copy the `Skill ID`.) Then click `Add`.
+- Scroll down to `Code source`, then, if it isn't already open the `lambda_function.py`.
+- Clear the example code, and copy the Python script from: [https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b](https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b) (modified code to support Alexa's proactive mode, see details below)
+- Click the `Deploy` button to publish updated code.
+- Navigate to the `Configuration` tab, then select `Environment variables`. You need to add 1 environment variable and, if needed, 3 optional variables. This is done by selecting `Edit` then adding the following:
+  - *(required)* Key = BASE_URL, Value = your Home Assistant instance's Internet accessible URL. *Do not include the trailing `/`*.
   - *(optional)* Key = NOT_VERIFY_SSL, Value = *True*. You can set this to *True* to ignore SSL issues, for example if you don't have a valid SSL certificate or you are using a self-signed certificate.
-  - *(optional)* Key = DEBUG, Value = *True*. Set this variable to log the debug message.
+  - *(optional)* Key = DEBUG, Value = *True*. Set this variable to log the debug message and to allow the LONG_LIVED_ACCESS_TOKEN
   - *(optional, not recommend)* Key = LONG_LIVED_ACCESS_TOKEN, Value = your Home Assistant Long-Lived Access Token. To avoid the use of a long-lived access token you will connect your Alexa Smart Home skill with your Home Assistant user account in the later steps, meaning you don't need to add it here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convenience, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] put here, then the function will fall back to read token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.)
 
 <p class='img'>
@@ -126,24 +167,22 @@ Next you need create a Lambda function.
 </p>
 
 - Now click the `Save` button in the bottom right hand corner.
-- You will then be brought back to your function configuration. From here you need to select `Save` in the top right hand corner of the screen.
-- You also need to copy the ARN displayed in the top of the page, which is the identity of this Lambda function. You will need this ARN to continue Alexa Smart Home skill configuration later.
+- Next you need to copy the ARN displayed in the top of the page, which is the identity of this Lambda function. You will need this ARN to continue Alexa Smart Home skill configuration later.
 
 ### Test the Lambda Function
 
-Now, you have created the Lambda function, before you can test it, you have to set up the necessary aspects of your Home Assistant configuration. Put the following minimal configuration into your `configuration.yaml` file. It will expose all of your supported devices and automations to Alexa. Check the [configuration section](#alexa-smart-home-component-configuration) if you want more control of the exposure.
+Now, you have created the Lambda function, but before you can test it, you have to set up the necessary aspects of your Home Assistant configuration. Put the following minimal configuration into your `configuration.yaml` file. It will expose all of your supported devices and automations to Alexa. It is strongly recommended to check the [configuration section](#alexa-smart-home-integration-configuration) and setup control of which devices and entities are exposed.
 
 ```yaml
 alexa:
   smart_home:
 ```
 
-After your Home Assistant has restarted, go back to `AWS Lambda Console`, you are going to do some tests.
+After your Home Assistant has restarted, go back to the `AWS Lambda Console`, you are going to do some tests.
 
-- On the top of your Lambda function configuration page, there is a `Test` button, to the left of this button is a drop down button - click this and select `Configure test events`
-- Select `Create new test event`
+- Navigate to the `Test` tab, then select `Create new event`
 - Name your event, for example `Discovery`
-- Enter the following data into the code box below `Event name`:
+- Enter the following data into the code box named `Event JSON`:
 
 ```json
 {
@@ -162,47 +201,56 @@ After your Home Assistant has restarted, go back to `AWS Lambda Console`, you ar
   }
 }
 ```
-- Click `Create` in the bottom right hand corner.
 
-This test event is a `Discovery` directive, your Home Assistant instance will respond with a list of devices Alexa can interact with. This test data is lack of `token` in `payload.scope`, your Lambda function will read the `LONG_LIVED_ACCESS_TOKEN` from environment variable.
+- Click `Create` in the top right hand corner.
 
-Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN`, you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
+This test event is a `Discovery` directive, your Home Assistant instance will respond with a list of devices Alexa can interact with. Since this test data is lacking a `token` in `payload.scope`, and your Lambda function will read the `LONG_LIVED_ACCESS_TOKEN` from environment variable.
 
-Now, you can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you put your long-lived access token to the `Environment variable`, do not forget click `Save` button before you `Test` again.
+Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN` set, or you haven't enabled `DEBUG` you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
+
+You can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you have entered your long-lived access token into the environment variable `LONG_LIVED_ACCESS_TOKEN` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
 
 This time, you will get a list of your devices in the response. 🎉
 
 ## Configure the Smart Home Service Endpoint
 
-Now remove the long-lived access token (if you want), copy the ARN of your Lambda function, then navigate back to [Alexa Developer Console][alexa-dev-console]. You will finish the configuration of the Smart Home skill.
+Now remove the long-lived access token (if you want), copy the ARN of your Lambda function, then navigate back to the [Alexa Developer Console][alexa-dev-console]. You will finish the configuration of the Smart Home skill.
 
-- Sign in [Alexa Developer Console][alexa-dev-console], go to `Alexa Skills` page if you are not.
+- Return to the [Alexa Developer Console][alexa-dev-console], and go to `Alexa Skills` page if you are not.
 - Find the skill you just created, click `Edit` link in the `Actions` column.
 - Click `SMART HOME` in the left navigation bar of build page.
 - Fill in `Default endpoint` under `2. Smart Home service endpoint` using the `ARN` you copied from your Lambda function configuration.
 
 ## Account Linking
 
-Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa request be able to access your home's devices. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet.
+Alexa needs to link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are able to access your home's devices. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet at port 443.
 
-- Sign in [Alexa Developer Console][alexa-dev-console], go to `Alexa Skills` page if you are not.
+- Return to the [Alexa Developer Console][alexa-dev-console], go to `Alexa Skills` page if you are not.
 - Find the skill you just created, click `Edit` link in the `Actions` column.
 - Click `ACCOUNT LINKING` in the left navigation bar of build page
 - Do not turn on the "Allow users to link their account to your skill from within your application or website" switch. This will require a Redirect URI, which won't work.
-- Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL:PORT]`
+- Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL]`. For Alexa account linking, by default, the standard port 443 is used. Use your firewall to forward this, if needed:
   - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
-    - Note: you must use a valid/trusted SSL Certificate and port 443 for account linking to work
-  - `Client ID`:
-    - `https://pitangui.amazon.com/` if you are in US
-    - `https://layla.amazon.com/` if you are in EU
-    - `https://alexa.amazon.co.jp/` if you are in JP and AU (not verified yet)
+
+    It is also possible to use a different port by appending `:1443` or a similar port number, make sure your firewall is forwarding the correct port:
+  - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]:1443/auth/authorize`
+  - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]:1433/auth/token`
+
+<div class="note">
+    Note: you must use a valid/trusted SSL certificate for account linking to work. Self signed certificates will not work, but you can use a free Let's Encrypt certificate.
+</div>
+
+- `Client ID`:
+  - `https://pitangui.amazon.com/` if you are in US
+  - `https://layla.amazon.com/` if you are in EU
+  - `https://alexa.amazon.co.jp/` if you are in JP and AU (not verified yet)
 
     The trailing slash is important here.
 
-  - `Client Secret`: input anything you like, Home Assistant does not check this field
-  - `Your Authentication Scheme`: make sure you selected *Credentials in request body*. Home Assistant does not support *HTTP Basic*.
-  - `Scope`: Click `+ Add scope` and input `smart_home`, Home Assistant is not using it yet, we may use it in the future when we allow more fine-grained access control.
+- `Client Secret`: input anything you like, Home Assistant does not check this field
+- `Your Authentication Scheme`: make sure you selected *Credentials in request body*. Home Assistant does not support *HTTP Basic*.
+- `Scope`: Click `+ Add scope` and input `smart_home`, Home Assistant is not using it yet, we may use it in the future when we allow more fine-grained access control.
 - You can leave `Domain List` and `Default Access Token Expiration Time` as empty.
 
 <p class='img'>
@@ -210,16 +258,18 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 </p>
 
 - Click `Save` button in the top right corner.
-- Next, you will use Alexa Mobile App or [Alexa web-based app](#alexa-web-based-app) to link your account.
-  - Open the Alexa app, navigate to `Skills & Games` -> `Your Skills` -> `Dev`
+- Next, you will use the Alexa Mobile App or the [Alexa web-based app](#alexa-web-based-app) to link your account.
+  - In the Alexa app, navigate to `More` -> `Skills & Games` -> `Your Skills` -> `Dev`
+  - Or In the Alexa web app, navigate to `Skills` -> `Your Skills` in the top right -> `Dev Skill`
   - Click the Smart Home skill you just created.
   - Click `Enable to use`.
   - A new window will open to direct you to your Home Assistant's login screen.
-  - After you successfully login, you will be redirected back to Alexa app.
-  - You can discover your devices now!
-- Now, you can ask your Echo or in Alexa App, _"Alexa, turn on bedroom"_ 🎉
+  - After you successfully login, you will be redirected back to the Alexa app.
+  - Alexa should automatically start discovering your devices now! This is indicated by a blue ring on your physical devices
+  - If not, ask Alexa to `Discover Devices`
+- Now, you can ask Alexa from your Echo or the Alexa App, _"Alexa, turn on bedroom light"_ 🎉
 
-## Alexa Smart Home Component Configuration
+## Alexa Smart Home Integration Configuration
 
 Example configuration:
 
@@ -267,9 +317,9 @@ alexa:
         endpoint:
           description: >-
             To enable proactive events, you send a message to the Alexa event gateway, send it to the event endpoint that aligns with the geographic availability of your smart home skill. Following is the list of endpoints and the regions they cover. See [Proactive Events](#proactive-events) for more information.
-             * North America: `https://api.amazonalexa.com/v3/events`
-             * Europe: `https://api.eu.amazonalexa.com/v3/events`
-             * Far East: `https://api.fe.amazonalexa.com/v3/events`
+             - North America: `https://api.amazonalexa.com/v3/events`
+             - Europe: `https://api.eu.amazonalexa.com/v3/events`
+             - Far East: `https://api.fe.amazonalexa.com/v3/events`
           required: false
           type: string
         client_id:
@@ -282,7 +332,6 @@ alexa:
           type: string
         filter:
           description: Filter domains and entities for Alexa. ([Configure Filter](#configure-filter))
-          required: true
           type: map
           keys:
             include_domains:
@@ -334,7 +383,7 @@ alexa:
                   type: string
 {% endconfiguration %}
 
-### Alexa Locale
+### Alexa Locale <!-- omit in toc -->
 
 The `locale` should match the location and language used for your Amazon echo devices.
 
@@ -348,26 +397,27 @@ The supported locales are:
 - `en-US`
 - `es-ES`
 - `es-MX`
+- `es-US`
 - `fr-CA`
 - `fr-FR`
+- `hi-IN`
 - `it-IT`
 - `ja-JP`
+- `pt-BR`
 
 See [List of Capability Interfaces and Supported Locales][alexa-supported-locales].
 
-### Proactive Events
+### Proactive Events <!-- omit in toc -->
 
 The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e., "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
 
-- There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events-to-the-alexa-event-gateway.html#endpoints>
-- The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][amazon-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
+- There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events.html#endpoints>
+- The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][alexa-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
 - If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available. Also, you need to restart your Home Assistant after each disabling/enabling the skill in Alexa."
 
-### Configure Filter
+### Configure Filter <!-- omit in toc -->
 
 By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind that only [supported platforms](#supported-platforms) can be added.
-
-{% raw %}
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -383,29 +433,11 @@ alexa:
         - light.kitchen_light
 ```
 
-{% endraw %}
+{% include common-tasks/filters.md %}
 
-Filters are applied as follows:
+See the [troubleshooting](#troubleshooting) if you're experiencing issues setting up the integration.
 
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
-
-See the [troubleshooting](#troubleshooting) if for issues setting up the integration.
-
-### Alexa Display Categories
+### Alexa Display Categories <!-- omit in toc -->
 
 Configure a display category to override the display category and iconography each entity is shown in the Alexa app. This makes it easier to find and monitor devices.
 
@@ -415,7 +447,7 @@ light.kitchen_light:
 ```
 
 <div class='note info'>
-Devices such as cameras, doorbells, garage doors, and alarm control panels require specific display categories to provide all available features from Amazon Alexa. Overriding the default display category will limit features provided by Amazon Alexa.
+Devices such as cameras, garage doors, and alarm control panels require specific display categories to provide all available features from Amazon Alexa. Overriding the default display category will limit features provided by Amazon Alexa.
 </div>
 
 See [Alexa Display Categories][alexa-display-categories] for a complete list
@@ -424,41 +456,57 @@ See [Alexa Display Categories][alexa-display-categories] for a complete list
 
 Home Assistant supports the following integrations through Alexa using a Smart Home Skill. For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
-The following integrations are currently supported:
+The following platforms are currently supported:
 
 - [Alarm Control Panel](#alarm-control-panel)
-- [Alert](#alert-automation-group-input-boolean)
-- [Automation](#alert-automation-group-input-boolean)
+  - [Arming](#arming)
+  - [Disarming](#disarming)
+- [Alert, Automation, Group](#alert-automation-group)
 - [Binary Sensor](#binary-sensor)
-  - [Doorbell Announcement](#doorbell-announcement)
-  - [Presence Detection](#presence-detection-with-binary-sensor)
+  - [Routines](#routines)
+- [Button, Input Button](#button-input-button)
+  - [Routines](#routines-1)
+  - [Doorbell Announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
+  - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
 - [Camera](#camera)
 - [Climate](#climate)
+  - [Set Thermostat Temperature](#set-thermostat-temperature)
+  - [Thermostat Mode](#thermostat-mode)
 - [Cover](#cover)
+  - [Open/Close/Raise/Lower](#opencloseraiselower)
+  - [Set Cover Position](#set-cover-position)
+  - [Set Cover Tilt](#set-cover-tilt)
   - [Garage Doors](#garage-doors)
+- [Event entities](#event-entities)
+  - [Doorbell Events](#doorbell-events)
 - [Fan](#fan)
   - [Fan Speed](#fan-speed)
+  - [Fan Preset Mode](#fan-preset-mode)
   - [Fan Direction](#fan-direction)
   - [Fan Oscillation](#fan-oscillation)
-- [Group](#alert-automation-group-input-boolean)
-- [Input Boolean](#alert-automation-group-input-boolean)
-- [Input Number](#input-number)
+- [Humidifier](#humidifier)
+  - [Humidifier target humidity](#humidifier-target-humidity)
+  - [Humidifier Mode](#humidifier-mode)
 - [Image Processing](#image-processing)
+  - [Presence Detection Notification](#presence-detection-notification)
+- [Input Number and Number](#input-number-and-number)
 - [Light](#light)
   - [Brightness](#brightness)
   - [Color Temperature](#color-temperature)
   - [Color](#color)
 - [Lock](#lock)
+  - [Unlocking](#unlocking)
 - [Media Player](#media-player)
-  - [Channels](#change-channel)
-  - [Speakers](#speaker-volume)
-  - [Sound Mode & Equalizers](#equalizer-mode)
+  - [Change Channel](#change-channel)
+  - [Speaker Volume](#speaker-volume)
+  - [Equalizer Mode](#equalizer-mode)
   - [Inputs](#inputs)
-  - [Payback Control](#seek)
+  - [Playback State](#playback-state)
 - [Scene](#scene)
 - [Script](#script)
 - [Sensor](#sensor)
-- [Switch](#switch)
+- [Switch, Input Boolean](#switch-input-boolean)
+  - [Routines](#routines-2)
 - [Timer](#timer)
 - [Vacuum](#vacuum)
 
@@ -493,13 +541,13 @@ Users must opt-in to the disarm by voice feature in the Alexa App. Alexa will re
   <img height='460' src='/images/integrations/alexa/alexa_app_security_system_pin.png' alt='Screenshot: Alexa App Security System PIN'/></a>
 </p>
 
-To use the exiting code configured for the Alarm Control Panel the `code` must be 4 digits and the `code_format` attribute must be `FORMAT_NUMBER`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
+To use the existing code configured for the Alarm Control Panel the `code` must be 4 digits and the `code_format` attribute must be `number`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
 
 The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` service. If the `alarm_control_panel.alarm_disarm` service fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
 
-### Alert, Automation, Group, Input Boolean
+### Alert, Automation, Group
 
-Turn on and off Alerts, Automations, Groups, and Input Boolean entities as switches.
+Turn on and off Alert, Automation, and Group entities as switches.
 
 - _"Alexa, turn on the front door alert."_
 - _"Alexa, turn off energy saving automations."_
@@ -532,11 +580,33 @@ Alexa Routines can be triggered with Binary Sensors exposed as contact or motion
 
 Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
-#### Doorbell Announcement
+### Button, Input Button
+
+Activate Buttons and Input Buttons with the button name, or _"turn on"_ utterance. They will appear in the Alexa app as scenes.
+
+- _"Alexa, Ring Phone."_
+- _"Alexa, turn on Ring Phone."_
+
+#### Routines
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-Configure a `binary_sensor` with `display_category` of `DOORBELL` in the [`entity_config`](#entity_config) to gain access to the doorbell notification settings in the Alexa App.
+Alexa Routines can be triggered when Buttons and Input Buttons are pressed.
+
+In order to enable this, buttons will appear to have "presence detection" capability. This is what allows this functionality since Alexa does not support button type devices. To trigger a routine when a button is pressed, select the button in the when menu and then select the "Person" capability.
+
+<p class='img'>
+<a href='/images/integrations/alexa/alexa_app_button_trigger.png' target='_blank'>
+  <img height='460' src='/images/integrations/alexa/alexa_app_button_trigger.png' alt='Screenshot: Alexa App Button Routine Trigger'/></a>
+</p>
+
+#### Doorbell Announcement with binary_sensor
+
+Requires [Proactive Events](#proactive-events) enabled.
+
+Note that Home Assistant can support a doorbell natively with an `event` entity with `device_class` to `doorbell`
+
+Configure a `binary_sensor` with `display_category` of `DOORBELL` in the [`entity_config`](#entity_config) to gain access to the doorbell notification settings in the Alexa App. Note that Home Assistant can support this natively with an `event` entity.
 
 ```yaml
 alexa:
@@ -550,14 +620,7 @@ alexa:
 
 Alexa will announce on all echo devices _"Someone is at the [entity name]"_ when a `binary_sensor` state changes from `off` to `on`.
 
-<div class='note info'>
-Each Amazon Echo device will need the communication and announcements setting enabled, and the Do Not Disturb feature turned off.
-</div>
-
-<p class='img'>
-<a href='/images/integrations/alexa/alexa_app_doorbell_announcement.png' target='_blank'>
-  <img height='460' src='/images/integrations/alexa/alexa_app_doorbell_announcement.png' alt='Screenshot: Alexa App Doorbell Notification'/></a>
-</p>
+See also [Event entities](#event-entities).
 
 #### Presence Detection with Binary Sensor
 
@@ -600,7 +663,7 @@ The [`stream`](/integrations/stream/) integration is required to stream cameras 
 
 The Amazon echo device will request the camera stream from Home Assistant. The Home Assistant URL must be accessible from the network the Amazon echo device is connected to and must support HTTPS on port 443 with a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport). These requirements can be satisfied with Home Assistant Cloud, or LetsEncrypt/DuckDNS.
 
-Enable preload stream option for cameras used with echo devices to reduce response time, and prevent timing out before the 6 second limit.   
+Enable preload stream option for cameras used with echo devices to reduce response time, and prevent timing out before the 6 second limit.
 
 ### Climate
 
@@ -701,13 +764,31 @@ Covers with a `device_class` of `garage` support the Open by Voice PIN feature i
   <img height='460' src='/images/integrations/alexa/alexa_app_garage_door_pin.png' alt='Screenshot: Alexa App Garage Door Open by voice'/></a>
 </p>
 
+### Event entities
+
+Requires [Proactive Events](#proactive-events) enabled.
+
+#### Doorbell Events
+
+Home Assistant `event` entities can trigger a doorbell announcement in Alexa if the `device_class` of the `event` entity is set to `doorbell`.
+Alexa will announce on all echo devices _"Someone is at the [entity name]"_ when an `event` entity has received an updated.
+
+<div class='note info'>
+Each Amazon Echo device will need the communication and announcements setting enabled and the Do Not Disturb feature turned off.
+</div>
+
+<p class='img'>
+<a href='/images/integrations/alexa/alexa_app_doorbell_announcement.png' target='_blank'>
+  <img height='460' src='/images/integrations/alexa/alexa_app_doorbell_announcement.png' alt='Screenshot: Alexa App Doorbell Notification'/></a>
+</p>
+
 ### Fan
 
 Control fan speed, direction, and oscillation.
 
 #### Fan Speed
 
-The fan device must support the `speed` attribute. `speed` can be set using a percentage or a range value determined from the `speed_list` attribute.
+The fan device must support percentage based speeds with the `percentage` attribute.
 
 - _"Alexa, set the fan speed to three."_
 - _"Alexa, set the fan speed to fifty percent."_
@@ -715,24 +796,15 @@ The fan device must support the `speed` attribute. `speed` can be set using a pe
 - _"Alexa, turn up the speed on the tower fan."_
 - _"Alexa, set the air speed on the tower fan to maximum."_
 
-The `speed_list` attribute is used to determine the range value. For example, using a `speed_list` consisting of `[off, low, medium, high]` the range values would be `0:off`, `1:low`, `2:medium`, `3:high`.
+#### Fan Preset Mode
 
-The following table lists the possible friendly name synonyms available for a fan with `speed_list: [off, low, medium, high]`.
+The fan device must support the `preset_mode` attribute.
 
-| Fan Range | Friendly Name Synonyms                                             |
-| --------- | ------------------------------------------------------------------ |
-| 0         | _"zero"_, _"off"_                                                  |
-| 1         | _"one"_, _"thirty-three percent"_, _"low"_, _"minimum"_, _"min"_   |
-| 2         | _"two"_, _"sixty-six percent"_, _"medium"_                         |
-| 3         | _"three"_, _"one hundred percent"_, _"high"_, _"maximum"_, _"max"_ |
+- _"Alexa, set the fan preset to eco."_
+- _"Alexa, set the fan preset to smart."_
+- _"Alexa, set the fan preset to auto."_
 
-The following synonyms can be used for _"fan speed"_
-
-| Locale  | Friendly Name Synonyms                                                                             |
-| ------- | -------------------------------------------------------------------------------------------------- |
-| `en-US` | _"fan speed"_, _"airflow speed"_, _"wind speed"_, _"air speed"_, _"air velocity"_, _"power level"_ |
-
-Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+Currently, Alexa only supports `en-US` locale for preset modes.
 
 #### Fan Direction
 
@@ -755,6 +827,20 @@ The fan device must support the `oscillating` attribute.
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
+### Humidifier
+
+Control power, target humidity and mode.
+
+#### Humidifier target humidity
+
+- _"Alexa, set the [entity name] humidity to fifty percent."_
+
+#### Humidifier Mode
+
+The humidifier device must support the `mode` attribute.
+
+- _"Alexa, set the [entity name] mode to eco."_
+
 ### Image Processing
 
 Requires [Proactive Events](#proactive-events) enabled.
@@ -776,15 +862,15 @@ Display category will default to `CAMERA` to enable presence detected notificati
 
 </div>
 
-### Input Number
+### Input Number and Number
 
-Control an `input_number` entity with Alexa. Configures Alexa with the `min`, `max`, `step`, and `unit_of_measurement` attributes for the entity.
+Control an `input_number` or `number` entity with Alexa. Configures Alexa with the `min`, `max`, `step`, and `unit_of_measurement` attributes for the entity.
 
 - _"Alexa, set [entity name] to forty five [unit of measurement]."_
 - _"Alexa, increase the [entity name] by two."_
 - _"Alexa, set the [entity name] to maximum."_
 
-The following table lists the possible friendly name synonyms available for a Input Number with `min: -90, max: 90, step: 45, unit_of_measurement: degrees`.
+The following table lists the possible friendly name synonyms available for a Input Number or Number with `min: -90, max: 90, step: 45, unit_of_measurement: degrees`.
 
 | Fan Range | Friendly Name Synonyms                    |
 | --------- | ----------------------------------------- |
@@ -794,9 +880,13 @@ The following table lists the possible friendly name synonyms available for a In
 | 45        | _"forty five"_                            |
 | 90        | _"ninety"_, _"maximum"_, _"max"_          |
 
+The `unit_of_measurement` will be used to select a supported unit label from the [Global Alexa catalog](https://developer.amazon.com/en-US/docs/alexa/device-apis/resources-and-assets.html#global-alexa-catalog). If there is no match it will be assigned a preset controller.
+
+The following units are supported: °C, °F, K, m, km, mi, yd, in, kg, g, oz, lb, L, ft³, m³, gal and %
+
 ### Light
 
-Control lights with _"turn on"_ and _"turn off"_ utterances, adjust brightness, color, and temperature. 
+Control lights with _"turn on"_ and _"turn off"_ utterances, adjust brightness, color, and temperature.
 
 - _"Alexa, turn on the bathroom light."_
 - _"Alexa, turn off the patio light."_
@@ -891,7 +981,7 @@ Supports changing the Media Player `source` from the preset `source_list`.
 
 - _"Alexa, change the input to DVD on the Living Room TV."_
 
-Home Assistant will attempt to translate the the `media_player` `source_list` into a valid `source` name for Alexa. Alexa only supports the following input names:
+Home Assistant will attempt to translate the `media_player` `source_list` into a valid `source` name for Alexa. Alexa only supports the following input names:
 
 `AUX 1`, `AUX 2`, `AUX 3`, `AUX 4`, `AUX 5`, `AUX 6`, `AUX 7`, `BLURAY`, `CABLE`, `CD`, `COAX 1`, `COAX 2`, `COMPOSITE 1`, `DVD`, `GAME`, `HD RADIO`, `HDMI 1`, `HDMI 2`, `HDMI 3`, `HDMI 4`, `HDMI 5`, `HDMI 6`, `HDMI 7`, `HDMI 8`, `HDMI 9`, `HDMI 10`, `HDMI ARC`, `INPUT 1`, `INPUT 2`, `INPUT 3`, `INPUT 4`, `INPUT 5`, `INPUT 6`, `INPUT 7`, `INPUT 8`, `INPUT 9`, `INPUT 10`, `IPOD`, `LINE 1`, `LINE 2`, `LINE 3`, `LINE 4`, `LINE 5`, `LINE 6`, `LINE 7`, `MEDIA PLAYER`, `OPTICAL 1`, `OPTICAL 2`, `PHONO`, `PLAYSTATION`, `PLAYSTATION 3`, `PLAYSTATION 4`, `SATELLITE`, `SMARTCAST`, `TUNER`, `TV`, `USB DAC`, `VIDEO 1`, `VIDEO 2`, `VIDEO 3`, `XBOX`
 
@@ -899,10 +989,9 @@ Home Assistant will attempt to translate the the `media_player` `source_list` in
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-#### Seek
-
-- _"Alexa, skip 30 seconds on device."_
-- _"Alexa, go back 10 seconds on device."_
+<div class='note info'>
+Intents to seek forwards (skip) or to rewind (go back) are not supported at the moment.
+</div>
 
 ### Scene
 
@@ -929,20 +1018,33 @@ Only temperature sensors are configured at this time.
 - _"Alexa, what's the upstairs temperature?"_
 - _"Alexa, what's the temperature of my ex-girlfriend's heart?"_
 
-### Switch
+### Switch, Input Boolean
 
 Support _"turn on"_ and _"turn off"_ utterances.
 
 - _"Alexa, turn on the vacuum."_
 - _"Alexa, turn off the lights."_
 
+#### Routines
+
+Requires [Proactive Events](#proactive-events) enabled.
+
+Alexa Routines can be triggered when Switches and Input Booleans change state.
+
+In order to enable this, Switches and Input Booleans will appear as contact sensors in the when menu of Alexa Routines. This is because Alexa does not support triggering routines from switch-type devices, only from contact and motion sensors. In this menu when you select a switch, `Open` corresponds to `on` and `Close` corresponds to `off`.
+
+<p class='img'>
+<a href='/images/integrations/alexa/alexa_app_switch_trigger.png' target='_blank'>
+  <img height='460' src='/images/integrations/alexa/alexa_app_switch_trigger.png' alt='Screenshot: Alexa App Switch Routine Trigger'/></a>
+</p>
+
 ### Timer
 
-Start a timer with using the _"turn on"_ utterance. 
+Start a timer with using the _"turn on"_ utterance.
 
 - _"Alexa, turn on the laundry."_
 
-Cancel a timer using the _"turn off"_ utterance. 
+Cancel a timer using the _"turn off"_ utterance.
 
 - _"Alexa, turn off the laundry."_
 
@@ -981,13 +1083,13 @@ The following is a list of regions and the corresponding URL for the web-based A
 
 ## Troubleshooting
 
-### Binary Sensor not available in Routine Trigger
+### Binary Sensor not available in Routine Trigger <!-- omit in toc -->
 
 Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
 
 Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
-### Token Invalid and no Refresh Token Available
+### Token Invalid and no Refresh Token Available <!-- omit in toc -->
 
 Disable and re-enable the skill using the Alexa App; then restart Home Assistant.
 
@@ -1015,7 +1117,7 @@ logger:
 ```
 
 [alexa-dev-console]: https://developer.amazon.com/alexa/console/ask
-[emulated-hue-component]: /integrations/emulated_hue/
-[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token
+[emulated-hue-integration]: /integrations/emulated_hue/
+[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token
 [alexa-display-categories]: https://developer.amazon.com/docs/alexa/device-apis/alexa-discovery.html#display-categories
 [alexa-supported-locales]: https://developer.amazon.com/docs/alexa/device-apis/list-of-interfaces.html

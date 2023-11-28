@@ -2,13 +2,18 @@
 title: Satel Integra
 description: Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
+  - Hub
   - Switch
 ha_release: 0.54
 ha_iot_class: Local Push
 ha_domain: satel_integra
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - switch
+ha_integration_type: integration
 ---
 
 The `satel_integra` integration will allow Home Assistant users who own a Satel Integra alarm panel to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a ETHM extension module that must be installed in the alarm. Compatible with ETHM-1 Plus module with firmware version > 2.00 (version 2.04 confirmed).
@@ -17,19 +22,19 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor: Reports on zone or output statuses
 - Switch: allows for setting states of selected outputs 
-- Alarm Control Panel: represents the partition (in Polish: "strefa"). Reports its status, and can be used to arm/disarm the the partition
+- Alarm Control Panel: represents the zones (in Polish: "strefa"). Reports its status, and can be used to arm/disarm the partition
 
 The module communicates via Satel's open TCP protocol published on their website. It subscribes for new events coming from alarm system and reacts to them immediately.
 
 ## Setup
 
-Please note that **ETHM-1 module is currently not supported**: it does not provide functionality used by this extension. At the moment only ETHM-1 Plus module is supported. That might change in the future, but no promisses are given.
+Please note that **ETHM-1 module is currently not supported**: it does not provide functionality used by this extension. At the moment only ETHM-1 Plus module is supported. That might change in the future, but no promises are given.
 
 The library currently doesn't support encrypted connection to your alarm, so you need **to turn off encryption for integration protocol**. In Polish: "koduj integracje" must be unchecked. You will find this setting in your DloadX program.
 
 A list of all partition, zone and output IDs can be acquired by running DloadX program and connecting to your alarm.
 
-For the Binary Sensor check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zones. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor components."
+For the Binary Sensor, check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zones. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor integrations."
 
 ## Configuration
 
@@ -53,7 +58,7 @@ port:
   default: 7094
   type: integer
 code:
-  description: The INTEGRA ID (found in DLOADX under "Communication configuration" or in polish "Komunikacja Konfiguracji" section), it's needed for making use of the switchable_outputs.
+  description: User password, it's needed for making use of the switchable_outputs. It's recommended not to use admin password.
   required: false
   type: string
 partitions:
@@ -118,43 +123,43 @@ satel_integra:
   port: 7094
   partitions:
     01:
-      name: 'House'
+      name: "House"
       arm_home_mode: 2
     02:
-      name: 'Garage'
+      name: "Garage"
   zones:
     01:
-      name: 'Bedroom'
-      type: 'motion'
+      name: "Bedroom"
+      type: "motion"
     02:
-      name: 'Hall'
-      type: 'motion'
+      name: "Hall"
+      type: "motion"
     30:
-      name: 'Kitchen - smoke'
-      type: 'smoke'
+      name: "Kitchen - smoke"
+      type: "smoke"
     113:
-      name: 'Entry door'
-      type: 'opening'
+      name: "Entry door"
+      type: "opening"
   outputs:
     05:
-      name: 'Garden lights trigger'
-      type: 'light'
+      name: "Garden lights trigger"
+      type: "light"
     09:
-      name: 'Gate opening trigger'
-      type: 'opening'
+      name: "Gate opening trigger"
+      type: "opening"
     30:
-      name: 'Alarm triggered'
-      type: 'safety'
+      name: "Alarm triggered"
+      type: "safety"
     32:
-      name: 'Alarm power problem'
-      type: 'safety'
+      name: "Alarm power problem"
+      type: "safety"
   switchable_outputs:
     05:
-      name: 'Gate open'
+      name: "Gate open"
     06:
-      name: 'Gate close'    
+      name: "Gate close"    
     14:
-      name: 'Garden light'
+      name: "Garden light"
       
 ```
 
@@ -162,13 +167,13 @@ Having configured the zones and the outputs, you can use them for automation, su
 For example:
 
 ```yaml
-  alias: Flick the input switch when movement in bedroom detected
+  alias: "Flick the input switch when movement in bedroom detected"
   trigger:
       platform: state
-      entity_id: 'binary_sensor.bedroom'
-      to: 'on'
+      entity_id: "binary_sensor.bedroom"
+      to: "on"
   action:
       service: input_boolean.turn_on
-      data:
+      target:
         entity_id: input_boolean.movement_detected
 ```

@@ -10,6 +10,9 @@ ha_codeowners:
   - '@rishatik92'
   - '@devbis'
 ha_domain: yandex_transport
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `yandex_tranport` sensor platform uses [Yandex Maps](https://maps.yandex.ru/) it will give you the time until the next departure time from a bus/tramway/etc stop.
@@ -70,8 +73,8 @@ sensor:
 
 ## Options For Entities
 
-You can configure view information about the next bus using Lovelace card.
-To enable displaying the relative time in your `default_vew` add the following lines:
+You can configure view information about the next bus using dashboard card.
+To enable displaying the relative time in your `default_view` add the following lines:
 
 ```yaml
 # Example default_view entry

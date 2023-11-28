@@ -1,111 +1,86 @@
 ---
-title: "Automation Templating"
-description: "Advanced automation documentation using templating."
+title: "Automation Trigger Variables"
+description: "List all available variables made available by triggers."
 ---
 
-In Home Assistant 0.19 we introduced a new powerful feature: variables in scripts and automations. This makes it possible to adjust your condition and action based on the information of the trigger.
+Automations support [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` and `this` template variables are available.
 
-The trigger data made is available during [template](/docs/configuration/templating/) rendering as the `trigger` variable.
+The template variable `this` is also available when evaluating any `trigger_variables` declared in the configuration.
 
-{% raw %}
-```yaml
-# Example configuration.yaml entries
-automation:
-  trigger:
-    platform: state
-    entity_id: device_tracker.paulus
-  action:
-    service: notify.notify
-    data:
-      message: >
-        Paulus just changed from {{ trigger.from_state.state }}
-        to {{ trigger.to_state.state }}
+## Available this Data
 
-automation 2:
-  trigger:
-    platform: mqtt
-    topic: /notify/+
-  action:
-    service: >
-      notify.{{ trigger.topic.split('/')[-1] }}
-    data:
-      message: '{{ trigger.payload }}'
-
-automation 3:
-  trigger:
-    # Multiple entities for which you want to perform the same action.
-    - platform: state
-      entity_id:
-        - light.bedroom_closet
-        - light.kiddos_closet
-        - light.linen_closet
-      to: 'on'
-      # Trigger when someone leaves one of those lights on for 10 minutes.
-      for: '00:10:00'
-  action:
-    - service: light.turn_off
-      data:
-        # Turn off whichever entity triggered the automation.
-        entity_id: "{{ trigger.entity_id }}"
-```
-{% endraw %}
-
-## Important Template Rules
-
-There are a few very important rules to remember when writing automation templates:
-
-1. You **must** surround single-line templates with double quotes (`"`) or single quotes (`'`).
-1. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](http://jinja.pocoo.org/docs/dev/templates/#default), or both.
-1. It is advised that when comparing numbers, you convert the number(s) to a [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) or an [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) by using the respective [filter](http://jinja.pocoo.org/docs/dev/templates/#list-of-builtin-filters).
-1. While the [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) and [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
-
-Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
-
-## Trigger State Object
-
-Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity can be useful in automations. Here are a few ways to access the [`state`](#state), [`numeric state`](#numeric-state) and [`template`](#template) triggers:
-
-* `trigger.from_state` will return the **previous** [state object](/docs/configuration/state_object/) of the entity.
-* `trigger.to_state` will return the **new** [state object](/docs/configuration/state_object/) that triggered trigger.
-* `states[trigger.to_state.domain][trigger.to_state.object_id]` will return the **current** [state object](/docs/configuration/state_object/) of the entity.
-
-<div class='note'>
-  
-  Be aware that if you reference a `trigger` state object in templates of automation `action`, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually check that the templates work as expected by pasting them in Developer Tools > Template together with your trigger's definition like:
-
-{%raw%}
-```yaml
-{% set trigger={'to_state':{'state': 'heat'}} %}
-{% set option = trigger.to_state.state %}
-{{ 'on' if option == 'heat' else 'off' }}
-```
-{%endraw%}
-  
-</div>
+The variable `this` is the [state object](/docs/configuration/state_object) of the automation at the moment of triggering the actions. State objects also contain context data which can be used to identify the user that caused a script or automation to execute. Note that `this` will not change while executing the actions.
 
 ## Available Trigger Data
 
-The following tables show the available trigger data per platform.
+The variable `trigger` is an object that contains details about which trigger triggered the automation.
+
+Templates can use the data to modify the actions performed by the automation or displayed in a message. For example, you could create an automation that multiple sensors can trigger and then use the sensor's location to specify a light to activate; or you could send a notification containing the friendly name of the sensor that triggered it.
+
+Each [trigger platform](/docs/automation/trigger/#event-trigger) can include additional data specific to that platform.
+
+### All
+
+Triggers from all platforms will include the following data.
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.id` | The [`id` of the trigger](/docs/automation/trigger/#trigger-id).
+| `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
+
+### Calendar
+
+These are the properties available for a [Calendar trigger](/docs/automation/trigger/#calendar-trigger).
+
+| Template variable                    | Data                                                                                                                            |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `trigger.platform`                   | Hardcoded: `calendar`                                                                                                           |
+| `trigger.event`                      | The trigger event type, either `start`  or `end`                                                                                |
+| `trigger.calendar_event`             | The calendar event object matched.                                                                                              |
+| `trigger.calendar_event.summary`     | The title or summary of the calendar event.                                                                                     |
+| `trigger.calendar_event.start`       | String representation of the start date or date time of the calendar event e.g. `2022-04-10`, or `2022-04-10 11:30:00-07:00`    |
+| `trigger.calendar_event.end`         | String representation of the end time of date time the calendar event in UTC  e.g. `2022-04-11`, or `2022-04-10 11:45:00-07:00` |
+| `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.                                                                                       |
+| `trigger.calendar_event.description` | A detailed description of the calendar event, if available.                                                                     |
+| `trigger.calendar_event.location`    | Location information for the calendar event, if available.                                                                      |
+| `trigger.offset`                     | Timedelta object with offset to the event, if any |
+
+### Device
+
+These are the properties available for a [Device trigger](/docs/automation/trigger/#device-trigger).
+
+Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `device`.
 
 ### Event
+
+These are the properties available for a [Event trigger](/docs/automation/trigger/#event-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `event`.
 | `trigger.event` | Event object that matched.
-| `trigger.event.data` | Optional data
+| `trigger.event.event_type` | Event type.
+| `trigger.event.data` | Optional event data.
 
 ### MQTT
+
+These are the properties available for a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `mqtt`.
 | `trigger.topic` | Topic that received payload.
 | `trigger.payload` | Payload.
-| `trigger.payload_json` | Dictonary of the JSON parsed payload.
+| `trigger.payload_json` | Dictionary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
 ### Numeric State
+
+These are the properties available for a [Numeric State trigger](/docs/automation/trigger/#numeric-state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -117,7 +92,20 @@ The following tables show the available trigger data per platform.
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has met above/below criteria, if any.
 
+### Sentence
+
+These are the properties available for a [Sentence trigger](/docs/automation/trigger/#sentence-trigger).
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `conversation`
+| `trigger.sentence` | Text of the sentence that was matched
+| `trigger.slots`    | Object with matched slot values
+| `trigger.details` | Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains: <ul><li>`name` - name of the slot</li><li>`text` - matched text</li><li>`value` - output value (see [lists](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>
+
 ### State
+
+These are the properties available for a [State trigger](/docs/automation/trigger/#state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -129,6 +117,8 @@ The following tables show the available trigger data per platform.
 
 ### Sun
 
+These are the properties available for a [Sun trigger](/docs/automation/trigger/#sun-trigger).
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `sun`
@@ -136,6 +126,8 @@ The following tables show the available trigger data per platform.
 | `trigger.offset` | Timedelta object with offset to the event, if any.
 
 ### Template
+
+These are the properties available for a [Template trigger](/docs/automation/trigger/#template-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -147,6 +139,8 @@ The following tables show the available trigger data per platform.
 
 ### Time
 
+These are the properties available for a [Time trigger](/docs/automation/trigger/#time-trigger).
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time`
@@ -154,22 +148,42 @@ The following tables show the available trigger data per platform.
 
 ### Time Pattern
 
+These are the properties available for a [Time Pattern trigger](/docs/automation/trigger/#time-pattern-trigger).
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time_pattern`
 | `trigger.now` | DateTime object that triggered the time_pattern trigger.
 
+### Persistent Notification
+
+These properties are available for a [Persistent Notification trigger](/docs/automation/trigger/#persistent-notification-trigger).
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `persistent_notification`
+| `trigger.update_type` | Type of persistent notification update `added`, `removed`, `current`, or `updated`.
+| `trigger.notification` | Notification object that triggered the persistent notification trigger.
+| `trigger.notification.notification_id` | The notification ID
+| `trigger.notification.title` | Title of the notification
+| `trigger.notification.message` | Message of the notification
+| `trigger.notification.created_at` | DateTime object indicating when the notification was created.
+
 ### Webhook
+
+These are the properties available for a [Webhook trigger](/docs/automation/trigger/#webhook-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `webhook`
 | `trigger.webhook_id` | The webhook ID that was triggered.
-| `trigger.json` | The JSON data of the request (if it had a JSON content type).
+| `trigger.json` | The JSON data of the request (if it had a JSON content type) as a mapping.
 | `trigger.data` | The form data of the request (if it had a form data content type).
 | `trigger.query` | The URL query parameters of the request (if provided).
 
 ### Zone
+
+These are the properties available for a [Zone trigger](/docs/automation/trigger/#zone-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -179,5 +193,55 @@ The following tables show the available trigger data per platform.
 | `trigger.to_state` | New [state object] of the entity.
 | `trigger.zone` | State object of zone
 | `trigger.event` | Event that trigger observed: `enter` or `leave`.
+
+## Examples
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entries
+automation:
+  trigger:
+    - platform: state
+      entity_id: device_tracker.paulus
+      id: paulus_device
+  action:
+    - service: notify.notify
+      data:
+        message: >
+          Paulus just changed from {{ trigger.from_state.state }}
+          to {{ trigger.to_state.state }}
+          
+          This was triggered by {{ trigger.id }}
+
+automation 2:
+  trigger:
+    - platform: mqtt
+      topic: "/notify/+"
+  action:
+    service: >
+      notify.{{ trigger.topic.split('/')[-1] }}
+    data:
+      message: "{{ trigger.payload }}"
+
+automation 3:
+  trigger:
+    # Multiple entities for which you want to perform the same action.
+    - platform: state
+      entity_id:
+        - light.bedroom_closet
+        - light.kiddos_closet
+        - light.linen_closet
+      to: "on"
+      # Trigger when someone leaves one of those lights on for 10 minutes.
+      for: "00:10:00"
+  action:
+    - service: light.turn_off
+      target:
+        # Turn off whichever entity triggered the automation.
+        entity_id: "{{ trigger.entity_id }}"
+```
+
+{% endraw %}
 
 [state object]: /docs/configuration/state_object/

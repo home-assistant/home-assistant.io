@@ -4,23 +4,76 @@ description: Instructions on how to add Telegram notifications to Home Assistant
 ha_category:
   - Notifications
 ha_release: 0.7.5
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Polling
 ha_domain: telegram
+ha_platforms:
+  - notify
+ha_integration_type: integration
 ---
 
-The `telegram` platform uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
+The `telegram` integration uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
 
-## Setup
+## Setup example
 
-The requirements are:
+To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-create-a-bot), follow these steps:
 
-- You need a [Telegram bot](https://core.telegram.org/bots). Please follow those [instructions](https://core.telegram.org/bots#6-botfather) to create one and get the token for your bot. Keep in mind that bots are not allowed to contact users. You need to make the first contact with your user. Meaning that you need to send a message to the bot from your user.
-- You need to configure a [Telegram bot in Home Assistant](/integrations/telegram_bot) and define there your API key and the allowed chat ids to interact with.
-- The `chat_id` of an allowed user or group to which the bot is added.
+  - Bots are not allowed to contact users. You need to make the first contact from the user for which you want to set up the bot.
+
+1. Tell Telegram to create a bot for you:
+   - In Telegram, open a chat with @BotFather and enter `/newbot`.
+   - Follow the instructions on screen and give your bot a name.
+   - BotFather will give you a link to your new bot and an HTTP API token.
+     - Store the token somewhere safe.
+2. To get a chat ID, send any message to the [GetIDs bot](https://t.me/getidsbot).
+   - Then, enter `/start`. 
+   - The bot will return your chat ID and the user name.
+3. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot):
+   - Paste this into your [configuration file](/docs/configuration/):
+   - Replace the `api_key` and the `allowed_chat_ids` with your data.
+  
+      ```yaml
+      # Telegram Bot
+      telegram_bot:
+        - platform: polling
+          api_key: "1117774004:EABQulCACdgkQOTN3hS_5HZwSwxDlekCixr"
+          allowed_chat_ids:
+            - 44441111
+      ```
+
+4. Create a notifier:
+   - Paste this into your configuration file: 
+   - Replace the `name` and the `chat_id` with your data.
+  
+      ```yaml
+      # Notifier
+      notify:
+        - platform: telegram
+          name: "sarah"
+          chat_id: 44441111
+      ```
+   - Restart Home Assistant.
+
+5. From the conversation with BotFather, select the link to open a chat with your new bot.
+6. In the chat with the new bot, enter `/start`.
+7. Test the service:
+   - Go to [**Developer tools** > **Services** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
+   - Paste this into the YAML file:
+   - Replace the `service` and the `message` with your data.
+  
+      ```yaml
+      service: notify.sarah
+      data:
+        message: "Yay! A message from Home Assistant."
+      ```
+   - Select **Call service**. You should now get a message.
+
+8. You can do more with this. Check out the configuration descriptions and examples below.
+
+## Methods to retrieve a `chat_id`
 
 **Method 1:** You can get your `chat_id` by sending any message to the [GetIDs bot](https://t.me/getidsbot).
 
-**Method 2:** To retrieve your `chat_id` you can visit `https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` **after** you have sent the bot a message. Replace `YOUR_API_TOKEN` with your actual token.
+**Method 2:** To retrieve your `chat_id` you can visit `https://api.telegram.org/bot<YOUR_API_TOKEN>/getUpdates` or to use `$ curl -X GET https://api.telegram.org/bot<YOUR_API_TOKEN>/getUpdates` **after** you have sent the bot a message. Replace `<YOUR_API_TOKEN>` with your actual token.
 
 The result set will include your chat ID as `id` in the `chat` section:
 
@@ -118,7 +171,7 @@ To use notifications, please see the [getting started with automation page](/get
 action:
   service: notify.NOTIFIER_NAME
   data:
-    title: '*Send a message*'
+    title: "*Send a message*"
     message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
     data:
       inline_keyboard:
@@ -243,11 +296,11 @@ action:
 
 {% configuration %}
 url:
-  description: A remote path to an video. Either this or the `file` configuration option is required.
+  description: A remote path to a video. Either this or the `file` configuration option is required.
   required: true
   type: string
 file:
-  description: A local path to an video. Either this or the `url` configuration option is required.
+  description: A local path to a video. Either this or the `url` configuration option is required.
   required: true
   type: string
 caption:
@@ -374,4 +427,42 @@ inline_keyboard:
   description: List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
   required: false
   type: list
+{% endconfiguration %}
+
+### Extra data attributes support
+
+```yaml
+...
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: "*Send a message*"
+    message: |-
+      That's an example that sends a message with message_tag, disable_notification and disable_web_page_preview.
+      <a href="https://www.home-assistant.io/">HA site</a>
+    data:
+      parse_mode: html
+      message_tag: "example_tag"
+      disable_notification: True
+      disable_web_page_preview: True
+```
+
+{% configuration %}
+parse_mode:
+  description: "Parser for the message text: `markdownv2`, `html` or `markdown`."
+  required: false
+  type: string
+disable_notification:
+  description: True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound.
+  required: false
+  default: false
+  type: boolean
+disable_web_page_preview:
+  description: True/false to display a webpage preview.
+  default: false
+  type: boolean
+message_tag:
+  description: Tag for sent message.
+  required: false
+  type: string
 {% endconfiguration %}

@@ -1,17 +1,21 @@
 ---
 title: BSB-Lan
 description: Instructions on how to integrate BSBLan device into Home Assistant.
-logo: bsblan.png
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: '0.110'
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@liudger'
 ha_domain: bsblan
+ha_platforms:
+  - climate
+  - diagnostics
+ha_integration_type: device
 ---
 
-This integration integrates [BSBLan](https://github.com/fredlcore/bsb_lan) device into Home Assistant.
+This integration integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
 
 BSBLan is a device that is made by `Frederik Holst` and `Ulf Dieckmann` for documentation and with
 the help of many other contributors.
@@ -21,21 +25,10 @@ of heating systems such as `Elco Thision`, `Brötje` and similar systems.
 It can interface with the heating system over Boiler-System-Bus, Local Process Bus and PPS (Punkt-zu-Punkt Schnittstelle)
 For more information of which system it supports, have a look at their [documentation](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **BSBLan**.
-Fill in the IP address of the device in your network and, if needed,
-the port number. The default value should be 80.
-For authentication now only passkey is supported.
-Username and password are not supported yet. This will be supported in the next release.
-
-After completing the configuration flow, the BSBLan Climate integration will be
-available.
+For authentication HTTP authentication using a username and password,
+or using a passkey is supported. Use either one.
 
 For more documentation of the BSBLan device, check the [manual](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
 
@@ -45,4 +38,5 @@ To see a more detailed listing of the reported systems which are successfully us
 - [`Elco`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#312-elco)
 - [`Other Manufacturers (e.g. Fujitsu, Atlantic, Weishaupt)`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#313-other-manufacturers)
 
-The integration is tested with firmware the stable version `v0.43`.
+The integration is tested with the stable firmware version `1.00`. A newer firmware versions will not work, because the parameters are changed of the specific info that is needed.
+Please use the latest release. [release 1.0](https://github.com/fredlcore/BSB-LAN/releases/tag/v1.0)

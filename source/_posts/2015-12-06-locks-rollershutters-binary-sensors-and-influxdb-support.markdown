@@ -5,7 +5,9 @@ date: 2015-12-06 12:29:00 -0700
 date_formatted: "December 6, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2015-12-release-09/facebook-09.png
 ---
 

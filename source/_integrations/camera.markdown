@@ -3,13 +3,20 @@ title: Camera
 description: Instructions on how to integrate cameras within Home Assistant.
 ha_category:
   - Camera
+  - Media Source
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: camera
-ha_iot_class:
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: entity
+ha_platforms:
+  - diagnostics
 ---
 
 The camera integration allows you to use IP cameras with Home Assistant.
+
+{% include integrations/building_block_integration.md %}
 
 ### Streaming Video
 
@@ -21,7 +28,6 @@ The `Preload stream` option will start the camera feed on Home Assistant startup
   <img src='/images/integrations/camera/preload-stream.png' alt='Screenshot showing Preload Stream option in Home Assistant front end.'>
   Example showing the Preload Stream option in the camera dialog.
 </p>
-
 
 ### Services
 
@@ -60,8 +66,9 @@ For example, the following action in an automation would send an `hls` live stre
 ```yaml
 action:
   service: camera.play_stream
-  data:
+  target:
     entity_id: camera.yourcamera
+  data:
     media_player: media_player.chromecast
 ```
 
@@ -83,13 +90,16 @@ The path part of `filename` must be an entry in the `allowlist_external_dirs` in
 For example, the following action in an automation would take a recording from "yourcamera" and save it to /tmp with a timestamped filename.
 
 {% raw %}
+
 ```yaml
 action:
   service: camera.record
-  data:
+  target:
     entity_id: camera.yourcamera
+  data:
     filename: '/tmp/{{ entity_id.name }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
 ```
+
 {% endraw %}
 
 #### Service `snapshot`
@@ -106,13 +116,16 @@ The path part of `filename` must be an entry in the `allowlist_external_dirs` in
 For example, the following action in an automation would take a snapshot from "yourcamera" and save it to /tmp with a timestamped filename.
 
 {% raw %}
+
 ```yaml
 action:
   service: camera.snapshot
-  data:
+  target:
     entity_id: camera.yourcamera
+  data:
     filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
+
 {% endraw %}
 
 #### Service `turn_off`

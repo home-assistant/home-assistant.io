@@ -1,6 +1,5 @@
 ---
 title: Wiffi
-logo: wiffi.png
 description: Support for WIFFI devices from stall.biz, e.g., Weatherman, Rainyman, ...
 ha_category:
   - DIY
@@ -10,17 +9,15 @@ ha_config_flow: true
 ha_codeowners:
   - '@mampfes'
 ha_domain: wiffi
+ha_platforms:
+  - binary_sensor
+  - sensor
+ha_integration_type: integration
 ---
 
 This integration allows you to connect your [STALL WIFFI](https://stall.biz) devices directly to Home Assistant.
 
-## Configuration via the frontend
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **STALL WIFFI**.
-After completing the configuration flow, the STALL WIFFI
-integration will be available.
+{% include integrations/config_flow.md %}
 
 ## Configure the WIFFI device
 

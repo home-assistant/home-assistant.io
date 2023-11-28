@@ -1,54 +1,45 @@
 ---
-title: "Configuring Home Assistant"
-description: "Configuring Home Assistant."
+title: "Configuration.yaml"
+description: "Configuring Home Assistant via text files."
 ---
 
-When launched for the first time, Home Assistant will create a default configuration file enabling the web interface and device discovery. It can take up to a minute after startup for your devices to be discovered and appear in the user interface.
+While you can configure most of Home Assistant directly from the user interface under {% my config %}, some parts need you to edit `configuration.yaml`. This file contains {% term integrations %} to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
 
-The web interface can be found at `http://ip.ad.dre.ss:8123/` - for example if your Home Assistant system has the IP address `192.168.0.40` then you'll find the web interface as `http://192.168.0.40:8123/`.
-
-The location of the folder differs between operating systems:
-
-| OS             | Path                       |
-| -------------- | -------------------------- |
-| Home Assistant | `/config`                  |
-| Docker         | `/config`                  |
-| macOS          | `~/.homeassistant`         |
-| Linux          | `~/.homeassistant`         |
-
-If you want to use a different folder for configuration, use the configuration command line parameter: `hass --config path/to/config`.
-
-Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains integrations to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
-
-If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [`configuration.yaml` examples](/cookbook/#example-configurationyaml).
-
-<div class='note tip'>
-
-  Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this as the user you run Home Assistant as.
-
-</div>
+If you run into trouble while configuring Home Assistant, refer to the [configuration troubleshooting page](/docs/configuration/troubleshooting/) and the [`configuration.yaml` examples](/examples/#example-configurationyaml).
 
 ## Editing `configuration.yaml`
 
-There are many ways you can edit `configuration.yaml`. Here are three options to get you started:
+The easiest option to edit `configuration.yaml` is to use the {% my supervisor_addon title="Studio Code Server add-on" addon="a0d7b954_vscode" %}. This add-on runs VS Code, which  offers live syntax checking and auto-fill of various Home Assistant entities. See [here](/common-tasks/supervised/#installing-and-using-the-visual-studio-code-vsc-add-on) for details. If unavailable on your system, use {% my supervisor_addon title="File Editor add-on" addon="core_configurator" %} instead. Again, details can be found [here](/common-tasks/supervised/#installing-and-using-the-file-editor-add-on).
 
-The simplest is to use the "File Editor" add-on. This will allow you to edit your configuration from within Home Assistant itself.
+If you prefer to use a file editor on your computer, use the {% my supervisor_addon title="Samba add-on" addon="core_samba" %} to access the files as a network share. More details can be found [here](/common-tasks/supervised/#installing-and-using-the-samba-add-on).
 
-You can also use Samba (you may need to install the "Samba" add-on) and your favorite file editor.
+The path to your configuration directory can be found in the Home Assistant {% term frontend %} by going to {% my system_health title="Settings > System > Repairs > System information from the top right menu" %}
 
-The most basic is to use SSH to connect to the system (you may need to install the SSH add-on) and then use `nano` (or `vim`) to edit the file.
+![Show system menu option](/images/screenshots/System_information_menu.png)
+
+Right under the version you are running, you will find what path Home Assistant has loaded the configuration from.
+![Screenshot showing the top of the system information panel](/images/screenshots/System_information.png)
+
+_If you use Home Assistant Container, you can find `configuration.yaml` in the config folder that you mounted in your container._
+
+_If you use Home Assistant Operating System, you can find `configuration.yaml` in the `/config` folder of the installation._
+
+_If you use Home Assistant Core, you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeassistant`)._
 
 ## Reloading changes
 
-You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect.
-You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/integrations/group/), [history stats](/integrations/history_stats/), [HomeKit](/integrations/homekit/), [input_booleans](/integrations/input_boolean/), [input_datetimes](/integrations/input_datetime/), [input_numbers](/integrations/input_number/), [input_selects](/integrations/input_select/), [input_texts](/integrations/input_text/), [MQTT](/integrations/mqtt/), [persons](/integrations/person/), [scenes](/integrations/scene/), [scripts](/integrations/script/), [statistics](/integrations/statistics/), [template sensors](/integrations/template/), [timers](/integrations/timer/), [zones](/integrations/zone/), and more without restarting.
+Most integrations in Home Assistant that do not interact with {% term devices %} or {% term services %} can reload changes made to their configuration in `configuration.yaml`. To do this, go to {% my server_controls title="Developer Tools > YAML" %} and scroll down to the YAML configuration reloading section (alternatively, hit "c" anywhere in the UI and search for it).
 
-<div class='note warning'>
+If you can't see your integration listed there, you will need to restart Home Assistant for changes to take effect.
 
-If you've made any changes, remember to [check your configuration](/docs/configuration/troubleshooting/#problems-with-the-configuration) before trying to reload or restart.
+<div class='note'>
+
+  To test any changes to your configuration files from the command line, check out the common tasks for [operating system](/common-tasks/os/#configuration-check), [supervised](/common-tasks/supervised/#configuration-check), [container](/common-tasks/container/#configuration-check), [core](/common-tasks/core/#configuration-check) for how to do that. Configuration changes can also be tested using the UI by navigating to {% my server_controls title="Developer Tools > YAML" %} and clicking "Check Configuration". For the button to be visible, you must enable "Advanced Mode" on your {% my profile title="User Profile" %}.
 
 </div>
 
 ## Migrating to a new system
 
-If you want to migrate your configuration to a new system then you can copy the contents of your configuration folder from the current system to the new system. Be aware that some of the files you need start with `.`, which is hidden by default from both `ls` (in SSH), in Windows Explorer, and macOS Finder. You'll need to ensure that you're viewing all files before you copy them.
+The preferred way of migrating to a new system is by {% my supervisor_backups title="making a backup" %}. Once you have created the backup on the old system, you can download it to the system that is running the Home Assistant frontend. When setting up the new system, you may use the backup. Alternatively, you can upload it to your new system using the _Upload backup_ menu option of the _Backups_ menu. Then, a restore of the uploaded backup on the new system concludes the migration.
+
+If you run the container or core installation methods, you will need to manually make a backup of your configuration folder. Be aware that some of the files you need start with `.`, which is hidden by default from both `ls` (in SSH), in Windows Explorer, and macOS Finder. You'll need to ensure that you're viewing all files before you copy them.

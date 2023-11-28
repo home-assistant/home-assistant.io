@@ -3,7 +3,7 @@ title: "Integrations"
 description: "List of the built-in integrations of Home Assistant."
 sidebar: false
 is_homepage: true
-hide_github_edit: true
+feedback: false
 body_id: components-page
 regenerate: false
 ---
@@ -47,11 +47,11 @@ regenerate: false
       {%- for category in categories -%}
       {%- assign components_count = components | where: 'ha_category', category | size -%}
       {%- if category and category != 'Other' and components_count != 0 -%}
-      <a href='#{{ category | slugify }}' class="btn">{{ category }} ({{ components_count }})</a>
+      <a href='#{{ category | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category }} ({{ components_count }})</a>
       {%- endif -%}
       {%- endfor -%}
 
-      <a href='#other' class="btn">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
+      <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
     </div>
   </div>
   <div class="grid__item five-sixths lap-one-whole palm-one-whole">
@@ -68,13 +68,13 @@ regenerate: false
   src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
   integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
   crossorigin="anonymous"></script>
-  <script 
-    src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js" 
-    integrity="sha384-wlIoxluAn4R0ncWYWAibi4AATy1rxh4LzxfPhzhRfBwpYzbAQT7FDApW3TTf4KC+" 
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"
+    integrity="sha384-wlIoxluAn4R0ncWYWAibi4AATy1rxh4LzxfPhzhRfBwpYzbAQT7FDApW3TTf4KC+"
     crossorigin="anonymous"></script>
-  <script 
+  <script
     src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.17.0/lazyload.min.js"
-    integrity="sha384-vJtpZDYI5wEvw5lJzoCEeYTiRzgoR1NmzkWtzy04p4AaQjHXAzxNqSEVlIsutpxa" 
+    integrity="sha384-vJtpZDYI5wEvw5lJzoCEeYTiRzgoR1NmzkWtzy04p4AaQjHXAzxNqSEVlIsutpxa"
     crossorigin="anonymous"></script>
 {% raw %}
 <script id="component-template" type="text/x-custom-template">
@@ -103,7 +103,7 @@ var allComponents = [
         {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
         {% assign categories = categories | push: category %}
       {%- endfor -%}
-      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}"},
+      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", ha_brand: "{{component.ha_brand}}"},
     {% endif -%}
   {%- endfor -%}
   false
@@ -118,8 +118,17 @@ allComponents.pop(); // remove placeholder element at the end
 
     function init() {
       // do the lowerCase transformation once
-      for (i = 0; i < (allComponents.length); i++) {
-        allComponents[i].titleLC = allComponents[i].title.toLowerCase();
+      for (i = 0; i < allComponents.length; i++) {
+        title = allComponents[i].title.toLowerCase();
+        domain = allComponents[i].domain;
+        title_normalized = title
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+        title_dedashed = title.replace(/[-_]/g, " ");
+        title_normalized_dedashed = title_normalized.replace(/[-_]/g, " ");
+
+        allComponents[i].titleLC = title;
+        allComponents[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain}`;
       }
 
       // sort the components alphabetically
@@ -151,11 +160,7 @@ allComponents.pop(); // remove placeholder element at the end
       var data = {
         components: [],
         image: function () {
-          if (this.logo === '') {
-            return '<img src="https://brands.home-assistant.io/_/' + this.domain + '/logo.png" srcset="https://brands.home-assistant.io/_/' + this.domain + '/logo@2x.png 2x">';
-          } else {
-            return '<img data-src="/images/supported_brands/' + this.logo + '">';
-          }
+          return `<img src="https://brands.home-assistant.io/${this.ha_brand ? "brands": "_"}/${this.domain}/logo.png" srcset="https://brands.home-assistant.io/${this.ha_brand ? "brands ": "_"}/${this.domain}/logo@2x.png 2x" loading="lazy">`;
         }
       };
 
@@ -175,8 +180,10 @@ allComponents.pop(); // remove placeholder element at the end
           // search through title and category
           search = decodeURIComponent(hash).substring(8).toLowerCase();
           filter = function (comp) {
-            return (comp.titleLC.indexOf(search) !== -1) ||
-              (comp.cat.find(c => c.includes("#")) != undefined);
+            return (
+              comp.search.indexOf(search) !== -1 ||
+              comp.cat.find((c) => c.includes("#")) != undefined
+            );
           };
 
         } else if (hash === '#featured' || hash === '') {
@@ -213,7 +220,7 @@ allComponents.pop(); // remove placeholder element at the end
 
       // set active class on active menu item
       jQuery('.filter-button-group a.active').removeClass('active');
-      jQuery(`.filter-button-group a[href*="${hash}"]`).addClass('active');
+      jQuery(`.filter-button-group a[href="${hash}"]`).addClass('active');
       if (hash === "") {
         jQuery('.filter-button-group a[href*="#featured"]').addClass('active');
       }

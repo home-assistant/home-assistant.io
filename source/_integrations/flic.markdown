@@ -6,6 +6,9 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.35
 ha_domain: flic
+ha_platforms:
+  - binary_sensor
+ha_integration_type: integration
 ---
 
 The `flic` platform allows you to receive click events from [flic](https://flic.io) smart buttons.
@@ -14,7 +17,7 @@ The platform does not directly interact with the buttons, *but communicates with
 
 ## Service setup
 
-If you are using Hass.io, you can run the service locally by [installing](/hassio/installing_third_party_addons/) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/hassio-addons).
+If you are using the Home Assistant Operating System, you can run the service locally by [installing](/common-tasks/os#installing-third-party-add-ons) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/home-assistant-addons).
 
 For instructions on how to install the service manually, visit the GitHub repository of the service for [Linux](https://github.com/50ButtonsEach/fliclib-linux-hci), [macOS](https://github.com/50ButtonsEach/flic-service-osx) or [Windows](https://github.com/50ButtonsEach/fliclib-windows).
 
@@ -70,7 +73,7 @@ The flic integration fires `flic_click` events on the bus. You can capture the e
 ```yaml
 # Example configuration.yaml automation entry
 automation:
-  - alias: Turn on lights in the living room when flic is pressed once
+  - alias: "Turn on lights in the living room when flic is pressed once"
     trigger:
       platform: event
       event_type: flic_click
@@ -79,7 +82,8 @@ automation:
         click_type: single
     action:
       service: homeassistant.turn_on
-      entity_id: group.lights_livingroom
+      target:
+        entity_id: group.lights_livingroom
 ```
 
 Event data:
@@ -91,9 +95,11 @@ Event data:
 
 To help detect and debug flic button clicks, you can use this automation that send a notification on very click type of every button. This example uses the [HTML5 push notification platform](/integrations/html5). Visit the [notification integration page](/integrations/notify/) for more information on setting up notifications.
 
+{% raw %}
+
 ```yaml
 automation:
-  - alias: FLIC Html5 notify on every click
+  - alias: "FLIC Html5 notify on every click"
     trigger:
       platform: event
       event_type: flic_click
@@ -101,8 +107,10 @@ automation:
       - service: notify.html5
         data:
           title: "flic click"
-          message: {% raw %}"flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"{% endraw %}
+          message: "flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"
 ```
+
+{% endraw %}
 
 ### Ignoring Click Types
 

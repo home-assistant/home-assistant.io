@@ -8,6 +8,10 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.32
 ha_domain: mochad
+ha_platforms:
+  - light
+  - switch
+ha_integration_type: integration
 ---
 
 The `mochad` integration is the main integration to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this integration you will have to setup your X10 devices separately.
@@ -54,7 +58,7 @@ mochad:
 
 The `mochad` light platform lets you control an X10 enabled dimmer/light device.
 
-To enable this sensor, you first have to set up the [mochad component](#configuration) and then add the following to your `configuration.yaml` file:
+To enable this sensor, you first have to set up the [mochad integration](#configuration) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -91,7 +95,7 @@ brightness_levels:
 
 The `mochad` switch platform lets you control an X10 enabled switch device.
 
-To enable this sensor, you first have to set up the [mochad component](#configuration) and then add the following to your `configuration.yaml` file:
+To enable this sensor, you first have to set up the [mochad integration](#configuration) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

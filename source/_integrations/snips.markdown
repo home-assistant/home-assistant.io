@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.48
 ha_domain: snips
 ha_iot_class: Local Push
+ha_integration_type: integration
 ---
 
 <div class='note warning'>
@@ -120,7 +121,7 @@ probability_threshold:
 
 ### Specifying the MQTT broker
 
-Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/docs/mqtt/) to use by adding the following entry to the `configuration.yaml` file:
+Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/integrations/mqtt) to use by adding the following entry to the `configuration.yaml` file:
 
 ```yaml
 mqtt:
@@ -140,11 +141,12 @@ Alternatively, MQTT can be configured to bridge messages between servers if usin
 
 ### Triggering actions
 
-In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/integrations/intent_script) component. For instance, the following block handles a `ActivateLightColor` intent to change light colors:
+In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/integrations/intent_script) integration. For instance, the following block handles a `ActivateLightColor` intent to change light colors:
 
 Note: If your Snips action is prefixed with a username (e.g., `john:playmusic` or `john__playmusic`), the Snips integration in Home Assistant will try and strip off the username. Bear this in mind if you get the error `Received unknown intent` even when what you see on the MQTT bus looks correct. Internally the Snips integration is trying to match the non-username version of the intent (i.e., just `playmusic`).
 
 {% raw %}
+
 ```yaml
 snips:
 
@@ -152,10 +154,12 @@ intent_script:
   ActivateLightColor:
     action:
       - service: light.turn_on
-        data:
+        target:
           entity_id: 'light.{{ objectLocation | replace(" ","_") }}'
-          color_name: '{{ objectColor }}'
+        data:
+          color_name: "{{ objectColor }}"
 ```
+
 {% endraw %}
 
 In the `data` block, we have access to special variables, corresponding to the slot names for the intent. In the present case, the `ActivateLightColor` has two slots, `objectLocation` and `objectColor`.
@@ -169,11 +173,12 @@ In the above example, the slots are plain strings. However, Snips has a duration
 In this example if we had an intent triggered with 'Set a timer for five minutes', `duration:` would equal 300 and `duration_raw:` would be set to 'five minutes'. The duration can be easily used to trigger Home Assistant events and the `duration_raw:` could be used to send a human readable response or alert.
 
 {% raw %}
+
 ```yaml
 SetTimer:
   speech:
     type: plain
-    text: 'Set a timer'
+    text: "Set a timer"
   action:
     service: script.set_timer
     data:
@@ -184,6 +189,7 @@ SetTimer:
       duration_raw: "{{ raw_value }}"
       probability: "{{ probability }}"
 ```
+
 {% endraw %}
 
 ### Sending TTS Notifications
@@ -217,7 +223,7 @@ intent_script:
   turn_on_light:
     speech:
       type: plain
-      text: 'OK, turning on the light'
+      text: "OK, turning on the light"
     action:
       service: light.turn_on
 ```
@@ -229,10 +235,10 @@ intent_script:
   OpenGarageDoor:
     speech:
       type: plain
-      text: 'OK, opening the garage door'
+      text: "OK, opening the garage door"
     action:
       - service: cover.open_cover
-        data:
+        target:
           entity_id: garage_door
 ```
 
@@ -246,14 +252,14 @@ automation:
     trigger:
      - platform: state
         entity_id: binary_sensor.my_garage_door_sensor
-        from: 'off'
-        to: 'on'
+        from: "off"
+        to: "on"
         for:
           minutes: 10
     sequence:
       service: snips.say_action
         data:
-          text: 'Garage door has been open 10 minutes, would you like me to close it?'
+          text: "Garage door has been open 10 minutes, would you like me to close it?"
           intent_filter:
             - closeGarageDoor
 
@@ -262,14 +268,14 @@ intent_script:
   closeGarageDoor:
     speech:
       type: plain
-      text: 'OK, closing the garage door'
+      text: "OK, closing the garage door"
     action:
       - service: script.garage_door_close
 ```
 
 ##### Weather
 
-So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant. Create a weather sensor, in this example [Dark Sk](/integrations/darksky) and the `api_key` in the `secrets.yaml` file.
+So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant. Create a weather sensor, in this example [Dark Sky](/integrations/darksky) and the `api_key` in the `secrets.yaml` file.
 
 ```yaml
 - platform: darksky
@@ -288,6 +294,7 @@ So now you can open and close your garage door, let's check the weather. Add the
 Then add this to your configuration file.
 
 {% raw %}
+
 ```yaml
 intent_script:
   searchWeatherForecast:
@@ -301,4 +308,5 @@ intent_script:
         {{ states('sensor.dark_sky_weather_daily_high_temperature') | round(0)}}
         and {{ states('sensor.dark_sky_weather_hourly_summary') }}
 ```
+
 {% endraw %}

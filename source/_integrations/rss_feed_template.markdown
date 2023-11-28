@@ -7,11 +7,16 @@ ha_iot_class: Local Push
 ha_release: 0.44
 ha_quality_scale: internal
 ha_domain: rss_feed_template
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 The `rss_feed_template` integration can export any information from Home Assistant as a static RSS feed. This can be used to display that information on many types of devices using an RSS reader. While native apps for Home Assistant are not widely available, native RSS readers exist for almost any platform.
 
 For example, on Android, the app "Simple RSS Widget" can be used to display temperatures on the home screen.
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -20,11 +25,13 @@ rss_feed_template:
   # Example: https://localhost:8123/api/rss_template/garden
   garden:
     requires_api_password: false
-    title: "Garden {% raw %}{{ as_timestamp(now())|timestamp_custom('%H:%M', True) }}{% endraw %}"
+    title: "Garden {{ as_timestamp(now())|timestamp_custom('%H:%M', True) }}"
     items:
     - title: "Outside temperature"
-      description: "{% raw %}{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states('sensor.temp_outside')}} °C{% endif %}{% endraw %}"
+      description: "{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states('sensor.temp_outside')}} °C{% endif %}"
 ```
+
+{% endraw %}
 
 {% configuration %}
 requires_api_password:
@@ -37,7 +44,7 @@ feed_id:
   required: true
   type: string
 title:
-  description: The title of the feed, which is parsed as [template](/topics/templating/).
+  description: The title of the feed, which is parsed as [template](/docs/configuration/templating/).
   required: false
   type: template
 items:
@@ -46,11 +53,11 @@ items:
   type: list
   keys:
     title:
-      description: The title of the item, which is parsed as [template](/topics/templating/).
+      description: The title of the item, which is parsed as [template](/docs/configuration/templating/).
       required: false
       type: template
     description:
-      description: The description of the item, which is parsed as [template](/topics/templating/).
+      description: The description of the item, which is parsed as [template](/docs/configuration/templating/).
       required: false
       type: template
 {% endconfiguration %}

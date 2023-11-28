@@ -8,6 +8,10 @@ ha_category:
 ha_release: '0.80'
 ha_iot_class: Local Push
 ha_domain: aqualogic
+ha_platforms:
+  - sensor
+  - switch
+ha_integration_type: integration
 ---
 
 The AquaLogic integration provides connectivity to a Hayward/Goldline AquaLogic/ProLogic pool controller. Note that an RS-485 to Ethernet adapter connected to the pool controller is required.
@@ -41,7 +45,7 @@ port:
 
 ## Sensor
 
-Once you have enabled the AquaLogic component, add the following to your `configuration.yaml` file:
+Once you have enabled the AquaLogic integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -80,7 +84,7 @@ monitored_conditions:
 
 ## Switch
 
-Once you have enabled the AquaLogic component, add the following to your `configuration.yaml` file:
+Once you have enabled the AquaLogic integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

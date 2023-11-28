@@ -30,7 +30,7 @@
 
 - Link to parent pull request in the codebase: 
 - Link to parent pull request in the Brands repository: 
-- This PR fixes or closes issue: 
+- This PR fixes or closes issue: fixes #
 
 ## Checklist
 <!--
@@ -43,6 +43,6 @@
 - [ ] This PR uses the correct branch, based on one of the following:
   - I made a change to the existing documentation and used the `current` branch.
   - I made a change that is related to an upcoming version of Home Assistant and used the `next` branch.
-- [ ] The documentation follows the Home Assistant documentation [standards][].
+- [ ] The documentation follows the Home Assistant documentation [standards].
 
 [standards]: https://developers.home-assistant.io/docs/documenting/standards

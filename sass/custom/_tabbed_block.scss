@@ -1,0 +1,48 @@
+.tabbed-content-block {
+    background-color: #FAFAFA;
+    margin: 16px 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: -1px 0px 0px 0px #dfdfdf, 0px 0px 0px 1px #dfdfdf;
+    box-sizing: border-box;
+  
+  .tabbed-content-block-tabs {
+    overflow: hidden;
+    padding: 0 8px;
+
+    label {
+        input{
+            display:none;
+          }
+        input:checked + div{
+            opacity: 1;
+            border-bottom: 2px solid $primary-color;
+          }
+
+        div{
+            float:left;
+            padding: 8px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: 0.3s;
+            border-bottom: 2px solid transparent;
+            font-size: 0.8em;
+        }
+
+        div:hover {
+            opacity: 1;
+        }
+    }
+  }
+
+  .tabbed-content-block-content {
+    padding: 8px 16px 0;
+    display: none;
+    animation: fadeEffect .5s;
+  }
+
+  @keyframes fadeEffect{
+    0%{opacity:0}
+    100%{opacity:1}
+  }
+}

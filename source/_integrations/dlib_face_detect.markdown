@@ -6,13 +6,18 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.44
 ha_domain: dlib_face_detect
+ha_integration_type: integration
 ---
 
 The `dlib_face_detect` image processing platform allows you to use the [Dlib](http://www.dlib.net/) through Home Assistant. This platform enables face detection from cameras, and can fire events with attributes.
 
 This can be used to trigger an automation rule. Further info is on the [integration](/integrations/image_processing/) page.
 
-### Configuration Home Assistant
+<div class='note'>
+This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
+</div>
+
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry

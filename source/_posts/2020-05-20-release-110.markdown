@@ -7,7 +7,9 @@ date_formatted: "May 20, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-05-0.110/social.png
 ---
 
@@ -146,7 +148,7 @@ You can also set the attribute you want to show as the secondary information.
 Screenshot of the updated weather card.
 </p>
 
-Check the [documentation](/lovelace/weather-forecast/) for more information.
+Check the [documentation](/dashboards/weather-forecast/) for more information.
 
 ## Internal & External URLs
 
@@ -203,7 +205,7 @@ for writing automations in YAML:
 
 ```yaml
 # Example automation
-alias: Turn kitchen lights off when alarm is armed.
+alias: "Turn kitchen lights off when alarm is armed."
 trigger:
   - platform: state
     entity_id: alarm_control_panel.home_alarm
@@ -215,7 +217,8 @@ condition:
         state: disarmed
 action:
   - service: light.turn_off
-    entity_id: light.kitchen
+    target:
+      entity_id: light.kitchen
 ```
 
 ## HomeKit
@@ -259,7 +262,7 @@ Screenshot of an ONVIF camera in Home Assistant.
 
 ## Supervisor
 
-Have you seen the new supervisor UI? [@ludeeus] did a great job redoing it's UI!
+Have you seen the new supervisor UI? [@ludeeus] did a great job redoing its UI!
 It now uses the same tabs as the configuration panel. The add-on page is split
 into multiple tabs, the add-on store is cleaned up and you can view all logs
 in the system tab now (requires advanced mode).
@@ -389,8 +392,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **Fortigate** *(Deprecated)* - The Fortigate integration will be removed in
   0.112.0 and has a replacement in the FortiOS integration.
 
-  Please refer to the fortios integration on how to configure the new
-  parameters: https://www.home-assistant.io/integrations/fortios/ -
+  Please refer to the [fortios integration](/integrations/fortios) on how to configure the new
+  parameters. -
   ([@kifeo] - [#34854])
 
 - **Raspberry Pi Camera** - To align with ADR-0007, configuration has been

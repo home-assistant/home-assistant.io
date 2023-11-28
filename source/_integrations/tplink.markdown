@@ -3,8 +3,9 @@ title: TP-Link Kasa Smart
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
 ha_category:
   - Hub
-  - Switch
   - Light
+  - Sensor
+  - Switch
 ha_release: 0.89
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -12,162 +13,181 @@ ha_codeowners:
   - '@rytilahti'
   - '@thegardenmonkey'
 ha_domain: tplink
+ha_platforms:
+  - diagnostics
+  - light
+  - sensor
+  - switch
+ha_dhcp: true
+ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
-The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as smart plugs and smart bulbs.
+The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as plugs, power strips, wall switches and bulbs.
+
+You need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done either by using [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning) or by adding it to the official Kasa app before trying to add them to Home Assistant. If you use the app, do not upgrade the firmware if it presents the option to avoid blocking the local access by potential firmware updates.
 
 There is currently support for the following device types within Home Assistant:
 
 - **Light**
 - **Switch**
+- **Sensor**
 
-In order to activate the support, you will have to enable the integration inside the configuration panel.
-The supported devices in your network are automatically discovered, but if you want to control devices residing in other networks you will need to configure them manually as shown below.
+{% include integrations/config_flow.md %}
 
 ## Supported Devices
 
-This integration supports devices that are controllable with the [KASA app](https://www.tp-link.com/us/kasa-smart/kasa.html).
-The following devices are known to work with this component.
+See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kasa#supported-devices) for an up to date list.
+
+## Supported devices
 
 ### Plugs
-
-Plugs are type `switch` when autodiscovery has been disabled.
 
 - HS100
 - HS103
 - HS105
-- HS110 (This device is capable of reporting energy usage data to template sensors)
+- HS107
+- HS110
+- KP100
 - KP105
+- KP115
+- KP125
+- KP401
+- EP10
+- EP25
 
-### Strip (Multi-Plug)
+### Power Strips
 
-- HS107 (indoor 2-outlet)
-- HS300 (powerstrip 6-outlet) (This device is capable of reporting energy usage data to template sensors)
-- KP303 (powerstrip 3-outlet)
-- KP400 (outdoor 2-outlet)
-- KP200 (indoor 2-outlet)
+- EP40
+- HS300
+- KP303
+- KP400
 
-### Wall Switches
+### Wall switches
 
+- ES20M
 - HS200
 - HS210
-- HS220 (acts as a light)
+- HS220
+- KS200M
+- KS220M
+- KS230
 
 ### Bulbs
 
+- EP40
 - LB100
 - LB110
 - LB120
 - LB130
 - LB230
+- KL50
+- KL60
 - KL110
 - KL120
+- KL125
 - KL130
+- KL135
 
-## Configuration
+### Light strips
 
-```yaml
-# Example configuration.yaml
-tplink:
-```
+- KL400
+- KL420
+- KL430
 
-{% configuration %}
-discovery:
-  description: Whether to do automatic discovery of devices.
-  required: false
-  type: boolean
-  default: true
-light:
-  description: List of light devices.
-  required: false
-  type: list
-  keys:
-    host:
-      description: Hostname or IP address of the device.
-      required: true
-      type: string
-strip:
-  description: List of multi-outlet on/off switch devices.
-  required: false
-  type: list
-  keys:
-    host:
-      description: Hostname or IP address of the device.
-      required: true
-      type: string
-switch:
-  description: List of on/off switch devices.
-  required: false
-  type: list
-  keys:
-    host:
-      description: Hostname or IP address of the device.
-      required: true
-      type: string
-dimmer:
-  description: List of dimmable switch devices.
-  required: false
-  type: list
-  keys:
-    host:
-      description: Hostname or IP address of the device.
-      required: true
-      type: string
-{% endconfiguration %}
+Other bulbs may also work, but with limited color temperature range (2700-5000). If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
 
-## Manual configuration example
+## Unsupported devices
+
+### Plugs
+
+- KP125M (supported via [Matter](/integrations/matter/#tp-link-tapo-p125m-power-plug), but without energy monitoring features)
+
+### Random Effect - Service `tplink.random_effect`
+
+The light strips allow setting a random effect.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | The entity_id of the light strip to set the effect on |
+| `init_states` | Initial HSV sequence |
+| `backgrounds` | List of HSV sequences (Max 16) |
+| `segments` | List of segments (0 for all) |
+| `brightness` | Initial brightness |
+| `duration` | Duration |
+| `transition` | Transition |
+| `fadeoff` | Fade off |
+| `hue_range` | Range of hue |
+| `saturation_range` | Range of saturation |
+| `brightness_range` | Range of brightness |
+| `transition_range` | Range of transition |
+| `random_seed` | Random seed |
 
 ```yaml
-# Example configuration.yaml entry with manually specified addresses
-tplink:
-  discovery: false
-  light:
-    - host: 192.168.200.1
-    - host: 192.168.200.2
-  switch:
-    - host: 192.168.200.3
-    - host: 192.168.200.4
-  dimmer:
-    - host: 192.168.200.5
-    - host: 192.168.200.6
-  strip:
-    - host: 192.168.200.7
-    - host: 192.168.200.8
+#Example Service Call
+service: tplink.random_effect
+target:
+  entity_id:
+    - light.strip
+data:
+  init_states: 199,99,96
+  backgrounds:
+    - - 199
+      - 89
+      - 50
+    - - 160
+      - 50
+      - 50
+    - - 180
+      - 100
+      - 50
+  segments: 0, 2, 4, 6, 8
+  brightness: 90
+  transition: 2000
+  fadeoff: 2000
+  hue_range: 340, 360
+  saturation_range: 40, 95
+  brightness_range: 90, 100
+  transition_range: 2000, 6000
+  random_seed: 80
 ```
 
-## Extracting Energy Sensor data
+### Seqeuence Effect - Service `tplink.sequence_effect`
 
-Devices that are confirmed to support Consumption Reading;
-1. HS110
-2. HS300
+The light strips allow setting a sequence effect.
 
-In order to get the power consumption readings from a TP-Link HS110 device, you'll have to create a [template sensor](/integrations/template/).
-In the example below, change all of the `my_tp_switch`'s to match your device's entity ID (without the domain). For example, if your entity is `switch.whale_heater` then replace `my_tp_switch` with `whale_heater`:
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | The entity_id of the light strip to set the effect on |
+| `sequence` | List of HSV sequences (Max 16) |
+| `segments` | List of segments (0 for all) |
+| `brightness` | Initial brightness |
+| `duration` | Duration |
+| `repeat_times` | Repetitions (0 for continuous) |
+| `transition` | Transition |
+| `spread` | Speed of spread |
+| `direction` | Direction |
 
-{% raw %}
 ```yaml
-sensor:
-  - platform: template
-    sensors:
-      my_tp_switch_amps:
-        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Current"
-        value_template: '{{ states.switch.my_tp_switch.attributes["current_a"] | float }}'
-        unit_of_measurement: 'A'
-      my_tp_switch_watts:
-        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Current Consumption"
-        value_template: '{{ states.switch.my_tp_switch.attributes["current_power_w"] | float }}'
-        unit_of_measurement: 'W'
-      my_tp_switch_total_kwh:
-        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Total Consumption"
-        value_template: '{{ states.switch.my_tp_switch.attributes["total_energy_kwh"] | float }}'
-        unit_of_measurement: 'kWh'
-      my_tp_switch_volts:
-        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Voltage"
-        value_template: '{{ states.switch.my_tp_switch.attributes["voltage"] | float }}'
-        unit_of_measurement: 'V'
-      my_tp_switch_today_kwh:
-        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Today's Consumption"
-        value_template: '{{ states.switch.my_tp_switch.attributes["today_energy_kwh"] | float }}'
-        unit_of_measurement: 'kWh'
+#Example Service Call
+service: tplink.sequence_effect
+target:
+  entity_id:
+    - light.strip
+data:
+  sequence:
+    - - 340
+      - 20
+      - 50
+    - - 20
+      - 50
+      - 50
+    - - 0
+      - 100
+      - 50
+  segments: 0, 2, 4, 6, 8
+  brightness: 80
+  transition: 2000
+  spread: 1
+  direction: 1
 ```
-{% endraw %}

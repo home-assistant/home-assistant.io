@@ -7,11 +7,17 @@ ha_release: 0.115
 ha_domain: media_source
 ha_codeowners:
   - '@hunterjm'
+ha_quality_scale: internal
+ha_integration_type: system
 ---
 
 The Media Source integration platform allows integrations to expose media for
 use inside Home Assistant through the Media Browser panel or through supported
-media players like Google Cast. This integration is configured automatically
+media players like Google Cast.
+
+## Configuration
+
+This integration is configured automatically
 through `default_config` or if another integration implements a media source.
 
 If your configuration does not contain any of the above, you can add the below
@@ -24,8 +30,8 @@ media_source:
 
 ## Local Media
 
-By default, the integration by default looks for media in a specified folder.
-If other `media_dirs` are not declared you need to use `/media/local` path for 
+By default, the integration looks for media in a specified folder.
+If other `media_dirs` are not declared you need to use `/media/local` path for
 example in companion app notification.
 
 For Home Assistant OS, Supervised and Container users, this folder is by default
@@ -56,18 +62,41 @@ homeassistant:
     recording: /mnt/recordings
 ```
 
+<div class='note'>
+
+  If you want to use media from a network storage, the network storage must first be connected first. Refer to [these instructions on how to connect network storage](/common-tasks/os/#network-storage).
+
+  The media from the network storage is then automatically added to the local media browser.
+
+</div>
+
 ## Playing media from a Media Source
 
-To play media from a media source via a service call, use the uri scheme `media-source://media_source/<media_dir>/<path>`.
-Default `media_dir`is `local`.
+To play media from a media source via a service call, use the uri
+scheme `media-source://media_source/<media_dir>/<path>`.
+Default `media_dir` is `local`.
+
+<div class="note">
+Web browsers and Google Cast media players have very limited video container
+and codec support. The Media Source integration does not do any transcoding of
+media, meaning media files must be natively supported by your media player or
+web browser (for playing in the frontend).
+
+If a video file is not supported by
+your media player or web browser it will fail to play. Please check the
+documentation of your media player or web browser for lists
+of supported video formats.
+</div>
 
 Example:
+
 ```yaml
 service: media_player.play_media
-data:
+target:
   entity_id: media_player.living_room_tv
-  media_content_type: video/mp4
-  media_content_id: media-source://media_source/local/videos/favourites/Epic Sax Guy 10 Hours.mp4
+data:
+  media_content_type: "video/mp4"
+  media_content_id: "media-source://media_source/local/videos/favourites/Epic Sax Guy 10 Hours.mp4"
 ```
 
 [basic-configuration]: /docs/configuration/basic/#media_dirs

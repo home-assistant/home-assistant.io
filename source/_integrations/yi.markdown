@@ -8,14 +8,17 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@bachya'
 ha_domain: yi
+ha_platforms:
+  - camera
+ha_integration_type: device
 ---
 
 The `yi` camera platform allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
 
-* Yi Home 17CN / 27US / 47US
-* Yi 1080p Home
-* Yi Dome
-* Yi 1080p Dome
+- Yi Home 17CN / 27US / 47US
+- Yi 1080p Home
+- Yi Dome
+- Yi 1080p Dome
 
 To successfully implement this platform, the Home Assistant host should be capable of multiple simultaneous reads. For every concurrent Home Assistant user, a connection will be made to the camera every 10 seconds. This should normally not be a problem.
 
@@ -69,7 +72,7 @@ To enable the platform, add the following lines to your`configuration.yaml` file
 camera:
   - platform: yi
     name: Camera
-    host: '192.168.1.100'
+    host: "192.168.1.100"
     password: my_password_123
 ```
 
@@ -112,8 +115,8 @@ One particularly useful adjustment deals with video size. Since Yi videos are fa
 camera:
   - platform: yi
     name: My Camera
-    host: '192.168.1.100'
+    host: "192.168.1.100"
     password: my_password_123
     path: /home/camera/feed
-    ffmpeg_arguments: '-vf scale=800:450'
+    ffmpeg_arguments: "-vf scale=800:450"
 ```

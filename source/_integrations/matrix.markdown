@@ -6,9 +6,12 @@ ha_category:
   - Notifications
 ha_iot_class: Cloud Push
 ha_release: 0.69
-ha_codeowners:
-  - '@tinloaf'
 ha_domain: matrix
+ha_platforms:
+  - notify
+ha_integration_type: integration
+ha_codeowners:
+  - '@PaarthShah'
 ---
 
 This integration allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
@@ -80,6 +83,12 @@ commands:
       default: empty
 {% endconfiguration %}
 
+<div class="note">
+
+In order to prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
+
+</div>
+
 ### Event Data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
@@ -91,8 +100,9 @@ If the command is a word command, the `data` field contains a list of the comman
 This example also uses the [matrix `notify` platform](#notifications).
 
 {% raw %}
+
 ```yaml
-# The Matrix component
+# The Matrix integration
 matrix:
   homeserver: https://matrix.org
   username: "@my_matrix_user:matrix.org"
@@ -123,7 +133,7 @@ automation:
     action:
       service: notify.matrix_notify
       data:
-        message: 'It looks like you wrote !testword'
+        message: "It looks like you wrote !testword"
   - alias: 'React to an introduction'
     trigger:
       platform: event
@@ -135,6 +145,7 @@ automation:
       data:
         message: "Hello {{trigger.event.data.args['name']}}"
 ```
+
 {% endraw %}
 
 This configuration will:
@@ -146,7 +157,7 @@ This configuration will:
 
 The `matrix` platform allows you to deliver notifications from Home Assistant to a [Matrix](https://matrix.org/) room. Rooms can be both direct as well as group chats.
 
-To enable Matrix notifications in your installation, you first need to configure the [Matrix component](#configuration). Then, add the following to your `configuration.yaml` file:
+To enable Matrix notifications in your installation, you first need to configure the [Matrix integration](#configuration). Then, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -171,3 +182,50 @@ default_room:
 The target room has to be precreated, the room id can be obtained from the rooms settings dialog. Rooms by default have a canonical id of the form `"!<randomid>:homeserver.tld"`, but can also be allocated aliases like `"#roomname:homeserver.tld"`. Make sure to use quotes around the room id or alias to escape special characters (`!`, and `#`) in YAML. The notifying account may need to be invited to the room, depending on the individual rooms policies.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+
+### Message formats
+
+Matrix supports sending messages using a [limited HTML subset](https://spec.matrix.org/v1.2/client-server-api/#mroommessage-msgtypes). To specify the message format, add it in the notification `data`.
+
+Supported formats are: `text` (default), and `html`.
+
+```yaml
+# Example of notification as HTML
+action:
+  service: notify.matrix_notify
+  data:
+    message: >-
+      <h1>Hello, world!</h1>
+    data:
+      format: "html"
+```
+
+### Images in notification
+
+It is possible to send images with notifications. To do so, add a list of paths in the notification `data`.
+
+```yaml
+# Example of notification with images
+action:
+  service: notify.matrix_notify
+  data:
+    message: "Test with images"
+    data:
+      images:
+        - /path/to/picture.jpg
+```
+
+<div class='note'>
+
+If you need to include a file from an external folder in your notifications, you will have to [list the source folder as allowed](/docs/configuration/basic/).
+
+```yaml
+configuration.yaml
+...
+homeassistant:
+  allowlist_external_dirs:
+    - /tmp
+```
+
+</div>

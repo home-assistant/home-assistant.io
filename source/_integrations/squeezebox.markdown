@@ -1,5 +1,5 @@
 ---
-title: Logitech Squeezebox
+title: Squeezebox (Logitech Media Server)
 description: Instructions on how to integrate a Logitech Squeezebox player into Home Assistant.
 ha_category:
   - Media Player
@@ -9,40 +9,15 @@ ha_domain: squeezebox
 ha_codeowners:
   - '@rajlaud'
 ha_config_flow: true
+ha_dhcp: true
+ha_platforms:
+  - media_player
+ha_integration_type: integration
 ---
 
 The Squeezebox integration allows you to control a [Logitech Squeezebox](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29) music player from Home Assistant. This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like [Squeezelite](https://github.com/ralph-irving/squeezelite), [SoftSqueeze](http://softsqueeze.sourceforge.net/), [SqueezePlayer](https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer) and [SqueezeSlave](https://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released).
 
-The preferred method to install the Squeezebox integration is through the "Configuration" panel on the left hand side of the frontend. In the "Configuration" panel, choose "Integrations", click the "+" icon in the lower right-hand corner, and choose "Logitech Squeezebox" from the list of new integrations.
-
-Although using the `configuration.yaml` file to set up this integration is now deprecated, it continues to work:
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: squeezebox
-    host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: The host name or address of the Logitech Media Server, e.g., 192.168.1.21.
-  required: true
-  type: string
-port:
-  description: The web interface port to Logitech Media Server.
-  required: false
-  default: 9000
-  type: integer
-username:
-  description: The username, if password protection is enabled.
-  required: false
-  type: string
-password:
-  description: The password, if password protection is enabled.
-  required: false
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 This platform uses the web interface of the Logitech Media Server to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser. Originally, this platform used the telnet interface, which defaults to 9090. If you previously specified the port in your configuration file, you will likely need to update it.
@@ -55,10 +30,12 @@ The Logitech Transporter which have two digital inputs can be activated using a 
 transporter_toslink:
   sequence:
     - service: homeassistant.turn_on
-      entity_id: media_player.transporter
-    - service: media_player.play_media
-      data:
+      target:
         entity_id: media_player.transporter
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.transporter
+      data:
         media_content_id: "source:toslink"
         media_content_type: "music"
 ```
@@ -81,7 +58,7 @@ It can also be used to target a Squeezebox from IFTTT (or Dialogflow, Alexa...).
 
 For example, to play an album from your collection, create an IFTTT applet like this:
 
-- Trigger: Google assistant, with sentence: `I want to listen to album $`
+- Trigger: Google Assistant, with sentence: `I want to listen to album $`
 - Action: JSON post query with such JSON body:
 `{ "entity_id": "media_player.squeezebox_radio", "command": "playlist", "parameters": ["loadtracks", "album.titlesearch={{TextField}}"] }`
 
@@ -103,21 +80,3 @@ This service can be used to integrate a Squeezebox query into an automation. For
 `hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`
 To work with the results:
 `result = hass.states.get("media_player.kitchen").attributes['query_result']`
-
-### Service `sync`
-
-Add another player to this player's sync group. If the other player is already in a sync group, it will leave it.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
-| `other_player` | no | Name of the other Squeezebox player to join the sync group.
-
-### Service `unsync`
-
-Remove this player from its sync group.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
-=======

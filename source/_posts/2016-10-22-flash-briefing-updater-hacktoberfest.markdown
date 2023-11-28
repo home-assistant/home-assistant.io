@@ -6,7 +6,9 @@ date_formatted: "October 22, 2016"
 release_date: 2016-10-23 21:57:00 -0700
 author: Robbie Trencheny
 author_twitter: robbie
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Hello again friend,

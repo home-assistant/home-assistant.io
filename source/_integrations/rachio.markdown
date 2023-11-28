@@ -2,8 +2,8 @@
 title: Rachio
 description: Instructions on how to use Rachio with Home Assistant.
 ha_category:
-  - Irrigation
   - Binary Sensor
+  - Irrigation
   - Switch
 ha_iot_class: Cloud Push
 ha_release: 0.73
@@ -11,6 +11,13 @@ ha_domain: rachio
 ha_codeowners:
   - '@bdraco'
 ha_config_flow: true
+ha_homekit: true
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - switch
+ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).
@@ -20,7 +27,7 @@ There is currently support for the following device types within Home Assistant:
 - **Binary Sensor** - Allows you to view the status of your [Rachio irrigation system](https://rachio.com/).
 - [**Switch**](#switch)
 
-They will be automatically added if the Rachio integration integration is loaded.
+They will be automatically added if the Rachio integration is loaded.
 
 ## Getting your Rachio API Key
 
@@ -35,34 +42,10 @@ In order for Rachio switches and sensors to update, your Home Assistant instance
 
 </div>
 
-## Configuration
-
-To add `Rachio` go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Rachio**.
-
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-rachio:
-  api_key: YOUR_API_KEY
-```
-
-{% configuration %}
-api_key:
-  description: The API key for the Rachio account.
-  required: true
-  type: string
-manual_run_mins:
-  description: Duration in minutes to run when activating a zone switch.
-  required: false
-  default: 10
-  type: integer
-{% endconfiguration %}
-
-<div class='note'>
+{% include integrations/config_flow.md %}
 
 **Water-saving suggestion:**<br>
-Set `manual_run_mins` to a high maximum failsafe value when using scripts to control zones. If something goes wrong with your script, Home Assistant, or you hit the Rachio API rate limit of 1700 calls per day, the controller will still turn off the zone after this amount of time.
+After setting up the integration, change the options to set the duration in minutes to run when activating a zone switch to a maximum failsafe value when using scripts to control zones. If something goes wrong with your script, Home Assistant, or you hit the Rachio API rate limit of 1700 calls per day, the controller will still turn off the zone after this amount of time.
 
 </div>
 
@@ -75,7 +58,7 @@ panel_iframe:
   rachio:
     title: Rachio
     url: "https://app.rach.io"
-    icon: mdi:water-pump
+    icon: mdi:sprinkler-variant
 ```
 
 ## Switch
@@ -107,11 +90,12 @@ script:
   run_grass_zones:
     sequence: 
       - service: rachio.start_multiple_zone_schedule
-        data:
+        target:
           entity_id:
             - switch.front_yard_west
             - switch.front_yard_east
             - switch.side_yard_west
+        data:
           duration: 20, 15, 10
 ```
 
@@ -121,11 +105,12 @@ script:
   run_grass_zones:
     sequence: 
       - service: rachio.start_multiple_zone_schedule
-        data:
+        target:
           entity_id:
             - switch.front_yard_west
             - switch.front_yard_east
             - switch.side_yard_west
+        data:
           duration: 20
 ```
 ### Service `rachio.set_zone_moisture_percent`
@@ -138,6 +123,35 @@ Rachio allows for setting the moisture percentage of a zone or group of zones. A
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String, list or group of zones to set moisture percentage.
 | `percent` | no | Integer of the desired moisture percentage. Accepts 0-100.
+
+### Service `rachio.pause_watering`
+
+Pause a currently running schedule.
+
+This service will not be available if only a Generation 1 controller is on the account, as these controllers do not support pause or resume.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `devices` | yes | Name of the controller(s) to pause. If not given, will pause all running controllers on the account.
+| `duration` | yes | Duration in minutes to pause. Accepts 1-60. Defaults to 60 minutes if not specified.
+
+### Service `rachio.resume_watering`
+
+Resume a currently paused schedule.
+
+This service will not be available if only a Generation 1 controller is on the account, as these controllers do not support pause or resume.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `devices` | yes | Name of the controller(s) to resume. If not given, will resume all paused controllers on the account.
+
+### Service `rachio.stop_watering`
+
+Stops all currently running schedules.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `devices` | yes | Name of the controller(s) to stop. If not given, will stop all running controllers on the account.
 
 ## Examples
 

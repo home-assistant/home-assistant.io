@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.72
 ha_domain: watson_iot
 ha_iot_class: Cloud Push
+ha_integration_type: integration
 ---
 
 The `watson_iot` integration enables you to link the devices in Home Assistant
@@ -13,7 +14,7 @@ with an [IBM Watson IoT Platform instance](https://www.ibm.com/us-en/marketplace
 
 ## Configuration
 
-To use this component, you first need to register a gateway device type and then
+To use this integration, you first need to register a gateway device type and then
 a gateway device in your IoT platform instance. For instructions on how to do
 this check the [official documentation](https://cloud.ibm.com/docs/services/IoT?topic=iot-platform-getting-started#IoT_connectGateway)
 which provides the details on doing this. After you register the gateway device
@@ -24,15 +25,15 @@ for your Home Assistant instance you'll need four pieces of information:
 - Gateway device ID
 - Authentication Token
 
-With this basic information you can configure the component:
+With this basic information you can configure the integration:
 
 ```yaml
 # Example configuration.yaml entry:
 watson_iot:
-  organization: 'organization_id'
-  type: 'device_type'
-  id: 'device_id'
-  token: 'auth_token'
+  organization: "organization_id"
+  type: "device_type"
+  id: "device_id"
+  token: "auth_token"
 ```
 
 {% configuration %}
@@ -66,7 +67,7 @@ exclude:
       required: false
       type: list
 include:
-  description: Configure which integrations should be included in recordings to Watson IoT Platform. If set, all other entities will not be recorded to Watson IoT Platform. Values set by the **blacklist** option will prevail.
+  description: Configure which integrations should be included in recordings to Watson IoT Platform. If set, all other entities will not be recorded to Watson IoT Platform. Values set by the **exclude** option will prevail.
   required: false
   type: map
   keys:

@@ -14,6 +14,8 @@ by a
 of a device, an application, or a web service.
 The binary sensor has support for GET and POST requests.
 
+_Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
+
 The JSON messages can contain different values like `1`, `"1"`,
 `TRUE`, `true`, `on`, or `open`. If the value is nested then use a
 [template](/docs/configuration/templating/#processing-incoming-data).
@@ -49,14 +51,19 @@ binary_sensor:
     resource: http://IP_ADDRESS/ENDPOINT
     method: POST
 ```
+
 or a template based request:
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+binary_sensor:
   - platform: rest
-    resource_template: {% raw %} "http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}" {% endraw %}
+    resource_template: "http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}"
 ```
+
+{% endraw %}
 
 {% configuration %}
 resource:
@@ -76,10 +83,22 @@ method:
 name:
   description: Name of the REST binary sensor.
   required: false
-  type: string
+  type: template
   default: REST Binary Sensor
+icon:
+  description: Defines a template for the icon of the entity.
+  required: false
+  type: template
+picture:
+  description: Defines a template for the entity picture of the entity.
+  required: false
+  type: template
+availability:
+  description: Defines a template if the entity state is available or not.
+  required: false
+  type: template
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 value_template:
@@ -90,6 +109,10 @@ value_template:
   type: template
 payload:
   description: The payload to send with a POST request. Usually formed as a dictionary.
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this entity. This allows changing the `name`, `icon` and `entity_id` from the web interface.
   required: false
   type: string
 verify_ssl:
@@ -117,7 +140,11 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: [list, string]
+  type: [list, template]
+params:
+  description: The query params for the requests.
+  required: false
+  type: [list, template]
 {% endconfiguration %}
 
 ## Examples
@@ -130,6 +157,8 @@ Instead of using an [aREST](/integrations/arest#binary-sensor) binary sensor,
 you could retrieve the value of a device supporting
 aREST directly with a REST binary sensor.
 
+{% raw %}
+
 ```yaml
 binary_sensor:
   - platform: rest
@@ -137,12 +166,16 @@ binary_sensor:
     method: GET
     name: Light
     device_class: light
-    value_template: {% raw %}'{{ value_json.return_value }}'{% endraw %}
+    value_template: '{{ value_json.return_value }}'
 ```
+
+{% endraw %}
 
 ### Accessing an HTTP authentication protected endpoint
 
-The REST sensor supports HTTP authentication and customized headers.
+The REST sensor supports HTTP authentication and template-enabled customized headers.
+
+{% raw %}
 
 ```yaml
 binary_sensor:
@@ -154,7 +187,11 @@ binary_sensor:
     headers:
       User-Agent: Home Assistant
       Content-Type: application/json
+      X-Custom-Header: '{{ states("input_text.the_custom_header") }}'
 ```
+
+{% endraw %}
+
 
 The headers will contain all relevant details. This will also give
 you the ability to access endpoints that are protected by tokens.

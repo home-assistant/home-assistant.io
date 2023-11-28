@@ -5,7 +5,9 @@ date: 2018-03-09 00:01:00
 date_formatted: "March 9, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-03-0.65/entity-registry-name.gif
 ---
 

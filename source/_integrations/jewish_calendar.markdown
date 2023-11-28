@@ -3,11 +3,15 @@ title: Jewish Calendar
 description: Instructions on how to integrate the Jewish Calendar integration within Home Assistant.
 ha_category:
   - Calendar
-ha_iot_class: Local Polling
+ha_iot_class: Calculated
 ha_release: 0.79
 ha_codeowners:
   - '@tsvi'
 ha_domain: jewish_calendar
+ha_platforms:
+  - binary_sensor
+  - sensor
+ha_integration_type: integration
 ---
 
 The Jewish Calendar (`jewish_calendar`) integration displays a variety of information related to the Jewish Calendar as a variety of sensors.
@@ -39,7 +43,7 @@ longitude:
   type: integer
 diaspora:
   required: false
-  description: Consider the location as diaspora or not for calculation of the weekly portion and holidays.
+  description: Consider the location as diaspora (חוץ לארץ) for calculation of the weekly portion and holidays. By default it will consider the location as Israel (One day Yom Tov), setting it to true will show a second day Yom Tov.
   default: false
   type: string
 candle_lighting_minutes_before_sunset:
@@ -72,10 +76,12 @@ Time sensor states are represented as ISO8601 formatted *UTC time*.
 
 - `first_light`: First light of dawn (Alot Hashachar - עלות השחר)
 - `talit`: Earliest time for tallit and tefillin (Misheyakir - משיכיר)
+- `sunrise`: Earliest time for Shacharit (Hanetz Hachama - הנץ החמה)
 - `gra_end_shma`: Last time for reading of the Shma according to the Gr"a.
 - `mga_end_shma`: Last time for reading of the Shma according to the MG"A.
 - `gra_end_tefilla`: Last time for full shacharit according to the Gr"a.
 - `mga_end_tefilla`: Last time for full shacharit according to the MG"A.
+- `midday`: Half way through the day (Chatzot Hayom - חצות היום)
 - `big_mincha`: Earliest time for Mincha (Mincha Gedola - מנחה גדולה)
 - `little_mincha`: Preferable earliest time for Mincha (Mincha Ketana - מנחה קטנה)
 - `plag_mincha`: Time of the Plag Hamincha (פלג המנחה)
@@ -88,7 +94,9 @@ Time sensor states are represented as ISO8601 formatted *UTC time*.
 
 ### Binary sensors
 
-- `issur_melacha_in_effect`: A boolean sensor indicating if melacha is currently not permitted. The value is true when it is currently Shabbat or Yom Tov and false otherwise.
+- `issur_melacha_in_effect`: A boolean sensor indicating if melacha is currently not permitted. The value is _on_ when it is currently Shabbat or Yom Tov and _off_ otherwise.
+- `erev_shabbat_hag`: A boolean sensor indicating that there is an upcoming Shabbat or Hag.
+- `motzei_shabbat_hag`: A boolean sensor indicating that Shabbat or Hag has ended.
 
 ### Holiday sensor
 

@@ -81,7 +81,7 @@ binary_sensor:
     sensors:
       on_tester:
         value_template: "{{ states.input_boolean.on_off.state == 'on' }}"
-        friendly_name: 'Movement'
+        friendly_name: "Movement"
         device_class: motion
 ```
 

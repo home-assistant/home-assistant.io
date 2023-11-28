@@ -8,9 +8,16 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: netdata
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
-The `netdata` sensor platform allows you to display information collected by [Netdata](https://my-netdata.io/).
+The `netdata` sensor platform allows you to display information collected by [Netdata](https://www.netdata.cloud/).
+
+## Prerequisites
+
+A running Netdata instance, accessible from your Home Assistant instance. For more information on setting up Netdata, [check out their documentation](https://learn.netdata.cloud/docs/).
 
 ## Setup
 
@@ -130,15 +137,15 @@ resources:
 # Example configuration.yaml entry
 sensor:
   - platform: netdata
-    host: '192.168.1.2'
-    port: '19999'
+    host: "192.168.1.2"
+    port: "19999"
     name: SomeHostName
     resources: 
       system_load:
         data_group: system.load 
         element: load15
       core0_freq:
-        data_group: 'cpu.cpufreq'
-        element: 'cpu0'
+        data_group: "cpu.cpufreq"
+        element: "cpu0"
         icon: mdi:chip
 ```

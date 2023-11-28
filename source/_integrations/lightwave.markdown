@@ -8,6 +8,12 @@ ha_category:
 ha_release: 0.84
 ha_iot_class: Assumed State
 ha_domain: lightwave
+ha_platforms:
+  - climate
+  - light
+  - sensor
+  - switch
+ha_integration_type: integration
 ---
 
 The `lightwave` integration links Home Assistant with your Lightwave WiFi link for controlling Lightwave lights, switches and TRVs.
@@ -65,12 +71,12 @@ trv:
   required: false
   type: map
   keys:
-    trv_proxy_ip:
+    proxy_ip:
       description: IP address of a proxy for TRV integration. 
       required: false
       type: string
       default: "127.0.0.1"
-    trv_proxy_port:
+    proxy_port:
       description: IP port address of a proxy for TRV integration.
       required: false
       type: integer
@@ -100,8 +106,10 @@ The first use of a light or switch will try to register with your Lightwave WiFi
 
 # TRVs
 
-Lightwave Thermostatic Radiator Values (TRV) are supported but require an additional proxy to capture the current TRV temperature.
-See [LWProxy](https://github.com/ColinRobbins/Homeassistant-Lightwave-TRV)
+Lightwave Thermostatic Radiator Values (TRV) are supported.
+
+Earlier integrations required a proxy - See [LWProxy](https://github.com/ColinRobbins/Homeassistant-Lightwave-TRV).
+This capabilty is still supported, but no longer required.
 
 ```yaml
 # Example TRV configuration.yaml for TRVs
@@ -111,8 +119,6 @@ lightwave:
     R99D1:
       name: Bedroom Light
   trv:
-      trv_proxy_ip: 127.0.0.1       # Proxy address, do not change unless running on a different server
-      trv_proxy_port: 7878          # Do not change, unless a port clash
       trvs:
         R1Dh:                       # The ID of the TRV.
           name: Bedroom TRV

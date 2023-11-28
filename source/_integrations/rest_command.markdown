@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.36
 ha_iot_class: Local Push
 ha_domain: rest_command
+ha_integration_type: integration
 ---
 
 This integration can expose regular REST commands as services. Services can be called from a [script] or in [automation].
@@ -13,13 +14,13 @@ This integration can expose regular REST commands as services. Services can be c
 [script]: /integrations/script/
 [automation]: /getting-started/automation/
 
-To use this component, add the following lines to your `configuration.yaml` file:
+To use this integration, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 rest_command:
   example_request:
-    url: 'http://example.com/'
+    url: "http://example.com/"
 ```
 
 {% configuration %}
@@ -40,17 +41,17 @@ service_name:
     headers:
       description: The headers for the requests.
       required: false
-      type: list
+      type: map
     payload:
       description: A string/template to send with request.
       required: false
       type: template
     username:
-      description: The username for HTTP authentication.
+      description: The username for basic HTTP authentication (digest is not supported).
       required: false
       type: string
     password:
-      description: The password for HTTP authentication.
+      description: The password for basic HTTP authentication (digest is not supported).
       required: false
       type: string
     timeout:
@@ -96,6 +97,7 @@ The commands can be dynamic, using templates to insert values of other entities.
 In this example, uses [templates](/docs/configuration/templating/) for dynamic parameters.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 rest_command:
@@ -104,12 +106,13 @@ rest_command:
     method: POST
     headers:
       authorization: !secret rest_headers_secret
-      accept: 'application/json, text/html'
+      accept: "application/json, text/html"
       user-agent: 'Mozilla/5.0 {{ useragent }}'
     payload: '{"profile":{"status_text": "{{ status }}","status_emoji": "{{ emoji }}"}}'
     content_type:  'application/json; charset=utf-8'
     verify_ssl: true
 ```
+
 {% endraw %}
 
 ### How to test your new REST command
@@ -122,11 +125,12 @@ Call the new service from [developer tools](/docs/tools/dev-tools/) in the sideb
   "emoji":":plex:"
 }
 ```
+
 ### Using a REST command as an action in an automation
 
 ```yaml
 automation:
-- alias: 'Arrive at Work'
+- alias: "Arrive at Work"
   trigger:
     platform: zone
     entity_id: device_tracker.my_device

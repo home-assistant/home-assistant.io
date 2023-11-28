@@ -2,8 +2,8 @@
 title: Pilight
 description: Instructions on how to setup Pilight within Home Assistant.
 ha_category:
-  - DIY
   - Binary Sensor
+  - DIY
   - Sensor
   - Switch
 ha_release: 0.26
@@ -11,9 +11,15 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@trekky12'
 ha_domain: pilight
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
+ha_integration_type: integration
 ---
 
-[Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://manual.pilight.org/protocols/index.html) are already available.
+[Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://manual.pilight.org/protocols/) are already available.
 
 This pilight hub connects to the [pilight-daemon](https://manual.pilight.org/programs/daemon.html) via a socket connection to receive and send codes. Thus Home Assistant does not have to run on the computer in charge of the RF communication.
 
@@ -42,7 +48,7 @@ host:
   default: 127.0.0.1
   type: string
 port:
-  description: "The network port to connect to, see also: (https://manual.pilight.org/development/socket/index.html)."
+  description: "The network port to connect to, see also: (https://manual.pilight.org/development/socket/)."
   required: false
   default: 5001
   type: integer
@@ -57,7 +63,7 @@ whitelist:
   type: string
 {% endconfiguration %}
 
-In this example only received RF codes using a daycom or Intertechno protocol are put on the event bus and only when the device id is 42. For more possible settings please look at the receiver section of the pilight [API](https://manual.pilight.org/development/index.html).
+In this example only received RF codes using a daycom or Intertechno protocol are put on the event bus and only when the device id is 42. For more possible settings please look at the receiver section of the pilight [API](https://manual.pilight.org/development/).
 
 A full configuration sample could look like the sample below:
 
@@ -77,7 +83,7 @@ pilight:
 
 ## Binary Sensor
 
-The `pilight` binary sensor platform implement the [pilight hub](#configuration) binary sensor functionality. Two type of Pilight binary sensor configuration available. A normal sensor which send the on and off state cyclical and a trigger sensor which send only a trigger when an event happened (for example lots of cheap PIR motion detector).
+The `pilight` binary sensor platform implements the [pilight hub](#configuration) binary sensor functionality. There are two types of Pilight binary sensor configuration: a normal sensor which sends the on and off cyclical state and a trigger sensor which sends only a trigger when an event happened (for example lots of cheap PIR motion detectors).
 
 To enable a Pilight binary sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -85,7 +91,7 @@ To enable a Pilight binary sensor in your installation, add the following to you
 # Example configuration.yaml entry
 binary_sensor:
   - platform: pilight
-    variable: 'state'
+    variable: "state"
 ```
 
 {% configuration %}
@@ -133,11 +139,11 @@ A full configuration example could look like this:
 # Example configuration.yaml entry
 binary_sensor:
   - platform: pilight
-    name: 'Motion'
-    variable: 'state'
+    name: "Motion"
+    variable: "state"
     payload:
       unitcode: 371399
-    payload_on: 'closed'
+    payload_on: "closed"
     disarm_after_trigger: true
     reset_delay_sec: 30
 ```
@@ -146,7 +152,7 @@ binary_sensor:
 
 This `pilight` sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g., _uuid_) can be set to distinguish between multiple pilight devices. To use a pilight sensor the pilight Home Assistant hub has to be set up.
 
-To use your sensor via pilight, make sure it is [supported](https://wiki.pilight.org/doku.php/protocols) and add the following to your `configuration.yaml` file:
+To use your sensor via pilight, make sure it is [supported](https://manual.pilight.org/protocols/index.html) and add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -154,7 +160,7 @@ sensor:
   - platform: pilight
     variable: temperature
     payload:
-      uuid: '0000-b8-27-eb-f447d3'
+      uuid: "0000-b8-27-eb-f447d3"
 ```
 
 {% configuration %}
@@ -185,23 +191,23 @@ This section shows a real life example how to use values of a weather station.
 # Example configuration.yaml entry
 sensor:
   - platform: pilight
-    name: 'Temperature'
-    variable: 'temperature'
+    name: "Temperature"
+    variable: "temperature"
     payload:
       uuid: 0000-b8-27-eb-f1f72e
-    unit_of_measurement: '°C'
+    unit_of_measurement: "°C"
   - platform: pilight
-    name: 'Humidity'
-    variable: 'humidity'
+    name: "Humidity"
+    variable: "humidity"
     payload:
       uuid: 0000-b8-27-eb-f1f72e
-    unit_of_measurement: '%'
+    unit_of_measurement: "%"
   - platform: pilight
-    name: 'Battery'
-    variable: 'battery'
+    name: "Battery"
+    variable: "battery"
     payload:
       uuid: 0000-b8-27-eb-f1f72e
-    unit_of_measurement: '%'
+    unit_of_measurement: "%"
 ```
 
 ## Switch
@@ -268,7 +274,7 @@ Variables for the different codes (`on_code` and `off_code`):
 - **'off'** (*Optional*): `1` or `0`
 - **'on'** (*Optional*): `1` or `0`
 
-For possible code entries, look at the [pilight API](https://manual.pilight.org/development/index.html). All commands allowed by [pilight-send](https://manual.pilight.org/programs/send.html) can be used. Which means that if, for a certain protocol, there are different parameters used, you should be able to replace the variables above by the proper ones required by the specific protocol. When using the `elro_800_switch` or `mumbi` protocol, for example, you will have to replace the variable `unit` with `unitcode` or there will be errors occurring.
+For possible code entries, look at the [pilight API](https://manual.pilight.org/development/). All commands allowed by [pilight-send](https://manual.pilight.org/programs/send.html) can be used. Which means that if, for a certain protocol, there are different parameters used, you should be able to replace the variables above by the proper ones required by the specific protocol. When using the `elro_800_switch` or `mumbi` protocol, for example, you will have to replace the variable `unit` with `unitcode` or there will be errors occurring.
 
 Variables for the different receive codes (`on_code_receive` and `off_code_receive`):
 
@@ -298,13 +304,13 @@ switch:
           systemcode: 14462
           unit: 6
           id: 34
-          state: 'on'
+          state: "on"
         off_code_receive:
           protocol: daycom
           systemcode: 14462
           unit: 6
           id: 34
-          state: 'off'
+          state: "off"
 ```
 
 ## Light
@@ -349,17 +355,17 @@ light:
           protocol: kaku_dimmer
           id: 23298822
           unit: 10
-          state: 'on'
+          state: "on"
         off_code_receive:
           protocol: kaku_dimmer
           id: 23298822
           unit: 10
-          state: 'off'
+          state: "off"
 ```
 
 ## Troubleshooting
 
-- A list of tested RF transceiver hardware is available [here](https://manual.pilight.org/electronics/index.html). This might be useful before buying.
+- A list of tested RF transceiver hardware is available [here](https://manual.pilight.org/electronics/). This might be useful before buying.
 - Sending commands is simple when the protocol is known by pilight, but receiving commands can be rather difficult. It can happen that the code is not correctly recognized due to different timings in the sending hardware or the RF receiver. If this happens follow these steps:
 
 1. [Install](https://manual.pilight.org/installation.html) pilight from source (do not worry that is very easy) and only activate the protocols you are expecting in the pop up menu. This reduces false positives.

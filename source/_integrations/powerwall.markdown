@@ -3,14 +3,23 @@ title: Tesla Powerwall
 description: Instructions on how to integrate Tesla Power Walls into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Energy
   - Sensor
+  - Switch
 ha_release: 0.108
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@jrester'
+  - '@daniel-simpson'
 ha_domain: powerwall
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
+ha_integration_type: integration
 ---
 
 The `powerwall` integration allows you to integrate your [Tesla Powerwall](https://www.tesla.com/powerwall) into Home Assistant.
@@ -19,45 +28,54 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
+- [Switch](#switch)
 
-## Configuration
-
-You will need the IP Address of your Powerwall to use this module.
-
-To add `Tesla Powerwall` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tesla Powerwall**.
-
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-powerwall:
-  ip_address: YOUR_POWERWALL_IP
-```
-
-{% configuration %}
-ip_address:
-  description: The IP address of your Powerwall.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ### Binary Sensor
 
 The following binary sensors are added for each Powerwall:
 
-- Powerwall Status
-- Powerwall Connected to Tesla
-- Grid Status
+- Grid Services - On/ Off
+- Grid Status - On/ Off
+- Powerwall Charging - Charging/ Not Charging
+- Powerwall Connected to Tesla - Connected / Not Connected
+- Powerwall Status - On/ Off
 
 ### Sensor
 
 The following sensors are added for each Powerwall:
 
-- Powerwall Charge
-- Powerwall Site Now
-- Powerwall Load Now
-- Powerwall Battery Now
-- Powerwall Frequency Now (if applicable)
-- Powerwall Busway Now (if applicable)
-- Powerwall Solar Now (if applicable)
-- Powerwall Generator Now (if applicable)
+- Powerwall Backup Reserve - Reserve energy for grid outages in %
+- Powerwall Battery Now - Usage in kW
+- Powerwall Charge - Percent charge remaining in %
+- Powerwall Generator Now - Usage in kW (if applicable)
+- Powerwall Load Now - Load usage in kW
+- Powerwall Solar Now - Solar usage in kW (if applicable)
+- Powerwall Site Now - Site usage in kW
+- Powerwall Backup Reserve - Percentage of battery which will be reserved for a grid outage
+- Frequency/ Average Current/ Average Voltage Now
+
+The following sensors show the direction of energy:
+
+- Powerwall Solar Export - Solar energy exported in kWh
+- Powerwall Solar Import - Solar energy imported in kWh
+- Powerwall Site Export - Site energy exported in kWh
+- Powerwall Site Import - Site energy imported in kWh
+- Powerwall Battery Export - Battery energy exported in kWh
+- Powerwall Battery Import - Battery energy imported in kWh
+- Powerwall Load Export - Load energy exported in kWh
+- Powerwall Load Import - Load energy imported in kWh
+- Powerwall Generator Export - Generator energy exported in kWh
+- Powerwall Generator Import - Generator energy imported in kWh
+
+### Switch
+
+The following switches are added for each Powerwall:
+
+- Off-Grid operation - Take your Powerwall off-grid (simulate a grid outage)
+
+### Device Info
+
+- Model Number
+- Firmware Revision

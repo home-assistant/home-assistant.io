@@ -8,6 +8,9 @@ ha_iot_class: Local Polling
 ha_domain: emoncms
 ha_codeowners:
   - '@borpin'
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `emoncms` sensor platform creates sensors for the feeds available in your local or cloud based version of [Emoncms](https://emoncms.org).
@@ -17,13 +20,15 @@ To enable this sensor, add the following lines to your `configuration.yaml`, it 
 ```yaml
 # Example configuration.yaml entry using cloud based Emoncms
 sensor:
-  platform: emoncms
-  api_key: API_KEY
-  url: https://emoncms.org
-  id: 1
+  - platform: emoncms
+    api_key: API_KEY
+    url: https://emoncms.org
+    id: 1
 ```
 
 As of Feb 2020, the integration will discover all sensors from Emoncms and will use the unit of measurement specified in the Feed from Emoncms, in preference to the one set in the configuration. Tested with [Emoncms](https://github.com/emoncms/emoncms) V10.1.13 - `unit` was added to the API around version V9.9.1.
+
+To write information from Home Assistant to Emoncms, you can use the [`emoncms_history`](/integrations/emoncms_history) integration.
 
 ## Configuration variables
 
@@ -33,7 +38,7 @@ api_key:
   required: true
   type: string
 url:
-  description: "The base URL of Emoncms, use <https://emoncms.org> for the cloud-based version. For self-hosted Emoncms or EmonPi you may need a URL of `http://x.x.x.x/emoncms`."
+  description: "The base URL of Emoncms, use <https://emoncms.org> for the cloud-based version. For self-hosted Emoncms or EmonPi you may need to use a URL of `http://x.x.x.x/emoncms`."
   required: true
   type: string
 id:
@@ -79,14 +84,14 @@ If `sensor_names` is used, any feeds with defined names will get those names exa
 
 In this section you find some more examples of how this sensor can be used.
 
-Minimal configuration. All Feeds are added as sensors with the unit of measurement being set by the Emoncms Feed or the default unit.
+Minimal configuration. All feeds are added as sensors with the unit of measurement being set by the Emoncms Feed or the default unit.
 
 ```yaml
 sensor:
-  platform: emoncms
-  api_key: API_KEY
-  url: https://emoncms.org
-  id: 1
+  - platform: emoncms
+    api_key: API_KEY
+    url: https://emoncms.org
+    id: 1
 ```
 
 Display only feeds with their feed IDs specified in `include_only_feed_id`.
@@ -104,7 +109,7 @@ sensor:
       - 105
 ```
 
-Display all feeds except feeds with their feed id specified in `exclude_feed_id`.
+Display all feeds except feeds with their feed ID specified in `exclude_feed_id`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -119,7 +124,7 @@ sensor:
       - 105
 ```
 
-Display only feeds with their feed id's specified in `include_only_feed_id` and give the feed sensors a name using "sensor_names". You don't have to specify all feeds names in "sensor_names", the remaining sensor names will be chosen based on "id" and the Emoncms `feedid`.
+Display only feeds with their feed IDs specified in `include_only_feed_id` and give the feed sensors a name using `sensor_names`. You don't have to specify all feeds names in `sensor_names`, the remaining sensor names will be chosen based on `id` and the Emoncms `feedid`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -141,6 +146,8 @@ sensor:
 
 Use a `value_template` to add 1500 to the feed value for all specified feed IDs in `include_feed_id`.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -149,13 +156,15 @@ sensor:
     url: https://emoncms.org
     scan_interval: 15
     id: 1
-    value_template: {% raw %}"{{ value | float + 1500 }}"{% endraw %}
+    value_template: "{{ value | float + 1500 }}"
     include_only_feed_id:
       - 107
       - 106
 ```
 
-Display feeds from the same Emoncms instance with 2 groups of feeds, different `scan_interval` and a different `unit_of_measurement`.
+{% endraw %}
+
+Display feeds from the same Emoncms instance with 2 groups of feeds, where one has a differing `scan_interval` and the other a differing `unit_of_measurement`.
 
 ```yaml
 # Example configuration.yaml entry

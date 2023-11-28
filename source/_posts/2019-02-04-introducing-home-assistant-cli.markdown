@@ -124,7 +124,7 @@ is great.
 
 ### Why not just use the REST API's directly via curl or similar ?
 
-You can most definitely use `curl` or similar to access REST API directly - its
+You can most definitely use `curl` or similar to access REST API directly - it's
 basically what `hass-cli` does behind the scenes. `hass-cli` give though a few
 advantages. Firstly that you do not need to remember the exact commands,
 `hass-cli` have contextual help and auto completion to make it super easy to

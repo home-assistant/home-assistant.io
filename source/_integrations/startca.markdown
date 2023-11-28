@@ -6,13 +6,16 @@ ha_category:
 ha_release: 0.64
 ha_iot_class: Cloud Polling
 ha_domain: startca
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 Integrate your [Start.ca](https://www.start.ca/) account information into Home Assistant.
 
 ## Setup
 
-You can get your API key from: [Start.ca Usage API](https://www.start.ca/support/usage/api)
+You can get your API key from: [Start.ca Usage API](https://portal.start.ca/account/usage/api)
 
 ## Configuration
 
@@ -45,7 +48,7 @@ api_key:
   required: true
   type: string
 total_bandwidth:
-  description: Your bandwidth limit in gigabytes. Set to `0` for unlimited plans without a cap.
+  description: Your data limit in gigabytes. Set to `0` for unlimited plans without a cap.
   required: true
   type: string
 monitored_conditions:
@@ -54,27 +57,27 @@ monitored_conditions:
   type: list
   keys:
     usage:
-      description: Bandwidth usage (percentage).
+      description: Data usage (percentage). This sensor is not supported for unlimited plans.
     usage_gb:
-      description: Bandwidth usage (gigabytes).
+      description: Data usage (gigabytes).
     limit:
-      description: Monthly bandwidth limit (gigabytes).
+      description: Monthly data limit (gigabytes). This sensor is not supported for unlimited plans.
     used_download:
-      description: Bandwidth used by download outside the grace period (gigabytes).
+      description: Data used by download outside the grace period (gigabytes).
     used_upload:
-      description: Bandwidth used by upload outside the grace period (gigabytes).
+      description: Data used by upload outside the grace period (gigabytes).
     used_total:
-      description: Total bandwidth (download and upload sum calculation) used outside the grace period (gigabytes).
+      description: Total data (download and upload sum calculation) used outside the grace period (gigabytes).
     grace_download:
-      description: Bandwidth used by download during the grace period (gigabytes).
+      description: Data used by download during the grace period (gigabytes).
     grace_upload:
-      description: Bandwidth used by upload during the grace period (gigabytes).
+      description: Data used by upload during the grace period (gigabytes).
     grace_total:
-      description: Total bandwidth (download and upload sum calculation) used during the unlimited period (gigabytes).
+      description: Total data (download and upload sum calculation) used during the unlimited period (gigabytes).
     total_download:
-      description: Total bandwidth download (Grace + Used) (gigabytes).
-    total_download:
-      description: Total bandwidth upload (Grace + Used) (gigabytes).
+      description: Total data download (Grace + Used) (gigabytes).
+    total_upload:
+      description: Total data upload (Grace + Used) (gigabytes).
     used_remaining:
-      description: Remaining bandwidth calculated from used and supplied total bandwidth (gigabytes).
+      description: Remaining bandwidth calculated from used and supplied total bandwidth (gigabytes). This sensor is not supported for unlimited plans.
 {% endconfiguration %}

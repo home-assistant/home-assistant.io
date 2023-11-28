@@ -10,6 +10,10 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@jkeljo'
 ha_domain: sisyphus
+ha_platforms:
+  - light
+  - media_player
+ha_integration_type: integration
 ---
 
 The [Sisyphus](https://sisyphus-industries.com/) integration for Home Assistant allows you to observe and control your Sisyphus Kinetic Art Table.
@@ -21,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 
 The Light and Media players will be automatically added for each of your Sisyphus tables, if the Sisyphus integration is configured.
 
-There are two ways to configure this component. For the automatic discovery of your table(s), simply add the following to your `configuration.yaml`:
+There are two ways to configure this integration. For the automatic discovery of your table(s), add the following to your `configuration.yaml`:
 
 ```yaml
 # This will auto-detect all Sisyphus tables on your local network.
@@ -34,9 +38,9 @@ Auto-detection can be a little slow, so if your table has a fixed IP address or 
 # This will skip auto-detection and add only the listed tables
 sisyphus:
   - name: 'TABLE_NAME'
-    host: 'TABLE_IP_OR_HOSTNAME'
+    host: "TABLE_IP_OR_HOSTNAME"
   - name: 'ANOTHER_TABLE_NAME'
-    host: 'ANOTHER_TABLE_IP_OR_HOSTNAME'
+    host: "ANOTHER_TABLE_IP_OR_HOSTNAME"
 ```
 
 {% configuration %}

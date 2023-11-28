@@ -6,11 +6,12 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.51
 ha_domain: asterisk_mbox
+ha_integration_type: integration
 ---
 
 The `asterisk_mbox` Asterisk Voicemail integration for Home Assistant allows you to view, listen to, and delete voicemails from an Asterisk voicemail mailbox. The integration includes a panel on the frontend that provides caller-id and speech-to-text transcription (using Google's API) of messages in addition to playback and message deletion. There is also an included sensor that indicates of the number of available messages. There is no requirement that the Asterisk PBX and Home Assistant are running on the same machine.
 
-To enable the component, a configuration is required in both Home Assistant as well as on the Asterisk server.
+To enable the integration, a configuration is required in both Home Assistant as well as on the Asterisk server.
 
 First follow the [Asterisk PBX configuration guide](/docs/asterisk_mbox/) to setup the necessary server on the Asterisk PBX server (this is needed even if Asterisk and Home Assistant are running on the same server)
 
@@ -44,5 +45,5 @@ port:
 {% endconfiguration %}
 
 <div class='note warning'>
-Communication between the Asterisk PBX server and the Home Assistant server is password-protected, but the data transmission is not encrypted. It is recommended to only use this integration when communication is contained within a local area network.
+Communication between the Asterisk PBX server and Home Assistant is password-protected, but the data transmission is not encrypted. It is recommended to only use this integration when communication is contained within a local area network.
 </div>

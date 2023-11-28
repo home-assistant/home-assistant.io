@@ -5,7 +5,9 @@ date: 2016-06-18 18:06:00 +0000
 date_formatted: "June 18, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's time for the 0.22 release. This was a pretty rough release cycle and we had to issue two hot fixes for our core improvements. But it seems now that all is good and a lot of people have reported that their installs are faster than ever and the occasional quirks no longer occur.
@@ -43,7 +45,7 @@ Another cool addition is the local file camera. This seems very basic at first b
 
 ### Breaking change
 
-- The new Netatmo support caused us to change how Netatmo are configured. It's now done via it's own component.
+- The new Netatmo support caused us to change how Netatmo are configured. It's now done via its own component.
 
 ```yaml
 netatmo:

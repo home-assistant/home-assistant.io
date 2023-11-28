@@ -3,22 +3,23 @@ title: Input Datetime
 description: Instructions on how to integrate the Input Datetime integration into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.55
-ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_datetime
+ha_integration_type: helper
 ---
 
 The `input_datetime` integration allows the user to define date and time values
 that can be controlled via the frontend and can be used within automations and
 templates.
 
-The preferred way to configure input datetime is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Date and/or time** option.
+The preferred way to configure input datetime is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_datetime" title="Date and/or time" %}** option.
 
-To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
-If you removed `default_config:` from you configuration, you must add `input_datetime:` to your `configuration.yaml` first, then you can use the UI.
+To be able to add **{% my helpers title="Helpers" %}** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+If you removed `default_config:` from your configuration, you must add `input_datetime:` to your `configuration.yaml` first, then you can use the UI.
 
 `input_datetime` can also be configured via YAML. To add three datetime inputs to your installation,
 one with both date and time, and one with date or time each,
@@ -52,12 +53,12 @@ input_datetime:
         required: false
         type: string
       has_time:
-        description: Set to `true` if the input should have a time. At least one `has_time` or `has_date` must be defined.
+        description: Set to `true` if the input should have a time. At least one of `has_time` or `has_date` must be defined.
         required: false
         type: boolean
         default: false
       has_date:
-        description: Set to `true` if the input should have a date. At least one `has_time` or `has_date` must be defined.
+        description: Set to `true` if the input should have a date. At least one of `has_time` or `has_date` must be defined.
         required: false
         type: boolean
         default: false
@@ -69,7 +70,7 @@ input_datetime:
         description: Set the initial value of this input, depending on `has_time` and `has_date`.
         required: false
         type: [datetime, time, date]
-        default: 1970-01-01 00:00 | 00:00 | 1970-01-01
+        default: <today> 00:00 | 00:00 | <today>
 {% endconfiguration %}
 
 ### Attributes
@@ -86,7 +87,7 @@ automations and templates.
 
 ### Restore State
 
-If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+If you set a valid value for `initial`, this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
 ### Services
 
@@ -112,7 +113,6 @@ To set both the date and time in the same call, use `date` and `time` together, 
 The following example shows the usage of the `input_datetime` as a trigger in an
 automation:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 # Turns on bedroom light at the time specified.
@@ -122,52 +122,61 @@ automation:
     at: input_datetime.bedroom_alarm_clock_time
   action:
     service: light.turn_on
-    entity_id: light.bedroom
+    target:
+      entity_id: light.bedroom
 ```
-{% endraw %}
 
 To dynamically set the `input_datetime` you can call
 `input_datetime.set_datetime`. The values for `date`, `time` and/or `datetime` must be in a certain format for the call to be successful. (See service description above.)
 If you have a `datetime` object you can use its `timestamp` method. Of if you have a timestamp you can just use it directly.
 
 {% raw %}
+
 ```yaml
 # Sets time to 05:30:00
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
+  target:
+    entity_id: input_datetime.XXX
   data:
-    time: '05:30:00'
+    time: "05:30:00"
 # Sets time to time from datetime object
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
+  target:
+    entity_id: input_datetime.XXX
   data:
     time: "{{ now().strftime('%H:%M:%S') }}"
 # Sets date to 2020-08-24
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
+  target:
+    entity_id: input_datetime.XXX
   data:
-    date: '2020-08-24'
+    date: "2020-08-24"
 # Sets date to date from datetime object
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
+  target:
+    entity_id: input_datetime.XXX
   data:
     date: "{{ now().strftime('%Y-%m-%d') }}"
 # Sets date and time to 2020-08-25 05:30:00
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
+  target:
+    entity_id: input_datetime.XXX
   data:
-    datetime: '2020-08-25 05:30:00'
+    datetime: "2020-08-25 05:30:00"
 # Sets date and time from datetime object
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
+  target:
+    entity_id: input_datetime.XXX
   data:
     datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
 # Sets date and/or time from UNIX timestamp
 # This can be used whether the input_datetime has just a date,
 # or just a time, or has both
 - service: input_datetime.set_datetime
-  data:
+  target:
     entity_id: input_datetime.XXX
+  data:
     timestamp: "{{ now().timestamp() }}"
 ```
+
 {% endraw %}

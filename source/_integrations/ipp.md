@@ -16,6 +16,4 @@ The `Internet Printing Protocol (IPP)` integration allows you to read current da
 
 It provides information about the printer's state and remaining ink levels.
 
-## Configuration
-
-To add `Internet Printing Protocol (IPP)` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Internet Printing Protocol (IPP)**.
+{% include integrations/config_flow.md %}

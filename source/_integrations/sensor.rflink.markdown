@@ -1,7 +1,6 @@
 ---
 title: "RFLink Sensor"
 description: "Instructions on how to integrate RFLink sensors into Home Assistant."
-logo: rflink.png
 ha_category:
   - Sensor
 ha_iot_class: Local Push
@@ -9,7 +8,7 @@ ha_release: 0.38
 ha_domain: rflink
 ---
 
-The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 ## Configuration
 
@@ -73,30 +72,31 @@ Sensor type values:
 - average_windspeed
 - barometric_pressure
 - battery
-- weather_forecast
-- doorbell_melody
-- command
 - co2_air_quality
+- command
 - current_phase_1
 - current_phase_2
 - current_phase_3
 - distance
+- doorbell_melody
 - firmware
-- humidity_status
-- humidity
 - hardware
+- humidity
+- humidity_status
 - kilowatt
 - light_intensity
 - meter_value
-- total_rain
+- noise_level
 - rain_rate
 - revision
-- noise_level
 - temperature
+- timestamp
+- total_rain
 - uv_intensity
 - version
 - voltage
 - watt
+- weather_forecast
 - windchill
 - winddirection
 - windgusts

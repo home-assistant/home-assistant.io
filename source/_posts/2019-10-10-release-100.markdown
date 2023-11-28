@@ -7,7 +7,9 @@ date_formatted: "October 10, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-09-0.100/components.png
 ---
 
@@ -471,7 +473,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix possible OpenUV exception due to missing data ([@bachya] - [#26958]) ([openuv docs])
 - Update pythonegardia to 1.0.40 ([@SneakSnackSnake] - [#27009]) ([egardia docs])
 - Improve ecobee service schemas ([@marthoc] - [#26955]) ([ecobee docs])
-- Add more providers, bump yessssms version to 0.4.1 ([@flowolf] - [#26874]) ([yessssms docs])
+- Add more providers, bump yessssms version to 0.4.1 ([@flowolf] - [#26874])
 - Upgrade youtube_dl to 2019.09.28 ([@BKPepe] - [#27031]) ([media_extractor docs])
 - Add availability_template to Template Cover platform ([@grillp] - [#26509]) ([template docs])
 - Add availability_template to Template Binary Sensor platform ([@grillp] - [#26510]) ([template docs])
@@ -1001,7 +1003,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [xbox_live docs]: /integrations/xbox_live/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [yandex_transport docs]: /integrations/yandex_transport/
-[yessssms docs]: /integrations/yessssms/
 [zha docs]: /integrations/zha/
 [zone docs]: /integrations/zone/
 [zwave docs]: /integrations/zwave/

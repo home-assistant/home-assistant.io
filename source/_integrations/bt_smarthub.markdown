@@ -6,8 +6,11 @@ ha_category:
 ha_release: 0.82
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@jxwolstenholme'
+  - '@typhoon2099'
 ha_domain: bt_smarthub
+ha_platforms:
+  - device_tracker
+ha_integration_type: integration
 ---
 
 This platform offers presence detection by looking at connected devices to a [BT Smart Hub](https://en.wikipedia.org/wiki/BT_Smart_Hub) based router.

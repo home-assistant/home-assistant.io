@@ -9,6 +9,9 @@ ha_codeowners:
   - '@fredrike'
   - '@mellado'
 ha_domain: tfiac
+ha_platforms:
+  - climate
+ha_integration_type: integration
 ---
 
 The `tfiac` integration integrates several vendors air conditioning systems, that uses the Tfiac mobile app, into Home Assistant. App currently available at [Play Store](https://play.google.com/store/apps/details?id=com.tcl.export) and [App Store](https://itunes.apple.com/app/tfiac/id1059938398).

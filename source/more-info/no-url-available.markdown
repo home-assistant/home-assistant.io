@@ -36,7 +36,7 @@ There are multiple options to consider:
 If you have Nabu Casa's Home Assistant Cloud, the easiest way to resolve this,
 is by visiting your Home Assistant instance from the remote UI URL.
 
-Go to **Configuration** -> **Cloud**.
+Go to **Settings** -> **Home Assistant Cloud**.
 
 Visit your instance on the remote URL. Now you can set up the integration as normal, without getting the No URL
 Available message.
@@ -64,14 +64,14 @@ like this.
 Please note, you'll need to enable advanced mode in your user profile in order
 to set this up.
 
-Go to **Configuration** -> **General**.
+Go to **Settings** -> **System** -> **Network**.
 
-On this page, two fields that can resolve this issue: "External URL"
-and "Internal URL".
+On this page, two fields that can resolve this issue: "Local Network"
+and "Internet".
 
-- **Internal URL**: The URL you type in your browser when you are **at home**,
+- **Local Network**: The URL you type in your browser when you are **at home**,
 connected to your home network, e.g., `http://homeassistant.local:8123`
-- **External URL**: The URL you type in your browser when you are **not home**,
+- **Internet**: The URL you type in your browser when you are **not home**,
 connected to your home network, e.g., `https://example.duckdns.org`
 
 Some additional notes:
@@ -84,6 +84,12 @@ Some additional notes:
   might cause problems with casting to media devices.
 - If you do not have an external address for your Home Assistant instance,
   leave that field empty.
+- Ensure that the URL you provide matches the true address your browser uses to
+  reach the instance. Many popular browsers will hide the www subdomain; if you
+  try to configure `http://foo.bar`, but you're actually at `http://www.foo.bar`,
+  OAuth will fail and you will receive this error. You can always check the
+  actual domain by pasting `javascript:alert(document.location)` in your address
+  bar and pressing enter.
 
 After setting the URLs, click save. There is no need to restart Home Assistant
 your changes are applied immediately.

@@ -2,14 +2,18 @@
 title: File
 description: Instructions on how to integrate sensors which read from files into Home Assistant.
 ha_category:
-  - Utility
   - Notifications
   - Sensor
+  - Utility
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: file
+ha_platforms:
+  - notify
+  - sensor
+ha_integration_type: integration
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -38,7 +42,7 @@ name:
   default: notify
   type: string
 filename:
-  description: Name of the file to use. The file will be created if it doesn't exist and saved in your [configuration](/docs/configuration/) folder.
+  description: Name of the file to use. The file will be created if it doesn't exist. Add the path of your [configuration](/docs/configuration/) folder (e.g., `/config`) to save the file there.
   required: true
   type: string
 timestamp:
@@ -99,12 +103,42 @@ Assuming that the log file contains multiple values formatted as JSON like shown
 
 This would require the following entry in the `configuration.yaml` file to extract the temperature:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: file
     name: Temperature
     file_path: /home/user/.homeassistant/sensor.json
-    value_template: {% raw %}'{{ value_json.temperature }}'{% endraw %}
-    unit_of_measurement: '°C'
+    value_template: '{{ value_json.temperature }}'
+    unit_of_measurement: "°C"
 ```
+
+{% endraw %}
+
+#### Entries as CSV
+
+Assuming the log file contains multiple values formatted as CSV like shown below:
+
+```text
+timestamp,temperature,humidity
+1631472948,21,39
+1631472949,22,36
+```
+
+This would require the following entry in the `configuration.yaml` file to extract the temperature:
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: file
+    name: Temperature
+    file_path: /home/user/.homeassistant/sensor.csv
+    value_template: '{{ value.split(",")[1] }}'
+    unit_of_measurement: "°C"
+```
+
+{% endraw %}

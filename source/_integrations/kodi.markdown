@@ -2,37 +2,38 @@
 title: Kodi
 description: Instructions on how to integrate Kodi into Home Assistant.
 ha_category:
-  - Notifications
   - Media Player
+  - Media Source
+  - Notifications
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
   - '@OnFreund'
-  - '@cgtobi'
 ha_domain: kodi
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - media_player
+  - notify
+ha_integration_type: integration
 ---
 
 The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
 
-The preferred way to set up the Kodi platform is by through discovery, which requires an enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
+The preferred way to set up the Kodi platform is through discovery, which requires an enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Media Player](#configuration)
 - [Notifications](#notifications)
 
-## Configuration
-
-The Kodi media player is configured through the integrations screen. If your Kodi is discovered, you'll see it there and can click to set it up.
-If you do not see your device, you can click on the `+` button and choose Kodi.
-The flow will guide you through the setup. Most of the settings are advanced, and the defaults should work.
+{% include integrations/config_flow.md %}
 
 If you previously had Kodi configured through `configuration.yaml`, it's advisable to remove it, and configure from the UI.
 If you do not remove it, your configuration will be imported with the following limitations:
-* Your turn on/off actions will not be imported. This functionality is now available through device triggers.
-* You may have duplicate entities.
-* Kodi must be on when Home Assistant is loading for the first time for the configuration to be imported.
+- Your turn on/off actions will not be imported. This functionality is now available through device triggers.
+- You may have duplicate entities.
+- Kodi must be on when Home Assistant is loading for the first time for the configuration to be imported.
 
 ### Turning On/Off
 
@@ -71,23 +72,23 @@ automation:
 
 Add music to the default playlist (i.e., playlistid=0).
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Kodi entities where to add the media. |
-| `media_type` | yes | Media type identifier. It must be one of SONG or ALBUM. |
-| `media_id` | no | Unique Id of the media entry to add (`songid` or `albumid`). If not defined, `media_name` and `artist_name` are needed to search the Kodi music library. |
-| `media_name` | no| Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist. |
-| `artist_name` | no | Optional artist name for filtering media. |
+| Service data attribute | Optional | Description                                                                                                                                              |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name(s) of the Kodi entities where to add the media.                                                                                                     |
+| `media_type`           | yes      | Media type identifier. It must be one of SONG or ALBUM.                                                                                                  |
+| `media_id`             | no       | Unique Id of the media entry to add (`songid` or `albumid`). If not defined, `media_name` and `artist_name` are needed to search the Kodi music library. |
+| `media_name`           | no       | Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist.     |
+| `artist_name`          | no       | Optional artist name for filtering media.                                                                                                                |
 
 #### Service `kodi.call_method`
 
 Call a [Kodi JSON-RPC API](https://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Kodi entities where to run the API method. |
-| `method` | yes | Name of the Kodi JSON-RPC API method to be called. |
-| any other parameter | no | Optional parameters for the Kodi API call. |
+| Service data attribute | Optional | Description                                               |
+| ---------------------- | -------- | --------------------------------------------------------- |
+| `entity_id`            | no       | Name(s) of the Kodi entities where to run the API method. |
+| `method`               | yes      | Name of the Kodi JSON-RPC API method to be called.        |
+| any other parameter    | no       | Optional parameters for the Kodi API call.                |
 
 ### Event triggering
 
@@ -129,8 +130,9 @@ script:
   kodi_quit:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: Application.Quit
 ```
 
@@ -141,8 +143,9 @@ script:
   kodi_hibernate:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: System.Hibernate
 ```
 
@@ -153,8 +156,9 @@ script:
   kodi_suspend:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: System.Suspend
 ```
 
@@ -165,8 +169,9 @@ script:
   kodi_reboot:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: System.Reboot
 ```
 
@@ -177,8 +182,9 @@ script:
   kodi_shutdown:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: System.Shutdown
 ```
 
@@ -191,8 +197,9 @@ script:
   turn_on_kodi_with_cec:
   sequence:
     - service: kodi.call_method
-      data:
+      target:
         entity_id: media_player.kodi
+      data:
         method: Addons.ExecuteAddon
         addonid: script.json-cec
         params:
@@ -201,11 +208,12 @@ script:
   turn_off_kodi_with_cec:
     sequence:
       - service: media_player.media_stop
-        data:
+        target:
           entity_id: media_player.kodi
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: Addons.ExecuteAddon
           addonid: script.json-cec
           params:
@@ -223,19 +231,21 @@ This example and the following requires to have the [script.json-cec](https://gi
 #### Simple script to turn on the PVR in some channel as a time function
 
 {% raw %}
+
 ```yaml
 script:
   play_kodi_pvr:
-    alias: Turn on the silly box
+    alias: "Turn on the silly box"
     sequence:
-      - alias: TV on
+      - alias: "TV on"
         service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.kodi
-      - alias: Play TV channel
+      - alias: "Play TV channel"
         service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           media_content_type: "CHANNEL"
           media_content_id: >
             {% if (now().hour < 14) or ((now().hour == 14) and (now().minute < 50)) %}
@@ -252,26 +262,30 @@ script:
               10
             {% endif %}
 ```
+
 {% endraw %}
 
 #### Simple script to play a smart playlist
 
 {% raw %}
+
 ```yaml
 script:
   play_kodi_smp:
-    alias: Turn on the silly box with random Firefighter Sam episode
+    alias: "Turn on the silly box with random Firefighter Sam episode"
     sequence:
-      - alias: TV on
+      - alias: "TV on"
         service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.kodi
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           media_content_type: DIRECTORY
           media_content_id: special://profile/playlists/video/feuerwehrmann_sam.xsp
 ```
+
 {% endraw %}
 
 #### Trigger a Kodi video library update
@@ -279,12 +293,13 @@ script:
 ```yaml
 script:
   update_library:
-    alias: Update Kodi Library
+    alias: "Update Kodi Library"
     sequence:
-      - alias: Call Kodi update
+      - alias: "Call Kodi update"
         service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: VideoLibrary.Scan
 ```
 
@@ -374,3 +389,74 @@ data:
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+## Keypress events
+
+key presses of keyboards/remotes can be overwritten in Kodi and configured to send an event to Home Assistant, which can then be used in automations to, for instance, turn up/down the volume of a TV/receiver.
+
+A keypress can be overwritten in Kodi by using the [Kodi keymap XML](https://kodi.wiki/view/Keymap) or from within the Kodi GUI using the [Keymap Editor add-on](https://kodi.wiki/view/Add-on:Keymap_Editor).
+
+An example of the Kodi keymap configuration using XML, which will overwrite the volume_up/volume_down buttons and instead send an event to HomeAssistant:
+
+```xml
+<keymap>
+  <global>
+    <keyboard>
+      <volume_up>NotifyAll("KodiLivingroom", "OnKeyPress", {"key":"volume_up"})</volume_up>
+      <volume_down>NotifyAll("KodiLivingroom", "OnKeyPress", {"key":"volume_down"})</volume_down>
+    </keyboard>
+  </global>
+</keymap>
+```
+
+The `"KodiLivingroom"` can be set to any value and will be present in the event data as the `"sender"`
+The `"OnKeyPress"` is needed to identify the event in Home Assistant, do not change this.
+The `{"key":"volume_up"}` can contain any JSON which will be present in the event data under the `"data"` key, normally this is used to identify which key was pressed.
+
+For possible keyboard key names, see: https://kodi.wiki/view/List_of_keynames
+For other actions, see: https://kodi.wiki/view/Keymap#Keynames
+
+For the example above, when the volume up key is pressed, an event in Home Assistant will be fired that looks like this:
+```yaml
+event_type: kodi_keypress
+data:
+  type: keypress
+  device_id: 72e5g0ay5621f5d719qd8cydj943421a
+  entity_id: media_player.kodi_livingroom
+  sender: KodiLivingroom
+  data:
+    key: volume_up
+```
+
+A example of a automation to turn up/down the volume of a receiver using the event:
+
+{% raw %}
+
+```yaml
+alias: Kodi keypress
+mode: parallel
+max: 10
+trigger:
+  - platform: event
+    event_type: kodi_keypress
+    event_data:
+      entity_id: media_player.kodi_livingroom
+action:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{trigger.event.data.data.key=='volume_up'}}"
+        sequence:
+          - service: media_player.volume_up
+            target:
+              entity_id: media_player.receiver
+      - conditions:
+          - condition: template
+            value_template: "{{trigger.event.data.data.key=='volume_down'}}"
+        sequence:
+          - service: media_player.volume_down
+            target:
+              entity_id: media_player.receiver
+```
+
+{% endraw %}

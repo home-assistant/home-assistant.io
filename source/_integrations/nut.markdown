@@ -9,65 +9,20 @@ ha_domain: nut
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
+  - '@ollo69'
+  - '@pestevez'
+ha_zeroconf: true
+ha_platforms:
+  - diagnostics
+  - sensor
+ha_integration_type: device
 ---
 
-The `nut` sensor platform allows you to monitor a UPS (battery backup) by using data from a [NUT](https://networkupstools.org/) (Network UPS Tools) server.
+The Network UPS Tools (NUT) integration allows you to monitor and manage a UPS (battery backup) using a [NUT](https://networkupstools.org/) server. It lets you view their status, receives notifications about important events, and execute commands as device actions.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add `nut` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Network UPS Tools (NUT)**.
-
-Alternatively, you need to add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: nut
-    resources:
-      - ups.load
-      - ups.realpower.nominal
-      - input.voltage
-      - battery.runtime
-```
-
-{% configuration %}
-  host:
-    description: The host name or IP address of the device that is running NUT.
-    required: false
-    default: localhost
-    type: string
-  port:
-    description: The port number.
-    required: false
-    default: 3493
-    type: integer
-  name:
-    description: Custom name of the sensor
-    required: false
-    default: NUT UPS
-    type: string
-  alias:
-    description: Name of the UPS on the NUT server.
-    required: false
-    default: Will default to the first UPS name listed.
-    type: string
-  username:
-    description: Username to login to the NUT server.
-    required: false
-    default: none
-    type: string
-  password:
-    description: Password to login to the NUT server.
-    required: false
-    default: none
-    type: string
-  resources:
-    description: Contains all entries to display.
-    required: true
-    type: list
-{% endconfiguration %}
-
-## Example
+## Example Resources
 
 Given the following example output from NUT (your variables may differ):
 
@@ -108,31 +63,46 @@ output.voltage: 121.50
 output.voltage.nominal: 120
 ```
 
-Use the values from the left hand column. Support is included for most values with 'ups', 'battery', 'input' and 'output' prefixes.
-
-```yaml
-sensor:
-  - platform: nut
-    name: UPS Name
-    host: 192.168.11.5
-    port: 3493
-    alias: ups_name
-    username: user
-    password: pass
-    resources:
-      - ups.load
-      - ups.realpower.nominal
-      - input.voltage
-      - battery.runtime
-```
+Use the values from the left hand column. Support is included for most
+values with `ups`, `battery`, `input` and `output` prefixes.
 
 ## UPS Status - human-readable version
 
-An additional virtual sensor type `ups.status.display` is available translating the UPS status value retrieved from `ups.status` into a human-readable version.
+An additional virtual sensor type `ups.status.display` is available
+translating the UPS status value retrieved from `ups.status` into a
+human-readable version.
 
-```yaml
-sensor:
-  - platform: nut
-    resources:
-      - ups.status.display
+## Device Actions
+
+A device action is available for each parameterless NUT [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html) supported by the device. To find the list of supported commands for 
+your specific UPS device, you can use the `upscmd -l` command followed by the UPS name:
+
+```bash
+$ upscmd -l my_ups
+Instant commands supported on UPS [my_ups]:
+beeper.disable - Disable the UPS beeper
+beeper.enable - Enable the UPS beeper
+test.battery.start.quick - Start a quick battery test
+test.battery.stop - Stop the battery test
 ```
+
+These commands will be available as device actions in Home Assistant, allowing you to interact with your UPS.
+
+### User Credentials and Permissions
+
+To execute device actions through the NUT integration, you must specify user credentials in the configuration. These credentials are stored in the `upsd.users` file, part of the NUT server configuration. This file defines the usernames, passwords, and permissions for users accessing the UPS devices.
+
+No actions will be available if no user credentials are specified for a given device.
+
+Ensure the user you specify has the required permissions to execute the desired commands. Here's an example of a user with command permissions in the `upsd.users` file:
+
+```text
+[my_user]
+    password = my_password
+    actions = SET
+    instcmds = ALL
+```
+
+In this example, the user `my_user` has permission to execute all commands (`instcmds = ALL`).
+
+Please note that Home Assistant cannot determine whether a user can access a specific action without executing it. If you attempt to perform an action for which the user does not have permission, an exception will be thrown at runtime.

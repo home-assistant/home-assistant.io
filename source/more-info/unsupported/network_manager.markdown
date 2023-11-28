@@ -12,9 +12,11 @@ or via the command-line.
 This requires NetworkManager to be installed, active
 and in control of at least one network interface on the host.
 
+The current minimum supported version of NetworkManager is: 1.14.6.
+
 ## The solution
 
-If you have not already, install Network Manager on the host.
+If you have not already, install or update Network Manager on the host.
 
 When it is installed, you need to make sure it manages at least one interface
 [see the documentation for the network manager](https://wiki.debian.org/NetworkManager).
@@ -32,7 +34,7 @@ autoconnect-retries-default=0
 rc-manager=file
 
 [keyfile]
-unmanaged-devices=type:bridge;type:tun;type:veth
+unmanaged-devices=type:bridge;type:tun;driver:veth
 
 [logging]
 backend=journal
@@ -41,6 +43,13 @@ backend=journal
 `/etc/NetworkManager/system-connections/default`:
 
 ```txt
+[connection]
+id=Supervisor default
+uuid=b653440a-544a-4e4f-aef5-6c443171c4f8
+type=802-3-ethernet
+llmnr=2
+mdns=2
+
 [ipv4]
 method=auto
 

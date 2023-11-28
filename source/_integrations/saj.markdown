@@ -8,6 +8,9 @@ ha_release: '0.100'
 ha_codeowners:
   - '@fredericvl'
 ha_domain: saj
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `saj` sensor will poll a [SAJ](https://www.saj-electric.com/) solar inverter and present the values as sensors in Home Assistant.

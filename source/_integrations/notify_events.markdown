@@ -9,11 +9,14 @@ ha_codeowners:
   - '@matrozov'
   - '@papajojo'
 ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
+ha_integration_type: integration
 ---
 
 ## Description
 
-The [Notify.Events service](https://notify.events/) is a platform for the **notify** component. 
+The [Notify.Events service](https://notify.events/) is a platform for the **notify** integration. 
 
 This platform allows you to quickly configure the distribution of messages between different recipients, no matter how they are used to receiving notifications: 
 
@@ -33,7 +36,7 @@ You can find a full supported messenger list [here](https://notify.events/featur
 
 To start getting notifications, you need to follow those simple steps:
  
-1. SignUp to [Notify.Events](https://notify.events/) and create a Channel
+1. Sign up to [Notify.Events](https://notify.events/) and create a Channel
 2. Add **Home Assistant** source to this channel and get your **token**
 3. Add the Notify.Events integration to your installation by adding the following to your `configuration.yaml` file:
 
@@ -80,15 +83,15 @@ Now you can use the `notify.events` service inside your Home Assistant to:
 ```yaml
 - service: notify.events
   data:
-    message: 'Backyard motion detected!'
+    message: "Backyard motion detected!"
     data:
-      level: 'warning'
-      priority: 'high'
+      level: "warning"
+      priority: "high"
       images:
-        - name: 'local_photo.jpg'
-          path: '/tmp/backyard_cam/motion.jpg'
-        - name: 'remote_photo.jpg'
-          url: 'https://i.ibb.co/Jt1845X/motion.jpg'
+        - name: "local_photo.jpg"
+          path: "/tmp/backyard_cam/motion.jpg"
+        - name: "remote_photo.jpg"
+          url: "https://i.ibb.co/Jt1845X/motion.jpg"
 ```
 
 ### Message optional parameters
@@ -102,6 +105,7 @@ The following attributes can be placed inside `data` for extended functionality.
 | `priority` | For recipients which supports priority, the message will be highlighted accordingly.<br>Available values: `lowest`, `low`, `normal`, `high`, `highest`.
 | `images`   | Array of images to attach (see item properties below).
 | `files`    | Array of files to attach (see item properties below).
+| `token`    | Notify.Events channel token (in case you want to override the channel to get this message to).
 
 Every item of images and files has the following properties:
 

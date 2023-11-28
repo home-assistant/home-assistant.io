@@ -9,32 +9,22 @@ ha_config_flow: true
 ha_codeowners:
   - '@andrewsayre'
 ha_domain: heos
+ha_ssdp: true
+ha_platforms:
+  - media_player
+ha_integration_type: integration
 ---
 
-The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/shop/amplifiersmrs/heosavr) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:
+The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/category/heos/) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:
 
 - Each device is represented as a media player entity
 - View the currently playing media
 - Control play mode (play, pause, stop, next and previous), volume, mute and shuffle
 - Clear playlist
 - Select source from device physical inputs and HEOS favorites
+- Create HEOS groups
 
-## Configuration
-
-HEOS devices are discovered and setup automatically when the [discovery](/integrations/discovery) integration is enabled. Alternatively, the integration can be setup through the frontend control panel integrations page or manually by adding the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-heos:
-  host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: "Address of the device. Example: 192.168.1.32."
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 <div class='note info'>
 A connection to a single device enables control for all devices on the network. If you have multiple HEOS devices, enter the host of one that is connected to the LAN via wire or has the strongest wireless signal.
@@ -96,7 +86,7 @@ media_content_id: "Awesome Music"
 
 #### Play Quick Select
 
-You can play a HEOS Quick Select by nubmer or name with the `media_player.play_media` service. Example service data payload:
+You can play a HEOS Quick Select by number or name with the `media_player.play_media` service. Example service data payload:
 
 ```yaml
 entity_id: media_player.office
@@ -126,16 +116,40 @@ media_content_id: "http://path.to/stream.mp3"
 | `media_content_type`   | no       | Set to the value `url`
 | `media_content_id`     | no       | The full URL to the stream
 
+### Service `media_player.join`
+
+For grouping HEOS media players together for synchronous playback you can use the `media_player.join` service. With the example service data payload down below you'll expand playback of `media_player.office` to the `media_player.kitchen` and `media_player.bathroom` players. Please note that all of the media players need to be HEOS players.
+
+```yaml
+entity_id: media_player.office
+group_members:
+  - media_player.kitchen
+  - media_player.bathroom
+```
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            | yes      | The media player entity whose playback will be expanded to the players specified in `group_members`.
+| `group_members`        | no       | The player entities which will be synced with the playback from `entity_id`.
+
+
+### Service `media_player.unjoin`
+
+For removing a HEOS player from a group you can use the `media_player.unjoin` service.
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |      yes | Unjoin this media player from any player groups.     |
+
 ## Notes
 
-- HEOS groups are not currently supported.
 - Receivers with multiple zones are represented as a single media player. They will be turned on when playback is started, but cannot be turned off by the integration at this time.
 
 ## Troubleshooing
 
 ### Debugging
 
-The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the the relevant line below to the `configuration.yaml` to enable debug logging:
+The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml` to enable debug logging:
 
 ```yaml
 logger:

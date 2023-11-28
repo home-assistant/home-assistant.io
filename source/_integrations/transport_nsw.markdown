@@ -6,6 +6,9 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.81
 ha_domain: transport_nsw
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.
@@ -28,8 +31,8 @@ To enable the sensor, add the following lines to your `configuration.yaml` file:
 # Example configuration.yaml entry
 sensor:
   - platform: transport_nsw
-    stop_id: '200024'
-    api_key: 'YOUR API KEY'
+    stop_id: "200024"
+    api_key: "YOUR API KEY"
 ```
 
 {% configuration %}
@@ -65,36 +68,37 @@ More example configurations for bus or ferry.
 # Example bus route configuration.yaml entry
 sensor:
   - platform: transport_nsw
-    name: 'Bus'
-    stop_id: '209516'
+    name: "Bus"
+    stop_id: "209516"
     route:  '199'
-    api_key: 'YOUR API KEY'
+    api_key: "YOUR API KEY"
 ```
 
 ```yaml
 # Example ferry configuration.yaml entry
 sensor:
   - platform: transport_nsw
-    name: 'Ferry'
-    stop_id: '10102008'
-    destination: 'Circular Quay'
-    api_key: 'YOUR API KEY'
+    name: "Ferry"
+    stop_id: "10102008"
+    destination: "Circular Quay"
+    api_key: "YOUR API KEY"
 ```
 
 The sensor returns n/a if no stop event is found within the next 24h. A `template` sensor can help building a more meaningful string.
 
 {% raw %}
+
 ```yaml
 # Sample template sensor
-- platform: template
-  sensors:
-    busmonitor:
-      friendly_name: "Bus Mon 199"
-      value_template: >-
+template:
+  - sensor:
+    - name: "Bus monitor 199"
+      state: >-
         {% if is_state_attr('sensor.bus', 'due', 'n/a') %}
           No schedule found
         {% else %}
           {{ state_attr('sensor.bus', 'route') }} in {{ state_attr('sensor.bus', 'due') }}m ({{ state_attr('sensor.bus', 'delay') }})
         {% endif %}
 ```
+
 {% endraw %}

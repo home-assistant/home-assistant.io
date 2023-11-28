@@ -8,25 +8,22 @@
         <b>{% active_link /docs/glossary/ Glossary %}</b>
       </li>
       <li>
-        <b>{% active_link /docs/installation/ Installation %}</b>
+        <b>{% active_link /getting-started Getting Started %}</b>
         <ul>
-          <li>{% active_link /hassio/ Home Assistant %}</li>
-          <li>{% active_link /docs/installation/updating/ Updating %}</li>
+          <li>{% active_link /installation Installation %}</li>
+          <li>{% active_link /common-tasks/os/ Common Tasks %}</li>
           <li>
-            {% active_link /docs/installation/troubleshooting/ Troubleshooting
+            {% active_link /docs/troubleshooting/ Troubleshooting
             %}
           </li>
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/configuration/ Configuration %}</b>
+        <b>{% active_link /docs/configuration/ Configuration.yaml %}</b>
         <ul>
           <li>{% active_link /docs/configuration/yaml/ YAML %}</li>
           <li>
             {% active_link /docs/configuration/basic/ Basic information %}
-          </li>
-          <li>
-            {% active_link /docs/configuration/devices/ Setting up devices %}
           </li>
           <li>
             {% active_link /docs/configuration/customizing-devices/ Customizing
@@ -43,14 +40,23 @@
         </ul>
       </li>
       <li>
-        <b>Advanced Configuration</b>
+        <b>{% active_link /docs/energy/ Home Energy Management %}</b>
+        <ul>
+          <li>{% active_link /docs/energy/electricity-grid/ Electricity Grid %}</li>
+          <li>{% active_link /docs/energy/solar-panels/ Solar Panels %}</li>
+          <li>{% active_link /docs/energy/individual-devices/ Individual Devices %}</li>
+          <li>{% active_link /docs/energy/faq/ FAQ %}</li>
+        </ul>
+      </li>
+      <li>
+        Advanced Configuration
         <ul>
           <li>{% active_link /docs/configuration/remote/ Remote access %}</li>
-          <li>{% active_link /docs/configuration/packages/ Packages %}</li>
           <li>
             {% active_link /docs/configuration/splitting_configuration/
             Splitting up the configuration %}
           </li>
+          <li>{% active_link /docs/configuration/packages/ Packages %}</li>
           <li>
             {% active_link /docs/configuration/secrets/ Storing Secrets %}
           </li>
@@ -74,7 +80,7 @@
         </ul>
       </li>
       <li>
-        <b>Core objects</b>
+        Core objects
         <ul>
           <li>{% active_link /docs/configuration/events/ Events %}</li>
           <li>
@@ -85,32 +91,43 @@
       <li>
         <b>{% active_link /docs/automation/ Automation %}</b>
         <ul>
-          <li>{% active_link /docs/automation/examples/ Examples %}</li>
+          <li>{% active_link /docs/automation/using_blueprints/ Using Automation Blueprints %}</li>
+          <li>{% active_link /docs/automation/basics/ Automation Basics %}</li>
           <li>{% active_link /docs/automation/editor/ Editor %}</li>
           <li>{% active_link /docs/automation/trigger/ Triggers %}</li>
           <li>{% active_link /docs/automation/condition/ Conditions %}</li>
           <li>{% active_link /docs/automation/action/ Actions %}</li>
+          <li>{% active_link /docs/automation/modes/ Run Modes %}</li>
+          <li>{% active_link /docs/automation/services/ Services %}</li>
           <li>{% active_link /docs/automation/templating/ Templates %}</li>
+          <li>{% active_link /docs/automation/yaml/ YAML %}</li>
           <li>
             {% active_link /docs/automation/troubleshooting/ Troubleshooting %}
           </li>
         </ul>
       </li>
       <li>
+        <b>{% active_link /docs/blueprint/ Blueprints %}</b>
+        <ul>
+          <li>{% active_link /docs/blueprint/tutorial/ Tutorial %}</li>
+          <li>{% active_link /docs/blueprint/schema/ Blueprint schema %}</li>
+          <li>{% active_link /docs/blueprint/selectors/ Selectors %}</li>
+        </ul>
+      </li>
+      <li>
         <b>{% active_link /docs/frontend/ Frontend %}</b>
         <ul>
           <li>
-            {% active_link /docs/frontend/browsers/ Browser Compatibility List
-            %}
+            {% active_link /docs/frontend/browsers/ Browser Compatibility List %}
           </li>
-          <li>{% active_link /lovelace Lovelace UI %}</li>
+          <li>{% active_link /dashboards Dashboards %}</li>
+          <li>{% active_link /docs/frontend/icons/ Icons%}</li>
         </ul>
       </li>
       <li>
         <b>{% active_link /docs/backend/ Backend %}</b>
         <ul>
           <li>{% active_link /docs/backend/database/ Database %}</li>
-          <li>{% active_link /docs/backend/updater/ Updater %}</li>
         </ul>
       </li>
       <li>
@@ -118,7 +135,6 @@
         <ul>
           <li>{% active_link /docs/scripts/service-calls/ Service Calls %}</li>
           <li>{% active_link /docs/scripts/conditions/ Conditions %}</li>
-          <li>{% active_link /docs/scripts/editor/ Editor %}</li>
         </ul>
       </li>
       <li>
@@ -133,60 +149,35 @@
           <li>{% active_link /docs/tools/dev-tools/ Developer Tools %}</li>
           <li>{% active_link /docs/tools/quick-bar/ Quick Bar %}</li>
           <li>{% active_link /docs/tools/hass/ hass %}</li>
-          <li>{% active_link /docs/tools/benchmark/ benchmark %}</li>
           <li>{% active_link /docs/tools/check_config/ check_config %}</li>
-          <li>{% active_link /docs/tools/credstash/ credstash %}</li>
-          <li>{% active_link /docs/tools/keyring/ keyring %}</li>
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/z-wave/ Z-Wave %}</b>
+        <b>{% active_link /integrations/mqtt MQTT %}</b>
         <ul>
+          <li>{% active_link /integrations/mqtt/#broker-configuration Broker %}</li>
+          <li>{% active_link /integrations/mqtt/#advanced-broker-configuration Certificate %}</li>
+          <li>{% active_link /integrations/mqtt/#mqtt-discovery Discovery %}</li>
+          <li>{% active_link /integrations/mqtt/#publish--dump-services Publish service %}</li>
           <li>
-            {% active_link /docs/z-wave/installation/ Configuring the Z-Wave
-            component %}
+            {% active_link /integrations/mqtt/#birth-and-last-will-messages Birth and last will messages %}
           </li>
-          <li>{% active_link /docs/z-wave/adding/ Adding devices %}</li>
-          <li>
-            {% active_link /docs/z-wave/control-panel/ The Z-Wave control panel
-            %}
-          </li>
-          <li>{% active_link /docs/z-wave/controllers/ Controllers %}</li>
-          <li>
-            {% active_link /docs/z-wave/devices/ Devices %}
-            and
-            {% active_link
-            /docs/z-wave/entities/ Entities %}
-          </li>
-          <li>
-            {% active_link /docs/z-wave/query-stage/ Query Stages %}
-            for devices
-          </li>
-          <li>
-            {% active_link /docs/z-wave/device-specific/ Device Specific %}
-            configuration
-          </li>
-          <li>
-            {% active_link /docs/z-wave/events/ Events %}
-            and
-            {% active_link
-            /docs/z-wave/services/ Services %}
-          </li>
+          <li>{% active_link /integrations/mqtt/#testing-your-setup Testing your setup %}</li>
+          <li>{% active_link /integrations/mqtt/#logging Logging %}</li>
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/mqtt/ MQTT %}</b>
+        <b>Hardware</b>
         <ul>
-          <li>{% active_link /docs/mqtt/broker/ Broker %}</li>
-          <li>{% active_link /docs/mqtt/certificate/ Certificate %}</li>
-          <li>{% active_link /docs/mqtt/discovery/ Discovery %}</li>
-          <li>{% active_link /docs/mqtt/service/ Publish service %}</li>
           <li>
-            {% active_link /docs/mqtt/birth_will/ Birth and last will messages
-            %}
+            <a href="https://green.home-assistant.io/">Home Assistant Green</a>
           </li>
-          <li>{% active_link /docs/mqtt/testing/ Testing your setup %}</li>
-          <li>{% active_link /docs/mqtt/logging/ Logging %}</li>
+          <li>
+            <a href="https://yellow.home-assistant.io/">Home Assistant Yellow</a>
+          </li>
+          <li>
+            <a href="https://skyconnect.home-assistant.io/">Home Assistant SkyConnect</a>
+          </li>
         </ul>
       </li>
     </ul>

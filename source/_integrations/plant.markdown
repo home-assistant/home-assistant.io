@@ -3,15 +3,13 @@ title: Plant Monitor
 description: Instructions on how to setup plant monitoring with Home Assistant.
 ha_category:
   - Environment
-ha_iot_class: Calculated
 ha_release: 0.44
 ha_quality_scale: internal
-ha_codeowners:
-  - '@ChristianKuehnel'
 ha_domain: plant
+ha_integration_type: integration
 ---
 
-This`plant`component lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to "problem" if it is not within those limits.
+This `plant` integration lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to "problem" if it is not within those limits.
 
 ## Configuration
 
@@ -95,7 +93,7 @@ entity_id:
       required: false
       type: float
     min_brightness:
-      description: Minimum brightness before triggering a problem. In contrast to the other values, this check is *not* looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than min_brightness. You can use this to check if the plant gets enough light during the course of the day.
+      description: Minimum brightness before triggering a problem. In contrast to the other values, this check is *not* looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than `min_brightness`. You can use this to check if the plant gets enough light during the course of the day.
       required: false
       type: integer
     max_brightness:
@@ -112,7 +110,7 @@ entity_id:
 ## Examples
 ### Using plain MQTT sensor to get the data
 This is a practical example that uses a multiple of `MQTT sensors` to supply the readings used by the `plant` sensor.
-Another good source of this data would be the [Mi Flora](/integrations/miflora) component.
+Another good source of this data would be the [Mi Flora](/integrations/miflora) integration.
 
 If the sensor data is within the min/max values the status will be `ok`, if not the status will be `problem`. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.
 
@@ -144,28 +142,28 @@ sensor:
   - platform: mqtt
     name: my_plant_moisture
     state_topic: my_plant_topic
-    value_template: '{{ value_json.moisture | int }}'
-    unit_of_measurement: '%'
+    value_template: "{{ value_json.moisture | int }}"
+    unit_of_measurement: "%"
   - platform: mqtt
     name: my_plant_battery
     state_topic: my_plant_topic
-    value_template: '{{ value_json.battery | int }}'
-    unit_of_measurement: '%'
+    value_template: "{{ value_json.battery | int }}"
+    unit_of_measurement: "%"
   - platform: mqtt
     name: my_plant_temperature
     state_topic: my_plant_topic
-    value_template: '{{ value_json.temperature | float }}'
-    unit_of_measurement: '°C'
+    value_template: "{{ value_json.temperature | float }}"
+    unit_of_measurement: "°C"
   - platform: mqtt
     name: my_plant_conductivity
     state_topic: my_plant_topic
-    value_template: '{{ value_json.conductivity | int }}'
-    unit_of_measurement: 'µS/cm'
+    value_template: "{{ value_json.conductivity | int }}"
+    unit_of_measurement: "µS/cm"
   - platform: mqtt
     name: my_plant_brightness
     state_topic: my_plant_topic
-    value_template: '{{ value_json.brightness | int }}'
-    unit_of_measurement: 'Lux'
+    value_template: "{{ value_json.brightness | int }}"
+    unit_of_measurement: "Lux"
 ```
 
 {% endraw %}

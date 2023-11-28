@@ -1,13 +1,18 @@
 ---
 title: Solar-Log
 description: Instructions on how to integrate Solar-Log sensors within Home Assistant.
-ha_category: Sensor
+ha_category:
+  - Energy
+  - Sensor
 ha_release: 0.101
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Ernst79'
 ha_domain: solarlog
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `solarlog` integration uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.
@@ -21,55 +26,22 @@ The `solarlog` integration uses the default host address "http://solar-log" if y
 The open JSON interface is deactivated by default. To activate the open JSON interface, a user password must first be set. The password isn't needed for accessing the open JSON interface.
 </div>
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-There are 2 options in configuring the `solarlog` integration:
-
-- Via the Home Assistant user interface where it will let you enter the name and host to connect to your Solar-Log device.
-- Via the Home Assistant `configuration.yaml` file.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  platform: solarlog
-```
-
-{% configuration %}
-host:
-  description: The IP Address or host address of your Solar-Log device.
-  required: false
-  default: http://solar-log
-  type: string
-name:
-  description: Let you overwrite the name of the device in the frontend.
-  required: false
-  default: solarlog
-  type: string
-{% endconfiguration %}
-
-### Full configuration sample
-
-A full configuration entry would look like the sample below.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: solarlog
-    name: solarlog
-    host: 192.168.1.123
-```
+## Additional template sensor
 
 In case you would like to convert the values, for example, to Wh instead of the default kWh, you can use the [template platform](/integrations/template/).
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry for sensor template platform
-sensor:
-  - platform: template
-    sensors:
-      solarlog_yield_day_template:
-        value_template: "{{ (states('sensor.solarlog_yield_day') | float * 1000) | round(0) }}"
+template:
+  - sensor:
+    - name: "Solarlog yield day"
+      state: "{{ (states('sensor.solarlog_yield_day') | float(default=0) * 1000) | round(0,default=0) }}"
 ```
+
 {% endraw %}
 
 ## Sensors
@@ -94,12 +66,12 @@ The following sensors are available in the library:
 | consumption_month     | kWh    | Total consumption for the month from all of the consumption meters. |
 | consumption_year      | kWh    | Total consumption for the year from all of the consumption meters. |
 | consumption_total     | kWh    | Accumulated total consumption from all consumption meters. |
-| total_power           | Wp     | Installed generator power. |
+| installed_peak_power  | W      | Installed solar peak power. |
 | alternator_loss       | W      | Altenator loss (equals to power_dc - power_ac) |
 | capacity              | %      | Capacity (equals to power_dc / total power) |
-| efficiency            | % W/Wp | Efficiency (equals to power_ac / power_dc |
+| efficiency            | %      | Efficiency (equals to power_ac / power_dc) |
 | power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
-| usage                 |        | Usage (equals to consumption_ac / power_ac) |
+| usage                 | %      | Usage (equals to consumption_ac / power_ac) |
 
 <div class='note'>
 The solarlog integration is using the sunwatcher pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the sunwatcher package.
