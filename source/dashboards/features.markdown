@@ -179,6 +179,27 @@ type:
   type: string
 {% endconfiguration %}
 
+## Humidifier modes
+
+Widget that displays buttons to control the mode for a [humidifier](/integrations/humidifier).
+
+<p class='img'>
+  <img src='/images/dashboards/features/humidifier_modes.png' alt='Screenshot of the tile card with the humidifier modes feature'>
+  Screenshot of the tile card with the humidifier modes feature
+</p>
+
+```yaml
+features:
+  - type: "humidifier-modes"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`humidifier-modes`"
+  type: string
+{% endconfiguration %}
+
 ## Lawn mower commands
 
 Widget that displays buttons to control a [lawn mower](/integrations/lawn_mower).
