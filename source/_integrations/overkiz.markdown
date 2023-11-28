@@ -75,6 +75,33 @@ Over 6000 devices from 60 brands are compatible with the Overkiz platform. This 
 
 Even though most Overkiz hubs support adding Z-Wave, Hue, and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant which are more stable and feature-rich.
 
+### Stateless RTS covers 
+
+Covers that use the RTS protocol are stateless and do not report their state back to the hub. This means that Home Assistant will not know the state of the device after it has been controlled.
+
+If you only control your RTS cover from Home Assistant, you can use the [template cover](/integrations/cover.template/) to create a stateful cover entity. This will allow you to keep track of the current state (open or closed) and use the cover in automations and scenes.
+
+```yaml
+cover:
+  - platform: template
+    covers:
+      stateful_rts_test_shutter: # unique ID
+        friendly_name: "Stateful RTS Test Shutter" # your name
+        optimistic: true # default when no state is available
+        open_cover:
+          - service: cover.open_cover
+            target:
+              entity_id: cover.rts_test_shutter # change to your device id
+        close_cover:
+          - service: cover.close_cover
+            target:
+              entity_id: cover.rts_test_shutter # change to your device id
+        stop_cover:
+          - service: cover.stop_cover
+            target:
+              entity_id: cover.rts_test_shutter # change to your device id
+```
+
 ### Overkiz API limits
 
 **Server busy, please try again later. (Too many executions)**
