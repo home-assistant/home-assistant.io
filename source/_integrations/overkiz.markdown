@@ -71,9 +71,9 @@ Over 6000 devices from 60 brands are compatible with the Overkiz platform. This 
 
 ## Known limitations
 
-### Z-Wave, Hue and Sonos not supported
+### Zigbee, Z-Wave, Hue, and Sonos devices not supported
 
-Even though most Overkiz hubs support adding Z-Wave, Hue, and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant which are more stable and feature-rich.
+Even though most Overkiz hubs support adding Zigbee, Z-Wave, Hue, and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant which are more stable and feature-rich.
 
 ### Stateless RTS covers 
 
