@@ -35,3 +35,9 @@ The integration will create sensor entities for a variety of metrics that relate
 
 #### Drive State
 - Speed
+
+### Vehicle State
+- Tyre Pressure Front Left
+- Tyre Pressure Front Right
+- Tyre Pressure Rear Left
+- Tyre Pressure Rear Right
