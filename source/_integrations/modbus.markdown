@@ -690,8 +690,6 @@ climates:
       default: none
       type: list
       keys:
-        none:
-          description: "No swapping."
         byte:
           description: "Swap bytes AB -> BA."
         word:
@@ -1294,8 +1292,6 @@ sensors:
       default: none
       type: list
       keys:
-        none:
-          description: "No swapping."
         byte:
           description: "Swap bytes AB -> BA."
         word:
@@ -1519,7 +1515,6 @@ Some parameters exclude other parameters, the following tables show what can be 
 | structure       | Yes    | No     | No  | No  | No  |
 | slave_count     | No     | No     | Yes | Yes | Yes |
 | virtual_count   | No     | No     | Yes | Yes | Yes |
-| swap: none      | Yes    | Yes    | Yes | Yes | Yes |
 | swap: byte      | No     | No     | Yes | Yes | Yes |
 | swap: word      | No     | No     | No  | Yes | Yes |
 | swap: word_byte | No     | No     | No  | Yes | Yes |
