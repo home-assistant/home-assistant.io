@@ -3,17 +3,18 @@ title: Input Number
 description: Instructions on how to integrate the Input Number integration into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.55
-ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_number
+ha_integration_type: helper
 ---
 
 The `input_number` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
-The preferred way to configure an input number is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Number** option.
+The preferred way to configure an input number is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_number" title="Number" %}** option.
 
 To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
 If you removed `default_config:` from you configuration, you must add `input_number:` to your `configuration.yaml` first, then you can use the UI.
@@ -93,9 +94,9 @@ configuration without restarting Home Assistant itself.
 | `reload` | | Reload `input_number` configuration |
 | `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_number` entities
 
-### Restore State
+### Restore state
 
-If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping. Please note that `initial` is only available in a YAML configuration and not via the Home Assistant user interface.
 
 ### Scenes
 
@@ -109,7 +110,7 @@ scene:
       input_number.example_number: 13
 ```
 
-## Automation Examples
+## Automation examples
 
 Here's an example of `input_number` being used as a trigger in an automation.
 
@@ -125,14 +126,15 @@ input_number:
     max: 254
     step: 1
 automation:
-  - alias: Bedroom Light - Adjust Brightness
+  - alias: "Bedroom Light - Adjust Brightness"
     trigger:
       platform: state
       entity_id: input_number.bedroom_brightness
     action:
       - service: light.turn_on
-        data:
+        target:
           entity_id: light.bedroom
+        data:
           brightness: "{{ trigger.to_state.state | int }}"
 ```
 
@@ -154,7 +156,7 @@ input_select:
       - Reading
       - Relax
       - 'OFF'
-    initial: 'Select'
+    initial: "Select"
 input_number:
   bedroom_brightness:
     name: Brightness
@@ -163,15 +165,16 @@ input_number:
     max: 254
     step: 1
 automation:
-  - alias: Bedroom Light - Custom
+  - alias: "Bedroom Light - Custom"
     trigger:
       platform: state
       entity_id: input_select.scene_bedroom
       to: CUSTOM
     action:
       - service: light.turn_on
-        data:
+        target:
           entity_id: light.bedroom
+        data:
           brightness: "{{ states('input_number.bedroom_brightness') | int }}"
 ```
 
@@ -195,26 +198,27 @@ input_number:
 # This automation script runs when a value is received via MQTT on retained topic: setTemperature
 # It sets the value slider on the GUI. This slides also had its own automation when the value is changed.
 automation:
-  - alias: Set temp slider
+  - alias: "Set temp slider"
     trigger:
       platform: mqtt
-      topic: 'setTemperature'
+      topic: "setTemperature"
     action:
       service: input_number.set_value
-      data:
+      target:
         entity_id: input_number.target_temp
+      data:
         value: "{{ trigger.payload }}"
 
 # This second automation script runs when the target temperature slider is moved.
 # It publishes its value to the same MQTT topic it is also subscribed to.
-  - alias: Temp slider moved
+  - alias: "Temp slider moved"
     trigger:
       platform: state
       entity_id: input_number.target_temp
     action:
       service: mqtt.publish
       data:
-        topic: 'setTemperature'
+        topic: "setTemperature"
         retain: true
         payload: "{{ states('input_number.target_temp') | int }}"
 ```
@@ -241,19 +245,20 @@ input_number:
     icon: mdi:clock-start
     initial: 30
     min: 0
-    max: 60
+    max: 59
     step: 10
     
 automation:
- - alias: turn something off after x time after turning it on
+ - alias: "turn something off after x time after turning it on"
    trigger:
      platform: state
      entity_id: switch.something
-     to: 'on'
+     to: "on"
    action:
      - delay: "00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}"
      - service: switch.turn_off
-       entity_id: switch.something
+       target:
+         entity_id: switch.something
 ```
 
 {% endraw %}

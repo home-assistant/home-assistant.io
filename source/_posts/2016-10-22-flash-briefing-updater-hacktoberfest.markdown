@@ -6,7 +6,9 @@ date_formatted: "October 22, 2016"
 release_date: 2016-10-23 21:57:00 -0700
 author: Robbie Trencheny
 author_twitter: robbie
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Hello again friend,
@@ -198,7 +200,7 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
  - Fix a spelling problem on user-facing error ([@robbiet480])
  - YAML includes will ignore dirs/files prefixed with . ([@lwis])
 
-## Breaking changes
+## Backward-incompatible changes
 
  - The [HTTP] component now takes a different format for authenticating IPs
  - Configuration format has changed for [Proximity]

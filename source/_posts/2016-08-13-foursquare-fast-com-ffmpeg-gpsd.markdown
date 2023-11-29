@@ -5,7 +5,9 @@ date: 2016-08-13 12:00:00 -0700
 date_formatted: "August 13, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's time for 0.26 and it's again full of new features and fixes. First I want to highlight that we are now having 500 000 monthly pageviews on the website. A big milestone for us! It's been an amazing journey. Big thanks to the Home Assistant community for being such a delightful bunch.
@@ -56,7 +58,7 @@ This release includes code contributed by 31 different people. The biggest chang
 
 - Media Player cover art would not work when an API password was set. Thanks to [@maddox] for reporting it and [@balloob] for the fix.
 
-### Breaking changes
+### Backward-incompatible changes
 
  - A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:
 

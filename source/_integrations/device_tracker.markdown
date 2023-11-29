@@ -1,15 +1,19 @@
 ---
-title: Device Tracker
+title: Device tracker
 description: Instructions on how to setup device tracking within Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.7
-ha_iot_class:
 ha_quality_scale: internal
 ha_domain: device_tracker
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: entity
 ---
 
 The device tracker allows you to track devices in Home Assistant. This can happen by querying your wireless router or by having applications push location info.
+
+{% include integrations/building_block_integration.md %}
 
 ## Configuring a `device_tracker` platform
 
@@ -105,8 +109,8 @@ The `device_tracker.see` service can be used to manually update the state of a d
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `dev_id`               |       no | The second half of the `entity_id`, for example `tardis` for `device_tracker.tardis` |
-| `location_name`        |       no | The location, `home`, `not_home`, or the name of the zone |
+| `dev_id`               |       no | The `object_id`, for example `tardis` for `device_tracker.tardis` |
+| `location_name`        |      yes | The location, `home`, `not_home`, or the name of the zone |
 | `host_name`            |      yes | The hostname of the device tracker |
 | `mac`                  |      yes | The MAC address of the entity (only specify if you're updating a network based tracker) |
 | `gps`                  |      yes | If you're providing a location, for example `[51.513845, -0.100539]` |

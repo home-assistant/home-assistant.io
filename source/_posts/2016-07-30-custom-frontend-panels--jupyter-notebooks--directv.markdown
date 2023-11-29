@@ -5,7 +5,9 @@ date: 2016-07-30 12:00:00 +0000
 date_formatted: "July 30, 2016"
 author: Fabian Affolter & Paulus Schoutsen
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!
@@ -66,7 +68,7 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 
 - Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.
 
-### Breaking changes
+### Backward-incompatible changes
 
 - Google Voice SMS notification support was removed.
 

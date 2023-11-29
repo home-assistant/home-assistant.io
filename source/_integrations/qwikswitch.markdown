@@ -2,8 +2,8 @@
 title: QwikSwitch QSUSB
 description: Instructions on how to integrate the QwikSwitch QSUSB Hub into Home Assistant.
 ha_category:
+  - Binary sensor
   - Hub
-  - Binary Sensor
   - Light
   - Sensor
   - Switch
@@ -12,13 +12,19 @@ ha_release: '0.20'
 ha_codeowners:
   - '@kellerza'
 ha_domain: qwikswitch
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
+ha_integration_type: integration
 ---
 
 The `qwikswitch` integration is the main integration to integrate various [QwikSwitch](https://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Light
 - [Sensor](#qwikswitch-sensors)
 - [Switch](#switch)
@@ -95,7 +101,7 @@ QwikSwitch devices (i.e., transmitter buttons) will fire events on the Home Assi
 
 ```yaml
 automation:
-  - alias: Action - Respond to A button press
+  - alias: "Action - Respond to A button press"
     trigger:
       platform: event
       event_type: qwikswitch.button.@12df34
@@ -115,7 +121,7 @@ The list of recognized commands can be extended for Keyfobs, door sensors, and P
 
 On some QS Mobile servers button events are only generated for switches added to the QS Mobile application, so it might be best to test button presses through the `/&listen` API
 
-### Qwikswitch Sensors
+### Qwikswitch sensors
 
 The sensor configuration is a list of sensors. Depending on the type of sensor, it will be a sensor or binary_sensor.
 

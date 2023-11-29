@@ -8,6 +8,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@alemuro'
 ha_domain: tmb
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 This sensor will provide you the remaining time, in minutes, for the next bus in a specific stop by using the [iBus service](https://www.tmb.cat/en/barcelona/tmb-ibus).

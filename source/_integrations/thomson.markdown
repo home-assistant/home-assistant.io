@@ -2,10 +2,13 @@
 title: Thomson
 description: Instructions on how to integrate Thomson routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.7
 ha_domain: thomson
 ha_iot_class: Local Polling
+ha_platforms:
+  - device_tracker
+ha_integration_type: integration
 ---
 
 Thomson produced networking equipment (under the brand name SpeedTouch) till 2010 and was then renamed to Technicolor.
@@ -29,7 +32,7 @@ host:
   required: true
   type: string
 username:
-  description: The username of an user with administrative privileges, usually *admin*.
+  description: The username of a user with administrative privileges, usually *admin*.
   required: true
   type: string
 password:

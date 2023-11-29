@@ -3,46 +3,47 @@ title: AlarmDecoder
 description: Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an AlarmDecoder device.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_release: 0.43
 ha_iot_class: Local Push
 ha_domain: alarmdecoder
-ha_codeowners:
-  - '@ajschmidt8'
 ha_config_flow: true
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - sensor
+ha_integration_type: integration
 ---
 
-The `alarmdecoder` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Nu Tech Software Solutions, known as the AlarmDecoder. The AlarmDecoder devices provide a serial, TCP/IP socket or USB interface to the alarm panel, where it emulates an alarm keypad.
+The **AlarmDecoder** {% term integration %} will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Nu Tech Software Solutions, known as the AlarmDecoder. The AlarmDecoder devices provide a serial, TCP/IP socket or USB interface to the alarm panel, where it emulates an alarm keypad.
 
 Please visit the [AlarmDecoder website](https://www.alarmdecoder.com/) for further information about the AlarmDecoder devices.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following {% term device %} types within Home Assistant:
 
-- [Alarm Control Panel](#alarm-control-panel): Reports on alarm status, and can be used to arm/disarm the system
+- [Alarm control panel](#alarm-control-panel): Reports on alarm status, and can be used to arm/disarm the system
 - Sensor: Emulates a keypad display
-- Binary Sensor: Reports on zone status
+- Binary sensor: Reports on zone status
 
-This is a fully event-based component. Any event sent by the AlarmDecoder device will be immediately reflected within Home Assistant.
+This is a fully event-based integration. Any {% term event %} sent by the AlarmDecoder device will be immediately reflected within Home Assistant.
 
-## Configuration
-
-AlarmDecoder can be set up via the **Integrations** section of the **Configuration** page. Click the `+` sign and select _AlarmDecoder_ from the list.
+{% include integrations/config_flow.md %}
 
 You will be prompted to select a protocol (i.e. `socket` or `serial`). Depending on your selection, you will be asked for the following connection information:
 
 - **socket**:
-  - **host** - the hostname or IP address of the machine connected to the AlarmDecoder device
-  - **port** - the port that AlarmDecoder is accessible on (i.e. `10000`)
+  - **host** - The hostname or IP address of AlarDecoder device that is connected to your alarm panel.
+  - **port** - The port that AlarmDecoder is accessible on (i.e. `10000`).
 - **serial**:
-  - **path** - the path to the AlarmDecoder device (i.e. `/dev/ttyUSB0`)
-  - **baud rate** - the baud rate of the AlarmDecoder device (i.e. `115200`)
+  - **path** - The path to the AlarmDecoder device (i.e. `/dev/ttyUSB0`).
+  - **baud rate** - The baud rate of the AlarmDecoder device (i.e. `115200`).
 
 ## Settings
 
-Once AlarmDecoder has been set up according to the instructions above, the arming settings and zones can be configured by selecting _Options_ on the _AlarmDecoder_ card on the **Configuration -> Integrations** page.
+Once AlarmDecoder has been set up according to the instructions above, the arming settings and zones can be configured by selecting _Options_ on the _AlarmDecoder_ card on the **{% my integrations title="Settings > Devices & services" %}** page.
 
-### Arming Settings
+### Arming settings
 
 There are currently 3 arming settings for AlarmDecoder (shown below).
 
@@ -54,25 +55,25 @@ There are currently 3 arming settings for AlarmDecoder (shown below).
 
 Zones can be added, edited, and removed through the option forms.
 
-Each zone that's added to AlarmDecoder will have its own [binary sensor](https://www.home-assistant.io/integrations/binary_sensor/) created.
+Each {% term zone %} that's added to AlarmDecoder will have its own [binary sensor](https://www.home-assistant.io/integrations/binary_sensor/) created.
 
-#### Adding a New Zone
+#### Adding a new zone
 
-When prompted, enter the number of the zone you'd like to add. Press _Submit_ to move to the next screen where you'll be prompted for the [zone settings](#zone-settings). Press _Submit_ again to save.
+When prompted, enter the number of the {% term zone %} you'd like to add. Select _Submit_ to move to the next screen, where you'll be prompted for the [zone settings](#zone-settings). Select _Submit_ again to save.
 
 **Note:** The zone number that was entered will appear as an attribute on the binary sensor entity that's created in order to easily edit the zone settings at a later time.
 
-#### Editing an Existing Zone
+#### Editing an existing zone
 
-When prompted, enter the number of the zone you'd like to edit. Press _Submit_ to move to the next screen where the existing zone settings will be pre-filled. Edit the zone settings and press _Submit_ to save the changes.
+When prompted, enter the number of the {% term zone %} you'd like to edit. Select _Submit_ to move to the next screen, where the existing zone settings will be pre-filled. Edit the zone settings and select _Submit_ to save the changes.
 
-#### Removing an Existing Zone
+#### Removing an existing zone
 
-When prompted, enter the number of the zone you'd like to remove. Press _Submit_ to move to the next screen where the existing zone settings will be pre-filled. Clear the _Zone Name_ field and press _Submit_.
+When prompted, enter the number of the {% term zone %} you'd like to remove. Select _Submit_ to move to the next screen, where the existing zone settings will be pre-filled. Clear the _Zone Name_ field and select _Submit_.
 
-#### Zone Settings
+#### Zone settings
 
-The settings for zones are described below:
+The settings for {% term zone %} are described below:
 
 - **Zone Name** - a name for the zone
 - **Zone Type** - the type of sensor (see [Device Classes](https://www.home-assistant.io/integrations/binary_sensor/#device-class))
@@ -81,7 +82,7 @@ The settings for zones are described below:
 - **Relay Address** - (optional) Address of the relay or zone expander board to associate with the zone. (ex: 12, 13, 14, or 15). Typically used in cases where a panel will not send bypassed zones such as motion during an armed home state, the Vista 20P is an example of this. AlarmDecoder can emulate a zone expander board and the panel can be programmed to push zone events to this virtual expander. This allows the bypassed zone binary sensors to be utilized. One example is using bypassed motion sensors at night for motion-based automated lights while the system is armed with the motion sensor bypassed.
 - **Relay Channel** - (optional) Channel of the relay or zone expander board to associate with the zone. (ex: 1, 2, 3, or 4 for relay expander boards, 1 - 8 for zone expander boards)
 
-## Alarm Control Panel
+## Alarm control panel
 
 There are several attributes available on the alarm panel to give you more information about your alarm.
 
@@ -99,7 +100,7 @@ There are several attributes available on the alarm panel to give you more infor
 
 ## Services
 
-The Alarm Decoder integration gives you access to several services for you to control your alarm with.
+The **Alarm Decoder** {% term integration %} gives you access to several {% term services %} for you to control your alarm with.
 
 - `alarm_arm_away`: Arms the alarm in away mode; all faults will trigger the alarm.
 - `alarm_arm_home`: Arms the alarm in stay mode; faults to the doors or windows will trigger the alarm.
@@ -116,9 +117,9 @@ The Alarm Decoder integration gives you access to several services for you to co
 
 ### Examples
 
-Using a combination of the available services and attributes, you can create switch templates.
+Using a combination of the available {% term services %} and attributes, you can create switch templates.
 
-### Chime Status and Control
+### Chime status and control
 
 {% raw %}
 
@@ -129,13 +130,25 @@ Using a combination of the available services and attributes, you can create swi
       friendly_name: Chime
       value_template: "{{ is_state_attr('alarm_control_panel.alarm_panel', 'chime', true) }}"
       turn_on:
-        service: alarmdecoder.alarm_toggle_chime
-        data:
-          code: !secret alarm_code
+        - condition: state
+          entity_id: alarm_control_panel.alarm_panel
+          attribute: chime
+          state: False
+        - service: alarmdecoder.alarm_toggle_chime
+          target:
+            entity_id: alarm_control_panel.alarm_panel
+          data:
+            code: !secret alarm_code
       turn_off:
-        service: alarmdecoder.alarm_toggle_chime
-        data:
-          code: !secret alarm_code
+        - condition: state
+          entity_id: alarm_control_panel.alarm_panel
+          attribute: chime
+          state: True
+        - service: alarmdecoder.alarm_toggle_chime
+          target:
+            entity_id: alarm_control_panel.alarm_panel
+          data:
+            code: !secret alarm_code
       icon_template: >-
         {% if is_state_attr('alarm_control_panel.alarm_panel', 'chime', true) %}
           mdi:bell-ring
@@ -146,7 +159,7 @@ Using a combination of the available services and attributes, you can create swi
 
 {% endraw %}
 
-## Arming Key Sequences
+## Arming key sequences
 
 The tables below show the key press sequences used for arming for the different panel brands and configuration setting combinations. They are taken from the [adext](https://pypi.org/project/adext/) PyPI package.
 
@@ -185,10 +198,9 @@ The tables below show the key press sequences used for arming for the different 
 
 <div class='note'>
 
-The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Stay</em> and <em>Away</em> keypad keys respectively (as outlined in the <a href='http://www.alarmdecoder.com/wiki/index.php/Protocol#Special_Keys'>AlarmDecoder documentation</a>).
+The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Stay</em> and <em>Away</em> keypad keys respectively (as outlined in the <a href='https://www.alarmdecoder.com/wiki/index.php/Protocol#Special_Keys'>AlarmDecoder documentation</a>).
 
 </div>
-
 
 | Mode                                                    | Key Sequence                   |
 | ------------------------------------------------------- | ------------------------------ |

@@ -2,12 +2,15 @@
 title: History Stats
 description: Instructions about how to integrate historical statistics into Home Assistant.
 ha_category:
-  - Utility
   - Sensor
+  - Utility
 ha_iot_class: Local Polling
 ha_release: 0.39
 ha_quality_scale: internal
 ha_domain: history_stats
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
@@ -32,10 +35,10 @@ sensor:
   - platform: history_stats
     name: Lamp ON today
     entity_id: light.my_lamp
-    state: 'on'
+    state: "on"
     type: time
-    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-    end: '{{ now() }}'
+    start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    end: "{{ now() }}"
 ```
 
 {% endraw %}
@@ -45,12 +48,16 @@ entity_id:
   description: The entity you want to track.
   required: true
   type: string
+unique_id:
+  description: An ID that uniquely identifies this entity. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 state:
   description: The states you want to track.
   required: true
   type: [list, string]
 name:
-  description: Name displayed on the frontend. Note that it is used by Home Assistant to generate sensor's `object_id` so it is advisable to choose a unique one and change name for frontend using [customization](/docs/configuration/customizing-devices/#friendly_name) or via [Lovelace](/lovelace/entities/#name).
+  description: Name displayed on the frontend. Note that it is used by Home Assistant to generate sensor's `object_id` so it is advisable to choose a unique one and change name for frontend using [customization](/docs/configuration/customizing-devices/#friendly_name) or via [Dashboards](/dashboards/entities/#name).
   required: false
   default: unnamed statistics
   type: string
@@ -77,7 +84,7 @@ duration:
 
   You have to provide **exactly 2** of `start`, `end` and `duration`.
 <br/>
-  You can use [template extensions](/topics/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
+  You can use [template extensions](/docs/configuration/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
 
 </div>
 
@@ -87,7 +94,7 @@ Depending on the sensor type you choose, the `history_stats` integration can sho
 
 - **time**: The default value, which is the tracked time, in hours
 - **ratio**: The tracked time divided by the length of your period, as a percentage
-- **count**: How many times the integration you track was changed to the state you track
+- **count**: How many times the tracked entity matched the configured state during the time period
 
 ## Time periods
 
@@ -104,12 +111,12 @@ The duration variable is used when the time period is fixed. Different syntaxes 
 
 ```yaml
 # 6 hours
-duration: 06:00
+duration: "06:00"
 ```
 
 ```yaml
 # 1 minute, 30 seconds
-duration: 00:01:30
+duration: "00:01:30"
 ```
 
 ```yaml
@@ -122,9 +129,14 @@ duration:
 
 <div class='note'>
 
-  If the duration exceeds the number of days of history stored by the `recorder` component (`purge_keep_days`), the history statistics sensor will not have all the information it needs to look at the entire duration. For example, if `purge_keep_days` is set to 7, a history statistics sensor with a duration of 30 days will only report a value based on the last 7 days of history.
+  If the duration exceeds the number of days of history stored by the `recorder` integration (`purge_keep_days`), the history statistics sensor will not have all the information it needs to look at the entire duration. For example, if `purge_keep_days` is set to 7, a history statistics sensor with a duration of 30 days will only report a value based on the last 7 days of history.
 
 </div>
+
+### Video tutorial
+This video tutorial explains how you can use history stats. It also shows how you can create a daily bar chart graph to visualize things such as occupancy, or how long the lights are on in a particular room.
+
+<lite-youtube videoid="BMlU4SynQBY" videotitle="How To Master Graphs to Monitor Occupancy and Device Usage in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
 ### Examples
 
@@ -135,8 +147,8 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-    end: '{{ now() }}'
+    start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now() }}"
 ```
 
 {% endraw %}
@@ -146,7 +158,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
     duration:
       hours: 24
 ```
@@ -158,7 +170,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: '{{ now().replace(hour=6, minute=0, second=0) }}'
+    start: "{{ now().replace(hour=6, minute=0, second=0, microsecond=0) }}"
     duration:
       hours: 5
 ```
@@ -172,8 +184,42 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    start: '{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}'
-    end: '{{ now() }}'
+    start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0, microsecond=0) ) - now().weekday() * 86400 }}"
+    end: "{{ now() }}"
+```
+
+{% endraw %}
+
+**Current month**: starts the first day of the current month at 00:00, ends right now.
+
+{% raw %}
+
+```yaml
+    start: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0 ) }}"
+    end: "{{ now() }}"
+```
+
+{% endraw %}
+
+**Previous month**: starts the first day of the previous month at 00:00, ends the first day of the current month.
+
+{% raw %}
+
+```yaml
+    start: "{{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
+```
+
+{% endraw %}
+
+**Next 4 pm**: 24 hours, from the last 4 pm till the next 4 pm. If it hasn't been 4 pm today, that would be 4 pm yesterday until 4 pm today. If it is already past 4 pm today, it will be 4 pm today until 4 pm tomorrow. When changing the start time, then add or subtract to the 8-hour buffer to match the next midnight.
+
+{% raw %}
+
+```yaml
+    end: "{{ (now().replace(minute=0, second=0, microsecond=0) + timedelta(hours=8)).replace(hour=16) }}"
+    duration:
+        hours: 24
 ```
 
 {% endraw %}
@@ -183,7 +229,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
     duration:
       days: 30
 ```
@@ -195,8 +241,8 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    start: '{{ 0 }}'
-    end: '{{ now() }}'
+    start: "{{ 0 }}"
+    end: "{{ now() }}"
 ```
 
 {% endraw %}

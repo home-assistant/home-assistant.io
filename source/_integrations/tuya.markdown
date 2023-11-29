@@ -1,128 +1,183 @@
 ---
 title: Tuya
-description: Instructions on how to setup the Tuya hub within Home Assistant.
+description: Instructions on how to set up the Tuya hub within Home Assistant.
 ha_category:
-  - Hub
+  - Binary sensor
+  - Camera
   - Climate
   - Cover
+  - Doorbell
   - Fan
+  - Humidifier
   - Light
+  - Number
   - Scene
+  - Select
+  - Siren
   - Switch
-ha_iot_class: Cloud Polling
+  - Vacuum
+ha_iot_class: Cloud Push
 ha_release: 0.74
 ha_config_flow: true
 ha_domain: tuya
 ha_codeowners:
-  - '@ollo69'
+  - '@Tuya'
+  - '@zlinoliver'
+  - '@frenck'
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - button
+  - camera
+  - climate
+  - cover
+  - diagnostics
+  - fan
+  - humidifier
+  - light
+  - number
+  - scene
+  - select
+  - sensor
+  - siren
+  - switch
+  - vacuum
+ha_dhcp: true
+ha_integration_type: hub
 ---
 
-The `tuya` integration is the main integration to integrate [Tuya Smart](https://www.tuya.com) related platforms, except the Zigbee hub. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.
+The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.
 
-**Important**: Not all Tuya devices are supported by the `tuya API` used by this integration. For more details refer to [TuyaHA Library](https://github.com/PaulAnnekov/tuyaha).
+All Home Assistant platforms are supported by the Tuya integration, except the lock and remote platform.
 
-There is currently support for the following device types within Home Assistant:
+## Configuration of the Tuya IoT Platform
 
-- **Climate** - The platform supports the air conditioner and heater.
-- **Cover** - The platform supports curtains.
-- **Fan** - The platform supports most kinds of Tuya fans.
-- **Light** - The platform supports most kinds of Tuya light.
-- **Scene** - The device state in frontend panel will not change immediately after you activate a scene.
-- **Switch** - The platform supports switch and socket.
+### Prerequisites
 
-## Configuration via frontend
+- Your devices need first to be added in the [Tuya Smart or Smart Life app](https://developer.tuya.com/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
+- You will also need to create an account in the [Tuya IoT Platform](https://iot.tuya.com/).
+This is a separate account from the one you made for the app. You cannot log in with your app's credentials.
 
-To add your Tuya devices into your Home Assistant installation, go to:
+### Create a project
 
-**Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tuya**.
+1. Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
+2. In the left navigation bar, click `Cloud` > `Development`. 
+3. On the page that appears, click `Create Cloud Project`.
+4. In the `Create Cloud Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in. Refer to the country/data center mapping list [here](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md) to choose the right data center for the country you are in.
+  ![](/images/integrations/tuya/image_001.png)
+5. Click `Create` to continue with the project configuration.
+6. In Configuration Wizard, make sure you add `Industry Basic Service`, `Smart Home Basic Service` and `Device Status Notification` APIs. The list of API should look like this:
+  ![](/images/integrations/tuya/image_002new.png)
+7. Click `Authorize`.
 
-During configuration, be careful to select the [country code](https://www.countrycode.org/) and the platform corresponding to those used by you in the app. Once configuration flow is completed, the devices configured in your app will be automatically discovered.
+### Link devices by app account
 
-### Configuration via YAML
+1. Navigate to the `Devices` tab.
+2. Click `Link Tuya App Account` > `Add App Account`.
+  ![](/images/integrations/tuya/image_003.png)
+3. Scan the QR code that appears using the `Tuya Smart` app or `Smart Life` app using the 'Me' section of the app.
+  ![](/images/integrations/tuya/image_004.png)
+4. Click `Confirm` in the app.
+5. To confirm that everything worked, navigate to the `All Devices` tab. Here you should be able to find the devices from the app.
+6. If zero devices are imported, try changing the DataCenter and check the account used is the "Home Owner".
+   You can change DataCenter by clicking the Cloud icon on the left menu, then clicking the Edit link in the Operation column for your newly created project. You can change DataCenter in the popup window.
 
-_YAML configuration is still around for people that prefer YAML, but it's deprecated and you should not use it anymore._
+![](/images/integrations/tuya/image_005.png)
 
-To add your Tuya devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
+### Get authorization key
 
-```yaml
-tuya:
-  username: YOUR_TUYA_USERNAME
-  password: YOUR_TUYA_PASSWORD
-  country_code: YOUR_ACCOUNT_COUNTRYCODE
-```
+Click the created project to enter the `Project Overview` page and get the `Authorization Key`. You will need these for setting up the integration. in the next step.
 
-{% configuration %}
-username:
-  description: Your username to log in to Tuya. This may be your phone number which needs to be enquoted as this is a string.
-  required: true
-  type: string
-password:
-  description: Your password to log in to Tuya.
-  required: true
-  type: string
-country_code:
-  description: "Your account [country code](https://www.countrycode.org/), e.g., 1 for USA or 86 for China, again enquoted."
-  required: true
-  type: string
-platform:
-  description: "The app where your account register. `tuya` for Tuya Smart, `smart_life` for Smart Life, `jinvoo_smart` for Jinvoo Smart."
-  required: false
-  type: string
-  default: tuya
-{% endconfiguration %}
+![](/images/integrations/tuya/image_006.png)
 
-## Integration Options
+{% include integrations/config_flow.md %}
 
-It is possible to change various behaviors through the integration options, some common for integration and others specific to each `light` and `climate` devices. These can be changed at **Tuya** -> **Options** on the Integrations page.
+{% configuration_basic %}
+  Country:
+    description: Choose the country you picked when signing up.
 
-### Common Options
+  "Tuya IoT Access ID":
+    description: Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/). Find the **Access ID** under [Authorization Key](#get-authorization-key) on the **Project Overview** tab.
 
-- **Discovery device polling interval** (default=605): define the interval between 2 consecutive calls to the `API discovery method`, which is used to get the status for all registered devices with a single call. If you set interval value too low, Tuya API will return errors, so it is suggested to use the default value until
-you know that it is possible to use lower values.
+  "Tuya IoT Access Secret":
+    description: Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/). Find the **Access Secret** under [Authorization Key](#get-authorization-key) on the **Project Overview** tab.
 
-- **Query device polling interval** (default=120): this option is available only if you have devices that can use the `API query method`. 
-It defines the interval between 2 consecutive calls to the `API query method`, that is used to get the status for a specific device. 
-This method is always used when it is available only one device that can use it. If you set interval value too low, Tuya API will return errors 
-so it is suggested to use the default value until you know that is possible to use lower values.
+  Account:
+    description: Tuya Smart or Smart Life **app** account, not your Tuya IoT platform account.
 
-- **Device that will use the query method**: this option is available only if you have devices that can use the `API query method`. 
-Because it is not possible to make multiple calls to the `API query method`. If you have more than one device that can use it you can choose which one will use. This will give a better status refresh for this specific device.
+  Password:
+    description: The password of your **app** account, not your Tuya IoT platform account.
 
-- **Device to configure (multi-select list)**: this option is available only if you have a `light` or `climate` device. Selecting a device to 
-configure to options page related to the device will be opened. You can also select more than one devices to configure them simultaneously, 
-but all selected devices must be of the same type.
+{% endconfiguration_basic %}
 
-### Light Options
+## Error codes and troubleshooting
 
-- **Force color support**: when checked force `color support` for devices that do not report this feature.
+{% configuration_basic %}
 
-- **Brightness range**: change the `brightness range` used for the device. Possible options are:
-    - range 1-255 (default)
-    - range 10-1000
+If no devices show up in Home Assistant:
+  description: >
+    - First, make sure the devices show up in Tuya's cloud portal under the devices tab.
 
-- **Min color temperature**: set minimum `color temperature` expressed in `kelvin` accepted by the light.
+    - In the Tuya IoT configuration cloud portal, you must NOT link your non-developer account under the "Users" tab. Doing so will work, and you can even still add the devices under the devices tab, but the API will send 0 devices down to Home Assistant. You must only link the account under the Devices->"Link Tuya App Account". If it shows up on the users tab, be sure to delete it.
 
-- **Max color temperature**: set maximum `color temperature` expressed in `kelvin` accepted by the light.
+    - Your region may not be correctly set.
 
-- **Max color temperature reported**: set the maximum `color temperature` value reported by the light.
+    - Make sure your cloud plan does not need to be renewed (see error #28841002 on this page).
 
-### Climate Options
 
-- **Temperature unit**: change the `temperature unit` used internally by the devices.
+"1004: sign invalid":
+  description: Incorrect Access ID or Access Secret. Please refer to the **Configuration** part above.
 
-- **Temperature values divider**: `all temperatures` reported by device will be divided by this value.
+"1106: permission deny":
+  description: >
+    - App account not linked with cloud project: On the [Tuya IoT Platform](https://iot.tuya.com/cloud/), you have linked devices by using Tuya Smart or Smart Life app in your cloud project. For more information, see [Link devices by app account](https://developer.tuya.com/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx#title-3-Link%20devices%20by%20app%20account).
 
-- **Current Temperature value divider**: `current temperature` reported by device will be divided by this value.
+    - Incorrect username or password: Enter the correct account and password of the Tuya Smart or Smart Life app in the **Account** and **Password** fields (social login, which the Tuya Smart app allows, may not work, and thus should be avoided for use with the Home Assistant integration). Note that the app account depends on which app (Tuya Smart or Smart Life) you used to link devices on the [Tuya IoT Platform](https://iot.tuya.com/cloud/).
 
-- **Min target temperature**: set the minimum allowed `target temperature` for the entity.
+    - Incorrect country. You must select the region of your account of the Tuya Smart app or Smart Life app.    
 
-- **Max target temperature**: set the maximum allowed `target temperature` for the entity.
+"1100: param is empty":
+  description: Empty parameter of username or app. Please fill the parameters refer to the **Configuration** part above.
 
-## Service
+"2406: skill id invalid":
+  description: >
+    - Make sure you use the **Tuya Smart** or **SmartLife** app account to log in. Also, choose the right data center endpoint related to your country region. For more details, please check [Country Regions and Data Center](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md). 
+    
+    - Your cloud project on the [Tuya IoT Development Platform](https://iot.tuya.com) should be created after May 25, 2021. Otherwise, you need to create a new project. 
 
-These services are available for the `tuya` component:
+    - This error can often be resolved by unlinking the app from the project (`Devices` tab > `Link Tuya App Account` > `Unlink`) and [relinking it again](#link-devices-by-app-account).
 
-- force_update
-- pull_devices
+"28841105: No permissions. This project is not authorized to call this API":
+  description: >
+    Some APIs are not authorized, please [Subscribe](https://developer.tuya.com/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-2-Subscribe%20to%20APIs) then [Authorize](https://developer.tuya.com/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-3-Grant%20a%20project%20access%20to%20API%20calls). The following APIs must be subscribed for this tutorial:
 
-Devices state data and new devices will refresh automatically. If you want to refresh all devices information or get new devices related to your account manually, you can call the `force_update` or `pull_devices` service.
+    - Device Status Notification
+
+    - Industry Basic Service
+
+    - Smart Home Basic Service
+    
+    - Authorization
+
+    - IoT Core
+
+    - Smart Home Scene Linkage
+
+    - IoT Data Analytics
+
+"28841002: No permissions. Your subscription to cloud development plan has expired":
+  description: Your subscription to Tuya cloud development **IoT Core Service** resources has expired, please [extend it](https://iot.tuya.com/cloud/products/detail?abilityId=1442730014117204014) in `Cloud` > `Cloud Services` > `IoT Core` > `My Subscriptions` tab > `Subscribed Resources` > `IoT Core` > `Extend Trial Period`. 
+
+{% endconfiguration_basic %}
+
+## Scenes
+
+Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
+
+## Related documents
+
+- [Tuya Integration Documentation Page](https://github.com/tuya/tuya-home-assistant)
+- [Supported Tuya Device Category](https://github.com/tuya/tuya-home-assistant/blob/main/docs/supported_devices.md)
+- [Error Code and Troubleshooting](https://github.com/tuya/tuya-home-assistant/blob/main/docs/error_code.md)
+- [Countries/Regions and Tuya Data Center](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md)
+- [FAQs](https://github.com/tuya/tuya-home-assistant/blob/main/docs/faq.md)

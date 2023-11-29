@@ -5,7 +5,9 @@ date: 2017-01-14 08:04:05 +0000
 date_formatted: "January 15, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2016-01-0.36/social.png
 ---
 
@@ -83,7 +85,7 @@ The new [image processing component][image] currently works with [number plates]
  - Fix Bluetooth and Volvo trackers ([@pvizeli])
  - Fix lannouncer notify platform ([@mKeRix])
 
-### Breaking changes
+### Backward-incompatible changes
 
 - [APNS][apns] service was moved to the `notify` domain. Use `notify.apns_NOTIFIER_NAME` instead of `apns.NOTIFIER_NAME`.
 - [InfluxDB][influx] component has a new [schema](/integrations/influxdb/#data-migration) to store values in the InfluxDB database. You may require to run the [`influxdb_migrator`](/integrations/influxdb/#migration-script) script.

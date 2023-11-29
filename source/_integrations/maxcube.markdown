@@ -1,20 +1,23 @@
 ---
 title: eQ-3 MAX!
 description: Instructions on how to integrate eQ-3 MAX! components with Home Assistant via eQ-3 MAX! Cube.
-logo: maxcube.png
 ha_category:
+  - Binary sensor
   - Climate
-  - Binary Sensor
 ha_release: '0.40'
 ha_iot_class: Local Polling
 ha_domain: maxcube
+ha_platforms:
+  - binary_sensor
+  - climate
+ha_integration_type: integration
 ---
 
 [eQ-3 MAX!](https://www.eq-3.com/products/homematic/detail/max-cube-lan-gateway.html) integration for Home Assistant allows you to connect eQ-3 MAX! components via the eQ-3 MAX! Cube. The components connects to the eQ-3 MAX! Cube via TCP and automatically makes all supported integrations available in Home Assistant. The name for each device is created by concatenating the MAX! room and device names.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Climate
 
 Limitations:
@@ -29,7 +32,7 @@ Supported Devices:
 - MAX! Window Sensor (tested)
 - MAX! Wall Thermostat (tested)
 
-### One Gateway
+### One gateway
 
 A `maxcube` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -40,7 +43,7 @@ maxcube:
     - host: 192.168.0.20
 ```
 
-### Multiple Gateways
+### Multiple gateways
 
 ```yaml
 # Example configuration.yaml entry

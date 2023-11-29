@@ -5,7 +5,9 @@ date: 2016-05-07 11:06:00 -0700
 date_formatted: "May 7, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 This release is big. Until now, our automations and scripts have been very static. Starting today it should all be a bit more dynamic.

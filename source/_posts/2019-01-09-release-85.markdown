@@ -5,7 +5,9 @@ date: 2019-01-09 00:01:00
 date_formatted: "January 9, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-01-release-85/components.png
 ---
 
@@ -76,7 +78,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Targeting all entities in a domain by not sending an entity_id to a service is now deprecated. Instead, send `entity_id: all` if you want to target all. The old method will work for a couple of releases more, but will print a warning. Please migrate. ([@balloob] - [#19006]) (breaking change)
 - The default interval of the weather component was aligned with the sensor component and is now 30 seconds instead of 15 seconds. ([@fabaff] - [#19186]) ([weather docs]) (breaking change)

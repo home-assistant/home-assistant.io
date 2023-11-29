@@ -2,13 +2,16 @@
 title: Sony PlayStation 4
 description: Instructions on how to integrate a Sony PlayStation 4 into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.89
 ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@ktnrg45'
 ha_domain: ps4
+ha_platforms:
+  - media_player
+ha_integration_type: integration
 ---
 
 The `ps4` integration allows you to control a
@@ -27,11 +30,14 @@ The `ps4` integration allows you to control a
   Read the section "Granting Port Access" below before continuing.
 </div>
 
-2. Navigate to `Configuration -> Integrations` and press the plus button in the bottom right corner. Select `PlayStation 4` from the list of integrations.
+2. Navigate to `Settings -> Integrations` and press the plus button in the bottom right corner. Select `PlayStation 4` from the list of integrations.
 
 3. Follow instructions displayed to generate user credentials. You will know this step is completed when a form with fields appears.
 
-4. Pair Home Assistant to your PlayStation 4 by filling in the fields.
+4. On the PS4, go to Settings / Mobile App Connection Settings / Add Device, a PIN will be displayed.
+
+5. Pair Home Assistant to your PlayStation 4 by filling in the fields using the PIN from the above step.
+
 - **Note:** To find your correct region refer to the section [Regions](#regions)
 
 ## Granting Port Access

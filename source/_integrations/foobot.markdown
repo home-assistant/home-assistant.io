@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_domain: foobot
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `foobot` sensor platform will fetch air quality data from your or yours [Foobot device(s)](https://foobot.io/features/).
@@ -34,13 +37,13 @@ sensor:
     type: string
 {% endconfiguration %}
 
-## Available Metrics
+## Available metrics
 
 Every ten minutes, it'll fetch the last ten minutes average of the following measurements:
 
-  * Temperature
-  * Humidity
-  * Co2
-  * VOC
-  * PM2.5
-  * [Index](https://help.foobot.io/hc/en-us/articles/204814371-What-does-central-number-mean-)
+  - Temperature
+  - Humidity
+  - Co2
+  - VOC
+  - PM2.5
+  - [Index](https://help.foobot.io/hc/en-us/articles/204814371-What-does-central-number-mean-)

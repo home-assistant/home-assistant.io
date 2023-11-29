@@ -4,10 +4,10 @@ sidebar: false
 hero_unit: true
 is_homepage: true
 regenerate: true
-hide_github_edit: true
-description:
-  Open source home automation that puts local control and privacy first.
+feedback: false
 ---
+
+{% assign recent_release_post = site.categories['Core'].first %}
 
 <div class="frontpage">
   <div class="grid">
@@ -23,7 +23,9 @@ description:
         >
 
         <div class="links">
-          <a href="/latest-release-notes/">Release notes</a>
+          <a href="{{ recent_release_post.url }}{{ site.patch_version_notes }}"
+            >Release notes</a
+          >
         </div>
       </div>
 
@@ -31,7 +33,7 @@ description:
         <h1>Recent Blog Posts</h1>
 
         {% for post in site.posts limit: 4 %}
-        <li class="post" style="display: grid; font-size: 16px;">
+        <li class="post" style="display: grid; font-size: 16px">
           <a href="{{ post.url }}">{{ post.title }}</a>
           <small class="blog-date">{{ post.date_formatted }}</small>
         </li>
@@ -45,6 +47,7 @@ description:
         <div class="links">
           <a href="https://community.home-assistant.io">Forums</a>
           <a href="/join-chat/">Chat</a>
+          <a href="/newsletter/">Newsletter</a>
         </div>
       </div>
 
@@ -61,7 +64,11 @@ description:
         Use Alexa to control Home Assistant.
 
         <div class="links">
-          <a href="/cloud/">LEARN MORE</a>
+          <a
+            href="/cloud/"
+            aria-label="Learn more about use Alexa to control Home Assistant"
+            >LEARN MORE</a
+          >
         </div>
       </div>
       <div class="material-card text">
@@ -69,7 +76,11 @@ description:
         Use Google Assistant to control Home Assistant.
 
         <div class="links">
-          <a href="/cloud/">LEARN MORE</a>
+          <a
+            href="/cloud/"
+            aria-label="Learn more about use Google Assistant to control Home Assistant"
+            >LEARN MORE</a
+          >
         </div>
       </div>
 
@@ -82,56 +93,89 @@ description:
           <div class="title">
             Take over all the screens
             <div class="subtitle">
-              Home Assistant Cast makes each TV a display.
+              Home Assistant Cast makes every TV a display.
             </div>
           </div>
-          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
         </div>
       </a>
     </div>
     <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
-
       <a
         class="material-card picture-promo"
-        href="/blue"
+        href="/voice_control/"
         style="
-          background-image: url(/images/blue/blue_narrow.jpg);
+          background-image: url(/images/frontpage/assist_wake_word.png);
           background-size: cover;
-          background-color: #41bdf5;
+          padding-top: 35%;
         "
       >
         <div class="caption">
           <div class="title">
-            Home Assistant Blue!
+            Control your home with Assist
             <div class="subtitle">
-              Where style and performance meet privacy
+              Our private, insanely fast, voice assistant running on affordable
+              hardware. Now supporting wake words.
             </div>
           </div>
-          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
         </div>
       </a>
 
+      <!-- 10 YEAR HA -->
+      <a
+        href="https://www.youtube.com/watch?v=EmLV6lJLzSU"
+        class="material-card picture-promo"
+        style="
+          background-image: url(/images/frontpage/HA10_-_Website_banner.png);
+          background-size: cover;
+          padding-top: 55%;
+        "
+      ></a>
+      {% assign pages_by_date = site.pages | sort: "date" | reverse %} {% for
+      page in pages_by_date %} {% if page.layout == "landingpage" and
+      page.frontpage != false %}
       <a
         class="material-card picture-promo"
-        href="/conference/"
+        href="{{page.url}}"
         style="
-          background-image: url(/images/conference/frontpage-card.png);
-          background-size: cover;
-          background-color: #41bdf5;
-          background-position: top;
-        "
+            background-image: url({{page.frontpage_image | default:page.og_image}});
+            background-size: cover;
+            background-color: #41bdf5;
+          "
       >
         <div class="caption">
           <div class="title">
-            December 13, 2020
-            <div class="subtitle">
-              It's all about Home Assistant!
-            </div>
+            {{page.title}}
+            <div class="subtitle">{{page.description}}</div>
           </div>
-          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
         </div>
       </a>
-
+      {% endif %} {% endfor %}
+      <!-- Tutorial: setup private voice assistant over phone -->
+      <a
+        href="/voice_control/worlds-most-private-voice-assistant/"
+        target="_blank"
+        class="material-card picture-promo"
+        style="
+          background-image: url(/images/frontpage/promo-private-voice-assistant.png);
+          background-size: cover;
+          padding-top: 45%;
+        "
+      ></a>
       <a
         class="material-card picture-promo"
         href="/blog/2020/09/15/home-assistant-tags/"
@@ -146,13 +190,17 @@ description:
               Use NFC to bring music to your life or automate the mundane.
             </div>
           </div>
-          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
         </div>
       </a>
 
       <a
         class="material-card picture-promo"
-        href="https://teespring.com/stores/home-assistant-store"
+        href="https://home-assistant-store.creator-spring.com/"
         style="background-image: url(/images/merchandise/shirt-frontpage.png)"
       >
         <div class="caption">
@@ -162,96 +210,124 @@ description:
               Look sharp in blue, black or gray. Wearing a HA t-shirt is okay.
             </div>
           </div>
-          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
         </div>
       </a>
     </div>
 
-    <div class="grid__item one-third lap-one-whole palm-one-whole usp">
-      <div class="grid">
-        <div class="grid__item one-whole lap-one-third">
-          <span class="icon">
-            <i class="icon-eye-open"></i>
-          </span>
-        </div>
+    <div class="sub-title">Features</div>
+    {% include custom/features.html %}
+    <div class="grid sponsors-and-press">
+      <div class="sponsored-by grid__item one-half lap-one-half palm-one-whole">
+        <div class="material-card">
+          <h1>Home Assistant is sponsored by</h1>
 
-        <div class="grid__item one-whole lap-two-thirds">
-          {% include custom/grid_item_left.html %}
-        </div>
-      </div>
-    </div>
-
-    <div class="grid__item one-third lap-one-whole palm-one-whole usp">
-      <div class="grid">
-        <div class="grid__item one-whole lap-one-third">
-          <span class="icon">
-            <i class="icon-mobile-phone"></i>
-          </span>
-        </div>
-
-        <div class="grid__item one-whole lap-two-thirds">
-          {% include custom/grid_item_middle.html %}
+          <a href="https://www.nabucasa.com"
+            ><img alt="Nabu Casa logo" src="/images/sponsors/nabu_casa.svg"
+          /></a>
         </div>
       </div>
-    </div>
+      <div class="seen-press grid__item one-half lap-one-half palm-one-whole">
+        <div class="material-card">
+          <h1>Home Assistant in the press</h1>
 
-    <div class="grid__item one-third lap-one-whole palm-one-whole usp">
-      <div class="grid">
-        <div class="grid__item one-whole lap-one-third">
-          <span class="icon">
-            <i class="icon-cogs"></i>
-          </span>
+          <a
+            href="https://www.theverge.com/2021/9/16/22678088/home-assistant-amber-smart-home-hub-specs-release-date-price"
+            target="_blank"
+            rel="noopener"
+            ><img alt="The Verge logo" src="/images/press/theverge.svg"
+          /></a>
+
+          <a
+            href="https://arstechnica.com/information-technology/2021/03/how-to-achieve-smart-home-nirvana-or-home-automation-without-subscription/"
+            target="_blank"
+            rel="noopener"
+            ><img
+              alt="ArsTechnica.com logo"
+              src="/images/press/arstechnica.svg"
+          /></a>
+
+          <a
+            href="https://tweakers.net/reviews/8704/paulus-schoutsen-home-assistant-concurreert-met-alles-wat-via-de-cloud-gaat.html"
+            target="_blank"
+            rel="noopener"
+            ><img alt="Tweakers.net logo" src="/images/press/tweakers.png"
+          /></a>
+
+          <a
+            href="https://www.youtube.com/watch?v=x7pSkVarixU"
+            target="_blank"
+            rel="noopener"
+            ><img
+              alt="Linus Tech Tips logo"
+              class="square"
+              src="/images/press/ltt.svg"
+          /></a>
+
+          <a
+            href="https://www.troyhunt.com/iot-unravelled-part-1-its-a-mess-but-then-theres-home-assistant/"
+            target="_blank"
+            rel="noopener"
+            ><img
+              class="square round"
+              alt="Troy Hunt logo"
+              src="/images/press/troyhunt.jpg"
+          /></a>
+
+          <a
+            href="https://www.tomshardware.com/news/raspberry-pi-home-assistant-amber"
+            target="_blank"
+            rel="noopener"
+            ><img
+              alt="Tom's Hardware logo"
+              src="/images/press/tomshardware.svg"
+          /></a>
+
+          <a
+            href="https://www.producthunt.com/posts/home-assistant"
+            target="_blank"
+            rel="noopener"
+            ><img
+              alt="ProductHunt.com logo"
+              src="/images/press/producthunt.com.png"
+          /></a>
+
+          <a
+            href="https://www.linux.com/news/home-assistant-python-approach-home-automation-video"
+            target="_blank"
+            rel="noopener"
+            ><img alt="Linux.com logo" src="/images/press/linux.com.png"
+          /></a>
+
+          <a
+            href="https://opensource.com/article/17/7/home-automation-primer"
+            target="_blank"
+            rel="noopener"
+            ><img
+              alt="OpenSource.com logo"
+              src="/images/press/opensource.com.svg"
+          /></a>
+
+          <a
+            href="http://www.linux-magazine.com/Issues/2017/203/Home-Assistant"
+            target="_blank"
+            rel="noopener"
+            ><img
+              alt="Linux Magazine logo"
+              src="/images/press/LinuxMagazine.png"
+          /></a>
+
+          <a
+            href="https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html"
+            target="_blank"
+            rel="noopener"
+            ><img alt="Ct logo" src="/images/press/ct.png"
+          /></a>
         </div>
-
-        <div class="grid__item one-whole lap-two-thirds">
-          {% include custom/grid_item_right.html %}
-        </div>
-      </div>
-    </div>
-
-    <div class="seen-press grid__item one-half lap-one-half palm-one-whole">
-      <div class="material-card">
-        <h1>Home Assistant is sponsored by</h1>
-
-        <a href="https://www.nabucasa.com"
-          ><img alt="Nabu Casa logo" src="/images/sponsors/nabu_casa.svg"
-        /></a>
-      </div>
-    </div>
-
-    <div class="seen-press grid__item one-half lap-one-half palm-one-whole">
-      <div class="material-card">
-        <h1>Home Assistant in the press</h1>
-
-        <a href="https://www.producthunt.com/posts/home-assistant"
-          ><img
-            alt="ProductHunt.com logo"
-            src="/images/press/producthunt.com.png"
-        /></a>
-
-        <a
-          href="https://www.linux.com/news/home-assistant-python-approach-home-automation-video"
-          ><img alt="Linux.com logo" src="/images/press/linux.com.png"
-        /></a>
-
-        <a href="https://www.wired.com/2016/07/now-can-hide-smart-home-darknet/"
-          ><img alt="Wired.com logo" src="/images/press/wired.com.svg"
-        /></a>
-
-        <a href="https://opensource.com/article/17/7/home-automation-primer"
-          ><img
-            alt="OpenSource.com logo"
-            src="/images/press/opensource.com.svg"
-        /></a>
-
-        <a href="http://www.linux-magazine.com/Issues/2017/203/Home-Assistant"
-          ><img alt="Linux Magazine logo" src="/images/press/LinuxMagazine.png"
-        /></a>
-
-        <a
-          href="https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html"
-          ><img alt="Ct logo" src="/images/press/ct.png"
-        /></a>
       </div>
     </div>
   </div>

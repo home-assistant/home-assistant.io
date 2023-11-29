@@ -8,13 +8,15 @@ ha_release: 0.7.3
 ha_codeowners:
   - '@skgsergio'
 ha_domain: foscam
+ha_config_flow: true
+ha_platforms:
+  - camera
+ha_integration_type: integration
 ---
 
 The `foscam` platform allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.
 
-## Configuration
-
-Home Assistant offers Foscam IP Cameras integration through **Configuration** -> **Integrations** -> **Foscam**. Follow the instructions to get it set up.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
@@ -26,7 +28,7 @@ Most Foscam IP Cameras supports two video streams, by default the `Main` stream 
 
 ### Service `foscam.ptz`
 
-If your Foscam camera supports PTZ, you will be able to pan or tilt your camera.
+If your Foscam camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan or tilt your camera.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
@@ -36,7 +38,7 @@ If your Foscam camera supports PTZ, you will be able to pan or tilt your camera.
 
 ### Service `foscam.ptz_preset`
 
-If your Foscam camera supports PTZ presets, you will be able to move the camera to a predefined preset using the preset name.
+If your Foscam camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> presets, you will be able to move the camera to a predefined preset using the preset name.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
@@ -55,108 +57,108 @@ Using the following card code you can achieve a card displaying the live video f
 
 ```yaml
 type: picture-elements
-entity: camera.bedroom
+image: camera.bedroom
 camera_image: camera.bedroom
 camera_view: live
 elements:
   - type: icon
-    icon: 'mdi:arrow-up'
+    icon: "mdi:arrow-up"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 25px
       bottom: 50px
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: up
   - type: icon
-    icon: 'mdi:arrow-down'
+    icon: "mdi:arrow-down"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 25px
       bottom: 0px
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: down
   - type: icon
-    icon: 'mdi:arrow-left'
+    icon: "mdi:arrow-left"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 50px
       bottom: 25px
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: left
   - type: icon
-    icon: 'mdi:arrow-right'
+    icon: "mdi:arrow-right"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 0px
       bottom: 25px
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: right
   - type: icon
-    icon: 'mdi:arrow-top-left'
+    icon: "mdi:arrow-top-left"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 50px
       bottom: 50px
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: top_left
   - type: icon
-    icon: 'mdi:arrow-top-right'
+    icon: "mdi:arrow-top-right"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 0px
       bottom: 50px
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: top_right
   - type: icon
-    icon: 'mdi:arrow-bottom-left'
+    icon: "mdi:arrow-bottom-left"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 50px
       bottom: 0px
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: bottom_left
   - type: icon
-    icon: 'mdi:arrow-bottom-right'
+    icon: "mdi:arrow-bottom-right"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 0px
       bottom: 0px
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: bottom_right
 ```
 
 ### Extra CGI Commands
 
-Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://www.iltucci.com/blog/wp-content/uploads/2018/12/Foscam-IPCamera-CGI-User-Guide-V1.0.4.pdf)). For an example of how this can be done, see the [Foscam IP Camera Pan, Tilt, Zoom Control](/cookbook/foscam_away_mode_PTZ/) Cookbook entry.
+Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://www.foscam.es/descarga/Foscam-IPCamera-CGI-User-Guide-AllPlatforms-2015.11.06.pdf)).

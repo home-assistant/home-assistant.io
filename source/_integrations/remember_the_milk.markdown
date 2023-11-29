@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.57
 ha_domain: remember_the_milk
+ha_integration_type: integration
 ---
 
 The `remember_the_milk` integration allows you to create tasks in [Remember The Milk (RTM)](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The integration allows you to have several RTM accounts in parallel.
@@ -94,7 +95,7 @@ Here's an example for an automation that creates a new task whenever `sensor.mys
   action:
     - service: remember_the_milk.myaccount_create_task
       data:
-        name: "Please switch of {{trigger.entity_id}}"
+        name: "Please switch off {{trigger.entity_id}}"
         id: "{{trigger.entity_id}}"
 - id: mysensor_off
   trigger:

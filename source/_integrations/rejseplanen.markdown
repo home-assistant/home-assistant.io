@@ -8,6 +8,9 @@ ha_release: 0.88
 ha_domain: rejseplanen
 ha_codeowners:
   - '@DarkFox'
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `rejseplanen` sensor will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
@@ -20,7 +23,7 @@ Add a sensor to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
   - platform: rejseplanen
-    stop_id: 'YOUR_STOP_ID'
+    stop_id: "YOUR_STOP_ID"
 ```
 
 {% configuration %}
@@ -94,7 +97,7 @@ A working example on how to use this sensor with direction:
 # Example configuration.yaml entry with the correct use of direction.
 sensor:
   - platform: rejseplanen
-    stop_id: '713000702'
+    stop_id: "713000702"
     direction:
       - 'Bjergegårdsvej/Rylevej (Favrskov Kom)'
       - 'Skanderborg Busterminal (Skanderborg Kom)'
@@ -126,9 +129,9 @@ A more extensive example on how to use this sensor:
 # Example configuration.yaml entry
 sensor:
   - platform: rejseplanen
-    name: 'Elmegade 350S'
-    stop_id: '000045740'
-    route: 'Bus 350S'
+    name: "Elmegade 350S"
+    stop_id: "000045740"
+    route: "Bus 350S"
     direction:
       - 'Herlev St.'
       - 'Ballerup St.'
@@ -160,7 +163,7 @@ The sensor can filter the timetables by one or more routes, directions and types
 | `type` | Transport type |
 | `route` | Route code |
 | `direction` | Destination stop |
-| `final_stop` | Final stop (if departure doesn't go all the way to the destionation stop) |
+| `final_stop` | Final stop (if departure doesn't go all the way to the destination stop) |
 | `stop` | Departure stop |
 | `stop_id` | ID of departure stop |
 | `track` | Departure track (if available) |
@@ -178,6 +181,6 @@ The sensor can filter the timetables by one or more routes, directions and types
 | `type` | Transport type |
 | `route` | Route code |
 | `direction` | Destination stop |
-| `final_stop` | Final stop (if departure doesn't go all the way to the destionation stop) |
+| `final_stop` | Final stop (if departure doesn't go all the way to the destination stop) |
 | `stop` | Departure stop |
 | `track` | Departure track (if available) |

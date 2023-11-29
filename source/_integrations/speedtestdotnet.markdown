@@ -2,8 +2,8 @@
 title: Speedtest.net
 description: How to integrate Speedtest.net within Home Assistant.
 ha_category:
-  - System Monitor
   - Sensor
+  - System monitor
 ha_release: 0.13
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -11,93 +11,37 @@ ha_codeowners:
   - '@rohankapoorcom'
   - '@engrbm87'
 ha_domain: speedtestdotnet
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
-The `speedtestdotnet` integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
+The Speedtest.net integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
-By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a speed test to run.
+{% include integrations/config_flow.md %}
 
 Most Speedtest.net servers require TCP port 8080 outbound to function. Without this port open you may experience significant delays or no results at all. See note on their [help page](https://www.speedtest.net/help).
 
-## Configuration
+By default, a speed test will be run every hour. You can disable polling using system options and use the `update_entity` service to automate the speed test frequency.
 
-Set up the integration through **Configuration -> Integrations -> Speedtest.net**. Once configured you can select the server to run the test against, from the options menu. You can also change the update interval and optionally disable auto-update.
+{% include common-tasks/define_custom_polling.md %}
 
-
-To import the configuration from `configuration.yaml` refer to the below example.
-
-```yaml
-# Example configuration.yaml entry
-speedtestdotnet:
-```
-
-For the `server_id` check the list of [available servers](https://speedtest.net/speedtest-servers.php).
-
-{% configuration %}
-server_id:
-  description: Specify the speed test server to perform the test against.
-  required: false
-  type: integer
-scan_interval:
-  description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
-  required: false
-  default: 60 minutes
-  type: time
-manual:
-  description: "`true` or `false` to turn manual mode on or off. Manual mode will disable scheduled speed tests."
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
-
-## Integration Sensors
+## Integration sensors
 
 The following sensors are added by the integration:
 
 sensors:
-  - Ping sensor: Reaction time in ms of your connection (how fast you get a response after you’ve sent out a request).
-  - Download sensor: The download speed (Mbit/s).
-  - Upload sensor: The upload speed (Mbit/s).
-  
-### Time period dictionary example
 
-```yaml
-scan_interval:
-  # At least one of these must be specified:
-  days: 0
-  hours: 0
-  minutes: 3
-  seconds: 30
-  milliseconds: 0
-```
-
-### Service
-
-Once loaded, the `speedtestdotnet` integration will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Speedtest.net speed test on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
-
-```yaml
-action:
-  service: speedtestdotnet.speedtest
-```
+- Ping sensor: Reaction time in ms of your connection (how fast you get a response after you’ve sent out a request).
+- Download sensor: The download speed (Mbit/s).
+- Upload sensor: The upload speed (Mbit/s).
 
 This integration uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.
 Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this integration may display.
 
 ## Examples
 
-In this section you will find some real-life examples of how to use this component.
-
-### Run periodically
-
-Every half hour of every day:
-
-```yaml
-# Example configuration.yaml entry
-speedtestdotnet:
-  scan_interval:
-    minutes: 30
-```
-
+In this section you will find some real-life examples of how to use this integration.
 ### Using as a trigger in an automation
 
 {% raw %}

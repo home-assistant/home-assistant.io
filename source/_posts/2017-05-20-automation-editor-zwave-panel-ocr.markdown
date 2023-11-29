@@ -5,7 +5,9 @@ date: 2017-05-20 13:00:00 +0000
 date_formatted: "May 20, 2017"
 author: Paulus Schoutsen & Fabian Affolter
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-05-0.45/components.png
 ---
 
@@ -83,7 +85,7 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 ## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## Breaking changes
+## Backward-incompatible changes
 
 - PyPI Openzwave ([@JshWright] - [#7415]) ([zwave docs]) (breaking change)
 - Remove listening to `homeassistant_start` with event automation ([@balloob] - [#7474]) ([automation.event docs]) (breaking change)

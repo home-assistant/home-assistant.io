@@ -1,18 +1,20 @@
 ---
 title: Queensland Bushfire Alert
 description: Instructions on how to integrate the Queensland Bushfire Alert feed into Home Assistant.
-logo: geo_location.png
-ha_category: Geolocation
+ha_category:
+  - Geolocation
 ha_iot_class: Cloud Polling
 ha_release: 0.95
 ha_codeowners:
   - '@exxamalte'
 ha_domain: qld_bushfire
+ha_platforms:
+  - geo_location
+ha_integration_type: service
 ---
 
 The `qld_bushfire` platform lets you integrate a 
-[GeoRSS feed](https://www.ruralfire.qld.gov.au/map/Pages/default.aspx) 
-containing bushfire alerts for Queensland. It retrieves alerts from a feed 
+GeoRSS feed containing [bushfire alerts](https://www.qfes.qld.gov.au/Current-Incidents) for Queensland. It retrieves alerts from a feed 
 and shows information of those alerts filtered by distance to Home Assistant's 
 location.
 
@@ -32,7 +34,7 @@ The data is updated every 5 minutes.
 
 The material used by this integration is provided under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/legalcode).
 It has only been modified for the purpose of presenting the material in Home Assistant.
-Please refer to the [creator's copyright notice](https://www.qfes.qld.gov.au/Pages/copyright.aspx) for more information.
+Please refer to the [creator's copyright notice](https://www.qfes.qld.gov.au/copyright) for more information.
 
 </div>
 
@@ -70,7 +72,7 @@ longitude:
 {% endconfiguration %}
 
 
-## State Attributes
+## State attributes
 
 The following state attributes are available for each entity in addition to 
 the standard ones:
@@ -86,7 +88,7 @@ the standard ones:
 | updated_date     | Date and time when this alert was last updated. |
 | status           | Status of the alert, for example, "Patrolled", "Going", "Contained" |
 
-## Full Configuration
+## Full configuration
 
 ```yaml
 # Example configuration.yaml entry

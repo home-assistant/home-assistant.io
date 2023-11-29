@@ -1,0 +1,99 @@
+---
+layout: page
+---
+
+{% if page.hero_image %}
+  <div class="banner">
+    <img src="{{ page.hero_image }}"></i>
+    {% if page.tagline %}
+      <div class="title {% if page.tagline_wide != false %}wide{% endif %}">
+      {{ page.tagline }}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% if page.content %}
+<div class="content">{{ content }}</div>
+<div class="spacer"></div><div class="spacer"></div>
+{% endif %}
+
+
+{% if page.sections and page.button_row != false %}
+  <div class="button-row-with-icon">
+  {% for section in page.sections %}
+        <a href="#{{section.title | downcase | strip | replace: " ", "_"}}">
+            <div class="button-icon">
+                <div class="icon"><img src="{{section.image}}"></div>
+                <div class="text">{{section.title}}</div>
+            </div>
+        </a>
+  {% endfor %}
+  </div>
+  <div class="spacer"></div><div class="spacer"></div>
+{% endif %}
+
+
+{% if page.sections %}
+  {% for section in page.sections %}
+    <div class="section-content" id="{{section.title | downcase | strip | replace: " ", "_"}}" style="{{section.style}}">
+        <div class="header">
+            <img src="{{section.image}}">
+            <div class="title">{{section.title}}</div>
+            <div class="description">{{section.description}}</div>
+        </div>
+
+        {% for entry in section.entries %}
+          <div class="section-inner">
+              <div class="section-inner-content">
+                <img {% if entry.image_description %} alt="{{ entry.image_description }}" title="{{ entry.image_description }}" {% endif %} src="{{entry.image}}">
+              </div>
+              <div class="section-inner-content padding">
+                  <div class="title">{{entry.title}}</div>
+                  <div class="description">{{entry.description}}</div>
+                  {% if entry.read_more %}
+                    {% assign first_char = entry.read_more | slice: 0, 1 %}
+                    <a class="button" href="{{entry.read_more}}" {% if first_char != "/" %}target="_blank"{% endif %}>READ MORE</a>
+                  {% endif %}
+              </div>
+          </div>
+        {% endfor %}
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+
+
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const href = this.getAttribute('href');
+          if (href === "#") {
+            return;
+          }
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+            });
+          }
+      });
+  });
+  if (document.documentElement.clientWidth < 480) {
+    document.querySelector(".page-content").addEventListener(
+      "scroll",
+      function (e) {
+        const header = document.querySelector(".site-header");
+        if (e.currentTarget.scrollTop > 180) {
+          header.style.backgroundColor = "#ffffff";
+        } else {
+          header.style.backgroundColor = "#ffffff66";
+        }
+      },
+      { passive: true, capture: true }
+    );
+  }
+</script>

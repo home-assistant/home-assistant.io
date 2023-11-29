@@ -8,7 +8,9 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant
-ha_iot_class:
+ha_platforms:
+  - scene
+ha_integration_type: system
 ---
 
 The Home Assistant integration provides generic implementations like the generic `homeassistant.turn_on`.
@@ -21,13 +23,40 @@ The `homeassistant` integration provides services for controlling Home Assistant
 
 Reads the configuration files and checks them for correctness, but **does not** load them into Home Assistant. Creates a persistent notification and log entry if errors are found.
 
+### Service `homeassistant.reload_all`
+
+Reload all YAML configuration that can be reloaded without restarting Home Assistant.
+
+It calls the `reload` service on all domains that have it available. Additionally,
+it reloads the core configuration (equivalent to calling
+`homeassistant.reload_core_config`), themes (`frontend.reload_themes`), and custom Jinja (`homeassistant.reload_custom_templates`).
+
+Prior to reloading, a basic configuration check is performed. If that fails, the reload
+will not be performed and will raise an error.
+
+### Service `homeassistant.reload_custom_templates`
+
+Reload all Jinja templates in the `config/custom_templates` directory. Changes to these templates
+will take effect the next time an importing template is rendered.
+
+### Service `homeassistant.reload_config_entry`
+
+Reloads an integration config entry.
+
+| Service data attribute    | Description                                                 |
+|---------------------------|-------------------------------------------------------------|
+| `entity_id`               | List of entity ids used to reference a config entry.        |
+| `area_id`                 | List of area ids used to reference a config entry.          |
+| `device_id`               | List of device ids used to reference a config entry.        |
+| `entry_id`                | A single config entry id used to reference a config entry.  |
+
 ### Service `homeassistant.reload_core_config`
 
 Reloads the core configuration under `homeassistant:` and all linked files. Once loaded the new configuration is applied. New `customize:` information will be applied the next time the state of the entity gets updated.
 
 ### Service `homeassistant.restart`
 
-Restarts the Home Assistant instance (also reloading the configuration on start). 
+Restarts the Home Assistant instance (also reloading the configuration on start).
 
 This will also do a configuration check before doing a restart. If the configuration check fails then Home Assistant will not be restarted, instead a persistent notification with the ID `persistent_notification.homeassistant_check_config` will be created. The logs will show details on what failed the configuration check.
 
@@ -43,6 +72,7 @@ Update the location of the Home Assistant default zone (usually "Home").
 |---------------------------|----------|-------------------------------------------------------|
 | `latitude`                |       no | Latitude of your location.                            |
 | `longitude`               |       no | Longitude of your location.                           |
+| `elevation`               |      yes | Elevation of your location.                           |
 
 #### Example
 
@@ -52,11 +82,15 @@ action:
   data:
     latitude: 32.87336
     longitude: 117.22743
+    elevation: 120
 ```
 
-### Service `homeassistant.toggle` 
+### Service `homeassistant.toggle`
 
-Generic service to toggle devices on/off under any domain. Same usage as the light.turn_on, switch.turn_on, etc. services.
+Generic service to toggle devices on/off. Same usage as the
+`light.toggle`, `switch.toggle`, etc. services. The difference with this
+service compared the others, is that is can be used to mix different domains,
+for example, a light and a switch can be toggled in a single service call.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -67,13 +101,18 @@ Generic service to toggle devices on/off under any domain. Same usage as the lig
 ```yaml
 action:
   service: homeassistant.toggle
-  data:
-    entity_id: light.living_room
+  target:
+    entity_id: 
+      - light.living_room
+      - switch.tv
 ```
 
-### Service `homeassistant.turn_on` 
+### Service `homeassistant.turn_on`
 
-Generic service to turn devices on under any domain. Same usage as the light.turn_on, switch.turn_on, etc. services.
+Generic service to toggle devices on. Same usage as the
+`light.turn_on`, `switch.turn_on`, etc. services. The difference with this
+service compared the others, is that is can be used to mix different domains,
+for example, a light and a switch can be turned on in a single service call.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -84,13 +123,18 @@ Generic service to turn devices on under any domain. Same usage as the light.tur
 ```yaml
 action:
   service: homeassistant.turn_on
-  data:
-    entity_id: light.living_room
+  target:
+    entity_id:
+      - light.living_room
+      - switch.tv
 ```
 
 ### Service `homeassistant.turn_off` 
 
-Generic service to turn devices off under any domain. Same usage as the light.turn_on, switch.turn_on, etc. services.
+Generic service to toggle devices off. Same usage as the
+`light.turn_off`, `switch.turn_off`, etc. services. The difference with this
+service compared the others, is that is can be used to mix different domains,
+for example, a light and a switch can be turned off in a single service call.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -101,11 +145,13 @@ Generic service to turn devices off under any domain. Same usage as the light.tu
 ```yaml
 action:
   service: homeassistant.turn_off
-  data:
-    entity_id: light.living_room
+  target:
+    entity_id:
+      - light.living_room
+      - switch.tv
 ```
 
-### Service `homeassistant.update_entity` 
+### Service `homeassistant.update_entity`
 
 Force one or more entities to update its data rather than wait for the next scheduled update.
 
@@ -118,8 +164,15 @@ Force one or more entities to update its data rather than wait for the next sche
 ```yaml
 action:
   service: homeassistant.update_entity
-  data:
+  target:
     entity_id:
     - light.living_room
     - switch.coffe_pot
 ```
+
+### Service `homeassistant.save_persistent_states`
+
+Save the persistent states (for entities derived from RestoreEntity) immediately.
+Maintain the normal periodic saving interval.
+
+Normally these states are saved at startup, every 15 minutes and at shutdown.

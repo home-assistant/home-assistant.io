@@ -6,6 +6,9 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.8
 ha_domain: orvibo
+ha_platforms:
+  - switch
+ha_integration_type: integration
 ---
 
 <div class='note warning'>

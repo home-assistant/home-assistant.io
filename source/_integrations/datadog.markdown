@@ -6,9 +6,10 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.45
 ha_domain: datadog
+ha_integration_type: integration
 ---
 
-The `datadog` integration sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](https://docs.datadoghq.com/guides/basic_agent_usage/).
+The **Datadog** {% term integration %} sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](https://docs.datadoghq.com/guides/basic_agent_usage/).
 
 Datadog allows you to analyze, monitor, cross-reference and alert upon your data. You can use it to detect statistical anomalies, see graphs across multiple sources in real-time, send critical alerts to Slack, etc.
 
@@ -43,7 +44,7 @@ port:
 prefix:
   description: Prefix to use.
   required: false
-  default: hass
+  default: "`hass`"
   type: string
 rate:
   description: The sample rate of UDP packets sent to Datadog.

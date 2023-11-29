@@ -2,12 +2,16 @@
 title: Vanderbilt SPC
 description: Instructions on how to setup Vanderbilt SPC devices within Home Assistant.
 ha_category:
-  - Hub
   - Alarm
-  - Binary Sensor
+  - Binary sensor
+  - Hub
 ha_release: 0.47
 ha_iot_class: Local Push
 ha_domain: spc
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+ha_integration_type: integration
 ---
 
 Home Assistant has support to integrate your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) alarm panel and any connected motion, door, smoke and technical sensors.
@@ -17,7 +21,7 @@ Integration with SPC is done through a third-party API gateway called [SPC Web G
 There is currently support for the following device types within Home Assistant:
 
 - [Alarm](#alarm)
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 
 Home Assistant needs to know where to find the SPC Web Gateway API endpoints, to configure this add the following section to your `configuration.yaml` file:
 
@@ -34,7 +38,7 @@ api_url:
   required: true
   type: string
 ws_url:
-  description: URL of the SPC Web Gateway websocket, e.g., `ws://<ip>:8088/ws/spc`.
+  description: URL of the SPC Web Gateway WebSocket, e.g., `ws://<ip>:8088/ws/spc`.
   required: true
   type: string
 {% endconfiguration %}
@@ -46,9 +50,11 @@ The `spc` alarm control panel platform allows you to control your [Vanderbilt SP
 
 The `changed_by` attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in [automation](/getting-started/automation/).
 
+{% raw %}
+
 ```yaml
 automation:
-  - alias: Alarm status changed
+  - alias: "Alarm status changed"
     trigger:
       - platform: state
         entity_id: alarm_control_panel.alarm_1
@@ -56,12 +62,14 @@ automation:
       - service: notify.notify
         data:
           message: >
-            {% raw %}Alarm changed from {{ trigger.from_state.state }}
+            Alarm changed from {{ trigger.from_state.state }}
             to {{ trigger.to_state.state }}
-            by {{ trigger.to_state.attributes.changed_by }}{% endraw %}
+            by {{ trigger.to_state.attributes.changed_by }}
 ```
 
-## Binary Sensor
+{% endraw %}
+
+## Binary sensor
 
 The `spc` platform allows you to get data from your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) binary sensors from within Home Assistant.
 

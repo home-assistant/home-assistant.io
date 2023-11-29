@@ -2,13 +2,16 @@
 title: Ziggo Mediabox XL
 description: Instructions on how to integrate the Ziggo Mediabox XL into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Polling
 ha_release: '0.60'
 ha_domain: ziggo_mediabox_xl
+ha_platforms:
+  - media_player
+ha_integration_type: integration
 ---
 
-The `ziggo_mediabox_xl` integration allows you to control a [Ziggo](https://www.ziggo.nl/) Mediabox XL from Home Assistant.
+The **Ziggo Mediabox XL** {% term integration %} allows you to control a [Ziggo](https://www.ziggo.nl/) Mediabox XL from Home Assistant.
 
 To add a Ziggo Mediabox XL to your installation, add the following to your `configuration.yaml` file:
 
@@ -35,4 +38,4 @@ The channel information (numbers and names) are downloaded from ziggo.nl on star
 
 #### Preparation of the Mediabox
 
-Makes sure to enable the Home Network ("mijn thuisnetwerk") service in the settings menu of the media box. Once you have set up the Media Library ("mediabiblotheek"), we can determine whether the device is turned on or off. Without this, the integration will fail to start.
+Makes sure to enable the Home Network ("mijn thuisnetwerk") service in the settings menu of the media box. Once you have set up the Media Library ("mediabiblotheek"), we can determine whether the device is turned on or off. Without this, the {% term integration %} will fail to start.

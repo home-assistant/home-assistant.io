@@ -5,7 +5,10 @@ ha_category:
   - History
 ha_release: 0.7
 ha_domain: logbook
-ha_iot_class:
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: system
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
@@ -18,7 +21,7 @@ the [`recorder`](/integrations/recorder/) integration for storing the data. This
 PostgreSQL as data store, the `logbook` integration does not use the default
 SQLite database to store data.
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -62,9 +65,9 @@ include:
       type: list
 {% endconfiguration %}
 
-## Configure Filter
+## Configure filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
+By default, the logbook will use the same filter as the recorder. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -80,17 +83,7 @@ logbook:
       - light.kitchen_light
 ```
 
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes - include specified entities and exclude specified entities from the remaining.
-
-The following characters can be used in entity globs:
-
-- `*` - The asterisk represents zero, one, or multiple characters
-- `.` - The period represents a single character
+{% include common-tasks/filters.md %}
 
 ### Common filtering examples
 
@@ -143,7 +136,7 @@ logbook:
       - sensor.weather_*
 ```
 
-### Exclude Events
+### Exclude events
 
 If you have `sensor.date` to show the current date in the UI,
 but you do not want a logbook entry for that sensor every day it can be excluded.
@@ -158,16 +151,16 @@ for sun rise and sun set.
 Excluded entities still take up space in the database. It may be advisable to
 exclude them in `recorder` instead.
 
-### Custom Entries
+### Custom entries
 
 It is possible to add custom entries to the logbook by using the script
-component to fire an event.
+integration to fire an event.
 
 ```yaml
 # Example configuration.yaml entry
 script:
   add_logbook_entry:
-    alias: Add Logbook
+    alias: "Add Logbook"
     sequence:
       - service: logbook.log
         data:
@@ -181,7 +174,7 @@ script:
 
 <div class="note warning">
 
-When calling the `logbook.log` service without a `domain` or `entity_id`, entries will be added with the the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
+When calling the `logbook.log` service without a `domain` or `entity_id`, entries will be added with the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
 
 </div>
 

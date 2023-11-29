@@ -14,7 +14,7 @@ It's been a busy week with a lot of announcements around IoT standards, so I tho
 
 ## New IoT standard announced
 
-As it's been a while, the industry has announced yet a new effort to create a new IoT standard called [Project Connected Home over IP](https://www.connectedhomeip.com/). I think that there are a few interesting bits to this standard:
+As it's been a while, the industry has announced yet a new effort to create a new IoT standard called [Project Matter](https://buildwithmatter.com) (formally called: 'Connected Home over IP'). I think that there are a few interesting bits to this standard:
 
 The standard will be royalty-free. This is big, as it means that it will be easy for companies to build products. Take, for example, Homekit, which is a great IP-based local standard. Homekit has strict licensing and royalties, which prevented it from widespread adoption.
 

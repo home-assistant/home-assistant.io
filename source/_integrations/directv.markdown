@@ -2,57 +2,39 @@
 title: DirecTV
 description: Instructions on how to integrate DirecTV receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
 ha_release: 0.25
 ha_iot_class: Local Polling
 ha_domain: directv
 ha_config_flow: true
-ha_codeowners:
-  - '@ctalkington'
-ha_quality_scale: gold
+ha_quality_scale: silver
+ha_ssdp: true
+ha_platforms:
+  - media_player
+  - remote
+ha_integration_type: integration
 ---
 
 The DirecTV platform allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.
 
-### Requirements
+## Requirements
 
 For proper integration with Home Assistant, your DirecTV device settings should allow "External Access".
 
-This is done via series of settings found via "Menu > Settings & Help > Settings > Whole Home > External Device":
+This is done via series of settings found via **Menu** > **Settings & Help** > **Settings** > **Whole Home** > **External Device**:
 
 - External Access: Allow
 - Current Program: Allow
 - Recordings: Allow
 
-### Configuration
-
-Go to the integrations page in your configuration and click on new integration -> DirecTV.
-If your DirecTV device is on, it has likely been discovered already and you just have to confirm the detected device.
-
-### YAML Configuration
-
-Manual configuration of your DirecTV device is also possible, add the following to your `configuration.yaml` file:
-
-
-```yaml
-# Example configuration.yaml entry
-directv:
-  - host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: "The hostname or IP of the DirecTV receiver, e.g., `192.168.0.10`."
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Services
 
 ### Media control services
 
-Available services: turn_on, turn_off, media_play, media_pause, media_stop, media_next_track, media_previous_track, play_media
+Available {% term services %}: turn_on, turn_off, media_play, media_pause, media_stop, media_next_track, media_previous_track, play_media
 
 #### Service `media_player.play_media`
 
@@ -116,8 +98,9 @@ A typical service call for press several buttons looks like this.
 
 ```yaml
 service: remote.send_command
-data:
+target:
   entity_id: remote.directv_entity
+data:
   command:
     - left
     - left

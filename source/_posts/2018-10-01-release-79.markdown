@@ -5,7 +5,9 @@ date: 2018-09-28 00:01:00
 date_formatted: "September 28, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-09-release-0.79/components.png
 ---
 
@@ -109,7 +111,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Netdata configuration change: Allows multiple elements per group. Specify the `data_group` as part of the sensor description. See docs for details. ([@reefab] - [#16656]) ([sensor.netdata docs]) (breaking change)
 - The Dyson sensor Air Quality Index is now named AQI following Dyson's mobile app ([@glpatcern] - [#14550]) ([sensor.dyson docs]) (breaking change)

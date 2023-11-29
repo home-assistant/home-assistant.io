@@ -7,7 +7,9 @@ date_formatted: "August 28, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-08-0.98/components.png
 ---
 
@@ -36,7 +38,7 @@ Screenshot of integration system options
 
 ## Config Entry Options
 
-We introduced config entries last year as our way as a generic way for integrations to store authentication and configuration. By allowing integrations to define the storage format, there are no more breaking changes for anything stored inside config entries!
+We introduced config entries last year as our way as a generic way for integrations to store authentication and configuration. By allowing integrations to define the storage format, there are no more backward-incompatible changes for anything stored inside config entries!
 
 Config entries also work great with people who prefer configuration.yaml. At startup a config entry is created/updated with the configuration.
 
@@ -213,7 +215,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Deprecated**
 
@@ -287,7 +289,7 @@ anymore. - ([@abmantis] - [#25971])
   Example configuration entry:
   ```yaml
   - platform: statistics
-    name: 'MiAP2 PSI Stat'
+    name: "MiAP2 PSI Stat"
     entity_id: sensor.mi_ap2_aqi
   ```
 

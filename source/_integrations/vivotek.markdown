@@ -8,9 +8,12 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@HarlemSquirrel'
 ha_domain: vivotek
+ha_platforms:
+  - camera
+ha_integration_type: integration
 ---
 
-The `vivotek` camera platform allows you to integrate a VIVOTEK IP camera into Home Assistant.
+The **VIVOTEK** camera {% term integration %} allows you to integrate a VIVOTEK IP camera into Home Assistant.
 
 Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
@@ -103,21 +106,22 @@ Available services: `enable_motion_detection`, `disable_motion_detection`, `snap
 
 #### Service `play_stream`
 
-Play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) integration to be set up.
+Play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) {% term integration %} to be set up.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of entity to fetch stream from, e.g., `camera.front_door_camera`. |
+| `entity_id`            |      no  | Name of {% term entity %} to fetch stream from, e.g., `camera.front_door_camera`. |
 | `media_player`         |      no  | Name of media player to play stream on, e.g., `media_player.living_room_tv`. |
-| `format`               |      yes | Stream format supported by `stream` integration and selected `media_player`. Default: `hls` |
+| `format`               |      yes | Stream format supported by `stream` {% term integration %} and selected `media_player`. Default: `hls` |
 
 For example, the following action in an automation would send an `hls` live stream to your chromecast.
 
 ```yaml
 action:
   service: camera.play_stream
-  data:
+  target:
     entity_id: camera.yourcamera
+  data:
     media_player: media_player.chromecast
 ```
 
@@ -155,8 +159,9 @@ For example, the following action is an automation that would take a snapshot fr
 ```yaml
 action:
   service: camera.snapshot
-  data:
+  target:
     entity_id: camera.front_door_camera
+  data:
     filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
 

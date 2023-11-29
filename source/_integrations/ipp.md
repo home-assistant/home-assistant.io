@@ -2,7 +2,7 @@
 title: Internet Printing Protocol (IPP)
 description: Instructions on how to integrate printers that support the Internet Printing Protocol (IPP) into Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_release: 0.108
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -16,6 +16,4 @@ The `Internet Printing Protocol (IPP)` integration allows you to read current da
 
 It provides information about the printer's state and remaining ink levels.
 
-## Configuration
-
-To add `Internet Printing Protocol (IPP)` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Internet Printing Protocol (IPP)**.
+{% include integrations/config_flow.md %}

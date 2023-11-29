@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.32
 ha_iot_class: Cloud Polling
 ha_domain: garadget
+ha_platforms:
+  - cover
+ha_integration_type: integration
 ---
 
 The `garadget` cover platform lets you control [Garadget](https://www.garadget.com/) garage door futurizers through Home Assistant.
@@ -79,19 +82,15 @@ cover:
         access_token: !secret garadget_access_token
         name: Garage door
 
-sensor:
-  - platform: template
-    sensors:
-      garage_door_status:
-        friendly_name: 'State of the door'
-        value_template: "{{ states('cover.garage_door') }}"
-      garage_door_time_in_state:
-        friendly_name: 'Since'
-        value_template: "{{ state_attr('cover.garage_door', 'time_in_state') }}"
-      garage_door_wifi_signal_strength:
-        friendly_name: 'WiFi strength'
-        value_template: "{{ state_attr('cover.garage_door', 'wifi_signal_strength') }}"
-        unit_of_measurement: 'dB'
+template:
+  - sensor:
+    - name: Garage door state
+      state: "{{ states('cover.garage_door') }}"
+    - name: Garage door state since
+      state: "{{ state_attr('cover.garage_door', 'time_in_state') }}"
+    - name: Garage door WiFi signal strength
+      state: "{{ state_attr('cover.garage_door', 'wifi_signal_strength') }}"
+      unit_of_measurement: "dB"
 
 group:
   garage_door:
@@ -126,14 +125,25 @@ As of firmware release 1.17 the garadget device has native support for MQTT. The
 For configuration of the garadget as a MQTT cover:
 
 ```yaml
-cover:
-  - platform: mqtt
-    name: "Garage Door"
-    command_topic: "garadget/device_name/command"
-    state_topic: "garadget/device_name/status"
-    payload_open: "open"
-    payload_close: "close"
-    value_template: "{{ value_json.status }}"
+mqtt:
+  cover:
+    - name: "Garage Door"
+      command_topic: "garadget/device_name/command"
+      state_topic: "garadget/device_name/status"
+      payload_open: "open"
+      payload_close: "close"
+      payload_stop: "stop"
+      value_template: "{{ value_json.status }}"
+  sensor:
+    - name: "Garage Door Since"
+      state_topic: "garadget/device_name/status"
+      value_template: '{{ value_json.time }}'
+
+    - name: "Large Garage Door Brightness"
+      state_topic: "garadget/device_name/status"
+      unit_of_measurement: '%'
+      value_template: '{{ value_json.bright }}'
+
 ```
 
 Replace device_name with the name of the device provided when configuring garadget.

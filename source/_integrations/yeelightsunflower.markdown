@@ -8,6 +8,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@lindsaymarkward'
 ha_domain: yeelightsunflower
+ha_platforms:
+  - light
+ha_integration_type: integration
 ---
 
 The `yeelightsunflower` light platform allows you to control your Yeelight Sunflower light bulbs with Home Assistant.
@@ -34,8 +37,4 @@ host:
 
 <div class='note'>
 When the hub is loaded, your lights will appear as devices with their Zigbee IDs as part of the entity name.
-</div>
-
-<div class='note warning'>
-The Yeelight Sunflower hub supports SSDP discovery, but that has not been built into the platform. Let the developer know if that would be helpful to you.
 </div>

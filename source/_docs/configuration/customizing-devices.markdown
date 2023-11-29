@@ -1,33 +1,26 @@
 ---
 title: "Customizing entities"
-description: "Simple customization for entities in the frontend."
+description: "Simple customization for entities."
 ---
 
-## Changing the entity_id
+## Changing the entity ID
 
-You can use the UI to change the `entity_id` and friendly name of supported entities. To do this:
+You can use the UI to change the entity ID and friendly name of supported entities. To do this:
 
-1. Select the entity, either from the frontend or by clicking the info button next to the entity in the Developer Tools "States" tab.
-2. Click on the cog in the right corner of the entity's dialog
+1. Select the {% term entity %}, either from the frontend or by selecting the info button next to the entity in the Developer Tools "States" tab.
+2. Select the cog icon in the right corner of the entity's dialog
+![Entity dialog box.](/images/docs/configuration/customizing-entity-dialog.png)
 3. Enter the new name or the new entity ID (remember not to change the domain of the entity - the part before the `.`)
-4. Select *Save*
+![Settings for entity.](/images/docs/configuration/customizing-entity.png)
+4. Select *Update*
 
-If your entity is not supported, or you cannot customize what you need via this method, please see below for more options:
+If your entity is not supported, or you cannot customize what you need via this method, please see below for more options.
 
 ## Customizing entities
 
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
-### Customization using the UI
-
-Under the *Configuration* menu you'll find the *Customizations* menu. If this menu item is not visible, enable advanced mode on your [profile page](/docs/authentication/#your-account-profile) first. When you select an entity to customize, you'll see all the existing attributes listed and you can customize those or select an additional supported attribute ([see below](/docs/configuration/customizing-devices/#possible-values)). You may also need to add the following to your `configuration.yaml` file, depending when you started using Home Assistant:
-
-```yaml
-homeassistant:
-  customize: !include customize.yaml
-```
-
-#### Possible values
+### Possible values
 
 {% configuration customize %}
 friendly_name:
@@ -39,7 +32,7 @@ entity_picture:
   required: false
   type: string
 icon:
-  description: "Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://cdn.materialdesignicons.com/5.3.45/)). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
+  description: "Any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release."
   required: false
   type: string
 assumed_state:
@@ -64,14 +57,18 @@ initial_state:
   default: None
 {% endconfiguration %}
 
-#### Device Class
+### Device class
 
-Device class is currently supported by the following components:
+Device class is currently supported by the following platforms:
 
-* [Binary Sensor](/integrations/binary_sensor/)
-* [Sensor](/integrations/sensor/)
-* [Cover](/integrations/cover/)
-* [Media Player](/integrations/media_player/)
+- [Binary sensor](/integrations/binary_sensor/)
+- [Button](/integrations/button/)
+- [Cover](/integrations/cover/)
+- [Humidifier](/integrations/humidifier/)
+- [Media player](/integrations/media_player/)
+- [Number](/integrations/number/)
+- [Sensor](/integrations/sensor/)
+- [Switch](/integrations/switch/)
 
 ### Manual customization
 
@@ -108,7 +105,7 @@ homeassistant:
     light:
       icon: mdi:home
     automation:
-      initial_state: 'on'
+      initial_state: "on"
   # Customize entities matching a pattern
   customize_glob:
     "light.kitchen_*":
@@ -121,9 +118,11 @@ homeassistant:
 
 Home Assistant offers a service to reload the core configuration while Home Assistant is running. This allows you to change your customize section and see your changes being applied without having to restart Home Assistant.
 
-To reload customizations, navigate to Configuration > Server Controls and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
+To reload customizations, navigate to Developer Tools > YAML and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
 
-Alternatively, you can reload via service call. Navigate to Developer Tools > Services tab, select `homeassistant.reload_core_config` from the dropdown and press the "Call Service" button. 
+You can also use the [Quick bar](/docs/tools/quick-bar/#command-palette), and choose "Reload Location & Customizations".
+
+Alternatively, you can reload via service call. Navigate to Developer Tools > Services tab, select `homeassistant.reload_core_config` from the dropdown and press the "Call Service" button.
 
 <div class='note warning'>
 New customize information will be applied the next time the state of the entity gets updated.

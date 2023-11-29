@@ -8,6 +8,10 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.13
 ha_domain: mfi
+ha_platforms:
+  - sensor
+  - switch
+ha_integration_type: integration
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -25,7 +29,7 @@ To add this platform to your installation, add the following to your `configurat
 # Example configuration.yaml entry
 sensor:
   - platform: mfi
-    host: IP_ADDRESS_OF_SENSOR
+    host: IP_ADDRESS_OF_CONTROLLER
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```
@@ -70,7 +74,7 @@ To add this platform to your installation, add the following to your `configurat
 # Example configuration.yaml entry
 switch:
   - platform: mfi
-    host: IP_ADDRESS_OF_SWITCH
+    host: IP_ADDRESS_OF_CONTROLLER
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```

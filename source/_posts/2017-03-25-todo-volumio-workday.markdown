@@ -5,7 +5,9 @@ date: 2017-03-25 08:04:05 +0000
 date_formatted: "March 25, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-03-0.41/social.png
 ---
 
@@ -26,7 +28,7 @@ The new format of the changelog which was introduced with 0.40 will provide a li
 - [Volumio][volumio] media player added ([@jslove])
 - [Workday][workday] sensor ([@BastianPoe])
 
-## Breaking changes
+## Backward-incompatible changes
 
 - The [Kodi notifier][kodi] platform was migrated to async and the configuration synced with the Kodi media player platform ([#6497]).
 - For the [Music Player Daemon][mpd] (MPD) platform was `location` replaced with `name` ([#6553]).

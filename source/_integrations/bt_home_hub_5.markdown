@@ -2,10 +2,13 @@
 title: BT Home Hub 5
 description: Instructions on how to integrate BT Home Hub 5 router into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.22
 ha_domain: bt_home_hub_5
 ha_iot_class: Local Polling
+ha_platforms:
+  - device_tracker
+ha_integration_type: integration
 ---
 
 This platform offers presence detection by looking at connected devices to a [BT Home Hub 5](https://en.wikipedia.org/wiki/BT_Home_Hub) based router.

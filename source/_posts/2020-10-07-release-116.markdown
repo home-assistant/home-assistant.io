@@ -7,7 +7,9 @@ date_formatted: "October 7, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-10-0.116/social.png
 ---
 
@@ -48,7 +50,7 @@ As always, enjoy the release!
 - [Release 0.116.3 - October 15](#release-01163---october-15)
 - [Release 0.116.4 - October 15](#release-01164---october-15)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
 ## Entities card editor
@@ -315,7 +317,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
@@ -325,7 +327,7 @@ for that specific item.
   <summary><b>Custom Lovelace Cards</b></summary>
   <p>
 
-This release contains breaking changes for custom card developers, check the
+This release contains backward-incompatible changes for custom card developers, check the
 [developers blog](https://developers.home-assistant.io/blog/2020/10/02/lazyMoreInfo)
 for more information.
 
@@ -367,7 +369,7 @@ same type as it is in the attribute (instead of as a string).
   <summary><b>Canary</b></summary>
   <p>
 
-Canary is now available for configuration via the UI. This also means its no
+Canary is now available for configuration via the UI. This also means it's no
 longer configured in YAML. Existing configurations should be automatically
 transitioned to configuration via UI. You can safely remove you Canary YAML
 configuration after ugprading. YAML support will be fully removed in
@@ -433,12 +435,12 @@ Before this change:
    state_address: "2/0/33"
    automation:
      - counter: 1
-       hook: 'on'
+       hook: "on"
        action:
          - entity_id: cover.sonne_abstellkammer
            service: cover.open_cover
      - counter: 1
-       hook: 'off'
+       hook: "off"
        action:
          - entity_id: cover.sonne_abstellkammer
            service: cover.close_cover
@@ -455,7 +457,7 @@ After this change:
 ```yaml
 # automation.yaml
 automation:
-  - alias: 'Binary sensor test counter=1 on'
+  - alias: "Binary sensor test counter=1 on"
     trigger:
       platform: numeric_state
       entity_id: binary_sensor.cover_abstell
@@ -465,12 +467,13 @@ automation:
     condition:
       - condition: state
         entity_id: binary_sensor.cover_abstell
-        state: 'on'
+        state: "on"
     action:
       - service: cover.open_cover
-        entity_id: cover.sonne_abstellkammer
+        target:
+          entity_id: cover.sonne_abstellkammer
 
-  - alias: 'Binary sensor test counter=1 off'
+  - alias: "Binary sensor test counter=1 off"
     trigger:
       platform: numeric_state
       entity_id: binary_sensor.cover_abstell
@@ -480,10 +483,11 @@ automation:
     condition:
       - condition: state
         entity_id: binary_sensor.cover_abstell
-        state: 'off'
+        state: "off"
     action:
       - service: cover.close_cover
-        entity_id: cover.sonne_abstellkammer
+        target:
+          entity_id: cover.sonne_abstellkammer
 ```
 
 If you intend to use the counter feature (counter > 1) make sure you also

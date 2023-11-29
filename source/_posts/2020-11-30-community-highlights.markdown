@@ -89,7 +89,6 @@ using your toothbrush... Why? Because we can! 😎
 <blockquote class="twitter-tweet">
 <p lang="en" dir="ltr">Have you ever seen a house alarm system controlled by a toothbrush? Here our <a href="https://twitter.com/VanderbiltInd?ref_src=twsrc%5Etfw">@VanderbiltInd</a> alarm is integrated into <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> . Our toothbrush is ble enabled, it’s state is read by an ESP32 chip and sent into <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> <a href="https://t.co/T9XGi1Zjmb">pic.twitter.com/T9XGi1Zjmb</a></p>&mdash; Ian (@imduffy15) <a href="https://twitter.com/imduffy15/status/1329569523855478784?ref_src=twsrc%5Etfw">November 19, 2020</a>
 </blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Home Assistant Conference
 
@@ -121,7 +120,7 @@ Also, don't forget to share your creations with us via Social Media:
 - Twitter it! Be sure to mention [@home_assistant][twitter]
 - Share it on our [Facebook group][facebook-group]
 - Post it to our [subreddit][reddit]
-- Tag [@homeasssistant][instagram] on Instagram
+- Tag [@homeassistant][instagram] on Instagram
 - Or via chat, drop us a line in the [#lounge at Discord][chat]
 
 See you next edition!

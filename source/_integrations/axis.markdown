@@ -2,7 +2,7 @@
 title: Axis
 description: Integration between network devices from Axis Communications with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Light
   - Switch
@@ -13,15 +13,22 @@ ha_codeowners:
   - '@Kane610'
 ha_domain: axis
 ha_qa_scale: platinum
+ha_quality_scale: platinum
+ha_zeroconf: true
+ha_ssdp: true
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - diagnostics
+  - light
+  - switch
+ha_integration_type: device
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras, speakers, access control and other security-related network connected hardware. Event API works with firmware 5.50 and newer.
 
-Home Assistant will automatically discover their presence on your network. Discovery utilizes both DHCP, SSDP and Zeroconf protocols to discover devices.
-
-## Configuration
-
-For configuration go to the `Integrations pane` on your Home Assistant instance.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
   It is recommended that you create a user on your Axis device specifically for Home Assistant. For sensor functionality, it is enough to create a user with viewer privileges. If you want additional functional control you will need admin privileges.
@@ -51,7 +58,7 @@ If your device is not discovered. On your camera, go to **System Options** -> **
 
 When creating an issue detailing a problem related to the integration make sure to share the device model and firmware as well as prepare logs. Logs might contain sensitive information so make sure to look through it before sharing.
 
-## Binary Sensor
+## Binary sensor
 
 The following sensor types are supported:
 

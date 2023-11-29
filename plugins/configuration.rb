@@ -75,7 +75,7 @@ module Jekyll
               " See: https://developers.home-assistant.io/docs/en/documentation_create_page.html#configuration" unless \
                 TYPES.include? type
             end
-          else          
+          else
             raise ArgumentError, "Configuration type '#{attr['type']}' for key '#{key}' is not a valid type in the documentation."\
             " See: https://developers.home-assistant.io/docs/en/documentation_create_page.html#configuration" unless \
               TYPES.include? attr['type']
@@ -90,7 +90,7 @@ module Jekyll
 
         defaultValue = ""
         isDefault = false
-        if attr.key? 'default' and not attr['default'].to_s.empty? 
+        if attr.key? 'default' and not attr['default'].to_s.empty?
           isDefault = true
           defaultValue = converter.convert(attr['default'].to_s)
         elsif attr['type'].to_s.include? 'boolean'
@@ -98,7 +98,7 @@ module Jekyll
           raise ArgumentError, "Configuration key '#{key}' is a boolean type and"\
             " therefore, requires a default."
         end
-        
+
         if attr.key? 'required'
           # Check if required is a valid value
           raise ArgumentError, "Configuration key '#{key}' required field must be specified as: "\
@@ -168,7 +168,12 @@ module Jekyll
 
       <<~MARKUP
         <div class="config-vars">
-          <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+          <h3>
+            <a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables
+          </h3>
+          <div class="configuration-link">
+            <a href="/docs/configuration/" target="_blank">Looking for your configuration file?</a>
+          </div>
           #{render_config_vars(
             vars: vars,
             component: component,

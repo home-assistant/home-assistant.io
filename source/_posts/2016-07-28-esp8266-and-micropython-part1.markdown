@@ -114,7 +114,7 @@ If you reboot, you should see your current IP address in the terminal.
 >>> Network configuration: ('192.168.0.10', '255.255.255.0', '192.168.0.1', '192.168.0.1')
 ```
 
-First let's create a little consumer for Home Assistant sensor's state. The code to place in `main.py` is a mixture of code from above and the [RESTful API](/developers/rest_api/) of Home Assistant. If the temperature in the kitchen is higher than 20 °C then the LED connected to pin 5 is switched on. 
+First let's create a little consumer for Home Assistant sensor's state. The code to place in `main.py` is a mixture of code from above and the [RESTful API](https://developers.home-assistant.io/docs/api/rest/) of Home Assistant. If the temperature in the kitchen is higher than 20 °C then the LED connected to pin 5 is switched on. 
 
 <div class='note'>
 

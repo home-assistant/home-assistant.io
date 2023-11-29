@@ -9,11 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2020-08-28-android-230-release/Companion.png
 ---
 
-Hey there, its been so long since we last gave an update on our mobile apps we thought it would be time to give you more updates! This time around we will focus on whats new in the Android app. There have been a few releases so were going to cover everything new up until version 2.3.0 which was just released to the Google Play Store.
+Hey there, it's been so long since we last gave an update on our mobile apps we thought it would be time to give you more updates! This time around we will focus on whats new in the Android app. There have been a few releases so were going to cover everything new up until version 2.3.0 which was just released to the Google Play Store.
 
 ## Manage Sensors
 
-Starting from version 2.2.0 there is a new Manage Sensors screen that you can find under App Configuration. Users can now disable sensors they don't want while continuing to receive updates from the sensors they do care about. This includes turning off the Geocoded sensor while keeping location tracking on. Speaking of which the 2 location toggles that used to be found in App Configuration are now located in this new screen. You can expect to see the live data that was recently sent over to your Home Assistant server as well as the attributes and other sensor details.
+Starting from version 2.2.0 there is a new Manage Sensors screen that you can find under App Configuration. Users can now disable sensors they don't want while continuing to receive updates from the sensors they do care about. This includes turning off the Geocoded sensor while keeping location tracking on. Speaking of which the 2 location toggles that used to be found in App Configuration are now located in this new screen. You can expect to see the live data that was recently sent over to your Home Assistant instance as well as the attributes and other sensor details.
 
 <p class='img'>
 <img src='/images/blog/2020-08-28-android-230-release/manage_sensors.png' alt='Screenshot of Manage Sensors'></a>
@@ -27,26 +27,26 @@ Screenshot of Sensor Management.
 
 ## New Sensors
 
-We have had quite a bit of sensors get added since we last spoke so here's whats new. Some of these sensors will update their state in your Home Assistant server upon certain state changes. All of the sensors listed below will also update during the normal 15 minute update interval. To get more details about what to expect from each sensor check out the [docs](https://companion.home-assistant.io/docs/core/sensors).
+We have had quite a bit of sensors get added since we last spoke so here's whats new. Some of these sensors will update their state in your Home Assistant instance upon certain state changes. All of the sensors listed below will also update during the normal 15 minute update interval. To get more details about what to expect from each sensor check out the [docs](https://companion.home-assistant.io/docs/core/sensors).
 
 Available for Google Play Store version only:
 
-* Activity
+- Activity
 
 Available for all users:
 
-* Audio
-* Bluetooth
-* Do Not Disturb
-* Last Reboot
-* Light
-* Phone
-* Pressure
-* Proximity
-* Next Alarm
-* Sim 1 & 2
-* Steps
-* Storage
+- Audio
+- Bluetooth
+- Do Not Disturb
+- Last Reboot
+- Light
+- Phone
+- Pressure
+- Proximity
+- Next Alarm
+- Sim 1 & 2
+- Steps
+- Storage
 
 ## Sensor Enhancements
 
@@ -82,10 +82,10 @@ Screenshot of App Theme selection.
 
 ## Additional Improvements
 
-* Support for H265 videos was added
-* Entity state widget was enhanced to allow for multiple attributes and a custom separator
-* Widgets were enhanced overall to allow material icons
-* Notifications can now use `:smiley:` like you can in Discord
-* Lots of fixes across the board
+- Support for H265 videos was added
+- Entity state widget was enhanced to allow for multiple attributes and a custom separator
+- Widgets were enhanced overall to allow material icons
+- Notifications can now use `:smiley:` like you can in Discord
+- Lots of fixes across the board
 
 Special thanks to [chriss158](https://github.com/chriss158), [colincachia](https://github.com/colincachia), [David-Development](https://github.com/David-Development), [JBassett](https://github.com/JBassett), [klejejs](https://github.com/klejejs), [noam148](https://github.com/noam148), [skynetua](https://github.com/skynetua) and [uvjustin](https://github.com/uvjustin) for all of your contributions. So keep them bug reports and feature requests [coming](https://github.com/home-assistant/android/issues/new/choose), we'll chat again soon!

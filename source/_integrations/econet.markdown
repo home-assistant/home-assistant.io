@@ -1,20 +1,51 @@
 ---
-title: Rheem EcoNET Water Products
+title: Rheem EcoNet Products
 description: Instructions on how to integrate Rheem EcoNet water heaters into Home Assistant.
 ha_category:
-  - Water Heater
+  - Binary sensor
+  - Climate
+  - Sensor
+  - Water heater
 ha_release: 0.61
 ha_iot_class: Cloud Push
 ha_domain: econet
 ha_codeowners:
-  - '@w1ll1am23'
   - '@vangorra'
+  - '@w1ll1am23'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - water_heater
+ha_integration_type: integration
 ---
 
-The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](https://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and away mode. It also provides access to several device sensors depending on your model of water heater.
+The **EcoNet** {% term integration %} is consuming the information provided by a [EcoNet enabled Rheem water heater or thermostat](https://www.rheem.com/econet).
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'Rheem EcoNet Products' and click 'Configure'.
-2. Enter the information requested, email and password, and click 'Submit'.
+## Platforms
+
+EcoNet devices may be represented by one or more platforms.
+
+- [Binary sensor](#binary-sensor)
+- [Climate](#climate)
+- [Sensor](#sensor)
+- [Water heater](#water-heater)
+
+### Binary sensor
+
+The EcoNet Binary sensor platform lets you view binary states of sensors associated with your EcoNet thermostat or water heater. For example, if the device is currently running.
+
+### Climate
+
+The EcoNet Climate platform lets you control your EcoNet thermostat. Multi-zone HVAC systems will have 1 Climate entity per zone.
+
+### Sensor
+
+The EcoNet Sensor platform lets you view sensors associated with your EcoNet thermostat or water heater. For example, alert count or available hot water.
+
+### Water heater
+
+The EcoNet water heater platform lets you control your EcoNet water heater. Water heaters do not report the current water temperature.

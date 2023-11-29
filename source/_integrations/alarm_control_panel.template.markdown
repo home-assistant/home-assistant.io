@@ -1,6 +1,6 @@
 ---
-title: "Template Alarm Control Panel"
-description: "Instructions on how to integrate Template Alarm Control Panels into Home Assistant."
+title: "Template Alarm control panel"
+description: "Instructions on how to integrate template alarm control panels into Home Assistant."
 ha_category: 
   - Alarm
 ha_release: 0.105
@@ -23,7 +23,7 @@ In optimistic mode, the alarm control panel will immediately change state after 
 
 ## Configuration
 
-To enable a Template Alarm Control Panel in your installation, add the following to your `configuration.yaml` file:
+To enable a template alarm control panel in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
 
@@ -36,21 +36,24 @@ alarm_control_panel:
         value_template: "{{ states('alarm_control_panel.real_alarm') }}"
         arm_away:
           service: alarm_control_panel.alarm_arm_away
-          data:
+          target:
             entity_id: alarm_control_panel.real_alarm
+          data:
             code: !secret alarm_code
         arm_home:
           service: alarm_control_panel.alarm_arm_home
-          data:
+          target:
             entity_id: alarm_control_panel.real_alarm
+          data:
             code: !secret alarm_code
         disarm:
           - condition: state
             entity_id: device_tracker.paulus
-            state: 'home'
-          - service: alarm_control_panel.alarm_arm_home
-            data:
+            state: "home"
+          - service: alarm_control_panel.alarm_disarm
+            target:
               entity_id: alarm_control_panel.real_alarm
+            data:
               code: !secret alarm_code
 ```
 
@@ -77,7 +80,7 @@ panels:
           required: false
           type: string
         value_template:
-          description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
+          description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
           required: false
           type: template
         disarm:
@@ -96,15 +99,36 @@ panels:
           description: Defines an action to run when the alarm is armed to night mode.
           required: false
           type: action
+        arm_vacation:
+          description: Defines an action to run when the alarm is armed to vacation mode.
+          required: false
+          type: action
+        arm_custom_bypass:
+          description: Defines an action to run when the alarm is armed to custom bypass mode.
+          required: false
+          type: action
+        trigger:
+          description: Defines an action to run when the alarm is triggered.
+          required: false
+          type: action
         code_arm_required:
           description: If true, the code is required to arm the alarm.
           required: false
           type: boolean
-          default: false
+          default: true
+        code_format:
+          description: One of `number`, `text` or `no_code`. Format for the code used to arm/disarm the alarm.
+          required: false
+          type: string
+          default: number
 {% endconfiguration %}
+
+### Template and action variables
+
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
 
 ## Considerations
 
-If you are using the state of a integration that takes extra time to load, the Template Alarm Control Panel may get an `unknown` state during startup. This results in error messages in your log file until that integration has completed loading. If you use `is_state()` function in your template, you can avoid this situation.
+If you are using the state of an integration that takes extra time to load, the template alarm control panel may get an `unknown` state during startup. This results in error messages in your log file until that integration has completed loading. If you use `is_state()` function in your template, you can avoid this situation.
 
 For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an unknown result: {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}

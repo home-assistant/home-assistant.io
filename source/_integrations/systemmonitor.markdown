@@ -1,16 +1,18 @@
 ---
-title: System Monitor
+title: System monitor
 description: Instructions on how to monitor the Home Assistant host.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: systemmonitor
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `systemmonitor` sensor platform allows you to monitor disk usage,
-memory usage, CPU usage, and running processes. This platform has superseded the
-process integration which is now considered deprecated.
+memory usage, CPU usage, and running processes. 
 
 To add this platform to your installation,
 add the following to your `configuration.yaml` file:
@@ -21,7 +23,7 @@ sensor:
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
-        arg: /home
+        arg: /config
       - type: memory_free
 ```
 
@@ -38,6 +40,9 @@ resources:
       description: Argument to use, please check the table below for details.
       required: false
 {% endconfiguration %}
+
+After restarting Home Assistant, these sensors will show up and update their
+information every 15 seconds.
 
 The table contains types and their argument to use in your `configuration.yaml`
 file.
@@ -84,7 +89,18 @@ tmpfs           934M     0  934M   0% /dev/shm
 /dev/mmcblk0p1  253M   54M  199M  22% /boot
 ```
 
-Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return the same values, since they both belong to the same "disk". However, defining separate sensors for `/dev` and `dev/shm` is possible and provides different values, since those are treated as separate "disks" by the integration.
+Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return the same values, since they both belong to the same "disk". However, defining separate sensors for `/dev` and `/dev/shm` is possible and provides different values, since those are treated as separate "disks" by the integration.
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use
+        arg: /dev
+      - type: disk_use
+        arg: /dev/shm
+```
 
 ## Processor temperature
 
@@ -95,10 +111,14 @@ Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return
 ## Linux specific
 
 To retrieve all available network interfaces on a Linux System, execute the
-`ifconfig` command.
+`ifconfig` or `ip` command. The command differs based on your operation system and version.
 
 ```bash
 ifconfig -a | sed 's/[ \t].*//;/^$/d'
+```
+
+```bash
+ip link show
 ```
 
 ## Windows specific
@@ -112,7 +132,7 @@ sensor:
   - platform: systemmonitor
     resources:
       - type: network_in
-        arg: 'Local Area Connection'
+        arg: "Local Area Connection"
 ```
 
 If you need to use some other interface, open a command line prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ipconfig` might look like:
@@ -125,3 +145,44 @@ Wireless LAN adapter Wireless Network Connection:
 ```
 
 Where the name is `Wireless Network Connection`.
+
+## All available resources
+
+```yaml
+# Example configuration.yaml entry with all entry types (delete/comment out as necessary)
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /config
+      - type: disk_use
+      - type: disk_free
+      - type: memory_use_percent
+      - type: memory_use
+      - type: memory_free
+      - type: swap_use_percent
+      - type: swap_use
+      - type: swap_free
+      - type: load_1m
+      - type: load_5m
+      - type: load_15m
+      - type: network_in
+        arg: eth0
+      - type: network_out
+        arg: eth0
+      - type: throughput_network_in
+        arg: eth0
+      - type: throughput_network_out
+        arg: eth0
+      - type: packets_in
+        arg: eth0
+      - type: packets_out
+        arg: eth0
+      - type: ipv4_address
+        arg: eth0
+      - type: ipv6_address
+        arg: eth0
+      - type: processor_use
+      - type: processor_temperature
+      - type: last_boot
+```

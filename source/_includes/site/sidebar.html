@@ -3,18 +3,24 @@
   {% assign root = url_parts[1] %}
   {% if root == 'integrations' %}
     {% include asides/component_navigation.html %}
-  {% elsif root == 'cookbook' %}
-    {% include asides/cookbook_navigation.html %}
-  {% elsif root == 'lovelace' %}
-    {% include asides/lovelace_navigation.html %}
+  {% elsif root == 'installation' %}
+    {% include asides/installation_navigation.html %}
+  {% elsif root == 'common-tasks' %}
+    {% include asides/common_tasks_navigation.html %}
+  {% elsif root == 'dashboards' %}
+    {% include asides/dashboards_navigation.html %}
   {% elsif root == 'developers' or root == 'help' %}
     {% include asides/help_navigation.html %}
   {% elsif root == 'getting-started' %}
     {% include asides/getting_started_navigation.html %}
   {% elsif root == 'docs' %}
     {% include asides/docs_navigation.html %}
+  {% elsif root == 'projects' %}
+    {% include asides/docs_navigation.html %}
   {% elsif root == 'faq' %}
     {% include asides/faq_navigation.html %}
+    {% elsif root == 'voice_control' %}
+      {% include asides/voice_navigation.html %}
   {% elsif root == 'hassio' or root == 'addons' %}
     {% include asides/hassio_navigation.html %}
   {% elsif root == 'cloud' %}
@@ -31,6 +37,31 @@
       {% include asides/recent_posts.html %}
     {% endif %}
   {% endif %}
+  {% if page.toc %}
+    {%- unless page.no_toc -%}
+      <section class="aside-module grid__item one-whole lap-one-half">
+        <div class='section'>
+          <h1 class="title delta">On this page</h1>
+          {{ content | toc_only }}
+        </div>
+      </section>
+    {%- endunless -%}
+  {% endif %} 
+
+  {%- if page.ha_category.first -%}
+    <section class="aside-module grid__item one-whole lap-one-half">
+      <div class='section'>
+        <h1 class="title delta">Categories</h1>
+        <ul class='divided'>
+        {%- for category in page.ha_category -%}
+          <li>
+            <a href='/integrations/#{{ category | slugify }}'>{{ category }}</a>
+          </li>
+        {%- endfor -%}
+        </ul>
+      </div>
+    </section>
+  {%- endif -%}
 </div>
 <script type="text/javascript">
   // Some sidebars are longer than the screen so they can't be locked.

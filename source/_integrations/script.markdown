@@ -8,10 +8,14 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: script
-ha_iot_class:
+ha_integration_type: system
 ---
 
-The `script` integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via services.
+The script integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via services.
+
+Scripts can be created via YAML configuration (described below) or via {% my scripts title="the UI" %}.
+
+{% my scripts badge %}
 
 ## Configuration
 
@@ -62,21 +66,41 @@ variables:
       description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
       type: any
 fields:
-  description: "Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below. Please Note: In order for this description to be displayed in the Services tab of the Developer Tools in Lovelace, the script description must be defined as well."
+  description: "Information about the script field parameters; see the [Passing variables to scripts](#passing-variables-to-scripts) section below."
   required: false
   default: {}
   type: map
   keys:
-    PARAMETER_NAME:
-      description: A parameter used by this script.
+    FIELD_NAME:
+      description: A parameter field used by this script. All sub-options are only used for creating a representation of this script in the UI.
       type: map
       keys:
+        name:
+          description: The name of this script parameter field.
+          type: string
         description:
-          description: A description of PARAMETER_NAME.
+          description: A description of this of this script parameter.
           type: string
+        advanced:
+          description: Marks this field as an advanced parameter. This causes it only to be shown in the UI, when the user has advanced mode enabled.
+          type: boolean
+          default: false
+        required:
+          description: Mark if this field is required. This is a UI only feature.
+          type: boolean
+          default: false
         example:
-          description: An example value for PARAMETER_NAME.
+          description: An example value. This will only be shown in table of options available in the Services tab of the Developer Tools.
           type: string
+        default:
+          description: The default value for this field, as shown in the UI.
+          type: any
+        selector:
+          description: >
+            The [selector](/docs/blueprint/selectors/) to use for this input. A
+            selector defines how the input is displayed in the frontend UI.
+          type: selector
+          required: false
 mode:
   description: "Controls what happens when script is invoked while it is still running from one or more previous invocations. See [Script Modes](#script-modes)."
   required: false
@@ -98,7 +122,12 @@ sequence:
   type: list
 {% endconfiguration %}
 
-### Script Modes
+### Video tutorial
+This video tutorial explains how scripts work, how to use fields in scripts, and how to use response variables in scripts.
+
+<lite-youtube videoid="vD_xckjQxRk" videotitle="Mastering Scripts in Home Assistant: A Comprehensive Guide" posterquality="maxresdefault"></lite-youtube>
+
+### Script modes
 
 Mode | Description
 -|-
@@ -111,22 +140,29 @@ Mode | Description
   <img src='/images/integrations/script/script_modes.jpg'>
 </p>
 
-### Full Configuration
+### Full configuration
 
 {% raw %}
 
 ```yaml
 script: 
   wakeup:
-    alias: Wake Up
+    alias: "Wake Up"
     icon: "mdi:party-popper"
-    description: 'Turns on the bedroom lights and then the living room lights after a delay'
+    description: "Turns on the bedroom lights and then the living room lights after a delay"
     variables:
       turn_on_entity: group.living_room
     fields:
       minutes:
-        description: 'The amount of time to wait before turning on the living room lights'
-        example: 1
+        name: Minutes
+        description: "The amount of time to wait before turning on the living room lights"
+        selector:
+          number:
+            min: 0
+            max: 60
+            step: 1
+            unit_of_measurement: minutes
+            mode: slider
     # If called again while still running (probably in delay step), start over.
     mode: restart
     sequence:
@@ -137,17 +173,18 @@ script: 
           message: is waking up
           entity_id: device_tracker.paulus
           domain: light
-      - alias: Bedroom lights on
+      - alias: "Bedroom lights on"
         service: light.turn_on
-        data:
+        target:
           entity_id: group.bedroom
+        data:
           brightness: 100
       - delay:
           # supports seconds, milliseconds, minutes, hours
           minutes: "{{ minutes }}"
-      - alias: Living room lights on
+      - alias: "Living room lights on"
         service: light.turn_on
-        data:
+        target:
           entity_id: "{{ turn_on_entity }}"
 ```
 
@@ -165,15 +202,16 @@ automation:
   trigger:
     platform: state
     entity_id: light.bedroom
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   action:
     service: script.turn_on
-    entity_id: script.notify_pushover
+    target:
+      entity_id: script.notify_pushover
     data:
       variables:
-        title: 'State change'
-        message: 'The light is on!'
+        title: "State change"
+        message: "The light is on!"
 ```
 
 The other way is calling the script as a service directly. In this case, all service data will be made available as variables. If we apply this approach on the script above, it would look like this:
@@ -184,38 +222,48 @@ automation:
   trigger:
     platform: state
     entity_id: light.bedroom
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   action:
     service: script.notify_pushover
     data:
-      title: 'State change'
-      message: 'The light is on!'
+      title: "State change"
+      message: "The light is on!"
 ```
 
 Using the variables in the script requires the use of templates:
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
 script:
   notify_pushover:
-    description: 'Send a pushover notification'
+    description: "Send a pushover notification"
     fields:
       title:
-        description: 'The title of the notification'
-        example: 'State change'
+        description: "The title of the notification"
+        example: "State change"
       message:
-        description: 'The message content'
-        example: 'The light is on!'
+        description: "The message content"
+        example: "The light is on!"
     sequence:
       - condition: state
         entity_id: switch.pushover_notifications
-        state: 'on'
+        state: "on"
       - service: notify.pushover
         data:
-          title: "{% raw %}{{ title }}{% endraw %}"
-          message: "{% raw %}{{ message }}{% endraw %}"
+          title: "{{ title }}"
+          message: "{{ message }}"
 ```
+
+<div class='note'>
+
+Script variables that may be used by templates include those provided from the configuration, those that are passed when started from a service and the `this` variable whose value is a dictionary of the current script's state.
+
+</div>
+
+{% endraw %}
 
 ### Waiting for Script to Complete
 
@@ -239,7 +287,8 @@ script:
   script_1:
     sequence:
       - service: script.turn_on
-        entity_id: script.script_2
+        target:
+          entity_id: script.script_2
       # Perform some other steps here while second script runs...
       # Now wait for called script to complete.
       - wait_template: "{{ is_state('script.script_2', 'off') }}"

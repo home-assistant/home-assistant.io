@@ -10,17 +10,37 @@ ha_codeowners:
   - '@bieniu'
 ha_domain: accuweather
 ha_quality_scale: platinum
+ha_platforms:
+  - diagnostics
+  - sensor
+  - weather
+ha_integration_type: service
 ---
 
-The `accuweather` integration uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.
+The **AccuWeather** {% term integration %} uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.
 
 ## Setup
 
-To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.accuweather.com/) page, register and create application with product **Limited Trial**.
+To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.accuweather.com/) page, register and create application with the following settings:
+- Products
+  - Core Weather
+    - **Core Weather Limited Trial**
+  - Minute Cast
+    - **None**
+- Where will the API be used? 
+  - **Other**
+- What will you be creating with this API?
+  - **Internal App**
+- What programming language is your APP written in? 
+  - **Python**
+- Is this for Business to Business or Business to Consumer use?
+  - **Business to Business**
+- Is this Worldwide or Country specific use?
+  - **Worldwide**
 
-## Configuration
+You can test your newly created API key [here](https://developer.accuweather.com/accuweather-current-conditions-api/apis)
 
-To add AccuWeather to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **AccuWeather**. By default, the values will be taken from the Home Assistant configuration. Weather forecast is not enabled by default. You can enable it in the integration options.
+{% include integrations/config_flow.md %}
 
 <div class="note warning">
 

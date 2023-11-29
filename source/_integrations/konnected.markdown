@@ -3,19 +3,30 @@ title: Konnected.io
 description: Connect wired alarm sensors and siren using the NodeMCU based Konnected Alarm Panel
 ha_category:
   - Alarm
-  - Binary Sensor
-  - Switch
+  - Binary sensor
   - Sensor
-ha_iot_class: Local Polling
+  - Switch
+ha_iot_class: Local Push
 ha_release: '0.70'
 ha_codeowners:
   - '@heythisisnate'
-  - '@kit-klein'
 ha_config_flow: true
 ha_domain: konnected
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
+ha_integration_type: integration
 ---
 
 The `konnected` integration lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
+
+<div class='note warning'>
+  
+This integration is deprecated in favor of [Konnected's ESPHome firmware](https://support.konnected.io/add-a-konnected-device-to-home-assistant-with-esphome) and will not receive updates. ESPHome connects locally and natively to Home Assistant and doesn't need this custom integration. If you are getting started with a Konnected device, do not use this integration. Instead, flash your device with ESPHome-based firmware for the [Konnected Alarm Panel](https://install.konnected.io/esphome) and [Garage Door Opener](https://support.konnected.io/installing-the-garage-door-opener-with-home-assistant).
+
+</div>
 
 Visit the [Konnected.io website](https://konnected.io) for more information about the Konnected Alarm Panel board and compatible hardware.
 
@@ -27,7 +38,7 @@ Always ensure your panel is running the [latest firmware](https://help.konnected
 
 The integration currently supports the following device types in Home Assistant:
 
-- Binary Sensor: Wired door and window sensors, motion detectors, glass-break detectors, leak sensors, smoke & CO detectors or any open/close switch.
+- Binary sensor: Wired door and window sensors, motion detectors, glass-break detectors, leak sensors, smoke & CO detectors or any open/close switch.
 - Switch: Actuate a siren, strobe, buzzer or relay module.
 - Sensor: Periodic measurements from DHT temperature/humidity sensors and DS18B20 temperature sensors.
 
@@ -43,7 +54,7 @@ Konnected devices communicate with Home Assistant over your local LAN -- there i
 
 ### Web Interface
 
-Starting with 0.106.0 Home Assistant requires UI based configuration of Konnected via **Configuration** -> **Integrations** in the Home Assistant (web) frontend. If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
+Starting with 0.106.0 Home Assistant requires UI based configuration of Konnected via **Settings** -> **Devices & Services** in the Home Assistant (web) frontend. If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
 
 Selecting one of these discovered panels will guide you through connecting and configuring the panel. If your panel was discovered via SSDP, you shouldn't need any information to complete configuration - simply confirm that the information displayed is correct. If the UI prompts you for IP/Port, you'll need to enter it. IP/Port info can be found using the Konnected mobile app.
 
@@ -51,22 +62,22 @@ Selecting one of these discovered panels will guide you through connecting and c
 
 If you have an existing `configuration.yaml` completing the UI configuration will do a one time import of the settings contained in `configuration.yaml`. Once the import creates a **Configured** integration the Konnected section of the `configuration.yaml` is no longer used - it is recommended to remove the `konnected` section of `configuration.yaml` and after the import occurs. Any future changes to settings should occur via the settings provided in the Home Assistant web interface.
 
-If you want to retain `configuration.yaml` and need to re-import any changes or updates you will need to delete the entry in **Configuration** -> **Integrations** -> **Configured** and repeat the UI configuration for that device.
+If you want to retain `configuration.yaml` and need to re-import any changes or updates you will need to delete the entry in **Settings** -> **Devices & Services** -> **Configured** and repeat the UI configuration for that device.
 
 </div>  
 
-Once configuration is completed you'll see a Konnected.io entry in **Configuration** -> **Integrations** => **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings, you'll need to utilize the settings UI to configure zone behavior.
+Once configuration is completed you'll see a Konnected.io entry in **Settings** -> **Devices & Services** -> **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings, you'll need to utilize the settings UI to configure zone behavior.
 
 #### Using Settings UI to Configure Zone Behavior
 
-The settings for each panel can be accessed by selecting the entry in **Configuration** -> **Integrations** => **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure these settings at any time and once completed the settings will be immediately applied.
+The settings for each panel can be accessed by selecting the entry in **Settings** -> **Devices & Services** -> **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure these settings at any time and once completed the settings will be immediately applied.
 
 The settings UI starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that, you'll be prompted, for each zone that is not disabled, to configure details of the zones' behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.  
 **Note some zones do not support all behaviors. The UI will reflect specific options available to each zone.**
 
-##### Binary Sensor:
+##### Binary sensor:
 
-**Binary Sensor Type:** The type of sensor connected to the zone.
+**Binary sensor type:** The type of sensor connected to the zone.
 
 **Name (optional)** The friendly name for the entity associated with the zone.
 
@@ -104,7 +115,7 @@ Once all zones are configured you'll be presented with the configuration for add
 
 **Override API host URL (optional):** The host info to use if you checked **Override default Home Assistant API host panel URL** in the step above. This is ignored if **Override default Home Assistant API host panel URL** is unchecked.
 
-### YAML Configuration
+### YAML configuration
 
 If you prefer you can utilize a `konnected` section in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them. If using `configuration.yaml` the configuration will be one-time imported when going through the Configuration Flow for the panel. **Note that you must still complete the UI based setup before the integration will be configured and entities created/accessible.**
 
@@ -261,19 +272,19 @@ konnected:
       binary_sensors:
         - zone: 1
           type: door
-          name: 'Front Door'
+          name: "Front Door"
         - zone: 2
           type: smoke
-          name: 'Bedroom Smoke Detector'
+          name: "Bedroom Smoke Detector"
           inverse: true
         - zone: 3
           type: motion
-          name: 'Test Motion'
+          name: "Test Motion"
       switches:
         - zone: out
           name: siren
         - zone: 5
-          name: 'Beep Beep'
+          name: "Beep Beep"
           momentary: 65
           pause: 55
           repeat: 4
@@ -305,7 +316,7 @@ konnected:
 
 ## Unique IDs and the Entity Registry
 
-Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI at **Configuration** -> **Entities**.
+Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI at **Settings** -> **Devices & Services** -> **Entities**.
 
 Unique IDs are internally generated as follows:
 
@@ -333,56 +344,11 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 | 6                          | RX          | 9        | GPIO3        |
 | ALARM or OUT               | D8          | 8        | GPIO15       |
 
-## Revision History
-
-### 0.112
-- Note that Device ID is used for Konnected Alarm Panel Pro and note that it is available on the status page.
-
-### 0.108
-
-- Multiple output states for a zone. Details on configuring additional panel behaviors via the UI.
-
-### 0.106
-
-- Added information on configuration and options flow. Mention that alarm panel FW should be updated before connecting.
-
-### 0.91
-
-- Improved Unique ID generation for Konnected switches
-
-### 0.90
-
-- Added support for `dht` and `ds18b20` temperature sensors
-- Added Unique IDs
-
-### 0.80
-
-- Added ability to specify `host` and `port` to set up devices without relying on discovery.
-- Added `discovery` and `blink` configuration options to enable/disable these features.
-
-### 0.79
-
-- Added `inverse` configuration option for binary sensors.
-
-### 0.77
-
-- Added support for momentary and beep/blink switches. [[#15973](https://github.com/home-assistant/home-assistant/pull/15973)]
-- Decouple entity initialization from discovery, enabling devices to recover faster after a Home Assistant reboot. [[#16146](https://github.com/home-assistant/home-assistant/pull/16146)]
-- **Breaking change:** Device `id` in `configuration.yaml` must now be the full 12-character device MAC address. Previously, omitting the first 6 characters was allowed.
-
-### 0.72
-
-- Adds `api_host` configuration option [[#14896](https://github.com/home-assistant/home-assistant/pull/14896)]
-
-### 0.70
-
-- Initial release
-
 ## Binary Sensor
 
 The `konnected` binary sensor allows you to monitor wired door sensors, window sensors, motion sensors, smoke detectors, CO detectors, glass-break sensors, water leak sensors or any other simple wired open/close circuit attached to a NodeMCU ESP8266 Wi-Fi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
 
-This integration supports all of the built-in device classes of the generic [Binary Sensor](/integrations/binary_sensor/) component.
+This integration supports all of the built-in device classes of the generic [Binary Sensor](/integrations/binary_sensor/) integration.
 
 ## Switch
 

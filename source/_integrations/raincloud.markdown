@@ -2,8 +2,8 @@
 title: Melnor RainCloud
 description: Instructions on how to integrate your Melnor Raincloud sprinkler system within Home Assistant.
 ha_category:
+  - Binary sensor
   - Irrigation
-  - Binary Sensor
   - Sensor
   - Switch
 ha_release: 0.55
@@ -11,13 +11,18 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@vanstinator'
 ha_domain: raincloud
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
+ha_integration_type: integration
 ---
 
 The `raincloud` integration allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -43,9 +48,9 @@ password:
   type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
-Once you have enabled the [Raincloud component](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,7 +73,7 @@ monitored_conditions:
 
 ## Sensor
 
-Once you have enabled the [Raincloud component](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -95,7 +100,7 @@ monitored_conditions:
 
 ## Switch
 
-Once you have enabled the [Raincloud component](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -117,5 +122,5 @@ monitored_conditions:
     auto_watering:
       description: Toggle the watering scheduled per zone.
     manual_watering:
-      description: Toggle manually the watering per zone. It will inherent the value in minutes specified on the RainCloud hub component.
+      description: Toggle manually the watering per zone. It will inherent the value in minutes specified on the RainCloud hub integration.
 {% endconfiguration %}

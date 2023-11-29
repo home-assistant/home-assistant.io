@@ -2,31 +2,44 @@
 title: Freebox
 description: Instructions on how to integrate Freebox routers into Home Assistant.
 ha_category:
+  - Camera
   - Network
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Switch
+  - Alarm Control Panel
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@snoof85'
+  - '@hacf-fr'
   - '@Quentame'
 ha_config_flow: true
 ha_domain: freebox
+ha_platforms:
+  - binary_sensor
+  - button
+  - camera
+  - device_tracker
+  - sensor
+  - switch
+  - alarm_control_panel
+ha_zeroconf: true
+ha_integration_type: integration
 ---
 
-The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/).
+The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/freebox/).
 
 There is currently support for the following device types within Home Assistant:
 
-* [Sensor](#sensor) with traffic and temperature metrics
-* [Device tracker](#presence-detection) for connected devices
-* [Switch](#switch) to control Wi-Fi
-
-## Configuration
-
-If you have enabled the [discovery integration](/integrations/discovery/), your Freebox should be detected automatically.
-Otherwise, you can set it up manually via the frontend or via your `configuration.yaml` file.
+- [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
+- [Binary sensor](#binary-sensor) for monitoring Raid arrays health
+- [Device tracker](#presence-detection) for connected devices
+- [Switch](#switch) to control Wi-Fi
+- [Camera](#camera)
+- [Binary sensors](#binary)
+- [Alarm_control_panel](#alarm-control-panel)
+  
+{% include integrations/config_flow.md %}
 
 You can find out your Freebox host and port by opening this address <http://mafreebox.freebox.fr/api_version> in your browser.
 The returned JSON should contain an `api_domain` (`host`) and a `https_port` (`port`).
@@ -34,7 +47,7 @@ Please consult the [API documentation](https://dev.freebox.fr/sdk/os/) for more 
 
 ### Via the frontend
 
-Menu: **Configuration** -> **Integrations**. Search for "Freebox", add your host and port, click submit.
+Menu: **Settings** -> **Devices & Services**. Search for "Freebox", add your host and port, click submit.
 
 If you add the integration for the first time, follow the instructions in the [Initial setup](#initial-setup) section.
 
@@ -75,18 +88,20 @@ The first time Home Assistant will connect to your Freebox, you will need to aut
 
 To make the Wi-Fi switch and the reboot service working you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
+To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme et maison connectée" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+
 ### Supported routers
 
 Only the routers with Freebox OS are supported:
 
-* Freebox V8 also known as Freebox Pop
-* Freebox V7 also known as Freebox Delta
-* Freebox V6 also known as Freebox Revolution
-* Freebox mini 4k
+- Freebox V8 also known as Freebox Pop
+- Freebox V7 also known as Freebox Delta
+- Freebox V6 also known as Freebox Revolution
+- Freebox mini 4k
 
-## Presence Detection
+## Presence detection
 
-This platform offers presence detection by keeping track of the devices connected to a [Freebox](https://www.free.fr/) router.
+This platform offers presence detection by keeping track of the devices connected to a [Freebox](https://www.free.fr/freebox/) router.
 
 ### Notes
 
@@ -102,7 +117,31 @@ refreshes the devices states.
 ## Sensor
 
 This platform offers you sensors to monitor a Freebox router.
-The monitored conditions are internal temperature and upload and download rates in KB/s.
+The monitored metrics are:
+- Internal temperature
+- Upload and download rates (in KB/s)
+- Free partition space of used disks
+- Number of missed calls
+
+## Binary sensor
+
+The health status of each RAID array can be monitored with a diagnostics binary sensor reflecting the `degraded` state (OK means not degraded, PROBLEM means degraded).
+
+## Camera
+
+Cameras are only available in Freebox V7 (also known as Freebox Delta).
+
+## Binary
+This platform offers you sensors to monitor:
+- motion sensor
+- door opener 
+- plastic cover
+
+## Alarm control panel
+
+This integration allows you to view and control the Freebox alarm control panel.
+
+
 
 ## Service
 

@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.12
 ha_domain: statsd
+ha_integration_type: integration
 ---
 
 The `statsd` integration makes it possible to transfer all state changes to an external [StatsD](https://github.com/etsy/statsd) instance.
@@ -31,7 +32,7 @@ port:
 prefix:
   description: Prefix to use.
   required: false
-  default: hass
+  default: "`hass`"
   type: string
 rate:
   description: The sample rate.

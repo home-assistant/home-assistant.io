@@ -8,6 +8,9 @@ ha_iot_class: Cloud Push
 ha_codeowners:
   - '@rutkai'
 ha_domain: watson_tts
+ha_platforms:
+  - tts
+ha_integration_type: integration
 ---
 
 The `watson_tts` text-to-speech platform that works with [IBM Watson Cloud](https://www.ibm.com/watson/services/text-to-speech/) to create the spoken output.
@@ -15,7 +18,7 @@ Watson is a paid service via IBM Cloud but there is a decent [free tier](https:/
 
 ## Setup
 
-For supported formats and voices please go to [IBM Cloud About section](https://cloud.ibm.com/docs/services/text-to-speech?topic=text-to-speech-about#about).
+For supported formats and voices please go to [IBM Cloud About section](https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-voices#languageVoices).
 
 To get started please read the [Getting started tutorial](https://cloud.ibm.com/docs/services/text-to-speech?topic=text-to-speech-gettingStarted#gettingStarted).
 
@@ -41,7 +44,7 @@ watson_url:
   description: "The endpoint to which the service will connect."
   required: false
   type: string
-  default: "`https://stream.watsonplatform.net/text-to-speech/api`"
+  default: "`https://api.us-south.text-to-speech.watson.cloud.ibm.com`"
 watson_apikey:
   description: "Your secret apikey generated on the IBM Cloud admin console."
   required: true
@@ -50,7 +53,7 @@ voice:
   description: Voice name to be used.
   required: false
   type: string
-  default: en-US_AllisonVoice
+  default: en-US_AllisonV3Voice
 output_format:
   description: "Override the default output format. Supported formats: `audio/flac`, `audio/mp3`, `audio/mpeg`, `audio/ogg`, `audio/ogg;codecs=opus`, `audio/ogg;codecs=vorbis`, `audio/wav`"
   required: false
@@ -65,7 +68,7 @@ Say to all `media_player` device entities:
 ```yaml
 - service: tts.watson_tts_say
   data:
-    message: 'Hello from Watson'
+    message: "Hello from Watson"
 ```
 
 or
@@ -83,8 +86,9 @@ Say to the `media_player.living_room` device entity:
 
 ```yaml
 - service: tts.watson_tts_say
-  data:
+  target:
     entity_id: media_player.living_room
+  data:
     message: >
       <speak>
           Hello from Watson
@@ -102,4 +106,14 @@ Say with break:
           <break time=".9s" />
           Watson
       </speak>
+```
+
+Optionally, specify a voice for the message:
+
+```yaml
+- service: tts.watson_tts_say
+  data:
+    message: "Hello from Watson"
+  options:
+    voice: en-US_EmilyV3Voice
 ```

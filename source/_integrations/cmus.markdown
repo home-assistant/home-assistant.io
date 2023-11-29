@@ -2,10 +2,13 @@
 title: cmus
 description: Instructions on how to integrate cmus Music Player into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Polling
 ha_release: 0.23
 ha_domain: cmus
+ha_platforms:
+  - media_player
+ha_integration_type: integration
 ---
 
 The `cmus` platform allows you to control a [cmus](https://cmus.github.io/) music player on a remote or local machine from Home Assistant.

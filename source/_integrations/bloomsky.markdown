@@ -2,20 +2,26 @@
 title: BloomSky
 description: Instructions on how to integrate the BloomSky within Home Assistant.
 ha_category:
-  - Environment
-  - Binary Sensor
+  - Binary sensor
   - Camera
+  - Environment
   - Sensor
+  - Weather
 ha_release: 0.14
 ha_iot_class: Cloud Polling
 ha_domain: bloomsky
+ha_platforms:
+  - binary_sensor
+  - camera
+  - sensor
+ha_integration_type: integration
 ---
 
-The `bloomsky` integration allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's.
+The **BloomSky** {% term integration %} allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Camera](#camera)
 - [Sensor](#sensor)
 
@@ -40,7 +46,7 @@ api_key:
   type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 The `bloomsky` binary sensor platform allows you to get data from your BloomSky device.
 
@@ -126,4 +132,4 @@ monitored_conditions:
       description: Voltage
 {% endconfiguration %}
 
-More conditions are available using the [BloomSky binary sensor](#binary-sensor) component.
+More conditions are available using the [BloomSky binary sensor](#binary-sensor) integration.

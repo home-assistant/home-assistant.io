@@ -8,6 +8,9 @@ ha_release: 0.74
 ha_codeowners:
   - '@dgomes'
 ha_domain: push
+ha_platforms:
+  - camera
+ha_integration_type: integration
 ---
 
 The `push` camera platform allows you to integrate images sent over HTTP POST to Home Assistant as a camera. External applications/daemons/scripts are therefore able to "stream" images through Home Assistant.
@@ -18,7 +21,7 @@ Images are cleared on new events, and events are separated by a soft (configurab
 
 ## Integration with motionEye
 
-The `push` camera can as an example be used with [motionEye](https://github.com/ccrisan/motioneye/wiki) a web frontend for the motion daemon. motionEye is usually configured to save/record files ***only*** when motion is detected. It provides a hook to run a command whenever an image is saved, which can be used together with cURL to send the motion detected images to the `push` camera, as shown in this example:
+The `push` camera can as an example be used with [motionEye](https://github.com/motioneye-project/motioneye/wiki) a web frontend for the motion daemon. motionEye is usually configured to save/record files ***only*** when motion is detected. It provides a hook to run a command whenever an image is saved, which can be used together with cURL to send the motion detected images to the `push` camera, as shown in this example:
 
 In motionEye, under **File Storage -> Run A Command** type in:
 ```bash

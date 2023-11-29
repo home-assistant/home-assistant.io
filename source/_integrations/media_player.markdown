@@ -1,20 +1,24 @@
 ---
-title: Media Player
+title: Media player
 description: Instructions on how to setup your media players with Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: media_player
-ha_iot_class:
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: entity
 ---
 
 Interacts with media players on your network.
 
+{% include integrations/building_block_integration.md %}
+
 ## Services
 
 ### Media control services
-Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `volume_set`, `volume_mute`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`, `shuffle_set`, `repeat_set`, `play_media`, `select_source`, `select_sound_mode`
+Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `volume_set`, `volume_mute`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`, `shuffle_set`, `repeat_set`, `play_media`, `select_source`, `select_sound_mode`, `join`, `unjoin`
 
 | Service data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
@@ -48,6 +52,8 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.                                                                                                                       |
 | `media_content_id`     |       no | A media identifier. The format of this is integration dependent. For example, you can provide URLs to Sonos and Cast but only a playlist ID to iTunes.                   |
 | `media_content_type`   |       no | A media type. Must be one of `music`, `tvshow`, `video`, `episode`, `channel` or `playlist`. For example, to play music you would set `media_content_type` to `music`. |
+| `enqueue`              |      yes | How the new media should interact with the queue. Must be one of `add`, `next`, `play`, `replace`. If the media player doesn't support this feature, the new media will play and the `enqueue` directive is ignored. |
+| `announce`             |      yes | Set to `true` to request the media player to temporarily stop playing media to announce this media and then resume. If the media player doesn't support this feature, the announcement will play but the media player and will not resume playing the interrupted media once the announcement finishes.
 | `extra`                |      yes | Extra dictionary data to send, e.g., title, thumbnail. Possible values can be found below.
 
 ##### Extra dictionary data
@@ -107,21 +113,22 @@ metadata:
 
 Documentation:
 
-- [Google Dev Documentaion MediaData](https://developers.google.com/cast/docs/reference/messages#MediaData)
-- [Google Dev Documentaion MediaInformation](https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.messages.MediaInformation)
+- [Google Dev Documentation MediaData](https://developers.google.com/cast/docs/reference/messages#MediaData)
+- [Google Dev Documentation MediaInformation](https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.messages.MediaInformation)
 
 
 Example of calling media_player service with title and image set:
 
 ```yaml
-entity_id: media_player.chromecast
 service: media_player.play_media
+target:
+  entity_id: media_player.chromecast
 data:
   media_content_type: music
-  media_content_id: 'https://fake-home-assistant.io.stream/aac'
+  media_content_id: "https://fake-home-assistant.io.stream/aac"
   extra:
-    thumb: 'https://brands.home-assistant.io/_/homeassistant/logo.png'
-    title: HomeAssitantRadio
+    thumb: "https://brands.home-assistant.io/_/homeassistant/logo.png"
+    title: HomeAssistantRadio
 ```
 
 #### Service `media_player.select_source`
@@ -142,7 +149,7 @@ Currently only supported on [Denon AVR](/integrations/denonavr/) and  [Songpal](
 
 #### Service `media_player.shuffle_set`
 
-Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Roon](/integrations/roon), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
+Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Roon](/integrations/roon), [OwnTone](/integrations/forked_daapd), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
@@ -156,9 +163,25 @@ Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integration
 | `entity_id`            |      yes | Target a specific media player. For example `media_player.kitchen`|
 | `repeat`               |       no | `off`/`all`/`one` for setting repeat mode            |
 
-### Device Class
+#### Service `media_player.join`
+
+Allows to group media players together for synchronous playback. Only works on supported multiroom audio systems.
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |      yes | The media player entity whose playback will be expanded to the players specified in `group_members`.  |
+| `group_members`        |       no | The player entities which will be synced with the playback from `entity_id`.  |
+
+#### Service `media_player.unjoin`
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |      yes | Unjoin this media player from any player groups.     |
+
+### Device class
 
 The way media players are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for media players:
 
 - `tv`: Device is a television type device.
 - `speaker`: Device is speaker or stereo type device.
+- `receiver`: Device is audio video receiver type device taking audio and outputting to speakers and video to some display.

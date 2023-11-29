@@ -9,68 +9,60 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@hunterjm'
   - '@uvjustin'
+  - '@allenporter'
 ha_domain: stream
+ha_platforms:
+  - diagnostics
+ha_integration_type: system
 ---
 
-The `stream` integration provides a way to proxy live streams through Home Assistant. The integration currently only supports proxying H.264 source streams to the HLS format and requires at least FFmpeg >= 4.
+The stream integration provides a way to proxy live streams through Home Assistant. Most users should not need to configure anything or interface with the integration directly since it is an internal integration used by the [camera integration](/integrations/camera).
 
 ## Configuration
 
-To enable this component, add the following lines to your `configuration.yaml` file:
+The `stream` integration is automatically loaded by `default_config` and enabled by the `camera` platforms that support it. If `default_config` is used, no separate `configuration.yaml` entry is necessary. However, there are some extra options you can configure.
+
+{% configuration %}
+ll_hls:
+  description: Allows disabling Low Latency HLS (LL-HLS)
+  required: false
+  type: boolean
+  default: true
+segment_duration:
+  description: The duration of each HLS segment, in seconds (between 2 and 10)
+  type: float
+  required: false
+  default: 6
+part_duration:
+  description: The duration of each part within a segment, in seconds (between 0.2 and 1.5)
+  type: float
+  required: false
+  default: 1
+{% endconfiguration %}
+
+## LL-HLS - Low Latency HLS
+
+LL-HLS reduces the start time and delay for a stream, but it has strict timing and network requirements and opens additional browser connections. To avoid running into browser limits it is strongly recommended to use an HTTP/2 proxy (e.g., NGINX or haproxy) to take advantage of request pipelining. LL-HLS is enabled by default, but when not using HTTP/2, the Home Assistant frontend will revert back to regular HLS if too many streams are open.
+
+You can further adjust LL-HLS settings in `configuration.yaml` as it may perform better or worse with different values depending on your network setup, cameras, or whether or not they are local or cloud.
+
+Example configuration:
 
 ```yaml
-# Example configuration.yaml entry
+# Example LL-HLS configuration.yaml entry.
 stream:
+  ll_hls: true
+  part_duration: 0.75
+  segment_duration: 6
 ```
 
-### Services
 
-Once loaded, the `stream` platform will expose services that can be called to perform various actions.
+## Technical details
 
-#### Service `record`
+The integration currently supports proxying H.264 and H.265 source streams to the HLS (and LL-HLS) protocol.
 
-Make a `.mp4` recording from a provided stream.  While this service can be called directly, it is used internally by the [`camera.record`](/integrations/camera#service-record) service.
+Note that while H.265 works on Android and iOS, it does not work in many browsers. This is a browser limitation and not a Home Assistant issue. Safari has native H.265 support, and H.265 also works in Edge on Windows when "HEVC Video Extensions" is installed. Chrome versions >= 104 may also work when started with the `--enable-features=PlatformHEVCDecoderSupport` option.
 
-Both `duration` and `lookback` options are suggestions, but should be consistent per stream.  The actual length of the recording may vary. It is suggested that you tweak these settings to fit your needs.
+For testing HEVC browser support, do not rely on the https://www.caniuse.com charts or the https://html5test.com site. They are inaccurate. You can instead use the ["Unprefixed tests" from caniuse.com](https://tests.caniuse.com/?feat=hevc) or the [hls.js demo app with an HEVC HLS stream](https://hls-js.netlify.app/demo/?src=https%3A%2F%2Fbitmovin-a.akamaihd.net%2Fcontent%2Fdataset%2Fmulti-codec%2Fhevc%2Fstream_fmp4.m3u8). The videos there should play if your browser supports H.265.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `stream_source`        |      no  | The input source for the stream, e.g., `rtsp://my.stream.feed:554`. |
-| `filename`             |      no  | The file name string. e.g., `/tmp/my_stream.mp4`. |
-| `duration`             |      yes | Target recording length (in seconds). Default: 30 |
-| `lookback`             |      yes | Target lookback period (in seconds) to include in addition to duration.  Only available if there is currently an active HLS stream for `stream_source`. Default: 0 |
-
-The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
-
-For example, the following action in an automation would take a recording from `rtsp://my.stream.feed:554` and save it to `/config/www`.
-
-```yaml
-action:
-  service: camera.record
-  data:
-    entity_id: camera.quintal
-    filename: '/config/www/my_stream.mp4'
-    duration: 30
-```
-
-## Streaming in Lovelace
-
-As of Home Assistant version 0.92 you can now live-stream a camera feed directly in lovelace.
-To do this add either [picture-entity](/lovelace/picture-entity/), [picture-glance](/lovelace/picture-glance/) or [picture-elements](/lovelace/picture-elements/), set `camera_image` to a stream-ready camera entity and set `camera_view` to `live` in one of your Lovelace views.
-
-## Troubleshooting
-
-Users on manual installs with FFmpeg < 4 may see an error similar to:
-
-```text
-2020-04-28 13:35:43 ERROR (SyncWorker_5) [homeassistant.util.package] Unable to install package av==7.0.1: ERROR: Command errored out with exit status 1:
-     command: /mnt/c/dev/home-assistant/venv/bin/python3.7 -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-twd7glz2/av/setup.py'"'"'; __file__='"'"'/tmp/pip-install-twd7glz2/av/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /tmp/pip-record-x9tw2ql2/install-record.txt --single-version-externally-managed --compile --install-headers /mnt/c/dev/home-assistant/venv/include/site/python3.7/av
-         cwd: /tmp/pip-install-twd7glz2/av/
-```
-
-You can solve this by running the following steps to update FFmpeg >= 4:
-
-```text
-sudo add-apt-repository ppa:jonathonf/ffmpeg-4
-sudo apt upgrade
-```
+The `stream` integration supports AAC and MP3 audio. PCM codecs (e.g. G.711/G.723/G.726/G.729) are not supported.

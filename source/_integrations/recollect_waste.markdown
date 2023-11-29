@@ -9,9 +9,14 @@ ha_domain: recollect_waste
 ha_codeowners:
   - '@bachya'
 ha_config_flow: true
+ha_platforms:
+  - calendar
+  - diagnostics
+  - sensor
+ha_integration_type: service
 ---
 
-The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [ReCollect](https://recollect.net/private-waste-haulers/).
+The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [ReCollect Waste](https://recollect.net/waste-haulers/).
 
 To use this integration, you must know both your ReCollect Place and Service IDs. In general, cities/municipalities that utilize ReCollect will give you a way to subscribe to a calendar with pickup dates. If you examine the iCal URL for this calendar, the Place and Service IDs are embedded in it:
 
@@ -25,6 +30,4 @@ The default frequency for pulling data from ReCollect Waste is once a day (86400
 The ReCollect Waste sensor uses the ReCollect API <strong>URL</strong> to obtain data and not an official API from ReCollect. Use at your own risk.
 </div>
 
-## Configuration
-
-This integration can be configured via the Home Assistant UI by navigating to **Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}

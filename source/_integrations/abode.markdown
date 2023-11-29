@@ -2,11 +2,11 @@
 title: Abode
 description: Instructions on integrating Abode home security with Home Assistant.
 ha_category:
-  - Hub
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Cover
+  - Hub
   - Light
   - Lock
   - Sensor
@@ -17,55 +17,39 @@ ha_config_flow: true
 ha_codeowners:
   - '@shred86'
 ha_domain: abode
+ha_homekit: true
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - camera
+  - cover
+  - light
+  - lock
+  - sensor
+  - switch
+ha_integration_type: integration
 ---
 
-The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
+The **Abode** {% term integration %} will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
 
 Please visit the [Abode website](https://goabode.com/) for further information about Abode Security.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following {% term device %} types within Home Assistant:
 
-- **Alarm Control Panel**: Reports on the current alarm status and can be used to arm and disarm the system.
-- **Binary Sensor**: Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
-- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image. Can be turned off and on using the [`camera.turn_off`](/integrations/camera/#service-turn_off) and [`camera.turn_on`](/integrations/camera/#service-turn_on) services.
+- **Alarm control panel**: Reports on the current alarm status and can be used to arm and disarm the system.
+- **Binary sensor**: Reports on `Quick Actions`, `Door Contacts`, `Connectivity` {% term sensors %} (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
+- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image. Can be turned off and on using the [`camera.turn_off`](/integrations/camera/#service-turn_off) and [`camera.turn_on`](/integrations/camera/#service-turn_on) {% term services %}.
 - **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
 - **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
 - **Light**: Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
 - **Switch**: Reports on `Power Switch` and `Water Valve` devices which can be turned on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
 - **Sensor**: Reports on `Temperature`, `Humidity`, and `Light` sensors.
 
-## Configuration
-
-To use Abode devices in your installation, add your Abode account from the integrations page. Alternatively, Abode can be configured by adding the following `abode` section to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-abode:
-  username: abode_username
-  password: abode_password
-```
-
-{% configuration %}
-username:
-  description: Username for your Abode account.
-  required: true
-  type: string
-password:
-  description: Password for your Abode account.
-  required: true
-  type: string
-polling:
-  description: >
-    Enable polling if cloud push updating is less reliable.
-    Will update the devices once every 30 seconds.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Events
 
-There are a number of events that can be triggered from Abode.
+There are a number of {% term events %} that can be triggered from Abode.
 They are grouped into the below events:
 
 - **abode_alarm**: Fired when an alarm event is triggered from Abode. This includes Smoke, CO, Panic, and Burglar alarms.
@@ -75,11 +59,12 @@ They are grouped into the below events:
 - **abode_panel_restore**: Fired when the panel fault is restored.
 - **abode_disarm**: Fired when the alarm is disarmed.
 - **abode_arm**: Fired when the alarm is armed (home or away).
+- **abode_arm_fault**: Fired when the alarm is armed (home or away) and has a fault. This includes open door/windows, low battery, backup connection. abode_arm is not fired if a fault is present.
 - **abode_test**: Fired when a sensor is in test mode.
 - **abode_capture**: Fired when an image is captured.
 - **abode_device**: Fired for device changes/additions/deletions.
 
-All events have the fields:
+All {% term events %} have the fields:
 
 Field | Description
 ----- | -----------
@@ -99,7 +84,7 @@ Field | Description
 There is a unique list of known event_codes that can be found
 [here](https://github.com/MisterWil/abodepy/files/1262019/timeline_events.txt).
 
-## Services
+## {% term Services %}
 
 ### Service `change_setting`
 

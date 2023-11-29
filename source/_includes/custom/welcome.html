@@ -1,10 +1,21 @@
- <h1>Awaken your home</h1>
- <p class="lead">
-Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.
+<h1>Awaken your home</h1>
+<p class="lead">
+  {{ site.description }}
 </p>
+
+{%- assign tot = 0 -%}
+{%- for comp in site.integrations -%}
+{%- if comp.ha_category -%}
+{%- if comp.ha_category.first -%}
+{%- assign tot = tot | plus: comp.ha_category.size -%}
+{%- else -%}
+{%- assign tot = tot | plus: 1 -%}
+{%- endif -%}
+{%- endif %}
+{%- endfor -%}
 
 <p class='hero-buttons'>
   <a href='/getting-started/'>Get started</a>
   <a href='https://demo.home-assistant.io' target='_blank'>View demo</a>
-  <a rel="me" href='https://github.com/home-assistant/home-assistant'>Browse code on GitHub</a>
+  <a href='/integrations/'>Browse {{ tot | minus: 1 | divided_by: 100 | round | times: 100 }}+ integrations</a>
 </p>

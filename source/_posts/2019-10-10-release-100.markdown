@@ -7,7 +7,9 @@ date_formatted: "October 10, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-09-0.100/components.png
 ---
 
@@ -194,7 +196,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Removed** - The following integrations which were marked in .98 for pending removal have now been removed (ADR-0004):
   - **UPS** - ([@frenck] - [#26824])

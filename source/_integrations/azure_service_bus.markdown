@@ -8,17 +8,20 @@ ha_release: 0.102
 ha_codeowners:
   - '@hfurubotten'
 ha_domain: azure_service_bus
+ha_platforms:
+  - notify
+ha_integration_type: integration
 ---
 
-The `Azure Service Bus` integration allows you to send messages to [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/) from within Home Assistant.
+The `Azure Service Bus` integration allows you to send messages to [Azure Service Bus](https://azure.microsoft.com/products/service-bus/) from within Home Assistant.
 
 ## First-time setup
 
-This assumes you already have an Azure account. Otherwise, create a free account [here](https://azure.microsoft.com/en-us/free/).
+This assumes you already have an Azure account. Otherwise, create a free account [here](https://azure.microsoft.com/free/).
 
-You need to create a Service Bus namespace; you can follow [this guide](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-create-namespace-portal).
+You need to create a Service Bus namespace; you can follow [this guide](https://learn.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal#create-a-namespace-in-the-azure-portal).
 
-You must then create a Shared Access Policy for the Service Bus with `Send` claims or use the RootManageAccessKey from your namespace (this key has additional claims, including managing the event hub and listening, which are not needed for this purpose), for more details on the security of Service Bus [go here](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature). Alternatively you can create a dedicated key for only one queue or topic, to restrict access to only that queue or topic.
+You must then create a Shared Access Policy for the Service Bus with `Send` claims or use the RootManageAccessKey from your namespace (this key has additional claims, including managing the event hub and listening, which are not needed for this purpose), for more details on the security of Service Bus [go here](https://learn.microsoft.com/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature). Alternatively you can create a dedicated key for only one queue or topic, to restrict access to only that queue or topic.
 
 Once you have the connection string with `Send` policy, you can set up the integration itself.
 
@@ -77,7 +80,7 @@ See the example below for how an automation trigger translates to a message on t
 
 ```yaml
 automation:
-  - alias: Sunset Service Bus message
+  - alias: "Sunset Service Bus message"
     trigger:
       platform: sun
       event: sunset
@@ -91,7 +94,7 @@ automation:
           custom_field: 123
           custom_object:
             trigger_more: true
-            explain: "Its starting to get dark"
+            explain: "It's starting to get dark"
 ```
 
 The message that can be retrieved from a queue or topic subscription:
@@ -104,7 +107,7 @@ The message that can be retrieved from a queue or topic subscription:
   "custom_field": 123,
   "custom_object": {
     "trigger_more": true,
-    "explain": "Its starting to get dark"
+    "explain": "It's starting to get dark"
   }
 }
 ```

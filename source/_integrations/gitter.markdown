@@ -5,9 +5,10 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.47
-ha_codeowners:
-  - '@fabaff'
 ha_domain: gitter
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 This `gitter` sensor allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.
@@ -34,5 +35,5 @@ room:
   description: Gitter room to monitor.
   required: false
   type: string
-  default: home-assistant/home-assistant
+  default: "`home-assistant/home-assistant`"
 {% endconfiguration %}

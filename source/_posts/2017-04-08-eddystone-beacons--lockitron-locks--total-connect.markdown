@@ -5,7 +5,9 @@ date: 2017-04-08 08:04:05 +0000
 date_formatted: "April 8, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-04-0.42/social.png
 ---
 
@@ -19,7 +21,7 @@ Also want to take a moment to thank Austin Andrews aka [Templarian] for his [Mat
 
 [hass-fb]: https://www.facebook.com/homeassistantio
 [diyAutomate]: https://www.youtube.com/c/diyautomate
-[mli]: https://materialdesignicons.com/
+[mli]: https://pictogrammers.com/library/mdi/
 [Templarian]: https://github.com/templarian
 
 ## New integrations
@@ -32,7 +34,7 @@ Also want to take a moment to thank Austin Andrews aka [Templarian] for his [Mat
 - The Ring doorbell has been integrated further with the inclusion of binary sensors ([@tchellomello] - [#6520])
 
 <!--more-->
-## Breaking changes
+## Backward-incompatible changes
 
 - We were incorrectly treating groups named `default_view` as default views. Make sure you set `view: true` in the config for these groups. [#251 (frontend)](https://github.com/home-assistant/home-assistant-polymer/pull/251)
 - The last release introduced a revamped LIFX platform. We only realized after deploy that this version does not work on Windows. We have added the old LIFX implementation back as `lifx_legacy`.

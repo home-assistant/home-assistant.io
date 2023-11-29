@@ -5,45 +5,42 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Update
 ha_release: 0.102
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@frenck'
 ha_domain: wled
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - button
+  - diagnostics
+  - light
+  - number
+  - select
+  - sensor
+  - switch
+  - update
+ha_integration_type: device
 ---
 
-[WLED](https://github.com/Aircoookie/WLED) is a fast and feature-rich
+[WLED](https://kno.wled.ge) is a fast and feature-rich
 implementation of an ESP8266/ESP32 webserver to control
 NeoPixel (WS2812B, WS2811, SK6812, APA102, and similar) LED's.
 
 While Home Assistant supports WLED 0.8.4 and higher, the use of WLED 0.10 and
 newer is recommended to get the optimal experience.
 
-## Configuration
-
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-In most cases, the WLED devices will be automatically discovered by
-Home Assistant. Those automatically discovered WLED devices are listed
-on the integrations page.
-
-If for some reason (e.g., due to lack of mDNS support on your network),
-the WLED device isn't discovered, it can be added manually.
-
-Click on the `+` sign to add an integration and click on **WLED**.
-After completing the configuration flow, the WLED
-integration will be available.
+{% include integrations/config_flow.md %}
 
 ## Lights
 
-This integration adds the WLED device as a light in Home Assistant.
+This {% term integration %} adds the WLED device as a light in Home Assistant.
 Home Assistant treats every segment of the LED strip as a separate light
-entity.
+{% term entity %}.
 
 Only native supported features of a light in Home Assistant are supported
 (which includes effects).
@@ -56,16 +53,33 @@ well. The fully-featured segment control has been introduced in WLED 0.10
 but has been partly around via APIs since WLED 0.8.6.
 
 If WLED has 1 segment defined (the default), that one segment controls the whole
-LED strip. Home Assistant creates a single light entity to control the
+LED strip. Home Assistant creates a single light {% term entity %} to control the
 strip.
 
-If WLED has 2 or more segments, each segment gets its own light entity in
-Home Assistant. Additionally, a master light entity is created. This master
-entity controls the strip power and overall brightness applied to all segments.
+If WLED has 2 or more segments, each segment gets its own light {% term entity %} in
+Home Assistant. Additionally, a master light {% term entity %} is created. This master
+{% term entity %} controls the strip power and overall brightness applied to all segments.
 
-## Sensors
+Additionally, select and number entities described below will be created for each segment.
 
-This integration provides sensors for the following information from WLED:
+## Select entities
+
+This {% term integration %} provides selects for the following information from WLED:
+
+- Playlist
+- Preset
+- Color palette (per segment, disabled by default).
+
+## Number entities
+
+This {% term integration %} provides `number` entities to control the following, segment-specific settings:
+
+- Intensity
+- Speed
+
+## Sensor entities
+
+This {% term integration %} provides sensors for the following information from WLED:
 
 - Estimated current (in mA).
 - Uptime (disabled by default)
@@ -74,95 +88,132 @@ This integration provides sensors for the following information from WLED:
 - Wi-Fi Signal Strength (RSSI in dBm, disabled by default).
 - Wi-Fi Channel (disabled by default).
 - Wi-Fi BSSID (disabled by default).
+- IP.
 
 ## Switches
 
-The integration will create a number of switches:
+The {% term integration %} will create a number of switches:
 
 ### Nightlight
 
-Toggles the WLED Timer. 
+Toggles the WLED Timer.
 Can be configured on the WLED itself under settings > LED Preferences > Timed light.
 
-### Sync Receive and Sync Send
+### Sync receive and sync send
 
-Toggles the synchronisation between multiple WLED devices. 
+Toggles the synchronization between multiple WLED devices.
 Can be configured on the WLED itself under settings > Sync Interfaces > WLED Broadcast.
 
-[WLED Sync documentation](https://github.com/Aircoookie/WLED/wiki/Sync-WLED-devices-(UDP-Notifier))
+[WLED Sync documentation](https://kno.wled.ge/interfaces/udp-realtime/)
 
-## Services
+## Firmware updates
 
-Currently, the WLED integration provides one service for controlling effect.
-More services for other WLED features are expected to be added in the future.
+The {% term integration %} has an [update entity](/integrations/update/) that provides
+information on the latest available version of WLED and indicates if a
+firmware update is available for installation.
 
-### Service `wled.effect`
+The firmware update can be triggered and installed onto your WLED device
+directly from Home Assistant.
 
-This service allows for controlling the WLED effect.
+The update {% term entity %} will only provide updates to stable versions, unless you are
+using a beta version of WLED. In that case, the update {% term entity %} will also provide
+updates to newer beta versions.
 
-| Service Data Attribute | Required | Description                                                                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | A WLED entity ID, or list entity IDs, to apply the effect to. Use `entity_id: all` to target all WLED entities. |
-| `effect`               | no       | Name or ID of the WLED light effect.                                                                            |
-| `intensity`            | no       | Intensity of the effect. Number between `0` and `255`.                                                          |
-| `palette`              | no       | Name or ID of the WLED light palette.                                                                           |
-| `speed`                | no       | Speed of the effect. Number between `0` (slow) and `255` (fast).                                                |
-| `reverse`              | no       | Reverse the effect. Either `true` to reverse or `false` otherwise.                                              |
+{% include integrations/option_flow.md %}
 
-A list of all available effects (and the behavior of the intensity for each
-effect) [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/List-of-effects-and-palettes#effects).
+{% configuration_basic %}
+Keep Master Light:
+  description: Keep the master light, even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to appear and remove dynamically.
+{% endconfiguration_basic %}
 
-### Service `wled.preset`
+## Example automations
 
-This service allows for loading a preset saved on the WLED device.
-
-| Service Data Attribute | Required | Description                                                                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | A WLED entity ID to load the preset from.                                                                       |
-| `preset`               | no       | ID of the preset slot to load from.                                                                             |
-
-More information on presets [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/Presets)
-
-## Example Automations
-
-### Activating Random Effect
+### Activating random effect
 
 You can automate changing the effect using a service call like this:
 
 {% raw %}
 
 ```yaml
-service: wled.effect
-data:
+service: light.turn_on
+target:
   entity_id: light.wled
+data:
   effect: "{{ state_attr('light.wled', 'effect_list') | random }}"
 ```
 
 {% endraw %}
 
-### Activating Random Palette
+### Activating random palette
 
-Activating a random palette is a bit more complicated as there is currently no way to obtain a list of available palettes.
-To go around this issue, one solution is to leverage the fact that palettes can be activated by their IDs.
-As the IDs are based on an incrementing counter, picking a random number between zero and the number of palettes minus one works.
-
-To do this, the first step is to use [WLED's JSON API](https://github.com/Aircoookie/WLED/wiki/JSON-API) find out how many palettes the device supports:
-
-```bash
-$ curl --silent http://<ip address of the wled device>/json | jq ".palettes | length"
-
-54
-```
-
-In this case (using WLED v0.11.0) there are 54 palettes, so the following service call will activate a random palette by its ID between 0 and 53:
+Activating a random palette is very similar to the above random effect,
+and can be done by selecting a random one from the available palette select
+{% term entity %}.
 
 {% raw %}
 
 ```yaml
-service: wled.effect
+service: select.select_option
+target:
+  entity_id: select.wled_palette
 data:
-  entity_id: light.wled
-  palette: "{{ range(0,53) | random }}"
+  option: "{{ state_attr('select.wled_palette', 'options') | random }}"
 ```
 
 {% endraw %}
+
+### Activating a preset
+
+Activating a preset is an easy way to set a WLED light to a specific
+configuration. Here is an example service call to set a WLED light 
+to a preset called My Preset:
+
+```yaml
+- service: light.turn_on
+  target:
+    entity_id: light.wled
+- service: select.select_option
+  target:
+    entity_id: select.wled_preset
+  data:
+    option: "My Preset"
+```
+
+### Automation using specific palette name
+
+An automation to turn on a WLED light and select a specific palette and
+set intensity, and speed can be created by first calling the `light.turn_on`
+service, then calling the `select.select_option` service to select the
+palette, then call the `number.set_value` service to set the intensity
+and again to set the speed. 
+
+Here is an example of all of these put together into an automation:
+
+```yaml
+- alias: "Turn on WLED rain effect when weather changes to rainy"
+  trigger:
+    - platform: state
+      entity_id: sensor.weather_condition
+      to: "rainy"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.wled
+      data:
+        effect: "Rain"
+    - service: select.select_option
+      target:
+        entity_id: select.wled_color_palette
+      data:
+        option: "Breeze"
+    - service: number.set_value
+      target:
+        entity_id: number.wled_intensity
+      data:
+        value: 200
+    - service: number.set_value
+      target:
+        entity_id: number.wled_speed
+      data:
+        value: 255
+```

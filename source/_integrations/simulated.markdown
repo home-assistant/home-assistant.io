@@ -1,13 +1,16 @@
 ---
 title: Simulated
-description: Component for simulating a numerical sensor.
+description: Integration for simulating a numerical sensor.
 ha_category:
-  - Utility
   - Sensor
+  - Utility
 ha_iot_class: Local Polling
 ha_release: 0.65
 ha_quality_scale: internal
 ha_domain: simulated
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `simulated` sensor platform provides a simulated sensor that generates a time-varying signal `V(t)` given by the [function](https://en.wikipedia.org/wiki/Sine_wave):
@@ -92,8 +95,8 @@ To give an example of simulating real world data, a simulated relative humidity 
 ```yaml
 sensor:
   - platform: simulated
-    name: 'simulated relative humidity'
-    unit: '%'
+    name: "simulated relative humidity"
+    unit: "%"
     amplitude: 0 # Turns off the periodic contribution
     mean: 50
     spread: 10

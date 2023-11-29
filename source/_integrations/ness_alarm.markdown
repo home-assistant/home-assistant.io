@@ -3,22 +3,26 @@ title: Ness Alarm
 description: Instructions on how to integrate a Ness D8x/D16x alarm system with Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_codeowners:
   - '@nickw444'
 ha_domain: ness_alarm
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+ha_integration_type: integration
 ---
 
 The `ness_alarm` integration will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor: Reports on zone statuses
-- Alarm Control Panel: Reports on alarm status, and can be used to arm/disarm the system
+- Binary sensor: Reports on zone statuses
+- Alarm control panel: Reports on alarm status, and can be used to arm/disarm the system
 
-The module communicates via the [Ness D8x/D16x ASCII protocol](http://www.nesscorporation.com/Software/Ness_D8-D16_ASCII_protocol.pdf).
+The module communicates via the [Ness D8x/D16x ASCII protocol](https://ia802202.us.archive.org/16/items/ness-d-8x-d-16x-serial-interface.-ascii-protocol/Ness%20D8x%20D16x%20Serial%20Interface.%20ASCII%20Protocol.pdf).
 
 ## Configuration
 
@@ -55,7 +59,7 @@ port:
 scan_interval:
   description: "Time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
-  default: '00:01:00'
+  default: "00:01:00"
   type: time
 infer_arming_state:
   description: Infer the disarmed arming state only via system status events. This works around a bug with some panels (`<v5.8`) which emit `update.status = []` when they are armed.
@@ -82,7 +86,7 @@ zones:
       type: string
 {% endconfiguration %}
 
-#### Time period dictionary example
+### Time period dictionary example
 
 ```yaml
 scan_interval:

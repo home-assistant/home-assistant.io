@@ -10,33 +10,54 @@ ha_config_flow: true
 ha_codeowners:
   - '@timmo001'
 ha_domain: lyric
+ha_quality_scale: silver
+ha_platforms:
+  - climate
+  - sensor
+ha_dhcp: true
+ha_integration_type: integration
 ---
 
-The Honeywell Lyric component integrates the Lyric thermostat platform into Home Assistant.
+The Honeywell Lyric integration integrates the Lyric thermostat platform into Home Assistant.
 
 ## Setup
 
-To set up this component, you will need to set up a developer account with Honeywell:
+To set up this integration, you first **must** set up a developer account with Honeywell using the same email address as your Resideo account:
 
 1. Go to the [developer site](https://developer.honeywellhome.com) and register with an account.
-1. Next, create a [new app](https://developer.honeywellhome.com/user/me/apps/add) via the `My Apps` section.
-   1. App Name: You can use any name here.
-   1. Callback URL: This needs to be the URL of your Home Assistant instance + `/auth/external/callback`. For example: `http://192.168.1.123:8123/auth/external/callback`.
+2. Next, create a [new app](https://developer.honeywellhome.com/user/me/apps/add) via the `My Apps` section.
+   1. App Name: You can use any name here, but it must not contain special characters.
+   2. Callback URL: `https://my.home-assistant.io/redirect/oauth`
+   3. The app will be approved automatically. To view the **Consumer Key** and **Consumer Secret** values, select the name of the app.  Copy the values, you will need them later.
 
-Once your app is created, copy the `Consumer Key` and `Consumer Secret`. These will be your `client_id` and `client_secret` to add to your configuration:
+{% details "I have manually disabled My Home Assistant" %}
 
-```yaml
-# Example configuration.yaml entry
-lyric:
-  client_id: MY_CONSUMER_KEY
-  client_secret: MY_CONSUMER_SECRET
-```
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
 
-You can then add the integration in the frontend.
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
 
-## Configuration
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
 
-Menu: **Configuration** -> **Integrations**.
+{% enddetails %}
 
-Click on the `+` sign to add an integration and click on **Honeywell Lyric**.
-Log in with your Honeywell Lyric account and agree to the terms. The Honeywell Lyric integration will then be available.
+You can then add the integration in the frontend via the steps below.
+
+{% include integrations/config_flow.md %}
+
+The integration configuration will ask for the **Client ID** and **Client Secret**, which correspond to the **Consumer** values in the app you created above. See [Application Credentials](/integrations/application_credentials) for more details.
+
+## Sensors
+
+This integration provides the following sensors:
+
+| Name                | Description                                 |
+| ------------------- | ------------------------------------------- |
+| Indoor Temperature  | The reported temperature from the device    |
+| Indoor Humidity     | The reported humidity from the device       |
+| Outdoor Temperature | Lyric's outdoor temperature report          |
+| Outdoor Humidity    | Lyric's outdoor humidity                    |
+| Next Period Time    | The next time the thermostat will change    |
+| Setpoint Status     | A description of the setpoint of the device |

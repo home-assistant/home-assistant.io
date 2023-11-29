@@ -2,20 +2,25 @@
 title: Vultr
 description: Instructions on how to integrate Vultr within Home Assistant.
 ha_category:
-  - System Monitor
-  - Binary Sensor
+  - Binary sensor
   - Sensor
   - Switch
+  - System monitor
 ha_release: 0.58
 ha_iot_class: Cloud Polling
 ha_domain: vultr
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
+ha_integration_type: integration
 ---
 
-The `vultr` integration allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
+The **Vultr** {% term integration %} allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -124,13 +129,13 @@ monitored_conditions:
   detault: All conditions
   type: list
   keys:
-    current_bandwidth_used:
+    current_bandwidth_gb:
       description: The current (invoice period) bandwidth usage in Gigabytes (GB).
     pending_charges:
       description: The current (invoice period) charges that have built up for this subscription. Value is in US Dollars (US$).
 {% endconfiguration %}
 
-Full `configuration.yaml` using `{}` to format condition name (produces `sensor.server_current_bandwidth_used` and `sensor.server_pending_charges`):
+Full `configuration.yaml` using `{}` to format condition name (produces `sensor.server_current_bandwidth_gb` and `sensor.server_pending_charges`):
 
 ```yaml
 sensor:
@@ -138,7 +143,7 @@ sensor:
     name: Server {}
     subscription: 123456
     monitored_conditions:
-      - current_bandwidth_used
+      - current_bandwidth_gb
       - pending_charges
 ```
 
@@ -182,7 +187,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### Additional Examples
+### Additional examples
 
 Full example that produces `switch.amazing_server`, assuming a subscription that has an ID of `123456` and a label of `Web Server`:
 

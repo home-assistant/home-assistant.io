@@ -5,7 +5,9 @@ date: 2017-11-18 04:00:00
 date_formatted: "November 18, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-11-0.58/components.png
 ---
 
@@ -78,7 +80,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
  - `hass.states.is_state_attr(entity_id, attribute, value)` has been removed. The template version still exists. Unused method parameter `wait` has been removed from `hass.bus.async_fire` ([@balloob] - [#10305]) (breaking change)
 - Refactor Neato botvac components as a vacuum ([@jabesq] - [#9946]) ([neato docs])  ([switch.neato docs]) ([vacuum.neato docs]) (breaking change) (new-platform)

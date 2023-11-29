@@ -5,7 +5,9 @@ date: 2017-07-15 00:02:05 +0000
 date_formatted: "July 15, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-07-0.49/components.png
 ---
 
@@ -81,7 +83,7 @@ This feature has also been brought to you by [@Andrey-git]! Big shout out to him
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - UPC Connect component no longer needs a password passed into the configuration. ([@Flavien] - [#8335]) ([device_tracker.upc_connect docs]) (breaking change)
 - The Apple TV platform has been upgraded to a component and a remote platform has been added. This requires your Apple TV configuration to be moved to the new `apple_tv` component. ([@postlund] - [#8122]) ([media_player.apple_tv docs]) (breaking change)

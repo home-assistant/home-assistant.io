@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.31
 ha_iot_class: Cloud Polling
 ha_domain: haveibeenpwned
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `haveibeenpwned` sensor platform creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).

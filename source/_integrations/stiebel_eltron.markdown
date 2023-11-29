@@ -8,6 +8,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fucm'
 ha_domain: stiebel_eltron
+ha_platforms:
+  - climate
+ha_integration_type: integration
 ---
 
 The `stiebel_eltron` integration lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
@@ -22,8 +25,9 @@ It requires the following components:
 
 By now, the following units are tested:
 
-- LWZ504e
-- LWZ304
+- LWZ 504e
+- LWZ 304
+- LWZ 304 Trend
 
 ## HVAC modes
 
@@ -44,7 +48,7 @@ The following preset modes are supported. The STIEBEL ELTRON modes are mapped an
 
 ## Configuration
 
-To enable this component, add the following lines to your `configuration.yaml` file:
+To enable this integration, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

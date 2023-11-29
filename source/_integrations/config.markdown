@@ -2,18 +2,20 @@
 title: Configuration
 description: Instructions on how to setup the configuration panel for Home Assistant.
 ha_category:
-  - Front End
+  - Front end
 ha_release: 0.39
-ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: config
+ha_platforms:
+  - scene
+ha_integration_type: system
 ---
 
 The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,7 +34,7 @@ This section enables you to manage your Home Assistant users.
 
 This section enables you to manage the name, location, and unit system of your Home Assistant installation.
 
-### Server Control
+### Server control
 
 This section enables you to control Home Assistant from within Home Assistant. Check your configuration, reload the core, groups, scripts, automations, and the Home Assistant process itself with a single mouse click.
 
@@ -42,7 +44,7 @@ This section enables you to control Home Assistant from within Home Assistant. C
 
 ### Persons
 
-This section enables you to associate users with their device tracker entities using the person component.
+This section enables you to associate users with their device tracker entities using the person integration.
 
 ### Entities
 
@@ -59,10 +61,6 @@ This section enables you to create and modify automations from within Home Assis
 ### Script
 
 Similar to the automation editor, this section enables you to create and modify scripts from within Home Assistant, without needing to write out the YAML code.
-
-### Z-Wave
-
-This section enables you to control your Z-Wave network and devices from within Home Assistant. You can add and remove devices, as well as change device specific configuration variables.
 
 ### Customizations
 

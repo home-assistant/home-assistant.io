@@ -2,10 +2,11 @@
 title: DOODS - Dedicated Open Object Detection Service
 description: Detect and recognize objects with DOODS.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_iot_class: Local Polling
 ha_release: '0.100'
 ha_domain: doods
+ha_integration_type: integration
 ---
 
 The `doods` image processing integration allows you to detect and recognize objects in a camera image using [DOODS](https://github.com/snowzach/doods/). The state of the entity is the number of objects detected and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
@@ -148,7 +149,7 @@ labels:
 
 ## Supported labels
 
-Both detectors "default" and "tensorflow" use the labels in [this file](https://raw.githubusercontent.com/amikelive/coco-labels/master/coco-labels-2014_2017.txt).
+Both detectors `default` and `tensorflow` use the labels in [this file](https://raw.githubusercontent.com/amikelive/coco-labels/master/coco-labels-2014_2017.txt).
 
 ## Sample configuration
 
@@ -209,12 +210,13 @@ image_processing:
 
 ```yaml
 # Example advanced automations.yaml entry
-- alias: Doods scanning
+- alias: "Doods scanning"
   trigger:
      - platform: state
        entity_id:
          - binary_sensor.driveway
   action:
     - service: image_processing.scan
-      entity_id: image_processing.doods_camera_driveway
+      target:
+        entity_id: image_processing.doods_camera_driveway
 ```

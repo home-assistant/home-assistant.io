@@ -12,6 +12,10 @@ ha_codeowners:
   - '@Quentame'
 ha_config_flow: true
 ha_domain: meteo_france
+ha_platforms:
+  - sensor
+  - weather
+ha_integration_type: integration
 ---
 
 The `meteo_france` integration uses the meteorological data from [Météo-France](http://www.meteofrance.com/) to provide weather forecast for any location in the world with a focus on France. One or more locations can be set via the front end or via the configuration file.
@@ -23,41 +27,14 @@ The integration support the following platforms within Home Assistant:
 
 It displays the current weather along with a 5 days forecast and create sensors, including weather alerts and 1 hour rain forecast when available.
 
-## Setup the integration
+{% include integrations/config_flow.md %}
 
-There are two ways to integrate Météo-France in Home Assistant.
-
-### Via the frontend (recommended)
-
-Menu: **Configuration** -> **Integrations** click the button with `+` sign and from the list of integrations select **Météo-France**
-
-Enter your city or French postal code in the form. If more than one city correspond to your search in the Météo-France's database you will have the possibility to select one in a dropdown list. Click submit, you are done!
-
-### Via the configuration file
-
-With this way of configuration you can't select a specific cities if more than one location is found in the  Météo-France database corresponding to your inputs. The integration will take the first one returned by the API.
-
-To add Météo-France to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry for 2 cities
-meteo_france:
-  - city: '76000'
-  - city: 'Auch'
-```
-
-{% configuration %}
-  city:
-    description: French postal code or name of the city.
-    required: true
-    type: string
-{% endconfiguration %}
 
 ## Weather platform
 
-To be used with the weather Lovelace card to access current condition, today and next four days forecast.
+To be used with the weather dashboard card to access current condition, today and next four days forecast.
 
-The weather platform can be configured in the frontend to decide if the forecast is given daily (default) or hourly. To change the setting go in **Configuration** -> **Integrations**, click on the city name in **Météo-France** box and click on **Options**. You can update the `Forecast mode` by choosing between `daily` or `hourly`.
+The weather platform can be configured in the frontend to decide if the forecast is given daily (default) or hourly. To change the setting go in **Settings** -> **Devices & Services**, click on the city name in **Météo-France** box and click on **Options**. You can update the `Forecast mode` by choosing between `daily` or `hourly`.
 
 ## Sensor platforms
 
@@ -82,7 +59,7 @@ All the following sensors will be created :
 
 Warning: The probability entities data are not always provided by the API. They are added only if available.
 
-To enable an entity disabled by default, go in **Configuration** -> **Integrations**, click on the city name in **Météo-France** and then the **X entities** link. You will have the list of the enabled entities. Here click the filter button and select **Show disable entities**. The disabled entities will be visible in the list, select the one you want to enable and click the **Enable Selected** button.
+To enable an entity disabled by default, go in **Settings** -> **Devices & Services**, click on the city name in **Météo-France** and then the **X entities** link. You will have the list of the enabled entities. Here click the filter button and select **Show disable entities**. The disabled entities will be visible in the list, select the one you want to enable and click the **Enable Selected** button.
 
 ### About `next_rain` condition sensor
 

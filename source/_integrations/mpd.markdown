@@ -2,12 +2,13 @@
 title: Music Player Daemon (MPD)
 description: Instructions on how to integrate Music Player Daemon into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: pre 0.7
 ha_iot_class: Local Polling
-ha_codeowners:
-  - '@fabaff'
 ha_domain: mpd
+ha_platforms:
+  - media_player
+ha_integration_type: integration
 ---
 
 The `mpd` platform allows you to control a [Music Player Daemon](https://www.musicpd.org/) from Home Assistant. Unfortunately you will not be able to manipulate the playlist (add or delete songs) or add transitions between the songs.
@@ -25,7 +26,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: IP address of the Host where Music Player Daemon is running.
+  description: Hostname or IP address of the Host where Music Player Daemon is running.
   required: true
   type: string
 port:
@@ -50,14 +51,16 @@ Example script to load a saved playlist called "DeckMusic" and set the volume:
 relaxdeck:
     sequence:
     - service: media_player.play_media
-      data:
+      target:
         entity_id: media_player.main
+      data:
         media_content_type: playlist
         media_content_id: DeckMusic
 
     - service: media_player.volume_set
-      data:
+      target:
         entity_id: media_player.main
+      data:
         volume_level: 0.60
 ```
 

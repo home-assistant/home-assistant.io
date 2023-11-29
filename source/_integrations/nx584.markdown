@@ -1,13 +1,16 @@
 ---
 title: NX584
 description: Instructions on how to integrate NX584 into Home Assistant.
-logo: networx.png
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.13
 ha_iot_class: Local Push
 ha_domain: nx584
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+ha_integration_type: integration
 ---
 
 The `nx584` platform provides integration with GE, Caddx, Interlogix (and other brands) alarm panels that support the NX584 interface module (or have it built in). Supported panels include NX4/6/8/8E. Actual integration is done through [pynx584](https://github.com/kk7ds/pynx584) which is required for this to work.
@@ -15,9 +18,9 @@ The `nx584` platform provides integration with GE, Caddx, Interlogix (and other 
 There is currently support for the following device types within Home Assistant:
 
 - [Alarm](#alarm-control-panel)
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 
-## Alarm Control Panel
+## Alarm control panel
 
 To enable this, add the following lines to your `configuration.yaml`:
 
@@ -39,13 +42,13 @@ name:
   type: string
   default: NX584
 port:
-  description: The port where the Alarm panel is listening.
+  description: The port where the alarm panel is listening.
   required: false
   type: integer
   default: 5007
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 Enabling this binary sensor platform exposes all of your zones as binary sensors, which provides visibility through the UI as well as the ability to trigger automation actions instantly when something happens like a door opening, or a motion sensor trigger.
 

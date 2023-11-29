@@ -2,10 +2,13 @@
 title: FFmpeg Noise
 description: Instructions on how to integrate an FFmpeg-based noise binary sensor
 ha_category:
-  - Image Processing
+  - Image processing
 ha_iot_class: Calculated
 ha_release: 0.27
 ha_domain: ffmpeg_noise
+ha_platforms:
+  - binary_sensor
+ha_integration_type: integration
 ---
 
 The `ffmpeg` platform allows you to use any video or audio feed with [FFmpeg](https://www.ffmpeg.org/) for various sensors in Home Assistant.
@@ -37,7 +40,7 @@ name:
   required: false
   type: string
 initial_state:
-  description: Start FFmpeg with home-assistant.
+  description: Start FFmpeg with Home Assistant.
   required: false
   type: boolean
   default: true
@@ -70,4 +73,18 @@ To experiment with values:
 
 ```bash
 ffmpeg -i YOUR_INPUT -vn -filter:a silencedetect=n=-30dB:d=1 -f null -
+```
+
+### Troubleshooting
+
+#### Unresponsive after a while
+
+If the noise sensor becomes unresponsive, make sure you have `extra_arguments: -nostats` in the configuration.  
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  - platform: ffmpeg_noise
+    input: FFMPEG_SUPPORTED_INPUT
+    extra_arguments: -nostats
 ```

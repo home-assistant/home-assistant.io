@@ -8,6 +8,9 @@ ha_iot_class: Cloud Polling
 ha_domain: schluter
 ha_codeowners:
   - '@prairieapps'
+ha_platforms:
+  - climate
+ha_integration_type: integration
 ---
 
 The `schluter` integration allows you to integrate your [Schluter-DITRA-HEAT-E-WiFi](https://www.schluter.com/schluter-us/en_US/ditra-heat-wifi) electric floor heating thermostat in Home Assistant.
@@ -42,7 +45,7 @@ password:
 
 Once Home Assistant is started, you will have access to any thermostats registered with your account.
 
-### Supported Features
+### Supported features
 
 Currently, this integration supports the following features:
 

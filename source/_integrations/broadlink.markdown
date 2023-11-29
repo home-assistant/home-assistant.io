@@ -3,56 +3,68 @@ title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
   - Climate
+  - Light
   - Remote
-  - Switch
   - Sensor
+  - Switch
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
   - '@felipediel'
+  - '@L-I-Am'
+  - '@eifinger'
   - '@majuss'
 ha_domain: broadlink
 ha_config_flow: true
+ha_platforms:
+  - light
+  - remote
+  - sensor
+  - switch
+ha_dhcp: true
+ha_integration_type: integration
 ---
 
-The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
 
 - Wi-Fi Controlled Thermostats: `Hysen HY02B05H, `Floureon HY03WE`
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
 - Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
-- Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro` and `RM4C mini`
-- Wi-Fi Controlled Switches: `SC1`
+- Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini` and `RM4 TV mate`
+- Wi-Fi Controlled Switches: `BG1`, `SC1`
+- Smart Light Bulbs: `LB1`,`LB2`
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To set up a Broadlink device, click _Configuration_ in the sidebar and click _Integrations_. If you see your device there, click _Configure_. If not, click the + icon in the lower right, select Broadlink from the list, enter the hostname or IP address of the device and follow the instructions to complete the setup.
-
-### Entities and subdomains
+## Entities and subdomains
 
 There is no more need to set up platforms, except for custom IR/RF switches. Once the device is configured, all entities will be created automatically.
 
-The entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to click _Update_ to save your changes when you're done.
+The {% term entities %} have the same name as the device by default. To change the name, icon or entity id, select the entity on the frontend and select the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to select **Update** to save your changes when you're done.
 
-The entities are divided into three subdomains:
+The {% term entities %} are divided into four subdomains:
 
 - [Climate](#climate)
 - [Remote](#remote)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Light](#light)
+
+## Climate
+
+The `climate` entities allow you to monitor and control Broadlink thermostats.
 
 ## Climate
 
 The `climate` entities allow you to monitor and control Broadlink thermostats.
 ## Remote
 
-The `remote` entities allow you to learn and send codes with universal remotes. They are created automatically when you configure devices with IR/RF capabilities.
+The `remote` {% term entities %} allow you to learn and send codes with universal remotes. They are created automatically when you configure devices with IR/RF capabilities.
 
 ### Learning commands
 
-Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#Learned%20codes%20storage%20location). They can be sent with the `remote.send_command` service later.
-
+Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` service later.
 
 | Service data attribute | Optional | Description                           |
 | ---------------------- | -------- | ------------------------------------- |
@@ -72,8 +84,9 @@ script:
   learn_tv_power:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: power
 ```
@@ -92,8 +105,9 @@ script:
   learn_car_unlock:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.garage
+        data:
           device: car
           command: unlock
           command_type: rf
@@ -115,8 +129,9 @@ script:
   learn_tv_commands:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command:
             - turn on
@@ -141,8 +156,9 @@ script:
   learn_tv_power_button:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: power
           alternative: true
@@ -152,7 +168,7 @@ When the LED blinks for the first time, press the button you want to learn. Then
 
 #### Learned codes storage location
 
-The learned codes are stored in `/configuration/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#Setting%20up%20custom%20IR/RF%20switches) or to send them as [base64 codes](#Sending%20a%20base64%20code), but beware: the files in the .storage folder _should never be edited manually_.
+The learned codes are stored in `/config/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#setting-up-custom-irrf-switches) or to send them as [base64 codes](#sending-a-base64-code), but beware: the files in the .storage folder _should never be edited manually_.
 
 ### Sending commands
 
@@ -176,8 +192,9 @@ script:
   tv_power:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: power
 ```
@@ -192,8 +209,9 @@ script:
   turn_up_tv_volume_20:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: volume up
           num_repeats: 20
@@ -209,8 +227,9 @@ script:
   turn_on_ac:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: air conditioner
           command:
             - turn on
@@ -227,8 +246,9 @@ script:
   turn_on_tv:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           command: b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
 ```
 
@@ -242,8 +262,9 @@ script:
   turn_on_ac:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           command:
             - b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
             - b64:JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
@@ -259,8 +280,9 @@ script:
   turn_on_ac:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command:
             - turn on
@@ -271,11 +293,11 @@ script:
 
 You can use `remote.delete_command` to remove commands that you've learned with the `remote.learn_command` service.
 
-| Service data attribute | Optional | Description                           |
-| ---------------------- | -------- | ------------------------------------- |
-| `entity_id`            | no       | ID of the remote.                     |
-| `device`               | no       | Name of the device.                   |
-| `command`              | no       | Names of the commands to be deleted.  |
+| Service data attribute | Optional | Description                          |
+| ---------------------- | -------- | ------------------------------------ |
+| `entity_id`            | no       | ID of the remote.                    |
+| `device`               | no       | Name of the device.                  |
+| `command`              | no       | Names of the commands to be deleted. |
 
 #### Deleting a command
 
@@ -287,8 +309,9 @@ script:
   delete_tv_power:
     sequence:
       - service: remote.delete_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: power
 ```
@@ -303,8 +326,9 @@ script:
   delete_tv_commands:
     sequence:
       - service: remote.delete_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command:
             - power
@@ -314,11 +338,15 @@ script:
 
 ## Sensor
 
-The `sensor` entities allow you to monitor Broadlink sensors. These entities are created automatically when you configure a device that has sensors.
+The `sensor` {% term entities %} allow you to monitor Broadlink sensors. These entities are created automatically when you configure a device that has sensors.
+
+## Light
+
+The `light` {% term entities %} allow you to control Broadlink lights. You can turn them on and off, change brightness, adjust the color or set a color temperature. These entities are created automatically when you configure a device that has lights.
 
 ## Switch
 
-The `switch` entities allow you to control and monitor Broadlink smart plugs, power strips and switches. You can turn them on and off, and you can monitor their state and power consumption, when available. These entities are created automatically when you configure a device that has switches.
+The `switch` {% term entities %} allow you to control and monitor Broadlink smart plugs, power strips and switches. You can turn them on and off, and you can monitor their state and power consumption, when available. These entities are created automatically when you configure a device that has switches.
 
 You can also define custom IR/RF switches to be controlled with universal remote devices.
 
@@ -506,12 +534,16 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 7. Drag a Template node on the Flow to the right of the RM node and link it to the RM node.
 8. Double click the Template node to edit it, select:
 
+   {% raw %}
+
    ```bash
    Property: msg.payload
    Format: Mustache template
-   Template field: enter '{% raw %}{{payload.data}}{% endraw %}'.
+   Template field: enter '{{payload.data}}'.
    Output as: Plain text
    ```
+
+   {% endraw %}
 
 9. Drag a Debug node to the right of the Template node and link them.
 10. Show the debug messages, deploy the flow and click on the inject button.
@@ -531,7 +563,7 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 
 This is the code we need to transmit again to replicate the same remote function.
 
-### Using Node red to Transmit Codes
+### Using Node-RED to transmit codes
 
 1. Drag another RM node on the same flow we created earlier. The RM node should be configured to the RM device created earlier by default.
 2. In the Action field, select - Set from msg.payload -.
@@ -608,25 +640,36 @@ Learning RF Frequency, press and hold the button to learn...
 
 Press and hold a button on the remote.
 
+You will know it succeeded when you see the following text:
 ```txt
 Found RF Frequency - 1 of 2!
 You can now let go of the button
 Press enter to continue...
 ```
 
-Press enter.
-
+If the attempt fails, you will see the error:
 ```txt
-To complete learning, single press the button you want to learn
+RF Frequency not found
 ```
+If a failure occurs, you may need to simply keep pressing the button during the `Learning RF Frequency` step, as some remotes appear to not continuously transmit when buttons are held.
 
-Short press the button and you get the code:
+After a success, do one of the following two options:
 
-```txt
-Found RF Frequency - 2 of 2!
-b2002c0111211011211121112111212110112122101121112111202210211121112110221011211121112121102210112121111021112221101121211100017b10211111211121102111212210112121111121102111212210211121102210211111211121102122102111112121101121112122101121211000017c10211111211022102111212210112121111022102112202210211121102210221011211022102122102210112121101122102122101121211100017b10211111211121102210212210112122101121102210212210221021112110221011211121112121102210112121111121102122101121221000017b1121101121112111211121211110212210112111211121211121102210211121101121112111212111211011222110112111212111112121100005dc000000000000000000000000
-Base64: b'sgAsAREhEBEhESERIREhIRARISIQESERIREgIhAhESERIRAiEBEhESERISEQIhARISERECERIiEQESEhEQABexAhEREhESEQIREhIhARISERESEQIREhIhAhESEQIhAhEREhESEQISIQIRERISEQESERISIQESEhEAABfBAhEREhECIQIREhIhARISERECIQIRIgIhAhESEQIhAiEBEhECIQISIQIhARISEQESIQISIQESEhEQABexAhEREhESEQIhAhIhARISIQESEQIhAhIhAiECERIRAiEBEhESERISEQIhARISERESEQISIQESEiEAABexEhEBEhESERIREhIREQISIQESERIREhIREhECIQIREhEBEhESERISERIRARIiEQESERISERESEhEAAF3AAAAAAAAAAAAAAAAA=='
-```
+1. To learn a single button press RF code, press enter and follow the prompt:
+    ```txt
+    To complete learning, single press the button you want to learn
+    ```
+    Short press the button and you get the code:
+    ```txt
+    Found RF Frequency - 2 of 2!
+    b2002c0111211011211121112111212110112122101121112111202210211121112110221011211121112121102210112121111021112221101121211100017b10211111211121102111212210112121111121102111212210211121102210211111211121102122102111112121101121112122101121211000017c10211111211022102111212210112121111022102112202210211121102210221011211022102122102210112121101122102122101121211100017b10211111211121102210212210112122101121102210212210221021112110221011211121112121102210112121111121102122101121221000017b1121101121112111211121211110212210112111211121211121102210211121101121112111212111211011222110112111212111112121100005dc000000000000000000000000
+    Base64: b'sgAsAREhEBEhESERIREhIRARISIQESERIREgIhAhESERIRAiEBEhESERISEQIhARISERECERIiEQESEhEQABexAhEREhESEQIREhIhARISERESEQIREhIhAhESEQIhAhEREhESEQISIQIRERISEQESERISIQESEhEAABfBAhEREhECIQIREhIhARISERECIQIRIgIhAhESEQIhAiEBEhECIQISIQIhARISEQESIQISIQESEhEQABexAhEREhESEQIhAhIhARISIQESEQIhAhIhAiECERIRAiEBEhESERISEQIhARISERESEQISIQESEiEAABexEhEBEhESERIREhIREQISIQESERIREhIREhECIQIREhEBEhESERISERIRARIiEQESERISERESEhEAAF3AAAAAAAAAAAAAAAAA=='
+    ```
+
+2. To learn a button hold RF code, hold the button you wish to learn for 1-2 seconds then immediately press enter.  
+    - You will see the same prompts for a short press as shown above. You should see it return a different base64 code.
+    - Test the base64 code to ensure it performs the button 'hold' command as expected, rather than the button 'press' command.
+    - This might take some trial and error to get the hold timing right before hitting enter to scan for the code.
 
 ### Conversion of codes from other projects
 

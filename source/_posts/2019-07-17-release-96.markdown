@@ -5,7 +5,9 @@ date: 2019-07-17 00:11:03
 date_formatted: "July 17, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-07-release-96/demo-sidebar.png
 ---
 
@@ -21,7 +23,7 @@ Home Assistant has adopted a new [Python support strategy](https://github.com/ho
 
 ## Pimp my Sidebar
 
-The sidebar has gotten an improved look! Idea started with [a mockup by @JuanMTech on Twitter](https://twitter.com/JuanMTech/status/1143757213971943424) and grew into a full blown implementation. When visiting Home Assistant on devices with big screens (tablets, laptops, desktops), the sidebar will now always be visible in a minimized mode with the ability to fully hide it via the profile page. The developer tool buttons have been collapsed into a single menu item. The dev tools will now store it's exact state when you navigate away, included the dev tool that is open. We've also taken the opportunity to make notifications accessible from the sidebar, instead of only via the Lovelace UI.
+The sidebar has gotten an improved look! Idea started with [a mockup by @JuanMTech on Twitter](https://twitter.com/JuanMTech/status/1143757213971943424) and grew into a full blown implementation. When visiting Home Assistant on devices with big screens (tablets, laptops, desktops), the sidebar will now always be visible in a minimized mode with the ability to fully hide it via the profile page. The developer tool buttons have been collapsed into a single menu item. The dev tools will now store its exact state when you navigate away, included the dev tool that is open. We've also taken the opportunity to make notifications accessible from the sidebar, instead of only via the Lovelace UI.
 
 On mobile devices the sidebar will behave like it previously did. Check [the demo](https://demo.home-assistant.io) for a preview.
 
@@ -270,7 +272,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __OpenTherm__ - Adds support for more than one OpenTherm Gateway device which changes the configuration structure. ([@mvn23] - [#22932]) ([opentherm_gw docs])
 

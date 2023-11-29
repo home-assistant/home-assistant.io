@@ -5,7 +5,9 @@ date: 2018-09-17 00:01:00
 date_formatted: "September 17, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-09-release-0.78/components.png
 ---
 
@@ -70,7 +72,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Trafikverket weather: Instead of having multiple sensor configurations per station, add only one configuration per station and select the type of measurement data to subscribe to using monitored_conditions.
 The configuration value type should no longer be used. ([@endor-force] - [#15935]) ([sensor.trafikverket_weatherstation docs]) (breaking change)

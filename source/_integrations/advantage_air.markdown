@@ -1,7 +1,15 @@
 ---
 title: Advantage Air
 description: Instructions on how to integrate Advantage Air A/C controller into Home Assistant.
-ha_category: Climate
+ha_category:
+  - Binary switch
+  - Climate
+  - Cover
+  - Light
+  - Sensor
+  - Switch
+  - Update
+  - Update
 ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -9,29 +17,44 @@ ha_codeowners:
   - '@Bre77'
 ha_domain: advantage_air
 ha_quality_scale: platinum
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - diagnostics
+  - light
+  - select
+  - sensor
+  - switch
+  - update
+ha_integration_type: integration
 ---
 
-The Advantage Air integration allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
+The **Advantage Air** {% term integration %} allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
 
-## Configuration
+## Prerequisites
 
-The wall-mounted Android table running the [MyPlace](https://play.google.com/store/apps/details?id=com.air.advantage.myair5), [e-zone](https://play.google.com/store/apps/details?id=com.air.advantage.ezone), or [zone10e](https://play.google.com/store/apps/details?id=com.air.advantage.zone10) must have a static IP, which you will enter on the integrations page in Home Assistant.
+The wall-mounted Android tablet running the [MyPlace](https://play.google.com/store/apps/details?id=com.air.advantage.myair5), [e-zone](https://play.google.com/store/apps/details?id=com.air.advantage.ezone), or [zone10e](https://play.google.com/store/apps/details?id=com.air.advantage.zone10) must have a static IP, which you will enter on the integrations page in Home Assistant.
 
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Advantage Air** (use typeahead if necessary).
-Enter the IP address, and leave the port as the default value.
-After completing the configuration flow, the Advantage Air integration will dynamically add relevant entities for each Air Conditioning system and controlled zones.
+{% include integrations/config_flow.md %}
 
 ## Entities
 
 ### Climate
 
-The integration will create a climate entity for each air conditioning system found and for each zone that is temperature-controlled.
+The integration will create a climate entity for each air conditioning system found and for each zone that is temperature-controlled. The main climate entity will change its supported features and modes based on the [MyComfort](https://www.advantageair.com.au/wp-content/uploads/2019/10/MyComfort.pdf) temperature mode currently set.
+
+- MyZone (default) - Use the MyZone select platform to pick which zone will be used for temperature control. Setting this to "Inactive" will use the return air vent temperature. e-zone systems do not support any MyComfort temperature modes, so will always be in the MyZone preset with MyZone set as "Inactive".
+- MyTemp - Use the main climate entity to change between cool, heat, and off. Use the zone climate entities to set the desired temperature in each zone.
+- MyAuto - Uses the average temperature of all zones for temperature control. When set to the Heat/Cool mode, you can adjust the heating and cooling target temperatures separately, and the MyAir system will automatically switch between heating and cooling as required.
+
+If you change MyComfort mode, you will need to restart Home Assistant or reload the integration.
 
 ### Cover
 
-The integration will create a cover entity for each zone that is not temperature controlled, allowing you to adjust the opening level manually from 0% to 100% in 5% increments.
+The integration will create a cover entity for each air conditioning zone that is not temperature controlled, allowing you to adjust the opening level manually from 0% to 100% in 5% increments.
+
+With MyPlace, any blinds and/or garage doors will be created as cover entities.
 
 ### Sensor
 
@@ -39,16 +62,30 @@ The integration will create sensor entities for a variety of aspects:
 
 - The air filter sensor shows if it needs to be replaced.
 - Two sensor entities will be created for the 'time to on' and 'time to off' features. Use the `advantage_air.set_time_to` service to change these.
-- Each zone that is temperature-controlled will have a sensor to show how open the damper is.
+- Each zone that is temperature-controlled will have a sensor to show the temperature (disabled by default), and how open the damper is.
 - Each zone with a wireless temperature or motion sensor will have a sensor that reports its wireless RSSI.
 
-### Binary Sensor
+### Binary sensor
 
-The `advantage_air` binary sensor platform will create a binary sensor for each zone that has a motion sensor.
+The integration will create a binary sensor for each zone that has a motion sensor.
 
 ### Switch
 
-The `advantage_air` switch platform will create a switch entity to toggle fresh air mode, if it is supported.
+The integration will create a switch entity to toggle air conditioning fresh air mode, if it is supported.
+
+With MyPlace, any relays will be created as switch entities.
+
+### Select
+
+The MyZone select entity that allows you to change the zone used for the "MyZone" feature. Set this to "Inactive" to use the return air vent temperature.
+
+### Update
+
+The update platform shows if the controller app requires an update.
+
+### Light
+
+With MyLights or MyPlace, light entities will be created for each light.
 
 ## Services
 

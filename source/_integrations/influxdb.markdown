@@ -5,11 +5,13 @@ ha_category:
   - History
   - Sensor
 ha_release: 0.9
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_codeowners:
-  - '@fabaff'
   - '@mdegat01'
 ha_domain: influxdb
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
@@ -54,12 +56,12 @@ host:
   default: localhost
 port:
   type: integer
-  description: Port to use. 2.xx - No default port for 2.xx, otherwise 8086.
+  description: Port to use. 2.xx - Must specify port for 2.xx, otherwise 8086.
   required: false
   default: 8086
 path:
   type: string
-  description: Path to use if your InfuxDB is running behind an reverse proxy.
+  description: Path to use if your InfuxDB is running behind a reverse proxy.
   required: false
 username:
   type: string
@@ -166,12 +168,12 @@ tags_attributes:
   default: 0
 ignore_attributes:
   type: [string, list]
-  description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you in order to reduce the amount of data stored in InfluxDB.
+  description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you in order to reduce the amount of data stored in InfluxDB. Please be aware of the underlying InfluxDB mechanism that converts non-string attributes to strings and adds a `_str` suffix to the attribute name in this case. It means that when you want to ignore, for example, the `icon_str` attribute that shows in your InfluxDB instance, you need to provide `icon` to `ignore_attributes`.
   required: false
 component_config:
   type: string
   required: false
-  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_measurement:
       type: string
@@ -197,7 +199,7 @@ component_config_domain:
 component_config_glob: 
   type: string
   required: false
-  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_measurement:
       type: string
@@ -209,7 +211,7 @@ component_config_glob:
       required: false
 {% endconfiguration %}
 
-## Configure Filter
+## Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `InfluxDB`, you can use the `include` and `exclude` parameters.
 
@@ -227,23 +229,7 @@ influxdb:
       - light.kitchen_light
 ```
 
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+{% include common-tasks/filters.md %}
 
 ## Examples
 
@@ -308,11 +294,11 @@ influxdb:
 
 ## Sensor
 
-The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be used to present statistics as Home Assistant sensors, if used with the `influxdb` history component. It can also be used with an external data source.
+The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be used to present statistics as Home Assistant sensors, if used with the `influxdb` history integration. It can also be used with an external data source.
 
 <div class='note'>
 
-  You must configure the `influxdb` history component in order to create `influxdb` sensors. If you just want to create sensors for an external InfluxDB database and you don't want Home Assistant to write any data to it you can exclude all entities like this:
+  You must configure the `influxdb` history integration in order to create `influxdb` sensors. If you just want to create sensors for an external InfluxDB database and you don't want Home Assistant to write any data to it you can exclude all entities like this:
 
 ```yaml
 influxdb:
@@ -415,13 +401,17 @@ bucket:
   default: Home Assistant
 queries:
   type: list
-  description: 1.xx only - List of InfluxQL queries.
+  description: 1.xx only - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring an InfluxQL query.
   required: true
   keys:
     name:
       type: string
       description: The name of the sensor.
       required: true
+    unique_id:
+      type: string
+      description: The unique ID for this query. This allows changing the name, icon and entity_id from the web interface.
+      required: false
     unit_of_measurement:
       type: string
       description: Defines the units of measurement of the sensor, if any.
@@ -455,13 +445,17 @@ queries:
       default: value
 queries_flux:
   type: list
-  description: 2.xx only - List of Flux queries.
+  description: 2.xx only - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring a Flux query.
   required: true
   keys:
     name:
       type: string
       description: The name of the sensor.
       required: true
+    unique_id:
+      type: string
+      description: The unique ID for this query. This allows changing the name, icon and entity_id from the web interface.
+      required: false
     unit_of_measurement:
       type: string
       description: Defines the units of measurement of the sensor, if any.
@@ -508,33 +502,38 @@ The example configuration entry below create two request to your local InfluxDB 
 - `select last(value) as value from "°C" where "name" = "foo"`
 - `select min(tmp) as value from "%" where "entity_id" = ''salon'' and time > now() - 1h`
 
+{% raw %}
+
 ```yaml
 sensor:
-  platform: influxdb
-  host: localhost
-
-username: home-assistant
-  password: password
-  queries:
-    - name: last value of foo
-      unit_of_measurement: °C
-      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
-      group_function: last
-      where: '"name" = ''foo'''
-      measurement: '"°C"'
-      field: value
-      database: db1
-    - name: Min for last hour
-      unit_of_measurement: '%'
-      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
-      group_function: min
-      where: '"entity_id" = ''salon'' and time > now() - 1h'
-      measurement: '"%"'
-      field: tmp
-      database: db2
+  - platform: influxdb
+    host: localhost
+    username: home-assistant
+    password: password
+    queries:
+      - name: last value of foo
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        group_function: last
+        where: '"name" = ''foo'''
+        measurement: '"°C"'
+        field: value
+        database: db1
+      - name: Min for last hour
+        unit_of_measurement: "%"
+        value_template: '{{ value | round(1) }}'
+        group_function: min
+        where: '"entity_id" = ''salon'' and time > now() - 1h'
+        measurement: '"%"'
+        field: tmp
+        database: db2
 ```
 
+{% endraw %}
+
 ### Full configuration for 2.xx installations
+
+{% raw %}
 
 ```yaml
 sensor:
@@ -547,9 +546,9 @@ sensor:
       - range_start: "-1d"
         name: "How long have I been here"
         query: >
-          filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "{% raw %} {{ states('person.me') }} {% endraw %}")
+          filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "{{ states('person.me') }}")
           |> map(fn: (r) => ({ _value: r._time }))
-        value_template: "{% raw %} {{ relative_time(strptime(value, '%Y-%m-%d %H:%M:%S %Z')) }} {% endraw %}"
+        value_template: "{{ relative_time(strptime(value, '%Y-%m-%d %H:%M:%S %Z')) }}"
       - range_start: "-1d"
         name: "Cost of my house today across all power sensor"
         query: >
@@ -558,7 +557,7 @@ sensor:
           |> sort(columns: ["_time"], desc: false)
           |> integral(unit: 5s, column: "_value")
         imports: regexp
-        value_template: "{% raw %} {{ value|float / 24.0 / 1000.0 * states('sensor.current_cost_per_kwh')|float }} {% endraw %}"
+        value_template: "{{ value|float / 24.0 / 1000.0 * states('sensor.current_cost_per_kwh')|float }}"
       - range_start: "-1d"
         bucket: Glances Bucket
         name: "Average CPU temp today"
@@ -566,7 +565,9 @@ sensor:
         group_function: mean
 ```
 
-Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history component, this means by default, you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags).
+{% endraw %}
+
+Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history integration, this means by default, you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags).
 
 This is a lot more tables compared to 1.xx queries, where you essentially had one table per `unit_of_measurement` across all entities. You can still create aggregate metrics across multiple sensors though. As you can see in the example above, a good way to do this is with the [keep](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/keep/) or [drop](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/drop/) filters. When you remove key columns Influx merges tables, allowing you to make many tables that share a schema for `_value` into one.
 

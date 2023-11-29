@@ -6,9 +6,12 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.43
 ha_domain: marytts
+ha_platforms:
+  - tts
+ha_integration_type: integration
 ---
 
-The `marytts` text-to-speech platform uses [MaryTTS](http://mary.dfki.de/) Text-to-Speech engine to read a text with natural sounding voices.
+The `marytts` text-to-speech platform uses [MaryTTS](http://mary.dfki.de/) text-to-speech engine to read a text with natural sounding voices.
 
 ## Configuration
 
@@ -68,21 +71,21 @@ A full configuration sample including optional variables:
 # Example configuration.yaml entry
 tts:
   - platform: marytts
-    host: 'localhost'
+    host: "localhost"
     port: 59125
-    codec: 'WAVE_FILE'
-    voice: 'cmu-slt-hsmm'
-    language: 'en_US'
+    codec: "WAVE_FILE"
+    voice: "cmu-slt-hsmm"
+    language: "en_US"
     effect:
-      Volume: "amount:2.0;",
-      TractScaler: "amount:1.5;",
-      F0Scale: "f0Scale:2.0;",
-      F0Add: "f0Add:50.0;",
-      Rate: "durScale:1.5;",
-      Robot: "amount:100.0;",
-      Whisper: "amount:100.0;",
-      Stadium: "amount:100.0",
-      Chorus: "delay1:466;amp1:0.54;delay2:600;amp2:-0.10;delay3:250;amp3:0.30",
-      FIRFilter: "type:3;fc1:500.0;fc2:2000.0",
+      Volume: "amount:2.0;"
+      TractScaler: "amount:1.5;"
+      F0Scale: "f0Scale:2.0;"
+      F0Add: "f0Add:50.0;"
+      Rate: "durScale:1.5;"
+      Robot: "amount:100.0;"
+      Whisper: "amount:100.0;"
+      Stadium: "amount:100.0"
+      Chorus: "delay1:466;amp1:0.54;delay2:600;amp2:-0.10;delay3:250;amp3:0.30"
+      FIRFilter: "type:3;fc1:500.0;fc2:2000.0"
       JetPilot: ""
 ```

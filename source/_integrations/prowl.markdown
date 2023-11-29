@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.52
 ha_iot_class: Cloud Push
 ha_domain: prowl
+ha_platforms:
+  - notify
+ha_integration_type: integration
 ---
 
 The `prowl` platform uses [Prowl](https://www.prowlapp.com/) to deliver push notifications from Home Assistant to your iOS device.
@@ -38,8 +41,9 @@ api_key:
 
 The following attributes can be placed `data` for extended functionality.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `priority`             |      yes | Priority level, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add). |
+| Service data attribute | Optional | Default | Description |
+| ---------------------- | -------- | ------- | ----------- |
+| `priority`             |      yes |    0    | Priority level, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add). |
+| `url`                  |      yes |   n/a   | URL to be attached, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add). |
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

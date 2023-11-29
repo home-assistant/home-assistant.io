@@ -1,8 +1,8 @@
 ---
-title: "Xiaomi Router"
+title: "Xiaomi router"
 description: "Instructions on how to integrate Xiaomi routers into Home Assistant."
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.36
 ha_domain: xiaomi
 ---
@@ -45,4 +45,3 @@ To ensure that your router is compatible, navigate to `http://YOUR_ROUTER_IP/api
 You should see a listing of the device currently connected to your router.
 
 However, some users report that even when the previous URL does not work, they have been able to integrate their Mi Router 3 in Home Assistant. E.g., some users with the Mi Router 3 and firmware version 2.10.46 Stable have integrated their routers successfully and an alternative URL to test integration with is `http://YOUR_ROUTER_IP/cgi-bin/luci/api/misystem/devicelist`. Navigating to this page should show the `{"code":401,"msg":"Invalid token"}` message.
-

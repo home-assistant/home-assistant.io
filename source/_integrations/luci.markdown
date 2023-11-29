@@ -1,18 +1,21 @@
 ---
-title: OpenWRT (luci)
-description: Instructions on how to integrate OpenWRT routers into Home Assistant.
+title: OpenWrt (luci)
+description: Instructions on how to integrate OpenWrt routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_codeowners:
   - '@mzdrale'
 ha_domain: luci
+ha_platforms:
+  - device_tracker
+ha_integration_type: integration
 ---
 
 This is a presence detection scanner for OpenWrt using [luci](https://openwrt.org/docs/techref/luci).
 
-Before this scanner can be used you have to install the luci RPC package on OpenWRT:
+Before this scanner can be used you have to install the luci RPC package on OpenWrt:
 
 ```bash
 # opkg install luci-mod-rpc
@@ -35,7 +38,7 @@ host:
   required: true
   type: string
 username:
-  description: The username of an user with administrative privileges, usually `admin`.
+  description: The username of a user with administrative privileges, usually `admin`.
   required: true
   type: string
 password:

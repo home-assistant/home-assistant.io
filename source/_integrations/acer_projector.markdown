@@ -6,6 +6,9 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.19
 ha_domain: acer_projector
+ha_platforms:
+  - switch
+ha_integration_type: integration
 ---
 
 The `acer_projector` switch platform allows you to control the state of RS232 connected projectors from [Acer](https://www.acer.com/).
