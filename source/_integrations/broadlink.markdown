@@ -45,8 +45,6 @@ The entities are divided into three subdomains:
 ## Climate
 
 The `climate` entities allow you to monitor and control Broadlink thermostats. For now only the Floureon HY03WE is supported and tested. Others may work, if not please open an issue.
-
-
 ## Remote
 
 The `remote` entities allow you to learn and send codes with universal remotes. They are created automatically when you configure devices with IR/RF capabilities.
