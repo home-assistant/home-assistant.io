@@ -67,7 +67,7 @@ This integration is known to work for:
 ### MBUS Support
 
 A smart meter can have multiple 'sub' devices aka mbus devices.
-For 5B the support was added for water and gas mbus devices. This means you can have up to 4 subdevices on your dsmr meter.
+For 5B the support was added for water and gas mbus devices. This means you can have up to 4 subdevices on your DSMR meter.
 While previously only 1 gasmeter was supported, there is now support for (multiple) gas and water meters.
 
 ### Connecting to the meter
