@@ -1212,7 +1212,7 @@ The output of this selector is a template string.
 
 ## Text selector
 
-The text selector can be used to input a text string or a list of  text strings, based on if `multiple` is set to `true`. The value of the input will contain the selected text.
+The text selector can be used to enter a text string. It can also be used to enter a list of text strings; if `multiple` is set to `true`. The value of the input will contain the selected text. This can be used in shopping lists, for example.
 
 ![Screenshot of text selectors](/images/blueprints/selector-text.png)
 
