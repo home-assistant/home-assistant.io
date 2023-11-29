@@ -232,7 +232,7 @@ noteworthy changes this release:
 [@bdraco]: https://github.com/bdraco
 [@CFenner]: https://github.com/CFenner
 [@eifinger]: https://github.com/eifinger
-[@emonstnemery]: https://github.com/emontnemery
+[@emontnemery]: https://github.com/emontnemery
 [@jbouwh]: https://github.com/jbouwh
 [@Lash-L]: https://github.com/Lash-L
 [@piitaya]: https://github.com/piitaya
