@@ -23,4 +23,5 @@ To use wake words, you need to install the openWakeWord add-on.
 ## Related topics
 
 - [Create your own wake words](/voice_control/create_wake_word/)
+- [About wake words](/voice_control/about_wake_word/)
 - [Create a cloud assistant](/voice_control/voice_remote_cloud_assistant/)

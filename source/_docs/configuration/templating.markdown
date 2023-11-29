@@ -46,7 +46,7 @@ script:
 
 {% endraw %}
 
-### Important Template Rules
+### Important template rules
 
 There are a few very important rules to remember when adding templates to YAML:
 
@@ -57,7 +57,7 @@ There are a few very important rules to remember when adding templates to YAML:
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
-### Enabled Jinja Extensions
+### Enabled Jinja extensions
 
 Jinja supports a set of language extensions that add new functionality to the language.
 To improve the experience of writing Jinja templates, we have enabled the following
@@ -65,7 +65,7 @@ extensions:
 
 - [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
 
-### Reusing Templates
+### Reusing templates
 
 You can write reusable Jinja templates by adding them to a `custom_templates` folder under your
 configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
@@ -102,7 +102,7 @@ In your automations, you could then reuse this macro by importing it:
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
 
-### Limited Templates
+### Limited templates
 
 Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
 
@@ -325,7 +325,7 @@ List of lights that are on with a brightness of 255:
 
 {% endraw %}
 
-### Working with Groups
+### Working with groups
 
 Not supported in [limited templates](#limited-templates).
 
@@ -418,7 +418,7 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
-### Config Entries
+### Config entries
 
 - `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
 
@@ -1066,7 +1066,7 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_template title="Developer Tools -> Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to **{% my developer_template title="Developer Tools > Template" %}**, create your output in "Template editor", and check the result.
 
 {% raw %}
 

@@ -4,7 +4,7 @@ description: Instructions on how to configure UniFi Network integration with Uni
 ha_category:
   - Hub
   - Image
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Switch
   - Update
@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Button](#button)
 - [Image](#image)
-- [Presence Detection](#presence-detection)
+- [Presence detection](#presence-detection)
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
@@ -44,7 +44,7 @@ The user needs administrator privileges in order to control switches.
 
 ### Extra configuration of the integration
 
-All configuration options are offered from the front end. Enter what UniFi Network integration you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
+All configuration options are offered from the front end. Enter what UniFi Network {% term integration %} you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
 
 ### Configuring Users
 
@@ -56,13 +56,21 @@ For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti
 
 ### Conflicts with MQTT
 
-The UniFi Network application can either be a UniFi OS console device (like the Cloud Key), or as software on any Linux system. If you run the UniFi Network application on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
+The UniFi Network application can either be a UniFi OS console device (like the Cloud Key), or as software on any Linux system. If you run the UniFi Network application on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT {% term integration %} as well.
 
 It is recommended that you run the UniFi Network application in a dedicated virtual machine to avoid that situation.
 
 ## Button
 
-Provides the ability to restart a UniFi device. This feature requires admin privileges.
+The Button entities will only be available and usable if the integration has a UniFi Network account with administrator privileges.
+
+### Power cycle PoE
+
+Use the **Power cycle PoE** button entity to power cycle one specific PoE port to cause the connected device to restart.
+
+### Restart UniFi device
+
+Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch, the PoE supply is not affected.
 
 ## Image
 
@@ -90,7 +98,7 @@ Try to get a wireless client to reconnect to the network.
 
 | Service data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `device_id`            | No       | String representing a device ID related to a UniFi Network integration.     |
+| `device_id`            | No       | String representing a device ID related to a UniFi Network {% term integration %} .     |
 
 ### Service unifi.remove_clients
 
@@ -100,7 +108,7 @@ Clean up clients on the UniFi Network application that has only been associated 
 
 ### Block network access for clients
 
-Allow control of network access to clients configured in the integration options by adding MAC addresses. Items in this list will have a Home Assistant switch created, using the UniFi Device name, allowing for blocking and unblocking.
+Allow control of network access to clients configured in the {% term integration %} options by adding MAC addresses. Items in this list will have a Home Assistant switch created, using the UniFi Device name, allowing for blocking and unblocking.
 
 ### PoE port control
 
@@ -108,7 +116,7 @@ Provides per-port PoE control. Entities are disabled by default. This feature re
 
 ### Control DPI Traffic Restrictions
 
-Entities appear automatically for each restriction group. If there are no restrictions in a group, no entity will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
+Entities appear automatically for each restriction group. If there are no restrictions in a group, no {% term entity %} will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
 
 ### Control Port forward functonality
 
@@ -146,7 +154,7 @@ This will show if there are firmware updates available for the UniFi network dev
 
 ## Debugging integration
 
-If you have problems with the UniFi Network application or integration you can add debug prints to the log.
+If you have problems with the UniFi Network application or {% term integration %} you can add debug prints to the log.
 
 ```yaml
 logger:
