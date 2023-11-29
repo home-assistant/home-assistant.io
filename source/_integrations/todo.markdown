@@ -62,7 +62,7 @@ Add a new To-do Item. A To-do list `target` is selected with a [Target Selector]
 | ---------------------- | -------- | ----------- | --------|
 | `item` | no | the name of the to-do Item. | Submit income tax return
 | `due_date` | yes | The date the to-do item is expected to be completed. | 2024-04-10
-| `due_date_time` | yes | The date and time the to-do item is expected to be completed. | 2024-04-10 23:00:00
+| `due_datetime` | yes | The date and time the to-do item is expected to be completed. | 2024-04-10 23:00:00
 | `description` | yes | A more complete description than the one provided by the summary | Collect all necessary documents and submit the final return.
 
 Only one of `due_date` or `due_date_time` may be specified.
