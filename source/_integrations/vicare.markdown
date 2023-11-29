@@ -17,6 +17,8 @@ ha_platforms:
   - water_heater
 ha_dhcp: true
 ha_integration_type: integration
+ha_codeowners:
+  - '@CFenner'
 ---
 
 The **Viessmann ViCare** {% term integration %} lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.

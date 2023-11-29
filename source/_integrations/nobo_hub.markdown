@@ -14,7 +14,7 @@ ha_platforms:
   - climate
   - select
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Integrates [Nobø Ecohub](https://www.glendimplex.no/produkter/varmestyring/11123610/noboe-hub/c-77/p-330)

@@ -14,6 +14,7 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
+  - diagnostics
   - light
   - number
   - select

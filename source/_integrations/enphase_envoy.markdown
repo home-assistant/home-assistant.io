@@ -13,6 +13,7 @@ ha_codeowners:
   - '@cgarwood'
   - '@dgomes'
   - '@joostlek'
+  - '@catsmanac'
 ha_platforms:
   - binary_sensor
   - diagnostics

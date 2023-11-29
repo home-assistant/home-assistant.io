@@ -12,6 +12,7 @@ ha_codeowners:
   - '@dknowles2'
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - lock
   - sensor
   - switch
