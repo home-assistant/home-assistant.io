@@ -9,6 +9,9 @@ These sentences allow you, for example, to:
 - **Turn entities on and off**
     - *"turn on the living room light"*
     - *"turn off ceiling fan"*
+    - *"turn on the TV"*
+    - *"lock all the doors"*
+    - *"open the main door"*
 - **Open and close covers**
     - *"Close the garage door"*
     - *"Open kitchen window"*
@@ -33,14 +36,16 @@ These sentences allow you, for example, to:
     - *"How many people are in the kitchen"*
     - *"Who is in the garage"*
     - *"Where is Anne"*
+- **Abort wake word**
+    - *"Nevermind"*: If you triggered the wake word by mistake and want to stop Home Assistant from listening
 
-This only works, if those {% term entities %} are available and are named exactly the way you call them.
+The sentences only work, if the {% term entities %} are available and are named exactly the way you call them.
 
 In addition to individual {% term entities %}, commands can target **areas**:
 
 - *"turn on all lights in the living room"*
 - *"open windows in the kitchen"*
-- *"change kitchen brightness to 50%"*
+- *"change office brightness to 50%"*
 - *"set bedroom lights to green"*
 
 Entity [aliases](/voice_control/aliases) are also matched so that multiple names can be used, even in different languages.
