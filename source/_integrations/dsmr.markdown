@@ -64,7 +64,7 @@ This integration is known to work for:
 - Ziv E0058 ESMR5
 - EasyMeter Q3D
 
-### MBUS Support
+### M-Bus support
 
 A smart meter can have multiple 'sub' devices aka mbus devices.
 For 5B the support was added for water and gas mbus devices. This means you can have up to 4 subdevices on your DSMR meter.
