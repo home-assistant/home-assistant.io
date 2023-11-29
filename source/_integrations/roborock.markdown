@@ -139,7 +139,7 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
 2. [Enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) for this integration and reload it.
 3. Search your logs for 'Got home data' and find the attribute rooms.
 4. Write the rooms down; they have a name and 6 digit ID.
-5. Make sure the map you want the room ids for is selected in your app. Room ids are non-unique and will repeat if you have multiple maps.
+5. Make sure the map you want the room IDs for is selected in your app. Room IDs are non-unique and will repeat if you have multiple maps.
 6. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %}. Select your vacuum as the entity and `get_room_mapping` as the command.
 7. Go back to your logs and look at the response to `get_room_mapping`. This is a list of the 6-digit IDs you saw earlier to 2-digit IDs (use the first number, for instance `16` in `[16, '14000663', 12]` ([internal room id, unique room id, room type])). In your original list of room names and 6-digit IDs, replace the 6-digit ID with its pairing 2-digit ID.
 8. Now, you have the 2-digit ID that your vacuum uses to describe a room.
