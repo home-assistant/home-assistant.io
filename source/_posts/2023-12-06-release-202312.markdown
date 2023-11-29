@@ -95,7 +95,7 @@ for a similar design for the thermostat card as well. Well, here it is!
 <img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/284530915-91331dd1-1bff-4dcf-8d68-6aefa5608d2a.png' alt='Temporary screenshot that needs to be replaced.'>
 
 Maybe you have noticed, but in the screenshot above, features of the tile card
-are visisble! The buttons for HVAC mode and the presets are now also available
+are visible! The buttons for HVAC mode and the presets are now also available
 for the thermostat card. You can configure the card to show them or not, by
 default, they are hidden.
 
@@ -509,7 +509,9 @@ The following integrations are also no longer available as of this release:
   ([@rytilahti] - [#94698])
 
 [@Lash-L]: https://github.com/Lash-L
+[@rytilahti]: https://github.com/rytilahti
 [#103565]: https://github.com/home-assistant/core/pull/103565
+[#94698]: https://github.com/home-assistant/core/pull/94698
 
 ## All changes
 
