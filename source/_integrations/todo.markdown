@@ -64,7 +64,7 @@ Add a new to-do item. A to-do list `target` is selected with a [Target Selector]
 | `due_datetime` | yes | The date and time the to-do item is expected to be completed. | 2024-04-10 23:00:00
 | `description` | yes | A more complete description than the one provided by the summary | Collect all necessary documents and submit the final return.
 
-Only one of `due_date` or `due_date_time` may be specified.
+Only one of `due_date` or `due_datetime` may be specified.
 
 This is a full example of service call in YAML:
 
@@ -90,7 +90,7 @@ Update a to-do item. A to-do list `target` is selected with a [Target Selector](
 | `due_datetime` | yes | The date and time the to-do item is expected to be completed. | 2024-04-10 23:00:00
 | `description` | yes | A more complete description than the one provided by the summary. | Collect all necessary documents and submit the final return.
 
-At least one of `rename` or `status` is required. Only one of `due_date` or `due_date_time` may be specified. This is a full example of a service call that updates the status and the name of a to-do item.
+At least one of `rename` or `status` is required. Only one of `due_date` or `due_datetime` may be specified. This is a full example of a service call that updates the status and the name of a to-do item.
 
 ```yaml
 service: todo.update_item
