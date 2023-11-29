@@ -45,15 +45,17 @@ Once you log in with your Roborock account, the integration will automatically d
 
 Roborock devices have a variety of features that are supported on some devices but not on others. Only entities that your device supports will be added to your integration.
 
+As of Home Assistant 2023.12, as long as the cloud client is connected, we are able to instantly update some entities immediately, instead of waiting for the typical coordinator update. In the descriptions below, if an entity has a (🔥) by it, that means it will be automatically updated.
+
 ### Vacuum
 
 The vacuum entity holds the ability to control most things the vacuum can do, such as start a clean, return to the dock, or set the fan speed.
 
 ### Select
 
-Mop mode - Describes how to mop the floor. On some firmware, it is called 'mop route'.
+Mop mode (🔥) - Describes how to mop the floor. On some firmware, it is called 'mop route'.
 
-Mop intensity - How hard you would like your vacuum to mop.
+Mop intensity (🔥) - How hard you would like your vacuum to mop.
 
 ### Binary sensor
 
@@ -78,15 +80,15 @@ Cleaning progress - Only available on some newer devices - what percent of the c
 
 Dock error - Only available on the non-basic docks - The current error of the vacuum or 'Ok' if none exist
 
-Main brush time left - How much time is left before Roborock recommends you replace your main brush.
+Main brush time left (🔥) - How much time is left before Roborock recommends you replace your main brush.
 
 Mop drying remaining time - Only available on the non-basic docks - How much time is left until the mop is dry and ready to continue cleaning.
 
-Side brush time left - How much time is left before Roborock recommends you replace your side brush.
+Side brush time left (🔥) - How much time is left before Roborock recommends you replace your side brush.
 
-Filter time left - How much time is left before Roborock recommends you replace your vacuum's air filter.
+Filter time left (🔥) - How much time is left before Roborock recommends you replace your vacuum's air filter.
 
-Status - The current status of your vacuum. This typically describes the action that is currently being run. For example, 'spot_cleaning' or 'docking'.
+Status (🔥) - The current status of your vacuum. This typically describes the action that is currently being run. For example, 'spot_cleaning' or 'docking'.
 
 Last clean begin - the last time that your vacuum started cleaning.
 
@@ -96,7 +98,7 @@ Total cleaning time - The lifetime cleaning duration of your vacuum.
 
 Total cleaning area - The lifetime cleaning area of your vacuum.
 
-Vacuum error - The current error with your vacuum, if there is one.
+Vacuum error (🔥) - The current error with your vacuum, if there is one.
 
 ### Time
 
