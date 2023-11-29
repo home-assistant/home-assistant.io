@@ -58,3 +58,4 @@ The integration is tested and verified for the following devices from YoLink:
 - YS3604 (FlexFob)
 - YS7106 (PowerFailureAlar)
 - YS4908 (Finger)
+- YS1604 (SpeakerHub)
