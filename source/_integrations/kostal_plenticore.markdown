@@ -117,20 +117,20 @@ The following sensors are available in the library:
 | Battery Discharge Year | kWh | Energy from PV on DC-side used to charge the battery of the current year. |
 | Battery Discharge Total | kWh | Energy from PV on DC-side used to charge the battery total. |
 | Energy to Grid Day | kWh | Energy fed into the grid for the current day. |
-| Energy to Grid Month | kWh | Energy fed into the grid for the current day. |
-| Energy to Grid Year | kWh | Energy fed into the grid for the current day. |
-| Energy to Grid Total | kWh | Energy fed into the grid for the current day. |
-| Sum power of all PV DC inputs | W | Sum all power from all PV inputs. |
+| Energy to Grid Month | kWh | Energy fed into the grid for the current month. |
+| Energy to Grid Year | kWh | Energy fed into the grid for the current year. |
+| Energy to Grid Total | kWh | Energy fed into the grid in total, since the system was installed. |
+| Sum power of all PV DC inputs | W | Total sum of power provided by all PV inputs together. |
 
 <div class='note'>
 The inverter does not provide any data about the energy that is fed into the grid directly, but the `pykoplenti` library provides it via virtual process data.
 </div>
 
-#### Configuration of Energy Dashboard
+#### Configuration of the energy dashboard
 
-The following sensors can be used in the [Energy Dashboard](/docs/energy/):
+The following sensors can be used in the [energy dashboard](/docs/energy/):
 
-| Energy Dashboard | Sensor |
+| Energy dashboard | Sensor |
 |------------------|:-------|
 | Grid consumption | Home Consumption from Grid Total |
 | Solar production | Energy PV1 Total, Energy PV2 Total, Energy PV3 Total |
