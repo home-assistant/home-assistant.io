@@ -16,12 +16,6 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Stookwijzer integration queries the [Atlas Leefomgeving Stookwijzer](https://www.atlasleefomgeving.nl/stookwijzer) API for air quality index and windspeed. Based on these values, Stookwijzer advises people not to burn pallets or wood, or not to use the barbecue. This can help prevent health issues for people in the area.
-
-The Stookwijzer integration can provide three different levels of recommendations:
-
-- Code Yellow: Please note: burning wood causes discomfort and air pollution.
-- Code Orange: It is recommended not to burn wood now.
-- Code Red: Do not burn wood now.
+The Stookwijzer integration queries the [Stookwijzer](https://www.stookwijzer.nu) API for windspeed and gets the air quality index from [Luchtmeetnet](https://www.luchtmeetnet.nl). Using these parameters, Stookwijzer advises people not to burn pallets or wood, or to use the barbecue. This can prevent health problems for people in the area.
 
 {% include integrations/config_flow.md %}
