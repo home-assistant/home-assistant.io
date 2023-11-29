@@ -11,13 +11,16 @@ ha_release: '0.40'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fronzbot'
+  - '@mkmer'
 ha_domain: blink
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - camera
+  - diagnostics
   - sensor
+  - switch
 ha_dhcp: true
 ha_integration_type: integration
 ---

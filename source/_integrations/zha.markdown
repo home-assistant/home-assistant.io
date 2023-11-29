@@ -24,6 +24,7 @@ ha_codeowners:
   - '@dmulcahey'
   - '@adminiuga'
   - '@puddly'
+  - '@TheJulianJES'
 ha_domain: zha
 ha_platforms:
   - alarm_control_panel

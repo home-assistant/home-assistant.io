@@ -7,7 +7,7 @@ ha_release: 2023.12
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@ProstoSanja'
-ha_domain: Komfovent
+ha_domain: komfovent
 ha_config_flow: true
 ha_platforms:
   - climate

@@ -2,12 +2,12 @@
 title: Freebox
 description: Instructions on how to integrate Freebox routers into Home Assistant.
 ha_category:
+  - Alarm Control Panel
   - Camera
   - Network
   - Presence detection
   - Sensor
   - Switch
-  - Alarm Control Panel
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -16,13 +16,13 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: freebox
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - camera
   - device_tracker
   - sensor
   - switch
-  - alarm_control_panel
 ha_zeroconf: true
 ha_integration_type: integration
 ---

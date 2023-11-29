@@ -18,6 +18,7 @@ ha_domain: huawei_lte
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - button
   - device_tracker
   - notify
   - sensor

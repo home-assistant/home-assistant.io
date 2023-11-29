@@ -17,6 +17,7 @@ ha_codeowners:
 ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
+  - climate
   - light
   - remote
   - sensor

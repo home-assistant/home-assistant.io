@@ -11,6 +11,7 @@ ha_platforms:
   - calendar
   - todo
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The CalDAV integration allows you to connect your WebDAV calendar to Home Assistant

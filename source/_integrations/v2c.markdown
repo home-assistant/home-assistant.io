@@ -1,5 +1,5 @@
 ---
-title: V2C 
+title: V2C
 description: Instructions on how to integrate V2C Trydan EVSE with Home Assistant.
 ha_category:
   - Car
@@ -10,8 +10,8 @@ ha_codeowners:
   - '@dgomes'
 ha_domain: v2c
 ha_platforms:
-  - number
   - binary_sensor
+  - number
   - sensor
   - switch
 ha_integration_type: integration
