@@ -3,7 +3,7 @@ title: Lutron Caséta
 description: Instructions on how to use Lutron Caseta devices with Home Assistant.
 featured: true
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Cover
   - Fan
@@ -179,7 +179,7 @@ For more information on working with buttons in Home Assistant, see the [Buttons
 
 Pico and Shade remotes are supported on the Smart Bridge (L-BDG2-WH), Smart Bridge PRO (L-BDGPRO2-WH), and RA2 Select (RR-SEL-REP2-BL) models.
 
-Device Triggers are implemented for `press` and `release` of each button on the remotes via watching for `lutron_caseta_button_event` events in the format:
+Device triggers are implemented for `press` and `release` of each button on the remotes via watching for `lutron_caseta_button_event` events in the format:
 
 {% raw %}
 

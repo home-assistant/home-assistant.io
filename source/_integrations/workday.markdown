@@ -2,7 +2,7 @@
 title: Workday
 description: Steps to configure the binary workday sensor.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.41

@@ -2,7 +2,7 @@
 title: DOODS - Dedicated Open Object Detection Service
 description: Detect and recognize objects with DOODS.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_iot_class: Local Polling
 ha_release: '0.100'
 ha_domain: doods

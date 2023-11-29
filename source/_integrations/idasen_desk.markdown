@@ -24,6 +24,8 @@ The recommended way to connect the desk to Home Assistant is by using an [ESPHom
   
 If you are not using an ESPHome Bluetooth Proxy, you need to keep `bluetoothctl` (or any other Bluetooth Agent) open during the integration setup, or it will fail to authenticate with the desk. The connection process is also less reliable than with ESPHome, so you may need to retry a few times until it succeeds. This is due to a limitation in the third-party Bluetooth implementation used by Home Assistant.
 
+Also, if not using an ESPHome Bluetooth Proxy, you may experience the desk becoming unavailable and needing re-pairing after a restart of Home Assistant or a reload of the integration. To pair it permanently, [access the host over SSH](https://developers.home-assistant.io/docs/operating-system/debugging/#ssh-access-to-the-host), pair the desk with `bluetoothctl pair <desk-BT-address>`, and validate it being listed by `bluetoothctl devices Paired`. If the desk is not listed as paired, repeat the command several times while entering pairing mode on the desk.
+
 </div>
 
 {% include integrations/config_flow.md %}

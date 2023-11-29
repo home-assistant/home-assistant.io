@@ -2,7 +2,7 @@
 title: Nexia/American Standard/Trane
 description: Instructions on how to integrate Trane and American Standard thermostats into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Scene
   - Sensor
@@ -29,7 +29,7 @@ The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Scene](#scene)
@@ -37,7 +37,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-### Binary Sensor
+### Binary sensor
 
 The following binary sensors are added for each thermostat:
 

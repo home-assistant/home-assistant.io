@@ -1,26 +1,26 @@
 ---
 type: card
-title: "Shopping List Card"
-sidebar_label: Shopping List
-description: "The Shopping List card allows you to add, edit, check-off, and clear items from your shopping list."
+title: "Shopping list card"
+sidebar_label: Shopping list
+description: "The shopping list card allows you to add, edit, check-off, and clear items from your shopping list."
 ---
 
-The Shopping List card allows you to add, edit, check-off, and clear items from your shopping list.
+The shopping list card allows you to add, edit, check-off, and clear items from your shopping list.
 
 <p class='img'>
 <img src='/images/dashboards/shopping_list_card.gif' alt='Screenshot of the shopping list card'>
-Screenshot of the Shopping List card.
+Screenshot of the shopping list card.
 </p>
 
-Setup of the [Shopping List integration](/integrations/shopping_list/) is required.
+Setup of the [shopping list integration](/integrations/shopping_list/) is required.
 
-To add the Shopping List card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -43,5 +43,5 @@ Title Example:
 
 ```yaml
 type: shopping-list
-title: Shopping List
+title: shopping list
 ```

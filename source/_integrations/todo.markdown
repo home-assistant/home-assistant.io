@@ -1,38 +1,37 @@
 ---
-title: To-do
-description: Instructions on how to use To-do Lists within Home Assistant.
+title: To-do list
+description: Instructions on how to use to-do lists within Home Assistant.
 ha_domain: todo
 ha_release: 2023.11
 ha_category:
-  - To-do List
+  - To-do list
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
 ---
 
-The To-do List integration provides todo list entities, allowing other integrations
-to integrate To-do Lists into Home Assistant. To-do lists are shown on the To-do list
+The to-do list integration provides to-do list entities, allowing other integrations
+to integrate to-do lists into Home Assistant. To-do lists are shown on the to-do list
 dashboard for tracking items and whether or not they have been completed.
 
 {% include integrations/building_block_integration.md %}
 
-## Viewing and managing To-do lists
+## Viewing and managing to-do lists
 
-Each To-do list is represented as its own entity in Home Assistant and can be
+Each to-do list is represented as its own entity in Home Assistant and can be
 viewed and managed on a to-do list dashboard. You can find the to-do list dashboard
 in the main sidebar of your Home Assistant instance.
 
-## The state of a To-do List entity
+## The state of a to-do list entity
 
-The state of a To-do List entity is a number, which represents the number of
+The state of a to-do list entity is a number, which represents the number of
 incomplete items in the list.
-
 
 ## Services
 
-Some To-do List integrations allow Home Assistant to manage the To-do Items in the list. The
-services provided by some To-do List entities are described below or you can read more about [Service Calls](/docs/scripts/service-calls/).
+Some to-do list integrations allow Home Assistant to manage the to-do items in the list. The
+services provided by some to-do list entities are described below or you can read more about [Service Calls](/docs/scripts/service-calls/).
 
 
 ### Service `todo.get_items`
@@ -56,7 +55,7 @@ data:
 
 ### Service `todo.add_item`
 
-Add a new To-do Item. A To-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+Add a new to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
@@ -69,21 +68,21 @@ service: todo.add_item
 target:
   entity_id: todo.personal_tasks
 data:
-  item: "Submit Income Tax Return"
+  item: "Submit income tax return"
 ```
 
 ### Service `todo.update_item`
 
-Update a To-do Item. A To-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+Update a to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `item` | no | The name of the to-do Item to update. | Submit income tax return
-| `rename` | yes | The new name of the to-do Item. | Something else
-| `status` | yes | The overall status of the To-do Item. |  `needs_action` or `completed`
+| `item` | no | The name of the to-do item to update. | Submit income tax return
+| `rename` | yes | The new name of the to-do item. | Something else
+| `status` | yes | The overall status of the to-do item. |  `needs_action` or `completed`
 
 At least one of `rename` or `status` is required. This is a full example of
-a service call that updates the status and the name of a to-do Item.
+a service call that updates the status and the name of a to-do item.
 
 ```yaml
 service: todo.update_item
@@ -97,7 +96,7 @@ data:
 
 ### Service `todo.remove_item`
 
-Removing a To-do Item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector), and the `data` payload supports the following fields:
+Removing a to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector), and the `data` payload supports the following fields:
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
@@ -106,7 +105,7 @@ Removing a To-do Item. A to-do list `target` is selected with a [Target Selector
 This is a full example of a service call that deletes a to-do Item with the specified name.
 
 ```yaml
-service: todo.delete_item
+service: todo.remove_item
 target:
   entity_id: todo.personal_tasks
 data:

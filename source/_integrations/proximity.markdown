@@ -3,7 +3,7 @@ title: Proximity
 description: Instructions on how to setup Proximity monitoring within Home Assistant.
 ha_category:
   - Automation
-  - Presence Detection
+  - Presence detection
 ha_release: 0.13
 ha_quality_scale: internal
 ha_domain: proximity
@@ -52,7 +52,7 @@ proximity:
     unit_of_measurement: mi
 ```
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how to set up geofencing in Home Assistant using the proximity integration.
 
 <lite-youtube videoid="pjAyRN5UiBg" videotitle="Geofencing in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>

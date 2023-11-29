@@ -43,10 +43,11 @@ In `Features/OAuth and Permissions/OAuth Tokens for Your Workspace`:
 
 ![](/images/integrations/slack/oauth-tokens-for-workspace.png)
 
+6. Ensure that the bot user is added to the channel in which you want it to post. This can be completed in several ways:
 
-Ensure that the bot user is added to the channel in which you want it to post. 
-In Slack, tag the bot user in a message, then add it to the channel. 
-
+- Using `/invite @bot` from the channel
+- Tagging the bot user in a message, then adding it to the channel via the Slackbot prompt.
+- Channel settings -> `Integrations` -> `Add apps`
 
 #### Sample App Manifest
 
