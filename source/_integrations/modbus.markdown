@@ -621,7 +621,7 @@ climates:
             state_auto:
               description: "Value corresponding to HVAC Auto mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_dry:
               description: "Value corresponding to HVAC Dry mode."
               required: false
@@ -643,12 +643,6 @@ climates:
           description: "Address of Fan mode register."
           required: true
           type: integer
-        write_registers:
-          description: "Request type, use `write_registers` if true  else `write_register`.
-            If more than one value is specified for a specific mode, only the first one is used for writing to the register."
-          required: false
-          type: boolean
-          default: false
         values:
           description: "Mapping between the register values and Fan modes
             This is typically used to control one of: Speed, Direction or On/Off state."
@@ -658,43 +652,43 @@ climates:
             state_fan_on:
               description: "Value corresponding to Fan On mode."
               required: false
-              type: [integer, list]
+              type: integer
             state_fan_off:
               description: "Value corresponding to Fan Off mode."
               required: false
-              type: [integer, list]
+              type: integer
             state_fan_low:
               description: "Value corresponding to Fan Low mode."
               required: false
-              type: [integer, list]
+              type: integer
             state_fan_medium:
               description: "Value corresponding to Fan Medium mode."
               required: false
-              type: [integer, list]
+              type: integer
             state_fan_high:
               description: "Value corresponding to Fan High mode."
               required: false
-              type: [integer, list]
+              type: integer
             state_fan_auto:
               description: "Value corresponding to Fan Auto mode."
               required: false
-              type: [integer, list]
+              type: integer
             state_fan_top:
               description: "Value corresponding to Fan Top mode."
               required: false
-              type: [integer, list]
+              type: integer
             state_fan_middle:
               description: "Value corresponding to Fan Middle mode."
               required: false
-              type: [integer, list]
+              type: integer
             state_fan_focus:
               description: "Value corresponding to Fan Focus mode."
               required: false
-              type: [integer, list]
+              type: integer
             state_fan_diffuse:
               description: "Value corresponding to Fan Diffuse mode."
               required: false
-              type: [integer, list]
+              type: integer
     hvac_onoff_register:
       description: "Address of On/Off state.
         When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
