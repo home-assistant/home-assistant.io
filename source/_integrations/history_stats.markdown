@@ -252,3 +252,9 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
   The `/developer-tools/template` page of your Home Assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
 
 </div>
+
+<div class='note'>
+
+  There is know bug when using `max` statistics from this sensor: [history_stats sensor does not reset until slightly after midnight for the next day](https://github.com/home-assistant/core/issues/75903)
+
+</div>
