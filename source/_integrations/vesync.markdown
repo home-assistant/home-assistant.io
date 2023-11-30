@@ -5,6 +5,7 @@ ha_category:
   - Fan
   - Light
   - Switch
+  - Humidifier
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -19,6 +20,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - humidifier
 ha_integration_type: integration
 ---
 
@@ -32,6 +34,7 @@ The following platforms are supported:
 - **switch**
 - **fan**
 - **sensor**
+- **humidifier**
 
 ## Supported devices
 
@@ -62,6 +65,10 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 - Core 400S: Smart True HEPA Air Purifier
 - Core 600S: Smart True HEPA Air Purifier
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
+
+### Humidifiers
+
+- LEVOIT Humidifer D301S - LUH-D301S-WEU
 
 ## Prerequisite
 
