@@ -74,6 +74,40 @@ hvac_modes:
   type: list
 {% endconfiguration %}
 
+## Climate preset modes
+
+Widget that displays buttons or icons to control the preset mode for a [climate](/integrations/climate).
+
+<p class='img'>
+  <img src='/images/dashboards/features/climate_preset_modes.png' alt='Screenshot of the tile card with the climate preset modes feature'>
+  Screenshot of the tile card with the climate preset modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-preset-modes"
+    style: "icons"
+    preset_modes:
+      - home
+      - eco
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`climate-preset-modes`"
+  type: string
+style:
+  required: false
+  description: "How the preset modes should be displayed. It can be either `dropdown` and `icons`."
+  type: string
+  default: dropdown
+preset_modes:
+  required: true
+  description: List of preset modes to show on the card. The list can contain `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, and `activity` or any other custom preset mode.
+  type: list
+{% endconfiguration %}
+
 ## Cover open/close
 
 Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
@@ -268,6 +302,33 @@ type:
   required: true
   description: "`light-color-temp`"
   type: string
+{% endconfiguration %}
+
+## Number value
+
+Widget that displays a slider or buttons to set the value for a [number](/integrations/number) or [input number](/integrations/input_number).
+
+<p class='img'>
+  <img src='/images/dashboards/features/number_value.png' alt='Screenshot of the tile card with the number value feature'>
+  Screenshot of the tile card with the number value feature
+</p>
+
+```yaml
+features:
+  - type: "number-value"
+    style: "buttons"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`number-value`"
+  type: string
+style:
+  required: false
+  description: "Which style of control to display. It can be either `buttons` or `slider`."
+  type: string
+  default: slider
 {% endconfiguration %}
 
 ## Target temperature
