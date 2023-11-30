@@ -2,7 +2,7 @@
 title: Matter (BETA)
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Light
@@ -34,13 +34,17 @@ The Matter integration allows you to control Matter devices on your local Wi-Fi 
 The integration is marked BETA: Both the Matter standard itself and its implementation within Home Assistant are in a early stage. You may run into compatibility issues and/or other bugs.
 </div>
 
-# What is Matter?
+# Introduction- What is Matter?
 
-Matter is [the new standard for home automation](<https://en.wikipedia.org/wiki/Matter_(standard)>), which has been released recently. It is in the process of being adopted by the tech industry. Matter is a local protocol. Device control is done without the need of any cloud. From a technical perspective, you can use a Matter-compatible device with Home Assistant without connecting to a vendor-specific cloud. However, some vendors may require you to set up an account before you can enable Matter.
+Matter is a new smart home connectivity standard for home automation products and IoT (Internet of Things) devices, see its [Wikipedia article](https://en.wikipedia.org/wiki/Matter_(standard)).
 
-Unlike the radio based protocols we're already familiar with in the IoT landscape, like Zigbee and Z-Wave, Matter uses standard IP-based communication. Matter is not a radio protocol, but a control protocol that runs on top of the existing network infrastructure, using your existing Wi-Fi/Ethernet routers and Thread.
+The initial version 1.0 release of Matter was published in October of 2022. Matter is still in the process of being adopted in the smart home market. It has gotten much publicity because of its promise of interoperability across all ecosystems. The largest tech companies like Google, Apple and Amazon teamed up to develop this new smart home connectivity standard under the roof of the CSA ([Connectivity Standards Alliance](https://csa-iot.org/)). The largest tech companies that are already active in the home automation market have announced that they are or will be working on Matter-compatible products and also joined the development effort. 
 
-Home Assistant is a so-called _controller_, it can control Matter based devices. Other examples of Matter controllers are the Google Nest speakers, Apple HomePods, and a SmartThings Station.
+Matter products run locally and always allow local control, with device control done without the need for any internet connection or cloud services. From a technical perspective, you can use a Matter-compatible device with Home Assistant without connecting to a vendor-specific cloud. However, some vendors may require you to set up an account before you can enable Matter support for some products, (especially for commercial manufacturer's own branded gateways/bridges/hubs/controllers sold as appliances).
+
+Unlike other common radio-based protocols for IoT, (like Zigbee, Z-Wave, and Bluetooth), the Matter standard specification itself does not contain its own proprietary radio protocol or network transport protocol, but instead, it is a service control protocol that runs **on top** of the existing network infrastructure at the application level, with all Matter devices communicating using standard IP-based (IPv6) communication over your existing [local area network (i.e. LAN networks like Wi-Fi and Ethernet)](https://en.wikipedia.org/wiki/Local_area_network) or [Thread (Low-Power Wireless Personal Area Network)](https://en.wikipedia.org/wiki/Thread_(network_protocol)) depending on the type of device.
+
+Home Assistant is a so-called "_controller_" in a Matter ecosystem, meaning that it can control Matter-based devices. Other examples of Matter controllers are the Google Nest products, Apple HomePod speakers, Samsung SmartThings Station, and some newer Amazon Echo devices.
 
 ## Bridge devices
 
@@ -169,67 +173,6 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 9. You are presented with a console interface where you see live logging of events. This is an interactive shell where you can type commands. For a list of all commands, type **matter help** and press enter.
 10. To add the device, we need the QR code. In the console, type in `matter onboardingcodes ble` and copy/paste the URL into your browser.
 11. Use the QR code to add the device using one of the above instructions on your phone, e.g. using the Home Assistant Companion app.
-
-## Known working devices
-
-Because the availability of actual Matter devices (and their documentation) is sparse, we provide a list of all known working devices that are tested by the Home Assistant Matter developers and/or the community to help you find the device you need. Note: The list below is ordered alphabetically, and some links contain affiliate links.
-
-Did you test a device that is not listed below? It would be greatly appreciated if you share your experience either on the Matter discord channel or contribute a PR (or suggestion) to this documentation page so you can help others, thanks in advance!
-
-### Aqara M2 Hub
-
-- Bridges Aqara (Zigbee) devices connected to the hub to Matter.
-- You need to enable Matter support/firmware in the Aqara app.
-- You will need an Aqara (cloud) account and the app before you can use Matter.
-- See [this Aqara landingpage](https://www.aqara.com/en/article-1583275073188196352.html) for more information, including what devices are bridged.
-- Device events, for example for the wall rockers and Cube, are not supported.
-
-### Eve Energy (power plug), Eve Door & Window (contact sensor), Eve Motion (motion sensor)
-
-- If you see a Matter logo on the box, the device runs Matter already and you can add it to HA immediately.
-- If there is a Thread logo, you need to install the Matter firmware using the Eve app.
-- No Matter logo and no Thread logo on the box? The device is not Matter compatible.
-- The energy metering feature of the Eve plug will not work in Home Assistant (Apple only feature).
-- Eve has just released official Matter support so ignore any documentation about the beta program.
-
-[Eve Energy on Amazon](https://amzn.to/3YuO62P)
-[Eve Door & Window on Amazon](https://amzn.to/3RIU6ml)
-[Eve Motion on Amazon](https://amzn.to/3jDujiP)
-
-### Nanoleaf (Essentials) Matter bulbs and Lightstrips
-
-- Although the products work great once commissioned, multiple users have reported that commissioning them can be a bit difficult and requires some patience and multiple resets or optimizations to your home network.
-- Check the [Nanoleaf Matter infopage](https://nanoleaf.me/en-EU/integration/matter/) for all supported products and instructions.
-
-### Philips Hue (V2) Bridge
-
-The Philips Hue V2 bridge supports Matter. You can enable Matter support in the Hue app. You can then commission it to Home Assistant and other fabrics.
-
-- Binding the Hue bridge to Home Assistant does not make sense because you will lose functionality over the default Hue integration in Home Assistant, such as button press events and (dynamic) scenes.
-- You will need a Hue/Signify (cloud) account and the app before you can use Matter.
-- Device events for example for dimmer remotes are not supported.
-- Only basic control of lights is supported, no scenes, events, effects etc.
-
-### SwitchBot Hub 2
-
-SwitchBot has released a (beta) firmware update to enable Matter support on their Hub 2. The SwitchBot Hub 2 is a Matter bridge device. It is bridging some of the devices, such as curtain motors, into Matter.
-
-- To use Matter, in the SwitchBot app, enable Matter bridge support. Then, copy the code and use that to commission the Hub to Home Assistant. Another option is to use a second device to scan the QR code.
-- Device support is limited. You bridge specific devices to Matter by adding them as **Secondary device** in the app. Note that not all SwitchBot devices can be bridged.
-- Enabling Matter support does not convert the actual SwitchBot devices into matter devices. Those still need to be within the Bluetooth range of the hub.
-- Bridged SwitchBot devices appear with a rather technical name in Home Assistant. This is a known issue.
-
-
-### Tasmota
-
-Tasmota supports Matter over IP on all ESP32 based devices (in experimental phase). Follow the [instructions](https://tasmota.github.io/docs/Matter/).
-
-### TP-Link Tapo P125M (power plug)
-
-- Look for the _M_ addition in the model name. A device without the M (regular P125) is not Matter compliant.
-- This device is available in the US only.
-
-[TP-Link Tapo P125M on Amazon](https://amzn.to/3RILJah)
 
 ## Troubleshooting
 

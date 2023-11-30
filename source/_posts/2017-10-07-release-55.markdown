@@ -61,7 +61,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - history_graph component: If your component used `history.get_significant_states` function then you need to adjust the string `entity_id` parameter has been changed to a list of strings `entity_ids` parameter. ([@andrey-git] - [#9472]) (breaking change)
 - UPNP component: The `external_port` configuration option was removed. ([@balloob] - [#9560]) ([upnp docs]) (breaking change)

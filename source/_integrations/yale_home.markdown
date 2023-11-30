@@ -2,7 +2,7 @@
 title: Yale Home
 description: Connect and control your Yale Home devices using the August integration
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Camera
   - Doorbell

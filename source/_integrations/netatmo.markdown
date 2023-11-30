@@ -8,7 +8,7 @@ ha_category:
   - Environment
   - Hub
   - Light
-  - Media Source
+  - Media source
   - Sensor
   - Switch
   - Weather

@@ -76,7 +76,7 @@ action:
 The output of this selector is a list of actions. For example:
 
 ```yaml
-# Example Action selector output result
+# Example action selector output result
 - service: scene.turn_on
   target:
     entity_id: scene.watching_movies
@@ -97,7 +97,7 @@ selected add-on.
 This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
-# Example Add-on selector
+# Example add-on selector
 addon:
 ```
 
@@ -202,10 +202,10 @@ The output of this selector is the area ID, or (in case `multiple` is set to
 `true`) a list of area IDs.
 
 ```yaml
-# Example Area selector output result, when multiple is set to false
+# Example area selector output result, when multiple is set to false
 living_room
 
-# Example Area selector output result, when multiple is set to true
+# Example area selector output result, when multiple is set to true
 - living_room
 - kitchen
 ```
@@ -347,7 +347,7 @@ condition:
 The output of this selector is a list of conditions. For example:
 
 ```yaml
-# Example Condition selector output result
+# Example condition selector output result
 - condition: numeric_state
   entity_id: "sensor.outside_temperature"
   below: 20
@@ -568,10 +568,10 @@ The output of this selector is the device ID, or (in case `multiple` is set to
 `true`) a list of devices IDs.
 
 ```yaml
-# Example Device selector output result, when multiple is set to false
+# Example device selector output result, when multiple is set to false
 faadde5365842003e8ca55267fe9d1f4
 
-# Example Device selector output result, when multiple is set to true
+# Example device selector output result, when multiple is set to true
 - faadde5365842003e8ca55267fe9d1f4
 - 3da77cb054352848b9544d40e19de562
 ```
@@ -717,7 +717,7 @@ light.living_room
 An example entity selector that, will only show entities that are:
 
 - Provided by the [ZHA](/integrations/zha) integration.
-- From the [Binary Sensor](/integrations/binary_sensor) domain.
+- From the [Binary sensor](/integrations/binary_sensor) domain.
 - Have presented themselves as devices of a motion device class.
 - Allows selecting one or more entities.
 
@@ -1212,7 +1212,7 @@ The output of this selector is a template string.
 
 ## Text selector
 
-The text selector can be used to input a text string. The value of the input will contain the selected text.
+The text selector can be used to enter a text string. It can also be used to enter a list of text strings; if `multiple` is set to `true`. The value of the input will contain the selected text. This can be used in shopping lists, for example.
 
 ![Screenshot of text selectors](/images/blueprints/selector-text.png)
 
@@ -1251,6 +1251,12 @@ autocomplete:
     This supplies the [HTML `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete).
     Any value supported by the HTML attribute is valid.
   type: string
+  required: false
+multiple:
+  description: >
+    Allows adding list of text strings. If set to `true`, the resulting value of this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
   required: false
 {% endconfiguration %}
 
