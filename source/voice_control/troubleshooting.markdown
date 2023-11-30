@@ -82,3 +82,5 @@ The example below shows common pitfalls when enquiring about the weather. While 
    - To view the entity name, check the list under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
    - For example, if the entity is called *Forecast Berlin*, you have to say "What is the weather in forecast Berlin like".
    - Assist would not recognize it if you ask "What is the weather in Berlin like".
+5. If you just ask "What is the weather" when you have weather forecast entities for multiple entities, Assist returns the weather data for the one with the oldest timestamp.
+
