@@ -93,7 +93,7 @@ Recommended energy dashboard configuration for meter location in feed in path:
 
 Recommended energy dashboard configuration for meter location in consumption path:
 
-- The `Power grid` entity provided by the Fronius API is positive on import and negative on export. Split it up into import- and export-power entities by using helpers with templates `max(states(sensor.solarnet_power_grid) | float, 0)` and `max(0 - states(sensor.solarnet_power_grid) | float, 0)`.
+- The `Power grid` entity provided by the Fronius API is positive on import and negative on export. Split it up into import- and export-power entities by using helpers with templates `max(states('sensor.solarnet_power_grid') | float, 0)` and `max(0 - states('sensor.solarnet_power_grid') | float, 0)`.
 - Then use [Riemann sum](/integrations/integration/) to integrate these import-/export-power entities into energy values (kWh).
 - Use these energy entities for `Grid consumption` and `Return to grid` in the energy dashboard configuration.
 

@@ -24,7 +24,7 @@ For the moment, other user accounts will have the same access as the owner accou
 If you want to manage users and you're an owner but you do not see "Users" in your main configuration menu, make sure that "Advanced Mode" is enabled for your user in your profile.
 </div>
 
-### Your Account Profile
+### Your account profile
 
 Once you're logged in, you can see the details of your account at the _Profile_ page by clicking on the circular at the very bottom of the sidebar.
 
@@ -46,7 +46,7 @@ As an extra level of security, you can turn on [multi-factor authentication](/do
 
 ## Other authentication techniques
 
-Home Assistant provides several ways to authenticate. See the [Auth Providers](/docs/authentication/providers/) section.
+Home Assistant provides several ways to authenticate. See the [Auth providers](/docs/authentication/providers/) section.
 
 ## Troubleshooting
 
@@ -105,9 +105,9 @@ Replace `12.34.56.78` with your Home Assistant's public IP address.
 
 This will allow you to open Home Assistant at `http://homeassistant.home:8123/`
 
-### Stuck on Loading data
+### Stuck on loading data
 
-Some ad blocking software, such as Wipr, also blocks web sockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
+Some ad blocking software, such as Wipr, also blocks WebSockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
 
 ### Migrating from pre 0.77
 

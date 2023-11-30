@@ -52,7 +52,7 @@ If you are just starting out, we recommend that you purchase a 700 series contro
   If you're using Home Assistant OS, Supervised, or Container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
 </div>
 
-## Stick Alternatives
+## Stick alternatives
 
 The alternative to a stick is a hub that supports Z-Wave. Home Assistant supports the following hubs with Z-Wave support:
 
@@ -61,7 +61,7 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 - [SmartThings](/integrations/smartthings/)
 - [Z-Wave.Me Z-Way](/integrations/zwave_me)
 
-## Controller Notes
+## Controller notes
 
 ### 800 Series Controllers
 

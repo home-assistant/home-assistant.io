@@ -1,24 +1,24 @@
 ---
 type: card
-title: "Map Card"
+title: "Map card"
 sidebar_label: Map
-description: "The Map card that allows you to display entities on a map"
+description: "The map card that allows you to display entities on a map"
 ---
 
-The Map card that allows you to display entities on a map
+The map card that allows you to display entities on a map
 
 <p class='img'>
 <img src='/images/dashboards/map_card.png' alt='Screenshot of the map card'>
 Screenshot of the map card.
 </p>
 
-To add the Map card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -75,7 +75,7 @@ hours_to_show:
 
 </div>
 
-## Options For Entities
+## Options for entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration.
 

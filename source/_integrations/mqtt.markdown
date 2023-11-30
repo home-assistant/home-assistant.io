@@ -220,14 +220,14 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
-- [Device Tracker](/integrations/device_tracker.mqtt/)
-- [Device Trigger](/integrations/device_trigger.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
+- [Device trigger](/integrations/device_trigger.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
 - [Climate/HVAC](/integrations/climate.mqtt/)
-- [Lawn Mower](/integrations/lawn_mower.mqtt/)
+- [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
 - [Number](/integrations/number.mqtt/)
@@ -237,10 +237,10 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 - [Update](/integrations/update.mqtt/)
-- [Tag Scanner](/integrations/tag.mqtt/)
+- [Tag scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
-- [Water Heater](/integrations/water_heater.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
@@ -578,6 +578,102 @@ support_url:
 ```
 {% enddetails %}
 
+### How to use discovery messages
+
+When MQTT discovery is set up, and a device or service sends a discovery message,
+an MQTT entity, tag, or device automation will be set up directly after receiving the message.
+When Home Assistant is restarting, discovered MQTT items with a unique ID will be unavailable until a new
+discovery message is received. MQTT items without a unique ID will not be added at startup.
+So a device or service using MQTT discovery must make sure a configuration message is offered
+after the **MQTT** integration has been (re)started. There are 2 common approaches to make sure the
+discovered items are set up at startup:
+
+1. Using Birth and Will messages to trigger setup
+2. Using retained messages
+
+Finally, it is a best practice to publish your device or service availability status.
+
+#### Use the Birth and Will messages to trigger discovery
+
+When the **MQTT** integration starts, a birth message is published at `homeassistant/status` by default.
+A device or service connected to the shared `mqtt` broker can subscribe to this topic and use an `online` message
+to trigger discovery messages. See also the [birth and last will messages](/integrations/mqtt/#birth-and-last-will-messages)
+section. After the configs have been published, the state topics will need an update, so they need to be republished.
+
+#### Using retained config messages
+
+An alternative method for a device or service is to publish discovery messages with a `retain` flag. This will make sure
+discovery messages are replayed when the **MQTT** integration connects to the broker.
+After the configs have been published, the state topics will need an update.
+
+#### Using retained state messages
+
+State updates also need to be re-published after a config as been processed.
+This can also be done by publishing `retained` messages. As soon as a config is received (or replayed from a retained message),
+the setup will subscribe any state topics. If a retained message is available at a state topic,
+ this message will be replayed so that the state can be restored for this topic.
+
+<div class='note warning'>
+
+A disadvantage of using retained messages is that these messages retain at the broker,
+even when the device or service stops working. They are retained even after the system or broker has been restarted.
+Retained messages can create ghost entities that keep coming back.
+<br><br>
+Especially when you have many entities, (unneeded) discovery messages can cause excessive system load. For this reason, use discovery messages with caution.
+
+</div>
+
+### Using Availability topics
+
+A device or service can announce its availability by publishing a Birth message and set a Will message at the broker.
+When the device or service loses connection to the broker, the broker will publish the Will message.
+This allows the **MQTT** integration to make an entity unavailable.
+
+Platform specific availability settings are available for `mqtt` entity platforms only.
+
+{% details "Platform specific availability settings" %}
+
+{% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
+  required: false
+  type: string
+availability_mode:
+   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+   required: false
+   type: string
+   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
+{% endconfiguration %}  
+
+{% enddetails %}
+
 ### Support by third-party tools
 
 The following software has built-in support for MQTT discovery:
@@ -609,7 +705,6 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
-- [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 
 ### Discovery examples
 
@@ -879,13 +974,13 @@ mqtt:
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
-- [Device Tracker](/integrations/device_tracker.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
 - [Climate/HVACs](/integrations/climate.mqtt/)
-- [Lawn Mower](/integrations/lawn_mower.mqtt/)
+- [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
 - [Number](/integrations/number.mqtt/)
@@ -897,7 +992,7 @@ mqtt:
 - [Text](/integrations/text.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
-- [Water Heater](/integrations/water_heater.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
@@ -1082,7 +1177,7 @@ Listen to the specified topic matcher and dumps all received messages within a s
 | `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
 
 ```yaml
-topic: openzwave/#
+topic: zigbee2mqtt/#
 ```
 
 ## Logging
