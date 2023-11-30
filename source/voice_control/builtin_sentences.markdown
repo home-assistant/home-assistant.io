@@ -19,7 +19,7 @@ These sentences allow you, for example, to:
     - *"Change kitchen lights brightness to 50%"*
     - *"Set bed light to green"*
 - **Ask about the weather**
-    - *"What is the weather like in Boston"*
+    - *"What is the weather"*
     - Struggling with this one? Check the [troubleshooting section](/voice_control/troubleshooting/).
 - **Add items to a list**
     - *"Add bread to my shopping list"*
