@@ -20,6 +20,7 @@ These sentences allow you, for example, to:
     - *"Set bed light to green"*
 - **Ask about the weather**
     - *"What is the weather like in Boston"*
+    - Struggling with this one? Check the [troubleshooting section](/voice_control/troubleshooting/).
 - **Add items to a list**
     - *"Add bread to my shopping list"*
     - *"Add decorating christmas tree to my december chores list"*
@@ -39,7 +40,7 @@ These sentences allow you, for example, to:
 - **Abort wake word**
     - *"Nevermind"*: If you triggered the wake word by mistake and want to stop Home Assistant from listening
 
-The sentences only work, if the {% term entities %} are available and are named exactly the way you call them.
+The sentences only work, if the {% term entities %} are available and are named exactly the way you call them. Check the [troubleshooting section](/voice_control/troubleshooting/) to see common errors when asking for the weather forecast.
 
 In addition to individual {% term entities %}, commands can target **areas**:
 
@@ -92,3 +93,4 @@ The list of supported sentences is constantly being updated for each language. T
 - [Built-in response definitions](https://github.com/home-assistant/intents/tree/main/responses)
 - [Template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/)
 - [Sentence test cases](https://github.com/home-assistant/intents/tree/main/sentences)
+- [Sentence troubleshooting](/voice_control/troubleshooting/)
