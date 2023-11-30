@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The V2C integration allows monitoring and control of a local [V2C](https://v2c.com) Trydan EVSE in Home Assistant.
+The V2C integration allows monitoring and control of a local [V2C](https://v2charge.com/trydan/) Trydan EVSE in Home Assistant.
 
 There is currently support for the following platforms within Home Assistant:
 
