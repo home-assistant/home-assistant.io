@@ -3,7 +3,7 @@ title: Flexit BACnet
 description: Instructions on how to integrate Flexit air handling unit into Home Assistant.
 ha_category:
   - Climate
-ha_release: 2023.12
+ha_release: 2024.1
 ha_iot_class: Local Polling
 ha_domain: flexit_bacnet
 ha_platforms:
