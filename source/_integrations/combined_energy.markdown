@@ -24,7 +24,6 @@ The Combined Energy Hub is commonly bundled with packages sold by other brands i
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
 {% include integrations/config_flow.md %}
