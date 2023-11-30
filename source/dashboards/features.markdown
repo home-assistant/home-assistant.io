@@ -304,25 +304,25 @@ type:
   type: string
 {% endconfiguration %}
 
-## Number value
+## Numeric input
 
 Widget that displays a slider or buttons to set the value for a [number](/integrations/number) or [input number](/integrations/input_number).
 
 <p class='img'>
-  <img src='/images/dashboards/features/number_value.png' alt='Screenshot of the tile card with the number value feature'>
-  Screenshot of the tile card with the number value feature
+  <img src='/images/dashboards/features/numeric_input.png' alt='Screenshot of the tile card with the numeric input feature'>
+  Screenshot of the tile card with the numeric input feature
 </p>
 
 ```yaml
 features:
-  - type: "number-value"
+  - type: "numeric-input"
     style: "buttons"
 ```
 
 {% configuration features %}
 type:
   required: true
-  description: "`number-value`"
+  description: "`numeric-input`"
   type: string
 style:
   required: false
