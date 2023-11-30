@@ -176,6 +176,86 @@ data:
 
 {% endraw %}
 
+### Use response data in templates: convert Yaml to JSON
+
+ If the response data is a larger data object, (like with the `weather.get_forecasts` service) you can not use the response directly in the template editor at `/developer_tools/template`.
+ The response needs to be converted to JSON to be able to do so.
+
+ Please follow this approach to be able to test run your templates based on the response:
+
+ 1 enter service in `/developer-tools/service` eg:
+
+ {% raw %}
+ ```yaml
+ service: weather.get_forecasts
+ target:
+   entity_id: weather.buienradar
+ data:
+   type: daily
+ response_variable: buienradar_forecast
+ ```
+ {% endraw %}
+
+ 2 copy the exact and complete response
+
+ 3 paste that in an (online) Yaml-JSON converter and copy result
+
+ 4 paste that result in `/developer-tools/template` inside a setter:
+
+ {% raw %}
+
+ ```yaml
+ {% set response = { <converted response> } %}
+ ```
+
+ {% endraw %}
+
+ 5 template to your liking, eg:
+
+ {% raw %}
+
+ ```yaml
+ {{response['weather.buienradar'].forecast[0]}}
+ ```
+
+ {% endraw %}
+
+ **Note** that the above procedure is for testing the template in `developer-tools/template`.
+ The actual template entity itself would need the `response_variable` id as set in the service:
+
+ {% raw %}
+
+ ```yaml
+ {{buienradar_forecast['weather.buienradar'].forecast[0]}}
+ ```
+
+ {% endraw %}
+
+ Which would then result in a trigger based template entity like:
+
+ {% raw %}
+
+ ```yaml
+ template:
+
+   - trigger:
+       - platform: state
+         entity_id: sensor.date
+     action:
+       - service: weather.get_forecasts
+         target:
+           entity_id: weather.buienradar
+         data:
+           type: daily
+         response_variable: buienradar_forecast
+     sensor:
+       - unique_id: buienradar_temperature_forecast
+         state: >
+           {{buienradar_forecast['weather.buienradar'].forecast[0].temperature}}
+ ```
+
+ {% endraw %}
+
 ### `homeassistant` services
 
 There are four `homeassistant` services that aren't tied to any single domain, these are:
