@@ -22,9 +22,7 @@ dashboard to provide access to devices exposed by the platform.
 
 The Combined Energy Hub is commonly bundled with packages sold by other brands including Solahart.
 
-There is currently support for the following device types within Home Assistant:
-
-- [Sensor](#sensor)
+There is currently support for [Sensor](#sensor) device types within Home Assistant.
 
 {% include integrations/config_flow.md %}
 
