@@ -154,6 +154,65 @@ You may then use the response data in the variable `agenda` in another action
 in the same script. The example below sends a notification using the response
 data.
 
+### Use response data in templates: convert yaml to json
+
+If the response data is a larger data object, (like with the `weather.get_forecasts` service) you can not use the response directly in the template editor at `/developer_tools/template`.
+The response needs to be converted to json to be able to do so.
+
+Please follow this approach to be able to test run your templates based on the response:
+
+1 enter service in `/developer-tools/service` eg:
+
+{% raw %}
+```yaml
+service: weather.get_forecasts
+target:
+  entity_id: weather.buienradar
+data:
+  type: daily
+response_variable: buienradar_forecast
+```
+{% endraw %}
+
+2 copy the exact and complete response
+
+3 paste that in an (online) yaml-json converter and copy result
+
+4 paste that result in `/developer-tools/template` inside a setter:
+
+`{% set response = { <converted response> } %}`
+
+5 template to your liking, eg:
+
+`{{response['weather.buienradar'].forecast[0]}}`
+
+**Note** that the above procedure is for testing the template in `developer-tools/template`.
+The actual template entity itself would need the `response_variable` id as set in the service:
+
+`{{buienradar_forecast['weather.buienradar'].forecast[0]}}`
+
+Which would then result in a trigger based template entity like:
+
+```yaml
+template:
+
+  - trigger:
+      - platform: state
+        entity_id: sensor.date
+    action:
+      - service: weather.get_forecasts
+        target:
+          entity_id: weather.buienradar
+        data:
+          type: daily
+        response_variable: buienradar_forecast
+    sensor:
+      - unique_id: buienradar_temperature_forecast
+        state: >
+          {{buienradar_forecast['weather.buienradar'].forecast[0].temperature}}
+```
+
+
 <div class='note'>
 Which data fields can be used in a service call depends on the type of notification service that is used.
 </div>
