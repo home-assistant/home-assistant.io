@@ -180,18 +180,38 @@ response_variable: buienradar_forecast
 
 4 paste that result in `/developer-tools/template` inside a setter:
 
-`{% set response = { <converted response> } %}`
+{% raw %}
+
+```
+{% set response = { <converted response> } %}
+```
+
+{% endraw %}
 
 5 template to your liking, eg:
 
-`{{response['weather.buienradar'].forecast[0]}}`
+{% raw %}
+
+```yaml
+{{response['weather.buienradar'].forecast[0]}}
+```
+
+{% endraw %}
 
 **Note** that the above procedure is for testing the template in `developer-tools/template`.
 The actual template entity itself would need the `response_variable` id as set in the service:
 
-`{{buienradar_forecast['weather.buienradar'].forecast[0]}}`
+{% raw %}
+
+```yaml
+{{buienradar_forecast['weather.buienradar'].forecast[0]}}
+```
+
+{% endraw %}
 
 Which would then result in a trigger based template entity like:
+
+{% raw %}
 
 ```yaml
 template:
@@ -211,6 +231,8 @@ template:
         state: >
           {{buienradar_forecast['weather.buienradar'].forecast[0].temperature}}
 ```
+
+{% endraw %}
 
 
 <div class='note'>
