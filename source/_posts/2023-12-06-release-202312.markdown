@@ -440,6 +440,21 @@ to customize the rounding of the value.
 
 {% enddetails %}
 
+{% details "Ping" %}
+
+The option to set a custom polling interval has been removed. If you are using
+custom interval and really need it, you can use the `homeassistant.update_entity`
+in an automation to poll at your custom pace. See our documentation on
+[defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval)
+for more information.
+
+([@jpbede] - [#103743]) ([documentation](/integrations/ping))
+
+[@jpbede]: https://github.com/jpbede
+[#103743]: https://github.com/home-assistant/core/pull/103743
+
+{% enddetails %}
+
 {% details "SMTP" %}
 
 The SMTP integration will send images as attachments to a plain text email
