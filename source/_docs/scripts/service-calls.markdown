@@ -154,10 +154,10 @@ You may then use the response data in the variable `agenda` in another action
 in the same script. The example below sends a notification using the response
 data.
 
-### Use response data in templates: convert yaml to json
+### Use response data in templates: convert Yaml to JSON
 
 If the response data is a larger data object, (like with the `weather.get_forecasts` service) you can not use the response directly in the template editor at `/developer_tools/template`.
-The response needs to be converted to json to be able to do so.
+The response needs to be converted to JSON to be able to do so.
 
 Please follow this approach to be able to test run your templates based on the response:
 
@@ -176,7 +176,7 @@ response_variable: buienradar_forecast
 
 2 copy the exact and complete response
 
-3 paste that in an (online) yaml-json converter and copy result
+3 paste that in an (online) Yaml-JSON converter and copy result
 
 4 paste that result in `/developer-tools/template` inside a setter:
 
