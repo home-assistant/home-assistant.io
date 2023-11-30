@@ -182,7 +182,7 @@ response_variable: buienradar_forecast
 
 {% raw %}
 
-```
+```yaml
 {% set response = { <converted response> } %}
 ```
 
