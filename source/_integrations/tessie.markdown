@@ -30,14 +30,27 @@ The integration will create sensor entities for a variety of metrics that relate
 
 #### Charge State
 - Battery Level
-- Battery Range
 - Change Energy Added
+- Change Power
+- Charge Voltage
+- Charger Current
+- Change Rate
+- Battery Range
 
 #### Drive State
 - Speed
+- Power
+- Shift State
 
 ### Vehicle State
+- Odometer
 - Tyre Pressure Front Left
 - Tyre Pressure Front Right
 - Tyre Pressure Rear Left
 - Tyre Pressure Rear Right
+
+### Climate State
+- Inside Temperature
+- Outside Temperature
+- Driver Temperature Setting
+- Passenger Temperature Setting
