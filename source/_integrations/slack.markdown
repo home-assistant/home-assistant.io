@@ -142,7 +142,7 @@ The following attributes can be placed inside the `data` key of the service call
 | `username`               |      yes | The username of the Slack bot.
 | `icon`                   |      yes | The icon of the Slack bot.
 | `file`                   |      yes | A file to include with the message; see below.
-| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` (note that the `message` is required nonetheless).
+| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` within Slack apps. The message field will be used as notification text and anywhere else Slack is unable to display blocks. `message` is required regardless of whether this field is used.
 | `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).
 | `thread_ts`              |      yes | Sends the message as a reply to a specified parent message.
 
