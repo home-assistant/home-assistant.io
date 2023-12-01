@@ -27,7 +27,7 @@ Both the state and forecast can provide three different levels of recommendation
 
 Additionally, various sensor and binary sensor entities are provided:
 
-- **Stookalert**: Binary sensor indicating wether there is a Stookalert in the region or province. This sensor also has forecast attributes.
+- **Stookalert**: Binary sensor indicating whether there is a Stookalert in the region or province. This sensor also has forecast attributes.
 - **Windspeed**: Sensor containing the current windspeed at the selected location.
 - **Air Quality Index**: Sensor containing the air quality index at the selected location.
 
