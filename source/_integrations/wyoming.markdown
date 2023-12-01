@@ -24,3 +24,7 @@ The **Wyoming** {% term integration %} connects external voice services to Home 
 - openWakeWord {% my supervisor_addon badge addon="core_openwakeword" %}
 
 {% include integrations/config_flow.md %}
+
+## Satellites
+
+[Remote voice satellites](https://github.com/rhasspy/wyoming-satellite) can be connected to Home Assistant using the Wyoming protocol. These satellites typically run on Raspberry Pi's, and are automatically discovered by Home Assistant through [Zeroconf](/integrations/zeroconf).
