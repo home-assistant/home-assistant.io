@@ -166,9 +166,9 @@ To include a remote file with the Slack message, use these attributes underneath
 
 Some of the examples below use a member ID. This is a unique string assigned by Slack and not a username set by the user. To get a user ID:
 
-* Select a Slack user (both name and profile image work) to bring up their profile side panel
-* Open the context menu by selecting the three dots
-* Select `Copy member ID`
+1. Select a Slack user (both name and profile image work) to bring up their profile side panel
+2. Open the context menu by selecting the three dots
+3. Select `Copy member ID`
 
 ![](/images/integrations/slack/slack-member-id.png)
 
