@@ -28,7 +28,7 @@ This section explains how to generate a Client ID and Client Secret on
 
 1. First go to the [Google Developers Console](https://console.developers.google.com/start/api?id=calendar).
 2. The wizard will ask you to choose a project to manage your application. Select a project and click continue.
-3. Verify that your calendar API was enabled and click 'Go to credentials'
+3. Verify that your calendar API was enabled.
 4. Navigate to APIs & Services (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials).
 5. Click on the field on the left of the screen, **OAuth Consent Screen**.
 6. Select **External** and **Create**.
