@@ -685,6 +685,7 @@ The following software has built-in support for MQTT discovery:
 - [EMS-ESP32 (and EMS-ESP)](https://github.com/emsesp/EMS-ESP32)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
+- [go-iotdevice](https://github.com/koestler/go-iotdevice)
 - [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
