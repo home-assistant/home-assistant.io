@@ -199,7 +199,7 @@ data:
 To use the block framework:
 
 ```yaml
-message: Fallback message in case the blocks don't display anything.
+message: Fallback message for notifications or in case the blocks don't display anything.
 title: Title of the file.
 data:
   blocks:
@@ -227,7 +227,7 @@ data:
           1.0
 ```
 
-Send a message directly to a user by setting the target to their member ID. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+Send a message directly to a user by setting the target to their user ID. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
 
 ```yaml
 message: "Hello there!"
