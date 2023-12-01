@@ -99,7 +99,7 @@ type:
   type: string
 style:
   required: false
-  description: "How the preset modes should be displayed. It can be either `dropdown` and `icons`."
+  description: "How the preset modes should be displayed. It can be either `dropdown` or `icons`."
   type: string
   default: dropdown
 preset_modes:
