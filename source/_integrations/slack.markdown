@@ -119,7 +119,7 @@ sequence:
 mode: single
 ```
 
-Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder)
+Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder).  Up to 50 blocks may be included per message.
 
 Create a duplicate of this script to use for different messages, and different channels (the door was opened in #security, the light was left on on #lights, etc).
 
