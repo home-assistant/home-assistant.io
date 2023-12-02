@@ -196,7 +196,7 @@ data:
  ```
  {% endraw %}
 
- 2 copy the exact and complete response
+2. Copy the exact and complete response
 
  3 paste that in an (online) Yaml-JSON converter and copy result
 
