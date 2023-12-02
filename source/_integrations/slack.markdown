@@ -162,6 +162,16 @@ To include a remote file with the Slack message, use these attributes underneath
 | `username`               |      yes | An optional username if the URL is protected by HTTP Basic Auth.
 | `password`               |      yes | An optional password if the URL is protected by HTTP Basic Auth.
 
+### Obtaining a member ID
+
+Some of the examples below use a member ID. This is a unique string assigned by Slack to all users (members and guests) and not a username set by the user. To get a member ID:
+
+1. Select a Slack user (both name and profile image work) to bring up their profile side panel.
+2. Open the context menu by selecting the three dots.
+3. Select **Copy member ID**.
+
+![](/images/integrations/slack/slack-member-id.png)
+
 ### Examples
 
 To send a file from local path:
@@ -227,7 +237,9 @@ data:
           1.0
 ```
 
-Send a message directly to a user by setting the target to their user ID. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+
+Send a message directly to a user by setting the target to their member ID.
+
 
 ```yaml
 message: "Hello there!"
@@ -237,10 +249,10 @@ data:
   blocks: []
 ```
 
-Send a message to a channel that mentions (@username, highlights a users name in yellow) a user. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+Send a message to a channel that mentions (@username, highlights a users name in yellow) a user.
 
 ```yaml
-message: "<@U12345> your appointment starts soon"
+message: "<@MEMBER_ID> your appointment starts soon"
 target: "#general"
 title: "Reminder"
 data:
