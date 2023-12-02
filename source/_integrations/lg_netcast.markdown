@@ -4,6 +4,7 @@ description: Instructions on how to integrate a LG TV (Netcast 3.0 & 4.0) within
 ha_category:
   - Media player
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_release: '0.20'
 ha_domain: lg_netcast
 ha_platforms:
@@ -15,7 +16,10 @@ ha_integration_type: integration
 
 The `lg_netcast` platform allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013). For the new LG WebOS TV's use the [webostv](/integrations/webostv#media-player) platform.
 
-To add a LG TV to your installation, add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
+
+## YAML configuration
+Alternatively, this integration can be configureed and set up manually via YAML instead. To add a LG TV to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
