@@ -176,7 +176,7 @@ data:
 
 {% endraw %}
 
-### Use response data in templates: convert Yaml to JSON
+### Use response data in templates: convert YAML to JSON
 
  If the response data is a larger data object, (like with the `weather.get_forecasts` service) you can not use the response directly in the template editor at `/developer_tools/template`.
  The response needs to be converted to JSON to be able to do so.
