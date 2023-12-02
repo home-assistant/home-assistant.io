@@ -25,8 +25,6 @@ notify:
     media_player: media_player.living_room
 ```
 
-Please note that the `tts_service` parameter, must match the `service_name` defined in the TTS integration.
-
 {% configuration %}
   name:
     description: The name of the notify service.
@@ -37,7 +35,7 @@ Please note that the `tts_service` parameter, must match the `service_name` defi
     required: exclusive
     type: string
   tts_service:
-    description: "The `service_name` of a TTS platform. Either use `entity_id` or `tts_service` to target a TTS platform."
+    description: "The `service_name` of a TTS platform. Either use `entity_id` or `tts_service` to target a TTS platform. This must match the `service_name` defined in the TTS integration."
     required: exclusive
     type: string
   media_player:
