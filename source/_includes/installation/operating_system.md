@@ -307,12 +307,12 @@ Minimum recommended assignments:
     2. Select type **Linux** and version **Linux 2.6 / 3.x / 4.x (64-bit)**.
     3. Under **Hardware**, select the amount of memory, number of CPUs and select **Enable EFI**.
     4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
-    6. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.
+    5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.
     <div class="note warning">
     Please keep in mind that the bridged adapter only functions over a hardwired Ethernet connection.
     Using Wi-Fi on your VirtualBox host is unsupported.
     </div>
-    7. Then go to <b>Audio</b> and choose <b>Intel HD Audio</b> as audio controller.
+    6. Then go to <b>Audio</b> and choose <b>Intel HD Audio</b> as audio controller.
     <div class="note info">
 
     By default, VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
