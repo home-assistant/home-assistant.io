@@ -28,6 +28,6 @@ There is support for the following platform types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-## Alarm control panel ##
+## Alarm control panel
 
 The integration will create an alarm entity for each {% term area %} and a sensor for each {% term zone %}.
