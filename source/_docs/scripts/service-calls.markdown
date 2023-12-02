@@ -200,7 +200,7 @@ data:
 
 3. Paste that in an (online) Yaml-JSON converter and copy result.
 
- 4 paste that result in `/developer-tools/template` inside a setter:
+4. Paste that result in `/developer-tools/template` inside a setter:
 
  {% raw %}
 
