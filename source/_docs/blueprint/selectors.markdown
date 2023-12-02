@@ -315,7 +315,7 @@ color_temp:
 
 {% configuration color_temp %}
 unit:
-  description: The chosen unit for the color temperature. This can be either `kelvin` or `mired`. `mired` is the default for historic reasons.
+  description: The chosen unit for the color temperature. This can be either `kelvin` or `mired`. `mired` is the default for historical reasons.
   type: string
   required: false
   default: mired
