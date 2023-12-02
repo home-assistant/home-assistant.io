@@ -183,7 +183,7 @@ data:
 
  Please follow this approach to be able to test run your templates based on the response:
 
- 1 enter service in `/developer-tools/service` eg:
+1. Enter service in `/developer-tools/service` eg:
 
  {% raw %}
  ```yaml
