@@ -119,7 +119,7 @@ sequence:
 mode: single
 ```
 
-Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder)
+Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder).  Up to 50 blocks may be included per message.
 
 Create a duplicate of this script to use for different messages, and different channels (the door was opened in #security, the light was left on on #lights, etc).
 
@@ -142,7 +142,7 @@ The following attributes can be placed inside the `data` key of the service call
 | `username`               |      yes | The username of the Slack bot.
 | `icon`                   |      yes | The icon of the Slack bot.
 | `file`                   |      yes | A file to include with the message; see below.
-| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` (note that the `message` is required nonetheless).
+| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` within Slack apps. The message field will be used as notification text and anywhere else Slack is unable to display blocks. `message` is required regardless of whether this field is used.
 | `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).
 | `thread_ts`              |      yes | Sends the message as a reply to a specified parent message.
 
@@ -209,7 +209,7 @@ data:
 To use the block framework:
 
 ```yaml
-message: Fallback message in case the blocks don't display anything.
+message: Fallback message for notifications or in case the blocks don't display anything.
 title: Title of the file.
 data:
   blocks:
@@ -237,7 +237,9 @@ data:
           1.0
 ```
 
+
 Send a message directly to a user by setting the target to their member ID.
+
 
 ```yaml
 message: "Hello there!"
