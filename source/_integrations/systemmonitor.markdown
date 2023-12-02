@@ -19,16 +19,27 @@ memory usage, CPU usage, and running processes.
 
 ## Sensors
 
-After restarting Home Assistant, these sensors will show up and update their
-information every 15 seconds.
+**All entities are disabled by default, you need to enable the entities that you wish to use.**
 
-All entities are disabled by default so ensure you enable the entities that you wish to use.
+### Disks
 
 - Disk free - (One per disk/mount point)
 - Disk use - (One per disk/mount point)
 - Disk use (percent) - (One per disk/mount point)
+
+### Network
+
 - IPv4 address - (One per network interface)
 - IPv6 address - (One per network interface)
+- Network in - (One per network interface)
+- Network out - (One per network interface)
+- Packets in - (One per network interface)
+- Packets out - (One per network interface)
+- Network throughput in - (One per network interface)
+- Network throughput out - (One per network interface)
+
+### Other
+
 - Last boot
 - Load (15m)
 - Load (1m)
@@ -36,19 +47,13 @@ All entities are disabled by default so ensure you enable the entities that you 
 - Memory free
 - Memory use
 - Memory use (percent)
-- Network in - (One per network interface)
-- Network out - (One per network interface)
-- Packets in - (One per network interface)
-- Packets out - (One per network interface)
-- Network throughput in - (One per network interface)
-- Network throughput out - (One per network interface)
 - Processor use
 - Processor temperature
 - Swap free
 - Swap use
 - Swap use (percent)
 
-### Add process sensor
+### Add `process` sensor
 
 The `process` sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & Services" %}**, select the **System Monitor** integration and click **Configure** to add or remove `process` sensors.
 
