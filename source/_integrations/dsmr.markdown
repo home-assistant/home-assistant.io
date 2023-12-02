@@ -42,7 +42,8 @@ To configure options for DSMR integration go to **Settings** -> **Devices & Serv
 
 #### Time between updates
 
-Typically the smart meter sends new data every 5-10 seconds. This value defines the minimum time between entity updates in seconds. Setting this value to 0 will update entities each time data is received from the smart meter.
+Typically the smart meter sends new data every 1-10 seconds. This value defines the minimum time between entity updates in seconds. In most cases the data is updated every 10 seconds and every 300 seconds for connected MBUS devices.
+Home Assistant allows you to updated the update time between measurements. The default is 30 seconds. The minimal interval is 10 seconds.
 
 <div class='note warning'>
 Reducing the default time between updates will increase the amount of events generated and can potentially flood the system with events.
