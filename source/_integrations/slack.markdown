@@ -162,9 +162,9 @@ To include a remote file with the Slack message, use these attributes underneath
 | `username`               |      yes | An optional username if the URL is protected by HTTP Basic Auth.
 | `password`               |      yes | An optional password if the URL is protected by HTTP Basic Auth.
 
-### Obtaining a User ID
+### Obtaining a member ID
 
-Some of the examples below use a member ID. This is a unique string assigned by Slack and not a username set by the user. To get a user ID:
+Some of the examples below use a member ID. This is a unique string assigned by Slack to all users (members and guests) and not a username set by the user. To get a member ID:
 
 1. Select a Slack user (both name and profile image work) to bring up their profile side panel.
 2. Open the context menu by selecting the three dots.
