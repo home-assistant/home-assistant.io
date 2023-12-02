@@ -210,7 +210,7 @@ data:
 
  {% endraw %}
 
- 5 template to your liking, eg:
+5. Template to your liking, eg:
 
  {% raw %}
 
