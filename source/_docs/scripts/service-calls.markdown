@@ -198,7 +198,7 @@ data:
 
 2. Copy the exact and complete response
 
- 3 paste that in an (online) Yaml-JSON converter and copy result
+3. Paste that in an (online) Yaml-JSON converter and copy result.
 
  4 paste that result in `/developer-tools/template` inside a setter:
 
