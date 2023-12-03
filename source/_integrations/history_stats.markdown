@@ -79,7 +79,7 @@ duration:
   required: false
   type: time
 min_state_duration:
-  description: Minimum duration of the measue to be considered for calculations.
+  description: Minimum duration of the measurement to be considered for calculations.
   required: false
   default: 0
   type: time
