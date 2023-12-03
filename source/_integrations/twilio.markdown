@@ -17,7 +17,7 @@ Calls are limited to 10 minutes and will play a short trial message before your 
 
 ## Configuration
 
-To use this notification integration in your installation, add the following to your `configuration.yaml` file:
+To use this notification integration in your installation, you must first install the base integration from Settings _after_ adding your Twilio credentials to your `configuration.yaml` file (either directly or using [secrets](https://www.home-assistant.io/docs/configuration/secrets/)):
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,7 +39,7 @@ auth_token:
 
 ### Usage
 
-After configuring the base Twilio integration, add and configure either or both of the [Twilio SMS](/integrations/twilio_sms) and [Twilio Phone](/integrations/twilio_call) integrations to utilize the notification functionality.
+After adding your Twilio account credentials to `configuration.yaml` and the Twilio base integration from Settings, you should restart Home Assistant.   Then, you can configure either or both of the [Twilio SMS](/integrations/twilio_sms) and [Twilio Phone](/integrations/twilio_call) integrations to utilize the notification functionality.
 
 To be able to receive events from Twilio, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic) in Home Assistant.
 
