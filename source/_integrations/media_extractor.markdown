@@ -76,3 +76,11 @@ This will download the file from the given URL.
 | `entity_id`            | yes      | Name(s) of entities to seek media on, e.g., `media_player.living_room_chromecast`. Defaults to all.       |
 | `media_content_id`     | no       | The ID of the content to play. Platform dependent.                                                        |
 | `media_content_type`   | no       | The type of the content to play. Must be one of MUSIC, TVSHOW, VIDEO, EPISODE, CHANNEL or PLAYLIST MUSIC. |
+
+### Cookies
+
+It's possible to add a Netscape format cookie file in the Home Assistant configuration directory that will be loaded each time a stream is loaded:
+
+```config/media_extractor_cookies.txt```
+
+This file can be generated using various browser extensions or created manually following this specification: [https://curl.se/rfc/cookie_spec.html](https://curl.se/rfc/cookie_spec.html)
