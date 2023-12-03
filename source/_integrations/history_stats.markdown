@@ -138,7 +138,7 @@ duration:
 
 </div>
 
-### Minimun state duration
+### Minimum state duration
 
 The minimum state duration variable is used to exclude short state changes from the statistics.
 
