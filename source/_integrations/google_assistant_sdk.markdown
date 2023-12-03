@@ -69,13 +69,21 @@ The integration setup will next give you instructions to enter the [Application 
 
 {% enddetails %}
 
+## IPv6
+
+Due to limitations in Google's SDK, broadcasts do not currently support IPv6. In order for broadcasts to work, IPv6 needs to be disabled for both your Home Assistant server as well as all speakers. To disable IPv6 on your Home Assistant server, set `net.ipv6.conf.all.disable_ipv6=1` in `/etc/sysctl.conf` or your Docker configuration.
+
+IPv6 also needs to be disabled for the Google speakers. Some wifi access points (such as Ubiquiti and TP-Link Omada) allow multiple SSIDs to be created, with separate IPv6 settings per SSID. In this case, instead of disabling IPv6 for everything, it is recommended to create a separate "No IPv6" SSID and have the Google speakers connect to that. Otherwise, you will need to disable IPv6 for your entire network, usually through a configuration option on your router.
+
 ## Troubleshooting
 
 If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
 If commands don't work try removing superfluous words such as "the". E.g. "play rain sounds on bedroom speaker" instead of "play rain sounds on the bedroom speaker".
 
-If broadcasting doesn't work, make sure: the speakers aren't in do not disturb mode, the Home Assistant server is in the same network as the speakers, and IPv6 is disabled in the router.
+
+
+If broadcasting doesn't work, also make sure that the speakers aren't in do not disturb mode, and the Home Assistant server is in the same network as the speakers.
 
 The easiest way to check if the integration is working is to check [My Google Activity](https://myactivity.google.com/myactivity) for the issued commands and their responses.
 
