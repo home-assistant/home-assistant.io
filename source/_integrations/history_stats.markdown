@@ -78,6 +78,11 @@ duration:
   description: Duration of the measure.
   required: false
   type: time
+min_state_duration:
+  description: Minimum duration of the measue to be considered for calculations.
+  required: false
+  default: 0
+  type: time
 {% endconfiguration %}
 
 <div class='note'>
@@ -132,6 +137,15 @@ duration:
   If the duration exceeds the number of days of history stored by the `recorder` integration (`purge_keep_days`), the history statistics sensor will not have all the information it needs to look at the entire duration. For example, if `purge_keep_days` is set to 7, a history statistics sensor with a duration of 30 days will only report a value based on the last 7 days of history.
 
 </div>
+
+### Minimun state duration
+
+The minimum state duration variable is used to exclude short state changes from the statistics.
+
+```yaml
+# 2 minutes
+min_state_duration: "00:02:00"
+```
 
 ### Video tutorial
 This video tutorial explains how you can use history stats. It also shows how you can create a daily bar chart graph to visualize things such as occupancy, or how long the lights are on in a particular room.
