@@ -14,6 +14,7 @@ ha_quality_scale: silver
 ha_platforms:
   - climate
   - sensor
+  - binary_sensor
 ha_dhcp: true
 ha_integration_type: integration
 ---
@@ -52,10 +53,21 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 
 This integration provides the following sensors:
 
-| Name                | Description                                 |
-| ------------------- | ------------------------------------------- |
-| Indoor Temperature  | The reported temperature from the device    |
-| Outdoor Temperature | Lyric's outdoor temperature report          |
-| Outdoor Humidity    | Lyric's outdoor humidity                    |
-| Next Period Time    | The next time the thermostat will change    |
-| Setpoint Status     | A description of the setpoint of the device |
+| Name                       | Description                                                           |
+| -------------------------- | --------------------------------------------------------------------- |
+| Indoor Temperature         | The reported temperature from the device                              |
+| Indoor Humidity            | The reported humidity from the device                                 |
+| Outdoor Temperature        | Lyric's outdoor temperature report                                    |
+| Outdoor Humidity           | Lyric's outdoor humidity                                              |
+| Next Period Time           | The next time the thermostat will change                              |
+| Setpoint Status            | A description of the setpoint of the device                           |
+| {Room} Average Temperature | The average temperature of a room associated with a thermostat device |
+| {Room} Average Humidity    | The average humidity of a room associated with a thermostat device    |
+
+## Binary Sensors
+
+This integration provides the following binary sensors:
+
+| Name                  | Description                                                                            |
+| --------------------- | -------------------------------------------------------------------------------------- |
+| {Room} Overall Motion | Whether motion is detected by any sensor in a room associated with a thermostat device |
