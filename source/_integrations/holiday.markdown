@@ -26,7 +26,7 @@ A calendar entity has a state and attributes that represent the next upcoming ev
 
 Individual holiday *Events* are what powers automations such as:
 
-- Turn on the Christmas lights at the *start* of Christmas Day
-- Prevent your covers from being opened on public holidays
+- Turn on the Christmas lights at the *start* of Christmas Day.
+- Prevent your covers from being opened on public holidays.
 
-See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
+For an overview, refer to [calendar automations](/integrations/calendar#automation). You can use [calendar trigger variables](/docs/automation/templating/#calendar) in a condition or action such as the event `summary`, `description`, `location` and in other places.
