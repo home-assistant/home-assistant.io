@@ -305,14 +305,15 @@ Minimum recommended assignments:
   content: |
     1. Create a new virtual machine.
     2. Select type **Linux** and version **Linux 2.6 / 3.x / 4.x (64-bit)**.
-    3. Select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
-    4. Edit the **Settings** of the VM and go to **System** > **Motherboard**. Select **Enable EFI**.
+    3. Under **Hardware**, select the amount of memory and number of CPUs. Then, select **Enable EFI**.
+       - Make sure **EFI** is enabled. If EFI is not enabled, HAOS won't boot.
+    4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
     5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.
     <div class="note warning">
     Please keep in mind that the bridged adapter only functions over a hardwired Ethernet connection.
     Using Wi-Fi on your VirtualBox host is unsupported.
     </div>
-    6. Then go to **Audio** and choose **Intel HD Audio** as audio controller.
+    6. Then go to <b>Audio</b> and choose <b>Intel HD Audio</b> as audio controller.
     <div class="note info">
 
     By default, VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
