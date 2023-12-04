@@ -357,13 +357,6 @@ address:
   description: "Address of coil/register."
   required: true
   type: integer
-lazy_error_count:
-  description: "Number of errors before entity becomes unavailable.
-  Is used to prevent spontaneous errors affecting statistic graphs.
-  A succesfull request resets the error count."
-  required: false
-  type: integer
-  default: 0
 name:
   description: "Name of the entity which must be unique within the entity type."
   required: true
@@ -508,7 +501,6 @@ modbus:
         address: 100
         device_class: door
         input_type: coil
-        lazy_error_count: 0
         scan_interval: 15
         slave: 1
         slave_count: 0
