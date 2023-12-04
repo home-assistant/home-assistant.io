@@ -58,9 +58,12 @@ AdGuard relies on Query Log to provide stats.
 
 ## Services
 
-These {% term services %} allow one to manage filter subscriptions in AdGuard Home. Using these services in automations could be helpful to block certain sites/domains at certain times.
+These {% term services %} allow one to manage filter subscriptions in AdGuard Home.
+Using these services in automations could be helpful to block certain
+sites/domains at certain times.
 
-For example, you could create a custom filter list that blocks social media sites during the day and releases them during the evening.
+For example, you could create a custom filter list that blocks social media sites
+during the day and releases them during the evening.
 
 ### Service `add_url`
 
@@ -103,4 +106,5 @@ Refresh all filter subscriptions in AdGuard Home.
 | ---------------------- | -------- | ------------------------------------------------- |
 | `force`                | Yes      | Force update (bypasses AdGuard Home throttling).  |
 
-By default, `force` is set to `false`. Forcing an update bypasses AdGuard Home's throttling logic, so use with care.
+By default, `force` is set to `false`. Forcing an update bypasses AdGuard Home's
+throttling logic, so use with care.
