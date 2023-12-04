@@ -17,7 +17,9 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-AdGuard Home is a network-wide DNS server that supports ad, tracker, and adult content blocking. The **AdGuard** integration allows you to control and monitor your AdGuard Home instance in Home Assistant.
+AdGuard Home is a network-wide DNS server that supports ad, tracker,
+and adult content blocking. The **AdGuard** integration allows you to control and
+monitor your AdGuard Home instance in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
