@@ -305,7 +305,7 @@ The output of this selector is `true` when the toggle is on, `false` otherwise.
 
 ## Color temperature selector
 
-The color temperature selector allows the user to select a color temperature from a gradient using a slider.
+The color temperature selector allows you to select a color temperature from a gradient using a slider.
 
 ![Screenshot of the Color temperature selector](/images/blueprints/selector-color-temp.png)
 
