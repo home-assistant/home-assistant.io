@@ -52,11 +52,6 @@ name:
   description: "Name of this hub. Must be unique."
   required: true
   type: string
-retries:
-  description: "Number of times to retry a request."
-  required: false
-  default: 3
-  type: integer
 timeout:
   description: "Timeout while waiting for a response in seconds."
   required: false
@@ -117,7 +112,6 @@ modbus:
 
     delay: 0
     message_wait_milliseconds: 30
-    retries: 3
     timeout: 5
 ```
 
@@ -164,7 +158,6 @@ modbus:
 
     delay: 0
     message_wait_milliseconds: 30
-    retries: 3
     timeout: 5
 ```
 
@@ -207,7 +200,6 @@ modbus:
 
     delay: 0
     message_wait_milliseconds: 30
-    retries: 3
     timeout: 5
 ```
 
@@ -302,7 +294,6 @@ modbus:
 
     delay: 0
     message_wait_milliseconds: 30
-    retries: 3
     timeout: 5
 ```
 
