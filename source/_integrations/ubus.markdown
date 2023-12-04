@@ -27,7 +27,7 @@ Add a new system user `hass` (or do it in any other way that you prefer):
 
 Edit the `/etc/config/rpcd` and add the following lines:
 
-```
+```yaml
 config login
         option username 'hass'
         option password '$p$hass'
