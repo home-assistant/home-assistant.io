@@ -68,7 +68,11 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 
 ### Humidifiers
 
-- LEVOIT Humidifer D301S - LUH-D301S-WEU
+- LEVOIT Humidifier Dual 200S
+- LEVOIT Humidifier Classic 200S
+- LEVOIT Humidifier Classic 300S
+- LEVOIT Humidifier 600S
+- LEVOIT Humidifier OasisMist
 
 ## Prerequisite
 
