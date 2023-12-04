@@ -11,6 +11,7 @@ ha_codeowners:
   - '@bdr99'
 ha_platforms:
   - water_heater
+ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 
