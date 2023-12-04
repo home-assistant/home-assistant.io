@@ -22,7 +22,7 @@ opkg install rpcd-mod-file uhttpd-mod-ubus
 
 Add a new system user `hass` (or do it in any other way that you prefer):
 
--Add line to /etc/passwd: hass:x:10001:10001:hass:/var:/bin/false
+- Add line to /etc/passwd: hass:x:10001:10001:hass:/var:/bin/false
 - Add line to /etc/shadow: hass:x:0:0:99999:7:::
 
 Edit the `/etc/config/rpcd` and add the following lines:
