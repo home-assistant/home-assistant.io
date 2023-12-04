@@ -82,5 +82,9 @@ The example below shows common pitfalls when enquiring about the weather. While 
    - To view the entity name, check the list under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
    - For example, if the entity is called *Forecast Berlin*, you have to say "What is the weather in forecast Berlin like".
    - Assist would not recognize it if you ask "What is the weather in Berlin like".
-5. If you just ask "What is the weather" when you have weather forecast entities for multiple entities, Assist returns the weather data for the one with the oldest timestamp.
+   - If you want to use Berlin instead of *Forecast Berlin*, you can create an entity name alias.
+     - You can create as many aliases as you like.
+
+     ![Create alias for entity name](/images/assist/assist_create_alias.png)
+5. If you just ask "What is the weather" when you have forecast entities for multiple entities, Assist always returns the data for the place that was first added. Currently, there is no way to change that.
 
