@@ -35,7 +35,7 @@ notify:
     required: exclusive
     type: string
   tts_service:
-    description: "The `service_name` of a TTS platform. Either use `entity_id` or `tts_service` to target a TTS platform. This must match the `service_name` defined in the TTS integration."
+    description: "The `service_name` of a TTS platform. Either use `entity_id` or `tts_service` to target a TTS platform."
     required: exclusive
     type: string
   media_player:
