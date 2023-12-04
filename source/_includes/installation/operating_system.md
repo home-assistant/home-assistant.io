@@ -305,7 +305,7 @@ Minimum recommended assignments:
   content: |
     1. Create a new virtual machine.
     2. Select type **Linux** and version **Linux 2.6 / 3.x / 4.x (64-bit)**.
-    3. Under **Hardware**, select the amount of memory, number of CPUs and select **Enable EFI**.
+    3. Under **Hardware**, select the amount of memory and number of CPUs. Then, select **Enable EFI**.
        - Make sure **EFI** is enabled. If EFI is not enabled, HAOS won't boot.
     4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
     5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.
