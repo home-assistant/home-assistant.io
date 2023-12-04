@@ -16,8 +16,6 @@ ha_integration_type: integration
 
 The **Adax** {% term integration %} integrates Adax heaters into Home Assistant and can be configured to use a local or cloud interface.
 
-{% include integrations/config_flow.md %}
-
 ## Local integration
 
 The local integration only works with newer Adax heaters with both Bluetooth and Wi-Fi. Home Assistant uses Bluetooth LE to configure the heaters, this means the machine _running_ Home Assistant needs to have a Bluetooth adapter and the heater needs to be in range during setup. Using local control will disable cloud communication and the Adax app will not work.
@@ -41,3 +39,5 @@ You will also need a credential, which you can create in the Adax app:
 5. Give some name to the created credential (e.g. 'Home Assistant') and copy the generated password.
 
 In the configuration popup you will need the Account ID, and the generated API password (not the account password)
+
+{% include integrations/config_flow.md %}
