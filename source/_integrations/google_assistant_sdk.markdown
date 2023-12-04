@@ -81,9 +81,7 @@ If you have an error with your credentials you can delete them in the [Applicati
 
 If commands don't work try removing superfluous words such as "the". E.g. "play rain sounds on bedroom speaker" instead of "play rain sounds on the bedroom speaker".
 
-
-
-If broadcasting doesn't work, also make sure that the speakers aren't in do not disturb mode, and the Home Assistant server is in the same network as the speakers.
+If broadcasting doesn't work, make sure that the speakers aren't in do not disturb mode, and the Home Assistant server is in the same network as the speakers.
 
 The easiest way to check if the integration is working is to check [My Google Activity](https://myactivity.google.com/myactivity) for the issued commands and their responses.
 
