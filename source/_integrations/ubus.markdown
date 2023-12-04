@@ -20,12 +20,12 @@ opkg update
 opkg install rpcd-mod-file uhttpd-mod-ubus
 ```
 
-Add new system user `hass` (or do it in any other way that you prefer):
+Add a new system user `hass` (or do it in any other way that you prefer):
 
-* Add line to /etc/passwd: hass:x:10001:10001:hass:/var:/bin/false
-* Add line to /etc/shadow: hass:x:0:0:99999:7:::
+-Add line to /etc/passwd: hass:x:10001:10001:hass:/var:/bin/false
+- Add line to /etc/shadow: hass:x:0:0:99999:7:::
 
-Edit `/etc/config/rpcd` and add:
+Edit the `/etc/config/rpcd` and add the following lines:
 
 ```
 config login
@@ -36,7 +36,7 @@ config login
         list write hass
 ```
 
-And create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass` with:
+Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass`:
 
 ```json
 {
