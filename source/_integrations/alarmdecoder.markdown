@@ -33,15 +33,15 @@ This is a fully event-based integration. Any {% term event %} sent by the AlarmD
 You will be prompted to select a protocol (i.e. `socket` or `serial`). Depending on your selection, you will be asked for the following connection information:
 
 - **socket**:
-  - **host** - the hostname or IP address of the machine connected to the AlarmDecoder device
-  - **port** - the port that AlarmDecoder is accessible on (i.e. `10000`)
+  - **host** - The hostname or IP address of AlarDecoder device that is connected to your alarm panel.
+  - **port** - The port that AlarmDecoder is accessible on (i.e. `10000`).
 - **serial**:
-  - **path** - the path to the AlarmDecoder device (i.e. `/dev/ttyUSB0`)
-  - **baud rate** - the baud rate of the AlarmDecoder device (i.e. `115200`)
+  - **path** - The path to the AlarmDecoder device (i.e. `/dev/ttyUSB0`).
+  - **baud rate** - The baud rate of the AlarmDecoder device (i.e. `115200`).
 
 ## Settings
 
-Once AlarmDecoder has been set up according to the instructions above, the arming settings and zones can be configured by selecting _Options_ on the _AlarmDecoder_ card on the **{% my integrations title="Settings -> Devices & Services" %}** page.
+Once AlarmDecoder has been set up according to the instructions above, the arming settings and zones can be configured by selecting _Options_ on the _AlarmDecoder_ card on the **{% my integrations title="Settings > Devices & services" %}** page.
 
 ### Arming settings
 
