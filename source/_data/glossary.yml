@@ -113,6 +113,12 @@
   definition: >
     Discovery is the automatic setup of zeroconf/mDNS and uPnP devices after
     they are discovered.
+- term: DNS
+  definition: |-
+    The Domain Name System (DNS) turns domain names into IP addresses, which browsers use to load internet pages. 
+    Every device connected to the internet has its own IP address, which is used by other devices to locate the device. 
+    DNS servers make it possible for people to input normal words into their browsers, such as homeassistant.com, 
+    without having to keep track of the IP address for every website.
 - term: Domain
   definition: >-
     Each integration in Home Assistant has a unique identifier:
@@ -236,6 +242,11 @@
   link: https://developers.home-assistant.io/docs/intent_builtin
   aliases:
     - Intents
+- term: IPv4
+  definition: |-
+    IP stands for Internet Protocol and v4 stands for Version Four (IPv4). IPv4 was the primary version brought into action for production within the ARPANET in 1983. 
+    IP version 4 addresses are 32-bit integers which will be expressed in decimal notation. 
+    **Example: 192.0.2.126 could be an private IPv4 address, while 153.12.127.41 could be a public IPv4 address**
 - term: Lovelace
   definition: >-
     Lovelace is the original code name of the UI that is now known as

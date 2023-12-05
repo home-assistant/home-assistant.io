@@ -100,7 +100,7 @@ This integration offers a service to execute {% term DNS %} record updates on an
 
 No additional configuration is required.
 
-Currently only A and CNAME records are supported. The service can be called either from the Developer-Tools UI, as well as from within integrations.
+Currently only A and CNAME records are supported. The service can be called either from the Developer Tools UI, or from within integrations.
 
 
 ### Service Details
@@ -109,13 +109,13 @@ Currently only A and CNAME records are supported. The service can be called eith
 | ---------------------- | -------- | ----------- | ------- |
 | `domain` | no | String indicating what domain you wish to update. | example.com |
 | `record` | no | String what record, within this domain, to update. | home (for updating home.example.com) |
-| `value` | no | String indicating the desired record value. This needs to be an {% term IPV4%} address or another {% term domain %}. | 145.12.122.41 |
+| `value` | no | String indicating the desired record value. This needs to be an {% term IPv4%} address or another domain. | 145.12.122.41 |
 | `type` | yes | The type of record to update. A and CNAME are supported. Defaults to A | A |
 
 
 ### Examples
 
-Example call within the Developer-Tools UI:
+Example call within the Developer Tools UI:
 
 ![Service Call Example](/source/images/integration/service.png)
 
