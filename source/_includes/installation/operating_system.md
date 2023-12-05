@@ -398,8 +398,8 @@ Minimum recommended assignments:
 
 - title: VMware Workstation
   content: |
-    1. Create a new virtual machine.
-       - Note: the exact name and location of the settings depend on the VMware version. This procedure is based on version 17.0.
+    1. Start VMware Workstation and select **Create a New Virtual Machine**.
+       - Note: the exact name and location of the settings below depend on the VMware version. This procedure is based on version 17.
     2. Select **I will install the operating system later**, then select **Linux** > **Other Linux 5.x kernel 64-bit**.
     3. Give the VM a name, `home-assistant`, and define an easy to reach storage location, such as `C:\home-assistant`.
     4. Specify the disk size and select **Store virtual disk as a single file**.
@@ -411,7 +411,7 @@ Minimum recommended assignments:
        - Make sure **Replicate physical network connection state** is not selected.
        - Select **Configure Adapters**.
        - Make sure all virtual adapters and Bluetooth devices are deselected.
-       - Select your host network adapters. Most likely, they are the first 2 checkboxes in the list: 
+       - Select your host network adapters. Most likely, they are the first 2 checkboxes in the list:
          - One for Ethernet and one for Wi-Fi.
          - The exact names of these adapters depend on your hardware.
     10. At the end of the wizard, select **Finish**.
@@ -420,7 +420,7 @@ Minimum recommended assignments:
 
       1. In Windows Explorer, navigate to the storage location of your newly created VM, for example under `C:\home-assistant`.
       2. Delete the `home-assistant.vmdk` file.
-      3. In the Downloads folder, find the `haos_ova_xx.x.vmdk` file. 
+      3. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file. 
          - If you haven't unzipped the archive, unzip it.
          - Within the folder, find the `.vmdk` file and rename it to `home-assistant.vmdk`.
          - Paste the file (not the unzipped folder) into the `C:\home-assistant` folder.
@@ -428,8 +428,7 @@ Minimum recommended assignments:
       5. Under `.encoding`, add a line. Enter `firmware = "efi"`.
       6. Now continue with the next step to start your VM. 
          - If you see a message about side channel mitigations, select **OK**.
-         - If you see a message that the `.vmdk` file could not be found, in step 3, you likely pasted the folder, not the file. Repeat step 3.
-
+         - If you see a message stating that the `.vmdk` file could not be found, in step 3, you likely pasted the folder, not the file. Repeat step 3.
 
 
 {% elsif page.installation_type == 'alternative' %}
