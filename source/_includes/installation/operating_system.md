@@ -396,15 +396,40 @@ Minimum recommended assignments:
 
 {% if page.installation_type == 'windows' or page.installation_type == 'Linux' %}
 
-- title: Vmware Workstation
+- title: VMware Workstation
   content: |
-    1. Create a new virtual machine.
-    2. Select **Custom**, make it compatible with the default of Workstation and ESX.
-    3. Choose **I will install the operating system later**, select **Linux** > **Other Linux 5.x or later kernel 64-bit**.
-    4. Select **Use Bridged Networking**.
-    5. Select **Use an existing virtual disk** and select the VMDK file above.
+    1. Start VMware Workstation and select **Create a New Virtual Machine**.
+       - Note: the exact name and location of the settings below depend on the VMware version. This procedure is based on version 17.
+    2. Select **I will install the operating system later**, then select **Linux** > **Other Linux 5.x kernel 64-bit**.
+    3. Give the VM a name, `home-assistant`, and define an easy to reach storage location, such as `C:\home-assistant`.
+    4. Specify the disk size and select **Store virtual disk as a single file**.
+    5. Select **Customize Hardware**.
+    6. Define the amount of memory and the number of cores the VM is allowed to use.
+    7. Remove the **New CD/DVD** entry. It will not be used.
+    8. Connect an Ethernet cable and make sure it is connected to your network.
+    9. Under **Network adapter**, select **Bridged: Connected directly to the physical network**.
+       - Make sure **Replicate physical network connection state** is not selected.
+       - Select **Configure Adapters**.
+       - Make sure all virtual adapters and Bluetooth devices are deselected.
+       - Select your host network adapter. Most likely, this is one of the first 2 checkboxes in the list:
+         - Select the one for Ethernet.
+         - The exact names of these adapters depend on your hardware.
+    10. At the end of the wizard, select **Finish**.
 
-    After the VM has been created, go to **Settings** > **Options** > **Advanced**. Under **Firmware type** select **UEFI**.
+      ## Edit the VM settings
+
+      1. In Windows Explorer, navigate to the storage location of your newly created VM, for example under `C:\home-assistant`.
+      2. Delete the `home-assistant.vmdk` file.
+      3. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file. 
+         - If you haven't unzipped the archive, unzip it.
+         - Within the folder, find the `.vmdk` file and rename it to `home-assistant.vmdk`.
+         - Paste the file (not the unzipped folder) into the `C:\home-assistant` folder.
+      4. Right-click the `.vmx` file and select **Open with** > **Notepad**.
+      5. Under `.encoding`, add a line. Enter `firmware = "efi"`.
+      6. Now continue with the next step to start your VM. 
+         - If you see a message about side channel mitigations, select **OK**.
+         - If you see a message stating that the `.vmdk` file could not be found, in step 3, you likely pasted the folder, not the file. Repeat step 3.
+
 
 {% elsif page.installation_type == 'alternative' %}
 
