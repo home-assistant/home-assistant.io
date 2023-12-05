@@ -117,7 +117,7 @@
   definition: |-
     The Domain Name System (DNS) turns domain names into IP addresses, which browsers use to load internet pages. 
     Every device connected to the internet has its own IP address, which is used by other devices to locate the device. 
-    DNS servers make it possible for people to input normal words into their browsers, such as homeassistant.com, 
+    DNS servers make it possible for people to input normal words into their browsers, such as home-assistant.io, 
     without having to keep track of the IP address for every website.
 - term: Domain
   definition: >-
