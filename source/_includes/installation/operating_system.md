@@ -6,7 +6,7 @@
 
 Follow this guide if you want to get started with Home Assistant easily or if you have little to no Linux experience.
 
-{% if page.installation_type == 'ODROID' %}
+{% if page.installation_type == 'odroid' %}
 
 ## Suggested hardware
 
@@ -161,7 +161,7 @@ Use this method only if Method 1 does not work for you.
    - This means you will lose all the data as well as the previously installed operating system.
    - Back up your data before continuing with the next step.
 2. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.
-    {% if page.installation_type == 'ODROID' %}
+    {% if page.installation_type == 'odroid' %}
       If you are using ODROID M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
 
       If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
@@ -265,14 +265,14 @@ If you are running an older Windows version or have a stricter network configura
 ### Download the appropriate image
 
 - [VirtualBox][vdi] (.vdi)
-{% if page.installation_type == 'windows' or page.installation_type == 'Linux' %}
+{% if page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
-- [Vmware Workstation][vmdk] (.vmdk)
 {% elsif page.installation_type == 'alternative' %}
 - [KVM/Proxmox][qcow2] (.qcow2)
 - [VMware ESXi/vSphere][Virtual Appliance] (.ova)
 {% endif %}
 {% if page.installation_type == 'windows' %}
+- [VMware Workstation][vmdk] (.vmdk)
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
 
@@ -280,7 +280,7 @@ After downloading, decompress the image. If the image comes in a ZIP file, for e
 
 Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines, install Home Assistant OS directly on a [Home Assistant Yellow](/installation/yellow), a [Raspberry Pi](/installation/raspberrypi), or an [ODROID](/installation/odroid).
 
-{% if page.installation_type == 'macOS' %}
+{% if page.installation_type == 'macos' %}
 
 - If VirtualBox is not supported on your Mac, and you have experience using virtual machines, you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
 {% endif %}
@@ -327,6 +327,8 @@ Minimum recommended assignments:
 
     </div>
 
+{% unless page.installation_type == 'macos' %}
+
 - title: Unraid
   content: |
     1. Download the **.qcow2** image above and decompress it. (**Extract all** in Windows)
@@ -344,8 +346,6 @@ Minimum recommended assignments:
     13. Select **Create**.
     14. Select the name of your new VM and select the capacity number for your disk. Here, you can expand the disk to whatever your needs are. The default is 32&nbsp;GB.
     15. Select the icon of your new VM and select **start with console (VNC)**.
-
-{% unless page.installation_type == 'macOS' %}
 
 - title: KVM (virt-manager)
   content: |
@@ -394,7 +394,7 @@ Minimum recommended assignments:
 
 {% endunless %}
 
-{% if page.installation_type == 'windows' or page.installation_type == 'Linux' %}
+{% if page.installation_type == 'windows' %}
 
 - title: VMware Workstation
   content: |
@@ -418,8 +418,8 @@ Minimum recommended assignments:
 
       ## Edit the VM settings
 
-      1. In Windows Explorer, navigate to the storage location of your newly created VM, for example under `C:\home-assistant`.
-      2. Delete the `home-assistant.vmdk` file.
+      11. In Windows Explorer, navigate to the storage location of your newly created VM, for example under `C:\home-assistant`.
+      12. Delete the `home-assistant.vmdk` file.
       3. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file. 
          - If you haven't unzipped the archive, unzip it.
          - Within the folder, find the `.vmdk` file and rename it to `home-assistant.vmdk`.
