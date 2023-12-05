@@ -49,7 +49,7 @@ SmartThings is integrated into Home Assistant through the SmartThings Cloud API.
 
 The PAT is used to create a Home Assistant SmartApp in your SmartThings account during setup of the integration.
 
-1. Log into the [personal access tokens page](https://account.smartthings.com/tokens) and click '[Generate new token](https://account.smartthings.com/tokens/new)'
+1. Log into the [personal access tokens page](https://account.smartthings.com/tokens) and select **[Generate new token](https://account.smartthings.com/tokens/new)**.
 2. Enter a token name (can be whatever you want), for example, 'Home Assistant' and select the following authorized scopes:
     - Devices (all)
     - Installed Applications (all)
@@ -57,7 +57,7 @@ The PAT is used to create a Home Assistant SmartApp in your SmartThings account 
     - Locations (all)
     - Scenes (all)
     - Schedules (all)
-3. Click 'Generate token'. When the token is displayed copy and save it somewhere safe (such as your keystore) as you will not be able to retrieve it again.
+3. Select **Generate token**. When the token is displayed copy and save it somewhere safe (such as your keystore) as you will not be able to retrieve it again.
 
 ### Webhook
 
@@ -72,15 +72,15 @@ After completing the prerequisite steps above, you are ready to setup the integr
 
 {% include integrations/config_flow.md %}
 
-1. Confirm the callback URL is correct. If using Home Assistant Cloud, it will start with `https://hooks.nabuca.casa`. If the URL is not correct, update your Home Assistant configuration, restart, and try again.
+1. Confirm the callback URL is correct. If using Home Assistant Cloud, it will start with `https://hooks.nabu.casa`. If the URL is not correct, update your Home Assistant configuration, restart, and try again.
 2. Enter your Personal Access Token.
 3. Select the SmartThings Location to add to Home Assistant.
 4. On the window that opens:
    1. Login with your SmartThings account (if not already logged in).
-   2. Optionally change the display name and click 'Done' at the bottom of the screen.
-   3. Authorize the integration by clicking 'Allow' on the bottom right of the screen.
-   4. Click 'Close Window' or close it manually.
-5. Back in Home Assistant click 'Finish'.
+   2. Optionally change the display name and select **Done** at the bottom of the screen.
+   3. Authorize the integration by selecting **Allow** on the bottom right of the screen.
+   4. Select **Close Window** or close it manually.
+5. Back in Home Assistant select **Finish**.
 
 <div class='note info'>
 
@@ -90,7 +90,7 @@ If you want to integrate additional SmartThings accounts or locations, repeat th
 
 ## Removal instructions
 
-To remove the integration from Home Assistant, select the instance from the Home Assistant Integrations page and click the trash icon on the upper right corner. Alternatively, you can remove the SmartApp from the location within the SmartThings application. If the Home Assistant instance that setup the integration is no longer running or functioning, you will need to use this [utility to remove the orphaned SmartApps in your SmartThings account](https://pypi.org/project/hass-smartthings-remove/).
+To remove the integration from Home Assistant, select the instance from the Home Assistant Integrations page and select the trash icon on the upper right corner. Alternatively, you can remove the SmartApp from the location within the SmartThings application. If the Home Assistant instance that setup the integration is no longer running or functioning, you will need to use this [utility to remove the orphaned SmartApps in your SmartThings account](https://pypi.org/project/hass-smartthings-remove/).
 
 ## Events
 
@@ -306,11 +306,11 @@ The personal access token does not match the expected format. Make sure you are 
 #### Error: `pysmartthings.errors.APIInvalidGrant: Invalid refresh token:` (after a restore)
 
 You can fix this by using the SmartThings App to re-grant authorization to the API token you created before. 
-1. Open SmartThings app on your mobile device (not HA)
-2. Select `Automations` from bottom
-3. Select your Home Assistant automation from the list
-4. Click "Done", then click "Allow"
-5. Reload your SmartThings integration from Home Assistant Devices panel
+1. Open SmartThings app on your mobile device (not HA).
+2. Select **Automations** from bottom.
+3. Select your Home Assistant automation from the list.
+4. Select **Done**, then select **Allow**.
+5. Reload your SmartThings integration from Home Assistant Devices panel.
 
 #### Error: The token is invalid or no longer authorized (not solved by above)
 

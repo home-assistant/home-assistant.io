@@ -47,7 +47,7 @@ If you want to test if a sentence works with a specific assistant while actively
 
 ## I do not see any assistant
 
-If under {% my voice_assistants title="**Settings** > **Voice assistants**" %} you do not see any assistants, you are not using the default configuration. The image below shows the **Assist** section. 
+If under {% my voice_assistants title="**Settings** > **Voice assistants**" %} you do not see any assistants, you are not using the default configuration. The image below shows the **Assist** section.
 
 ![Open the pipeline debug dialog](/images/assist/assist-assistants-page.png)
 
@@ -57,3 +57,34 @@ If the **Assist** section is missing entirely, you need to add the following to 
    # Example configuration.yaml entry
    assist_pipeline:
    ```
+
+## Assist does not understand my question about the weather forecast
+
+The example below shows common pitfalls when enquiring about the weather. While some steps are specific to the weather, the general mechanics apply to other entities as well.
+
+1. Make sure you have a [weather service](/integrations/#weather) installed.
+   - By default, [Met.no](/integrations/met/) is installed.
+2. Make sure you have an entity set up for the location you are interested in.
+   - For example, if you are interested in the weather in Berlin, add an entity for Berlin.
+  
+     ![Create weather entity](/images/assist/metno_weather_entity.png)
+3. Make sure the entity is exposed to Assist:
+   - Under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, select the weather entity for that location.
+   - In the details view that opens, select the cogwheel, then select **Voice Assistant**.
+  
+     ![Select voice assistants](/images/assist/weather_entity_voice_assistant.png)
+
+   - Make sure the entity is exposed to Assist.
+  
+     ![Expose entity to Assist](/images/assist/expose_entity_dialog.png)
+
+4. Make sure you use the exact entity name when talking to Assist.
+   - To view the entity name, check the list under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+   - For example, if the entity is called *Forecast Berlin*, you have to say "What is the weather in forecast Berlin like".
+   - Assist would not recognize it if you ask "What is the weather in Berlin like".
+   - If you want to use Berlin instead of *Forecast Berlin*, you can create an entity name alias.
+     - You can create as many aliases as you like.
+
+     ![Create alias for entity name](/images/assist/assist_create_alias.png)
+5. If you just ask "What is the weather" when you have forecast entities for multiple entities, Assist always returns the data for the place that was first added. Currently, there is no way to change that.
+

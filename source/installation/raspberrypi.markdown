@@ -59,14 +59,24 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 ### Start up your Raspberry Pi
 
 1. Insert the SD card into your Raspberry Pi.
-2. Plug in an Ethernet cable that is connected to the network.
+2. Plug in an Ethernet cable and make sure the Raspberry Pi is connected to the same network as your computer.
 3. Connect the power supply to start up the device.
 
-4. In the browser of your desktop system, within a few minutes you will be able to reach your new Home Assistant at <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
+### Access Home Assistant
 
-<div class="note">
-If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your Raspberry Pi’s IP address).
-</div>
+Within a few minutes after connecting the Raspberry Pi, you will be able to reach your new Home Assistant.
+
+- In the browser of your desktop system, enter <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
+ 
+    <div class="note">
+    If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your Raspberry Pi’s IP address).
+    </div>
+
+- The time it takes for this page to become available depends on your hardware. On a Raspberry Pi 4, this page should be available within a minute.
+  - If it does not show up after 5 minutes on a Pi 4, maybe the image was not written properly.
+    - Try to flash the SD card again, possibly even try a different SD card.
+  - If this did not help, view the console output on the Raspberry Pi.
+    - To do this, connect a monitor via HDMI.
 
 Congratulations! You finished the Raspberry Pi setup!
 
