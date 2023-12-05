@@ -533,6 +533,8 @@ authentication process.
 
 - *Something went wrong: Please contact the developer of this app if the issue persists*: This typically means you are using the wrong type of credential (e.g. *Desktop Auth*). Make sure the credential in the [Google Cloud Console](https://console.developers.google.com/apis/credentials) is a *Web Application* credential following the instructions above.
 
+- *Something went wrong, please try again in few minutes.*: According to [Google Partner Connections Manager Error Reference](https://developers.google.com/nest/device-access/reference/errors/pcm) this error covers all other undocumented internal errors within Partner Connections. One of the issues that causes this error is the synchronisation problems between Nest App and Google Home App. Confirm that your Nest device is visible both on Nest App and Google Home under the same Home. If it is missing on Google Home, create a new dummy home on the Nest App as this triggers the synchronisation (the workaround as recommended by Google support team). Dummy entry can be deleted once the Nest Device is visible on Google Home.
+
 - *Can’t link to [Project Name]: Please contact [Project Name] if the issue persists*: This typically means that the *OAuth Client ID* used is mismatched
 
 {% details "Resolving mismatched OAuth Client ID" %}
