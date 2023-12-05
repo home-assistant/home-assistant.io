@@ -31,6 +31,8 @@ The Roku integration allows you to control a [Roku](https://www.roku.com/) devic
 
 {% include integrations/config_flow.md %}
 
+When adding the integration, you will be asked to provide a {% term host %}. Unless you changed the hostname, this refers to the IP address of your Roku device. You can find the IP address or hostname in the network settings of your Roku device, by checking your router, or by using a network scanning tool.
+
 There is currently support for the following device types within Home Assistant:
 
 - Media player

@@ -46,7 +46,7 @@ As an extra level of security, you can turn on [multi-factor authentication](/do
 
 ## Other authentication techniques
 
-Home Assistant provides several ways to authenticate. See the [Auth Providers](/docs/authentication/providers/) section.
+Home Assistant provides several ways to authenticate. See the [Auth providers](/docs/authentication/providers/) section.
 
 ## Troubleshooting
 

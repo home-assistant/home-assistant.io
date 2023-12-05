@@ -1729,7 +1729,7 @@ device_class:
 |  12.001 | pulse_4_ucount                |            4 |      0 ... 4294967295      | counter pulses |
 |  12.100 | long_time_period_sec          |            4 |      0 ... 4294967295      | s              |
 |  12.101 | long_time_period_min          |            4 |      0 ... 4294967295      | min            |
-|  12.100 | long_time_period_hrs          |            4 |      0 ... 4294967295      | h              |
+|  12.102 | long_time_period_hrs          |            4 |      0 ... 4294967295      | h              |
 | 12.1200 | volume_liquid_litre           |            4 |      0 ... 4294967295      | l              |
 | 12.1201 | volume_m3                     |            4 |      0 ... 4294967295      | m³             |
 |      13 | 4byte_signed                  |            4 | -2147483648 ... 2147483647 |                |
