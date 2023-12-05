@@ -411,8 +411,8 @@ Minimum recommended assignments:
        - Make sure **Replicate physical network connection state** is not selected.
        - Select **Configure Adapters**.
        - Make sure all virtual adapters and Bluetooth devices are deselected.
-       - Select your host network adapters. Most likely, they are the first 2 checkboxes in the list:
-         - One for Ethernet and one for Wi-Fi.
+       - Select your host network adapter. Most likely, this is one of the first 2 checkboxes in the list:
+         - Select the one for Ethernet.
          - The exact names of these adapters depend on your hardware.
     10. At the end of the wizard, select **Finish**.
 
