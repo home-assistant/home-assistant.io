@@ -396,7 +396,7 @@ Minimum recommended assignments:
 
 {% if page.installation_type == 'windows' or page.installation_type == 'Linux' %}
 
-- title: VMWare Workstation
+- title: VMware Workstation
   content: |
     1. Create a new virtual machine.
        - Note: the exact name and location of the settings depend on the VMware version. This procedure is based on version 17.0.
@@ -428,6 +428,7 @@ Minimum recommended assignments:
       5. Under `.encoding`, add a line. Enter `firmware = "efi"`.
       6. Now continue with the next step to start your VM. 
          - If you see a message about side channel mitigations, select **OK**.
+         - If you see a message that the `.vmdk` file could not be found, in step 3, you likely pasted the folder, not the file. Repeat step 3.
 
 
 
