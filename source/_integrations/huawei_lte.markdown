@@ -3,6 +3,7 @@ title: Huawei LTE
 description: Instructions on how to integrate Huawei LTE router and modem devices with Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Network
   - Notifications
   - Presence detection
