@@ -243,7 +243,7 @@ style:
   default: dropdown
 modes:
   required: true
-  description: List of modes to show on the card. The list can contain `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto` and `baby` or any other custom mode.
+  description: List of modes to show on the card. The list can contain `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby` or any other custom mode.
   type: list
 {% endconfiguration %}
 
