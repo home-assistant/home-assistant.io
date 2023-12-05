@@ -6,7 +6,7 @@ ha_category:
   - Switch
   - System monitor
 ha_release: '0.30'
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: digital_ocean
@@ -16,12 +16,13 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Digital Ocean** {% term integration %} allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.
+The **Digital Ocean** {% term integration %} allows you to access and modify the information and services hosted on [Digital Ocean](https://www.digitalocean.com/) from within Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](/integrations/digital_ocean/#binary-sensor)
 - [Switch](/integrations/digital_ocean/#switch)
+- [DNS Service] (/integrations/digital_ocean/#dns-service)
 
 ## Setup
 
@@ -46,7 +47,7 @@ access_token:
 
 ## Binary sensor
 
-The `digital_ocean` binary sensor platform allows you to monitor your Digital Ocean droplets.
+The `digital_ocean` binary sensor platform allows you to monitor the status of your Digital Ocean droplets.
 
 ### Configuration
 
@@ -91,3 +92,40 @@ droplets:
   required: true
   type: list
 {% endconfiguration %}
+
+
+## DNS Service
+
+This integration offers a service to execute {% term DNS %} record updates on any domain hosted on your [DigitalOcean Networking](https://cloud.digitalocean.com/networking/domains) section.
+
+No additional configuration is required.
+
+Currently only A and CNAME records are supported. The service can be called either from the Developer-Tools UI, as well as from within integrations.
+
+
+### Service Details
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `domain` | no | String indicating what domain you wish to update. | example.com |
+| `record` | no | String what record, within this domain, to update. | home (for updating home.example.com) |
+| `value` | no | String indicating the desired record value. This needs to be an {% term IPV4%} address or another {% term domain %}. | 145.12.122.41 |
+| `type` | yes | The type of record to update. A and CNAME are supported. Defaults to A | A |
+
+
+### Examples
+
+Example call within the Developer-Tools UI:
+
+![Service Call Example](/source/images/integration/service.png)
+
+Sample call in YAML mode:
+
+```yaml
+service: digital_ocean.update_domain_record
+data:
+  domain: example.com
+  record: home
+  value: 145.12.122.41
+  type: A
+```
