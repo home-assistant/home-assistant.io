@@ -155,18 +155,27 @@ with an empty manual dashboard or create a new default dashboard.
 
 ## History dashboard showing long-term statistics
 
-The history dashboard has gotten some love from [@karwosts] this release, he
-added a big improvement to all the graph shown there.
+The history dashboard did get some love from [@karwosts] this release; he
+added a big improvement to _all_ the graphs shown there.
 
-Previously, the graphs would only show the state history, which is limited
-to a few days, until the data is removed. This is not always very useful,
-for example, when you want to look back further in time.
+Previously, the graphs would only show the state history, limited to a few days,
+until the data is removed. This is not always very useful, for example,
+when you want to look back further in time.
 
 [@karwosts] came up with a solution for this, and the history dashboard now
-combines the state history with the recorded long-term statistics, to provide
-you insights into the past.
+combines the state history with the recorded long-term statistics to provide
+insights into the past.
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/32912880/275918628-dea821b9-5449-4777-8f84-0524eecb0ff9.gif' alt='Temporary screenshot that needs to be replaced.'>
+<img class="no-shadow" src='/images/blog/2023-12/long-term-history-dashboard.png' alt='Screenshot showing a history graph over a longer period of time.'>
+
+The right and darker part of the graph line is provided by the state history
+(like before), and the long-term statistics provide the left and lighter part
+of the graph line (and is thus downsampled hourly data).
+
+If you have manually modified the [days to keep before purging](/integrations/recorder#configuration-variables)
+recorder on your system, consider removing that customization. With the
+long-term statistics and new feature, you most likely don’t need it anymore,
+resulting in a smaller database and, thus, faster and smaller backups.
 
 [@karwosts]: https://github.com/karwosts
 
