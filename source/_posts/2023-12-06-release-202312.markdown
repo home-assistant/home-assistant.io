@@ -205,7 +205,7 @@ noteworthy changes this release:
   and scripts. Thanks, [@piitaya]!
 - That is not all for selectors, [@schelv] added support for Kelvin to the
   [color temperature selector]. Nice!
-- If you use the [IKEA IDÅSEN] desk, you will now have an height sensor!
+- If you use the [IKEA IDÅSEN] desk, you will now have a height sensor!
   Thanks [@abmantis]!
 - The [ESPHome] integration had many performance improvements, making it faster
   and more reliable. Thanks [@bdraco]!
@@ -213,16 +213,18 @@ noteworthy changes this release:
   Awesome!
 - Services with response now support handling responses when multiple entities
   are targeted. Nice! Thanks [@eifinger]!
-- The [ViCare] received tons of love from [@CFenner], keep up the good work!
+- [@iMicknl] added _local API_ support for the Somfy TaHoma to the [Overkiz]
+  integration! Also, thanks [Somfy]! It's nice to see a manufacturer adding
+  local API support!
+- The [ViCare] received tons of love from [@CFenner]; keep up the good work!
 - The media browser now has support for toggling between grid and list view.
   Thanks [@karwosts]!
-- [@emontnemery] worked hard to improve all error messages that originate from
-  manual YAML configuration. The messages should now be more detailed, more
-  readable, and point out correctly which file and file line the error is
-  located at. Awesome!
+- [@emontnemery] worked hard to improve all error messages originating from
+  manual YAML configuration. The messages should now be more detailed, readable,
+  and correctly pinpoint which file and file line the error is located at. Awesome!
 - [@karwosts] created a UI when you want to add selectors to your script field!
   Very nicely done!
-- Error shown by Home Assistant, can now be translated! While tons of places,
+- Errors shown by Home Assistant can now be translated! While many places
   still need to adopt this, it is a big and user-friendly step forward!
   Outstanding job [@jbouwh]!
 
@@ -231,6 +233,7 @@ noteworthy changes this release:
 [@CFenner]: https://github.com/CFenner
 [@eifinger]: https://github.com/eifinger
 [@emontnemery]: https://github.com/emontnemery
+[@iMicknl]: https://github.com/iMicknl
 [@jbouwh]: https://github.com/jbouwh
 [@Lash-L]: https://github.com/Lash-L
 [@piitaya]: https://github.com/piitaya
@@ -238,7 +241,9 @@ noteworthy changes this release:
 [color temperature selector]: /docs/blueprint/selectors/#color-temperature-selector
 [ESPHome]: /integrations/esphome
 [IKEA IDÅSEN]: /integrations/idasen_desk
+[Overkiz]: /integrations/overkiz
 [Roborock]: /integrations/roborock
+[Somfy]: https://www.somfy.com/
 [trigger selector]: /docs/blueprint/selectors/#trigger-selector
 [ViCare]: /integrations/vicare
 
