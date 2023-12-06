@@ -1,5 +1,5 @@
 ---
-title: "Asterisk Voicemail Server Installation"
+title: "Asterisk Voicemail server installation"
 description: "Instructions on how to integrate your existing Asterisk voicemail within Home Assistant."
 ---
 

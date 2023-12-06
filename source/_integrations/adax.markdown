@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Integrates Adax heater into Home Assistant.
+The **Adax** {% term integration %} integrates Adax heater into Home Assistant.
 
 You can configure the heaters to use a local or cloud interface.
 

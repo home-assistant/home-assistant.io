@@ -74,7 +74,7 @@ include:
       type: list
 {% endconfiguration %}
 
-### Configure Filter
+### Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `MQTT Statestream`, you can use the `include` and `exclude` parameters.
 

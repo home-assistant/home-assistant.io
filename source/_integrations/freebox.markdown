@@ -4,7 +4,7 @@ description: Instructions on how to integrate Freebox routers into Home Assistan
 ha_category:
   - Camera
   - Network
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Switch
   - Alarm Control Panel
@@ -99,7 +99,7 @@ Only the routers with Freebox OS are supported:
 - Freebox V6 also known as Freebox Revolution
 - Freebox mini 4k
 
-## Presence Detection
+## Presence detection
 
 This platform offers presence detection by keeping track of the devices connected to a [Freebox](https://www.free.fr/freebox/) router.
 

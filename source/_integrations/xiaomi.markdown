@@ -16,7 +16,7 @@ The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home As
 
 To successfully implement this platform, the Home Assistant host should be capable of multiple simultaneous reads. For every concurrent Home Assistant user, a connection will be made to the camera every 10 seconds. This should normally not be a problem.
 
-## Preparing the Device
+## Preparing the device
 
 In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found for each models.
 
@@ -47,7 +47,7 @@ The live stream writing by the camera is not a supported format when the hass re
 If you enabled RTSP server, you can connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Mi Home app. In order to maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
 </div>
 
-## Configuring the Platform
+## Configuring the platform
 
 To enable the platform, add the following lines to your`configuration.yaml` file:
 
@@ -117,7 +117,7 @@ camera:
 ```
 ## Hostname template
 
-The hostname/IP address can be provided either a value or from the existing entity attributes.
+The hostname/IP address can be provided either a value or from the existing {% term entity %} attributes.
 
 ```yaml
 camera:

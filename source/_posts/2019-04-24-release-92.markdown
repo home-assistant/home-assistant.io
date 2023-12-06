@@ -167,7 +167,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __Google Assistant__ - You will now have to say a pin code before being able to control locks, doors and garage doors. You can set this pin in configuration -> cloud or, for manual installs, add `secure_devices_pin` to your config. ([@balloob] - [#23223]) ([cloud docs]) ([google_assistant docs]) (breaking change) (beta fix)
 - __Google Assistant__ - Migrate light setting trait to use HSV color spectrum. If you have lights with colors, please run a Google Assistant SYNC after you update to this version. It will result in improved color representation. ([@balloob] - [#22980]) ([google_assistant docs])

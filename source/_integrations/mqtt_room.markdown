@@ -1,8 +1,8 @@
 ---
-title: MQTT Room Presence
+title: MQTT room presence
 description: Instructions on how to track room presence within Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.27
 ha_iot_class: Local Push
 ha_domain: mqtt_room
@@ -22,7 +22,7 @@ To use this device tracker in your installation, add the following to your `conf
 sensor:
   - platform: mqtt_room
     device_id: 123testid
-    state_topic: "espresense/rooms"
+    state_topic: "espresense/devices/123testid"
 ```
 
 {% configuration %}

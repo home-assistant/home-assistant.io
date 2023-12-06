@@ -357,13 +357,6 @@ address:
   description: "Address of coil/register."
   required: true
   type: integer
-lazy_error_count:
-  description: "Number of errors before entity becomes unavailable.
-  Is used to prevent spontaneous errors affecting statistic graphs.
-  A succesfull request resets the error count."
-  required: false
-  type: integer
-  default: 0
 name:
   description: "Name of the entity which must be unique within the entity type."
   required: true
@@ -508,7 +501,6 @@ modbus:
         address: 100
         device_class: door
         input_type: coil
-        lazy_error_count: 0
         scan_interval: 15
         slave: 1
         slave_count: 0
@@ -690,8 +682,6 @@ climates:
       default: none
       type: list
       keys:
-        none:
-          description: "No swapping."
         byte:
           description: "Swap bytes AB -> BA."
         word:
@@ -1294,8 +1284,6 @@ sensors:
       default: none
       type: list
       keys:
-        none:
-          description: "No swapping."
         byte:
           description: "Swap bytes AB -> BA."
         word:
@@ -1519,7 +1507,6 @@ Some parameters exclude other parameters, the following tables show what can be 
 | structure       | Yes    | No     | No  | No  | No  |
 | slave_count     | No     | No     | Yes | Yes | Yes |
 | virtual_count   | No     | No     | Yes | Yes | Yes |
-| swap: none      | Yes    | Yes    | Yes | Yes | Yes |
 | swap: byte      | No     | No     | Yes | Yes | Yes |
 | swap: word      | No     | No     | No  | Yes | Yes |
 | swap: word_byte | No     | No     | No  | Yes | Yes |

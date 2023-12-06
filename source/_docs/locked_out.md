@@ -45,11 +45,12 @@ If you are running Home Assistant in a container, you can use the command line i
 4. `exit` to exit the container command line
 5. `docker restart homeassistant` to restart the container.
 
-#### To reset a user's password, as an administrator via the web interface
+#### To reset a user's password, as an owner via the web interface
 
 1. In the bottom left, select your user to go to the {% my profile title="**Profile**" %} page and make sure **Advanced Mode** is activated.
 2. Go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the password.
 3. At the bottom of the dialog box, select **Change Password**.
+   - Note: this is available as the owner, not administrator.
 4. Enter the new password, and select **OK**.
 5. Confirm the new password by entering it again, and select **OK** again.
 6. A confirmation box will be displayed with the text **Password was changed successfully**.
@@ -78,7 +79,7 @@ If you lose the password associated with the owner account and the steps above d
     - `hassio`
     - `cloud`
 
-## Recovering Data for Home Assistant (including Supervised)
+## Recovering data for Home Assistant (including Supervised)
 
 Unless your SD card/data is corrupted, you can still get to your files or troubleshoot further.
 There are a few routes:
@@ -101,7 +102,7 @@ You will then be at the Home Assistant CLI, where you can run the custom command
 - `dns logs` for checking DNS
 - etc (typing `help` will show more)
 
-## Accessing Files from the SD/HDD
+## Accessing files from the SD/HDD
 
 ### Remove the SD and access the files from another computer
 

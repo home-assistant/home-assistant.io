@@ -32,7 +32,7 @@ It's time for 0.46! This release does not have too many new integrations, instea
 - Sensor - MetOffice: Fix last updated date ([@cyberjacob] - [#7965]) ([metoffice docs])
 - Prevent Roku doing I/O in event loop ([@balloob] - [#7969]) ([media_player.roku docs])
 
-## Breaking changes
+## Backward-incompatible changes
 
 - The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use `scan_interval` instead of `update_interval`  ([@happyleavesaoc] - [#7655]) (breaking change)
 - Automation state trigger: From/to checks will now ignore state changes that are just attribute changess ([@amelchio] - [#7651]) ([automation.state docs]) (breaking change)

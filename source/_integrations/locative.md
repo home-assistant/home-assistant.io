@@ -2,7 +2,7 @@
 title: "Locative"
 description: "Instructions on how to use Locative to track devices in Home Assistant."
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.86
 ha_iot_class: Cloud Push
 ha_domain: locative

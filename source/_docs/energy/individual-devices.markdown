@@ -13,7 +13,7 @@ Smart plugs sit between the device and the outlet and measure the energy flowing
 
 Depending on what protocols you use at home, you can use Zigbee, Z-Wave or Wi-Fi based plugs.
 
-### Smart Relays
+### Smart relays
 
 Smart relays sit behind your "normal" switches and make them smart. It allows you to control the devices via Home Assistant and via the connected buttons/switches.
 

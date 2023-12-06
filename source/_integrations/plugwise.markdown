@@ -2,7 +2,7 @@
 title: Plugwise
 description: Plugwise Smile platform integration.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Number
   - Select

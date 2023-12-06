@@ -2,7 +2,7 @@
 title: Keba Charging Station
 description: Instructions on how to setup your Keba charging station with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Lock
   - Notifications
   - Sensor
@@ -23,7 +23,7 @@ The `keba` integrates your Keba charging station/BMW Wallbox into your Home Assi
 
 This integration provides the following platforms:
 
-- Binary Sensors: Online state, plug state, Charging state and failsafe mode state.
+- Binary sensors: Online state, plug state, charging state and failsafe mode state.
 - Lock: Authorization (like with the RFID card).
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
 - Services: authorize, deauthorize, set energy target, set the maximum allowed current and manually update the states. More details can be found [here](/integrations/keba/#services).

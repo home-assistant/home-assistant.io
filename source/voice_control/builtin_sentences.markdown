@@ -2,8 +2,9 @@
 title: "Assist - default sentences"
 ---
 
-Home Assistant comes with built-in sentences [contributed by the community](https://github.com/home-assistant/intents/) for [dozens of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
-These sentences allow you to:
+Home Assistant comes with [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) contributed by the community for [dozens of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
+
+These sentences allow you, for example, to:
 
 - **Turn entities on and off**
     - *"turn on the living room light"*
@@ -22,9 +23,9 @@ In addition to individual entities, commands can target **areas**:
 - *"change kitchen brightness to 50%"*
 - *"set bedroom lights to green"*
 
-Entity [aliases](/voice_control/aliases) are also matched so multiple names can be used, even in different languages.
+Entity [aliases](/voice_control/aliases) are also matched so that multiple names can be used, even in different languages.
 
-You can extend the built-in sentences or [add your own](/voice_control/custom_sentences) to trigger any action in Home Assistant.
+You can extend the [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) or [add your own](/voice_control/custom_sentences) to trigger any action in Home Assistant.
 
 ## View existing sentences
 
@@ -46,7 +47,7 @@ To get an idea of the specific sentences that are supported for your language, y
 
         ![Example of a set of test sentences](/images/assist/assist-test-file-light-turn-on.png)
 
-2. View the sentence definition:
+2. View the sentence definition for the tests:
     - On GitHub, in the [tests](https://github.com/home-assistant/intents/tree/main/tests) folder, open the subfolder for your language.
     - Open the file of interest.
 
@@ -54,12 +55,16 @@ To get an idea of the specific sentences that are supported for your language, y
 
         - () mean alternative elements.
         - [] mean optional elements.
-        - <> mean an expansion rule. The view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml)   file.
+        - <> mean an expansion rule. The view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
         - The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/).
+3. View the [sentence definition](https://github.com/home-assistant/intents/tree/main/sentences) for your language.
+4. View the [response definition](https://github.com/home-assistant/intents/tree/main/responses)
 
 ## Related topics
 
 - [Create aliases](/voice_control/aliases/)
 - [Create your own sentences](/voice_control/custom_sentences/)
+- [Built-in sentence definitions](https://github.com/home-assistant/intents/tree/main/sentences)
+- [Built-in response definitions](https://github.com/home-assistant/intents/tree/main/responses)
 - [Template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/)
 - [Sentence test cases](https://github.com/home-assistant/intents/tree/main/sentences)
