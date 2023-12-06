@@ -474,6 +474,22 @@ for more information.
 
 {% enddetails %}
 
+{% details "Scenes" %}
+
+Support for the, in November 2019 deprecated, attributes `brightness_pct`,
+`color_name`, `flash`, `kelvin`, `profile`, and `transition` have
+been removed from light scenes.
+
+If you have used these attributes in your scenes, you will need to adjust
+those to this change.
+
+([@emontnemery] - [#104254]) ([documentation](/integrations/scene))
+
+[@emontnemery]: https://github.com/emontnemery
+[#104254]: https://github.com/home-assistant/core/pull/104254
+
+{% enddetails %}
+
 {% details "SMTP" %}
 
 The SMTP integration will send images as attachments to a plain text email
