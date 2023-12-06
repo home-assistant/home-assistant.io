@@ -47,7 +47,7 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [A beautiful new login page](#a-beautiful-new-login-page)
-- [New thermostat card](#new-thermostat-card)
+- [New design for the thermostat card](#new-design-for-the-thermostat-card)
 - [History dashboard showing long-term statistics](#history-dashboard-showing-long-term-statistics)
 - [Number feature for tile cards](#number-feature-for-tile-cards)
 - [Options for the default dashboard](#options-for-the-default-dashboard)
@@ -91,21 +91,29 @@ the login page will ask for your username and password, just like before.
 
 Oh! And you can now change the language straight from the login page! 🌍
 
-## New thermostat card
+## New design for the thermostat card
 
 [Home Assistant 2023.9 introduced](/blog/2023/09/06/release-20239/#new-climate-humidifier-and-water-heater-entity-dialogs)
-a beautiful new entity dialog for thermostat entities. Many have been asking
-for a similar design for the thermostat card as well. Well, here it is!
+a gorgeous new entity dialog for thermostat entities. As a result of that, many
+have been asking for a similar design for the thermostat card. Well, here it is!
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/284530915-91331dd1-1bff-4dcf-8d68-6aefa5608d2a.png' alt='Temporary screenshot that needs to be replaced.'>
+<img class="no-shadow" src='/images/blog/2023-12/thermostat-card.png' alt='Screenshot showing two thermostat cards that showcase their stunning new looks.'>
 
-Maybe you have noticed, but in the screenshot above, features of the tile card
-are visible! The buttons for HVAC mode and the presets are now also available
-for the thermostat card. You can configure the card to show them or not, by
-default, they are hidden.
+There is nothing you have to do to use this new card. Once you upgrade to this
+release, the thermostat card will automatically use this gorgeous new design.
 
-Oh, the same design has been applied to the humifier and water heater cards
-of course 😎.
+We took it one step further and added support for features. Features are
+additional functionality that you can add to a card, previously only available
+for the tile card. This release adds support for features to the
+thermostat card as well!
+
+<img class="no-shadow" src='/images/blog/2023-12/thermostat-card-features.png' alt='Screenshot that shows the new features available when configuring a thermostat card.'>
+
+For the thermostat card, it allows you to add HVAC mode buttons and presets.
+By default, these features are hidden, giving it the cleanest look possible.
+
+Oh! The same design has been applied to the (de)humidifer card, of course,
+including its respective tile features 😎.
 
 ## History dashboard showing long-term statistics
 
