@@ -115,7 +115,8 @@ By default, these features are hidden, giving it the cleanest look possible.
 Oh! The same design has been applied to the (de)humidifer card, of course,
 including its respective tile features 😎.
 
-## Number feature for tile cards
+<img class="no-shadow" src='/images/blog/2023-12/humidifier-card.png' alt='Screenshot showing the same styling has been applied to the humidifier card.'>
+
 
 The tile card is a very powerful card, and [@JosephAbbey] is even extending it
 this release!
