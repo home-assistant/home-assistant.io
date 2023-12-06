@@ -61,12 +61,10 @@ Enjoy the (beta) release!
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-<!--
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=#)
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=2o-Uw5ZGd0M)
 6 December 2023, at 12:00 PST / 21:00 CET!
--->
 
-<lite-youtube videoid="#" videotitle="Home Assistant 2023.12 Release Party"></lite-youtube>
+<lite-youtube videoid="2o-Uw5ZGd0M" videotitle="Home Assistant 2023.12 Release Party"></lite-youtube>
 
 ## Login page has been re-designed
 
