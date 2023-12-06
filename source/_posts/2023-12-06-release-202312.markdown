@@ -48,7 +48,7 @@ Enjoy the (beta) release!
 
 - [A beautiful new login page](#a-beautiful-new-login-page)
 - [New design for the thermostat card](#new-design-for-the-thermostat-card)
-- [Number feature for tile cards](#number-feature-for-tile-cards)
+- [Numeric input feature for tile cards](#numeric-input-feature-for-tile-cards)
 - [Options for the default dashboard](#options-for-the-default-dashboard)
 - [History dashboard showing long-term statistics](#history-dashboard-showing-long-term-statistics)
 - [More to-do!](#more-to-do)
@@ -117,16 +117,17 @@ including its respective tile features 😎.
 
 <img class="no-shadow" src='/images/blog/2023-12/humidifier-card.png' alt='Screenshot showing the same styling has been applied to the humidifier card.'>
 
+## Numeric input feature for tile cards
 
-The tile card is a very powerful card, and [@JosephAbbey] is even extending it
-this release!
+The [tile card](/dashboards/tile/) is very powerful, and [@JosephAbbey]
+is even extending it this release by adding a new "numeric input" feature.
 
-The tile card now has a "number" new feature you can use, that works number
-entities and helpers. This allows you to control the number entity from the
-tile card directly, and provides the choice to use it as a slider or as an
-input with up/down buttons.
+The numeric input feature works with all number entities and number helpers.
+It allows you to control the number entity from the tile card directly
+and provides the choice to use it as a slider or as an input with up/down
+buttons.
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/66320873/281064552-05269372-241b-453c-80e8-4706bbf7582d.png' alt='Temporary screenshot that needs to be replaced.'>
+<img class="no-shadow" src='/images/blog/2023-12/tile-card-numberic-input-feature.png' alt='Screenshot showing two tile card, one showing the button variant, the other displaying a slider.'>
 
 [@JosephAbbey]: https://github.com/JosephAbbey
 
