@@ -246,8 +246,8 @@ noteworthy changes this release:
 
 We welcome the following new integrations in this release:
 
-- **[Komfovent]**, added by [@ProstoSanja]<br />
-  Integrate and control your Komfovent ventilation unit.
+- **[Devialet]**, added by [@fwestenberg]<br />
+  Control your wireless Devialet speakers.
 - **[Linear Garage Door]**, added by [@IceBotYT]<br />
   Lets you control and automate your Linear garage doors.
 - **[MyPermobil]**, added by [@IsakNyberg]<br />
@@ -256,18 +256,14 @@ We welcome the following new integrations in this release:
   Integrate with the OurGroceries shopping lists.
 - **[V2C]**, added by [@dgomes]<br />
   Monitoring and control of a local V2C Trydan EVSE.
-- **[Devialet]**, added by [@fwestenberg]<br />
-  Control your wireless Devialet speakers.
 
 [@dgomes]: https://github.com/dgomes
 [@fwestenberg]: https://github.com/fwestenberg
 [@IceBotYT]: https://github.com/IceBotYT
 [@IsakNyberg]: https://github.com/IsakNyberg
 [@OnFreund]: https://github.com/OnFreund
-[@ProstoSanja]: https://github.com/ProstoSanja
 [Devialet]: /integrations/devialet
 [dgomes]: /integrations/v2c
-[Komfovent]: /integrations/komfovent
 [Linear Garage Door]: /integrations/linear_garage_door
 [MyPermobil]: /integrations/mypermobil
 [OurGroceries]: /integrations/ourgroceries
