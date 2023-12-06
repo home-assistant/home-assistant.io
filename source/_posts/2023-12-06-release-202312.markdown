@@ -204,7 +204,7 @@ to the same one—a small but very helpful improvement.
 
 This release adds the ability to re-import the blueprint from the source from
 which you originally imported it. The newly downloaded blueprint will overwrite
-the existing blueprint, providing some sort of "update" feature for blueprints.
+the existing blueprint, providing a simple "update" feature for blueprints.
 
 If you use Blueprints, for example, the ones
 [created by our incredible community](https://community.home-assistant.io/c/blueprints/38),
@@ -233,7 +233,7 @@ noteworthy changes this release:
   and more reliable. Thanks [@bdraco]!
 - [@Lash-L] added support for displaying maps from your [Roborock] vacuums!
   Awesome!
-- Services with response now support handling responses when multiple entities
+- Services with a response now support handling responses when multiple entities
   are targeted. Nice! Thanks [@eifinger]!
 - [@iMicknl] added _local API_ support for the Somfy TaHoma to the [Overkiz]
   integration! Also, thanks [Somfy]! It's nice to see a manufacturer adding
