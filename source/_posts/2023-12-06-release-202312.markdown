@@ -48,9 +48,9 @@ Enjoy the (beta) release!
 
 - [A beautiful new login page](#a-beautiful-new-login-page)
 - [New design for the thermostat card](#new-design-for-the-thermostat-card)
-- [History dashboard showing long-term statistics](#history-dashboard-showing-long-term-statistics)
 - [Number feature for tile cards](#number-feature-for-tile-cards)
 - [Options for the default dashboard](#options-for-the-default-dashboard)
+- [History dashboard showing long-term statistics](#history-dashboard-showing-long-term-statistics)
 - [More to-do!](#more-to-do)
 - [Re-import blueprints](#re-import-blueprints)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -115,23 +115,6 @@ By default, these features are hidden, giving it the cleanest look possible.
 Oh! The same design has been applied to the (de)humidifer card, of course,
 including its respective tile features 😎.
 
-## History dashboard showing long-term statistics
-
-The history dashboard has gotten some love from [@karwosts] this release, he
-added a big improvement to all the graph shown there.
-
-Previously, the graphs would only show the state history, which is limited
-to a few days, until the data is removed. This is not always very useful,
-for example, when you want to look back further in time.
-
-[@karwosts] came up with a solution for this, and the history dashboard now
-combines the state history with the recorded long-term statistics, to provide
-you insights into the past.
-
-<img class="no-shadow" src='https://user-images.githubusercontent.com/32912880/275918628-dea821b9-5449-4777-8f84-0524eecb0ff9.gif' alt='Temporary screenshot that needs to be replaced.'>
-
-[@karwosts]: https://github.com/karwosts
-
 ## Number feature for tile cards
 
 The tile card is a very powerful card, and [@JosephAbbey] is even extending it
@@ -160,6 +143,23 @@ new dashboard, we will now also give you to option to start with an empty
 one, or create a new default dashboard.
 
 <img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/282859942-d29c0716-d496-49be-bbfe-493e9215efcb.png' alt='Temporary screenshot that needs to be replaced.'>
+
+## History dashboard showing long-term statistics
+
+The history dashboard has gotten some love from [@karwosts] this release, he
+added a big improvement to all the graph shown there.
+
+Previously, the graphs would only show the state history, which is limited
+to a few days, until the data is removed. This is not always very useful,
+for example, when you want to look back further in time.
+
+[@karwosts] came up with a solution for this, and the history dashboard now
+combines the state history with the recorded long-term statistics, to provide
+you insights into the past.
+
+<img class="no-shadow" src='https://user-images.githubusercontent.com/32912880/275918628-dea821b9-5449-4777-8f84-0524eecb0ff9.gif' alt='Temporary screenshot that needs to be replaced.'>
+
+[@karwosts]: https://github.com/karwosts
 
 ## More to-do!
 
