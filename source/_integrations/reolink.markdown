@@ -175,6 +175,13 @@ Depending on the supported features of the camera, switch entities are added for
 
 For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and **FTP** will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
 
+**Push** notifications to a phone will only be provided if the following conditions are met: 
+- The **Push notifications** switch in Home Assistant is ON. 
+- For NVRs,  both the global and channel switch are ON.
+- The Push-notification in the Reolink App of that phone is ON.
+
+The Push-notification in the Reolink app is independent of the Home Assistant setting. It is also independent of the settings on other phones connected to the same camera. Reolink does this so you have an independent way of turning off push notifications per phone.
+
 ## Light entities
 
 Depending on the supported features of the camera, light entities are added for:

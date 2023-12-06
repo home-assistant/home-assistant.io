@@ -198,13 +198,18 @@ notify:
     sender: "YOUR_USERNAME@gmail.com"
     encryption: starttls
     username: "YOUR_USERNAME@gmail.com"
-    password: "YOUR_PASSWORD"
+    password: "YOUR_APP_PASSWORD"
     recipient:
       - "RECIPIENT_1@example.com"
       - "RECIPIENT_N@example.com"
     sender_name: "SENDER_NAME"
 ```
 
-Keep in mind that Google has some extra layers of protection that need special attention. By default, the usage by external applications is limited so you will need to visit the [less secure apps](https://myaccount.google.com/lesssecureapps) page and enable it to be able to send e-mails. Be aware that Google will periodically turn it off if it is not used (no e-mail is sent).
+Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
 
-To avoid having your e-mail notifications broken due to the less secure app's behavior, it is recommended that you enable 2-step verification on your Google account, and use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
+If any of the following conditions are met you will not be able to create an app password:
+
+- You do not have 2-step verification enabled on your account.
+- You have 2-step verification enabled but have only added a security key as an authentication mechanism.
+- Your Google account is enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
+- Your Google account belongs to a Google Workspace that has disabled this feature. Accounts owned by a school, business, or other organization are examples of Google Workspace accounts.

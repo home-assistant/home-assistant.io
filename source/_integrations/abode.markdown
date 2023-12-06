@@ -30,7 +30,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Abode** {% term integration %} will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
+The **Abode** {% term integration %} allows you to integrate your Abode Home Security systems into Home Assistant and use its alarm system and sensors to trigger automations.
 
 Please visit the [Abode website](https://goabode.com/) for further information about Abode Security.
 
