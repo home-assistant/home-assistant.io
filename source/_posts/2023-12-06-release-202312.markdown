@@ -127,24 +127,31 @@ It allows you to control the number entity from the tile card directly
 and provides the choice to use it as a slider or as an input with up/down
 buttons.
 
-<img class="no-shadow" src='/images/blog/2023-12/tile-card-numberic-input-feature.png' alt='Screenshot showing two tile card, one showing the button variant, the other displaying a slider.'>
+<img class="no-shadow" src='/images/blog/2023-12/tile-card-numberic-input-feature.png' alt='Screenshot showing two tile cards, one showing the button variant, the other displaying a slider.'>
 
 [@JosephAbbey]: https://github.com/JosephAbbey
 
 ## Options for the default dashboard
 
-The default dashboard Home Assitant generates for you, now has options that
-will allow you to change the behavior of it. You can now configure the
+The default dashboard Home Assitant generates for you now has options that
+will allow you to change its behavior. You can now configure the
 default dashboard to hide certain areas, hide entities that don't belong
-to an area and the option to hide the energy summary card.
+to an area, and the option to hide the energy summary card.
 
-<img class="no-shadow" src='/images/blog/2023-12/default-dashboard-options.png' alt='Temporary screenshot that needs to be replaced.'>
+<img class="no-shadow" src='/images/blog/2023-12/dashboard-options.png' alt='Screenshot that shows the new options available for the generated default dashboard.'>
 
-This is a first step in making the dashboards configurable. When adding a
-new dashboard, we will now also give you to option to start with an empty
-one, or create a new default dashboard.
+When selecting **Areas**, you can choose to hide the areas but also change
+the display order of the areas by dragging them around.
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/282859942-d29c0716-d496-49be-bbfe-493e9215efcb.png' alt='Temporary screenshot that needs to be replaced.'>
+A first step in making the dashboards configurable, but above all,
+it gives you more control over the default dashboard, especially when you have
+just started with using Home Assistant.
+
+When adding a new dashboard, we added a dialog similar to the ones we show
+when you create new automations or scripts. It gives you the option to start
+with an empty manual dashboard or create a new default dashboard.
+
+<img class="no-shadow" src='/images/blog/2023-12/create-new-dashboard-dialog.png' alt='Screenshot that shows the new dialog you get presented when creating a new dashboard.'>
 
 ## History dashboard showing long-term statistics
 
