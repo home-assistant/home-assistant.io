@@ -2,7 +2,7 @@
 layout: post
 title: "2023.12: Beta release notes"
 description: "The beta release notes for Home Assistant 2023.12"
-date: 2023-11-29 00:00:00
+date: 2023-12-06 00:00:00
 date_formatted: "December 6, 2023"
 author: Franck Nijhof
 author_twitter: frenck
