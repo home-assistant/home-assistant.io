@@ -173,26 +173,21 @@ you insights into the past.
 ## More to-do!
 
 The first iteration for support for to-do lists was added in the [last release](/blog/2023/11/01/release-202311/#there-is-a-lot-to-do),
-and there has been continued work on this feature to expand it further.
+and there has been continued work on this feature in this release.
 
-First of all, there are two new services available:
+First of all, there are two new services available. A much-requested service
+to [list all items on a to-do list](/integrations/todo/#service-todoget_items)
+and a helpful service to [remove all completed items from a to-do list](/integrations/todo/#service-todoclear_items).
 
-- A new service to list all items on a to-do list (`todo.get_items`).
-- A new service to remove completed items from a to-do list (`todo.remove_completed_items`).
+It is nice to see integrations adding support for the to-do list feature.
+For example, the [CalDAV] integration now supports adding to-do items to your
+CalDAV server, and with [Picnic] and [OurGroceries] you can now manage your
+shopping list. In the case of Picnic, it will even look up the product you add
+in their store to your shopping list and add the product to your shopping cart.
 
-Also, when viewing a to-do list from the Home Assistant interface, you can
-now copy/paste or bookmark the URL, which will always bring you back to the
-same to-do list.
-
-Additionally, the to-do list now supports due dates and descriptions. However,
-this is only available manually using services, there is no UI support for it
-yet, however, that is being worked on.
-
-Lastly, integration started to add support for the to-do list feature. For example,
-the [CalDAV] integration now supports adding to-do items to your CalDAV server, and
-with [Picnic] and [OurGroceries] you can now manage your shopping list. In case
-of Picnic, it will even look up the product you add to your shopping list and
-add the product in your shopping cart.
+Also, when viewing a to-do list from the Home Assistant interface,
+you can copy/paste or bookmark the URL, which will always bring you back
+to the same one—a small but very helpful improvement.
 
 [CalDAV]: /integrations/caldav
 [Picnic]: /integrations/picnic
