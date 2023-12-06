@@ -20,7 +20,7 @@ Home Assistant Core 2023.12! 🎄
 The last release of 2023 is here, and we are going out with a bang! 🎉
 
 2023 has been the [Year of the Voice](/blog/2022/12/20/year-of-voice/), and
-please stay tuned, as we will host a final 5th chapter live stream on [our YouTube channel](https://www.youtube.com/@home_assistant)
+please stay tuned, as we will host a [final 5th chapter live stream on our YouTube channel](https://www.youtube.com/watch?v=djEkgoS5dDQ)
 on 13 December 2023, at 12:00 PST / 21:00 CET! But that is not the
 end of the voice journey... Be sure to tune in!
 
