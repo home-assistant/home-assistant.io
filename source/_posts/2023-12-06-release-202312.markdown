@@ -46,7 +46,7 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Login page has been re-designed](#login-page-has-been-re-designed)
+- [A beautiful new login page](#a-beautiful-new-login-page)
 - [New thermostat card](#new-thermostat-card)
 - [History dashboard showing long-term statistics](#history-dashboard-showing-long-term-statistics)
 - [Number feature for tile cards](#number-feature-for-tile-cards)
@@ -66,23 +66,30 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 <lite-youtube videoid="2o-Uw5ZGd0M" videotitle="Home Assistant 2023.12 Release Party"></lite-youtube>
 
-## Login page has been re-designed
+## A beautiful new login page
 
-The login page of Home Assistant has been re-designed to be more modern and
-match [recent redesign of the Home Assistant onboarding](/blog/2023/09/06/release-20239/#onboarding).
+The login page of Home Assistant has been redesigned to be more modern and
+match the [recent redesign of the Home Assistant onboarding](/blog/2023/09/06/release-20239/#onboarding).
 
-When Home Assistant detects you are on your local home network, you will be
-greeted by this lovely new login page.
+When Home Assistant detects you are accessing it via your local home network,
+it means you are in your trusted home environment; you will be greeted by this
+beautiful new login page, which resembles how most platforms, like Windows,
+macOS, Netflix, and others, handle this: by showing your user profiles.
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5662298/285754001-5c918c38-8570-4a4c-a478-12cbfbd6dedc.png' alt='Temporary screenshot that needs to be replaced.'>
+<img class="no-shadow" src='/images/blog/2023-12/new-login-screen.png' alt='Screenshot of the new Home Assistant login screen that allows you to click on your profile picture to log in.'>
 
-Just click on your user profile, and it will request your password, just like
-before. Of course, when logging in from outside of your home network,
-we can't do this as that would give away some of your privacy.
+It is also much smarter! It works seamlessly with [trusted networks](/docs/authentication/providers/#trusted-networks),
+and when home, we automatically remember your login. So, no more forgetting
+to check the "remember me" checkbox. 👊
 
-When you are outside of your home network, the login page will look like this:
+Of course, when logging in from outside your home network, we can't do this
+as that would give away privacy-sensitive information about your system
+and who is in it. So, when you are outside of your home network,
+the login page will ask for your username and password, just like before.
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5662298/285753904-4a4aca42-104f-4ebd-8170-034dd2a8cfc8.png' alt='Temporary screenshot that needs to be replaced.'>
+<img class="no-shadow" src='/images/blog/2023-12/new-login-external-network.png' alt='Screenshot showing the new login screen, when accessing from the external network. It will still prompt for a username & password, protecting your privacy.'>
+
+Oh! And you can now change the language straight from the login page! 🌍
 
 ## New thermostat card
 
