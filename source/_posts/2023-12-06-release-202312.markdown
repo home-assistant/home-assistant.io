@@ -133,10 +133,10 @@ buttons.
 
 ## Options for the default dashboard
 
-The default dashboard Home Assitant generates for you now has options that
-will allow you to change its behavior. You can now configure the
-default dashboard to hide certain areas, hide entities that don't belong
-to an area, and the option to hide the energy summary card.
+The default dashboard now has options that will allow you to change its behavior.
+You can now configure the default dashboard to hide certain areas,
+hide entities that don't belong to an area, and the option to hide the
+energy summary card.
 
 <img class="no-shadow" src='/images/blog/2023-12/dashboard-options.png' alt='Screenshot that shows the new options available for the generated default dashboard.'>
 
