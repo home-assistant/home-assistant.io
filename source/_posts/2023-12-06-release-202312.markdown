@@ -30,7 +30,7 @@ the gorgeous new entity dialog introduced, a new feature for the ever-improving
 tile card, re-importing blueprints, and much more!
 
 I'm most excited about the new login page that this release brings. It is
-gorgeous, modern, and literally welcomes you into your own home! 🏡
+beautiful, modern, and literally welcomes you into your own home! 🏡
 Home is where Home Assistant is, right? 😃
 
 This is it for 2023! What a year it has been! I just got one last
