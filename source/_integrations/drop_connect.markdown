@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: drop_connect
 ha_iot_class: Local Push
 ha_mqtt: true
-ha_release: '2023.12.0'
+ha_release: '2024.1'
 ha_platforms:
   - sensor
 ha_integration_type: integration
