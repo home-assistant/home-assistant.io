@@ -15,34 +15,32 @@ og_image: /images/blog/2023-12/social.png
 
 <a href='/integrations/#version/2023.12'><img src='/images/blog/2023-12/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+Home Assistant Core 2023.12! 🎄
 
-These are the beta release notes for Home Assistant Core 2023.12 (and is thus a
-work in progress).
+The last release of 2023 is here, and we are going out with a bang! 🎉
 
-If you encounter any issues with the beta release, please report them on GitHub:
+2023 has been the [Year of the Voice](/blog/2022/12/20/year-of-voice/), and
+please stay tuned, as we will host a final 5th chapter live stream on [our YouTube channel](https://www.youtube.com/@home_assistant)
+on 13 December 2023, at 12:00 PST / 21:00 CET! But that is not the
+end of the voice journey... Be sure to tune in!
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/UI/dashboards:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+This release has some nice quality-of-life improvements, making it feel
+like Christmas already! The thermostat card has been redesigned to match
+the gorgeous new entity dialog introduced, a new feature for the ever-improving
+tile card, re-importing blueprints, and much more!
 
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
+I'm most excited about the new login page that this release brings. It is
+gorgeous, modern, and literally welcomes you into your own home! 🏡
+Home is where Home Assistant is, right? 😃
 
-Issues introduced in the beta are processed with priority.
+This is it for 2023! What a year it has been! I just got one last
+thing to say this year:
 
----
+**Thank you for using Home Assistant! ❤️**
 
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+Happy holidays & enjoy the release!
 
-Home Assistant Core 2023.12! 🎉
-
-Thanks for helping out testing the beta! ❤️
-
-Enjoy the (beta) release!
+../Frenck
 
 <!--more-->
 
