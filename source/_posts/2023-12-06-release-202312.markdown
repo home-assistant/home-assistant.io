@@ -80,7 +80,7 @@ macOS, Netflix, and others, handle this: by showing your user profiles.
 
 It is also much smarter! It works seamlessly with [trusted networks](/docs/authentication/providers/#trusted-networks),
 and when home, we automatically remember your login. So, no more forgetting
-to check the "remember me" checkbox. 👊
+to check the "keep me logged in" checkbox. 👊
 
 Of course, when logging in from outside your home network, we can't do this
 as that would give away privacy-sensitive information about your system
@@ -271,7 +271,7 @@ We welcome the following new integrations in this release:
 [@IsakNyberg]: https://github.com/IsakNyberg
 [@OnFreund]: https://github.com/OnFreund
 [Devialet]: /integrations/devialet
-[dgomes]: /integrations/v2c
+[V2C]: /integrations/v2c
 [Linear Garage Door]: /integrations/linear_garage_door
 [MyPermobil]: /integrations/mypermobil
 [OurGroceries]: /integrations/ourgroceries
@@ -290,7 +290,6 @@ The following integrations are now available via the Home Assistant UI:
 [CalDAV]: /integrations/caldav
 [Fast.com]: /integrations/fastdotcom
 [Ping]: /integrations/ping
-[V2C]: /integrations/v2c
 
 ## Need help? Join the community!
 
