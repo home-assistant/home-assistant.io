@@ -309,9 +309,12 @@ other news about building an Open Home; straight into your inbox.
 {% details "Calendar" %}
 
 `calendar.list_events` uses an outdated response data format and is now
-deprecated, pending for removal in Home Assistant 2024.6.
+deprecated, pending removal in Home Assistant 2024.6.
 
 Please use `calendar.get_events`, which supports multiple entities, instead.
+
+The output of this newer service changed slightly, as it now returns a mapping
+of entity IDs to lists of events instead of a list of events.
 
 ([@eifinger] - [#102481]) ([documentation](/integrations/calendar))
 
@@ -326,7 +329,7 @@ The previously deprecated `counter.configure` service has been removed.
 
 ([@gjohansson-ST] - [#103204]) ([documentation](/integrations/counter))
 
-[@frenck]: https://github.com/gjohansson-ST
+[@gjohansson-ST]: https://github.com/gjohansson-ST
 [#103204]: https://github.com/home-assistant/core/pull/103204
 
 {% enddetails %}
@@ -347,7 +350,8 @@ If you rely on this, for example, for graphing, please refer to the
 ---
 
 For users using the 5B version: The previous gas sensor (Gas consumption)
-will change to Gas consumption mbusX. Also multiple gas sensors will be possible.
+will change to Gas consumption mbusX. Also, multiple gas sensors will
+be possible.
 
 ([@dupondje] - [#84097]) ([documentation](/integrations/dsmr))
 
@@ -358,7 +362,7 @@ will change to Gas consumption mbusX. Also multiple gas sensors will be possible
 
 {% details "EZVIZ" %}
 
-The previously depreacted detection sensitivity service has been removed.
+The previously deprecated detection sensitivity service has been removed.
 
 ([@gjohansson-ST] - [#103392]) ([documentation](/integrations/ezviz))
 
@@ -367,12 +371,28 @@ The previously depreacted detection sensitivity service has been removed.
 
 {% enddetails %}
 
+{% details "Genius Hub" %}
+
+The initial state of the smart plug did not reflect the same state as in the
+Genius Hub application. Correcting this creates a backward-incompatible change
+in that the behavior is now correct but different.
+
+If you have an automation that relies on this state, you should check if your
+automation or script is still behaving as expected.
+
+([@GeoffAtHome] - [#102110]) ([documentation](/integrations/geniushub))
+
+[@GeoffAtHome]: https://github.com/GeoffAtHome
+[#102110]: https://github.com/home-assistant/core/pull/102110
+
+{% enddetails %}
+
 {% details "Home Assistant API" %}
 
-When calling a service from the Home Assistant REST API, the service used to be
-cancelled on connection drop. If you relied on that behavior, you would need
-to revisit the logic. With this change, a connection drop will not cancel
-the service call.
+When calling a service via the Home Assistant REST API, the service used to be
+canceled on connection drop, which is no longer the case. If you relied on that
+behavior, you would need to revisit the logic. With this change, a connection
+drop will not cancel the service call.
 
 Also, a REST post to call a service with the `/api/services/<domain>/<service>`
 endpoint will no longer timeout after 10 seconds.
@@ -391,8 +411,8 @@ endpoint will no longer timeout after 10 seconds.
 The HomeWizard HWE-SKE (the wall plugs), SDM230, and SDM630 provided duplicate
 sensors for energy import and export: A total and a tariff of 1.
 
-As there is only a single tariff available on those, the total and tariff 1
-are always the same. To clean this up, tariff 1 has been removed.
+As only a single tariff is available on those, the total and tariff 1 are
+always the same. To clean this up, tariff 1 has been removed.
 
 If you used this sensor in your energy dashboard, you will need to configure
 your energy dashboard to use the total import/export sensor instead.
@@ -406,8 +426,8 @@ your energy dashboard to use the total import/export sensor instead.
 
 {% details "Nibe Heat Pump" %}
 
-S-Series entities priority-3102, hot-water-demand-mode-40057 and oper-mode-40238
-is changed from a number entity to a select entity with mapping values for the
+S-Series entities priority-3102, hot-water-demand-mode-40057, and oper-mode-40238
+are changed from a number entity to a select entity with mapping values for the
 possible choices.
 
 If you have the old number entities enabled, you can delete them since they
@@ -424,12 +444,12 @@ will no longer be provided by the integration.
 
 Remove rounding of the exchange rate.
 
-Exchange rates are generally more sensitive to small changes and some quotes
+Exchange rates are generally more sensitive to small changes, and some quotes
 need many decimal numbers to be accurate. The Open Exchange Rates service will
-provide different number of significant digits for different quotes.
+provide different significant digits for different quotes.
 
-You can change the display precision or use a template sensor if you want
-to customize the rounding of the value.
+You can change the display precision or use a template sensor to customize
+the rounding of the value.
 
 ([@MartinHjelmare] - [#103972]) ([documentation](/integrations/openexchangerates))
 
@@ -474,8 +494,8 @@ as `<img src="cid:image_name.ext">` within the HTML block as described in the
 {% details "Trafikverket Weather Station" %}
 
 Trafikverket Weather has changed its endpoint and is no longer providing the
-information for wind direction and precipitation in plain text so
-therefore these sensors has been removed.
+information for wind direction and precipitation in plain text, so
+therefore, these sensors have been removed:
 
 - Wind direction text
 - Precipitation name
@@ -490,9 +510,12 @@ therefore these sensors has been removed.
 {% details "Weather" %}
 
 `weather.get_forecast` uses an outdated response data format and is now
-deprecated, pending for removal in Home Assistant 2024.6.
+deprecated, pending removal in Home Assistant 2024.6.
 
-Please use `weather.get_forecasts`, which supports multiple entities, instead.
+Please use `weather.get_forecasts`, which supports multiple entities instead.
+
+The output of this newer service changed slightly, as it now returns a mapping
+of entity IDs to lists of forecasts instead of a list of forecasts.
 
 ([@eifinger] - [#102534]) ([documentation](/integrations/weather))
 
