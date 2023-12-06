@@ -176,25 +176,21 @@ add the product in your shopping cart.
 
 ## Re-import blueprints
 
-If you use Blueprints, [created by our awesome community](https://community.home-assistant.io/c/blueprints/38),
+This release adds the ability to re-import the blueprint from the source from
+which you originally imported it. The newly downloaded blueprint will overwrite
+the existing blueprint, providing some sort of "update" feature for blueprints.
+
+If you use Blueprints, for example, the ones
+[created by our incredible community](https://community.home-assistant.io/c/blueprints/38),
 you might have noticed that when you import a blueprint, it will not update
-when the blueprint is updated. And the only option you had was to manually
-adjust the YAML of the blueprint to make it match the latest version published
-by the author.
+when the author updates it. The only option you had was to manually adjust the
+YAML of the blueprint to make it match the latest version published
+by the author. To make this last bit easier, we added this re-import ability.
 
-As of this release, we want to provide a small improvement to this. Imported
-blueprints will now show a button to re-import the blueprint from the source
-you imported it from. This will overwrite the blueprint in your Home Assistant
-instance with the latest version.
+<img class="no-shadow" src='/images/blog/2023-12/re-import-blueprint.png' alt='Screenshot showing that the overflow menu of a blueprint now provides the option to re-import an blueprint.'>
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/286546997-aae00d21-f8c6-448f-ae88-7bd3d3d0c0aa.png' alt='Temporary screenshot that needs to be replaced.'>
-
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/285043706-3a32fcb0-fbac-4f35-83f9-825c922c7b11.png' alt='Temporary screenshot that needs to be replaced.'>
-
-**Please note**: This feature will overwrite your existing Blueprint with the latest
-version published by the author. If you have made changes to the blueprint, or
-the newer version of the blueprint is not compatible with your current setup,
-your automations or script might need manual adjustments.
+A helpful feature that will make it easier to keep your blueprints in
+sync with the latest version published by the blueprint author.
 
 ## Other noteworthy changes
 
