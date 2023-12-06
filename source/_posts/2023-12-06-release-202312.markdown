@@ -530,6 +530,7 @@ changes and new features available for your integration: Be sure to follow our
 
 - [Config processing and error handling](https://developers.home-assistant.io/blog/2023/11/27/config-validation-and-error-handling/)
 - [Exception handling during service calls and translation support](https://developers.home-assistant.io/blog/2023/11/30/service-exceptions-and-translations/)
+- [New scaling utils and import changes](https://developers.home-assistant.io/blog/2023/12/05/scaling-utils/)
 - [Public Addon Config](https://developers.home-assistant.io/blog/2023/11/06/public-addon-config)
 
 [devblog]: https://developers.home-assistant.io/blog/
@@ -539,15 +540,8 @@ changes and new features available for your integration: Be sure to follow our
 The following integrations are also no longer available as of this release:
 
 - **MyQ** has been removed. Read all about it in our [blog post](/blog/2023/11/06/removal-of-myq-integration/).
-  ([@Lash-L] - [#103565])
-- **eQ-3 Bluetooth Smart Thermostats** has been removed. The integration has
-  been in an non-functional state for a long time.
-  ([@rytilahti] - [#94698])
-
-[@Lash-L]: https://github.com/Lash-L
-[@rytilahti]: https://github.com/rytilahti
-[#103565]: https://github.com/home-assistant/core/pull/103565
-[#94698]: https://github.com/home-assistant/core/pull/94698
+- **eQ-3 Bluetooth Smart Thermostats** have been removed. The integration has
+  been in a non-functional state for a long time.
 
 ## All changes
 
