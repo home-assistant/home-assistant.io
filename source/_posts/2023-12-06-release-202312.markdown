@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2023.12: New login screen and a gorgeous new thermostat card"
+title: "2023.12: Welcome home!"
 description: "2023.12: A beautiful new login page, new design for the thermostat card, numeric input feature for tile cards, options for the default dashboard, history dashboard showing long-term statistics, and more!"
 date: 2023-12-06 00:00:00
 date_formatted: "December 6, 2023"
