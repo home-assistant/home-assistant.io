@@ -178,23 +178,23 @@ data:
 
 ### Use response data in templates: convert YAML to JSON
 
- If the response data is a larger data object, (like with the `weather.get_forecasts` service) you can not use the response directly in the template editor at `/developer_tools/template`.
- The response needs to be converted to JSON to be able to do so.
+The response data is returned in Yaml, and can not be used as is in the template editor at `/developer_tools/template`.
+The response needs to be converted to JSON to be able to do so.
 
- Please follow this approach to be able to test run your templates based on the response:
+Please follow this approach to be able to test run your templates based on the response:
 
 1. Enter service in `/developer-tools/service` eg:
 
- {% raw %}
- ```yaml
- service: weather.get_forecasts
- target:
-   entity_id: weather.buienradar
- data:
-   type: daily
- response_variable: buienradar_forecast
- ```
- {% endraw %}
+{% raw %}
+```yaml
+service: weather.get_forecasts
+target:
+  entity_id: weather.buienradar
+data:
+  type: daily
+response_variable: buienradar_forecast
+```
+{% endraw %}
 
 2. Copy the exact and complete response
 
@@ -202,59 +202,59 @@ data:
 
 4. Paste that result in `/developer-tools/template` inside a setter:
 
- {% raw %}
+{% raw %}
 
- ```yaml
- {% set response = { <converted response> } %}
- ```
+```yaml
+{% set response = { <converted response> } %}
+```
 
- {% endraw %}
+{% endraw %}
 
 5. Template to your liking, eg:
 
- {% raw %}
+{% raw %}
 
- ```yaml
- {{response['weather.buienradar'].forecast[0]}}
- ```
+```yaml
+{{response['weather.buienradar'].forecast[0]}}
+```
 
- {% endraw %}
+{% endraw %}
 
- **Note** that the above procedure is for testing the template in `developer-tools/template`.
- The actual template entity itself would need the `response_variable` id as set in the service:
+**Note** that the above procedure is for testing the template in `developer-tools/template`.
+The actual template entity itself would need the `response_variable` id as set in the service:
 
- {% raw %}
+{% raw %}
 
- ```yaml
- {{buienradar_forecast['weather.buienradar'].forecast[0]}}
- ```
+```yaml
+{{buienradar_forecast['weather.buienradar'].forecast[0]}}
+```
 
- {% endraw %}
+{% endraw %}
 
- Which would then result in a trigger based template entity like:
+Which would then result in a trigger based template entity like:
 
- {% raw %}
+{% raw %}
 
- ```yaml
- template:
+```yaml
+template:
 
-   - trigger:
-       - platform: state
-         entity_id: sensor.date
-     action:
-       - service: weather.get_forecasts
-         target:
-           entity_id: weather.buienradar
-         data:
-           type: daily
-         response_variable: buienradar_forecast
-     sensor:
-       - unique_id: buienradar_temperature_forecast
-         state: >
-           {{buienradar_forecast['weather.buienradar'].forecast[0].temperature}}
- ```
+  - trigger:
+      - platform: state
+        entity_id: sensor.date
+    action:
+      - service: weather.get_forecasts
+        target:
+          entity_id: weather.buienradar
+        data:
+          type: daily
+        response_variable: buienradar_forecast
+    sensor:
+      - unique_id: buienradar_temperature_forecast
+        state: >
+          {{buienradar_forecast['weather.buienradar'].forecast[0].temperature}}
+```
 
- {% endraw %}
+{% endraw %}
 
 ### `homeassistant` services
 
