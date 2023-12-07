@@ -2,7 +2,7 @@
 title: CUPS
 description: Instructions on how to integrate CUPS sensors into Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_iot_class: Local Polling
 ha_release: 0.32
 ha_codeowners:

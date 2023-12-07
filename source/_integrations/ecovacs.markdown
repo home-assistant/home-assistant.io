@@ -170,7 +170,7 @@ template:
 
 {% endraw %}
 
-### Handling Errors
+### Handling errors
 
 The vacuum entity has an `error` attribute that will contain the _most recent_ error message that came from the vacuum. There is not a comprehensive list of all error messages, so you may need to do some experimentation to determine the error messages that your vacuum can send.
 

@@ -2,7 +2,7 @@
 title: Insteon
 description: Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Fan
   - Hub

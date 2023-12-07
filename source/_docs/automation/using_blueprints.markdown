@@ -3,7 +3,7 @@ title: "Using automation blueprints"
 description: "How to create automations based off blueprints."
 ---
 
-Automation blueprints are pre-made automations that you can easily add to your Home Assistant instance. Each blueprint can be added as many times as you want.
+Automation blueprints are pre-made {% term automations %} that you can easily add to your Home Assistant instance. Each blueprint can be added as many times as you want.
 
 Quick links:
 
@@ -11,7 +11,7 @@ Quick links:
 
 ## Blueprint automations
 
-Automations based on a blueprint need to be configured. What needs to be configured differs on each blueprint.
+Automations based on a blueprint need to be configured. What needs to be configured differs by blueprint.
 
 1. To create your first automation based on a blueprint, go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
 2. Find the blueprint that you want to use and select **Create Automation**.

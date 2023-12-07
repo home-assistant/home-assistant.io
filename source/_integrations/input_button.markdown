@@ -54,7 +54,7 @@ input_button:
       type: icon
 {% endconfiguration %}
 
-## Automation Examples
+## Automation examples
 
 The `input_button` entity is stateless, as in, it cannot have a state like the
 `on` or `off` state that, for example, a normal switch entity has.
