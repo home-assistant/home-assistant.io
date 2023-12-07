@@ -38,6 +38,10 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+features:
+  required: false
+  description: Additional widgets to control your entity. See [available features](/dashboards/features). Only climate related features are supported.
+  type: list
 {% endconfiguration %}
 
 ### Example

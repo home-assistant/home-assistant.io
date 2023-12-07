@@ -141,6 +141,8 @@ Zones with the name `-` will be ignored, just as the AirBase application is work
 
 </div>
 
+A switch is created for each device that will toggle the unit on/off. This will turn the unit on to its previous state, or toggle it off. This switch works in conjunction with the climate entity.
+
 Additionally the Daikin Streamer (air purifier) function can be toggled on supported devices using a switch. Note that it isn't currently possible to reliably detect whether a specific device has streamer support, so the switch may appear in the UI even if the functionality isn't actually supported.
 
 ## Region changing

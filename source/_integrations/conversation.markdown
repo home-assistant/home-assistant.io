@@ -174,4 +174,5 @@ This service is able to return [response data](/docs/scripts/service-calls/#use-
 
 | Service data attribute | Optional | Description                                                              |
 |------------------------|----------|--------------------------------------------------------------------------|
-| `language`             | yes      | Language to clear intent cache for. Defaults to Home Assistant language. |
+| `language`             | yes      | Language to clear intent cache for. No value clears all languages        |
+| `agent_id`             | yes      | ID of conversation agent. Defaults to the built-in Home Assistant agent. |

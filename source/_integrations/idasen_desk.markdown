@@ -9,10 +9,13 @@ ha_category:
 ha_domain: idasen_desk
 ha_bluetooth: true
 ha_platforms:
+  - button
   - cover
+  - sensor
 ha_integration_type: integration
 ha_codeowners:
   - '@abmantis'
+ha_quality_scale: silver
 ---
 
 The IKEA IDÅSEN integration allows you to connect your IKEA Idåsen motorized desk to Home Assistant, making it possible to control the desk height and also monitor height changes from the physical controller.
@@ -34,3 +37,16 @@ Home Assistant will display a list of addresses of the available desks, and you 
 <div class='note'>
 If you see an "No unconfigured devices found" message, make sure that the desk is in Bluetooth pairing mode. For that, press the small button with the Bluetooth logo on the controller until it starts blinking (about 3 seconds).
 </div>
+
+## Connect/Disconnect buttons
+
+This integration provides two buttons to connect and disconnect to/from the desk using Bluetooth. These can be used to automate connecting to the desk only when needed, for example, to avoid keeping a constant connection when the available connection slots are limited.
+
+## Sensors
+
+{% configuration_basic %}
+
+Height:
+  description: The current height of the desk, in meters.
+
+{% endconfiguration_basic %}

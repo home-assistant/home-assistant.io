@@ -12,10 +12,13 @@ ha_platforms:
   - button
   - climate
   - diagnostics
+  - number
   - sensor
   - water_heater
 ha_dhcp: true
 ha_integration_type: integration
+ha_codeowners:
+  - '@CFenner'
 ---
 
 The **Viessmann ViCare** {% term integration %} lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.
@@ -27,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 - [Water heater](#water-heater) (Domestic hot water)
 - [Sensor](#sensor) (Sensor)
 - [Button](#button) (Button)
+- [Number](#number)
 
 {% include integrations/config_flow.md %}
 
@@ -136,3 +140,7 @@ Additional data from ViCare is available as separate sensors. The sensors are au
 ## Button
 
 Button entities are available for triggering like a one-time charge of the water heater.
+
+## Number
+
+Number entities are available for adjusting the heating curve shift and slope.

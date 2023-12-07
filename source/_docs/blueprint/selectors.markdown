@@ -52,6 +52,7 @@ The following selectors are currently available:
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
+- [Trigger selector](#trigger-selector)
 
 Interactive demos of each of these selectors can be found on the
 [Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
@@ -1211,7 +1212,7 @@ The output of this selector is a template string.
 
 ## Text selector
 
-The text selector can be used to input a text string. The value of the input will contain the selected text.
+The text selector can be used to enter a text string. It can also be used to enter a list of text strings; if `multiple` is set to `true`. The value of the input will contain the selected text. This can be used in shopping lists, for example.
 
 ![Screenshot of text selectors](/images/blueprints/selector-text.png)
 
@@ -1250,6 +1251,12 @@ autocomplete:
     This supplies the [HTML `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete).
     Any value supported by the HTML attribute is valid.
   type: string
+  required: false
+multiple:
+  description: >
+    Allows adding list of text strings. If set to `true`, the resulting value of this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
   required: false
 {% endconfiguration %}
 
@@ -1292,3 +1299,26 @@ time:
 
 The output of this selector will contain the time in 24-hour format,
 for example, `23:59:59`.
+
+## Trigger selector
+
+The triggers selector allows the user to input one or more triggers.
+On the user interface, the trigger part of the automation editor is shown.
+The value of the input contains a list of triggers.
+
+![Screenshot of an trigger selector](/images/blueprints/selector-trigger.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+trigger:
+```
+
+The output of this selector is a list of triggers. For example:
+
+```yaml
+# Example trigger selector output result
+- platform: numeric_state
+  entity_id: "sensor.outside_temperature"
+  below: 20
+```∏

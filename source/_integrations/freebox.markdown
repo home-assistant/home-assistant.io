@@ -2,6 +2,7 @@
 title: Freebox
 description: Instructions on how to integrate Freebox routers into Home Assistant.
 ha_category:
+  - Alarm Control Panel
   - Camera
   - Network
   - Presence detection
@@ -15,6 +16,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: freebox
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - camera
@@ -35,7 +37,8 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch) to control Wi-Fi
 - [Camera](#camera)
 - [Binary sensors](#binary)
-
+- [Alarm_control_panel](#alarm-control-panel)
+  
 {% include integrations/config_flow.md %}
 
 You can find out your Freebox host and port by opening this address <http://mafreebox.freebox.fr/api_version> in your browser.
@@ -132,7 +135,13 @@ Cameras are only available in Freebox V7 (also known as Freebox Delta).
 This platform offers you sensors to monitor:
 - motion sensor
 - door opener 
-- plastic cover 
+- plastic cover
+
+## Alarm control panel
+
+This integration allows you to view and control the Freebox alarm control panel.
+
+
 
 ## Service
 

@@ -3,6 +3,8 @@ title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
 ha_category:
   - Binary sensor
+  - Button
+  - Image
   - Number
   - Select
   - Sensor
@@ -18,7 +20,9 @@ ha_codeowners:
 ha_domain: roborock
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
+  - image
   - number
   - select
   - sensor
@@ -111,6 +115,22 @@ Do not disturb - This enables _Do not disturb_ during the time frame you have se
 ### Number
 
 Volume - This allows you to control the volume of the robot's voice. For example, when it states "Starting cleaning". This allows you to set the volume to 0%, while the app limits it to 20%.
+
+### Button
+
+There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason, the buttons are disabled by default to make sure they are not pressed unintentionally.
+
+Reset sensor consumable - The sensors on your vacuum are expected to be cleaned after 30 hours of use.
+
+Reset side brush consumable - The side brush is expected to be replaced every 200 hours.
+
+Reset main brush consumable - The main brush/ roller is expected to be replaced every 300 hours.
+
+Reset air filter - The air filter is expected to be replaced every 150 hours.
+
+### Image
+
+You can see all the maps within your Roborock account. Keep in mind that they are device-specific. The maps require the cloud API to communicate as the maps are seemingly stored on the cloud. If someone can figure out a way around this - contributions are always welcome.
 
 
 ## FAQ
