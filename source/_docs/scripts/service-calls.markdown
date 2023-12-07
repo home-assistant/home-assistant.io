@@ -178,12 +178,12 @@ data:
 
 ### Use response data in templates: convert YAML to JSON
 
-The response data is returned in Yaml, and can not be used as is in the template editor at `/developer_tools/template`.
+The response data is returned in Yaml, and can not be used as is in the template editor.
 The response needs to be converted to JSON to be able to do so.
 
 Please follow this approach to be able to test run your templates based on the response:
 
-1. Enter service in `/developer-tools/service` eg:
+1. Enter service in <a href="https://my.home-assistant.io/redirect/developer_services/" target="_blank" rel="noreferrer noopener"><img src="https://my.home-assistant.io/badges/developer_services.svg" alt="Open your Home Assistant instance and show your service developer tools." /></a>:
 
 {% raw %}
 ```yaml
@@ -200,7 +200,8 @@ response_variable: buienradar_forecast
 
 3. Paste that in an (online) Yaml-JSON converter and copy result. (eg [Onlineyamltools](https://onlineyamltools.com/convert-yaml-to-json) )
 
-4. Paste that result in `/developer-tools/template` inside a setter:
+4. Paste that result in the template editor <a href="https://my.home-assistant.io/redirect/developer_template/" target="_blank" rel="noreferrer noopener"><img src="https://my.home-assistant.io/badges/developer_template.svg" alt="Open your Home Assistant instance and show your template developer tools." /></a>
+inside a setter:
 
 {% raw %}
 
@@ -220,7 +221,7 @@ response_variable: buienradar_forecast
 
 {% endraw %}
 
-**Note** that the above procedure is for testing the template in `developer-tools/template`.
+**Note** that the above procedure is for testing the template in the template editor.
 The actual template entity itself would need the `response_variable` id as set in the service:
 
 {% raw %}
