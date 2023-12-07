@@ -221,6 +221,14 @@ service_account:
       description: Service email address
       required: true
       type: string
+    simple_bearer_auth:
+      description: If set, this string is always used as the `Authentication` Bearer token instead of Home Assistant using the keys to get and manage oauth Bearer tokens.
+      required: false
+      type: string
+    homegraph_base_url:
+      description: If set, this changes the default home graph base url from `https://homegraph.googleapis.com/` to the set string. Home Graph API calls like request sync will be built off of this base URL.
+      required: false
+      type: string
 report_state:
   description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since Google Assistant knows pre-hand what state they are. It is also required for some features on visual controls.
   required: false

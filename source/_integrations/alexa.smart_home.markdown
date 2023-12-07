@@ -330,6 +330,10 @@ alexa:
           description: See [Proactive Events](#proactive-events) for more information.
           required: false
           type: string
+        simple_bearer_auth:
+          description: See [Proactive Events](#proactive-events) for more information.
+          required: false
+          type: string
         filter:
           description: Filter domains and entities for Alexa. ([Configure Filter](#configure-filter))
           type: map
@@ -414,6 +418,7 @@ The `endpoint`, `client_id` and `client_secret` are optional, and are only requi
 - There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events.html#endpoints>
 - The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][alexa-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
 - If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available. Also, you need to restart your Home Assistant after each disabling/enabling the skill in Alexa."
+- The `simple_bearer_auth` can be used **instead** of `client_id` and `client_secret`. In this mode, instead of Home Assistant using obtaining and meaning the oauth refresh and access tokens from Amazon, the string value of `simple_bearer_auth` is used in the Authorization header to the `endpoint`.
 
 ### Configure filter <!-- omit in toc -->
 
