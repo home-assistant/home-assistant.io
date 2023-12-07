@@ -133,13 +133,12 @@ Examples of service response data are upcoming calendar events for the next week
 
 Templates can also be used for handling response data. The service call can specify
 a `response_variable`. This is the [variable](/docs/scripts/#variables)
-that contains the response data. You can define any name for your `response_variable`. This example calls a service and stores the response in 
-the variable called `agenda`.
+that contains the response data. You can define any name for your `response_variable`. This example calls a service and stores the response in the variable called `agenda`.
 
 {% raw %}
 
 ```yaml
-service: calendar.list_events
+service: calendar.get_events
 target:
   entity_id: calendar.school
 data:
