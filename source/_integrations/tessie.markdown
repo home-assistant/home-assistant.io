@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Tessie integration displays various sensors from the vehicles in your [Tessie](https://my.tessie.com/) account.
+The Tessie integration exposes various commands and sensors from the Tesla vehicles connected to your [Tessie](https://my.tessie.com/) account.
 
 ## Prerequisites
 
@@ -23,6 +23,18 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 {% include integrations/config_flow.md %}
 
 ## Entities
+
+### Select
+
+The integration will create a select entity to control each of the seat heaters, and allows you to set each to Off, Low, Medium, or High.
+
+- Front Left
+- Front Right
+- Rear Left (if installed)
+- Rear Center (if installed)
+- Rear Right (if installed)
+- Third Row Left (if installed)
+- Third Row Right (if installed)
 
 ### Sensor
 
