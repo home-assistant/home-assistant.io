@@ -204,7 +204,6 @@ The response data field is a list of called target entities, each containing the
 
 Example service response:
 
-{% raw %}
 ```yaml
 weather.tomorrow_io_home_nowcast:
   forecast:
@@ -256,4 +255,3 @@ weather.toronto_forecast:
       temperature: 6
       templow: 4
 ```
-{% endraw %}
