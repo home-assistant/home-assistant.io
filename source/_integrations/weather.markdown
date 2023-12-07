@@ -70,13 +70,13 @@ wind_speed_unit: km/h
 ```
 {% endraw %}
 
-## Service `weather.get_forecast`
+## Service `weather.get_forecasts`
 
 Weather integrations which support weather forecasts expose the forecast using services. The services provided by weather entities are described below, and you can also read more about [Service Calls](/docs/scripts/service-calls/).
 
 <div class='note'>
 
-Some integrations may not support the `weather.get_forecast` service, but instead expose weather forecasts as a state attribute named `forecast`. This behavior is deprecated and will be removed in a future release of Home Assistant Core.
+Some integrations may not support the `weather.get_forecasts` service, but instead expose weather forecasts as a state attribute named `forecast`. This behavior is deprecated and will be removed in a future release of Home Assistant Core.
 
 </div>
 
@@ -89,12 +89,12 @@ with a weather forecast.
 
 {% raw %}
 ```yaml
-service: weather.get_forecast
+service: weather.get_forecasts
 target:
   entity_id: weather.home
 data:
   type: daily
-response_variable: weather_forecast
+response_variable: weather_forecasts
 ```
 {% endraw %}
 
@@ -124,30 +124,31 @@ Example forecast:
 
 {% raw %}
 ```yaml
-forecast:
-  - condition: cloudy
-    precipitation_probability: 0
-    datetime: '2023-02-17T14:00:00+00:00'
-    wind_bearing: 268
-    temperature: 14.2
-    pressure: 1019
-    wind_speed: 24.41
-    precipitation: 0
-  - condition: cloudy
-    precipitation_probability: 0
-    datetime: '2023-02-17T15:00:00+00:00'
-    wind_bearing: 268
-    temperature: 13.8
-    pressure: 1019
-    wind_speed: 22.61
-    precipitation: 0
-  - condition: cloudy
-    precipitation_probability: 0
-    datetime: '2023-02-17T16:00:00+00:00'
-    wind_bearing: 265
-    temperature: 13.2
-    pressure: 1020
-    wind_speed: 20.27
-    precipitation: 0
+weather.home:
+  forecast:
+    - condition: cloudy
+      precipitation_probability: 0
+      datetime: '2023-02-17T14:00:00+00:00'
+      wind_bearing: 268
+      temperature: 14.2
+      pressure: 1019
+      wind_speed: 24.41
+      precipitation: 0
+    - condition: cloudy
+      precipitation_probability: 0
+      datetime: '2023-02-17T15:00:00+00:00'
+      wind_bearing: 268
+      temperature: 13.8
+      pressure: 1019
+      wind_speed: 22.61
+      precipitation: 0
+    - condition: cloudy
+      precipitation_probability: 0
+      datetime: '2023-02-17T16:00:00+00:00'
+      wind_bearing: 265
+      temperature: 13.2
+      pressure: 1020
+      wind_speed: 20.27
+      precipitation: 0
 ```
 {% endraw %}
