@@ -125,4 +125,4 @@ If your hub (e.g. Somfy Connectivity Kit) supports HomeKit natively, your setup 
 
 #### Local API via Velux KLF200 hub
 
-If you are only using Somfy IO-compatible devices, you could purchase a Velux KLF200 hub and use [the Velux integration](/integrations/velux/) which has a local API. 
+If you are only using Somfy IO-compatible devices, you could purchase a Velux KLF200 hub and use [the Velux integration](/integrations/velux/) which has a local API.

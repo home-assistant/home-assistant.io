@@ -44,7 +44,7 @@ ha_platforms:
   - siren
   - switch
   - water_heater
-ha_iot_class: Cloud Polling
+ha_iot_class: Local Polling
 ha_dhcp: true
 ha_zeroconf: true
 ---

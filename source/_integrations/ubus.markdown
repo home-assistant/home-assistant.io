@@ -20,17 +20,33 @@ opkg update
 opkg install rpcd-mod-file uhttpd-mod-ubus
 ```
 
-And create on your OpenWrt device a read-only user to be used by setting up the ACL file `/usr/share/rpcd/acl.d/user.json`.
+Add a new system user `hass` (or do it in any other way that you prefer):
+
+- Add line to /etc/passwd: hass:x:10001:10001:hass:/var:/bin/false
+- Add line to /etc/shadow: hass:x:0:0:99999:7:::
+
+Edit the `/etc/config/rpcd` and add the following lines:
+
+```yaml
+config login
+        option username 'hass'
+        option password '$p$hass'
+        list read hass
+        list read unauthenticated
+        list write hass
+```
+
+Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass`:
 
 ```json
 {
-  "user": {
-    "description": "Read only user access role",
+  "hass": {
+    "description": "Access role for OpenWrt ubus integration",
     "read": {
       "ubus": {
-        "*": [ "*" ]
+        "hostapd.*": ["get_clients"],
+        "uci": ["get"]
       },
-      "uci": [ "*" ]
     },
     "write": {}
   }

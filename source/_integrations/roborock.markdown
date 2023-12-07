@@ -21,8 +21,8 @@ ha_domain: roborock
 ha_platforms:
   - binary_sensor
   - button
-  - image
   - diagnostics
+  - image
   - number
   - select
   - sensor

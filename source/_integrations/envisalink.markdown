@@ -13,8 +13,6 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
-ha_codeowners:
-  - '@ufodone'
 ha_integration_type: integration
 ---
 
