@@ -27,8 +27,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Polling interval
 
-By default, the integration will ping the device every 5 minutes. 
-If you wish to do a ping more frequently, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired frequency.
+By default, the integration will ping the device every 15 seconds. 
+If you wish to do a ping at a different interval, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired frequency.
 
 For more detailed steps on how to define a custom interval, follow the procedure below.
 
@@ -39,7 +39,7 @@ For more detailed steps on how to define a custom interval, follow the procedure
 ## Binary sensor
 
 The `ping` binary sensor platform allows you to use `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
-This sensor is enabled by default. The default polling interval is 5 minutes.
+This sensor is enabled by default. The default polling interval is 15 seconds.
 
 The sensor exposes the different round trip times in milliseconds measured by `ping` as attributes:
 
