@@ -226,7 +226,7 @@ service_account:
       required: false
       type: string
     homegraph_base_url:
-      description: If set, this changes the default home graph base url from `https://homegraph.googleapis.com/` to the set string. Home Graph API calls like request sync will be built off of this base URL.
+      description: If set, this changes the default home graph base URL from `https://homegraph.googleapis.com/` to the set string. Home Graph API calls like request sync will be built off of this base URL.
       required: false
       type: string
 report_state:
