@@ -21,7 +21,10 @@ If you’ve forgotten your username, then deleting the files mentioned further b
 
 #### To reset a user's password, via console
 
-Use this procedure if you know the username, and you can access the [Home Assistant console](/hassio/commandline/) on the device itself (not the SSH terminal from the add-ons). 
+Use this procedure only if the following conditions are met:
+
+- You know the username.
+- You can access the [Home Assistant console](/hassio/commandline/) **on the device itself** (not via the SSH terminal from the add-ons).
 
 1. Connect a keyboard and monitor to your device and access the terminal:
    - If you are using a Home Assistant Yellow, refer to the following procedure:
@@ -33,6 +36,7 @@ Use this procedure if you know the username, and you can access the [Home Assist
    - Note: `existing_user` is a placeholder. Replace it with your user name.
    - Note: `new_password` is a placeholder. Replace it with your new password.
    - **Command**: `auth reset --username existing_user --password new_password`
+   - **Troubleshooting**: If you see the message `zsh: command not found: auth`, you likely did not enter the command in the serial console connected to the device itself, but in the terminal within Home Assistant.
 3. You can now log in to Home Assistant using this new password.
 
 #### To reset a user's password, via the container command line
