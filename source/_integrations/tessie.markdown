@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Tessie integration displays various sensors from the vehicles in your [Tessie](https://my.tessie.com/) account.
+The Tessie integration exposes various commands and sensors from the Tesla vehicles connected to your [Tessie](https://my.tessie.com/) account.
 
 ## Prerequisites
 
@@ -23,6 +23,16 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 {% include integrations/config_flow.md %}
 
 ## Entities
+
+### Climate
+
+The integration will create a climate entity to control the vehicles climate control system. This entity can:
+
+- Turn on and off
+- Change the drivers set temperature
+- Change to one of the three keep modes: Keep, Dog, and Climate
+
+The passengers set temp is shown as a sensor, but cannot be changed by Tessie.
 
 ### Sensor
 
