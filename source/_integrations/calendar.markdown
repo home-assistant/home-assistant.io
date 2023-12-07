@@ -194,7 +194,7 @@ data:
 
 ### Service `calendar.list_events`
 
-This service has been **deprecated** in Home Assistant version 2023.12. It will be removed in June 2024. Please use `calendar.get_events` instead.
+This service has been **deprecated**. It will be removed in a future release of Home Assistant. Please use `calendar.get_events` instead.
 
 This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 with calendar events within a date range.
