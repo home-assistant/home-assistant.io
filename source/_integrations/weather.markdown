@@ -168,7 +168,6 @@ with a list of weather services and their associated forecasts.
 | ---------------------- | -------- | ----------- | --------|
 | `type` | no | The type of forecast, must be one of `daily`, `twice_daily`, or `hourly`. | daily
 
-{% raw %}
 ```yaml
 service: weather.get_forecasts
 target:
@@ -179,7 +178,6 @@ data:
   type: daily
 response_variable: weather_forecast
 ```
-{% endraw %}
 
 The response data field is a list of called target entities, each containing the `forecast` field.
 `forecast` is a list of forecasted conditions at a given point in time:
