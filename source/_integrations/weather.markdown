@@ -161,12 +161,12 @@ forecast:
 
 ## Service `weather.get_forecasts`
 
-This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 with a list of weather services and their associated forecasts.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `type` | no | The type of forecast, must be one of `daily`, `twice_daily` or `hourly`. | daily
+| `type` | no | The type of forecast, must be one of `daily`, `twice_daily`, or `hourly`. | daily
 
 {% raw %}
 ```yaml
@@ -181,7 +181,7 @@ response_variable: weather_forecast
 ```
 {% endraw %}
 
-The response data field is a list of called target entities each containing the `forecast` field .
+The response data field is a list of called target entities, each containing the `forecast` field.
 `forecast` is a list of forecasted conditions at a given point in time:
 
 | Response data | Description | Example |
@@ -196,7 +196,7 @@ The response data field is a list of called target entities each containing the 
 | `precipitation_probability` | The probability of precipitation in %. | 0
 | `precipitation` | The precipitation amount in the unit indicated by the `precipitation_unit` state attribute. | 0
 | `pressure` | The air pressure in the unit indicated by the `pressure_unit` state attribute. | 1019
-| `temperature` | The temperature in the unit indicated by the `temperature_unit` state attribute. If templow is also provided, this is the higher temperature. | 14.2
+| `temperature` | The temperature in the unit indicated by the `temperature_unit` state attribute. If `templow` is also provided, this is the higher temperature. | 14.2
 | `templow` | The lower temperature in the unit indicated by the `temperature_unit` state attribute. | 5.0
 | `uv_index` | The UV index. | 3
 | `wind_bearing` | The wind bearing in azimuth angle (degrees) or 1-3 letter cardinal direction. | 268
