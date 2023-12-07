@@ -72,6 +72,8 @@ wind_speed_unit: km/h
 
 ## Service `weather.get_forecast`
 
+This service has been **deprecated** in Home Assistant version 2023.12. It will be removed in June 2024. Please use `calendar.get_events` instead.
+
 Weather integrations which support weather forecasts expose the forecast using services. The services provided by weather entities are described below, and you can also read more about [Service Calls](/docs/scripts/service-calls/).
 
 <div class='note'>
