@@ -132,8 +132,8 @@ Services can also respond with data. Retrieving this data in your Python script 
 
 ```python
 # get_forecast.py
-service_data = {"type": "daily", "entity_id": "weather.YOUR_HOME"}
-current_forecast = hass.services.call("weather", "get_forecast", service_data, blocking=True, return_response=True)
+service_data = {"type": "daily", "entity_id": ["weather.YOUR_HOME", "weather.YOUR_SCHOOL"]}
+current_forecast = hass.services.call("weather", "get_forecasts", service_data, blocking=True, return_response=True)
 ```
 
 ## Documenting your Python scripts
