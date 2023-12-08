@@ -344,7 +344,11 @@ The following integrations are now available via the Home Assistant UI:
 - Add test for energy cost sensor for late price sensor ([@emontnemery] - [#105312])
 - Use area id for context instead of name ([@synesthesiam] - [#105313])
 - Add workaround for orjson not handling subclasses of str ([@emontnemery] - [#105314])
+- Add rollback on exception that needs rollback in SQL ([@gjohansson-ST] - [#104948])
+- Workaround `to_json` template filter in parsing dict key ([@jbouwh] - [#105327])
+- Bump plugwise to v0.34.5 ([@bouwew] - [#105330])
 
+[#104948]: https://github.com/home-assistant/core/pull/104948
 [#105124]: https://github.com/home-assistant/core/pull/105124
 [#105135]: https://github.com/home-assistant/core/pull/105135
 [#105140]: https://github.com/home-assistant/core/pull/105140
@@ -376,6 +380,8 @@ The following integrations are now available via the Home Assistant UI:
 [#105312]: https://github.com/home-assistant/core/pull/105312
 [#105313]: https://github.com/home-assistant/core/pull/105313
 [#105314]: https://github.com/home-assistant/core/pull/105314
+[#105327]: https://github.com/home-assistant/core/pull/105327
+[#105330]: https://github.com/home-assistant/core/pull/105330
 [#97031]: https://github.com/home-assistant/core/pull/97031
 [@DCSBL]: https://github.com/DCSBL
 [@Excentyl]: https://github.com/Excentyl
@@ -384,6 +390,7 @@ The following integrations are now available via the Home Assistant UI:
 [@Quentame]: https://github.com/Quentame
 [@TheJulianJES]: https://github.com/TheJulianJES
 [@bdraco]: https://github.com/bdraco
+[@bouwew]: https://github.com/bouwew
 [@emontnemery]: https://github.com/emontnemery
 [@flabbamann]: https://github.com/flabbamann
 [@frenck]: https://github.com/frenck

@@ -818,6 +818,9 @@ For a summary in a more readable format:
 - Add test for energy cost sensor for late price sensor ([@emontnemery] - [#105312])
 - Use area id for context instead of name ([@synesthesiam] - [#105313])
 - Add workaround for orjson not handling subclasses of str ([@emontnemery] - [#105314])
+- Add rollback on exception that needs rollback in SQL ([@gjohansson-ST] - [#104948])
+- Workaround `to_json` template filter in parsing dict key ([@jbouwh] - [#105327])
+- Bump plugwise to v0.34.5 ([@bouwew] - [#105330])
 
 [#101186]: https://github.com/home-assistant/core/pull/101186
 [#101196]: https://github.com/home-assistant/core/pull/101196
@@ -1526,6 +1529,7 @@ For a summary in a more readable format:
 [#104914]: https://github.com/home-assistant/core/pull/104914
 [#104941]: https://github.com/home-assistant/core/pull/104941
 [#104947]: https://github.com/home-assistant/core/pull/104947
+[#104948]: https://github.com/home-assistant/core/pull/104948
 [#104961]: https://github.com/home-assistant/core/pull/104961
 [#104966]: https://github.com/home-assistant/core/pull/104966
 [#104972]: https://github.com/home-assistant/core/pull/104972
@@ -1576,6 +1580,8 @@ For a summary in a more readable format:
 [#105312]: https://github.com/home-assistant/core/pull/105312
 [#105313]: https://github.com/home-assistant/core/pull/105313
 [#105314]: https://github.com/home-assistant/core/pull/105314
+[#105327]: https://github.com/home-assistant/core/pull/105327
+[#105330]: https://github.com/home-assistant/core/pull/105330
 [#71034]: https://github.com/home-assistant/core/pull/71034
 [#71644]: https://github.com/home-assistant/core/pull/71644
 [#72363]: https://github.com/home-assistant/core/pull/72363
