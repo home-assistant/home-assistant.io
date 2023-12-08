@@ -11,12 +11,13 @@ This guide assumes that you already have an operating system setup and a contain
 If you are using Docker then you need to be on at least version 19.03.9, ideally an even higher version, and `libseccomp` 2.4.2 or newer.
 </div>
 
-### Platform Installation
+### Platform installation
 
 Installation with Docker is straightforward. Adjust the following command so that:
 
-* `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it.
-* `MY_TIME_ZONE` is a [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), like `TZ=America/Los_Angeles`.
+- `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it. Make sure that you keep the `:/config` part.
+- `MY_TIME_ZONE` is a [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), like `TZ=America/Los_Angeles`.
+- D-Bus is optional but required if you plan to use the [Bluetooth integration](/integrations/bluetooth).
 
 {% endif %}
 
@@ -32,10 +33,10 @@ Once the Home Assistant Container is running Home Assistant should be accessible
 
 ### Restart Home Assistant
 
-If you change the configuration you have to restart the server. To do that you have 3 options.
+If you change the configuration, you have to restart the server. To do that you have 3 options.
 
-1. In your Home Assistant UI go to the **Settings** -> **System** and click the "Restart" button.
-2. You can go to the **Developer Tools** -> **Services**, select the service `homeassistant.restart` and click "Call Service".
+1. In your Home Assistant UI, go to the **Settings** > **System** and click the **Restart** button.
+2. You can go to the **Developer Tools** > **Services**, select the service `homeassistant.restart` and select **Call Service**.
 3. Restart it from a terminal.
 
 {% tabbed_block %}
@@ -56,7 +57,7 @@ If you change the configuration you have to restart the server. To do that you h
 
 {% endtabbed_block %}
 
-### Docker Compose
+### Docker compose
 
 <div class="note tip">
    
@@ -74,11 +75,11 @@ Start it by running:
 docker compose up -d
 ```
 
-Once the Home Assistant Container is running Home Assistant should be accessible using `http://<host>:8123` (replace <host> with the hostname or IP of the system). You can continue with onboarding.
+Once the Home Assistant Container is running, Home Assistant should be accessible using `http://<host>:8123` (replace <host> with the hostname or IP of the system). You can continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 
-### Exposing Devices
+### Exposing devices
 
 In order to use Zigbee or other integrations that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your container instructions:
 

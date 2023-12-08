@@ -1,20 +1,20 @@
 ---
 type: card
-title: "Weather Forecast Card"
-sidebar_label: Weather Forecast
-description: "The Weather Forecast card displays the weather. Very useful to include on interfaces that people display on the wall."
+title: "Weather forecast card"
+sidebar_label: Weather forecast
+description: "The weather forecast card displays the weather. Very useful to include on interfaces that people display on the wall."
 ---
 
-The Weather Forecast card displays the weather. Very useful to include on interfaces that people display on the wall.
+The weather forecast card displays the weather. This card is particularly useful on wall-mounted displays.
 
 <p class='img'>
   <img src='/images/dashboards/weather.png' alt='Screenshot of the weather card'>
-  Screenshot of the Weather card.
+  Screenshot of the weather card.
 </p>
 
-To add the Weather card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Weather** from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
-## Card Settings
+## Card settings
 
 {% configuration_basic %}
 Entity:
@@ -23,6 +23,8 @@ Name:
   description: The name of the location where the weather platform is located. If not set, the name will be the name set on the weather entity
 Show Forecast:
   description: Check this if you would like to show the upcoming forecast under the current weather.
+Forecast type:
+  description: Select the forecast to display between "Daily", "Hourly" and "Twice daily".
 Secondary Info Attribute:
   description: Here you can specify a secondary attribute to show under the current temperature. Ex. Extrema, Precipitation, Humidity. If not set, it will default to Extrema (High/Low) if available, if not available then Precipitation and if precipitation isn't available then Humidity.
 Theme:
@@ -37,9 +39,9 @@ Theme:
 
 </div>
 
-### YAML
+## YAML configuration
 
-This is for if you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -60,6 +62,11 @@ show_forecast:
   description: Show next hours/days forecast.
   type: boolean
   default: true
+forecast_type:
+  required: true
+  description: Type of forecast to display, one of `daily`, `hourly` or `twice_daily`.
+  type: string
+  default: Automatically selects in order of `daily`, `hourly` and `twice_daily`.
 secondary_info_attribute:
   required: false
   description: Which attribute to display under the temperature.
@@ -83,16 +90,19 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-Example
+### Example
 
 ```yaml
+show_current: true
+show_forecast: true
 type: weather-forecast
 entity: weather.openweathermap
+forecast_type: daily
 ```
 
 ### Advanced
 
-#### Themeable Icons
+#### Themeable icons
 
 The default weather icons are themable via a [theme](/integrations/frontend/#themes). Theme variables include:
 
@@ -113,9 +123,7 @@ Example theme configuration:
 --weather-icon-rain-color: purple
 ```
 
-&nbsp;
-
-#### Personal Icons
+#### Personal icons
 
 Weather icons can be overwritten with your own personal images via a [theme](/integrations/frontend/#themes). Theme variables include:
 

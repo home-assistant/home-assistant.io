@@ -18,7 +18,7 @@ The `intent_script` integration allows users to configure actions and responses 
 intent_script:
   GetTemperature:  # Intent type
     speech:
-      text: We have {{ states.sensor.temperature }} degrees
+      text: We have {{ states('sensor.temperature') }} degrees
     action:
       service: notify.notify
       data:
@@ -44,6 +44,11 @@ intent:
       required: false
       default: false
       type: boolean
+    mode:
+      description: The [script mode](https://www.home-assistant.io/integrations/script/#script-modes) in which to run the intent script. Use this to define if the intent should be able to run multiple times in parallel.
+      required: false
+      default: single
+      type: string
     card:
       description: Card to display.
       required: false
@@ -77,3 +82,33 @@ intent:
           required: true
           type: template
 {% endconfiguration %}
+
+## Using the action response
+
+When using a `speech` template, data returned from the executed action are
+available in the `action_response` variable.
+
+{% raw %}
+
+```yaml
+conversation:
+    EventCountToday:
+      - "How many meetings do I have today?"
+
+intent_script:
+  EventCountToday:
+    action:
+      - service: calendar.list_events
+        target:
+          entity_id: calendar.my_calendar
+        data_template:
+          start_date_time: "{{ today_at('00:00') }}"
+          duration: { "hours": 24 }
+        response_variable: result                     # get service response
+      - stop: ""
+        response_variable: result                     # and return it
+    speech:
+      text: "{{ action_response.events | length }}"   # use the action's response
+```
+
+{% endraw %}

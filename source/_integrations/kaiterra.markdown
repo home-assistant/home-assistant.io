@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `kaiterra` integration allows you to view the readings from your Laser Egg or Sensedge device using the [Kaiterra REST API](https://www.kaiterra.com/dev/).
+The `kaiterra` integration allows you to view the readings from your Laser Egg or Sensedge device using the [Kaiterra REST API](https://dev.kaiterra.com/).
 
 To use the integration, you need to get the API key by signing up at [Kaiterra dashboard](https://dashboard.kaiterra.cn/), registering the device and create the key under `Settings -> Profile -> Developer`.
 

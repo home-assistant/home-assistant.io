@@ -2,7 +2,7 @@
 title: Nmap Tracker
 description: Instructions on how to integrate Nmap into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.7
 ha_iot_class: Local Polling
 ha_domain: nmap_tracker
@@ -41,7 +41,7 @@ Minimum number of minutes between scans of active devices:
   required: true
   type: integer
 Network addresses to exclude from scanning:
-  description: A comma-separated list of IP addresses not to scan. The above example will skip `192.168.1.50`.
+  description: A comma-separated list of IP addresses not to scan. The above example will skip `192.168.1.8`.
   required: false
   type: string
 Raw configurable scan options for Nmap:

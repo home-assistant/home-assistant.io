@@ -1,8 +1,8 @@
 ---
-title: Custom Panel
-description: Instructions on how to add customized panels to the frontend of Home Assistant.
+title: Custom panel
+description: Instructions on how to add customized panels to the front end of Home Assistant.
 ha_category:
-  - Front End
+  - Front end
 ha_release: 0.26
 ha_quality_scale: internal
 ha_codeowners:
@@ -43,7 +43,7 @@ sidebar_title:
   required: false
   type: string
 sidebar_icon:
-  description: Icon for entry. Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+  description: Icon for entry. Pick an icon that from [Material Design Icons](https://pictogrammers.com/library/mdi/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
   required: false
   default: "mdi:bookmark"
   type: icon

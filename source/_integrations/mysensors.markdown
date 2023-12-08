@@ -15,7 +15,7 @@ ha_platforms:
   - cover
   - device_tracker
   - light
-  - notify
+  - remote
   - sensor
   - switch
   - text
@@ -185,11 +185,11 @@ Visit the [library API][MySensors library api] of MySensors for more information
 
 [MySensors library API]: https://www.mysensors.org/download
 
-## Binary Sensor
+## Binary sensor
 
 The following binary sensor types are supported:
 
-#### MySensors version 1.4 and higher
+### MySensors version 1.4 and higher
 
 | S_TYPE   | V_TYPE    |
 | -------- | --------- |
@@ -197,7 +197,7 @@ The following binary sensor types are supported:
 | S_MOTION | V_TRIPPED |
 | S_SMOKE  | V_TRIPPED |
 
-#### MySensors version 1.5 and higher
+### MySensors version 1.5 and higher
 
 | S_TYPE       | V_TYPE    |
 | ------------ | --------- |
@@ -207,7 +207,7 @@ The following binary sensor types are supported:
 | S_VIBRATION  | V_TRIPPED |
 | S_MOISTURE   | V_TRIPPED |
 
-#### Binary Sensor example sketch
+### Binary sensor example sketch
 
 ```cpp
 /**
@@ -259,7 +259,7 @@ void loop()
 
 The following actuator types are supported:
 
-#### MySensors version 1.5 and higher
+### MySensors version 1.5 and higher
 
 | S_TYPE | V_TYPE                                                                               |
 | ------ | ------------------------------------------------------------------------------------ |
@@ -282,7 +282,7 @@ You can use V_HVAC_SPEED to control the Speed setting of the Fan in the HVAC.
 
 You can use V_TEMP to send the current temperature from the node to Home Assistant.
 
-#### Climate example sketch for MySensors 2.x
+### Climate example sketch for MySensors 2.x
 
 ```cpp
 /*
@@ -462,13 +462,13 @@ void sendHeatpumpCommand() {
 
 The following actuator types are supported:
 
-#### MySensors version 1.4
+### MySensors version 1.4
 
 | S_TYPE  | V_TYPE                                      |
 | ------- | ------------------------------------------- |
 | S_COVER | V_UP, V_DOWN, V_STOP, [V_DIMMER or V_LIGHT] |
 
-#### MySensors version 1.5 and higher
+### MySensors version 1.5 and higher
 
 | S_TYPE  | V_TYPE                                           |
 | ------- | ------------------------------------------------ |
@@ -476,7 +476,7 @@ The following actuator types are supported:
 
 All V_TYPES above are required. Use V_PERCENTAGE (or V_DIMMER) if you know the exact position of the cover in percent, use V_STATUS (or V_LIGHT) if you don't.
 
-#### Cover example sketch
+### Cover example sketch
 
 ```cpp
 /*
@@ -604,17 +604,17 @@ This sketch is ideally for star topology wiring. You can run up to 12 covers wit
 
 [Check out the code on GitHub.](https://github.com/gryzli133/RollerShutterSplit)
 
-## Device Tracker
+## Device tracker
 
 The following sensor types are supported:
 
-#### MySensors version 2.0 and higher
+### MySensors version 2.0 and higher
 
 | S_TYPE | V_TYPE     |
 | ------ | ---------- |
 | S_GPS  | V_POSITION |
 
-#### Device Tracker example sketch for MySensors 2.x
+### Device tracker example sketch for MySensors 2.x
 
 ```cpp
 /**
@@ -691,13 +691,13 @@ void loop()
 
 The following actuator types are supported:
 
-#### MySensors version 1.4
+### MySensors version 1.4
 
 | S_TYPE   | V_TYPE                |
 | -------- | --------------------- |
 | S_DIMMER | V_DIMMER\*, V_LIGHT\* |
 
-#### MySensors version 1.5 and higher
+### MySensors version 1.5 and higher
 
 | S_TYPE       | V_TYPE                                                         |
 | ------------ | -------------------------------------------------------------- |
@@ -840,329 +840,25 @@ void send_status_message()
 }
 ```
 
-## Notify
+## Remote
 
-<div class='note warning'>
+The following type combinations are supported:
 
-The Notify platform is deprecated and replaced with the [Text platform](#text).
+### MySensors version 1.4 and higher
 
-</div>
+| S_TYPE | V_TYPE             |
+| ------ | ------------------ |
+| S_IR   | V_IR_SEND, V_LIGHT |
 
-Setting the `target` key in the service call will target the name of the MySensors device in Home Assistant. MySensors device names follow the notation: "[Child description]" or alternatively "[Sketch name] [Node id] [Child id]".
+### MySensors version 1.5 and higher
 
-#### Notify automation example
+| S_TYPE | V_TYPE              |
+| ------ | ------------------- |
+| S_IR   | V_IR_SEND, V_STATUS |
 
-```yaml
-...
-action:
-  service: notify.mysensors
-  data:
-    message: Welcome home!
-    target: "TextSensor 254 1"
-```
+V_LIGHT or V_STATUS is required to report the on / off state of the remote. Use either V_LIGHT or V_STATUS depending on library version.
 
-The following sensor types are supported:
-
-#### MySensors version 2.0 and higher
-
-| S_TYPE | V_TYPE |
-| ------ | ------ |
-| S_INFO | V_TEXT |
-
-#### Notify example sketch
-
-```cpp
-/*
- * Documentation: https://www.mysensors.org
- * Support Forum: https://forum.mysensors.org
- */
-
-// Enable debug prints to serial monitor
-#define MY_DEBUG
-#define MY_RADIO_NRF24
-
-#include <MySensors.h>
-#include <SPI.h>
-
-#define SN "TextSensor"
-#define SV "1.0"
-#define CHILD_ID 1
-
-MyMessage textMsg(CHILD_ID, V_TEXT);
-bool initialValueSent = false;
-
-void setup(void) {
-}
-
-void presentation() {
-  sendSketchInfo(SN, SV);
-  present(CHILD_ID, S_INFO, "TextSensor1");
-}
-
-void loop() {
-  if (!initialValueSent) {
-    Serial.println("Sending initial value");
-    // Send initial values.
-    send(textMsg.set("-"));
-    Serial.println("Requesting initial value from controller");
-    request(CHILD_ID, V_TEXT);
-    wait(2000, C_SET, V_TEXT);
-  }
-}
-
-void receive(const MyMessage &message) {
-  if (message.type == V_TEXT) {
-    if (!initialValueSent) {
-      Serial.println("Receiving initial value from controller");
-      initialValueSent = true;
-    }
-    // Dummy print
-    Serial.print("Message: ");
-    Serial.print(message.sensor);
-    Serial.print(", Message: ");
-    Serial.println(message.getString());
-    // Send message to controller
-    send(textMsg.set(message.getString()));
-  }
-}
-```
-
-## Sensor
-
-The following sensor types are supported:
-
-#### MySensors version 1.4 and higher
-
-| S_TYPE             | V_TYPE                                 |
-| ------------------ | -------------------------------------- |
-| S_TEMP             | V_TEMP                                 |
-| S_HUM              | V_HUM                                  |
-| S_BARO             | V_PRESSURE, V_FORECAST                 |
-| S_WIND             | V_WIND, V_GUST, V_DIRECTION            |
-| S_RAIN             | V_RAIN, V_RAINRATE                     |
-| S_UV               | V_UV                                   |
-| S_WEIGHT           | V_WEIGHT, V_IMPEDANCE                  |
-| S_POWER            | V_WATT, V_KWH                          |
-| S_DISTANCE         | V_DISTANCE                             |
-| S_LIGHT_LEVEL      | V_LIGHT_LEVEL                          |
-| S_IR               | V_IR_RECEIVE                           |
-| S_WATER            | V_FLOW, V_VOLUME                       |
-| S_AIR_QUALITY      | V_DUST_LEVEL                           |
-| S_CUSTOM           | V_VAR1, V_VAR2, V_VAR3, V_VAR4, V_VAR5 |
-| S_DUST             | V_DUST_LEVEL                           |
-| S_SCENE_CONTROLLER | V_SCENE_ON, V_SCENE_OFF                |
-
-#### MySensors version 1.5 and higher
-
-| S_TYPE         | V_TYPE                            |
-| -------------- | --------------------------------- |
-| S_COLOR_SENSOR | V_RGB                             |
-| S_MULTIMETER   | V_VOLTAGE, V_CURRENT, V_IMPEDANCE |
-| S_SOUND        | V_LEVEL                           |
-| S_VIBRATION    | V_LEVEL                           |
-| S_MOISTURE     | V_LEVEL                           |
-| S_LIGHT_LEVEL  | V_LEVEL                           |
-| S_AIR_QUALITY  | V_LEVEL (replaces V_DUST_LEVEL)   |
-| S_DUST         | V_LEVEL (replaces V_DUST_LEVEL)   |
-
-#### MySensors version 2.0 and higher
-
-| S_TYPE          | V_TYPE                    |
-| --------------- | ------------------------- |
-| S_INFO          | V_TEXT                    |
-| S_GAS           | V_FLOW, V_VOLUME          |
-| S_GPS           | V_POSITION                |
-| S_WATER_QUALITY | V_TEMP, V_PH, V_ORP, V_EC |
-
-### Custom unit of measurement
-
-Some sensor value types are not specific for a certain sensor type. These do not have a default unit of measurement in Home Assistant. For example, the V_LEVEL type can be used for different sensor types, dust, sound, vibration etc.
-
-By using V_UNIT_PREFIX, it's possible to set a custom unit for any sensor. The string value that is sent for V_UNIT_PREFIX will be used in preference to any other unit of measurement, for the defined sensors. V_UNIT_PREFIX can't be used as a stand-alone sensor value type. Sending a supported value type and value from the tables above is also required. V_UNIT_PREFIX is available with MySensors version 1.5 and later.
-
-#### Sensor example sketch for MySensors 2.x
-
-```cpp
-/**
- * Documentation: https://www.mysensors.org
- * Support Forum: https://forum.mysensors.org
- *
- * https://www.mysensors.org/build/light
- */
-
-// Enable debug prints to serial monitor
-#define MY_DEBUG
-#define MY_RADIO_NRF24
-
-#include <BH1750.h>
-#include <Wire.h>
-#include <MySensors.h>
-
-#define SN "LightLuxSensor"
-#define SV "1.0"
-#define CHILD_ID 1
-unsigned long SLEEP_TIME = 30000; // Sleep time between reads (in milliseconds)
-
-BH1750 lightSensor;
-MyMessage msg(CHILD_ID, V_LEVEL);
-MyMessage msgPrefix(CHILD_ID, V_UNIT_PREFIX);  // Custom unit message.
-uint16_t lastlux = 0;
-bool initialValueSent = false;
-
-void setup()
-{
-  sendSketchInfo(SN, SV);
-  present(CHILD_ID, S_LIGHT_LEVEL);
-  lightSensor.begin();
-}
-
-void loop()
-{
-  if (!initialValueSent) {
-    Serial.println("Sending initial value");
-    send(msgPrefix.set("custom_lux"));  // Set custom unit.
-    send(msg.set(lastlux));
-    Serial.println("Requesting initial value from controller");
-    request(CHILD_ID, V_LEVEL);
-    wait(2000, C_SET, V_LEVEL);
-  }
-  uint16_t lux = lightSensor.readLightLevel();  // Get Lux value
-  if (lux != lastlux) {
-      send(msg.set(lux));
-      lastlux = lux;
-  }
-
-  sleep(SLEEP_TIME);
-}
-
-void receive(const MyMessage &message) {
-  if (message.type == V_LEVEL) {
-    if (!initialValueSent) {
-      Serial.println("Receiving initial value from controller");
-      initialValueSent = true;
-    }
-  }
-}
-```
-
-## Switch
-
-The following actuator types are supported:
-
-#### MySensors version 1.4 and higher
-
-| S_TYPE   | V_TYPE             |
-| -------- | ------------------ |
-| S_DOOR   | V_ARMED            |
-| S_MOTION | V_ARMED            |
-| S_SMOKE  | V_ARMED            |
-| S_LIGHT  | V_LIGHT            |
-| S_LOCK   | V_LOCK_STATUS      |
-| S_IR     | V_IR_SEND, V_LIGHT |
-
-#### MySensors version 1.5 and higher
-
-| S_TYPE       | V_TYPE                |
-| ------------ | --------------------- |
-| S_LIGHT      | V_STATUS              |
-| S_BINARY     | [V_STATUS or V_LIGHT] |
-| S_SPRINKLER  | V_STATUS              |
-| S_WATER_LEAK | V_ARMED               |
-| S_SOUND      | V_ARMED               |
-| S_VIBRATION  | V_ARMED               |
-| S_MOISTURE   | V_ARMED               |
-
-#### MySensors version 2.0 and higher
-
-| S_TYPE          | V_TYPE   |
-| --------------- | -------- |
-| S_WATER_QUALITY | V_STATUS |
-
-All V_TYPES for each S_TYPE above are required to activate the actuator for the platform. Use either V_LIGHT or V_STATUS depending on library version for cases where that V_TYPE is required.
-
-### Services
-
-The MySensors switch platform exposes a service to change an IR code attribute for an IR switch device and turn the switch on. See the [example sketch](#ir-switch-sketch) for the IR switch below.
-
-| Service                | Description                                                                                  |
-| ---------------------- | -------------------------------------------------------------------------------------------- |
-| mysensors.send_ir_code | Set an IR code as a state attribute for a MySensors IR device switch and turn the switch on. |
-
-The service can be used as part of an automation script. For example:
-
-```yaml
-# Example configuration.yaml automation entry
-automation:
-  - alias: "Turn HVAC on"
-    trigger:
-      platform: time
-      at: "5:30:00"
-    action:
-      service: mysensors.send_ir_code
-      target:
-        entity_id: switch.hvac_1_1
-      data:
-        V_IR_SEND: "0xC284"  # the IR code to send
-
-  - alias: "Turn HVAC off"
-    trigger:
-      platform: time
-      at: "0:30:00"
-    action:
-      service: mysensors.send_ir_code
-      target:
-        entity_id: switch.hvac_1_1
-      data:
-        V_IR_SEND: "0xC288"  # the IR code to send
-```
-
-#### Switch example sketch
-
-```cpp
-/*
- * Documentation: https://www.mysensors.org
- * Support Forum: https://forum.mysensors.org
- *
- * https://www.mysensors.org/build/relay
- */
-
-#include <MySensor.h>
-#include <SPI.h>
-
-#define SN "Relay"
-#define SV "1.0"
-#define CHILD_ID 1
-#define RELAY_PIN 3
-
-MySensor gw;
-MyMessage msgRelay(CHILD_ID, V_STATUS);
-
-void setup()
-{
-  gw.begin(incomingMessage);
-  gw.sendSketchInfo(SN, SV);
-  // Initialize the digital pin as an output.
-  pinMode(RELAY_PIN, OUTPUT);
-  gw.present(CHILD_ID, S_BINARY);
-  gw.send(msgRelay.set(0));
-}
-
-void loop()
-{
-  gw.process();
-}
-
-void incomingMessage(const MyMessage &message)
-{
-  if (message.type == V_STATUS) {
-     // Change relay state.
-     digitalWrite(RELAY_PIN, message.getBool() ? 1 : 0);
-     gw.send(msgRelay.set(message.getBool() ? 1 : 0));
-  }
-}
-```
-
-#### IR switch example sketch
+### IR transceiver example sketch
 
 ```cpp
 /*
@@ -1234,17 +930,216 @@ void incomingMessage(const MyMessage &message) {
 }
 ```
 
+## Sensor
+
+The following sensor types are supported:
+
+### MySensors version 1.4 and higher
+
+| S_TYPE             | V_TYPE                                 |
+| ------------------ | -------------------------------------- |
+| S_TEMP             | V_TEMP                                 |
+| S_HUM              | V_HUM                                  |
+| S_BARO             | V_PRESSURE, V_FORECAST                 |
+| S_WIND             | V_WIND, V_GUST, V_DIRECTION            |
+| S_RAIN             | V_RAIN, V_RAINRATE                     |
+| S_UV               | V_UV                                   |
+| S_WEIGHT           | V_WEIGHT, V_IMPEDANCE                  |
+| S_POWER            | V_WATT, V_KWH                          |
+| S_DISTANCE         | V_DISTANCE                             |
+| S_LIGHT_LEVEL      | V_LIGHT_LEVEL                          |
+| S_IR               | V_IR_RECEIVE                           |
+| S_WATER            | V_FLOW, V_VOLUME                       |
+| S_AIR_QUALITY      | V_DUST_LEVEL                           |
+| S_CUSTOM           | V_VAR1, V_VAR2, V_VAR3, V_VAR4, V_VAR5 |
+| S_DUST             | V_DUST_LEVEL                           |
+| S_SCENE_CONTROLLER | V_SCENE_ON, V_SCENE_OFF                |
+
+#### MySensors version 1.5 and higher
+
+| S_TYPE         | V_TYPE                            |
+| -------------- | --------------------------------- |
+| S_COLOR_SENSOR | V_RGB                             |
+| S_MULTIMETER   | V_VOLTAGE, V_CURRENT, V_IMPEDANCE |
+| S_SOUND        | V_LEVEL                           |
+| S_VIBRATION    | V_LEVEL                           |
+| S_MOISTURE     | V_LEVEL                           |
+| S_LIGHT_LEVEL  | V_LEVEL                           |
+| S_AIR_QUALITY  | V_LEVEL (replaces V_DUST_LEVEL)   |
+| S_DUST         | V_LEVEL (replaces V_DUST_LEVEL)   |
+
+### MySensors version 2.0 and higher
+
+| S_TYPE          | V_TYPE                    |
+| --------------- | ------------------------- |
+| S_INFO          | V_TEXT                    |
+| S_GAS           | V_FLOW, V_VOLUME          |
+| S_GPS           | V_POSITION                |
+| S_IR            | V_IR_RECORD               |
+| S_WATER_QUALITY | V_TEMP, V_PH, V_ORP, V_EC |
+
+### Custom unit of measurement
+
+Some sensor value types are not specific for a certain sensor type. These do not have a default unit of measurement in Home Assistant. For example, the V_LEVEL type can be used for different sensor types, dust, sound, vibration etc.
+
+By using V_UNIT_PREFIX, it's possible to set a custom unit for any sensor. The string value that is sent for V_UNIT_PREFIX will be used in preference to any other unit of measurement, for the defined sensors. V_UNIT_PREFIX can't be used as a stand-alone sensor value type. Sending a supported value type and value from the tables above is also required. V_UNIT_PREFIX is available with MySensors version 1.5 and later.
+
+### Sensor example sketch for MySensors 2.x
+
+```cpp
+/**
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
+ *
+ * https://www.mysensors.org/build/light
+ */
+
+// Enable debug prints to serial monitor
+#define MY_DEBUG
+#define MY_RADIO_NRF24
+
+#include <BH1750.h>
+#include <Wire.h>
+#include <MySensors.h>
+
+#define SN "LightLuxSensor"
+#define SV "1.0"
+#define CHILD_ID 1
+unsigned long SLEEP_TIME = 30000; // Sleep time between reads (in milliseconds)
+
+BH1750 lightSensor;
+MyMessage msg(CHILD_ID, V_LEVEL);
+MyMessage msgPrefix(CHILD_ID, V_UNIT_PREFIX);  // Custom unit message.
+uint16_t lastlux = 0;
+bool initialValueSent = false;
+
+void setup()
+{
+  sendSketchInfo(SN, SV);
+  present(CHILD_ID, S_LIGHT_LEVEL);
+  lightSensor.begin();
+}
+
+void loop()
+{
+  if (!initialValueSent) {
+    Serial.println("Sending initial value");
+    send(msgPrefix.set("custom_lux"));  // Set custom unit.
+    send(msg.set(lastlux));
+    Serial.println("Requesting initial value from controller");
+    request(CHILD_ID, V_LEVEL);
+    wait(2000, C_SET, V_LEVEL);
+  }
+  uint16_t lux = lightSensor.readLightLevel();  // Get Lux value
+  if (lux != lastlux) {
+      send(msg.set(lux));
+      lastlux = lux;
+  }
+
+  sleep(SLEEP_TIME);
+}
+
+void receive(const MyMessage &message) {
+  if (message.type == V_LEVEL) {
+    if (!initialValueSent) {
+      Serial.println("Receiving initial value from controller");
+      initialValueSent = true;
+    }
+  }
+}
+```
+
+## Switch
+
+The following actuator types are supported:
+
+### MySensors version 1.4 and higher
+
+| S_TYPE   | V_TYPE        |
+| -------- | ------------- |
+| S_DOOR   | V_ARMED       |
+| S_MOTION | V_ARMED       |
+| S_SMOKE  | V_ARMED       |
+| S_LIGHT  | V_LIGHT       |
+| S_LOCK   | V_LOCK_STATUS |
+
+### MySensors version 1.5 and higher
+
+| S_TYPE       | V_TYPE                |
+| ------------ | --------------------- |
+| S_LIGHT      | V_STATUS              |
+| S_BINARY     | [V_STATUS or V_LIGHT] |
+| S_SPRINKLER  | V_STATUS              |
+| S_WATER_LEAK | V_ARMED               |
+| S_SOUND      | V_ARMED               |
+| S_VIBRATION  | V_ARMED               |
+| S_MOISTURE   | V_ARMED               |
+
+### MySensors version 2.0 and higher
+
+| S_TYPE          | V_TYPE   |
+| --------------- | -------- |
+| S_WATER_QUALITY | V_STATUS |
+
+All V_TYPES for each S_TYPE above are required to activate the actuator for the platform. Use either V_LIGHT or V_STATUS depending on library version for cases where that V_TYPE is required.
+
+### Switch example sketch
+
+```cpp
+/*
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
+ *
+ * https://www.mysensors.org/build/relay
+ */
+
+#include <MySensor.h>
+#include <SPI.h>
+
+#define SN "Relay"
+#define SV "1.0"
+#define CHILD_ID 1
+#define RELAY_PIN 3
+
+MySensor gw;
+MyMessage msgRelay(CHILD_ID, V_STATUS);
+
+void setup()
+{
+  gw.begin(incomingMessage);
+  gw.sendSketchInfo(SN, SV);
+  // Initialize the digital pin as an output.
+  pinMode(RELAY_PIN, OUTPUT);
+  gw.present(CHILD_ID, S_BINARY);
+  gw.send(msgRelay.set(0));
+}
+
+void loop()
+{
+  gw.process();
+}
+
+void incomingMessage(const MyMessage &message)
+{
+  if (message.type == V_STATUS) {
+     // Change relay state.
+     digitalWrite(RELAY_PIN, message.getBool() ? 1 : 0);
+     gw.send(msgRelay.set(message.getBool() ? 1 : 0));
+  }
+}
+```
+
 ## Text
 
 The following sensor types are supported:
 
-#### MySensors version 2.0 and higher
+### MySensors version 2.0 and higher
 
 | S_TYPE | V_TYPE |
 | ------ | ------ |
 | S_INFO | V_TEXT |
 
-#### Text example sketch
+### Text example sketch
 
 ```cpp
 /*

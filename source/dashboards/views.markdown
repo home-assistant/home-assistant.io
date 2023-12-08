@@ -18,7 +18,7 @@ Click the `+` button in the top menu bar.
 
 You can link to one view from a card in another view when using cards that support navigation (`navigation_path`). The string supplied here will be appended to the string `/lovelace/` to create the path to the view. Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
 
-#### Example
+### Example
 
 View configuration:
 
@@ -42,7 +42,7 @@ Picture card configuration:
 
 If you define a view icon, the icon instead of the title will be displayed, the title will then be used as a tool-tip.
 
-#### Example
+### Example
 
 ```yaml
 - title: Garden
@@ -53,7 +53,7 @@ If you define a view icon, the icon instead of the title will be displayed, the 
 
 You can specify the visibility of views as a whole or per-user. (Note: This is only for the display of the tabs. The URL path is still accessible)
 
-#### Example
+### Example
 
 ```yaml
 views:
@@ -73,7 +73,7 @@ views:
       ...
 ```
 
-### Options For Visible
+### Options for visible objects
 
 If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
 
@@ -88,7 +88,7 @@ user:
 
 You can change the layout of a view by using a different view type. The default is [`masonry`](/dashboards/masonry).
 
-#### Example
+### Example
 
 ```yaml
 - title: Map
@@ -104,7 +104,7 @@ You can change the layout of a view by using a different view type. The default 
 
 Set a separate [theme](/integrations/frontend/#themes) for the view and its cards.
 
-#### Example
+### Example
 
 ```yaml
 - title: Home
@@ -115,7 +115,7 @@ Set a separate [theme](/integrations/frontend/#themes) for the view and its card
 
 You can style the background of your views with a [theme](/integrations/frontend/#themes). You can use the CSS variable `lovelace-background`. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
 
-#### Example
+### Example
 
 ```yaml
 # Example configuration.yaml entry
@@ -134,7 +134,7 @@ By default, clicking on back button will navigate to the previous view but a cus
 
 You can access subviews from other parts of your dashboard by using [cards that support the `navigate` action](/dashboards/actions).
 
-#### Example
+### Example
 
 Simple subview:
 
@@ -181,7 +181,7 @@ views:
       default: view index
     icon:
       required: false
-      description: Icon-name from Material Design Icons. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`. Only for "View", not for "Subview".
+      description: Icon-name from Material Design Icons. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`. Only for "View", not for "Subview".
       type: string
     background:
       required: false
@@ -207,7 +207,7 @@ views:
       type: string
 {% endconfiguration %}
 
-#### Example
+### Example
 
 View configuration:
 

@@ -21,8 +21,8 @@ To enable this camera in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  camera:
-    - topic: zanzito/shared_locations/my-device
+  - camera:
+      topic: zanzito/shared_locations/my-device
 ```
 
 The sample configuration above can be tested by publishing an image to the topic from the console:
@@ -69,12 +69,12 @@ availability_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this camera is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this camera is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -146,7 +146,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the camera.
+  description: The name of the camera. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
 object_id:

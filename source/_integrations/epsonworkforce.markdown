@@ -70,8 +70,10 @@ Tested devices:
 - Epson WF4820
 - Epson EcoTank ET-77x0
 - Epson ET-2650
+- EPSON ET-2750
 - Epson ET-4750
 - Epson EcoTank ET-5150 (51x0)
+- Epson Expression Home XP-2100
 - Epson Expression Home XP-2105
 
 To make this module work you need to connect your printer to your LAN.

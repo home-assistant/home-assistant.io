@@ -11,10 +11,13 @@ ha_codeowners:
 ha_domain: nibe_heatpump
 ha_platforms:
   - binary_sensor
+  - button
+  - climate
   - number
   - select
   - sensor
   - switch
+  - water_heater
 ha_integration_type: integration
 ---
 
@@ -26,9 +29,12 @@ Supported devices:
 - S1145/S1155
 - F1245/F1255
 - F1355/F1355
+- S2125
+- S320/S325
 - F370
 - F470
 - F730
+- S735
 - F750
 - SMO40
 - SMOS40
@@ -87,7 +93,7 @@ Home Assistant support connecting to Nibe heat pumps over Modbus over either TCP
 
 #### TCP/IP
 
-The newer S-series pump exposes a built-in TCP Modbus server that can be used to communicate with the pump. To enable support for this integration, the pump must be connected to your local network and network (5.2 - Network settings) and Modbus (7.5.9 - Modbus TCP/IP) must be enabled. More details on the Modbus support in the pump can be found in Nibe document [M12676EN](https://partner.nibe.eu/nibedocuments/29795/M12676EN.pdf).
+The newer S-series pump exposes a built-in TCP Modbus server that can be used to communicate with the pump. To enable support for this integration, the pump must be connected to your local network and network (5.2 - Network settings) and Modbus (7.5.9 - Modbus TCP/IP) must be enabled. More details on the Modbus support in the pump can be found in Nibe document [M12676EN](https://assetstore.nibe.se/hcms/v2.4/entity/document/34499/storage/MDM0NDk5LzAvbWFzdGVy).
 
 - `tcp://[IP OR HOSTNAME]`
 - `tcp://[IP OR HOSTNAME]:502`

@@ -1,23 +1,28 @@
 ---
 type: card
-title: "Area Card"
+title: "Area card"
 sidebar_label: Area
-description: "The Area card gives control of your entities in a specified area."
+description: "The area card gives control of your entities in a specified area."
 ---
 
-The Area card lets you control and monitor an individual area.
+The area card lets you control and monitor an individual area.
 
 <p class='img'>
-  <img src='/images/dashboards/area-card.png' alt='Screenshot of the Area card'>
-  Screenshot of the Area card.
+  <img src='/images/dashboards/area-card.png' alt='Screenshot of the area card'>
+  Screenshot of the area card.
 </p>
 
+{% include dashboard/edit_dashboard.md %}
 
-To add the Area card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Area** from the card picker. All options for this card can be configured via the user interface.
+All options for this card can be configured via the user interface.
 
 Buttons will appear on the card for the entities in the area including fan, light and switch. A motion sensor icon will appear in the top left if a motion sensor is in the area and motion is detected by the motion sensor.
 
 If a camera is added to the area you can show the camera feed instead of the area picture.
+
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -33,6 +38,16 @@ show_camera:
   description: Changes the area picture to a live feed of the camera set for the area.
   type: boolean
   default: false
+camera_view:
+  required: false
+  description: 'If showing a camera, "live" will show the live view if `stream` is enabled.'
+  default: auto
+  type: string
+aspect_ratio:
+  required: false
+  description: 'Forces the height of the image to be a ratio of the width. Valid formats: Height percentage value (`23%`) or ratio expressed with colon or "x" separator (`16:9` or `16x9`). For a ratio, the second element can be omitted and will default to "1" (`1.78` equals `1.78:1`).'
+  default: "16:9"
+  type: string
 navigation_path:
   required: false
   description: link to view. For more information about views, see the [view documentation](/dashboards/views/)
@@ -43,23 +58,21 @@ theme:
   type: string
 {% endconfiguration %}
 
-## Example
-
-Alternatively, the card can be configured using YAML:
+### Example
 
 Basic example:
 
 ```yaml
-- type: area
-  area: bedroom
+type: area
+area: bedroom
 ```
 
 Complex example
 
 ```yaml
-- type: area
-  area: bedroom
-  navigation_path: my_bedroom
-  show_camera: true
-  theme: green
+type: area
+area: bedroom
+navigation_path: my_bedroom
+show_camera: true
+theme: green
 ```

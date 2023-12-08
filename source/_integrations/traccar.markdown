@@ -4,7 +4,7 @@ description: Instructions how to use Traccar GPS tracker to track devices in Hom
 ha_release: 0.83
 ha_category:
   - Car
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -17,11 +17,11 @@ ha_integration_type: integration
 
 `Traccar` uses GPS for tracking and has support for over 1500 different types of devices. One option is to track the [Traccar Client](https://www.traccar.org/client/) app on a smartphone via `webhook`. The other option is to connect to an existing [Traccar Server](https://www.traccar.org/server/) installation which is also available as Home Assistant add-on.
 
-## Traccar Client
+## Traccar client
 
 To configure Traccar Client, you must set it up via the integrations panel in the configuration screen. This will give you the webhook URL to use during mobile device configuration. This URL has to be set in the Traccar app.
 
-## Traccar Server
+## Traccar server
 
 To integrate Traccar Server in Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -80,7 +80,7 @@ monitored_conditions:
   required: false
   type: list
 event:
-  description: "Traccar events to include in the scan and fire within Home Assistant. *NOTE* For more info regarding Traccar events please refer to Traccar's documentation: https://www.traccar.org/documentation/events/."
+  description: "Traccar events to include in the scan and fire within Home Assistant. *NOTE* For more info regarding Traccar events please refer to [Traccar's documentation](https://www.traccar.org/events/)."
   required: false
   type: list
   keys:
@@ -163,7 +163,7 @@ device_tracker:
     monitored_conditions: ['alarm', 'mycomputedattribute']
 ```
 
-The parameter `event` allows you to import events from the traccar platform (https://www.traccar.org/documentation/events/) and fire them in your Home Assistant. It accepts a list of events to be monitored and imported and each event must be listed in lowercase snakecase. The events will be fired with the same event name defined in the aforementioned list preceded by the prefix `traccar_`. For example if you need to import the Traccar events `deviceOverspeed` and `deviceFuelDrop` in Home Assistant, you need to fill the `event` parameter with:
+The parameter `event` allows you to import [events](https://www.traccar.org/events/) from the traccar platform and fire them in your Home Assistant. It accepts a list of events to be monitored and imported and each event must be listed in lowercase snakecase. The events will be fired with the same event name defined in the aforementioned list preceded by the prefix `traccar_`. For example if you need to import the Traccar events `deviceOverspeed` and `deviceFuelDrop` in Home Assistant, you need to fill the `event` parameter with:
 
 ```yaml
 device_tracker:

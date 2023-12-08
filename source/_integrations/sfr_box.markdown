@@ -11,6 +11,8 @@ ha_codeowners:
 ha_domain: sfr_box
 ha_platforms:
   - binary_sensor
+  - button
+  - diagnostics
   - sensor
 ha_integration_type: device
 ---
@@ -19,7 +21,8 @@ The SFR Box integration offers integration with the **SFR** broadband router.
 
 This integration provides the following platforms:
 
-- Binary Sensors - such as ADSL status.
+- Binary sensors - such as ADSL status.
+- Buttons - such as reboot.
 - Sensors - such as ADSL line status, attenuation, noise and data rate.
 
 {% include integrations/config_flow.md %}

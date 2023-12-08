@@ -14,7 +14,7 @@ This integration can expose regular REST commands as services. Services can be c
 [script]: /integrations/script/
 [automation]: /getting-started/automation/
 
-To use this component, add the following lines to your `configuration.yaml` file:
+To use this integration, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

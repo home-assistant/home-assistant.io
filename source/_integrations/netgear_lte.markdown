@@ -3,7 +3,7 @@ title: NETGEAR LTE
 description: Instructions on how to integrate your NETGEAR LTE modem within Home Assistant.
 ha_release: 0.72
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Network
   - Notifications
   - Sensor
@@ -14,6 +14,8 @@ ha_platforms:
   - notify
   - sensor
 ha_integration_type: integration
+ha_codeowners:
+  - '@tkdrob'
 ---
 
 The NETGEAR LTE integration for Home Assistant allows you to observe and control [NETGEAR LTE modems](https://www.netgear.com/home/mobile-wifi/lte-modems/).
@@ -22,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Notifications
 - Sensors
-- Binary Sensors
+- Binary sensors
 
 The integration supports sending notifications with SMS, reporting incoming SMS with events and reporting the modem and connection state in a number of sensors and binary sensors.
 

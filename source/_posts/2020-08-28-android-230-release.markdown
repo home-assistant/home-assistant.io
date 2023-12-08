@@ -31,22 +31,22 @@ We have had quite a bit of sensors get added since we last spoke so here's whats
 
 Available for Google Play Store version only:
 
-* Activity
+- Activity
 
 Available for all users:
 
-* Audio
-* Bluetooth
-* Do Not Disturb
-* Last Reboot
-* Light
-* Phone
-* Pressure
-* Proximity
-* Next Alarm
-* Sim 1 & 2
-* Steps
-* Storage
+- Audio
+- Bluetooth
+- Do Not Disturb
+- Last Reboot
+- Light
+- Phone
+- Pressure
+- Proximity
+- Next Alarm
+- Sim 1 & 2
+- Steps
+- Storage
 
 ## Sensor Enhancements
 
@@ -82,10 +82,10 @@ Screenshot of App Theme selection.
 
 ## Additional Improvements
 
-* Support for H265 videos was added
-* Entity state widget was enhanced to allow for multiple attributes and a custom separator
-* Widgets were enhanced overall to allow material icons
-* Notifications can now use `:smiley:` like you can in Discord
-* Lots of fixes across the board
+- Support for H265 videos was added
+- Entity state widget was enhanced to allow for multiple attributes and a custom separator
+- Widgets were enhanced overall to allow material icons
+- Notifications can now use `:smiley:` like you can in Discord
+- Lots of fixes across the board
 
 Special thanks to [chriss158](https://github.com/chriss158), [colincachia](https://github.com/colincachia), [David-Development](https://github.com/David-Development), [JBassett](https://github.com/JBassett), [klejejs](https://github.com/klejejs), [noam148](https://github.com/noam148), [skynetua](https://github.com/skynetua) and [uvjustin](https://github.com/uvjustin) for all of your contributions. So keep them bug reports and feature requests [coming](https://github.com/home-assistant/android/issues/new/choose), we'll chat again soon!

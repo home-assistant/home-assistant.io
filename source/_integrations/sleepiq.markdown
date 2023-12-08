@@ -2,7 +2,7 @@
 title: SleepIQ
 description: Instructions for how to integrate SleepIQ beds within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Health
   - Light
@@ -29,11 +29,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The SleepIQ integration lets you integrate your SleepNumber Bed via [SleepIQ by SleepNumber](https://www.sleepnumber.com/sleepiq-sleep-tracker).
+The SleepIQ integration lets you integrate your SleepNumber Bed via [SleepIQ by SleepNumber](https://www.sleepnumber.com/pages/sleepiq-sleep-tracker).
 
 There is currently support for the following platforms within Home Assistant:
 
-- Binary Sensor - View occupancy of each side
+- Binary sensor - View occupancy of each side
 - Button - Calibrate the bed
 - Button - Stop the pump
 - Light - Control lights on supported models

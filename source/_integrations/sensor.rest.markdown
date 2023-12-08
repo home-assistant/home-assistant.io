@@ -56,6 +56,10 @@ authentication:
   description:  Type of the HTTP authentication. `basic` or `digest`.
   required: false
   type: string
+availability:
+  description: Defines a template if the entity state is available or not.
+  required: false
+  type: template
 device_class:
   description: Sets the [class of the device](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
@@ -290,22 +294,17 @@ sensor:
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: rest
-    name: JSON time
-    json_attributes:
-      - date
-      - milliseconds_since_epoch
-    resource: http://date.jsontest.com/
-    value_template: "{{ value_json.time }}"
-  - platform: template
-    sensors:
-      date:
-        friendly_name: "Date"
-        value_template: "{{ state_attr('sensor.json_time', 'date') }}"
-      milliseconds:
-        friendly_name: "milliseconds"
-        value_template: "{{ state_attr('sensor.json_time', 'milliseconds_since_epoch') }}"
+rest:
+  - resource: "http://date.jsontest.com/"
+    sensor:
+      - name: "Time"
+        value_template: "{{ value_json.time }}"
+
+      - name: "Date"
+        value_template: "{{ value_json.date }}"
+
+      - name: "Milliseconds"
+        value_template: "{{ value_json.milliseconds_since_epoch }}"
 ```
 
 {% endraw %}
@@ -335,40 +334,29 @@ This sample fetches a weather report from [OpenWeatherMap](https://openweatherma
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: rest
-    name: OWM_report
-    json_attributes:
-      - main
-      - weather
-    value_template: "{{ value_json['weather'][0]['description'].title() }}"
-    resource: https://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY
-  - platform: template
-    sensors:
-      owm_weather:
-        value_template: "{{ state_attr('sensor.owm_report', 'weather')[0]['description'].title() }}"
-        entity_picture_template: "{{ 'https://openweathermap.org/img/w/' + state_attr('sensor.owm_report', 'weather')[0]['icon'].lower() + '.png' }}"
-        entity_id: sensor.owm_report
-      owm_temp:
-        friendly_name: "Outside temp"
-        value_template: "{{ state_attr('sensor.owm_report', 'main')['temp'] - 273.15 }}"
+rest:
+  - resource: "https://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY"
+    sensor:
+      - name: "Report"
+        value_template: "{{ value_json['weather'][0]['description'].title() }}"
+        picture: "{{ 'https://openweathermap.org/img/w/' + value_json['weather'][0]['icon'].lower() + '.png' }}"
+
+      - name: "Outside temp"
+        value_template: "{{ value_json['main']['temp'] - 273.15 }}"
         unit_of_measurement: "°C"
-        entity_id: sensor.owm_report
-      owm_pressure:
-        friendly_name: "Outside pressure"
-        value_template: "{{ state_attr('sensor.owm_report', 'main')['pressure'] }}"
+
+      - name: "Outside pressure"
+        value_template: "{{ value_json['main']['pressure'] }}"
         unit_of_measurement: "hP"
-        entity_id: sensor.owm_report
-      owm_humidity:
-        friendly_name: "Outside humidity"
-        value_template: "{{ state_attr('sensor.owm_report', 'main')['humidity'] }}"
+
+      - name: "Outside humidity"
+        value_template: "{{ value_json['main']['humidity'] }}"
         unit_of_measurement: "%"
-        entity_id: sensor.owm_report
 ```
 
 {% endraw %}
 
-This configuration shows how to extract multiple values from a dictionary with `json_attributes` and `template`. This avoids flooding the REST service by only requesting the result once, then creating multiple attributes from that single result using templates. By default, the sensor state would be set to the full JSON — here, that would exceed the 255-character maximum allowed length for the state, so we override that default by using `value_template` to set a static value of `OK`.
+This configuration shows how to extract multiple values from a dictionary. This method avoids flooding the REST service because the result is only requested once. From that single request, multiple sensors can be created by using template sensors.
 
 {% raw %}
 
@@ -400,96 +388,48 @@ This configuration shows how to extract multiple values from a dictionary with `
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: rest
-    name: room_sensors
-    resource: http://<address_to_rest_service>
-    json_attributes:
-      - bedroom1
-      - bedroom2
-      - bedroom3
-    value_template: "OK"
-  - platform: template
-    sensors:
-      bedroom1_temperature:
-        value_template: "{{ state_attr('sensor.room_sensors', 'bedroom1')['temperature'] }}"
+rest:
+    resource: "http://<address_to_rest_service>"
+    sensor:
+      - name: "Bedroom1 Temperature"
+        value_template: "{{ value_json['bedroom1']['temperature'] }}"
         device_class: temperature
         unit_of_measurement: "°C"
-      bedroom1_humidity:
-        value_template: "{{ state_attr('sensor.room_sensors', 'bedroom1')['humidity'] }}"
+      - name: "Bedroom1 Humidity"
+        value_template: "{{ value_json['bedroom1']['humidity'] }}"
         device_class: humidity
         unit_of_measurement: "%"
-      bedroom1_battery:
-        value_template: "{{ state_attr('sensor.room_sensors', 'bedroom1')['battery'] }}"
+      - name: "Bedroom1 Battery"
+        value_template: "{{ value_json['bedroom1']['battery'] }}"
         device_class: battery
         unit_of_measurement: "V"
-      bedroom2_temperature:
-        value_template: "{{ state_attr('sensor.room_sensors', 'bedroom2')['temperature'] }}"
+      - name: "Bedroom2 Temperature"
+        value_template: "{{ value_json['bedroom2']['temperature'] }}"
         device_class: temperature
         unit_of_measurement: "°C"
 ```
 
 {% endraw %}
 
-The below example allows shows how to extract multiple values from a dictionary with `json_attributes` and `json_attributes_path` from the XML of a Steamist Steambath Wi-Fi interface and use them to create a switch and multiple sensors without having to poll the endpoint numerous times.
-
-In the below example `json_attributes_path` is set to `$.response` which is the location of the `usr0`, `pot0`, ... attributes used for `json_attributes`.
+The example below shows how to extract multiple values from a dictionary from the XML file of a Steamist Steambath Wi-Fi interface. The values are used to create multiple sensors without having to poll the endpoint numerous times.
 
 {% raw %}
 
 ```yaml
-sensor:
-# Steam Controller
-  - platform: rest
-    name: Steam System Data
-    resource: http://192.168.1.105/status.xml
-    json_attributes_path: "$.response"
+rest:
+  # Steam Controller
+  - resource: "http://192.168.1.105/status.xml"
     scan_interval: 15
-    value_template: "OK"
-    json_attributes:
-      - "usr0"
-      - "pot0"
-      - "temp0"
-      - "time0"
-  - platform: template
-    sensors:
-       steam_temp:
-        friendly_name: Steam Temp
-        value_template: "{{ state_attr('sensor.steam_system_data', 'temp0') | regex_findall_index('([0-9]+)XF') }}"
+  
+    sensor:
+      - name: "Steam Temp"
+        value_template: "{{ json_value['response']['temp0'] | regex_findall_index('([0-9]+)XF') }}"
         unit_of_measurement: "°F"
-       steam_time_remaining:
-        friendly_name: "Steam Time Remaining"
-        value_template: "{{ state_attr('sensor.steam_system_data', 'time0') }}"
-        unit_of_measurement: "minutes"
 
-switch:
-  - platform: template
-    switches:
-      steam:
-        value_template: "{{ state_attr('sensor.steam_system_data', 'usr0') | int >= 1 }}"
-        turn_on:
-          - service: rest_command.set_steam_led
-            data:
-               led: 6
-          - service: homeassistant.update_entity
-            target:
-               entity_id: sensor.steam_system_data
-          - delay: 00:00:15
-          - service: homeassistant.update_entity
-            target:
-               entity_id: sensor.steam_system_data
-        turn_off:
-          - service: rest_command.set_steam_led
-            data:
-               led: 7
-          - service: homeassistant.update_entity
-            target:
-               entity_id: sensor.steam_system_data
-          - delay: 00:00:15
-          - service: homeassistant.update_entity
-            target:
-               entity_id: sensor.steam_system_data
-        friendly_name: Steam
+       steam_time_remaining:
+      - name: "Steam Time Remaining"
+        value_template: "{{ json_value['response']['time0'] }}"
+        unit_of_measurement: "minutes"
 
 rest_command:  
   set_steam_led:

@@ -12,7 +12,7 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history`](/integrations/history/) integration.
+This integration is by default enabled as dependency of the [`history`](/integrations/history/) integration.
 
 <div class='note'>
 
@@ -31,6 +31,12 @@ The supported database solutions are:
 Although SQLAlchemy supports database solutions in addition to the ones supported by Home Assistant, it will behave differently on different databases, and features relied on by the recorder may work differently, or not at all, in different databases.
 
 The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
+
+<div class='note'>
+
+Changing database used by the recorder may result in losing your existing history. Migrating data is not supported.
+
+</div>
 
 To change the defaults for the `recorder` integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -75,9 +81,9 @@ recorder:
       default: 10
       type: integer
     commit_interval:
-      description: How often (in seconds) the events and state changes are committed to the database. The default of `1` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the logbook and history will lag. If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
+      description: How often (in seconds) the events and state changes are committed to the database. The default of `5` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the database will lag (the logbook and history will not lag, because the changes are streamed to them immediatelly). If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
       required: false
-      default: 1
+      default: 5
       type: integer
     exclude:
       description: Configure which integrations should be excluded from recordings. ([Configure Filter](#configure-filter))
@@ -119,7 +125,7 @@ recorder:
           type: list
 {% endconfiguration %}
 
-## Configure Filter
+## Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `recorder`, you can use the `include` and `exclude` parameters.
 
@@ -153,13 +159,14 @@ recorder:
   exclude:
     domains:
       - automation
-      - updater
+      - update
     entity_globs:
-      - sensor.weather_*
+      - sensor.sun*
+      - weather.*
     entities:
-      - sun.sun # Don't record sun data
-      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+      - sun.sun # Don't record sun data
     event_types:
       - call_service # Don't record service calls
 ```
@@ -216,8 +223,27 @@ Call the service `recorder.purge_entities` to start a task that purges events an
 | `entity_id`            | yes<sup>*</sup>      | A list of entity_ids that should be purged from the recorder database. |
 | `domains`               | yes      | A list of domains that should be purged from the recorder database. |
 | `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database. |
+| `keep_days`            | yes      | Number of history days to keep in the database of matching rows. The default of 0 days will remove all matching rows. |
 
 Note: The `entity_id` is only optional when used in `automations.yaml` or `scripts.yaml`. When using the UI to call this service then it is mandatory to specify at least one `entity_id` using the Target Picker or via YAML mode.
+
+#### Example automation to remove data rows for specific entities
+
+The below automation will remove history for `sensor.power_sensor_0` older than 5 days at `04:15:00` every day.
+
+```yaml
+alias: "Purge noisy power sensors"
+trigger:
+  - platform: time
+    at: "04:15:00"
+action:
+  - service: recorder.purge_entities
+    data:
+      keep_days: 5
+    target:
+      entity_id: sensor.power_sensor_0
+mode: single
+```
 
 ### Service `disable`
 
@@ -227,16 +253,15 @@ Call the service `recorder.disable` to stop saving events and states to the data
 
 Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
 
-## Recommended engines and minimum versions
-
-The following database engines are tested when major changes are made to the recorder. Other database engines do not have an active core maintainer at this time and may require additional work to maintain.
-
-- SQLite ≥ 3.32.1
-- MariaDB ≥ 10.3
-- MySQL ≥ 8.0
-- PostgreSQL ≥ 12
-
 ## Custom database engines
+
+<div class='note'>
+
+SQLite is the most tested, and newer version of Home Assistant are highly optimized to perform well when using SQLite.
+
+When choosing another option, you should be comfortable in the role of the database administrator, including making backups of the external database.
+
+</div>
 
 Here are examples to use with the [`db_url`](#db_url) configuration option.
 
@@ -335,6 +360,10 @@ Not all Python bindings for the chosen database engine can be installed directly
 
 ### MariaDB and MySQL
 
+<div class='note warning'>
+MariaDB versions before 10.5.17, 10.6.9, 10.7.5, and 10.8.4 suffer from a performance regression which can result in the system becoming overloaded while querying history data or purging the database.
+</div>
+
 Make sure the default character set of your database server is set to `utf8mb4` (see [MariaDB documentation](https://mariadb.com/kb/en/setting-character-sets-and-collations/#example-changing-the-default-character-set-to-utf-8)).
 If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.
 
@@ -344,7 +373,7 @@ homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
 (homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
 ```
 
-For MariaDB you may have to install a few dependencies. If you're using MariaDB version 10.2, `libmariadbclient-dev` was renamed to `libmariadb-dev`. If you're using MariaDB 10.3, the package `libmariadb-dev-compat` must also be installed. For MariaDB v10.0.34 only `libmariadb-dev-compat` is needed. Please install the correct packages based on your MariaDB version.
+For MariaDB you may have to install a few dependencies. If you're using MariaDB 10.3, the package `libmariadb-dev-compat` must also be installed. Please install the correct packages based on your MariaDB version.
 
 On the Python side we use the `mysqlclient`:
 
@@ -361,6 +390,8 @@ pip3 install mysqlclient
 ```
 
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you.
+
+The database engine must be `InnoDB` as `MyIASM` is not supported.
 
 ```bash
 SET GLOBAL default_storage_engine = 'InnoDB';

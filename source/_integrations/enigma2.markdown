@@ -2,7 +2,7 @@
 title: Enigma2 (OpenWebif)
 description: Instructions on how to integrate an Enigma2 based box running OpenWebif into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: '0.90'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -17,9 +17,7 @@ The `enigma2` platform allows you to control a Linux based set-top box which is 
 
 [OpenWebif](https://github.com/E2OpenPlugins/e2openplugin-OpenWebif) is an open source web interface for Enigma2 based set-top boxes.
 
-Enigma2 devices should be discovered automatically by using [the discovery integration](/integrations/discovery/).
-
-To manually add a set-top box to your installation, add the following to your `configuration.yaml` file:
+To add a set-top box to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -2,8 +2,8 @@
 title: iBeacon Tracker
 description: Instructions on how to integrate iBeacon devices into Home Assistant.
 ha_category:
-  - Device Tracker
-  - Presence Detection
+  - Device tracker
+  - Presence detection
   - Sensor
 ha_release: '2022.10'
 ha_iot_class: Local Push
@@ -57,7 +57,7 @@ iBeacons with a randomized MAC address will be combined into a single set of ent
 
 The integration will create an Estimated Distance sensor by default. This estimated distance assumes perfect RF conditions and line of sight between the iBeacon and the Bluetooth adapter. Estimated distance is generally only helpful to tell if the iBeacon is in the immediate vicinity, near, or far away from the adapter. If the system has multiple adapters, the adapter with the best RSSI value for the iBeacon will be the one reporting the distance. As this can change, checking the source attribute when considering the distance is essential.
 
-To get the Estimated distance sensor to work, in most cases, it has to be calibrated in the supplier's app. Place the device at 1m in light of sight of the Bluetooth adapter, read the signal strength in dBm, and set it in the corresponding field of the device app.
+To get the Estimated distance sensor to work, in most cases, it has to be calibrated in the supplier's app. Place the device at 1m in line of sight of the Bluetooth adapter, read the signal strength in dBm, and set it in the corresponding field of the device app.
 
 ## Known working devices
 
@@ -74,9 +74,12 @@ To get the Estimated distance sensor to work, in most cases, it has to be calibr
 - [Feasycom FSC-BP103B](https://www.feasycom.com/bluetooth-ibeacon-da14531)
 - [Feasycom FSC-BP104D](https://www.feasycom.com/dialog-da14531-bluetooth-low-energy-beacon)
 - [Feasycom FSC-BP108](https://www.feasycom.com/bluetooth-5-1-waterproof-bluetooth-beacon)
+- [MikroTik TG-BT5-IN](https://mikrotik.com/product/tg_bt5_in) (Additional sensors such as angle or impact are not compatible)
 - [NRF51822 iBeacon](https://www.aliexpress.com/item/32826502025.html)
 - [NRF52810 iBeacon](https://www.aliexpress.com/item/1005003211033416.html)
 - [Pawscout Tag](https://pawscout.com/shop/pawscout-tag/)
+- [SwiftFinder](https://www.amazon.com/dp/B089MD5NP7) (Requires being paired to a phone first before it starts transmitting once a minute, otherwise it stays asleep)
+- [Teltonika EYE Teltonika EYE Sensor](https://teltonika-gps.com/products/accessories/sensors-beacons/eye) (Additional sensors such as accelerometer, temperature, and humidity are not compatible)
 
 ## Example automation
 

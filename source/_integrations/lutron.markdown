@@ -60,11 +60,17 @@ It is recommended to assign a static IP address to your main repeater. This ensu
 
 </div>
 
+<div class='note'>
+
+If you are using RadioRA2 software version 12 or later, the default `lutron` user with password `integration` is not configured by default. To configure a new telnet user, go to **Settings** > **Integration** in your project and add a new telnet login. Once configured, use the transfer tab to push your changes to the RadioRA2 main repeater(s).
+
+</div>
+
 ## Keypad buttons
 
-Individual buttons on keypads are not represented as entities. Instead, they fire events called `lutron_event` whose payloads include `id` and `action` attributes.
+Individual buttons on keypads are not represented as entities. Instead, they fire events called `lutron_event` whose payloads include `id`, `action`, and `uuid` attributes.
 
-The `id` attribute includes the name of the keypad and the name of the button, normalized the same way entity names are. For example, if the keypad is called "Kitchen Keypad" and the button is called "Dinner" the event's `id` will be `kitchen_keypad_dinner`. If the button has not been assigned a name by the Lutron system installer then the button will have a name of "Unknown Button". In this case the `id` will be suffixed with the underlying Lutron button number and will be of the form `kitchen_keypad_unknown_button_1`.
+The `id` attribute includes the name of the keypad and the name of the button, normalized the same way entity names are. For example, if the keypad is called "Kitchen Keypad" and the button is called "Dinner" the event's `id` will be `kitchen_keypad_dinner`. If the button has not been assigned a name by the Lutron system installer then the button will have a name of "Unknown Button". In this case the `id` will be suffixed with the underlying Lutron button number and will be of the form `kitchen_keypad_unknown_button_1`. The `uuid` is available to distinguish buttons with the same name on one keypad.
 
 The `action` attribute varies depending on the button type.
 
@@ -87,11 +93,11 @@ The Lutron scene platform allows you to control scenes programmed into your SeeT
 
 After setup, scenes will appear in Home Assistant using the area, keypad and button name.
 
-## Occupancy Sensors
+## Occupancy sensors
 
 Any configured Powr Savr occupancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
 
-## Example Automations
+## Example automations
 
 ``` yaml
 - alias: "keypad button pressed notification"

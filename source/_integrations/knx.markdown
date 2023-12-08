@@ -1,11 +1,13 @@
 ---
 title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
+featured: true
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
+  - Date
   - Fan
   - Hub
   - Light
@@ -16,6 +18,7 @@ ha_category:
   - Sensor
   - Switch
   - Text
+  - Time
   - Weather
 ha_release: 0.24
 ha_iot_class: Local Push
@@ -30,6 +33,7 @@ ha_platforms:
   - button
   - climate
   - cover
+  - date
   - diagnostics
   - fan
   - light
@@ -40,6 +44,7 @@ ha_platforms:
   - sensor
   - switch
   - text
+  - time
   - weather
 ha_config_flow: true
 ha_integration_type: hub
@@ -51,10 +56,11 @@ The integration requires a local KNX/IP interface or router. Through this, it wi
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Button](#button)
 - [Climate](#climate)
 - [Cover](#cover)
+- [Date](#date)
 - [Fan](#fan)
 - [Light](#light)
 - [Notify](#notify)
@@ -64,11 +70,16 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Text](#text)
+- [Time](#time)
 - [Weather](#weather)
+
+## Free KNX online training
+
+As a Home Assistant KNX user, you can start a FREE KNX online training and get a discounted ETS Home license on the [KNX website](https://www.knx.org/knx-en/for-your-home/home-assistant/).
 
 {% include integrations/config_flow.md %}
 
-## Basic Configuration
+## Basic configuration
 
 In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files. See [Splitting up the configuration](/docs/configuration/splitting_configuration/).
 
@@ -120,20 +131,18 @@ Use `route back` if your tunneling server is located on a different network.
 
 ### KNX Secure
 
-The KNX integration currently supports IP secure tunneling.
-IP secure via routing and data secure are currently not supported.
-
-In order to use IP Secure you will have to chose "Tunneling" -> "TCP with IP Secure" in the config flow.
+The KNX integration supports IP Secure and Data Secure .
 
 You can configure the IP Secure credentials either manually or by providing a `.knxkeys` file, which you can obtain by exporting the keyring in ETS as seen in the screenshot below.
+Data Secure credentials are always sourced from a `.knxkeys` file. You can import or update the Keyring file from the integrations settings.
+
+For Data Secure, please make sure that all secured group addresses you want to use in Home Assistant are assigned to a tunnel of your interface or a dummy device in ETS and all participating devices are updated accordingly.
 
 ![Export Keyring in ETS5](/images/integrations/knx/export_keyring_ets.png)
 
-The `.knxkeys` file has to be placed in `config/.storage/knx/yourfile.knxkeys`.
-
 If you decide to configure IP Secure manually you will need the user ID, the user password and the device authentication password.
 
-The user id 0 is reserved and the user id 1 is used for management tasks, thus you will need to specify a user id that is 2 or higher according to the tunneling channel you would like to use. 
+The user id 0 is reserved and the user id 1 is used for management tasks, thus you will need to specify a user id that is 2 or higher according to the tunneling channel you would like to use.
 
 The following screenshot will show how you can get the device authentication password in ETS.
 
@@ -173,7 +182,7 @@ type:
 Every telegram that matches an address pattern with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
 
 - `data` contains the raw payload data (e.g., 1 or "[12, 55]").
-- `destination` the KNX group address the telegram is sent to as string (e.g., "1/2/3).
+- `destination` the KNX group address the telegram is sent to as string (e.g., "1/2/3").
 - `direction` the direction of the telegram as string ("Incoming" / "Outgoing").
 - `source` the KNX individual address of the sender as string (e.g., "1.2.3").
 - `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.
@@ -255,7 +264,7 @@ automation:
           address: "0/4/21"
 ```
 
-### Register Event
+### Register event
 
 The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses configured in the `event` key in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
 
@@ -275,7 +284,7 @@ type:
   required: false
 {% endconfiguration %}
 
-### Register Exposure
+### Register exposure
 
 The `knx.exposure_register` service can be used to register (or unregister) exposures to the KNX bus. Exposures defined in `configuration.yaml` can not be unregistered. Per address only one exposure can be registered. See [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus)
 
@@ -333,7 +342,7 @@ address:
   type: string
   required: true
 type:
-  description: Type of the exposed value. Either `binary`, `time`, `date`, `datetime` or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
+  description: Type of the exposed value. Either `binary`, `time` *DPT 10.001*, `date` *DPT 11.001*, `datetime` *DPT 19.001* or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
   type: [string, integer]
   required: true
 entity_id:
@@ -364,7 +373,7 @@ respond_to_read:
   default: true
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors.
 
@@ -387,7 +396,20 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
   type: [boolean, string, integer]
   default: true
@@ -801,6 +823,8 @@ The KNX cover platform is used as an interface to KNX covers.
 
 Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully open in regards to covers. The corresponding value inversion is done internally by the KNX integration.
 
+Home Assistant will, by default, `close` a cover by moving it in the `DOWN` direction in the KNX nomenclature, and `open` a cover by moving it in the `UP` direction.
+
 </div>
 
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
@@ -830,7 +854,7 @@ move_long_address:
   required: false
   type: [string, list]
 move_short_address:
-  description: KNX group address for moving the cover stepwise up or down. Used by some covers also as the means to stop the cover, if no dedicated `stop_address` exists on the actuator. *DPT 1*
+  description: KNX group address for moving the cover stepwise up or down. Used by some covers also as the means to stop the cover. Stepwise moves are only mapped to tilt angle functions in Home Assistant, as no stepwise move of cover position is generally supported by the architecture. If tilt angle is not supported, prefer the use of a `stop_address`. *DPT 1*
   required: false
   type: [string, list]
 stop_address:
@@ -864,12 +888,12 @@ travelling_time_up:
   default: 25
   type: integer
 invert_updown:
-  description: Set this to `true` to invert the binary up/down commands from/to your KNX actuator. Default is 0 for UP; 1 for DOWN.
+  description: Set this to `true` to invert the up/down commands from/to your KNX actuator. Default is to consider `UP` (0) as opening of a cover and `DOWN` (1) as closing of a cover.
   required: false
   default: false
   type: boolean
 invert_position:
-  description: Set this to `true` if your actuator reports fully closed position as 0% in KNX.
+  description: Set this to `true` if your actuator reports fully down position as 0% in KNX.
   required: false
   default: false
   type: boolean
@@ -882,6 +906,147 @@ device_class:
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
+
+## Date
+
+The KNX date platform allows to send date values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+
+<div class='note'>
+
+Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Dates that have a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+<div class='note'>
+
+DPT 11.001 covers the range 1990 to 2089. Year values outside of this range are not allowed.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  date:
+    - name: "Date"
+      address: "0/0/2"
+      state_address: "0/0/2"
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: The group address to which new values will be sent. *DPT 11.001*
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus. *DPT 11.001*
+  required: false
+  type: [string, list]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
+  required: false
+  type: [boolean, string, integer]
+  default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
+
+## DateTime
+
+The KNX datetime platform allows to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+
+<div class='note'>
+
+Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+DateTimes that have a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+<div class='note'>
+
+System timezone is used as DPT 19.001 doesn't provide timezone information.
+Year values outside of the range 1900 to 2155 are invalid.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  datetime:
+    - name: "DateTime"
+      address: "0/0/3"
+      state_address: "0/0/4"
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: The group address to which new values will be sent. *DPT 19.001*
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus. *DPT 19.001*
+  required: false
+  type: [string, list]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
+  required: false
+  type: [boolean, string, integer]
+  default: true
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -1058,15 +1223,15 @@ individual_colors:
       type: map
       required: false
 color_temperature_address:
-  description: KNX group address for setting the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
+  description: KNX group address for setting the color temperature of the light. *DPT 5.001, 7.600 or 9 based on color_temperature_mode*
   required: false
   type: [string, list]
 color_temperature_state_address:
-  description: KNX group address for retrieving the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
+  description: KNX group address for retrieving the color temperature of the light. *DPT 5.001, 7.600 or 9 based on color_temperature_mode*
   required: false
   type: [string, list]
 color_temperature_mode:
-  description: Color temperature group address data type. `absolute` color temperature in Kelvin. *color_temperature_address -> DPT 7.600*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
+  description: Color temperature group address data type. `absolute` for color temperature in Kelvin (2 byte unsigned integer). *color_temperature_address -> DPT 7.600*. `absolute_float` for color temperature represented in 2 byte float. *color_temperature_address -> DPT 9*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
   required: false
   type: string
   default: absolute
@@ -1208,13 +1373,13 @@ type:
 
 ## Number
 
-The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
+The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
 <div class='note'>
 
 Number entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
-Numbers having a `state_address` configured request their current state from the KNX bus.
+Numbers that have a `state_address` configured request their current state from the KNX bus.
 
 </div>
 
@@ -1245,7 +1410,7 @@ name:
   required: false
   type: string
 address:
-  description: Group address new values will be sent to.
+  description: The group address to which new values will be sent.
   required: true
   type: [string, list]
 state_address:
@@ -1320,13 +1485,13 @@ entity_category:
 
 ## Select
 
-The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus with its current state.
+The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus.
 
 <div class='note'>
 
 Select entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
-Selects having a `state_address` configured request their current state from the KNX bus.
+Selects that have a `state_address` configured request their current state from the KNX bus.
 
 </div>
 
@@ -1367,7 +1532,7 @@ name:
   required: false
   type: string
 address:
-  description: Group address new values will be sent to.
+  description: The group address to which new values will be sent.
   required: true
   type: [string, list]
 state_address:
@@ -1397,7 +1562,20 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1449,7 +1627,20 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1473,7 +1664,7 @@ device_class:
   type: string
 {% endconfiguration %}
 
-### Value Types
+### Value types
 
 | KNX DPT | type                          | size in byte |           range            | unit           |
 | ------: | ----------------------------- | -----------: | :------------------------: | -------------- |
@@ -1538,7 +1729,7 @@ device_class:
 |  12.001 | pulse_4_ucount                |            4 |      0 ... 4294967295      | counter pulses |
 |  12.100 | long_time_period_sec          |            4 |      0 ... 4294967295      | s              |
 |  12.101 | long_time_period_min          |            4 |      0 ... 4294967295      | min            |
-|  12.100 | long_time_period_hrs          |            4 |      0 ... 4294967295      | h              |
+|  12.102 | long_time_period_hrs          |            4 |      0 ... 4294967295      | h              |
 | 12.1200 | volume_liquid_litre           |            4 |      0 ... 4294967295      | l              |
 | 12.1201 | volume_m3                     |            4 |      0 ... 4294967295      | m³             |
 |      13 | 4byte_signed                  |            4 | -2147483648 ... 2147483647 |                |
@@ -1704,17 +1895,17 @@ device_class:
 The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
 
 Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-Switches having a `state_address` configured request their current state from the KNX bus.
+Switches that have a `state_address` configured request their current state from the KNX bus.
 
 ## Text
 
-The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
+The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
 <div class='note'>
 
 Text entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
-Texts having a `state_address` configured request their current state from the KNX bus.
+Texts that have a `state_address` configured request their current state from the KNX bus.
 
 </div>
 
@@ -1739,7 +1930,7 @@ name:
   required: false
   type: string
 address:
-  description: Group address new values will be sent to.
+  description: The group address to which new values will be sent.
   required: true
   type: [string, list]
 state_address:
@@ -1761,6 +1952,76 @@ mode:
   required: false
   type: string
   default: text
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
+
+## Time
+
+The KNX time platform allows to send time values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+
+<div class='note'>
+
+Time entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Times that have a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+<div class='note'>
+
+The `day` field of the time telegram will always be set to 0 (`no day`).
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  time:
+    - name: "Time"
+      address: "0/0/2"
+      state_address: "0/0/2"
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: The group address to which new values will be sent. *DPT 10.001*
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus. *DPT 10.001*
+  required: false
+  type: [string, list]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
+  required: false
+  type: [boolean, string, integer]
+  default: true
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -1853,9 +2114,22 @@ address_humidity:
   required: false
   type: [string, list]
 sync_state:
-  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus.
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
   required: false
-  type: boolean
+  type: [boolean, string, integer]
   default: true
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
@@ -1881,6 +2155,7 @@ logger:
     xknx.log: debug  # provides general information (connection, etc.)
     xknx.telegram: debug  # logs telegrams before they are being processed or sent
     xknx.cemi: debug  # logs incoming and outgoing CEMI frames
+    xknx.data_secure: debug  # logs Data Secure relevant information
     xknx.ip_secure: debug  # logs IP Secure relevant information
     xknx.knx: debug  # logs incoming and outgoing KNX/IP frames
     xknx.raw_socket: warning  # logs incoming UDP/TCP frames in raw hex format at socket level

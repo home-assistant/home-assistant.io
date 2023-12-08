@@ -14,6 +14,7 @@ ha_codeowners:
   - '@thegardenmonkey'
 ha_domain: vesync
 ha_platforms:
+  - diagnostics
   - fan
   - light
   - sensor
@@ -21,9 +22,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `vesync` integration enables you to control smart switches and outlets connected to the VeSync App.
+The `**VeSync** {% term integration %} enables you to control smart switches and outlets connected to the VeSync App.
 
-The devices must be added to the VeSync App before this integration can discover them.
+The devices must be added to the VeSync App before this {% term integration %} can discover them.
 
 The following platforms are supported:
 
@@ -32,21 +33,21 @@ The following platforms are supported:
 - **fan**
 - **sensor**
 
-## Supported Devices
+## Supported devices
 
-This integration supports devices controllable by the VeSync App.  The following devices are supported by this integration:
+This {% term integration %} supports devices controllable by the VeSync App.  The following devices are supported by this {% term integration %}:
 
 ### Bulbs
 - Etekcity WiFi Dimmable LED Bulb (ESL100)
 - Etekcity WiFi Dimmable and Tunable White LED Bulb (ESL100CW)
 
-### Wall Switches
+### Wall switches
 
 - Etekcity In Wall Smart Switch (EWSL01-USA)
 - Etekcity Wifi Dimmer Switch (ESD16)
 - Etekcity Wifi Dimmer Switch (ESWD16)
 
-### Outlet Plugs
+### Outlet plugs
 
 - Etekcity 7 Amp US outlet - ESW01-USA (Round)
 - Etekcity 10 Amp US outlet - ESW10-USA (Round)
@@ -64,7 +65,7 @@ This integration supports devices controllable by the VeSync App.  The following
 
 ## Prerequisite
 
-Before you can use this integration, all devices must be registered with the
+Before you can use this {% term integration %}, all devices must be registered with the
 VeSync App. Once registration is complete, continue with the steps described in
 the configuration section below.
 
@@ -76,10 +77,10 @@ the configuration section below.
 |---------|-------------|
 | `update_devices` | Poll Vesync server to find and add any new devices |
 
-## Power & Energy Sensors
+## Power & energy sensors
 
 Many VeSync outlets support power & energy monitoring. This data is exposed as sensor entities alongside the outlet
-itself. Note that prior versions of the integration exposed these as state attributes on the outlet switch entity.
+itself. Note that prior versions of the {% term integration %} exposed these as state attributes on the outlet switch {% term entity %}.
 
 | Sensor                                    | Description                                                             | Example |
 | ------------------------------------------|-------------------------------------------------------------------------|---------|
@@ -90,8 +91,8 @@ itself. Note that prior versions of the integration exposed these as state attri
 | `sensor.<outlet name>_energy_use_monthly` | Total energy usage for month starting from 12:01AM on the first in kWh  | 52.30   |
 | `sensor.<outlet name>_energy_use_yearly`  | Total energy usage for year start from 12:01AM on Jan 1 in kWh          | 105.25  |
 
-## Fan & Air Quality Sensors
-All VeSync air purifiers expose the remaining filter life, and some also expose air quality measurements.
+## Fan & air quality sensors
+All VeSync air purifiers expose the remaining filter lifetime, and some also expose air quality measurements.
 
 | Sensor                                  | Description                                                        | Example |
 | --------------------------------------- | ------------------------------------------------------------------ | ------- |
@@ -99,7 +100,7 @@ All VeSync air purifiers expose the remaining filter life, and some also expose 
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
 | `pm2_5`                 | The current air quality reading. (Core300s/400s/600s)                                  | 8         |
 
-## Fan Exposed Attributes
+## Fan exposed attributes
 
 VeSync air purifiers will expose the following details depending on the features supported by the model:
 
@@ -113,7 +114,7 @@ VeSync air purifiers will expose the following details depending on the features
 | `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |
 | `child_lock`            | The current status of the child lock (Core200S/300s/400s)                         | off             |
 
-## Extracting Attribute data
+## Extracting attribute data
 
 In order to get the attributes readings from supported devices, such as voltage from outlets or fan attributes, you'll have to create a [template sensor](/integrations/template#state-based-template-sensors/).
 
@@ -130,4 +131,5 @@ template:
       state: "{{ state_attr('switch.vesync_switch', 'voltage') | float(default=0) }}"
       unit_of_measurement: "V"
 ```
+
 {% endraw %}

@@ -67,7 +67,7 @@ Enjoy the release!
 - [Release 2021.11.4 - November 15](#release-2021114---november-15)
 - [Release 2021.11.5 - November 19](#release-2021115---november-19)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -167,8 +167,8 @@ diagnostic entities), we now do the following:
   or area the device is in. They are only called if explicitly called by their
   entity ID.
 
-Please note, the above-listed points are breaking changes, also listed in
-the breaking changes section of these release notes.
+Please note, the above-listed points are backward-incompatible changes, also listed in
+the backward-incompatible changes section of these release notes.
 
 Like the previous visit device or service feature, this new organization
 capability has been adopted by many of our maintainers: 60+ integrations!
@@ -185,7 +185,7 @@ Adding nice and matching icons to your entities, makes all the difference for
 how your Home Assistant interface looks and feels.
 
 Finding those icons was somewhat clumsy. You'd go to the
-[Material Design Icons](https://materialdesignicons.com/) website to find one,
+[Material Design Icons](https://pictogrammers.com/library/mdi/) website to find one,
 remember its code and add the `mdi:<code>` to your entity. Not a great
 experience, especially with the number of icons available your browser doesn't
 always like that website.
@@ -613,7 +613,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
@@ -827,7 +827,7 @@ and thus can be safely removed from your YAML configuration after upgrading.
 
 {% enddetails %}
 
-{% details "Microsoft Text-to-Speech (TTS)" %}
+{% details "Microsoft text-to-speech (TTS)" %}
 
 
 The default voice is changed to `JennyNeural`; The previous default `ZiraRUS`

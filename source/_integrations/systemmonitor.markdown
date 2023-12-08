@@ -1,8 +1,8 @@
 ---
-title: System Monitor
+title: System monitor
 description: Instructions on how to monitor the Home Assistant host.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: systemmonitor
@@ -111,10 +111,14 @@ sensor:
 ## Linux specific
 
 To retrieve all available network interfaces on a Linux System, execute the
-`ifconfig` command.
+`ifconfig` or `ip` command. The command differs based on your operation system and version.
 
 ```bash
 ifconfig -a | sed 's/[ \t].*//;/^$/d'
+```
+
+```bash
+ip link show
 ```
 
 ## Windows specific
