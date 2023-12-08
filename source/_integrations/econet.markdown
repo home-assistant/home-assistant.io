@@ -10,7 +10,6 @@ ha_release: 0.61
 ha_iot_class: Cloud Push
 ha_domain: econet
 ha_codeowners:
-  - '@vangorra'
   - '@w1ll1am23'
 ha_config_flow: true
 ha_platforms:

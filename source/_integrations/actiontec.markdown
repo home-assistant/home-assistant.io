@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Actiontec** {% term integration %} allows you to detect presence by looking at connected devices to an [Actiontec](https://www.actiontec.com/) device.
+The **Actiontec** {% term integration %} allows you to detect presence by looking at devices connected to an [Actiontec](https://www.actiontec.com/) device.
 
 Supported devices (tested):
 
