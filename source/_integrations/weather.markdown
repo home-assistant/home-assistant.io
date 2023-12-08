@@ -88,7 +88,7 @@ data:
 response_variable: weather_forecast
 ```
 
-The response data field is a list of called target entities, each containing the `forecast` field.
+The response data field is a mapping of called target entities, each containing the `forecast` field.
 `forecast` is a list of forecasted conditions at a given point in time:
 
 | Response data | Description | Example |
