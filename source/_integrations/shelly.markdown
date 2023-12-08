@@ -2,7 +2,7 @@
 title: Shelly
 description: Integrate Shelly devices
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Energy
   - Light
@@ -28,6 +28,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - event
   - light
   - number
   - sensor
@@ -120,6 +121,14 @@ Depending on how a device's button type is configured, the integration will crea
 ### Binary input sensors (generation 2)
 
 For generation 2 hardware it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
+
+## Event entities (generation 1)
+
+If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
+
+## Event entities (generation 2)
+
+If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
 ## Events
 
@@ -253,16 +262,16 @@ The firmware limits the transition time to 5 seconds.
 
 The integration offers device services which can be triggered by a configuration button.
 
-### OTA update
+### OTA firmware update
 
 Trigger device OTA firmware update.
 
-#### Buttons
+#### Update entities
 
-- OTA Update
-  - triggers the OTA update process for latest stable version
-- OTA Update Beta (_disabled by default_)
-  - triggers the OTA update process for latest beta version
+- Firmware update
+  - triggers the OTA firmware update process to the latest stable version
+- Beta firmware update (_disabled by default_)
+  - triggers the OTA firmware update process to the latest beta version
 
 ### Reboot
 
@@ -315,5 +324,6 @@ Please check from the device Web UI that the configured server is reachable.
 - Only supports firmware 0.8 and later for generation 2 devices
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
-- OTA update service does not support battery-powered devices
+- For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
+- Using the `homeassistant.update_entity` service for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).
 - Frequency sensors for generation 2 energy monitoring devices are supported by firmware 1.0.0 beta 6 or later.

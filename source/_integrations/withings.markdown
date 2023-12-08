@@ -5,32 +5,39 @@ ha_category:
   - Health
   - Sensor
 ha_release: 0.99
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - '@vangorra'
+  - '@joostlek'
 ha_domain: withings
 ha_platforms:
   - binary_sensor
+  - calendar
+  - diagnostics
   - sensor
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
-The `withings` sensor platform consumes data from various health products produced by [Withings](https://www.withings.com).
+The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).
 
-## Create a Withings Account
+## Create a Withings developer account
 
-You must have a developer account to distribute the data. [Create a free development account](https://account.withings.com/partner/add_oauth2).
+You must have a developer account to distribute the data. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
 
-Values for your account:
+Create an application:
+1. Ensure you have selected *Withings public cloud* (instead of Withings US medical cloud)
+2. Create an application
+3. Application creation: Public creation.
+  - Read and accept the terms if you're happy by pressing **Next**
+4. Information:
+  - Target environment: *Development*
+  - Application name: [any name]
+  - Application description: [any description]
+  - Registered URLs: `https://my.home-assistant.io/redirect/oauth`
+  - Change logo: Optional.
 
-- Logo: Any reasonable picture will do.
-- Description: Personal app for collecting my data.
-- Contact Email: Your email address
-- Callback Uri: `https://my.home-assistant.io/redirect/oauth`.
-- Company: Home Assistant
-
-Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You will need these in the next step.
+Once saved, the *ClientID* and *Secret* fields will be populated. You will need these in the next step.
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -52,32 +59,17 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 
 {% include integrations/config_flow.md %}
 
-The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
+## Data updates
 
-Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the Withings site.
-  - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying the wrong data.
+The {% term integration %} automatically detects if you can use webhooks. This enables the {% term integration %} only to update when there is new data.
+The binary sensor for sleep will only work if the {% term integration %} can establish webhooks with Withings.
 
-Data will synchronize immediately and update under the following conditions:
-  - If `use_webhook` is enabled:
-      - Each time Withings notifies Home Assistant of a data change.
-      - Every 120 minutes.
-  - If `use_webhook` is not enabled:
-      - Every 10 minutes.
+## Available data
 
-## Configuration
+The {% term integration %} provides several entities, some of which are dynamically enabled if data is available.
 
-There are additional configuration options available:
+For example, measurement sensors like weight only work when data has been registered in the last 14 days. So if you start using a new device, for example, to measure your temperature or you manually update a value in the app, the sensor automatically appears.
 
-```yaml
-# Example configuration.yaml entry
-withings:
-    use_webhook: true
-```
+Sleep sensors are only created if the {% term integration %} can find sleep data for you within the last day.
 
-{% configuration %}
-use_webhook:
-  description: "Configure Withings to notify Home Assistant when data changes. This also required to populate the in_bed sensor. Note: In order for this to work, your Home Assistant install must be accessible to the internet."
-  required: false
-  default: false
-  type: boolean
-{% endconfiguration %}
+Workout calendar and the workout and activity sensors show if the latest available data point is no older than 14 days.

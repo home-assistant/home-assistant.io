@@ -27,7 +27,7 @@ client ID from the URL. For example: `https://dashboard.justnimbus.com/my-instal
 
 {% include integrations/config_flow.md %}
 
-## Sensor Types
+## Sensor types
 
 When configured, the integration will create twelve sensors for each configured client ID:
 

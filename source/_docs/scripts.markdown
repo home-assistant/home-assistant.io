@@ -241,7 +241,7 @@ This action can use the same triggers that are available in an automation's `tri
 
 {% endraw %}
 
-### Wait Timeout
+### Wait timeout
 
 With both types of waits it is possible to set a timeout after which the script will continue its execution if the condition/event is not satisfied. Timeout has the same syntax as `delay`, and like `delay`, also accepts templates.
 
@@ -275,7 +275,7 @@ You can also get the script to abort after the timeout by using optional `contin
 
 Without `continue_on_timeout: false` the script will always continue since the default for `continue_on_timeout` is `true`.
 
-### Wait Variable
+### Wait variable
 
 After each time a wait completes, either because the condition was met, the event happened, or the timeout expired, the variable `wait` will be created/updated to indicate the result.
 
@@ -387,12 +387,12 @@ The following automation example shows how to capture the custom event `event_li
 
 {% endraw %}
 
-## Repeat a Group of Actions
+## Repeat a group of actions
 
 This action allows you to repeat a sequence of other actions. Nesting is fully supported.
 There are three ways to control how many times the sequence will be run.
 
-### Counted Repeat
+### Counted repeat
 
 This form accepts a count value. The value may be specified by a template, in which case
 the template is rendered when the repeat step is reached.
@@ -473,7 +473,7 @@ repeat:
 
 {% endraw %}
 
-### While Loop
+### While loop
 
 This form accepts a list of conditions (see [conditions page] for available options) that are evaluated _before_ each time the sequence
 is run. The sequence will be run _as long as_ the condition(s) evaluate to true.
@@ -514,7 +514,7 @@ For example:
 
 {% endraw %}
 
-### Repeat Until
+### Repeat until
 
 This form accepts a list of conditions that are evaluated _after_ each time the sequence
 is run. Therefore the sequence will always run at least once. The sequence will be run
@@ -564,7 +564,7 @@ For example:
 ```
 {% endraw %}
 
-### Repeat Loop Variable
+### Repeat loop variable
 
 A variable named `repeat` is defined within the repeat action (i.e., it is available inside `sequence`, `while` & `until`.)
 It contains the following fields:

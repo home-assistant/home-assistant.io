@@ -2,7 +2,7 @@
 title: ecobee
 description: Instructions for how to integrate ecobee thermostats and sensors within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Humidifier
   - Notifications
@@ -14,7 +14,6 @@ ha_release: 0.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@marthoc'
   - '@marcolivierarsenault'
 ha_domain: ecobee
 ha_platforms:
@@ -30,9 +29,9 @@ ha_homekit: true
 ha_integration_type: integration
 ---
 
-The `ecobee` integration lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.
+The **ecobee** {% term integration %} lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.
 
-## Preliminary Steps
+## Preliminary steps
 
 You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, your thermostat must be registered on ecobee's website (which you likely would have already done while installing your thermostat). Once you have done that, perform the following steps.
 
@@ -61,7 +60,7 @@ Your new application will now appear on the left. Upon clicking on the applicati
 3. In the next pop-up box, you will be presented with a unique 8 character code separated by a dash (format: XXXX-XXXX), which you will need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by logging in, selecting **My Apps** from the hamburger menu, clicking **Add Application** on the left, entering the PIN code from Home Assistant, clicking **Validate** and then **Add Application** in the bottom right.
 4. After authorizing the app with ecobee, return to Home Assistant and click **Submit**. If the authorization was successful, a configuration entry will be created and your thermostats, ventilators and sensors will be available in Home Assistant.
 
-## Manual Configuration
+## Manual configuration
 
 If you prefer to set up the integration in [`configuration.yaml`](/docs/configuration/), add your API key (and optional parameters) as follows (however, you must still complete authorization via the **Integrations** panel):
 

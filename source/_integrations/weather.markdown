@@ -11,16 +11,23 @@ ha_domain: weather
 ha_integration_type: entity
 ---
 
-The `weather` platforms gather meteorological information from web services and display the conditions and other details about the weather at the given location. Read the integration documentation for your particular weather provider to learn how to set it up.
+The `weather` platforms gather meteorological information from web services and display the conditions and other details about the weather at the given location.
+
+{% include integrations/building_block_integration.md %}
+
+For a list of weather integrations, on the integrations page, select the [weather category](/integrations/#weather).
+
+Read the {% term integration %} documentation for your particular weather provider to learn how to set it up.
 
 Home Assistant currently supports free web services some of which require registration.
 
 ## State and state attributes
 
-A weather entity's state is used to indicate the current overall conditions, e.g. 'cloudy' or 'sunny'.
+A weather {% term entity %}'s state is used to indicate the current overall conditions, e.g. 'cloudy' or 'sunny'.
+
 ### Condition mapping
 
-The `weather` platform only knows the below listed conditions. The reason for this is that for these conditions is an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) available and mapped in the frontend.
+The `weather` {% term entity %} can provide the conditions listed below as its state:
 
 - 'clear-night'
 - 'cloudy'
@@ -40,7 +47,7 @@ The `weather` platform only knows the below listed conditions. The reason for th
 
 ### State attributes
 
-Detailed weather conditions as well as the unit of measurements used for the conditions are indicated by state attributes. A weather entity may not support all the state attributes.
+Detailed weather conditions as well as the unit of measurements used for the conditions are indicated by state attributes. A weather {% term entity %} may not support all the state attributes.
 
 {% raw %}
 ```yaml

@@ -28,7 +28,7 @@ light:
         level_template: "{{ state_attr('sensor.theater_brightness', 'lux')|int }}"
         value_template: "{{ state_attr('sensor.theater_brightness', 'lux')|int > 0 }}"
         temperature_template: "{{states('input_number.temperature_input') | int}}"
-        color_template: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
+        hs_template: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list_template: "{{ state_attr('light.led_strip', 'effect_list') }}"
         turn_on:
           service: script.theater_lights_on
@@ -43,12 +43,7 @@ light:
           data:
             value: "{{ color_temp }}"
             entity_id: input_number.temperature_input
-        set_white_value:
-          service: input_number.set_value
-          data:
-            value: "{{ white_value }}"
-            entity_id: input_number.white_value_input
-        set_color:
+        set_hs:
           - service: input_number.set_value
             data:
               value: "{{ h }}"
@@ -105,8 +100,23 @@ light:
         required: false
         type: template
         default: optimistic
-      color_template:
-        description: Defines a template to get the color of the light. Must render a tuple (hue, saturation)
+      hs_template:
+        description: Defines a template to get the HS color of the light. Must render a tuple (hue, saturation).
+        required: false
+        type: template
+        default: optimistic
+      rgb_template:
+        description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
+        required: false
+        type: template
+        default: optimistic
+      rgbw_template:
+        description: Defines a template to get the RGBW color of the light. Must render a tuple or a list (red, green, blue, white).
+        required: false
+        type: template
+        default: optimistic
+      rgbww_template:
+        description: Defines a template to get the RGBWW color of the light. Must render a tuple or a list (red, green, blue, cold white, warm white).
         required: false
         type: template
         default: optimistic
@@ -160,8 +170,20 @@ light:
         description: Defines an action to run when the light is given a color temperature command. Receives variable `color_temp`. May also receive variables `brightness` and/or `transition`.
         required: false
         type: action
-      set_color:
-        description: Defines an action to run when the light is given a color command. Receives variables `h`, `s`, and `hs` (which is equivalent to `(h, s)`). May also receive variables `brightness` and/or `transition`.
+      set_hs:
+        description: "Defines an action to run when the light is given a hs color command. Available variables: `hs` as a tuple, `h` and `s`"
+        required: false
+        type: action
+      set_rgb:
+        description: "Defines an action to run when the light is given an RGB color command. Available variables: `rgb` as a tuple, `r`, `g` and `b`."
+        required: false
+        type: action
+      set_rgbw:
+        description: "Defines an action to run when the light is given an RGBW color command. Available variables: `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b` and `w`."
+        required: false
+        type: action
+      set_rgbww:
+        description: "Defines an action to run when the light is given an RGBWW color command. Available variables: `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`, `b`, `cw` and `ww`."
         required: false
         type: action
       set_effect:
@@ -185,8 +207,8 @@ For example, you would replace
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
-Transition doesn't have its own script, it will instead be passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color` or `white_value` scripts.
-Brightness will be passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color` or `white_value` scripts if the corresponding parameter is also in the call. In this case the brightness script (`set_level`) will not be called.
+Transition doesn't have its own script, it will instead be passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts.
+Brightness will be passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts if the corresponding parameter is also in the call. In this case, the brightness script (`set_level`) will not be called.
 If only brightness is passed to `light.turn_on` service call then `set_level` script is called.
 
 ## Examples
@@ -198,7 +220,7 @@ In this section you will find some real-life examples of how to use this light.
 This example shows a light that is actually a home theater's volume. This
 integration gives you the flexibility to provide whatever you'd like to send as
 the payload to the consumer including any scale conversions you may need to
-make; the [Media Player integration](/integrations/media_player/) needs a floating
+make; the [media player integration](/integrations/media_player/) needs a floating
 point percentage value from `0.0` to `1.0`.
 
 {% raw %}
@@ -339,6 +361,61 @@ light:
             entity_id: media_player.receiver
           data:
             is_volume_muted: true
+```
+
+{% endraw %}
+
+### Make a global light entity for a multi-segment WLED light
+
+This example shows how to group together 2 RGBW segments from the same WLED controller into a single usable light
+
+{% raw %}
+
+```yaml
+light:
+  - platform: template
+    lights:
+      wled_global:
+        unique_id: 28208f257b54c44e50deb2d618d44710
+        friendly_name: "Multi-segment Wled control"
+        value_template: "{{ states('light.wled_master') }}"
+        level_template: "{{ state_attr('light.wled_master', 'brightness')|d(0,true)|int }}"
+        rgbw_template: (
+          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[0]|d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[0]|d(0))/2 }},
+          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[1]|d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[1]|d(0))/2 }},
+          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[2]|d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[2]|d(0))/2 }},
+          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[3]|d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[3]|d(0))/2 }}
+          )
+        effect_list_template: "{{ state_attr('light.wled_segment_0', 'effect_list') }}"
+        effect_template: "{{ state_attr('light.wled_segment_0', 'effect') if state_attr('light.wled_segment_0', 'effect') == state_attr('light.wled_segment_1', 'effect') else none }}"
+        availability_template: "{{ not is_state('light.wled_master', 'unknown') }}"
+
+        turn_on:
+          service: light.turn_on
+          entity_id: light.wled_segment_0, light.wled_segment_1, light.wled_master
+        turn_off:
+          service: light.turn_off
+          entity_id: light.wled_master
+        set_level:
+          service: light.turn_on
+          entity_id: light.wled_master
+          data_template:
+            brightness: "{{ brightness }}"
+        set_rgbw:
+          service: light.turn_on
+          entity_id: light.wled_segment_0, light.wled_segment_1
+          data_template:
+            rgbw_color:
+              - "{{ r }}"
+              - "{{ g }}"
+              - "{{ b }}"
+              - "{{ w }}"
+            effect: "Solid"
+        set_effect:
+          service: light.turn_on
+          entity_id: light.wled_segment_0, light.wled_segment_1
+          data_template:
+            effect: "{{ effect }}"
 ```
 
 {% endraw %}

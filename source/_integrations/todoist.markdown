@@ -3,6 +3,7 @@ title: Todoist
 description: Instructions on how to integrate Todoist into Home Assistant.
 ha_category:
   - Calendar
+  - To-do list
 ha_iot_class: Cloud Polling
 ha_release: 0.54
 ha_codeowners:
@@ -10,20 +11,28 @@ ha_codeowners:
 ha_domain: todoist
 ha_platforms:
   - calendar
+  - todo
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
-This platform allows you to connect to your [Todoist Projects](https://todoist.com) as [calendar](/integrations/calendar/) entities. A calendar entity will be `on` if you have a task due in that project or `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. All tasks get updated roughly every 15 minutes.
+This platform allows you to connect to your [Todoist projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every 15 minutes.
+
+
+A calendar entity will be `on` if you have a task due in that project. It will be `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. 
 
 ## Prerequisites
 
-You need to determine your Todoist API token. This is fairly simple to do; just go [to the Integrations section on your Todoist settings page](https://todoist.com/app/settings/integrations) and find the section labeled "API token" at the bottom of the page. Copy that token and use it in your configuration file.
+You need to determine your Todoist API token. Go to the [**Integrations** > **Developer** section on your Todoist settings page](https://todoist.com/app/settings/integrations/developer) and find the section labeled **API token** at the bottom of the page. Copy that token and use it in your configuration file.
 
 {% include integrations/config_flow.md %}
 
-## Custom Projects
+## Custom projects
 
-You can manually configure the integration using `configuration.yaml` which can specify "custom" projects which match against criteria you set.
+You can manually configure the Todoist calendar (only) integration using `configuration.yaml` which can specify "custom" projects which match against criteria you set. You should
+prefer the above instructions for configuring Todoist from the UI.
+
+{% details "Manual custom projects configuration" %}
 
 {% configuration %}
 token:
@@ -88,7 +97,20 @@ You can mix-and-match these attributes to create all sorts of custom projects. Y
 
 Home Assistant does its best to [determine what task in each project is "most" important](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/todoist/calendar.py), and it's that task which has its state reported. You can access the other tasks you have due soon via the `all_tasks` array (see below).
 
-## Calendar Entity attributes
+{% enddetails %}
+
+## To-do list entity
+
+See the [todo](/integrations/todo/) integration for details on how to manage
+items on the Todoist to-do list, including services for creating and
+deleting to-do items.
+
+Todoist completed to-do items are not visible in Home Assistant because they
+are not returned by the Todoist REST API. Marking a To-do item as completed is
+effectively deleting it from Home Assistant, though completed tasks are visible in
+the Todoist UI.
+
+## Calendar entity attributes
 
  - **offset_reached**: Not used.
 
@@ -118,7 +140,13 @@ Home Assistant does its best to [determine what task in each project is "most" i
 
 ## Services
 
-Todoist also comes with access to a service, `todoist.new_task`. This service can be used to create a new Todoist task. You can specify labels and a project, or you can leave them blank, and the task will go to your "Inbox" project.
+You may use the services from the [todo](/integrations/todo/) integration for
+creating, updating, or deleting to-do items on the to-do list.
+
+Todoist also comes with an additional service, `todoist.new_task` that offers
+more advanced attributes when creating a Todoist task. You can specify labels
+and a project, or you can leave them blank, and the task will go to your
+**Inbox** project.
 
 Here are two example JSON payloads resulting in the same task:
 
@@ -165,6 +193,4 @@ Here are two example JSON payloads resulting in the same task:
 - **reminder_date_lang** (*Optional*): When `reminder_date_string` is set, it is possible to set the language.
   Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
 
-- **reminder_date** (*Optional*): When should user be reminded of this task, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format (in UTC timezone). Mutually exclusive with `reminder_date_string`.
-
-Note that there's (currently) no way to mark tasks as done through Home Assistant; task names do not necessarily have to be unique, so you could find yourself in a situation where you close the wrong task.
+- **reminder_date** (*Optional*): When should the user be reminded of this task, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format (in UTC timezone). Mutually exclusive with `reminder_date_string`.

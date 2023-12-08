@@ -2,7 +2,7 @@
 title: ADS
 description: Connect Home Assistant to TwinCAT devices via the ADS interface
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Hub
   - Light
@@ -24,7 +24,7 @@ The ADS (automation device specification) describes a device-independent and fie
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -74,7 +74,7 @@ Service parameters:
 - **adstype**: Specify the type of the variable. Use one of the following: `int`, `byte`, `uint`, `bool`
 - **value**: The value that will be written in the variable.
 
-## Binary Sensor
+## Binary sensor
 
 The `ads` binary sensor platform can be used to monitor a boolean value on your ADS device.
 

@@ -1,6 +1,6 @@
 ---
 type: view
-title: Sidebar View
+title: Sidebar view
 sidebar_label: Sidebar
 description: "The sidebar view has 2 columns, a wide one and a smaller one on the right."
 ---
@@ -25,18 +25,6 @@ type:
   type: string
 {% endconfiguration %}
 
-### Example
-
-Alternatively, the position of the card can be configured using YAML with the `view_layout` option:
-
-```yaml
-type: entities
-entities: 
-  - media_player.lounge_room
-view_layout:
-  position: sidebar
-```
-
 ## Cards config:
 
 {% configuration %}
@@ -45,3 +33,17 @@ view_layout.position:
   description: "The position of the card, `main` or `sidebar`"
   type: string
 {% endconfiguration %}
+
+### Example
+
+The position of the card is configured using YAML with the `view_layout` option:
+
+```yaml
+type: sidebar
+cards:
+  - type: entities
+    entities: 
+      - media_player.lounge_room
+    view_layout:
+      position: sidebar
+```

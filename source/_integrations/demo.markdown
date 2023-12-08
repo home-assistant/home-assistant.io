@@ -50,7 +50,7 @@ The `demo` platform allows you to use integrations which are providing a demo of
 
 Available demo platforms:
 
-- [Air Quality](/integrations/air_quality/) (`air_quality`)
+- [Air quality](/integrations/air_quality/) (`air_quality`)
 - [Alarm control panel](/integrations/alarm_control_panel/) (`alarm_control_panel`)
 - [Binary sensor](/integrations/binary_sensor/) (`binary_sensor`)
 - [Button](/integrations/button/) (`button`)
@@ -58,15 +58,15 @@ Available demo platforms:
 - [Camera](/integrations/camera/) (`camera`)
 - [Climate](/integrations/climate/) (`climate`)
 - [Cover](/integrations/cover/) (`cover`)
-- [Device Tracker](/integrations/device_tracker/) (`device_tracker`)
+- [Device tracker](/integrations/device_tracker/) (`device_tracker`)
 - [Fan](/integrations/fan/) (`fan`)
 - [Geolocation](/integrations/geo_location/) (`geo_location`)
 - [Humidifier](/integrations/humidifier/) (`humidifier`)
-- [Image Processing](/integrations/image_processing/) (`image_processing`)
+- [Image processing](/integrations/image_processing/) (`image_processing`)
 - [Light](/integrations/light/) (`light`)
 - [Lock](/integrations/lock/) (`lock`)
 - [Mailbox](/integrations/mailbox/) (`mailbox`)
-- [Media Player](/integrations/media_player/) (`media_player`)
+- [Media player](/integrations/media_player/) (`media_player`)
 - [Notification](/integrations/notify/) (`notify`)
 - [Number](/integrations/number/) (`number`)
 - [Remote](/integrations/remote/) (`remote`)
@@ -78,20 +78,14 @@ Available demo platforms:
 - [Text-to-speech](/integrations/tts/) (`tts`)
 - [Update](/integrations/update/) (`update`)
 - [Vacuum](/integrations/vacuum/) (`vacuum`)
-- [Water Heater](/integrations/water_heater/) (`water_heater`)
+- [Water heater](/integrations/water_heater/) (`water_heater`)
 - [Weather](/integrations/weather/) (`weather`)
 
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-
-# To load all:
 demo:
-
-# To load for a specific integration:
-light:
-  - platform: demo
 ```
 
 {% configuration %}

@@ -16,7 +16,8 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The UPB integration allows Home Assistant to connect to a Universal Powerline Bus Powerline Interface Module (UPB PIM) to get status and control UPB devices and UPB links. The UPB PIM may be connected either to a serial port or over TCP. The integration implements the following platforms:
+The ***Universal Powerline Bus (UPB)** {% term integration %} allows Home Assistant to connect to a Universal Powerline Bus Powerline Interface Module (UPB PIM) to get status and control UPB devices and UPB links. The UPB PIM may be connected either to a serial port or over TCP. The integration implements the following platforms:
+
 - Light
 - Scene
 
@@ -26,7 +27,7 @@ The UPB integration requires that an export from the `UPStart` UPB configuration
 
 {% include integrations/config_flow.md %}
 
-## Device Configuration
+## Device configuration
 
 Using UPStart, configure each UPB dimmer-switch to report its state when it is manually operated. If you omit this step, manual changes to a dimmer-switch's state (on/off/brightness) will *not* be reported to Home Assistant.
 
@@ -70,7 +71,7 @@ Besides the standard services provided by the Home Assistant [Light](/integratio
 - `upb.scene_fade_stop`
 - `upb.scene_blink`
 
-### Rate Transition Time
+### Rate transition time
 
 Both standard and custom services that take a `transition` or a `rate` for changing brightness levels take time in seconds. The UPB
 system only offers a discrete set of transition times. As such, the transition time requested is changed to the closest time based on
@@ -230,3 +231,17 @@ kitchen_fade_on:
 ## Notes
 
 - A UPB device does not always report its current state. For example, if you call `upb.light_fade_start` and then, a few seconds later, call `upb.light_fade_stop`, the selected UPB device will not report its new brightness level. However, if you then call `homeassistant.update_entity` it will make the UPB device report its current state to Home Assistant.
+- Alterations to your UPB configuration with UpStart must be re-exported. The exported UPE file must have the same filename in the Home Assistant `config` directory.
+
+## Debugging
+
+Debug logs are often required to solve an issue. To enable UPB debug logs add the following to your `configuration.yaml` file in your Home Assistant `config` directory:
+
+```yaml
+logger:
+  logs:
+    upb_lib: debug
+    homeassistant.components.upb: debug
+```
+
+After updating your configuration file, restart Home Assistant. The debug logs will be in the file `homeassistant.log` in the `config` directory.

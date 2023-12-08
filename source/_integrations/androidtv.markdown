@@ -2,7 +2,7 @@
 title: Android Debug Bridge
 description: Instructions on how to integrate Android and Fire TV devices into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.7.6
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -16,11 +16,11 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Android Debug Bridge integration allows you to control an Android device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
+The **Android Debug Bridge** {% term integration %} allows you to control an Android device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
 
 <div class='note'>
 
-When setting up this integration, it is recommended that you do NOT use an ADB server and instead use the built-in Python ADB implementation. This simplifies the setup and makes it easier to troubleshoot issues. If there are stability issues with this approach, then you may wish to try using an ADB server. See the [ADB Setup](#adb-setup) section for more information.
+When setting up this {% term integration %}, it is recommended that you do NOT use an ADB server and instead use the built-in Python ADB implementation. This simplifies the setup and makes it easier to troubleshoot issues. If there are stability issues with this approach, then you may wish to try using an ADB server. See the [ADB Setup](#adb-setup) section for more information.
 
 </div>
 
@@ -60,7 +60,7 @@ Configure State Detection Rules:
   description: Here you can configure a list of rules where the rule key is the app IDs and whose values are lists of state detection rules. As example a valid value for a detection rule is `["standby", {"playing":{"media_session_state":4}}, {"paused":{"media_session_state":3, "wake_lock_size":4}}]`. Note that rule values must be always inside square bracket (`[...]`). See the section [Custom State Detection](#custom-state-detection) for more info.
 {% endconfiguration_basic %}
 
-## ADB Setup
+## ADB setup
 
 This integration works by sending ADB commands to your Android / Fire TV device. There are two ways to accomplish this.
 
@@ -94,7 +94,7 @@ To configure ADB server on integration setup, you need to enable [advanced mode]
 
 Using this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android / Fire TV device and report back to Home Assistant. To use this option, add the `adb_server_ip` option to your configuration. If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
 
-## ADB Troubleshooting
+## ADB troubleshooting
 
 If the setup for your Android or Fire TV device fails, then there is probably an issue with your ADB connection. Here are some possible causes.
 
@@ -108,7 +108,7 @@ If the setup for your Android or Fire TV device fails, then there is probably an
 
 5. Some Android devices (e.g., Philips TVs running Android TV) only accept the initial ADB connection request over their Wi-Fi interface. If you have the TV wired, you need to connect it to Wi-Fi and try the initial connection again. Once the authentication has been granted via Wi-Fi, you can connect to the TV over the wired interface as well.
 
-6. If your device drops off WiFi, breaking the ADB connection and causing the entity to become unavailable in Home Assistant, you could install a wake lock utility (such as [Wakelock](https://github.com/d4rken/wakelock-revamp)) to prevent this from happening. Some users have reported this problem with Xiaomi Mi Box devices.
+6. If your device drops off WiFi, breaking the ADB connection and causing the {% term entity %} to become unavailable in Home Assistant, you could install a wake lock utility (such as [Wakelock](https://github.com/d4rken/wakelock-revamp)) to prevent this from happening. Some users have reported this problem with Xiaomi Mi Box devices.
 
 7. If you are using the [Python ADB implementation](#1-python-adb-implementation) approach, as mentioned above, there may be some issues with newer devices. In this case, you should use the [ADB server](#2-adb-server) approach instead.
 
@@ -227,9 +227,9 @@ Similarly, you can use the `androidtv.upload` service to upload a file from Home
 | `device_path`          |       no | The filepath on the Android / Fire TV device.
 | `local_path`           |       no | The filepath on your Home Assistant instance.
 
-## Custom State Detection
+## Custom state detection
 
-The Android Debug Bridge integration works by polling the Android / Fire TV device at a regular interval and collecting a handful of properties. Unfortunately, there is no standard API for determining the state of the device to which all apps adhere. Instead, the backend `androidtv` package uses three of the properties that it collects to determine the state: `audio_state`, `media_session_state`, and `wake_lock_size`. The correct logic for determining the state differs depending on the current app, and the backend `androidtv` package implements app-specific state detection logic for a handful of apps. Of course, it is not feasible to implement custom logic for each and every app in the `androidtv` package. Moreover, the correct state detection logic may differ across devices and device configurations.
+The Android Debug Bridge {% term integration %} works by polling the Android / Fire TV device at a regular interval and collecting a handful of properties. Unfortunately, there is no standard API for determining the state of the device to which all apps adhere. Instead, the backend `androidtv` package uses three of the properties that it collects to determine the state: `audio_state`, `media_session_state`, and `wake_lock_size`. The correct logic for determining the state differs depending on the current app, and the backend `androidtv` package implements app-specific state detection logic for a handful of apps. Of course, it is not feasible to implement custom logic for each and every app in the `androidtv` package. Moreover, the correct state detection logic may differ across devices and device configurations.
 
 The solution to this problem is the `state_detection_rules` configuration parameter, which allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
 

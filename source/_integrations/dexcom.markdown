@@ -41,7 +41,7 @@ If you have a sensor session running, and once you have enabled the Dexcom integ
 - Blood glucose value sensor
 - Blood glucose trend sensor
 
-## Example Automation
+## Example automation
 
 ```yaml
 - id: '1234567890123'
