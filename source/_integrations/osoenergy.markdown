@@ -1,7 +1,7 @@
 ---
 title: OSO Energy
 description: Instructions on how to integrate OSO Energy devices with Home Assistant.
-ha_release: "2022.4"
+ha_release: "2024.1"
 ha_category:
   - Sensor
   - Water Heater
@@ -25,7 +25,7 @@ This OSO Energy integration uses a subscription key, which a user can create for
 
 ### Water Heater
 
-The `osoenergy` water heater platform integrates your OSO Energy devices into Home Assistant.
+The OSO Energy water heater platform integrates your OSO Energy devices into Home Assistant.
 
 The platform supports the following OSO Energy devices:
 
