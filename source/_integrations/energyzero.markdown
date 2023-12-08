@@ -68,14 +68,23 @@ Fetches the gas prices.
 | `incl_vat` | yes | Get prices including VAT or without. Defaults to True  | False
 
 ### Response data
-The response data is a dictionary with the gas prices as timestamp/float key/values.
+The response data is a dictionary with the gas timestamps and prices as string and float values.
 
 {% raw %}
 ```json
 {
-'2023-09-25 03:00:00+00:00': 1.10,
-'2023-09-25 04:00:00+00:00': 1.05
+  "prices": [
+    {
+      "timestamp": "2023-09-25 03:00:00+00:00",
+      "price": 1.1
+    },
+    {
+      "timestamp": "2023-09-25 04:00:00+00:00",
+      "price": 1.05
+    }
+  ]
 }
+
 ```
 {% endraw %}
 
@@ -89,13 +98,21 @@ Fetches the energy prices.
 | `incl_vat` | yes | Get prices including VAT or without. Defaults to True  | False
 
 ### Response data
-The response data is a dictionary with the energy prices as timestamp/float key/values.
+The response data is a dictionary with the energy timestamps and prices as string and float values.
 
 {% raw %}
 ```json
 {
-'2023-09-25 03:00:00+00:00': 0.05,
-'2023-09-25 04:00:00+00:00': 0.12
+  "prices": [
+    {
+      "timestamp": "2023-09-25 03:00:00+00:00",
+      "price": 0.05
+    },
+    {
+      "timestamp": "2023-09-25 04:00:00+00:00",
+      "price": 0.12
+    }
+  ]
 }
 ```
 {% endraw %}
