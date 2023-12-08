@@ -71,7 +71,7 @@ wind_speed_unit: km/h
 ## Service `weather.get_forecasts`
 
 This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
-with a list of weather services and their associated forecasts.
+with a mapping of weather services and their associated forecasts.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
