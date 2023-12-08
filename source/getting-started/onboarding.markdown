@@ -53,4 +53,4 @@ We will now create the owner's account of Home Assistant. This account is an adm
 7. Finally, select **Finish**.
    - Now you're brought to the Home Assistant web interface. If some of your devices were discovered and set up automatically, this default dashboard may already show some of your devices.
 
-{% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}
+{% include getting-started/next_step.html step="Edit the dashboard" link="/getting-started/onboarding_dashboard/" %}
