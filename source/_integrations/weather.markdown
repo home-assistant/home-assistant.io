@@ -111,6 +111,39 @@ The response data field is a mapping of called target entities, each containing 
 | `wind_speed` | The wind speed in the unit indicated by the `wind_speed_unit` state attribute. | 24.41
 
 
+## Examples
+
+{% details "Example template sensor using get_forecasts" %}
+
+Example template sensor that contains the hourly forecast
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: /1
+    action:
+      - service: weather.get_forecasts
+        data:
+          type: hourly
+        target:
+          entity_id: weather.home
+        response_variable: hourly
+    sensor:
+      - name: Weather Forecast Hourly
+        unique_id: weather_forecast_hourly
+        state: "{{ now().isoformat() }}"
+        attributes:
+          forecast: "{{ hourly['weather.home'].forecast }}"
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+
 {% details "Example service response" %}
 
 ```yaml
