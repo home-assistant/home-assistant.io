@@ -132,6 +132,8 @@ template:
     action:
       - service: energyzero.get_energy_prices
         response_variable: prices
+        data:
+          incl_vat: false
     sensor:
       - name: Energy prices
         device_class: timestamp
