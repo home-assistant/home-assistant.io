@@ -29,6 +29,11 @@ uuid:
   description: The UUID of the device to track.
   required: true
   type: string
+middleware:
+  description: Whether Volkszaehler is configured to use middleware.php
+  required: false
+  type: boolean
+  default: localhost
 host:
   description: The IP address of the host where Volkszaehler is running.
   required: false
