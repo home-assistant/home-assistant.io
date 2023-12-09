@@ -24,6 +24,33 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 
 ## Entities
 
+### Binary Sensor
+
+The integration will create binary sensor entities for a variety of metrics that relate to your vehicles: 
+
+#### Charge State
+- Battery Heater
+- Charging Enabled
+- Battery Charing
+- Preconditioning Enabled
+- Scheduled Charging Enabled
+- Trip Charging Enabled
+
+#### Climate State
+- Auto Seat Climate Left
+- Auto Seat Climate Right
+- Auto Steering Wheel Climate
+- Overheat Protection Enabled
+- Overheat Protection Running
+
+#### Vehicle State
+- Dashcam Recording
+- User Present
+- Tyre Preasure Warning Front Left
+- Tyre Preasure Warning Front Right
+- Tyre Preasure Warning Rear Left
+- Tyre Preasure Warning Rear Right
+
 ### Sensor
 
 The integration will create sensor entities for a variety of metrics that relate to your vehicles:
