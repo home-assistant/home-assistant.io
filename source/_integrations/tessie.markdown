@@ -35,7 +35,7 @@ The integration will create sensor entities for a variety of metrics that relate
 - Tyre Pressure Front Right
 - Tyre Pressure Rear Left
 - Tyre Pressure Rear Right
-- 
+
 #### Charge State
 - Battery Level
 - Change Energy Added
