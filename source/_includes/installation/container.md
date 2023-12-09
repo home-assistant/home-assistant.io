@@ -129,8 +129,8 @@ As jemalloc can cause issues on certain hardware, it can be disabled by passing 
     services:
       homeassistant:
       ...
-      environment:
-        - DISABLE_JEMALLOC: true
+        environment:
+          - DISABLE_JEMALLOC=true
     ```
 
 {% endtabbed_block %}
