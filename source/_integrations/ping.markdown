@@ -2,9 +2,9 @@
 title: Ping (ICMP)
 description: Instructions on how to integrate Ping (ICMP)-based into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Network
-  - Presence Detection
+  - Presence detection
 ha_release: 0.43
 ha_iot_class: Local Polling
 ha_quality_scale: internal
@@ -20,12 +20,23 @@ ha_codeowners:
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
-- [Presence Detection](#presence-detection)
+- [Binary sensor](#binary-sensor)
+- [Presence detection](#presence-detection)
 
 {% include integrations/config_flow.md %}
 
-## Binary Sensor
+## Polling interval
+
+By default, the integration will ping the device every 5 minutes. 
+If you wish to do a ping more frequently, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired frequency.
+
+For more detailed steps on how to define a custom interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}
+
+## Binary sensor
 
 The `ping` binary sensor platform allows you to use `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
 This sensor is enabled by default. The default polling interval is 5 minutes.
@@ -41,7 +52,7 @@ The sensor exposes the different round trip times in milliseconds measured by `p
 When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.
 </div>
 
-## Presence Detection
+## Presence detection
 
 The `ping` device tracker platform offers presence detection by using `ping` to send ICMP echo requests. This can be useful when devices are running a firewall and are blocking UDP or TCP packets but responding to ICMP requests (like Android phones). This tracker doesn't need to know the MAC address since the host can be on a different subnet. This makes this an option to detect hosts on a different subnet when `nmap` or other solutions don't work since `arp` doesn't work.
 

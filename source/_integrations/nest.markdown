@@ -6,7 +6,7 @@ ha_category:
   - Climate
   - Doorbell
   - Hub
-  - Media Source
+  - Media source
   - Sensor
 ha_iot_class: Cloud Push
 ha_release: 0.7
@@ -32,7 +32,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Camera](#camera)
 
-Cameras and Doorbells use [Automation and Device Triggers](#automation-and-device-triggers) for events and a [Media Source](#media-source) for capturing media images on supported devices. Other device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
+Cameras and doorbells use [Automation and device triggers](#automation-and-device-triggers) for events and a [media source](#media-source) for capturing media images on supported devices. Other device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
@@ -283,7 +283,7 @@ All cameras have motion and person triggers, however only some support capturing
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
 
 
-## Automation and Device Triggers
+## Automation and device triggers
 
 The Nest integration provides [device triggers](/docs/automation/trigger/#device-triggers) to enable automation in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
 
@@ -356,9 +356,9 @@ If you are still not getting notifications, you can read this [troubleshooting g
 
 {% enddetails %}
 
-## Media Source
+## Media source
 
-The Nest [Media Source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
+The Nest [media source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
 
 The table above describes which devices support event image snapshots or 10-frame mp4 video clips for recent events.
 
@@ -532,6 +532,8 @@ authentication process.
 {% enddetails %}
 
 - *Something went wrong: Please contact the developer of this app if the issue persists*: This typically means you are using the wrong type of credential (e.g. *Desktop Auth*). Make sure the credential in the [Google Cloud Console](https://console.developers.google.com/apis/credentials) is a *Web Application* credential following the instructions above.
+
+- *Something went wrong, please try again in a few minutes*: According to Google's [Partner Connections Manager Error Reference](https://developers.google.com/nest/device-access/reference/errors/pcm), this error covers all other undocumented internal errors within Partner Connections. One of the issues that cause this error is synchronization problems between the Nest and Google Home apps. Confirm that your Nest device is visible within both apps under the same Home. If it is missing within Google Home, create a new dummy home on the Nest app, which triggers the synchronization process. (This is the workaround recommended by the Google support team). The dummy entry can be deleted once the Nest device is visible within the Google Home app.
 
 - *Can’t link to [Project Name]: Please contact [Project Name] if the issue persists*: This typically means that the *OAuth Client ID* used is mismatched
 

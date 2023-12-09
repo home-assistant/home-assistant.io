@@ -1,6 +1,6 @@
 ---
 type: card
-title: "Tile Card"
+title: "Tile card"
 sidebar_label: Tile
 description: "The tile card gives you a quick overview of your entity. The card allows you to toggle the entity, show the more-info dialog, or custom actions."
 ---
@@ -9,10 +9,10 @@ The tile card gives you a quick overview of your entity. The card allows you to 
 
 <p class='img'>
   <img src='/images/dashboards/tile_card.png' alt='Screenshot of tile cards'>
-  Screenshot of Tile cards.
+  Screenshot of tile cards.
 </p>
 
-To add the Tile card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Tile** from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 {% configuration %}
 type:
@@ -59,6 +59,14 @@ state_content:
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
+  type: map
+hold_action:
+  required: false
+  description: Action taken on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 icon_tap_action:
   required: false

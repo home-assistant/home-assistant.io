@@ -38,14 +38,14 @@ The passengers set temp is shown as a sensor, but cannot be changed by Tessie.
 
 The integration will create sensor entities for a variety of metrics that relate to your vehicles:
 
-### Vehicle State
+#### Vehicle State
 - Online
 - Odometer
 - Tyre Pressure Front Left
 - Tyre Pressure Front Right
 - Tyre Pressure Rear Left
 - Tyre Pressure Rear Right
-- 
+
 #### Charge State
 - Battery Level
 - Change Energy Added

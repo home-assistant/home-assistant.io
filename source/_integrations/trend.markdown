@@ -2,7 +2,7 @@
 title: Trend
 description: Instructions on how to integrate Trend binary sensors into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Utility
 ha_release: 0.28
 ha_iot_class: Calculated
@@ -71,6 +71,11 @@ sensors:
       required: false
       type: integer
       default: 2
+    min_samples:
+      description: The minimum number of samples that must be collected before the gradient can be calculated.
+      required: false
+      type: integer
+      default: 2
     min_gradient:
       description: >
         The minimum rate at which the observed value
@@ -130,6 +135,7 @@ binary_sensor:
         entity_id: sensor.outside_temperature
         sample_duration: 7200
         max_samples: 120
+        min_samples: 20
         min_gradient: -0.0008
         device_class: cold
 
@@ -137,6 +143,7 @@ binary_sensor:
         entity_id: sensor.outside_temperature
         sample_duration: 7200
         max_samples: 120
+        min_samples: 20
         min_gradient: 0.0008
         device_class: heat
 ```

@@ -16,7 +16,7 @@ The `http` integration serves all files and data required for the Home Assistant
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
 <div class='note'>
@@ -162,7 +162,7 @@ If you want to use Home Assistant to host or serve static files then create a di
 
 </div>
 
-## Binary Sensor
+## Binary sensor
 
 The HTTP binary sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
 
@@ -289,4 +289,4 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
 }
 ```
 
-For more examples please visit the [HTTP Binary Sensor](#examples) page.
+For more examples please visit the [HTTP binary sensor](#examples) page.
