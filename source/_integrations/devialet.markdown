@@ -8,12 +8,12 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: devialet
 ha_codeowners:
-  - '@westenbergf'
-ha_zeroconf:
+  - '@fwestenberg'
+ha_zeroconf: true
+ha_integration_type: device
+ha_platforms:
   - diagnostics
   - media_player
-ha_zeroconf: true
-ha_integration_type: integration
 ---
 
 The **Devialet** integration lets you control your [Devialet](https://www.devialet.com) wireless speakers from Home Assistant.

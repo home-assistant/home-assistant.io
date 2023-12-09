@@ -215,7 +215,7 @@ type:
 
 ## Humidifier modes
 
-Widget that displays buttons to control the mode for a [humidifier](/integrations/humidifier).
+Widget that displays buttons or icons to control the mode for a [humidifier](/integrations/humidifier).
 
 <p class='img'>
   <img src='/images/dashboards/features/humidifier_modes.png' alt='Screenshot of the tile card with the humidifier modes feature'>
@@ -225,12 +225,46 @@ Widget that displays buttons to control the mode for a [humidifier](/integration
 ```yaml
 features:
   - type: "humidifier-modes"
+    style: "icons"
+    modes:
+      - home
+      - eco
 ```
 
 {% configuration features %}
 type:
   required: true
   description: "`humidifier-modes`"
+  type: string
+style:
+  required: false
+  description: "How the modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+modes:
+  required: true
+  description: List of modes to show on the card. The list can contain `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby` or any other custom mode.
+  type: list
+{% endconfiguration %}
+
+## Humidifier toggle
+
+Widget that displays buttons to turn on or off a [humidifier](/integrations/humidifier).
+
+<p class='img'>
+  <img src='/images/dashboards/features/humidifier_toggle.png' alt='Screenshot of the tile card with the humidifier toggle feature'>
+  Screenshot of the tile card with the humidifier toggle feature
+</p>
+
+```yaml
+features:
+  - type: "humidifier-toggle"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`humidifier-toggle`"
   type: string
 {% endconfiguration %}
 
@@ -329,6 +363,27 @@ style:
   description: "Which style of control to display. It can be either `buttons` or `slider`."
   type: string
   default: slider
+{% endconfiguration %}
+
+## Target humidity
+
+Widget that displays a slider to select the target humidity for a [humidifier](/integrations/humidifier).
+
+<p class='img'>
+  <img src='/images/dashboards/features/target_humidity.png' alt='Screenshot of the tile card with the target humidity feature'>
+  Screenshot of the tile card with the target humidity feature
+</p>
+
+```yaml
+features:
+  - type: "target-humidity"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`target-humidity`"
+  type: string
 {% endconfiguration %}
 
 ## Target temperature
