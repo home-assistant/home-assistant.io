@@ -28,7 +28,7 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 
 The integration will create sensor entities for a variety of metrics that relate to your vehicles:
 
-### Vehicle State
+#### Vehicle State
 - Online
 - Odometer
 - Tyre Pressure Front Left
