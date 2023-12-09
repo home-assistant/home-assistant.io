@@ -35,7 +35,7 @@ Prompt Template:
   description: The starting text for the AI language model to generate new text from. This text can include information about your Home Assistant instance, devices, and areas and is written using [Home Assistant Templating](/docs/configuration/templating/).
 
 Completion Model:
-  description: The GPT-3 language model is used for text generation. You can find more details on the available models in the [OpenAI GPT-3 Documentation](https://platform.openai.com/docs/models/gpt-3).
+  description: The GPT language model is used for text generation. You can find more details on the available models in the [OpenAI GPT-3 Documentation](https://platform.openai.com/docs/models/gpt-3), [OpenAI GPT-3.5 Documentation](https://platform.openai.com/docs/models/gpt-3-5), or [OpenAI GPT-4 and GPT-4 Turbo Documentation](https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo). The default is "gpt-3.5-turbo".
 
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate in its completion of the prompt. For more information, see the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction).
@@ -87,6 +87,15 @@ to generate a new image of New York in the current weather state.
 
 The resulting image entity can be used in, for example, a card on your dashboard.
 
+The *config_entry* is installation specific. To get the value, make sure the integration has been installed.
+Then, go to {% my developer_services title="**Developer Tools** > **Services**" %}. Ensure you are in UI mode and enter the following below:
+
+![Open AI Conversation UI Mode](/images/integrations/openai_conversation/openai_developer_tools_ui.png)
+
+Select **YAML Mode** to reveal the *config_entry* value to be used in the below example automation.
+
+![Open AI Conversation YAML Mode](/images/integrations/openai_conversation/openai_developer_tools_yaml.png)
+
 {% raw %}
 ```yaml
 automation:
@@ -99,10 +108,10 @@ automation:
         service: openai_conversation.generate_image
         response_variable: generated_image
         data:
-          config_entry: f29e6b8696a15e107b4bd843de722249
-          size: 512
+          config_entry: abce6b8696a15e107b4bd843de722249
+          size: "512"
           prompt: >-
-            New York when the weather is {{ state("weather.home") }}"
+            New York when the weather is {{ states("weather.home") }}"
 
       - alias: "Send out a manual event to update the image entity"
         event: new_weather_image

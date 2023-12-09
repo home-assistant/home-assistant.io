@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-$primary-color: #049cdb;
+$primary-color: #1abcf2;
 
 .site-header {
   position: relative;
@@ -109,9 +109,9 @@ a.integration-alert {
 
 .material-card {
   background-color: #fefefe;
-  border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
-    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, .12);
+  box-shadow: rgba(0,0,0,0.06) 0 0 10px;
 
   h1 {
     font-family: Roboto, Noto, sans-serif;
@@ -155,10 +155,6 @@ a.integration-alert {
 }
 
 .feedback {
-  box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, .12);
-  border-radius: 4px;
-
   h4 {
     margin: 0 0 8px !important;
 
@@ -171,6 +167,74 @@ a.integration-alert {
   .links a {
     font-weight: 400;
     text-transform: none;
+  }
+}
+
+.installation-survey {
+  padding-bottom: 64px;
+
+  h4 {
+    margin: 0 0 8px !important;
+
+    a {
+      text-decoration: none !important;
+      color: #000;
+    }
+  }
+
+  p {
+    margin-bottom: 8px;
+  }
+}
+
+
+.button {
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 28px;
+    color: #fff;
+    background-color: #03a9f4;
+    border: none;
+    text-decoration: none !important;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
+  
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.2;
+    border-radius: 4px;
+  }
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.14), 0 1px 7px 0 rgba(0,0,0,.12), 0 3px 1px -1px rgba(0,0,0,.2);
+  }
+  &:hover::before {
+    background-color: rgba(255,255,255,.8);
+  }
+  &:focus {
+    outline: none;
+  }
+  &:focus::before {
+    background-color: white;
+  }
+  &:active::before {
+    background-color: grey;
+  }
+  :host([active]) & {
+    color: rgba(0, 0, 0, 0.38);
+    background-color: rgba(0, 0, 0, 0.12);
+    box-shadow: none;
+    cursor: unset;
+    pointer-events: none;
+  }
+  &.hidden {
+    display: none;
   }
 }
 
@@ -259,13 +323,14 @@ a.integration-alert {
     background-size: cover;
     background-position: center;
     text-decoration: none;
+    border: none;
 
     .caption {
       padding: 16px 12px 12px;
       background-color: rgba(0, 0, 0, 0.54);
       color: white;
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -386,7 +451,7 @@ dt:hover a.title-link {
 
   img {
     border-radius: 3px;
-    width: 36px;
+    height: 36px;
     margin-right: 10px;
   }
 
@@ -563,11 +628,23 @@ div.note {
 
     img {
       vertical-align: middle;
+      height: 120px;
     }
 
     i {
       font-size: 2em;
       padding: 0 5px;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+
+      svg {
+        height: 48px;
+        padding: 10px 4px;
+        fill: currentColor;
+      }
     }
   }
 
@@ -849,6 +926,8 @@ code {
 a.my {
   img {
     border: 0px;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
 

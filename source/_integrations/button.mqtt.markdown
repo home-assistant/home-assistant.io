@@ -1,5 +1,5 @@
 ---
-title: "MQTT Button"
+title: "MQTT button"
 description: "Instructions on how to integrate MQTT buttons into Home Assistant."
 ha_category:
   - Button
@@ -169,7 +169,7 @@ payload_press:
   type: string
   default: "PRESS"
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0

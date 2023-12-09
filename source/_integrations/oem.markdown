@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This platform supports the ESP8266 based "WiFi MQTT Relay / Thermostat" sold by [OpenEnergyMonitor](https://shop.openenergymonitor.com/wifi-mqtt-relay-thermostat/). The underlying [library](https://oemthermostat.readthedocs.io/) only supports this single relay variant of the [original device](https://harizanov.com/2014/12/wifi-iot-3-channel-relay-board-with-mqtt-and-http-api-using-esp8266/).
+This platform supports the ESP8266 based "WiFi MQTT Relay / Thermostat" sold by [OpenEnergyMonitor](https://web.archive.org/web/20220426080315/https://shop.openenergymonitor.com/wifi-mqtt-relay-thermostat/) (archived page, no longer for sale). The underlying [library](https://oemthermostat.readthedocs.io/) only supports this single relay variant of the [original device](https://harizanov.com/2014/12/wifi-iot-3-channel-relay-board-with-mqtt-and-http-api-using-esp8266/).
 
 This platform controls the setpoint of the thermostat in its "manual" mode.
 

@@ -3,7 +3,7 @@ title: Tile
 description: Instructions on how to use Tile to track devices in Home Assistant.
 ha_release: 0.58
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@bachya'

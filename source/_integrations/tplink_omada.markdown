@@ -57,6 +57,6 @@ Controller versions 5.1.0 and later are supported.
 - Firmware Update entities.
 - WAN/LAN Port connectivity sensor entities.
 
-## Device Trackers
+## Device trackers
 
 - Not currently supported.

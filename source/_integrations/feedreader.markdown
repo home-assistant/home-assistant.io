@@ -89,7 +89,7 @@ automation:
 
 Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how to set up the feedreader and show the latest news feed item on your dashboard in Home Assistant.
 
 <lite-youtube videoid="Va4JOKbesi0" videotitle="How to view RSS feeds on your Dashboard in Home Assistant" posterquality="maxresdefault"></lite-youtube>

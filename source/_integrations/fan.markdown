@@ -11,7 +11,9 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Fan integration allows you to control and monitor Fan devices.
+The fan integration allows you to control and monitor fan devices.
+
+{% include integrations/building_block_integration.md %}
 
 ## Services
 
@@ -22,7 +24,7 @@ Available services:
 
 <div class='note'>
 
-Not all fan services may be available for your platform. You can check which services are available for your fan(s) under **Developer Tools** -> **Services**.
+Not all fan services may be available for your platform. You can check which services are available for your fan(s) under **Developer Tools** > **Services**.
 
 </div>
 

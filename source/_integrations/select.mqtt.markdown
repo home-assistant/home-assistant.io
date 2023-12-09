@@ -162,7 +162,7 @@ options:
   required: true
   type: list
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0

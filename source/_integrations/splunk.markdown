@@ -51,7 +51,7 @@ verify_ssl:
 name:
   description: This parameter allows you to specify a friendly name to send to Splunk as the host, instead of using the name of the HEC.
   required: false
-  default: HASS
+  default: "`HASS`"
   type: string
 filter:
   description: Filters for entities to be included/excluded from Splunk. Default is to include all entities. ([Configure Filter](#configure-filter))
@@ -84,7 +84,7 @@ filter:
       type: list
 {% endconfiguration %}
 
-### Configure Filter
+### Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Splunk`, you can use the `filter` parameter.
 

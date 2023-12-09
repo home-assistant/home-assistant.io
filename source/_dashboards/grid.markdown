@@ -1,24 +1,24 @@
 ---
 type: card
-title: "Grid Card"
+title: "Grid card"
 sidebar_label: Grid
-description: "The Grid card allows you to show multiple cards in a grid."
+description: "The grid card allows you to show multiple cards in a grid."
 ---
 
-The Grid card allows you to show multiple cards in a grid. It will first fill the columns, automatically adding new rows as needed.
+The grid card allows you to show multiple cards in a grid. It will first fill the columns, automatically adding new rows as needed.
 
 <p class='img'>
   <img src='/images/dashboards/grid.png' alt='Screenshot of the grid card'>
-  Screenshot of the Grid card.
+  Screenshot of the grid card.
 </p>
 
-To add the Grid card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:

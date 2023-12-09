@@ -17,8 +17,11 @@ ha_integration_type: integration
 
 The Opower integration allows you to get energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
 
-More than 175 utilities use Opower. Currently only the following ones are supported:
+More than 175 utilities use Opower. Currently only the following utilities are supported by this integration:
 
+- Consolidated Edison (ConEd) and subsidiaries
+  - Orange & Rockland Utilities (ORU)
+- Enmax Energy
 - Evergy
 - Exelon subsidiaries
   - Atlantic City Electric
@@ -28,15 +31,45 @@ More than 175 utilities use Opower. Currently only the following ones are suppor
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
 - Pacific Gas & Electric (PG&E)
+- Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
+- Seattle City Light (SCL)
 
-To add this integration to your installation, you will need your login username and password for your utility website. Two-factor authentication is not supported.
+When you add the Opower integration to Home Assistant, you will need to provide your utility account's authentication details to enable retrieving your energy data.
+This is typically the same information needed to access your utility's website.
+
+## Utility Authentication Requirements
+
+For many utilities, only a username and password are required to access your accounts. Some utilities requires additional authentication information.
+It might be necessary to configure your utility account with an authentication method that is compatible with the Opower integration.
+Utility-specific authentication requirements are listed below:
+
+### Consolidated Edison (ConEd)
+
+Your ConEd account must be set up to use two-factor authentication using time-based one time passwords (TOTP). Other authentication methods, such as secret questions, are not supported.
+
+When adding the Opower ConEd integration you will need to provide the TOTP secret that is used to synchronize your authenticator app, such as Google Authenticator, to your ConEd account.
+
+NOTE: The TOTP secret is not one of the 6 digit time-based numeric codes.
+It is a string of around 16 characters containing the shared secret that enables your authenticator app to generate the correct time-based code at the appropriate time.
+The QR codes used for setting up TOTP accounts contain the secret.
+Using the TOTP secret, the Opower integration will be able to generate the correct time-based code when it needs to authenticate to the ConEd website.
+
+If you have an existing TOTP set up, there are methods for exporting the account from your authenticator app and then using a tool to obtain the TOTP secret from the encoded string.
+
+Alternatively, you can create a new TOTP secret for your account and use the "no camera to scan" option to capture the TOTP secret. You may also want to capture the QR code by taking a picture, or using a QR code scanner. There are tools available that can decode the TOTP data from a QR code.
+
+**NOTE: At this time, ConEd only has a single TOTP set up per account. Therefore, it is important that you configure the same TOTP secret for ConEd access in both Opower and your authenticator app.**
+
+### Exelon subsidiaries
+
+When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO, Pepco, etc., you need to actively disable two-factor authentication. Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, disable it.
 
 {% include integrations/config_flow.md %}
 
 ## Sensors
 
-The integration adds the following sensors:
+The integration adds the following sensors only if your utility provides forecasted usage/cost:
 
 For electricity:
 
@@ -60,7 +93,12 @@ Note the unit for gas is CCF (centum cubic feet). 1 CCF is one hundred cubic fee
 
 ## Energy
 
-Because utilities only release usage/cost data with a 48-hour delay, the integration inserts data into statistic objects. At the initial setup, the integration pulls historical monthly usage/cost since the account activation, daily usage/cost for the past 3 years, and for electricity hourly usage/cost for the past 2 months. After the initial setup, the integration keeps pulling hourly data for electricity and daily data for gas for the past 30 days to allow for any corrections in the data from the utilities.
+Because utilities only release usage/cost data with a 48-hour delay, the integration inserts data into statistic objects.
+You can find the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "opower".
+**This delay means that there will be no data in the energy dashboard for today and likely yesterday** (depending on time of day you are checking).
+
+At the initial setup, the integration pulls historical monthly usage/cost since the account activation. If the utility provides more granular data, it pulls daily usage/cost for the past 3 years and hourly usage/cost for the past 2 months (note: typically, utilities provide only monthly or daily data for gas).
+After the initial setup, the integration keeps pulling data (twice per day) for the past 30 days to allow for any corrections in the data from the utilities.
 
 In the configuration of the energy dashboard (**{% my config_energy title="Settings > Dashboards > Energy" %}**):
 
@@ -71,9 +109,19 @@ For electricity:
 3. Select the radio button to **Use an entity tracking the total costs**.
 4. Select **Opower {utility name} elec {account number} cost** for the **entity with the total costs**.
 
+Your **Configure grid consumption** should now look like this:
+![Screenshot configure grid consumption](/images/integrations/opower/configure_grid_consumption.png)
+
 For gas:
 
 1. Select **Add gas source** for the **Gas consumption**.
 2. Select **Opower {utility name} gas {account number} consumption** for the **gas usage**.
 3. Select the radio button to **Use an entity tracking the total costs**.
 4. Select **Opower {utility name} gas {account number} cost** for the **entity with the total costs**.
+
+Your **Configure gas consumption** should now look like this:
+![Screenshot configure gas consumption](/images/integrations/opower/configure_gas_consumption.png)
+
+With the above changes your (**{% my config_energy title="Settings > Dashboards > Energy" %}**) page should now look like this:
+
+![Screenshot Energy Configuration](/images/integrations/opower/energy_config.png)

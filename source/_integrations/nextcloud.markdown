@@ -2,7 +2,7 @@
 title: Nextcloud
 description: Instructions on how to integrate Nextcloud monitor api data into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.108

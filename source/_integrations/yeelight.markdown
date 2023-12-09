@@ -22,12 +22,12 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The Yeelight integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
+The **Yeelight** {% term integration %} allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
 
 There is support for the following device types within Home Assistant:
 
 - **Light** - The Yeelight platform for supporting lights.
-- **Binary Sensor** - The Yeelight platform for supporting binary sensors. Currently, only nightlight mode sensor for ceiling lights.
+- **Binary sensor** - The Yeelight platform for supporting binary sensors. Currently, only nightlight mode sensor for ceiling lights.
 
 {% include integrations/config_flow.md %}
 
@@ -151,7 +151,7 @@ custom_effects:
 
 ### Music mode
 
-Per default, the bulb limits the number of requests per minute to 60, a limitation that can be bypassed by enabling the music mode. In music mode, the bulb is commanded to connect back to a socket provided by the integration and it tries to keep the connection open, which may not be wanted in all use-cases.
+Per default, the bulb limits the number of requests per minute to 60, a limitation that can be bypassed by enabling the music mode. In music mode, the bulb is commanded to connect back to a socket provided by the {% term integration %} and it tries to keep the connection open, which may not be wanted in all use-cases.
 **Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant. Bulbs in music mode may also not react to commands from Home Assistant the first time if the connection is dropped. If you experience this issue, turn the light off and back on again in the frontend and everything will return to normal.**
 
 ### Initial setup
@@ -168,7 +168,7 @@ Information on how to enable "LAN Control" can be found [here](https://www.yeeli
 ### Supported models
 
 <div class='note warning'>
-This integration is tested to work with the following models. If you have a different model and it is working, please let us know.
+This {% term integration %} is tested to work with the following models. If you have a different model and it is working, please let us know.
 </div>
 
 | Model ID   | Model number | Product name                                     |
