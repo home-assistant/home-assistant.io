@@ -4,7 +4,7 @@ description: Instructions on how to integrate your Sun WEG server solar inverter
 ha_category:
   - Energy
   - Sensor
-ha_release: "2023.3.0"
+ha_release: 2024.1
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@rokam'
