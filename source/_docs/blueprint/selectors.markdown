@@ -1321,4 +1321,4 @@ The output of this selector is a list of triggers. For example:
 - platform: numeric_state
   entity_id: "sensor.outside_temperature"
   below: 20
-```∏
+```
