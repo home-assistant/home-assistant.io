@@ -359,6 +359,8 @@ Minimum recommended assignments:
     8. Select device type: **unix**.
     9. Select name: **org.qemu.guest_agent.0**.
     10. Finally, select **Begin Installation** (upper left corner).
+ 
+    If you use a macvtap network adapter, [allow Zero-configuration/multicast traffic in libvirt](/integrations/zeroconf/#libvirt-virtual-machine-with-macvtap-adapter).
 
 - title: KVM (virt-install)
   content: |
