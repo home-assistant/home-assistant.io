@@ -62,7 +62,7 @@ Force a refresh of the Blink system.
 
 | Service Data Attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
-| `device_id`            | no       | Blink Device to update.                |
+| `entity_id`            | no       | Blink Device to update.                |
 
 ### `blink.trigger_camera`
 
@@ -70,7 +70,7 @@ Trigger a camera to take a new still image.
 
 | Service Data Attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
-| `entity_id`            | yes      | Camera entity to take picture with.    |
+| `entity_id`            | no.      | Camera entity to take picture with.    |
 
 ### `blink.save_video`
 
@@ -78,7 +78,7 @@ Save the last recorded video of a camera to a local file. Note that in most case
 
 | Service Data Attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `device_id`            | no       | Name of camera containing video to save. |
+| `entity_id`            | no       | Name of camera containing video to save. |
 | `filename`             | no       | Location of save file.                   |
 
 ```yaml
@@ -178,7 +178,7 @@ The following example assumes your camera's name (in the Blink app) is `My Camer
   action:
     service: blink.save_video
     data:
-      device_id: "My Camera"
+      entity_id: "My Camera"
       filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
 ```
 
@@ -205,6 +205,6 @@ The file name of the downloaded video file is not configurable.
   action:
     - service: blink.save_recent_clips
       data:
-        device_id: My Camera
+        entity_id: My Camera
         file_path: /tmp/videos
 ```
