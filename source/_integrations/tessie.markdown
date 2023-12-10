@@ -29,6 +29,7 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 The integration will create sensor entities for a variety of metrics that relate to your vehicles:
 
 #### Vehicle State
+
 - Online
 - Odometer
 - Tyre Pressure Front Left
@@ -37,6 +38,7 @@ The integration will create sensor entities for a variety of metrics that relate
 - Tyre Pressure Rear Right
 
 #### Charge State
+
 - Battery Level
 - Change Energy Added
 - Change Power
@@ -46,11 +48,13 @@ The integration will create sensor entities for a variety of metrics that relate
 - Battery Range
 
 #### Drive State
+
 - Speed
 - Power
 - Shift State
 
 #### Climate State
+
 - Inside Temperature
 - Outside Temperature
 - Driver Temperature Setting
