@@ -24,6 +24,14 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 
 ## Entities
 
+### Number
+
+The integration will create a number entities to control:
+
+- State of charge limit
+- Charge current limit
+- Speed limit
+
 ### Sensor
 
 The integration will create sensor entities for a variety of metrics that relate to your vehicles:
