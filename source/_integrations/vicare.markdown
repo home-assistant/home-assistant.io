@@ -17,6 +17,8 @@ ha_platforms:
   - water_heater
 ha_dhcp: true
 ha_integration_type: integration
+ha_codeowners:
+  - '@CFenner'
 ---
 
 The **Viessmann ViCare** {% term integration %} lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.
@@ -141,4 +143,4 @@ Button entities are available for triggering like a one-time charge of the water
 
 ## Number
 
-Number entities are available for adjusting the heating curve shift and slope.
+Number entities are available to adjust values like the predefined temperature for different heating programs or the heating curve shift and slope.
