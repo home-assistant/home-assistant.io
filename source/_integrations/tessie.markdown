@@ -24,6 +24,10 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 
 ## Entities
 
+### Device Tracker
+
+The integration will create device tracker entities for the vehicles current location, and navigation destination.
+
 ### Sensor
 
 The integration will create sensor entities for a variety of metrics that relate to your vehicles:
