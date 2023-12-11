@@ -72,7 +72,7 @@ This is a separate account from the one you made for the app. You cannot log in 
 
 ### Link devices by app account
 
-1. In `Cloud` > `Development` open the project that was just created using the link on the far right of the list. 
+1. In `Cloud` > `Development`, open the project that was just created using the link on the far right of the list. 
 2. Navigate to the `Devices` tab.
 3. Click `Link Tuya App Account` > `Add App Account`.
   ![](/images/integrations/tuya/image_003.png)
