@@ -11,7 +11,6 @@ og_image: /images/blog/2023-12-07-year-of-the-voice-chapter-5/social.png
 ---
 
 TODO: Fix date
-TODO: Update chapter 5 social image
 
 <p><img src='/images/blog/2023-12-07-year-of-the-voice-chapter-5/social.png' class='no-shadow' /></p>
 
@@ -33,11 +32,9 @@ For the final chapter of 2023, we have expanded the available types of voice com
 
 ## The S3-BOX-3
 
-Espressif recently released the [ESP32-S3-BOX-3], an update of the discontinued ESP32-S3-BOX (and "lite" variant). The [ESPHome] team has been hard at work adding support for the S3-BOX-3, including the ability to customize the display!
+Espressif recently released the [ESP32-S3-BOX-3], an update of the discontinued ESP32-S3-BOX (and "lite" variant). This "AIoT" development kit contains an ESP32-S3 chip, dual microphones, a small speaker, and a screen. Several docks are available in the box, which expose a USB-C power connector and GPIO pins for expanding the device. The [ESPHome] team has been hard at work adding support for the S3-BOX-3, including the ability to customize the display!
 
 TODO: demo video
-
-TODO: description of hardware
 
 
 ## More Voice Commands
@@ -81,7 +78,7 @@ Several satellite modes are supported, including:
 - Stream on speech - only stream audio once speech is detected
 - Local wake word - only stream audio when a wake word is detected locally
 
-Audio clean up, such as automatic gain control and noise suppression, may be done in Home Assistant or on the satellite. A Raspberry Pi 3 has more than enough power to do local audio clean up and wake word detection.
+Audio clean up, such as automatic gain control and noise suppression, may be done in Home Assistant or on the satellite. A [Raspberry Pi Zero 2 W][rpi-zero-2w] has more than enough power to do local audio clean up and wake word detection, allowing you to have many satellites without straining your Home Assistant server. Reuse your old Raspberry Pi's, and start your journey with smart home voice control!
 
 TODO: Tutorial link with ReSpeaker HAT
 
@@ -108,5 +105,6 @@ Thanks to our language leaders for extending the sentence support to all the var
 [ESP32-S3-BOX-3]: https://www.espressif.com/en/news/ESP32-S3-BOX-3
 [wyoming]: https://www.home-assistant.io/integrations/wyoming
 [wyoming-satellite]: https://github.com/rhasspy/wyoming-satellite
+[rpi-zero-2w]: https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/
 [ESPHome]: https://esphome.io
 [nabucasa]: https://www.nabucasa.com
