@@ -75,6 +75,8 @@ data:
   config_entry: abce6b8696a15e107b4bd843de722249
   prompt: "Cute picture of a dog chasing a herd of cats"
   size: 1024x1024
+  quality: standard
+  style: vivid
 response_variable: generated_image
 ```
 {% endraw %}
