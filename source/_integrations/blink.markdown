@@ -59,7 +59,7 @@ Any sequential calls to {% term services %}  relating to blink should have a min
 ### `blink.blink_update`
 
 Force a refresh of the Blink system.
-
+This service is depreciated, use `Home Assistant Core Integration: Update entity`
 | Service Data Attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
 | `config_entry_id`      | no       | Blink config to update.                |
