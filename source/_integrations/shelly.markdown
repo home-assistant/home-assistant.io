@@ -44,7 +44,7 @@ Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
 ## Shelly device generations
 
-There are two generations of devices. Both generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
+There are three generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
 ## Shelly device configuration (generation 1)
 
@@ -63,9 +63,9 @@ The list below will help you diagnose and fix the problem:
 - The missing push updates may be related to the WiFi network range. If using a WiFi network with several access points, enable **Internet & Security** >> **WiFi Client AP Roaming** option. Consider moving Shelly device closer to the WiFi access point. Consider adding another WiFi access point, which will improve the connection quality with the device.
 - If you think your Shelly devices are working correctly and don't want to change your network/configuration, you can ignore the repair issue. Still, you must know you are giving up the best experience of using first-generation Shelly devices with Home Assistant.
 
-## Shelly device configuration (generation 2)
+## Shelly device configuration (generation 2 and 3)
 
-Generation 2 devices use the `RPC` protocol to communicate with the integration. **Battery powered devices** need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
+Generation 2 and 3 devices use the `RPC` protocol to communicate with the integration. **Battery powered devices** need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
 
 `ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 
@@ -75,7 +75,7 @@ Integration is communicating directly with the device; cloud connection is not n
 
 ## Bluetooth Support
 
-Shelly generation 2 devices not battery-powered can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
+Shelly generation 2 and 3 devices not battery-powered can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
 
 {% include integrations/option_flow.md %}
 
@@ -105,7 +105,7 @@ Names are set from the device web page:
 - Channel name for single-channel devices can be set in **Settings** >> **CHANNEL NAME**
 - Channel name for multi-channel devices can be set in **Settings** >> **CHANNEL NAME** after selecting the channel, by clicking on the channel name.
 
-## Entity naming (generation 2)
+## Entity naming (generation 2 and 3)
 
 The integration uses the following strategy to name its entities:
 
@@ -118,15 +118,15 @@ The integration uses the following strategy to name its entities:
 
 Depending on how a device's button type is configured, the integration will create binary sensors corresponding to those inputs. binary sensors are not created when the button type is `momentary` or `momentary_on_release`, for these types you need to use events for your automations.
 
-### Binary input sensors (generation 2)
+### Binary input sensors (generation 2 and 3)
 
-For generation 2 hardware it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
+For generation 2 and 3 hardware it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
 
 ## Event entities (generation 1)
 
 If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
-## Event entities (generation 2)
+## Event entities (generation 2 and 3)
 
 If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
@@ -213,7 +213,7 @@ You can also create automations using YAML, for example:
 | `SL`               | `single_long` |
 | `LS`               | `long_single` |
 
-Generation 2 devices use the values `btn_down`, `btn_up`, `single_push`, `double_push`, `triple_push` and `long_push` as `click_type`.
+Generation 2 and 3 devices use the values `btn_down`, `btn_up`, `single_push`, `double_push`, `triple_push` and `long_push` as `click_type`.
 
 <div class="note">
 
@@ -225,7 +225,7 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **Settings** >> **APPLIANCE TYPE** value is set to `light`.
 
-## Consumption type (generation 2)
+## Consumption type (generation 2 and 3)
 
 Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **EXTERNAL CONSUMPTION TYPE** value is set to `light`.
 
