@@ -48,7 +48,7 @@ There are two generations of devices. Both generations are supported by this int
 
 ## Shelly device configuration (generation 1)
 
-Generation 1 devices use the `CoIoT` protocol to communicate with the integration. `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
+Generation 1 devices use the `CoIoT` protocol to communicate with the integration. `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** > **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
 
 We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. **This is mandatory for battery operated devices**. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
 
