@@ -71,7 +71,7 @@ This is a separate account from the one you made for the app. You cannot log in 
 5. Select **Create** to continue with the project configuration.
 6. In the Configuration Wizard, make sure you add **Industry Basic Service**, **Smart Home Basic Service** and **Device Status Notification** APIs. The list of APIs should look like this:
   ![](/images/integrations/tuya/image_002new.png)
-1. Select **Authorize**.
+7. Select **Authorize**.
 
 ### Link devices by app account
 
