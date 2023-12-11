@@ -62,7 +62,7 @@ Force a refresh of the Blink system.
 
 | Service Data Attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
-| `entity_id`            | no       | Blink Device to update.                |
+| `config_entry_id`      | no       | Blink config to update.                |
 
 ### `blink.trigger_camera`
 
@@ -94,7 +94,7 @@ Send a new pin to blink.  Since Blink's 2FA implementation is new and changing, 
 
 | Service Data Attribute | Optional | Description                  |
 | ---------------------- | -------- | ---------------------------- |
-| `device_id`             | no       | Blink Device to send pin to. |
+| `config_entry_id`      | no       | Blink config to send pin to. |
 | `pin`                  | no       | 2FA Pin received from blink. |
 
 ### Other services
