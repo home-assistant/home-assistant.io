@@ -7,12 +7,12 @@ date_formatted: "December 13, 2023"
 author: Michael Hansen
 comments: true
 categories: Assist
-og_image: /images/blog/2023-12-07-year-of-the-voice-chapter-5/social.png
+og_image: /images/blog/2023-12-13-year-of-the-voice-chapter-5/social.png
 ---
 
 TODO: Fix date
 
-<p><img src='/images/blog/2023-12-07-year-of-the-voice-chapter-5/social.png' class='no-shadow' /></p>
+<p><img src='/images/blog/2023-12-13-year-of-the-voice-chapter-5/social.png' class='no-shadow' /></p>
 
 We've reached the end of Home Assistant’s [Year of the Voice]! It was our goal for 2023 to let users control Home Assistant by speaking in their own language.
 
@@ -37,7 +37,7 @@ Espressif recently released the [ESP32-S3-BOX-3], an update of the discontinued 
 TODO: demo video
 
 
-## More Voice Commands
+## More voice commands
 
 Starting all the way back in [Chapter 1], we added voice commands for:
 
@@ -57,7 +57,7 @@ For Chapter 5, we've extended this list to include:
 Make sure you've [exposed] the devices you want [Assist] to have access to, and that they are named properly. You can always add an [alias] when you'd like to refer to a device by something more convenient for voice. For example, adding an alias "Berlin" to a weather entity would allow you to say "what's the weather like in Berlin?".
 
 
-## Area Awareness
+## Area awareness
 
 Voice satellites can be placed all around the house, and it's important to keep their area in mind when interpreting commands like "turn on the lights". This command will now turn on all of the lights in the satellite's area, and "turn off the lights" will do the opposite. You can still target the lights in a different area, of course, by specifying: "turn on the lights in the bedroom".
 
@@ -66,7 +66,7 @@ This is a small start to satellites being aware of their *context*, and adjustin
 TODO: do we talk about future plans for context, like speaker identification?
 
 
-## Improved RPi Satellites
+## Improved RPi satellites
 
 To date, Raspberry Pi-based voice satellites have used Home Assistant's websocket API. This had several limitations, such as requiring an API token, not knowing which area the satellite was in, and not being able to configure it in Home Assistant's UI.
 
@@ -82,14 +82,14 @@ Audio clean up, such as automatic gain control and noise suppression, may be don
 
 TODO: Tutorial link with ReSpeaker HAT
 
-## Thank You
+## Thank you
 
 Thank you to the Home Assistant community for subscribing to [Home Assistant Cloud][nabucasa] to support Year of the Voice and development of Home Assistant, ESPHome and other projects in general.
 
 Thanks to our language leaders for extending the sentence support to all the various languages.
 
 <p class='img'>
-<img src='/images/blog/2023-12-07-year-of-the-voice-chapter-5/ha-support.png' alt="Thank you for supporting the Home Assistant project">
+<img src='/images/blog/2023-12-13-year-of-the-voice-chapter-5/ha-support.png' alt="Thank you for supporting the Home Assistant project">
 </p>
 
 [Year of the Voice]: https://www.home-assistant.io/blog/2022/12/20/year-of-voice/
