@@ -60,13 +60,17 @@ Any sequential calls to {% term services %}  relating to blink should have a min
 
 Force a refresh of the Blink system.
 
+| Service Data Attribute | Optional | Description                            |
+| ---------------------- | -------- | -------------------------------------- |
+| `config_entry_id`      | no       | Blink config to update.                |
+
 ### `blink.trigger_camera`
 
 Trigger a camera to take a new still image.
 
 | Service Data Attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
-| `entity_id`            | yes      | Camera entity to take picture with.    |
+| `entity_id`            | no.      | Camera entity to take picture with.    |
 
 ### `blink.save_video`
 
@@ -74,7 +78,7 @@ Save the last recorded video of a camera to a local file. Note that in most case
 
 | Service Data Attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `name`                 | no       | Name of camera containing video to save. |
+| `entity_id`            | no       | Name of camera containing video to save. |
 | `filename`             | no       | Location of save file.                   |
 
 ```yaml
@@ -90,6 +94,7 @@ Send a new pin to blink.  Since Blink's 2FA implementation is new and changing, 
 
 | Service Data Attribute | Optional | Description                  |
 | ---------------------- | -------- | ---------------------------- |
+| `config_entry_id`      | no       | Blink config to send pin to. |
 | `pin`                  | no       | 2FA Pin received from blink. |
 
 ### Other services
@@ -173,7 +178,7 @@ The following example assumes your camera's name (in the Blink app) is `My Camer
   action:
     service: blink.save_video
     data:
-      name: "My Camera"
+      entity_id: "My Camera"
       filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
 ```
 
@@ -200,6 +205,6 @@ The file name of the downloaded video file is not configurable.
   action:
     - service: blink.save_recent_clips
       data:
-        name: My Camera
+        entity_id: My Camera
         file_path: /tmp/videos
 ```
