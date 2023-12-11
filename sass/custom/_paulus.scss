@@ -35,6 +35,10 @@ $primary-color: #1abcf2;
   }
 }
 
+.DocSearch-Container {
+  z-index: 1000;
+}
+
 .integration-alert-container {
   margin: -1em 0;
 }
@@ -877,6 +881,7 @@ code {
 }
 
 @media only screen and (max-width: $menu-collapse) {
+
   #not_found {
     .page {
       text-align: center;
