@@ -103,7 +103,9 @@ sequence:
     target:
       entity_id: camera.blink_my_camera
   - delay: 00:00:05
-  - service: blink.blink_update
+  - service: homeassistant.update_entity
+    target:
+      entity_id: camera.blink_my_camera
   - service: camera.snapshot
     target:
       entity_id: camera.blink_my_camera
