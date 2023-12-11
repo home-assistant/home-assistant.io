@@ -22,23 +22,22 @@ If you are the owner or have administrator, there are different methods to reset
 
 ### To reset a password while still logged in (including Supervised)
 
-If you are still logged in to the web interface with your user, then you are in luck.
+The method used to reset a password depends on your user rights:
 
-1. If you are a regular user without administrator rights, ask the owner to give you a new password.
-2. If you are the owner, choose one of the procedures below to reset your password.
-   - You cannot recover an owner password from within Home Assistant.
-   - There is only one owner per system. You cannot add a new owner.
-3. If you are an administrator, add a new user as an administrator and give the new user a password you can remember.
-4. Then log out, and log in with this new user.
-5. Reset your password via this new administrator account (and then delete this new account).
-   - Your configuration will remain, and you don't have to do a new onboarding process.
+- If you are a regular user without administrator rights, ask the owner to [give you a new password](/docs/locked_out/#to-reset-a-users-password-as-an-owner-via-the-web-interface).
+- If you are the owner, choose one of the procedures below to reset your password.
+  - You cannot recover an owner password from within Home Assistant.
+  - There is only one owner per system. You cannot add a new owner.
+- If you are an administrator, add a new user as an administrator and give the new user a password you can remember.
+  1. Then log out, and log in with this new user.
+  2. Reset your password via this new administrator account (and then [delete this new account](/docs/locked_out/#to-delete-a-user)).
+     - Your configuration will remain, and you don't have to do a new onboarding process.
 
 ### To reset an owner's password, via console
 
 Use this procedure only if the following conditions are met:
 
 - You know the username.
-- You are not logged in to Home Assistant. If you are logged in, refer to the procedure above.
 - You can access the [Home Assistant console](/hassio/commandline/) **on the device itself** (not via the SSH terminal from the add-ons).
 
 1. Connect to the console of the Home Assistant server:
@@ -48,7 +47,7 @@ Use this procedure only if the following conditions are met:
      - [Using the serial console on macOS / Linux](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/)
    - If you are using a Home Assistant Green, refer to the following procedure:
      - [Using the terminal](https://green.home-assistant.io/guides/use-terminal/)
-   - If you are using another board, connect a keyboard and monitor to your device and access the terminal.
+   - If you are using another board, connect a keyboard and monitor to your device and access the terminal. The procedure is likely very similar to the one described for the Green in the step above.
 2. Once you have opened the Home Assistant command line, enter the following command:
    - Note: `existing_user` is a placeholder. Replace it with your user name.
    - Note: `new_password` is a placeholder. Replace it with your new password.
@@ -67,6 +66,8 @@ If you are running Home Assistant in a container, you can use the command line i
 5. `docker restart homeassistant` to restart the container.
 
 ### To reset a user's password, as an owner via the web interface
+
+Only the owner can change other user's passwords.
 
 1. In the bottom left, select your user to go to the {% my profile title="**Profile**" %} page and make sure **Advanced Mode** is activated.
 2. Go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the password.
