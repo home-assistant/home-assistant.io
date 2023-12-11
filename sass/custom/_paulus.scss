@@ -877,6 +877,10 @@ code {
 }
 
 @media only screen and (max-width: $menu-collapse) {
+  .DocSearch-Container {
+    z-index: 1000;
+  }
+
   #not_found {
     .page {
       text-align: center;
