@@ -20,6 +20,7 @@ layout: null
 # Link to latest release note
 /latest-release-notes/ {{ recent_release_post.url }}{{ site.patch_version_notes }} 302!
 
+/latest-ios-release-notes/ {{ site.categories["iOS"].first.url }} 302!
 
 # Matter workshop June 2022
 /skyconnect-interest https://docs.google.com/forms/d/e/1FAIpQLScEjHSBJszUZfgO3MIDO51IHr3Oeohcs8BLpRIjY1liJ58IpA/viewform?usp=sf_link
