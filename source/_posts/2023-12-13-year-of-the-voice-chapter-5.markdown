@@ -28,14 +28,30 @@ In [Chapter 4], we added wake word processing directly into Home Assistant by le
 
 For the final chapter of 2023, we have expanded the available types of voice commands to include weather, temperature, and to-do lists. Voice satellites are now aware of which area they're in, and more hardware/software options are available too.
 
+Happy holidays!
+
+<p class='img'>
+<lite-youtube videoid="73QhFefsbbc" videotitle="ESP32-S3-Box with custom artwork"></lite-youtube>
+Assist running on the ESP32-S3-BOX-3 with custom artwork.
+</p>
+
 <!--more-->
 
 ## The S3-BOX-3
 
-Espressif recently released the [ESP32-S3-BOX-3], an update of the discontinued ESP32-S3-BOX (and "lite" variant). This "AIoT" development kit contains an ESP32-S3 chip, dual microphones, a small speaker, and a screen. Several docks are available in the box, which expose a USB-C power connector and GPIO pins for expanding the device. The [ESPHome] team has been hard at work adding support for the S3-BOX-3, including the ability to customize the display!
+Espressif recently released the [ESP32-S3-BOX-3], an update of the discontinued ESP32-S3-BOX (and "lite" variant). This "AIoT" development kit contains an ESP32-S3 chip, dual microphones, a small speaker, and a screen. Several docks are available in the box, which expose a USB-C power connector and GPIO pins for expanding the device.
 
-TODO: demo video
+<p class='img'>
+<lite-youtube videoid="erf7HqTwCGs" videotitle="Assist on the ESP32-S3-Box-3"></lite-youtube>
+Assist running on the ESP32-S3-BOX-3 with included artwork.
+</p>
 
+The [ESPHome] team has been hard at work adding support for the S3-BOX-3, including the ability to customize the display! Check out the [S3-BOX-3 tutorial][s3-box-tutorial] to get started.
+
+<p class='img'>
+<lite-youtube videoid="HQQfaXTbhvc" videotitle="The Frenck-en Box-3"></lite-youtube>
+Spend the holidays with Frenck as your voice assistant.
+</p>
 
 ## More voice commands
 
@@ -49,24 +65,27 @@ Starting all the way back in [Chapter 1], we added voice commands for:
 
 For Chapter 5, we've extended this list to include:
 
-- Adding items to a to-do list - "add take out the garbage to my task list"
-- Getting the current inside temperature - "what's the temperature?"
-- Getting the current weather condition - "what's the weather like?"
-- Canceling a voice command - "never mind"
+- Adding items to a **to-do list** - *"add take out the garbage to my task list"*
+- Getting the **inside temperature** - *"what's the temperature?"*
+- Getting the current **weather** condition - *"what's the weather like?"*
+- **Canceling** a satellite wake-up - *"never mind"*
 
-Make sure you've [exposed] the devices you want [Assist] to have access to, and that they are named properly. You can always add an [alias] when you'd like to refer to a device by something more convenient for voice. For example, adding an alias "Berlin" to a weather entity would allow you to say "what's the weather like in Berlin?".
+Make sure you've [exposed] the devices you want [Assist] to have access to, and that they are named properly. You can always add an [alias] when you'd like to refer to a device by something more convenient for voice. For example, adding an alias "Berlin" to a weather entity would allow you to say *"what's the weather like in Berlin?"*.
 
 
 ## Area awareness
 
-Voice satellites can be placed all around the house, and it's important to keep their area in mind when interpreting commands like "turn on the lights". This command will now turn on all of the lights in the satellite's area, and "turn off the lights" will do the opposite. You can still target the lights in a different area, of course, by specifying: "turn on the lights in the bedroom".
+Voice satellites can be placed all around the house, and it's important to keep their area in mind when interpreting commands like *"turn on the lights"*. This command will now turn on all of the lights in the satellite's area, and *"turn off the lights"* will do the opposite. You can still target the lights in a different area, of course, by specifying: *"turn on the lights in the bedroom"*.
+
+<p class='img'>
+<lite-youtube videoid="pvEe0kVWFNE" videotitle="Area Awareness"></lite-youtube>
+Voice satellites make use of the area they're in.
+</p>
 
 This is a small start to satellites being aware of their *context*, and adjusting behavior accordingly. 
 
-TODO: do we talk about future plans for context, like speaker identification?
 
-
-## Improved RPi satellites
+## Improved Raspberry Pi satellites
 
 To date, Raspberry Pi-based voice satellites have used Home Assistant's websocket API. This had several limitations, such as requiring an API token, not knowing which area the satellite was in, and not being able to configure it in Home Assistant's UI.
 
@@ -74,13 +93,26 @@ We've extended the [Wyoming integration][wyoming] to communicate directly with [
 
 Several satellite modes are supported, including:
 
-- Always-on streaming - satellite streams all audio to Home Assistant
-- Stream on speech - only stream audio once speech is detected
-- Local wake word - only stream audio when a wake word is detected locally
+- **Always-on streaming** - satellite streams all audio to Home Assistant
+- **Stream on speech** - only stream audio once speech is detected
+- **Local wake word** - only stream audio when a wake word is detected locally
 
 Audio clean up, such as automatic gain control and noise suppression, may be done in Home Assistant or on the satellite. A [Raspberry Pi Zero 2 W][rpi-zero-2w] has more than enough power to do local audio clean up and wake word detection, allowing you to have many satellites without straining your Home Assistant server. Reuse your old Raspberry Pi's, and start your journey with smart home voice control!
 
-TODO: Tutorial link with ReSpeaker HAT
+TODO: Add tutorial link
+
+<p class='img'>
+<img src='/images/blog/2023-12-13-year-of-the-voice-chapter-5/raspberry_pi_zero2w.png'>
+Raspberry Pi Zero 2 W (MSRP: $15 USD).
+</p>
+
+
+## Stay Tuned
+
+Although the Year of Voice is coming to a close, voice in Home Assistant is just getting started! Mike "The Voice" Hansen will continue at Nabu Casa to improve and extend the voice and natural language capabilities of Home Assistant.
+
+Upcoming voice features for next year include timers, local wake word detection on the S3-BOX-3, and integration with large language models (LLMs) like GPT. We're also still on the hunt for the perfect voice satellite hardware: inexpensive with great audio, but also capable of running open source wake word models locally.
+
 
 ## Thank you
 
@@ -106,5 +138,6 @@ Thanks to our language leaders for extending the sentence support to all the var
 [wyoming]: https://www.home-assistant.io/integrations/wyoming
 [wyoming-satellite]: https://github.com/rhasspy/wyoming-satellite
 [rpi-zero-2w]: https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/
+[s3-box-tutorial]: https://www.home-assistant.io/voice_control/s3_box_voice_assistant/
 [ESPHome]: https://esphome.io
 [nabucasa]: https://www.nabucasa.com
