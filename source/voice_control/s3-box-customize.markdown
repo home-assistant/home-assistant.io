@@ -8,6 +8,9 @@ This tutorial will show you how to replace the Home Assistant status images on t
 
 You can either prepare your own images or use images from a community repository.
 
+<lite-youtube videoid="HQQfaXTbhvc" videotitle="Wake word demo on $13 ATOM Echo in Home Assistant
+"></lite-youtube>
+
 ## Prerequisites
 
 - Latest version of Home Assistant, installed with the Home Assistant Operating System
