@@ -711,7 +711,7 @@ state_topic:
   required: false
   type: string
 supported_color_modes:
-  description: A list of color modes supported by the list. This is required if `color_mode` is `True`. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`.
+  description: A list of color modes supported by the list. This is required if `color_mode` is `True`. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
   required: false
   type: list
 unique_id:
@@ -775,7 +775,7 @@ mqtt:
       supported_color_modes: ["brightness"]
 ```
 
-### Brightness Scaled
+### Brightness scaled
 
 To enable a light using a brightness scale other than 8bit the `brightness_scale` option may be added to denote the "fully on" value:
 
@@ -802,7 +802,7 @@ Home Assistant will then convert its 8bit value in the message to and from the d
 }
 ```
 
-### HS Color
+### HS color
 
 To use a light with hue+saturation as the color model, set `supported_color_modes` to `["hs"]` in the platform configuration:
 

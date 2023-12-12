@@ -2,7 +2,7 @@
 title: Tuya
 description: Instructions on how to set up the Tuya hub within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Climate
   - Cover
@@ -61,32 +61,37 @@ This is a separate account from the one you made for the app. You cannot log in 
 ### Create a project
 
 1. Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
-2. In the left navigation bar, click `Cloud` > `Development`. 
-3. On the page that appears, click `Create Cloud Project`.
-4. In the `Create Cloud Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in. Refer to the country/data center mapping list [here](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md) to choose the right data center for the country you are in.
-  ![](/images/integrations/tuya/image_001.png)
-5. Click `Create` to continue with the project configuration.
-6. In Configuration Wizard, make sure you add `Industry Basic Service`, `Smart Home Basic Service` and `Device Status Notification` APIs. The list of API should look like this:
+2. In the left navigation bar, select **Cloud** > **Development**.
+3. On the page that appears, select **Create Cloud Project**.
+4. In the **Create Cloud Project** dialog box, configure **Project Name**, **Description**, **Industry**, and **Data Center**. 
+   - For the **Development Method** field, select **Smart Home** from the dropdown list.
+   - For the **Data Center** field, select the zone you are located in.
+   - Refer to the country/data center mapping list [here](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md) to choose the right data center for the country you are in.
+    ![](/images/integrations/tuya/image_001.png)
+5. Select **Create** to continue with the project configuration.
+6. In the Configuration Wizard, make sure you add **Industry Basic Service**, **Smart Home Basic Service** and **Device Status Notification** APIs. The list of APIs should look like this:
   ![](/images/integrations/tuya/image_002new.png)
-7. Click `Authorize`.
+7. Select **Authorize**.
 
 ### Link devices by app account
 
-1. Navigate to the `Devices` tab.
-2. Click `Link Tuya App Account` > `Add App Account`.
-  ![](/images/integrations/tuya/image_003.png)
-3. Scan the QR code that appears using the `Tuya Smart` app or `Smart Life` app using the 'Me' section of the app.
+1. In **Cloud** > **Development**, open the project that was just created using the link on the far right of the list.
+2. Navigate to the **Devices** tab.
+3. Select **Link Tuya App Account** > **Add App Account**.
+   ![](/images/integrations/tuya/image_003.png)
+4. Scan the QR code that appears using the **Tuya Smart** app or **Smart Life** app using the 'Me' section of the app.
   ![](/images/integrations/tuya/image_004.png)
-4. Click `Confirm` in the app.
-5. To confirm that everything worked, navigate to the `All Devices` tab. Here you should be able to find the devices from the app.
-6. If zero devices are imported, try changing the DataCenter and check the account used is the "Home Owner".
+5. Select **Confirm** in the app.
+6. To confirm that everything worked, navigate to the **All Devices** tab.
+   - Here you should be able to find the devices from the app.
+   - If zero devices are imported, try changing the DataCenter and check the account used is the "Home Owner".
    You can change DataCenter by clicking the Cloud icon on the left menu, then clicking the Edit link in the Operation column for your newly created project. You can change DataCenter in the popup window.
 
 ![](/images/integrations/tuya/image_005.png)
 
 ### Get authorization key
 
-Click the created project to enter the `Project Overview` page and get the `Authorization Key`. You will need these for setting up the integration. in the next step.
+Select the created project to enter the **Project Overview** page and get the **Authorization Key**. You will need these for setting up the integration. in the next step.
 
 ![](/images/integrations/tuya/image_006.png)
 
@@ -118,7 +123,7 @@ If no devices show up in Home Assistant:
   description: >
     - First, make sure the devices show up in Tuya's cloud portal under the devices tab.
 
-    - In the Tuya IoT configuration cloud portal, you must NOT link your non-developer account under the "Users" tab. Doing so will work, and you can even still add the devices under the devices tab, but the API will send 0 devices down to Home Assistant. You must only link the account under the Devices->"Link Tuya App Account". If it shows up on the users tab, be sure to delete it.
+    - In the Tuya IoT configuration cloud portal, you must NOT link your non-developer account under the "Users" tab. Doing so will work, and you can even still add the devices under the devices tab, but the API will send 0 devices down to Home Assistant. You must only link the account under the **Devices** > **Link Tuya App Account**. If it shows up on the users tab, be sure to delete it.
 
     - Your region may not be correctly set.
 
@@ -174,7 +179,7 @@ If no devices show up in Home Assistant:
 
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
 
-## Related Documents
+## Related documents
 
 - [Tuya Integration Documentation Page](https://github.com/tuya/tuya-home-assistant)
 - [Supported Tuya Device Category](https://github.com/tuya/tuya-home-assistant/blob/main/docs/supported_devices.md)

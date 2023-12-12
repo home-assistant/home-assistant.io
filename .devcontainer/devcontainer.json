@@ -11,22 +11,26 @@
   "appPort": [4000],
   "onCreateCommand": "bundle install && npm install",
   "containerEnv": { "DEVCONTAINER": "true" },
-  "extensions": [
-    "davidanson.vscode-markdownlint",
-    "editorconfig.editorconfig",
-    "GitHub.vscode-pull-request-github",
-    "mrmlnc.vscode-scss",
-    "rebornix.Ruby",
-    "streetsidesoftware.code-spell-checker",
-    "taichi.vscode-textlint",
-    "yzhang.markdown-all-in-one"
-  ],
-  "settings": {
-    "editor.renderWhitespace": "boundary",
-    "editor.rulers": [80, 100, 120],
-    "gitlens.showWelcomeOnInstall": false,
-    "gitlens.showWhatsNewAfterUpgrades": false,
-    "terminal.integrated.shell.linux": "/usr/bin/zsh",
-    "workbench.startupEditor": "none"
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "davidanson.vscode-markdownlint",
+        "editorconfig.editorconfig",
+        "GitHub.vscode-pull-request-github",
+        "mrmlnc.vscode-scss",
+        "Shopify.ruby-lsp",
+        "streetsidesoftware.code-spell-checker",
+        "taichi.vscode-textlint",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        "editor.renderWhitespace": "boundary",
+        "editor.rulers": [80, 100, 120],
+        "gitlens.showWelcomeOnInstall": false,
+        "gitlens.showWhatsNewAfterUpgrades": false,
+        "terminal.integrated.shell.linux": "/usr/bin/zsh",
+        "workbench.startupEditor": "none"
+      }
+    }
   }
 }

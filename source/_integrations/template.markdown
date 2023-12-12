@@ -2,7 +2,7 @@
 title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Helper
   - Image
@@ -40,7 +40,7 @@ The `template` integration allows creating entities which derive their values fr
 
 Sensors, binary (on/off) sensors, buttons, images, numbers and selects are covered on this page. For other types, please see the specific pages:
 
-- [Alarm Control Panel](/integrations/alarm_control_panel.template/)
+- [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
 - [Light](/integrations/light.template/)
@@ -57,7 +57,7 @@ _For old sensor/binary sensor configuration format, [see below](#legacy-binary-s
 
 # UI configuration
 
-Sensor template and binary sensor template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=input_datetime title="Template" %}** helper.
+Sensor template and binary sensor template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
 
 To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your `configuration.yaml`. It should already be there by default unless you removed it.
 
@@ -268,7 +268,92 @@ image:
       required: false
       type: boolean
       default: true
-"[all sensor, binary sensor, button, image, number, select entities]":
+weather:
+  description: List of weather entities
+  required: true
+  type: map
+  keys:
+    condition_template:
+      description: The current weather condition.
+      required: true
+      type: template
+    temperature_template:
+      description: The current temperature.
+      required: true
+      type: template
+    dew_point_template:
+      description: The current dew point.
+      required: false
+      type: template
+    apparent_temperature_template:
+      description: The current apparent (feels-like) temperature.
+      required: false
+      type: template
+    temperature_unit:
+      description: Unit for temperature_template output. Valid options are °C, °F, and K.
+      required: false
+      type: string
+    humidity_template:
+      description: The current humidity.
+      required: true
+      type: template
+    pressure_template:
+      description: The current air pressure.
+      required: false
+      type: template
+    pressure_unit:
+      description: Unit for pressure_template output. Valid options are Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, psi.
+      required: false
+      type: string
+    wind_speed_template:
+      description: The current wind speed.
+      required: false
+      type: template
+    wind_gust_speed_template:
+      description: The current wind gust speed.
+      required: false
+      type: template
+    wind_speed_unit:
+      description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
+      required: false
+      type: string
+    wind_bearing_template:
+      description: The current wind bearing.
+      required: false
+      type: template
+    ozone_template:
+      description: The current ozone level.
+      required: false
+      type: template
+    cloud_coverage_template:
+      description: The current cloud coverage.
+      required: false
+      type: template
+    visibility_template:
+      description: The current visibility.
+      required: false
+      type: template
+    visibility_unit:
+      description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      required: false
+      type: string
+    forecast_daily_template:
+      description: Daily forecast data.
+      required: false
+      type: template
+    forecast_hourly_template:
+      description: Hourly forecast data.
+      required: false
+      type: template
+    forecast_twice_daily_template:
+      description: Twice daily forecast data.
+      required: false
+      type: template
+    precipitation_unit:
+      description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      required: false
+      type: string
+"[all sensor, binary sensor, button, image, number, select, weather entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map
@@ -315,7 +400,7 @@ template:
 
 [trigger-doc]: /docs/automation/trigger
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how to set up a Trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
@@ -563,7 +648,7 @@ template:
 
 {% endraw %}
 
-### State based binary sensor - Device Tracker sensor with Latitude and Longitude Attributes
+### State based binary sensor - device tracker sensor with latitude and longitude attributes
 
 This example shows how to combine a non-GPS (e.g., NMAP) and GPS device tracker while still including latitude and longitude attributes
 
@@ -694,7 +779,7 @@ template:
       - platform: time_pattern
         hours: /1
     action:
-      - service: weather.get_forecast
+      - service: weather.get_forecasts
         data:
           type: hourly
         target:
@@ -705,7 +790,7 @@ template:
         unique_id: weather_forecast_hourly
         state: "{{ now().isoformat() }}"
         attributes:
-          forecast: "{{ hourly.forecast }}"
+          forecast: "{{ hourly['weather.home'].forecast }}"
 ```
 
 {% endraw %}

@@ -3,7 +3,6 @@ title: NZBGet
 description: Instructions on how to integrate NZBGet within Home Assistant.
 ha_category:
   - Downloading
-logo: nzbget.png
 ha_iot_class: Local Polling
 ha_release: 0.17
 ha_config_flow: true
@@ -36,7 +35,7 @@ This integration will create these sensors:
 - `nzbget_size`: Amount of data downloaded since server start in MB.
 - `nzbget_speed_limit`: Download queue speed limit in MB/s.
 
-## Event Automation
+## Event automation
 
 The NZBGet integration continuously monitors nzbget's download history. When a download completes, an event usable for automation is triggered on the Home Assistant Bus.
 
@@ -76,6 +75,6 @@ Available services:
 
 ### Service `nzbget/set_speed`
 
-| Service data attribute | Optional | Description |
-|------------------------|----------|-------------------------------------------------------------------------------------------------|
-| `speed`                |      yes | Sets the download speed limit, specified in Kb/s. 0 disables the speed limit. Defaults to 1000. |
+| Service data attribute | Optional | Description                                                                                     |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
+| `speed`                | yes      | Sets the download speed limit, specified in Kb/s. 0 disables the speed limit. Defaults to 1000. |

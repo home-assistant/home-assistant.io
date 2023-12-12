@@ -2,11 +2,10 @@
 title: Numato USB GPIO Expander
 description: Instructions on how to integrate a Numato GPIO expander into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - DIY
   - Sensor
   - Switch
-logo: numato.png
 ha_release: '0.110'
 ha_iot_class: Local Push
 ha_domain: numato
@@ -22,7 +21,7 @@ ha_integration_type: integration
 The `numato` integration is the base for all related GPIO platforms of the
 [Numato 32 Port USB GPIO expander](https://numato.com/product/32-channel-usb-gpio-module-with-analog-inputs):
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -136,7 +135,7 @@ devices:
               type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 The `numato` binary_sensor platform allows you to operate the GPIOs of your
 [Numato](https://numato.com) 32 port USB GPIO expander in binary input mode.
@@ -169,7 +168,7 @@ state.
 The `numato` switch platform allows you to operate the GPIOs of your
 [Numato](https://numato.com) 32 port USB GPIO expander in output mode.
 
-## IO Ports
+## IO ports
 
 The IO port numbers used in this configuration refer to the port numbers
 printed on the PCB. Note that the Sensor platform can be configured on ports

@@ -28,6 +28,7 @@ The following selectors are currently available:
 - [Config entry selector](#config-entry-selector)
 - [Constant selector](#constant-selector)
 - [Conversation agent selector](#conversation-agent-selector)
+- [Country selector](#country-selector)
 - [Date selector](#date-selector)
 - [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
@@ -51,6 +52,7 @@ The following selectors are currently available:
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
+- [Trigger selector](#trigger-selector)
 
 Interactive demos of each of these selectors can be found on the
 [Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
@@ -74,7 +76,7 @@ action:
 The output of this selector is a list of actions. For example:
 
 ```yaml
-# Example Action selector output result
+# Example action selector output result
 - service: scene.turn_on
   target:
     entity_id: scene.watching_movies
@@ -95,7 +97,7 @@ selected add-on.
 This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
-# Example Add-on selector
+# Example add-on selector
 addon:
 ```
 
@@ -200,10 +202,10 @@ The output of this selector is the area ID, or (in case `multiple` is set to
 `true`) a list of area IDs.
 
 ```yaml
-# Example Area selector output result, when multiple is set to false
+# Example area selector output result, when multiple is set to false
 living_room
 
-# Example Area selector output result, when multiple is set to true
+# Example area selector output result, when multiple is set to true
 - living_room
 - kitchen
 ```
@@ -345,7 +347,7 @@ condition:
 The output of this selector is a list of conditions. For example:
 
 ```yaml
-# Example Condition selector output result
+# Example condition selector output result
 - condition: numeric_state
   entity_id: "sensor.outside_temperature"
   below: 20
@@ -426,6 +428,32 @@ date:
 
 The output of this selector will contain the date in Year-Month-Day
 (`YYYY-MM-DD`) format, for example, `2022-02-22`.
+
+## Country selector
+
+The country selector allows a user to pick a country from a list of countries.
+
+![Screenshot of a country selector](/images/blueprints/country_selector.png)
+
+```yaml
+country:
+```
+
+{% configuration entity %}
+countries:
+  description: A list of countries to pick from, this should be ISO 3166 country codes.
+  type: list
+  default: The available countries in the Home Assistant frontend
+  required: false
+no_sort:
+  description: >
+    Should the options be sorted by name, if set to true, the order of the provided countries is kept.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is an ISO 3166 country code.
 
 ## Date & time selector
 
@@ -540,10 +568,10 @@ The output of this selector is the device ID, or (in case `multiple` is set to
 `true`) a list of devices IDs.
 
 ```yaml
-# Example Device selector output result, when multiple is set to false
+# Example device selector output result, when multiple is set to false
 faadde5365842003e8ca55267fe9d1f4
 
-# Example Device selector output result, when multiple is set to true
+# Example device selector output result, when multiple is set to true
 - faadde5365842003e8ca55267fe9d1f4
 - 3da77cb054352848b9544d40e19de562
 ```
@@ -689,7 +717,7 @@ light.living_room
 An example entity selector that, will only show entities that are:
 
 - Provided by the [ZHA](/integrations/zha) integration.
-- From the [Binary Sensor](/integrations/binary_sensor) domain.
+- From the [Binary sensor](/integrations/binary_sensor) domain.
 - Have presented themselves as devices of a motion device class.
 - Allows selecting one or more entities.
 
@@ -1184,7 +1212,7 @@ The output of this selector is a template string.
 
 ## Text selector
 
-The text selector can be used to input a text string. The value of the input will contain the selected text.
+The text selector can be used to enter a text string. It can also be used to enter a list of text strings; if `multiple` is set to `true`. The value of the input will contain the selected text. This can be used in shopping lists, for example.
 
 ![Screenshot of text selectors](/images/blueprints/selector-text.png)
 
@@ -1223,6 +1251,12 @@ autocomplete:
     This supplies the [HTML `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete).
     Any value supported by the HTML attribute is valid.
   type: string
+  required: false
+multiple:
+  description: >
+    Allows adding list of text strings. If set to `true`, the resulting value of this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
   required: false
 {% endconfiguration %}
 
@@ -1265,3 +1299,26 @@ time:
 
 The output of this selector will contain the time in 24-hour format,
 for example, `23:59:59`.
+
+## Trigger selector
+
+The triggers selector allows the user to input one or more triggers.
+On the user interface, the trigger part of the automation editor is shown.
+The value of the input contains a list of triggers.
+
+![Screenshot of an trigger selector](/images/blueprints/selector-trigger.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+trigger:
+```
+
+The output of this selector is a list of triggers. For example:
+
+```yaml
+# Example trigger selector output result
+- platform: numeric_state
+  entity_id: "sensor.outside_temperature"
+  below: 20
+```

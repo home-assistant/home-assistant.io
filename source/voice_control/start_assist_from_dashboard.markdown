@@ -14,5 +14,9 @@ If you are using Home Assistant in kiosk mode, for example if you have a tablet 
    - You can use any assistant you have previously set up.
    - If you have assistants in different languages, you can add a button for each of these languages.
 6. If you are using Assist with your voice, enable **Start listening**.
-   - If you don't want to use voice but just want to type, you do not need to enable listening. 
+   - If you don't want to use voice but just want to type, you do not need to enable listening.
 7. **Save** your new button card.
+
+## Related topics
+
+- [Assist for Android](/voice_control/android/)

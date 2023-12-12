@@ -39,7 +39,7 @@ Time unit:
   description: SI unit of time of the derivative. If this parameter is set, the unit of measurement will be set to **x/y** where **x** is the unit of the source sensor and **y** is the value of this parameter.
 {% endconfiguration_basic %}
 
-## YAML Configuration
+## YAML configuration
 
 Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the Derivative sensor in your installation, add the

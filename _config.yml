@@ -84,7 +84,7 @@ collections:
 
 #Search
 algolia:
-  api_key: "ae96d94b201c5444c8a443093edf3efb"
+  api_key: "ba6f7e6d97b3d3d2f778978c742a47c6"
 
 # Twitter
 twitter_user: balloob
@@ -109,9 +109,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2023
-current_minor_version: 9
-current_patch_version: 3
-date_released: 2023-09-24
+current_minor_version: 12
+current_patch_version: 1
+date_released: 2023-12-08
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -220,13 +220,6 @@ installation:
           key: "rpi4-64"
         - name: "Raspberry Pi 3"
           key: "rpi3-64"
-
-    tinkerboard:
-      board: ASUS Tinkerboard
-      installation_media: "eMMC module or SD card"
-      variants:
-        - name: "ASUS Tinkerboard"
-          key: "tinker"
 
     generic-x86-64:
       board: Generic x86-64

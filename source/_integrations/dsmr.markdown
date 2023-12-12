@@ -1,7 +1,6 @@
 ---
 title: DSMR Slimme Meter
 description: Instructions on how to integrate DSMR Smartmeter within Home Assistant.
-logo: netbeheernederland.jpg
 ha_category:
   - Energy
 ha_release: 0.34
@@ -64,6 +63,12 @@ This integration is known to work for:
 - Sagemcom T211 
 - Ziv E0058 ESMR5
 - EasyMeter Q3D
+
+### M-Bus support
+
+A smart meter can have multiple subdevices, also known as [M-Bus](https://m-bus.com/) devices.
+For the <abbr title="Dutch smart meter requirement">DSMR</abbr> version 5B, support was added for water and gas M-Bus devices. This means you can have up to 4 subdevices on your <abbr title="Dutch smart meter requirement">DSMR</abbr> meter.
+While previously only 1 gas meter was supported, there is now support for multiple gas and water meters.
 
 ### Connecting to the meter
 

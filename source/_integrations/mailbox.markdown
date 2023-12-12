@@ -13,3 +13,5 @@ Mailboxes provide a list of messages with short information about each. Mailbox 
 Home Assistant currently supports only the [Asterisk Voicemail](/integrations/asterisk_mbox/) mailbox.
 
 Each mailbox also provides an entity to indicate the number of messages available on the main page.
+
+{% include integrations/building_block_integration.md %}

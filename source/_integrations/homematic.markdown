@@ -2,7 +2,7 @@
 title: Homematic
 description: Instructions for integrating Homematic into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Hub
@@ -34,7 +34,7 @@ If you are using Homegear with paired [Intertechno](https://intertechno.at/) dev
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Climate
 - Cover
 - Light

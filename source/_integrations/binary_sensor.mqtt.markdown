@@ -1,8 +1,8 @@
 ---
-title: "MQTT Binary Sensor"
+title: "MQTT binary sensor"
 description: "Instructions on how to integrate MQTT binary sensors within Home Assistant."
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.9
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -78,9 +78,9 @@ device:
       required: false
       type: string
     connections:
-      description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
-      type: [list, map]
+      type: list
     hw_version:
       description: The hardware version of the device.
       required: false
@@ -129,7 +129,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity/#generic-properties) of the entity.
+  description: The [category](https://developers.home-assistant.io/docs/core/entity/#generic-properties) of the entity. When set, the entity category must be `diagnostic` for sensors.
   required: false
   type: string
   default: None
@@ -158,7 +158,7 @@ name:
   description: The name of the binary sensor. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
-  default: MQTT Binary Sensor
+  default: MQTT binary sensor
 object_id:
   description: Used instead of `name` for automatic generation of `entity_id`
   required: false

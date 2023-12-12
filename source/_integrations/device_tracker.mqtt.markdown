@@ -1,8 +1,8 @@
 ---
-title: "MQTT Device Tracker"
+title: "MQTT device tracker"
 description: "Instructions on how to use MQTT to track devices in Home Assistant."
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Configurable
 ha_release: 0.7.3
 ha_domain: mqtt
@@ -75,9 +75,9 @@ device:
       required: false
       type: string
     connections:
-      description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
-      type: [list, map]
+      type: list
     hw_version:
       description: The hardware version of the device.
       required: false
