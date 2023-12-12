@@ -43,14 +43,17 @@ Before you can use this device with Home Assistant, you need to install a bit of
    - Select the image of the ESP32-S3-BOX.
    - From the list, select the product variant that you have.
    - Select the **Connect** button. If your browser does not support web serial, you will see a warning instead of a button.
-   - **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/firmware/blob/main/voice-assistant/m5stack-atom-echo.yaml).
+   - **For advanced users**: The configuration files are available on GitHub:
+     - [ESP32-S3-BOX](https://github.com/esphome/firmware/blob/main/voice-assistant/esp32-s3-box.yaml)
+     - [ESP32-S3-BOX-3](https://github.com/esphome/firmware/blob/main/voice-assistant/esp32-s3-box-3.yaml)
+     - [ESP32-S3-BOX-Lite](https://github.com/esphome/firmware/blob/main/voice-assistant/esp32-s3-box-lite.yaml)
 
 {% include voice_assistant/install_esp_firmware.md %}
 
-9.  Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX** listed.
+1.  Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX** listed.
    ![ESP32-S3-BOX discovered](/images/assist/m5stack-atom-echo-discovered-new-03.png)
    - Your ESP32-S3-BOX is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
-10.  Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
+2.   Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
 
 ## Controlling Home Assistant over the ESP32-S3-BOX
 
