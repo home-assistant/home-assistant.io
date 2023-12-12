@@ -7,6 +7,9 @@ config_link: /voice_control/s3_box_voice_assistant/#to-delete-the-ESP32-S3-BOX-3
 
 This tutorial will guide you to turn an ESP32-S3-BOX-3 into a Home Assistant voice assistant.
 
+<lite-youtube videoid="erf7HqTwCGs" videotitle="Okay Nabu! Open-source voice assistant running on an Espressif ESP32-S3-Box-3
+"></lite-youtube>
+
 ## Prerequisites
 
 - Home Assistant 2023.12, installed with the Home Assistant Operating System
