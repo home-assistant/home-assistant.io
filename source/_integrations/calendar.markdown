@@ -212,7 +212,7 @@ Use only one of `end_date_time` or `duration`.
 
 {% raw %}
 ```yaml
-service: calendar.list_events
+service: calendar.get_events
 target:
   entity_id: calendar.school
 data:
@@ -222,7 +222,7 @@ response_variable: agenda
 ```
 {% endraw %}
 
-The response data field `events` is a list of events with these fields:
+The response is a list of the targeted calendars. The response data for each target will have an `events` field containing a list of events with these fields:
 
 | Response data | Description | Example |
 | ---------------------- | ----------- | -------- |
@@ -243,7 +243,7 @@ data:
   message: >-
     Your agenda for today:
     <p>
-    {% for event in agenda.events %}
+    {% for event in agenda['calendar.school'].events %}
     {{ event.start}}: {{ event.summary }}<br>
     {% endfor %}
     </p>
