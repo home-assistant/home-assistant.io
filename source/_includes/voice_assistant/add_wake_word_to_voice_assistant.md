@@ -1,4 +1,4 @@
-## Adding a Wake Word to your Voice Assistant
+## Adding a wake word to your voice assistant
 
 1. Install the openWakeWord add-on:
    - Follow steps 1-3 of the procedure on [enabling a wake word](/voice_control/install_wake_word_add_on). 
