@@ -24,6 +24,7 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 3. Start the add-on.
 4. Once the add-on is running, select **Open web UI**.
 5. In the ESPHome add-on dashboard, on the **ESP32-S3-BOX-3** card, select **Adopt**.
+
    ![Adopt the ESP32-S3-BOX-3 in the ESPHome add-on](/images/assist/esp32-adopt-s3.png)
 6. If you like, give it a new name. Then, select **Adopt**.
    - Adopting an ESPHome device allows us to customize the existing software on the device.
@@ -34,8 +35,8 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 
 ## Option 1: Using images from a community repository
 
-- Perform this procedure, if you want to use ready-made images by the community.
-- If you want to use your own images, skip this procedure and go to [Using your own images](#using-your-own-images) instead.
+If you want new images but don't want to create your own, you can use images by the community.
+If you want to use your own images, skip this procedure and go to [Using your own images](#using-your-own-images) instead.
 
 ### To use images from the community
 
@@ -43,18 +44,18 @@ Before you can import new images, you need to install the ESPHome add-on and ado
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 2. For inspiration, we have prepared some images for you.
-   - Check them out in this [repository](https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/tree/main).
+   - Check them out in this [repository](https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/tree/main/frenck/illustrations).
 3. For this tutorial, we will use some images of Frenck.
    - Add the following lines into the `substitution` block.
 
      ```yaml
      substitution:
-       loading_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/loading_320_240.png
-       idle_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/idle_320_240.png
-       listening_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/listening_320_240.png
-       thinking_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/thinking_320_240.png
-       replying_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/replying_320_240.png
-       error_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/error_320_240.png
+       loading_illustration_file: https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/raw/main/frenck/illustrations/loading_320_240.png
+       idle_illustration_file: https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/raw/main/frenck/illustrations/idle_320_240.png
+       listening_illustration_file: https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/raw/main/frenck/illustrations/listening_320_240.png
+       thinking_illustration_file: https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/raw/main/frenck/illustrations/thinking_320_240.png
+       replying_illustration_file: https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/raw/main/frenck/illustrations/replying_320_240.png
+       error_illustration_file: https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/raw/main/frenck/illustrations/error_320_240.png
      ```
 
 4. Save the changes and select **Install**:
@@ -66,8 +67,6 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 
 ## Option 2: Using your own images
 
-Perform this task if you want to use your own images on the ESP32-S3-BOX-3.
-
 There are 2 parts to this:
 
 - [Preparing your own images](#to-prepare-your-own-images)
@@ -75,18 +74,15 @@ There are 2 parts to this:
 
 ### About the images
 
-To make sure the images can be displayed properly on the ESP32-S3-BOX-3 screen, check out the following requirements.
+Here's what you need to know so that the images can be displayed properly on the ESP32-S3-BOX-3 screen.
 
 #### Illustrating 6 different states
 
 There are 6 different states to illustrate:
 
-- loading
-- idle
-- listening
-- thinking
-- replying
-- error
+- loading, idle, listening, thinking, replying, error
+
+![ESP32-S3-BOX-3 config file](/images/assist/s3-box-status-images.png)
 
 #### Using light and dark image background
 
@@ -96,7 +92,7 @@ To make it easier to distinguish the different states when you look at your scre
 - For the listening, thinking, replying: use a light background
 - For error: As you like
   
-You can also save the images with transparent background and then change the background in the configuration file.
+If your images have transparency, you change the background in the configuration file. 
 
 #### Image dimensions and file format
 
@@ -137,6 +133,7 @@ You can also save the images with transparent background and then change the bac
 4. If you used transparency in your images and you want to change the background color, add the following lines into the `substitution` block:
    - The `000000` stands for black, `FFFFFF` stands for white in [hexadecimal color code](https://www.w3schools.com/html/html_colors_hex.asp).
    - If you want to use different colors, replace the corresponding color code.
+   - To find the color code, you can use a tool like the Google color picker.
 
      ```yaml
      substitution:
