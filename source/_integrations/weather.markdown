@@ -132,11 +132,11 @@ template:
           entity_id: weather.home
         response_variable: hourly
     sensor:
-      - name: Weather Forecast Hourly
-        unique_id: weather_forecast_hourly
-        state: "{{ now().isoformat() }}"
-        attributes:
-          forecast: "{{ hourly['weather.home'].forecast }}"
+      - name: Temperature forecast next hour
+        unique_id: temperature_forecast_next_hour
+        state: "{{ hourly['weather.home'].forecast[0].temperature }}"
+        unit_of_measurement: °C
+
 ```
 
 {% endraw %}
