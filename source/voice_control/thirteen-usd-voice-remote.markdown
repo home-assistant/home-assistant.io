@@ -1,5 +1,8 @@
 ---
 title: "$13 voice assistant for Home Assistant"
+product_name: ATOM Echo
+device_name_entry: M5Stack Atom Echo a61920
+config_link: /voice_control/thirteen-usd-voice-remote/#to-delete-the-atom-echo-configuration-from-esphome
 ---
 
 This tutorial will guide you to turn an ATOM Echo into the
@@ -18,37 +21,13 @@ your smart home. Issue commands and get responses!
 - [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
 - USB-C cable to connect the ATOM Echo
 
-## Adding a wake word to your voice assistant
+{% include voice_assistant/add_wake_word_to_voice_assistant.md %}
 
-1. Install the openWakeWord add-on:
-   - Follow steps 1-3 of the procedure on [enabling a wake word](/voice_control/install_wake_word_add_on). 
-2. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
-3. Give your assistant a name, for example the wake word you are going to use.
-4. Select the language you are going to use to speak to Home Assistant.
-   - If the **Text-to-speech** and **Speech-to-text** sections do not provide language selectors, this means you do not have an Assist pipeline set up.
-   - Set up [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
-5. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
-6. To define the wake word engine, under **Wake word**, select **openWakeWord**.
-   - Then, select **ok nabu**.
-   - If you created a new assistant, select **Create**.
-   - If you edited an existing assistant, select **Update**.
-   - **Result**: You now have a voice assistant that listens to a wake word.
-7. For the first run, it is recommended to use **ok nabu**, just to test the setup.
-   - Once you have it all set up, you can [create your own wake words](/voice_control/create_wake_word/).
+## Installing the software onto the {{ product_name }}
 
-## Installing the software onto the ATOM Echo
+If you have used the {{ product_name }} on Home Assistant before and have it installed via ESPHome add-on, you first need to remove its configuration.
 
-If you have used the ATOM Echo on Home Assistant before and have it installed via ESPHome add-on, you first need to remove its configuration.
-
-### To delete the ATOM Echo configuration from ESPHome
-
-1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}, and select the ESPHome integration.
-   - Under **Devices**, next to the **M5Stack Atom Echo a61920** entry, select the three-dots menu.
-   - Select **Delete**.
-2. Make sure you have [access to the configuration files](/common-tasks/os/#configuring-access-to-files).
-   - If you have never done this before, [install the file editor add-on](/common-tasks/os/#installing-and-using-the-file-editor-add-on).
-3. Access the config files and open the **esphome** folder.
-4. If there is a configuration file for the ATOM Echo, delete it.
+{% include voice_assistant/install_esp_firmware_delete_firmware.md %}
 
 ### To install the software on your ATOM Echo
 
@@ -61,40 +40,11 @@ Before you can use this device with Home Assistant, you need to install a bit of
       <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
    - **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/firmware/blob/main/voice-assistant/m5stack-atom-echo.yaml).
 
-2. Connect the ATOM Echo to your computer.
-   - In the pop-up window, view the available ports.
-   - Plug the USB-C cable into the ATOM Echo and connect it to your computer.
-   - In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
-     - Depending on your computer, the entry might look different.
-   ![Select USB port](/images/assist/esp32-atom-flash-select-port.png)
-   - If no new port shows, your system may be missing a driver. Close the pop-up window.
-     - In the dialog, select the CH342 driver, install it, then **Try again**.
-   ![Open My link](/images/assist/esp32-atom-flash-no-port.png)
-3. Select **Install Voice Assistant**, then **Install**.
-     - Follow the instructions provided by the installation wizard.
-     - Add the ATOM Echo to your Wi-Fi:
-       - When prompted, select your network from the list and enter the credentials to your 2.4&nbsp;GHz Wi-Fi network.
-       - Select **Connect**.
-       - The ATOM Echo now joined your network. Select **Add to Home Assistant**.
-4. This opens the **My** link to Home Assistant.
-   - If you have not used My Home Assistant before, you will need to configure it. If your Home Assistant URL is not accessible on `http://homeassistant.local:8123`, replace it with the URL to your Home Assistant instance.
-   - Open the link.
-   ![Open My link](/images/assist/esp32-atom-flash-06.png)
-5. Select **OK**. 
-   
-   ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
-6. If, at this stage, a dialog opens, prompting you to enter the connection settings of your ESPHome node, it means there is already a configuration set up for that ESPHome device.
-   - Close the dialog and perform the procedure on [deleting the ATOM Echo configuration from ESPHome](/voice_control/thirteen-usd-voice-remote/#to-delete-the-atom-echo-configuration-from-esphome).
-   - Restart Home Assistant.
-   - Then, under {% my integrations title="**Settings** > **Devices & Services**" %}, your ATOM Echo should be discovered.
-7. To add the newly discovered device, select the ATOM Echo from the list.
-   - Add your ATOM Echo to a room and select **Finish**.
-8. You should now see the **ESPHome** integration.
-   ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
+{% include voice_assistant/install_esp_firmware.md %}
 9.  Select the **ESPHome** integration. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
    ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-new-03.png)
    - Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
-10. Congratulations! You can now voice control Home Assistant using a button with a built-in microphone. Now give some commands.
+10.  Congratulations! You can now voice control Home Assistant using a button with a built-in microphone. Now give some commands.
 
 ## Controlling Home Assistant over the ATOM Echo
 
