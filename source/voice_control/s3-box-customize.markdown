@@ -15,6 +15,7 @@ You can either prepare your own images or use images from a community repository
 
 - Latest version of Home Assistant, installed with the Home Assistant Operating System
 - [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
+- [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html?gatewayAdapt=4itemAdapt). The ESP32-S3-BOX-Lite or a ESP32-S3-BOX also work, but they are not currently on the market.
 - Successfully completed the [ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/) tutorial
 
 ## Adopting the device in the ESPHome add-on
