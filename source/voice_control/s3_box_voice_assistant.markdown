@@ -74,7 +74,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
       - Disable **Use wake word**.
       - The screen of the ESP32-S3-BOX will turn off, too.
    
-      ![Toggle to enable/disable wake word](/images/assist/wake_word_disable_on_atom_echo.png)
+      ![Toggle to enable/disable wake word](/images/assist/wake_word_disable.png)
 2. If you want to just use the wake word, but do not want to use see the screen, you can turn off the screen.
    - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
      - Under **ESP32-S3-BOX**, select **1 device**.
