@@ -8,7 +8,7 @@ This tutorial will show you how to replace the Home Assistant status images on t
 
 You can either prepare your own images or use images from a community repository.
 
-<lite-youtube videoid="HQQfaXTbhvc" videotitle="Wake word demo on $13 ATOM Echo in Home Assistant
+<lite-youtube videoid="HQQfaXTbhvc" videotitle="Okay Frenck! Open-source voice assistant running on an Espressif ESP32-S3-Box-3
 "></lite-youtube>
 
 ## Prerequisites
