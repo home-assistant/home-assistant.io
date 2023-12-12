@@ -108,13 +108,13 @@ You can also save the images with transparent background and then change the bac
 ### To prepare your own images
 
 1. Create your own images according the specifications defined [above](#about-the-images).
-2. Paste all 6 images into a folder. For example: `voice_assistant_pictures`.
+2. Copy all 6 images into a folder. For example: `voice_assistant_pictures`.
 3. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
    - [Install the Samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
-   - Samba allows you to copy paste multiple files at once.
-4. Paste your image folder into the configuration folder:
-   - Using Samba, open the `config` folder and open the `ESPHome` folder.
-   - Paste your image folder in there.
+   - This allows you to copy paste multiple files at once.
+4. Copy your image folder into the configuration folder:
+   - Open the `config` folder and open the `ESPHome` folder.
+   - Copy your image folder in there.
    ![ESP32-S3-BOX-3 config file](/images/assist/s32-s3-add-image-folder.png)
 
 ### To add your images to the configuration
