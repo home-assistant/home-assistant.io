@@ -62,6 +62,6 @@ The V2C integration currently exposes the following switches:
 
 - pause session: pause the charging session
 - lock EVSE: disables the EVSE
-- charge point timer: only allow charging durint predefined period (set on the mobile application)
+- charge point timer: only allow charging during predefined period (set on the mobile application)
 - dynamic intensity modulation: enable dynamic intensity modulation
 - pause dynamic control modulation: paused the dynamic control modulation
