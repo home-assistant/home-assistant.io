@@ -62,7 +62,7 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 ![ESP32-S3-BOX-3 config file](/images/assist/esp32-s3-config-05.png)
    
 5. Once the installation is complete, you can see the new image on the ESP32-S3-BOX-3.
-   - Now, speak a command to test the new setting. For example, *OK Nabu turn on the light*.
+   - Now, speak a command to test the new setting. For example, *OK Nabu turn off the living room lights*.
 
 ## Option 2: Using your own images
 
