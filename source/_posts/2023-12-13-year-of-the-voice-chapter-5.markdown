@@ -20,11 +20,11 @@ At the start of 2023, Home Assistant had basic text-based control for some devic
 
 - Any [ESPHome] device with a microphone
 - Android phones, tablets, and smart watches
-- Old school analog phones
+- Old school analog phones ([with an adapter][phone-tutorial])
 
-Home Assistant users can now create multiple voice assistants by mixing and matching components of a voice "pipeline". HA Cloud subscribers automatically gain access to high-quality voice components in over 130 languages and dialects. Fully local components are available as well, such as our [Piper] text-to-speech system, allowing for 100% offline voice control.
+Home Assistant users can now create multiple voice assistants by mixing and matching components of a voice "pipeline". Home Assistant Cloud subscribers automatically gain access to high-quality voice components in over 130 languages and dialects. Fully local components are available as well, such as our [Piper] text-to-speech system, allowing for 100% offline voice control.
 
-In [Chapter 4], we added wake word processing directly into Home Assistant by leveraging the [openWakeWord] project. This allowed tiny voice satellites such as the M5 ATOM Echo Development Kit to offload wake word detection by streaming audio to a Home Assistant server. The community has been hard at work training a variety of [custom wake words](community-wake-words) that everyone can use to make their voice experience unique.
+In [Chapter 4], we added wake word processing directly into Home Assistant by leveraging the [openWakeWord] project. This allowed tiny voice satellites such as the [M5 ATOM Echo Development Kit][m5-tutorial] to offload wake word detection by streaming audio to a Home Assistant server. The community has been hard at work training a variety of [custom wake words](community-wake-words) that everyone can use to make their voice experience unique.
 
 For the final chapter of 2023, we have expanded the available types of voice commands to include weather, temperature, and to-do lists. Voice satellites are now aware of which area they're in, and more hardware/software options are available too.
 
@@ -107,11 +107,11 @@ Raspberry Pi Zero 2 W (MSRP: $15 USD).
 </p>
 
 
-## Stay Tuned
+## Stay tuned
 
-Although the Year of Voice is coming to a close, voice in Home Assistant is just getting started! Mike "The Voice" Hansen will continue at Nabu Casa to improve and extend the voice and natural language capabilities of Home Assistant.
+Although the Year of Voice is coming to a close, voice in Home Assistant is just getting started! I, Mike "The Voice" Hansen, will continue at Nabu Casa to improve and extend the voice and natural language capabilities of Home Assistant.
 
-Upcoming voice features for next year include timers, local wake word detection on the S3-BOX-3, and integration with large language models (LLMs) like GPT. We're also still on the hunt for the perfect voice satellite hardware: inexpensive with great audio, but also capable of running open source wake word models locally.
+On the roadmap for next year, we're planning things like local wake word detection on the S3-BOX-3, and integration with large language models (LLMs) like GPT. We're also still on the hunt for the perfect voice satellite hardware: inexpensive with great audio, but also capable of running open source wake word models locally.
 
 
 ## Thank you
@@ -141,3 +141,5 @@ Thanks to our language leaders for extending the sentence support to all the var
 [s3-box-tutorial]: https://www.home-assistant.io/voice_control/s3_box_voice_assistant/
 [ESPHome]: https://esphome.io
 [nabucasa]: https://www.nabucasa.com
+[phone-tutorial]: https://www.home-assistant.io/voice_control/worlds-most-private-voice-assistant/
+[m5-tutorial]: http://localhost:4000/voice_control/thirteen-usd-voice-remote/
