@@ -126,6 +126,10 @@ Keep Master Light:
   description: Keep the master light, even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to appear and remove dynamically.
 {% endconfiguration_basic %}
 
+## Communication details / Firewall requirements
+
+The communication between Home Assistant and WLED uses port 80/tcp (tested with WLED 0.14.0). Home Assistant initiates the connection (source port is random).
+
 ## Example automations
 
 ### Activating random effect
