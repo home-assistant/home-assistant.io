@@ -172,9 +172,9 @@ You can also save the images with transparent background and then change the bac
 
 ## Related topics
 
-- [Community image repository](https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/tree/main)- 
+- [Community image repository](https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/tree/main)
 - [Home Assistant Cloud](https://www.nabucasa.com)
 - [Assist Pipeline](/voice_control/voice_remote_local_assistant)
-- [ESP32-S3-BOX voice assistant](/voice_control/s3_box_voice_assistant/) tutorial
+- [ESP32-S3-BOX voice assistant](/voice_control/s3_box_voice_assistant/)
 - [General troubleshooting section for Assist](/voice_control/troubleshooting/)
 - [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
