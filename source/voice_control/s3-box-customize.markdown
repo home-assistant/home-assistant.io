@@ -134,8 +134,8 @@ You can also save the images with transparent background and then change the bac
    ```
 
 4. If you used transparency in your images and you want to change the background color, add the following lines into the `substitution` block:
-   - The default is black and white.
-   - If you want to use different colors, replace the corresponding hexadecimal color code.
+   - The `000000` stands for black, `FFFFFF` stands for white in [hexadecimal color code](https://www.w3schools.com/html/html_colors_hex.asp).
+   - If you want to use different colors, replace the corresponding color code.
 
      ```yaml
      substitution:
