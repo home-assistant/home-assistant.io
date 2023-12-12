@@ -119,7 +119,7 @@ You can also save the images with transparent background and then change the bac
 #### Image dimensions and file format
 
 - **Screen dimensions**: 320 x 240 pixels
-- **File format**: png
+- **File format**: png or jpeg
 
 ### To prepare your own images
 
