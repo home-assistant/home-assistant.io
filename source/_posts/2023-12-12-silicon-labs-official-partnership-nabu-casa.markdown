@@ -2,7 +2,7 @@
 layout: post
 title: "Silicon Labs partners with Nabu Casa to support Open Source"
 description: "Silicon Labs, the company behind Z-Wave and designer of chips used in Z-Wave, Zigbee, Thread, and more, has entered an official partnership with Nabu Casa. Our work is fundamental to the growth of the Z-Wave ecosystem, and we are happy to see this get acknowledged by Silicon Labs with this partnership. As a partner, we are now able to collaborate with Silicon Labs to report bugs and get our issues fixed with priority."
-date: 2023-12-10 00:00:02
+date: 2023-12-12 00:00:02
 date_formatted: "December 12, 2023"
 author: Guy Sie
 comments: true
