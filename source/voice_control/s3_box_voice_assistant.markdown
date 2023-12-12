@@ -41,7 +41,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 1. While keeping this tutorial page open, open the [ESPHome projects page](https://esphome.io/projects/index.html) in a Chrome or Edge browser on a desktop. It does not work on a tablet or phone.
    - In the **I want to create a** section, select **Voice assistant**.
    - Select the image of the ESP32-S3-BOX.
-   - From the list, select the ESP32-S3-BOX variant that you have.
+   - From the list, select the product variant that you have.
    - Select the **Connect** button. If your browser does not support web serial, you will see a warning instead of a button.
    - **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/firmware/blob/main/voice-assistant/m5stack-atom-echo.yaml).
 
