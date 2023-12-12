@@ -89,13 +89,13 @@ There are 6 different states to illustrate:
 
 #### Using light and dark image background
 
-To make it easier to distinguish the different states when you look at your screen, change the background depending on the state:
+To make it easier to recognize a state change when you look at your screen, in your image, you could use 2 different background colors:
 
 - For loading and idle: use a dark background
 - For the listening, thinking, replying: use a light background
 - For error: As you like
   
-If your images have transparency, you change the background in the configuration file. 
+If your images have transparency, you can define the background color in the configuration. There is a step in the procedure below showing you how you can change this.
 
 #### Image dimensions and file format
 
