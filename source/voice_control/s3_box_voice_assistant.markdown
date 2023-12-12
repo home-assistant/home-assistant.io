@@ -50,7 +50,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
    - Your ESP32-S3-BOX-3 is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
 2.   Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
 
-## Controlling Home Assistant over the ESP32-S3-BOX-3
+## Controlling Home Assistant
 
 1. Say your wake word. For this tutorial, use "OK, Nabu".
 2. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn on the light*.
