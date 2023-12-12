@@ -14,7 +14,7 @@ og_image: /images/blog/2023-12-siliconlabs/siliconlabs-og.png
 
 ![Silicon Labs and Nabu Casa](/images/blog/2023-12-siliconlabs/siliconlabs-og.png)
 
-Silicon Labs is the company behind Z-Wave and designs chips for Z-Wave, Zigbee, Thread, and more standards. Their chips provide connectivity to many devices, including Philips Hue, Ring, IKEA TRÅDFRI, and our own Home Assistant Yellow and Home Assistant SkyConnect products. In fact, every Z-Wave chip in a Z-Wave product ever made came from Silicon Labs.
+Silicon Labs is the company behind Z-Wave and designs chips for Z-Wave, Zigbee, Thread, and more standards. Their chips provide connectivity to many devices, including Philips Hue, Ring, IKEA TRÅDFRI, and our own [Home Assistant Yellow](/yellow) and [Home Assistant SkyConnect](/skyconnect) products. In fact, every Z-Wave chip in a Z-Wave product ever made came from Silicon Labs.
 
 We love open standards because they live up to our [Open Home values](https://www.home-assistant.io/blog/2021/12/23/the-open-home/) for the smart home: privacy, choice, and sustainability. This is why Nabu Casa, with the revenue received from Home Assistant Cloud subscribers, invests heavily in integrating these open standards, which involves working on a daily basis with Silicon Labs technologies. For example, we employ [Dominic](https://github.com/alcalzone) to work full-time on [Z-Wave JS](https://github.com/zwave-js) and [Nikita](https://github.com/puddly) to work full-time on [Zigpy](https://github.com/zigpy/zigpy), the library powering Zigbee in Home Assistant. Other developers are dedicated to making sure the Silicon Labs chips inside our own hardware work perfectly in Home Assistant.
 
