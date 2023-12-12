@@ -116,7 +116,7 @@ You can also save the images with transparent background and then change the bac
 
 ### To add your images to the configuration
 
-1. Go to **Settings** > **Add-ons**, select the **ESPHome** add-on and **Open Web UI**.
+1. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
 2. On the **ESP32-S3-BOX-3** add-on, select edit.
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
