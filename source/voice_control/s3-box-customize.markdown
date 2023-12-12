@@ -64,7 +64,6 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 ![ESP32-S3-BOX-3 config file](/images/assist/esp32-s3-config-05.png)
    
 5. Once the installation is complete, you can see the new image on the ESP32-S3-BOX-3.
-   - Reboot the device.
    - Now, speak a command to test the new setting. For example, *OK Nabu turn on the light*.
 
 ## Using your own images
@@ -156,10 +155,9 @@ You can also save the images with transparent background and then change the bac
    {% endraw %}
 5. Save the changes and select **Install**.
    ![ESP32-S3-BOX-3 config file](/images/assist/s32-s3-add-image-config-02.png)
-6. Save the changes and restart Home Assistant.
+6. Save the changes.
    - Depending on your environment, the installation process can take a while.
 7. Once the installation is complete, you can see the new image on the S3-BOX.
-   - Reboot the device.
    - Now, speak a command to test the new setting. For example, *OK Nabu turn on the light*.
 
 ## Related topics
