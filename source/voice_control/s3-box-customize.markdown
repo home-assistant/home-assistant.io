@@ -1,42 +1,32 @@
 ---
-title: "Customize the S3-BOX with your own images"
-product_name: ESP32-S3-BOX
-device_name_entry: ESP32-S3-BOX
-config_link: /voice_control/thirteen-usd-voice-remote/#to-delete-the-atom-echo-configuration-from-esphome
+title: "Customize the S3-BOX-3 with your own images"
+product_name: ESP32-S3-BOX-3
+device_name_entry: ESP32-S3-BOX-3
 ---
 
-This tutorial will show you how to replace the Home Assistant status images on the ESP32-S3-BOX by custom images. 
+This tutorial will show you how to replace the Home Assistant status images on the Espressif [ESP32-S3-BOX-3](https://www.espressif.com/en/news/ESP32-S3-BOX-3) by custom images.
 
 You can either prepare your own images or use images from a community repository.
-It applies to the following three ESP32 devices by Espressif:
-
-- [ESP32-S3-BOX](https://www.espressif.com/en/news/ESP32-S3-BOX_video)
-- [ESP32-S3-BOX-3](https://www.espressif.com/en/news/ESP32-S3-BOX-3)
-- [ESP32-S3-BOX-Lite](https://www.espressif.com/en/news/ESP32-S3-BOX_video)
-
-The steps are the same for all three product variants. The term *ESP32-S3-BOX* is used to refer to all three variants.
 
 ## Prerequisites
 
 - Latest version of Home Assistant, installed with the Home Assistant Operating System
 - [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
-- Successfully completed the [ESP32-S3-BOX voice assistant](/voice_control/s3_box_voice_assistant/) tutorial
+- Successfully completed the [ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/) tutorial
 
 ## Adopting the device in the ESPHome add-on
 
 Before you can import new images, you need to install the ESPHome add-on and adopt the device in the add-on.
 
-1. Make sure the ESP32-S3-BOX is up and running and connected to your Wi-Fi.
+1. Make sure the ESP32-S3-BOX-3 is up and running and connected to your Wi-Fi.
 2. Go to **Settings** > **Add-ons** and check if you have the **ESPHome** add-on installed.
    - If you haven't done so, install the add-on.
 3. Start the add-on.
 4. Once the add-on is running, select **Open web UI**.
-5. In the ESPHome add-on dashboard, on the **ESP32-S3-BOX** card, select **Adopt**.
-   ![Adopt the ESP32-S3-BOX in the ESPHome add-on](/images/assist/esp32-adopt-s3.png)
+5. In the ESPHome add-on dashboard, on the **ESP32-S3-BOX-3** card, select **Adopt**.
+   ![Adopt the ESP32-S3-BOX-3 in the ESPHome add-on](/images/assist/esp32-adopt-s3.png)
 6. If you like, give it a new name. Then, select **Adopt**.
-7. Copy the encryption key and store it in a safe place.
-   - It will also be available within the UI, but it is always good to keep a copy.
-   - **Result**: Once you copied the key, the status will change to **Online**.
+   - **Result**: The status will change to **Online**.
 8. Now that you have set up the ESPHome add-on, continue with one of the 2 different methods to add custom images:
    - [Using images from a community repository](#using-images-from-a-community-repository)
    - [Using your own images](#using-your-own-images)
@@ -50,9 +40,9 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 
 ### To use images from the community
 
-1. On the **ESP32-S3-BOX** add-on, select edit.
+1. On the **ESP32-S3-BOX-3** add-on, select edit.
    - **Result**: An editor opens, showing the configuration file.
-   ![ESP32-S3-BOX config file](/images/assist/esp32-adopt-s3-01.png)
+   ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 2. For inspiration, we have prepared some images for you.
    - Check them out in this [repository](https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/tree/main).
 3. For this tutorial, we will use some images of Frenck.
@@ -74,15 +64,15 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 4. Save the changes and select **Install**:
    - Depending on your environment, the installation process can take a while.
    - Expect this to take about 25 minutes. The code needs to be compiled before it can be installed.
-![ESP32-S3-BOX config file](/images/assist/esp32-s3-config-05.png)
+![ESP32-S3-BOX-3 config file](/images/assist/esp32-s3-config-05.png)
    
-5. Once the installation is complete, you can see the new image on the S3-BOX.
+5. Once the installation is complete, you can see the new image on the ESP32-S3-BOX-3.
    - Reboot the device.
    - Now, speak a command to test the new setting. For example, *OK Nabu turn on the light*.
 
 ## Using your own images
 
-Perform this task if you want to use your own images on the S32-S3-BOX.
+Perform this task if you want to use your own images on the ESP32-S3-BOX-3.
 
 This task consist of 2 procedures:
 
@@ -93,7 +83,7 @@ This task consist of 2 procedures:
 
 ### About the images
 
-To make sure the images can be displayed properly on the S3-BOX screen, check out the following requirements.
+To make sure the images can be displayed properly on the ESP32-S3-BOX-3 screen, check out the following requirements.
 
 #### Illustrating 6 different states
 
@@ -118,7 +108,7 @@ You can also save the images with transparent background and then change the bac
 
 #### Image dimensions and file format
 
-- **Screen dimensions**: 320 x 240 pixels
+- **Dimensions**: The screen is 320 x 240 pixels. If the image you provide is not in a 4:3 ratio, the background color will be shown in the remaining area.
 - **File format**: png or jpeg
 
 ### To prepare your own images
@@ -131,14 +121,14 @@ You can also save the images with transparent background and then change the bac
 4. Paste your image folder into the configuration folder:
    - Using Samba, open the `config` folder and open the `ESPHome` folder.
    - Paste your image folder in there.
-   ![ESP32-S3-BOX config file](/images/assist/s32-s3-add-image-folder.png)
+   ![ESP32-S3-BOX-3 config file](/images/assist/s32-s3-add-image-folder.png)
 
 ### To add your images to the configuration
 
 1. Go to **Settings** > **Add-ons**, select the **ESPHome** add-on and **Open Web UI**.
-2. On the **ESP32-S3-BOX** add-on, select edit.
+2. On the **ESP32-S3-BOX-3** add-on, select edit.
    - **Result**: An editor opens, showing the configuration file.
-   ![ESP32-S3-BOX config file](/images/assist/esp32-adopt-s3-01.png)
+   ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 
 3. To add your images, add the following lines into the `substitution` block.
     {% raw %}
@@ -170,7 +160,7 @@ You can also save the images with transparent background and then change the bac
 
    {% endraw %}
 5. Save the changes and select **Install**.
-   ![ESP32-S3-BOX config file](/images/assist/s32-s3-add-image-config-02.png)
+   ![ESP32-S3-BOX-3 config file](/images/assist/s32-s3-add-image-config-02.png)
 6. Save the changes and restart Home Assistant.
    - Depending on your environment, the installation process can take a while.
    - Expect this to take about 25 minutes. The code needs to be compiled before it can be installed.
@@ -183,6 +173,6 @@ You can also save the images with transparent background and then change the bac
 - [Community image repository](https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/tree/main)
 - [Home Assistant Cloud](https://www.nabucasa.com)
 - [Assist Pipeline](/voice_control/voice_remote_local_assistant)
-- [ESP32-S3-BOX voice assistant](/voice_control/s3_box_voice_assistant/)
+- [ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/)
 - [General troubleshooting section for Assist](/voice_control/troubleshooting/)
 - [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
