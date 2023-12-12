@@ -70,7 +70,7 @@ Before you can import new images, you need to install the ESPHome add-on and ado
     ```
 
    {% endraw %}
-   
+
 4. Save the changes and select **Install**:
    - Depending on your environment, the installation process can take a while.
    - Expect this to take about 25 minutes. The code needs to be compiled before it can be installed.
@@ -124,7 +124,7 @@ You can also save the images with transparent background and then change the bac
 ### To prepare your own images
 
 1. Create your own images according the specifications defined [above](#about-the-images).
-2. Paste all 6 images into a folder. For example: `frenck`.
+2. Paste all 6 images into a folder. For example: `voice_assistant_pictures`.
 3. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
    - [Install the Samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
    - Samba allows you to copy paste multiple files at once.
@@ -140,17 +140,16 @@ You can also save the images with transparent background and then change the bac
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX config file](/images/assist/esp32-adopt-s3-01.png)
 
-3. For this tutorial, we will use some images of Frenck.
-   - To add your images, add the following lines into the `substitution` block.
+3. To add your images, add the following lines into the `substitution` block.
     {% raw %}
 
      ```yaml
-      loading_illustration_file: /config/esphome/frenck/loading_320_240.png
-      idle_illustration_file: /config/esphome/frenck/idle_320_240.png
-      listening_illustration_file: /config/esphome/frenck/listening_320_240.png
-      thinking_illustration_file: /config/esphome/frenck/thinking_320_240.png
-      replying_illustration_file: /config/esphome/frenck/replying_320_240.png
-      error_illustration_file: /config/esphome/frenck/error_320_240.png
+      loading_illustration_file: /config/esphome/voice_assistant_pictures/loading_320_240.png
+      idle_illustration_file: /config/esphome/voice_assistant_pictures/idle_320_240.png
+      listening_illustration_file: /config/esphome/voice_assistant_pictures/listening_320_240.png
+      thinking_illustration_file: /config/esphome/voice_assistant_pictures/thinking_320_240.png
+      replying_illustration_file: /config/esphome/voice_assistant_pictures/replying_320_240.png
+      error_illustration_file: /config/esphome/voice_assistant_pictures/error_320_240.png
       ```
 
     {% endraw %}
