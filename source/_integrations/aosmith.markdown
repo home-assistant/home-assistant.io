@@ -38,6 +38,10 @@ The water heater entity offers the following capabilities:
 - Change operation mode
 - Enable/disable away mode (will set the water heater to "vacation" mode)
 
+### Sensor
+
+There is a sensor entity for hot water availability (low, medium, or high).
+
 ## Disclaimer
 
 This integration is not affiliated with or endorsed by A. O. Smith.
