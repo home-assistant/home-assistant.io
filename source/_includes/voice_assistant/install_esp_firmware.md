@@ -4,9 +4,7 @@
    - In the pop-up window, view the available ports.
    - Plug the USB-C cable into the {{ product_name }} and connect it to your computer.
    - In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
-     - Depending on your computer, the entry might look different.
-   ![Select USB port](/images/assist/esp32-atom-flash-select-port.png)
-   - If no new port shows, your system may be missing a driver. Close the pop-up window.
+   - **Troubleshooting**: If no new port shows, your system may be missing a driver. Close the pop-up window.
      - In the dialog, select the CH342 driver, install it, then **Try again**.
    ![Open My link](/images/assist/esp32-atom-flash-no-port.png)
 3. Select **Install Voice Assistant**, then **Install**.
@@ -22,7 +20,7 @@
 5. Select **OK**. 
    
    ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
-6. If, at this stage, a dialog opens, prompting you to enter the connection settings of your ESPHome node, it means there is already a configuration set up for that ESPHome device.
+6. **Troubleshooting**: If, at this stage, a dialog opens, prompting you to enter the connection settings of your ESPHome node, it means there is already a configuration set up for that ESPHome device.
    - Close the dialog and perform the procedure on [deleting the {{ product_name }} configuration from ESPHome]({{ config_link }}).
    - Restart Home Assistant.
    - Then, under {% my integrations title="**Settings** > **Devices & Services**" %}, your {{ product_name }} should be discovered.
