@@ -148,7 +148,7 @@ You can also save the images with transparent background and then change the bac
       error_illustration_file: /config/esphome/frenck/error_320_240.png
     ```
     {% endraw %}
-3. If you used transparency in your images and you want to change the background color, add the following lines:
+4. If you used transparency in your images and you want to change the background color, add the following lines:
    - The default is black and white.
    - If you want to use different colors, replace the corresponding hexadecimal color code.
      {% raw %}
