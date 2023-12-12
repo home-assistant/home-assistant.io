@@ -31,7 +31,7 @@ Before you can import new images, you need to install the ESPHome add-on and ado
    - [Using images from a community repository](#using-images-from-a-community-repository)
    - [Using your own images](#using-your-own-images)
 
-## Using images from a community repository
+## Option 1: Using images from a community repository
 
 - Perform this procedure, if you want to use ready-made images by the community.
 - If you want to use your own images, skip this procedure and go to [Using your own images](#using-your-own-images) instead.
@@ -46,18 +46,15 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 3. For this tutorial, we will use some images of Frenck.
    - Add the following lines into the `substitution` block.
 
-   {% raw %}
-
      ```yaml
-      loading_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/loading_320_240.png
-      idle_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/idle_320_240.png
-      listening_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/listening_320_240.png
-      thinking_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/thinking_320_240.png
-      replying_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/replying_320_240.png
-      error_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/error_320_240.png
-    ```
-
-   {% endraw %}
+     substitution:
+       loading_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/loading_320_240.png
+       idle_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/idle_320_240.png
+       listening_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/listening_320_240.png
+       thinking_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/thinking_320_240.png
+       replying_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/replying_320_240.png
+       error_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/error_320_240.png
+     ```
 
 4. Save the changes and select **Install**:
    - Depending on your environment, the installation process can take a while.
@@ -66,11 +63,11 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 5. Once the installation is complete, you can see the new image on the ESP32-S3-BOX-3.
    - Now, speak a command to test the new setting. For example, *OK Nabu turn on the light*.
 
-## Using your own images
+## Option 2: Using your own images
 
 Perform this task if you want to use your own images on the ESP32-S3-BOX-3.
 
-This task consist of 2 procedures:
+There are 2 parts to this:
 
 - [Preparing your own images](#to-prepare-your-own-images)
 - [Adding your images to the configuration](#to-add-your-images-to-the-configuration)
@@ -125,34 +122,32 @@ You can also save the images with transparent background and then change the bac
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 
 3. To add your images, add the following lines into the `substitution` block.
-    {% raw %}
 
-     ```yaml
-      loading_illustration_file: /config/esphome/voice_assistant_pictures/loading_320_240.png
-      idle_illustration_file: /config/esphome/voice_assistant_pictures/idle_320_240.png
-      listening_illustration_file: /config/esphome/voice_assistant_pictures/listening_320_240.png
-      thinking_illustration_file: /config/esphome/voice_assistant_pictures/thinking_320_240.png
-      replying_illustration_file: /config/esphome/voice_assistant_pictures/replying_320_240.png
-      error_illustration_file: /config/esphome/voice_assistant_pictures/error_320_240.png
-      ```
+   ```yaml
+   substitution:
+     loading_illustration_file: /config/esphome/voice_assistant_pictures/loading_320_240.png
+     idle_illustration_file: /config/esphome/voice_assistant_pictures/idle_320_240.png
+     listening_illustration_file: /config/esphome/voice_assistant_pictures/listening_320_240.png
+     thinking_illustration_file: /config/esphome/voice_assistant_pictures/thinking_320_240.png
+     replying_illustration_file: /config/esphome/voice_assistant_pictures/replying_320_240.png
+     error_illustration_file: /config/esphome/voice_assistant_pictures/error_320_240.png
+   ```
 
-    {% endraw %}
-
-4. If you used transparency in your images and you want to change the background color, add the following lines:
+4. If you used transparency in your images and you want to change the background color, add the following lines into the `substitution` block:
    - The default is black and white.
    - If you want to use different colors, replace the corresponding hexadecimal color code.
-     {% raw %}
 
      ```yaml
-      loading_illustration_background_color: '000000'
-      idle_illustration_background_color: '000000'
-      listening_illustration_background_color: 'FFFFFF'
-      thinking_illustration_background_color: 'FFFFFF'
-      replying_illustration_background_color: 'FFFFFF'
-      error_illustration_background_color: '000000'
-      ```
+     substitution:
+       ...
+       loading_illustration_background_color: '000000'
+       idle_illustration_background_color: '000000'
+       listening_illustration_background_color: 'FFFFFF'
+       thinking_illustration_background_color: 'FFFFFF'
+       replying_illustration_background_color: 'FFFFFF'
+       error_illustration_background_color: '000000'
+     ```
 
-   {% endraw %}
 5. Save the changes and select **Install**.
    ![ESP32-S3-BOX-3 config file](/images/assist/s32-s3-add-image-config-02.png)
 6. Save the changes.
