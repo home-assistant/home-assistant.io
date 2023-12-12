@@ -26,6 +26,7 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 5. In the ESPHome add-on dashboard, on the **ESP32-S3-BOX-3** card, select **Adopt**.
    ![Adopt the ESP32-S3-BOX-3 in the ESPHome add-on](/images/assist/esp32-adopt-s3.png)
 6. If you like, give it a new name. Then, select **Adopt**.
+   - Adopting an ESPHome device allows us to customize the existing software on the device.
    - **Result**: The status will change to **Online**.
 7. Now that you have set up the ESPHome add-on, continue with one of the 2 different methods to add custom images:
    - [Using images from a community repository](#using-images-from-a-community-repository)
