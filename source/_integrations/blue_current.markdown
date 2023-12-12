@@ -21,9 +21,11 @@ The Blue Current integration allows you to connect to your blue current account 
 
 ## Prerequisites
 
-1. Log in to the [Blue Current driver portal](https://my.bluecurrent.nl/).
-2. Goto settings and enable developer mode.
-3. Generate an API token.
+1. Log in to [my.bluecurrent.nl](https://my.bluecurrent.nl/).
+2. Click on your username and go to settings.
+3. Enable advanced options.
+4. Click on your username again and go to advanced.
+5. Generate an API token.
 
 {% include integrations/config_flow.md %}
 
@@ -43,7 +45,7 @@ The Blue Current integration provides the following sensors:
 - Started on
 - Stopped on
 - Total cost in EUR
-- Total kW (estimate)
+- Total power (estimate)
 - Vehicle status
 
 The following sensors are created as well, but disabled by default:
