@@ -58,6 +58,7 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 3. For this tutorial, we will use some images of Frenck.
    - Add the following lines into the `substitution` block.
     
+   {% raw %}
      ```yaml
       loading_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/loading_320_240.png
       idle_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/idle_320_240.png
@@ -66,7 +67,7 @@ Before you can import new images, you need to install the ESPHome add-on and ado
       replying_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/replying_320_240.png
       error_illustration_file: https://raw.githubusercontent.com/jlpouffier/home-assistant-s3-box-community-illustrations/main/frenck/illustrations/error_320_240.png
     ```
-
+   {% endraw %}
 4. Save the changes and select **Install**:
    - Depending on your environment, the installation process can take a while.
    - Expect this to take about 25 minutes. The code needs to be compiled before it can be installed.
@@ -137,7 +138,7 @@ You can also save the images with transparent background and then change the bac
 
 3. For this tutorial, we will use some images of Frenck.
    - To add your images, add the following lines into the `substitution` block.
-    
+    {% raw %}
      ```yaml
       loading_illustration_file: /config/esphome/frenck/loading_320_240.png
       idle_illustration_file: /config/esphome/frenck/idle_320_240.png
@@ -146,11 +147,11 @@ You can also save the images with transparent background and then change the bac
       replying_illustration_file: /config/esphome/frenck/replying_320_240.png
       error_illustration_file: /config/esphome/frenck/error_320_240.png
     ```
-
+    {% endraw %}
 3. If you used transparency in your images and you want to change the background color, add the following lines:
    - The default is black and white.
    - If you want to use different colors, replace the corresponding hexadecimal color code.
-
+     {% raw %}
      ```yaml      
       loading_illustration_background_color: '000000'
       idle_illustration_background_color: '000000'
@@ -159,7 +160,7 @@ You can also save the images with transparent background and then change the bac
       replying_illustration_background_color: 'FFFFFF'
       error_illustration_background_color: '000000'
       ```
-
+   {% endraw %}
 5. Save the changes and select **Install**.
    ![ESP32-S3-BOX config file](/images/assist/s32-s3-add-image-config-02.png)
 6. Save the changes and restart Home Assistant.
