@@ -36,8 +36,6 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 - Perform this procedure, if you want to use ready-made images by the community.
 - If you want to use your own images, skip this procedure and go to [Using your own images](#using-your-own-images) instead.
 
-**Duration**: about 30 minutes
-
 ### To use images from the community
 
 1. On the **ESP32-S3-BOX-3** add-on, select edit.
@@ -63,7 +61,6 @@ Before you can import new images, you need to install the ESPHome add-on and ado
 
 4. Save the changes and select **Install**:
    - Depending on your environment, the installation process can take a while.
-   - Expect this to take about 25 minutes. The code needs to be compiled before it can be installed.
 ![ESP32-S3-BOX-3 config file](/images/assist/esp32-s3-config-05.png)
    
 5. Once the installation is complete, you can see the new image on the ESP32-S3-BOX-3.
@@ -78,8 +75,6 @@ This task consist of 2 procedures:
 
 - [Preparing your own images](#to-prepare-your-own-images)
 - [Adding your images to the configuration](#to-add-your-images-to-the-configuration)
-  
-**Duration**: ca. 35 minutes, without counting the time to create the images.
 
 ### About the images
 
@@ -163,7 +158,6 @@ You can also save the images with transparent background and then change the bac
    ![ESP32-S3-BOX-3 config file](/images/assist/s32-s3-add-image-config-02.png)
 6. Save the changes and restart Home Assistant.
    - Depending on your environment, the installation process can take a while.
-   - Expect this to take about 25 minutes. The code needs to be compiled before it can be installed.
 7. Once the installation is complete, you can see the new image on the S3-BOX.
    - Reboot the device.
    - Now, speak a command to test the new setting. For example, *OK Nabu turn on the light*.
