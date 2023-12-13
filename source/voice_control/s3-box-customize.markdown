@@ -106,6 +106,8 @@ If your images have transparency, you can define the background color in the con
 ### To prepare your own images
 
 1. Create your own images according the specifications defined [above](#about-the-images).
+   - You could even draw your own! 
+   - There's a [template for it](#to-draw-your-own-images).
 2. Copy all 6 images into a folder. For example: `voice_assistant_gfx`.
 3. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
    - [Install the Samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
@@ -156,6 +158,19 @@ If your images have transparency, you can define the background color in the con
    - Depending on your environment, the installation process can take a while.
 7. Once the installation is complete, you can see the new image on the S3-BOX.
    - Now, speak a command to test the new setting. For example, *OK Nabu turn on the light*.
+
+## To draw your own images
+
+1. We prepared a template for you to draw you own status images.
+![ESP32-S3-BOX-3 config file](/images/assist/draw_assist.png)
+2. Download the file and start drawing!
+
+      <a href="/images/assist/draw_assist.pdf" Download>
+      <img width="60" src="/images/assist/download-file.png" alt="Draw Assist">
+      </a>
+3. When you are done:
+   - Snap a picture of each.
+   - [Follow these steps](#to-prepare-your-own-images) to bring them onto your Voice Assistant.
 
 ## Related topics
 
