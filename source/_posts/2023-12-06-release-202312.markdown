@@ -437,10 +437,15 @@ The following integrations are now available via the Home Assistant UI:
 - Add name slot to HassClimateGetTemperature intent ([@synesthesiam] - [#105585])
 - Skip TTS events entirely with empty text ([@synesthesiam] - [#105617])
 - Rename "satellite enabled" to "mute" ([@synesthesiam] - [#105619])
+- Fix timing issue in Withings ([@joostlek] - [#105203])
+- Update pylint to 3.0.3 ([@cdce8p] - [#105491])
+- Reload ZHA integration on any error, not just recoverable ones ([@puddly] - [#105659])
+- Bump ZHA dependencies ([@puddly] - [#105661])
 
 [#104853]: https://github.com/home-assistant/core/pull/104853
 [#104936]: https://github.com/home-assistant/core/pull/104936
 [#105135]: https://github.com/home-assistant/core/pull/105135
+[#105203]: https://github.com/home-assistant/core/pull/105203
 [#105294]: https://github.com/home-assistant/core/pull/105294
 [#105310]: https://github.com/home-assistant/core/pull/105310
 [#105324]: https://github.com/home-assistant/core/pull/105324
@@ -457,6 +462,7 @@ The following integrations are now available via the Home Assistant UI:
 [#105462]: https://github.com/home-assistant/core/pull/105462
 [#105465]: https://github.com/home-assistant/core/pull/105465
 [#105476]: https://github.com/home-assistant/core/pull/105476
+[#105491]: https://github.com/home-assistant/core/pull/105491
 [#105500]: https://github.com/home-assistant/core/pull/105500
 [#105508]: https://github.com/home-assistant/core/pull/105508
 [#105513]: https://github.com/home-assistant/core/pull/105513
@@ -464,6 +470,8 @@ The following integrations are now available via the Home Assistant UI:
 [#105585]: https://github.com/home-assistant/core/pull/105585
 [#105617]: https://github.com/home-assistant/core/pull/105617
 [#105619]: https://github.com/home-assistant/core/pull/105619
+[#105659]: https://github.com/home-assistant/core/pull/105659
+[#105661]: https://github.com/home-assistant/core/pull/105661
 [@DerFlob]: https://github.com/DerFlob
 [@FrnchFrgg]: https://github.com/FrnchFrgg
 [@KJonline]: https://github.com/KJonline
@@ -472,6 +480,7 @@ The following integrations are now available via the Home Assistant UI:
 [@bdraco]: https://github.com/bdraco
 [@bouwew]: https://github.com/bouwew
 [@catsmanac]: https://github.com/catsmanac
+[@cdce8p]: https://github.com/cdce8p
 [@dknowles2]: https://github.com/dknowles2
 [@emontnemery]: https://github.com/emontnemery
 [@frenck]: https://github.com/frenck
@@ -480,6 +489,7 @@ The following integrations are now available via the Home Assistant UI:
 [@jbouwh]: https://github.com/jbouwh
 [@joostlek]: https://github.com/joostlek
 [@mkmer]: https://github.com/mkmer
+[@puddly]: https://github.com/puddly
 [@synesthesiam]: https://github.com/synesthesiam
 
 ## Need help? Join the community!
