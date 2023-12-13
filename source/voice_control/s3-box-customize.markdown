@@ -25,7 +25,7 @@ The chart shows the default illustrations. The next steps show you how to change
 ## Prerequisites
 
 - Latest version of Home Assistant, installed with the Home Assistant Operating System
-- [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
+- [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html?gatewayAdapt=4itemAdapt). The ESP32-S3-BOX-Lite or the ESP32-S3-BOX also work, but they are not currently on the market.
 - Successfully completed the [ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/) tutorial
 
@@ -44,13 +44,13 @@ Before you can import new illustrations, you need to install the ESPHome add-on 
    - Adopting an ESPHome device allows us to customize the existing software.
    - **Result**: The status will change to **Online**.
 6. Now that you have set up the ESPHome add-on, continue with one of the 2 different methods to add custom images:
-   - [Using images from a community repository](#using-images-from-a-community-repository)
-   - [Using your own images](#using-your-own-images)
+   - [Option 1: Using images from a community repository](#option-1-using-images-from-a-community-repository)
+   - [Option 2: Using your own images](#option-2-using-your-own-illustrations)
 
 ## Option 1: Using images from a community repository
 
 If you want new images but don't want to create your own, you can use images from the community.
-If you want to use your own images, skip this procedure and go to [Using your own images](#using-your-own-images) instead.
+If you want to use your own images, skip this procedure and go to [Option 2: Using your own imagess](#option-2-using-your-own-illustrations) instead.
 
 ### To use images from the community
 
@@ -92,7 +92,7 @@ Here's what you need to know to get the best result on your ESP32-S3-BOX-3 scree
 
 #### Using light and dark image background
 
-In the [Chart](#esp32-s3-box-3-voice-assistant-status-illustrations), you can see that the default images use different background colors. This is to make it easier to recognize a state change when you look at your screen.
+In the [overview diagram](#esp32-s3-box-3-voice-assistant-status-illustrations), you can see that the default images use different background colors. This is to make it easier to recognize a state change when you look at your screen.
 
 In your images, you could use 2 different background colors:
 
@@ -104,14 +104,14 @@ If your images have transparency, you can define the background color in the con
 
 #### Image dimensions and file format
 
-- **Dimensions**: The screen is 320 x 240 pixels. If the image you provide is not in a 4:3 ratio, the background color will be shown in the remaining area.
+- **Dimensions**: The screen is 320 x 240 pixels. If the image you provide is not in a 4:3 ratio, the remaining area will be filled with background color.
 - **File format**: PNG, JPEG, or SVG
 
 ### To prepare your own images
 
 1. Create your own images according to the specifications defined in the section [About the image specifications](#about-the-image-specifications).
    - You could even draw your own! 
-   - There's a [template for it](#to-draw-your-own-images).
+   - There's a [template](#to-draw-your-own-images) for it.
 2. Copy all 6 images into a folder. For example: `voice_assistant_gfx`.
 3. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
    - [Install the Samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
@@ -179,8 +179,9 @@ If your images have transparency, you can define the background color in the con
 ## Related topics
 
 - [Community image repository](https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/tree/main)
-- [Home Assistant Cloud](https://www.nabucasa.com)
+- [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/)
 - [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - [ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/)
 - [General troubleshooting section for Assist](/voice_control/troubleshooting/)
+- [Troubleshooting the ESP32-S3-BOX-3](/voice_control/troubleshooting_the_s3_box/)
 - [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
