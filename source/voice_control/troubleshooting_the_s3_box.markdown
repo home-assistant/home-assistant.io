@@ -27,6 +27,7 @@ The ESP32-S3-BOX-3 shows a message that it is unable to connect to Wi-Fi.
        3. On the **ESP32-S3-BOX-3** add-on, select edit.
           ![ESP32-S3-BOX-3 open config file](/images/assist/esps32-s3-edit-config.png)
           - **Result**: An editor opens, showing the configuration file.
+          ![ESP32-S3-BOX-3 edit config file](/images/assist/esp32-edit-wifi-credentials.png)
        4. Under the Wi-Fi component, enter your Wi-Fi credentials:
           - Instead of `!secret wifi_ssid`, enter the name of your 2.4&nbsp;GHz Wi-Fi.
           - Instead of `!secret wifi_password`, enter the password.
