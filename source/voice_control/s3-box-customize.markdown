@@ -101,12 +101,12 @@ If your images have transparency, you can define the background color in the con
 #### Image dimensions and file format
 
 - **Dimensions**: The screen is 320 x 240 pixels. If the image you provide is not in a 4:3 ratio, the background color will be shown in the remaining area.
-- **File format**: png or jpeg
+- **File format**: png, jpeg, or svg
 
 ### To prepare your own images
 
 1. Create your own images according the specifications defined [above](#about-the-images).
-2. Copy all 6 images into a folder. For example: `voice_assistant_pictures`.
+2. Copy all 6 images into a folder. For example: `voice_assistant_gfx`.
 3. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
    - [Install the Samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
    - This allows you to copy paste multiple files at once.
@@ -126,12 +126,12 @@ If your images have transparency, you can define the background color in the con
 
    ```yaml
    substitution:
-     loading_illustration_file: /config/esphome/voice_assistant_pictures/loading_320_240.png
-     idle_illustration_file: /config/esphome/voice_assistant_pictures/idle_320_240.png
-     listening_illustration_file: /config/esphome/voice_assistant_pictures/listening_320_240.png
-     thinking_illustration_file: /config/esphome/voice_assistant_pictures/thinking_320_240.png
-     replying_illustration_file: /config/esphome/voice_assistant_pictures/replying_320_240.png
-     error_illustration_file: /config/esphome/voice_assistant_pictures/error_320_240.png
+     loading_illustration_file: voice_assistant_gfx/loading.png
+     idle_illustration_file: voice_assistant_gfx/idle.png
+     listening_illustration_file: voice_assistant_gfx/listening.png
+     thinking_illustration_file: voice_assistant_gfx/thinking.png
+     replying_illustration_file: voice_assistant_gfx/replying.png
+     error_illustration_file: voice_assistant_gfx/error.png
    ```
 
 4. If you used transparency in your images and you want to change the background color, add the following lines into the `substitution` block:
