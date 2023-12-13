@@ -26,7 +26,7 @@ The ESP32-S3-BOX-3 shows a message that it is unable to connect to Wi-Fi.
      2. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
      3. On the **ESP32-S3-BOX-3** add-on, select edit.
        ![ESP32-S3-BOX-3 open config file](/images/assist/esps32-s3-edit-config.png)
-       - **Result**: An editor opens, showing the configuration file.
+        - **Result**: An editor opens, showing the configuration file.
        ![ESP32-S3-BOX-3 edit config file](/images/assist/esp32-edit-wifi-credentials.png)
      4. In the **wifi** section, check if it refers to the `secrets` file (contains `!secret`).
         If it does not contain a **wifi** section, enter the section below:
@@ -58,7 +58,11 @@ This message indicates that the device could connect to the Wi-Fi, but is unable
    - In this case, there is nothing you need to do. It is expected that the device temporarily stops communicating.
 2. Make sure your device is on the same network as Home Assistant.
    - If you have a complex network setup with VLAN, make sure it is in the same VLAN.
-3. If you see the screen below, but the ESP32-S3-BOX-3 is not listed, select **Setup another instance of ESPHome**.
+3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+   - If the device is shown as **Discovered**, select **Configure**.
+     ![ESP32-S3-BOX-3 open config file](/images/assist/esp32-discovered.png)
+   - If it was not discovered, select [**Add integration** > **ESPHome**](https://my.home-assistant.io/redirect/config_flow_start/?domain=esphome).
+4. If you see the screen below, but the ESP32-S3-BOX-3 is not listed, select **Setup another instance of ESPHome**.
 
    ![ESP32-S3-BOX-3 open config file](/images/assist/esp32-s3-box-not-discovered.png)
    - Go to your router, find the IP address or hostname of your device, and enter it.
