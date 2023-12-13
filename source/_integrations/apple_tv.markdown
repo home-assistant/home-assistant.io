@@ -95,6 +95,7 @@ The following commands are currently available:
 - `top_menu`
 - `menu`
 - `select`
+- `select_hold`
 - `play`
 - `pause`
 - `up`
