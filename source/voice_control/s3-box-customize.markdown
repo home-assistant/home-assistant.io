@@ -36,15 +36,14 @@ Before you can import new illustrations, you need to install the ESPHome add-on 
 1. Make sure the ESP32-S3-BOX-3 is up and running and connected to your Wi-Fi.
 2. Go to **Settings** > **Add-ons** and check if you have the **ESPHome** add-on installed.
    - If you haven't done so, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome) to install the add-on.
-3. Start the add-on.
-4. Once the add-on is running, select **Open web UI**.
-5. In the ESPHome add-on dashboard, on the **ESP32-S3-BOX-3** card, select **Adopt**.
+3. Start the add-on and select **Open web UI**.
+4. In the ESPHome add-on dashboard, on the **ESP32-S3-BOX-3** card, select **Adopt**.
 
    ![Adopt the ESP32-S3-BOX-3 in the ESPHome add-on](/images/assist/esp32-adopt-s3.png)
-6. If you like, give it a new name. Then, select **Adopt**.
+5. If you like, give it a new name. Then, select **Adopt**.
    - Adopting an ESPHome device allows us to customize the existing software.
    - **Result**: The status will change to **Online**.
-7. Now that you have set up the ESPHome add-on, continue with one of the 2 different methods to add custom images:
+6. Now that you have set up the ESPHome add-on, continue with one of the 2 different methods to add custom images:
    - [Using images from a community repository](#using-images-from-a-community-repository)
    - [Using your own images](#using-your-own-images)
 
