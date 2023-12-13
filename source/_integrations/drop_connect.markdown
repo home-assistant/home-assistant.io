@@ -26,7 +26,7 @@ There is currently support for the following DROP products within Home Assistant
 - **DROP Hub**: centralized system status and control.
 - **Leak Detector**: reports detected leaks around the home.
 - **Softener**: improves water quality by decreasing water hardness with integral water shutoff.
-- **Filter**: improves water quality by removing comtaminants with integral water shutoff.
+- **Filter**: improves water quality by removing contaminants with integral water shutoff.
 - **Protection Valve**: automatic water shutoff with slow leak detection.
 - **Pump Controller**: smart replacement for an FSG pressure switch.
 - **RO Filter**: reverse osmosis drinking water filtration.
