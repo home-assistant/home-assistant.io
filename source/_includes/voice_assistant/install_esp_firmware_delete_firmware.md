@@ -6,6 +6,7 @@
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}, and select the ESPHome integration.
    - Under **Devices**, next to the **{{device_name_entry}}** entry, select the three-dots menu.
    - Select **Delete**.
+   ![Delete the S3_Box from the device list](/images/assist/esp32-devices-delete-01.png)
 2. Make sure you have [access to the configuration files](/common-tasks/os/#configuring-access-to-files).
    - If you have never done this before, [install the file editor add-on](/common-tasks/os/#installing-and-using-the-file-editor-add-on).
 3. Access the config files and open the **esphome** folder.
