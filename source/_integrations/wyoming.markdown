@@ -23,6 +23,9 @@ The **Wyoming** {% term integration %} connects external voice services to Home 
 - Piper {% my supervisor_addon badge addon="core_piper" %}
 - openWakeWord {% my supervisor_addon badge addon="core_openwakeword" %}
 
+### Note on automatic discovery of Piper and Whisper
+If you are using the Piper and/or Whisper add-ons, they should be automatically discovered by Home Assistant. If they are not, check if the add-ons are already started. 
+
 {% include integrations/config_flow.md %}
 
 ## Satellites
