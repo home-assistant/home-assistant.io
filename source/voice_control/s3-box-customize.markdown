@@ -11,13 +11,14 @@ You can either prepare your own illustrations or use illustrations from a commun
 <lite-youtube videoid="HQQfaXTbhvc" videotitle="Okay Frenck! Open-source voice assistant running on an Espressif ESP32-S3-Box-3
 "></lite-youtube>
 
-## About the images used to illustrate different states
+## ESP32-S3-BOX-3 voice assistant state illustrations
 
 6 different images are used to illustrate the 6 different stated of the ESP32-S3-BOX-3 voice assistant.
 
-- The states are: loading, idle, listening, thinking, replying, error
-
-![ESP32-S3-BOX-3 config file](/images/assist/s3-box-status-images.png)
+<p class='img'>
+  <img src='/images/assist/s3-box-status-images.png' alt='Screenshot showing energy price graph.'>
+  The ESP32-S3-BOX-3 states: loading, idle, listening, thinking, replying, error.
+</p>
 
 The chart shows the illustrations that are used by default. The next steps show you how you can changes those.
 
