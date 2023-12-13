@@ -2,7 +2,7 @@
 layout: post
 title: "Year of the Voice - Chapter 5"
 description: "More hardware options and intents"
-date: 2023-12-07 00:00:00
+date: 2023-12-13 00:00:00
 date_formatted: "December 13, 2023"
 author: Michael Hansen
 comments: true
