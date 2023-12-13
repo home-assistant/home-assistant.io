@@ -69,4 +69,5 @@ This message indicates that the device could connect to the Wi-Fi, but is unable
 
 ## Related topics
 
-- [Assist Pipeline](/voice_control/voice_remote_local_assistant)
+- [Creating a ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/)
+- [ESPHome projects website](https://esphome.io/projects/index.html)
