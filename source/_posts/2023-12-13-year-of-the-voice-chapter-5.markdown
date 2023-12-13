@@ -97,8 +97,6 @@ Several satellite modes are supported, including:
 
 Audio clean up, such as automatic gain control and noise suppression, may be done in Home Assistant or on the satellite. A [Raspberry Pi Zero 2 W][rpi-zero-2w] has more than enough power to do local audio clean up and wake word detection, allowing you to have many satellites without straining your Home Assistant server. Reuse your old Raspberry Pi's, and start your journey with smart home voice control!
 
-TODO: Add tutorial link
-
 <p class='img'>
 <img src='/images/blog/2023-12-13-year-of-the-voice-chapter-5/raspberry_pi_zero2w.png'>
 Raspberry Pi Zero 2 W (MSRP: $15 USD).
