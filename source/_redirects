@@ -251,8 +251,9 @@ layout: null
 /docs/assist/using_voice_assistants_overview/ /voice_control/
 /docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
-/voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi /s3-box-no-wifi/
-/voice_control/troubleshooting_the_s3_box/#error-no-home-assistant /s3-box-no-ha
+# Redirect for the QR Codes on the S3 Box
+/s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
+/s3-box-no-ha /voice_control/troubleshooting_the_s3_box/#error-no-home-assistant
 /docs/assist/troubleshooting/ /voice_control/troubleshooting/
 /docs/assist/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
 /projects/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
