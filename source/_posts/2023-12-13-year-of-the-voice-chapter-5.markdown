@@ -40,8 +40,8 @@ Assist running on the ESP32-S3-BOX-3.
 Espressif recently released the [ESP32-S3-BOX-3], an update of the discontinued ESP32-S3-BOX (and "lite" variant). This "AIoT" development kit contains an ESP32-S3 chip, dual microphones, a small speaker, and a screen. Several docks are available in the box, which expose a USB-C power connector and GPIO pins for expanding the device.
 
 <p class='img'>
-<lite-youtube videoid="erf7HqTwCGs" videotitle="Assist on the ESP32-S3-Box-3"></lite-youtube>
-Assist running on the ESP32-S3-BOX-3 with included artwork.
+<lite-youtube videoid="73QhFefsbbc" videotitle="Assist on the ESP32-S3-Box-3 with custom artwork"></lite-youtube>
+Assist running on the ESP32-S3-BOX-3 with custom artwork.
 </p>
 
 The [ESPHome] team has been hard at work adding support for the S3-BOX-3, including the ability to customize the display! Check out the [S3-BOX-3 tutorial][s3-box-tutorial] to get started.
