@@ -20,7 +20,7 @@ The ESP32-S3-BOX-3 shows a message that it is unable to connect to Wi-Fi.
    - **Option 1**: You do not have the ESPHome add-on installed or you have the add-on but did **not** adopt the ESP32-S3-BOX-3. If the device is shown in green, it is not adopted. 
       ![ESP32-S3-BOX-3 not adopted](/images/assist/esp32-not-adopted.png)
      1. Make sure the USB cable is plugged into the ESP32-S3-BOX-3.
-     2. Go to https://esphome.io/projects/index.html select the **Connect** button, then **Change Wi-Fi**.
+     2. Go to the [ESPHome projects website](https://esphome.io/projects/index.html), select the **Connect** button, then **Change Wi-Fi**.
    - **Option 2**: You already have the ESPHome add-on installed and adopted the ESP32-S3-BOX-3 on your ESPHome dashboard.
      1. Make sure the USB cable is plugged into the ESP32-S3-BOX-3.
      2. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
