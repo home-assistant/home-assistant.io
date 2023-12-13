@@ -1,15 +1,25 @@
 ---
-title: "Customize the S3-BOX-3 with your own images"
+title: "Customize the S3-BOX-3 with your own illustrations"
 product_name: ESP32-S3-BOX-3
 device_name_entry: ESP32-S3-BOX-3
 ---
 
-This tutorial will show you how to replace the Home Assistant status images on the Espressif [ESP32-S3-BOX-3](https://www.espressif.com/en/news/ESP32-S3-BOX-3) by custom images.
+This tutorial will show you how to replace the Home Assistant status illustrations on the Espressif [ESP32-S3-BOX-3](https://www.espressif.com/en/news/ESP32-S3-BOX-3) by custom illustrations.
 
-You can either prepare your own images or use images from a community repository.
+You can either prepare your own illustrations or use illustrations from a community repository.
 
 <lite-youtube videoid="HQQfaXTbhvc" videotitle="Okay Frenck! Open-source voice assistant running on an Espressif ESP32-S3-Box-3
 "></lite-youtube>
+
+## About the images used to illustrate different states
+
+6 different images are used to illustrate the 6 different stated of the ESP32-S3-BOX-3 voice assistant.
+
+- The states are: loading, idle, listening, thinking, replying, error
+
+![ESP32-S3-BOX-3 config file](/images/assist/s3-box-status-images.png)
+
+The chart shows the illustrations that are used by default. The next steps show you how you can changes those.
 
 ## Prerequisites
 
@@ -20,7 +30,7 @@ You can either prepare your own images or use images from a community repository
 
 ## Adopting the device in the ESPHome add-on
 
-Before you can import new images, you need to install the ESPHome add-on and adopt the device in the add-on.
+Before you can import new illustrations, you need to install the ESPHome add-on and adopt the device in the add-on.
 
 1. Make sure the ESP32-S3-BOX-3 is up and running and connected to your Wi-Fi.
 2. Go to **Settings** > **Add-ons** and check if you have the **ESPHome** add-on installed.
@@ -69,24 +79,16 @@ If you want to use your own images, skip this procedure and go to [Using your ow
 5. Once the installation is complete, you can see the new image on the ESP32-S3-BOX-3.
    - Now, speak a command to test the new setting. For example, *OK Nabu turn off the living room lights*.
 
-## Option 2: Using your own images
+## Option 2: Using your own illustrations
 
 There are 2 parts to this:
 
-- [Preparing your own images](#to-prepare-your-own-images)
-- [Adding your images to the configuration](#to-add-your-images-to-the-configuration)
+- [Preparing your own illustrations](#to-prepare-your-own-images)
+- [Adding your illustrations to the configuration](#to-add-your-images-to-the-configuration)
 
-### About the images
+### About the image specifications
 
 Here's what you need to know so that the images can be displayed properly on the ESP32-S3-BOX-3 screen.
-
-#### Illustrating 6 different states
-
-There are 6 different states to illustrate:
-
-- loading, idle, listening, thinking, replying, error
-
-![ESP32-S3-BOX-3 config file](/images/assist/s3-box-status-images.png)
 
 #### Using light and dark image background
 
