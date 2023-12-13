@@ -24,7 +24,7 @@ This platform uses the web interface of the Logitech Media Server to send comman
 </div>
 
 <div class='note'>
-The integration now supports Logitech Media Servers behind an https reverse proxy. Please note that Logitech Media Server only natively supports http traffic, so do not select the `https` option unless you have configured such a reverse proxy. Remember you will likely need to update the port from the default as well.
+The integration now supports Logitech Media Servers behind an HTTPS reverse proxy. Please note that Logitech Media Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the `https` option. If you have configured a reverse proxy, remember to update the port number.
 </div>
 
 The Logitech Transporter which have two digital inputs can be activated using a script. The following example turns on the Transporter and activates the toslink input interface:
