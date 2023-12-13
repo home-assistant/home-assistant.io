@@ -29,8 +29,8 @@ For the final chapter of 2023, we have expanded the available types of voice com
 Happy holidays!
 
 <p class='img'>
-<lite-youtube videoid="73QhFefsbbc" videotitle="ESP32-S3-Box with custom artwork"></lite-youtube>
-Assist running on the ESP32-S3-BOX-3 with custom artwork.
+<lite-youtube videoid="erf7HqTwCGs" videotitle="ESP32-S3-Box running Assist"></lite-youtube>
+Assist running on the ESP32-S3-BOX-3.
 </p>
 
 <!--more-->
