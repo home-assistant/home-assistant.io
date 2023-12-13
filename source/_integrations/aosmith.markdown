@@ -40,7 +40,9 @@ The water heater entity offers the following capabilities:
 
 ### Sensor
 
-There is a sensor entity for hot water availability (low, medium, or high).
+The following sensor entities are available:
+- Hot water availability (low, medium, or high)
+- Energy usage
 
 ## Disclaimer
 
