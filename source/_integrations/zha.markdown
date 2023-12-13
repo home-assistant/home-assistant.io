@@ -129,6 +129,10 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - [ZiGate-Ethernet (Ethernet gateway board for PiZiGate)](https://zigate.fr/produit/zigate-ethernet/)
   - [ZiGate + WiFi Pack](https://zigate.fr/produit/zigatev2-pack-wifi/)
 
+<div class='note'>
+  If you are using Home Assistant OS, Supervised, or Container, then it is recommended to use a USB dongle instead of a module, as passing a module through Docker is more complicated than passing a USB device through.
+</div>
+
 #### Warning about Wi-Fi-based Zigbee-to-Serial bridges/gateways
 
 <div class="note warning">
