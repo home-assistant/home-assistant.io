@@ -4,7 +4,7 @@ product_name: ESP32-S3-BOX-3
 device_name_entry: ESP32-S3-BOX-3
 ---
 
-This tutorial will show you how to replace the Home Assistant status illustrations on the Espressif [ESP32-S3-BOX-3](https://www.espressif.com/en/news/ESP32-S3-BOX-3) with custom illustrations.
+This tutorial will show you how to replace the Home Assistant status illustrations on the Espressif [ESP32-S3-BOX-3](https://www.espressif.com/en/news/ESP32-S3-BOX-3) with your own images.
 
 You can either prepare your own illustrations or import some from a community repository.
 
@@ -93,13 +93,15 @@ Here's what you need to know to get the best result on your ESP32-S3-BOX-3 scree
 
 #### Using light and dark image background
 
-To make it easier to recognize a state change when you look at your screen, in your image, you could use 2 different background colors:
+In the [Chart](#esp32-s3-box-3-voice-assistant-status-illustrations), you can see that the default images use different background colors. This is to make it easier to recognize a state change when you look at your screen.
+
+In your images, you could use 2 different background colors:
 
 - For loading and idle: use a dark background
 - For the listening, thinking, replying: use a light background
 - For error: As you like
   
-If your images have transparency, you can define the background color in the configuration. The procedure below shows how to change the background. The default images have a transparent background.
+If your images have transparency, you can define the background color in the configuration. The procedure below shows how to change the background.
 
 #### Image dimensions and file format
 
