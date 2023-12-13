@@ -6,14 +6,14 @@ device_name_entry: ESP32-S3-BOX-3
 
 This tutorial will show you how to replace the Home Assistant status illustrations on the Espressif [ESP32-S3-BOX-3](https://www.espressif.com/en/news/ESP32-S3-BOX-3) by custom illustrations.
 
-You can either prepare your own illustrations or use illustrations from a community repository.
+You can either prepare your own illustrations or import some from a community repository.
 
 <lite-youtube videoid="HQQfaXTbhvc" videotitle="Okay Frenck! Open-source voice assistant running on an Espressif ESP32-S3-Box-3
 "></lite-youtube>
 
-## ESP32-S3-BOX-3 voice assistant state illustrations
+## ESP32-S3-BOX-3 voice assistant status illustrations
 
-6 different images are used to illustrate the 6 different stated of the ESP32-S3-BOX-3 voice assistant.
+The ESP32-S3-BOX-3 voice assistant has 6 illustrations to indicate its state:
 
 <p class='img'>
   <img src='/images/assist/s3-box-status-images.png' alt='Screenshot showing energy price graph.'>
