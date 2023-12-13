@@ -2,7 +2,7 @@
 title: "ESP32-S3-BOX-3 voice assistant"
 product_name: ESP32-S3-BOX-3
 device_name_entry: ESP32-S3-BOX-3
-config_link: /voice_control/s3_box_voice_assistant/#to-delete-the-ESP32-S3-BOX-3-configuration-from-esphome
+config_link: /voice_control/s3_box_voice_assistant/#to-delete-the-configuration-from-esphome
 ---
 
 This tutorial will guide you to turn an ESP32-S3-BOX-3 into a Home Assistant voice assistant.
@@ -21,11 +21,15 @@ This tutorial will guide you to turn an ESP32-S3-BOX-3 into a Home Assistant voi
   - ESP32-S3-BOX or ESP32-S3-BOX-Lite (they are not currently on the market)
 - USB-C cable to connect the ESP32-S3-BOX-3
 
+## Adding a wake word to your voice assistant
+
 {% include voice_assistant/add_wake_word_to_voice_assistant.md %}
 
 ## Installing the software onto the ESP32-S3-BOX-3
 
 If you have used the ESP32-S3-BOX-3 on Home Assistant before and have it installed via ESPHome add-on, you first need to remove its configuration.
+
+### To delete the configuration from ESPHome
 
 {% include voice_assistant/install_esp_firmware_delete_firmware.md %}
 
@@ -81,5 +85,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 - [Create your own wake words](/voice_control/create_wake_word/)
 - [General troubleshooting section for Assist](/voice_control/troubleshooting/)
+- [Troubleshooting the ESP32-S3-BOX-3](/voice_control/troubleshooting_the_s3_box/)
+- [ESPHome projects page](https://esphome.io/projects/index.html)
 - [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
 - [Using a sentence trigger](/voice_control/custom_sentences/)
