@@ -1,8 +1,6 @@
 {% capture product_name %}{{ include.name | default: page.product_name }}{% endcapture %}
 {% capture device_name_entry %}{{ include.name | default: page.device_name_entry }}{% endcapture %}
 
-### To delete the {{ product_name }} configuration from ESPHome
-
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}, and select the ESPHome integration.
    - Under **Devices**, next to the **{{device_name_entry}}** entry, select the three-dots menu.
    - Select **Delete**.

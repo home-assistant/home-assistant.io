@@ -21,11 +21,15 @@ your smart home. Issue commands and get responses!
 - [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
 - USB-C cable to connect the ATOM Echo
 
+## Adding a wake word to your voice assistant
+
 {% include voice_assistant/add_wake_word_to_voice_assistant.md %}
 
-## Installing the software onto the {{ product_name }}
+## Installing the software onto the ATOM Echo
 
-If you have used the {{ product_name }} on Home Assistant before and have it installed via ESPHome add-on, you first need to remove its configuration.
+If you have used the ATOM Echo on Home Assistant before and have it installed via ESPHome add-on, you first need to remove its configuration.
+
+### To delete the configuration from ESPHome
 
 {% include voice_assistant/install_esp_firmware_delete_firmware.md %}
 
