@@ -20,7 +20,7 @@ The ESP32-S3-BOX-3 voice assistant has 6 illustrations to indicate its state:
   The ESP32-S3-BOX-3 states: loading, idle, listening, thinking, replying, error.
 </p>
 
-The chart shows the illustrations that are used by default. The next steps show you how you can changes those.
+The chart shows the illustrations that are used by default. The next steps show you how to changes those.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Before you can import new illustrations, you need to install the ESPHome add-on 
 
 1. Make sure the ESP32-S3-BOX-3 is up and running and connected to your Wi-Fi.
 2. Go to **Settings** > **Add-ons** and check if you have the **ESPHome** add-on installed.
-   - If you haven't done so, install the add-on.
+   - If you haven't done so, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome) to install the add-on.
 3. Start the add-on.
 4. Once the add-on is running, select **Open web UI**.
 5. In the ESPHome add-on dashboard, on the **ESP32-S3-BOX-3** card, select **Adopt**.
