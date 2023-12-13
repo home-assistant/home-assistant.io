@@ -101,7 +101,7 @@ command_line:
           default: true
           type: string
         command_state:
-          description: If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a `0` the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.
+          description: If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a `0` the indicates the cover is fully closed, whereas a `100` indicates the cover is fully open. The state may also be returned as `closed`, `closing`, `open` or `opening`.
           required: false
           type: string
         command_stop:
@@ -114,6 +114,10 @@ command_line:
           required: false
           type: integer
           default: 15
+        device_class:
+          description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: string
         name:
           description: The name used to display the cover in the frontend.
           required: true
@@ -123,7 +127,7 @@ command_line:
           required: false
           type: string
         value_template:
-          description: if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example configuration above will allow you to translate that into the valid state `100`.
+          description: If specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example configuration below will allow you to translate that into the state `100`. `value_template` also accepts  `closed`, `closing`, `open` or `opening` as valid values.
           required: false
           type: template
         scan_interval:
