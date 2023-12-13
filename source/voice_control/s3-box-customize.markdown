@@ -49,7 +49,7 @@ Before you can import new illustrations, you need to install the ESPHome add-on 
 
 ## Option 1: Using images from a community repository
 
-If you want new images but don't want to create your own, you can use images by the community.
+If you want new images but don't want to create your own, you can use images from the community.
 If you want to use your own images, skip this procedure and go to [Using your own images](#using-your-own-images) instead.
 
 ### To use images from the community
@@ -77,7 +77,7 @@ If you want to use your own images, skip this procedure and go to [Using your ow
 ![ESP32-S3-BOX-3 config file](/images/assist/esp32-s3-config-05.png)
    
 5. Once the installation is complete, you can see the new image on the ESP32-S3-BOX-3.
-   - Now, speak a command to test the new setting. For example, *OK Nabu turn off the living room lights*.
+   - Now, speak a command to test the new setting. For example, *OK Nabu, turn off the living room lights*.
 
 ## Option 2: Using your own illustrations
 
@@ -97,7 +97,7 @@ In the [Chart](#esp32-s3-box-3-voice-assistant-status-illustrations), you can se
 In your images, you could use 2 different background colors:
 
 - For loading and idle: use a dark background
-- For the listening, thinking, replying: use a light background
+- For listening, thinking, and replying: use a light background
 - For error: As you like
   
 If your images have transparency, you can define the background color in the configuration. The procedure below shows how to change the background.
@@ -105,7 +105,7 @@ If your images have transparency, you can define the background color in the con
 #### Image dimensions and file format
 
 - **Dimensions**: The screen is 320 x 240 pixels. If the image you provide is not in a 4:3 ratio, the background color will be shown in the remaining area.
-- **File format**: png, jpeg, or svg
+- **File format**: PNG, JPEG, or SVG
 
 ### To prepare your own images
 
@@ -161,7 +161,7 @@ If your images have transparency, you can define the background color in the con
 6. Save the changes.
    - Depending on your environment, the installation process can take a while.
 7. Once the installation is complete, you can see the new image on the S3-BOX.
-   - Now, speak a command to test the new setting. For example, *OK Nabu turn on the light*.
+   - Now, speak a command to test the new setting. For example, *OK Nabu, turn on the light*.
 
 ## To draw your own images
 
