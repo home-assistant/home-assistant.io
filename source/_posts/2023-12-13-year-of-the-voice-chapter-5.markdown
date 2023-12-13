@@ -10,8 +10,6 @@ categories: Assist
 og_image: /images/blog/2023-12-13-year-of-the-voice-chapter-5/social.png
 ---
 
-TODO: Fix date
-
 <p><img src='/images/blog/2023-12-13-year-of-the-voice-chapter-5/social.png' class='no-shadow' /></p>
 
 We've reached the end of Home Assistant’s [Year of the Voice]! It was our goal for 2023 to let users control Home Assistant by speaking in their own language.
