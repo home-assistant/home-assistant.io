@@ -85,7 +85,7 @@ automations and templates.
 | `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
 | `timestamp` | A timestamp representing the time held in the input.<br>(only available if `has_time: true`)
 
-### Restore State
+### Restore state
 
 If you set a valid value for `initial`, this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 

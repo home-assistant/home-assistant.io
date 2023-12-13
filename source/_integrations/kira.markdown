@@ -34,7 +34,7 @@ kira:
 
 Kira modules have no built-in mechanism for auto-discovery, so will need to be configured to send packets to Home Assistant. The process varies according to the module type. The documentation for each can be found on the [manufacturer's website](https://www.info.keene-electronics.co.uk).
 
-### Configuration Options
+### Configuration options
 
 ```yaml
 # Example configuration.yaml entry
@@ -99,7 +99,7 @@ Restart Home Assistant and you should now have an entity called `kira_remote` (o
   <img src='/images/integrations/kira/kira_states.png' />
 </p>
 
-### IR Codes
+### IR codes
 
 The first time the Kira integration is loaded, `kira_codes.yaml` will be created in the Home Assistant configuration directory.
 
@@ -236,7 +236,7 @@ Example automation using these IR codes to toggle a Sonoff plug.
     type: turn_off
 ```
 
-### Code Types
+### Code types
 
 When creating an entry in `kira_codes.yaml`, a few different kinds of codes can be used.
 

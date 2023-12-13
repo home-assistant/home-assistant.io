@@ -14,7 +14,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices to turn them on.
+The **Wake on LAN** {% term integration %} enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices to turn them on.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -22,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To use this integration in your installation, add the following to your `configuration.yaml` file:
+To use this {% term integration %} in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,7 +58,7 @@ The service to route the packet is most likely named "IP Helper". It may support
 
 ## Switch
 
-The `wake_on_lan` (WOL) switch integration allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
+The `wake_on_lan` (WOL) switch {% term integration %} allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
 
 ### Switch configuration
 

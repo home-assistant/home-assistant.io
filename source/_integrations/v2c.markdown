@@ -1,5 +1,5 @@
 ---
-title: V2C 
+title: V2C
 description: Instructions on how to integrate V2C Trydan EVSE with Home Assistant.
 ha_category:
   - Car
@@ -10,18 +10,21 @@ ha_codeowners:
   - '@dgomes'
 ha_domain: v2c
 ha_platforms:
-  - number
   - binary_sensor
+  - number
   - sensor
   - switch
 ha_integration_type: integration
 ---
 
-The V2C integration allows monitoring of local [V2C](https://v2c.com) Trydan EVSE in Home Assistant.
+The V2C integration allows monitoring and control of a local [V2C](https://v2charge.com/trydan/) Trydan EVSE in Home Assistant.
 
-There is currently support for the following device platforms within Home Assistant:
+There is currently support for the following platforms within Home Assistant:
 
 - [Sensor](#sensor)
+- [Binary sensor](#binary-sensor)
+- [Number](#number)
+- [Switch](#switch)
 
 ## Prerequisites
 

@@ -110,7 +110,7 @@ notify_sms_user1:
 
 {% endraw %}
 
-## Required Hardware
+## Required hardware
 
 You will need a USB GSM stick modem or device like SIM800L v2 connected via USB UART.
 

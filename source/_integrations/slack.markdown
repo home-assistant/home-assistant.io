@@ -43,10 +43,11 @@ In `Features/OAuth and Permissions/OAuth Tokens for Your Workspace`:
 
 ![](/images/integrations/slack/oauth-tokens-for-workspace.png)
 
+6. Ensure that the bot user is added to the channel in which you want it to post. This can be completed in several ways:
 
-Ensure that the bot user is added to the channel in which you want it to post. 
-In Slack, tag the bot user in a message, then add it to the channel. 
-
+- Using `/invite @bot` from the channel
+- Tagging the bot user in a message, then adding it to the channel via the Slackbot prompt.
+- Channel settings -> `Integrations` -> `Add apps`
 
 #### Sample App Manifest
 
@@ -118,7 +119,7 @@ sequence:
 mode: single
 ```
 
-Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder)
+Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder).  Up to 50 blocks may be included per message.
 
 Create a duplicate of this script to use for different messages, and different channels (the door was opened in #security, the light was left on on #lights, etc).
 
@@ -141,7 +142,7 @@ The following attributes can be placed inside the `data` key of the service call
 | `username`               |      yes | The username of the Slack bot.
 | `icon`                   |      yes | The icon of the Slack bot.
 | `file`                   |      yes | A file to include with the message; see below.
-| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` (note that the `message` is required nonetheless).
+| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` within Slack apps. The message field will be used as notification text and anywhere else Slack is unable to display blocks. `message` is required regardless of whether this field is used.
 | `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).
 | `thread_ts`              |      yes | Sends the message as a reply to a specified parent message.
 
@@ -160,6 +161,16 @@ To include a remote file with the Slack message, use these attributes underneath
 | `url`                    |      no  | A URL that has been [whitelisted](/docs/configuration/basic/#allowlist_external_urls).
 | `username`               |      yes | An optional username if the URL is protected by HTTP Basic Auth.
 | `password`               |      yes | An optional password if the URL is protected by HTTP Basic Auth.
+
+### Obtaining a member ID
+
+Some of the examples below use a member ID. This is a unique string assigned by Slack to all users (members and guests) and not a username set by the user. To get a member ID:
+
+1. Select a Slack user (both name and profile image work) to bring up their profile side panel.
+2. Open the context menu by selecting the three dots.
+3. Select **Copy member ID**.
+
+![](/images/integrations/slack/slack-member-id.png)
 
 ### Examples
 
@@ -198,7 +209,7 @@ data:
 To use the block framework:
 
 ```yaml
-message: Fallback message in case the blocks don't display anything.
+message: Fallback message for notifications or in case the blocks don't display anything.
 title: Title of the file.
 data:
   blocks:
@@ -226,7 +237,9 @@ data:
           1.0
 ```
 
-Send a message directly to a user by setting the target to their member ID. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+
+Send a message directly to a user by setting the target to their member ID.
+
 
 ```yaml
 message: "Hello there!"
@@ -236,10 +249,10 @@ data:
   blocks: []
 ```
 
-Send a message to a channel that mentions (@username, highlights a users name in yellow) a user. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+Send a message to a channel that mentions (@username, highlights a users name in yellow) a user.
 
 ```yaml
-message: "<@U12345> your appointment starts soon"
+message: "<@MEMBER_ID> your appointment starts soon"
 target: "#general"
 title: "Reminder"
 data:

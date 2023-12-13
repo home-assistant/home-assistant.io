@@ -19,7 +19,8 @@ To use your MQTT sensor in your installation, add the following to your `configu
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
+  sensor:
+    - name: "Bedroom Temperature"
       state_topic: "home/bedroom/temperature"
 ```
 
@@ -233,8 +234,8 @@ Extra attributes will be displayed in the frontend and can also be extracted in 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "RSSI"
+  sensor:
+    - name: "RSSI"
       state_topic: "home/sensor1/infojson"
       unit_of_measurement: "dBm"
       value_template: "{{ value_json.RSSI }}"
@@ -273,14 +274,14 @@ Extra attributes will be displayed in the frontend and can also be extracted in 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Timer 1"
+  sensor:
+    - name: "Timer 1"
       state_topic: "tele/sonoff/sensor"
       value_template: "{{ value_json.Timer1.Arm }}"
       json_attributes_topic: "tele/sonoff/sensor"
       json_attributes_template: "{{ value_json.Timer1 | tojson }}"
-  - sensor:
-      name: "Timer 2"
+
+    - name: "Timer 2"
       state_topic: "tele/sonoff/sensor"
       value_template: "{{ value_json.Timer2.Arm }}"
       json_attributes_topic: "tele/sonoff/sensor"
@@ -300,8 +301,8 @@ The example below shows how a simple filter, that calculates the value by adding
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Temp 1"
+  sensor:
+    - name: "Temp 1"
       state_topic: "sensor/temperature"
       value_template: |-
         {% if states(entity_id) == None %}
@@ -338,8 +339,8 @@ Thus the trick is extracting the battery level from the payload.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Battery Tablet"
+  sensor:
+    - name: "Battery Tablet"
       state_topic: "owntracks/tablet/tablet"
       unit_of_measurement: "%"
       value_template: "{{ value_json.batt }}"
@@ -366,14 +367,13 @@ Then use this configuration example to extract the data from the payload:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Temperature"
+  sensor:
+    - name: "Temperature"
       state_topic: "office/sensor1"
       suggested_display_precision: 1
       unit_of_measurement: "°C"
-      value_template: "{{ value_json.temperature }}"
-  - sensor:
-      name: "Humidity"
+      value_template: "{{ value_json.temperature }}
+    - name: "Humidity"
       state_topic: "office/sensor1"
       unit_of_measurement: "%"
       value_template: "{{ value_json.humidity }}"
@@ -403,7 +403,7 @@ The configuration will look like the example below:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Brightness"
+  sensor:
+    - name: "Brightness"
       state_topic: "home/bathroom/analog/brightness"
 ```
