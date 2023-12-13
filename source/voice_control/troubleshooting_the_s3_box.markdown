@@ -28,9 +28,8 @@ The ESP32-S3-BOX-3 shows a message that it is unable to connect to Wi-Fi.
        ![ESP32-S3-BOX-3 open config file](/images/assist/esps32-s3-edit-config.png)
        - **Result**: An editor opens, showing the configuration file.
        ![ESP32-S3-BOX-3 edit config file](/images/assist/esp32-edit-wifi-credentials.png)
-     4. Under the Wi-Fi component, enter your Wi-Fi credentials:
-        - Instead of `!secret wifi_ssid`, enter the name of your 2.4&nbsp;GHz Wi-Fi.
-        - Instead of `!secret wifi_password`, enter the password.
+     4. In the **wifi** section, check if it refers to the `secrets` file (contains `!secret`).
+        If it does not contain a **wifi** section, enter the section below:
 
         ```yaml
         wifi:
@@ -38,8 +37,10 @@ The ESP32-S3-BOX-3 shows a message that it is unable to connect to Wi-Fi.
           password: !secret wifi_password
         ```
 
-        - If the file does not contain a **wifi** section, add one.
-        - If you are unsure what the credentials are, log on to your router and open the settings of the 2.4&nbsp;GHz Wi-Fi network.
+     5. Close the editor and in the overview, select **Secrets**.
+        ![ESP32-S3-BOX-3 open config file](/images/assist/esp32-open-secrets.png)
+     6. Enter your Wi-Fi credentials.
+        ![ESP32-S3-BOX-3 open config file](/images/assist/esp32-edit-secrets.png)
 
 ## Error: No Home Assistant
 
