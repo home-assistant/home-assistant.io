@@ -4,7 +4,7 @@ product_name: ESP32-S3-BOX-3
 device_name_entry: ESP32-S3-BOX-3
 ---
 
-This tutorial will show you how to replace the Home Assistant status illustrations on the Espressif [ESP32-S3-BOX-3](https://www.espressif.com/en/news/ESP32-S3-BOX-3) by custom illustrations.
+This tutorial will show you how to replace the Home Assistant status illustrations on the Espressif [ESP32-S3-BOX-3](https://www.espressif.com/en/news/ESP32-S3-BOX-3) with custom illustrations.
 
 You can either prepare your own illustrations or import some from a community repository.
 
@@ -20,13 +20,13 @@ The ESP32-S3-BOX-3 voice assistant has 6 illustrations to indicate its state:
   The ESP32-S3-BOX-3 states: loading, idle, listening, thinking, replying, error.
 </p>
 
-The chart shows the illustrations that are used by default. The next steps show you how to changes those.
+The chart shows the default illustrations. The next steps show you how to change those.
 
 ## Prerequisites
 
 - Latest version of Home Assistant, installed with the Home Assistant Operating System
 - [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
-- [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html?gatewayAdapt=4itemAdapt). The ESP32-S3-BOX-Lite or a ESP32-S3-BOX also work, but they are not currently on the market.
+- [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html?gatewayAdapt=4itemAdapt). The ESP32-S3-BOX-Lite or the ESP32-S3-BOX also work, but they are not currently on the market.
 - Successfully completed the [ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/) tutorial
 
 ## Adopting the device in the ESPHome add-on
@@ -42,7 +42,7 @@ Before you can import new illustrations, you need to install the ESPHome add-on 
 
    ![Adopt the ESP32-S3-BOX-3 in the ESPHome add-on](/images/assist/esp32-adopt-s3.png)
 6. If you like, give it a new name. Then, select **Adopt**.
-   - Adopting an ESPHome device allows us to customize the existing software on the device.
+   - Adopting an ESPHome device allows us to customize the existing software.
    - **Result**: The status will change to **Online**.
 7. Now that you have set up the ESPHome add-on, continue with one of the 2 different methods to add custom images:
    - [Using images from a community repository](#using-images-from-a-community-repository)
@@ -89,7 +89,7 @@ There are 2 parts to this:
 
 ### About the image specifications
 
-Here's what you need to know so that the images can be displayed properly on the ESP32-S3-BOX-3 screen.
+Here's what you need to know to get the best result on your ESP32-S3-BOX-3 screen.
 
 #### Using light and dark image background
 
@@ -99,7 +99,7 @@ To make it easier to recognize a state change when you look at your screen, in y
 - For the listening, thinking, replying: use a light background
 - For error: As you like
   
-If your images have transparency, you can define the background color in the configuration. There is a step in the procedure below showing you how you can change this.
+If your images have transparency, you can define the background color in the configuration. The procedure below shows how to change the background. The default images have a transparent background.
 
 #### Image dimensions and file format
 
@@ -108,13 +108,13 @@ If your images have transparency, you can define the background color in the con
 
 ### To prepare your own images
 
-1. Create your own images according the specifications defined [above](#about-the-images).
+1. Create your own images according to the specifications defined in the section [About the image specifications](#about-the-image-specifications).
    - You could even draw your own! 
    - There's a [template for it](#to-draw-your-own-images).
 2. Copy all 6 images into a folder. For example: `voice_assistant_gfx`.
 3. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
    - [Install the Samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
-   - This allows you to copy paste multiple files at once.
+   - This allows you to copy multiple files at once.
 4. Copy your image folder into the configuration folder:
    - Open the `config` folder and open the `ESPHome` folder.
    - Copy your image folder in there.
@@ -164,7 +164,7 @@ If your images have transparency, you can define the background color in the con
 
 ## To draw your own images
 
-1. We prepared a template for you to draw you own status images.
+1. We prepared a template for you to draw your own status images.
 ![ESP32-S3-BOX-3 config file](/images/assist/draw_assist.png)
 2. Download the file and start drawing!
 
