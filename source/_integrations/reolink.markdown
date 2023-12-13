@@ -248,6 +248,7 @@ The following models have been tested and confirmed to work:
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
+- [RLN12W NVR](https://reolink.com/product/rln12w/)
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
