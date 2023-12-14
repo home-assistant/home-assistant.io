@@ -120,22 +120,22 @@ Thanks to our language leaders for extending the sentence support to all the var
 <img src='/images/blog/2023-12-13-year-of-the-voice-chapter-5/ha-support.png' alt="Thank you for supporting the Home Assistant project">
 </p>
 
-[Year of the Voice]: https://www.home-assistant.io/blog/2022/12/20/year-of-voice/
-[Chapter 1]: https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/
-[Chapter 4]: https://www.home-assistant.io/blog/2023/10/20/year-of-the-voice-chapter-4/
-[Assist]: https://www.home-assistant.io/voice_control/
-[exposed]: https://www.home-assistant.io/voice_control/voice_remote_expose_devices/
-[alias]: https://www.home-assistant.io/voice_control/aliases
+[Year of the Voice]: /blog/2022/12/20/year-of-voice/
+[Chapter 1]: /blog/2023/01/26/year-of-the-voice-chapter-1/
+[Chapter 4]: /blog/2023/10/20/year-of-the-voice-chapter-4/
+[Assist]: /voice_control/
+[exposed]: /voice_control/voice_remote_expose_devices/
+[alias]: /voice_control/aliases
 [wyoming]: https://github.com/rhasspy/wyoming
 [openWakeWord]: https://github.com/dscripka/openWakeWord
 [Piper]: https://github.com/rhasspy/piper/
 [community-wake-words]: https://github.com/fwartner/home-assistant-wakewords-collection
 [ESP32-S3-BOX-3]: https://www.espressif.com/en/news/ESP32-S3-BOX-3
-[wyoming]: https://www.home-assistant.io/integrations/wyoming
+[wyoming]: /integrations/wyoming
 [wyoming-satellite]: https://github.com/rhasspy/wyoming-satellite
 [rpi-zero-2w]: https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/
-[s3-box-tutorial]: https://www.home-assistant.io/voice_control/s3_box_voice_assistant/
+[s3-box-tutorial]: /voice_control/s3_box_voice_assistant/
 [ESPHome]: https://esphome.io
 [nabucasa]: https://www.nabucasa.com
 [phone-tutorial]: https://www.home-assistant.io/voice_control/worlds-most-private-voice-assistant/
-[m5-tutorial]: http://localhost:4000/voice_control/thirteen-usd-voice-remote/
+[m5-tutorial]: /voice_control/thirteen-usd-voice-remote/
