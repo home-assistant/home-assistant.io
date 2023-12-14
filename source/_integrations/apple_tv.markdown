@@ -91,11 +91,9 @@ The following commands are currently available:
 - `wakeup`
 - `suspend`
 - `home`
-- `home_hold`
 - `top_menu`
 - `menu`
 - `select`
-- `select_hold`
 - `play`
 - `pause`
 - `up`
@@ -113,12 +111,13 @@ The following commands are currently available:
 
 ### Service `send_command`
 
-| Service data<br>attribute | Optional | Description                                                                                    |
-| ------------------------- | -------- | ---------------------------------------------------------------------------------------------- |
-| `entity_id`               | no       | `entity_id` of the Apple TV                                                                    |
-| `command`                 | no       | Command, or list of commands to be sent                                                        |
-| `num_repeats`             | yes      | Number of times to repeat the commands                                                         |
-| `delay_secs`              | yes      | Interval in seconds between one send and another <br> This is a `float` value e.g. 1, 1.2 etc. |
+| Service data<br>attribute | Optional | Description                                                                                                                   |
+| ------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`               | no       | `entity_id` of the Apple TV                                                                                                   |
+| `command`                 | no       | Command, or list of commands to be sent                                                                                       |
+| `num_repeats`             | yes      | Number of times to repeat the commands                                                                                        |
+| `delay_secs`              | yes      | Interval in seconds between one send and another <br> This is a `float` value e.g. 1, 1.2 etc.                                |
+| `hold_secs`               | yes      | Number of seconds to hold the button. <br> This is a `float` value but please use 0 for not hold and 1 for holding the button |
 
 ### Examples
 
@@ -141,7 +140,7 @@ lounge_appletv_netflix:
           - select
 ```
 
-Script using the `home_hold` command to send your Apple TV to sleep and turn off
+Script using the quick action menu to send your Apple TV to sleep and turn off
 the Media Player:
 
 ```yaml
@@ -152,9 +151,16 @@ apple_tv_sleep:
       target:
         entity_id: remote.lounge_appletv
       data:
+        hold_secs: 1
         delay_secs: 1
         command:
-          - home_hold
+          - home
+    - service: remote.send_command
+      target:
+        entity_id: remote.lounge_appletv
+      data:
+        delay_secs: 1
+        command:
           - select
     - service: media_player.turn_off
       target:
@@ -179,7 +185,7 @@ data:
 ### My Apple TV does not turn on/off when I press on/off in the frontend
 
 That is correct; it only toggles the power state in Home Assistant. See the
-example above to use the `home_hold` command. This can be used on Apple TVs
+example above to use the quick action menu. This can be used on Apple TVs
 running tvOS 14.0 or later.
 
 ### Is it possible to see if a device is on without interacting with it
