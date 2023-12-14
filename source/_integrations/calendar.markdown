@@ -192,10 +192,10 @@ data:
 {% endraw %}
 
 
-### Service `calendar.list_events`
+### Service `calendar.get_events`
 
 This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
-with calendar events within a date range.
+with calendar events within a date range. It can return events from multiple calendars.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
@@ -209,20 +209,20 @@ Use only one of `end_date_time` or `duration`.
 
 </div>
 
-
-{% raw %}
 ```yaml
-service: calendar.list_events
+service: calendar.get_events
 target:
-  entity_id: calendar.school
+  entity_id:
+    - calendar.school
+    - calendar.work
 data:
   duration:
     hours: 24
 response_variable: agenda
 ```
-{% endraw %}
 
-The response data field `events` is a list of events with these fields:
+The response data contains a field for every calendar entity (e.g. `calendar.school` and `calendar.work` in this case).
+Every calendar entity has a field `events` containing a list of events with these fields:
 
 | Response data | Description | Example |
 | ---------------------- | ----------- | -------- |
@@ -236,16 +236,17 @@ This example uses a template with response data in another service call:
 
 {% raw %}
 ```yaml
-service: notify.gmail_com
+service: notify.nina
 data:
-  target: gduser1@workspacesamples.dev
   title: Daily agenda for {{ now().date() }}
   message: >-
-    Your agenda for today:
-    <p>
-    {% for event in agenda.events %}
+    Your school calendar for today:
+    {% for event in agenda["calendar.school_calendar"]["events"] %}
     {{ event.start}}: {{ event.summary }}<br>
     {% endfor %}
-    </p>
+    Your work calendar for today:
+    {% for event in agenda["calendar.work_calendar"]["events"] %}
+    {{ event.start}}: {{ event.summary }}<br>
+    {% endfor %}
 ```
 {% endraw %}
