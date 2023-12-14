@@ -30,7 +30,7 @@ Happy holidays!
 
 <p class='img'>
 <lite-youtube videoid="erf7HqTwCGs" videotitle="ESP32-S3-Box running Assist"></lite-youtube>
-Assist running on the ESP32-S3-BOX-3.
+Assist running on the ESP32-S3-BOX.
 </p>
 
 <!--more-->
@@ -40,8 +40,8 @@ Assist running on the ESP32-S3-BOX-3.
 Espressif recently released the [ESP32-S3-BOX-3], an update of the discontinued ESP32-S3-BOX (and "lite" variant). This "AIoT" development kit contains an ESP32-S3 chip, dual microphones, a small speaker, and a screen. Several docks are available in the box, which expose a USB-C power connector and GPIO pins for expanding the device.
 
 <p class='img'>
-<lite-youtube videoid="73QhFefsbbc" videotitle="Assist on the ESP32-S3-Box-3 with custom artwork"></lite-youtube>
-Assist running on the ESP32-S3-BOX-3 with custom artwork.
+<lite-youtube videoid="73QhFefsbbc" videotitle="Assist on the ESP32-S3-Box with custom artwork"></lite-youtube>
+Assist running on the ESP32-S3-BOX with custom artwork.
 </p>
 
 The [ESPHome] team has been hard at work adding support for the S3-BOX-3, including the ability to customize the display! Check out the [S3-BOX-3 tutorial][s3-box-tutorial] to get started.
@@ -58,7 +58,7 @@ Starting all the way back in [Chapter 1], we added voice commands for:
 - Turning lights and other devices on and off
 - Opening and closing doors, windows, etc.
 - Setting the brightness and color of lights
-- Adding items to a shopping list 
+- Adding items to a shopping list
 - Asking questions, such as which windows are open in an area
 
 For Chapter 5, we've extended this list to include:
@@ -80,7 +80,7 @@ Voice satellites can be placed all around the house, and it's important to keep 
 Voice satellites make use of the area they're in.
 </p>
 
-This is a small start to satellites being aware of their *context*, and adjusting behavior accordingly. 
+This is a small start to satellites being aware of their *context*, and adjusting behavior accordingly.
 
 
 ## Improved Raspberry Pi satellites
@@ -124,7 +124,7 @@ Thanks to our language leaders for extending the sentence support to all the var
 [Chapter 1]: https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/
 [Chapter 4]: https://www.home-assistant.io/blog/2023/10/20/year-of-the-voice-chapter-4/
 [Assist]: https://www.home-assistant.io/voice_control/
-[exposed]: https://www.home-assistant.io/voice_control/voice_remote_expose_devices/ 
+[exposed]: https://www.home-assistant.io/voice_control/voice_remote_expose_devices/
 [alias]: https://www.home-assistant.io/voice_control/aliases
 [wyoming]: https://github.com/rhasspy/wyoming
 [openWakeWord]: https://github.com/dscripka/openWakeWord
