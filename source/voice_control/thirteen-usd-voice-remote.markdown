@@ -15,15 +15,12 @@ your smart home. Issue commands and get responses!
 ## Prerequisites
 
 - Home Assistant 2023.10, installed with the Home Assistant Operating System
-- [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
+- [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
+- Have [enabled a wake word](/voice_control/install_wake_word_add_on/) for your voice assistant
 - The password to your 2.4&nbsp;GHz Wi-Fi network
 - Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS)
 - [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
 - USB-C cable to connect the ATOM Echo
-
-## Adding a wake word to your voice assistant
-
-{% include voice_assistant/add_wake_word_to_voice_assistant.md %}
 
 ## Installing the software onto the ATOM Echo
 
@@ -116,7 +113,10 @@ Are things not working as expected?
 
 ## Related topics
 
+- [Enable a wake word](/voice_control/install_wake_word_add_on/)
 - [Create your own wake words](/voice_control/create_wake_word/)
 - [General troubleshooting section for Assist](/voice_control/troubleshooting/)
 - [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
 - [Using a sentence trigger](/voice_control/custom_sentences/)
+- [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/)
+- [Manually configured Assist pipeline](/voice_control/voice_remote_local_assistant)

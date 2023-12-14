@@ -13,17 +13,14 @@ This tutorial will guide you to turn an ESP32-S3-BOX-3 into a Home Assistant voi
 ## Prerequisites
 
 - Home Assistant 2023.12, installed with the Home Assistant Operating System
-- [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
+- [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
+- Have [enabled a wake word](/voice_control/install_wake_word_add_on/) for your voice assistant
 - The password to your 2.4&nbsp;GHz Wi-Fi network
 - Chrome or Edge browser on a desktop (not Android/iOS)
 - One of the three Espressif ESP32-S3-BOX variants:
   - [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html?gatewayAdapt=4itemAdapt)
   - ESP32-S3-BOX or ESP32-S3-BOX-Lite (they are not currently on the market)
 - USB-C cable to connect the ESP32-S3-BOX-3
-
-## Adding a wake word to your voice assistant
-
-{% include voice_assistant/add_wake_word_to_voice_assistant.md %}
 
 ## Installing the software onto the ESP32-S3-BOX-3
 
@@ -49,10 +46,12 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 {% include voice_assistant/install_esp_firmware.md %}
 
-1.  Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX-3** listed.
-   ![ESP32-S3-BOX-3 discovered](/images/assist/m5stack-atom-echo-discovered-new-03.png)
+1. Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX-3** listed.
+   ![ESP32-S3-BOX-3 discovered](/images/assist/s32-s3-box-3-discovered.png)
+
    - Your ESP32-S3-BOX-3 is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
-2.   Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
+  
+2. Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
 
 ## Controlling Home Assistant
 
@@ -74,7 +73,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
       - The screen of the ESP32-S3-BOX-3 will turn off, too.
    
       ![Toggle to enable/disable Mute](/images/assist/wake_word_disable.png)
-2. If you want to just use the wake word, but do not want to use see the screen, you can turn off the screen.
+2. If you want to just use the wake word, but do not want to use the screen, you can turn it off.
    - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
      - Under **ESP32-S3-BOX-3**, select **1 device**.
      - Disable **LCD Backlight**.
@@ -83,9 +82,8 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 ## Related topics
 
-- [Create your own wake words](/voice_control/create_wake_word/)
+- [Enable a wake word](/voice_control/install_wake_word_add_on/)
 - [General troubleshooting section for Assist](/voice_control/troubleshooting/)
 - [Troubleshooting the ESP32-S3-BOX-3](/voice_control/troubleshooting_the_s3_box/)
 - [ESPHome projects page](https://esphome.io/projects/index.html)
 - [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
-- [Using a sentence trigger](/voice_control/custom_sentences/)
