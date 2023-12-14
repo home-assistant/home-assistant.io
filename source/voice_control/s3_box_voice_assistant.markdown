@@ -46,12 +46,12 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 {% include voice_assistant/install_esp_firmware.md %}
 
-1. Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX-3** listed.
+9. Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX-3** listed.
    ![ESP32-S3-BOX-3 discovered](/images/assist/s32-s3-box-3-discovered.png)
 
    - Your ESP32-S3-BOX-3 is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
   
-2. Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
+10. Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
 
 ## Controlling Home Assistant
 
