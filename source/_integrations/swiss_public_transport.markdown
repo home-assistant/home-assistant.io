@@ -7,6 +7,7 @@ ha_iot_class: Cloud Polling
 ha_release: pre 0.7
 ha_codeowners:
   - '@fabaff'
+  - '@miaucl'
 ha_domain: swiss_public_transport
 ha_platforms:
   - sensor
@@ -19,7 +20,9 @@ The [Swiss public transport API](https://transport.opendata.ch/) only allows 100
 
 The [Stationboard](https://transport.opendata.ch/examples/stationboard.html) website can help to determine the exact name of the start and the end station.
 
-Then add the data to your `configuration.yaml` file as shown in the example:
+{% include integrations/config_flow.md %}
+
+**DEPRECATED:** Or add the data to your `configuration.yaml` file as shown in the example:
 
 ```yaml
 # Example configuration.yaml entry
