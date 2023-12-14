@@ -68,6 +68,14 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 ## A beautiful new login page
 
+<div class='note'>
+
+This feature has been disabled in Home Assistant 2023.12.3.  
+[Read more about it here](/blog/2023/12/14/disabling-new-login-page-functionality/).
+
+</div>
+
+
 The login page of Home Assistant has been redesigned to be more modern and
 match the [recent redesign of the Home Assistant onboarding](/blog/2023/09/06/release-20239/#onboarding).
 
@@ -491,6 +499,37 @@ The following integrations are now available via the Home Assistant UI:
 [@mkmer]: https://github.com/mkmer
 [@puddly]: https://github.com/puddly
 [@synesthesiam]: https://github.com/synesthesiam
+
+## Release 2023.12.3 - December 14
+
+- Ensure platform setup for all AVM FRITZ!SmartHome devices ([@mib1185] - [#105515])
+- Update AEMET-OpenData to v0.4.7 ([@Noltari] - [#105676])
+- Fix restoring UniFi clients with old unique id ([@Kane610] - [#105691])
+- Bump zeroconf to 0.128.5 ([@bdraco] - [#105694])
+- Add missing rest_command reload service to services.yaml ([@jpbede] - [#105714])
+- Fix issue clearing renault schedules ([@epenet] - [#105719])
+- Fix Fully Kiosk Browser MQTT event callbacks with non-standard event topics ([@cgarwood] - [#105735])
+- Disable user profiles on login screen ([@frenck] - [#105749])
+
+[#105135]: https://github.com/home-assistant/core/pull/105135
+[#105324]: https://github.com/home-assistant/core/pull/105324
+[#105515]: https://github.com/home-assistant/core/pull/105515
+[#105655]: https://github.com/home-assistant/core/pull/105655
+[#105676]: https://github.com/home-assistant/core/pull/105676
+[#105691]: https://github.com/home-assistant/core/pull/105691
+[#105694]: https://github.com/home-assistant/core/pull/105694
+[#105714]: https://github.com/home-assistant/core/pull/105714
+[#105719]: https://github.com/home-assistant/core/pull/105719
+[#105735]: https://github.com/home-assistant/core/pull/105735
+[#105749]: https://github.com/home-assistant/core/pull/105749
+[@Kane610]: https://github.com/Kane610
+[@Noltari]: https://github.com/Noltari
+[@bdraco]: https://github.com/bdraco
+[@cgarwood]: https://github.com/cgarwood
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@jpbede]: https://github.com/jpbede
+[@mib1185]: https://github.com/mib1185
 
 ## Need help? Join the community!
 
