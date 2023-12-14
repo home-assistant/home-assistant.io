@@ -8,7 +8,7 @@ This tutorial will show you how to replace the Home Assistant status illustratio
 
 You can either prepare your own illustrations or import some from a community repository.
 
-<lite-youtube videoid="HQQfaXTbhvc" videotitle="Okay Frenck! Open-source voice assistant running on an Espressif ESP32-S3-Box-3
+<lite-youtube videoid="HQQfaXTbhvc" videotitle="Okay Frenck! Open-source voice assistant running on an Espressif ESP32-S3-Box
 "></lite-youtube>
 
 ## ESP32-S3-BOX-3 voice assistant status illustrations
@@ -75,7 +75,7 @@ If you want to use your own images, skip this procedure and go to [Option 2: Usi
 4. Save the changes and select **Install**:
    - Depending on your environment, the installation process can take a while.
 ![ESP32-S3-BOX-3 config file](/images/assist/esp32-s3-config-05.png)
-   
+
 5. Once the installation is complete, you can see the new image on the ESP32-S3-BOX-3.
    - Now, speak a command to test the new setting. For example, *OK Nabu, turn off the living room lights*.
 
@@ -99,7 +99,7 @@ In your images, you could use 2 different background colors:
 - For loading and idle: use a dark background
 - For listening, thinking, and replying: use a light background
 - For error: As you like
-  
+
 If your images have transparency, you can define the background color in the configuration. The procedure below shows how to change the background.
 
 #### Image dimensions and file format
@@ -110,7 +110,7 @@ If your images have transparency, you can define the background color in the con
 ### To prepare your own images
 
 1. Create your own images according to the specifications defined in the section [About the image specifications](#about-the-image-specifications).
-   - You could even draw your own! 
+   - You could even draw your own!
    - There's a [template](#to-draw-your-own-images) for it.
 2. Copy all 6 images into a folder. For example: `voice_assistant_gfx`.
 3. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
