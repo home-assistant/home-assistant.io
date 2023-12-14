@@ -27,14 +27,6 @@ your smart home. Issue commands and get responses!
 
 ## Installing the software onto the ATOM Echo
 
-If you have used the ATOM Echo on Home Assistant before and have it installed via ESPHome add-on, you first need to remove its configuration.
-
-### To delete the configuration from ESPHome
-
-{% include voice_assistant/install_esp_firmware_delete_firmware.md %}
-
-### To install the software on your ATOM Echo
-
 Before you can use this device with Home Assistant, you need to install a bit of software on it.
 
 1. Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.

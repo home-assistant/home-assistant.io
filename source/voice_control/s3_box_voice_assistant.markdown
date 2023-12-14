@@ -27,8 +27,6 @@ This tutorial will guide you to turn an ESP32-S3-BOX-3 into a Home Assistant voi
 
 ## Installing the software onto the ESP32-S3-BOX-3
 
-### To install the software on your ESP32-S3-BOX-3
-
 Before you can use this device with Home Assistant, you need to install a bit of software on it.
 
 1. While keeping this tutorial page open, open the [ESPHome projects page](https://esphome.io/projects/index.html) in a Chrome or Edge browser on a desktop. It does not work on a tablet or phone.
