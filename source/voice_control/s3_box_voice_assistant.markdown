@@ -7,7 +7,7 @@ config_link: /voice_control/s3_box_voice_assistant/#to-delete-the-configuration-
 
 This tutorial will guide you to turn an ESP32-S3-BOX-3 into a Home Assistant voice assistant.
 
-<lite-youtube videoid="erf7HqTwCGs" videotitle="Okay Nabu! Open-source voice assistant running on an Espressif ESP32-S3-Box-3
+<lite-youtube videoid="erf7HqTwCGs" videotitle="Okay Nabu! Open-source voice assistant running on an Espressif ESP32-S3-Box
 "></lite-youtube>
 
 ## Prerequisites
@@ -35,7 +35,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
       <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/esp32-s3-box-3/manifest.json"></esp-web-install-button>
 
 
-   - If you have an ESP32-S3-BOX or ESP32-S3-BOX-Lite, open the [ESPHome projects](https://esphome.io/projects/index.html) page, select your variant and follow the installation instructions.
+   - If you have an ESP32-S3-BOX or ESP32-S3-BOX-Lite, open the [ESPHome projects](https://esphome.io/projects/index.html?type=voice) page, select your variant and follow the installation instructions.
    - **For advanced users**: The configuration files are available on GitHub:
      - [ESP32-S3-BOX-3](https://github.com/esphome/firmware/blob/main/voice-assistant/esp32-s3-box-3.yaml)
 
@@ -45,7 +45,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
    ![ESP32-S3-BOX-3 discovered](/images/assist/s32-s3-box-3-discovered.png)
 
    - Your ESP32-S3-BOX-3 is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
-  
+
 10. Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
 
 ## Controlling Home Assistant
@@ -66,13 +66,13 @@ Before you can use this device with Home Assistant, you need to install a bit of
       - Under **ESP32-S3-BOX-3**, select **1 device**.
       - Enable **Mute**.
       - The screen of the ESP32-S3-BOX-3 will turn off, too.
-   
+
       ![Toggle to enable/disable Mute](/images/assist/wake_word_disable.png)
 2. If you want to just use the wake word, but do not want to use the screen, you can turn it off.
    - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
      - Under **ESP32-S3-BOX-3**, select **1 device**.
      - Disable **LCD Backlight**.
-   
+
       ![Toggle to enable/disable wake word](/images/assist/s3-box-disable-screen.png)
 
 ## Related topics
