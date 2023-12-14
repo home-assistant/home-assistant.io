@@ -88,3 +88,33 @@ The example below shows common pitfalls when enquiring about the weather. While 
      ![Create alias for entity name](/images/assist/assist_create_alias.png)
 5. If you just ask "What is the weather" when you have forecast entities for multiple entities, Assist always returns the data for the place that was first added. Currently, there is no way to change that.
 
+## Tweaking the Assist audio configuration for your device
+
+You think there is an issue with background background noise or speaker volume? In some cases, it can help to tweak settings such as noise suppression and gain of your voice assistant device (such as the S32-S3-BOX-3).
+
+### To tweak the Assist audio configuration for your device
+
+1. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
+2. Edit the general configuration:
+   - Access the `config` folder and open the `configuration.yaml` file.
+   - Enter the following text:
+
+      ```yaml
+      assist_pipeline:
+         debug_recording_dir: /share/assist_pipeline
+      ```
+
+3. Save the changes and restart Home Assistant.
+4. Make sure you have the [Samba add-on installed](/common-tasks/os/#configuring-access-to-files).
+5. On your computer, access your Home Assistant server via Samba.
+   - Navigate to `/share/assist_pipeline`.
+   - For each voice command you gave, you will find a subfolder with the audio file in `.wav` format.
+6. Listen to the audio file of interest.
+7. Adjust noise suppression and volume, if needed:
+   - Access the `config` folder and open the `esphome/your-device-name-wake-word.yaml` file.
+   - Find the `voice_assistant` section.
+   - If the audio is too noisy, increase the `noise_suppression_level` (max.&nbsp;4).
+   - If the audio is too quiet, increase either the `auto_gain` (max.&nbsp;31) or the `volume_multiplier` (no maximum, but a too high value will cause distortion eventually).
+8. Collecting the debug recordings impacts your disk space.
+   - Once you have found a configuration that works, delete the folder with the audio files.
+   - In the `configuration.yaml` file, delete the `assist_pipeline entry` and restart Home Assistant.
