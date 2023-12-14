@@ -167,7 +167,7 @@ data:
   message: >-
     Your agenda for today:
     <p>
-    {% for event in agenda.events %}
+    {% for event in agenda['calendar.school'].events %}
     {{ event.start}}: {{ event.summary }}<br>
     {% endfor %}
     </p>
