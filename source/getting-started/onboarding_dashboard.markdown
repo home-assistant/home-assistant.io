@@ -48,4 +48,4 @@ The procedure below is optional. The idea is to learn some basics on changing th
    - When you are done, in the top right corner, select **Done**.
 9. Congratulations! You have completed your first dashboard customization.
 
-{% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}
+{% include getting-started/next_step.html step="Integrations" link="/getting-started/integration/" %}
