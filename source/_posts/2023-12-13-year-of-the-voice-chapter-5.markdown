@@ -22,7 +22,7 @@ At the start of 2023, Home Assistant had basic text-based control for some devic
 
 Home Assistant users can now create multiple voice assistants by mixing and matching components of a voice "pipeline". Home Assistant Cloud subscribers automatically gain access to high-quality voice components in over 130 languages and dialects. Fully local components are available as well, such as our [Piper] text-to-speech system, allowing for 100% offline voice control.
 
-In [Chapter 4], we added wake word processing directly into Home Assistant by leveraging the [openWakeWord] project. This allowed tiny voice satellites such as the [M5 ATOM Echo Development Kit][m5-tutorial] to offload wake word detection by streaming audio to a Home Assistant server. The community has been hard at work training a variety of [custom wake words](community-wake-words) that everyone can use to make their voice experience unique.
+In [Chapter 4], we added wake word processing directly into Home Assistant by leveraging the [openWakeWord] project. This allowed tiny voice satellites such as the [M5 ATOM Echo Development Kit][m5-tutorial] to offload wake word detection by streaming audio to a Home Assistant server. The community has been hard at work training a variety of [custom wake words][community-wake-words] that everyone can use to make their voice experience unique.
 
 For the final chapter of 2023, we have expanded the available types of voice commands to include weather, temperature, and to-do lists. Voice satellites are now aware of which area they're in, and more hardware/software options are available too.
 
