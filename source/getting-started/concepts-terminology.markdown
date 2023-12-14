@@ -70,4 +70,4 @@ Depending on your [installation type](/installation), you can install third part
 
 ![Add-ons](/images/getting-started/add-ons.png)
 
-{% include getting-started/next_step.html step="Adding Integrations In Home Assistant" link="/getting-started/integration/" %}
+{% include getting-started/next_step.html step="Edit the dashboard" link="/getting-started/onboarding_dashboard/" %}
