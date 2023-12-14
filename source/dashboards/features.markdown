@@ -68,6 +68,11 @@ type:
   required: true
   description: "`climate-hvac-modes`"
   type: string
+style:
+  required: false
+  description: "How the modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: icons
 hvac_modes:
   required: true
   description: List of modes to show on the card. The list can contain `auto`, `heat_cool`, `heat`, `cool`, `dry`, `fan_only`, and `off`.
