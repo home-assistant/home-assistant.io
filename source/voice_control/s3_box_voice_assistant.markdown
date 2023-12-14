@@ -37,15 +37,20 @@ If you have used the ESP32-S3-BOX-3 on Home Assistant before and have it install
 
 Before you can use this device with Home Assistant, you need to install a bit of software on it.
 
-1. While keeping this tutorial page open, open the [ESPHome projects page](https://esphome.io/projects/index.html) in a Chrome or Edge browser on a desktop. It does not work on a tablet or phone.
-   - In the **I want to create a** section, select **Voice assistant**.
-   - Select the image of the ESP32-S3-BOX-3.
-   - From the list, select the product variant that you have.
-   - Select the **Connect** button. If your browser does not support web serial, you will see a warning instead of a button.
-   - **For advanced users**: The configuration files are available on GitHub:
-     - [ESP32-S3-BOX](https://github.com/esphome/firmware/blob/main/voice-assistant/esp32-s3-box.yaml)
-     - [ESP32-S3-BOX-3](https://github.com/esphome/firmware/blob/main/voice-assistant/esp32-s3-box-3.yaml)
-     - [ESP32-S3-BOX-Lite](https://github.com/esphome/firmware/blob/main/voice-assistant/esp32-s3-box-lite.yaml)
+Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.
+
+  - If you have an ESP32-S3-BOX-3, select the **Connect** button below. If your browser does not support web serial, you will see a warning instead of a button.
+  
+
+      <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
+      <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/esp32-s3-box-3/manifest.json"></esp-web-install-button>
+
+
+- If you have an ESP32-S3-BOX or ESP32-S3-BOX-Lite, open the [ESPHome projects](https://esphome.io/projects/index.html) page, select your variant and follow the installation instructions.
+- **For advanced users**: The configuration files are available on GitHub:
+  - [ESP32-S3-BOX](https://github.com/esphome/firmware/blob/main/voice-assistant/esp32-s3-box.yaml)
+  - [ESP32-S3-BOX-3](https://github.com/esphome/firmware/blob/main/voice-assistant/esp32-s3-box-3.yaml)
+  - [ESP32-S3-BOX-Lite](https://github.com/esphome/firmware/blob/main/voice-assistant/esp32-s3-box-lite.yaml)
 
 {% include voice_assistant/install_esp_firmware.md %}
 
