@@ -18,8 +18,6 @@ When a `state_topic` is not available, the humidifier will work in optimistic mo
 
 Optimistic mode can be forced even if a `state_topic` is available. Try to enable it if you are experiencing incorrect humidifier operation.
 
-<a id='new_format'></a>
-
 To enable MQTT humidifiers in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

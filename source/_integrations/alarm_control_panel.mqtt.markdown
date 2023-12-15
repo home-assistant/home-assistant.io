@@ -27,8 +27,6 @@ The integration can control your Alarm Panel by publishing to the `command_topic
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To enable this platform, add the following lines to your `configuration.yaml`:
 
 ```yaml

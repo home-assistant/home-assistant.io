@@ -14,8 +14,6 @@ This can be used with an application or a service capable of sending images thro
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To enable this camera in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
