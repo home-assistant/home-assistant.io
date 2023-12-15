@@ -32,7 +32,7 @@ The OpenAI key is used to authenticate requests to the OpenAI API. To generate a
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
 Prompt Template:
-  description: The starting text for the AI language model to generate new text from. This text can include information about your Home Assistant instance, devices, and areas and is written using [Home Assistant Templating](/docs/configuration/templating/). You can add your home location, your name, and your preferences to get more personalized responces.
+  description: The starting text for the AI language model to generate new text from. This text can include information about your Home Assistant instance, devices, and areas and is written using [Home Assistant Templating](/docs/configuration/templating/). You can add your home location, your name, and your preferences to get more personalized responces. It also helps to list here Entity IDs of frequently accessed devices.
 
 Completion Model:
   description: The GPT language model is used for text generation. You can find more details on the available models in the [OpenAI GPT-3 Documentation](https://platform.openai.com/docs/models/gpt-3), [OpenAI GPT-3.5 Documentation](https://platform.openai.com/docs/models/gpt-3-5), or [OpenAI GPT-4 and GPT-4 Turbo Documentation](https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo). The default is "gpt-3.5-turbo". The latest available model at the time of writing this text is [GPT-4 Turbo](https://help.openai.com/en/articles/8555510-gpt-4-turbo)
