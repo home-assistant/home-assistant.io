@@ -14,15 +14,9 @@ The `mqtt` valve platform allows you to control an MQTT valve (such a gas or wat
 
 A valve entity can be in states (`open`, `opening`, `closed` or `closing`).
 
-If a `state_topic` is configured, the entity's state will be updated only after an MQTT message is received on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. 
+### Valve controlled by states
 
-If the valve supports to report its position (The `position` config option is set to `true`), a numeric state is expected on `state_topic`.
-
-If a `state_topic` is not defined, the valve will work in optimistic mode. In this mode, the valve will immediately change state (`open` or `closed`) after every command sent by Home Assistant. If a state `state_topic` topic is defined, the valve will wait for a message on `state_topic` before the state is updated.
-
-Optimistic mode can be forced, even if a `state_topic` is defined. Try to enable it if experiencing incorrect valve operation.
-
-<a id='new_format'></a>
+If a `state_topic` is configured, the entity's state will be updated only after an MQTT message is received on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. Commands configured through `payload_open`, `payload_closed` and `payload_stop` will be published to `command_topic` to control the valve.
 
 To use your MQTT valve in your installation, add the following to your `configuration.yaml` file:
 
@@ -31,7 +25,14 @@ To use your MQTT valve in your installation, add the following to your `configur
 mqtt:
   - valve:
       command_topic: "home-assistant/valve/set"
+      state_topic: "home-assistant/valve/state"
 ```
+
+### Valve controlled by position
+
+If the valve supports to report its position (The `position` config option should be set to `true`). In that case a numeric state is expected on `state_topic`. The position of the value or `payload_stop` will be published to `command_topic` to control the valve.
+
+To use your MQTT valve in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry for a valve that reports position
@@ -41,6 +42,11 @@ mqtt:
       state_topic: "home-assistant/valve/state"
       position: true
 ```
+
+### Optimistic operation
+
+If a `state_topic` is not defined, the valve will work in optimistic mode. In this mode, the valve will immediately change state (`open` or `closed`) after every command sent by Home Assistant and not wait for an update from the device. Optimistic mode can be forced, even if a `state_topic` is defined by setting `optimistic` to `true`. Try to enable it if experiencing incorrect valve operation.
+
 
 {% configuration %}
 availability:
