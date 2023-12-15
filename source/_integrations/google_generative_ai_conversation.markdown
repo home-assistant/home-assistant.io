@@ -73,3 +73,21 @@ response_variable: generated_content
 {% endraw %}
 
 The response data field `text` will contain the generated content.
+
+Another example with multiple images:
+
+{% raw %}
+```yaml
+service: google_generative_ai_conversation.generate_content
+data:
+  prompt: >-
+    Briefly describe what happened in the following sequence of images
+    from my driveway camera.
+  image_filename:
+    - /tmp/driveway_snapshot1.jpg
+    - /tmp/driveway_snapshot2.jpg
+    - /tmp/driveway_snapshot3.jpg
+    - /tmp/driveway_snapshot4.jpg
+response_variable: generated_content
+```
+{% endraw %}
