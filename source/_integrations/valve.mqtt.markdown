@@ -184,7 +184,7 @@ payload_available:
   type: string
   default: online
 payload_close:
-  description: The command payload that closes the valve. Is only used when `position` is set to `False` (default).
+  description: The command payload that closes the valve. Is only used when `position` is set to `false` (default).
   required: false
   type: string
   default: CLOSE
@@ -194,7 +194,7 @@ payload_not_available:
   type: string
   default: offline
 payload_open:
-  description: The command payload that opens the valve. Is only used when `position` is set to `False` (default).
+  description: The command payload that opens the valve. Is only used when `position` is set to `false` (default).
   required: false
   type: string
   default: OPEN
@@ -204,6 +204,9 @@ payload_stop:
   type: string
 position:
   description: Set to `true` if the value reports the position or supports setting the position. Enabling the `position` option will cause the position to be published instead of a payload defined by `payload_open`, `payload_close` or `payload_stop`. When receiving messages `state_topic`, numeric payloads will be expected.
+  required: false
+  type: boolean
+  default: false
 position_closed:
   description: Number which represents closed position. The valves position will be scaled to (`position_closed`...`position_open`) range. When a service is called, and scaled back when a value is received.
   required: false
@@ -253,7 +256,7 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that can be used to extract the payload for the `state_topic` topic.". The rendered value should be a defined state payload or, if `position` is supported, a numeric value representing the position. See also `state_topic`.
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that can be used to extract the payload for the `state_topic` topic. The rendered value should be a defined state payload or, if reporting a `position` is supported and `position` is set to `true`, a numeric value is expected representing the position. See also `state_topic`."
   required: false
   type: template
 {% endconfiguration %}
