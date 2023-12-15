@@ -12,8 +12,6 @@ The `mqtt` Select platform allows you to integrate devices that might expose con
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To enable MQTT Select in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

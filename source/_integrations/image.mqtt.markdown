@@ -18,8 +18,6 @@ An alternative setup is to use the `url_topic` option to receive an image URL fo
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To enable this image in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
