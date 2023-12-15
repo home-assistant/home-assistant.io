@@ -56,6 +56,7 @@ Happy holidays & enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2023.12.1 - December 8](#release-2023121---december-8)
 - [Release 2023.12.2 - December 13](#release-2023122---december-13)
+- [Release 2023.12.3 - December 14](#release-2023123---december-14)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
