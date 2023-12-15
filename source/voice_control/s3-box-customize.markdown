@@ -60,10 +60,10 @@ If you want to use your own images, skip this procedure and go to [Option 2: Usi
 2. For inspiration, we have prepared some images for you.
    - Check them out in this [repository](https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/tree/main/frenck/illustrations).
 3. For this tutorial, we will use some images of Frenck.
-   - Add the following lines into the `substitution` block.
+   - Add the following lines into the `substitutions` block.
 
      ```yaml
-     substitution:
+     substitutions:
        loading_illustration_file: https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/raw/main/frenck/illustrations/loading.png
        idle_illustration_file: https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/raw/main/frenck/illustrations/idle.png
        listening_illustration_file: https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/raw/main/frenck/illustrations/listening.png
@@ -128,10 +128,10 @@ If your images have transparency, you can define the background color in the con
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 
-3. To add your images, add the following lines into the `substitution` block.
+3. To add your images, add the following lines into the `substitutions` block.
 
    ```yaml
-   substitution:
+   substitutions:
      loading_illustration_file: voice_assistant_gfx/loading.png
      idle_illustration_file: voice_assistant_gfx/idle.png
      listening_illustration_file: voice_assistant_gfx/listening.png
@@ -140,13 +140,13 @@ If your images have transparency, you can define the background color in the con
      error_illustration_file: voice_assistant_gfx/error.png
    ```
 
-4. If you used transparency in your images and you want to change the background color, add the following lines into the `substitution` block:
+4. If you used transparency in your images and you want to change the background color, add the following lines into the `substitutions` block:
    - The `000000` stands for black, `FFFFFF` stands for white in [hexadecimal color code](https://www.w3schools.com/html/html_colors_hex.asp).
    - If you want to use different colors, replace the corresponding color code.
    - To find the color code, you can use a tool like the Google color picker.
 
      ```yaml
-     substitution:
+     substitutions:
        ...
        loading_illustration_background_color: '000000'
        idle_illustration_background_color: '000000'
