@@ -7,21 +7,13 @@ The authentication system secures access to Home Assistant.
 
 ## Login screen
 
-If you log in from within your local network, you are greeted with a login screen showing all the people in Home Assistant.
-
-<img src='/images/docs/authentication/login.png' alt='Screenshot of the login screen, when logging in from within the local network' style='border: 0;box-shadow: none;'>
-
-### Privacy: Not showing users when logging in from outside the network
-
-When logging in from outside your local network, the users are not shown. This is to protect your privacy. In this case, you need to enter your user name.
-
-You might also see this screen if you are using a Chromium-based browser (Chrome, Edge) and IPv6. Home Assistant might not be able to detect if your are logging in from a local network. This is a known issue with Chromium.
+You are greeted with a log in screen, asking you for user name and password.
 
 <img src='/images/docs/authentication/login-outside-local-network.png' alt='Screenshot of the login screen, when logging in from within the local network' style='border: 0;box-shadow: none;'>
 
 ## User accounts
 
-When you start Home Assistant for the first time the _owner_ user account is created. This account has some special privileges and can:
+When you start Home Assistant for the first time, the _owner_ user account is created. This account has some special privileges and can:
 
 - Create and manage other user accounts.
 - Configure integrations and other settings (coming soon).
