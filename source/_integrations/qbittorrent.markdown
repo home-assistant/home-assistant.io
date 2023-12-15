@@ -30,12 +30,12 @@ The qBittorrent integration will add the following sensors:
 - `sensor.qbittorrent_status`: The status of qBittorrent - `up_down`, `seeding`, `downloading` or `idle`.
 - `sensor.qbittorrent_upload_speed`: The current total upload speed in kB/s.
 - `sensor.qbittorrent_download_speed`: The current total download speed in kB/s.
-- `sensor.qbittorrent_total_torrents`: The current total torrents in QBittorrent.
-- `sensor.qbittorrent_active_torrents`: The current active torrents in QBittorrent.
-- `sensor.qbittorrent_inactive_torrents`: The current inactive torrents in QBittorrent.
-- `sensor.qbittorrent_paused_torrents`: The current paused torrents in QBittorrent.
-- `sensor.qbittorrent_seeding_torrents`: The current seeding torrents in QBittorrent.
-- `sensor.qbittorrent_started_torrents`: The current totstartedal torrents in QBittorrent.
+- `sensor.qbittorrent_total_torrents`: The current total torrents in qBittorrent.
+- `sensor.qbittorrent_active_torrents`: The current active torrents in qBittorrent.
+- `sensor.qbittorrent_inactive_torrents`: The current inactive torrents in qBittorrent.
+- `sensor.qbittorrent_paused_torrents`: The current paused torrents in qBittorrent.
+- `sensor.qbittorrent_seeding_torrents`: The current seeding torrents in qBittorrent.
+- `sensor.qbittorrent_started_torrents`: The current totstartedal torrents in qBittorrent.
 
 ## Templating
 
