@@ -13,8 +13,6 @@ The `mqtt` device tracker platform allows you to define new device_trackers thro
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

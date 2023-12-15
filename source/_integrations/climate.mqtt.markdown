@@ -12,8 +12,6 @@ The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To enable this climate platform in your installation, first add the following to your `configuration.yaml` file:
 
 ```yaml

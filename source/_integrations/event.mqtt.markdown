@@ -12,8 +12,6 @@ The `mqtt` event platform allows you to process event info from an MQTT message.
 
 ## Configuration
 
-<a id='new_format'></a>
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
