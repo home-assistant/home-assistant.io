@@ -30,7 +30,15 @@ mqtt:
 
 ### Valve controlled by position
 
-If the valve supports to report its position (The `position` config option should be set to `true`). In that case a numeric state is expected on `state_topic`. The position of the value or `payload_stop` will be published to `command_topic` to control the valve.
+If the valve supports to report its position (The `position` config option should be set to `true`). In that case a numeric state is expected on `state_topic`. State updates are allowed too. A JSON format is supported too and will also allow both `state` and `position` to be reported together.
+
+Example of a JSON state update:
+
+```json
+{"state": "opening", "position": 10}
+```
+
+The wanted position value or `payload_stop` will be published to `command_topic` to control the valve when services `valve.open`, `value.close` or `value.set_position` are called.
 
 To use your MQTT valve in your installation, add the following to your `configuration.yaml` file:
 
@@ -209,7 +217,7 @@ payload_stop:
   required: false
   type: string
 position:
-  description: Set to `true` if the value reports the position or supports setting the position. Enabling the `position` option will cause the position to be published instead of a payload defined by `payload_open`, `payload_close` or `payload_stop`. When receiving messages `state_topic`, numeric payloads will be expected.
+  description: "Set to `true` if the value reports the position or supports setting the position. Enabling the `position` option will cause the position to be published instead of a payload defined by `payload_open`, `payload_close` or `payload_stop`. When receiving messages `state_topic`, will accept numeric payloads or a state message: `open`, `opening`, `closed`, or `closing`."
   required: false
   type: boolean
   default: false
@@ -254,7 +262,7 @@ state_opening:
   type: string
   default: opening
 state_topic:
-  description: The MQTT topic subscribed to receive valve state messages. State topic can only read (`open`, `opening`, `closed`, `closing` or `stopped`) state or, if `position` is supported, a numeric value representing the position.
+  description: The MQTT topic subscribed to receive valve state messages. State topic accepts a state payload (`open`, `opening`, `closed`, or `closing`) or, if `position` is supported, a numeric value representing the position. In a JSON format with variables `state` and `position` both values can received together.
   required: false
   type: string
 unique_id:
