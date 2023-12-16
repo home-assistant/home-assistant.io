@@ -98,7 +98,7 @@ command_template:
   required: false
   type: template
 command_topic:
-  description: The MQTT topic to publish commands to control the valve. The value sent can be a value defined by `payload_open`, `payload_close` or `payload_stop`. If `position` is set to `true`, a numeric value will be published instead.
+  description: The MQTT topic to publish commands to control the valve. The value sent can be a value defined by `payload_open`, `payload_close` or `payload_stop` (if `stop_command_topic` is not configured). If `position` is set to `true`, a numeric value will be published instead.
   required: false
   type: string
 device:
@@ -263,6 +263,10 @@ state_opening:
   default: opening
 state_topic:
   description: The MQTT topic subscribed to receive valve state messages. State topic accepts a state payload (`open`, `opening`, `closed`, or `closing`) or, if `position` is supported, a numeric value representing the position. In a JSON format with variables `state` and `position` both values can received together.
+  required: false
+  type: string
+stop_command_topic:
+  description: The MQTT topic to publish commands a stop command to control the valve. The value sent should be a value defined by  `payload_stop`, when not set `command_topic` will be used instead.
   required: false
   type: string
 unique_id:

@@ -510,6 +510,7 @@ support_url:
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
     'step':                'step',
+    'stop_cmd_t':          'stop_command_topic',
     'stype':               'subtype',
     'sug_dsp_prc':         'suggested_display_precision',
     'sup_clrm':            'supported_color_modes',
