@@ -47,10 +47,10 @@ The integration will create binary sensor entities for a variety of metrics that
 #### Vehicle State
 - Dashcam Recording
 - User Present
-- Tyre Pressure Warning Front Left
-- Tyre Pressure Warning Front Right
-- Tyre Pressure Warning Rear Left
-- Tyre Pressure Warning Rear Right
+- Tire Pressure Warning Front Left
+- Tire Pressure Warning Front Right
+- Tire Pressure Warning Rear Left
+- Tire Pressure Warning Rear Right
 
 ### Sensor
 
