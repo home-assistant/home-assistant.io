@@ -150,7 +150,7 @@ Get entities reporting the general temperature of a UniFi Network device.
 
 ### Device state
 
-Get entities reporting the current state within the UniFi Network device.
+Get entities reporting the current state of a UniFi Network device.
 
 ## Firmware updates
 
