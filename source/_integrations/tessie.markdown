@@ -59,10 +59,10 @@ The integration will create sensor entities for a variety of metrics that relate
 #### Vehicle State
 - Online
 - Odometer
-- Tyre Pressure Front Left
-- Tyre Pressure Front Right
-- Tyre Pressure Rear Left
-- Tyre Pressure Rear Right
+- Tire Pressure Front Left
+- Tire Pressure Front Right
+- Tire Pressure Rear Left
+- Tire Pressure Rear Right
 
 #### Charge State
 - Battery Level
