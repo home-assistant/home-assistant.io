@@ -146,6 +146,12 @@ If you want to apply additional IP filtering, and automatically ban brute force 
 
 After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
 
+<div class='note'>
+
+  See the [Services](#services) section for information on how to unban an IP address.
+
+</div>
+
 ## Hosting files
 
 If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config`). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
@@ -290,3 +296,14 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
 ```
 
 For more examples please visit the [HTTP binary sensor](#examples) page.
+
+## Services
+
+### Service {% my developer_call_service service="http.unban_ip" %}
+
+The {% my developer_call_service service="http.unban_ip" %} service can be used
+to unban a banned IP address. This service is only available if `ip_ban_enabled` is set to `true`.
+
+Service data attribute | Optional | Description
+-|-|-
+`ip_address` | no | The IP address (IPv4 or IPv6) to unban.
