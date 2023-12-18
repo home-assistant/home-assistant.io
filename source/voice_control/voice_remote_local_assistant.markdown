@@ -21,12 +21,13 @@ For the quickest way to get your local Assist pipeline started, follow these ste
 1. Install the add-ons to convert text into speech and vice versa.
    - Install the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} and the {% my supervisor_addon addon="core_piper" title="**Piper**" %} add-ons.
      ![Install the Whisper and Piper add-ons](/images/assist/piper-whisper-install-01.png)
-   - Start both add-ons.
+   - If you want to use a wake word, also install the {% my supervisor_addon addon="core_openwakeword" title="**openWakeWord**" %} add-on.
+   - Start the add-ons.
    - Once the add-ons are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & Services**" %}.
      - You should now see Piper and Whisper being discovered by the [Wyoming integration](/integrations/wyoming/).
        ![Whisper and Piper integrations](/images/assist/piper-whisper-install-new-02.png)
-   - For both integrations, select **Configure**.
-     - Once the setup is complete, you should see both Piper and Whisper in one integration.
+   - For each integration, select **Configure**.
+     - Once the setup is complete, you should see both Piper and Whisper (and, optionally, also openWakeword) in one integration.
    
        ![Whisper and Piper integration](/images/assist/piper-whisper-install-new-03.png)
        - **Whisper** converts speech into text.
@@ -56,7 +57,7 @@ For the quickest way to get your local Assist pipeline started, follow these ste
      - Once you defined your own wake word, it will show in this pick list.
 
 3. That's it. You ensured your voice commands can be processed locally on your device.
-4. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
+5. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
    - Otherwise you won't be able to control them by voice.
 
 ## Fine-tuning Whisper and Piper for your setup
