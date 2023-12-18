@@ -1,11 +1,11 @@
 ---
-title: "ESP32-S3-BOX-3 voice assistant"
-product_name: ESP32-S3-BOX-3
-device_name_entry: ESP32-S3-BOX-3
+title: "ESP32-S3-BOX voice assistant"
+product_name: ESP32-S3-BOX
+device_name_entry: ESP32-S3-BOX
 config_link: /voice_control/s3_box_voice_assistant/#to-delete-the-configuration-from-esphome
 ---
 
-This tutorial will guide you to turn an ESP32-S3-BOX-3 into a Home Assistant voice assistant.
+This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3, or an ESP32-S3-BOX-Light into a Home Assistant voice assistant. Note, the term ESP32-S3-BOX is used to refer to any of the 3 product variants.
 
 <lite-youtube videoid="erf7HqTwCGs" videotitle="Okay Nabu! Open-source voice assistant running on an Espressif ESP32-S3-Box
 "></lite-youtube>
@@ -20,9 +20,9 @@ This tutorial will guide you to turn an ESP32-S3-BOX-3 into a Home Assistant voi
 - One of the three Espressif ESP32-S3-BOX variants:
   - [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html?gatewayAdapt=4itemAdapt)
   - ESP32-S3-BOX or ESP32-S3-BOX-Lite (not currently on the market)
-- USB-C cable to connect the ESP32-S3-BOX-3
+- USB-C cable to connect the ESP32-S3-BOX
 
-## Installing the software onto the ESP32-S3-BOX-3
+## Installing the software onto the ESP32-S3-BOX
 
 Before you can use this device with Home Assistant, you need to install a bit of software on it.
 
@@ -42,10 +42,10 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 {% include voice_assistant/install_esp_firmware.md %}
 
-9. Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX-3** listed.
+9. Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX** listed.
    ![ESP32-S3-BOX-3 discovered](/images/assist/s32-s3-box-3-discovered.png)
 
-   - Your ESP32-S3-BOX-3 is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
+   - Your ESP32-S3-BOX is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
 
 10. Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
 
