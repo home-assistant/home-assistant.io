@@ -153,7 +153,7 @@ data:
   random_seed: 80
 ```
 
-### Seqeuence Effect - Service `tplink.sequence_effect`
+### Sequence Effect - Service `tplink.sequence_effect`
 
 The light strips allow setting a sequence effect.
 
