@@ -5,6 +5,12 @@ description: "Instructions on editing the dashboard for the first time"
 
 ## First contact with the Overview dashboard
 
+The **Overview** dashboard is the first page you see after the [onboarding process](/getting-started/onboarding). Dashboards are customizable pages to display information in Home Assistant. 
+
+By default, there are two dashboards: **Overview** and **Energy**. The image below shows a customized example of the **Overview** dashboard. If you just onboarded, your dashboard will be nearly empty.
+
+![Dashboard](/images/getting-started/lovelace.png)
+
 The procedure below is optional. The idea is to learn some basics on changing the dashboard.
 
 ### To change a card on the Overview dashboard
