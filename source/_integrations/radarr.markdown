@@ -20,7 +20,7 @@ Your API key can be found in Settings > General in the Radarr Web UI.
 
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+## Integration entities
 
 Each added configuration entry will create the following binary sensor:
 

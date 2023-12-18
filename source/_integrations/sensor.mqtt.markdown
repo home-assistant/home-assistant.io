@@ -12,14 +12,13 @@ This `mqtt` sensor platform uses the MQTT message payload as the sensor value. I
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To use your MQTT sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
+  sensor:
+    - name: "Bedroom Temperature"
       state_topic: "home/bedroom/temperature"
 ```
 
@@ -122,7 +121,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity. When set, the entity category must be `diagnostic` for sensors.
   required: false
   type: string
   default: None
@@ -211,7 +210,20 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### JSON attributes topic configuration
 
-The example sensor below shows a configuration example which uses a JSON dict: `{"ClientName": <string>, "IP": <string>, "MAC": <string>, "RSSI": <string>, "HostName": <string>, "ConnectedSSID": <string>}` in a separate topic `home/sensor1/attributes` to add extra attributes. It also makes use of the `availability` topic.
+The example sensor below shows a configuration example which uses the following separate topic and JSON structure to add extra attributes.
+
+Topic: `home/sensor1/attributes`
+ ```json
+ {
+    "ClientName": <string>,
+    "IP": <string>,
+    "MAC": <string>,
+    "RSSI": <string>,
+    "HostName": <string>,
+    "ConnectedSSID": <string>
+}
+ ```
+ It also makes use of the `availability` topic.
 
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
 
@@ -220,8 +232,8 @@ Extra attributes will be displayed in the frontend and can also be extracted in 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "RSSI"
+  sensor:
+    - name: "RSSI"
       state_topic: "home/sensor1/infojson"
       unit_of_measurement: "dBm"
       value_template: "{{ value_json.RSSI }}"
@@ -236,7 +248,22 @@ mqtt:
 
 ### JSON attributes template configuration
 
-The example sensor below shows a configuration example which uses a JSON dict: `{"Timer1":{"Arm": <status>, "Time": <time>}, "Timer2":{"Arm": <status>, "Time": <time>}}` on topic `tele/sonoff/sensor` with a template to add `Timer1.Arm` and `Timer1.Time` as extra attributes. To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_template` to: {% raw %}`"{{ {'Arm': value_json.Timer1} | tojson }}"`{% endraw %}.
+The example sensor below shows a configuration example which uses the following topic and JSON structure with a template to add `Timer1.Arm` and `Timer1.Time` as extra attributes.
+
+Topic: `tele/sonoff/sensor`
+```json
+{
+    "Timer1": {
+        "Arm": <status>,
+        "Time": <time>
+    },
+    "Timer2": {
+        "Arm": <status>,
+        "Time": <time>
+    }
+}
+``` 
+To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_template` to: {% raw %}`"{{ {'Arm': value_json.Timer1} | tojson }}"`{% endraw %}.
 
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.
 
@@ -245,14 +272,14 @@ Extra attributes will be displayed in the frontend and can also be extracted in 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Timer 1"
+  sensor:
+    - name: "Timer 1"
       state_topic: "tele/sonoff/sensor"
       value_template: "{{ value_json.Timer1.Arm }}"
       json_attributes_topic: "tele/sonoff/sensor"
       json_attributes_template: "{{ value_json.Timer1 | tojson }}"
-  - sensor:
-      name: "Timer 2"
+
+    - name: "Timer 2"
       state_topic: "tele/sonoff/sensor"
       value_template: "{{ value_json.Timer2.Arm }}"
       json_attributes_topic: "tele/sonoff/sensor"
@@ -272,8 +299,8 @@ The example below shows how a simple filter, that calculates the value by adding
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Temp 1"
+  sensor:
+    - name: "Temp 1"
       state_topic: "sensor/temperature"
       value_template: |-
         {% if states(entity_id) == None %}
@@ -289,8 +316,18 @@ mqtt:
 
 If you are using the [OwnTracks](/integrations/owntracks) and enable the reporting of the battery level then you can use an MQTT sensor to keep track of your battery. A regular MQTT message from OwnTracks looks like this:
 
-```bash
-owntracks/tablet/tablet {"_type":"location","lon":7.21,"t":"u","batt":92,"tst":144995643,"tid":"ta","acc":27,"lat":46.12}
+Topic: `owntracks/tablet/tablet`
+```json
+{
+    "_type": "location",
+    "lon": 7.21,
+    "t": "u",
+    "batt": 92,
+    "tst": 144995643,
+    "tid": "ta",
+    "acc": 27,
+    "lat": 46.12
+} 
 ```
 
 Thus the trick is extracting the battery level from the payload.
@@ -300,8 +337,8 @@ Thus the trick is extracting the battery level from the payload.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Battery Tablet"
+  sensor:
+    - name: "Battery Tablet"
       state_topic: "owntracks/tablet/tablet"
       unit_of_measurement: "%"
       value_template: "{{ value_json.batt }}"
@@ -313,8 +350,8 @@ mqtt:
 
 If you are using a DHT sensor and a NodeMCU board (esp8266), you can retrieve temperature and humidity with a MQTT sensor. A code example can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_sensor_dht22). A regular MQTT message from this example looks like this:
 
+Topic: `office/sensor1`
 ```json
-office/sensor1
   {
     "temperature": 23.20,
     "humidity": 43.70
@@ -328,14 +365,13 @@ Then use this configuration example to extract the data from the payload:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Temperature"
+  sensor:
+    - name: "Temperature"
       state_topic: "office/sensor1"
       suggested_display_precision: 1
       unit_of_measurement: "°C"
-      value_template: "{{ value_json.temperature }}"
-  - sensor:
-      name: "Humidity"
+      value_template: "{{ value_json.temperature }}
+    - name: "Humidity"
       state_topic: "office/sensor1"
       unit_of_measurement: "%"
       value_template: "{{ value_json.humidity }}"
@@ -365,7 +401,7 @@ The configuration will look like the example below:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Brightness"
+  sensor:
+    - name: "Brightness"
       state_topic: "home/bathroom/analog/brightness"
 ```

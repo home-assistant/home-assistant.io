@@ -18,8 +18,6 @@ When a `state_topic` is not available, the fan will work in optimistic mode. In 
 
 Optimistic mode can be forced even if a `state_topic` is available. Try to enable it if you are experiencing incorrect fan operation.
 
-<a id='new_format'></a>
-
 To enable MQTT fans in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -86,7 +84,7 @@ device:
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
-      type: [list, map]
+      type: list
     hw_version:
       description: The hardware version of the device.
       required: false
@@ -223,12 +221,12 @@ payload_oscillation_on:
   type: string
   default: oscillate_on
 payload_reset_percentage:
-  description: A special payload that resets the `percentage` state attribute to `None` when received at the `percentage_state_topic`.
+  description: A special payload that resets the `percentage` state attribute to `unknown` when received at the `percentage_state_topic`.
   required: false
   type: string
   default: 'None'
 payload_reset_preset_mode:
-  description: A special payload that resets the `preset_mode` state attribute to `None` when received at the `preset_mode_state_topic`.
+  description: A special payload that resets the `preset_mode` state attribute to `unknown` when received at the `preset_mode_state_topic`.
   required: false
   type: string
   default: 'None'

@@ -6,9 +6,7 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@adamchengtkc'
   - '@janiversen'
-  - '@vzahradnik'
 ha_domain: modbus
 ha_platforms:
   - binary_sensor
@@ -24,7 +22,7 @@ ha_integration_type: integration
 
 [modbus](http://www.modbus.org/) is a communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit).
 
-The integration adheres strictly to the [protocol specification](https://modbus.org/docs/modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the actual protocol implmentation.
+The integration adheres strictly to the [protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the protocol implementation.
 
 The modbus integration supports all devices adhering to the modbus standard. The communication to the device/devices can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communication channels e.g. a serial port connection combined with one or more TCP connections.
 
@@ -117,7 +115,6 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
@@ -165,7 +162,6 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
@@ -209,7 +205,6 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
@@ -305,7 +300,6 @@ modbus:
     parity: E
     stopbits: 1
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
     retries: 3
@@ -576,8 +570,6 @@ climates:
           description: "64 bit signed float (4 register holds 1 value)."
         int:
           description: "**DEPRECATED** is silently converted to `int16`"
-        int8:
-          description: "8 bit signed integer (1 register holds 1 value in lower byte)."
         int16:
           description: "16 bit signed integer (1 register holds 1 value)."
         int32:
@@ -588,8 +580,6 @@ climates:
           description: "set of 8 bit characters, `count:` must be configured."
         uint:
           description: "**DEPRECATED** is silently converted to `uint16`"
-        uint8:
-          description: "8 bit unsigned integer (1 register holds 1 value in lower byte)."
         uint16:
           description: "16 bit unsigned integer (1 register holds 1 value)."
         uint32:
@@ -705,13 +695,18 @@ climates:
         byte:
           description: "Swap bytes AB -> BA."
         word:
-          description: "Swap word ABCD -> CDAB, **not valid with data types: `int8`, `uint8`, `int16`, `uint16`**"
+          description: "Swap word ABCD -> CDAB, **not valid with data types: `int16`, `uint16`**"
         word_byte:
-          description: "Swap word ABCD -> DCBA, **not valid with data types: `int8`, `uint8`, `int16`, `uint16`**"
+          description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
     target_temp_register:
       description: "Register address for target temperature (Setpoint)."
       required: true
       type: integer
+    target_temp_write_registers:
+      description: "If `true` use `write_registers` for target temperature."
+      required: false
+      type: boolean
+      default: false
     temp_step:
       description: "Step size target temperature."
       required: false
@@ -758,6 +753,7 @@ modbus:
         max_temp: 30
         structure: ">f"
         target_temp_register: 2782
+        target_temp_write_registers: true
         temp_step: 1
         temperature_unit: C
 ```
@@ -1203,8 +1199,6 @@ sensors:
           description: "64 bit signed float (4 register holds 1 value)."
         int:
           description: "**DEPRECATED** is silently converted to `int16`"
-        int8:
-          description: "8 bit signed integer (1 register holds 1 value in lower byte)."
         int16:
           description: "16 bit signed integer (1 register holds 1 value)."
         int32:
@@ -1215,8 +1209,6 @@ sensors:
           description: "set of 8 bit characters, `count:` must be configured."
         uint:
           description: "**DEPRECATED** is silently converted to `uint16`"
-        uint8:
-          description: "8 bit unsigned integer (1 register holds 1 value in lower byte)."
         uint16:
           description: "16 bit unsigned integer (1 register holds 1 value)."
         uint32:
@@ -1307,9 +1299,9 @@ sensors:
         byte:
           description: "Swap bytes AB -> BA."
         word:
-          description: "Swap word ABCD -> CDAB, **not valid with data types: `int8`, `uint8`, `int16`, `uint16`**"
+          description: "Swap word ABCD -> CDAB, **not valid with data types: `int16`, `uint16`**"
         word_byte:
-          description: "Swap word ABCD -> DCBA, **not valid with data types: `int8`, `uint8`, `int16`, `uint16`**"
+          description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
     unit_of_measurement:
       description: "Unit to attach to value."
       required: false
@@ -1613,10 +1605,4 @@ and restart Home Assistant, reproduce the problem, and include the log in the is
 
 # Building on top of modbus
 
- - [modbus Binary Sensor](#configuring-platform-binary-sensor)
- - [modbus Climate](#configuring-platform-climate)
- - [modbus Cover](#configuring-platform-cover)
- - [modbus Fan](#configuring-platform-fan)
- - [modbus Light](#configuring-platform-light)
- - [modbus Sensor](#configuring-platform-sensor)
- - [modbus Switch](#configuring-platform-switch)
+The only recommended way is to inherit the entities needed.
