@@ -160,7 +160,7 @@ In some camera models, there is a delay of up to 5 seconds between the turn-off 
 
 Depending on the supported features of the camera, switch entities are added for:
 
-- Infra red lights in night mode
+- Infrared lights in night mode
 - Record audio
 - Siren on event
 - Auto tracking
