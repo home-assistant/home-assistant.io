@@ -76,32 +76,6 @@ Before you can use this device with Home Assistant, you need to install a bit of
 Are things not working as expected?
 
 - Checkout the [general troubleshooting section for Assist](/voice_control/troubleshooting/).
-- You think there is a problem with noise or volume? Checkout the procedure below.
-
-### Tweaking the ATOM Echo configuration
-
-1. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
-2. Edit the general configuration:
-   - Access the `config` folder and open the `configuration.yaml` file.
-   - Enter the following text:
-      ```yaml
-      assist_pipeline:
-         debug_recording_dir: /share/assist_pipeline
-      ```
-3. Save the changes and restart Home Assistant.
-4. Make sure you have the [Samba add-on installed](/common-tasks/os/#configuring-access-to-files).
-5. On your computer, access your Home Assistant server via Samba.
-   - Navigate to `/share/assist_pipeline`.
-   - For each voice command you gave, you will find a subfolder with the audio file in `.wav` format.
-6. Listen to the audio file of interest.
-7. Adjust noise suppression and volume, if needed:
-   - Access the `config` folder and open the `esphome/m5stack-atom-echo-wake-word.yaml` file.
-   - Find the `voice_assistant` section.
-   - If the audio is too noisy, increase the `noise_suppression_level` (max.&nbsp;4).
-   - If the audio is too quiet, increase either the `auto_gain` (max.&nbsp;31) or the `volume_multiplier` (no maximum, but a too high value will cause distortion eventually).
-8. Collecting the debug recordings impacts your disk space.
-   - Once you have found a configuration that works, delete the folder with the audio files.
-   - In the `configuration.yaml` file, delete the `assist_pipeline entry` and restart Home Assistant.
 
 ## Related topics
 
