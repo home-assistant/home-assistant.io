@@ -57,7 +57,7 @@ For the quickest way to get your local Assist pipeline started, follow these ste
      - Once you defined your own wake word, it will show in this pick list.
 
 3. That's it. You ensured your voice commands can be processed locally on your device.
-5. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
+4. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
    - Otherwise you won't be able to control them by voice.
 
 ## Fine-tuning Whisper and Piper for your setup
