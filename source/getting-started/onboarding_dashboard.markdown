@@ -52,6 +52,6 @@ The procedure below is optional. The idea is to learn some basics on changing th
    - On the bottom of the card, select the number or use the minus button to enter `1`.
    - Repeat this on other cards, if you want to move them around.
    - When you are done, in the top right corner, select **Done**.
-9. Congratulations! You have completed your first dashboard customization dashboards.
+9. Congratulations! You have completed your first dashboard customization.
 
 {% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}
