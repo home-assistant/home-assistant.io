@@ -174,7 +174,7 @@ Depending on the supported features of the camera, switch entities are added for
 - FTP upload
 - HDR*
 
-When **Infra red lights in night mode** entity is OFF always OFF, when ON IR LEDs will be on when the camera is in night vision mode, see the **Day night mode** select entity.
+When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 
 For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and **FTP** will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
 
