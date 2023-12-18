@@ -1,6 +1,6 @@
 ---
 title: Tailwind
-description: Instructions on how to integrate an Tailwind garage door controller with Home Assistant.
+description: Instructions on how to integrate a Tailwind garage door controller with Home Assistant.
 ha_category:
   - Cover
 ha_release: 2024.1
@@ -15,8 +15,8 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Tailwind integration can integration [Tailwind](https://gotailwind.com/)
-garage door controllers directly, fully local.
+The Tailwind integration integrates [Tailwind](https://gotailwind.com/)
+garage door controllers fully locally.
 
 This integration has been tested with the following Tailwind devices:
 
