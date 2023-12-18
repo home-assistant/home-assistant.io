@@ -22,7 +22,7 @@ This integration has been tested with the following Tailwind devices:
 
 - [Tailwind iQ3](https://gotailwind.com/products/iq3-smart-garage-controller)
 
-## Pre-requisites
+## Prerequisites
 
 To use your Tailwind device with Home Assistant, you need to have your Tailwind
 device setup, connected to your network, and configured in the Tailwind app.
