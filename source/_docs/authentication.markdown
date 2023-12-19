@@ -76,17 +76,7 @@ INFO (MainThread) [homeassistant.components.http.auth] You need to use a bearer 
 
 ### Lost owner password
 
-Before using the procedure below, make sure you explore options provided [here](/docs/locked_out).
-
-While you should hopefully be storing your passwords in a password manager, if you lose the password associated with the owner account the only way to resolve this is to delete _all_ the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
-
-- `auth`
-- `auth_provider.homeassistant`
-- `onboarding`
-- `hassio`
-- `cloud`
-
-When you start Home Assistant next, you'll be required to set up authentication again.
+If you lose the password associated with the owner account, you need to [start a new onboarding process](/docs/locked_out/#to-prepare-the-system-to-start-a-new-onboarding-process).
 
 ### Error: invalid client id or redirect URL
 
