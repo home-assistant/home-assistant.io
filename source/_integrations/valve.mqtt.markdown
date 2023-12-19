@@ -30,7 +30,7 @@ mqtt:
 
 ### Valve controlled by position
 
-If the valve supports to report its position (The `position` config option should be set to `true`). In that case a numeric state is expected on `state_topic`. State updates are allowed too. A JSON format is supported too and will also allow both `state` and `position` to be reported together.
+If the valve supports to report its position (The `reports_position` config option should be set to `true`). In that case a numeric state is expected on `state_topic`, but state updates are still allowed for `state_opening` and `state_closing`. Also a JSON format is supported and will also allow both `state` and `position` to be reported together.
 
 Example of a JSON state update:
 
@@ -48,7 +48,7 @@ mqtt:
   - valve:
       command_topic: "home-assistant/valve/set"
       state_topic: "home-assistant/valve/state"
-      position: true
+      reports_position: true
 ```
 
 ### Optimistic operation
@@ -98,7 +98,7 @@ command_template:
   required: false
   type: template
 command_topic:
-  description: The MQTT topic to publish commands to control the valve. The value sent can be a value defined by `payload_open`, `payload_close` or `payload_stop` (if `stop_command_topic` is not configured). If `position` is set to `true`, a numeric value will be published instead.
+  description: The MQTT topic to publish commands to control the valve. The value sent can be a value defined by `payload_open`, `payload_close` or `payload_stop`. If `reports_position` is set to `true`, a numeric value will be published instead.
   required: false
   type: string
 device:
@@ -198,7 +198,7 @@ payload_available:
   type: string
   default: online
 payload_close:
-  description: The command payload that closes the valve. Is only used when `position` is set to `false` (default).
+  description: The command payload that closes the valve. Is only used when `reports_position` is set to `false` (default). The `payload_close` is not allowed if `reports_position` is set to `true`. Can be set to `null` to disable the valve's close option.
   required: false
   type: string
   default: CLOSE
@@ -208,7 +208,7 @@ payload_not_available:
   type: string
   default: offline
 payload_open:
-  description: The command payload that opens the valve. Is only used when `position` is set to `false` (default).
+  description: The command payload that opens the valve. Is only used when `reports_position` is set to `false` (default). The `payload_open` is not allowed if `reports_position` is set to `true`. Can be set to `null` to disable the valve's open option.
   required: false
   type: string
   default: OPEN
@@ -216,11 +216,6 @@ payload_stop:
   description: The command payload that stops the valve. When not configured the valve will not support the `valve.stop` service.
   required: false
   type: string
-position:
-  description: "Set to `true` if the value reports the position or supports setting the position. Enabling the `position` option will cause the position to be published instead of a payload defined by `payload_open`, `payload_close` or `payload_stop`. When receiving messages `state_topic`, will accept numeric payloads or a state message: `open`, `opening`, `closed`, or `closing`."
-  required: false
-  type: boolean
-  default: false
 position_closed:
   description: Number which represents closed position. The valves position will be scaled to (`position_closed`...`position_open`) range. When a service is called, and scaled back when a value is received.
   required: false
@@ -236,37 +231,38 @@ qos:
   required: false
   type: integer
   default: 0
+reports_position:
+  description: "Set to `true` if the value reports the position or supports setting the position. Enabling the `reports_position` option will cause the position to be published instead of a payload defined by `payload_open`, `payload_close` or `payload_stop`. When receiving messages `state_topic`, will accept numeric payloads or a state message: `open`, `opening`, `closed`, or `closing`."
+  required: false
+  type: boolean
+  default: false
 retain:
   description: Defines if published messages should have the retain flag set.
   required: false
   type: boolean
   default: false
 state_closed:
-  description: The payload that represents the closed state. Is only used when `position` is set to `False` (default).
+  description: The payload that represents the closed state. Is only allowed when `reports_position` is set to `False` (default).
   required: false
   type: string
   default: closed
 state_closing:
-  description: The payload that represents the closing state. Is only used when `position` is set to `False` (default).
+  description: The payload that represents the closing state.
   required: false
   type: string
   default: closing
 state_open:
-  description: The payload that represents the open state. Is only used when `position` is set to `False` (default).
+  description: The payload that represents the open state. Is only allowed when `reports_position` is set to `False` (default).
   required: false
   type: string
   default: open
 state_opening:
-  description: The payload that represents the opening state. Is only used when `position` is set to `False` (default).
+  description: The payload that represents the opening state.
   required: false
   type: string
   default: opening
 state_topic:
-  description: The MQTT topic subscribed to receive valve state messages. State topic accepts a state payload (`open`, `opening`, `closed`, or `closing`) or, if `position` is supported, a numeric value representing the position. In a JSON format with variables `state` and `position` both values can received together.
-  required: false
-  type: string
-stop_command_topic:
-  description: The MQTT topic to publish commands a stop command to control the valve. The value sent should be a value defined by  `payload_stop`, when not set `command_topic` will be used instead.
+  description: The MQTT topic subscribed to receive valve state messages. State topic accepts a state payload (`open`, `opening`, `closed`, or `closing`) or, if `reports_position` is supported, a numeric value representing the position. In a JSON format with variables `state` and `position` both values can received together.
   required: false
   type: string
 unique_id:
@@ -274,7 +270,7 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that can be used to extract the payload for the `state_topic` topic. The rendered value should be a defined state payload or, if reporting a `position` is supported and `position` is set to `true`, a numeric value is expected representing the position. See also `state_topic`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that can be used to extract the payload for the `state_topic` topic. The rendered value should be a defined state payload or, if reporting a `position` is supported and `reports_position` is set to `true`, a numeric value is expected representing the position. See also `state_topic`."
   required: false
   type: template
 {% endconfiguration %}
@@ -308,7 +304,7 @@ mqtt:
       availability:
         - topic: "home-assistant/valve/availability"
       qos: 0
-      position: false
+      reports_position: false
       retain: true
       payload_open: "OPEN"
       payload_close: "CLOSE"
@@ -341,7 +337,7 @@ mqtt:
       state_topic: "home-assistant/valve/state"
       availability:
         - topic: "home-assistant/valve/availability"
-      position: true
+      reports_position: true
       value_template: "{{ value_json.x }}"
 ```
 
