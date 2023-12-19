@@ -26,11 +26,9 @@ This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3, or an ESP3
 
 Before you can use this device with Home Assistant, you need to install a bit of software on it.
 
-1. Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.
+1. Make sure this page is opened in a Chromium-based browser on a **desktop**. The software installation does not work with a tablet or phone.
 
-   - If you have an ESP32-S3-BOX-3, select the **Connect** button below. If your browser does not support web serial, you will see a warning instead of a button.
-     - If your device does not readily connect for flashing, you may need to put your ESP32-S3-BOX-3 into "flash mode" by holding the "boot" button (left side upper button), tapping the "reset" button (left side lower button), and then releasing them both. Wait a few seconds before attempting to connect.
-
+   - If you have an ESP32-S3-BOX-3, select the **Connect** button below to show the current ports. Do not connect the ESP32-S3-BOX-3 yet. If your browser does not support web serial, you will see a warning instead of a button.
 
       <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/esp32-s3-box-3/manifest.json"></esp-web-install-button>
