@@ -38,18 +38,18 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
   - [Add Code to the Lambda Function](#add-code-to-the-lambda-function)
   - [Test the Lambda Function](#test-the-lambda-function)
 - [Configure the Smart Home Service Endpoint](#configure-the-smart-home-service-endpoint)
-- [Account Linking](#account-linking)
+- [Account linking](#account-linking)
 - [Alexa Smart Home Integration Configuration](#alexa-smart-home-integration-configuration)
-- [Supported Platforms](#supported-platforms)
+- [Supported platforms](#supported-platforms)
   - [Alarm control panel](#alarm-control-panel)
     - [Arming](#arming)
     - [Disarming](#disarming)
   - [Alert, Automation, Group](#alert-automation-group)
-  - [Binary Sensor](#binary-sensor)
+  - [Binary sensor](#binary-sensor)
     - [Routines](#routines)
   - [Button, Input Button](#button-input-button)
     - [Routines](#routines-1)
-    - [Doorbell Announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
+    - [Doorbell announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
     - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
   - [Camera](#camera)
   - [Climate](#climate)
@@ -59,11 +59,11 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Open/Close/Raise/Lower](#opencloseraiselower)
     - [Set Cover Position](#set-cover-position)
     - [Set Cover Tilt](#set-cover-tilt)
-    - [Garage Doors](#garage-doors)
+    - [Garage doors](#garage-doors)
   - [Event entities](#event-entities)
-    - [Doorbell Events](#doorbell-events)
+    - [Doorbell events](#doorbell-events)
   - [Fan](#fan)
-    - [Fan Speed](#fan-speed)
+    - [Fan speed](#fan-speed)
     - [Fan Preset Mode](#fan-preset-mode)
     - [Fan Direction](#fan-direction)
     - [Fan Oscillation](#fan-oscillation)
@@ -92,6 +92,9 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Routines](#routines-2)
   - [Timer](#timer)
   - [Vacuum](#vacuum)
+  - [Valve](#valve)
+    - [Open/Close/Stop](#openclosestop)
+    - [Set Valve Position](#set-valve-position)
 - [Alexa Web-Based App](#alexa-web-based-app)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
@@ -458,57 +461,73 @@ Home Assistant supports the following integrations through Alexa using a Smart H
 
 The following platforms are currently supported:
 
-- [Alarm control panel](#alarm-control-panel)
-  - [Arming](#arming)
-  - [Disarming](#disarming)
-- [Alert, Automation, Group](#alert-automation-group)
-- [Binary Sensor](#binary-sensor)
-  - [Routines](#routines)
-- [Button, Input Button](#button-input-button)
-  - [Routines](#routines-1)
-  - [Doorbell Announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
-  - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
-- [Camera](#camera)
-- [Climate](#climate)
-  - [Set Thermostat Temperature](#set-thermostat-temperature)
-  - [Thermostat Mode](#thermostat-mode)
-- [Cover](#cover)
-  - [Open/Close/Raise/Lower](#opencloseraiselower)
-  - [Set Cover Position](#set-cover-position)
-  - [Set Cover Tilt](#set-cover-tilt)
-  - [Garage Doors](#garage-doors)
-- [Event entities](#event-entities)
-  - [Doorbell Events](#doorbell-events)
-- [Fan](#fan)
-  - [Fan Speed](#fan-speed)
-  - [Fan Preset Mode](#fan-preset-mode)
-  - [Fan Direction](#fan-direction)
-  - [Fan Oscillation](#fan-oscillation)
-- [Humidifier](#humidifier)
-  - [Humidifier target humidity](#humidifier-target-humidity)
-  - [Humidifier Mode](#humidifier-mode)
-- [Image Processing](#image-processing)
-  - [Presence Detection Notification](#presence-detection-notification)
-- [Input Number and Number](#input-number-and-number)
-- [Light](#light)
-  - [Brightness](#brightness)
-  - [Color Temperature](#color-temperature)
-  - [Color](#color)
-- [Lock](#lock)
-  - [Unlocking](#unlocking)
-- [Media Player](#media-player)
-  - [Change Channel](#change-channel)
-  - [Speaker Volume](#speaker-volume)
-  - [Equalizer Mode](#equalizer-mode)
-  - [Inputs](#inputs)
-  - [Playback State](#playback-state)
-- [Scene](#scene)
-- [Script](#script)
-- [Sensor](#sensor)
-- [Switch, Input Boolean](#switch-input-boolean)
-  - [Routines](#routines-2)
-- [Timer](#timer)
-- [Vacuum](#vacuum)
+- [Requirements](#requirements)
+- [Create an Amazon Alexa Smart Home Skill](#create-an-amazon-alexa-smart-home-skill)
+- [Create an AWS Lambda Function](#create-an-aws-lambda-function)
+  - [Create an IAM Role for Lambda](#create-an-iam-role-for-lambda)
+  - [Add Code to the Lambda Function](#add-code-to-the-lambda-function)
+  - [Test the Lambda Function](#test-the-lambda-function)
+- [Configure the Smart Home Service Endpoint](#configure-the-smart-home-service-endpoint)
+- [Account linking](#account-linking)
+- [Alexa Smart Home Integration Configuration](#alexa-smart-home-integration-configuration)
+- [Supported platforms](#supported-platforms)
+  - [Alarm control panel](#alarm-control-panel)
+    - [Arming](#arming)
+    - [Disarming](#disarming)
+  - [Alert, Automation, Group](#alert-automation-group)
+  - [Binary sensor](#binary-sensor)
+    - [Routines](#routines)
+  - [Button, Input Button](#button-input-button)
+    - [Routines](#routines-1)
+    - [Doorbell announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
+    - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
+  - [Camera](#camera)
+  - [Climate](#climate)
+    - [Set Thermostat Temperature](#set-thermostat-temperature)
+    - [Thermostat Mode](#thermostat-mode)
+  - [Cover](#cover)
+    - [Open/Close/Raise/Lower](#opencloseraiselower)
+    - [Set Cover Position](#set-cover-position)
+    - [Set Cover Tilt](#set-cover-tilt)
+    - [Garage doors](#garage-doors)
+  - [Event entities](#event-entities)
+    - [Doorbell events](#doorbell-events)
+  - [Fan](#fan)
+    - [Fan speed](#fan-speed)
+    - [Fan Preset Mode](#fan-preset-mode)
+    - [Fan Direction](#fan-direction)
+    - [Fan Oscillation](#fan-oscillation)
+  - [Humidifier](#humidifier)
+    - [Humidifier target humidity](#humidifier-target-humidity)
+    - [Humidifier Mode](#humidifier-mode)
+  - [Image Processing](#image-processing)
+    - [Presence Detection Notification](#presence-detection-notification)
+  - [Input Number and Number](#input-number-and-number)
+  - [Light](#light)
+    - [Brightness](#brightness)
+    - [Color Temperature](#color-temperature)
+    - [Color](#color)
+  - [Lock](#lock)
+    - [Unlocking](#unlocking)
+  - [Media Player](#media-player)
+    - [Change Channel](#change-channel)
+    - [Speaker Volume](#speaker-volume)
+    - [Equalizer Mode](#equalizer-mode)
+    - [Inputs](#inputs)
+    - [Playback State](#playback-state)
+  - [Scene](#scene)
+  - [Script](#script)
+  - [Sensor](#sensor)
+  - [Switch, Input Boolean](#switch-input-boolean)
+    - [Routines](#routines-2)
+  - [Timer](#timer)
+  - [Vacuum](#vacuum)
+  - [Valve](#valve)
+    - [Open/Close/Stop](#openclosestop)
+    - [Set Valve Position](#set-valve-position)
+- [Alexa Web-Based App](#alexa-web-based-app)
+- [Troubleshooting](#troubleshooting)
+- [Debugging](#debugging)
 
 ### Alarm control panel
 
@@ -1065,6 +1084,32 @@ Support _"turn on"_ and _"turn off"_ utterances. Pause and Resume
 - _"Alexa, turn on the vacuum."_
 - _"Alexa, pause the vacuum."_
 - _"Alexa, restart the vacuum."_
+
+### Valve
+
+Valves are not supported natively within Alexa. So within Alexa they are represented as a device of an unknown type. 
+
+#### Open/Close/Stop
+
+Home Assistant configures valves with semantics that provide  _"open"_ and _"close"_ utterances.
+
+- _"Alexa, open the water valve."_
+- _"Alexa, close the gas valve."_
+- _"Alexa, stop the gas valve."_
+
+#### Set Valve Position
+
+Valves that support a set position can be controlled using percentages.
+
+- _"Alexa, set the [entity name] position to thirty percent."_
+- _"Alexa, increase [entity name] position by ten percent."_
+- _"Alexa, decrease [entity name] position by twenty percent."_
+
+| Locale  | Friendly Name Synonyms    |
+| ------- | ------------------------- |
+| `en-US` | _"position"_, _"opening"_ |
+
+Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
 ## Alexa Web-Based App
 
