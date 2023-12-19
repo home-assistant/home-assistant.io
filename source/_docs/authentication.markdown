@@ -1,13 +1,23 @@
 ---
 title: "Authentication"
-description: "Guide on authentication in Home Assistant."
+description: "Documentation on authentication in Home Assistant."
 ---
 
-Our authentication system secures access to Home Assistant.
+The authentication system secures access to Home Assistant.
 
-If you are starting Home Assistant for the first time, or you have logged out, you will be asked for credentials before you can log in.
+## Login screen
 
-<img src='/images/docs/authentication/login.png' alt='Screenshot of the login screen' style='border: 0;box-shadow: none;'>
+If you log in from within your local network, you are greeted with a login screen showing all the people in Home Assistant.
+
+<img src='/images/docs/authentication/login.png' alt='Screenshot of the login screen, when logging in from within the local network' style='border: 0;box-shadow: none;'>
+
+### Privacy: Not showing users when logging in from outside the network
+
+When logging in from outside your local network, the users are not shown. This is to protect your privacy. In this case, you need to enter your user name.
+
+You might also see this screen if you are using a Chromium-based browser (Chrome, Edge) and IPv6. Home Assistant might not be able to detect if your are logging in from a local network. This is a known issue with Chromium.
+
+<img src='/images/docs/authentication/login-outside-local-network.png' alt='Screenshot of the login screen, when logging in from within the local network' style='border: 0;box-shadow: none;'>
 
 ## User accounts
 

@@ -4,6 +4,7 @@ description: How to integrate the System Bridge integration into Home Assistant.
 ha_category:
   - Sensor
   - System monitor
+  - Update
 ha_release: 2021.6
 ha_iot_class: Local Push
 ha_config_flow: true

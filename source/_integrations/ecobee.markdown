@@ -14,7 +14,6 @@ ha_release: 0.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@marthoc'
   - '@marcolivierarsenault'
 ha_domain: ecobee
 ha_platforms:

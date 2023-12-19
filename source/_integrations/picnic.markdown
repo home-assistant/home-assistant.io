@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: picnic
 ha_platforms:
   - sensor
+  - todo
 ha_integration_type: integration
 ---
 
