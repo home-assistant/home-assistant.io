@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: tailwind
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - button
   - number
 ha_integration_type: device
@@ -48,5 +49,7 @@ This integration provides the following entities:
 
 - **Identify** - A button entity that allows you to identify your Tailwind
   device by flashing the status LED on the device.
+- **Operational status** - A binary sensor entity that shows the operational
+  status of your Tailwind device.
 - **Status LED brightness control** - A number entity that allows you to control
   the brightness of the status LED on the Tailwind device.
