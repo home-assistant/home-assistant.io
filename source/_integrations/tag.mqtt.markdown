@@ -1,8 +1,8 @@
 ---
-title: "MQTT Tag Scanner"
+title: "MQTT tag scanner"
 description: "Instructions on how to integrate MQTT scanner within Home Assistant."
 ha_category:
-  - Tag Scanner
+  - Tag scanner
 ha_release: 0.116
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -30,7 +30,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:

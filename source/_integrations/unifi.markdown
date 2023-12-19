@@ -3,7 +3,8 @@ title: UniFi Network
 description: Instructions on how to configure UniFi Network integration with UniFi Network application by Ubiquiti.
 ha_category:
   - Hub
-  - Presence Detection
+  - Image
+  - Presence detection
   - Sensor
   - Switch
   - Update
@@ -16,8 +17,10 @@ ha_codeowners:
 ha_domain: unifi
 ha_ssdp: true
 ha_platforms:
+  - button
   - device_tracker
   - diagnostics
+  - image
   - sensor
   - switch
   - update
@@ -28,7 +31,9 @@ ha_integration_type: hub
 
 There is currently support for the following device types within Home Assistant:
 
-- [Presence Detection](#presence-detection)
+- [Button](#button)
+- [Image](#image)
+- [Presence detection](#presence-detection)
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
@@ -39,7 +44,7 @@ The user needs administrator privileges in order to control switches.
 
 ### Extra configuration of the integration
 
-All configuration options are offered from the front end. Enter what UniFi Network integration you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
+All configuration options are offered from the front end. Enter what UniFi Network {% term integration %} you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
 
 ### Configuring Users
 
@@ -51,9 +56,25 @@ For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti
 
 ### Conflicts with MQTT
 
-The UniFi Network application can either be a UniFi OS console device (like the Cloud Key), or as software on any Linux system. If you run the UniFi Network application on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
+The UniFi Network application can either be a UniFi OS console device (like the Cloud Key), or as software on any Linux system. If you run the UniFi Network application on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT {% term integration %} as well.
 
 It is recommended that you run the UniFi Network application in a dedicated virtual machine to avoid that situation.
+
+## Button
+
+The Button entities will only be available and usable if the integration has a UniFi Network account with administrator privileges.
+
+### Power cycle PoE
+
+Use the **Power cycle PoE** button entity to power cycle one specific PoE port to cause the connected device to restart.
+
+### Restart UniFi device
+
+Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch, the PoE supply is not affected.
+
+## Image
+
+Provides QR Code images that can be scanned to easily join a specific WLAN. Entities are disabled by default. This feature requires admin privileges.
 
 ## Presence detection
 
@@ -77,7 +98,7 @@ Try to get a wireless client to reconnect to the network.
 
 | Service data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `device_id`            | No       | String representing a device ID related to a UniFi Network integration.     |
+| `device_id`            | No       | String representing a device ID related to a UniFi Network {% term integration %} .     |
 
 ### Service unifi.remove_clients
 
@@ -87,27 +108,49 @@ Clean up clients on the UniFi Network application that has only been associated 
 
 ### Block network access for clients
 
-Allow control of network access to clients configured in the integration options by adding MAC addresses. Items in this list will have a Home Assistant switch created, using the UniFi Device name, allowing for blocking and unblocking.
+Allow control of network access to clients configured in the {% term integration %} options by adding MAC addresses. Items in this list will have a Home Assistant switch created, using the UniFi Device name, allowing for blocking and unblocking.
 
-### Control clients powered by POE
+### PoE port control
 
-Entities appear automatically for each connected POE client. If no POE client device is in operation, no entity will be visible. Note: UniFi infrastructure devices such as access points and other switches are not (yet) supported, even if they are powered over ethernet themselves.
-
-Note that POE control actually configures the network port of the switch which the client is connected to.
+Provides per-port PoE control. Entities are disabled by default. This feature requires admin privileges.
 
 ### Control DPI Traffic Restrictions
 
-Entities appear automatically for each restriction group. If there are no restrictions in a group, no entity will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
+Entities appear automatically for each restriction group. If there are no restrictions in a group, no {% term entity %} will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
+
+### Control Port forward functonality
+
+Entities appear for each port forwarding rule. 
+
+### Control WLAN availability
+
+Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
 
 ## Sensor
 
 ### Bandwidth sensor
 
-Get entities reporting receiving and transmitting bandwidth per network client.
+Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+
+### Wlan clients sensor
+
+Entities reporting connected clients to a WLAN.
 
 ### Uptime sensor
 
-Get entities reporting uptime per network client.
+Get entities reporting uptime per network client or UniFi Network device.
+
+### Power Outlet sensor
+
+Get entities reporting the power utilization for outlets that support metrics (such as the AC outlets on the USP-PDU-Pro).
+
+### Device temperature sensor
+
+Get entities reporting the general temperature of a UniFi Network device.
+
+### Device state
+
+Get entities reporting the current state of a UniFi Network device.
 
 ## Firmware updates
 
@@ -115,7 +158,7 @@ This will show if there are firmware updates available for the UniFi network dev
 
 ## Debugging integration
 
-If you have problems with the UniFi Network application or integration you can add debug prints to the log.
+If you have problems with the UniFi Network application or {% term integration %} you can add debug prints to the log.
 
 ```yaml
 logger:

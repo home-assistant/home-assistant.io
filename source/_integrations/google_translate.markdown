@@ -16,29 +16,29 @@ The `google_translate` text-to-speech platform uses the unofficial [Google Trans
 
 {% include integrations/config_flow.md %}
 
-Check the [complete list of supported languages](https://translate.google.com/intl/en_ALL/about/languages/) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
+Check the [complete list of supported languages](https://cloud.google.com/translate/docs/languages) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
 Use the 2-digit language code which you can find at the end of the URL when you click on the language name.
 
-Check the [complete list of supported tld](https://www.google.com/supported_domains) for allowed TLD values. This is used to force the dialect used when multiple fall into the same 2-digit language code(i.e., *US, UK, AU*)
+Check the [complete list of supported tld](https://www.google.com/supported_domains) for allowed TLD values. This is used to force the dialect used when multiple fall into the same 2-digit language code(i.e., _US, UK, AU_)
 
 You can also use supported BCP 47 tags like the below or the 2-2 digit format for your supported dialect(`en-gb` or `en-us`). Below is a list of the currently implemented mappings:
 
-| Dialect | Language | TLD |
-|---------|----------|-----|
-|en-us|en|com|
-|en-gb|en|co.uk|
-|en-uk|en|co.uk|
-|en-au|en|com.au|
-|en-ca|en|ca|
-|en-in|en|co.in|
-|en-ie|en|ie|
-|en-za|en|co.za|
-|fr-ca|fr|ca|
-|fr-fr|fr|fr|
-|pt-br|pt|com.br|
-|pt-pt|pt|pt|
-|es-es|es|es|
-|es-us|es|com|
+| Dialect | Language | TLD    |
+| ------- | -------- | ------ |
+| en-us   | en       | com    |
+| en-gb   | en       | co.uk  |
+| en-uk   | en       | co.uk  |
+| en-au   | en       | com.au |
+| en-ca   | en       | ca     |
+| en-in   | en       | co.in  |
+| en-ie   | en       | ie     |
+| en-za   | en       | co.za  |
+| fr-ca   | fr       | ca     |
+| fr-fr   | fr       | fr     |
+| pt-br   | pt       | com.br |
+| pt-pt   | pt       | pt     |
+| es-es   | es       | es     |
+| es-us   | es       | com    |
 
 ## Service say
 

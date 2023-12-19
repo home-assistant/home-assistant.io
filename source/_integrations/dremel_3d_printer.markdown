@@ -2,7 +2,7 @@
 title: Dremel 3D Printer
 description: Instructions on how to integrate a Dremel 3D Printer into Home Assistant.
 ha_category:
-  - 3D Printing
+  - 3D printing
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 2023.7
@@ -12,7 +12,7 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
-  - Sensor
+  - sensor
 ha_codeowners:
   - '@tkdrob'
 ha_integration_type: device

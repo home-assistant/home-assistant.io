@@ -53,7 +53,7 @@ The service `persistent_notification.create` takes in `message`, `title`, and `n
 | `title`                |      yes | Title of the notification. Accepts [templates](/docs/configuration/templating/).
 | `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID.
 
-Here is how an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) with static content could look like.
+Here is how an [action](/docs/automation/action) of your [automation setup](/getting-started/automation/) with static content could look like.
 
 ```yaml
 action:
@@ -122,13 +122,13 @@ The message attribute supports the [Markdown formatting syntax](https://daringfi
 
 ### Create a persistent notification
 
-Choose the **Services** tab from the **Developer Tools** sidebar item, then select the `persistent_notification.create` service from the "Service" dropdown. Enter something like the sample below into the **Service Data** field and press the **CALL SERVICE** button.
+Choose the **{% my developer_services title="Services" %}** tab from the **Developer Tools** sidebar item, then select the {% my developer_services service="persistent_notification.create" title="`persistent_notification.create`" %} service from the "Service" dropdown. Enter something like the sample below into the **Service Data** field and press the **CALL SERVICE** button.
 
 ```json
 {
   "notification_id": "1234",
   "title": "Sample notification",
-  "message": "This is a sample text"
+  "message": "This is a sample text."
 }
 ```
 This will create the notification entry shown above.

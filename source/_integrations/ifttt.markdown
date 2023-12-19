@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT component, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
+[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT integration, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
 
 ## Prerequisites
 

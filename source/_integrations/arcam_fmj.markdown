@@ -2,7 +2,7 @@
 title: Arcam FMJ Receivers
 description: Instructions on how to integrate Arcam FMJ Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.96
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -50,7 +50,7 @@ This integration may also work with [JBL](https://www.jblsynthesis.com/products/
 
 ## Power state
 
-Arcam receivers turn off their network port when in standby, the component will try to reconnect to the receiver every 5 seconds. This means powering on the first zone is not possible over the built-in network connection. 
+Arcam receivers turn off their network port when in standby, the integration will try to reconnect to the receiver every 5 seconds. This means powering on the first zone is not possible over the built-in network connection. 
 
 Note: Some newer models offer the ability to configure the device to keep the network port active when in standby mode. This can be found under **HDMI Settings** > **HDMI Bypass & IP**. Enabling **HDMI & IP On** will allow full power control from Home Assistant.
 
@@ -73,7 +73,7 @@ To trigger this IR command add an automation on the event `arcam.turn_on` filter
 the `entity_id` of the `media_player` zone entity. This can be added using device automations
 or manually using normal automations.
 
-### Serial Port to network gateway
+### Serial port to network gateway
 
 Use a network to a serial port gateway to connect to the serial port of the
 receiver. The serial port is always available and can power on the device.

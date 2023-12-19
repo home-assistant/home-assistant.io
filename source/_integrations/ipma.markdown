@@ -8,9 +8,9 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@dgomes'
-  - '@abmantis'
 ha_domain: ipma
 ha_platforms:
+  - sensor
   - weather
 ha_integration_type: integration
 ---
@@ -19,7 +19,9 @@ The `ipma` weather platform uses the [Instituto Português do Mar e Atmosfera](h
 
 There is currently support for the following device types within Home Assistant:
 
-- Sensor (Risk of Fire for your location)
+- Sensor
+  - Risk of Fire for your location
+  - UV Index for your district
 - Weather (current state and forecast)
 
 {% include integrations/config_flow.md %}

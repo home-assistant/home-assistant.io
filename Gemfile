@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '> 2.5.0'
 
 group :development do
-  gem 'rake', '13.0.6'
+  gem 'rake', '13.1.0'
   gem 'jekyll', '4.3.2'
   gem 'compass', '1.0.3'
   gem 'sass-globbing', '1.1.5'
@@ -19,8 +19,8 @@ group :jekyll_plugins do
   gem 'jekyll-toc', '0.18.0'
 end
 
-gem 'sinatra', '3.0.6'
-gem 'nokogiri', '1.15.2'
+gem 'sinatra', '3.1.0'
+gem 'nokogiri', '1.15.5'
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library

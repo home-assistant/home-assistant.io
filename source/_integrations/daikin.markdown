@@ -25,7 +25,7 @@ ha_integration_type: integration
   Daikin has removed their local API in newer products. They offer a cloud API accessible only under NDA, which is incompatible with open source. This affects units fitted with the BRP069C4x wifi adapter. Units listed under Supported Hardware below continue to have access to local control. Additionally the older but commonly available BRP072A42 adapter can be fitted to most if not all newer units for access to local control.
 </p>
 
-The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.
+The **Daikin** {% term integration %} integrates Daikin air conditioning systems into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -45,7 +45,8 @@ There is currently support for the following device types within Home Assistant:
 <div class='note'>
 
 - The integration for BRP072Cxx and SKYFi based units need API-key / password respectively. The API-key/password can be found on a sticker under the front cover. The other models are auto detected and the API-key and password field must be left empty.
-  
+- BRP084Cxx firmware update from 1.19.0 to 2.8.0 breaks local API there is however ongoing work in fixing local API support again.
+
 </div>
 
 {% include integrations/config_flow.md %}
@@ -140,9 +141,11 @@ Zones with the name `-` will be ignored, just as the AirBase application is work
 
 </div>
 
+A switch is created for each device that will toggle the unit on/off. This will turn the unit on to its previous state, or toggle it off. This switch works in conjunction with the climate entity.
+
 Additionally the Daikin Streamer (air purifier) function can be toggled on supported devices using a switch. Note that it isn't currently possible to reliably detect whether a specific device has streamer support, so the switch may appear in the UI even if the functionality isn't actually supported.
 
-## Region Changing
+## Region changing
 
 The European and United States controllers (Most likely the Australian controllers too) have an HTTP API endpoint that allows you to change the controllers region so that other regional apps can be used. (Sometimes these controllers get exported to regions that can not download the app for the controllers region.)
 

@@ -2,9 +2,9 @@
 title: AVM FRITZ!Box Tools
 description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Image
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Update
 ha_release: '0.10'
@@ -19,9 +19,9 @@ ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
   - button
-  - image
   - device_tracker
   - diagnostics
+  - image
   - sensor
   - switch
   - update
@@ -56,7 +56,7 @@ Currently supported services are Platform specific:
 
 - `fritz.cleanup`
 
-### Platform Services
+### Platform services
 
 #### Service `fritz.cleanup`
 
@@ -82,7 +82,7 @@ If no password is given, it will be auto-generated.
 ## Integration options
 
 It is possible to change some behaviors through the integration options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. On the **AVM FRITZ!Box Tools** integration, select the cogwheel. Then select **Configure**.
+To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. Select the **AVM FRITZ!Box Tools** integration, then select **Configure**.
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
 - **Enable old discovery method**: Needed on some scenarios like no mesh support (fw <= 6.x), mixed brands network devices or LAN switches.
@@ -95,11 +95,11 @@ Parental control switches can be used to enable and disable internet access of i
 
 Parental control switches are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
 
-### Device Tracker
+### Device tracker
 
 **Note**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.
 
-### Port Forward
+### Port forward
 
 Due to security reasons, AVM implemented the ability to enable/disable a port forward rule only from the host involved in the rule.
 As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.

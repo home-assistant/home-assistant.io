@@ -2,7 +2,7 @@
 title: MeteoAlarm
 description: Instructions on how to set up MeteoAlarm binary sensors within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.93
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -80,9 +80,9 @@ icon: mdi:alert
 
 There are a few awareness levels:
 
-* 2; yellow; Moderate
-* 3; orange; Severe
-* 4; red; High
+- 2; yellow; Moderate
+- 3; orange; Severe
+- 4; red; High
 
 Example automation
 

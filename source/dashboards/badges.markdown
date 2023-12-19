@@ -42,11 +42,6 @@ show_name:
   description: Show name.
   type: boolean
   default: "true"
-show_icon:
-  required: false
-  description: Show icon.
-  type: boolean
-  default: "true"
 {% endconfiguration %}
 
 ## Entity Filter Badge
@@ -68,7 +63,7 @@ state_filter:
   type: list
 {% endconfiguration %}
 
-### Options For Entities
+### Options for entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configurations:
 
@@ -99,7 +94,7 @@ state_filter:
   type: list
 {% endconfiguration %}
 
-### Options For state_filter
+### Options for state filter
 
 If you define state_filter as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
 

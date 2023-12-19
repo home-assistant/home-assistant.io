@@ -3,7 +3,7 @@ title: Speedtest.net
 description: How to integrate Speedtest.net within Home Assistant.
 ha_category:
   - Sensor
-  - System Monitor
+  - System monitor
 ha_release: 0.13
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -24,7 +24,9 @@ Most Speedtest.net servers require TCP port 8080 outbound to function. Without t
 
 By default, a speed test will be run every hour. You can disable polling using system options and use the `update_entity` service to automate the speed test frequency.
 
-## Integration Sensors
+{% include common-tasks/define_custom_polling.md %}
+
+## Integration sensors
 
 The following sensors are added by the integration:
 
@@ -39,7 +41,7 @@ Please be aware of the potential [inconsistencies](https://github.com/sivel/spee
 
 ## Examples
 
-In this section you will find some real-life examples of how to use this component.
+In this section you will find some real-life examples of how to use this integration.
 ### Using as a trigger in an automation
 
 {% raw %}

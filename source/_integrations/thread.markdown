@@ -21,7 +21,7 @@ Thread-based consumer devices use one of the two Home Automation standards: Matt
 | Logo                                                                        | Home Assistant integration        |
 | :-------------------------------------------------------------------------: | :--------------------------------:|
 | <img src="https://brands.home-assistant.io/_/matter/icon.png"  width="50">  | [Matter](/integrations/Matter/)   |
-| <img src="https://brands.home-assistant.io/_/homekit/icon.png"  width="50"> | [HomeKit](/integrations/homekit/) |
+| <img src="https://brands.home-assistant.io/_/homekit/icon.png"  width="50"> | [HomeKit](/integrations/homekit_controller/) |
 
 
 ## Thread &#8212; A communication protocol

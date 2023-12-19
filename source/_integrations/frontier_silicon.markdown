@@ -2,7 +2,7 @@
 title: Frontier Silicon
 description: Instructions on how to integrate Frontier Silicon Internet Radios into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Polling
 ha_release: '0.40'
 ha_domain: frontier_silicon
@@ -17,18 +17,18 @@ ha_config_flow: true
 
 This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the UNDOK app.
 
-## Supported Models
+## Supported models
 
 Frontier Silicon is used by many different brands of radio manufacturers.
 
 Supported devices include, but are not limited to:
 
-* Hama: [IR50], [IR110], [DIR3110]
-* Medion: [Medion Radios]
-* Silvercrest: [SIRD 14 C2 (archived website)]
-* Teufel: [Radio 3sixty (2019)]
-* Roberts: [Roberts Stream 94i]
-* Some models from: Auna, Technisat, Revo, Pinell, Como Audio
+- Hama: [IR50], [IR110], [DIR3110]
+- Medion: [Medion Radios]
+- Silvercrest: [SIRD 14 C2 (archived website)]
+- Teufel: [Radio 3sixty (2019)]
+- Roberts: [Roberts Stream 94i]
+- Some models from: Auna, Technisat, Revo, Pinell, Como Audio
 
 This integration was developed and tested with a [Roberts Stream 94i].
 

@@ -16,6 +16,7 @@ ha_integration_type: integration
 
 <div class='note warning'>
   This integration only supports TTNv2 that has been definitively switched off in 2022 (deprecated).
+  For TTNv3, use the [MQTT integration](/integrations/mqtt).
 </div>
 
 The `thethingsnetwork` integration allows one to interact with the [The Things Network](https://www.thethingsnetwork.org). This community-driven and open network supports [LoRaWAN](https://www.lora-alliance.org/) for long range (~5 to 15 km) communication with a low bandwidth (51 bytes/message). [Gateways](https://www.thethingsnetwork.org/docs/gateways/) transfers the received data from the sensors to the The Things Network.
@@ -52,7 +53,7 @@ Access keys
 
 ## Configuration
 
-To enable this component, add the following lines to your `configuration.yaml`:
+To enable this integration, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -76,7 +77,7 @@ access_key:
 
 The `thethingsnetwork` sensor platform allows you to get data from a [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/).
 
-This platform requires that the [The Things Network component](#configuration) is set up and the [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/) as well.
+This platform requires that the [The Things Network integration](#configuration) is set up and the [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/) as well.
 
 ### Prerequisites
 

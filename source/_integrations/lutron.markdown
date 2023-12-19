@@ -93,11 +93,11 @@ The Lutron scene platform allows you to control scenes programmed into your SeeT
 
 After setup, scenes will appear in Home Assistant using the area, keypad and button name.
 
-## Occupancy Sensors
+## Occupancy sensors
 
 Any configured Powr Savr occupancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
 
-## Example Automations
+## Example automations
 
 ``` yaml
 - alias: "keypad button pressed notification"

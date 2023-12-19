@@ -48,8 +48,11 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2023.6.1 - June 8](#release-202361---june-8)
+- [Release 2023.6.2 - June 14](#release-202362---june-14)
+- [Release 2023.6.3 - June 23](#release-202363---june-23)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -385,6 +388,327 @@ The following integrations are now available via the Home Assistant UI:
 [Last.fm]: /integrations/lastfm
 [Philips Dynalite]: /integrations/dynalite
 
+## Release 2023.6.1 - June 8
+
+- Add error handling to input_select integration ([@j4n-e4t] - [#93940]) ([input_select docs])
+- Fix OTBR reset ([@emontnemery] - [#94157]) ([thread docs]) ([otbr docs])
+- Bump melnor-bluetooth to fix a timezone issue ([@vanstinator] - [#94159]) ([melnor docs])
+- Fix Abode unit of measurement ([@joostlek] - [#94168]) ([abode docs])
+- Bump pyoverkiz to 1.8.0 ([@iMicknl] - [#94176]) ([overkiz docs])
+- Rename Local Media to My Media ([@balloob] - [#94201]) ([media_source docs])
+- Fix ambiclimate for Python 3.11 ([@megakid] - [#94203]) ([ambiclimate docs])
+- Require pydantic 1.10.8 or higher ([@allenporter] - [#94208])
+- Set httpx log level to warning ([@jpbede] - [#94217])
+- Update aioairzone-cloud to v0.1.8 ([@Noltari] - [#94223]) ([airzone_cloud docs])
+- Bump python-opensky ([@joostlek] - [#93916]) ([opensky docs])
+- Bump python-opensky to 0.0.9 ([@joostlek] - [#94224]) ([opensky docs])
+- Bump pulsectl to 23.5.2 ([@chatziko] - [#94227]) ([pulseaudio_loopback docs])
+- Fix imap crash on email without subject ([@jbouwh] - [#94230]) ([imap docs])
+- Solve wrong return code from modbus. ([@janiversen] - [#94234]) ([flexit docs])
+- Catch exception when user has no lastfm friends ([@joostlek] - [#94235]) ([lastfm docs])
+- Bump aiohomekit to 2.6.5 (fixes python 3.11 regression) ([@Jc2k] - [#94245]) ([homekit_controller docs])
+- Retrieve friends in an async manner in Lastfm ([@joostlek] - [#94255]) ([lastfm docs])
+- Update frontend to 20230608.0 ([@piitaya] - [#94256]) ([frontend docs])
+- Bump unifiprotect to 4.10.2 ([@AngellusMortis] - [#94263]) ([unifiprotect docs])
+- Fix default value when logger used ([@balloob] - [#94269]) ([logger docs])
+- Fix repair issue about no yaml for config entries ([@frenck] - [#94271])
+- Restructure Insteon start-up ([@teharris1] - [#92818]) ([insteon docs])
+- Fix Insteon startup for users with X10 devices ([@teharris1] - [#94277]) ([insteon docs])
+
+[#92818]: https://github.com/home-assistant/core/pull/92818
+[#93916]: https://github.com/home-assistant/core/pull/93916
+[#93940]: https://github.com/home-assistant/core/pull/93940
+[#94157]: https://github.com/home-assistant/core/pull/94157
+[#94158]: https://github.com/home-assistant/core/pull/94158
+[#94159]: https://github.com/home-assistant/core/pull/94159
+[#94168]: https://github.com/home-assistant/core/pull/94168
+[#94176]: https://github.com/home-assistant/core/pull/94176
+[#94201]: https://github.com/home-assistant/core/pull/94201
+[#94203]: https://github.com/home-assistant/core/pull/94203
+[#94208]: https://github.com/home-assistant/core/pull/94208
+[#94217]: https://github.com/home-assistant/core/pull/94217
+[#94223]: https://github.com/home-assistant/core/pull/94223
+[#94224]: https://github.com/home-assistant/core/pull/94224
+[#94227]: https://github.com/home-assistant/core/pull/94227
+[#94230]: https://github.com/home-assistant/core/pull/94230
+[#94234]: https://github.com/home-assistant/core/pull/94234
+[#94235]: https://github.com/home-assistant/core/pull/94235
+[#94245]: https://github.com/home-assistant/core/pull/94245
+[#94255]: https://github.com/home-assistant/core/pull/94255
+[#94256]: https://github.com/home-assistant/core/pull/94256
+[#94263]: https://github.com/home-assistant/core/pull/94263
+[#94269]: https://github.com/home-assistant/core/pull/94269
+[#94271]: https://github.com/home-assistant/core/pull/94271
+[#94277]: https://github.com/home-assistant/core/pull/94277
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@Jc2k]: https://github.com/Jc2k
+[@Noltari]: https://github.com/Noltari
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@chatziko]: https://github.com/chatziko
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@iMicknl]: https://github.com/iMicknl
+[@j4n-e4t]: https://github.com/j4n-e4t
+[@janiversen]: https://github.com/janiversen
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@megakid]: https://github.com/megakid
+[@piitaya]: https://github.com/piitaya
+[@teharris1]: https://github.com/teharris1
+[@vanstinator]: https://github.com/vanstinator
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[aemet docs]: /integrations/aemet/
+[airthings docs]: /integrations/airthings/
+[airthings_ble docs]: /integrations/airthings_ble/
+[airzone docs]: /integrations/airzone/
+[airzone_cloud docs]: /integrations/airzone_cloud/
+[ambiclimate docs]: /integrations/ambiclimate/
+[flexit docs]: /integrations/flexit/
+[frontend docs]: /integrations/frontend/
+[homekit_controller docs]: /integrations/homekit_controller/
+[imap docs]: /integrations/imap/
+[input_select docs]: /integrations/input_select/
+[insteon docs]: /integrations/insteon/
+[lastfm docs]: /integrations/lastfm/
+[logger docs]: /integrations/logger/
+[media_source docs]: /integrations/media_source/
+[melnor docs]: /integrations/melnor/
+[opensky docs]: /integrations/opensky/
+[otbr docs]: /integrations/otbr/
+[overkiz docs]: /integrations/overkiz/
+[pulseaudio_loopback docs]: /integrations/pulseaudio_loopback/
+[thread docs]: /integrations/thread/
+[unifiprotect docs]: /integrations/unifiprotect/
+
+## Release 2023.6.2 - June 14
+
+- Change pyoppleio to pyoppleio-legacy ([@tinysnake] - [#88050]) ([opple docs])
+- Fix issue with Insteon linked devices maintaining current state ([@teharris1] - [#94286]) ([insteon docs])
+- Bump elkm1-lib to 2.2.5 ([@gwww] - [#94296]) ([elkm1 docs])
+- Bump pylitterbot to 2023.4.2 ([@natekspencer] - [#94301]) ([litterrobot docs])
+- Upgrade sisyphus-control to 3.1.3 ([@jkeljo] - [#94310]) ([sisyphus docs])
+- fix: electrasmart - cast temperature to int in set_temperature ([@jafar-atili] - [#94368]) ([electrasmart docs])
+- Fix dep noaa-coops for noaa_tides ([@jbouwh] - [#94370]) ([noaa_tides docs])
+- Fix deprecated asyncio.wait use with coroutines ([@syssi] - [#94371]) ([xiaomi_miio docs])
+- Update xknxproject to 3.1.1 ([@farmio] - [#94375]) ([knx docs])
+- Re-add event listeners after Z-Wave server disconnection ([@raman325] - [#94383]) ([zwave_js docs])
+- Fix ZHA binding api to actually return responses ([@jasonkuster] - [#94388]) ([zha docs])
+- Abort youtube configuration if user has no channel ([@joostlek] - [#94402]) ([youtube docs])
+- Update knx-frontend to 2023.6.9.195839 ([@farmio] - [#94404]) ([knx docs])
+- Bump unifiprotect to 4.10.3 ([@AngellusMortis] - [#94416]) ([unifiprotect docs])
+- Fix: Xiaomi Miio Fan, delay off countdown unit conversion ([@golles] - [#94428]) ([xiaomi_miio docs])
+- Add unit inference for Amps and VA in APCUPSD integration ([@yuxincs] - [#94431]) ([apcupsd docs])
+- Fix manual update for Command Line ([@gjohansson-ST] - [#94433]) ([command_line docs])
+- Fix reload service in Command Line ([@gjohansson-ST] - [#94436]) ([command_line docs])
+- Set default value for endpoint in zwave device automations ([@raman325] - [#94445]) ([zwave_js docs])
+- Revert "Bump pydaikin 2.9.1 (#93635)" ([@mover85] - [#94469]) ([daikin docs])
+- Bump russound_rio to 1.0.0 ([@chphilli] - [#94500]) ([russound_rio docs])
+- Fix entity and device selector TypedDict's ([@raman325] - [#94510])
+- Bump yalexs-ble to 2.1.18 ([@bdraco] - [#94547]) ([august docs]) ([yalexs_ble docs])
+- Bump `regenmaschine` to 2023.06.0 ([@bachya] - [#94554]) ([rainmachine docs])
+- Update Home Assistant base image to 2023.06.0 ([@frenck] - [#94556])
+- Catch InvalidAuthError in `shutdown()` method for Shelly gen2 devices ([@bieniu] - [#94563]) ([shelly docs])
+- Fix keyboard_remote for python 3.11 ([@lanrat] - [#94570]) ([keyboard_remote docs])
+- Fix failed recovery in roku ([@ctalkington] - [#94572]) ([roku docs])
+- Fix failed recovery in ipp ([@ctalkington] - [#94573]) ([ipp docs])
+- Improve multipan debug logging ([@emontnemery] - [#94580]) ([homeassistant_hardware docs])
+
+[#88050]: https://github.com/home-assistant/core/pull/88050
+[#94158]: https://github.com/home-assistant/core/pull/94158
+[#94286]: https://github.com/home-assistant/core/pull/94286
+[#94288]: https://github.com/home-assistant/core/pull/94288
+[#94296]: https://github.com/home-assistant/core/pull/94296
+[#94301]: https://github.com/home-assistant/core/pull/94301
+[#94310]: https://github.com/home-assistant/core/pull/94310
+[#94368]: https://github.com/home-assistant/core/pull/94368
+[#94370]: https://github.com/home-assistant/core/pull/94370
+[#94371]: https://github.com/home-assistant/core/pull/94371
+[#94375]: https://github.com/home-assistant/core/pull/94375
+[#94383]: https://github.com/home-assistant/core/pull/94383
+[#94388]: https://github.com/home-assistant/core/pull/94388
+[#94402]: https://github.com/home-assistant/core/pull/94402
+[#94404]: https://github.com/home-assistant/core/pull/94404
+[#94416]: https://github.com/home-assistant/core/pull/94416
+[#94428]: https://github.com/home-assistant/core/pull/94428
+[#94431]: https://github.com/home-assistant/core/pull/94431
+[#94433]: https://github.com/home-assistant/core/pull/94433
+[#94436]: https://github.com/home-assistant/core/pull/94436
+[#94445]: https://github.com/home-assistant/core/pull/94445
+[#94469]: https://github.com/home-assistant/core/pull/94469
+[#94500]: https://github.com/home-assistant/core/pull/94500
+[#94510]: https://github.com/home-assistant/core/pull/94510
+[#94547]: https://github.com/home-assistant/core/pull/94547
+[#94554]: https://github.com/home-assistant/core/pull/94554
+[#94556]: https://github.com/home-assistant/core/pull/94556
+[#94563]: https://github.com/home-assistant/core/pull/94563
+[#94570]: https://github.com/home-assistant/core/pull/94570
+[#94572]: https://github.com/home-assistant/core/pull/94572
+[#94573]: https://github.com/home-assistant/core/pull/94573
+[#94580]: https://github.com/home-assistant/core/pull/94580
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@chphilli]: https://github.com/chphilli
+[@ctalkington]: https://github.com/ctalkington
+[@emontnemery]: https://github.com/emontnemery
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@golles]: https://github.com/golles
+[@gwww]: https://github.com/gwww
+[@jafar-atili]: https://github.com/jafar-atili
+[@jasonkuster]: https://github.com/jasonkuster
+[@jbouwh]: https://github.com/jbouwh
+[@jkeljo]: https://github.com/jkeljo
+[@joostlek]: https://github.com/joostlek
+[@lanrat]: https://github.com/lanrat
+[@mover85]: https://github.com/mover85
+[@natekspencer]: https://github.com/natekspencer
+[@raman325]: https://github.com/raman325
+[@syssi]: https://github.com/syssi
+[@teharris1]: https://github.com/teharris1
+[@tinysnake]: https://github.com/tinysnake
+[@yuxincs]: https://github.com/yuxincs
+[accuweather docs]: /integrations/accuweather/
+[aemet docs]: /integrations/aemet/
+[airthings docs]: /integrations/airthings/
+[airthings_ble docs]: /integrations/airthings_ble/
+[airzone docs]: /integrations/airzone/
+[apcupsd docs]: /integrations/apcupsd/
+[august docs]: /integrations/august/
+[command_line docs]: /integrations/command_line/
+[daikin docs]: /integrations/daikin/
+[electrasmart docs]: /integrations/electrasmart/
+[elkm1 docs]: /integrations/elkm1/
+[homeassistant_hardware docs]: /integrations/homeassistant_hardware/
+[insteon docs]: /integrations/insteon/
+[ipp docs]: /integrations/ipp/
+[keyboard_remote docs]: /integrations/keyboard_remote/
+[knx docs]: /integrations/knx/
+[litterrobot docs]: /integrations/litterrobot/
+[noaa_tides docs]: /integrations/noaa_tides/
+[opple docs]: /integrations/opple/
+[rainmachine docs]: /integrations/rainmachine/
+[roku docs]: /integrations/roku/
+[russound_rio docs]: /integrations/russound_rio/
+[shelly docs]: /integrations/shelly/
+[sisyphus docs]: /integrations/sisyphus/
+[unifiprotect docs]: /integrations/unifiprotect/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+[youtube docs]: /integrations/youtube/
+[zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2023.6.3 - June 23
+
+- Register Fully Kiosk services regardless of setup result ([@mheath] - [#88647]) ([fully_kiosk docs])
+- Fortios device tracker updates ([@kimfrellsen] - [#92331]) ([fortios docs])
+- Handle LastFM unavailable ([@joostlek] - [#94456]) ([lastfm docs])
+- Handle Insteon events correctly ([@teharris1] - [#94549]) ([insteon docs])
+- Fix unit for Habitica text sensors ([@atudor2] - [#94550]) ([habitica docs])
+- Bump minimum typing_extensions to 4.6.3 ([@freeDom-] - [#94587]) (dependency)
+- Fix glances raid plugin data ([@freeDom-] - [#94597]) ([glances docs])
+- Make YouTube select lower quality thumbnails ([@joostlek] - [#94652]) ([youtube docs])
+- Add strings for YouTube reauthentication ([@joostlek] - [#94655]) ([youtube docs])
+- Fix bluetooth tracker asyncio usage ([@d03n3rfr1tz3] - [#94695]) ([bluetooth_tracker docs])
+- Fix zwave_js trigger event reattach logic ([@raman325] - [#94702]) ([zwave_js docs])
+- Fix warning from rapt_ble caused by payload version 2 ([@sairon] - [#94718]) ([rapt_ble docs])
+- Fix Totalconnect BinarySensorDeviceClass logic ([@austinmroczek] - [#94772]) ([totalconnect docs])
+- Bump HAP-python to 4.7.0 ([@bdraco] - [#94812]) ([homekit docs]) (dependency)
+- Bump bthome to 2.12.0 ([@Ernst79] - [#94822]) ([bthome docs]) (dependency)
+- Update aioairzone to v0.6.4 ([@Noltari] - [#94873]) ([airzone docs]) (dependency)
+- Bump ical to 4.5.4 ([@allenporter] - [#94894]) ([local_calendar docs])
+- Fix Meteo France blocked config entry when weather alert API fails ([@Quentame] - [#94911]) ([meteo_france docs])
+- Add error handling to hassio issues ([@epenet] - [#94951]) ([hassio docs])
+- Bump Matter Server to 3.5.1: some small fixes and stability improvements ([@marcelveldt] - [#94985]) ([matter docs]) (dependency)
+- Fix zwave_js device diagnostics dump ([@raman325] - [#94999]) ([zwave_js docs])
+- Bump bimmer_connected to 0.13.7 ([@rikroe] - [#95017]) ([bmw_connected_drive docs]) (dependency)
+- Fix goodwe midnight error ([@hmmbob] - [#95041]) ([goodwe docs])
+- Fix removal of orphaned Matter devices ([@marcelveldt] - [#95044]) ([matter docs])
+- Fix KNX device trigger passing info data ([@farmio] - [#95076]) ([knx docs])
+
+[#88647]: https://github.com/home-assistant/core/pull/88647
+[#92331]: https://github.com/home-assistant/core/pull/92331
+[#94158]: https://github.com/home-assistant/core/pull/94158
+[#94288]: https://github.com/home-assistant/core/pull/94288
+[#94456]: https://github.com/home-assistant/core/pull/94456
+[#94549]: https://github.com/home-assistant/core/pull/94549
+[#94550]: https://github.com/home-assistant/core/pull/94550
+[#94587]: https://github.com/home-assistant/core/pull/94587
+[#94597]: https://github.com/home-assistant/core/pull/94597
+[#94621]: https://github.com/home-assistant/core/pull/94621
+[#94652]: https://github.com/home-assistant/core/pull/94652
+[#94655]: https://github.com/home-assistant/core/pull/94655
+[#94695]: https://github.com/home-assistant/core/pull/94695
+[#94702]: https://github.com/home-assistant/core/pull/94702
+[#94718]: https://github.com/home-assistant/core/pull/94718
+[#94772]: https://github.com/home-assistant/core/pull/94772
+[#94812]: https://github.com/home-assistant/core/pull/94812
+[#94822]: https://github.com/home-assistant/core/pull/94822
+[#94873]: https://github.com/home-assistant/core/pull/94873
+[#94894]: https://github.com/home-assistant/core/pull/94894
+[#94911]: https://github.com/home-assistant/core/pull/94911
+[#94951]: https://github.com/home-assistant/core/pull/94951
+[#94985]: https://github.com/home-assistant/core/pull/94985
+[#94999]: https://github.com/home-assistant/core/pull/94999
+[#95017]: https://github.com/home-assistant/core/pull/95017
+[#95041]: https://github.com/home-assistant/core/pull/95041
+[#95044]: https://github.com/home-assistant/core/pull/95044
+[#95076]: https://github.com/home-assistant/core/pull/95076
+[@Ernst79]: https://github.com/Ernst79
+[@Noltari]: https://github.com/Noltari
+[@Quentame]: https://github.com/Quentame
+[@allenporter]: https://github.com/allenporter
+[@atudor2]: https://github.com/atudor2
+[@austinmroczek]: https://github.com/austinmroczek
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@d03n3rfr1tz3]: https://github.com/d03n3rfr1tz3
+[@epenet]: https://github.com/epenet
+[@farmio]: https://github.com/farmio
+[@freeDom-]: https://github.com/freeDom-
+[@frenck]: https://github.com/frenck
+[@hmmbob]: https://github.com/hmmbob
+[@joostlek]: https://github.com/joostlek
+[@kimfrellsen]: https://github.com/kimfrellsen
+[@marcelveldt]: https://github.com/marcelveldt
+[@mheath]: https://github.com/mheath
+[@raman325]: https://github.com/raman325
+[@rikroe]: https://github.com/rikroe
+[@sairon]: https://github.com/sairon
+[@teharris1]: https://github.com/teharris1
+[accuweather docs]: /integrations/accuweather/
+[aemet docs]: /integrations/aemet/
+[airthings docs]: /integrations/airthings/
+[airthings_ble docs]: /integrations/airthings_ble/
+[airzone docs]: /integrations/airzone/
+[bluetooth_tracker docs]: /integrations/bluetooth_tracker/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[bthome docs]: /integrations/bthome/
+[fortios docs]: /integrations/fortios/
+[fully_kiosk docs]: /integrations/fully_kiosk/
+[glances docs]: /integrations/glances/
+[goodwe docs]: /integrations/goodwe/
+[habitica docs]: /integrations/habitica/
+[hassio docs]: /integrations/hassio/
+[homekit docs]: /integrations/homekit/
+[insteon docs]: /integrations/insteon/
+[knx docs]: /integrations/knx/
+[lastfm docs]: /integrations/lastfm/
+[local_calendar docs]: /integrations/local_calendar/
+[matter docs]: /integrations/matter/
+[meteo_france docs]: /integrations/meteo_france/
+[rapt_ble docs]: /integrations/rapt_ble/
+[totalconnect docs]: /integrations/totalconnect/
+[youtube docs]: /integrations/youtube/
+[zwave_js docs]: /integrations/zwave_js/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -401,7 +725,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 {% details "Python" %}
 
@@ -841,6 +1165,18 @@ be safely deleted.
 
 [@raman325]: https://github.com/raman325
 [#93946]: https://github.com/home-assistant/core/pull/93946
+
+---
+
+If you have zwave_js cover entities already and your device supports Window
+Covering CC, you may see newly created cover entities. The old cover entities
+can safely be deleted, but all customizations must be reapplied to the
+new entities.
+
+([@raman325] - [#93314]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#93314]: https://github.com/home-assistant/core/pull/93314
 
 {% enddetails %}
 

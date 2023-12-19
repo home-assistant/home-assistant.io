@@ -2,7 +2,7 @@
 title: Tuya
 description: Instructions on how to set up the Tuya hub within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Climate
   - Cover
@@ -66,8 +66,8 @@ This is a separate account from the one you made for the app. You cannot log in 
 4. In the `Create Cloud Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in. Refer to the country/data center mapping list [here](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md) to choose the right data center for the country you are in.
   ![](/images/integrations/tuya/image_001.png)
 5. Click `Create` to continue with the project configuration.
-6. In Configuration Wizard, make sure you add `Device Status Notification` API. The list of API should look like this:
-  ![](/images/integrations/tuya/image_002.png)
+6. In Configuration Wizard, make sure you add `Industry Basic Service`, `Smart Home Basic Service` and `Device Status Notification` APIs. The list of API should look like this:
+  ![](/images/integrations/tuya/image_002new.png)
 7. Click `Authorize`.
 
 ### Link devices by app account
@@ -134,9 +134,7 @@ If no devices show up in Home Assistant:
 
     - Incorrect username or password: Enter the correct account and password of the Tuya Smart or Smart Life app in the **Account** and **Password** fields (social login, which the Tuya Smart app allows, may not work, and thus should be avoided for use with the Home Assistant integration). Note that the app account depends on which app (Tuya Smart or Smart Life) you used to link devices on the [Tuya IoT Platform](https://iot.tuya.com/cloud/).
 
-    - Incorrect country. You must select the region of your account of the Tuya Smart app or Smart Life app.
-    
-    - Some users still experience the **Permission denied** error after adding the correct app account credentials in a correctly configured project. A workaround involves adding a custom user under **Cloud** > **Development** > **Users**. 
+    - Incorrect country. You must select the region of your account of the Tuya Smart app or Smart Life app.    
 
 "1100: param is empty":
   description: Empty parameter of username or app. Please fill the parameters refer to the **Configuration** part above.
@@ -154,6 +152,10 @@ If no devices show up in Home Assistant:
     Some APIs are not authorized, please [Subscribe](https://developer.tuya.com/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-2-Subscribe%20to%20APIs) then [Authorize](https://developer.tuya.com/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-3-Grant%20a%20project%20access%20to%20API%20calls). The following APIs must be subscribed for this tutorial:
 
     - Device Status Notification
+
+    - Industry Basic Service
+
+    - Smart Home Basic Service
     
     - Authorization
 
@@ -172,7 +174,7 @@ If no devices show up in Home Assistant:
 
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
 
-## Related Documents
+## Related documents
 
 - [Tuya Integration Documentation Page](https://github.com/tuya/tuya-home-assistant)
 - [Supported Tuya Device Category](https://github.com/tuya/tuya-home-assistant/blob/main/docs/supported_devices.md)

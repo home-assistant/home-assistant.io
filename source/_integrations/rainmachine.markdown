@@ -2,7 +2,7 @@
 title: RainMachine
 description: Instructions on how to integrate RainMachine units within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Irrigation
   - Sensor
   - Switch
@@ -30,7 +30,7 @@ The RainMachine integration is the main integration to integrate all platforms r
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Button
 - Sensor
 - [Switch](#switch)
@@ -117,7 +117,7 @@ Restrict any and all watering activities from staring for a time period.
 
 ### `rainmachine.start_program`
 
-Start a RainnMachine program.
+Start a RainMachine program.
 
 ### `rainmachine.start_zone`
 

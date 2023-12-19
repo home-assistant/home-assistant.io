@@ -141,7 +141,7 @@ Alternatively, MQTT can be configured to bridge messages between servers if usin
 
 ### Triggering actions
 
-In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/integrations/intent_script) component. For instance, the following block handles a `ActivateLightColor` intent to change light colors:
+In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/integrations/intent_script) integration. For instance, the following block handles a `ActivateLightColor` intent to change light colors:
 
 Note: If your Snips action is prefixed with a username (e.g., `john:playmusic` or `john__playmusic`), the Snips integration in Home Assistant will try and strip off the username. Bear this in mind if you get the error `Received unknown intent` even when what you see on the MQTT bus looks correct. Internally the Snips integration is trying to match the non-username version of the intent (i.e., just `playmusic`).
 

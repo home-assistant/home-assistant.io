@@ -1,9 +1,8 @@
 ---
 title: EnOcean
 description: Connect EnOcean devices to Home Assistant
-logo: enocean.png
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Light
   - Sensor
@@ -28,7 +27,7 @@ The EnOcean integration adds support for some of these devices. You will need a 
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor) - Wall switches
+- [Binary sensor](#binary-sensor) - Wall switches
 - [Sensor](#sensor) - Power meters, temperature sensors, humidity sensors and window handles
 - [Light](#light) - Dimmers
 - [Switch](#switch)
@@ -52,7 +51,7 @@ Support for tech-in messages is not implemented.
 
 Despite the UI-based configuration of the hub, the entities are still configured using YAML see next chapters).
 
-## Binary Sensor
+## Binary sensor
 
 This can typically be one of those batteryless wall switches.
 Tested with:
@@ -158,10 +157,10 @@ name:
 
 The EnOcean sensor platform currently supports the following device types:
 
- * [power sensor](#power-sensor)
- * [humidity sensor](#humidity-sensor)
- * [temperature sensor](#temperature-sensor)
- * [window handle](#window-handle)
+- [power sensor](#power-sensor)
+- [humidity sensor](#humidity-sensor)
+- [temperature sensor](#temperature-sensor)
+- [window handle](#window-handle)
  
 To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 

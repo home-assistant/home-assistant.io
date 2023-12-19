@@ -3,7 +3,7 @@ title: Pentair ScreenLogic
 description: Instructions on how to integrate a ScreenLogic gateway within Home Assistant.
 ha_release: '2021.4'
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Hub
   - Sensor
@@ -34,7 +34,7 @@ The Pentair ScreenLogic integration allows you to integrate your Pentair Intelli
 
 ScreenLogic options are set via **Settings** -> **Devices & Services** -> **Pentair ScreenLogic** -> **Options**.
 
-* Seconds between scans - How many seconds between each polling of the ScreenLogic gateway.
+-= Seconds between scans - How many seconds between each polling of the ScreenLogic gateway.
 
 ## Services
 
@@ -49,7 +49,7 @@ Sets the operation of any connected color-capable lights.
 
 ## Reference
 
-### Color Modes
+### Color modes
 
 | color_mode   | Name         | Description                                                                                               |
 | ------------ | ------------ | --------------------------------------------------------------------------------------------------------- |

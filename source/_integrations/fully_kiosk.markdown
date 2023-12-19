@@ -2,7 +2,7 @@
 title: Fully Kiosk Browser
 description: Instructions on how to integrate Fully Kiosk Browser with Home Assistant
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
   - Switch
 ha_release: 2022.9
@@ -104,7 +104,6 @@ Example:
 ```yaml
 service: fully_kiosk.set_config
 data:
-  config_type: "string"
   key: "startURL"
   value: "https://home-assistant.io"
 target:

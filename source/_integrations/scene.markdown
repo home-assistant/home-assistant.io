@@ -11,6 +11,26 @@ ha_domain: scene
 ha_integration_type: entity
 ---
 
+A scene entity is an entity that can restore the state of a group of entities.
+Scenes can be user-defined or can be provided through an integration.
+
+{% include integrations/building_block_integration.md %}
+
+## The state of a scene
+
+The scene entity is stateless, as in, it cannot have a state like the `on` or
+`off` state that, for example, a normal switch entity has.
+
+Every scene entity does keep track of the timestamp of when the last time
+the scene entity was called via the Home Assistant UI or called via
+a service call.
+
+## Scenes created by integrations
+
+Some integrations like [Philips Hue](/integrations/hue), [MQTT](/integrations/mqtt), and [KNX](/integrations/knx) provide scenes. You can activate them from the Home Assistant UI or via as service calls. In this case, the integration provides the preferred states to restore.
+
+## Creating a scene
+
 You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red.
 
 Scenes can be created and managed via the user interface using the [Scene Editor](/docs/scene/editor/). They can also be manually configured via `configuration.yaml`. Note that the entity data is not service call parameters, it's a representation of the wanted state:
@@ -147,7 +167,7 @@ You need to pass a `scene_id` in lowercase and with underscores instead of space
 
 If the scene was previously created by `scene.create`, it will be overwritten. If the scene was created by YAML, nothing happens but a warning in your log files.
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how scenes work and how you can utilize scenes on the fly.
 
 <lite-youtube videoid="JW9PC6ptXcM" videotitle="Scenes on Steroids in Home Assistant - How To - Tutorial" posterquality="maxresdefault"></lite-youtube>
@@ -170,6 +190,27 @@ automation:
         media_player.sony_bravia_tv:
           state: "on"
           source: HDMI 1
+```
+
+## Deleting dynamically created scenes
+
+Any scene that you have created with the `scene.create` service can also be deleted on demand with the `scene.delete` service.
+
+You will need to pass in the `entity_id` of such a scene. As opposed to the `scene_id` used for creation, the `entity_id` must also include the `scene` domain.
+
+If the scene was not previously created by `scene.create`, the service call will fail and an error will appear in the logs.
+
+```yaml
+# Example automation
+automation:
+  trigger:
+    platform: state
+    entity_id: sun.sun
+    to: below_horizon
+  action:
+    - service: scene.delete
+      data:
+        entity_id: scene.my_scene
 ```
 
 The following example turns off some entities as soon as a window opens. The states of the entities are restored after the window is closed again.
