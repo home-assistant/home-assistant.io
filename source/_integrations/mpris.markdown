@@ -7,7 +7,7 @@ ha_release: 2023.09
 ha_iot_class: Local Push
 ha_codeowners:
   - '@Rudd-O'
-ha_domain: hassmpris
+ha_domain: mpris
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `hassmpris` platform lets you govern all of your Linux media players from Home Assistant.  All of your open media players will appear as active media players in your Home Assistant interface, provided that:
+The MPRIS platform lets you govern all of your Linux media players from Home Assistant.  All of your open media players will appear as active media players in your Home Assistant interface, provided that:
 
 1. your media players are [MPRIS-compatible](https://specifications.freedesktop.org/mpris-spec/) (most are), and
 2. your desktop session is active (whether the screen is locked or not).
