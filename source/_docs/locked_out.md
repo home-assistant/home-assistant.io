@@ -89,22 +89,13 @@ You need to be an owner or have administrator rights to delete a user.
 
 ### To prepare the system to start a new onboarding process
 
-If you lose the password associated with the owner account and the steps above do not work to reset the password, the only way to resolve this is to start a new onboarding process. 
+If you lose the password associated with the owner account and the steps above do not work to reset the password, the only way to resolve this is to start a new onboarding process.
 
 - If you have an external backup with an administrator account of which you still know the login credentials, you can restore that backup.
 - If you do not have a backup, resetting the device will erase all data.
 
 - If you have a Home Assistant Green, [reset the Green](https://green.home-assistant.io/guides/reset/).
 - If you have a Home Assistant Yellow, [reset the Yellow](https://yellow.home-assistant.io/guides/factory-reset/).
-- If you have a Raspberry Pi, delete *all* the authentication data.
-  - Shut down Home Assistant.
-  - Remove your SD card and access it from your PC.
-  - Delete the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
-    - `auth`
-    - `auth_provider.homeassistant`
-    - `onboarding`
-    - `hassio`
-    - `cloud`
 
 ## Recovering data for Home Assistant (including Supervised)
 
