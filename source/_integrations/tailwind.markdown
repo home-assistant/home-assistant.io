@@ -13,6 +13,7 @@ ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - button
+  - cover
   - number
 ha_integration_type: device
 ---
@@ -45,7 +46,13 @@ You will need two pieces of information:
 
 ## Provided entities
 
-This integration provides the following entities:
+The Tailwind integration provides a cover entity for each garage door that is
+connected to your Tailwind garage door controller.
+
+Using the cover entity, you can open and close your garage door, and see the
+current state of your garage door.
+
+Additionally, the integration provides the following entities:
 
 - **Identify** - A button entity that allows you to identify your Tailwind
   device by flashing the status LED on the device.
