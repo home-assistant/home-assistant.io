@@ -49,7 +49,7 @@ You will need two pieces of information:
 The Tailwind integration provides a cover entity for each garage door that is
 connected to your Tailwind garage door controller.
 
-Using the cover entity, you can open and close your garage door, and see the
+Using the cover entity, you can open and close your garage door and see the
 current state of your garage door.
 
 Additionally, the integration provides the following entities:
