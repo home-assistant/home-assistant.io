@@ -54,7 +54,7 @@ Set the position of one or multiple valves if they support setting a specific po
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of valves. Use `entity_id: all` to target all.
-| `position` | no | Integer between 0 and 100.
+| `position` | no | Integer between 0 (fully closed), and 100 (fully open).
 
 #### Automation example
 
