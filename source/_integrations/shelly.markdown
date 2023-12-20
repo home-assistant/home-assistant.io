@@ -282,7 +282,7 @@ As soon as you change the temperature, it gets enabled again.
 
 ## Shelly Gas with Valve add-on
 
-If you have Valve add-on connected to Shelly Gas, the integration will create three entities for the valve. The `switch` and `valve` entities allow you to control the valve, the `sensor` entity shows exact states of the valve. The `switch` entity is deprecated and will be removed in in a future version of Home Assistant.
+If you have Valve add-on connected to Shelly Gas, the integration will create three entities for the valve. The `switch` and `valve` entities allow you to control the valve, the `sensor` entity shows exact states of the valve. The `switch` entity is deprecated and will be removed in a future version of Home Assistant.
 
 <div class="note">
 
