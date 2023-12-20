@@ -11,7 +11,7 @@ ha_domain: valve
 ha_integration_type: entity
 ---
 
-Home Assistant can give you an interface to control valves such as water, gas, or air valves.
+The valve entity in Home Assistant provides an interface to control valves such as water, gas, or air valves.
 
 {% include integrations/building_block_integration.md %}
 
