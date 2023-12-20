@@ -115,7 +115,7 @@ device:
       required: false
       type: list
     hw_version:
-      description: "The hardware version of the device."
+      description: The hardware version of the device.
       required: false
       type: string
     identifiers:
