@@ -28,7 +28,7 @@ You can change the device class of the valve in the [customize section](/docs/co
 ### Valve control services
 
 All valves respond to `valve.open`, `valve.close`, and `valve.toggle`.
-Valves that allow for an intermediate position may also be controlled with `valve.set_position` and `valve.stop`.
+Valves that allow setting a specific position may also be controlled with `valve.set_position` and `valve.stop`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
