@@ -53,7 +53,7 @@ mqtt:
 
 ### Optimistic operation
 
-If a `state_topic` is not defined, the valve will work in optimistic mode. In this mode, the valve will immediately change state (`open` or `closed`) after every command sent by Home Assistant. It won't wait for an update from the device. Optimistic mode can be forced, even if a `state_topic` is defined by setting `optimistic` to `true`. Try to enable it if you are experiencing incorrect valve operation.
+If a `state_topic` is not defined, the valve will work in optimistic mode. In this mode, the valve will immediately change state (`open` or `closed`) after every command sent by Home Assistant. It won't wait for an update from the device. Optimistic mode can be forced by setting `optimistic` to `true`, even if a `state_topic` is defined. Try to enable it if you are experiencing an incorrect valve operation.
 
 
 {% configuration %}
