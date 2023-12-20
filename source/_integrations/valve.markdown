@@ -49,7 +49,7 @@ automation:
 
 ### Service `valve.set_position`
 
-Set valve position of one or multiple valves, if they support intermediate positions.
+Set the position of one or multiple valves if they support setting a specific position.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
