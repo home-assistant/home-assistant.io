@@ -34,6 +34,7 @@ ha_platforms:
   - sensor
   - switch
   - update
+  - valve
 ha_integration_type: device
 ha_quality_scale: platinum
 ---
@@ -281,7 +282,7 @@ As soon as you change the temperature, it gets enabled again.
 
 ## Shelly Gas with Valve add-on
 
-If you have Valve add-on connected to Shelly Gas, the integration will create two entities for the valve. The `switch` entity allows you to control the valve, the `sensor` entity shows exact states of the valve.
+If you have Valve add-on connected to Shelly Gas, the integration will create three entities for the valve. `switch` and `valve` entities allows you to control the valve, the `sensor` entity shows exact states of the valve. The `switch` entity is deprecated and will be removed in HA 2024.6.0.
 
 <div class="note">
 
