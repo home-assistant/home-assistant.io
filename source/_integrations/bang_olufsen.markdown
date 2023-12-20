@@ -4,7 +4,7 @@ description: Instructions on how to integrate Bang & Olufsen devices into Home A
 ha_category:
   - Media Player
   - Multimedia
-ha_release: 2023.11
+ha_release: 2023.2
 ha_iot_class: Local Push
 ha_domain: bang_olufsen
 ha_platforms:
@@ -38,18 +38,15 @@ and any other Mozart based products.
 
 {% configuration_basic %}
 IP Address:
-description: The IP address of your device. Can be found by navigating to the device on the [Bang & Olufsen app](https://www.bang-olufsen.com/en/dk/story/apps) and selecting `⋯` → `Product settings` → `About` → `IP address`.
-required: true
-type: string
+  description: The IP address of your device. Can be found by navigating to the device on the [Bang & Olufsen app](https://www.bang-olufsen.com/en/dk/story/apps) and selecting `Settings` → `About` → `IP address`.
+  required: true
+  type: string
 Device model:
-description: The model name of your Bang & Olufsen device. This is used to determine some capabilities of the device. If the device is not in the list yet, choose a product similar to yours.
-required: true
-type: string
+  description: The model name of your Bang & Olufsen device. This is used to determine some capabilities of the device. If the device is not in the list yet, choose a product similar to yours.
+  required: true
+  type: string
 {% endconfiguration_basic %}
 
-## Entities
-
-This integration currently adds a media_player entity.
 
 ## Services
 
@@ -155,7 +152,7 @@ data:
 
 ## Automations
 
-WebSocket notifications received from the device are fired as events in Home Assistant. These can be received by listening to `bang_olufsen_websocket_event` event types where `device_id` or `serial_number` can be used to differentiate devices.
+WebSocket notifications received from the device are fired as events in Home Assistant. These can be received by listening to `bang_olufsen_websocket_event` event types, where `device_id` or `serial_number` can be used to differentiate devices.
 
 ### Getting Deezer URIs
 
