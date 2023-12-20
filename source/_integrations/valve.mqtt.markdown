@@ -12,11 +12,11 @@ The `mqtt` valve platform allows you to control an MQTT valve (such a gas or wat
 
 ## Configuration
 
-A valve entity can be in states (`open`, `opening`, `closed` or `closing`).
+A valve entity can be have the following states: `open`, `opening`, `closed` or `closing`.
 
 ### Valve controlled by states
 
-If a `state_topic` is configured, the entity's state will be updated only after an MQTT message is received on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. Commands configured through `payload_open`, `payload_closed` and `payload_stop` will be published to `command_topic` to control the valve.
+If a `state_topic` is configured, the entity's state will be updated only after an MQTT message is received on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. Commands configured through `payload_open`, `payload_closed`, and `payload_stop` will be published to `command_topic` to control the valve.
 
 To use your MQTT valve in your installation, add the following to your `configuration.yaml` file:
 
@@ -30,7 +30,7 @@ mqtt:
 
 ### Valve controlled by position
 
-If the valve supports to report its position (The `reports_position` config option should be set to `true`). In that case a numeric state is expected on `state_topic`, but state updates are still allowed for `state_opening` and `state_closing`. Also a JSON format is supported and will also allow both `state` and `position` to be reported together.
+If the valve supports reporting its position (the `reports_position` config option is set to `true`), a numeric state is expected on `state_topic`, but state updates are still allowed for `state_opening` and `state_closing`. Also, a JSON format is supported. It allows both `state` and `position` to be reported together.
 
 Example of a JSON state update:
 
@@ -38,7 +38,7 @@ Example of a JSON state update:
 {"state": "opening", "position": 10}
 ```
 
-The wanted position value or `payload_stop` will be published to `command_topic` to control the valve when services `valve.open`, `value.close` or `value.set_position` are called.
+The wanted position value or `payload_stop` will be published to `command_topic` to control the valve when the services `valve.open`, `value.close`, or `value.set_position` are called.
 
 To use your MQTT valve in your installation, add the following to your `configuration.yaml` file:
 
@@ -53,7 +53,7 @@ mqtt:
 
 ### Optimistic operation
 
-If a `state_topic` is not defined, the valve will work in optimistic mode. In this mode, the valve will immediately change state (`open` or `closed`) after every command sent by Home Assistant and not wait for an update from the device. Optimistic mode can be forced, even if a `state_topic` is defined by setting `optimistic` to `true`. Try to enable it if experiencing incorrect valve operation.
+If a `state_topic` is not defined, the valve will work in optimistic mode. In this mode, the valve will immediately change state (`open` or `closed`) after every command sent by Home Assistant. It won't wait for an update from the device. Optimistic mode can be forced, even if a `state_topic` is defined by setting `optimistic` to `true`. Try to enable it if you are experiencing incorrect valve operation.
 
 
 {% configuration %}
@@ -77,7 +77,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the device's availability from the `topic`. To determine the devices's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -86,11 +86,11 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the device's availability from the `availability_topic`. To determine the devices's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
-  description: "The MQTT topic subscribed to to receive birth and LWT messages from the MQTT valve device. If an `availability` topic is not defined, the valve availability state will always be `available`. If an `availability` topic is defined, the valve availability state will be `unavailable` by default. Must not be used together with `availability`."
+  description: "The MQTT topic subscribed to receive birth and <abbr title="last will and testament">LWT</abbr> messages from the MQTT valve device. If an `availability` topic is not defined, the valve availability state will always be `available`. If an `availability` topic is defined, the valve availability state will be `unavailable` by default. Must not be used together with `availability`."
   required: false
   type: string
 command_template:
@@ -102,7 +102,7 @@ command_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this valve is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this valve is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of the identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -111,7 +111,7 @@ device:
       required: false
       type: string
     connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example, the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
     hw_version:
@@ -119,7 +119,7 @@ device:
       required: false
       type: string
     identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      description: 'A list of IDs that uniquely identify the device. For example, a serial number.'
       required: false
       type: [list, string]
     manufacturer:
@@ -171,11 +171,11 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. A usage example can be found in the [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. A usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
 name:
@@ -184,14 +184,14 @@ name:
   type: string
   default: MQTT valve
 object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+  description: Used instead of `name` to have the `entity_id` generated automatically.
   required: false
   type: string
 optimistic:
-  description: Flag that defines if switch works in optimistic mode.
+  description: Flag that defines if a switch works in optimistic mode.
   required: false
   type: boolean
-  default: "`false` if state or position topic defined, else `true`."
+  default: "`false` if the state or position topic is defined; `true` otherwise."
 payload_available:
   description: The payload that represents the online state.
   required: false
@@ -213,16 +213,16 @@ payload_open:
   type: string
   default: OPEN
 payload_stop:
-  description: The command payload that stops the valve. When not configured the valve will not support the `valve.stop` service.
+  description: The command payload that stops the valve. When not configured, the valve will not support the `valve.stop` service.
   required: false
   type: string
 position_closed:
-  description: Number which represents closed position. The valves position will be scaled to (`position_closed`...`position_open`) range. When a service is called, and scaled back when a value is received.
+  description: Number which represents closed position. The valve's position will be scaled to the(`position_closed`...`position_open`) range when a service is called and scaled back when a value is received.
   required: false
   type: integer
   default: 0
 position_open:
-  description: Number which represents open position. The valves position will be scaled to (`position_closed`...`position_open`) range. When a service is called, and scaled back when a value is received.
+  description: Number which represents open position. The valve's position will be scaled to (`position_closed`...`position_open`) range when a service is called and scaled back when a value is received.
   required: false
   type: integer
   default: 100
@@ -232,7 +232,7 @@ qos:
   type: integer
   default: 0
 reports_position:
-  description: "Set to `true` if the value reports the position or supports setting the position. Enabling the `reports_position` option will cause the position to be published instead of a payload defined by `payload_open`, `payload_close` or `payload_stop`. When receiving messages `state_topic`, will accept numeric payloads or a state message: `open`, `opening`, `closed`, or `closing`."
+  description: "Set to `true` if the value reports the position or supports setting the position. Enabling the `reports_position` option will cause the position to be published instead of a payload defined by `payload_open`, `payload_close` or `payload_stop`. When receiving messages, `state_topic` will accept numeric payloads or one of the following state messages: `open`, `opening`, `closed`, or `closing`."
   required: false
   type: boolean
   default: false
@@ -277,9 +277,9 @@ value_template:
 
 <div class="note">
 
-MQTT valve expects position values to be in range of 0 to 100, where 0 indicates closed position and 100 indicates fully open position.
-If `position_open` or `position_closed` are set to a different range (e.g. 40 to 140), when sending command to the device the range will be adjusted to the device range (position 0 will send a value of 40 to device) and when position payload is received from the device it will be adjusted back to the 0 to 100 range (device value of 40 will report valve position 0).
-`position_open` and `position_closed` can also be used to reverse the direction of the device, if `position_closed` is set to 100 and `position_open` is set to `0` device operation will be inverted (e.g. when setting position to 40, a value of 60 will be sent to device).
+MQTT valve expects position values to be in the range of 0 to 100, where 0 indicates a closed position and 100 indicates a fully open position.
+If `position_open` or `position_closed` are set to a different range (for example, 40 to 140), when sending a command to the device, the range will be adjusted to the device range. For example, position 0 will send a value of 40 to device. When the device receives a position payload, it will be adjusted back to the 0 to 100 range. In our example, the device value of 40 will report valve position 0.
+`position_open` and `position_closed` can also be used to reverse the direction of the device: If `position_closed` is set to 100 and `position_open` is set to `0`, the device operation will be inverted. For example, when setting the position to 40, a value of 60 will be sent to the device.
 
 </div>
 
@@ -346,7 +346,7 @@ mqtt:
 ### Configuration for disabling valve commands
 
 The example below shows a configuration for a valve that does not have a close command.
-Setting `payload_close` empty or to `null` disables the close command and will not show the close button.
+Setting the `payload_close` to empty or to `null` disables the close command and will not show the close button.
 
 {% raw %}
 
@@ -361,7 +361,7 @@ mqtt:
 
 {% endraw %}
 
-An MQTT valve will support `open` and `close` commands if a `command_topic` is set. And `stop` byif `payload_stop` is set.
+An MQTT valve will support `open` and `close` commands if a `command_topic` is set. The MQTT valve supports `stop` if `payload_stop` is set.
 
 ### Testing your configuration
 
