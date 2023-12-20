@@ -15,7 +15,7 @@ Home Assistant can give you an interface to control valves such as water, gas, o
 
 {% include integrations/building_block_integration.md %}
 
-## Device Class
+## Device class
 
 You can change the device class of the valve in the [customize section](/docs/configuration/customizing-devices/). Valves support the following device classes:
 
