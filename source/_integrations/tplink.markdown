@@ -55,7 +55,7 @@ See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kas
 - KP125
 - KP401
 - EP10
-- EP25
+- EP25 (HW versions 2.5 and earlier)
 
 ### Power Strips
 
