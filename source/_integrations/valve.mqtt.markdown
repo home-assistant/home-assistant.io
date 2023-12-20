@@ -107,11 +107,11 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
+      description: "A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL."
       required: false
       type: string
     connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example, the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example, the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`."
       required: false
       type: list
     hw_version:
@@ -119,7 +119,7 @@ device:
       required: false
       type: string
     identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example, a serial number.'
+      description: A list of IDs that uniquely identify the device. For example, a serial number.
       required: false
       type: [list, string]
     manufacturer:
@@ -135,7 +135,7 @@ device:
       required: false
       type: string
     suggested_area:
-      description: 'Suggest an area if the device isn’t in one yet.'
+      description: Suggest an area if the device isn’t in one yet.
       required: false
       type: string
     sw_version:
@@ -143,7 +143,7 @@ device:
       required: false
       type: string
     via_device:
-      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
+      description: Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.
       required: false
       type: string
 device_class:
