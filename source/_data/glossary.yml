@@ -391,8 +391,8 @@
 
 - term: Valve
   definition: >-
-    Valves are devices the control the flow of liquid and gasses. They all can be opened
-    and closed and some can also be set to a specific position.
+    Valves are devices to control the flow of liquids and gases. All valves in Home Assistant can be opened
+    and closed. Some valves can also be set to a specific position.
   link: /integrations/valve
 
 - term: Variables

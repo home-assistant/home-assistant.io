@@ -11,13 +11,13 @@ ha_domain: valve
 ha_integration_type: entity
 ---
 
-Home Assistant can give you an interface to control valves like water, gas or air valves.
+Home Assistant can give you an interface to control valves such as water, gas, or air valves.
 
 {% include integrations/building_block_integration.md %}
 
 ## Device Class
 
-You can change the kind of valve you are representing in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for valves:
+You can change the device class of the valve in the [customize section](/docs/configuration/customizing-devices/). Valves support the following device classes:
 
 - **None**: Generic valve. This is the default and doesn't need to be set.
 - **water**: Valve that controls the flow of water through a system.
@@ -25,10 +25,10 @@ You can change the kind of valve you are representing in the [customize section]
 
 ## Services
 
-### Cover control services
+### Valve control services
 
-All valves respond to `valve.open`, `valve.close` and `valve.toggle`.
-Valves that allow intermediate position may be controlled also with `valve.set_position` and `valve.stop`.
+All valves respond to `valve.open`, `valve.close`, and `valve.toggle`.
+Valves that allow for an intermediate position may also be controlled with `valve.set_position` and `valve.stop`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
