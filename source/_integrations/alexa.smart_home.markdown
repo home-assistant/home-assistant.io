@@ -1101,7 +1101,7 @@ You can ask Alexa about the current temperature and current target temperature.
 
 #### Operation Mode
 
-The operation mode can be set from the UI. All Home Assistant Operation modes can be set (English Only).
+The operation mode can be set from the UI. All Home Assistant operation modes can be set (English only).
 
 - _"Alexa, set main boiler to eco."_
 
