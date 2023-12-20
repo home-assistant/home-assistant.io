@@ -4,7 +4,7 @@ layout: null
 
 # These redirects are handled by Netlify
 #
-{% assign recent_release_post = site.categories['Core'].first %}
+{% assign release_notes = site.categories['Release-Notes'] %}
 
 # General use redirects
 /join-chat https://discord.gg/home-assistant
@@ -18,10 +18,9 @@ layout: null
 /community https://community.home-assistant.io/
 /latest-security-alert /security/
 
-# Link to latest release note
-/latest-release-notes/ {{ recent_release_post.url }}{{ site.patch_version_notes }} 302!
-
-/latest-ios-release-notes/ {{ site.categories["iOS"].first.url }} 302!
+# Link to latest release notes
+/latest-release-notes/ {{ release_notes | where: "categories", "Core" | map: 'url' | first }}{{ site.patch_version_notes }} 302!
+/latest-ios-release-notes/ {{ release_notes | where: "categories", "iOS" | map: 'url' | first }} 302!
 
 # Matter workshop June 2022
 /skyconnect-interest https://docs.google.com/forms/d/e/1FAIpQLScEjHSBJszUZfgO3MIDO51IHr3Oeohcs8BLpRIjY1liJ58IpA/viewform?usp=sf_link
