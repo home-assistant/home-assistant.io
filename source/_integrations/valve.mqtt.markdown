@@ -285,7 +285,7 @@ If `position_open` or `position_closed` are set to a different range (for exampl
 
 ## Examples
 
-In this section you will find some examples of how to use this platform.
+This section provides some examples showing how you can use this platform.
 
 ### Full configuration for a value that does not report position
 
