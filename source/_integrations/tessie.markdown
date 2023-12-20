@@ -55,3 +55,7 @@ The integration will create sensor entities for a variety of metrics that relate
 - Outside Temperature
 - Driver Temperature Setting
 - Passenger Temperature Setting
+
+### Update
+
+The integration will show vehicle software updates and their installation progress.
