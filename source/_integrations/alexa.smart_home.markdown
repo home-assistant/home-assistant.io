@@ -93,8 +93,9 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
   - [Timer](#timer)
   - [Vacuum](#vacuum)
   - [Valve](#valve)
-    - [Open/Close/Stop](#openclosestop)
+    - [Open/Close](#openclose)
     - [Set Valve Position](#set-valve-position)
+    - [Stop the Valve](#stop-the-valve)
 - [Alexa Web-Based App](#alexa-web-based-app)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
@@ -523,8 +524,9 @@ The following platforms are currently supported:
   - [Timer](#timer)
   - [Vacuum](#vacuum)
   - [Valve](#valve)
-    - [Open/Close/Stop](#openclosestop)
+    - [Open/Close](#openclose)
     - [Set Valve Position](#set-valve-position)
+    - [Stop the Valve](#stop-the-valve)
 - [Alexa Web-Based App](#alexa-web-based-app)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
@@ -1089,13 +1091,12 @@ Support _"turn on"_ and _"turn off"_ utterances. Pause and Resume
 
 Valves are not supported natively within Alexa. So within Alexa they are represented as a device of an unknown type. 
 
-#### Open/Close/Stop
+#### Open/Close
 
 Home Assistant configures valves with semantics that provide  _"open"_ and _"close"_ utterances.
 
 - _"Alexa, open the water valve."_
 - _"Alexa, close the gas valve."_
-- _"Alexa, stop the gas valve."_
 
 #### Set Valve Position
 
@@ -1110,6 +1111,10 @@ Valves that support a set position can be controlled using percentages.
 | `en-US` | _"position"_, _"opening"_ |
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+
+#### Stop the Valve
+
+Valves that support `stop` closing or opening will have an extra toggle control that allows to stop the valve closing or opening operation.
 
 ## Alexa Web-Based App
 
