@@ -20,7 +20,7 @@ The Squeezebox integration allows you to control a [Logitech Squeezebox](https:/
 {% include integrations/config_flow.md %}
 
 <div class='note'>
-This platform uses the web interface of the Logitech Media Server to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
+This platform uses the web interface of the Logitech Media Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
 </div>
 
 <div class='note'>
