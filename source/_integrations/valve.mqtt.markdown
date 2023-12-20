@@ -90,7 +90,7 @@ availability_template:
   required: false
   type: template
 availability_topic:
-  description: "The MQTT topic subscribed to receive birth and <abbr title="last will and testament">LWT</abbr> messages from the MQTT valve device. If an `availability` topic is not defined, the valve availability state will always be `available`. If an `availability` topic is defined, the valve availability state will be `unavailable` by default. Must not be used together with `availability`."
+  description: "The MQTT topic subscribed to receive birth and LWT messages from the MQTT valve device. If an `availability` topic is not defined, the valve availability state will always be `available`. If an `availability` topic is defined, the valve availability state will be `unavailable` by default. Must not be used together with `availability`."
   required: false
   type: string
 command_template:
