@@ -5,6 +5,11 @@ description: "Description of the various badges that are available."
 
 Badges are widgets that sit at the top of a panel, above all the cards.
 
+<p class="img">
+  <img src="/images/dashboards/badges.png" alt="Badges">
+  Badges at the top of a panel.
+</p>
+
 ## State Label Badge
 
 The State Label badge allows you to display a state badge. This badge supports [actions](/dashboards/actions/).
