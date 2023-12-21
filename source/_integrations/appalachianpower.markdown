@@ -1,11 +1,11 @@
 ---
-title: Seattle City Light (SCL)
-description: Get energy usage from Seattle City Light (SCL) using the Opower integration
+title: Appalachian Power
+description: Get energy usage from Appalachian Power using the Opower integration
 ha_category:
   - Energy
   - Sensor
 ha_release: 2024.1
-ha_domain: scl
+ha_domain: appalachianpower
 ha_integration_type: virtual
 ha_supporting_domain: opower
 ha_supporting_integration: Opower
