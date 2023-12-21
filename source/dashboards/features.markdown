@@ -43,7 +43,7 @@ modes:
 
 ## Climate fan modes
 
-Widget that displays buttons or icons to control the fan mode for a [climate](/integrations/climate).
+Widget that displays buttons or icons to control the fan mode for a [climate](/integrations/climate) device.
 
 <p class='img'>
   <img src='/images/dashboards/features/climate_fan_modes.png' alt='Screenshot of the tile card with the climate fan modes feature'>
