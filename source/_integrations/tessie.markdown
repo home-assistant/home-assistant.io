@@ -30,10 +30,10 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 
 ### Number
 
-The integration will create a number entities to control:
+The integration will create number entities to control:
 
-- State of charge limit
-- Charge current limit
+- Charge current
+- Charge limit
 - Speed limit
 
 ### Select
