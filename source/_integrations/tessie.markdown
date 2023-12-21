@@ -3,6 +3,7 @@ title: Tessie
 description: Instructions on how to integrate Tessie within Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
   - Sensor
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
@@ -12,11 +13,12 @@ ha_codeowners:
 ha_domain: tessie
 ha_platforms:
   - binary_sensor
+  - climate
   - sensor
 ha_integration_type: integration
 ---
 
-The Tessie integration displays various sensors from the vehicles in your [Tessie](https://my.tessie.com/) account.
+The Tessie integration exposes various commands and sensors from the Tesla vehicles connected to your [Tessie](https://my.tessie.com/) account.
 
 ## Prerequisites
 
@@ -51,6 +53,16 @@ The integration will create binary sensor entities for a variety of metrics that
 - Tire Pressure Warning Front Right
 - Tire Pressure Warning Rear Left
 - Tire Pressure Warning Rear Right
+
+### Climate
+
+The integration will create a climate entity to control the vehicles climate control system. This entity can:
+
+- Turn on and off
+- Change the drivers set temperature
+- Change to one of the three keep modes: Keep, Dog, and Climate
+
+The passenger set temperature is shown as a sensor but cannot be changed by Tessie.
 
 ### Sensor
 
