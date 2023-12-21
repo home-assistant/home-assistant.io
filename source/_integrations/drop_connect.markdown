@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The DROP integration provides connectivity with 
+The DROP integration provides connectivity with
 [DROP smart water system](https://dropconnect.com) devices via a local MQTT API.
 
 ### Supported devices
@@ -34,14 +34,27 @@ There is currently support for the following DROP products within Home Assistant
 
 ### Configuration
 
-To use DROP with Home Assistant, you must have already configured the [MQTT](/integrations/mqtt/) platform.
+To use DROP with Home Assistant, you must have already configured the [MQTT](/integrations/mqtt/) platform. It is
+recommended
+that you create a unique user to connect your DROP Hub to your MQTT broker. If you are
+using the Mosquitto Addon, go to **Settings > Add-ons** in the Home Assistant UI and select the Mosquitto broker.
+Under **Configuration**, enter a new username and password for your DROP Hub in the **Logins** field:
+
+```
+- username: drop
+  password: your_unique_password
+```
+
+If you are using a different MQTT broker, please reference its documentation to learn how to add a new user.
 
 To enable the DROP integration, use the DROP Connect app to connect your DROP Hub to your MQTT broker:
-- Start the DROP Connect app and connect to your DROP Hub.
-- In the 'Hub Network Settings' section on the System > Advanced page, tap the 'Configure MQTT' button.
-- Enter the MQTT broker address, port number, username, and password.
-- Click 'Connect' and confirm that the DROP Hub has connected to the MQTT broker.
 
-Once the DROP Hub is connected to your MQTT broker, the devices on your DROP system will be discovered by Home Assistant.
-Go to Settings > Devices & Services in the Home Assistant UI to add your DROP devices.
+- Start the DROP Connect app and connect to your DROP Hub.
+- In the **Hub Network Settings** section on the **System > Advanced** page, tap the **Configure MQTT** button.
+- Enter the MQTT broker address, port number, username, and password.
+- Click **Connect** and confirm that the DROP Hub has connected to the MQTT broker.
+
+Once the DROP Hub is connected to your MQTT broker, the devices on your DROP system will be discovered by Home
+Assistant.
+Go to **Settings > Devices & Services** in the Home Assistant UI to add your DROP devices.
 
