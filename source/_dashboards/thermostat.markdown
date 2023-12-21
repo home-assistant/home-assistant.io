@@ -40,7 +40,7 @@ theme:
   type: string
 show_current_as_primary:
   required: false
-  description: Show current temperature as primary information instead of target temperature. In that case, target temperature will be displayed as secondary information.
+  description: Show current temperature as primary information instead of target temperature. The target temperature will be displayed as secondary information.
   type: boolean
   default: false
 features:

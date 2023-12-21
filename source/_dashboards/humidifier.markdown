@@ -40,7 +40,7 @@ theme:
   type: string
 show_current_as_primary:
   required: false
-  description: Show current humidity as primary information instead of target humidity. In that case, target humidity will be displayed as secondary information.
+  description: Show current humidity as primary information instead of target humidity. The target humidity will be displayed as secondary information.
   type: boolean
   default: false
 features:
