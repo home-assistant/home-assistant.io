@@ -19,7 +19,7 @@ The A. O. Smith integration allows you to control a compatible A. O. Smith iCOMM
 
 Before using this integration, your water heater must be connected to a Wi-Fi network and linked to your account using the A. O. Smith mobile app ([iOS](https://apps.apple.com/us/app/a-o-smith/id456489822)/[Android](https://play.google.com/store/apps/details?id=com.aosmith.warrantycheck)).
 
-## Known Compatible Models
+## Known compatible models
 
 - [HPTS-50](https://www.hotwater.com/products/HPTS-50-SG200.html)
 - [HPTS-66](https://www.hotwater.com/products/HPTS-66-SG200.html)
