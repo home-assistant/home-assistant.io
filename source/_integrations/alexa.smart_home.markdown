@@ -7,6 +7,7 @@ ha_release: "0.54"
 ha_codeowners:
   - '@home-assistant/cloud'
   - '@ochlocracy'
+  - '@jbouwh'
 ha_domain: alexa
 ---
 
@@ -96,6 +97,9 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Open/Close](#openclose)
     - [Set Valve Position](#set-valve-position)
     - [Stop the Valve](#stop-the-valve)
+  - [Water heater](#water-heater)
+    - [Set target temperature](#set-target-temperature)
+    - [Operation Mode](#operation-mode)
 - [Alexa Web-Based App](#alexa-web-based-app)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
@@ -527,6 +531,9 @@ The following platforms are currently supported:
     - [Open/Close](#openclose)
     - [Set Valve Position](#set-valve-position)
     - [Stop the Valve](#stop-the-valve)
+  - [Water heater](#water-heater)
+    - [Set target temperature](#set-target-temperature)
+    - [Operation Mode](#operation-mode)
 - [Alexa Web-Based App](#alexa-web-based-app)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
@@ -1115,6 +1122,34 @@ Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 #### Stop the valve
 
 Valves that support `stop` closing or opening will have an extra toggle control that allows to stop the valve closing or opening operation.
+
+### Water heater
+
+Single, double, and triple set-point thermostats are supported. The temperature value from the thermostat will also be exposed at a separate [temperature sensor](#sensor).
+
+#### Set target temperature
+
+- _"Alexa, set the boiler's target temperature to 50."_
+
+You can ask Alexa about the current temperature and current target temperature.
+
+- _"Alexa, what is the boiler's target temperature?"_
+- _"Alexa, what is the boiler's current temperature?"_
+
+#### Operation Mode
+
+The operation mode can be set from the UI. All Home Assistant operation modes can be set (English only).
+
+- _"Alexa, set main boiler to eco."_
+
+To change the water heater's mode, the exact utterance must be used:
+
+- _"Alexa, set [entity name] to [mode utterance]."_
+
+If the water heater entity supports on/off, use _"turn on"_ and _"turn off"_ utterances with the entity name or the mode utterance.
+
+- _"Alexa, turn on the [mode utterance]."_
+- _"Alexa, turn off the [entity name]."_
 
 ## Alexa Web-Based App
 
