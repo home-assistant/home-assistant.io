@@ -1,11 +1,11 @@
 ---
-title: Seattle City Light (SCL)
-description: Get energy usage from Seattle City Light (SCL) using the Opower integration
+title: AEP Ohio
+description: Get energy usage from AEP Ohio using the Opower integration
 ha_category:
   - Energy
   - Sensor
 ha_release: 2024.1
-ha_domain: scl
+ha_domain: aepohio
 ha_integration_type: virtual
 ha_supporting_domain: opower
 ha_supporting_integration: Opower

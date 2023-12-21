@@ -65,3 +65,119 @@ of hours during the day.
 For the dynamic gas prices, only entities are created that display the
 `current` and `next hour` price because the price is always fixed for
 24 hours; new prices are published every morning at **05:00 UTC time**.
+
+## Services
+
+The energy and gas prices are exposed using [service calls](/docs/scripts/service-calls/). The services populate [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with price data.
+
+### Service `easyenergy.get_gas_prices`
+
+Fetches the hourly prices for gas.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `incl_vat` | no | Defines whether the prices include or exclude VAT. Defaults to True | False
+| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+
+#### Response data
+
+The response data is a dictionary with the gas timestamps and prices as string and float values.
+
+```json
+{
+  "prices": [
+    {
+      "timestamp": "2023-12-09 03:00:00+00:00",
+      "price": 0.46914
+    },
+    {
+      "timestamp": "2023-12-09 04:00:00+00:00",
+      "price": 0.46914
+    }
+  ]
+}
+```
+
+### Service `easyenergy.get_energy_usage_prices`
+
+Fetches the hourly prices for energy that you use (buy).
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `incl_vat` | no | Defines whether the prices include or exclude VAT.  Defaults to True | False
+| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+
+#### Response data
+
+The response data is a dictionary with the energy timestamps as strings and prices as float values.
+
+```json
+{
+  "prices": [
+    {
+      "timestamp": "2023-12-09 03:00:00+00:00",
+      "price": 0.08418
+    },
+    {
+      "timestamp": "2023-12-09 04:00:00+00:00",
+      "price": 0.08758
+    }
+  ]
+}
+```
+
+### Service `easyenergy.get_energy_return_prices`
+
+Fetches the hourly prices for energy that you return (sell).
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| `end` | yes | End time to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+
+#### Response data
+
+The response data is a dictionary with the energy timestamps as strings and prices as float values.
+
+```json
+{
+  "prices": [
+    {
+      "timestamp": "2023-12-09 03:00:00+00:00",
+      "price": 0.06957
+    },
+    {
+      "timestamp": "2023-12-09 04:00:00+00:00",
+      "price": 0.07238
+    }
+  ]
+}
+```
+
+### Add response to template sensor
+
+You can use the response data in a template sensor that is updated every hour:
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: time_pattern
+        seconds: "*"
+    action:
+      - service: easyenergy.get_energy_usage_prices
+        response_variable: response
+        data:
+          incl_vat: true
+    sensor:
+      - name: Energy prices
+        device_class: timestamp
+        state: "{{ now() }}"
+        attributes:
+          prices: "{{ response.prices }}"
+```
+
+{% endraw %}
