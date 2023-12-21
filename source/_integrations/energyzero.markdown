@@ -63,7 +63,7 @@ Fetches the gas prices.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `incl_vat` | yes | Defines whether the prices include or exclude VAT.  Defaults to True | False
+| `incl_vat` | no | Defines whether the prices include or exclude VAT. | false
 | `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 | `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 
@@ -97,7 +97,7 @@ Fetches the energy prices.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `incl_vat` | yes | Defines whether the prices include or exclude VAT.  Defaults to True | False
+| `incl_vat` | no | Defines whether the prices include or exclude VAT. | false
 | `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 | `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 
