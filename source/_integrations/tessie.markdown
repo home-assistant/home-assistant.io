@@ -26,15 +26,15 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 
 ### Select
 
-The integration will create a select entity to control each of the seat heaters, and allows you to set each to Off, Low, Medium, or High.
+The integration will create a select entity to control each of the seat heaters. It allows you to set each seat heater to Off, Low, Medium, or High.
 
-- Front Left
-- Front Right
-- Rear Left (if installed)
-- Rear Center (if installed)
-- Rear Right (if installed)
-- Third Row Left (if installed)
-- Third Row Right (if installed)
+- Front left
+- Front right
+- Rear left (if installed)
+- Rear center (if installed)
+- Rear right (if installed)
+- Third row left (if installed)
+- Third row right (if installed)
 
 ### Sensor
 
