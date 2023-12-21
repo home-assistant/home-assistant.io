@@ -28,11 +28,24 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 
 ## Entities
 
+### Select
+
+The integration will create a select entity to control each of the seat heaters. It allows you to set each seat heater to Off, Low, Medium, or High.
+
+- Front Left
+- Front Right
+- Rear Left (if installed)
+- Rear Center (if installed)
+- Rear Right (if installed)
+- Third Row Left (if installed)
+- Third Row Right (if installed)
+
 ### Binary Sensor
 
 The integration will create binary sensor entities for a variety of metrics that relate to your vehicles: 
 
 #### Charge State
+
 - Battery Heater
 - Battery Charing
 - Preconditioning Enabled
@@ -40,6 +53,7 @@ The integration will create binary sensor entities for a variety of metrics that
 - Trip Charging Enabled
 
 #### Climate State
+
 - Auto Seat Climate Left
 - Auto Seat Climate Right
 - Auto Steering Wheel Climate
@@ -47,6 +61,7 @@ The integration will create binary sensor entities for a variety of metrics that
 - Overheat Protection Running
 
 #### Vehicle State
+
 - Dashcam Recording
 - User Present
 - Tire Pressure Warning Front Left
@@ -69,6 +84,7 @@ The passenger set temperature is shown as a sensor but cannot be changed by Tess
 The integration will create sensor entities for a variety of metrics that relate to your vehicles:
 
 #### Vehicle State
+
 - Online
 - Odometer
 - Tire Pressure Front Left
@@ -77,6 +93,7 @@ The integration will create sensor entities for a variety of metrics that relate
 - Tire Pressure Rear Right
 
 #### Charge State
+
 - Battery Level
 - Change Energy Added
 - Change Power
@@ -86,11 +103,13 @@ The integration will create sensor entities for a variety of metrics that relate
 - Battery Range
 
 #### Drive State
+
 - Speed
 - Power
 - Shift State
 
 ### Climate State
+
 - Inside Temperature
 - Outside Temperature
 - Driver Temperature Setting
