@@ -4,6 +4,7 @@ description: Instructions on how to integrate Tessie within Home Assistant.
 ha_category:
   - Binary Sensor
   - Climate
+  - Cover
   - Sensor
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
@@ -14,6 +15,7 @@ ha_domain: tessie
 ha_platforms:
   - binary_sensor
   - climate
+  - cover
   - sensor
 ha_integration_type: integration
 ---
