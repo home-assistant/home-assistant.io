@@ -804,6 +804,7 @@ source/_integrations/utility_meter.markdown @dgomes
 source/_integrations/v2c.markdown @dgomes
 source/_integrations/vacuum.markdown @home-assistant/core
 source/_integrations/vallox.markdown @andre-richter @slovdahl @viiru-
+source/_integrations/valve.markdown @home-assistant/core
 source/_integrations/velbus.markdown @Cereal2nd @brefra
 source/_integrations/velux.markdown @Julius2342
 source/_integrations/venstar.markdown @garbled1 @jhollowe
