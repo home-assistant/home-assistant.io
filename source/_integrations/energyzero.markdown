@@ -53,24 +53,26 @@ For the dynamic gas prices, only entities are created that display the
 `current` and `next hour` price because the price is always fixed for
 24 hours; new prices are published every morning at **05:00 UTC time**.
 
-
 ## Services
-The energy and gas prices are exposed using [Service Calls](/docs/scripts/service-calls/). The services populate [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with price data.
 
+The energy and gas prices are exposed using [service calls](/docs/scripts/service-calls/). The services populate [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with price data.
 
 ### Service `energyzero.get_gas_prices`
+
 Fetches the gas prices.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `start` | yes | Start moment to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
-| `end` | yes | End moment to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
-| `incl_vat` | yes | Get prices including VAT or without. Defaults to True  | False
+| `incl_vat` | yes | Defines whether the prices include or exclude VAT.  Defaults to True | False
+| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 
 ### Response data
+
 The response data is a dictionary with the gas timestamps and prices as string and float values.
 
 {% raw %}
+
 ```json
 {
   "prices": [
@@ -86,21 +88,25 @@ The response data is a dictionary with the gas timestamps and prices as string a
 }
 
 ```
+
 {% endraw %}
 
 ### Service `energyzero.get_energy_prices`
-Fetches the energy prices. 
+
+Fetches the energy prices.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `start` | yes | Start moment to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
-| `end` | yes | End moment to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
-| `incl_vat` | yes | Get prices including VAT or without. Defaults to True  | False
+| `incl_vat` | yes | Defines whether the prices include or exclude VAT.  Defaults to True | False
+| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 
 ### Response data
+
 The response data is a dictionary with the energy timestamps and prices as string and float values.
 
 {% raw %}
+
 ```json
 {
   "prices": [
@@ -115,15 +121,15 @@ The response data is a dictionary with the energy timestamps and prices as strin
   ]
 }
 ```
+
 {% endraw %}
-
-
 
 ### Add response to sensor
 
 The response data can be added to a template sensor:
 
 {% raw %}
+
 ```yaml
 template:
   - trigger:
@@ -141,4 +147,5 @@ template:
         attributes:
           prices: '{{ prices }}'
 ```
+
 {% endraw %}
