@@ -62,7 +62,7 @@ The integration will create a climate entity to control the vehicles climate con
 - Change the drivers set temperature
 - Change to one of the three keep modes: Keep, Dog, and Climate
 
-The passengers set temp is shown as a sensor, but cannot be changed by Tessie.
+The passenger set temperature is shown as a sensor but cannot be changed by Tessie.
 
 ### Sensor
 
