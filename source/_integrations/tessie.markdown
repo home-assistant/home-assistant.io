@@ -4,6 +4,7 @@ description: Instructions on how to integrate Tessie within Home Assistant.
 ha_category:
   - Binary Sensor
   - Sensor
+  - Weather
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,6 +14,7 @@ ha_domain: tessie
 ha_platforms:
   - binary_sensor
   - sensor
+  - weather
 ha_integration_type: integration
 ---
 
@@ -83,3 +85,7 @@ The integration will create sensor entities for a variety of metrics that relate
 - Outside Temperature
 - Driver Temperature Setting
 - Passenger Temperature Setting
+
+### Weather
+
+The integration will create weather entities with the weather conditions around your vehicles.
