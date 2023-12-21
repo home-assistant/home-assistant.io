@@ -37,10 +37,10 @@ There is currently support for the following DROP products within Home Assistant
 To use DROP with Home Assistant, you must have already configured the [MQTT](/integrations/mqtt/) platform. It is
 recommended
 that you create a unique user to connect your DROP Hub to your MQTT broker. If you are
-using the Mosquitto Addon, go to **Settings > Add-ons** in the Home Assistant UI and select the Mosquitto broker.
+using the Mosquitto add-on, go to **Settings > Add-ons** in the Home Assistant UI and select the Mosquitto broker.
 Under **Configuration**, enter a new username and password for your DROP Hub in the **Logins** field:
 
-```
+```yaml
 - username: drop
   password: your_unique_password
 ```
