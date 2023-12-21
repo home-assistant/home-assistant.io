@@ -83,3 +83,13 @@ The integration will create sensor entities for a variety of metrics that relate
 - Outside Temperature
 - Driver Temperature Setting
 - Passenger Temperature Setting
+
+### Switch
+
+The integration will create switch entities to control various aspects of your vehicles:
+
+- Charge
+- Defrost mode
+- Sentry mode
+- Valet mode
+- Steering wheel heater
