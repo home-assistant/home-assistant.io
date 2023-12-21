@@ -1089,16 +1089,16 @@ Support _"turn on"_ and _"turn off"_ utterances. Pause and Resume
 
 ### Valve
 
-Valves are not supported natively within Alexa. So within Alexa they are represented as a device of an unknown type. 
+Valves are not supported natively within Alexa. So within Alexa, they are represented as a device of an unknown type. 
 
-#### Open/Close
+#### Open/close
 
 Home Assistant configures valves with semantics that provide  _"open"_ and _"close"_ utterances.
 
 - _"Alexa, open the water valve."_
 - _"Alexa, close the gas valve."_
 
-#### Set Valve Position
+#### Set valve position
 
 Valves that support a set position can be controlled using percentages.
 
@@ -1112,7 +1112,7 @@ Valves that support a set position can be controlled using percentages.
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
-#### Stop the Valve
+#### Stop the valve
 
 Valves that support `stop` closing or opening will have an extra toggle control that allows to stop the valve closing or opening operation.
 
