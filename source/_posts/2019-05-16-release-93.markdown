@@ -153,7 +153,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __Homematic IP Cloud__ - Adds homematicip cloud temperature sensor from thermostats. Entity IDs of HmIP-SLO (Light Sensor Outdoor) will change and stale entities will need to be removed from the entity registry.  ([@SukramJ] - [#23263]) ([homematicip_cloud docs])
 - __Pollen.com__
@@ -368,7 +368,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update docstrings ([@fabaff] - [#23624]) ([panasonic_bluray docs])
 - Order imports ([@fabaff] - [#23623]) ([opple docs])
 - Polling is default ([@fabaff] - [#23622]) ([serial_pm docs])
-- Loosen discovery config validation to avoid breaking changes ([@Jc2k] - [#23625]) ([discovery docs])
+- Loosen discovery config validation to avoid backward-incompatible changes ([@Jc2k] - [#23625]) ([discovery docs])
 - Clean up redundant same-package ..package imports ([@scop] - [#23587]) ([greeneye_monitor docs]) ([huawei_lte docs]) ([tplink_lte docs])
 - Upgrade pytest to 4.4.1 ([@scop] - [#23584])
 - Upgrade mypy ([@scop] - [#23586])

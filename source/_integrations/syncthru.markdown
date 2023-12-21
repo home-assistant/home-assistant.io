@@ -2,7 +2,7 @@
 title: Samsung SyncThru Printer
 description: Instructions on how to integrate a Samsung printer providing SyncThru within Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_iot_class: Local Polling
 ha_release: 0.66
 ha_config_flow: true

@@ -2,7 +2,7 @@
 title: Spotify
 description: Instructions on how to integrate Spotify into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.43
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -146,6 +146,6 @@ script:
 
 The `media_content_id` value can be obtained from the Spotify desktop app by clicking on the more options ("...") next to the album art picture, selecting "Share" and then "Copy Spotify URI" or "Copy Playlist Link" (also available in the Spotify phone and web app). Alternatively a Spotify URI string (e.g. `spotify:playlist:5xddIVAtLrZKtt4YGLM1SQ`) can be supplied for the `media_content_id`.
 
-## Unsupported Devices
+## Unsupported devices
 
 - **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API.

@@ -2,7 +2,7 @@
 title: Raspberry Pi Remote GPIO
 description: Instructions on how to integrate the GPIO capability of a remote Raspberry Pi into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - DIY
   - Switch
 ha_release: 0.94
@@ -22,7 +22,7 @@ Note that for virtual environments, you may need to set an environment variable 
 
 `Environment = GPIOZERO_PIN_FACTORY=pigpio PIGPIO_ADDR=YOUR_RPi_IP_ADDRESS`
 
-## Binary Sensor
+## Binary sensor
 
 The `remote_rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of a remote [Raspberry Pi](https://www.raspberrypi.org/).
 

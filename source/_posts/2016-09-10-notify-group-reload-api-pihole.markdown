@@ -30,7 +30,7 @@ There are countless bugfixes included in this release which will make your exper
 The [Home Assistant API Documentation](https://dev-docs.home-assistant.io/en/dev/) is a great addition to the already existing user documentation. The focus is not end-users but developers who want to get details about the code without actually browsing the code on Github.
 
 ### Configuration validation
-The validation of the configuration is still on-going. Approximately 80 % is done. This means that we will propably talk about this topic in the next release notes again. To align the configuration of components and platforms we needed to break some. Please refer to the Breaking changes section to check if you need to update your configuration or simple check your log for configuration validation errors. Thanks to [@kellerza], [@fabaff], [@Teagan42], and [@pvizeli] for your effort!
+The validation of the configuration is still on-going. Approximately 80 % is done. This means that we will propably talk about this topic in the next release notes again. To align the configuration of components and platforms we needed to break some. Please refer to the Backward-incompatible changes section to check if you need to update your configuration or simple check your log for configuration validation errors. Thanks to [@kellerza], [@fabaff], [@Teagan42], and [@pvizeli] for your effort!
 
 ### All changes
 
@@ -87,7 +87,7 @@ The validation of the configuration is still on-going. Approximately 80 % is don
 - Allow changing covers using scenes ([@nvella])
 - Device tracker - Automatic: Fix polling ([@teagan42])
 
-### Breaking changes
+### Backward-incompatible changes
 
 - [OpenweatherMap] entity IDs are now like `sensor.owm_temperature`. Previously they were like `sensor.weather_temperature`. Apologies for this change, but we needed to make OpenWeatherMap more generic now that we have many weather platforms.
 - Updates of configuration variables due to configuration check or alignment with other platforms. Please update your configuration entries according to the documentation:

@@ -212,7 +212,7 @@ switch:
   - platform: template
     switches:
       garage:
-        value_template: "{{ is_state('cover.garage_door', 'on') }}"
+        value_template: "{{ is_state('cover.garage_door', 'open') }}"
         turn_on:
           service: cover.open_cover
           target:
@@ -242,7 +242,7 @@ switch:
   - platform: template
     switches:
       garage:
-        value_template: "{{ is_state('cover.garage_door', 'on') }}"
+        value_template: "{{ is_state('cover.garage_door', 'open') }}"
         turn_on:
           service: cover.open_cover
           target:
