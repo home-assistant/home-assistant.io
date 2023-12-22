@@ -4,7 +4,7 @@ description: Instructions on how to integrate Blue Current charge points within 
 ha_category:
   - Sensor
   - Car
-ha_release: 2022.12
+ha_release: 2024.1
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
