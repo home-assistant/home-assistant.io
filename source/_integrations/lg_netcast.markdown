@@ -18,61 +18,33 @@ The `lg_netcast` platform allows you to control a LG Smart TV running NetCast 3.
 
 {% include integrations/config_flow.md %}
 
-## YAML configuration
-Alternatively, this integration can be configureed and set up manually via YAML instead. To add a LG TV to your installation, add the following to your `configuration.yaml` file:
+## Turn on action
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: lg_netcast
-    host: IP_ADDRESS
-```
+Home Assistant is able to turn on an LG Netcast TV is you specify an action, provided by an {% term integration %} like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
 
-{% configuration %}
-host:
-  description: The IP address of the LG Smart TV, e.g., 192.168.0.20.
-  required: true
-  type: string
-access_token:
-  description: The access token needed to connect.
-  required: false
-  type: string
-name:
-  description: The name you would like to give to the LG Smart TV.
-  required: false
-  default: LG TV Remote
-  type: string
-turn_on_action:
-  description: Defines an [action](/docs/automation/action/) to turn the TV on.
-  required: false
-  type: string
-{% endconfiguration %}
-
-To get the access token for your TV configure the `lg_netcast` platform in Home Assistant without the `access_token`.
-After starting Home Assistant the TV will display the access token on screen.
-Just add the token to your configuration and restart Home Assistant and the media player integration for your LG TV will show up.
-
-<div class='note'>
-  The access token will not change until you factory reset your TV.
-</div>
-
-## Advanced configuration
+You can create an automation from the user interface, from the device create a new automation and select the **Device is requested to turn on** automation.
+Automations can also be created using an automation action:
 
 The example below shows how you can use the `turn_on_action` the [`wake_on_lan` integration](/integrations/wake_on_lan/).
 
 ```yaml
+# Example configuration.yaml entry
 wake_on_lan: # enables `wake_on_lan` integration
 
 # Enables the `lg_netcast` media player
-media_player:
-  - platform: lg_netcast
-    host: 192.168.0.20
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: AA-BB-CC-DD-EE-FF
-        broadcast_address: 11.22.33.44
+automation:
+  - alias: "Turn On Living Room TV with WakeOnLan"
+    trigger:
+      - platform: lg_netcast.turn_on
+        entity_id: media_player.lg_netcast_smart_tv
+    action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: AA-BB-CC-DD-EE-FF
+          broadcast_address: 11.22.33.44
 ```
+
+Any other [actions](/docks/automation/action/) to power on the device can be configured.
 
 ## Change channel through play_media service
 
