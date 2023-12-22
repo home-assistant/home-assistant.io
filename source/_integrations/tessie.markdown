@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Climate
   - Device Tracker
+  - Lock
   - Sensor
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
@@ -18,6 +19,7 @@ ha_platforms:
   - button
   - climate
   - device_tracker
+  - lock
   - sensor
 ha_integration_type: integration
 ---
@@ -99,6 +101,10 @@ The integration will create a climate entity to control the vehicles climate con
 - Change to one of the three keep modes: Keep, Dog, and Climate
 
 The passenger set temperature is shown as a sensor but cannot be changed by Tessie.
+
+### Lock
+
+The integration will create a lock entity for each vehicle.
 
 ### Sensor
 
