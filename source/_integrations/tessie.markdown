@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Climate
   - Device Tracker
+  - Media Player
   - Sensor
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
@@ -16,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - device_tracker
+  - media_player
   - sensor
 ha_integration_type: integration
 ---
@@ -33,6 +35,10 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 ### Device Tracker
 
 The integration will create device tracker entities for the vehicles current location, and navigation destination.
+
+### Media Player
+
+The integration will create media player entities to show what each vehicles is currently playing.
 
 ### Select
 
