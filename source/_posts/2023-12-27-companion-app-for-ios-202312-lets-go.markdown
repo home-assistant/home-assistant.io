@@ -14,6 +14,8 @@ We have good news for those hoping for more features and faster development of t
 
 ![Companion App for iOS 2023.12](/images/blog/2023-12-ios-lets-go/ios-og.png)
 
+<!--more-->
+
 ## Apple Thread network credentials sharing
 
 If you have HomePods or Apple TVs and you also have a Thread border router in Home Assistant, you may want to take advantage of Apple’s network to control devices in your home. You can now import your Apple Thread credentials into Home Assistant and then make Apple the preferred Thread network.
