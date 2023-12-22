@@ -30,22 +30,6 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 
 ## Entities
 
-### Device Tracker
-
-The integration will create device tracker entities for the vehicles current location, and navigation destination.
-
-### Select
-
-The integration will create a select entity to control each of the seat heaters. It allows you to set each seat heater to Off, Low, Medium, or High.
-
-- Front Left
-- Front Right
-- Rear Left (if installed)
-- Rear Center (if installed)
-- Rear Right (if installed)
-- Third Row Left (if installed)
-- Third Row Right (if installed)
-
 ### Binary Sensor
 
 The integration will create binary sensor entities for a variety of metrics that relate to your vehicles: 
@@ -74,6 +58,26 @@ The integration will create binary sensor entities for a variety of metrics that
 - Tire Pressure Warning Front Right
 - Tire Pressure Warning Rear Left
 - Tire Pressure Warning Rear Right
+- Front driver window
+- Front passenger window
+- Rear driver window
+- Rear passenger window
+
+### Device Tracker
+
+The integration will create device tracker entities for the vehicles current location, and navigation destination.
+
+### Select
+
+The integration will create a select entity to control each of the seat heaters. It allows you to set each seat heater to Off, Low, Medium, or High.
+
+- Front Left
+- Front Right
+- Rear Left (if installed)
+- Rear Center (if installed)
+- Rear Right (if installed)
+- Third Row Left (if installed)
+- Third Row Right (if installed)
 
 ### Climate
 
