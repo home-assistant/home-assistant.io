@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: motionmount
 ---
 
-The `Vogel's MotionMount` integration allows you to control the position of your [TVM 7675 Pro](https://www.vogels.com/p/tvm-7675-pro-motorized-tv-wall-mount-black) Signature MotionMount.
+The Vogel's MotionMount integration allows you to control the position of your [TVM 7675 Pro](https://www.vogels.com/p/tvm-7675-pro-motorized-tv-wall-mount-black) Signature MotionMount.
 
 This integration uses the Ethernet (IP) connection of your MotionMount. It's not possible to connect using the RS-232 connection.
 
