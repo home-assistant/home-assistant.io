@@ -21,6 +21,10 @@ https://bundler.io/
 bundle exec rake preview
 ```
 
+### Note
+
+- You need Ruby 3.1.4, version 3.2 or higher won't work.
+
 If the preview is not running on your local machine, pass the IP of the target machine from where it should be served as a parameter, i.e. to access on `http://192.168.0.123:4000`:
 
 ```bash
