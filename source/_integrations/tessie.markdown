@@ -4,6 +4,7 @@ description: Instructions on how to integrate Tessie within Home Assistant.
 ha_category:
   - Binary Sensor
   - Climate
+  - Device Tracker
   - Sensor
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
@@ -14,6 +15,7 @@ ha_domain: tessie
 ha_platforms:
   - binary_sensor
   - climate
+  - device_tracker
   - sensor
 ha_integration_type: integration
 ---
@@ -27,6 +29,10 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 {% include integrations/config_flow.md %}
 
 ## Entities
+
+### Device Tracker
+
+The integration will create device tracker entities for the vehicles current location, and navigation destination.
 
 ### Select
 
