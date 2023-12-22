@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Climate
+  - Device Tracker
   - Sensor
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
@@ -16,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - device_tracker
   - sensor
 ha_integration_type: integration
 ---
@@ -40,6 +42,12 @@ The integration will create button entities to control various aspects of the ve
 - Homelink
 - Keyless driving
 - Play fart
+
+
+### Device Tracker
+
+The integration will create device tracker entities for the vehicles current location, and navigation destination.
+
 
 ### Select
 
