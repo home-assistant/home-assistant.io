@@ -3,7 +3,9 @@ title: Tessie
 description: Instructions on how to integrate Tessie within Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
   - Climate
+  - Device Tracker
   - Number
   - Sensor
 ha_release: 2024.1
@@ -14,7 +16,9 @@ ha_codeowners:
 ha_domain: tessie
 ha_platforms:
   - binary_sensor
+  - button
   - climate
+  - device_tracker
   - number
   - sensor
 ha_integration_type: integration
@@ -29,6 +33,23 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 {% include integrations/config_flow.md %}
 
 ## Entities
+
+### Button
+
+The integration will create button entities to control various aspects of the vehicle.
+
+- Wake
+- Flash lights
+- Honk horn
+- Homelink
+- Keyless driving
+- Play fart
+
+
+### Device Tracker
+
+The integration will create device tracker entities for the vehicles current location, and navigation destination.
+
 
 ### Select
 
