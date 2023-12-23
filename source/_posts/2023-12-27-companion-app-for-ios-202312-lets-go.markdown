@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Companion app for iOS 2023.12: Let’s go!"
-description: "Bruno Pantaleão has joined Nabu Casa as an iOS engineer and will work on improving the experience for Companion App for iOS users. 2023.12 brings us Apple Thread credentials sharing, a new WatchOS icon, a Select All scene toggle, and a What’s New link."
+description: "Bruno Pantaleão has joined Nabu Casa as an iOS engineer and will work on improving the experience of the Companion App for iOS users. 2023.12 brings us Apple Thread credentials sharing, a new WatchOS icon, a **Select All** scene toggle, and a **What’s New** link."
 date: 2023-12-27 00:00:02
 date_formatted: "December 27, 2023"
 author: Bruno Pantaleão
@@ -36,15 +36,15 @@ Previously, you would have to disable scenes one by one to hide them on your App
 
 ## Keep up with “What’s new” in the App
 
-We have added a “What’s new?” link in companion App settings so you can quickly access the latest App release notes.
+We have added a **What’s new?** link in companion App settings so you can quickly access the latest App release notes.
 
 ![Keep up with Whats new in the App](/images/blog/2023-12-ios-lets-go/4.jpeg)
 
-## Support for iOS 12, 13 and 14 in 2024.01
+## Support for iOS 12, 13, and 14 in 2024.01
 
 In the new year, we will do some housecleaning to make sure that the iOS Companion App is prepared for the future. To do so, we will stop supporting iOS 12, 13, and 14 in release 2024.01 of the Companion App. We know our users are repurposing older phones and tablets into dashboards and controls for their homes, which aligns with our focus on sustainability. It's why we try to keep our apps running on older devices for as long as we can.
 
-Currently, less than 1% of our users (According to the App Store analytics provided by users who gave permission to share their data with Apple) are still on these three iOS versions, while supporting them is making the codebase hard to maintain and blocks us from using newer iOS features. This change will make it easier for new contributors to feel comfortable contributing to the iOS codebase, which is also one of my goals. With a more modern codebase, we can give more attention to PRs and help other contributors have everything they need to feel comfortable submitting PRs.
+Currently, less than 1% of our users (according to the App Store analytics provided by users who gave permission to share their data with Apple) are still on these three iOS versions. Supporting them makes the codebase hard to maintain and blocks us from using newer iOS features. This change will make it easier for new contributors to feel comfortable contributing to the iOS codebase, which is also one of my goals. With a more modern codebase, we can give more attention to PRs and help other contributors have everything they need to feel comfortable submitting PRs.
 
 This does not mean your iOS 12, 13, or 14 devices have become unusable. You can still access your Home Assistant using the browser if you have a device that can't update past iOS 12, such as the 2014 iPhone 6 or iPad Mini 3. All other devices currently capable of running iOS 13 or 14 can be updated to iOS 15 or higher and use the new versions of the iOS Companion App. 
 
