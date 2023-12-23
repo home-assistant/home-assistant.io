@@ -454,3 +454,6 @@ Some televisions from the H and J series use an encrypted protocol and require m
 The default setting on newer televisions is to ask for permission on ever connection attempt.
 To avoid this behavior, please ensure that you adjust this to `First time only` in the `Device connection manager > Access notification` settings of your television.
 It is also recommended to cleanup the previous attempts in `Device connection manager > Device list`
+
+## Notes
+- This integration uses [getmac](https://github.com/GhostofGoes/getmac) for MAC addresses resolution. When running HA in a docker container without network mode host, it is possible to specify a custom ARP table in the container as described [here](https://github.com/GhostofGoes/getmac?tab=readme-ov-file#docker).

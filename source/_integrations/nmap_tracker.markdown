@@ -52,3 +52,7 @@ Raw configurable scan options for Nmap:
 {% endconfiguration_basic %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
+
+
+## Notes
+- This integration uses [getmac](https://github.com/GhostofGoes/getmac) for MAC addresses resolution. When running HA in a docker container without network mode host, it is possible to specify a custom ARP table in the container as described [here](https://github.com/GhostofGoes/getmac?tab=readme-ov-file#docker).

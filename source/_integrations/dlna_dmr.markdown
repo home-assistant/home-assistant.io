@@ -60,3 +60,7 @@ Most DLNA DMR devices can play media from local HTTP servers. For best results, 
 ### Media sources
 
 The DLNA Digital Media Renderer integration can browse any configured [media source](/integrations/media_source/). Displayed media will be filtered based on the capabilities of the DLNA DMR device.
+
+
+## Notes
+- This integration uses [getmac](https://github.com/GhostofGoes/getmac) for MAC addresses resolution. When running HA in a docker container without network mode host, it is possible to specify a custom ARP table in the container as described [here](https://github.com/GhostofGoes/getmac?tab=readme-ov-file#docker).

@@ -177,5 +177,6 @@ Set the "Sub gain" slider of the speaker in dB.
 
 - The LS50 Wireless was tested with the latest firmware of 19-11-2019: `p6.3001902221.105039422` and older firmware: `p6.2101809171.105039422`
 - The LSX Wireless was tested with the latest firmware of 10-10-2019 v4.1: `p20.4101909240.105243`
+- This integration uses [getmac](https://github.com/GhostofGoes/getmac) for MAC addresses resolution. When running HA in a docker container without network mode host, it is possible to specify a custom ARP table in the container as described [here](https://github.com/GhostofGoes/getmac?tab=readme-ov-file#docker).
 
 [KEF Speakers]: /integrations/kef/
