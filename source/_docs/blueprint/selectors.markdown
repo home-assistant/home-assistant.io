@@ -1005,6 +1005,13 @@ mode:
     will use a `dropdown` input.
   type: string
   required: false
+reorder:
+  description: >
+    When multiple is `true`, setting reorder to `true` will give each selected 
+    item a grabbable handle, which allows items to be reordered by drag and drop.
+  type: boolean
+  required: false
+  default: false
 translation_key:
   description: >
     Allows translations provided by an integration where `translation_key`
