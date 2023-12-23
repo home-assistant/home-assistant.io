@@ -93,6 +93,10 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Routines](#routines-2)
   - [Timer](#timer)
   - [Vacuum](#vacuum)
+  - [Valve](#valve)
+    - [Open/Close](#openclose)
+    - [Set Valve Position](#set-valve-position)
+    - [Stop the Valve](#stop-the-valve)
   - [Water heater](#water-heater)
     - [Set target temperature](#set-target-temperature)
     - [Operation Mode](#operation-mode)
@@ -523,6 +527,10 @@ The following platforms are currently supported:
     - [Routines](#routines-2)
   - [Timer](#timer)
   - [Vacuum](#vacuum)
+  - [Valve](#valve)
+    - [Open/Close](#openclose)
+    - [Set Valve Position](#set-valve-position)
+    - [Stop the Valve](#stop-the-valve)
   - [Water heater](#water-heater)
     - [Set target temperature](#set-target-temperature)
     - [Operation Mode](#operation-mode)
@@ -1085,6 +1093,35 @@ Support _"turn on"_ and _"turn off"_ utterances. Pause and Resume
 - _"Alexa, turn on the vacuum."_
 - _"Alexa, pause the vacuum."_
 - _"Alexa, restart the vacuum."_
+
+### Valve
+
+Valves are not supported natively within Alexa. So within Alexa, they are represented as a device of an unknown type. 
+
+#### Open/close
+
+Home Assistant configures valves with semantics that provide  _"open"_ and _"close"_ utterances.
+
+- _"Alexa, open the water valve."_
+- _"Alexa, close the gas valve."_
+
+#### Set valve position
+
+Valves that support a set position can be controlled using percentages.
+
+- _"Alexa, set the [entity name] position to thirty percent."_
+- _"Alexa, increase [entity name] position by ten percent."_
+- _"Alexa, decrease [entity name] position by twenty percent."_
+
+| Locale  | Friendly Name Synonyms    |
+| ------- | ------------------------- |
+| `en-US` | _"position"_, _"opening"_ |
+
+Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+
+#### Stop the valve
+
+Valves that support `stop` closing or opening will have an extra toggle control that allows to stop the valve closing or opening operation.
 
 ### Water heater
 
