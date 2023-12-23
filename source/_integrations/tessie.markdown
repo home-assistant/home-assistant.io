@@ -7,6 +7,7 @@ ha_category:
   - Climate
   - Device Tracker
   - Lock
+  - Number
   - Sensor
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
@@ -20,6 +21,7 @@ ha_platforms:
   - climate
   - device_tracker
   - lock
+  - number
   - sensor
 ha_integration_type: integration
 ---
@@ -141,6 +143,14 @@ The integration will create sensor entities for a variety of metrics that relate
 - Outside Temperature
 - Driver Temperature Setting
 - Passenger Temperature Setting
+
+### Number
+
+The integration will create number entities to control:
+
+- Charge current
+- Charge limit
+- Speed limit
 
 ### Switch
 
