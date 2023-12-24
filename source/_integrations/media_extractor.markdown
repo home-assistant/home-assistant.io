@@ -84,4 +84,4 @@ You can add a Netscape format cookie file in the Home Assistant configuration di
 
 ```config/media_extractor/cookies.txt```
 
-This file can be generated using various browser extensions or created manually following this specification: [https://curl.se/rfc/cookie_spec.html](https://curl.se/rfc/cookie_spec.html).
+To generate the cookie file, you can use a browser extension. If you want to create one manually, follow this specification: [https://curl.se/rfc/cookie_spec.html](https://curl.se/rfc/cookie_spec.html).
