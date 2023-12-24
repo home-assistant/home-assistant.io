@@ -62,7 +62,7 @@ to allow you to log in with your Spotify account.
 6. Check the box to agree with the requirements and click the **Save** button
    to confirm the application creation.
 
-7. Spotify will now show the new application you have just created. Click on
+7. Spotify will now show the new application you have just created. Select
    the **Settings** button in the top right to configure it.
 
   ![Edit the Spotify Application settings](/images/integrations/spotify/edit-settings.png)
