@@ -8,6 +8,7 @@ ha_category:
   - Presence detection
   - Sensor
   - Switch
+  - Button
 ha_release: 0.103
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -20,6 +21,7 @@ ha_platforms:
   - lock
   - sensor
   - switch
+  - button
 ha_integration_type: integration
 ---
 
@@ -27,11 +29,12 @@ The `starline` integration lets you retrieve data of your [StarLine](https://www
 
 This integration provides the following platforms:
 
-- Binary sensors: Hand brake, hood, trunk, alarm status and doors lock state.
+- Binary sensors: Hand brake, hood, trunk, alarm status, doors lock state, handsfree, neutral and moving ban status.
 - Device tracker: The location of your car.
 - Lock: Control the lock of your car.
 - Sensors: Battery level, SIM card balance, GSM signal level, fuel volume, mileage, OBD errors, interior temperature and engine temperature.
-- Switches: Start/stop engine, heater (webasto), additional channel and sound the horn.
+- Switches: Start/stop engine, heater (webasto), and additional channel.
+- Buttons: Sound the horn.
 - Services: Update the state, set update frequency. More details can be found [here](#services).
 
 ## Prerequisites
