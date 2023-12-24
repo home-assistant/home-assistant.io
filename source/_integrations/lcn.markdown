@@ -57,19 +57,19 @@ Consider to store your credentials in a [`secrets.yaml`](/docs/configuration/sec
 
 ```yaml
 lcn:
-  connections:
+  connection:
     - name: myhome
       host: 192.168.2.41
       port: 4114
       username: lcn
       password: lcn
 
-  binary_sensors:
+  binary_sensor:
     - name: Kitchen window
       address: myhome.s0.m7
       source: binsensor1
 
-  climates:
+  climate:
     - name: Temperature bedroom
       address: myhome.s0.m7
       source: var1
@@ -79,19 +79,19 @@ lcn:
       lockable: true
       unit_of_measurement: °C
 
-  covers:
+  cover:
     - name: Living room cover
       address: myhome.s0.m7
       motor: motor1
 
-  lights:
+  light:
     - name: Bedroom light
       address: myhome.s0.m7
       output: output1
       dimmable: true
       transition: 5
 
-  scenes:
+  scene:
     - name: Romantic
       address: myhome.s0.m7
       register: 1
@@ -99,20 +99,20 @@ lcn:
       outputs: [output1, output2, relais1, relais3, relais4]
       transition: 5
 
-  sensors:
+  sensor:
     - name: Temperature
       address: myhome.s0.m7
       source: var3
       unit_of_measurement: °C
 
-  switches:
+  switche:
     - name: Sprinkler switch
       address: myhome.s0.m7
       output: relay1
 ```
 
 {% configuration %}
-connections:
+connection:
   description: List of your connections.
   required: true
   type: map
@@ -149,7 +149,7 @@ connections:
       default: steps50
       type: string
 
-binary_sensors:
+binary_sensor:
   description: List of your binary sensors.
   required: false
   type: map
@@ -167,7 +167,7 @@ binary_sensors:
       required: true
       type: string
 
-climates:
+climate:
   description: List of your climate devices.
   required: false
   type: map
@@ -209,7 +209,7 @@ climates:
       type: boolean
       default: false
 
-covers:
+cover:
   description: List of your covers.
   required: false
   type: map
@@ -231,7 +231,7 @@ covers:
       required: false
       type: string
 
-lights:
+light:
   description: List of your lights.
   required: true
   type: map
@@ -259,7 +259,7 @@ lights:
       type: integer
       default: 0
 
-scenes:
+scene:
   description: List of your scenes.
   required: false
   type: map
@@ -290,7 +290,7 @@ scenes:
       type: integer
       default: None
 
-sensors:
+sensor:
   description: List of your sensors.
   required: false
   type: map
@@ -313,7 +313,7 @@ sensors:
       type: string
       default: "native"
 
-switches:
+switch:
   description: List of your switches.
   required: false
   type: map
