@@ -31,10 +31,10 @@ Adding a CCM15 data converter to your Home Assistant instance can be done via th
 {% details "Manual configuration steps" %}
 
 1. Browse to your Home Assistant instance.
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-1. In the bottom right corner, select the
+2. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+3. In the bottom right corner, select the
   **{% my config_flow_start icon domain=page.ha_domain %}** button.
-1. From the list, select **CCM15** and follow the instructions on screen.
+4. From the list, select **CCM15** and follow the instructions on screen.
 
 {% enddetails %}
 
