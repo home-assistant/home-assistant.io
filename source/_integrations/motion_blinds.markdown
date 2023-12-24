@@ -20,6 +20,7 @@ The integration allows you to control [Motion Blinds](https://motionblinds.com/)
 
 Additionally the following brands have been reported to also work with this integration:
 
+- [Acomax](https://www.acomax.de/)
 - [AMP Motorization](https://www.ampmotorization.com/)
 - [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [Bloc Blinds](https://www.blocblinds.com/)
@@ -50,6 +51,7 @@ The following bridges are reported to work with this integration:
  - DD7002B Brel-Home box
  - D1554 Brel Home USB plug
  - Brel HUB-03
+ - Acomax FX-I 620 Bridge Maxi
 
 {% include integrations/config_flow.md %}
 
