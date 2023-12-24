@@ -3,6 +3,7 @@ title: DROP
 description: Instructions on how to integrate DROP into Home Assistant.
 ha_category:
   - Binary sensor
+  - Select
   - Sensor
   - Switch
 ha_config_flow: true
@@ -15,6 +16,7 @@ ha_mqtt: true
 ha_release: '2024.1'
 ha_platforms:
   - binary_sensor
+  - select
   - sensor
   - switch
 ha_integration_type: integration
