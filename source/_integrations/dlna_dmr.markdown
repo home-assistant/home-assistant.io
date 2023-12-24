@@ -63,4 +63,4 @@ The DLNA Digital Media Renderer integration can browse any configured [media sou
 
 
 ## Notes
-- This integration uses [getmac](https://github.com/GhostofGoes/getmac) for MAC addresses resolution. When running HA in a docker container without network mode host, it is possible to specify a custom ARP table in the container as described [here](https://github.com/GhostofGoes/getmac?tab=readme-ov-file#docker).
+- This integration uses [getmac](https://github.com/GhostofGoes/getmac) for MAC addresses resolution. When running Home Assistant in a Docker container without network mode host, it is possible to specify a custom ARP table in the container as described [in the getmac documentation](https://github.com/GhostofGoes/getmac?tab=readme-ov-file#docker).
