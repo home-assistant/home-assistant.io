@@ -15,7 +15,7 @@ ha_ssdp: true
 ha_config_flow: true
 ---
 
-This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the UNDOK app.
+This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the OKTIV or UNDOK apps.
 
 ## Supported models
 
@@ -32,7 +32,7 @@ Supported devices include, but are not limited to:
 
 This integration was developed and tested with a [Roberts Stream 94i].
 
-If your device is supported by the UNDOK app, then it is also supported by this integration.
+If your device is supported by the OKTIV or UNDOK apps, then it is also supported by this integration.
 
 ## Prerequisites
 
