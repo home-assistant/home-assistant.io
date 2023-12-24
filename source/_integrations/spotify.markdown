@@ -43,7 +43,7 @@ to allow you to log in with your Spotify account.
 
 2. Log in to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard).
 
-3. Click the [**Create app**](https://developer.spotify.com/dashboard/create) button in the top right.
+3. Select the [**Create app**](https://developer.spotify.com/dashboard/create) button in the top right.
   
   ![Spotify Developer Dashboard](/images/integrations/spotify/create-spotify-application.png)
    
@@ -57,22 +57,24 @@ to allow you to log in with your Spotify account.
 
   ![Creating a Spotify Application](/images/integrations/spotify/create-spotify-application.png)
 
-5. Check the box to agree with the requirements and click the **Save** button
+5. Select Web API.
+
+6. Check the box to agree with the requirements and click the **Save** button
    to confirm the application creation.
 
-6. Spotify will now show the new application you have just created. Click on
+7. Spotify will now show the new application you have just created. Select
    the **Settings** button in the top right to configure it.
 
   ![Edit the Spotify Application settings](/images/integrations/spotify/edit-settings.png)
 
-7. Before we can start configuring Home Assistant, we need to grab the application
+8. Before we can start configuring Home Assistant, we need to grab the application
    credentials Home Assistant needs.
 
-  Click on the **View client secret** button to reveal the client secret.
+  Select on the **View client secret** button to reveal the client secret.
 
   ![Show the client secret of the Spotify Application](/images/integrations/spotify/show-client-secret.png)
 
-8. The _"Client ID"_ and _"Client secret"_ are the two pieces of information
+9. The _"Client ID"_ and _"Client secret"_ are the two pieces of information
    that Home Assistant needs to communicate with Spotify and is what we
    call: Application credentials.
 
