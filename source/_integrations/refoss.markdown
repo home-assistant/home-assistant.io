@@ -3,7 +3,7 @@ title: Refoss
 description: Integrate Refoss devices
 ha_category:
   - Switch
-ha_release: 2023.11
+ha_release: 2024.1
 ha_codeowners:
   - '@ashionky'
 ha_iot_class: Local Polling
@@ -19,17 +19,17 @@ Integrate Refoss devices into Home Assistant.
 
 ## Prerequisites
 
-The device needs to be connected to the local network first. There are two ways to connect devices to the local network:
+- The device needs to be connected to the local network first. There are two ways to connect devices to the local network:
   - Using the Refoss app (download and install the Refoss app on Google Play) to connect devices to the local network.
   - Using the Web page to connect devices to the local network.
-    - Computer/mobile phone connected to device factory wifi.
-    - In the browser, access the address 10.10.10.1, then select the local wifi that needs to be added for device configuration.
-
+    - The computer/mobile phone is connected to the device factory Wi-Fi.
+    - In the browser, access the address 10.10.10.1, then select the local Wi-Fi needed for device configuration.
+- The integration will occupy port: 9989.    
 {% include integrations/config_flow.md %}
 
 ### Discover device
 
-  - After integrating Refoss, will start socket broadcast,Home Assistant will automatically discover Refoss devices under the current LAN.
+  - After integrating Refoss, it will start socket broadcast and Home Assistant will automatically discover Refoss devices under the current LAN.
   
 ## Entity naming
 
@@ -54,11 +54,6 @@ Examples:
 | `r10`       | `0`            | r10      |
 | `r10`       | `1`            | r10-1    |
 
-## Reset Device
+## Reset device
 
 Long-press the button on the device to reset it.
-
-## Limitations
-
-- Before set up, the device is connected to the local network and powered on.
-- The integration will occupy port: 9989.
