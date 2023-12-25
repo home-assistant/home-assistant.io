@@ -41,7 +41,7 @@ The documentation covers beginner to advanced topics around the installation, se
     <div class='img-container'>
       <img src='/images/assist/assist-icon.svg' />
     </div>
-    <div class='title'>Voice control</div>
+    <div class='title'>Voice assistant</div>
   </a>
 </div>
 

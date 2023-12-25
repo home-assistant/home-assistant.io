@@ -1,8 +1,8 @@
 ---
-title: "RFLink Binary Sensor"
+title: "RFLink binary sensor"
 description: "Instructions on how to integrate RFLink binary sensors into Home Assistant."
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_iot_class: Local Push
 ha_release: 0.81
 ha_domain: rflink

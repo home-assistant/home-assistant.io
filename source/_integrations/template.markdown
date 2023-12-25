@@ -2,7 +2,7 @@
 title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Helper
   - Image
@@ -40,7 +40,7 @@ The `template` integration allows creating entities which derive their values fr
 
 Sensors, binary (on/off) sensors, buttons, images, numbers and selects are covered on this page. For other types, please see the specific pages:
 
-- [Alarm Control Panel](/integrations/alarm_control_panel.template/)
+- [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
 - [Light](/integrations/light.template/)
@@ -57,7 +57,7 @@ _For old sensor/binary sensor configuration format, [see below](#legacy-binary-s
 
 # UI configuration
 
-Sensor template and binary sensor template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=input_datetime title="Template" %}** helper.
+Sensor template and binary sensor template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
 
 To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your `configuration.yaml`. It should already be there by default unless you removed it.
 
@@ -400,7 +400,7 @@ template:
 
 [trigger-doc]: /docs/automation/trigger
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how to set up a Trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
@@ -648,7 +648,7 @@ template:
 
 {% endraw %}
 
-### State based binary sensor - Device Tracker sensor with Latitude and Longitude Attributes
+### State based binary sensor - device tracker sensor with latitude and longitude attributes
 
 This example shows how to combine a non-GPS (e.g., NMAP) and GPS device tracker while still including latitude and longitude attributes
 

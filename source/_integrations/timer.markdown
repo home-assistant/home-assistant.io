@@ -23,11 +23,8 @@ However, automations using the `timer.finished` event **will not** trigger if th
 </div>
 
 ## Configuration
-The preferred way to configure timer helpers is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button; next choose the {% my config_flow_start domain=timer title="Timer" %} option.
 
-You can also click the following button to be redirected to the Helpers page of your Home Assistant instance.
-
-{% my helpers badge %}
+The preferred way to configure timer helpers is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button; next choose the {% my config_flow_start domain=page.ha_domain title=page.title %} option.
 
 To be able to add Helpers via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `timer:` to your `configuration.yaml` first, then you can use the UI.
 
@@ -69,7 +66,7 @@ timer:
 
 Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
 
-## Possible States
+## Possible states
 
 | State | Description |
 | ----- | ----------- |

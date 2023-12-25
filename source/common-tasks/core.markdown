@@ -1,5 +1,5 @@
 ---
-title: "Common Tasks - Core"
+title: "Common tasks - Core"
 description: "Common tasks for Home Assistant Core"
 installation: core
 ---

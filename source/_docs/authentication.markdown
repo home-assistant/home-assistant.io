@@ -1,13 +1,23 @@
 ---
 title: "Authentication"
-description: "Guide on authentication in Home Assistant."
+description: "Documentation on authentication in Home Assistant."
 ---
 
-Our authentication system secures access to Home Assistant.
+The authentication system secures access to Home Assistant.
 
-If you are starting Home Assistant for the first time, or you have logged out, you will be asked for credentials before you can log in.
+## Login screen
 
-<img src='/images/docs/authentication/login.png' alt='Screenshot of the login screen' style='border: 0;box-shadow: none;'>
+If you log in from within your local network, you are greeted with a login screen showing all the people in Home Assistant.
+
+<img src='/images/docs/authentication/login.png' alt='Screenshot of the login screen, when logging in from within the local network' style='border: 0;box-shadow: none;'>
+
+### Privacy: Not showing users when logging in from outside the network
+
+When logging in from outside your local network, the users are not shown. This is to protect your privacy. In this case, you need to enter your user name.
+
+You might also see this screen if you are using a Chromium-based browser (Chrome, Edge) and IPv6. Home Assistant might not be able to detect if your are logging in from a local network. This is a known issue with Chromium.
+
+<img src='/images/docs/authentication/login-outside-local-network.png' alt='Screenshot of the login screen, when logging in from within the local network' style='border: 0;box-shadow: none;'>
 
 ## User accounts
 
@@ -24,7 +34,7 @@ For the moment, other user accounts will have the same access as the owner accou
 If you want to manage users and you're an owner but you do not see "Users" in your main configuration menu, make sure that "Advanced Mode" is enabled for your user in your profile.
 </div>
 
-### Your Account Profile
+### Your account profile
 
 Once you're logged in, you can see the details of your account at the _Profile_ page by clicking on the circular at the very bottom of the sidebar.
 
@@ -46,7 +56,7 @@ As an extra level of security, you can turn on [multi-factor authentication](/do
 
 ## Other authentication techniques
 
-Home Assistant provides several ways to authenticate. See the [Auth Providers](/docs/authentication/providers/) section.
+Home Assistant provides several ways to authenticate. See the [Auth providers](/docs/authentication/providers/) section.
 
 ## Troubleshooting
 
@@ -105,9 +115,9 @@ Replace `12.34.56.78` with your Home Assistant's public IP address.
 
 This will allow you to open Home Assistant at `http://homeassistant.home:8123/`
 
-### Stuck on Loading data
+### Stuck on loading data
 
-Some ad blocking software, such as Wipr, also blocks web sockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
+Some ad blocking software, such as Wipr, also blocks WebSockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
 
 ### Migrating from pre 0.77
 
