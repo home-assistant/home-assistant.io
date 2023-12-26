@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `systemmonitor` sensor platform allows you to monitor disk usage,
+The System monitor integration allows you to monitor disk usage,
 memory usage, CPU usage, and running processes. 
 
 {% include integrations/config_flow.md %}
@@ -42,8 +42,8 @@ memory usage, CPU usage, and running processes.
 
 - Last boot
 - Load (15m)
-- Load (1m)
 - Load (5m)
+- Load (1m)
 - Memory free
 - Memory use
 - Memory use (percent)
@@ -55,7 +55,7 @@ memory usage, CPU usage, and running processes.
 
 ### Add `process` sensor
 
-The `process` sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & Services" %}**, select the **System Monitor** integration and click **Configure** to add or remove `process` sensors.
+The `process` sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & Services" %}**, select the **System Monitor** integration and click **Configure** to select which `process` sensors should be created.
 
 ## Disk usage
 
