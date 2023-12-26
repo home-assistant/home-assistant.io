@@ -6,7 +6,9 @@ ha_category:
   - Button
   - Climate
   - Device Tracker
+  - Lock
   - Media Player
+  - Number
   - Sensor
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
@@ -19,7 +21,9 @@ ha_platforms:
   - button
   - climate
   - device_tracker
+  - lock
   - media_player
+  - number
   - sensor
 ha_integration_type: integration
 ---
@@ -33,6 +37,41 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 {% include integrations/config_flow.md %}
 
 ## Entities
+
+
+### Binary Sensor
+
+The integration will create binary sensor entities for a variety of metrics that relate to your vehicles: 
+
+#### Charge State
+
+- Battery Heater
+- Battery Charing
+- Preconditioning Enabled
+- Scheduled Charging Enabled
+- Trip Charging Enabled
+
+#### Climate State
+
+- Auto Seat Climate Left
+- Auto Seat Climate Right
+- Auto Steering Wheel Climate
+- Overheat Protection Enabled
+- Overheat Protection Running
+
+#### Vehicle State
+
+- Dashcam Recording
+- User Present
+- Tire Pressure Warning Front Left
+- Tire Pressure Warning Front Right
+- Tire Pressure Warning Rear Left
+- Tire Pressure Warning Rear Right
+- Front driver window
+- Front passenger window
+- Rear driver window
+- Rear passenger window
+
 
 ### Button
 
@@ -68,34 +107,21 @@ The integration will create a select entity to control each of the seat heaters.
 - Third Row Left (if installed)
 - Third Row Right (if installed)
 
-### Binary Sensor
+### Device Tracker
 
-The integration will create binary sensor entities for a variety of metrics that relate to your vehicles: 
+The integration will create device tracker entities for the vehicle's location and navigation destination.
 
-#### Charge State
+### Select
 
-- Battery Heater
-- Battery Charing
-- Preconditioning Enabled
-- Scheduled Charging Enabled
-- Trip Charging Enabled
+The integration will create a select entity to control each seat heater. It allows you to set each seat heater to Off, Low, Medium, or High.
 
-#### Climate State
-
-- Auto Seat Climate Left
-- Auto Seat Climate Right
-- Auto Steering Wheel Climate
-- Overheat Protection Enabled
-- Overheat Protection Running
-
-#### Vehicle State
-
-- Dashcam Recording
-- User Present
-- Tire Pressure Warning Front Left
-- Tire Pressure Warning Front Right
-- Tire Pressure Warning Rear Left
-- Tire Pressure Warning Rear Right
+- Front Left
+- Front Right
+- Rear Left (if installed)
+- Rear Center (if installed)
+- Rear Right (if installed)
+- Third Row Left (if installed)
+- Third Row Right (if installed)
 
 ### Climate
 
@@ -106,6 +132,10 @@ The integration will create a climate entity to control the vehicles climate con
 - Change to one of the three keep modes: Keep, Dog, and Climate
 
 The passenger set temperature is shown as a sensor but cannot be changed by Tessie.
+
+### Lock
+
+The integration will create a lock entity for each vehicle.
 
 ### Sensor
 
@@ -142,6 +172,14 @@ The integration will create sensor entities for a variety of metrics that relate
 - Outside Temperature
 - Driver Temperature Setting
 - Passenger Temperature Setting
+
+### Number
+
+The integration will create number entities to control:
+
+- Charge current
+- Charge limit
+- Speed limit
 
 ### Switch
 
