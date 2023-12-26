@@ -108,18 +108,83 @@ The ecobee thermostat supports the following key concepts.
 The _target temperature_ is the temperature that the device attempts to achieve. The target temperature is either determined by the currently active climate or it may be overridden by a hold. When the
 thermostat is not in auto mode, there is a single target temperature. When the thermostat is in auto HVAC mode, there is a pair of target temperatures: the lower target temperature determines the lowest desired temperature, while the higher target temperature determines the highest desired temperature (the thermostat will switch between heating and cooling to keep the temperature within these limits).
 
-A _climate_ is a predefined or user-defined set of presets that the thermostat aims to achieve. The ecobee thermostat provides three predefined climates: Home, Away, and Sleep. Ecobee refers to these as _comfort settings_. The user can define additional climates.
+A _climate_ is a predefined or user-defined set of presets that the thermostat aims to achieve. Ecobee refers to these as _comfort settings.The ecobee thermostat provides three predefined climates: Home, Away, and Sleep.  The user can define additional climates. Climates may be activated in the thermostat based on a schedule.
 
-A _preset_ is an override of the target temperature defined in the currently active climate. The temperature targeted in the preset mode may be explicitly set (temperature preset), it may be derived from a reference climate (home, away, sleep, etc.), or it may be derived from a vacation defined by the thermostat. All holds are temporary. Temperature and climate holds expire when the thermostat transitions to the next climate defined in its program. A vacation hold starts at the beginning of the
-defined vacation period and expires when the vacation period ends.
+A _preset_ is an override of the target temperature as defined in the currently active climate. The temperature targeted in the preset may be explicitly set (temperature preset), or it may be derived from a reference climate (home, away, sleep, etc.).
 
-When in _away preset_, the target temperature is permanently overridden by the target temperature defined for the away climate. The away preset is a simple way to emulate a vacation mode.
+The amount of time a preset remains active will, by default, be determined by the hold duration setting in the ecobee thermostat. This setting in the ecobee thermostat can have one of 5 settings: _Two hours, Four hours, Until the next scheduled activity, Until you change it, or Decide at time of change._ The active hold duration in the thermostat will be applied to any preset override except for the _Decide at time of change_ hold duration. If the hold duration is _Decide at time of change_ the preset will only be active until the next scheduled activity.
+
+To change the default behavior for for the amount of time a preset remains active, please see the [Changing Default Hold Duration](#changing-default-hold-duration ) section below.
+
+A _vacation_ hold starts at the beginning of the defined vacation period and expires when the vacation period ends. During the vacation hold the thermostat will maintain the temperature and fan settings in the vacation hold regardless of the schedule in the thermostat or any preset changes from Home Assistant.
 
 The _HVAC mode_ of the device is the currently active operational modes that the ecobee thermostat provides: heat, cool, auto, and off.
 
 The _target humidity_ is the humidity set point of the thermostat when a humidifier is connected and in manual control or "On" mode.
 
 When enabling the auxiliary heat toggle, the ecobee thermostat HVAC mode will be changed to "Aux". However, Home Assistant will reflect that the thermostat is in "heat" mode. Disabling auxiliary heat will change the thermostat back to last active HVAC mode (heat, auto, etc).
+
+#### Changing Default Hold Duration
+
+The default hold duration for a preset can be configured via `configuration.yaml`. This allows you to create custom default hold durations for some or all of your ecobee thermostats.
+
+The integration allows for a new default behavior to be specified for all ecobee thermostats that do not have a thermostat-specific behavior specified.
+
+The example below will create a custom default hold duration for all ecobee thermostats. This will create a user interface entry to select the default behavior among the options and will also create a new preset default behavior to be _Until you change it_. If this is the only ecobee hold mode entry in `configuration.yaml` then this will apply to every ecobee thermostat integrated with Home Assistant.
+
+```yaml
+# Example ecobee hold mode configuration.yaml entry
+# This applies to all ecobee thermostats unless a thermostat-specific entry is included
+input_select:
+   ecobee_hold_mode:
+       name: Default Ecobee Hold Mode
+       options:
+         - 2 hours
+         - 4 hours
+         - Until the next scheduled activity
+         - Until you change it
+       initial: Until you change it
+```
+
+The integration also allows for a new default behavior to be specified on a per-thermostat basis. To do this for a specific thermostat, append the thermostat name, with any blanks replaced by underscores (\_) and upper case changed to lower case to the string "ecobee_hold_mode_".
+
+The example below will create a custom default hold duration for the ecobee thermostat named _First Floor_. This will only apply to the First Floor thermostat. Note also in this example that for this thermostat we are not allowing a 4 hour hold duration and the default is 2 hours.
+
+If both a custom default hold duration and thermostat-specific hold durations are specified, the thermostat-specific hold duration takes priority.
+
+```yaml
+# Example ecobee hold mode configuration.yaml entry
+# This applies only to the First Floor ecobee thermostat
+input_select:
+   ecobee_hold_mode_first_floor  :
+       name: First Floor Ecobee Hold Mode
+       options:
+         - 2 hours
+         - Until the next scheduled activity
+         - Until you change it
+       initial: 2 hours
+```
+
+{% configuration %}
+  input_select:
+    description: Alias for the input. Multiple entries are allowed.
+    required: true
+    type: map
+    keys:
+      name:
+        description: Friendly name of the input to be used in the frontend
+        required: false
+        type: string
+      options:
+        description: List of options to choose from. Must be one of the following - "2 hours", "4 hours", "Until the next scheduled activity", or "Until you change it". Not all options are required.
+        required: true
+        type: list
+      initial:
+        description: Initial value when Home Assistant starts.
+        required: false
+        type: map
+        default: First element of options
+{% endconfiguration %}
 
 ### Attributes
 
