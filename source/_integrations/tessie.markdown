@@ -159,7 +159,7 @@ The integration will create sensor entities for a variety of metrics that relate
 - Power
 - Shift State
 
-### Climate State
+#### Climate State
 
 - Inside Temperature
 - Outside Temperature
