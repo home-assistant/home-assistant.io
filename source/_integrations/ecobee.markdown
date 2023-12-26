@@ -114,7 +114,7 @@ A _preset_ is an override of the target temperature as defined in the currently 
 
 The amount of time a preset remains active will, by default, be determined by the hold duration setting in the ecobee thermostat. This setting in the ecobee thermostat can have one of 5 settings: _Two hours, Four hours, Until the next scheduled activity, Until you change it, or Decide at time of change._ The active hold duration in the thermostat will be applied to any preset override except for the _Decide at time of change_ hold duration. If the hold duration is _Decide at time of change_ the preset will only be active until the next scheduled activity.
 
-To change the default behavior for for the amount of time a preset remains active, please see the [Changing Default Hold Duration](#changing-default-hold-duration ) section below.
+To change the default behavior for for the amount of time a preset remains active, please see the [Changing Default Hold Duration](#changing-default-hold-duration ) section below. 
 
 A _vacation_ hold starts at the beginning of the defined vacation period and expires when the vacation period ends. During the vacation hold the thermostat will maintain the temperature and fan settings in the vacation hold regardless of the schedule in the thermostat or any preset changes from Home Assistant.
 
