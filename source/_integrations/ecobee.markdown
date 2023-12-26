@@ -168,7 +168,7 @@ input_select:
 {% configuration %}
   input_select:
     description: Alias for the input. Multiple entries are allowed.
-    required: true 
+    required: true
     type: map
     keys:
       name:
