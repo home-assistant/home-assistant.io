@@ -106,7 +106,7 @@ The integration will create device tracker entities for the vehicles current loc
 
 ### Select
 
-The integration will create a select entity to control each of the seat heaters. It allows you to set each seat heater to Off, Low, Medium, or High.
+The integration will create a select entity to control each seat heater. It allows you to set each seat heater to Off, Low, Medium, or High.
 
 - Front Left
 - Front Right
