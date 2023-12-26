@@ -102,7 +102,7 @@ The integration will create a select entity to control each of the seat heaters.
 
 ### Device Tracker
 
-The integration will create device tracker entities for the vehicles current location, and navigation destination.
+The integration will create device tracker entities for the vehicle's location and navigation destination.
 
 ### Select
 
