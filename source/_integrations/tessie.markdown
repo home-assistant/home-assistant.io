@@ -7,6 +7,8 @@ ha_category:
   - Climate
   - Cover
   - Device Tracker
+  - Lock
+  - Number
   - Sensor
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
@@ -20,6 +22,8 @@ ha_platforms:
   - climate
   - cover
   - device_tracker
+  - lock
+  - number
   - sensor
 ha_integration_type: integration
 ---
@@ -34,40 +38,6 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 
 ## Entities
 
-
-### Cover
-
-The integration will create a cover entity for venting/closing windows and for opening/closing the charge port cover.
-
-
-### Button
-
-The integration will create button entities to control various aspects of the vehicle.
-
-- Wake
-- Flash lights
-- Honk horn
-- Homelink
-- Keyless driving
-- Play fart
-
-
-### Device Tracker
-
-The integration will create device tracker entities for the vehicles current location, and navigation destination.
-
-
-### Select
-
-The integration will create a select entity to control each of the seat heaters. It allows you to set each seat heater to Off, Low, Medium, or High.
-
-- Front Left
-- Front Right
-- Rear Left (if installed)
-- Rear Center (if installed)
-- Rear Right (if installed)
-- Third Row Left (if installed)
-- Third Row Right (if installed)
 
 ### Binary Sensor
 
@@ -97,6 +67,61 @@ The integration will create binary sensor entities for a variety of metrics that
 - Tire Pressure Warning Front Right
 - Tire Pressure Warning Rear Left
 - Tire Pressure Warning Rear Right
+- Front driver window
+- Front passenger window
+- Rear driver window
+- Rear passenger window
+
+
+### Button
+
+The integration will create button entities to control various aspects of the vehicle.
+
+- Wake
+- Flash lights
+- Honk horn
+- Homelink
+- Keyless driving
+- Play fart
+
+
+### Cover
+
+The integration will create a cover entity for venting/closing windows and for opening/closing the charge port cover.
+
+
+### Device Tracker
+
+The integration will create device tracker entities for the vehicles current location, and navigation destination.
+
+
+### Select
+
+The integration will create a select entity to control each of the seat heaters. It allows you to set each seat heater to Off, Low, Medium, or High.
+
+- Front Left
+- Front Right
+- Rear Left (if installed)
+- Rear Center (if installed)
+- Rear Right (if installed)
+- Third Row Left (if installed)
+- Third Row Right (if installed)
+
+### Device Tracker
+
+The integration will create device tracker entities for the vehicle's location and navigation destination.
+
+### Select
+
+The integration will create a select entity to control each seat heater. It allows you to set each seat heater to Off, Low, Medium, or High.
+
+- Front Left
+- Front Right
+- Rear Left (if installed)
+- Rear Center (if installed)
+- Rear Right (if installed)
+- Third Row Left (if installed)
+- Third Row Right (if installed)
 
 ### Climate
 
@@ -107,6 +132,10 @@ The integration will create a climate entity to control the vehicles climate con
 - Change to one of the three keep modes: Keep, Dog, and Climate
 
 The passenger set temperature is shown as a sensor but cannot be changed by Tessie.
+
+### Lock
+
+The integration will create a lock entity for each vehicle.
 
 ### Sensor
 
@@ -143,6 +172,14 @@ The integration will create sensor entities for a variety of metrics that relate
 - Outside Temperature
 - Driver Temperature Setting
 - Passenger Temperature Setting
+
+### Number
+
+The integration will create number entities to control:
+
+- Charge current
+- Charge limit
+- Speed limit
 
 ### Switch
 
