@@ -126,7 +126,7 @@ When enabling the auxiliary heat toggle, the ecobee thermostat HVAC mode will be
 
 #### Changing Default Hold Duration
 
-The default hold duration for a preset can be configured via `configuration.yaml`. This allows you to create custom default hold durations for some or all of your ecobee thermostats. 
+The default hold duration for a preset can be configured via `configuration.yaml`. This allows you to create custom default hold durations for some or all of your ecobee thermostats.
 
 The integration allows for a new default behavior to be specified for all ecobee thermostats that do not have a thermostat-specific behavior specified.
 
