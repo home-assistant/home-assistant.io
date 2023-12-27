@@ -37,6 +37,7 @@ ha_platforms:
   - text
   - update
   - vacuum
+  - valve
   - water_heater
 ha_integration_type: integration
 ha_quality_scale: gold
@@ -240,6 +241,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Tag scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
@@ -457,6 +459,7 @@ support_url:
     'pl_ton':              'payload_turn_on',
     'pl_trig':             'payload_trigger',
     'pl_unlk':             'payload_unlock',
+    'pos':                 'reports_position',
     'pos_clsd':            'position_closed',
     'pos_open':            'position_open',
     'pr_mode_cmd_t':       'preset_mode_command_topic',
@@ -680,6 +683,8 @@ The following software has built-in support for MQTT discovery:
 
 - [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
+- [ble2mqtt](https://github.com/devbis/ble2mqtt)
+- [digitalstrom-mqtt](https://github.com/gaetancollaud/digitalstrom-mqtt)
 - [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
 - [EMS-ESP32 (and EMS-ESP)](https://github.com/emsesp/EMS-ESP32)
@@ -993,6 +998,7 @@ mqtt:
 - [Text](/integrations/text.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}

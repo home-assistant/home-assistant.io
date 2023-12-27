@@ -779,7 +779,7 @@ template:
       - platform: time_pattern
         hours: /1
     action:
-      - service: weather.get_forecast
+      - service: weather.get_forecasts
         data:
           type: hourly
         target:
@@ -790,7 +790,7 @@ template:
         unique_id: weather_forecast_hourly
         state: "{{ now().isoformat() }}"
         attributes:
-          forecast: "{{ hourly.forecast }}"
+          forecast: "{{ hourly['weather.home'].forecast }}"
 ```
 
 {% endraw %}
