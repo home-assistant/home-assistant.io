@@ -4,6 +4,7 @@ description: Instructions on how to integrate Trend binary sensors into Home Ass
 ha_category:
   - Binary sensor
   - Utility
+  - Helper
 ha_release: 0.28
 ha_iot_class: Calculated
 ha_quality_scale: internal
@@ -23,6 +24,16 @@ Thus it can take some time to show an accurate state. It can be useful
 as part of automations, where you want to base an action on a trend.
 
 {% include integrations/config_flow.md %}
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have. You can change it again later.
+Entity that the sensor tracks:
+  description: The sensor entity that is to be tracked and whose trend is to be detected.
+Attribute of the entity that the sensor tracks:
+  description: The attribute of the previous selected sensor entity that this sensor tracks. If no attribute is specified then the sensor will track the state.
+Invert the result:
+  description: Invert the result. A `true` value would mean descending rather than ascending.
+{% endconfiguration_basic %}
 
 ### YAML Configuration
 
