@@ -28,9 +28,14 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 1. Make sure this page is opened in a Chromium-based browser on a **desktop**. The software installation does not work with a tablet or phone.
 
-   - If you have an ESP32-S3-BOX-3, select the **Connect** button below to show the current ports. Do not connect the ESP32-S3-BOX-3 yet.
-   - If your device does not readily connect for flashing, you may need to put your ESP32-S3-BOX-3 into "flash mode" by holding the "boot" button (left side upper button), tapping the "reset" button (left side lower button), and then releasing them both. Wait a few seconds before attempting to connect.
-   - If your browser does not support web serial, you will see a warning instead of a button.
+   - If you have an ESP32-S3-BOX-3, select the **Connect** button below to display a list of available USB devices. Do not connect the ESP32-S3-BOX-3 yet.
+   - If your ESP32-S3-BOX-3 does not appear in the list of devices presented by your browser:
+     - You need to manually invoke "flash mode":
+       -  Hold the "boot" button (left side upper button) as you tap the "reset" button (left side lower button)
+       - After a few seconds, the ESP32-S3-BOX-3 should appear in the list of USB devices presented by your browser.
+     - Follow the steps until step 3. After selecting the **Next** button, on the S3-Box, tap the "Reset" button again.
+     - Then, select the blue **Connect button** again, select the USB device and follow the prompts to configure the Wi-Fi.
+   - If your browser does not support web serial, you will see a warning message indicating this instead of a button.
 
       <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/esp32-s3-box-3/manifest.json"></esp-web-install-button>
