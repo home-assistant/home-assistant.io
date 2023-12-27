@@ -4,7 +4,7 @@ description: Instructions on how to integrate a Midea CCM15 module into Home Ass
 ha_category:
   - Climate
 ha_iot_class: Local Polling
-ha_release: 2024.12
+ha_release: 2024.1
 ha_config_flow: true
 ha_codeowners:
   - '@ocalvo'
