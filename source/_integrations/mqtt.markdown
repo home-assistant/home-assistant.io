@@ -37,6 +37,7 @@ ha_platforms:
   - text
   - update
   - vacuum
+  - valve
   - water_heater
 ha_integration_type: integration
 ha_quality_scale: gold
@@ -240,6 +241,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Tag scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
@@ -457,6 +459,7 @@ support_url:
     'pl_ton':              'payload_turn_on',
     'pl_trig':             'payload_trigger',
     'pl_unlk':             'payload_unlock',
+    'pos':                 'reports_position',
     'pos_clsd':            'position_closed',
     'pos_open':            'position_open',
     'pr_mode_cmd_t':       'preset_mode_command_topic',
@@ -995,6 +998,7 @@ mqtt:
 - [Text](/integrations/text.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}

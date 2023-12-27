@@ -32,3 +32,17 @@ The Wyoming, Piper, and Whisper add-ons are used to create a fully local voice p
 ## Satellites
 
 [Remote voice satellites](https://github.com/rhasspy/wyoming-satellite) can be connected to Home Assistant using the Wyoming protocol. These satellites typically run on Raspberry Pi's, and are automatically discovered by Home Assistant through [Zeroconf](/integrations/zeroconf).
+
+
+### Audio Settings
+
+The following settings control audio processing of a satellite's microphone input:
+
+- Noise suppression
+    - Level of noise suppression (uses [webrtc]). Audio distortion may occur as the level increases.
+- Auto gain
+    - Automatically adjusts volume based on ambient noise (uses [webrtc]). The setting value is the target dBFS.
+- Mic volume
+    - Fixed multiplier applied to microphone audio samples. 2.0 doubles the volume, while 0.5 is halves it. Values above 1.0 may increase noise or cause audio distortion.
+
+[webrtc]: https://github.com/rhasspy/webrtc-noise-gain
