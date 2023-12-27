@@ -29,7 +29,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 1. Make sure this page is opened in a Chromium-based browser on a **desktop**. The software installation does not work with a tablet or phone.
 
    - If you have an ESP32-S3-BOX-3, select the **Connect** button below to display a list of available USB devices. Do not connect the ESP32-S3-BOX-3 yet.
-   - If your ESP32-S3-BOX-3 does appear in the list of devices presented by your browser:
+   - If your ESP32-S3-BOX-3 does not appear in the list of devices presented by your browser:
      - You can manually invoke "flash mode" by holding the "boot" button (left side upper button) as you tap the "reset" button (left side lower button); after a few seconds, the ESP32-S3-BOX-3 should appear in the list of USB devices presented by your browser.
      - **Note:** this approach will require you to manually reset the ESP32-S3-BOX-3 (by again using the reset button) after the initial installation completes. You'll also need to reconnect to it (using the Connect button as before) to configure Wi-Fi.
    - If your browser does not support web serial, you will see a warning message indicating this instead of a button.
