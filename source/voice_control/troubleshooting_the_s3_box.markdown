@@ -42,6 +42,17 @@ The ESP32-S3-BOX-3 shows a message that it is unable to connect to Wi-Fi.
      6. Enter your Wi-Fi credentials.
         ![ESP32-S3-BOX-3 open config file](/images/assist/esp32-edit-secrets.png)
 
+## The Wi-Fi dialog never shows after the installation
+
+### Symptom
+
+The installation wizard never shows the dialog to connect to the Wi-Fi, but directly returns to the screen with **Install Voice Assistant**.
+
+### Remedy
+
+1. Disconnect the USB cable connecting the ESP32-S3-BOX-3 and connect it again.
+2. If this didn't help, check if you are using a USB cable that is power only and does not transfer data.
+
 ## Error: No Home Assistant
 
 ### Symptom
