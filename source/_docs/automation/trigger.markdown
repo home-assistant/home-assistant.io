@@ -149,7 +149,7 @@ automation:
 
 <div class='note'>
 
-Automations triggered by the `shutdown` event only have 20 seconds to run, after which they are stopped in order to continue with the shutdown.
+Automations triggered by the `shutdown` event have 20 seconds to run, after which they are stopped to continue with the shutdown.
 
 </div>
 
