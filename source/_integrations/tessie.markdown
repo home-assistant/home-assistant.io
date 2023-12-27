@@ -5,10 +5,13 @@ ha_category:
   - Binary Sensor
   - Button
   - Climate
+  - Cover
   - Device Tracker
   - Lock
+  - Media Player
   - Number
   - Sensor
+  - Update
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -19,10 +22,13 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - cover
   - device_tracker
   - lock
+  - media_player
   - number
   - sensor
+  - update
 ha_integration_type: integration
 ---
 
@@ -91,9 +97,19 @@ The integration will create a cover entity to control various aspects of your ve
 - Open frunk
 - Open/Close trunk
 
+### Cover
+
+The integration will create a cover entity for venting/closing windows and for opening/closing the charge port cover.
+
+
 ### Device Tracker
 
 The integration will create device tracker entities for the vehicles current location, and navigation destination.
+
+
+### Media Player
+
+The integration will create media player entities to show what each vehicles is currently playing.
 
 
 ### Select
@@ -191,3 +207,7 @@ The integration will create switch entities to control various aspects of your v
 - Sentry mode
 - Valet mode
 - Steering wheel heater
+
+### Update
+
+The integration will show vehicle software updates and their installation progress.
