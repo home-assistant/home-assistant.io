@@ -6,7 +6,7 @@ date: 2023-12-27 00:00:02
 date_formatted: "December 27, 2023"
 author: Bruno Pantaleão
 comments: true
-categories: iOS, Release-Notes
+categories: iOS Release-Notes
 og_image: /images/blog/2023-12-ios-lets-go/ios-og.png
 ---
 
