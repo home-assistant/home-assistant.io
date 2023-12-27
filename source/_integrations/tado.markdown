@@ -48,18 +48,9 @@ It currently supports presenting the current temperature, the setting temperatur
 
 The `tado` device tracker is using the [Tado Smart Thermostat](https://www.tado.com/) and its support for person presence detection based on smartphone location by geofencing.
 
-This tracker uses the Tado API to determine if a mobile device is at home. It tracks all devices in your home that Tado knows about.
+This tracker uses the Tado API to determine if a mobile device is at home.
 
-To use the Tado platform in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry for Tado
-device_tracker:
-  - platform: tado
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-    home_id: YOUR_HOME_ID
-```
+By default the Tado device tracker will track all devices known to Tado associated with your home. The Tado app needs to have the `Geolocation` permission enabled for the device to be tracked.
 
 {% configuration %}
 username:
