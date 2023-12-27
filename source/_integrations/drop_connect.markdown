@@ -38,7 +38,7 @@ There is currently support for the following DROP products within Home Assistant
 - **RO Filter**: reverse osmosis drinking water filtration.
 - **Salt Sensor**: alerts when the salt level in the softener brine tank is low.
 
-### Configuration
+### Pre-requisites
 
 To use DROP with Home Assistant, you must have already configured the [MQTT](/integrations/mqtt/) platform.
 
@@ -51,7 +51,14 @@ To enable the DROP integration, use the DROP Connect app to connect your DROP Hu
 
 Once the DROP Hub is connected to your MQTT broker, the devices on your DROP system should be discovered by Home
 Assistant.
-Go to **Settings > Devices & Services** in the Home Assistant UI to add your DROP devices.
+
+{% details "Manual configuration steps" %}
+
+- Browse to your Home Assistant instance.
+- Go to **{% my integrations title="Settings > Devices & Services" %}**.
+- Set up the new discovered devices.
+
+{% enddetails %}
 
 <div class="note">
 
