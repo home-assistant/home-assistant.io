@@ -55,7 +55,7 @@ By default the Tado device tracker will track all devices known to Tado associat
 Your device has to be at home at least once before showing up as *home* or *away*.
 Polling Tado API for presence information will happen at most once every 30 seconds.
 
-See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked. Beware that the Tado (v2) API does not provide GPS location of devices, only a bearing, therefore Home Assistant only uses `home`/`not-home` status.
+Beware that the Tado (v2) API does not provide GPS location of devices, only a bearing, therefore Home Assistant only uses `home`/`not-home` status.
 
 ## Services
 
