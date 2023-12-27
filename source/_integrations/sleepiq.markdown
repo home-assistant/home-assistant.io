@@ -31,7 +31,7 @@ ha_integration_type: integration
 
 The SleepIQ integration lets you integrate your SleepNumber Bed via [SleepIQ by SleepNumber](https://www.sleepnumber.com/pages/sleepiq-sleep-tracker).
 
-There is currently support for the following platforms within Home Assistant available depending on the bed capabilities:
+There is currently support available for the following platforms within Home Assistant, depending on the bed's capabilities:
 
 - Binary sensor - View occupancy of each side
 - Button - Calibrate the bed
