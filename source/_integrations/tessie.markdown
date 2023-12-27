@@ -8,6 +8,7 @@ ha_category:
   - Cover
   - Device Tracker
   - Lock
+  - Media Player
   - Number
   - Sensor
   - Update
@@ -24,6 +25,7 @@ ha_platforms:
   - cover
   - device_tracker
   - lock
+  - media_player
   - number
   - sensor
   - update
@@ -95,6 +97,11 @@ The integration will create a cover entity for venting/closing windows and for o
 ### Device Tracker
 
 The integration will create device tracker entities for the vehicles current location, and navigation destination.
+
+
+### Media Player
+
+The integration will create media player entities to show what each vehicles is currently playing.
 
 
 ### Select
