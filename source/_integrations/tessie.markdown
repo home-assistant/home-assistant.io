@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Climate
+  - Cover
   - Device Tracker
   - Lock
   - Number
@@ -19,6 +20,7 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - cover
   - device_tracker
   - lock
   - number
@@ -81,6 +83,11 @@ The integration will create button entities to control various aspects of the ve
 - Homelink
 - Keyless driving
 - Play fart
+
+
+### Cover
+
+The integration will create a cover entity for venting/closing windows and for opening/closing the charge port cover.
 
 
 ### Device Tracker
