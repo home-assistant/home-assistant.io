@@ -10,6 +10,7 @@ ha_category:
   - Lock
   - Number
   - Sensor
+  - Update
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -25,6 +26,7 @@ ha_platforms:
   - lock
   - number
   - sensor
+  - update
 ha_integration_type: integration
 ---
 
@@ -190,3 +192,7 @@ The integration will create switch entities to control various aspects of your v
 - Sentry mode
 - Valet mode
 - Steering wheel heater
+
+### Update
+
+The integration will show vehicle software updates and their installation progress.
