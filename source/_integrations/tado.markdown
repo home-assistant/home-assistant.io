@@ -46,7 +46,7 @@ It currently supports presenting the current temperature, the setting temperatur
 
 ## Presence detection
 
-The `tado` device tracker is using the [Tado Smart Thermostat](https://www.tado.com/) and its support for person presence detection based on smartphone location by geofencing.
+The Tado device tracker is using the [Tado Smart Thermostat](https://www.tado.com/) and its support for person presence detection based on smartphone location by geofencing.
 
 This tracker uses the Tado API to determine if a mobile device is at home.
 
