@@ -88,6 +88,14 @@ The integration will create button entities to control various aspects of the ve
 - Keyless driving
 - Play fart
 
+### Cover
+
+The integration will create a cover entity to control various aspects of your vehicles:
+
+- Vent/Closing windows
+- Open/Closing charge port
+- Open frunk
+- Open/Close trunk
 
 ### Cover
 
