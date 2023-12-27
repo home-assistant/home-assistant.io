@@ -84,7 +84,7 @@ The integration will create button entities to control various aspects of the ve
 
 ### Climate
 
-The integration will create a climate entity to control the vehicles climate control system. This entity can:
+The integration will create a climate entity to control the vehicle's climate control system. This entity can:
 
 - Turn on and off
 - Change the drivers set temperature
@@ -110,7 +110,7 @@ The integration will create number entities to control:
 
 ### Select
 
-The integration will create a select entity to control each of the seat heaters. It allows you to set each seat heater to Off, Low, Medium, or High.
+The integration will create a select entity to control each seat heater. It allows you to set each seat heater to Off, Low, Medium, or High.
 
 - Front Left
 - Front Right
