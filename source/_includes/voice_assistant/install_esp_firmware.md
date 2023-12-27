@@ -2,7 +2,7 @@
 
 2. Connect the {{ product_name }} to your computer.
    - In the pop-up window, view the available ports.
-   - Plug the USB-C cable into the {{ product_name }} and connect it to your computer.{% if page.product_name == 'ATOM Echo' %}
+   - Plug the USB-C cable into the {{ product_name }} and connect it to your computer.{% if page.product_name == 'ESP32-S3-BOX' %}
      - If you have an ESP32-S3-BOX-3, plug it into the box directly, not into the docking station (not into the blue part). {% endif %}
    - In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.{% if page.product_name == 'ATOM Echo' %}
    - **Troubleshooting**: If no new port shows, your system may be missing a driver. Close the pop-up window.
