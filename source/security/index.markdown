@@ -62,6 +62,13 @@ As an open source project, Home Assistant cannot offer bounties for security vul
 
 The following is a list of past security advisories that have been published by the Home Assistant project.
 
+**2023-12-14: User accounts disclosed to unauthenticated actors on the LAN**  
+Severity: _Moderate (CVSS: 4.2)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-jqpc-rc7g-vf83)_  
+Assigned CVE: _[CVE-2023-50715](https://nvd.nist.gov/vuln/detail/CVE-2023-50715)_  
+Discovered by: _[r01k](https://github.com/r01k)_  
+Fixed in: _Home Assistant Core 2023.12.3_  
+
 **2023-10-19: Actions expression injection in `helpers/version/action.yml`**  
 Severity: _Low (This is an internal project)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-jff5-5j3g-vhqc)_  

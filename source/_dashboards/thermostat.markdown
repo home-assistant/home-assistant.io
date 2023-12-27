@@ -8,7 +8,7 @@ description: "The thermostat card gives control of your climate entity, allowing
 The thermostat card gives control of your [climate](/integrations/#climate) entity, allowing you to change the temperature and mode of the entity.
 
 <p class='img'>
-  <img src='/images/dashboards/thermostat_card.gif' alt='Screenshot of the thermostat card'>
+  <img src='/images/dashboards/thermostat_card.png' alt='Screenshot of the thermostat card'>
   Screenshot of the thermostat card.
 </p>
 

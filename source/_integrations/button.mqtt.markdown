@@ -12,8 +12,6 @@ The `mqtt` button platform lets you send an MQTT message when the button is pres
 
 ## Configuration
 
-<a id='new_format'></a>
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
