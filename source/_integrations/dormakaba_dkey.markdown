@@ -25,3 +25,7 @@ In addition to a lock entity, each added dKey lock will also have:
 - A battery sensor
 - A binary_sensor which shows if the door is open or not
 - A binary_sensor which shows the position of the lock's dead bolt
+
+:::warning
+The Dormakaba dKey lock is currently not working with USB dongles or built-in bluetooth radios, only [ESPHome Bluetooth proxies](integrations/bluetooth/#remote-adapters-bluetooth-proxies) work reliably.
+:::
