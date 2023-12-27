@@ -52,7 +52,7 @@ If you change the configuration, you have to restart the server. To do that you 
   content: |
 
     ```bash
-    docker compose restart
+    docker-compose restart
     ```
 
 {% endtabbed_block %}
@@ -61,7 +61,7 @@ If you change the configuration, you have to restart the server. To do that you 
 
 <div class="note tip">
    
-  `docker compose` should [already be installed](https://www.docker.com/blog/announcing-compose-v2-general-availability/) on your system. If not, you can [manually](https://docs.docker.com/compose/install/linux/) install it.
+  `docker-compose` should [already be installed](https://www.docker.com/blog/announcing-compose-v2-general-availability/) on your system. If not, you can [manually](https://docs.docker.com/compose/install/linux/) install it.
 
 </div>
 
@@ -72,7 +72,7 @@ As the Docker command becomes more complex, switching to `docker compose` can be
 Start it by running:
 
 ```bash
-docker compose up -d
+docker-compose up -d
 ```
 
 Once the Home Assistant Container is running, Home Assistant should be accessible using `http://<host>:8123` (replace <host> with the hostname or IP of the system). You can continue with onboarding.
