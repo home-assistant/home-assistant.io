@@ -33,7 +33,7 @@ This integration provides the following platforms:
 - Device tracker: The location of your car.
 - Lock: Control the lock of your car.
 - Sensors: Battery level, SIM card balance, GSM signal level, fuel volume, mileage, OBD errors, interior temperature and engine temperature.
-- Switches: Start/stop engine, heater (webasto), and additional channel.
+- Switches: Start/stop engine, heater (webasto), additional channel, and service mode.
 - Buttons: Sound the horn.
 - Services: Update the state, set update frequency. More details can be found [here](#services).
 

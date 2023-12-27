@@ -4,12 +4,6 @@ description: "Explaining some Home Assistant basics"
 ---
 Now you're in Home Assistant, let's look at the most important concepts.
 
-## Dashboards
-
-The **Overview** dashboard is the first page you see after the [onboarding process](/getting-started/onboarding). Dashboards are customizable pages to display information in Home Assistant. By default, there are two dashboards: **Overview** and **Energy**. The image below shows a customized example of the **Overview** dashboard. If you just onboarded, your dashboard will be nearly empty. To learn how to customize your dashboards, refer to the [dashboard](/dashboards) documentation.
-
-![Dashboard](/images/getting-started/lovelace.png)
-
 ## Integrations
 
 Integrations are pieces of software that allow Home Assistant to connect to other software and platforms. For example, a product by Philips called Hue would use the Philips Hue {% term integration %} and allow Home Assistant to talk to the hardware controller Hue Bridge. Any Home Assistant compatible {% term devices %} connected to the Hue Bridge would appear in Home Assistant as [devices](#devices--entities).
@@ -70,4 +64,4 @@ Depending on your [installation type](/installation), you can install third part
 
 ![Add-ons](/images/getting-started/add-ons.png)
 
-{% include getting-started/next_step.html step="Adding Integrations In Home Assistant" link="/getting-started/integration/" %}
+{% include getting-started/next_step.html step="Edit the dashboard" link="/getting-started/onboarding_dashboard/" %}
