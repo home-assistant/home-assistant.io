@@ -864,6 +864,40 @@ For a summary in a more readable format:
 - Fix Fully Kiosk Browser MQTT event callbacks with non-standard event topics ([@cgarwood] - [#105735])
 - Disable user profiles on login screen ([@frenck] - [#105749])
 
+## Release 2023.12.4 - December 27
+
+- Pass timeout to httpx in RESTful Switch ([@vexofp] - [#105364])
+- Add Raspberry Pi 5 specific container image ([@agners] - [#105488])
+- Set todo item status in intent ([@synesthesiam] - [#105743])
+- Bump aioairzone to v0.7.0 ([@Noltari] - [#105807])
+- Update aioairzone to v0.7.2 ([@Noltari] - [#105811])
+- Fix HVAC mode duplication for Shelly Gen2 climate platform ([@bieniu] - [#105812])
+- Fix Airzone temperature range on new climate card ([@Noltari] - [#105830])
+- Bump pyunifiprotect to 4.22.3 ([@bdraco] - [#105833])
+- Address late review comments on AVM FRITZ!SmartHome ([@mib1185] - [#105860])
+- Set WiFi QR code entity to unknown when Fritzbox is not available ([@mib1185] - [#105870])
+- Bump reolink_aio to 0.8.3 ([@starkillerOG] - [#105489])
+- Bump reolink_aio to 0.8.4 ([@starkillerOG] - [#105946])
+- Bump motionblinds to 0.6.19 ([@starkillerOG] - [#105951])
+- Fix unreachable Netatmo sensor returning false values ([@cgtobi] - [#105954])
+- Add Raspberry Pi 5 to version and hardware integration ([@agners] - [#105992])
+- Bump blinkpy 0.22.4 ([@mkmer] - [#105993])
+- Don't fetch unchanged OurGroceries lists ([@OnFreund] - [#105998])
+- Bump pyatmo to 8.0.1 ([@cgtobi] - [#106094])
+- Bump surepy to 0.9.0 ([@benleb] - [#106101])
+- Bump pyenphase to 1.15.2 ([@bdraco] - [#106134])
+- Bump ZHA dependencies ([@puddly] - [#106147])
+- Bump life360 to 6.0.1 ([@pnbruckner] - [#106149])
+- Fix bug with non-existent Notion bridge IDs ([@bachya] - [#106152])
+- Fix Netatmo light switching states by assuming state until next update ([@cgtobi] - [#106162])
+- Bump Devialet to 1.4.4 ([@fwestenberg] - [#106171])
+- Bump ring-doorbell to 0.8.5 ([@sdb9696] - [#106178])
+- Bump Devialet to 1.4.5 ([@fwestenberg] - [#106184])
+- Bump aiopulse to 0.4.4 ([@atmurray] - [#106239])
+- Fix Shelly consumption_types ([@emontnemery] - [#106273])
+- Missing exception on relogin in Honeywell ([@mkmer] - [#106324])
+- Redact unique id from diagnostics in blink ([@mkmer] - [#106413])
+
 [#101186]: https://github.com/home-assistant/core/pull/101186
 [#101196]: https://github.com/home-assistant/core/pull/101196
 [#101349]: https://github.com/home-assistant/core/pull/101349
@@ -1923,3 +1957,58 @@ For a summary in a more readable format:
 [@frenck]: https://github.com/frenck
 [@jpbede]: https://github.com/jpbede
 [@mib1185]: https://github.com/mib1185
+[#105135]: https://github.com/home-assistant/core/pull/105135
+[#105324]: https://github.com/home-assistant/core/pull/105324
+[#105364]: https://github.com/home-assistant/core/pull/105364
+[#105488]: https://github.com/home-assistant/core/pull/105488
+[#105489]: https://github.com/home-assistant/core/pull/105489
+[#105655]: https://github.com/home-assistant/core/pull/105655
+[#105743]: https://github.com/home-assistant/core/pull/105743
+[#105757]: https://github.com/home-assistant/core/pull/105757
+[#105807]: https://github.com/home-assistant/core/pull/105807
+[#105811]: https://github.com/home-assistant/core/pull/105811
+[#105812]: https://github.com/home-assistant/core/pull/105812
+[#105830]: https://github.com/home-assistant/core/pull/105830
+[#105833]: https://github.com/home-assistant/core/pull/105833
+[#105860]: https://github.com/home-assistant/core/pull/105860
+[#105870]: https://github.com/home-assistant/core/pull/105870
+[#105946]: https://github.com/home-assistant/core/pull/105946
+[#105951]: https://github.com/home-assistant/core/pull/105951
+[#105954]: https://github.com/home-assistant/core/pull/105954
+[#105992]: https://github.com/home-assistant/core/pull/105992
+[#105993]: https://github.com/home-assistant/core/pull/105993
+[#105998]: https://github.com/home-assistant/core/pull/105998
+[#106094]: https://github.com/home-assistant/core/pull/106094
+[#106101]: https://github.com/home-assistant/core/pull/106101
+[#106134]: https://github.com/home-assistant/core/pull/106134
+[#106147]: https://github.com/home-assistant/core/pull/106147
+[#106149]: https://github.com/home-assistant/core/pull/106149
+[#106152]: https://github.com/home-assistant/core/pull/106152
+[#106162]: https://github.com/home-assistant/core/pull/106162
+[#106171]: https://github.com/home-assistant/core/pull/106171
+[#106178]: https://github.com/home-assistant/core/pull/106178
+[#106184]: https://github.com/home-assistant/core/pull/106184
+[#106239]: https://github.com/home-assistant/core/pull/106239
+[#106273]: https://github.com/home-assistant/core/pull/106273
+[#106324]: https://github.com/home-assistant/core/pull/106324
+[#106413]: https://github.com/home-assistant/core/pull/106413
+[@Noltari]: https://github.com/Noltari
+[@OnFreund]: https://github.com/OnFreund
+[@agners]: https://github.com/agners
+[@atmurray]: https://github.com/atmurray
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@benleb]: https://github.com/benleb
+[@bieniu]: https://github.com/bieniu
+[@cgtobi]: https://github.com/cgtobi
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@fwestenberg]: https://github.com/fwestenberg
+[@mib1185]: https://github.com/mib1185
+[@mkmer]: https://github.com/mkmer
+[@pnbruckner]: https://github.com/pnbruckner
+[@puddly]: https://github.com/puddly
+[@sdb9696]: https://github.com/sdb9696
+[@starkillerOG]: https://github.com/starkillerOG
+[@synesthesiam]: https://github.com/synesthesiam
+[@vexofp]: https://github.com/vexofp
