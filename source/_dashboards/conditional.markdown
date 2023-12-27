@@ -12,7 +12,9 @@ The conditional card displays another card based on conditions.
   Screenshot of the conditional card.
 </p>
 
-Note: if there are multiple conditions there will be treated as an 'and' condition. This means that for the card to show, _all_ conditions must be met.
+Note: if there are multiple conditions there will be treated as an 'and' condition by default. This means that for the card to show, _all_ conditions must be met.
+
+An 'or' condition can also be used, it requires the user to explicitly set that (see the example below).
 
 {% include dashboard/edit_dashboard.md %}
 Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
@@ -60,6 +62,21 @@ card:
     - group.kitchen
     - lock.kitchen_door
     - light.bed_light
+```
+
+example using an 'or'-condition:
+
+```yaml
+type: conditional
+conditions:
+  - condition: or
+    conditions:
+      - condition: state
+        entity: binary_sensor.co_alert
+        state: 'on'
+      - condition: state
+        entity: binary_sensor.rookmelder
+        state: 'on'
 ```
 
 ## Card conditions
