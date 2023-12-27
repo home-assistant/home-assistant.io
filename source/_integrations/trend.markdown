@@ -22,8 +22,6 @@ at least two updates of the underlying sensor to establish a trend.
 Thus it can take some time to show an accurate state. It can be useful
 as part of automations, where you want to base an action on a trend.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
 ### YAML Configuration
