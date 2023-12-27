@@ -5,10 +5,13 @@ ha_category:
   - Binary Sensor
   - Button
   - Climate
+  - Cover
   - Device Tracker
   - Lock
+  - Media Player
   - Number
   - Sensor
+  - Update
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -19,10 +22,13 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - cover
   - device_tracker
   - lock
+  - media_player
   - number
   - sensor
+  - update
 ha_integration_type: integration
 ---
 
@@ -92,6 +98,15 @@ The integration will create a climate entity to control the vehicle's climate co
 
 The passenger set temperature is shown as a sensor but cannot be changed by Tessie.
 
+### Cover
+
+The integration will create a cover entity to control various aspects of your vehicles:
+
+- Vent/Closing windows
+- Open/Closing charge port
+- Open frunk
+- Open/Close trunk
+
 ### Device Tracker
 
 The integration will create device tracker entities for the vehicles current location, and navigation destination.
@@ -99,6 +114,10 @@ The integration will create device tracker entities for the vehicles current loc
 ### Lock
 
 The integration will create a lock entity for each vehicle.
+
+### Media Player
+
+The integration will create media player entities to show what each vehicles is currently playing.
 
 ### Number
 
@@ -110,7 +129,7 @@ The integration will create number entities to control:
 
 ### Select
 
-The integration will create a select entity to control each seat heater. It allows you to set each seat heater to Off, Low, Medium, or High.
+The integration will create a select entity to control each of the seat heaters. It allows you to set each seat heater to Off, Low, Medium, or High.
 
 - Front Left
 - Front Right
@@ -165,3 +184,7 @@ The integration will create switch entities to control various aspects of your v
 - Sentry mode
 - Valet mode
 - Steering wheel heater
+
+### Update
+
+The integration will show vehicle software updates and their installation progress.
