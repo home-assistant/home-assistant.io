@@ -1,10 +1,10 @@
 ---
-title: Midea CCM15 Data Converter
+title: Midea CCM15 data converter
 description: Instructions on how to integrate a Midea CCM15 module into Home Assistant.
 ha_category:
   - Climate
 ha_iot_class: Local Polling
-ha_release: 2023.07.0
+ha_release: 2024.07
 ha_config_flow: true
 ha_codeowners:
   - '@ocalvo'
@@ -23,20 +23,7 @@ There is currently support for the following device types within Home Assistant:
 - [Configuration](#configuration)
 - [Climate](#climate)
 
-## Configuration
-
-Adding a CCM15 data converter to your Home Assistant instance can be done via the user interface, by using this My Button:
-{% my config_flow_start badge domain=page.ha_domain %}
-
-{% details "Manual configuration steps" %}
-
-1. Browse to your Home Assistant instance.
-2. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-3. In the bottom right corner, select the
-  **{% my config_flow_start icon domain=page.ha_domain %}** button.
-4. From the list, select **CCM15** and follow the instructions on screen.
-
-{% enddetails %}
+{% include integrations/config_flow.md %}
 
 ## Climate
 
