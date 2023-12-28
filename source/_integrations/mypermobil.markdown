@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **MyPermobil** integration allows you to view various sensors with information about your Permobil wheelchair. For example: battery status, distance travelled, and number of seating adjustments. The values of the sensors may be delayed by several minutes and should not be relied on for any crucial applications. For the integration to work, you must ensure that _voice assistant linking_ is activated in the MyPermobil app. To do this, open the app and navigate to **Settings** > **My Account** > **Connection Settings**.
+The **MyPermobil** integration allows you to view various sensors with information about your Permobil wheelchair. For example: battery status, distance traveled, and number of seating adjustments. The values of the sensors may be delayed by several minutes and should not be relied on for any crucial applications. For the integration to work, you must ensure that _voice assistant linking_ is activated in the MyPermobil app. To do this, open the app and navigate to **Settings** > **My Account** > **Connection Settings**.
 
 {% include integrations/config_flow.md %}
 
@@ -38,11 +38,11 @@ A total of 12 sensors are available:
   The number of watt hours of energy stored in the battery on its current charge.
 - **Full charge distance**
   The distance the wheelchair can travel on a full charge. This figure is an estimate and should not be relied upon.
-- **Distance travelled**
-  The distance the wheelchair has travelled today.
+- **Distance traveled**
+  The distance the wheelchair has traveled today.
 - **Number of adjustments**
   The number of adjustments sessions today. Multiple different adjustment within a short time period are counted as a single sessions.
 - **Highest number of adjustments**
   The highest number of adjustments ever recorded in a single day.
-- **Longest distance travelled**
-  The largest distance travelled ever recorded in a single day.
+- **Longest distance traveled**
+  The largest distance traveled ever recorded in a single day.
