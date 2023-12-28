@@ -71,14 +71,14 @@ If you start out with Home Assistant, visiting your automations page would
 result in an empty page. This is not very helpful if you see this for the first
 time.
 
-Instead, you are now greeted by the little automation robot and show
-an explaination of what automations are, and reference to the documentation
+Instead, you are now greeted by the little automation robot that shows
+an explanation of what automations are, and references to the documentation
 that can help you get started.
 
 _TODO: Add screenshot_
 
 Once you start create a new integration, you will be greeted by some new
-terminolgy and description to help you understand what each section is about.
+terminology and description to help you understand what each section is about.
 
 <img class="no-shadow" src='https://user-images.githubusercontent.com/5662298/291381465-0766c064-d787-41e6-8349-0b56193ee526.png' alt='Temporary images that needs to be replaced.'>
 
@@ -88,7 +88,7 @@ action to your automation.
 
 The first thing to notice, is that the conditions and actions have a new
 button next to them: "Add building block". Click this allows you to 
-add logicial elements to your automation, like "and", "or", "If", "choose", etc.
+add logical elements to your automation, like "and", "or", "If", "choose", etc.
 
 These used to be mixed in with the conditions and actions, but now have their
 own dedicated button. This makes it easier to find them, and declutters the
@@ -106,7 +106,7 @@ trigger, condition or action does, and what it is used for.
 _TODO: Add screenshot_
 
 If you add an element, we will show you the most commonly used
-trigger/condition/action first. All other are neatly categorized in the
+trigger/condition/action first. All others are neatly categorized in the
 other sections.
 
 Last, but not least, the "service calls" are now merged with all other actions.
@@ -188,6 +188,7 @@ noteworthy changes this release:
 - Add alarm platform to Comelit ([@chemelli74] - [#104718])
 - Add Support for SleepIQ Foot Warmers ([@kbickar] - [#105931])
 
+
 ## New integrations
 
 We welcome the following new integrations in this release:
@@ -203,7 +204,7 @@ We welcome the following new integrations in this release:
 - **[Holiday]**, added by [@jrieger]<br />
   Add holiday calendars to Home Assistant for powering automations.
 - **[Midea CCM15 AC Controller]**, added by [@ocalvo]<br />
-  Use your AC connected to an Midea CCM15 AC Controller.
+  Use your AC connected to a Midea CCM15 AC Controller.
 - **[OSO Energy]**, added by [@osohotwateriot]<br />
   Use your OSO Energy water heater with Home Assistant.
 - **[Sun WEG]**, added by [@rokam]<br />
@@ -234,7 +235,7 @@ We welcome the following new integrations in this release:
 [@rokam]: https://github.com/rokam
 [A. O. Smith]: /integrations/aosmith
 [Blue Current]: /integrations/blue_current
-[DROP]: /integrations/drop
+[DROP]: /integrations/drop_connect
 [Flexit BACnet]: /integrations/flexit_bacnet
 [Holiday]: /integrations/holiday
 [Midea CCM15 AC Controller]: /integrations/ccm15
@@ -261,8 +262,8 @@ The following virtual integrations have been added:
 - **[Southwestern Electric Power Company (SWEPCO)]**, provided by [Opower]
 
 [Advantage Air]: /integrations/advantage_air
-[AEP Ohio]: /integrations/aepohio
-[AEP Texas]: /integrations/aeptexas
+[AEP Ohio]: /integrations/aep_ohio
+[AEP Texas]: /integrations/aep_texas
 [Appalachian Power]: /integrations/appalachianpower
 [Fujitsu anywAIR]: /integrations/fujitsu_anywair
 [Indiana Michigan Power]: /integrations/indianamichiganpower
