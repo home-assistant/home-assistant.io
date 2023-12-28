@@ -10,7 +10,10 @@
   },
   "appPort": [4000],
   "onCreateCommand": "bundle install && npm install",
-  "containerEnv": { "DEVCONTAINER": "true" },
+  "containerEnv": { 
+    "DEVCONTAINER": "true",
+    "BUNDLE_PATH": "vendor/bundle"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
