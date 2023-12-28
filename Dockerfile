@@ -3,6 +3,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/ruby:${VARIANT}
 
 ARG NODE_VERSION="lts/*"
 RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"
+RUN su vscode -c "/usr/local/rvm/bin/rvm fix-permissions"
 
 # Locale env vars
 ENV \
