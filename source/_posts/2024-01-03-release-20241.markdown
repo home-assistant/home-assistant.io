@@ -202,18 +202,18 @@ noteworthy changes this release:
 [@kbickar]: https://github.com/kbickar
 [#99608]: https://github.com/home-assistant/core/pull/99608
 [#104874]: https://github.com/home-assistant/core/pull/104874
-[#104881]: http://github.com/home-assistant/core/pull/104881
-[#103781]: http://github.com/home-assistant/core/pull/103781
-[#79077]: http://github.com/home-assistant/core/pull/79077
-[#105454]: http://github.com/home-assistant/core/pull/105454
-[#105494]: http://github.com/home-assistant/core/pull/105494
-[#101102]: http://github.com/home-assistant/core/pull/101102
-[#85769]: http://github.com/home-assistant/core/pull/85769
-[#105741]: http://github.com/home-assistant/core/pull/105741
-[#101374]: http://github.com/home-assistant/core/pull/101374
-[#106290]: http://github.com/home-assistant/core/pull/106290
-[#104718]: http://github.com/home-assistant/core/pull/104718
-[#105931]: http://github.com/home-assistant/core/pull/105931
+[#104881]: https://github.com/home-assistant/core/pull/104881
+[#103781]: https://github.com/home-assistant/core/pull/103781
+[#79077]: https://github.com/home-assistant/core/pull/79077
+[#105454]: https://github.com/home-assistant/core/pull/105454
+[#105494]: https://github.com/home-assistant/core/pull/105494
+[#101102]: https://github.com/home-assistant/core/pull/101102
+[#85769]: https://github.com/home-assistant/core/pull/85769
+[#105741]: https://github.com/home-assistant/core/pull/105741
+[#101374]: https://github.com/home-assistant/core/pull/101374
+[#106290]: https://github.com/home-assistant/core/pull/106290
+[#104718]: https://github.com/home-assistant/core/pull/104718
+[#105931]: https://github.com/home-assistant/core/pull/105931
 
 ## New integrations
 
