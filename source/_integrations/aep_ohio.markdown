@@ -5,7 +5,7 @@ ha_category:
   - Energy
   - Sensor
 ha_release: 2024.1
-ha_domain: aepohio
+ha_domain: aep_ohio
 ha_integration_type: virtual
 ha_supporting_domain: opower
 ha_supporting_integration: Opower
