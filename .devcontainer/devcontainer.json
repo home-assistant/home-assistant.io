@@ -1,6 +1,8 @@
 {
   "name": "home-assistant.io",
   "build": {
+    "dockerfile": "./Dockerfile",
+    "context": "..",
     "args": {
       "VARIANT": "3.1",
       "NODE_VERSION": "20"
