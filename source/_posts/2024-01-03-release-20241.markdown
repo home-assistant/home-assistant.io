@@ -71,8 +71,8 @@ If you start out with Home Assistant, visiting your automations page would
 result in an empty page. This is not very helpful if you see this for the first
 time.
 
-Instead, you are now greeted by the little automation robot and show
-an explanation of what automations are, and reference to the documentation
+Instead, you are now greeted by the little automation robot that shows
+an explanation of what automations are, and references to the documentation
 that can help you get started.
 
 _TODO: Add screenshot_
