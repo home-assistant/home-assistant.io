@@ -4,8 +4,8 @@
     "dockerfile": "../Dockerfile",
     "context": "..",
     "args": {
-      "VARIANT": "2.7",
-      "NODE_VERSION": "18"
+      "VARIANT": "3.1",
+      "NODE_VERSION": "20"
     }
   },
   "appPort": [4000],
