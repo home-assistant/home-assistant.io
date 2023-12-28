@@ -167,6 +167,10 @@ The integration will create sensor entities for a variety of metrics that relate
 - Speed
 - Power
 - Shift State
+- Traffic delay
+- State of charge at arrival
+- Distance to arrival
+- Time to arrival
 
 #### Climate State
 
