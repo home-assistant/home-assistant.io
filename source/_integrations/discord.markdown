@@ -51,7 +51,7 @@ Now use the Discord Authorization page with the **Application ID** of your [appl
 
 Wait for the confirmation which should say "Authorized".
 
-Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. In The Discord application go to **Settings** > **Advanced** > **Enable Developer Mode**.
+Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. Open Discord and go to **User Settings** > **Advanced** > **Enable Developer Mode**. User settings can be found next to your username in Discord.
 
 ![Screenshot of Discord bot create prompt](/images/screenshots/discord-api.png)
 

@@ -387,6 +387,14 @@
   definition: >-
     TTS (text-to-speech) allows Home Assistant to talk to you.
   link: /integrations/tts/
+
+
+- term: Valve
+  definition: >-
+    Valves are devices to control the flow of liquids and gases. All valves in Home Assistant can be opened
+    and closed. Some valves can also be set to a specific position.
+  link: /integrations/valve
+
 - term: Variables
   definition: >-
     Variables are used to store values in memory that can be processed

@@ -201,7 +201,7 @@ Delete a Z-Wave Lock User Code via the ISY.
 
 #### Service `isy994.rename_node`
 
-Rename a node or group (scene) on the ISY994. Note: this will not automatically change the Home Assistant Entity Name or Entity ID to match. The entity name and ID will only be updated after calling `isy994.reload` or restarting Home Assistant, and ONLY IF you have not already customized the name within Home Assistant.
+Rename a node or group (scene) on the ISY994. Note: this will not automatically change the Home Assistant Entity Name or Entity ID to match. The entity name and ID will only be updated after reloading the integration or restarting Home Assistant, and ONLY IF you have not already customized the name within Home Assistant.
 
 | Service data attribute | Optional | Description                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------- |
