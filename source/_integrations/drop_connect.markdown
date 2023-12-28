@@ -62,6 +62,6 @@ Assistant.
 
 <div class="note">
 
-The broker broker address and port used for the DROP Hub must be the same as configured for the Home Assistant MQTT integration.
+The MQTT broker address and port used for the DROP Hub must be the same as configured for the Home Assistant MQTT integration.
 
 </div>
