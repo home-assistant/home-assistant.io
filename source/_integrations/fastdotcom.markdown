@@ -21,7 +21,7 @@ The `fastdotcom` integration uses the [Fast.com](https://fast.com/) web service 
 <div class='note'>
 
 Currently, the Fast.com integration only supports measuring download bandwidth.
-If you want to measure bandwidth metrics other then download such as ping and upload, utilize the [Speedtest.net](/integrations/speedtestdotnet) integration.
+If you want to measure bandwidth metrics other than download such as ping and upload, utilize the [Speedtest.net](/integrations/speedtestdotnet) integration.
 
 </div>
 
