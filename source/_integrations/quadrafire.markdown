@@ -2,7 +2,7 @@
 title: Quadra-Fire
 description: Connect and control your Quadra-Fire devices using the IntelliFire integration
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Fan
   - Light

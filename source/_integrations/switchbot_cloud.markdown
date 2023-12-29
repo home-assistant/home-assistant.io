@@ -12,6 +12,7 @@ ha_codeowners:
   - '@SeraphicRav'
 ha_domain: switchbot_cloud
 ha_platforms:
+  - climate
   - switch
 ha_config_flow: true
 ha_integration_type: integration

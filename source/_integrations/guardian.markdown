@@ -4,7 +4,7 @@ description: Instructions on how to integrate Guardian into Home Assistant.
 ha_iot_class: Local Polling
 ha_release: '0.111'
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Sensor
   - Switch
@@ -28,7 +28,7 @@ The `guardian` integration integrates
 
 There is currently support for the following device types within Home Assistant:
 
-- **Binary Sensor**: reports the status of the onboard leak detector and access point
+- **Binary sensor**: reports the status of the onboard leak detector and access point
 - **Button**: add various configuration controls
 - **Sensor**: reports on the device's detected temperature and uptime
 - **Switch**: allows the user to open and close the valve

@@ -5,7 +5,7 @@ description: "Tutorial on creating an automation blueprint."
 
 <div class='note'>
 
-While the tutorial only shows how to create an automation blueprint, scripts also support blueprints in the same way.
+While the tutorial only shows how to create an automation blueprint, {% term scripts %} also support blueprints in the same way.
 
 </div>
 
@@ -22,7 +22,7 @@ In this tutorial, we're going to create an automation blueprint that controls a 
 
 ### Creating an automation
 
-To create a blueprint, we first need to have a working automation. 
+To create a blueprint, we first need to have a working automation.
 For this tutorial, we use a simple automation. The process for converting a complex automation is no different.
 
 The automation we're going to use in this tutorial controls a light based on a motion sensor:
@@ -248,7 +248,7 @@ Don't forget to reload automations after you make changes to your blueprint to h
 
 ![Screenshot of the blueprint UI](/images/blueprints/tutorial-ui.png)
 
-## Video Tutorial
+## Video tutorial
 
 This video tutorial explains how to create a blueprint that toggles a light on motion when the lux value is below a certain threshold.
 

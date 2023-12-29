@@ -82,7 +82,7 @@ Restart Home Assistant after changing the YAML configuration. At this point, you
 
 {% include integrations/config_flow.md %}
 
-## API Nomenclature
+## API nomenclature
 
 Within the context of the Home+ Control API you may come across the following terms:
 
@@ -93,7 +93,7 @@ Within the context of the Home+ Control API you may come across the following te
 
 Other devices that are mentioned in the API, but that are not currently supported by this integration are: *remotes* (wireless switches), *heaters* and *automations*.
 
-## API Limitations
+## API limitations
 
 As described in the [authentication](#authentication) section, this integration requires you to set up a subscription in the *Works with Legrand* platform.
 

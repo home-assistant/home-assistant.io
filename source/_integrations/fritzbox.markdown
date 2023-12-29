@@ -2,7 +2,7 @@
 title: AVM FRITZ!SmartHome
 description: Instructions on how to integrate AVM Fritz!DECT components into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Light
@@ -33,7 +33,7 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Climate
 - Cover
 - Light
@@ -42,17 +42,19 @@ There is currently support for the following device types within Home Assistant:
 
 Additionally, we also support to trigger smarthome templates.
 
-#### Tested Devices
+#### Tested devices
 
 - [FRITZ!Box 5590 Fiber](https://en.avm.de/products/fritzbox/fritzbox-5590-fiber/)
 - FRITZ!Box 6490 Cable
 - [FRITZ!Box 6591 Cable](https://en.avm.de/products/fritzbox/fritzbox-6591-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
+- [FRITZ!Box 7590 AX](https://en.avm.de/products/fritzbox/fritzbox-7590-ax/)
 - FRITZ!Box 7490
 - FRITZ!Box 7430
 - [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
 - [FRITZ!DECT 210](https://en.avm.de/products/fritzdect/fritzdect-210/)
 - [FRITZ!DECT 301](https://en.avm.de/products/fritzdect/fritzdect-301/)
+- [FRITZ!DECT 302](https://en.avm.de/products/fritzdect/fritzdect-302/)
 - [FRITZ!DECT 500](https://en.avm.de/products/fritzdect/fritzdect-500/)
 - [Eurotronic Comet DECT](https://eurotronic.org/produkte/dect-ule-heizkoerperthermostat/comet-dect/)
 - [Magenta SmartHome LED E27 Color](https://www.smarthome.de/geraete/smarthome-led-lampe-e27-farbig-weiss)
@@ -65,7 +67,7 @@ Additionally, we also support to trigger smarthome templates.
 The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with "fritz" followed by four random numbers. Under properties on the right it says "created automatically". Prior to FRITZ!OS 7.24 the default username was "admin".
 </div>
 
-## Switches & Thermostats
+## Switches & thermostats
 
 To get AVM FRITZ!DECT switches (e.g. FRITZ!DECT 400/440) or thermostats (e.g. FRITZ!DECT 301) follow the [configuration instructions](#configuration) above.
 

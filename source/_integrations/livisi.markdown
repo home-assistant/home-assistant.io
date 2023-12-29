@@ -2,7 +2,7 @@
 title: LIVISI Smart Home
 description: Access and control your LIVISI Smart Home Controller (SHC) and its connected RWE/innogy devices.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Switch
 ha_iot_class: Local Polling
@@ -40,10 +40,10 @@ Please visit [LIVISI Community](https://community.livisi.de) for more informatio
  
 {% include integrations/config_flow.md %}
  
-### Extra Configuration
+### Extra configuration
  
 The current integration will not find your SHC automatically and needs to be configured manually. You will need to provide the IP address and the local password for the controller.
  
-## Device Discovery
+## Device discovery
 
 All devices are automatically discovered and included by the integration. If you include a new device in LIVISI SmartHome, the device will automatically appear in Home Assistant after a few minutes.

@@ -97,6 +97,7 @@ Things you can try if the execution is very slow:
 ## Related topics
 
 - [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/)
-- [wake word training environment](https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb?usp=sharing#scrollTo=1cbqBebHXjFD)
-- [Samba add-on installed](/common-tasks/os/#configuring-access-to-files)
-- [openWakeWord](https://github.com/dscripka/openWakeWord)
+- [Wake word training environment](https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb?usp=sharing#scrollTo=1cbqBebHXjFD)
+- [Installing the Samba add-on](/common-tasks/os/#configuring-access-to-files)
+- [openWakeWord add-on](https://github.com/dscripka/openWakeWord)
+- [About wake words](/voice_control/about_wake_word/)

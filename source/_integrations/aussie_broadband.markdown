@@ -38,7 +38,7 @@ The integration will create sensor entities for a variety of metrics that relate
 - Billing Cycle Length
 - Billing Cycle Remaining
 
-#### Mobile Phone
+#### Mobile phone
 - Data Usage
 - National Calls
 - Mobile Calls

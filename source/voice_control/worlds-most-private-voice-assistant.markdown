@@ -16,7 +16,7 @@ your smart home and issue commands and get responses.
   [Grandstream HT801](https://amzn.to/40k7mRa)
   - includes a 5&nbsp;V power adapter and an Ethernet cable
 - RJ11 phone cable to connect the phone to the Grandstream
-- [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/integrations/assist_pipeline)
+- [Cloud assistant pipeline](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local assistant pipeline](/voice_control/voice_remote_local_assistant/)
 
 ## Setting up Grandstream
 
@@ -125,3 +125,10 @@ The phone shown in the video by TheFes is a *Heemaf type 1955*, which was used b
 
 The phone used during creation of this tutorial is a 1953 [*Tischstation Mod.29 HF-TR* by Autophon AG](https://www.radiomuseum.org/r/autophon_tischstation_mod29_hf_tr.html).
 ![Analog phone Tischstation Mod.29 by Autophon AG](/images/assist/autophon-mod-29.jpg)
+
+## Related topics
+
+- [Grandstream HT801](https://amzn.to/40k7mRa)
+- [Home Assistant Cloud](https://www.nabucasa.com)
+- [Cloud assistant pipeline](/voice_control/voice_remote_cloud_assistant/)
+- [Local assistant pipeline](/voice_control/voice_remote_local_assistant/)

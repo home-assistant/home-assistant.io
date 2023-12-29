@@ -2,7 +2,7 @@
 title: OpenTherm Gateway
 description: Control your OpenTherm Gateway from Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Hub
   - Sensor
@@ -23,7 +23,7 @@ The `opentherm_gw` integration is used to control the [OpenTherm Gateway](https:
 
 The following device types are currently supported within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Climate
 - Sensor
 
@@ -414,7 +414,7 @@ Not all boilers and thermostats properly support all OpenTherm features, so not 
   Solar storage unit temperature.
 
 
-## Binary Sensors
+## Binary sensors
 
 The following `binary_sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the data source (`boiler`, `gateway` or `thermostat`) and the `gateway_id` of the gateway to which it belongs. All `binary_sensor` entities are disabled by default.
 <p class='note'>

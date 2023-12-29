@@ -2,12 +2,12 @@
 title: Tado
 description: Instructions on how to integrate Tado devices with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Hub
-  - Presence Detection
+  - Presence detection
   - Sensor
-  - Water Heater
+  - Water heater
   - Weather
 ha_release: 0.41
 ha_iot_class: Cloud Polling
@@ -31,10 +31,10 @@ The Tado integration platform is used as an interface to the [my.tado.com](https
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor - for some additional information of the zones.
+- Binary sensor - for some additional information of the zones.
 - Climate - for every Tado zone.
-- Water Heater - for water heater zones.
-- [Presence Detection](#presence-detection)
+- Water heater - for water heater zones.
+- [Presence detection](#presence-detection)
 - Sensor - for some additional information of the zones.
 - Weather - for information about the current weather at the location of your Tado home.
 
@@ -44,7 +44,7 @@ The Tado thermostats are internet connected thermostats. There exists an unoffic
 
 It currently supports presenting the current temperature, the setting temperature and the current operation mode. The operation mode can be set to manual, auto and off. If no user is at home anymore, all Tado zones show the away-state (Only with Tado assist mode). Manually switching between home-mode and away-mode is also supported. Manually switching to auto-mode is only supported with Tado assist mode. Any Tado climate card can be switched between these presence modes, this changes the setting for the entire home.
 
-## Presence Detection
+## Presence detection
 
 The `tado` device tracker is using the [Tado Smart Thermostat](https://www.tado.com/) and its support for person presence detection based on smartphone location by geofencing.
 

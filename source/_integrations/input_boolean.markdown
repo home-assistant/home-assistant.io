@@ -74,13 +74,13 @@ Home Assistant itself.
 | `toggle` | `entity_id(s)`<br>`area_id(s)` | Toggle the value of specific `input_boolean` entities
 | `reload` | | Reload `input_boolean` configuration |
 
-### Restore State
+### Restore state
 
 If you set a valid value for `initial` this integration will start with the state
 set to that value. Otherwise, it will restore the state it had prior to
 Home Assistant stopping.
 
-## Automation Examples
+## Automation examples
 
 Here's an example of an automation using the above `input_boolean`. This action
 will only occur if the `input_boolean` is on.

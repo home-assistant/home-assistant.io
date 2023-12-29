@@ -1,5 +1,5 @@
 ---
-title: "Assist - Custom Sentences"
+title: "Assist - custom sentences"
 ---
 
 You may add your own sentences to the intent recognizer by either extending an [existing intent](https://developers.home-assistant.io/docs/intent_builtin/) or creating a new one. You may also [customize responses](#customizing-responses) for existing intents.
@@ -122,7 +122,7 @@ intent_script:
 
 {% endraw %}
 
-## Customizing Responses
+## Customizing responses
 
 Responses for existing intents can be customized as well in `config/custom_sentences/<language>`:
 
@@ -138,3 +138,12 @@ responses:
 ```
 
 {% endraw %}
+
+
+## Related topics
+
+- [View existing intents](https://developers.home-assistant.io/docs/intent_builtin/)
+- [Create aliases](/voice_control/aliases/)
+- [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/)
+- [Assist for Apple](/voice_control/apple/)
+- [Assist for Android](/voice_control/android/)

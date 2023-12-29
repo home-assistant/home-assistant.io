@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:
+This {% term integration %} is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:
 
 - [Automation](/integrations/automation/) (`automation`)
 - [Assist pipeline](/integrations/assist_pipeline/) (`assist_pipeline`)
@@ -20,7 +20,7 @@ This integration is a meta-component and configures a default set of integration
 - [Configuration](/integrations/config/) (`config`)
 - [Conversation](/integrations/conversation/) (`conversation`)
 - [Counter](/integrations/counter/) (`counter`)
-- [DHCP Discovery](/integrations/dhcp/) (`dhcp`)
+- [DHCP discovery](/integrations/dhcp/) (`dhcp`)
 - [Energy](/integrations/energy/) (`energy`)
 - [Frontend](/integrations/frontend/) (`frontend`)
 - [Hardware](/integrations/hardware/) (`hardware`)
@@ -37,8 +37,8 @@ This integration is a meta-component and configures a default set of integration
 - [Logbook](/integrations/logbook/) (`logbook`)
 - [Logger](/integrations/logger/) (`logger`)
 - [Map](/integrations/map/) (`map`)
-- [Media Source](/integrations/media_source/) (`media_source`)
-- [Mobile App Support](/integrations/mobile_app/) (`mobile_app`)
+- [Media source](/integrations/media_source/) (`media_source`)
+- [Mobile app support](/integrations/mobile_app/) (`mobile_app`)
 - [My Home Assistant](/integrations/my/) (`my`)
 - [Network](/integrations/network/) (`network`)
 - [Person](/integrations/person/) (`person`)
@@ -48,7 +48,7 @@ This integration is a meta-component and configures a default set of integration
 - [Simple Service Discovery Protocol (SSDP)](/integrations/ssdp/) (`ssdp`)
 - [Stream](/integrations/stream/) (`stream`)
 - [Sun](/integrations/sun/) (`sun`)
-- [System Health](/integrations/system_health/) (`system_health`)
+- [System health](/integrations/system_health/) (`system_health`)
 - [Tag](/integrations/tag/) (`tag`)
 - [Timer](/integrations/timer/) (`timer`)
 - [USB](/integrations/usb/) (`usb`)
