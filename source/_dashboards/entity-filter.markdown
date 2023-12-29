@@ -87,7 +87,7 @@ If you define `state_filter` as objects instead of strings (by adding `value:` b
 {% configuration %}
 value:
   required: true
-  description: String representing the state.
+  description: String representing the state or an entity ID.
   type: string
 operator:
   required: false
@@ -168,6 +168,19 @@ entities:
       - operator: ">"
         value: 50
         attribute: humidity
+```
+
+Show lowest price gas station(s)
+
+```yaml
+type: entity-filter
+entities:
+  - sensor.gas_station_1
+  - sensor.gas_station_2
+  - sensor.gas_station_3
+state_filter:
+  - operator: ==
+    value: sensor.gas_station_lowest_price
 ```
 
 Use a regex filter against entity attributes. This regex filter below looks for expressions that are 1 digit in length and where the number is between 0-7 (so show holidays today or in the next 7 days) and displays those holidays as entities in the Entity Filter card.

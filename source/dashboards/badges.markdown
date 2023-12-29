@@ -106,7 +106,7 @@ If you define state_filter as objects instead of strings (by adding `value:` bef
 {% configuration state_filter %}
 value:
   required: true
-  description: String representing the state.
+  description: String representing the state or an entity ID.
   type: string
 operator:
   required: false
@@ -149,4 +149,17 @@ entities:
       - operator: ">"
         value: 50
         attribute: humidity
+```
+
+Show lowest price gas station(s)
+
+```yaml
+type: entity-filter
+entities:
+  - sensor.gas_station_1
+  - sensor.gas_station_2
+  - sensor.gas_station_3
+state_filter:
+  - operator: ==
+    value: sensor.gas_station_lowest_price
 ```
