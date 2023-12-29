@@ -54,7 +54,7 @@ Please note that each camera reports two different states: one as `sensor.blink_
 
 ## Services
 
-Any sequential calls to {% term services %}  relating to blink should have a minimum of a 5 second delay in between them to prevent the calls from being throttled and ignored. The services that act on a camera needs a target parameter.
+Any sequential calls to {% term services %} relating to blink should have a minimum of a 5 second delay in between them to prevent the calls from being throttled and ignored. The services that act on a camera needs a target parameter.
 
 ### `blink.trigger_camera`
 
@@ -93,7 +93,7 @@ Send a new pin to blink.  Since Blink's 2FA implementation is new and changing, 
 
 ### Other services
 
-In addition to the services mentioned above, there are generic `camera`, `alarm_control_panel`, and `homeassistant` services are available. The `camera.enable_motion_detection` and `camera.disable_motion_detection` services allow for individual cameras to be enabled and disabled, respectively, within the Blink system. The `alarm_control_panel.alarm_arm_away` and `alarm_control_panel.alarm_disarm` services allow for the whole system to be armed and disarmed, respectively.  The `homeassistant.update_entity` service will force an update of the blink system.  Blink Mini cameras linked to an existing sync module cannot be armed/disarmed individually via Home Assistant.
+In addition to the services mentioned above, there are generic `camera`, `alarm_control_panel`, and `homeassistant` services are available. The `camera.enable_motion_detection` and `camera.disable_motion_detection` services allow for individual cameras to be enabled and disabled, respectively, within the Blink system. The `alarm_control_panel.alarm_arm_away` and `alarm_control_panel.alarm_disarm` services allow for the whole system to be armed and disarmed, respectively. The `homeassistant.update_entity` service will force an update of the blink system.  Blink Mini cameras linked to an existing sync module cannot be armed/disarmed individually via Home Assistant.
 
 ## Examples
 
