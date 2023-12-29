@@ -54,7 +54,7 @@ Please note that each camera reports two different states: one as `sensor.blink_
 
 ## Services
 
-Any sequential calls to {% term services %}  relating to blink should have a minimum of a 5 second delay in between them to prevent the calls from being throttled and ignored.  Services have targets.
+Any sequential calls to {% term services %}  relating to blink should have a minimum of a 5 second delay in between them to prevent the calls from being throttled and ignored.  The services that act on a camera needs a target parameter.
 
 ### `blink.trigger_camera`
 
@@ -202,7 +202,7 @@ The file name of the downloaded video file is not configurable.
   action:
     - service: blink.save_recent_clips
       target:
-        entity_id: My Camera
+        entity_id: camera.my_camera
       data:
         file_path: /tmp/videos
 ```
