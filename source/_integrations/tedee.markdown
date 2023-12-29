@@ -32,7 +32,7 @@ Host:
   required: false
   type: string
 Local Access Token:
-  description: "The local access token for your bridge. You can find it in the tedee app under \"Bridge Settings\" -> \"Local API\"."
+  description: "The local access token for your bridge. You can find it in the Tedee app under \"Bridge Settings\" -> \"Local API\"."
   required: false
   type: string
 {% endconfiguration_basic %}
