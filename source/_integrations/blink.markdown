@@ -76,7 +76,7 @@ Save the last recorded video of a camera to a local file. Note that in most case
 
 | Service Data Attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `name`            | no       | Name of camera containing video to save. |
+| `name`                 | no       | Name of camera containing video to save. |
 | `filename`             | no       | Location of save file.                   |
 
 ```yaml
