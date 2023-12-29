@@ -57,6 +57,7 @@ Sensors:
 - **Total missions**: The total number of all missions
 - **Scrubs**: Total number of times the robot has executed a "scrub"
 - **Total cleaning time**: How many hours the robot has spent cleaning in total
+- **Total cleaned area**: The total amount of m² that Roomba has cleaned
 
 ### Retrieving your credentials
 
