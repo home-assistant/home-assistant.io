@@ -18,7 +18,7 @@ ha_integration_type: integration
 This integration interacts with your [tedee](https://tedee.com) locks, by communicating with the tedee bridge through HTTP. **The bridge is a requirement for adding your locks through this integration.**
 The integration will communicate with your lock locally, so you need to have the local API enabled.
 
-If you do not own the bridge, you can still add your locks through the [HomeKit Integration](./_integrations/homekit.markdown) to Home Assistant, but communication will happen over Bluetooth in that case and features will be limited.
+If you do not own the bridge, you can still add your locks to Home Assistant through the [HomeKit Integration](./_integrations/homekit.markdown). Still, communication will happen over Bluetooth in that case, and features will be limited.
 
 {% include integrations/config_flow.md %}
 
