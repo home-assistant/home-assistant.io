@@ -1,5 +1,5 @@
 ---
-title: tedee
+title: Tedee
 description: Instructions on how to integrate your Tedee lock with Home Assistant.
 ha_release: 2024.2
 ha_category:
