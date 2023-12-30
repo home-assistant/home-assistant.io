@@ -39,6 +39,12 @@ If this doesn't work, try changing the `3` to `2`, if you don't have the latest 
 
 For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).  
 
+<div class='note warning'>
+
+  Support for Glances api version 2 is deprecated. It is recommended to upgrade your Glances server to version 3. Once upgraded simply reload the integration to connect again.
+
+</div>
+
 {% include integrations/config_flow.md %}
 
 ## Integration entities
