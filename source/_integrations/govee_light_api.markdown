@@ -3,7 +3,6 @@ title: Govee Lights - Local API
 description: Instructions on how to integrate Govee Lights with Govee Local API
 ha_category:
   - Lights
-ha_bluetooth: true
 ha_release: 2024.1
 ha_iot_class: Local Push
 ha_codeowners:
