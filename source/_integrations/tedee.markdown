@@ -3,12 +3,14 @@ title: Tedee
 description: Instructions on how to integrate your Tedee lock with Home Assistant.
 ha_release: 2024.2
 ha_category:
+  - Binary sensor
   - Lock
   - Sensor
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: tedee
 ha_platforms:
+  - binary_sensor
   - lock
   - sensor
 ha_codeowners:
@@ -38,6 +40,9 @@ Local Access Token:
   required: false
   type: string
 {% endconfiguration_basic %}
+
+## Binary sensors
+We have three binary sensors: One that indicated whether the battery is currently charging, one indicating if pullspring is enabled and one indicating whether the lock is in a "semi locked" position, meaning the lock has been turned manually and is between its normal end positions.
 
 ## Sensors
 The integration currently offers two sensors: A battery sensor, indicated the charge of your lock and a "pullspring duration" sensor, indicating how long (in seconds) your latch will stay pulled after a pull operation (if supported). 
