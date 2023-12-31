@@ -4,11 +4,13 @@ description: Instructions on how to integrate your Tedee lock with Home Assistan
 ha_release: 2024.2
 ha_category:
   - Lock
+  - Sensor
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: tedee
 ha_platforms:
   - lock
+  - sensor
 ha_codeowners:
   - '@zweckj'
   - '@patrickhilker'
