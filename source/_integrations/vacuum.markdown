@@ -17,7 +17,7 @@ The **Vacuum** {% term integration %} enables the ability to control home cleani
 
 ## Services
 
-Available services: `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `set_fan_speed` and `send_command`.
+Available services: `start`, `pause`, `stop`, `toggle`, `return_to_base`, `locate`, `clean_spot`, `set_fan_speed` and `send_command`.
 
 Before calling one of these services, make sure your vacuum platform supports it.
 
@@ -40,6 +40,14 @@ Pause a cleaning task.
 ### Service `vacuum.stop`
 
 Stop the current activity of the vacuum.
+
+| Service data attribute | Optional | Description                                                      |
+| ---------------------- | -------- | ---------------------------------------------------------------- |
+| `entity_id`            | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+
+### Service `vacuum.toggle`
+
+Toggles the vacuum cleaner on/off.
 
 | Service data attribute | Optional | Description                                                      |
 | ---------------------- | -------- | ---------------------------------------------------------------- |
