@@ -36,3 +36,6 @@ Local Access Token:
   required: false
   type: string
 {% endconfiguration_basic %}
+
+## Sensors
+The integration currently offers two sensors: A battery sensor, indicated the charge of your lock and a "pullspring duration" sensor, indicating how long (in seconds) your latch will stay pulled after a pull operation (if supported). 
