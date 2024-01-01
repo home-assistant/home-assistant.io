@@ -97,6 +97,24 @@ In case you expect that your source sensor will provide several subsequent value
 
 The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. 
 
+## Integration method
+
+Riemann Sum is a approximation of an integral by a finite sum and is therefore intrinsicaly innacurate, nonetheles, depending on the method used, values can be more or less accurate.
+
+Regardless of the method used the integration will be more accurate if the source updates more often. If your source is not updated, neither will the Riemann Sum sensor will, as all this integration does is calculate the next step on the event of a source update.
+
+### Trapezoidal
+
+The `trapezoidal` method follows the [Trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule). This method is the most accurate of the currently implemented methods, **if** the source updates often, since it better fits the curve of the intrinsic source. 
+
+### Left
+
+The `left` method follows the [Left rule](https://en.wikipedia.org/wiki/Riemann_sum#Left_rule). The method **underestimates** the intrinsic source, but is extremely accurate at estimating rectangular functions which are very stable for long periods of time and change very rapidly (e.g. such as the power function of a resistive load can jump instantly to given value and stay at the same value for hours). If your source keeps its state for long periods of time, this method is preferable to the `trapezoidal`.
+
+### Right
+
+The `right` method follows the [Right rule](https://en.wikipedia.org/wiki/Riemann_sum#Right_rule). The method is similar to the left method, but **overestimates** the intrinsic source. Again it is only appropriate to be used with rectangular functions.
+
 ## Energy
 
 An integration sensor is quite useful in energy billing scenarios since energy is generally billed in kWh and many sensors provide power in W (Watts).
