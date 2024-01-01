@@ -7,12 +7,7 @@ description: The Conditional card displays another card based on conditions.
 
 The conditional card displays another card based on conditions.
 
-<p class='img'>
-  <img src='/images/dashboards/conditional_card.gif' alt='Screenshot of the conditional card'>
-  Screenshot of the conditional card.
-</p>
-
-Note: if there are multiple conditions there will be treated as an 'and' condition. This means that for the card to show, _all_ conditions must be met.
+![Screenshot of the conditional card](/images/dashboards/conditional_card.gif)
 
 {% include dashboard/edit_dashboard.md %}
 Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
@@ -40,6 +35,7 @@ card:
 
 ## Examples
 
+Only show when all the conditions are met
 ```yaml
 type: conditional
 conditions:
@@ -60,6 +56,25 @@ card:
     - group.kitchen
     - lock.kitchen_door
     - light.bed_light
+```
+
+Example condition where only one of the conditions needs to be met
+```yaml
+type: conditional
+conditions:
+  - condition: or
+    conditions:
+      - condition: state
+        entity: binary_sensor.co_alert
+        state: 'on'
+      - condition: state
+        entity: binary_sensor.rookmelder
+        state: 'on'
+card:
+  type: entities
+  entities:
+    - binary_sensor.co_alert
+    - binary_sensor.rookmelder
 ```
 
 ## Card conditions
