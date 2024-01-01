@@ -23,6 +23,14 @@ This integration also offers a button to pick up and then hang up the call to pr
 
 {% include integrations/config_flow.md %}
 
+## Compatibility
+
+Reported models with this integration include that work:
+* [StarTech.com USB56KEMH2](https://www.startech.com/en-us/networking-io/usb56kemh2)
+
+Devices that did not work:
+* [StarTech.com USB56KEM3](https://www.startech.com/en-us/networking-io/usb56kem3)
+
 ## Examples
 
 An example automation:
