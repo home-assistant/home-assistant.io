@@ -1,11 +1,11 @@
 ---
-title: AEP Texas
-description: Get energy usage from AEP Texas using the Opower integration
+title: AEP Ohio
+description: Get energy usage from AEP Ohio using the Opower integration
 ha_category:
   - Energy
   - Sensor
 ha_release: 2024.1
-ha_domain: aeptexas
+ha_domain: aep_ohio
 ha_integration_type: virtual
 ha_supporting_domain: opower
 ha_supporting_integration: Opower
