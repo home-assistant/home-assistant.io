@@ -63,7 +63,7 @@ Fetches the gas prices.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `config_entry` | no | Config entry to use. | 1b4a46c6cba0677bbfb5a8c53e8618b0
+| `config_entry` | no | Config entry to use. Can be found using the Services tab in the Developer Tools and switching to YAML. | 1b4a46c6cba0677bbfb5a8c53e8618b0
 | `incl_vat` | no | Defines whether the prices include or exclude VAT. | false
 | `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 | `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
@@ -98,6 +98,7 @@ Fetches the energy prices.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
+| `config_entry` | no | Config entry to use. Can be found using the Services tab in the Developer Tools and switching to YAML. | 1b4a46c6cba0677bbfb5a8c53e8618b0
 | `incl_vat` | no | Defines whether the prices include or exclude VAT. | false
 | `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 | `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
