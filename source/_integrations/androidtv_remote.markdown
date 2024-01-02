@@ -143,6 +143,8 @@ Navigation:
 - BUTTON_B
 - BUTTON_X
 - BUTTON_Y
+- BACK
+- HOME
 
 Volume Control:
 - VOLUME_DOWN
@@ -198,7 +200,6 @@ Other:
 - BUTTON_MODE
 - EXPLORER
 - MENU
-- HOME
 - INFO
 - GUIDE
 - TV_TELETEXT
@@ -208,6 +209,7 @@ Other:
 - SETTINGS
 - SEARCH
 - ASSIST
+- POWER
 
 {% enddetails %}
 
