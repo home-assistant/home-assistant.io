@@ -1016,7 +1016,6 @@ Only temperature sensors are configured at this time.
 
 - _"Alexa, what's the temperature in the kitchen?"_
 - _"Alexa, what's the upstairs temperature?"_
-- _"Alexa, what's the temperature of my ex-girlfriend's heart?"_
 
 ### Switch, Input Boolean
 
