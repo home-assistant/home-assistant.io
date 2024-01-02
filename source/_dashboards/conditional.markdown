@@ -35,7 +35,7 @@ card:
 
 ## Examples
 
-Only show when all the conditions are met
+Only show when all the conditions are met:
 ```yaml
 type: conditional
 conditions:
@@ -58,7 +58,7 @@ card:
     - light.bed_light
 ```
 
-Example condition where only one of the conditions needs to be met
+Example condition where only one of the conditions needs to be met:
 ```yaml
 type: conditional
 conditions:
