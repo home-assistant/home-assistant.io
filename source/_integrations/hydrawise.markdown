@@ -24,18 +24,17 @@ The `hydrawise` integration allows you to integrate your [Hunter Hydrawise](http
 
 There is currently support for the following device types within Home Assistant:
 
+- [Prerequisites](#prerequisites)
 - [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
+  - [Switch operation](#switch-operation)
 
 ## Prerequisites
 
-To set up the Hydrawise integration, you must first obtain an API Key.
-
-1. Login at [https://app.hydrawise.com](https://app.hydrawise.com).
-2. Go to **Account Details** under the **My Account** menu (in the upper-right-hand corner).
-3. Under the **Account Settings** section, copy the **API Key**.
-   1. If no API Key is present, select the **Generate API Key** button.
+To set up the Hydrawise integration, you must first set up an online account at
+[https://app.hydrawise.com](https://app.hydrawise.com). Then use your online credentials
+to configure the integration.
 
 {% include integrations/config_flow.md %}
 
