@@ -209,13 +209,14 @@ entity type to valve in the entity settings.
 ## Swappable current/target on thermostat & humidifier cards
 
 By popular demand, the thermostat and humidifier cards now support setting 
-current temperature/humidity as the primary information to show in the
+current temperature/humidity as the primary information to show on the
 card.
 
-Enabling this option, will result in the target temperature/humidity to be
-swapped.
+You can enable the **show current temperature as primary information** option
+in the card, which will result in the target temperature being swapped with the
+current temperature in the card.
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/291251306-f8765c74-ccd0-410d-be4d-1f1c1b93ffa3.png' alt='Temporary images that needs to be replaced.'>
+<img class="no-shadow" src='/images/blog/2024-01/climate-card-change-primary-temperature.png' alt='Screenshot showing two thermostat cards. One has the setpoint as a primary temperature, the other the current temperature.'>
 
 ## New card features
 
