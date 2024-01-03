@@ -42,7 +42,7 @@ Enjoy the release!
   - [Building blocks](#building-blocks)
   - [Improved trigger, condition \& action buttons](#improved-trigger-condition--action-buttons)
   - [Unified actions](#unified-actions)
-- [Description \& due support for to-do list items](#description--due-support-for-to-do-list-items)
+- [Description \& due date support for to-do list items](#description--due-date-support-for-to-do-list-items)
 - [New entity type: Valve](#new-entity-type-valve)
 - [Swappable current/target on thermostat \& humidifier cards](#swappable-currenttarget-on-thermostat--humidifier-cards)
 - [New card features](#new-card-features)
@@ -164,20 +164,20 @@ All others are neatly grouped by integration in the **Other actions** section.
 
 <img class="no-shadow" src='/images/blog/2024-01/add-action-other-integrations.png' alt='Screenshot showing the new add action dialog that neatly groups all other actions that integrations provide.'>
 
-## Description & due support for to-do list items
+## Description & due date support for to-do list items
 
 The to-do list integration keeps getting better and better. This release adds
 support for descriptions and due dates!
 
 If the integration you are using supports it, you can now add descriptions to
-each task on your list.It fully supports the Markdown markup to add links,
+each task on your list. It fully supports the Markdown markup to add links,
 bold text, etc. If due dates (or due date + time) are supported, you can
 set these.
 
 <img class="no-shadow" src='/images/blog/2024-01/todo-dialog.png' alt='Screenshot showing the new to-do item dialog, where you now can set a description and an URL.'>
 
 As shown in the screenshot above, there is a whole new dialog to adjust
-your to-do item. But this is not the only change. The list itself has beenz
+your to-do item. But this is not the only change. The list itself has been
 improved as well.
 
 <img class="no-shadow" src='/images/blog/2024-01/todo-new-dashboard.png' alt='Screenshot showing the improve to-do dashboard, showing descriptions and highlighting overdue items.'>
@@ -190,15 +190,21 @@ date is overdue, it will be highlighted.
 
 A brand new entity type has been added to Home Assistant: Valve!
 
-This entity type can be used by integrations to expose valves, like for example
-a valve on a radiator, pool or sprinkler system.
+Integrations can use this entity type to expose valves, such as a valve on
+a radiator, pool, sprinkler systems, and main house gas or water lines.
 
-_TODO: Add screenshot_
+<img class="no-shadow" src='/images/blog/2024-01/valve-entity-type.png' alt='Screenshot showing an the value entity in the Home Assistant UI.'>
 
-Currently, the Shelly integration supports it and now provides an `valve` entity
+Currently, the [Shelly integration] supports it and now provides a `valve` entity
 for the Valve addon for Shelly Gas. Additionally, support for it has been
-added to MQTT, and the valve entities also work with Amazon Alexa
+added to [MQTT], and the valve entities also work with Amazon Alexa
 and Google Assistant.
+
+Tip: Do you have a switch entity that controls a valve? You can now change the
+entity type to valve in the entity settings.
+
+[Shelly integration]: /integrations/shelly
+[MQTT]: integrations/valve.mqtt
 
 ## Swappable current/target on thermostat & humidifier cards
 
