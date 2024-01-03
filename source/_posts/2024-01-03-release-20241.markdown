@@ -15,34 +15,24 @@ og_image: /images/blog/2024-01/social.png
 
 <a href='/integrations/#version/2024.1'><img src='/images/blog/2024-01/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+Happy New Year! 🍾
 
-These are the beta release notes for Home Assistant Core 2024.1 (and is thus a
-work in progress).
+We wish you, and all the loved ones around you, all the best for 2024! 🥂
 
-If you encounter any issues with the beta release, please report them on GitHub:
+I cannot think of a better way to start the new year: Home Assistant Core 2024.1! 🎉
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/UI/dashboards:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+This release is fairly small, as expected; we are just coming out of the holiday
+season. However, it does contain some nice improvements and
+features to be excited about and a stunning total of 13 new integrations!
 
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
+My favorite: the automation editor changes. It had quite a bunch of user
+interface tweaks. Most are focused on making it friendlier and easier to use
+for new and long-term users, making it quicker to find the right trigger,
+condition, or action.
 
-Issues introduced in the beta are processed with priority.
+I greatly liked this improved experience, and I hope you do too!
 
----
-
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-Home Assistant Core 2024.1! 🎉
-
-Thanks for helping out testing the beta! ❤️
-
-Enjoy the (beta) release!
+Enjoy the release!
 
 <!--more-->
 
