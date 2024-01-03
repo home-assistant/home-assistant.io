@@ -7,6 +7,7 @@ ha_category:
   - Camera
   - Hub
   - Sensor
+  - Switch
 ha_release: '0.40'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -47,6 +48,7 @@ Once Home Assistant starts and you authenticate access, the `blink` integration 
 - A `camera` for each camera linked to your Blink sync module.
 - A `sensor` per camera for temperature and Wi-Fi strength.
 - A `binary_sensor` motion detection, camera armed status, and battery status.
+- A `switch` per camera to enable/disable motion detection
 
 Since the cameras are battery operated, setting the `scan_interval` must be done with care so as to not drain the battery too quickly, or hammer Blink's servers with too many API requests.  The cameras can be manually updated via the `trigger_camera` service which will ignore the throttling caused by `scan_interval`.  As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
 
