@@ -142,8 +142,7 @@ service calls.
 If you have been using Home Assistant for a while, you are probably familiar
 with the “service call”-an action that you can add to your automation. But,
 honestly, what is a “service call”? It is a bit of a technical term that is
-especially confusing for newer users. But honestly, you just want to turn on
-a light, right?
+especially confusing for newer users. You just want to turn on a light, right?
 
 This release unifies those “service calls” with all other actions, meaning
 there is no “service call” anymore; that layer has been refactored from the UI.
@@ -540,7 +539,7 @@ If you want to go back to the light domain, use the
 [switch_as_x "Show as" option](/integrations/switch_as_x/#change-device-type-of-a-switch-from-the-existing-entity)
 on the new `Infrared lights in night mode` switch entity and select light.
 
-([@starkillerOG] - [#104713]) ([documentation](/integrations/reolink))
+([@starkillerOG] - [#105916]) ([documentation](/integrations/reolink))
 
 [@starkillerOG]: https://github.com/starkillerOG
 [#105916]: https://github.com/home-assistant/core/pull/105916
