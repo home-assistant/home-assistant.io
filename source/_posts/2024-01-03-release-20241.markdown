@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2024.1: Beta release notes"
-description: "The beta release notes for Home Assistant 2024.1"
+title: "2024.1: Happy automating!"
+description: "Happy New Year! 🥂 2024.1 starts with many UI improvements to our automation editor, due date and description support for to-do items, a brand new valve entity, and more card features!"
 date: 2024-01-03 00:00:00
 date_formatted: "January 3, 2024"
 author: Franck Nijhof
