@@ -37,6 +37,12 @@ Enjoy the release!
 <!--more-->
 
 - [Automation editor improvements](#automation-editor-improvements)
+  - [Improved empty automations dashboard](#improved-empty-automations-dashboard)
+  - [Guidance when creating a new automation](#guidance-when-creating-a-new-automation)
+  - [Building blocks](#building-blocks)
+  - [Improved trigger, condition \& action buttons](#improved-trigger-condition--action-buttons)
+  - [Unified actions](#unified-actions)
+- [Description \& due support for to-do list items](#description--due-support-for-to-do-list-items)
 - [New entity type: Valve](#new-entity-type-valve)
 - [Swappable](#swappable)
 - [New card features](#new-card-features)
@@ -54,44 +60,109 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 ## Automation editor improvements
 
-The automation editor got some love this release, with a lot of small
-improvements to make it easier to use.
+The automation editor got some love for this release, with many small
+improvements to make it easier for both new and long-time users.
 
-If you start out with Home Assistant, visiting your automations page would
-result in an empty page. This is not very helpful if you see this for the first
-time.
+As there are many small improvements, let’s go over them individually.
 
-Instead, you are now greeted by the little automation robot that shows
-an explanation of what automations are, and references to the documentation
-that can help you get started.
+PS: One quick note: all changes are UI changes, meaning that these changes
+do not affect the underlying automation configuration. All your existing
+automations will continue to work as they did before.
 
-_TODO: Add screenshot_
+### Improved empty automations dashboard
 
-Once you start create a new integration, you will be greeted by some new
-terminology and description to help you understand what each section is about.
+If you start with Home Assistant, visiting the automations dashboard would
+result in an empty page. That is not very helpful if you see this for the
+first time. So, we’ve improved that!
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5662298/291381465-0766c064-d787-41e6-8349-0b56193ee526.png' alt='Temporary images that needs to be replaced.'>
+You are now greeted by the little automation robot that explains what an
+automation is and references to the documentation that can help you get started.
 
-Don't worry, we'll hide the help text once you added elements to the section.
-The bigger change can be found in the buttons to add a trigger, condition or
-action to your automation.
+<img class="no-shadow" src='/images/blog/2024-01/start-automating.png' alt='Screenshot showing an empty automations dashboard, explaining what automations are.'>
 
-The first thing to notice, is that the conditions and actions have a new
-button next to them: "Add building block". Click this allows you to 
-add logical elements to your automation, like "and", "or", "If", "choose", etc.
+A small but effective improvement to help new users get started. We have also
+applied this same improvement to the scripts and scenes dashboards.
 
-These used to be mixed in with the conditions and actions, but now have their
-own dedicated button. This makes it easier to find them, and declutters the
+### Guidance when creating a new automation
+
+When starting a new automation from scratch, you used to be greeted by some,
+possibly, new terminology and almost a blank page with some buttons to
+add triggers, conditions or actions. As a new user, this immediately imposes
+a challenge: what do I need to do?
+
+You guessed it: We have slightly improved that. We have changed the big headers
+to be more descriptive and less technical. We have also added some help text to
+explain each section, including examples of what they can be used for.
+
+<img class="no-shadow" src='/images/blog/2024-01/automation-descriptions.png' alt='Screenshot showing descriptions on what each section in an automation is and can be used for.'>
+
+Don’t worry; we’ll hide the explanation once you add elements to the sections
+to keep the overview of existing automations as clean as possible.
+
+### Building blocks
+
+You might have noticed in the screenshots above the conditions and actions have
+a new button next to them: **+ Add building block**.
+
+Selecting these new buttons allows you to add logical elements to your
+automation or scripts, like **And**, **Or**, **If-then**, **Choose**, etc.
+
+These used to be mixed in with the conditions and actions but now have their
+own dedicated button. It makes it easier to find them and declutters the
 list of conditions and actions.
 
-_TODO: Add screenshot_
+<img class="no-shadow" src='/images/blog/2024-01/automation-building-blocks.png' alt='Screenshot showing the new dialog that allows you to add logical building blocks to automations.'>
 
-All these buttons, used to give a dropdown that allowed you to select the
-type of trigger, condition or action you wanted to add. This dropdown has
-been replaced by a new dialog, including descriptions for each item and search.
+Notice how this now opens up a dialog? A dialog gives us more space to describe
+what each building block does and room for a search box to find the one you need.
 
-These descriptions are important, as they help you understand what the
-trigger, condition or action does, and what it is used for.
+### Improved trigger, condition & action buttons
+
+The bigger change can be found in the buttons to add a trigger, conditions,
+or actions to your automation. This change was not just aimed at new users
+but also long-time users.
+
+All these buttons are used to give a dropdown that allows you to select the
+type of trigger, condition, or action you want to add. This dropdown has been
+replaced by a new dialog similar to the one we just saw for the building blocks.
+
+Like the building block, it describes what each trigger, condition,
+or action does. These descriptions are important, as they help you understand
+what they do.
+
+<img class="no-shadow" src='/images/blog/2024-01/add-trigger-dialog.png' alt='Screenshot showing the new add trigger dialog, which displayed the most common triggers first.'>
+
+If you add an element, we will first show you the most used
+triggers/conditions/actions by our community. We now have all others neatly
+grouped. For actions, we took it a step further and unified them with
+service calls.
+
+### Unified actions
+
+If you have been using Home Assistant for a while, you are probably familiar
+with the “service call”-an action that you can add to your automation. But,
+honestly, what is a “service call”? It is a bit of a technical term that is
+especially confusing for newer users. But honestly, you just want to turn on
+a light, right?
+
+This release unifies those “service calls” with all other actions, meaning
+there is no “service call” anymore; that layer has been refactored from the UI.
+Instead, you add an action and select the action you want to take, for example,
+turn on a light.
+
+<img class="no-shadow" src='/images/blog/2024-01/add-light-action.png' alt='Screenshot showing the new add action dialog, which now shows all possible actions, including services.'>
+
+This means that if you add an action, you see all actions (including all
+service calls), categorized, with description, and searchable! Being able
+to search through all available actions is a huge improvement.
+
+<img class="no-shadow" src='/images/blog/2024-01/add-action-search.png' alt='Screenshot showing the new add action dialog utilizing the search function to find whatever you need.'>
+
+By default, just like with the triggers and conditions, we show you the most
+used actions first and the actions for the entities you have on your system.
+All others are neatly grouped by integration in the **Other actions** section.
+
+<img class="no-shadow" src='/images/blog/2024-01/add-action-other-integrations.png' alt='Screenshot showing the new add action dialog that neatly groups all other actions that integrations provide.'>
 
 _TODO: Add screenshot_
 
