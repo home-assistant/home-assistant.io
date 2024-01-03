@@ -178,7 +178,7 @@ data:
 
 ### Use response data in templates: convert YAML to JSON
 
-The response data is returned in Yaml, and can not be used as is in the template editor.
+The response data is returned in YAML and can not be used as is in the template editor.
 The response needs to be converted to JSON to be able to do so.
 
 Please follow this approach to be able to test run your templates based on the response:
