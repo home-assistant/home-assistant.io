@@ -199,7 +199,7 @@ We welcome the following new integrations in this release:
   Monitor your Blue Current EV charger charge point(s).
 - **[DROP]**, added by [@pfrazer]<br />
   Manage your DROP Smart Water System with Home Assistant.
-- **[Flexit BACnet]**, added by [@lellky]<br />
+- **[Flexit Nordic (BACnet)]**, added by [@lellky]<br />
   Control and monitor your Flexit Nordic series air handling units.
 - **[Holiday]**, added by [@jrieger]<br />
   Add holiday calendars to Home Assistant for powering automations.
@@ -236,7 +236,7 @@ We welcome the following new integrations in this release:
 [A. O. Smith]: /integrations/aosmith
 [Blue Current]: /integrations/blue_current
 [DROP]: /integrations/drop_connect
-[Flexit BACnet]: /integrations/flexit_bacnet
+[Flexit Nordic (BACnet)]: /integrations/flexit_bacnet
 [Holiday]: /integrations/holiday
 [Midea CCM15 AC Controller]: /integrations/ccm15
 [OSO Energy]: /integrations/osoenergy
