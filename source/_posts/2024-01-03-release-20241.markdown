@@ -44,7 +44,7 @@ Enjoy the release!
   - [Unified actions](#unified-actions)
 - [Description \& due support for to-do list items](#description--due-support-for-to-do-list-items)
 - [New entity type: Valve](#new-entity-type-valve)
-- [Swappable](#swappable)
+- [Swappable current/target on thermostat \& humidifier cards](#swappable-currenttarget-on-thermostat--humidifier-cards)
 - [New card features](#new-card-features)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
@@ -164,29 +164,27 @@ All others are neatly grouped by integration in the **Other actions** section.
 
 <img class="no-shadow" src='/images/blog/2024-01/add-action-other-integrations.png' alt='Screenshot showing the new add action dialog that neatly groups all other actions that integrations provide.'>
 
-_TODO: Add screenshot_
+## Description & due support for to-do list items
 
-If you add an element, we will show you the most commonly used
-trigger/condition/action first. All others are neatly categorized in the
-other sections.
+The to-do list integration keeps getting better and better. This release adds
+support for descriptions and due dates!
 
-Last, but not least, the "service calls" are now merged with all other actions.
-Meaning, that if you add an action, you see all actions, including service
-calls. They are neatly grouped by entity type and the integration providing them,
-provide the descriptions on what they do, and are searchable as well.
+If the integration you are using supports it, you can now add descriptions to
+each task on your list.It fully supports the Markdown markup to add links,
+bold text, etc. If due dates (or due date + time) are supported, you can
+set these.
 
-_TODO: Add screenshot_
+<img class="no-shadow" src='/images/blog/2024-01/todo-dialog.png' alt='Screenshot showing the new to-do item dialog, where you now can set a description and an URL.'>
 
-## Description & due support for todo list items
+As shown in the screenshot above, there is a whole new dialog to adjust
+your to-do item. But this is not the only change. The list itself has beenz
+improved as well.
 
-This feature was already hinted in the last release, but now it is here!
+<img class="no-shadow" src='/images/blog/2024-01/todo-new-dashboard.png' alt='Screenshot showing the improve to-do dashboard, showing descriptions and highlighting overdue items.'>
 
-You can add due dates and description to each item in your todo list (if
-supported by the integration of course).
-
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5662298/292194204-990069b1-e517-4b93-9190-c2beeb7f782a.png' alt='Temporary images that needs to be replaced.'>
-
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5662298/292194141-1081eba6-9914-4f79-9d93-414b9fae91bd.png' alt='Temporary images that needs to be replaced.'>
+It is much cleaner, all big text boxes are gone, and each item is nicely
+formatted, including an excerpt of the description and the due date. If the due
+date is overdue, it will be highlighted.
 
 ## New entity type: Valve
 
