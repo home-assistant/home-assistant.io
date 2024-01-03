@@ -54,19 +54,11 @@ Please note that each camera reports two different states: one as `sensor.blink_
 
 ## Services
 
-Any sequential calls to {% term services %}  relating to blink should have a minimum of a 5 second delay in between them to prevent the calls from being throttled and ignored.
-
-### `blink.blink_update`
-
-Force a refresh of the Blink system.
+Any sequential calls to {% term services %} relating to blink should have a minimum of a 5 second delay in between them to prevent the calls from being throttled and ignored. The services that act on a camera needs a target parameter.
 
 ### `blink.trigger_camera`
 
 Trigger a camera to take a new still image.
-
-| Service Data Attribute | Optional | Description                            |
-| ---------------------- | -------- | -------------------------------------- |
-| `entity_id`            | yes      | Camera entity to take picture with.    |
 
 ### `blink.save_video`
 
@@ -74,7 +66,6 @@ Save the last recorded video of a camera to a local file. Note that in most case
 
 | Service Data Attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `name`                 | no       | Name of camera containing video to save. |
 | `filename`             | no       | Location of save file.                   |
 
 ```yaml
@@ -83,6 +74,13 @@ homeassistant:
     - '/tmp'
     - '/path/to/whitelist'
 ```
+### `blink.save_recent_clips`
+
+Save the recent video clips of a camera to a local file in the pattern `%Y%m%d_%H%M%S_{name}.mp4`. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your `configuration.yaml` file.
+
+| Service Data Attribute | Optional | Description                              |
+| ---------------------- | -------- | ---------------------------------------- |
+| `file_path`            | no       | Location of save files.                  |
 
 ### `blink.send_pin`
 
@@ -90,11 +88,12 @@ Send a new pin to blink.  Since Blink's 2FA implementation is new and changing, 
 
 | Service Data Attribute | Optional | Description                  |
 | ---------------------- | -------- | ---------------------------- |
+| `config_entry_id`      | no       | Blink config to send pin to. |
 | `pin`                  | no       | 2FA Pin received from blink. |
 
 ### Other services
 
-In addition to the services mentioned above, there are generic `camera` and `alarm_control_panel` services available for use as well. The `camera.enable_motion_detection` and `camera.disable_motion_detection` services allow for individual cameras to be enabled and disabled, respectively, within the Blink system. The `alarm_control_panel.alarm_arm_away` and `alarm_control_panel.alarm_disarm` services allow for the whole system to be armed and disarmed, respectively.  Blink Mini cameras linked to an existing sync module cannot be armed/disarmed individually via Home Assistant.
+In addition to the services mentioned above, there are generic `camera`, `alarm_control_panel`, and `homeassistant` services available. The `camera.enable_motion_detection` and `camera.disable_motion_detection` services allow for individual cameras to be enabled and disabled, respectively, within the Blink system. The `alarm_control_panel.alarm_arm_away` and `alarm_control_panel.alarm_disarm` services allow for the whole system to be armed and disarmed, respectively. The `homeassistant.update_entity` service will force an update of the blink system. Blink Mini cameras linked to an existing sync module cannot be armed/disarmed individually via Home Assistant.
 
 ## Examples
 
@@ -111,7 +110,9 @@ sequence:
     target:
       entity_id: camera.blink_my_camera
   - delay: 00:00:05
-  - service: blink.blink_update
+  - service: homeassistant.update_entity
+    target:
+      entity_id: camera.blink_my_camera
   - service: camera.snapshot
     target:
       entity_id: camera.blink_my_camera
@@ -171,10 +172,11 @@ The following example assumes your camera's name (in the Blink app) is `My Camer
     entity_id: binary_sensor.blink_my_camera_motion_detected
     to: "on"
   action:
-    service: blink.save_video
-    data:
-      name: "My Camera"
-      filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
+    -  service: blink.save_video
+       target:
+         entity_id: camera.blink_my_camera
+       data:
+         filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
 ```
 
 {% endraw %}
@@ -199,7 +201,8 @@ The file name of the downloaded video file is not configurable.
       minutes: /3
   action:
     - service: blink.save_recent_clips
+      target:
+        entity_id: camera.my_camera
       data:
-        name: My Camera
         file_path: /tmp/videos
 ```
