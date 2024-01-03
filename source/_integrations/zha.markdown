@@ -611,18 +611,16 @@ LQI (Link Quality Index) values can be hard to interpret for Zigbee. This is bec
 
 ### Reporting issues
 
-If you found what looks to be a bug with the underlying component for the ZHA integration, please report it to the [Issues tracker for Home Assistant Core](https://github.com/home-assistant/core/issues). Or, if you found what looks to be a bug with the UI (User Interface) or Dashboards for ZHA, please report that to the [Issues tracker for Home Assistant Frontend]([https://github.com/home-assistant/core/issues](https://github.com/home-assistant/frontend/issues)).
+For more details on where and how to report issues, please refer to the [Reporting issues page](/help/reporting_issues/).
 
-Reporting bugs to issue trackers ensures that they get followed up by developers and either fixed or resolved. For more details please refer to the [Reporting issues page](/help/reporting_issues/). However, if you instead are having more general problems with installation, setup or configuration, then please use the [Home Assistant Community Forum](https://community.home-assistant.io/) to get support there first, (this helps free up time for developers).
-
-If you are going to report potential bugs related to the ZHA integration on the issues trackers on GitHub, please always provide the following ZHA/Zigbee-specific information in addition to the information requested by the standard issue template:
+When reporting potential bugs related to the ZHA integration on the issues trackers, please always provide the following ZHA/Zigbee-specific information in addition to the information requested by the standard issue template:
 
 1. Debug logs for the issue, see [debug logging](#debug-logging).
 2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
   - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & Services**" %}. Select the **Zigbee Home Automation** integration. Then, select **Configure** > **Devices** (pick your device). Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
 
-Note: Always search through [all open ZHA issues](https://github.com/home-assistant/core/issues?q=is%3Aissue+is%3Aopen+label%3A%22integration%3A+zha%22) before posting a new issue to the Issues tracker for Home Assistant Core. Please also make sure you give it your best effort to already be following the recommended best practices for avoiding both [pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties) and [Zigbee interference](#zigbee-interference-avoidance-and-network-rangecoverage-optimization), (which also helps free up time for developers).
+Note: Please also make sure you give it your best effort to follow the recommended best practices for avoiding both [pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties) and [Zigbee interference](#zigbee-interference-avoidance-and-network-rangecoverage-optimization), (which helps free up time for developers).
 
 ### Debug logging
 
