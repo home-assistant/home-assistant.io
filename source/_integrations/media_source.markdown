@@ -95,7 +95,7 @@ service: media_player.play_media
 target:
   entity_id: media_player.living_room_tv
 data:
-  media_content_type: "video/mp4"
+  media_content_type: video
   media_content_id: "media-source://media_source/local/videos/favourites/Epic Sax Guy 10 Hours.mp4"
 ```
 

@@ -32,7 +32,7 @@ For a quick introduction on how to get started with Android TV Remote, check out
 
 This {% term integration %} adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](/integrations/universal/) integration. See [Using with Google Cast](#using-with-google-cast) section for more details.
 
-Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels. Only `url` and `channel` media types are supported.
+Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels. [The following](/integrations/media_player#service-media_playerplay_media) media types are supported.
 
 ### Launching apps
 

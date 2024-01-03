@@ -65,7 +65,7 @@ action:
     response_variable: generated_image
   - service: media_player.play_media
     data:
-      media_content_type: image/jpeg
+      media_content_type: image
       media_content_id: "{{generated_image.url}}"
     target:
       entity_id: !input media_player

@@ -68,7 +68,7 @@ Chromecasts can play many kinds of modern [media (image/audio/video) formats](ht
 
 The media needs to be accessible via HTTP(S). Chromecast devices do not support other protocols like DLNA or playback from an SMB file share.
 
-You can play MP3 streams like net radios, FLAC files or videos from your local network with the `media_player.play_media` service, as long as the media is accessible via HTTP(S). You need to set the `media_content_id` to the media URL and `media_content_type` to a matching content type.
+You can play MP3 streams like net radios, FLAC files or videos from your local network with the `media_player.play_media` service, as long as the media is accessible via HTTP(S). You need to set the `media_content_id` to the media URL and `media_content_type` to a [matching content type](/integrations/media_player#service-media_playerplay_media).
 
 ```yaml
 # Play a video file from the local network:
@@ -76,7 +76,7 @@ service: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
-  media_content_type: "video"
+  media_content_type: video
   media_content_id: "http://192.168.0.100/movies/sample-video.mkv"
 ```
 
@@ -86,7 +86,7 @@ service: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
-  media_content_type: "image/jpeg"
+  media_content_type: image
   media_content_id: "http://via.placeholder.com/1024x600.jpg/0B6B94/FFFFFF/?text=Hello,%20Home%20Assistant!"
 ```
 
@@ -99,7 +99,7 @@ service: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
-  media_content_type: "video/mp4"
+  media_content_type: video
   media_content_id: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
   extra: 
     metadata: 
@@ -116,7 +116,7 @@ service: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
-  media_content_type: "audio/mp3"
+  media_content_type: music
   media_content_id: "http://stream.tilos.hu:8000/tilos" 
   extra: 
     metadata: 
