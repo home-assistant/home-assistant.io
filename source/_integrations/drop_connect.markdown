@@ -3,6 +3,7 @@ title: DROP
 description: Instructions on how to integrate DROP into Home Assistant.
 ha_category:
   - Binary sensor
+  - Select
   - Sensor
   - Switch
 ha_config_flow: true
@@ -15,6 +16,7 @@ ha_mqtt: true
 ha_release: '2024.1'
 ha_platforms:
   - binary_sensor
+  - select
   - sensor
   - switch
 ha_integration_type: integration
@@ -36,20 +38,9 @@ There is currently support for the following DROP products within Home Assistant
 - **RO Filter**: reverse osmosis drinking water filtration.
 - **Salt Sensor**: alerts when the salt level in the softener brine tank is low.
 
-### Configuration
+### Pre-requisites
 
-To use DROP with Home Assistant, you must have already configured the [MQTT](/integrations/mqtt/) platform. It is
-recommended
-that you create a unique user to connect your DROP Hub to your MQTT broker. If you are
-using the Mosquitto add-on, go to **Settings > Add-ons** in the Home Assistant UI and select the Mosquitto broker.
-Under **Configuration**, enter a new username and password for your DROP Hub in the **Logins** field:
-
-```yaml
-- username: drop
-  password: your_unique_password
-```
-
-If you are using a different MQTT broker, please reference its documentation to learn how to add a new user.
+To use DROP with Home Assistant, you must have already configured the [MQTT](/integrations/mqtt/) platform.
 
 To enable the DROP integration, use the DROP Connect app to connect your DROP Hub to your MQTT broker:
 
@@ -58,7 +49,19 @@ To enable the DROP integration, use the DROP Connect app to connect your DROP Hu
 - Enter the MQTT broker address, port number, username, and password.
 - Click **Connect** and confirm that the DROP Hub has connected to the MQTT broker.
 
-Once the DROP Hub is connected to your MQTT broker, the devices on your DROP system will be discovered by Home
+Once the DROP Hub is connected to your MQTT broker, the devices on your DROP system should be discovered by Home
 Assistant.
-Go to **Settings > Devices & Services** in the Home Assistant UI to add your DROP devices.
 
+{% details "Manual configuration steps" %}
+
+- Browse to your Home Assistant instance.
+- Go to **{% my integrations title="Settings > Devices & Services" %}**.
+- Set up the new discovered devices.
+
+{% enddetails %}
+
+<div class="note">
+
+The MQTT broker address and port used for the DROP Hub must be the same as configured for the Home Assistant MQTT integration.
+
+</div>
