@@ -28,6 +28,6 @@ In addition to a lock entity, each added dKey lock will also have:
 
 <div class='note warning'>
 
-The Dormakaba dKey lock is currently not working with USB dongles or built-in Bluetooth radios, only [ESPHome Bluetooth proxies](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) work reliably.
+The Dormakaba dKey lock is currently not working with USB dongles or built-in Bluetooth radios, only [ESPHome Bluetooth proxies](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) configured to allow active connections work reliably.
 
 </div>

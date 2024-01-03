@@ -107,7 +107,7 @@ Change an active timer. This changes the duration of the timer with the duration
 
 ### Service `timer.pause`
 
-Pause a running timer. This will retain the remaining duration for later continuation. You can also use `entity_id: all` and all active timers will be paused.
+Pause a running timer. This will retain the remaining duration for later continuation. To resume a timer use the `timer.start` service without passing a duration. You can also use `entity_id: all` and all active timers will be paused. 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
