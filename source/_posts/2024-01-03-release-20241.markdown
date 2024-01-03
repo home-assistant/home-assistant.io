@@ -314,6 +314,85 @@ other news about building an Open Home; straight into your inbox.
 
 ## Backward-incompatible changes
 
+{% details "Blink" %}
+
+The service calls of Blink have been adjusted. This affects
+`blink.trigger_camera`, `blink.save_video` and `blink.save_recent_clips`.
+
+This change will require these service calls to be updated with a `target` for
+the camera and by removing `name` from `data` of the blink service calls.
+
+For example, service call before 2023.11:
+
+```yaml
+service: blink.save_video
+data:
+  name: Front door
+  filename: test.mp4
+``` 
+
+Service call after 2023.11 and before 2024.1:
+
+```yaml
+service: blink.save_video
+data:
+  device_id: 87dc3b85c18ee84f8c322a95e8230eb2
+  name: Front door
+  filename: test.mp4
+``` 
+
+New service call:
+```yaml
+service: blink.save_video
+target:
+  entity_id:
+    - camera.front_door
+data:
+  filename: test.mp4
+``` 
+
+---
+
+The `blink.send_pin` service now uses an integration/configuration entry selector:
+
+Example service call before 2023.11:
+
+```yaml
+service: blink.send_pin
+data:
+  pin: "1234"
+```
+
+Service call after 2023.11 and before 2024.1:
+
+```yaml
+service: blink.send_pin
+data:
+  pin: "1234"
+  device_id: 87dc3b85c18ee84f8c322a95e8230eb2
+```
+
+ New service call:
+
+```yaml
+service: blink.send_pin
+data:
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
+  pin: "1234"
+```
+
+---
+
+The `blink.blink_update` service is deprecated and will be removed in 2024.7.0.
+Use the `homeassistant.update_entity` service instead.
+
+([@mkmer] - [#105413]) ([documentation](/integrations/blink))
+
+[@mkmer]: https://github.com/mkmer
+[#105413]: https://github.com/home-assistant/core/pull/105413
+
+{% enddetails %}
+
 {% details "Home Assistant shutdown event" %}
 
 The event key in the (undocumented) trigger data for the `homeassistant` trigger
@@ -329,8 +408,8 @@ to fire on shutdown instead of an `Event` object.
 
 {% details "Modbus" %}
 
-Setting `swap: none` has been removed from the Modbus configuration,
-it is identical to omitting it: `swap:`.
+Setting `swap: none` has been removed from the Modbus configuration.
+It is identical to omitting it: `swap:`.
 
 ([@janiversen] - [#104713]) ([documentation](/integrations/modbus))
 
@@ -342,10 +421,10 @@ it is identical to omitting it: `swap:`.
 {% details "PrusaLink" %}
 
 - The printer state now contains several new statuses, most importantly
-  "attention" which always needs your invention.
+  "attention", which always needs your invention.
 - Firmware 4.7.0 is now the minimum version for Prusa XL and MK4.
 - Firmware 5.1.0 is now the minimum version for Prusa Mini since 4.7.x and 5.0.x
-  aren't available for the Mini
+  aren't available for the Mini.
 
 ([@Skaronator] - [#103396]) ([documentation](/integrations/prusalink))
 
@@ -356,15 +435,15 @@ it is identical to omitting it: `swap:`.
 
 {% details "Reolink" %}
 
-The Reolink `Infra red lights in night mode` entity has been migrated from
+The Reolink `Infrared lights in night mode` entity has been migrated from
 the `light` to the `switch` domain.
 
-This means the entity ID also changed and automations and dashboards may need
+This means the entity ID also changed, and automations and dashboards may need
 to be adjusted to use the new entity ID. 
 
 If you want to go back to the light domain, use the
 [switch_as_x "Show as" option](/integrations/switch_as_x/#change-device-type-of-a-switch-from-the-existing-entity)
-on the new `Infra red lights in night mode` switch entity and select light.
+on the new `Infrared lights in night mode` switch entity and select light.
 
 ([@starkillerOG] - [#104713]) ([documentation](/integrations/reolink))
 
@@ -394,6 +473,7 @@ changes and new features available for your integration: Be sure to follow our
 - [Changes to EntityDescription data classes](https://developers.home-assistant.io/blog/2023/12/11/entity-description-changes/)
 - [Config entry now supports minor versions](https://developers.home-assistant.io/blog/2023/12/18/config-entry-minor-version/)
 - [Deprecated constants create a log entry](https://developers.home-assistant.io/blog/2023/12/19/constant-deprecation/)
+- [Deprecating all magic numbers for supported features](https://developers.home-assistant.io/blog/2023/12/28/support-feature-magic-numbers-deprecation/)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
