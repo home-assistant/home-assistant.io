@@ -617,6 +617,39 @@ climates:
               description: "Value corresponding to HVAC Heat/Cool mode."
               required: false
               type: [integer, list]
+        hvac_mode_target_temp_reg_values:
+          description: "Mapping between HVAC modes and the target temperature register belonging to the mode. Note: only the relevant keys may be added. In case of some is missing, the target_temp_register is used as default.  "
+          required: false
+          type: map
+          keys:
+            state_off_target_temp_register:
+              description: "Target Temperature Register value corresponding to HVAC Off mode."
+              required: false
+              type: integer
+            state_heat_target_temp_register:
+              description: "Target Temperature Register value corresponding to HVAC Heat mode."
+              required: false
+              type: integer
+            state_cool_target_temp_register:
+              description: "Target Temperature Register value corresponding to HVAC Cool mode."
+              required: false
+              type: integer
+            state_auto_target_temp_register:
+              description: "Target Temperature Register value corresponding to HVAC Auto mode."
+              required: false
+              type: integer
+            state_dry_target_temp_register:
+              description: "Target Temperature Register value corresponding to HVAC Dry mode."
+              required: false
+              type: integer
+            state_fan_only_target_temp_register:
+              description: "Target Temperature Register value corresponding to HVAC Fan only mode."
+              required: false
+              type: integer
+            state_heat_cool_target_temp_register:
+              description: "Target Temperature Register value corresponding to HVAC Heat/Cool mode."
+              required: false
+              type: integer
     fan_mode_register:
       description: "Configuration of register for Fan mode"
       required: false
@@ -735,7 +768,7 @@ climates:
         word_byte:
           description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
     target_temp_register:
-      description: "Register address for target temperature (Setpoint)."
+      description: "Register address for target temperature (Setpoint) and default one also in case of hvac_mode_target_temp_reg_values usage."
       required: true
       type: integer
     target_temp_write_registers:
