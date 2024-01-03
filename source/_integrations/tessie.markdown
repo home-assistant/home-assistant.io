@@ -27,7 +27,9 @@ ha_platforms:
   - lock
   - media_player
   - number
+  - select
   - sensor
+  - switch
   - update
 ha_integration_type: integration
 ---
