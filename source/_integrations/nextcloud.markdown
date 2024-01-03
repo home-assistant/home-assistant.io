@@ -4,6 +4,7 @@ description: Instructions on how to integrate Nextcloud monitor api data into Ho
 ha_category:
   - Binary sensor
   - Sensor
+  - Update
 ha_iot_class: Cloud Polling
 ha_release: 0.108
 ha_domain: nextcloud
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - sensor
+  - update
 ha_integration_type: integration
 ---
 
