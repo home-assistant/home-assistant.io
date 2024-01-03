@@ -220,18 +220,21 @@ current temperature in the card.
 
 ## New card features
 
-Last year, we have seen many new features added to the cards, so let's start
+Last year, we saw many new features added to the cards, so let's start
 the new year with some more!
 
-@Quentame added the climate fan mode card feature feature. This feature can be
-used with both the thermostat and the climate card.
+[@Quentame] added the climate fan mode card feature feature. This feature can be
+used with both the thermostat and the tile card:
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/14821482/291761102-2c5f60dd-5dfa-453e-ad5c-abd977601abd.png' alt='Temporary images that needs to be replaced.'>
+<img class="no-shadow" src='/images/blog/2024-01/climate-fan-card-feature.png' alt='Screenshot showing the new fan mode card feature the can be used on the tile and thermostat cards.'>
 
-Also new, the update actions card feature. This addition by @piitaya allows
-you to add buttons to a card that can trigger update actions when pressed.
+Also new is the update actions card feature. This addition by [@piitaya] allows
+you to add buttons to a card to trigger update actions when pressed.
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/292223971-249333f8-627c-4124-9336-0b6ce83355e0.png' alt='Temporary images that needs to be replaced.'>
+<img class="no-shadow" src='/images/blog/2024-01/update-card-feature.png' alt='Screenshot showing the new update card feature the can be used on the tile card.'>
+
+[@piitaya]: https://github.com/piitaya
+[@Quentame]: https://github.com/Quentame
 
 ## Other noteworthy changes
 
