@@ -172,22 +172,48 @@ you to add buttons to a card that can trigger update actions when pressed.
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- Move cloud stt engine to config entry ([@MartinHjelmare] - [#99608])
-- Add support for Shelly Gen3 devices ([@bieniu] - [#104874])
-- Add consider home interval to ping ([@jpbede] - [#104881])
-- Add preset modes to ESPHome fan entities ([@mill1000] - [#103781])
-- Add calendar entity to Radarr ([@tkdrob] - [#79077])
-- Add support for Happy Eyeballs to homekit_controller ([@bdraco] - [#105454])
-- Add France to picnic countries ([@slhad] - [#105722])
-- Rename zamg to GeoSphere Austria ([@killer0071234] - [#105494])
-- Make the minimum number of samples used by the trend sensor configurable ([@jpbede] - [#101102])
-- Add new price sensors with API token access to pvpc hourly pricing ([@azogue] - [#85769])
-- Add Starline Service Mode switch ([@Anonym-tsk] - [#105741])
-- Add Energyzero get_gas_prices and get_energy_price services ([@iamrgroot] - [#101374])
-- Add subwoofer crossover support to Sonos Amp devices ([@jjlawren] - [#106290])
-- Add alarm platform to Comelit ([@chemelli74] - [#104718])
-- Add Support for SleepIQ Foot Warmers ([@kbickar] - [#105931])
+- Two brand new [template functions] have been added this release: `median` and
+  `statistical_mode`. Thanks, [@TheFes]!
+- [@bieniu] added support for the brand new Shelly 3rd generation devices to
+  the [Shelly] integration. Nice!
+- A long-time shutdown bug has been fixed: You can now run automations triggered
+  when Home Assistant shuts down. This could, for example, be used to send
+  yourself a notification when that happens. Thanks, [@tetele]!
+- Created your own fan controller using [ESPHome]? You can now add preset modes
+  to it! Thanks, [@mill1000]!
+- The [ping] integration now has the option to configure the number of seconds
+  that must elapse before considering a disconnected device "not at home".
+  Awesome, [@jpbede]!
+- Looking for the ZAMG integration? It has been renamed to [GeoSphere Austria].
+  Thanks, [@killer0071234]!
+- Got one of those Sonos amps? [@jjlawren] added support for the subwoofer
+  crossover setting to the [Sonos] integration. Nice!
+- [@tkdrob] added support for the new calendar entity to the [Radarr] integration.
+  So you can see the release schedules straight from Home Assistant. Awesome!
+- You can now configure the minimal number of samples the [trend] helper uses.
+  It allows you to make it less sensitive when there is not that much data.
+  Thanks, [@jpbede]!
+- Got cold toes in bed? [@kbickar] to the rescue! He added support for
+  foot warmers to the [SleepIQ] integration. Nice!
 
+[@bieniu]: https://github.com/bieniu
+[@jjlawren]: https://github.com/jjlawren
+[@jpbede]: https://github.com/jpbede
+[@kbickar]: https://github.com/kbickar
+[@killer0071234]: https://github.com/killer0071234
+[@mill1000]: https://github.com/mill1000
+[@tetele]: https://github.com/tetele
+[@TheFes]: https://github.com/TheFes
+[@tkdrob]: https://github.com/tkdrob
+[ESPHome]: /integrations/esphome
+[GeoSphere Austria]: /integrations/zamg
+[ping]: /integrations/ping
+[Radarr]: /integrations/radarr
+[Shelly]: /integrations/shelly
+[SleepIQ]: /integrations/sleepiq
+[Sonos]: /integrations/sonos
+[template functions]: /docs/configuration/templating/#numeric-functions-and-filters
+[trend]: /integrations/trend
 
 ## New integrations
 
