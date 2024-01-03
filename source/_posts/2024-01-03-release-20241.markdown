@@ -140,7 +140,7 @@ service calls.
 ### Unified actions
 
 If you have been using Home Assistant for a while, you are probably familiar
-with the “service call”-an action that you can add to your automation. But,
+with the “service call”-action that you can add to your automation. But,
 honestly, what is a “service call”? It is a bit of a technical term that is
 especially confusing for newer users. You just want to turn on a light, right?
 
@@ -173,7 +173,7 @@ each task on your list. It fully supports the Markdown markup to add links,
 bold text, etc. If due dates (or due date + time) are supported, you can
 set these.
 
-<img class="no-shadow" src='/images/blog/2024-01/todo-dialog.png' alt='Screenshot showing the new to-do item dialog, where you now can set a description and an URL.'>
+<img class="no-shadow" src='/images/blog/2024-01/todo-dialog.png' alt='Screenshot showing the new to-do item dialog, where you now can set a description and a URL.'>
 
 As shown in the screenshot above, there is a whole new dialog to adjust
 your to-do item. But this is not the only change. The list itself has been
@@ -190,9 +190,9 @@ date is overdue, it will be highlighted.
 A brand new entity type has been added to Home Assistant: Valve!
 
 Integrations can use this entity type to expose valves, such as a valve on
-a radiator, pool, sprinkler systems, and main house gas or water lines.
+a radiator, pool, sprinkler system, and main house gas or water line.
 
-<img class="no-shadow" src='/images/blog/2024-01/valve-entity-type.png' alt='Screenshot showing an the value entity in the Home Assistant UI.'>
+<img class="no-shadow" src='/images/blog/2024-01/valve-entity-type.png' alt='Screenshot showing a valve entity in the Home Assistant UI.'>
 
 Currently, the [Shelly integration] supports it and now provides a `valve` entity
 for the Valve addon for Shelly Gas. Additionally, support for it has been
@@ -222,10 +222,10 @@ current temperature in the card.
 Last year, we saw many new features added to the cards, so let's start
 the new year with some more!
 
-[@Quentame] added the climate fan mode card feature feature. This feature can be
+[@Quentame] added the climate fan mode card feature. This feature can be
 used with both the thermostat and the tile card:
 
-<img class="no-shadow" src='/images/blog/2024-01/climate-fan-card-feature.png' alt='Screenshot showing the new fan mode card feature the can be used on the tile and thermostat cards.'>
+<img class="no-shadow" src='/images/blog/2024-01/climate-fan-card-feature.png' alt='Screenshot showing the new fan mode card feature that can be used on the tile and thermostat cards.'>
 
 Also new is the update actions card feature. This addition by [@piitaya] allows
 you to add buttons to a card to trigger update actions when pressed.
