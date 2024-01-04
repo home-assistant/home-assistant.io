@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `swiss_public_transport` sensor will give you the next three departure times from a given location to another one in Switzerland.
+The Switch public transport integration will give you the next three departure times from a given location to another one in Switzerland.
 
 The [Swiss public transport API](https://transport.opendata.ch/) only allows 1000 requests per 24 hours.
 
