@@ -1,0 +1,155 @@
+---
+layout: post
+title: "2024.2: Beta release notes"
+description: "The beta release notes for Home Assistant 2024.2"
+date: 2024-01-04 00:00:00
+date_formatted: "Febuary 7, 2024"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2024-02/social.png
+---
+
+<a href='/integrations/#version/2024.2'><img src='/images/blog/2023-02/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+These are the beta release notes for Home Assistant Core 2024.2 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/UI/dashboards:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2024.2! 🎉
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Lorem ipsum](#lorem-ipsum)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=#)
+7 February 2024, at 12:00 PST / 21:00 CET!
+
+<lite-youtube videoid="#" videotitle="Home Assistant 2024.2 Release Party"></lite-youtube>
+
+## Lorem ipsum
+
+Lorem ipsum
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- Lorem ipsum, thanks [@frenck]!
+
+[@frenck]: https://github.com/frenck
+
+## New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Lorem ipsum]**, added by [@frenck]<br />
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.
+
+[@frenck]: https://github.com/frenck
+[Lorem ipsum]: /integrations/ipsum
+
+This release also has a new virtual integration. Virtual integrations are stubs
+that are handled by other (existing) integrations to help with findability.
+The following virtual integrations have been added:
+
+- **[Lorem ipsum]**, provided by [Lorem ipsum]
+
+[Lorem ipsum]: /integrations/lorem
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[Lorem ipsum]**, done by [@frenck]
+
+[@frenck]: https://github.com/frenck
+[Lorem ipsum]: /integrations/lorem_ipsum
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+{% details "Lorem ipsum" %}
+
+Lorem ipsum
+
+([@frenck] - [#12345]) ([documentation](/integrations/lorem))
+
+[@frenck]: https://github.com/frenck
+[#12345]: https://github.com/home-assistant/core/pull/12345
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Lorem ipsum](https://developers.home-assistant.io/blog)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Lorem ipsum** has been removed. Lorem slipsum might be a good replacement.
+  ([@frenck] - [#12345])
+
+[@frenck]: https://github.com/frenck
+[#12345]: https://github.com/home-assistant/core/pull/12345
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2024.2](/changelogs/core-2024.2)
