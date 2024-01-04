@@ -356,7 +356,7 @@ scan_interval:
   description: "Update interval in seconds.
   scan_interval = 0 for no polling.
   Entities are read shortly after startup and then according to scan_interval.
-  Remark, when restarting HA the last known value is restored.
+  Remark, when restarting HA the last known value is restored."
   required: false
   type: integer
   default: 15
