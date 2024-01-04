@@ -53,6 +53,7 @@ The integration will create binary sensor entities for a variety of metrics that
 
 - Battery Heater
 - Battery Charing
+- Charge cable
 - Preconditioning Enabled
 - Scheduled Charging Enabled
 - Trip Charging Enabled
