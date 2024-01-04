@@ -56,4 +56,3 @@ response_variable: torrents
 ```
 
 The response data contains the field `torrent_info` which contains a dictionary of torrents. The name of the torrents are the keys.
-

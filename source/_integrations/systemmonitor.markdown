@@ -10,6 +10,8 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_codeowners:
+  - '@gjohansson-ST'
 ---
 
 The System monitor integration allows you to monitor disk usage,
