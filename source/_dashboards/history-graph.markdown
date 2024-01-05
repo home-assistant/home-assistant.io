@@ -55,15 +55,15 @@ logarithmic_scale:
   default: false
 min_y_axis:
   required: false
-  description: Lower bound for the Y axis range.
+  description: Lower bound for the Y-axis range.
   type: float
 max_y_axis:
   required: false
-  description: Upper bound for the Y axis range.
+  description: Upper bound for the Y-axis range.
   type: float
 fit_y_data:
   required: false
-  description: If true, configured Y axis bounds would automatically extend (but not shrink) to fit the data.
+  description: If true, configured Y-axis bounds would automatically extend (but not shrink) to fit the data.
   type: boolean
   default: false
 {% endconfiguration %}
