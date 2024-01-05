@@ -99,7 +99,7 @@ The unit of `source` together with `unit_prefix` and `unit_time` is used to gene
 
 ## Integration method
 
-Riemann Sum is a approximation of an integral by a finite sum and is therefore intrinsicaly innacurate, nonetheles, depending on the method used, values can be more or less accurate.
+Riemann Sum is a approximation of an integral by a finite sum and is therefore intrinsically inaccurate, nonetheless, depending on the method used, values can be more or less accurate.
 
 Regardless of the method used the integration will be more accurate if the source updates more often. If your source is not updated, neither will the Riemann Sum sensor, as all this integration does is calculate the next step in the event of a source update.
 
