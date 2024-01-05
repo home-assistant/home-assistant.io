@@ -7,6 +7,7 @@ date_formatted: "January 4, 2024"
 author: Marcel van der Veldt
 comments: true
 categories: Matter
+og_image: /images/blog/2024-01-matter/matter.png
 ---
 
 TL;DR: We'll have a Matter livestream on Wednesday, January 10. Post all your questions about Matter and Home Assistant in the comment section, and we'll try to answer them during the stream!
@@ -20,3 +21,5 @@ Our view on Matter is both more optimistic and still realistic. We think Matter 
 So, instead of discussing what isn't currently working in Matter, we want to explain what Matter *can* offer you today. We want to show you the potential Matter has for the future and how your first steps with Matter today prepare you for that. Talk about what Thread is, how it relates to Matter - it is not the same! - and how to build your Thread network. And much more.
 
 On Wednesday, January 10, at 12:00 PST / 21:00 CET, we'll be hosting a State of Matter livestream to discuss this and address your questions and concerns about Matter and Home Assistant. We'll make sure it's an excellent watch for both beginners and more technically-oriented viewers - our Matter developers will be there to give you a technical deep-dive into Matter, too. Please save the date in your calendar and post all your questions and concerns in our comments section!
+
+<lite-youtube videoid="rEugjMk-4II" videotitle="The State of Matter"></lite-youtube>
