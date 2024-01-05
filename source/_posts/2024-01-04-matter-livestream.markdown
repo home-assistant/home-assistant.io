@@ -2,8 +2,8 @@
 layout: post
 title: "The State of Matter livestream"
 description: "We’re having a Matter livestream on Wednesday, January 10. Ask all your questions about Matter and Home Assistant in the comment section!"
-date: 2024-01-04 00:00:01
-date_formatted: "January 4, 2024"
+date: 2024-01-05 00:00:01
+date_formatted: "January 5, 2024"
 author: Marcel van der Veldt
 comments: true
 categories: Matter
