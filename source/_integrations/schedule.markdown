@@ -102,7 +102,7 @@ automations and templates.
 | ----- | ----- |
 | `next_event` | A datetime object containing the next time the schedule is going to change state. |
 
-### Automations Example
+### Automation Example
 A schedule creates an on/off (binary) sensor within the times set. Using the Thermostat schedule example above, you can turn on your thermostat:
 
 ```yaml
