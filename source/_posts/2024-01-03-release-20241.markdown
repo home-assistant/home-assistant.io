@@ -51,6 +51,7 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2024.1.1 - January 5](#release-202411---january-5)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -391,6 +392,81 @@ The following integrations are now available via the Home Assistant UI:
 [Swiss public transport]: /integrations/swiss_public_transport
 [System Monitor]: /integrations/systemmonitor
 [Trend]: /integrations/trend
+
+## Release 2024.1.1 - January 5
+
+- Enable strict typing for airthings_ble ([@cdce8p] - [#106815])
+- Fix qBittorrent torrent count when empty ([@finder39] - [#106903])
+- Bump dropmqttapi to 1.0.2 ([@pfrazer] - [#106978])
+- bump openwebifpy to 4.0.3 ([@autinerd] - [#106593])
+- Close stale connections (Airthings BLE) ([@LaStrada] - [#106748])
+- Bump openwebifpy to 4.0.4 ([@autinerd] - [#107000])
+- Get Shelly RPC device `gen` from config entry data ([@bieniu] - [#107019])
+- Fix missing backwards compatiblity layer for humidifier supported_features ([@bdraco] - [#107026])
+- Use async_register in streamlabswater ([@joostlek] - [#107060])
+- Fix data access in streamlabs water ([@joostlek] - [#107062])
+- Fix mobile_app cloudhook creation ([@edenhaus] - [#107068])
+- Deduplicate handling of duplicated constants ([@emontnemery] - [#107074])
+- Fix missing backwards compatibility layer for water_heater supported_features ([@bdraco] - [#107091])
+- Bump habluetooth to 2.0.2 ([@bdraco] - [#107097])
+- Include deprecated constants in wildcard imports ([@emontnemery] - [#107114])
+- Update frontend to 20240104.0 ([@bramkragten] - [#107155])
+- Bump Orvibo to 1.1.2 ([@emericklaw] - [#107162])
+- Bump aiohomekit to 3.1.2 ([@bdraco] - [#107177])
+- Bump to PyTado 0.17.3 ([@erwindouna] - [#107181])
+- Fix switch states in AVM FRITZ!Box Tools ([@mib1185] - [#107183])
+- Hotfix cache logic bug in Tessie ([@Bre77] - [#107187])
+- Disable IPv6 in the opower integration to fix AEP utilities ([@tronikos] - [#107203])
+- Fix entity property cache creation arguments ([@ppetru] - [#107221])
+- Use supported_features_compat in update.install service ([@ludeeus] - [#107224])
+- Bump zwave-js-server-python to 0.55.3 ([@raman325] - [#107225])
+
+[#106593]: https://github.com/home-assistant/core/pull/106593
+[#106748]: https://github.com/home-assistant/core/pull/106748
+[#106815]: https://github.com/home-assistant/core/pull/106815
+[#106903]: https://github.com/home-assistant/core/pull/106903
+[#106970]: https://github.com/home-assistant/core/pull/106970
+[#106978]: https://github.com/home-assistant/core/pull/106978
+[#107000]: https://github.com/home-assistant/core/pull/107000
+[#107019]: https://github.com/home-assistant/core/pull/107019
+[#107026]: https://github.com/home-assistant/core/pull/107026
+[#107060]: https://github.com/home-assistant/core/pull/107060
+[#107062]: https://github.com/home-assistant/core/pull/107062
+[#107068]: https://github.com/home-assistant/core/pull/107068
+[#107074]: https://github.com/home-assistant/core/pull/107074
+[#107091]: https://github.com/home-assistant/core/pull/107091
+[#107097]: https://github.com/home-assistant/core/pull/107097
+[#107114]: https://github.com/home-assistant/core/pull/107114
+[#107155]: https://github.com/home-assistant/core/pull/107155
+[#107162]: https://github.com/home-assistant/core/pull/107162
+[#107177]: https://github.com/home-assistant/core/pull/107177
+[#107181]: https://github.com/home-assistant/core/pull/107181
+[#107183]: https://github.com/home-assistant/core/pull/107183
+[#107187]: https://github.com/home-assistant/core/pull/107187
+[#107203]: https://github.com/home-assistant/core/pull/107203
+[#107221]: https://github.com/home-assistant/core/pull/107221
+[#107224]: https://github.com/home-assistant/core/pull/107224
+[#107225]: https://github.com/home-assistant/core/pull/107225
+[@Bre77]: https://github.com/Bre77
+[@LaStrada]: https://github.com/LaStrada
+[@autinerd]: https://github.com/autinerd
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@edenhaus]: https://github.com/edenhaus
+[@emericklaw]: https://github.com/emericklaw
+[@emontnemery]: https://github.com/emontnemery
+[@erwindouna]: https://github.com/erwindouna
+[@finder39]: https://github.com/finder39
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@ludeeus]: https://github.com/ludeeus
+[@mib1185]: https://github.com/mib1185
+[@pfrazer]: https://github.com/pfrazer
+[@ppetru]: https://github.com/ppetru
+[@raman325]: https://github.com/raman325
+[@tronikos]: https://github.com/tronikos
 
 ## Need help? Join the community!
 
