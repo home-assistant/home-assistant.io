@@ -109,7 +109,7 @@ The `trapezoidal` method follows the [Trapezoidal rule](https://en.wikipedia.org
 
 ### Left
 
-The `left` method follows the [Left rule](https://en.wikipedia.org/wiki/Riemann_sum#Left_rule). The method **underestimates** the intrinsic source, but is extremely accurate at estimating rectangular functions which are very stable for long periods of time and change very rapidly (e.g. such as the power function of a resistive load can jump instantly to given value and stay at the same value for hours). If your source keeps its state for long periods of time, this method is preferable to the `trapezoidal`.
+The `left` method follows the [Left rule](https://en.wikipedia.org/wiki/Riemann_sum#Left_rule). The method **underestimates** the intrinsic source, but is extremely accurate at estimating rectangular functions which are very stable for long periods of time and change very rapidly (e.g. such as the power function of a resistive load can jump instantly to a given value and stay at the same value for hours). If your source keeps its state for long periods of time, this method is preferable to the `trapezoidal`.
 
 ### Right
 
