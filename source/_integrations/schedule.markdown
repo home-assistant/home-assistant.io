@@ -101,6 +101,24 @@ automations and templates.
 | Attribute | Description |
 | ----- | ----- |
 | `next_event` | A datetime object containing the next time the schedule is going to change state. |
+
+### Automations Example
+A schedule creates an on/off (binary) sensor within the times set. Using the Thermostat schedule example above, you can turn on your thermostat:
+
+```yaml
+trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.thermostat_schedule
+      to: "on"
+  action:
+    - service: climate.turn_on
+      metadata: {}
+      data: {}
+      target:
+        entity_id: climate.thermostat
+```
+
 ### Services
 
 Available service: `schedule.reload`.
