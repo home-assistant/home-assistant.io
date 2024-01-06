@@ -19,6 +19,14 @@ The Opower integration allows you to get energy information from utilities that 
 
 More than 175 utilities use Opower. Currently only the following utilities are supported by this integration:
 
+- American Electric Power (AEP) subsidiaries
+  - AEP Ohio
+  - AEP Texas
+  - Appalachian Power
+  - Indiana Michigan Power
+  - Kentucky Power
+  - Public Service Company of Oklahoma (PSO)
+  - Southwestern Electric Power Company (SWEPCO)
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)
 - Enmax Energy
