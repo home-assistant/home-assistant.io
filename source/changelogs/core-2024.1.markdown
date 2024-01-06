@@ -805,6 +805,28 @@ For a summary in a more readable format:
 [@raman325]: https://github.com/raman325
 [@tronikos]: https://github.com/tronikos
 
+## Release 2024.1.2 - January 6
+
+- Fix support for play/pause functionality in System Bridge ([@timmo001] - [#103423])
+- Fix passing correct location id to streamlabs water ([@joostlek] - [#107291])
+- Fix Shelly missing Gen value for older devices ([@thecode] - [#107294])
+- enigma2: fix exception when device in deep sleep, fix previous track ([@autinerd] - [#107296])
+- Fix assertion error when unloading ZHA with pollable entities ([@dmulcahey] - [#107311])
+
+[#103423]: https://github.com/home-assistant/core/pull/103423
+[#106970]: https://github.com/home-assistant/core/pull/106970
+[#107239]: https://github.com/home-assistant/core/pull/107239
+[#107291]: https://github.com/home-assistant/core/pull/107291
+[#107294]: https://github.com/home-assistant/core/pull/107294
+[#107296]: https://github.com/home-assistant/core/pull/107296
+[#107311]: https://github.com/home-assistant/core/pull/107311
+[@autinerd]: https://github.com/autinerd
+[@dmulcahey]: https://github.com/dmulcahey
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@thecode]: https://github.com/thecode
+[@timmo001]: https://github.com/timmo001
+
 [#100573]: https://github.com/home-assistant/core/pull/100573
 [#100601]: https://github.com/home-assistant/core/pull/100601
 [#101102]: https://github.com/home-assistant/core/pull/101102
