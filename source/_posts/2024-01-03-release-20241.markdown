@@ -52,6 +52,7 @@ Enjoy the release!
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2024.1.1 - January 5](#release-202411---january-5)
+- [Release 2024.1.2 - January 6](#release-202412---january-6)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -467,6 +468,28 @@ The following integrations are now available via the Home Assistant UI:
 [@ppetru]: https://github.com/ppetru
 [@raman325]: https://github.com/raman325
 [@tronikos]: https://github.com/tronikos
+
+## Release 2024.1.2 - January 6
+
+- Fix support for play/pause functionality in System Bridge ([@timmo001] - [#103423])
+- Fix passing correct location id to streamlabs water ([@joostlek] - [#107291])
+- Fix Shelly missing Gen value for older devices ([@thecode] - [#107294])
+- enigma2: fix exception when device in deep sleep, fix previous track ([@autinerd] - [#107296])
+- Fix assertion error when unloading ZHA with pollable entities ([@dmulcahey] - [#107311])
+
+[#103423]: https://github.com/home-assistant/core/pull/103423
+[#106970]: https://github.com/home-assistant/core/pull/106970
+[#107239]: https://github.com/home-assistant/core/pull/107239
+[#107291]: https://github.com/home-assistant/core/pull/107291
+[#107294]: https://github.com/home-assistant/core/pull/107294
+[#107296]: https://github.com/home-assistant/core/pull/107296
+[#107311]: https://github.com/home-assistant/core/pull/107311
+[@autinerd]: https://github.com/autinerd
+[@dmulcahey]: https://github.com/dmulcahey
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@thecode]: https://github.com/thecode
+[@timmo001]: https://github.com/timmo001
 
 ## Need help? Join the community!
 
