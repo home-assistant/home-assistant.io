@@ -7,6 +7,7 @@ ha_category:
   - Network
   - Notifications
   - Presence detection
+  - Select
   - Sensor
   - Switch
 ha_release: 0.79
@@ -22,6 +23,7 @@ ha_platforms:
   - button
   - device_tracker
   - notify
+  - select
   - sensor
   - switch
 ha_integration_type: integration
@@ -37,6 +39,7 @@ There is currently support for the following platforms within Home Assistant:
 - Switch - mobile data on/off, Wi-Fi guest network on/off
 - Binary sensor - mobile and Wi-Fi connection status, SMS storage full/not
 - Button - clear traffic statistics, restart
+- Select - preferred network mode
 
 ## Setup
 

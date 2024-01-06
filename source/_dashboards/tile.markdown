@@ -60,6 +60,14 @@ tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
   type: map
+hold_action:
+  required: false
+  description: Action taken on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
 icon_tap_action:
   required: false
   description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the "more-info" dialog.

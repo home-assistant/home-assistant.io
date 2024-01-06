@@ -64,20 +64,24 @@ with the requested image.
 | ---------------------- | -------- | ------------------------------------------------------ | ---------------- |
 | `config_entry`         | no       | Integration entry ID to use.                           |                  |
 | `prompt`               | no       | The text to turn into an image.                        | Picture of a dog |
-| `size`                 | yes      | Size of the returned (square) image in pixels, defaults to 512. | 512              |
+| `size`                 | yes      | Size of the returned image in pixels. Must be one of `1024x1024`, `1792x1024`, or `1024x1792`, defaults to `1024x1024`. | 1024x1024        |
+| `quality`              | yes      | The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. | standard         |
+| `style`                | yes      | The style of the generated images. Must be one of `vivid` or `natural`. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. | vivid            |
 
 {% raw %}
 ```yaml
 service: openai_conversation.generate_image
 data:
-  config_entry: f29e6b8696a15e107b4bd843de722249
+  config_entry: abce6b8696a15e107b4bd843de722249
   prompt: "Cute picture of a dog chasing a herd of cats"
-  size: 1024
+  size: 1024x1024
+  quality: standard
+  style: vivid
 response_variable: generated_image
 ```
 {% endraw %}
 
-The response data field `url` will contain a URL to the generated image.
+The response data field `url` will contain a URL to the generated image and `revised_prompt` will contain the updated prompt used.
 
 #### Example using a generated image entity
 
@@ -109,7 +113,7 @@ automation:
         response_variable: generated_image
         data:
           config_entry: abce6b8696a15e107b4bd843de722249
-          size: "512"
+          size: "1024x1024"
           prompt: >-
             New York when the weather is {{ states("weather.home") }}"
 

@@ -15,6 +15,7 @@ ha_config_flow: true
 ha_platforms:
   - stt
   - tts
+  - wake_word
 ha_iot_class: Local Push
 ---
 
