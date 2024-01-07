@@ -16,6 +16,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -30,6 +31,28 @@ It may work on other inverter families as well, as long as they listen on UDP po
 </div>
 
 {% include integrations/config_flow.md %}
+
+## Switch entities
+
+- Grid export enabled
+
+## Number entities
+
+- Grid export limit
+- Battery discharge depth
+
+## Button entities
+
+- Synchronize clock
+
+## Select entities
+
+- Operation mode
+
+## Sensor entities
+
+All available sensors based on the inverter will be added.
+
 
 ## Energy dashboard
 
