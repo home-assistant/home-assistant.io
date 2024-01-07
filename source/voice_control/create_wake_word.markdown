@@ -46,6 +46,8 @@ Depending on the word, training a model on your own wake word may take a few ite
 
 ## To add your personal wake word to Home Assistant
 
+### For Home Assistant Server
+
 1. Make sure you have the [Samba add-on installed](/common-tasks/os/#configuring-access-to-files).
 2. On your computer, access your Home Assistant server via Samba.
    - Open the `share` folder and create a new folder `openwakeword` so that you have `/share/openwakeword`.
@@ -66,6 +68,44 @@ Depending on the word, training a model on your own wake word may take a few ite
 7. Test your new wake word.
    - Speak your wake word followed by a command, such as "Turn on the lights in the kitchen".
    - When the ATOM Echo picks up the wake word, it starts blinking blue.
+  
+### For a Wyoming-openWakeWord Docker Container
+
+To add custom models to a Wyoming-openWakeWord docker container, you need to add a new folder and tell Wyoming-openWakeWord where to look for custom models.
+
+1. Create a folder for custom models in a convenient location, for example alongside your data directory for openwakeword.
+   - For example: `mkdir ~/openwakeword/custom`
+2. Copy your custom models to this folder.
+3. If you're using docker compose, update your `compose.yaml` to add a volume to give access to this new folder within your docker container.
+   - Example `compose.yaml` configuration:
+     ```yaml
+     version: '3.3'
+     services:
+       wyoming-openwakeword:
+         restart: unless-stopped
+         volumes:
+           - '/replace/with/path/to/data:/data'
+           - '/replace/with/path/to/custom/models:/custom'
+         ports:
+           - '10400:10400'
+         image: rhasspy/wyoming-openwakeword
+         command: " --preload-model 'ok_nabu' --custom-model-dir /custom"
+     ```
+     
+   If you're not using docker-compose, you'll need to update your docker command to include the new volume, as well as the command.
+   
+   - Example docker command with custom models, [via wyoming-openwakeword documentation](https://github.com/rhasspy/wyoming-openwakeword):
+     ```bash
+     docker run -it -p 10400:10400 -v /replace/with/path/to/custom/models:/custom rhasspy/wyoming-openwakeword \
+       --preload-model 'ok_nabu' --custom-model-dir /custom
+     ```
+4. Ensure you rebuild and reload the container for the new configuration and volume to apply:
+   
+   - If using Compose, run `docker compose up -d` in the directory containing your `compose.yaml` configuration.
+   - If not using Compose, re-run your docker command.
+
+   Once reloaded properly, the new wake words should be supplied directly to the Assist pipeline in Home Assistant and appear in the 'Wake word' drop-down.
+
 
 ## Troubleshooting
 
