@@ -143,6 +143,7 @@ Navigation:
 - BUTTON_B
 - BUTTON_X
 - BUTTON_Y
+- BACK
 
 Volume Control:
 - VOLUME_DOWN
@@ -208,6 +209,7 @@ Other:
 - SETTINGS
 - SEARCH
 - ASSIST
+- POWER
 
 {% enddetails %}
 
