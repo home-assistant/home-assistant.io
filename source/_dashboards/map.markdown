@@ -38,6 +38,11 @@ auto_fit:
   description: The map will follow moving `entities` by adjusting the viewport of the map each time an entity is updated. 
   type: boolean
   default: false
+fit_zones:
+  required: false
+  description: Whether the map should consider the zones in the list of specified entities when fitting its viewport.
+  type: boolean
+  default: false
 title:
   required: false
   description: The card title.
