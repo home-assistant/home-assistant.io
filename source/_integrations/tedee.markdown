@@ -32,7 +32,7 @@ If you do not own the bridge, you can still add your locks to Home Assistant thr
 
 {% configuration_basic %}
 Host:
-  description: "The IP address of your bridge. You can find it in your router or in the Tedee app under \"Bridge Settings\" -> \"Local API\"."
+  description: "The IP address of your bridge. You can find it in your router or in the Tedee app under **Bridge Settings** -> **Local API**.
   required: false
   type: string
 Local Access Token:
