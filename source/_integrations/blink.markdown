@@ -110,8 +110,6 @@ sequence:
   - service: blink.trigger_camera
     target:
       entity_id: camera.blink_my_camera
-  - delay: 00:00:05
-  - service: blink.blink_update
   - service: camera.snapshot
     target:
       entity_id: camera.blink_my_camera
