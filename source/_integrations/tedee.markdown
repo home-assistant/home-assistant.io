@@ -42,7 +42,8 @@ Local Access Token:
 {% endconfiguration_basic %}
 
 ## Binary sensors
-We have three binary sensors: One that indicated whether the battery is currently charging, one indicating if pullspring is enabled and one indicating whether the lock is in a "semi locked" position, meaning the lock has been turned manually and is between its normal end positions.
+
+We have three binary sensors: One that indicates whether the battery is currently charging, one indicating if the pull spring is enabled, and one indicating whether the lock is in a "semi-locked" position, meaning the lock has been turned manually and between its normal end positions.
 
 ## Sensors
 The integration currently offers two sensors: A battery sensor, indicated the charge of your lock and a "pullspring duration" sensor, indicating how long (in seconds) your latch will stay pulled after a pull operation (if supported). 
