@@ -611,12 +611,16 @@ LQI (Link Quality Index) values can be hard to interpret for Zigbee. This is bec
 
 ### Reporting issues
 
-When reporting issues, please provide the following information in addition to information requested by issue template:
+For more details on where and how to report issues, please refer to the [Reporting issues page](/help/reporting_issues/).
 
-1. Debug logs for the issue, see [debug logging](#debug-logging)
-2. Model of Zigbee radio being used
+When reporting potential bugs related to the ZHA integration on the issues trackers, please always provide the following ZHA/Zigbee-specific information in addition to the information requested by the standard issue template:
+
+1. Debug logs for the issue, see [debug logging](#debug-logging).
+2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
   - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & Services**" %}. Select the **Zigbee Home Automation** integration. Then, select **Configure** > **Devices** (pick your device). Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
+
+Note: Please also make sure you give it your best effort to follow the recommended best practices for avoiding both [pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties) and [Zigbee interference](#zigbee-interference-avoidance-and-network-rangecoverage-optimization), (which helps free up time for developers).
 
 ### Debug logging
 
