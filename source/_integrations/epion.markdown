@@ -32,4 +32,6 @@ Epion API token setup.
 
 The Epion integration can now be activated using this API token.
 
+All connected devices will show entities for the Carbon Dioxide (CO2) concentration, temperature, relative humidity and barometric pressure.
+
 {% include integrations/config_flow.md %}
