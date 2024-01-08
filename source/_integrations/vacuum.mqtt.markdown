@@ -176,11 +176,6 @@ retain:
   required: false
   type: boolean
   default: false
-schema:
-  description: The schema to use. Must be `state`.
-  required: false
-  type: string
-  default: legacy
 send_command_topic:
   description: The MQTT topic to publish custom commands to the vacuum.
   required: false
