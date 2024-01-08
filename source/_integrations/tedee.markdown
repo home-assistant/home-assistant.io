@@ -23,7 +23,7 @@ This integration interacts with your [Tedee](https://tedee.com) locks by communi
 
 ## Pre-requisites
 
-- You will need the bridge for adding your locks using this integration.
+- You will need the bridge to add your locks using this integration.
 - You need to have the local API enabled.
 
 If you do not own the bridge, you can still add your locks to Home Assistant through the [HomeKit Integration](./_integrations/homekit.markdown). Still, communication will happen over Bluetooth in that case, and features will be limited.
