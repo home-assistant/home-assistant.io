@@ -46,7 +46,8 @@ automation:
       - platform: state
         entity_id: sensor.office_motion_sensor
         to: "on"
-    condition: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
+    condition: template
+    value_template: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
     action:
       - service: scene.turn_on
         target:
