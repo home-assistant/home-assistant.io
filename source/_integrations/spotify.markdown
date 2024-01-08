@@ -107,7 +107,7 @@ This integration supports multiple Spotify accounts at once. You don't need to
 create another Spotify application in the Spotify Developer Portal.
 Multiple Spotify accounts can be linked to a _single_ Spotify application.
 
-You will have to add those accounts into the **Users and Access** section of
+You will have to add those accounts into the **User Management** section of
 your application in the Spotify Developer Portal.
 
 To add an additional Spotify account to Home Assistant, go to the Spotify
