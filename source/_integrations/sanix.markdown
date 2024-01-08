@@ -28,4 +28,4 @@ Go to the `Help` page, and `System version` - there you will find the API token.
 
 ## Hardware support
 
-* Sanix S M25 (<b>3.10</b> firmware version)
+* Sanix S M25 (<b>3.10</b> firmware version).
