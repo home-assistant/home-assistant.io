@@ -53,11 +53,11 @@ This {% term integration %} supports all UniFi OS Consoles that can run UniFi Pr
 - Any UniFi "Dream" device (**[UDMPRO](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/udm-pro)**, **[UDR](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-router)**, or **[UDMSE](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-machine-se)**), _except the base UniFi Dream Machine/UDM_
 - UniFi Cloud Key Gen2 Plus (**[UCKP](https://store.ui.com/collections/unifi-protect-nvr/products/unifi-cloudkey-plus)**) firmware version v2.0.24+
 
-UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware `[v2.0.24](https://community.ui.com/releases/UniFi-Cloud-Key-Firmware-2-0-24/b6684f1e-8542-4660-bc0b-74e0634448e8)` or newer.
+UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware [`v2.0.24`](https://community.ui.com/releases/UniFi-Cloud-Key-Firmware-2-0-24/b6684f1e-8542-4660-bc0b-74e0634448e8) or newer.
 
 ### Software support
 
-The absolute **minimal** software version is `[v1.20.0](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011)` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
+The absolute **minimal** software version is [`v1.20.0`](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011) for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
 
 <div class='note warning'>
 

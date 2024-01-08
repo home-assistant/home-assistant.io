@@ -1,16 +1,16 @@
 ---
 title: Portland General Electric (PGE)
-description: Get energy usage from Portland General Electric (PGE) using the Opower integration
+description: Connect and control your Portland General Electric (PGE) devices using the Opower integration
 ha_category:
   - Energy
   - Sensor
-ha_release: 2023.9
+ha_release: 2023.8
 ha_domain: portlandgeneral
 ha_integration_type: virtual
 ha_supporting_domain: opower
 ha_supporting_integration: Opower
 ha_codeowners:
-  - '@jrigling'
+  - '@tronikos'
 ha_config_flow: true
 ha_platforms:
   - sensor
