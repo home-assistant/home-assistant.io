@@ -3,12 +3,12 @@ title: StarLine
 description: Instructions on how to setup your StarLine account with Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Car
   - Lock
   - Presence detection
   - Sensor
   - Switch
-  - Button
 ha_release: 0.103
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -17,11 +17,11 @@ ha_codeowners:
 ha_domain: starline
 ha_platforms:
   - binary_sensor
+  - button
   - device_tracker
   - lock
   - sensor
   - switch
-  - button
 ha_integration_type: integration
 ---
 

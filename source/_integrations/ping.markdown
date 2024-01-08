@@ -51,10 +51,10 @@ This sensor is enabled by default. The default polling interval is 30 seconds.
 
 The sensor exposes the different round trip times in milliseconds measured by `ping` as attributes:
 
-- `round_trip_time_mdev`
-- `round_trip_time_avg`
-- `round_trip_time_min`
-- `round_trip_time_max`
+- `round_trip_time_mdev` - the standard deviation
+- `round_trip_time_avg` - the average round trip time
+- `round_trip_time_min` - the shortest round trip time
+- `round_trip_time_max` - the longest round trip time
 
 <div class='note'>
 When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.

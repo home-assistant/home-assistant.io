@@ -44,3 +44,48 @@ Top K:
   description: Number of top-scored tokens to consider during generation.
 
 {% endconfiguration_basic %}
+
+## Services
+
+### Service `google_generative_ai_conversation.generate_content`
+
+Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally images.
+This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with the generated content.
+
+| Service data attribute | Optional | Description                                    | Example             |
+| ---------------------- | -------- | ---------------------------------------------- | ------------------- |
+| `prompt`               | no       | The prompt for generating the content.         | Describe this image |
+| `image_filename`       | yes      | File names for images to include in the prompt. | /tmp/image.jpg      |
+
+{% raw %}
+```yaml
+service: google_generative_ai_conversation.generate_content
+data:
+  prompt: >-
+    Very briefly describe what you see in this image from my doorbell camera.
+    Your message needs to be short to fit in a phone notification. Don't
+    describe stationary objects or buildings.
+  image_filename: /tmp/doorbell_snapshot.jpg
+response_variable: generated_content
+```
+{% endraw %}
+
+The response data field `text` will contain the generated content.
+
+Another example with multiple images:
+
+{% raw %}
+```yaml
+service: google_generative_ai_conversation.generate_content
+data:
+  prompt: >-
+    Briefly describe what happened in the following sequence of images
+    from my driveway camera.
+  image_filename:
+    - /tmp/driveway_snapshot1.jpg
+    - /tmp/driveway_snapshot2.jpg
+    - /tmp/driveway_snapshot3.jpg
+    - /tmp/driveway_snapshot4.jpg
+response_variable: generated_content
+```
+{% endraw %}
