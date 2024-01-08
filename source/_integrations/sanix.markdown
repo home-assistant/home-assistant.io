@@ -16,8 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Sanix** {% term integration %} allows you to get water/sewage level sensor measurements from the `Sanix` devices made by [BIT Complex](https://bitcomplex.pl/).
-This is an unofficial integration developed by a **Sanix** user.
+The Sanix {% term integration %} allows you to get water/sewage level sensor measurements from the Sanix devices made by [BIT Complex](https://bitcomplex.pl/).
 
 ## Setup
 
