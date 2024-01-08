@@ -101,6 +101,14 @@ Select the previous option.
 | ---------------------- | -------- | ----------- |
 | `cycle` | yes | Whether to cycle to the last value before the first. Default: `true`
 
+#### Service `input_select.select_random`
+
+Select an option at random.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `avoid_repeat` | yes | Exclude the current option from the set of options to be chosen at random. Default: `true`
+
 ### Scenes
 
 Specifying a target option in a [Scene](/integrations/scene/) is simple:
