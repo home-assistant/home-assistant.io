@@ -43,9 +43,9 @@ template:
 
 There are generally 3 sensors from your inverter that you need to configure in the energy dashboard:
 
-- the total consumption sensor (in kWh) for the "Grid Consumption"
-- the total feed-in sensor (in kWh) for the "Return to grid", i.e. the solar panel energy that you do not consume and return to the grid instead
-- the total on-grid yield sensor (in kWh) for the "Solar production"
+- The total consumption sensor (in kWh) for the **Grid Consumption**.
+- The total feed-in sensor (in kWh) for the **Return to grid**, like the solar panel energy that you do not consume and return to the grid instead.
+- The total on-grid yield sensor (in kWh) for the **Solar production**.
 
 These are "running total" sensors, do not use the "daily" sensors.
 
