@@ -50,7 +50,7 @@ Once Home Assistant starts and you authenticate access, the `blink` integration 
 - A `binary_sensor` motion detection, camera armed status, and battery status.
 - A `switch` per camera to enable/disable motion detection
 
-Since the cameras are battery operated, setting the `scan_interval` must be done with care so as to not drain the battery too quickly, or hammer Blink's servers with too many API requests.  The cameras can be manually updated via the `trigger_camera` service which will ignore the throttling caused by `scan_interval`.  As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
+Since the cameras are battery operated, polling must be done with care so as to not drain the battery too quickly, or hammer Blink's servers with too many API requests.  If an alternate polling rate is desired, disable the "enable poll for updates" option in the Blink integration system options and poll with `homeassistant.update_entity` service.  The cameras can be also manually updated via the `trigger_camera` service.  As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
 
 Please note that each camera reports two different states: one as `sensor.blink_<camera_name>_status` and the other as `binary_sensor.blink_<camera_name>_motion_enabled`. The `motion_enabled` property reports if the `camera` is ready to detect motion **regardless if the system is actually armed**.
 
