@@ -121,7 +121,8 @@ To play media Spotify first needs a device selected for audio output known as th
 ```yaml
 # Example code to select an AV receiver as the output device
 service: media_player.select_source
-entity_id: media_player.spotify
+target:
+  entity_id: media_player.spotify
 data:
   source: "Denon AVR-X2000"
 ```
