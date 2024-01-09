@@ -154,13 +154,17 @@ The user password can be obtained almost the same way as seen in the below scree
 
 ## Triggers
 
-The `KNX` integration provides its own trigger platform which can be used in automations.
+The KNX integration provides its own trigger platform which can be used in automations.
 
 ### Telegram trigger
 
 The `knx.telegram` trigger can be used to trigger automations on incoming or outgoing KNX telegrams.
 
-#### Trigger options
+<div class='note'>
+
+This trigger is also provided as device trigger by the `KNX Interface` device with support for setting the options in the automation builder UI.
+
+</div>
 
 {% configuration %}
 destination:
@@ -198,27 +202,87 @@ outgoing:
 
 In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `knx.telegram` trigger platform has additional trigger data available for use.
 
-| Template variable          | Example data                                            | Type            | Description                                                                          | Project data required |
-|----------------------------|---------------------------------------------------------|-----------------|--------------------------------------------------------------------------------------|-----------------------|
-| `trigger.destination`      | `1/2/3`                                                 | string          | Destination group address                                                            | no                    |
-| `trigger.destination_name` | `Light office brightness`                               | string          | Destination group address name                                                       | yes                   |
-| `trigger.direction`        | `Incoming` or `Outgoing`                                | string          | Telegram direction                                                                   | no                    |
-| `trigger.dpt_main`         | `5`                                                     | integer         | Destination group address main DPT                                                   | yes                   |
-| `trigger.dpt_sub`          | `1`                                                     | integer         | Destination group address sub DPT                                                    | yes                   |
-| `trigger.dpt_name`         | `percent`                                               | string          | DPT value type name - see Sensor                                                     | yes                   |
-| `trigger.payload`          | `- 255`                                                 | integer or list | Raw telegram payload DPT 1, 2 and 3 yield integers other DPT yield lists of integers | no                    |
-| `telegram.source`          | `1.0.40`                                                | string          | Source individual address                                                            | no                    |
-| `telegram.source_name`     | `Dimming actuator`                                      | string          | Source name                                                                          | yes                   |
-| `telegram.telegramtype`    | `GroupValueWrite` `GroupValueResponse` `GroupValueRead` | string          | APCI type of telegram                                                                | no                    |
-| `telegram.timestamp`       | `"2024-01-09T10:38:28.447487+01:00"`                    | timestamp       | Timestamp                                                                            | no                    |
-| `telegram.unit`            | `%`                                                     | string          | Unit according to group address DPT                                                  | yes                   |
-| `telegram.value`           | `100`                                                   | any             | Decoded telegram payload according to DPT                                            | yes                   |
+- `trigger.destination` Destination group address
+- `trigger.destination_name` Destination group address name
+- `trigger.direction` Telegram direction
+- `trigger.dpt_main` Destination group address main datapoint type number
+- `trigger.dpt_sub` Destination group address sub datapoint type number
+- `trigger.dpt_name` DPT value type name - see Sensor value types
+- `trigger.payload` Raw telegram payload. DPT 1, 2 and 3 yield integers 0..255; other DPT yield lists of integers 0..255
+- `telegram.source` Source individual address
+- `telegram.source_name` Source name
+- `telegram.telegramtype` APCI type of telegram
+- `telegram.timestamp` Timestamp
+- `telegram.unit` Unit according to group address DPT
+- `telegram.value` Decoded telegram payload according to DPT
+
+| Template variable          | Type                        | Project data required |
+|----------------------------|-----------------------------|-----------------------|
+| `trigger.destination`      | string                      | no                    |
+| `trigger.destination_name` | string                      | yes                   |
+| `trigger.direction`        | string                      | no                    |
+| `trigger.dpt_main`         | integer                     | yes                   |
+| `trigger.dpt_sub`          | integer                     | yes                   |
+| `trigger.dpt_name`         | string                      | yes                   |
+| `trigger.payload`          | integer or list of integers | no                    |
+| `telegram.source`          | string                      | no                    |
+| `telegram.source_name`     | string                      | yes                   |
+| `telegram.telegramtype`    | string                      | no                    |
+| `telegram.timestamp`       | timestamp                   | no                    |
+| `telegram.unit`            | string                      | yes                   |
+| `telegram.value`           | any                         | yes                   |
+
+For values that require project data, if the information was not found, or no project file was provided, data will be set to `null`.
 
 #### Examples
 
+Example automation configuration
 
+```yaml
+- alias: Single group address trigger
+  description: ''
+  trigger:
+  - platform: knx.telegram
+    destination: 1/2/3
+    group_value_read: false
+    outgoing: false
+  condition: []
+  action: []
+  mode: single
+```
+
+Example trigger data
+
+```yaml
+variables:
+  trigger:
+    id: "0"
+    idx: "0"
+    alias: null
+    destination: 1/2/3
+    destination_name: Light office brightness
+    direction: Incoming
+    dpt_main: 5
+    dpt_sub: 1
+    dpt_name: percent
+    payload:
+      - 255
+    source: 1.0.51
+    source_name: Dimming actuator 1
+    telegramtype: GroupValueWrite
+    timestamp: "2024-01-09T10:38:28.447487+01:00"
+    unit: "%"
+    value: 100
+context: null
+```
 
 ## Events
+
+<div class='note'>
+
+For automation triggers it is recommended to use the [knx.telegram](#telegram-trigger) trigger instead of `knx_event`.
+
+</div>
 
 ```yaml
 knx:
@@ -285,7 +349,7 @@ response:
 ### Read
 
 You can use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of an entity.
-To manually send GroupValueRead requests use the `knx.read` service. The response can be used from `knx_event` and will be processed in KNX entities.
+To manually send GroupValueRead requests use the `knx.read` service. The response can be used in automations by the `knx.telegram` trigger and it will be processed in KNX entities.
 
 ```txt
 Domain: knx
@@ -569,7 +633,7 @@ The KNX button platform allows to send concurrent predefined values via the fron
 
 <div class='note'>
 
-Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use `knx_event` if you want to automate on a specific payload received on a group address.
+Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use the `knx.telegram` trigger if you want to automate on a specific payload received on a group address.
 
 </div>
 
