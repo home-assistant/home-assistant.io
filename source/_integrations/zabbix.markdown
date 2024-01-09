@@ -57,6 +57,10 @@ publish_states_host:
   description: The host that will receive the state changes from Home Assistant. It needs to be manually created in Zabbix first and have the template associated with it (see above).
   required: false
   type: string
+token:
+  description: The authentication token for your install if you choose to do [token based authentication](https://www.zabbix.com/documentation/current/en/manual/web_interface/frontend_sections/users/api_tokens)
+  required: false
+  type: string
 exclude:
   type: list
   description: Configure which integrations should be excluded from being published to Zabbix. ([Configure Filter](#configure-filter))
@@ -104,6 +108,7 @@ zabbix:
   username: USERNAME
   password: PASSWORD
   publish_states_host: homeassistant
+  token: MyVerySecretToken
   exclude:
     domains:
       - device_tracker
