@@ -152,6 +152,72 @@ The user password can be obtained almost the same way as seen in the below scree
 
 ![Obtain the user password in ETS](/images/integrations/knx/user_password.png)
 
+## Triggers
+
+The `KNX` integration provides its own trigger platform which can be used in automations.
+
+### Telegram trigger
+
+The `knx.telegram` trigger can be used to trigger automations on incoming or outgoing KNX telegrams.
+
+#### Trigger options
+
+{% configuration %}
+destination:
+  description: A group address a list of group addresses the trigger should listen on. If not set, the trigger will listen on all group addresses.
+  type: [string, list]
+  required: false
+group_value_write:
+  description: If set to `false`, the trigger will not fire on GroupValueWrite telegrams.
+  type: boolean
+  default: true
+  required: false
+group_value_response:
+  description: If set to `false`, the trigger will not fire on GroupValueResponse telegrams.
+  type: boolean
+  default: true
+  required: false
+group_value_read:
+  description: If set to `false`, the trigger will not fire on GroupValueRead telegrams.
+  type: boolean
+  default: true
+  required: false
+incoming:
+  description: If set to `false`, the trigger will not fire on incoming telegrams.
+  type: boolean
+  default: true
+  required: false
+outgoing:
+  description: If set to `false`, the trigger will not fire on outgoing telegrams.
+  type: boolean
+  default: true
+  required: false
+{% endconfiguration %}
+
+#### Available trigger data
+
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `knx.telegram` trigger platform has additional trigger data available for use.
+
+| Template variable          | Example data                                            | Type            | Description                                                                          | Project data required |
+|----------------------------|---------------------------------------------------------|-----------------|--------------------------------------------------------------------------------------|-----------------------|
+| `trigger.destination`      | `1/2/3`                                                 | string          | Destination group address                                                            | no                    |
+| `trigger.destination_name` | `Light office brightness`                               | string          | Destination group address name                                                       | yes                   |
+| `trigger.direction`        | `Incoming` or `Outgoing`                                | string          | Telegram direction                                                                   | no                    |
+| `trigger.dpt_main`         | `5`                                                     | integer         | Destination group address main DPT                                                   | yes                   |
+| `trigger.dpt_sub`          | `1`                                                     | integer         | Destination group address sub DPT                                                    | yes                   |
+| `trigger.dpt_name`         | `percent`                                               | string          | DPT value type name - see Sensor                                                     | yes                   |
+| `trigger.payload`          | `- 255`                                                 | integer or list | Raw telegram payload DPT 1, 2 and 3 yield integers other DPT yield lists of integers | no                    |
+| `telegram.source`          | `1.0.40`                                                | string          | Source individual address                                                            | no                    |
+| `telegram.source_name`     | `Dimming actuator`                                      | string          | Source name                                                                          | yes                   |
+| `telegram.telegramtype`    | `GroupValueWrite` `GroupValueResponse` `GroupValueRead` | string          | APCI type of telegram                                                                | no                    |
+| `telegram.timestamp`       | `"2024-01-09T10:38:28.447487+01:00"`                    | timestamp       | Timestamp                                                                            | no                    |
+| `telegram.unit`            | `%`                                                     | string          | Unit according to group address DPT                                                  | yes                   |
+| `telegram.value`           | `100`                                                   | any             | Decoded telegram payload according to DPT                                            | yes                   |
+
+#### Examples
+
+
+
 ## Events
 
 ```yaml
@@ -237,11 +303,9 @@ address:
 # Example automation to update a cover position after 10 seconds of movement initiation
 automation:
   - trigger:
-      - platform: event
-        event_type: knx_event
-        event_data:
-          # Cover move trigger
-          destination: "0/4/20"
+      - platform: knx.telegram
+        # Cover move trigger
+        destination: "0/4/20"
     action:
       - delay: 0:0:10
       - service: knx.read
@@ -258,10 +322,6 @@ automation:
         data:
           # Cover move trigger
           address: "0/4/20"
-      - service: knx.read
-        data:
-          # Cover position address
-          address: "0/4/21"
 ```
 
 ### Register event
