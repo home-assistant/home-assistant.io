@@ -38,6 +38,17 @@ The water heater entity offers the following capabilities:
 - Change operation mode
 - Enable/disable away mode (will set the water heater to "vacation" mode)
 
+#### Operation modes
+
+This table shows the supported operation modes. The available modes will depend on your specific water heater model.
+
+| Mode displayed in A. O. Smith app  | Mode displayed in Home Assistant | Mode name for `water_heater.set_operation_mode` service |
+| ---------------------------------- | -------------------------------- | ------------------------------------------------------- |
+| Electric/Standard                  | Electric                         | `electric`                                              |
+| Hybrid                             | Eco                              | `eco`                                                   |
+| Heat Pump                          | Heat Pump                        | `heat_pump`                                             |
+| Vacation                           | N/A - use away mode              | N/A - use `water_heater.set_away_mode`                  |
+
 ### Sensor
 
 The following sensor entities are available:
