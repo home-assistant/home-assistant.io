@@ -102,6 +102,7 @@ The time period these sensors use depends on the forecast mode selected when con
 | `forecast_temperature`               | Maximum temperature for the day.                                                                                                                               |
 | `forecast_temperature_low`           | Minimum temperature for the day.                                                                                                                               |
 | `forecast_time`                      | Time of the forecasted data.                                                                                                                                   |
+| `forecast_weather`                   | A human-readable description of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2).                              |
 | `forecast_wind_bearing`              | Wind direction for the forecast's time period, degrees (meteorological).                                                                                       |
 | `forecast_wind_speed`                | Wind speed for the forecast's time period, metre/sec.                                                                                                          |
 
