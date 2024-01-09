@@ -41,19 +41,11 @@ template:
 
 ### Configuring the Energy Dashboard
 
-There are generally 3 sensors from your inverter that you need to configure in the energy dashboard:
+There are generally at least 3 sensors from your inverter that you need to configure in the energy dashboard:
 
-- The total consumption sensor (in kWh) for the **Grid Consumption**.
-- The total feed-in sensor (in kWh) for the **Return to grid**, like the solar panel energy that you do not consume and return to the grid instead.
-- The total on-grid yield sensor (in kWh) for the **Solar production**.
-
-These are "running total" sensors, do not use the "daily" sensors.
-
-Depending on the type of inverter, the sensors you need may be named differently. Here is an example with the `X1HybridGen4` inverter:
-
-- `sensor.solax_XXXXXXXX_total_consumption` for the "Grid Consumption"
-- `sensor.solax_XXXXXXXX_total_feed_in_energy` for the "Return to grid"
-- `sensor.solax_XXXXXXXX_on_grid_total_yield` for the "Solar production"
+- The consumption sensor (in kWh) for the **Grid Consumption**.
+- The feed-in sensor (in kWh) for the **Return to grid**, i.e. the solar panel energy that you do not consume and return to the grid instead.
+- The on-grid yield sensor (in kWh) for the **Solar production**.
 
 ### Note
 
