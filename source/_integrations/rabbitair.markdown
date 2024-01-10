@@ -21,7 +21,7 @@ The Rabbit Air integration lets you control your air purifier over the local net
 
 The fan platform of this integration allows you to turn the unit on/off, select the preset mode, or set the speed manually.
 
-## Pre-requisites
+## Prerequisites
 
 To set up the integration, you will need to know a device address and an access token.
 
