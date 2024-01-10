@@ -36,6 +36,8 @@ This integration will offer various sensors depending on the configuration of yo
 - Historical energy production & consumption
 - Power production per-inverter
 
+For Envoy-metered with installed and configured CT on more then 1 phase, production and consumption for each individual phase is available.
+
 _Consumption sensors require your Envoy to be properly configured with consumption CT sensors installed._
 
 For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/IQ Batteries installed, additional features are available:
