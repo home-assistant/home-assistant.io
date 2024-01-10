@@ -28,11 +28,16 @@ To set the Zabbix {% term integration %} up, add the following information to yo
 # Example configuration.yaml entry
 zabbix:
   host: IP_ADDRESS
+  url: IP_ADDRESS:PORT
 ```
 
 {% configuration %}
 host:
   description: Your Zabbix server.
+  required: true
+  type: string
+url:
+  description: URL to your Zabbix server
   required: true
   type: string
 path:
