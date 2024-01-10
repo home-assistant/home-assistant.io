@@ -104,6 +104,7 @@ include:
 zabbix:
   host: ZABBIX_HOST
   path: ZABBIX_PATH
+  url: ZABBIX_HOST:8080
   ssl: false
   username: USERNAME
   password: PASSWORD
