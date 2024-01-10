@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - **Button**: add various configuration controls
 - **Sensor**: reports on the device's detected temperature and uptime
 - **Switch**: allows the user to enable and disable the onboard access point
-- **Valve**: allows the user to open and close the valve (deprecated)
+- **Valve**: allows the user to open and close the valve
 
 {% include integrations/config_flow.md %}
 
