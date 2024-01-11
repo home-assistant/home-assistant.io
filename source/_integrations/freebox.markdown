@@ -45,12 +45,6 @@ You can find out your Freebox host and port by opening this address <http://mafr
 The returned JSON should contain an `api_domain` (`host`) and a `https_port` (`port`).
 Please consult the [API documentation](https://dev.freebox.fr/sdk/os/) for more information.
 
-### Via the UI
-
-Menu: **Settings** -> **Devices & Services**. Search for "Freebox", add your host and port, click submit.
-
-If you add the integration for the first time, follow the instructions in the [Initial setup](#initial-setup) section.
-
 ### Initial setup
 
 <div class='note warning'>
