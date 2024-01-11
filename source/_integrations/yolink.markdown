@@ -7,6 +7,7 @@ ha_category:
   - Cover
   - Light
   - Lock
+  - Number
   - Sensor
   - Siren
   - Switch
@@ -22,6 +23,7 @@ ha_platforms:
   - cover
   - light
   - lock
+  - number
   - sensor
   - siren
   - switch
