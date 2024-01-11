@@ -312,7 +312,7 @@ Please check from the device Web UI that the configured server is reachable.
 
 - Only supports firmware 1.9 and later for generation 1 devices
 - Only supports firmware 1.0 and later for generation 2 devices
-- The following generation 1 devices only supported from firmware 1.11 and later (due to incompatible API):
+- The following generation 1 devices only support firmware 1.11 and later (due to incompatible API):
   - Shelly DUO
   - Shelly Bulb RGBW
   - Shelly Dimmer
