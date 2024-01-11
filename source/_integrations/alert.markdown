@@ -29,10 +29,10 @@ State | Description
 `on` | The condition for the alert is true.
 `off` | The condition for the alert is true but it was acknowledged.
 
-### Basic Example
+### Basic example
 
 The `alert` integration makes use of any of the `notification` integrations. To
-setup the `alert` integration, first, you must setup a `notification` integration.
+setup the `alert` integration, first, you must set up a [notification integration](/integrations/#notifications).
 Then, add the following to your configuration file:
 
 ```yaml
@@ -149,7 +149,7 @@ alert:
       - john_phone_sms
 ```
 
-### Complex Alert Criteria
+### Complex alert criteria
 
 By design, the `alert` integration only handles very simple criteria for firing.
 That is, it only checks if a single entity's state is equal to a value. At some
@@ -184,7 +184,7 @@ This example will begin firing as soon as the entity `sensor.motion`'s `battery`
 attribute falls below 15. It will continue to fire until the battery attribute
 raises above 15 or the alert is acknowledged on the frontend.
 
-### Dynamic Notification Delay Times
+### Dynamic notification delay times
 
 It may be desirable to have the delays between alert notifications dynamically
 change as the alert continues to fire. This can be done by setting the `repeat`
@@ -215,7 +215,7 @@ following notification.
 For example, if the garage door opens at 2:00, a notification will be
 sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
 
-### Message Templates
+### Message templates
 
 It may be desirable to have the alert notifications include information
 about the state of the entity. [Templates][template]

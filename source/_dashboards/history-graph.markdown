@@ -1,29 +1,29 @@
 ---
 type: card
-title: "History Graph Card"
-sidebar_label: History Graph
-description: "The History Graph card allows you to display a graph for each of the entities listed."
+title: "History graph card"
+sidebar_label: History graph
+description: "The history graph card allows you to display a graph for each of the entities listed."
 ---
 
-The History Graph card allows you to display a graph for each of up to eight entities.
+The history graph card allows you to display a graph for each of up to eight entities.
 
 <p class='img'>
 <img src='/images/dashboards/history_graph.png' alt='Screenshot of the history graph card for entities without a unit_of_measurement'>
-Screenshot of the History Graph card, when the sensor has no `unit_of_measurement` defined.
+Screenshot of the history graph card, when the sensor has no `unit_of_measurement` defined.
 </p>
 
 <p class='img'>
 <img src='/images/dashboards/history_graph_lines.png' alt='Screenshot of the history graph card for entities with a unit_of_measurement'>
-Screenshot of the History Graph card, when the sensor has a `unit_of_measurement` defined.
+Screenshot of the history graph card, when the sensor has a `unit_of_measurement` defined.
 </p>
 
-To add the History Graph card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -55,7 +55,7 @@ logarithmic_scale:
   default: false
 {% endconfiguration %}
 
-### Options For Entities
+### Options for entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 

@@ -41,6 +41,42 @@ modes:
   type: list
 {% endconfiguration %}
 
+## Climate fan modes
+
+Widget that displays buttons or icons to control the fan mode for a [climate](/integrations/climate) device.
+
+<p class='img'>
+  <img src='/images/dashboards/features/climate_fan_modes.png' alt='Screenshot of the tile card with the climate fan modes feature'>
+  Screenshot of the tile card with the climate fan modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-fan-modes"
+    style: "icons"
+    fan_modes:
+      - "off"
+      - low
+      - medium
+      - high
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`climate-fan-modes`"
+  type: string
+style:
+  required: false
+  description: "How the fan modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+fan_modes:
+  required: true
+  description: List of fan modes to show on the card. The list can contain `on`, `off`, `auto`, `low`, `medium`, `high`, `middle`, `focus` and `diffuse` or any other custom fan mode.
+  type: list
+{% endconfiguration %}
+
 ## Climate HVAC modes
 
 Widget that displays buttons to control the HVAC mode for a [climate](/integrations/climate).
@@ -68,9 +104,48 @@ type:
   required: true
   description: "`climate-hvac-modes`"
   type: string
+style:
+  required: false
+  description: "How the modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: icons
 hvac_modes:
   required: true
   description: List of modes to show on the card. The list can contain `auto`, `heat_cool`, `heat`, `cool`, `dry`, `fan_only`, and `off`.
+  type: list
+{% endconfiguration %}
+
+## Climate preset modes
+
+Widget that displays buttons or icons to control the preset mode for a [climate](/integrations/climate).
+
+<p class='img'>
+  <img src='/images/dashboards/features/climate_preset_modes.png' alt='Screenshot of the tile card with the climate preset modes feature'>
+  Screenshot of the tile card with the climate preset modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-preset-modes"
+    style: "icons"
+    preset_modes:
+      - home
+      - eco
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`climate-preset-modes`"
+  type: string
+style:
+  required: false
+  description: "How the preset modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+preset_modes:
+  required: true
+  description: List of preset modes to show on the card. The list can contain `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, and `activity` or any other custom preset mode.
   type: list
 {% endconfiguration %}
 
@@ -181,7 +256,7 @@ type:
 
 ## Humidifier modes
 
-Widget that displays buttons to control the mode for a [humidifier](/integrations/humidifier).
+Widget that displays buttons or icons to control the mode for a [humidifier](/integrations/humidifier).
 
 <p class='img'>
   <img src='/images/dashboards/features/humidifier_modes.png' alt='Screenshot of the tile card with the humidifier modes feature'>
@@ -191,12 +266,46 @@ Widget that displays buttons to control the mode for a [humidifier](/integration
 ```yaml
 features:
   - type: "humidifier-modes"
+    style: "icons"
+    modes:
+      - home
+      - eco
 ```
 
 {% configuration features %}
 type:
   required: true
   description: "`humidifier-modes`"
+  type: string
+style:
+  required: false
+  description: "How the modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+modes:
+  required: true
+  description: List of modes to show on the card. The list can contain `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby` or any other custom mode.
+  type: list
+{% endconfiguration %}
+
+## Humidifier toggle
+
+Widget that displays buttons to turn on or off a [humidifier](/integrations/humidifier).
+
+<p class='img'>
+  <img src='/images/dashboards/features/humidifier_toggle.png' alt='Screenshot of the tile card with the humidifier toggle feature'>
+  Screenshot of the tile card with the humidifier toggle feature
+</p>
+
+```yaml
+features:
+  - type: "humidifier-toggle"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`humidifier-toggle`"
   type: string
 {% endconfiguration %}
 
@@ -267,6 +376,54 @@ features:
 type:
   required: true
   description: "`light-color-temp`"
+  type: string
+{% endconfiguration %}
+
+## Numeric input
+
+Widget that displays a slider or buttons to set the value for a [number](/integrations/number) or [input number](/integrations/input_number).
+
+<p class='img'>
+  <img src='/images/dashboards/features/numeric_input.png' alt='Screenshot of the tile card with the numeric input feature'>
+  Screenshot of the tile card with the numeric input feature
+</p>
+
+```yaml
+features:
+  - type: "numeric-input"
+    style: "buttons"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`numeric-input`"
+  type: string
+style:
+  required: false
+  description: "Which style of control to display. It can be either `buttons` or `slider`."
+  type: string
+  default: slider
+{% endconfiguration %}
+
+## Target humidity
+
+Widget that displays a slider to select the target humidity for a [humidifier](/integrations/humidifier).
+
+<p class='img'>
+  <img src='/images/dashboards/features/target_humidity.png' alt='Screenshot of the tile card with the target humidity feature'>
+  Screenshot of the tile card with the target humidity feature
+</p>
+
+```yaml
+features:
+  - type: "target-humidity"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`target-humidity`"
   type: string
 {% endconfiguration %}
 

@@ -7,8 +7,8 @@ ha_release: 0.54
 ha_domain: mqtt
 ---
 
-The `mqtt` vacuum integration allows you to control your MQTT-enabled vacuum.
-The initial state of the MQTT vacuum entity will set to `unknown` and can be reset by a device by sending a `null` payload as state.
+The `mqtt` vacuum {% term integration %} allows you to control your MQTT-enabled vacuum.
+The initial state of the MQTT vacuum {% term entity %} will set to `unknown` and can be reset by a device by sending a `null` payload as state.
 
 ## Configuration
 
@@ -176,11 +176,6 @@ retain:
   required: false
   type: boolean
   default: false
-schema:
-  description: The schema to use. Must be `state`.
-  required: false
-  type: string
-  default: legacy
 send_command_topic:
   description: The MQTT topic to publish custom commands to the vacuum.
   required: false
@@ -251,7 +246,7 @@ Possible MQTT payloads:
 - `clean_spot` - Initialize a spot cleaning cycle
 - `locate` - Locate the vacuum (typically by playing a song)
 
-### Send Custom Command
+### Send custom command
 
 Vacuum send_command allows three parameters:
 

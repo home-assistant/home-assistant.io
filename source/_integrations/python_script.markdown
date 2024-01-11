@@ -105,7 +105,7 @@ context:
   user_id: null
 ```
 
-## Calling Services
+## Calling services
 
 The following example shows how to call a service from `python_script`. This script takes two parameters: `entity_id` (required), `rgb_color` (optional) and calls `light.turn_on` service by setting the brightness value to `255`.
 
@@ -132,8 +132,8 @@ Services can also respond with data. Retrieving this data in your Python script 
 
 ```python
 # get_forecast.py
-service_data = {"type": "daily", "entity_id": "weather.YOUR_HOME"}
-current_forecast = hass.services.call("weather", "get_forecast", service_data, blocking=True, return_response=True)
+service_data = {"type": "daily", "entity_id": ["weather.YOUR_HOME", "weather.YOUR_SCHOOL"]}
+current_forecast = hass.services.call("weather", "get_forecasts", service_data, blocking=True, return_response=True)
 ```
 
 ## Documenting your Python scripts
