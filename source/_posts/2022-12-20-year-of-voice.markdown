@@ -9,6 +9,7 @@ author_twitter: balloob
 comments: true
 categories:
 - Announcements
+- Assist
 og_image: /images/blog/2022-12-20-year-of-voice/conversation.png
 ---
 
