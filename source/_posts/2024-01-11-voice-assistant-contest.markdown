@@ -18,4 +18,4 @@ Tune in to our live stream on Wednesday, 17th of January, at 12:00 PST / 21:00 C
 
 This live stream will be the perfect opportunity for everyone who loves our voice assistants but still needs to figure out where to start. You can learn everything you need during the stream and be fully prepared to build the voice assistant of your dreams. We're excited to see what you will create and enter into the contest!
 
-<lite-youtube videoid="xxxxxx" videotitle="Voice Assistant Contest"></lite-youtube>
+<lite-youtube videoid="99lGuB4J-4o" videotitle="Voice Assistant Contest"></lite-youtube>
