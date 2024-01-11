@@ -414,7 +414,6 @@ source/_integrations/legrand.markdown @cgtobi
 source/_integrations/leviton_z_wave.markdown @home-assistant/z-wave
 source/_integrations/lg_netcast.markdown @Drafteed
 source/_integrations/lidarr.markdown @tkdrob
-source/_integrations/life360.markdown @pnbruckner
 source/_integrations/light.markdown @home-assistant/core
 source/_integrations/linear_garage_door.markdown @IceBotYT
 source/_integrations/linux_battery.markdown @fabaff
