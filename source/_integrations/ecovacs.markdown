@@ -1,5 +1,5 @@
 ---
-title: Ecovacs
+title: Ecovacs Legacy
 description: Instructions on how to integrate Ecovacs vacuums within Home Assistant.
 ha_category:
   - Hub
@@ -15,7 +15,8 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `ecovacs` integration is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
+The `ecovacs` integration is the legacy integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. For newer devices, please check [Ecovacs MQTT](./ecovacs_mqtt.markdown)
+You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
 
 There is currently support for the following device types within Home Assistant:
 
