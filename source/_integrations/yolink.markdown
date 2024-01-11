@@ -7,6 +7,7 @@ ha_category:
   - Cover
   - Light
   - Lock
+  - Number
   - Sensor
   - Siren
   - Switch
@@ -22,6 +23,7 @@ ha_platforms:
   - cover
   - light
   - lock
+  - number
   - sensor
   - siren
   - switch
@@ -58,4 +60,5 @@ The integration is tested and verified for the following devices from YoLink:
 - YS3604 (FlexFob)
 - YS7106 (PowerFailureAlar)
 - YS4908 (Finger)
-- ‎YS7805 (Outdoor Motion Detector Sensor)
+- YS7805 (Outdoor Motion Detector Sensor)
+- YS1604 (SpeakerHub)
