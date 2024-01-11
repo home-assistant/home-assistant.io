@@ -17,7 +17,7 @@ ha_integration_type: system
 
 Home Assistant allows users to share their usage data via the analytics integration. The aggregated data is available at <https://analytics.home-assistant.io>. It is used to influence Home Assistant development priorities and to convince manufacturers to add local control and privacy-focused features.
 
-## Data Collection
+## Data collection
 
 The information sent depends on what options you opt-in to. You can opt-in during onboarding and by going to **{% my analytics title="Settings > System > Analytics" %}** .
 

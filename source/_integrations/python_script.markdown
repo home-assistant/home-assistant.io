@@ -106,7 +106,7 @@ context:
   user_id: null
 ```
 
-## Calling Services
+## Calling services
 
 The following example shows how to call a service from `python_script`. This script takes two parameters: `entity_id` (required), `rgb_color` (optional) and calls `light.turn_on` service by setting the brightness value to `255`.
 
@@ -129,9 +129,17 @@ The above `python_script` can be called using the following YAML as an input.
     rgb_color: [255, 0, 0]
 ```
 
+Services can also respond with data. Retrieving this data in your Python script can be done by setting the `blocking` and `return_response` arguments of the `hass.services.call` function to `True`. This is shown in the example below, in this case, retrieving the weather forecast and putting it into a variable:
+
+```python
+# get_forecast.py
+service_data = {"type": "daily", "entity_id": ["weather.YOUR_HOME", "weather.YOUR_SCHOOL"]}
+current_forecast = hass.services.call("weather", "get_forecasts", service_data, blocking=True, return_response=True)
+```
+
 ## Returning data
 
-Python script provides a service response. Just add items to the `output` variable in your `python_script` and the whole dictionary will be returned. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+Python script itself can respond with data. Just add items to the `output` variable in your `python_script` and the whole dictionary will be returned. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
 
 ```python
 # hello_world.py

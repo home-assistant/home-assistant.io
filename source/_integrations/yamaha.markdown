@@ -2,7 +2,7 @@
 title: Yamaha Network Receivers
 description: Instructions on how to integrate Yamaha Network Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.16
 ha_iot_class: Local Polling
 ha_domain: yamaha
@@ -20,7 +20,7 @@ Supported devices:
 - [RX-V573](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v573/specs.html)
 - [RX-V585](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
 - [RX-V673](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v673/specs.html)
-- [RX-V685](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
+- [RX-V685](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v685_u/specs.html)
 - [RX-V773](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v773/specs.html)
 - [RX-V3067](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v3067/specs.html)
 - And more
@@ -69,6 +69,7 @@ zone_names:
 - The `play_media` service is implemented for `NET RADIO` source
   only. The `media_id` is a `>` separated string of the menu path on
   the vtuner service. For instance `Bookmarks>Internet>WAMC 90.3 FM`.
+  MusicCast devices use the path `Radio>Favorites>WAMC 90.3 FM`.
 
 ### Example configuration
 

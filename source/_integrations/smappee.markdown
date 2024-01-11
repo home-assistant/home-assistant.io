@@ -2,7 +2,7 @@
 title: Smappee
 description: Instructions on how to setup Smappee within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Energy
   - Hub
   - Sensor

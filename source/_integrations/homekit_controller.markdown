@@ -3,7 +3,7 @@ title: HomeKit Device
 description: Instructions for how to integrate your HomeKit devices within Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Fan
@@ -44,7 +44,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The [HomeKit](https://developer.apple.com/apple-home/) Device integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
+The [HomeKit](https://developer.apple.com/apple-home/) Device integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit Bridge](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
 
 # Adding a HomeKit device
 
@@ -58,7 +58,7 @@ There are different methods to add a HomeKit device to Home Assistant:
 
 ## Adding a HomeKit device via Ethernet or Wi-Fi
 
-The HomeKit controller integration automatically detects HomeKit [compatible devices](#supported-devices) on your network when they are ready to pair.
+The HomeKit Device integration automatically detects HomeKit [compatible devices](#supported-devices) on your network when they are ready to pair.
 
 ### Prerequisites
 
@@ -74,19 +74,19 @@ The HomeKit controller integration automatically detects HomeKit [compatible dev
     - Otherwise you won't be able to pair it with Home Assistant.
   - **Explanation:** Adding the device to the Home app and then removing it again has two effects:
     - It adds the device to your network. It stays in the network even after you removed it from the app.
-    - Removing the device from the app opens it up for pairing with Home Assistant's HomeKit Controller integration directly. HomeKit devices can only be paired to a single controller at once.
+    - Removing the device from the app opens it up for pairing with Home Assistant's HomeKit Device integration directly. HomeKit devices can only be paired to a single controller at once.
 
 
 ### To add a HomeKit device via Ethernet or Wi-Fi
 
 1. The device should have been discovered under **{% my integrations title="Settings > Devices & Services" %}**.
-2. On the HomeKit integration, select **Configure**.
+2. On the HomeKit Device integration, select **Configure**.
      
      ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
 3. Enter your HomeKit pairing code.
    - Add the device to a room and select **Finish**.
    - The device should now be added to your Home Assistant instance.
-4. Once Home Assistant is configured to work with the device, you can export it back to Siri and Apple Home with the [`HomeKit`](/integrations/homekit/) integration.
+4. Once Home Assistant is configured to work with the device, you can export it back to Siri and Apple Home with the [`HomeKit Bridge`](/integrations/homekit/) integration.
 
 ## Adding a HomeKit device through Bluetooth
 
@@ -106,7 +106,7 @@ You can add a HomeKit [compatible device](#supported-devices) to Home Assistant 
 
 1. Power up your HomeKit device.
    - If you have Bluetooth enabled, the device should be discovered under **{% my integrations title="Settings > Devices & Services" %}**.
-2. On the HomeKit integration, select **Configure**.
+2. On the HomeKit Bridge integration, select **Configure**.
      
      ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
 3. To pair the device, enter the HomeKit pairing code.
@@ -185,18 +185,18 @@ This section describes how to add a HomeKit [compatible device](#supported-devic
 
 There is currently support for the following device types (also called *domains*) within Home Assistant. They are listed with their default types.
 
-- Alarm Control Panel (HomeKit security system)
+- Alarm control panel (HomeKit security system)
 - Climate (HomeKit thermostats and air conditioners)
 - Cover (HomeKit garage door openers, windows, or window coverings)
 - Light (HomeKit lights)
 - Lock (HomeKit lock)
 - Switch (HomeKit switches, outlets and valves)
-- Binary Sensor (HomeKit motion, contact, occupancy, carbon monoxide and smoke sensors)
+- Binary sensor (HomeKit motion, contact, occupancy, carbon monoxide and smoke sensors)
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 - Fan
-- Air Quality
+- Air quality
 - Humidifier (HomeKit humidifiers and dehumidifiers)
-- Automation Triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
+- Automation triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
 
 <div class='note'>
 

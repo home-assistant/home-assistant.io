@@ -46,14 +46,18 @@ Enjoy the release!
 - [Introducing the event entity](#introducing-the-event-entity)
 - [Improving the first experience with Home Assistant](#improving-the-first-experience-with-home-assistant)
 - [Add items to your shopping list using Assist](#add-items-to-your-shopping-list-using-assist)
-- [Wildcard support for sentence triggers](#wildcard-support-for-sentence-triggers)
 - [Generate an image with OpenAI's DALL-E](#generate-an-image-with-openais-dall-e)
+- [Wildcard support for sentence triggers](#wildcard-support-for-sentence-triggers)
 - [Condition selector](#condition-selector)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2023.8.1 - August 4](#release-202381---august-4)
+- [Release 2023.8.2 - August 11](#release-202382---august-11)
+- [Release 2023.8.3 - August 18](#release-202383---august-18)
+- [Release 2023.8.4 - August 24](#release-202384---august-24)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -80,7 +84,7 @@ to turn on a light is now also translated into Dutch.
 A big step forward! Implementing this change has resulted in a substantial
 increase in the number of translations. They have doubled! 😅
 
-Because of that, translating all services might take some time; however… 
+Because of that, translating all services might take some time; however…
 You can help! You don’t have to be a developer to help with this; you can do this
 from the comfort of your browser. Check out our documentation on
 [how to contribute translations](https://developers.home-assistant.io/docs/translations).
@@ -131,7 +135,7 @@ This is powered by [OpenStreetMap](https://www.openstreetmap.org/) ❤️
 
 ## Add items to your shopping list using Assist
 
-What if you could ask [Assist](/integrations/assist) to add items to your
+What if you could ask [Assist] to add items to your
 Home Assistant [shopping list](/integrations/shopping_list)? Well, now you can!
 
 > Add milk to my shopping list!
@@ -255,7 +259,6 @@ noteworthy changes this release:
 - [UniFi Network] now has controls to turn an UniFi WLAN on and off and added
   image entities for QR codes for WLAN access. Thanks, [@Kane610]!
 
-
 [@bdraco]: https://github.com/bdraco
 [@emontnemery]: https://github.com/emontnemery
 [@Ernst79]: https://github.com/Ernst79
@@ -272,6 +275,7 @@ noteworthy changes this release:
 [UniFi Network]: /integrations/unifi
 [Xiaomi BLE]: /integrations/xiaomi_ble
 [Roborock]: /integrations/roborock
+[Assist]: /voice_control/
 
 ## New integrations
 
@@ -334,7 +338,7 @@ The following integrations are now available via the Home Assistant UI:
 - **[OpenSky]**, done by [@joostlek]
 - **[Zodiac]**, done by [@joostlek]
 
-[@joostlek]: https://github.com/jooostlek
+[@joostlek]: https://github.com/joostlek
 [OpenSky]: /integrations/opensky
 [Zodiac]: /integrations/zodiac
 
@@ -460,6 +464,263 @@ The following integrations are now available via the Home Assistant UI:
 [zeroconf docs]: /integrations/zeroconf/
 [zha docs]: /integrations/zha/
 
+## Release 2023.8.2 - August 11
+
+- Handle Alert exception on notification failure ([@karwosts] - [#93632])
+- Add yeelight class to fix superclass issue ([@joostlek] - [#97649])
+- Fix metoffice visibility range sensor device class ([@MrHarcombe] - [#97763])
+- Don't assume that `battery_level` value is always present in Tractive `hw_info` ([@bieniu] - [#97766])
+- Improve counting of UniFi WLAN Clients sensor ([@Kane610] - [#97785])
+- Integration tado bump ([@erwindouna] - [#97791])
+- Ensure webhooks take HA cloud into account ([@frenck] - [#97801])
+- Bump aiohomekit to 2.6.13 ([@bdraco] - [#97820])
+- Fix Samsung syncthru device info ([@joostlek] - [#97843])
+- Fallback to get_hosts_info on older Fritz!OS in AVM Fritz!Tools ([@mib1185] - [#97844])
+- Fix Command Line template error when data is None ([@gjohansson-ST] - [#97845])
+- Bump Omada API version to fix #96193 ([@MarkGodwin] - [#97848])
+- Bump pysensibo to 1.0.33 ([@gjohansson-ST] - [#97853])
+- Add missing translation key to Gardena Bluetooth ([@joostlek] - [#97855])
+- Bump bimmer_connected to 0.13.9, fix notify ([@rikroe] - [#97860])
+- Do not fire homekit_controller events from IP polling ([@bdraco] - [#97869])
+- Avoid polling event characteristic in homekit_controller ([@bdraco] - [#97877])
+- Fix handling HomeKit events when the char is in error state ([@bdraco] - [#97884])
+- Bump python-roborock to 0.32.2 ([@Lash-L] - [#97907])
+- modbus: Adjust read count by slave_count ([@janiversen] - [#97908])
+- Bump pyatv to 0.13.4 ([@bdraco] - [#97932])
+- Bump yeelight to v0.7.13 ([@alexyao2015] - [#97933])
+- Android TV Remote: Fix missing key and cert when adding a device via IP address ([@tronikos] - [#97953])
+- Fix tomorrowio integration for new users ([@lymanepp] - [#97973])
+- Bump ZHA dependency bellows to 0.35.9 ([@puddly] - [#97976])
+- Bump `pyairvisual` to 2023.08.1 ([@bachya] - [#97999])
+- Bump aiohomekit to 2.6.15 ([@bdraco] - [#98005])
+- Add translation keys to Tuya cover ([@joostlek] - [#98040])
+- Remove trailing . from melcloud service descriptions ([@reedy] - [#98053])
+- Bump AIOAladdinConnect to 0.1.57 ([@mkmer] - [#98056])
+- Bump pynina to 0.3.2 ([@DeerMaximum] - [#98070])
+- Bump opower to 0.0.24 ([@tronikos] - [#98091])
+- Improve UniFi control PoE mode ([@Kane610] - [#98119])
+- Add missing translation key in Tuya ([@joostlek] - [#98122])
+- Correct unit of rain pause ([@elupus] - [#98131])
+- Make gardena closing sensor unavailable when closed ([@elupus] - [#98133])
+- Bump opower to 0.0.26 ([@tronikos] - [#98141])
+- Opower: Add gas sensors for utilities that report CCF ([@tronikos] - [#98142])
+- Get Opower accounts from the customer endpoint ([@tronikos] - [#98144])
+- Update aioairzone to v0.6.5 ([@Noltari] - [#98163])
+- Use explicit device name in Broadlink ([@joostlek] - [#98229])
+- Bump pynws 1.5.1; fix regression for precipitation probability ([@MatthewFlamm] - [#98237])
+- Bump pymazda to 0.3.11 ([@bdr99] - [#98084])
+
+[#93632]: https://github.com/home-assistant/core/pull/93632
+[#97609]: https://github.com/home-assistant/core/pull/97609
+[#97649]: https://github.com/home-assistant/core/pull/97649
+[#97763]: https://github.com/home-assistant/core/pull/97763
+[#97766]: https://github.com/home-assistant/core/pull/97766
+[#97772]: https://github.com/home-assistant/core/pull/97772
+[#97785]: https://github.com/home-assistant/core/pull/97785
+[#97791]: https://github.com/home-assistant/core/pull/97791
+[#97801]: https://github.com/home-assistant/core/pull/97801
+[#97820]: https://github.com/home-assistant/core/pull/97820
+[#97843]: https://github.com/home-assistant/core/pull/97843
+[#97844]: https://github.com/home-assistant/core/pull/97844
+[#97845]: https://github.com/home-assistant/core/pull/97845
+[#97848]: https://github.com/home-assistant/core/pull/97848
+[#97853]: https://github.com/home-assistant/core/pull/97853
+[#97855]: https://github.com/home-assistant/core/pull/97855
+[#97860]: https://github.com/home-assistant/core/pull/97860
+[#97869]: https://github.com/home-assistant/core/pull/97869
+[#97877]: https://github.com/home-assistant/core/pull/97877
+[#97884]: https://github.com/home-assistant/core/pull/97884
+[#97907]: https://github.com/home-assistant/core/pull/97907
+[#97908]: https://github.com/home-assistant/core/pull/97908
+[#97932]: https://github.com/home-assistant/core/pull/97932
+[#97933]: https://github.com/home-assistant/core/pull/97933
+[#97953]: https://github.com/home-assistant/core/pull/97953
+[#97973]: https://github.com/home-assistant/core/pull/97973
+[#97976]: https://github.com/home-assistant/core/pull/97976
+[#97999]: https://github.com/home-assistant/core/pull/97999
+[#98005]: https://github.com/home-assistant/core/pull/98005
+[#98040]: https://github.com/home-assistant/core/pull/98040
+[#98053]: https://github.com/home-assistant/core/pull/98053
+[#98056]: https://github.com/home-assistant/core/pull/98056
+[#98070]: https://github.com/home-assistant/core/pull/98070
+[#98084]: https://github.com/home-assistant/core/pull/98084
+[#98091]: https://github.com/home-assistant/core/pull/98091
+[#98119]: https://github.com/home-assistant/core/pull/98119
+[#98122]: https://github.com/home-assistant/core/pull/98122
+[#98131]: https://github.com/home-assistant/core/pull/98131
+[#98133]: https://github.com/home-assistant/core/pull/98133
+[#98141]: https://github.com/home-assistant/core/pull/98141
+[#98142]: https://github.com/home-assistant/core/pull/98142
+[#98144]: https://github.com/home-assistant/core/pull/98144
+[#98163]: https://github.com/home-assistant/core/pull/98163
+[#98229]: https://github.com/home-assistant/core/pull/98229
+[#98237]: https://github.com/home-assistant/core/pull/98237
+[@DeerMaximum]: https://github.com/DeerMaximum
+[@Kane610]: https://github.com/Kane610
+[@Lash-L]: https://github.com/Lash-L
+[@MarkGodwin]: https://github.com/MarkGodwin
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@MrHarcombe]: https://github.com/MrHarcombe
+[@Noltari]: https://github.com/Noltari
+[@alexyao2015]: https://github.com/alexyao2015
+[@bachya]: https://github.com/bachya
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@elupus]: https://github.com/elupus
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@janiversen]: https://github.com/janiversen
+[@joostlek]: https://github.com/joostlek
+[@karwosts]: https://github.com/karwosts
+[@lymanepp]: https://github.com/lymanepp
+[@mib1185]: https://github.com/mib1185
+[@mkmer]: https://github.com/mkmer
+[@puddly]: https://github.com/puddly
+[@reedy]: https://github.com/reedy
+[@rikroe]: https://github.com/rikroe
+[@tronikos]: https://github.com/tronikos
+
+## Release 2023.8.3 - August 18
+
+- Fix ness alarm armed_home state appearing as disarmed/armed_away ([@nickw444] - [#94351])
+- Correct modbus config validator: slave/swap ([@janiversen] - [#97798])
+- Fix Opower utilities that have different ReadResolution than previously assumed ([@tronikos] - [#97823])
+- modbus config: count and slave_count can normally not be mixed. ([@janiversen] - [#97902])
+- Create abstraction for Generic YeeLight ([@joostlek] - [#97939])
+- modbus: Repair swap for slaves ([@janiversen] - [#97960])
+- Use Local Timezone for Withings Integration ([@VidFerris] - [#98137])
+- Bump pyrainbird to 4.0.0 ([@allenporter] - [#98271])
+- Bump Python-Roborock to 0.32.3 ([@Lash-L] - [#98303])
+- Bump flux-led to 1.0.2 ([@bdraco] - [#98312])
+- Use default translations by removing names from tplink descriptions ([@joostlek] - [#98338])
+- Fix tts notify config validation ([@MartinHjelmare] - [#98381])
+- Fix GoGoGate2 configuration URL when remote access is disabled ([@oyvindwe] - [#98387])
+- Handle missing keys in Honeywell ([@mkmer] - [#98392])
+- Bump Reolink_aio to 0.7.7 ([@starkillerOG] - [#98425])
+- Update rokuecp to 0.18.1 ([@ctalkington] - [#98432])
+- Update pyipp to 0.14.3 ([@ctalkington] - [#98434])
+- Fix inconsistent lyric temperature unit ([@lscorcia] - [#98457])
+- Bump aiohomekit to 2.6.16 ([@bdraco] - [#98490])
+- Bump opower to 0.0.29 ([@tronikos] - [#98503])
+- Revert "Integration tado bump" ([@erwindouna] - [#98505])
+- Fix the availability condition for Shelly N current sensor ([@bieniu] - [#98518])
+- Correct number of registers to read for sensors for modbus ([@janiversen] - [#98534])
+- Pin setuptools to 68.0.0 ([@frenck] - [#98582])
+- Bump ESPHome recommended BLE version to 2023.8.0 ([@bdraco] - [#98586])
+- Verisure unpack ([@niro1987] - [#98605])
+- Update frontend to 20230802.1 ([@bramkragten] - [#98616])
+
+[#94351]: https://github.com/home-assistant/core/pull/94351
+[#97609]: https://github.com/home-assistant/core/pull/97609
+[#97772]: https://github.com/home-assistant/core/pull/97772
+[#97798]: https://github.com/home-assistant/core/pull/97798
+[#97823]: https://github.com/home-assistant/core/pull/97823
+[#97902]: https://github.com/home-assistant/core/pull/97902
+[#97939]: https://github.com/home-assistant/core/pull/97939
+[#97960]: https://github.com/home-assistant/core/pull/97960
+[#98137]: https://github.com/home-assistant/core/pull/98137
+[#98255]: https://github.com/home-assistant/core/pull/98255
+[#98271]: https://github.com/home-assistant/core/pull/98271
+[#98303]: https://github.com/home-assistant/core/pull/98303
+[#98312]: https://github.com/home-assistant/core/pull/98312
+[#98338]: https://github.com/home-assistant/core/pull/98338
+[#98381]: https://github.com/home-assistant/core/pull/98381
+[#98387]: https://github.com/home-assistant/core/pull/98387
+[#98392]: https://github.com/home-assistant/core/pull/98392
+[#98425]: https://github.com/home-assistant/core/pull/98425
+[#98432]: https://github.com/home-assistant/core/pull/98432
+[#98434]: https://github.com/home-assistant/core/pull/98434
+[#98457]: https://github.com/home-assistant/core/pull/98457
+[#98490]: https://github.com/home-assistant/core/pull/98490
+[#98503]: https://github.com/home-assistant/core/pull/98503
+[#98505]: https://github.com/home-assistant/core/pull/98505
+[#98518]: https://github.com/home-assistant/core/pull/98518
+[#98534]: https://github.com/home-assistant/core/pull/98534
+[#98582]: https://github.com/home-assistant/core/pull/98582
+[#98586]: https://github.com/home-assistant/core/pull/98586
+[#98605]: https://github.com/home-assistant/core/pull/98605
+[#98616]: https://github.com/home-assistant/core/pull/98616
+[@Lash-L]: https://github.com/Lash-L
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@VidFerris]: https://github.com/VidFerris
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@ctalkington]: https://github.com/ctalkington
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@joostlek]: https://github.com/joostlek
+[@lscorcia]: https://github.com/lscorcia
+[@mkmer]: https://github.com/mkmer
+[@nickw444]: https://github.com/nickw444
+[@niro1987]: https://github.com/niro1987
+[@oyvindwe]: https://github.com/oyvindwe
+[@starkillerOG]: https://github.com/starkillerOG
+[@tronikos]: https://github.com/tronikos
+[esphome docs]: /integrations/esphome/
+[flux_led docs]: /integrations/flux_led/
+[frontend docs]: /integrations/frontend/
+[gogogate2 docs]: /integrations/gogogate2/
+[homekit_controller docs]: /integrations/homekit_controller/
+[honeywell docs]: /integrations/honeywell/
+[ipp docs]: /integrations/ipp/
+[lyric docs]: /integrations/lyric/
+[modbus docs]: /integrations/modbus/
+[ness_alarm docs]: /integrations/ness_alarm/
+[opower docs]: /integrations/opower/
+[rainbird docs]: /integrations/rainbird/
+[reolink docs]: /integrations/reolink/
+[roborock docs]: /integrations/roborock/
+[roku docs]: /integrations/roku/
+[shelly docs]: /integrations/shelly/
+[tado docs]: /integrations/tado/
+[tplink docs]: /integrations/tplink/
+[tts docs]: /integrations/tts/
+[verisure docs]: /integrations/verisure/
+[withings docs]: /integrations/withings/
+[yeelight docs]: /integrations/yeelight/
+
+## Release 2023.8.4 - August 24
+
+- Fix octoprint down every two minutes ([@markusressel] - [#90001])
+- modbus: slave is allowed with custom ([@janiversen] - [#98644])
+- Bump opowerto 0.0.30 ([@tronikos] - [#98660])
+- Correct modbus swap/datatype error message ([@janiversen] - [#98698])
+- Bump opower to 0.0.31 ([@tronikos] - [#98716])
+- Reduce Freebox router Raid warning to one occurence ([@fthiery] - [#98740])
+- Remove repair issue for MQTT discovered items ([@frenck] - [#98768])
+- Bump androidtvremote2 to 0.0.14 ([@tronikos] - [#98801])
+- Bump pylitterbot to 2023.4.4 ([@natekspencer] - [#98414])
+- Bump pylitterbot to 2023.4.5 ([@natekspencer] - [#98854])
+- Bump reolink-aio to 0.7.8 ([@starkillerOG] - [#98942])
+
+[#90001]: https://github.com/home-assistant/core/pull/90001
+[#97609]: https://github.com/home-assistant/core/pull/97609
+[#97772]: https://github.com/home-assistant/core/pull/97772
+[#98255]: https://github.com/home-assistant/core/pull/98255
+[#98414]: https://github.com/home-assistant/core/pull/98414
+[#98623]: https://github.com/home-assistant/core/pull/98623
+[#98644]: https://github.com/home-assistant/core/pull/98644
+[#98660]: https://github.com/home-assistant/core/pull/98660
+[#98698]: https://github.com/home-assistant/core/pull/98698
+[#98716]: https://github.com/home-assistant/core/pull/98716
+[#98740]: https://github.com/home-assistant/core/pull/98740
+[#98768]: https://github.com/home-assistant/core/pull/98768
+[#98801]: https://github.com/home-assistant/core/pull/98801
+[#98854]: https://github.com/home-assistant/core/pull/98854
+[#98942]: https://github.com/home-assistant/core/pull/98942
+[@frenck]: https://github.com/frenck
+[@fthiery]: https://github.com/fthiery
+[@janiversen]: https://github.com/janiversen
+[@markusressel]: https://github.com/markusressel
+[@natekspencer]: https://github.com/natekspencer
+[@starkillerOG]: https://github.com/starkillerOG
+[@tronikos]: https://github.com/tronikos
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -476,7 +737,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking changes
+## Backward-incompatible changes
 
 {% details "Python 3.10 support has been removed" %}
 
@@ -495,7 +756,6 @@ Your system has been using Python 3.11 for quite some time already.
 [#97007]: https://github.com/home-assistant/core/pull/97007
 
 {% enddetails %}
-
 
 {% details "Discovery" %}
 
@@ -532,6 +792,24 @@ superseded by three single actions `start`, `stop` and `return_to_base`.
 
 [@mib1185]: https://github.com/mib1185
 [#95920]: https://github.com/home-assistant/core/pull/95920
+
+{% enddetails %}
+
+{% details "Google Nest" %}
+
+The legacy Works With Nest API is no longer supported. You must manually take
+action to use the SDM API by removing the Nest configuration from `configuration.yaml`
+and restarting Home Assistant. Then add the Nest integration following the
+instructions. Please review the documentation for information about which
+devices are supported.
+
+Additionally, as a reminder, the legacy Works With Nest API is [shutting down](https://developers.nest.com/)
+in September 2023.
+
+([@allenporter] - [#96111]) ([documentation](/integrations/nest))
+
+[@allenporter]: https://github.com/allenporter
+[#96111]: https://github.com/home-assistant/core/pull/96111
 
 {% enddetails %}
 
@@ -648,7 +926,7 @@ changes and new features available for your integration: Be sure to follow our
 The following integrations are also no longer available as of this release:
 
 - **Discovery** has been removed. This is the old legacy discovery integration.
-  See the breaking changes above for more information.  
+  See the backward-incompatible changes above for more information.  
   ([@frenck] - [#96856])
 - **Mi Flora** has been removed. This integration was replaced by the
   [Xiaomi BLE] integration a long time ago and was in a non-functional state.  

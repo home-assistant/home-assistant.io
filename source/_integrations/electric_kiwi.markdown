@@ -10,11 +10,12 @@ ha_codeowners:
 ha_domain: electric_kiwi
 ha_config_flow: true
 ha_platforms:
+  - select
   - sensor
 ha_integration_type: hub
 ---
 
-[Electric Kiwi](https://www.electrickiwi.co.nz/) is an independent power and broadband company in New Zealand, offering variable rates for peak, shoulder, and off-peak pricing with a selectable hour of free power. This integration uses the official [Electric Kiwi API](https://developer.electrickiwi.co.nz) to show the hour of free power. 
+[Electric Kiwi](https://www.electrickiwi.co.nz/) is an independent power and broadband company in New Zealand, offering variable rates for peak, shoulder, and off-peak pricing with a selectable hour of free power. This integration uses the official [Electric Kiwi API](https://developer.electrickiwi.co.nz) to show and select the hour of free power.
 
 {% include integrations/config_flow.md %}
 

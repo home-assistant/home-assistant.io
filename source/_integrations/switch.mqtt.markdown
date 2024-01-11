@@ -18,8 +18,6 @@ When a `state_topic` is not available, the switch will work in optimistic mode. 
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect switch operation.
 
-<a id='new_format'></a>
-
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -68,7 +66,7 @@ availability_topic:
   type: string
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
-  required: false
+  required: true
   type: string
 device:
   description: "Information about the device this switch is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
@@ -182,7 +180,7 @@ payload_on:
   type: string
   default: "ON"
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -248,7 +246,19 @@ mqtt:
       retain: true
 ```
 
-For a check, you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually:
+For a check, you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually. First, we can simulate the availability message sent for the switch:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1/available -m "online"
+```
+
+We can simulate the switch being turned on by publishing the "ON" command message:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1/set -m "ON"
+```
+
+Finally, we can simulate the switch reporting back the changed state to Home Assistant:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"

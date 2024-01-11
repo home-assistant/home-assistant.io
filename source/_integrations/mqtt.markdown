@@ -37,6 +37,7 @@ ha_platforms:
   - text
   - update
   - vacuum
+  - valve
   - water_heater
 ha_integration_type: integration
 ha_quality_scale: gold
@@ -48,7 +49,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
-## Choose a MQTT broker
+## Choose an MQTT broker
 
 ### Run your own
 
@@ -202,7 +203,7 @@ For every configured MQTT entity Home Assistant automatically assigns a unique `
 If the `object_id` option is set, then this will be used to generate the `entity_id`.
 If, for example, we have configured a `sensor`, and we have set `object_id` to `test`, then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will append it with a suffix to make it unique, for example, `sensor.test_2`.
 
-This means any MQTT entity which is part of a device will [automatically have it's `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
+This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
 
 Unnamed `binary_sensor`, `button`, `number` and `sensor` entities will now be named by their device class instead of being named "MQTT binary sensor" etc.
 It's allowed to set an MQTT entity's name to `None` (use `null` in YAML) to mark it as the main feature of a device.
@@ -220,13 +221,14 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
-- [Device Tracker](/integrations/device_tracker.mqtt/)
-- [Device Trigger](/integrations/device_trigger.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
+- [Device trigger](/integrations/device_trigger.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
 - [Climate/HVAC](/integrations/climate.mqtt/)
+- [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
 - [Number](/integrations/number.mqtt/)
@@ -236,10 +238,11 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 - [Update](/integrations/update.mqtt/)
-- [Tag Scanner](/integrations/tag.mqtt/)
+- [Tag scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
-- [Water Heater](/integrations/water_heater.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
@@ -276,6 +279,18 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
+It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can be abbreviated to `o`) to the discovery payload. Note that these options also support abbreviations. Information of the origin will be logged to the core event log when an item is discovered or updated.
+
+{% configuration_basic %}
+name:
+  description: The name of the application that is the origin the discovered MQTT item. This option is required.
+sw_version:
+  description: Software version of the application that supplies the discovered MQTT item.
+support_url:
+  description: Support URL of the application that supplies the discovered MQTT item.
+{% endconfiguration_basic %}
+
+
 {% details "Supported abbreviations" %}
 
 ```txt
@@ -301,10 +316,6 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'bri_tpl':             'brightness_template',
     'bri_val_tpl':         'brightness_value_template',
     'clr_temp_cmd_tpl':    'color_temp_command_template',
-    'bat_lev_t':           'battery_level_topic',
-    'bat_lev_tpl':         'battery_level_template',
-    'chrg_t':              'charging_topic',
-    'chrg_tpl':            'charging_template',
     'clr_temp_cmd_t':      'color_temp_command_topic',
     'clr_temp_stat_t':     'color_temp_state_topic',
     'clr_temp_tpl':        'color_temp_template',
@@ -312,8 +323,6 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'clrm':                'color_mode',
     'clrm_stat_t':         'color_mode_state_topic',
     'clrm_val_tpl':        'color_mode_value_template',
-    'cln_t':               'cleaning_topic',
-    'cln_tpl':             'cleaning_template',
     'cmd_off_tpl':         'command_off_template',
     'cmd_on_tpl':          'command_on_template',
     'cmd_t':               'command_topic',
@@ -330,17 +339,11 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'dir_cmd_tpl':         'direction_command_template',
     'dir_stat_t':          'direction_state_topic',
     'dir_val_tpl':         'direction_value_template',
-    'dock_t':              'docked_topic',
-    'dock_tpl':            'docked_template',
     'e':                   'encoding',
     'en':                  'enabled_by_default',
     'ent_cat':             'entity_category',
     'ent_pic':             'entity_picture',
-    'err_t':               'error_topic',
-    'err_tpl':             'error_template',
     'evt_typ':             'event_types',
-    'fanspd_t':            'fan_speed_topic',
-    'fanspd_tpl':          'fan_speed_template',
     'fanspd_lst':          'fan_speed_list',
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
@@ -391,6 +394,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'mode_stat_t':         'mode_state_topic',
     'modes':               'modes',
     'name':                'name',
+    'o':                   'origin',
     'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
@@ -433,7 +437,6 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'pl_paus':             'payload_pause',
     'pl_stop':             'payload_stop',
     'pl_strt':             'payload_start',
-    'pl_stpa':             'payload_start_pause',
     'pl_ret':              'payload_return_to_base',
     'pl_rst_hum':          'payload_reset_humidity',
     'pl_rst_mode':         'payload_reset_mode',
@@ -443,6 +446,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'pl_ton':              'payload_turn_on',
     'pl_trig':             'payload_trigger',
     'pl_unlk':             'payload_unlock',
+    'pos':                 'reports_position',
     'pos_clsd':            'position_closed',
     'pos_open':            'position_open',
     'pr_mode_cmd_t':       'preset_mode_command_topic',
@@ -555,6 +559,110 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'sa':                  'suggested_area',
 ```
 {% enddetails %}
+{% details "Supported abbreviations for origin info" %}
+
+```txt
+    'name':                'name',
+    'sw':                  'sw_version',
+    'url':                 'support_url',
+```
+{% enddetails %}
+
+### How to use discovery messages
+
+When MQTT discovery is set up, and a device or service sends a discovery message,
+an MQTT entity, tag, or device automation will be set up directly after receiving the message.
+When Home Assistant is restarting, discovered MQTT items with a unique ID will be unavailable until a new
+discovery message is received. MQTT items without a unique ID will not be added at startup.
+So a device or service using MQTT discovery must make sure a configuration message is offered
+after the **MQTT** integration has been (re)started. There are 2 common approaches to make sure the
+discovered items are set up at startup:
+
+1. Using Birth and Will messages to trigger setup
+2. Using retained messages
+
+Finally, it is a best practice to publish your device or service availability status.
+
+#### Use the Birth and Will messages to trigger discovery
+
+When the **MQTT** integration starts, a birth message is published at `homeassistant/status` by default.
+A device or service connected to the shared `mqtt` broker can subscribe to this topic and use an `online` message
+to trigger discovery messages. See also the [birth and last will messages](/integrations/mqtt/#birth-and-last-will-messages)
+section. After the configs have been published, the state topics will need an update, so they need to be republished.
+
+#### Using retained config messages
+
+An alternative method for a device or service is to publish discovery messages with a `retain` flag. This will make sure
+discovery messages are replayed when the **MQTT** integration connects to the broker.
+After the configs have been published, the state topics will need an update.
+
+#### Using retained state messages
+
+State updates also need to be re-published after a config as been processed.
+This can also be done by publishing `retained` messages. As soon as a config is received (or replayed from a retained message),
+the setup will subscribe any state topics. If a retained message is available at a state topic,
+ this message will be replayed so that the state can be restored for this topic.
+
+<div class='note warning'>
+
+A disadvantage of using retained messages is that these messages retain at the broker,
+even when the device or service stops working. They are retained even after the system or broker has been restarted.
+Retained messages can create ghost entities that keep coming back.
+<br><br>
+Especially when you have many entities, (unneeded) discovery messages can cause excessive system load. For this reason, use discovery messages with caution.
+
+</div>
+
+### Using Availability topics
+
+A device or service can announce its availability by publishing a Birth message and set a Will message at the broker.
+When the device or service loses connection to the broker, the broker will publish the Will message.
+This allows the **MQTT** integration to make an entity unavailable.
+
+Platform specific availability settings are available for `mqtt` entity platforms only.
+
+{% details "Platform specific availability settings" %}
+
+{% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
+  required: false
+  type: string
+availability_mode:
+   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+   required: false
+   type: string
+   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
+{% endconfiguration %}  
+
+{% enddetails %}
 
 ### Support by third-party tools
 
@@ -562,11 +670,14 @@ The following software has built-in support for MQTT discovery:
 
 - [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
+- [ble2mqtt](https://github.com/devbis/ble2mqtt)
+- [digitalstrom-mqtt](https://github.com/gaetancollaud/digitalstrom-mqtt)
 - [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
 - [EMS-ESP32 (and EMS-ESP)](https://github.com/emsesp/EMS-ESP32)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
+- [go-iotdevice](https://github.com/koestler/go-iotdevice)
 - [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
@@ -579,6 +690,7 @@ The following software has built-in support for MQTT discovery:
 - [SpeedTest-CLI MQTT](https://github.com/adorobis/speedtest-CLI2mqtt)
 - [SwitchBot-MQTT-BLE-ESP32](https://github.com/devWaves/SwitchBot-MQTT-BLE-ESP32)
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
+- [TeddyCloud](https://github.com/toniebox-reverse-engineering/teddycloud)
 - [Teleinfo MQTT](https://fmartinou.github.io/teleinfo2mqtt) (starting with 3.0.0)
 - [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
 - [What's up Docker?](https://fmartinou.github.io/whats-up-docker/) (starting with 3.5.0)
@@ -586,7 +698,6 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
-- [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 
 ### Discovery examples
 
@@ -596,15 +707,47 @@ A motion detection device which can be represented by a [binary sensor](/integra
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
-- Configuration payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
+- Configuration payload with derived device name:  
+```json
+{
+   "name":null,
+   "device_class":"motion",
+   "state_topic":"homeassistant/binary_sensor/garden/state",
+   "unique_id":"motion01ad",
+   "device":{
+      "identifiers":[
+         "01ad"
+      ],
+      "name":"Garden"
+   }
+}
+```
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
-It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together.
+It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together. We can set "name" to `null` if we want to inherit the device name for the entity. If we set an entity name, the `friendly_name` will be a combination of the device and entity name. If `name` is left away and a `device_class` is set, the entity name part will be derived from the `device_class`.
 
-To create a new sensor manually:
+- Example configuration payload with no name set and derived `device_class` name:
+```json
+{
+   "name":null,
+   "device_class":"motion",
+   "state_topic":"homeassistant/binary_sensor/garden/state",
+   "unique_id":"motion01ad",
+   "device":{
+      "identifiers":[
+         "01ad"
+      ],
+      "name":"Garden"
+   }
+}
+```
+
+If no name is set, a default name will be set by MQTT ([see the MQTT platform documentation](#mqtt-discovery)).
+
+To create a new sensor manually and with the name set to `null` to derive the device name "Garden":
 
 ```bash
-mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}'
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": null, "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}'
 ```
 
 Update the state:
@@ -626,10 +769,46 @@ For more details please refer to the [MQTT testing section](/integrations/mqtt/#
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
 - Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}","unique_id": "temp01ae",  "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" }}`
+- Configuration payload no1: 
+```json
+{
+   "device_class":"temperature",
+   "state_topic":"homeassistant/sensor/sensorBedroom/state",
+   "unit_of_measurement":"°C",
+   "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+   "unique_id":"temp01ae",
+   "device":{
+      "identifiers":[
+         "bedroom01ae"
+      ],
+      "name":"Bedroom"
+   }
+}
+```
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}","unique_id": "hum01ae", "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" } }`
-- Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
+- Configuration payload no2: 
+```json
+{
+   "device_class":"humidity",
+   "state_topic":"homeassistant/sensor/sensorBedroom/state",
+   "unit_of_measurement":"%",
+   "value_template":"{% raw %}{{ value_json.humidity}}{% endraw %}",
+   "unique_id":"hum01ae",
+   "device":{
+      "identifiers":[
+         "bedroom01ae"
+      ],
+      "name":"Bedroom"
+   }
+}
+```
+- Common state payload: 
+```json
+{
+   "temperature":23.20,
+   "humidity":43.70
+}
+```
 
 #### Entities with command topics
 
@@ -638,12 +817,26 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
-- Payload:  `{"name": "Irrigation", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}`
+- Payload:  
+```json
+{
+   "name":"Irrigation",
+   "command_topic":"homeassistant/switch/irrigation/set",
+   "state_topic":"homeassistant/switch/irrigation/state",
+   "unique_id":"irr01ad",
+   "device":{
+      "identifiers":[
+         "garden01ad"
+      ],
+      "name":"Garden"
+   }
+}
+```
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 ```bash
 mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
-  -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}}'
+  -m '{"name": "Irrigation", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}'
 ```
 
 Set the state:
@@ -659,7 +852,15 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - Command topic: `homeassistant/switch/irrigation/set`
 - State topic: `homeassistant/switch/irrigation/state`
-- Configuration payload: `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", "stat_t": "~/state"}`
+- Configuration payload: 
+```json
+{
+   "~":"homeassistant/switch/irrigation",
+   "name":"garden",
+   "cmd_t":"~/set",
+   "stat_t":"~/state"
+}
+```
 
 #### Another example using abbreviations topic name and base topic
 
@@ -675,11 +876,37 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
   {
     "~": "homeassistant/light/kitchen",
     "name": "Kitchen",
-    "unique_id": "kitchen_light",
+    "uniq_id": "kitchen_light",
     "cmd_t": "~/set",
     "stat_t": "~/state",
     "schema": "json",
     "brightness": true
+  }
+  ```
+
+#### Example with using abbreviated Device and Origin info in discovery messages
+
+  ```json
+  {
+    "~": "homeassistant/light/kitchen",
+    "name": null,
+    "uniq_id": "kitchen_light",
+    "cmd_t": "~/set",
+    "stat_t": "~/state",
+    "schema": "json",
+    "dev": {
+      "ids": "ea334450945afc",
+      "name": "Kitchen",
+      "mf": "Bla electronics",
+      "mdl": "xya",
+      "sw": "1.0",
+      "hw": "1.0rev2",
+    },
+    "o": {
+      "name":"bla2mqtt",
+      "sw": "2.1",
+      "url": "https://bla2mqtt.example.com/support",
+    }
   }
   ```
 
@@ -740,12 +967,13 @@ mqtt:
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
-- [Device Tracker](/integrations/device_tracker.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
-- [Image](/integrations/imahe.mqtt/)
+- [Image](/integrations/image.mqtt/)
 - [Climate/HVACs](/integrations/climate.mqtt/)
+- [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
 - [Number](/integrations/number.mqtt/)
@@ -757,7 +985,8 @@ mqtt:
 - [Text](/integrations/text.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
-- [Water Heater](/integrations/water_heater.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
@@ -774,7 +1003,12 @@ The MQTT notification support is different than for the other [notification](/in
 **Call Service** section from **Developer Tools** -> **Services** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
 ```json
-{"payload": "Test message from HA", "topic": "home/notification", "qos": 0, "retain": 0}
+{
+   "~":"homeassistant/switch/irrigation",
+   "name":"garden",
+   "cmd_t":"~/set",
+   "stat_t":"~/state"
+}
 ```
 
 <p class='img'>
@@ -891,24 +1125,32 @@ definition as a template. Make sure you escape the template blocks as like
 in the example below. Home Assistant will convert the result to a string
 and will pass it to the MQTT publish service.
 
+The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
+The `device_class` is set, so it is not needed to set the "name" option. The entity
+will inherit the name from the `device_class` set and also support translations.
+If you set "name" in the payload the entity name will start with the device name.
+
+{% raw %}
+
 ```yaml
 service: mqtt.publish
 data:
   topic: homeassistant/sensor/Acurite-986-1R-51778/config
   payload: >-
     {"device_class": "temperature",
-    "name": "Acurite-986-1R-51778-T",
     "unit_of_measurement": "\u00b0C",
-    "value_template": "{% raw %}{% raw %}{{ value|float }}{%{% endraw %} endraw %}",
+    "value_template": "{{ value|float }}",
     "state_topic": "rtl_433/rtl433/devices/Acurite-986/1R/51778/temperature_C",
     "unique_id": "Acurite-986-1R-51778-T",
     "device": {
     "identifiers": "Acurite-986-1R-51778",
-    "name": "Acurite-986-1R-51778",
+    "name": "Bathroom",
     "model": "Acurite-986",
     "manufacturer": "rtl_433" }
     }
 ```
+
+{% endraw %}
 
 Example of how to use `qos` and `retain`:
 
@@ -929,7 +1171,7 @@ Listen to the specified topic matcher and dumps all received messages within a s
 | `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
 
 ```yaml
-topic: openzwave/#
+topic: zigbee2mqtt/#
 ```
 
 ## Logging

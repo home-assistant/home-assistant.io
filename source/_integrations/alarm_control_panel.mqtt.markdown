@@ -1,6 +1,6 @@
 ---
-title: "MQTT Alarm Control Panel"
-description: "Instructions on how to integrate MQTT capable Alarm Panels into Home Assistant."
+title: "MQTT Alarm control panel"
+description: "Instructions on how to integrate MQTT capable alarm panels into Home Assistant."
 ha_category:
   - Alarm
 ha_release: 0.7.4
@@ -26,8 +26,6 @@ The integration will accept the following states from your Alarm Panel (in lower
 The integration can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
 
 ## Configuration
-
-<a id='new_format'></a>
 
 To enable this platform, add the following lines to your `configuration.yaml`:
 
@@ -231,7 +229,7 @@ payload_trigger:
   type: string
   default: TRIGGER
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -244,6 +242,11 @@ state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: true
   type: string
+supported_features:
+  description: A list of features that the alarm control panel supports. The available list options are `arm_home`, `arm_away`, `arm_night`, `arm_vacation`, `arm_custom_bypass`, and `trigger`.
+  required: false
+  type: list
+  default: ["arm_home", "arm_away", "arm_night", "arm_vacation", "arm_custom_bypass", "trigger"]
 unique_id:
    description: An ID that uniquely identifies this alarm panel. If two alarm panels have the same unique ID, Home Assistant will raise an exception.
    required: false
@@ -257,6 +260,26 @@ value_template:
 ## Examples
 
 In this section you find some real-life examples of how to use this alarm control panel.
+
+### Configuration with partial feature support
+
+The example below shows a full configuration with an alarm panel that only supports the `arm_home` and `arm_away` features.
+
+{% raw %}
+
+```yaml
+# Example with partial feature support
+mqtt:
+  - alarm_control_panel:
+      name: "Alarm Panel"
+      supported_features:
+        - arm_home
+        - arm_away
+      state_topic: "alarmdecoder/panel"
+      command_topic: "alarmdecoder/panel/set"
+```
+
+{% endraw %}
 
 ### Configuration with local code validation
 

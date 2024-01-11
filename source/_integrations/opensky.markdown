@@ -18,16 +18,38 @@ The OpenSky integration allows one to track overhead flights in a given region. 
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+latitude:
+  description: The latitude of the center of the area to track. Defaulted with the home's latitude.
+longitude:
+  description: The latitude of the center of the area to track. Defaulted with the home's longitude.
+radius:
+  description: The radius in meters around the latitude/longitude point to track.
+altitude:
+  description: The maximum altitude in meters in which the planes are tracked. No input (or 0) means all planes in the area are tracked.
+{% endconfiguration_basic %}
+
+## Authentication
+
+By default, polling is done every 15 minutes not to hit the API limit.
+More API requests are allowed as authenticated users.
+You can add your credentials after setting up the integration.
+
 ## Events
 
 - **opensky_entry**: Fired when a flight enters the region.
 - **opensky_exit**: Fired when a flight exits the region.
 
-Both events have four attributes:
+Both events have two attributes in common:
 
 - **sensor**: Name of `opensky` sensor that fired the event.
 - **callsign**: Callsign of the flight.
+
+**opensky_entry** has 4 additional attributes:
+
 - **altitude**: Altitude of the flight in meters.
+- **latitude**: Latitude of the flight in decimal.
+- **longitude**: Longitude of the flight in decimal.
 - **icao24**: The ICAO 24-bit address of the aircraft's transponder.
 
 To receive notifications of the entering flights using the [Home Assistant Companion App](https://companion.home-assistant.io/), add the following lines to your `configuration.yaml` file:

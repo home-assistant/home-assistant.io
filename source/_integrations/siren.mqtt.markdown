@@ -18,8 +18,6 @@ When a `state_topic` is not available, the siren will work in optimistic mode. I
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect operation.
 
-<a id='new_format'></a>
-
 To enable this siren in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -190,7 +188,7 @@ payload_on:
   type: string
   default: "ON"
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0

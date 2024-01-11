@@ -1,5 +1,5 @@
 ---
-title: "MQTT Button"
+title: "MQTT button"
 description: "Instructions on how to integrate MQTT buttons into Home Assistant."
 ha_category:
   - Button
@@ -11,8 +11,6 @@ ha_domain: mqtt
 The `mqtt` button platform lets you send an MQTT message when the button is pressed in the frontend or the button press service is called. This can be used to expose some service of a remote device, for example reboot.
 
 ## Configuration
-
-<a id='new_format'></a>
 
 ```yaml
 # Example configuration.yaml entry
@@ -169,7 +167,7 @@ payload_press:
   type: string
   default: "PRESS"
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0

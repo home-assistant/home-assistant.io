@@ -8,5 +8,5 @@ Some entities are disabled by default. To enable them, follow these steps:
     ![Select entity from list](/images/screenshots/enable_entities_01.png)
 4. In the pop-up, select the cogwheel.
 5. Toggle the **Enabled** button.
-    ![Enable entities](/images/screenshots/enable_entities_03.png) 
+    ![Enable entities](/images/screenshots/enable_entities_03.png)
 6. To save the changes, select **Update**.

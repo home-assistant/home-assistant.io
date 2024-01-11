@@ -13,7 +13,7 @@ jobs:
       - name: Generate app token
         id: token
         # Pinned to a specific version of the action for security reasons
-        uses: tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92 # v1.8.0
+        uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2.1.0
         with:
           app_id: ${{ secrets.PROJECTS_APP_ID }}
           private_key: ${{ secrets.PROJECTS_APP_PEM }}
