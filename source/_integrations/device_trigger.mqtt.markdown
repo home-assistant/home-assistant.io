@@ -145,3 +145,35 @@ Note that it is not necessary to provide the full device information in each mes
 
 - Trigger topic: `zigbee2mqtt/0x90fd9ffffedf1266/action`
 - Trigger payload: `arrow_right_click`
+
+#### Attaching a trigger from a device automation
+
+A device automation with an MQTT device trigger can be fully set up through the UI.
+In some cases it can be useful to to use templates, e.g. to set the `discovery_id` using a variable.
+The parameters `discovery_id`, `type` and `subtype` support templating using the [trigger variables](/docs/automation/trigger/#trigger-variables).
+
+{% raw %}
+
+The following example shows how the `discovery_id` can be set as a variable to be using in a template.
+
+```yaml
+# Example configuration.yaml
+automation:
+  trigger_variables:
+    discovery_id: '0x90fd9ffffedf1266'
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: c2962db89494eb88654c20c34fab9285
+    type: action
+    subtype: arrow_left_click
+    discovery_id: '{{ discovery_id }} action_arrow_left_click'
+  condition: []
+  action:
+  - service: notify.persistent_notification
+    data:
+      message: "Arrow left clicked"
+  mode: single
+```
+
+{% endraw %}
