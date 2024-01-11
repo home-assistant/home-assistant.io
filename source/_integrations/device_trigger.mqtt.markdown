@@ -90,7 +90,7 @@ value_template:
   type: template
 {% endconfiguration %}
 
-### Example
+### Example MQTT discovery
 
 This shows a complete example of defining a remote control type device with two triggers: "left arrow click" and "right arrow click".
 
@@ -146,7 +146,7 @@ Note that it is not necessary to provide the full device information in each mes
 - Trigger topic: `zigbee2mqtt/0x90fd9ffffedf1266/action`
 - Trigger payload: `arrow_right_click`
 
-#### Attaching a trigger from a device automation
+### Example attaching a trigger from a device automation using templates
 
 A device automation with an MQTT device trigger can be fully set up through the UI.
 In some cases it can be useful to to use templates, e.g. to set the `discovery_id` using a variable.
@@ -174,6 +174,82 @@ automation:
     data:
       message: "Arrow left clicked"
   mode: single
+```
+
+{% endraw %}
+
+### Example setting up MQTT device trigger using a blueprint
+
+The following shows an example how MQTT triggers can be set up using a blueprint:
+
+{% raw %}
+
+```yaml
+blueprint:
+  name: Ikea Tradfri Dimmer as Shutter Remote (Zigbee2MQTT)
+  description: |
+    Control a shutter with an Ikea Tradfri Dimmer over Zigbee2MQTT
+  domain: automation
+  input:
+    remote:
+      name: Remote
+      description: IKEA Tradfri Dimmer remote to use
+      selector:
+        device:
+          integration: mqtt
+          manufacturer: IKEA
+          model: TRADFRI ON/OFF switch (E1743)
+    cover:
+      name: Shutter
+      description: The shutter to control
+      selector:
+        target:
+          entity:
+            domain: cover
+              
+trigger_variables:
+  input_remote: !input remote
+  input_cover: !input cover
+  input_discovery_id: "{{ device_entities(input_remote)[0].split('.')[1].split('_')[0] }}"
+
+trigger:
+  - platform: device
+    domain: mqtt
+    device_id: !input remote
+    type: action
+    subtype: "on"
+    discovery_id: "{{ input_discovery_id }} action_on"
+    
+  - platform: device
+    domain: mqtt
+    device_id: !input remote
+    type: action
+    subtype: "off"
+    discovery_id: "{{ input_discovery_id }} action_off"
+    
+action:
+- choose:
+  - conditions:
+    - '{{ trigger.payload == "on" }}'
+    sequence:
+    - service: >
+        {% if is_state(input_cover.entity_id, 'opening') %}
+          cover.stop_cover
+        {% else %}
+          cover.open_cover
+        {% endif %}
+      target: !input cover
+  - conditions:
+    - '{{ trigger.payload == "off" }}'
+    sequence:
+    - service: >
+        {% if is_state(input_cover.entity_id, 'closing') %}
+          cover.stop_cover
+        {% else %}
+          cover.close_cover
+        {% endif %}
+      target: !input cover
+mode: restart
 ```
 
 {% endraw %}
