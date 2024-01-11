@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Voice Assistant Contest"
+title: "Voice Assistant Contest - Let's build and win some prizes!"
 description: "We’re organizing a voice assistant contest for the community! Watch our live stream on the 17th of January to learn how to make your own voice assistant and know all about the contest."
 date: 2024-01-11 00:00:01
 date_formatted: "January 11, 2024"
