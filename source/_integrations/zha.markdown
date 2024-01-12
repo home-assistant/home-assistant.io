@@ -420,22 +420,22 @@ In practice, you will likely need to add a lot more Zigbee router devices than i
 
 ## Binding and unbinding
 
-ZHA support for binding and unbinding. Binding is an action in Zigbee which defines relations between two Zigbee devices, specific endpoints, and cluster id. It provides a mechanism for attaching an endpoint on one Zigbee node to one or more endpoints on another Zigbee node or Zigbee group (a group of Zigbee devices).
+ZHA supports binding and unbinding. Binding is an action in Zigbee which defines relations between two Zigbee devices, specific endpoints, and cluster id. It provides a mechanism for attaching an endpoint on one Zigbee node to one or more endpoints on another Zigbee node or Zigbee group (a group of Zigbee devices).
 
 Binding is a "target destination" in form of a device address or group ID, endpoint, and cluster. For example, binding a Zigbee device like a remote to a Zigbee lightbulb, switch or group of lightbulbs allows direct control of the "target" device (light, switch, shade) from the "remote" Zigbee device, bypassing ZHA.  This means that the remote can control the lightbulb/group of lightbulbs even when the Zigbee coordinator is not available.
-Binding is only supported between the same cluster, for example, "output cluster id 6" (on/off cluster) of a remote, can be only bound to an "input cluster id 6" on the target device -- light, switch.
+Binding is only supported within the same cluster, for example, "output cluster id 6" (on/off cluster) of a remote, can be only bound to an "input cluster id 6" on the target device -- light, switch.
 
-Note that not all devices support binding as it depends on the Zigbee implementation of the device itself. Also, by default ZHA bind remotes to the coordinator, so the coordinator could receive ZCL commands from the remotes and originate zha_events. However, some remotes, for example, the Philips RWL021 can only be bound to a single destination and it is not possible to make this switch to bind to other destinations like a device or groups unless you first unbind the remote from the coordinator. After you unbind the remote from the ZHA coordinator you can then bind it directly to any other Zigbee device or a group.
+Note that not all devices support binding as it depends on the Zigbee implementation of the device itself. Also, by default ZHA binds remotes to the coordinator, so the coordinator can receive ZCL commands from the remotes and originate zha_events. However, some remotes, for example, the Philips RWL021 can only be bound to a single destination and it is not possible to make this switch to bind to other destinations like a device or groups unless you first unbind the remote from the coordinator. After you unbind the remote from the ZHA coordinator you can then bind it directly to any other Zigbee device or a group.
 
 Binding a remote directly to a bulb or group has the benefit of faster response time and smoother control. This greatly improves user feedback experience functions like dimming as the remote then directly dims the lightbulb and thus does not have to make the software roundtrip via the ZHA coordinator.
 
 ## Zigbee backup and restore in ZHA
 
-Zigbee Home Automation (ZHA) {% term integration %} now features Zigbee network backup, restore/recovery, and migrating between Zigbee coordinators. Backups are taken automatically however, a single backup to a file for easy download can also be manually created from the configuration page under Network Settings.
+Zigbee Home Automation (ZHA) {% term integration %} now features Zigbee network backup, restore/recovery, and migrating between Zigbee coordinators. Backups are taken automatically. However, a single backup to a file for easy download can also be manually created from the configuration page under Network Settings.
 
 After restoring a Home Assistant backup, you can re-configure ZHA and migrate to a new Zigbee Coordinator adapter without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio adapter type and model comes out that you may want to migrate to.
 
-Within ZHA is possible to use this backup and restore feature to migrate between some different radio types, if the respective radio library supports it. Currently, ZHA supports migrating the Zigbee network between different Zigbee Coordinator adapters based on chips from Silicon Labs, Texas Instruments, or ConBee/RaspBee if the backup was made from inside ZHA.
+Within ZHA it is possible to use this backup and restore feature to migrate between some different radio types, if the respective radio library supports it. Currently, ZHA supports migrating the Zigbee network between different Zigbee Coordinator adapters based on chips from Silicon Labs, Texas Instruments, or ConBee/RaspBee if the backup was made from inside ZHA.
 
 ## Migrating to a new Zigbee coordinator adapter inside ZHA
 
