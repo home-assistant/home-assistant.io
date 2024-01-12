@@ -19,7 +19,7 @@ Depending on the type of devices in your system, one or more sensor entities to 
 ## Prerequisites
 
 1. Visit [https://myuplink.com/register](https://myuplink.com/register) and sign up for a user account.
-2. Go to [**Applications**](https://dev.myuplink.com/apps), register a new App:
+2. Go to [**Applications**](https://dev.myuplink.com/apps), and register a new App:
 
 - **Application ID**: Home Assistant (or whatever name makes sense to you)
 - **OAuth Flow**: Authorization Code Grant Flow
