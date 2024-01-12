@@ -71,7 +71,7 @@ Once configured, a switch will be added for every zone that is enabled on every 
 
 ### Service `rachio.start_single_entity`
 
-Allows starting one zone on a sprinkler controller, or any number of smart hose timer valves. To sequentially start multiple zones on a sprinkler controller, use the `start_multiple_zone_schedule` below.
+Allows starting one zone on a sprinkler controller, or any number of smart hose timer valves. To sequentially start multiple zones on a sprinkler controller, use the `start_multiple_zone_schedule` service below.
 
 Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
