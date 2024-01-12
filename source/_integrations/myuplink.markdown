@@ -14,7 +14,7 @@ ha_integration_type: integration
 
 The myUplink integration lets you get information about the devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
 
-Depending on the type of devices in your system, one or more sensor entities to Home Assistant. Currently, there is support for generic and temperature sensors.
+Depending on the type of devices in your system, one or more sensor entities to Home Assistant. Currently, there is only support for reading sensor states.
 
 ## Prerequisites
 
