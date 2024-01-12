@@ -4,7 +4,7 @@ description: Instructions on how to set up the myUplink integration within Home 
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: '2023.2'
+ha_release: '2024.2'
 ha_domain: myuplink
 ha_codeowners:
   - '@pajzo'
