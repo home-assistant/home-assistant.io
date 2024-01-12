@@ -9,7 +9,7 @@ Once your {% term devices %} are set up, it's time to put the cherry on the pie:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and in the lower right corner, select the **Create Automation** button.
 
-![The automation editor.](/images/getting-started/automation-editor.png)
+    ![The automation editor.](/images/getting-started/automation-editor.png)
 
    - You are presented with a blank automation screen.
 
@@ -17,7 +17,7 @@ Once your {% term devices %} are set up, it's time to put the cherry on the pie:
 
 2. The first step is defining what should {% term trigger %} the automation to run.
    - In this case, we want to use the event of the sun setting to trigger our automation.
-   - Select **Add trigger**, type **Sun** and select it.
+   - Select **Add trigger**, type `Sun` and select it.
    ![Use the sun as trigger.](/images/getting-started/sun-trigger.png)
 3. Select **Sunset**.
    - We want the automation to be triggered a little before that, so let's add `-00:30` as the offset. This indicates that the automation will be triggered 30 minutes before sunset. Neat!
@@ -25,11 +25,11 @@ Once your {% term devices %} are set up, it's time to put the cherry on the pie:
     ![A new automation with a sun trigger filled in.](/images/getting-started/new-trigger.png)
 
 4. Once we have defined our trigger, we need to define what should happen.
-   - Select **Add action**. 
-   - Type **Ser** and select **Call service**
+   - Select **Add action**.
+   - Type `Ser` and select **Call service**
 5. Select **Light** > **Turn on** or directly enter `light.turn_on`.
    - For this automation, we're going to turn on all lights in the living room, so let's select the **Area**.
-   - This only works if your lights are assigned to {% term area %}
+   - This only works if your lights are assigned to an {% term area %}.
 
    ![A new automation with the action set up to turn on the lights in the living room.](/images/getting-started/action.png)
 
