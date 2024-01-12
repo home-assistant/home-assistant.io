@@ -39,6 +39,20 @@ Home Assistant will use account linking provided by Nabu Casa for authenticating
 If you want to use separate credentials, please contact <service@yosmart.com> to obtain a `client_id` and `client_secret`. Then you can add your credentials via application credentials. Settings > Devices & Services > click the menu (three dots at the top right of the screen) and then **Application Credentials**. Enter your credentials in the pop-up window.
 {% enddetails %}
 
+## Services
+
+### `Play on SpeakerHub`
+
+With this service, you can convert text to speech for playback on SpeakerHub.
+
+Service data attribute | Optional | Description
+-|-|-
+`target_device` | no| SpeakerHub device ID for audio playback.
+`message` | no| Text for speech conversion.
+`tone` | no| Tone before playing audio.
+`volume` | no| Speaker volume during playback.
+`repeat` | no| The number of times the text will be repeated.
+
 The integration is tested and verified for the following devices from YoLink:
 
 - YS6602/4 YS6704 (outlet | plug)
