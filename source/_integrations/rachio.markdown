@@ -63,11 +63,24 @@ panel_iframe:
 
 ## Switch
 
-The `rachio` switch platform allows you to toggle zones and schedules connected to your [Rachio irrigation system](https://rachio.com/) on and off.
+The `rachio` switch platform allows you to toggle zones, valves and schedules connected to your [Rachio irrigation system](https://rachio.com/) on and off.
 
-Once configured, a switch will be added for every zone that is enabled on every controller in the account provided and a switch to start or stop every schedule on a controller. There will also be a switch to toggle each controller's standby mode, as well as to activate a 24 hour rain delay on the device.
+Once configured, a switch will be added for every zone that is enabled on every controller in the account provided, a switch for each smart hose timer valve and a switch to start or stop every schedule on a controller. There will also be a switch to toggle each controller's standby mode, as well as to activate a 24 hour rain delay on the device.
 
 ## Services
+
+### Service `rachio.start_single_entity`
+
+Allows starting one zone on a sprinkler controller, or any number of smart hose timer valves. To sequentially start multiple zones on a sprinkler controller, use the `start_multiple_zone_schedule` below.
+
+Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | Individual zone, or multiple smart hose timer valves to run. A smart hose timer base station device can also be selected to run all valves on the given base.
+| `duration` | no | Duration in minutes to run the zone or valves.
+
+<div class='note'>
+The services below only apply to sprinkler controllers and will not be shown if only smart hose timers are on the account.
+</div>
 
 ### Service `rachio.start_multiple_zone_schedule`
 
@@ -85,7 +98,7 @@ It is not currently possible to have zones from multiple controllers in the same
 ### Examples
 
 ```yaml
-#Example sctipt to start multiple zones with individual duration for each zone.
+#Example script to start multiple zones with individual duration for each zone.
 script:
   run_grass_zones:
     sequence: 
@@ -100,7 +113,7 @@ script:
 ```
 
 ```yaml
-#Example sctipt to start multiple zones with one duration for all zones.
+#Example script to start multiple zones with one duration for all zones.
 script:
   run_grass_zones:
     sequence: 
@@ -113,6 +126,7 @@ script:
         data:
           duration: 20
 ```
+
 ### Service `rachio.set_zone_moisture_percent`
 
 Set the zone moisture percentage for a zone or group of zones.
