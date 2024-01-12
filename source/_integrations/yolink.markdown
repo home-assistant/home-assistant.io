@@ -47,11 +47,11 @@ With this service, you can convert text to speech for playback on SpeakerHub.
 
 Service data attribute | Optional | Description
 -|-|-
-`target_device` | no| SpeakerHub device id for audio playback.
-`message` | no| Text for conversion to speech.
+`target_device` | no| SpeakerHub device ID for audio playback.
+`message` | no| Text for speech conversion.
 `tone` | no| Tone before playing audio.
 `volume` | no| Speaker volume during playback.
-`repeat` | no| The amount of times the text will be repeated.
+`repeat` | no| The number of times the text will be repeated.
 
 The integration is tested and verified for the following devices from YoLink:
 
