@@ -12,8 +12,8 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The Elvia integration will import your grid consumption.
-You can use the Elvia integration, regardless of which provider you are subscribed to as long as Elvia operates the grid.
+The Elvia integration will import your historical grid consumption.
+You can use the Elvia integration, regardless of which provider you are subscribed to as long as Elvia operates the grid, if you are unsure about if this can work for you. Login to [Min side](https://www.elvia.no/logg-inn/) if you see a meter there, you can use it.
 
 The imported data can be used in the [Energy dashboard](/docs/energy/) and with the [statistics-graph card](/dashboards/statistics-graph/).
 
@@ -34,6 +34,10 @@ To use this integration, you need to create an API token.
 
 The integration will fetch new data every hour.
 The first time it runs, the data for the past year will be imported.
+
+The consumption data that is shown both on [Min side](https://www.elvia.no/logg-inn/) and in Elvia's app is the same data as this integration will use. And until the data is updated in those dashboards (which happens once every hour), the data will not be available in Home Assistant.
+
+If you are after instant monitoring of your consumption you would have to use another integration, like [Tibber](/integrations/tibber/).
 
 ## Multiple meters for a single API token
 
