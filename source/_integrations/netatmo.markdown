@@ -72,7 +72,7 @@ The `netatmo` cover platform provides support for Bubendorff shutters.
 
 ## Fan
 
-The `netatmo` fan plaform provides support for 
+The `netatmo` fan plaform provides support for Legrand centralized ventilation control.
 
 ## Light
 
