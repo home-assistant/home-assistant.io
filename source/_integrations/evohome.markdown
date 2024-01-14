@@ -189,7 +189,7 @@ For the location (controller), see `system_mode_status`:
 
 {% raw %}
 
-```text
+```jinja
 {% if state_attr('climate.my_home', 'status').system_mode_status.mode == "Away" %}
   The system is in Away mode
 {% else %}
@@ -203,7 +203,7 @@ For the Zones, it is `setpoint_status`:
 
 {% raw %}
 
-```text
+```jinja
 {{ state_attr('climate.kitchen', 'status').setpoint_status.setpoint_mode }}
 ```
 
@@ -213,7 +213,7 @@ The Zones will expose the current/upcoming scheduled `setpoints`:
 
 {% raw %}
 
-```text
+```jinja
 {{ state_attr('climate.kitchen', 'status').setpoints.next_sp_temp }}
 ```
 
@@ -223,7 +223,7 @@ All Evohome entities may have faults, and these can be turned into sensors, or:
 
 {% raw %}
 
-```text
+```jinja
 {% if state_attr('climate.bedroom', 'status').active_faults %}
   {% if state_attr('climate.bedroom', 'status').active_faults[0].faultType == 'TempZoneActuatorLowBattery' %}
     There is a low battery
