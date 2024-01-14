@@ -626,6 +626,11 @@ climates:
           description: "Address of Fan mode register."
           required: true
           type: integer
+        write_registers:
+          description: "Request type, use `write_registers` if true  else `write_register`.
+          required: false
+          type: boolean
+          default: false
         values:
           description: "Mapping between the register values and Fan modes
             This is typically used to control one of: Speed, Direction or On/Off state."
