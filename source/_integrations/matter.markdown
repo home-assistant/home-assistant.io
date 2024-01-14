@@ -111,7 +111,7 @@ Each Matter network is called a fabric. Each home automation controller that con
 - In Home Assistant, have the Matter integration installed.
   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
   - Add the **Matter (BETA)** integration.
-  - When prompted to select the connection integration: Unless you have a complex setup, just select **Submit**.
+  - When prompted to **Select the connection method**: Unless you already have a Matter server, select **Submit**.
 - Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](#bluetooth-used-during-commissioning):
   - Android:
     - Have an Android phone (a full Android, not F-Droid).
