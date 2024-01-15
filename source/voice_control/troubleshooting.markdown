@@ -111,7 +111,9 @@ You think there is an issue with background background noise or speaker volume? 
    - For each voice command you gave, you will find a subfolder with the audio file in `.wav` format.
 6. Listen to the audio file of interest.
 7. Adjust noise suppression and volume, if needed:
-   - Access the `config` folder and open the `esphome/your-device-name-wake-word.yaml` file.
+   - Access the `config` folder and open the `esphome/your-device-name.yaml` file.
+     - `your-device-name` is a placeholder for the product name. 
+     - For example, if you have an ATOM Echo, look for ATOM Echo. If you have an S3-BOX, look for S3-BOX in the YAML filename.
    - Find the `voice_assistant` section.
    - If the audio is too noisy, increase the `noise_suppression_level` (max.&nbsp;4).
    - If the audio is too quiet, increase either the `auto_gain` (max.&nbsp;31) or the `volume_multiplier` (no maximum, but a too high value will cause distortion eventually).
