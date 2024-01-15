@@ -23,7 +23,7 @@ Currently, only covers (shutters in SUPLA's terminology), gates, garage doors, a
 
 Right now, it's impossible to add a device -- all of them are discovered from SUPLA-CLOUD's servers or yours.
 
-For more complete HomeAssistant support, based on MQTT autodiscovery, consider switching your Supla devices to MQTT (through set-up interface) or using MQTT broker provided by [Supla Cloud] (https://cloud.supla.org/integrations/mqtt-broker).
+For more complete Home Assistant support, based on MQTT autodiscovery, consider switching your Supla devices to MQTT (through set-up interface) or using MQTT broker provided by [Supla Cloud] (https://cloud.supla.org/integrations/mqtt-broker).
 
 ## Configuration
 
