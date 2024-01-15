@@ -98,7 +98,7 @@ If you run Home Assistant in a container, you can run a Docker image of the [Mat
 
 Running Matter on a Home Assistant Core installation is not supported.
 
-## Adding Matter devices to Home Assistant
+## Adding a Matter device to Home Assistant
 
 Each Matter network is called a fabric. Each home automation controller that controls Matter devices has its own "fabric". You can add devices directly to the fabric of your Home Assistant instance, or share them from another fabric (ie Google, Apple) to Home Assistant's fabric. We're going to explore all these options below.
 
@@ -132,7 +132,7 @@ Each Matter network is called a fabric. Each home automation controller that con
 
 - Make sure the device is in close range of the border router and your phone.
 
-### To add a device using the iOS Companion app
+### To add a new device using the iOS Companion app
 
 This will use the Bluetooth connection of your phone to add the device.
 
@@ -153,7 +153,7 @@ This will use the Bluetooth connection of your phone to add the device.
 
 <lite-youtube videoid="8y79Kq3QfCQ" videotitle="Add Matter device via iOS app in Home Assistant"></lite-youtube>
 
-### To add a device using the Android Companion app
+### To add a new device using the Android Companion app
 
 This will use the Bluetooth connection of your phone to add the device.
 
