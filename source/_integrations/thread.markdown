@@ -40,4 +40,4 @@ Each vendor forms their own network when you start using their products, so you 
 
 It is possible to align credentials for TBRs from different vendors and have them form a single network together. This allows you to freely move devices between rooms without losing connectivity. To do this, you need to make sure that all TBRs use the same credentials. Currently, this works differently for each TBR vendor.
 
-Home Assistant will sync the Thread credentials with Google when starting to {{% term commission % }} a Matter device via the Home Assistant Companion app. For other vendors, if the vendor allows you to see the operational dataset in TLV format, you can import it to Home Assistant from the Thread panel.
+Home Assistant will sync the Thread credentials with Google when starting to {% term commission %} a Matter device via the Home Assistant Companion app. For other vendors, if the vendor allows you to see the operational dataset in TLV format, you can import it to Home Assistant from the Thread panel.
