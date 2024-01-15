@@ -158,14 +158,24 @@ This will use the Bluetooth connection of your phone to add the device.
 This will use the Bluetooth connection of your phone to add the device.
 
 1. Open The Home Assistant app on your phone.
-2. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-3. On the **Devices** tab, select the **Add device** button.
-4. Select **Add Matter device**.
-5. Scan the QR-code of the Matter device with your phone camera or select **Setup without QR-code** to manually enter the commission code.
-   - This starts the commissioning process which may take a few minutes.
-6. If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
-7. Once the process is complete, select **Done**.
-   - You are now redirected to the device within Home Assistant. It is ready for use.
+2. Power up the device by plugging it in or add a battery. Most devices will no go into pairing mode.
+   - For some devices, you need to enable a pairing mode (like you do with Z-Wave or Zigbee device). 
+   - The instructions on how to set the device in pairing mode can usually be found in the docs of the device.
+3. For some devices, at this point, your phone shows a pop-up, prompting you to **Scan the QR code**.
+   - Scan the QR code.
+   - When prompted to **Choose an app**, make sure to select Home Assistant.
+   - Once the process is complete, select **Done**, then select **Add device**.
+4. If you did not see a pop-up, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+   - On the **Devices** tab, select the **Add device** button.
+   - Select **Add Matter device**.
+   - Scan the QR-code of the Matter device with your phone camera or select **Setup without QR-code** to manually enter the commission code.
+      - This starts the commissioning process which may take a few minutes.
+   - If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
+   - Once the process is complete, select **Done**.
+5. To view the device details, go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **Matter** integration.
+6. By default, the device is called **Matter**. To rename it, select the three-dots and **Rename** the device.
+   ![image](/images/integrations/matter/matter-android-rename.png)
+7. Your device is now ready to use.
 
 <lite-youtube videoid="Fk0n0r0eKcE" videotitle="Add Matter device via Android app in Home Assistant"></lite-youtube>
 
