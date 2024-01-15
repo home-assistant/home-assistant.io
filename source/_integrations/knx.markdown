@@ -544,7 +544,7 @@ name:
 address:
   description: Group address to send to.
   required: true
-  type: [string, list]
+  type: string
 payload:
   description: The raw payload that shall be sent.
   required: false

@@ -55,7 +55,7 @@ See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kas
 - KP125
 - KP401
 - EP10
-- EP25
+- EP25 (HW versions 2.5 and earlier)
 
 ### Power Strips
 
@@ -153,7 +153,7 @@ data:
   random_seed: 80
 ```
 
-### Seqeuence Effect - Service `tplink.sequence_effect`
+### Sequence Effect - Service `tplink.sequence_effect`
 
 The light strips allow setting a sequence effect.
 

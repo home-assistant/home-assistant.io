@@ -12,33 +12,31 @@ $primary-color: #1abcf2;
   }
 }
 
-.search-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: white;
-  padding-top: 19px;
-  padding-right: 15%;
-
-  .search {
-    max-width: 500px;
-    width: 100%;
-    border-bottom: 2px solid $primary-color;
-    float: right;
-
-    .algolia-autocomplete {
-      width: calc(100% - 64px);
-      margin: 0 10px;
-    }
-
-    input {
-      border: 0;
-      width: 100%;
-      outline: none;
+.docsearch {
+  .DocSearch-Button {
+    padding: 0px;
+    margin-top: 16px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background: none;
+    &:hover {
+      box-shadow: none;
     }
   }
+  .DocSearch-Button-Placeholder {
+    display: none;
+  }
+  .DocSearch-Button-Keys {
+    display: none;
+  }
+  .DocSearch-Search-Icon {
+    margin-right: 8px;
+    color: $primary-color;
+  }
+}
+
+.DocSearch-Container {
+  z-index: 1000;
 }
 
 .integration-alert-container {
@@ -75,12 +73,6 @@ a.integration-alert {
 }
 
 @media only screen and (max-width: $menu-collapse) {
-  .search-container {
-    z-index: 20;
-    padding-right: 5px;
-    padding-left: 5px;
-  }
-
   .feedback {
     margin-bottom: 32px;
   }
@@ -889,12 +881,19 @@ code {
 }
 
 @media only screen and (max-width: $menu-collapse) {
+
   #not_found {
     .page {
       text-align: center;
 
       .search404-container {
         margin-bottom: 32px;
+        display: grid;
+
+        #search404 {
+          display: flex;
+          justify-self: center;
+        }
       }
     }
   }
@@ -908,9 +907,11 @@ code {
 
       .search404-container {
         margin-bottom: 32px;
+        display: grid;
 
         #search404 {
-          width: 420px;
+          display: flex;
+          justify-self: center;
         }
       }
     }

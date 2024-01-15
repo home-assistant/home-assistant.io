@@ -12,8 +12,6 @@ The `mqtt` water heater platform lets you control your MQTT enabled water heater
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To enable this water heater platform in your installation, first add the following to your `configuration.yaml` file:
 
 ```yaml
