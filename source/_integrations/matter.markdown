@@ -104,7 +104,7 @@ Each Matter network is called a fabric. Each home automation controller that con
 
 ### Prerequisites
 
-- On the device packaging, check for the Matter logo and for either the Wi-Fi or the Thread logo.
+- On the device packaging, check for both the Matter logo and for either the Wi-Fi or the Thread logo.
 - Check if the QR code is only on the packaging or if it is also on the device.
   - If it is only on the packaging, snap a picture of the QR code and the device and store it in a save place.
   - If you lose the QR code and disconnect the device at some point, you won't be able to connect to that device again without the QR code.
@@ -114,7 +114,7 @@ Each Matter network is called a fabric. Each home automation controller that con
   - When prompted to **Select the connection method**:
     - If you run Home Assistant OS in a regular setup: select **Submit**.
       - This will install the official Matter server add-on.
-    - If you are already running the Matter server in another add-on, a custom container, or natively:
+    - If you are already running the Matter server in another add-on, or a custom container:
       - Deselect the checkbox, then Select **Submit**.
       - In the next step, provide the URL to your Matter server.
 - Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](#bluetooth-used-during-commissioning):
@@ -123,13 +123,13 @@ Each Matter network is called a fabric. Each home automation controller that con
     - Have the Home Assistant Companion app installed.
     - Have Google Home app installed on the Android.
     - We are not going to add the new device to Google Home. The app is needed because Google included the Matter SDK there.
-    - If you are using Thread: Make sure there is a Thread border router device (Nest Hub v2 or Nest Wi-Fi Pro) added to Home Assistant.
+    - If you are using Thread: Make sure there is a Thread border router device (Nest Hub v2 or Nest Wi-Fi Pro) present in your home network.
   - iPhone
     - Version 16 or higher
-    - If you are using Thread: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K) added to Home Assistant.
+    - If you are using Thread: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K) present in your home network.
       - For instruction on how to add these devices to Home Assistant, refer to the instructions on [adding a HomeKit device](/integrations/homekit_controller/#adding-a-homekit-device-via-ethernet-or-wi-fi).
 
-- If you are using Wi-Fi: Most Matter devices use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
+- If you are adding a Wi-Fi based Matter device: Matter devices use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 
 - Make sure the device is in close range of the border router and your phone.
 
@@ -159,7 +159,7 @@ This will use the Bluetooth connection of your phone to add the device.
 This will use the Bluetooth connection of your phone to add the device.
 
 1. Open The Home Assistant app on your phone.
-2. Power up the device by plugging it in or add a battery. Most devices will no go into pairing mode.
+2. Power up the device by plugging it in or add a battery. Most devices will now go into pairing mode.
    - For some devices, you need to enable a pairing mode (like you do with Z-Wave or Zigbee device).
    - The instructions on how to set the device in pairing mode can usually be found in the device documentation.
 3. For some devices, at this point, your phone shows a pop-up, prompting you to **Scan the QR code**.
@@ -174,7 +174,7 @@ This will use the Bluetooth connection of your phone to add the device.
    - If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
    - Once the process is complete, select **Done**.
 5. To view the device details, go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **Matter** integration.
-6. By default, the device is called **Matter**. To rename it, select the three-dots and **Rename** the device.
+6. By default, the device gets a factory specified name. To rename it, select the three-dots and **Rename** the device.
    ![image](/images/integrations/matter/matter-android-rename.png)
 7. Your device is now ready to use.
 
