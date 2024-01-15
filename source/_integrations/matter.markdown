@@ -114,8 +114,8 @@ Each Matter network is called a fabric. Each home automation controller that con
   - When prompted to **Select the connection method**:
     - If you run Home Assistant OS in a regular setup: select **Submit**.
       - This will install the official Matter server add-on.
-    - If you are already running the Matter server in another add-on, or a custom container:
-      - Deselect the checkbox, then Select **Submit**.
+    - If you are already running the Matter server in another add-on, in or a custom container:
+      - Deselect the checkbox, then select **Submit**.
       - In the next step, provide the URL to your Matter server.
 - Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](#bluetooth-used-during-commissioning):
   - Android:
@@ -127,7 +127,7 @@ Each Matter network is called a fabric. Each home automation controller that con
   - iPhone
     - Version 16 or higher
     - If you are using Thread: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K) present in your home network.
-- If you are adding a Wi-Fi based Matter device: Matter devices use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
+- If you are adding a Wi-Fi-based Matter device: Matter devices use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 
 - Make sure the device is in close range of the border router and your phone.
 
