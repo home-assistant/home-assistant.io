@@ -123,10 +123,11 @@ Each Matter network is called a fabric. Each home automation controller that con
     - Have the Home Assistant Companion app installed.
     - Have Google Home app installed on the Android.
     - We are not going to add the new device to Google Home. The app is needed because Google included the Matter SDK there.
-    - If you are using Thread: Make sure there is a Thread border router device present: Nest Hub v2 or Nest Wi-Fi Pro.
+    - If you are using Thread: Make sure there is a Thread border router device (Nest Hub v2 or Nest Wi-Fi Pro) added to Home Assistant.
   - iPhone
     - Version 16 or higher
-    - If you are using Thread: Make sure there is a Thread border router device present: HomePod Mini or V2, Apple TV 4K.
+    - If you are using Thread: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K) added to Home Assistant.
+      - For instruction on how to add these devices to Home Assistant, refer to the instructions on [adding a HomeKit device](/integrations/homekit_controller/#adding-a-homekit-device-via-ethernet-or-wi-fi).
 
 - If you are using Wi-Fi: Most Matter devices use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 
@@ -149,7 +150,7 @@ This will use the Bluetooth connection of your phone to add the device.
    - This is an internal reference for iOS. It won't be visible in Home Assistant.
    - After entering a name, select **Continue**.
 9. Once the process is complete, select **Done**.
-   - You are now redirected to the device within Home Assistant. It is ready for use.
+   - You are now redirected to the device page within Home Assistant. It is ready for use.
 
 <lite-youtube videoid="8y79Kq3QfCQ" videotitle="Add Matter device via iOS app in Home Assistant"></lite-youtube>
 
