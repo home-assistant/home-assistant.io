@@ -464,7 +464,7 @@ See [Alexa Display Categories][alexa-display-categories] for a complete list
 
 Home Assistant supports the following integrations through Alexa using a Smart Home Skill. For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
-The following paragraphs explain the features of the platforms that are currently are supported.
+The following paragraphs explain the features of the platforms that are currently supported.
 
 ### Alarm control panel
 
