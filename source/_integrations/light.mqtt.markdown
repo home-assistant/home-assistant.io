@@ -171,7 +171,7 @@ device:
     serial_number:
       description: "The serial number of the device."
       required: false
-      type: str
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -614,7 +614,7 @@ device:
     serial_number:
       description: "The serial number of the device."
       required: false
-      type: str
+      type: string
     sw_version:
       description: 'The firmware version of the device.'
       required: false
@@ -987,7 +987,7 @@ device:
     serial_number:
       description: "The serial number of the device."
       required: false
-      type: str
+      type: string
     sw_version:
       description: 'The firmware version of the device.'
       required: false
