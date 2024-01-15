@@ -70,10 +70,10 @@ Many devices that (will) hit the market will use Thread for radio communication 
 
 ## Bluetooth
 
-Most (if not all) Matter-compliant devices will also have a Bluetooth chip onboard, this is to ease commissioning (a somewhat technical term for adding a device to your controller). Bluetooth will not be used to control a device but only to pair it after unboxing or factory resetting. The Home Assistant controller uses the Home Assistant Companion app to do {{% term commissioning % }}, so you can bring your phone close to the device you want to {{% term commission % }}. The controller will then send your network credentials to your device over Bluetooth in the {{% term commissioning % }} process. If that succeeds, the device will communicate over its native interface, meaning Wi-Fi, Ethernet, or Thread.
+Most (if not all) Matter-compliant devices will also have a Bluetooth chip onboard, this is to ease commissioning (a somewhat technical term for adding a device to your controller). Bluetooth will not be used to control a device but only to pair it after unboxing or factory resetting. The Home Assistant controller uses the Home Assistant Companion app to do {% term commissioning %}, so you can bring your phone close to the device you want to {% term commission %}. The controller will then send your network credentials to your device over Bluetooth in the {% term commissioning %} process. If that succeeds, the device will communicate over its native interface, meaning Wi-Fi, Ethernet, or Thread.
 
 <div class='note'>
-Although your Home Assistant server might have a Bluetooth adapter on board that the controller can use to {{% term commission % }} devices, we choose not to utilize that adapter. Mainly to prevent issues with the built-in Bluetooth integration but also because it makes more sense to bring your mobile devices close to the Matter device you'd like to {{% term commission % }}.
+Although your Home Assistant server might have a Bluetooth adapter on board that the controller can use to {% term commission %} devices, we choose not to utilize that adapter. Mainly to prevent issues with the built-in Bluetooth integration but also because it makes more sense to bring your mobile devices close to the Matter device you'd like to {% term commission %}.
 </div>
 
 ## Multi fabric: join to multiple controllers
@@ -111,7 +111,7 @@ This will use the Bluetooth connection of your phone to add the device.
 3. On the **Devices** tab, press the **Add device** button.
 4. Choose **Add Matter device** at the top of the list.
 5. Scan the QR-code of the Matter device with your phone camera or press **More options...** to manually enter the Commission code.
-6. Select the **Add to Home Assistant** button which will start the {{% term commissioning % }} process which may take up to a few minutes.
+6. Select the **Add to Home Assistant** button which will start the {% term commissioning %} process which may take up to a few minutes.
 7. If you're adding a test board or beta device, you might get a prompt about an "Uncertified Accessory". In this dialog, select **Add Anyway**.
 8. Once prompted, you can enter a custom **Accessory Name**, this is just an internal reference and not visible in Home Assistant. You can type whatever you like here.
 9. Once the process is complete and you pressed the **Done** button, you are redirected to the device within Home Assistant. It is ready for use.
@@ -160,7 +160,7 @@ This method will allow you to share a device that was added to Google Home to Ho
 
 You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lighting app.
 
-NOTE for Android users: You need to follow the instructions at the bottom of the page to add the test device to the Google developer console, otherwise {{% term commissioning % }} will fail. iOS users will not have this issue but they will get a prompt during {{% term commissioning % }} asking if you trust the development device.
+NOTE for Android users: You need to follow the instructions at the bottom of the page to add the test device to the Google developer console, otherwise {% term commissioning %} will fail. iOS users will not have this issue but they will get a prompt during {% term commissioning %} asking if you trust the development device.
 
 1. Make sure you use Google Chrome or Microsoft Edge browser.
 2. Open https://nabucasa.github.io/matter-example-apps/
@@ -208,4 +208,4 @@ Also see this [extended troubleshooting guide](https://developers.home.google.co
 
 The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use Wi-Fi (including Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use Thread must be joined to Thread networks for which there is at least one border router connected to the Home Assistant LAN.
 
-If you experience any issues with discovering devices (for example, if the initial {{% term commissioning % }} keeps failing or if devices become unavailable randomly), investigate your network topology. For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and may not integrate well with enterprise networking solutions like VLANs, Multicast filtering, and (malfunctioning) IGMP snooping. To avoid issues, try to keep your network topology as simple and flat as possible.
+If you experience any issues with discovering devices (for example, if the initial {% term commissioning %} keeps failing or if devices become unavailable randomly), investigate your network topology. For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and may not integrate well with enterprise networking solutions like VLANs, Multicast filtering, and (malfunctioning) IGMP snooping. To avoid issues, try to keep your network topology as simple and flat as possible.
