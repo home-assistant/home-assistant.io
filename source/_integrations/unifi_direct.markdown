@@ -9,6 +9,8 @@ ha_domain: unifi_direct
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+ha_codeowners:
+  - '@tofuSCHNITZEL'
 ---
 
 This platform allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ui.com/products/#unifi). This device tracker differs from [Ubiquiti UniFi](/integrations/unifi) because it doesn't require the UniFi Network application.

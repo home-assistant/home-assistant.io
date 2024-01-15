@@ -8,7 +8,6 @@ ha_codeowners:
   - '@ashionky'
 ha_iot_class: Local Polling
 ha_domain: refoss
-featured: true
 ha_config_flow: true
 ha_platforms:
   - switch

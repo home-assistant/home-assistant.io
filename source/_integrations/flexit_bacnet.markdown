@@ -1,5 +1,5 @@
 ---
-title: Flexit BACnet
+title: Flexit Nordic (BACnet)
 description: Instructions on how to integrate Flexit air handling unit into Home Assistant.
 ha_category:
   - Climate
@@ -8,7 +8,11 @@ ha_iot_class: Local Polling
 ha_domain: flexit_bacnet
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: device
+ha_codeowners:
+  - '@lellky'
+  - '@piotrbulinski'
+ha_config_flow: true
 ---
 
 Integrates [Flexit](https://www.flexit.no/en/) Nordic series air handling unit into Home Assistant.

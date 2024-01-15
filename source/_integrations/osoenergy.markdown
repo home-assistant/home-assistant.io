@@ -1,7 +1,7 @@
 ---
 title: OSO Energy
 description: Instructions on how to integrate OSO Energy devices with Home Assistant.
-ha_release: "2024.1"
+ha_release: '2024.1'
 ha_category:
   - Sensor
   - Water Heater

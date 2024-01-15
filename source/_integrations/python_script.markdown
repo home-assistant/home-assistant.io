@@ -19,6 +19,7 @@ This integration allows you to write Python scripts that are exposed as services
 | `time` | The stdlib `time` available as limited access.
 | `datetime` | The stdlib `datetime` available as limited access.
 | `dt_util` | The ` homeassistant.util.dt` module.
+| `output` | An empty dictionary. Add items to return data as [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
 
 Other imports like `min`, `max` are available as builtins. See the [python_script](https://github.com/home-assistant/core/blob/dev/homeassistant/components/python_script/__init__.py) source code for up-to-date information on the available objects inside the script.
   
@@ -135,6 +136,29 @@ Services can also respond with data. Retrieving this data in your Python script 
 service_data = {"type": "daily", "entity_id": ["weather.YOUR_HOME", "weather.YOUR_SCHOOL"]}
 current_forecast = hass.services.call("weather", "get_forecasts", service_data, blocking=True, return_response=True)
 ```
+
+## Returning data
+
+Python script itself can respond with data. Just add items to the `output` variable in your `python_script` and the whole dictionary will be returned. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+
+```python
+# hello_world.py
+output["hello"] = f"hello {data.get('name', 'world')}"
+```
+
+The above `python_script` can be called using the following YAML and return a result to later steps.
+
+{% raw %}
+
+```yaml
+- service: python_script.hello_world
+  response_variable: python_script_output
+- service: notify.mobile_app_iphone
+  data:
+    message: "{{ python_script_output['hello'] }}"
+```
+
+{% endraw %}
 
 ## Documenting your Python scripts
 
