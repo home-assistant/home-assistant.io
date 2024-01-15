@@ -160,8 +160,8 @@ This will use the Bluetooth connection of your phone to add the device.
 
 1. Open The Home Assistant app on your phone.
 2. Power up the device by plugging it in or add a battery. Most devices will no go into pairing mode.
-   - For some devices, you need to enable a pairing mode (like you do with Z-Wave or Zigbee device). 
-   - The instructions on how to set the device in pairing mode can usually be found in the docs of the device.
+   - For some devices, you need to enable a pairing mode (like you do with Z-Wave or Zigbee device).
+   - The instructions on how to set the device in pairing mode can usually be found in the device documentation.
 3. For some devices, at this point, your phone shows a pop-up, prompting you to **Scan the QR code**.
    - Scan the QR code.
    - When prompted to **Choose an app**, make sure to select Home Assistant.
