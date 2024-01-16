@@ -162,7 +162,7 @@ The `knx.telegram` trigger can be used to trigger automations on incoming or out
 
 <div class='note'>
 
-This trigger is also provided as device trigger by the `KNX Interface` device with support for setting the options in the automation builder UI.
+This trigger is also provided as a device trigger by the `KNX Interface` device. It supports setting the options in the automation builder UI.
 
 </div>
 
@@ -208,7 +208,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 - `trigger.dpt_main` Destination group address main datapoint type number
 - `trigger.dpt_sub` Destination group address sub datapoint type number
 - `trigger.dpt_name` DPT value type name - see Sensor value types
-- `trigger.payload` Raw telegram payload. DPT 1, 2 and 3 yield integers 0..255; other DPT yield lists of integers 0..255
+- `trigger.payload` Raw telegram payload. DPT 1, 2, and 3 yield integers 0..255; other DPT yield lists of integers 0..255
 - `telegram.source` Source individual address
 - `telegram.source_name` Source name
 - `telegram.telegramtype` APCI type of telegram
@@ -232,7 +232,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | `telegram.unit`            | string                      | yes                   |
 | `telegram.value`           | any                         | yes                   |
 
-For values that require project data, if the information was not found, or no project file was provided, data will be set to `null`.
+For values that require project data: if the information was not found, or if no project file was provided, data will be set to `null`.
 
 #### Examples
 
@@ -280,7 +280,7 @@ context: null
 
 <div class='note'>
 
-For automation triggers it is recommended to use the [knx.telegram](#telegram-trigger) trigger instead of `knx_event`.
+For automation triggers, it is recommended to use the [knx.telegram](#telegram-trigger) trigger instead of `knx_event`.
 
 </div>
 
@@ -349,7 +349,7 @@ response:
 ### Read
 
 You can use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of an entity.
-To manually send GroupValueRead requests use the `knx.read` service. The response can be used in automations by the `knx.telegram` trigger and it will be processed in KNX entities.
+To manually send GroupValueRead requests, use the `knx.read` service. The response can be used in automations by the `knx.telegram` trigger and it will be processed in KNX entities.
 
 ```txt
 Domain: knx
