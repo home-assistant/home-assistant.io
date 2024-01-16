@@ -56,6 +56,16 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+alert_classes:
+  required: false
+  type: list
+  default: "moisture, motion"
+  description: A list of binary_sensor device classes which will populate alert icons in the card when the state is on.
+sensor_classes:
+  required: false
+  type: list
+  default: "temperature, humidity"
+  description: A list of sensor device classes which will display their averaged sensor readings for the area. 
 {% endconfiguration %}
 
 ### Example
