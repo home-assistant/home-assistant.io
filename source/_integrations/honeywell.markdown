@@ -55,8 +55,7 @@ alias: 15 No one home heat
 description: Everyone has left home
 trigger:
   - platform: numeric_state
-    entity_id:
-      - zone.home
+    entity_id: zone.home
     for:
       hours: 0
       minutes: 10
@@ -68,8 +67,7 @@ action:
         - service: climate.set_temperature
           continue_on_error: true
           target:
-            entity_id:
-              - climate.stat
+            entity_id: climate.stat
           data:
             temperature: 64
         - delay:
