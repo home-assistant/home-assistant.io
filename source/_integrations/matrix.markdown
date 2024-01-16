@@ -188,7 +188,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 Matrix supports sending messages using a [limited HTML subset](https://spec.matrix.org/v1.2/client-server-api/#mroommessage-msgtypes). To specify the message format, add it in the notification `data`.
 
-Supported formats are: `text` (default), and `html`.
+Supported formats are: `text` (default), `html` and `notice`.
 
 ```yaml
 # Example of notification as HTML
@@ -199,6 +199,19 @@ action:
       <h1>Hello, world!</h1>
     data:
       format: "html"
+```
+
+The [notice](https://spec.matrix.org/latest/client-server-api/#mnotice) type is primarily intended for responses from automated clients. It will not cause notification for Matrix room members.
+
+```yaml
+# Example of notification as notice
+action:
+  service: notify.matrix_notify
+  data:
+    message: >-
+      Hello, world! I'm bot.
+    data:
+      format: "notice"
 ```
 
 ### Images in notification
