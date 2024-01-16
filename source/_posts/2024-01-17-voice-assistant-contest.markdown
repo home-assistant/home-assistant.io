@@ -2,7 +2,7 @@
 layout: post
 title: "Voice Assistant Contest - Let's build and win some prizes!"
 description: "We are organizing a voice assistant contest between the 17th of January and the 10th of March. You can win some Home Assistant Green, some Home Assistant SkyConnect, and a chance to be on a livestream with us to talk about your creation."
-date: 2024-01-17 00:00:01
+date: 2024-01-16 00:00:01
 date_formatted: "January 17, 2024"
 author: Jean-Loïc Pouffier
 comments: true
@@ -48,14 +48,18 @@ You can participate in the contest in four different categories.
 
 We have all the ingredients to unleash creativity: Custom sentences, custom wake words, custom voices. This category is here to showcase your smartest ideas.
 We will be judging the creativity, uniqueness, and coherency of the whole package.
+
 Example: [Piitaya’s](https://github.com/piitaya) moving and talking droid.
+
 <lite-youtube videoid="vQ7Hmeume9g" videotitle="Wake word demonstration on ESPHome-based 3D printed droid in Home Assistant | Year of the Voice"></lite-youtube>
 
 ### Best Starting Guides
 
 Because our voice assistant can be heavily customized, starting can be daunting. This category is here to showcase the easiest ways to create a voice assistant for a novice. From ordering parts, flashing the firmware, integrating it into Home Assistant, and using it.
 We will be judging how easy the guide is to follow, and how usable the final product is.
+
 Example: The amazingly complete guide to build a Wyoming Voice Assistant Satellite by YouTuber [FutureProofHome](https://www.youtube.com/@FutureProofHomes).
+
 <lite-youtube videoid="eTKgc0YDCwE" videotitle="Build the Wyoming Voice Satellite With ChatGPT and a Raspberry Pi To Replace Alexa & Google FOREVER!"></lite-youtube>
 
 ### Best events organized, best group effort
@@ -69,6 +73,7 @@ This category is here for people who want to participate in the contest but not 
 We support custom sentences, custom responses, and custom actions.
 Go crazy, be creative, and show us how to unlock the potential of our voice assistants.
 We will be judging how useful the experience is, how easy it is to integrate it, and of course, of fun it is.
+
 Example: [Play any music on any speaker in your home from a blueprint.](https://blog.jlpouffier.fr/chatgpt-powered-music-search-engine-on-a-local-voice-assistant/)
 
 ## Contest Prizes
