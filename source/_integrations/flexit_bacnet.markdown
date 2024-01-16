@@ -28,4 +28,14 @@ To configure the integration, you need to obtain the IP address and Device ID fo
 5. Go to **More** > **Installer** > **Communication**  > **BACnet settings**.
 6. Note down the **IP address** and **Device ID**.
 
+### A note about shutting down the device
+ 
+Flexit recommends that the function to turn off the unit is not made accessible in the interface for an ordinary user. It will therefore be removed from the integration in the future.
+
+The consequences of shutting down the unit can be costly and extensive. For example, there can be condensation issues in freezing temperatures, and rotary heat exchangers can freeze.
+
+If you need to shut down the unit, make sure to take all necessary precautions, such as securing the system with frost protection dampers.
+
+Furthermore, Flexit recommends to unplug the unit from the power socket before replacing a filter. To prevent damage, always initiate a controlled shutdown from the control panel (or, in the future, from a service call in Home Assistant) before unplugging the device.
+
 {% include integrations/config_flow.md %}
