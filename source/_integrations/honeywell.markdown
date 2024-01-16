@@ -51,15 +51,13 @@ All [climate services](/integrations/climate) are supported except set_swing_mod
 Due to the instability of the Honeywell total connect system, service calls within automations should repeat until success similar to the following example:
 
 ```yaml
-alias: 15 No one home heat
-description: Everyone has left home
+alias: "No one home"
+description: "Everyone has left home"
 trigger:
   - platform: numeric_state
     entity_id: zone.home
     for:
-      hours: 0
       minutes: 10
-      seconds: 0
     below: 1
 action:
   - repeat:
@@ -71,16 +69,12 @@ action:
           data:
             temperature: 64
         - delay:
-            hours: 0
             minutes: 1
-            seconds: 0
-            milliseconds: 0
       until:
         - condition: state
           entity_id: climate.stat
           attribute: temperature
-          state: "64"
-mode: single
+          state: 64
 ```
 
 ## Sensor
