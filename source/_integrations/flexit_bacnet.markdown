@@ -34,7 +34,7 @@ Flexit recommends that the function to turn off the unit is not made accessible 
 
 The consequences of shutting down the unit can be costly and extensive. For example, there can be condensation issues in freezing temperatures, and rotary heat exchangers can freeze.
 
-If the unit is to be shut down, the system should be secured with frost protection dampers, etc.
+If you need to shut down the unit, make sure to take all necessary precautions, such as securing the system with frost protection dampers.
 
 Furthermore, Flexit recommends that filter replacement is made with the unit unplugged from the power socket. To prevent damage when unplugging the device, a controlled shutdown initiated from the control panel (or in the future, from a service call in Home Assistant) is required.
 
