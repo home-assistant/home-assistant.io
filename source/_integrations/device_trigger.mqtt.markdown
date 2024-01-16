@@ -150,7 +150,7 @@ Note that it is not necessary to provide the full device information in each mes
 
 A device automation with an MQTT device trigger can be fully set up through the UI.
 In some cases it can be useful to to use templates, e.g. to set the `discovery_id` using a variable.
-The parameters `discovery_id`, `type` and `subtype` support templating using the [trigger variables](/docs/automation/trigger/#trigger-variables).
+The `discovery_id` parameter supports templating using the [trigger variables](/docs/automation/trigger/#trigger-variables).
 
 {% raw %}
 
