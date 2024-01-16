@@ -30,7 +30,7 @@ To configure the integration, you need to obtain the IP address and Device ID fo
 
 ### A note about shutting down the device
  
-Flexit recommends that the function to turn off the unit is not made accessible in the interface for an ordinary user, and it will therefore be removed from the integration in the future.
+Flexit recommends that the function to turn off the unit is not made accessible in the interface for an ordinary user. It will therefore be removed from the integration in the future.
 
 The consequences of shutting down the unit can be costly and extensive, considering the freezing of rotary heat exchangers and condensation issues when there are freezing temperatures.
 
