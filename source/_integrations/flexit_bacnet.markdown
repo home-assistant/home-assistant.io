@@ -32,7 +32,7 @@ To configure the integration, you need to obtain the IP address and Device ID fo
  
 Flexit recommends that the function to turn off the unit is not made accessible in the interface for an ordinary user. It will therefore be removed from the integration in the future.
 
-The consequences of shutting down the unit can be costly and extensive, considering the freezing of rotary heat exchangers and condensation issues when there are freezing temperatures.
+The consequences of shutting down the unit can be costly and extensive. For example, there can be condensation issues in freezing temperatures, and rotary heat exchangers can freeze.
 
 If the unit is to be shut down, the system should be secured with frost protection dampers, etc.
 
