@@ -36,6 +36,6 @@ The consequences of shutting down the unit can be costly and extensive. For exam
 
 If you need to shut down the unit, make sure to take all necessary precautions, such as securing the system with frost protection dampers.
 
-Furthermore, Flexit recommends that filter replacement is made with the unit unplugged from the power socket. To prevent damage when unplugging the device, a controlled shutdown initiated from the control panel (or in the future, from a service call in Home Assistant) is required.
+Furthermore, Flexit recommends to unplug the unit from the power socket before replacing a filter. To prevent damage, always initiate a controlled shutdown from the control panel (or, in the future, from a service call in Home Assistant) before unplugging the device.
 
 {% include integrations/config_flow.md %}
