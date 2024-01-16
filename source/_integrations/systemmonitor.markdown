@@ -27,7 +27,7 @@ memory usage, CPU usage, and running processes.
 
 - Disk free - (One per disk/mount point)
 - Disk use - (One per disk/mount point)
-- Disk use (percent) - (One per disk/mount point)
+- Disk usage (percent) - (One per disk/mount point)
 
 ### Network
 
@@ -48,12 +48,12 @@ memory usage, CPU usage, and running processes.
 - Load (1m)
 - Memory free
 - Memory use
-- Memory use (percent)
+- Memory usage (percent)
 - Processor use
 - Processor temperature
 - Swap free
 - Swap use
-- Swap use (percent)
+- Swap usage (percent)
 
 ### Add `process` sensor
 
