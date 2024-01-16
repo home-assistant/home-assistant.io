@@ -48,7 +48,42 @@ The climate platform integrates Honeywell US-based thermostats into Home Assista
 
 All [climate services](/integrations/climate) are supported except set_swing_mode.
 
-There is a "known" issue related to setting the temperature from Home Assistant with some thermostats. If your instance receives errors when setting the temperature above or below some value, go to the Honeywell web page and set the temperature to the max or min for the mode you are using, then adjust from Home Assistant.
+Due to the instability of the Honeywell total connect system, service calls within automations should repeat until success similar to the following example:
+
+```yaml
+alias: 15 No one home heat
+description: Everyone has left home
+trigger:
+  - platform: numeric_state
+    entity_id:
+      - zone.home
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    below: 1
+action:
+  - repeat:
+      sequence:
+        - service: climate.set_temperature
+          continue_on_error: true
+          target:
+            entity_id:
+              - climate.stat
+          data:
+            temperature: 64
+        - delay:
+            hours: 0
+            minutes: 1
+            seconds: 0
+            milliseconds: 0
+      until:
+        - condition: state
+          entity_id: climate.stat
+          attribute: temperature
+          state: "64"
+mode: single
+```
 
 ## Sensor
 
