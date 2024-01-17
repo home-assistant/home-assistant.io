@@ -83,3 +83,7 @@ Host:
 | Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
 | Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
 
+## Calendar
+
+The integration exposes a calendar which represents the auto on/off schedule set for the machine. The schedule will be displayed recurringly, that means if you set the machine to be turn on on Mondays at 8:00, and off at 9:00, you will get events for all Mondays in your calendar. On days where you have the auto on/off feature disabled, you won't get an event in the calendar. Also, if you have the auto on/off feature disabled globally (e.g. through the switch "Auto on/off"), there will be no events in the calendar.
+
