@@ -44,59 +44,57 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 
 ## Entities
 
-
 ### Binary Sensor
 
-The integration will create binary sensor entities for a variety of metrics that relate to your vehicles: 
+The integration will create binary sensor entities for a variety of metrics related to your vehicles:
 
 #### Charge State
 
-- Battery Heater
-- Battery Charging
-- Preconditioning Enabled
-- Scheduled Charging Enabled
-- Trip Charging Enabled
+- Battery charging
+- Battery heater
+- Preconditioning enabled
+- Scheduled charging enabled
+- Trip charging enabled
 
 #### Climate State
 
-- Auto Seat Climate Left
-- Auto Seat Climate Right
-- Auto Steering Wheel Climate
-- Overheat Protection Enabled
-- Overheat Protection Running
+- Auto seat climate left
+- Auto seat climate right
+- Auto steering Wheel climate
+- Overheat protection enabled
+- Overheat protection running
 
 #### Vehicle State
 
-- Dashcam Recording
-- User Present
-- Tire Pressure Warning Front Left
-- Tire Pressure Warning Front Right
-- Tire Pressure Warning Rear Left
-- Tire Pressure Warning Rear Right
+- Dashcam recording
 - Front driver window
 - Front passenger window
 - Rear driver window
 - Rear passenger window
-
+- Tire pressure warning front left
+- Tire pressure warning front right
+- Tire pressure warning rear left
+- Tire pressure warning rear right
+- User present
 
 ### Button
 
-The integration will create button entities to control various aspects of the vehicle.
+The integration will create button entities to control various aspects of the vehicle:
 
-- Wake
 - Flash lights
-- Honk horn
 - Homelink
+- Honk horn
 - Keyless driving
 - Play fart
+- Wake
 
 ### Climate
 
 The integration will create a climate entity to control the vehicle's climate control system. This entity can:
 
+- Change the driver's set temperature
+- Change to one of the three keep modes: Keep, Dog, and Camp
 - Turn on and off
-- Change the drivers set temperature
-- Change to one of the three keep modes: Keep, Dog, and Climate
 
 The passenger set temperature is shown as a sensor but cannot be changed by Tessie.
 
@@ -104,14 +102,14 @@ The passenger set temperature is shown as a sensor but cannot be changed by Tess
 
 The integration will create a cover entity to control various aspects of your vehicles:
 
-- Vent/Closing windows
-- Open/Closing charge port
-- Open frunk
 - Open/Close trunk
+- Open/Close charge port
+- Open frunk
+- Vent/Closing windows
 
 ### Device Tracker
 
-The integration will create device tracker entities for the vehicles current location, and navigation destination.
+The integration will create device tracker entities for the vehicle's current location and navigation destination.
 
 ### Lock
 
@@ -119,7 +117,7 @@ The integration will create a lock entity for each vehicle.
 
 ### Media Player
 
-The integration will create media player entities to show what each vehicles is currently playing.
+The integration will create media player entities to show what each vehicle is currently playing.
 
 ### Number
 
@@ -133,49 +131,49 @@ The integration will create number entities to control:
 
 The integration will create a select entity to control each of the seat heaters. It allows you to set each seat heater to Off, Low, Medium, or High.
 
-- Front Left
-- Front Right
-- Rear Left (if installed)
-- Rear Center (if installed)
-- Rear Right (if installed)
-- Third Row Left (if installed)
-- Third Row Right (if installed)
+- Front left
+- Front right
+- Rear center (if installed)
+- Rear left (if installed)
+- Rear right (if installed)
+- Third row left (if installed)
+- Third row right (if installed)
 
 ### Sensor
 
-The integration will create sensor entities for a variety of metrics that relate to your vehicles:
-
-#### Vehicle State
-
-- Online
-- Odometer
-- Tire Pressure Front Left
-- Tire Pressure Front Right
-- Tire Pressure Rear Left
-- Tire Pressure Rear Right
+The integration will create sensor entities for a variety of metrics related to your vehicles:
 
 #### Charge State
 
-- Battery Level
-- Change Energy Added
-- Change Power
-- Charge Voltage
-- Charger Current
-- Change Rate
-- Battery Range
-
-#### Drive State
-
-- Speed
-- Power
-- Shift State
+- Battery level
+- Battery range
+- Charge energy added
+- Charge rate
+- Charger current
+- Charger power
+- Charger voltage
 
 #### Climate State
 
-- Inside Temperature
-- Outside Temperature
-- Driver Temperature Setting
-- Passenger Temperature Setting
+- Driver temperature setting
+- Inside temperature
+- Outside temperature
+- Passenger temperature setting
+
+#### Drive State
+
+- Power
+- Shift state
+- Speed
+
+#### Vehicle State
+
+- Odometer
+- Online
+- Tire pressure front left
+- Tire pressure front right
+- Tire pressure rear left
+- Tire pressure rear right
 
 ### Switch
 
@@ -184,8 +182,8 @@ The integration will create switch entities to control various aspects of your v
 - Charge
 - Defrost mode
 - Sentry mode
-- Valet mode
 - Steering wheel heater
+- Valet mode
 
 ### Update
 
