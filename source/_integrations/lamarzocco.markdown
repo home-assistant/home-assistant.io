@@ -36,6 +36,12 @@ Host:
   type: boolean
 {% endconfiguration_basic %}
 
+## Buttons
+
+| Button name | Description | Available for machines |
+|-------------|-------------| ---------------------- |
+| Start backflush | Starts the backflush process on your machine. You got 15 seconds to turn the paddle after activation. | all |
+
 ## Switches
 
 | Switch name | Description | Available for machines |
