@@ -47,7 +47,7 @@ Host:
 
 ## Sensors
 
-| Sensor Name | Description | Available for machines | Remarks |
+| Sensor name | Description | Available for machines | Remarks |
 |-------------|-------------| ---------------------- | ------- |
 | Current coffee temperature | Current temperature of the coffee boiler | all | - |
 | Current steam temperature| Current temperature of the steam boiler | all | - |
