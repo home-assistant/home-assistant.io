@@ -36,6 +36,14 @@ Host:
   type: boolean
 {% endconfiguration_basic %}
 
+## Numbers
+
+| Number name | Description | Available for machines | Remarks |
+|-------------|-------------| ---------------------- | ------- |
+| Coffee target temperature | Temperature the coffee boiler is set to | GS3 AV, GS3 MP | - |
+| Steam target temperature | Temperature the steam boiler is set to | GS3 AV, GS3 MP | - |
+| Tea water duration | Dose hot water (in seconds) | GS3 AV, GS3 MP | - |
+
 ## Switches
 
 | Switch name | Description | Available for machines |
