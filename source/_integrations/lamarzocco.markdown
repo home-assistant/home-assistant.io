@@ -48,7 +48,7 @@ Host:
 
 | Binary sensor name | Description | Available for machines | Remarks |
 |-------------|-------------| ---------------------- | ------- |
-| Water tank empty | Indicates whether the water tank needs a refill | all | - |
+| Water tank empty | Indicates whether the water tank needs a refill. | all | - |
 | Brewing active | Is on if you are in the process of making coffee. | all | Only available when the *Host* was set during component configuration. |
 
 ## Sensors
