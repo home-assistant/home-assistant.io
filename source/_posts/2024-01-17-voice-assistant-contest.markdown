@@ -86,7 +86,7 @@ For each category, the winner will receive:
 
 Runners-up will receive a [Home Assistant SkyConnect](/skyconnect/).
 
-The community will also get a chance to vote for a favorite entry, the choice of the community will also receive the same prizes as a category winner (A [Home Assistant Green](https://www.home-assistant.io/green/), A [Home Assistant SkyConnect](https://www.home-assistant.io/skyconnect/), a spot on the livestream on the 10th of April).
+The community will also get a chance to vote for a favorite entry. The choice of the community will also receive the same prizes as a category winner (A [Home Assistant Green](/green/), A [Home Assistant SkyConnect](/skyconnect/), a spot on the livestream on the 10th of April).
 
 ## How to get started
 
