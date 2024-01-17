@@ -53,7 +53,7 @@ Example: [Piitaya’s](https://github.com/piitaya) moving and talking droid.
 
 <lite-youtube videoid="vQ7Hmeume9g" videotitle="Wake word demonstration on ESPHome-based 3D printed droid in Home Assistant | Year of the Voice"></lite-youtube>
 
-### Best Starting Guides
+### Best starting guides
 
 Because our voice assistant can be heavily customized, starting can be daunting. This category is here to showcase the easiest ways to create a voice assistant for a novice. From ordering parts, flashing the firmware, integrating it into Home Assistant, and using it.
 We will be judging how easy the guide is to follow, and how usable the final product is.
