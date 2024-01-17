@@ -27,7 +27,7 @@ Epion API token setup.
 
 1. Login to [Epion](https://www.epion.nl/).
 2. Select [Integrations](https://epion.nl/dashboard/integrations) in the left menu.
-3. Click on "Generate new Token" to create a new token, if you don't see one already.
+3. To create a new token, if you don't see one already, select **Generate new Token**.
 4. Copy your generated token. This will typically be an alphanumerical values with hyphens that starts with "a/"
 
 The Epion integration can now be activated using this API token.
