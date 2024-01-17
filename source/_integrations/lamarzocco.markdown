@@ -51,6 +51,6 @@ Host:
 |-------------|-------------| ---------------------- | ------- |
 | Current coffee temperature | Current temperature of the coffee boiler | all | - |
 | Current steam temperature| Current temperature of the steam boiler | all | - |
-| Drink statistics coffee | Counter for coffees made| all | - |
-| Drink statistics flushing | Counter for total flushes done | all | - |
+| Total coffees made | Counter for total coffees made| all | - |
+| Total flushes made | Counter for total flushes done | all | - |
 | Shot timer | Time the current brew is running | all | Only available when the *Host* was set during component configuration. |
