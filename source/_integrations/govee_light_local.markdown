@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Integrates [Govee](https://www.govee.com/) Lights into Home Assistant using Local API control.
+Integrates [Govee](https://www.govee.com/) lights into Home Assistant using Local API control.
 
 To enable local control on your Govee device, refer to the instructions available [here](https://app-h5.govee.com/user-manual/wlan-guide).
 
