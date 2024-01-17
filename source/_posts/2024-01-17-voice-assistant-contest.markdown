@@ -80,8 +80,8 @@ Example: [Play any music on any speaker in your home from a blueprint.](https://
 
 For each category, the winner will receive:
 
-- a [Home Assistant Green](https://www.home-assistant.io/green/)
-- a [Home Assistant SkyConnect](https://www.home-assistant.io/skyconnect/)
+- A [Home Assistant Green](/green/)
+- A [Home Assistant SkyConnect](/skyconnect/)
 - A spot on the closing ceremony livestream to present his/her work, on the 10th of April
 
 Runners-up will receive a [Home Assistant SkyConnect](https://www.home-assistant.io/skyconnect/).
