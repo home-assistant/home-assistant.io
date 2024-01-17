@@ -21,36 +21,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Vacuum](#vacuum)
 
-## Configuration
-
-To add your Ecovacs devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
-
-```yaml
-ecovacs:
-  username: YOUR_ECOVACS_USERNAME
-  password: YOUR_ECOVACS_PASSWORD
-  country: YOUR_TWO_LETTER_COUNTRY_CODE
-  continent: YOUR_TWO_LETTER_CONTINENT_CODE
-```
-
-{% configuration %}
-username:
-  description: Your username to login to your Ecovacs account.
-  required: true
-  type: string
-password:
-  description: Your password to login to your Ecovacs account.
-  required: true
-  type: string
-country:
-  description: Your two-letter country code (us, uk, etc).
-  required: true
-  type: string
-continent:
-  description: Your two-letter continent code (na, eu, etc).
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 Note: For some countries, you will need to set `continent` to `ww` (meaning worldwide.) There is unfortunately no way to know the correct settings other than guessing and checking. See the [py-sucks library protocol documentation](https://github.com/mib1185/py-sucks/blob/master/protocol.md) for more information about what has been figured out about the Ecovacs servers.
 
@@ -170,7 +141,7 @@ template:
 
 {% endraw %}
 
-### Handling Errors
+### Handling errors
 
 The vacuum entity has an `error` attribute that will contain the _most recent_ error message that came from the vacuum. There is not a comprehensive list of all error messages, so you may need to do some experimentation to determine the error messages that your vacuum can send.
 

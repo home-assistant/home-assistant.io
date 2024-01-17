@@ -51,7 +51,7 @@ You can omit the `--config` option if you use the default configuration director
 
 Quick hot fix after we found a bug in the migrator where it wouldn't work with a database in a non-standard location. Thanks to [@n8henrie] and [@AlucardZero].
 
-### Breaking changes
+### Backward-incompatible changes
 
 - Migrating existing databases (see above).
 - The [APCUPSd Sensor][apcupsd-sensor] was updated. This will need that you modify your `configuration.yaml` file.

@@ -18,8 +18,6 @@ When a `state_topic` is not available, the switch will work in optimistic mode. 
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect switch operation.
 
-<a id='new_format'></a>
-
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -101,6 +99,10 @@ device:
       type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:

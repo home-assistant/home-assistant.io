@@ -1,18 +1,18 @@
 ---
 type: card
-title: "Webpage Card"
+title: "Webpage card"
 sidebar_label: Webpage
-description: "The Webpage card allows you to embed your favorite webpage right into Home Assistant."
+description: "The webpage card allows you to embed your favorite webpage right into Home Assistant."
 ---
 
-The Webpage card allows you to embed your favorite webpage right into Home Assistant. You can also embed files stored in your `<config-directory>/www` folder and reference them using `/local/<file>`.
+The webpage card allows you to embed your favorite webpage right into Home Assistant. You can also embed files stored in your `<config-directory>/www` folder and reference them using `/local/<file>`.
 
 <p class='img'>
   <img width="500" src='/images/dashboards/iframe.png' alt='Windy weather radar as Webpage'>
-  Windy weather radar as Webpage.
+  Windy weather radar as webpage.
 </p>
 
-To add the Webpage card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
@@ -20,9 +20,9 @@ All options for this card can be configured via the user interface.
 You can't embed sites using HTTP if you are using HTTPS for your Home Assistant.
 </div>
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -53,6 +53,6 @@ title:
 
 ```yaml
 type: iframe
-url: https://grafana.localhost/d/000000027/worldping-endpoint-summary?var-probe=All&panelId=2&fullscreen&orgId=3&theme=light
+url: https://www.home-assistant.io
 aspect_ratio: 75%
 ```

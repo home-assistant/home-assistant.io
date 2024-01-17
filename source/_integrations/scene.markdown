@@ -167,7 +167,7 @@ You need to pass a `scene_id` in lowercase and with underscores instead of space
 
 If the scene was previously created by `scene.create`, it will be overwritten. If the scene was created by YAML, nothing happens but a warning in your log files.
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how scenes work and how you can utilize scenes on the fly.
 
 <lite-youtube videoid="JW9PC6ptXcM" videotitle="Scenes on Steroids in Home Assistant - How To - Tutorial" posterquality="maxresdefault"></lite-youtube>
@@ -190,6 +190,27 @@ automation:
         media_player.sony_bravia_tv:
           state: "on"
           source: HDMI 1
+```
+
+## Deleting dynamically created scenes
+
+Any scene that you have created with the `scene.create` service can also be deleted on demand with the `scene.delete` service.
+
+You will need to pass in the `entity_id` of such a scene. As opposed to the `scene_id` used for creation, the `entity_id` must also include the `scene` domain.
+
+If the scene was not previously created by `scene.create`, the service call will fail and an error will appear in the logs.
+
+```yaml
+# Example automation
+automation:
+  trigger:
+    platform: state
+    entity_id: sun.sun
+    to: below_horizon
+  action:
+    - service: scene.delete
+      data:
+        entity_id: scene.my_scene
 ```
 
 The following example turns off some entities as soon as a window opens. The states of the entities are restored after the window is closed again.

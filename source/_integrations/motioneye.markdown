@@ -1,9 +1,9 @@
 ---
 title: motionEye
-description: Instructions on how to integrate MotionEye into Home Assistant.
+description: Instructions on how to integrate motionEye into Home Assistant.
 ha_category:
   - Camera
-  - Media Source
+  - Media source
 ha_release: 2021.5
 ha_iot_class: Local Polling
 ha_domain: motioneye
@@ -54,7 +54,7 @@ Configure motionEye webhooks to report events to Home Assistant:
   description: Whether or not motionEye webhooks should be configured to callback into Home Assistant. If this option is disabled, no motion detected or file stored events will be generated unless the webhooks are manually configured.
 Overwrite unrecognized webhooks:
   description: Whether or not to overwrite webhooks that are already configured and are not recognized as belonging to this integration (webhooks are deemed to belong to this integration if they contain `src=hass-motioneye` in the query string).
-Steam URL template:
+Stream URL template:
   description: A [jinja2](https://jinja.palletsprojects.com/) template that is used to override the standard MJPEG stream URL (e.g. for use with reverse proxies). See [Camera MJPEG Streams](#streams) below. This option is only shown to users who have [advanced mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode) enabled.
 {% endconfiguration_basic %}
 
@@ -89,7 +89,7 @@ Example:
 
 ##### Stream URL Template
 
-For advanced usecases, this behavior can be changed with the [Steam URL
+For advanced usecases, this behavior can be changed with the [Stream URL
 template](#options) option. When set, this string will override the default
 stream address that is derived from the default behavior described above. This
 option supports [jinja2 templates](https://jinja.palletsprojects.com/) and has
@@ -241,7 +241,7 @@ Note: This is a thin wrapper on the [`motioneye.action` call](#action).
 
 ### motioneye.action
 
-Trigger a motionEye action (see [MotionEye Action Buttons](https://github.com/ccrisan/motioneye/wiki/Action-Buttons)).
+Trigger a motionEye action (see [motionEye Action Buttons](https://github.com/ccrisan/motioneye/wiki/Action-Buttons)).
 
 Parameters:
 

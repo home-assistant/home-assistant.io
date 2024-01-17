@@ -1,6 +1,6 @@
 ---
-title: "MQTT Alarm Control Panel"
-description: "Instructions on how to integrate MQTT capable Alarm Panels into Home Assistant."
+title: "MQTT Alarm control panel"
+description: "Instructions on how to integrate MQTT capable alarm panels into Home Assistant."
 ha_category:
   - Alarm
 ha_release: 0.7.4
@@ -26,8 +26,6 @@ The integration will accept the following states from your Alarm Panel (in lower
 The integration can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
 
 ## Configuration
-
-<a id='new_format'></a>
 
 To enable this platform, add the following lines to your `configuration.yaml`:
 
@@ -135,6 +133,10 @@ device:
       type: string
     name:
       description: "The name of the device."
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:

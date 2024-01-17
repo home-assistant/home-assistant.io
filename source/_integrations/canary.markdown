@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `canary` integration allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.
+The **Canary** {% term integration %} allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

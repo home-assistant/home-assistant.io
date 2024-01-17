@@ -2,7 +2,7 @@
 title: Google Cast
 description: Instructions on how to integrate Google Cast into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Polling

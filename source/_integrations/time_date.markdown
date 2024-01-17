@@ -30,19 +30,18 @@ sensor:
       - 'date_time_iso'
       - 'time_date'
       - 'time_utc'
-      - 'beat'
 ```
 
 
 {% configuration %}
 display_options:
-  description: The sensors to create. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* create combined date and the time sensors. The other types just the time sensor or the date sensor. *beat* creates the [Swatch Internet Time](https://en.wikipedia.org/wiki/Swatch_Internet_Time).
+  description: The sensors to create. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* create combined date and the time sensors. The other types just the time sensor or the date sensor.
   required: true
   type: list
 {% endconfiguration %}
 
 
-Sensors including the time update every minute, the date sensor updates each day at midnight, and the beat sensor updates with each beat (86.4 seconds).
+Sensors including the time update every minute, the date sensor updates each day at midnight.
 
 <p class='img'>
   <img src='/images/screenshots/time_date.png' />

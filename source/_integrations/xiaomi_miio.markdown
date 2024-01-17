@@ -7,7 +7,7 @@ ha_category:
   - Health
   - Hub
   - Light
-  - Presence Detection
+  - Presence detection
   - Remote
   - Vacuum
 ha_iot_class: Local Polling
@@ -38,7 +38,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Xiaomi Miio integration supports the following devices:
+The **Xiaomi Miio** {% term integration %} supports the following devices:
 
 - [Xiaomi Gateway](#xiaomi-gateway)
 - [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
@@ -82,7 +82,7 @@ The most common problems are:
 
 ## Xiaomi Gateway
 
-The `xiaomi_miio` gateway integration allows you to control the gateway and its connected subdevices.
+The `xiaomi_miio` gateway {% term integration %} allows you to control the gateway and its connected subdevices.
 
 ### Supported Xiaomi gateway models:
 
@@ -96,9 +96,9 @@ The `xiaomi_miio` gateway integration allows you to control the gateway and its 
 | Mi AC Companion    | lumi.acpartner.v2   | KTBL02LM                 | untested                       |
 | Aqara AC Companion | lumi.acpartner.v3   | KTBL11LM                 | yes                            |
 
-Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, cloud credentials can be specified during the config flow and the "Use cloud to get connected subdevices" can be enabled in the options flow (after setting up the integration, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway integration). The connected subdevices will then be retrieved from the Xiaomi Miio cloud (internet), control and status updates of those subdevices will then further take place over local network connection. A re-authentication flow may be triggered when no cloud credentials are provided yet and are needed for that particular gateway model.
+Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, cloud credentials can be specified during the config flow and the "Use cloud to get connected subdevices" can be enabled in the options flow (after setting up the {% term integration %}, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway {% term integration %}). The connected subdevices will then be retrieved from the Xiaomi Miio cloud (internet), control and status updates of those subdevices will then further take place over local network connection. A re-authentication flow may be triggered when no cloud credentials are provided yet and are needed for that particular gateway model.
 
-### Gateway Features
+### Gateway features
 
 - Gateway alarm control (Turn on/off; see status `armed_away`, `disarmed`, `arming`)
 - Gateway light control (Turn on/off; change brightness; change color; see status)
@@ -1432,7 +1432,7 @@ Currently supported services are:
 
 ### Platform Services
 
-In addition to all of the services provided by the `vacuum` integration (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi_miio` platform introduces specific services to access the remote control mode of the robot. These are:
+In addition to all of the services provided by the `vacuum` {% term integration %} (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi_miio` platform introduces specific services to access the remote control mode of the robot. These are:
 
 - `xiaomi_miio.vacuum_clean_zone`
 - `xiaomi_miio.vacuum_clean_segment`
@@ -1688,7 +1688,7 @@ Water Shortage\*\*:
 {% endconfiguration_basic %}
 
 <div class="note">
-* Needs to be manually enabled once the integration has been added. <br>
+* Needs to be manually enabled once the {% term integration %} has been added. <br>
 ** Only enabled if the vacuum has a mop.
 </div>
 

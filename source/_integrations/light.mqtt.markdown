@@ -42,8 +42,6 @@ Optimistic mode can be forced, even if the `state_topic` is available. Try to en
 Home Assistant internally assumes that a light's state corresponds to a defined `color_mode`.
 The state of MQTT lights with default schema and support for both color and color temperature will set the `color_mode` according to the last received valid color or color temperature. Optionally, a `color_mode_state_topic` can be configured for explicit control of the `color_mode`
 
-<a id='new_format'></a>
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -168,6 +166,10 @@ device:
       type: string
     name:
       description: 'The name of the device.'
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -609,6 +611,10 @@ device:
       description: 'The name of the device.'
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     sw_version:
       description: 'The firmware version of the device.'
       required: false
@@ -711,7 +717,7 @@ state_topic:
   required: false
   type: string
 supported_color_modes:
-  description: A list of color modes supported by the list. This is required if `color_mode` is `True`. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`.
+  description: A list of color modes supported by the list. This is required if `color_mode` is `True`. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
   required: false
   type: list
 unique_id:
@@ -775,7 +781,7 @@ mqtt:
       supported_color_modes: ["brightness"]
 ```
 
-### Brightness Scaled
+### Brightness scaled
 
 To enable a light using a brightness scale other than 8bit the `brightness_scale` option may be added to denote the "fully on" value:
 
@@ -802,7 +808,7 @@ Home Assistant will then convert its 8bit value in the message to and from the d
 }
 ```
 
-### HS Color
+### HS color
 
 To use a light with hue+saturation as the color model, set `supported_color_modes` to `["hs"]` in the platform configuration:
 
@@ -976,6 +982,10 @@ device:
       type: string
     name:
       description: 'The name of the device.'
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     sw_version:

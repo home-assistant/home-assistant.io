@@ -2,7 +2,7 @@
 title: Command Line
 description: Instructions on how to integrate the Command Line utility within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Notifications
   - Sensor
@@ -80,6 +80,11 @@ command_line:
           description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
           required: false
           type: string
+        availability:
+          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that string comparisons are not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+          required: false
+          type: template
+          default: true
         scan_interval:
           description: Define time in seconds between each update.
           required: false
@@ -126,6 +131,11 @@ command_line:
           description: if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example configuration above will allow you to translate that into the valid state `100`.
           required: false
           type: template
+        availability:
+          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that string comparisons are not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+          required: false
+          type: template
+          default: true
         scan_interval:
           description: Define time in seconds between each update.
           required: false
@@ -189,6 +199,11 @@ command_line:
           description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
           required: false
           type: string
+        availability:
+          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that string comparisons are not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+          required: false
+          type: template
+          default: true
         device_class:
           description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
           required: false
@@ -250,6 +265,11 @@ command_line:
           description: "If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on."
           required: false
           type: string
+        availability:
+          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that string comparisons are not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+          required: false
+          type: template
+          default: true
         scan_interval:
           description: Define time in seconds between each update.
           required: false
@@ -690,7 +710,7 @@ command_line:
 ```
 {% endraw%}
 
-### Control Foscam Motion Sensor
+### Control Foscam motion sensor
 
 This switch will control the motion sensor of Foscam Webcams which Support CGI
 Commands ([Source](https://www.iltucci.com/blog/wp-content/uploads/2018/12/Foscam-IPCamera-CGI-User-Guide-V1.0.4.pdf)).
