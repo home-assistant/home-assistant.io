@@ -54,3 +54,11 @@ Host:
 | Total coffees made | Counter for total coffees made| all | - |
 | Total flushes made | Counter for total flushes done | all | - |
 | Shot timer | Time the current brew is running | all | Only available when the *Host* was set during component configuration. |
+
+
+## Updates
+
+| Update name | Description | Available for machines |
+|-------------|-------------| ---------------------- |
+| Gateway firmware | Firmware status of the gateway | all |
+| Machine firmware | Firmware status of the machine | all |
