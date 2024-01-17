@@ -44,7 +44,7 @@ Host:
 | Auto on/off | Allows to enable/disable the auto on/off schedule | all |
 | Steam boiler | Allows to enable/disable the steam boiler | all |
 
-## Binary Sensors
+## Binary sensors
 
 | Binary sensor name | Description | Available for machines | Remarks |
 |-------------|-------------| ---------------------- | ------- |
