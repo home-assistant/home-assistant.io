@@ -29,16 +29,16 @@ The `osoenergy` sensor integration exposes OSO Energy data as a sensor.
 
 The platform exposes the following sensors:
 
-* Heater Mode for water heaters.
-* Optimization Mode for water heaters.
-* Power load (kW) for water heaters.
-* Tapping capacity (kWh) for water heaters.
-* Capacity mixed water at 40°C (L) for water heaters.
-* V40 Min (L) for water heaters.
-* Minimum Level of V40 Min (L) for water heaters.
-* Maximum Level of V40 Min (L) for water heaters.
-* Profile - 24 hour array of the target temperatures for water heaters.
-  * Each hour is represented by the index. For example - index 10 if for 10:00 local user time.
+- Heater Mode for water heaters.
+- Optimization Mode for water heaters.
+- Power load (kW) for water heaters.
+- Tapping capacity (kWh) for water heaters.
+- Capacity mixed water at 40°C (L) for water heaters.
+- V40 Min (L) for water heaters.
+- Minimum Level of V40 Min (L) for water heaters.
+- Maximum Level of V40 Min (L) for water heaters.
+- Profile - 24 hour array of the target temperatures for water heaters.
+- Each hour is represented by the index. For example - index 10 if for 10:00 local user time.
 
 ### Water Heater
 
@@ -46,5 +46,5 @@ The OSO Energy water heater platform integrates your OSO Energy devices into Hom
 
 The platform supports the following OSO Energy devices:
 
-* Water Heaters
-* Sensors
+- Water Heaters
+- Sensors
