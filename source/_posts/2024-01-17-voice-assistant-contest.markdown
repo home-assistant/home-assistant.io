@@ -24,7 +24,7 @@ Every component of our voice assistants can be heavily customized to fit your la
 
 This is why, after spending a year building great things, we want to celebrate what our voice assistants can enable with the community: We’re launching a voice assistant contest, with great prizes to win!
 
-## Contest Specifics
+## Contest specifics
 
 The contest will be held between Today (the **17th of January**) and the **10th of March**.
 
