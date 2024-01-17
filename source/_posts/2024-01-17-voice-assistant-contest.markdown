@@ -40,7 +40,7 @@ A closing ceremony will take place on the **10th of April** in the form of a liv
 
 <p><img src='/images/blog/2024-01-11-voice-assistant-contest/contest_timeline.png' class='no-shadow' /></p>
 
-## Contest Categories
+## Contest categories
 
 You can participate in the contest in four different categories.
 
