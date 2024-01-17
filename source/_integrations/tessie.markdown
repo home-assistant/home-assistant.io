@@ -52,7 +52,6 @@ The integration will create binary sensor entities for a variety of metrics that
 #### Charge State
 
 - Battery Heater
-- Battery Charing
 - Preconditioning Enabled
 - Scheduled Charging Enabled
 - Trip Charging Enabled
@@ -156,12 +155,13 @@ The integration will create sensor entities for a variety of metrics that relate
 
 #### Charge State
 
+- Battery Charging
 - Battery Level
-- Change Energy Added
-- Change Power
+- Charge Energy Added
+- Charge Power
 - Charge Voltage
 - Charger Current
-- Change Rate
+- Charge Rate
 - Battery Range
 
 #### Drive State
