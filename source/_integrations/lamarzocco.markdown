@@ -45,12 +45,9 @@ Host:
 | Steam boiler | Allows to enable/disable the steam boiler | all |
 
 
-## Sensors
+## Binary Sensors
 
-| Sensor name | Description | Available for machines | Remarks |
+| Binary sensor name | Description | Available for machines | Remarks |
 |-------------|-------------| ---------------------- | ------- |
-| Current coffee temperature | Current temperature of the coffee boiler | all | - |
-| Current steam temperature| Current temperature of the steam boiler | all | - |
-| Total coffees made | Counter for total coffees made| all | - |
-| Total flushes made | Counter for total flushes done | all | - |
-| Shot timer | Time the current brew is running | all | Only available when the *Host* was set during component configuration. |
+| Water tank empty | Indicates whether the water tank needs a refill | all | - |
+| Currently making coffee | Is on if you are in the process of making coffee. | all | Only available when the *Host* was set during component configuration. |
