@@ -2,7 +2,7 @@
 layout: post
 title: "Voice Assistant Contest - Let's build and win some prizes!"
 description: "We are organizing a voice assistant contest between the 17th of January and the 10th of March. You can win some Home Assistant Green, some Home Assistant SkyConnect, and a chance to be on a livestream with us to talk about your creation."
-date: 2024-01-16 00:00:01
+date: 2024-01-17 00:00:01
 date_formatted: "January 17, 2024"
 author: Jean-Loïc Pouffier
 comments: true
