@@ -59,5 +59,5 @@ Host:
 
 | Select name | Description | Options | Available for machines | 
 |-------------|-------------| ------------------------| ---------------------- |
-| Prebrew/-infusion mode | Whether to use prebrew, preinfusion or not | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
+| Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
 | Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
