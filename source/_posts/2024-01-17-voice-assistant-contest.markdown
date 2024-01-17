@@ -12,7 +12,7 @@ og_image: /images/blog/2024-01-11-voice-assistant-contest/banner.png
 
 <p><img src='/images/blog/2024-01-11-voice-assistant-contest/banner.png' class='no-shadow' /></p>
 
-TL;DR: We are organizing a voice assistant contest between the 17th of January and the 10th of March. You can win some [Home Assistant Green](https://www.home-assistant.io/green/), [Home Assistant SkyConnect](https://www.home-assistant.io/skyconnect/), and a chance to be on a livestream with us to talk about your work.
+TL;DR: We are organizing a voice assistant contest between the 17th of January and the 10th of March. You can win some [Home Assistant Green](/green/), [Home Assistant SkyConnect](/skyconnect/), and a chance to be on a livestream with us to talk about your work.
 
 <lite-youtube videoid="99lGuB4J-4o" videotitle="Voice Assistant Contest"></lite-youtube>
 
