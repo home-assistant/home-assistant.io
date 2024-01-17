@@ -61,9 +61,17 @@ Host:
 | Total flushes made | Counter for total flushes done | all | - |
 | Shot timer | Time the current brew is running | all | Only available when the *Host* was set during component configuration. |
 
+## Updates
+
+| Update name | Description | Available for machines |
+|-------------|-------------| ---------------------- |
+| Gateway firmware | Firmware status of the gateway | all |
+| Machine firmware | Firmware status of the machine | all |
+
 ## Selects
 
 | Select name | Description | Options | Available for machines | 
 |-------------|-------------| ------------------------| ---------------------- |
 | Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
 | Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
+
