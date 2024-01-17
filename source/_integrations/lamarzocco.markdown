@@ -40,7 +40,7 @@ Host:
 ## Switches
 
 | Switch name | Description | Available for machines |
-----------|-------------| ---------------------- |
+|-------------|-------------| ---------------------- |
 | Main        | Allows to turn machines on-/off | all |
 | Auto on/off | Allows to enable/disable the auto on/off schedule | all |
 | Steam boiler | Allows to enable/disable the steam boiler | all |
