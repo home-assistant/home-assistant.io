@@ -56,7 +56,7 @@ Example: [Piitaya’s](https://github.com/piitaya) moving and talking droid.
 ### Best starting guides
 
 Because our voice assistant can be heavily customized, starting can be daunting. This category showcases the easiest ways to create a voice assistant for a novice. From ordering parts, flashing the firmware, integrating it into Home Assistant, and using it.
-We will be judging how easy the guide is to follow, and how usable the final product is.
+We will judge how easy the guide is to follow and how usable the final product is.
 
 Example: The amazingly complete guide to build a Wyoming Voice Assistant Satellite by YouTuber [FutureProofHome](https://www.youtube.com/@FutureProofHomes).
 
