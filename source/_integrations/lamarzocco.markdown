@@ -44,3 +44,13 @@ Host:
 | Auto on/off | Allows to enable/disable the auto on/off schedule | all |
 | Steam boiler | Allows to enable/disable the steam boiler | all |
 
+
+## Sensors
+
+| Sensor name | Description | Available for machines | Remarks |
+|-------------|-------------| ---------------------- | ------- |
+| Current coffee temperature | Current temperature of the coffee boiler | all | - |
+| Current steam temperature| Current temperature of the steam boiler | all | - |
+| Total coffees made | Counter for total coffees made| all | - |
+| Total flushes made | Counter for total flushes done | all | - |
+| Shot timer | Time the current brew is running | all | Only available when the *Host* was set during component configuration. |
