@@ -19,7 +19,7 @@ TL;DR: We are organizing a voice assistant contest between the 17th of January a
 2023 was the [Year of the Voice](/blog/2022/12/20/year-of-voice/). It was a yearly goal to **let users control Home Assistant in their own language**.
 We built some amazing things throughout the year, from a very powerful intent recognizer specifically optimized to run on a small computer like a Raspberry Pi 4, all the way to custom wake words created by our community.
 
-In fact, we believe that what we built during the Year of the Voice allows almost anyone to build a voice assistant that embodies our Open Home values perfectly: Personalized, Private and Sustainable.
+In fact, we believe that what we built during the Year of the Voice allows almost anyone to build a voice assistant that embodies our Open Home values perfectly: Personalized, Private, and Sustainable.
 Every component of our voice assistants can be heavily customized to fit your language, your style and your needs, fully local options exist for each of them, and finally you can retrofit voice assistant into anything, even a [1970s Walkie Talkie](https://www.youtube.com/shorts/HqYbhk6vq9E) found in a flea market
 
 This is why, after spending a year building great things, we want to celebrate what our voice assistants can enable with the community: We’re launching a voice assistant contest, with great prizes to win!
