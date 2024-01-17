@@ -32,7 +32,7 @@ We tried to be as inclusive as possible. The contest is not only about building 
 
 An entry in the contest can take any form: A video, a blog post, a website, an event, etc.
 
-The only requirement is for you to post on this forum category, this is how you officially participate in the contest.
+The only requirement is for you to post on [this forum category](https://community.home-assistant.io/c/voice-assistant-contest/60), this is how you officially participate in the contest.
 
 Winners will be announced on the **15th of March**.
 
@@ -90,11 +90,11 @@ The community will also get a chance to vote for a favorite entry, the choice of
 
 ## How to get started
 
-- Watch the Voice Assistant Contest launch live stream here, we did a recap of Year of the Voice and created a few voice assistants live with you.
+- Watch the Voice Assistant Contest [launch live stream](https://www.youtube.com/watch?v=99lGuB4J-4o&ab_channel=HomeAssistant), we did a recap of Year of the Voice and created a few voice assistants live with you.
 - Learn more about the different chapters of Year of the Voice [here](https://www.home-assistant.io/blog/2022/12/20/year-of-voice/).
-- Learn more about Wyoming Satellite in the launch live stream and [here](https://github.com/rhasspy/wyoming-satellite).
+- Learn more about Wyoming Satellite in the [launch live stream](https://www.youtube.com/watch?v=99lGuB4J-4o&ab_channel=HomeAssistant) and [here](https://github.com/rhasspy/wyoming-satellite).
 - Learn how to create a basic voice assistant within minutes for $13 [here](https://www.home-assistant.io/voice_control/thirteen-usd-voice-remote/).
-- Learn more about ESPHome-based voice assistant in the launch live stream.
+- Learn more about ESPHome-based voice assistant in the [launch live stream](https://www.youtube.com/watch?v=99lGuB4J-4o&ab_channel=HomeAssistant).
 - Learn how to create custom wake words [here](https://www.home-assistant.io/voice_control/create_wake_word/).
 - Learn how to create custom sentences [here](https://www.home-assistant.io/voice_control/custom_sentences/).
 
@@ -104,6 +104,6 @@ Thank you to the Home Assistant community for subscribing to Home Assistant Clou
 
 We are looking forward to seeing what you will build and we are looking forward to having you on the livestream with us on the 10th of April.
 
-Head over to the forum category to see the progress of the contest.
+Head over to the [forum category](https://community.home-assistant.io/c/voice-assistant-contest/60) to see the progress of the contest.
 
 Have fun building, learning, and sharing.
