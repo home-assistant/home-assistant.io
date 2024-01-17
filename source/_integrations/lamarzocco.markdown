@@ -54,3 +54,11 @@ Host:
 | Total coffees made | Counter for total coffees made| all | - |
 | Total flushes made | Counter for total flushes done | all | - |
 | Shot timer | Time the current brew is running | all | Only available when the *Host* was set during component configuration. |
+
+## Selects
+
+| Select name | Description | Available for machines |
+|-------------|-------------| ---------------------- |
+| Prebrew/-infusion mode | Whether to use prebrew/preinfusion or not (Disabled/Prebrew/Preinfusion) | Linea Micra, Linea Mini, GS3 AV |
+| Steam level | Level your steam boiler should run at (1,2,3) | Linea Micra |
+
