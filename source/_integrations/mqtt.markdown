@@ -79,9 +79,7 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 3. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
-
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
-
 </div>
 
 ### Advanced broker configuration
@@ -720,7 +718,8 @@ A motion detection device which can be represented by a [binary sensor](/integra
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
-- Configuration payload with derived device name:  
+- Configuration payload with derived device name:
+
 ```json
 {
    "name":null,
@@ -735,11 +734,13 @@ A motion detection device which can be represented by a [binary sensor](/integra
    }
 }
 ```
+
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together. We can set "name" to `null` if we want to inherit the device name for the entity. If we set an entity name, the `friendly_name` will be a combination of the device and entity name. If `name` is left away and a `device_class` is set, the entity name part will be derived from the `device_class`.
 
 - Example configuration payload with no name set and derived `device_class` name:
+
 ```json
 {
    "name":null,
@@ -782,7 +783,8 @@ For more details please refer to the [MQTT testing section](/integrations/mqtt/#
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
 - Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: 
+- Configuration payload no1:
+
 ```json
 {
    "device_class":"temperature",
@@ -792,14 +794,23 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
    "unique_id":"temp01ae",
    "device":{
       "identifiers":[
-         "bedroom01ae"
+          "bedroom01ae"
       ],
-      "name":"Bedroom"
+      "name":"Bedroom",
+      "manufacturer": "Example sensors Ltd.",
+      "model": "K9",
+      "serial_number": "12AE3010545",
+      "hw_version": "1.01a",
+      "sw_version": "2024.1.0",
+      "configuration_url": "https://example.com/sensor_portal/config"
    }
 }
+
 ```
+
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: 
+- Configuration payload no2:
+
 ```json
 {
    "device_class":"humidity",
@@ -810,12 +821,19 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
    "device":{
       "identifiers":[
          "bedroom01ae"
-      ],
-      "name":"Bedroom"
+      ]
    }
 }
 ```
-- Common state payload: 
+
+The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows to set up multiple entities that share the same device.
+
+<p class='note info'>
+If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.
+</p>
+
+A common state payload that can be parsed with the `value_template` in the sensor configs:
+
 ```json
 {
    "temperature":23.20,
@@ -831,6 +849,7 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
 - Payload:  
+
 ```json
 {
    "name":"Irrigation",
@@ -845,6 +864,7 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
    }
 }
 ```
+
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 ```bash
@@ -865,7 +885,8 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - Command topic: `homeassistant/switch/irrigation/set`
 - State topic: `homeassistant/switch/irrigation/state`
-- Configuration payload: 
+- Configuration payload:
+
 ```json
 {
    "~":"homeassistant/switch/irrigation",
