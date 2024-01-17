@@ -76,7 +76,7 @@ We will be judging how useful the experience is, how easy it is to integrate it,
 
 Example: [Play any music on any speaker in your home from a blueprint.](https://blog.jlpouffier.fr/chatgpt-powered-music-search-engine-on-a-local-voice-assistant/)
 
-## Contest Prizes
+## Contest prizes
 
 For each category, the winner will receive:
 
