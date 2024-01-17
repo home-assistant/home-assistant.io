@@ -44,11 +44,11 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 
 ## Entities
 
-### Binary Sensor
+### Binary sensor
 
 The integration will create binary sensor entities for a variety of metrics related to your vehicles:
 
-#### Charge State
+#### Charge state
 
 - Battery charging
 - Battery heater
@@ -56,7 +56,7 @@ The integration will create binary sensor entities for a variety of metrics rela
 - Scheduled charging enabled
 - Trip charging enabled
 
-#### Climate State
+#### Climate state
 
 - Auto seat climate left
 - Auto seat climate right
@@ -64,7 +64,7 @@ The integration will create binary sensor entities for a variety of metrics rela
 - Overheat protection enabled
 - Overheat protection running
 
-#### Vehicle State
+#### Vehicle state
 
 - Dashcam recording
 - Front driver window
@@ -107,7 +107,7 @@ The integration will create a cover entity to control various aspects of your ve
 - Open frunk
 - Vent/Closing windows
 
-### Device Tracker
+### Device tracker
 
 The integration will create device tracker entities for the vehicle's current location and navigation destination.
 
@@ -143,7 +143,7 @@ The integration will create a select entity to control each of the seat heaters.
 
 The integration will create sensor entities for a variety of metrics related to your vehicles:
 
-#### Charge State
+#### Charge state
 
 - Battery level
 - Battery range
@@ -153,20 +153,20 @@ The integration will create sensor entities for a variety of metrics related to 
 - Charger power
 - Charger voltage
 
-#### Climate State
+#### Climate state
 
 - Driver temperature setting
 - Inside temperature
 - Outside temperature
 - Passenger temperature setting
 
-#### Drive State
+#### Drive state
 
 - Power
 - Shift state
 - Speed
 
-#### Vehicle State
+#### Vehicle state
 
 - Odometer
 - Online
