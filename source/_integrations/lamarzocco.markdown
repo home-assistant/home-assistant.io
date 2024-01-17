@@ -36,6 +36,18 @@ Host:
   type: boolean
 {% endconfiguration_basic %}
 
+## Numbers
+
+| Number name | Description | Available for machines | Remarks |
+|-------------|-------------| ---------------------- | ------- |
+| Coffee temperature set | Temperature the coffee boiler is set to | GS3 AV, GS3 MP | - |
+| Steam temperature set | Temperature the steam boiler is set to | GS3 AV, GS3 MP | - |
+| Prebrew on time | Time prebrew runs | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), which are disabled by default |
+| Prebrew off time | Time prebrew waits before turning on the time| Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), which are disabled by default |
+| Preinfusion time | Duration of preinfusoin | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), which are disabled by default |
+| Dose | Doseage (in ticks) for each key | GS3 AV | GS3 has this multiple times, one for each physical key (1-4), which are disabled by default |
+| Dose Hot Water | Dose hot water (in seconds) | GS3 AV, GS3 MP | - |
+
 ## Switches
 
 | Switch name | Description | Available for machines |
