@@ -44,6 +44,12 @@ Host:
 | Auto on/off | Allows to enable/disable the auto on/off schedule | all |
 | Steam boiler | Allows to enable/disable the steam boiler | all |
 
+## Binary sensors
+
+| Binary sensor name | Description | Available for machines | Remarks |
+|-------------|-------------| ---------------------- | ------- |
+| Water tank empty | Indicates whether the water tank needs a refill. | all | - |
+| Brewing active | Is on if you are in the process of making coffee. | all | Only available when the *Host* was set during component configuration. |
 
 ## Sensors
 
