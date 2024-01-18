@@ -11,11 +11,13 @@ Although water is not strictly "energy", it is still a valuable resource to trac
 
 Home Assistant will need to know the amount of water that is being consumed in order to be able to track it. Several hardware options are available to do this.
 
-We have the following integrations available for existing products that can provide information about water usage:
+We have the following integrations available for existing products that can provide information about water usage, either hardware that you buy or hardware that your utility company provide:
 
 - [Flo](/integrations/flo)
 - [Flume](/integrations/flume)
 - [HomeWizard Energy](/integrations/homewizard)
+- [StreamLabs](/integrations/streamlabswater)
+- [Suez Water](/integrations/suez_water)
 
 Alternatively, the following shops sell ESPHome-based devices, that use a proximity sensor to detect a rotating magnet in your water meter and use that pulse to count each liter of water used.
 
