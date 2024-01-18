@@ -94,7 +94,7 @@ Home Assistant discovers all Thread border routers in your network by their mDNS
 The Thread configuration page shows three vendor-specific Thread networks.
 </p>
 
-The screenshot above shows the Thread configuration page with three different Thread networks. The <img width="30px" src='/images/integrations/thread/information-outline.png'> icon indicates that Home Assistant has the credentials for that network. In this case, only the credentials of the **home-assistant** network are known.
+The screenshot above shows the Thread configuration page with three different Thread networks. The <img width="30px" src='/images/integrations/thread/information-outline.png'> icon indicates that Home Assistant has the credentials for that network. In this case, only the credentials of the `home assistant` network are known.
 
 #### Preferred network
 
