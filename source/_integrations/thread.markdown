@@ -26,7 +26,7 @@ If you have a Thread-based consumer device, you will typically see a Thread logo
 
 ToDo: find up-to-date logo with correct color.
 
-The "Built on Thread (requires border router)" logo means Thread is your only supported network protocol for this device. This also means you need a device than can function as a [Thread border router](#thread-border-routers-connect-thread-devices-to-your-network), also called <abbr title="Thread border router">TBR</abbr>.
+The "Built on Thread: requires border router" logo means Thread is your only supported network protocol for this device. This also means you need a device that can function as a [Thread border router](#thread-border-routers-connect-thread-devices-to-your-network), also called <abbr title="Thread border router">TBR</abbr>.
 
 Additionally, Thread-based consumer devices use typically one of the two home automation standards: Matter or Apple HomeKit. This is why you see one of these logos also on the packaging. Both home automation standards are supported natively by Home Assistant.
 
