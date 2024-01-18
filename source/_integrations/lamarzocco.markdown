@@ -85,5 +85,5 @@ Host:
 
 ## Calendar
 
-The integration exposes a calendar which represents the auto on/off schedule set for the machine. The schedule will be displayed recurringly, that means if you set the machine to be turn on on Mondays at 8:00, and off at 9:00, you will get events for all Mondays in your calendar. On days where you have the auto on/off feature disabled, you won't get an event in the calendar. Also, if you have the auto on/off feature disabled globally (e.g. through the switch "Auto on/off"), there will be no events in the calendar.
+The integration exposes a calendar for the auto on/off schedule set for the machine. The schedule will be displayed recurringly: If you set the machine to start up on Mondays at 8:00, and shut down at 9:00, you will get events for all Mondays in your calendar. On days when you have the auto on/off feature disabled, you won't get an event in the calendar. Also, if you have the auto on/off feature disabled globally (for example, through the switch "Auto on/off"), there will be no events in the calendar.
 
