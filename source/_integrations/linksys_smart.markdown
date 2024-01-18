@@ -19,6 +19,7 @@ Tested routers:
 - Linksys WRT1900ACS Dual-band Wi-Fi Router
 - Linksys EA6900 AC1900 Dual-Band Wi-Fi Router
 - Linksys EA8300 Max-Stream AC2200 Tri-Band Wi-Fi Router
+- Linksys MR2000 Dual-Band Mesh WiFi 6 Router
 
 ## Setup
 
@@ -33,11 +34,18 @@ To use a Linksys Smart Wi-Fi Router in your Home Assistant installation, add the
 device_tracker:
   - platform: linksys_smart
     host: 192.168.1.1
+    password: example-password
 ```
+
+Make sure to change `example-password` to your router's admin password.
 
 {% configuration %}
 host:
   description: The hostname or IP address of your router, e.g., `192.168.1.1`.
+  required: true
+  type: string
+host:
+  description: The administrator password for your router.
   required: true
   type: string
 {% endconfiguration %}
