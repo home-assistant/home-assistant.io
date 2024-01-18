@@ -11,7 +11,7 @@ Although water is not strictly "energy", it is still a valuable resource to trac
 
 Home Assistant will need to know the amount of water that is being consumed in order to be able to track it. Several hardware options are available to do this. Depending on your setup, the required hardware is provided by your utility, or you may need to buy your own.
 
-We have the following integrations available for existing products that can provide information about water usage, either hardware that you buy or hardware that your utility company provide:
+We have the following integrations available for existing products that can provide information about water usage:
 
 - [Flo](/integrations/flo)
 - [Flume](/integrations/flume)
