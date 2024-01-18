@@ -43,7 +43,7 @@ iBeacon devices that do not have stable Major and Minor values are not supported
 
 The system will not automatically create iBeacon devices for beacons that do not broadcast their name to avoid inundating your system with transient devices.
 
-To explicitly allow a list of UUIDs to be added even with an empty device name, add them via the integration options:
+To explicitly allow a list of UUIDs to be added even with an empty device name, add them via the integration options.
 
 {% include integrations/option_flow.md %}
 
