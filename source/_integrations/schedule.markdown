@@ -104,13 +104,13 @@ automations and templates.
 
 ### Automation example
 
-A schedule creates an on/off (binary) sensor within the times set. Using the thermostat schedule example above, you can turn on your thermostat:
+A schedule creates an on/off (schedule) sensor within the times set. Using the thermostat schedule example above, you can turn on your thermostat:
 
 ```yaml
 trigger:
     - platform: state
       entity_id:
-        - binary_sensor.thermostat_schedule
+        - schedule.thermostat_schedule
       to: "on"
   action:
     - service: climate.turn_on
