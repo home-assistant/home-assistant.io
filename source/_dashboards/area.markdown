@@ -60,7 +60,7 @@ alert_classes:
   required: false
   type: list
   default: "moisture, motion"
-  description: A list of binary_sensor device classes which will populate alert icons in the card when the state is on.
+  description: A list of binary sensor device classes which will populate alert icons in the card when the state is on.
 sensor_classes:
   required: false
   type: list
