@@ -37,7 +37,7 @@ To learn how to add your Thread-based device to Home Assistant, check the logo o
 
 ## About Thread
 
-This section introduces some important concepts around the Thread protocol.
+This section introduces the terms "Thread protocol" and "border router" and lists border routers that are supported by Home Assistant.
 
 ### Thread is a communication protocol for IoT devices
 
@@ -78,7 +78,7 @@ There are other companies that provide devices with border router capability, su
 
 ## Understanding the Thread configuration page
 
-This section explains why you might see multiple networks on the Thread configuration page.
+This section explains why you might see multiple networks on the Thread configuration page and what this means for your network.
 
 ### Different Thread networks
 
