@@ -36,11 +36,22 @@ Host:
   type: boolean
 {% endconfiguration_basic %}
 
+
 ## Buttons
 
 | Button name | Description | Available for machines |
 |-------------|-------------| ---------------------- |
 | Start backflush | Starts the backflush process on your machine. You got 15 seconds to turn the paddle after activation. | all |
+
+
+## Numbers
+
+| Number name | Description | Available for machines | Remarks |
+|-------------|-------------| ---------------------- | ------- |
+| Coffee target temperature | Temperature the coffee boiler is set to | GS3 AV, GS3 MP | - |
+| Steam target temperature | Temperature the steam boiler is set to | GS3 AV, GS3 MP | - |
+| Tea water duration | Dose hot water (in seconds) | GS3 AV, GS3 MP | - |
+
 
 ## Switches
 
@@ -50,6 +61,12 @@ Host:
 | Auto on/off | Allows to enable/disable the auto on/off schedule | all |
 | Steam boiler | Allows to enable/disable the steam boiler | all |
 
+## Binary sensors
+
+| Binary sensor name | Description | Available for machines | Remarks |
+|-------------|-------------| ---------------------- | ------- |
+| Water tank empty | Indicates whether the water tank needs a refill. | all | - |
+| Brewing active | Is on if you are in the process of making coffee. | all | Only available when the *Host* was set during component configuration. |
 
 ## Sensors
 
@@ -60,3 +77,18 @@ Host:
 | Total coffees made | Counter for total coffees made| all | - |
 | Total flushes made | Counter for total flushes done | all | - |
 | Shot timer | Time the current brew is running | all | Only available when the *Host* was set during component configuration. |
+
+## Updates
+
+| Update name | Description | Available for machines |
+|-------------|-------------| ---------------------- |
+| Gateway firmware | Firmware status of the gateway | all |
+| Machine firmware | Firmware status of the machine | all |
+
+## Selects
+
+| Select name | Description | Options | Available for machines | 
+|-------------|-------------| ------------------------| ---------------------- |
+| Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
+| Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
+
