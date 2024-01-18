@@ -39,7 +39,7 @@ To learn how to add your Thread-based device to Home Assistant, check the logo o
 
 This section introduces the terms *Thread protocol* and *border router* and lists border routers that are supported by Home Assistant.
 
-### Thread is a communication protocol for IoT devices
+### A communication protocol for IoT devices
 
 Thread is a low-power mesh networking standard for IoT devices. The low-power aspect is important for battery-powered smart home devices. However, it's also low-bandwidth, making it ideal for applications that don't send a lot of data, like switches or motion sensors. Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbee (IEEE 802.15.4) but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread does not allow controlling devices: It is just a communication protocol. To control the Thread devices, a higher-level protocol is required: Matter or Apple HomeKit (see above).
 
@@ -92,7 +92,7 @@ The Thread configuration page shows three vendor-specific Thread networks.
 
 The screenshot above shows the Thread configuration page with three different Thread networks. The <img width="30px" src='/images/integrations/thread/information-outline.png'> icon indicates that Home Assistant has the credentials for that network. In this case, only the credentials of the `home assistant` network are known.
 
-#### Preferred network
+#### The preferred network
 
 The intention of the **Preferred network** in Home Assistant is that it will be used as the default network when adding Thread⁻based devices.
 
@@ -101,7 +101,7 @@ The intention of the **Preferred network** in Home Assistant is that it will be 
 The **preferred network** function isn't completely implemented yet. In particular, when adding Matter devices through the companion apps, the preferred network of the mobile device is being used.
 </div>
 
-You can only set a Thread network as preferred if the credentials are known. A Thread device can be connected to any of those Thread networks. 
+You can only set a Thread network as preferred if the credentials are known. A Thread device can be connected to any of those Thread networks, not just the preferred one.
 
 ### Importing Thread credentials
 
