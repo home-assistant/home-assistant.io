@@ -155,7 +155,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -216,12 +215,12 @@ payload_reset_humidity:
   description: A special payload that resets the `target_humidity` state attribute to an `unknown` state when received at the `target_humidity_state_topic`. When received at `current_humidity_topic` it will reset the current humidity state.
   required: false
   type: string
-  default: 'None'
+  default: '"None"'
 payload_reset_mode:
   description: A special payload that resets the `mode` state attribute to an `unknown` state when received at the `mode_state_topic`.
   required: false
   type: string
-  default: 'None'
+  default: '"None"'
 target_humidity_command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `target_humidity_command_topic`.
   required: false

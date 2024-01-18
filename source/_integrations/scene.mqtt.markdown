@@ -116,7 +116,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 encoding:
   description: The encoding of the published messages.
   required: false
