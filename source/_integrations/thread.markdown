@@ -26,11 +26,7 @@ If you have a Thread-based consumer device, you will typically see a Thread logo
 
 ToDo: find up-to-date logo with correct color.
 
-The "Built on Thread: requires border router" logo means Thread is your only supported network protocol for this device. This also means you need a device that can function as a [Thread border router](#thread-border-routers-connect-thread-devices-to-your-network), also called <abbr title="Thread border router">TBR</abbr>.
-
-In addition, Thread-based consumer devices use typically one of the two home automation standards: Matter or Apple HomeKit. This is why you see at east one of their logos also on the packaging. Both home automation standards are supported natively by Home Assistant.
-
-One or more <abbr title="Thread border routers">TBRs</abbr> connect your Thread devices to your network, and enable Home Assistant to talk to the Thread-based device. There are various [Thread border router options on the market](#thread-border-router-devices). Which Thread border router works best to integrate the device with Home Assistant depends on the smart home protocol used by your device. This is because this protocol (Matter or Apple HomeKit) is responsible for handling the Thread credentials and connect your Thread device to the Thread network.
+The "Built on Thread: requires border router" logo means Thread is your only supported network protocol for this device. This also means you need a device that can function as a [Thread border router](#thread-border-routers-connect-thread-devices-to-your-network), also called <abbr title="Thread border router">TBR</abbr>. Border routers connect your Thread devices to your network, and enable Home Assistant to talk to the Thread-based device. There are various [Thread border router options on the market](#thread-border-router-devices). Which Thread border router works best to integrate the device with Home Assistant depends on the smart home protocol (Matter or Apple HomeKit) used by your device. This protocol is responsible for handling the Thread credentials and connect your Thread device to the Thread network. This is why you see at east one of their logos also on the packaging. Both home automation standards are supported natively by Home Assistant.
 
 To learn the exact requirements for your device, and how to add your Thread-based device to Home Assistant, refer to the Thread section of the respective Home Assistant integration:
 
