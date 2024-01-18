@@ -22,13 +22,13 @@ The **OMIE** {% term integration %} retrieves day-ahead market results from [OMI
  and makes them available within Home Assistant. Having the wholesale electricity prices within Home Assistant
  in turn enables a range of use cases, such as:
 
-* calculating electricity bills ahead of time (for those on variable-price tariffs that are linked
+- calculating electricity bills ahead of time (for those on variable-price tariffs that are linked
   to the wholesale price),
 
-* shifting energy usage to times where costs are lower, usually times of lower demand and/or
+- shifting energy usage to times where costs are lower, usually times of lower demand and/or
   higher renewable energy production,
 
-* deciding whether to export locally-produced energy (for example from solar panels) to the grid
+- deciding whether to export locally-produced energy (for example from solar panels) to the grid
   depending on remuneration.
 
 
@@ -42,8 +42,8 @@ To add the **OMIE** integration to your Home Assistant instance, use this My but
 
 The **OMIE** integration will retrieve the results of the [day-ahead market](https://www.omie.es/en/mercado-de-electricidad) for Spain and Portugal on a daily basis and expose them to the following {% term sensors %}.
 
-* **Marginal Price - Portugal**: the wholesale price in the day-ahead market for the current hour Portugal (€/MWh)
-* **Marginal Price - Spain**: the wholesale price in the day-ahead market for the current hour Spain (€/MWh)
+- **Marginal Price - Portugal**: the wholesale price in the day-ahead market for the current hour Portugal (€/MWh)
+- **Marginal Price - Spain**: the wholesale price in the day-ahead market for the current hour Spain (€/MWh)
 
 ### Sensor attributes
 
@@ -51,14 +51,14 @@ In addition to the current marginal price, each sensor also has attributes conta
 for **today** and **tomorrow**. This enables making decisions or simply graphing future energy prices based on the 
 day-ahead market results.
 
-* **Today hours**: a mapping of all hours in the day to the marginal price in effect during the time period.
+- **Today hours**: a mapping of all hours in the day to the marginal price in effect during the time period.
   Each time period is identified by its first second in ISO (example: `2024-01-18T10:00:00+00:00`). Remember that 
   on days when [Daylight saving time](https://en.wikipedia.org/wiki/Daylight_saving_time) begins or ends the day will
   have 23 or 25 hours, respectively.
 
-* **Today average**: the arithmetic mean of all values in a day.
+- **Today average**: the arithmetic mean of all values in a day.
 
-* **Today provisional**: indicates whether the attribute values for today are provisional or final. Provisional
+- **Today provisional**: indicates whether the attribute values for today are provisional or final. Provisional
   results occur when data is not available for all hours in a given day (for example, if the data for tomorrow data is not
   available yet).
 
@@ -72,10 +72,10 @@ reference time zone. Therefore, if the Home Assistant instance has a time zone c
 required. This is mostly transparent to users. Those not using CET, however, may benefit from understanding the following
 key points:
 
-* When comparing day-ahead market results against the sensor or sensor attributes, OMIE hour 1 does not normally
+- When comparing day-ahead market results against the sensor or sensor attributes, OMIE hour 1 does not normally
   correspond to 1 AM in your time zone.
 
-* When using **today** or **tomorrow** attributes, your day does not necessarily begin and end in the same moment as
+- When using **today** or **tomorrow** attributes, your day does not necessarily begin and end in the same moment as
   the day with same date in CET.
 
 The details and implications of this are explained in further detail below.
