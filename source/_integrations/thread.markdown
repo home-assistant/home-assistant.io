@@ -18,7 +18,7 @@ The Thread integration helps you track the different Thread networks in your hom
 
 You do not need to install this integration. The Thread integration shows up automatically when Home Assistant detects a border router.
 
-## About Thread-based smart home devices
+## Logos on Thread-based smart home devices
 
 If you have a Thread-based consumer device, you will typically see a Thread logo on the packaging.
 
@@ -26,11 +26,11 @@ If you have a Thread-based consumer device, you will typically see a Thread logo
 
 ToDo: find up-to-date logo with correct color.
 
-The "Built on Thread (requires border router)" logo means Thread is your only supported network protocol for this device.
+The "Built on Thread (requires border router)" logo means Thread is your only supported network protocol for this device. This also means you need a device than can function as a [Thread border router](#thread-border-routers-connect-thread-devices-to-your-network), also called <abbr title="Thread border router">TBR</abbr>.
 
-Additionally, Thread-based consumer devices use typically one of the two home automation standards: Matter or Apple HomeKit. This logo is also on the packaging. Both home automation standards are supported natively by Home Assistant.
+Additionally, Thread-based consumer devices use typically one of the two home automation standards: Matter or Apple HomeKit. This is why you see one of these logos also on the packaging. Both home automation standards are supported natively by Home Assistant.
 
-One or more Thread border routers connect your Thread devices to your network, and enable Home Assistant to talk to the Thread-based device. There are various Thread border router options on the market. Which Thread border router works best to integrate the device with Home Assistant depends on the smart home protocol. This is because this protocol (Matter or Apple HomeKit) is responsible for handling the Thread credentials and connect your Thread device to the Thread network.
+One or more <abbr title="Thread border routers">TBRs</abbr> connect your Thread devices to your network, and enable Home Assistant to talk to the Thread-based device. There are various [Thread border router options on the market](#thread-border-router-devices). Which Thread border router works best to integrate the device with Home Assistant depends on the smart home protocol used by your device. This is because this protocol (Matter or Apple HomeKit) is responsible for handling the Thread credentials and connect your Thread device to the Thread network.
 
 To learn the exact requirements for your device, and how to add your Thread-based device to Home Assistant, refer to the Thread section of the respective Home Assistant integration:
 
@@ -57,7 +57,7 @@ Unlike other protocols, Thread can use multiple border routers in a single netwo
 
 Home Assistant can only control OpenThread <abbr title="Thread border routers">TBRs</abbr>. OpenThread is an open source implementation of Thread, originally released by Google.
 
-## Thread border router devices
+### Thread border router devices
 
 Currently, the following <abbr title="Thread border router">TBR</abbr> devices are known to work well with Home Assistant:
 
