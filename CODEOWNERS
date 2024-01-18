@@ -525,6 +525,7 @@ source/_integrations/obihai.markdown @dshokouhi @ejpenney
 source/_integrations/octoprint.markdown @rfleming71
 source/_integrations/ohmconnect.markdown @robbiet480
 source/_integrations/ombi.markdown @larssont
+source/_integrations/omie.markdown @luuuis
 source/_integrations/omnilogic.markdown @oliver84 @djtimca @gentoosu
 source/_integrations/onboarding.markdown @home-assistant/core
 source/_integrations/oncue.markdown @bdraco @peterager
