@@ -37,15 +37,15 @@ To learn how to add your Thread-based device to Home Assistant, check the logo o
 
 ## About Thread
 
-This section introduces the terms "Thread protocol" and "border router" and lists border routers that are supported by Home Assistant.
+This section introduces the terms *Thread protocol* and *border router* and lists border routers that are supported by Home Assistant.
 
 ### Thread is a communication protocol for IoT devices
 
-Thread is a low-power mesh networking standard for IoT devices. The low-power aspect is particularly important for battery-powered smart home devices. However, it's also low-bandwidth, making it ideal for applications that don't send a lot of data, like switches or motion sensors. Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbee (IEEE 802.15.4) but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread does not allow controlling devices: It is just a communication protocol. To control Thread-enabled devices, a higher-level protocol is required: Matter or Apple HomeKit (see above).
+Thread is a low-power mesh networking standard for IoT devices. The low-power aspect is important for battery-powered smart home devices. However, it's also low-bandwidth, making it ideal for applications that don't send a lot of data, like switches or motion sensors. Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbee (IEEE 802.15.4) but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread does not allow controlling devices: It is just a communication protocol. To control the Thread devices, a higher-level protocol is required: Matter or Apple HomeKit (see above).
 
 Thread devices use the IPv6 standard to communicate both inside and outside the mesh network.
 
-## Thread border routers connect Thread devices to your network
+### Thread border routers connect Thread devices to your network
 
 To communicate outside the mesh with any IPv6-capable device, the devices use Thread border routers. A Thread border router is connected to your network either via Wi-Fi or Ethernet and uses its <abbr title="radio frequency">RF</abbr> radio to communicate with the Thread mesh network. The <abbr title="Thread border router">TBR</abbr> routes packets between your local network and the Thread mesh. It does not look at the content of these packets, it just forwards them. Often Thread border routers are only a secondary functionality of a smart home device. For example, the Nest Hub (2nd gen) is a smart display, a Google Home controller, and a Chromecast target, but also has a Thread border router included.
 
@@ -57,22 +57,22 @@ Home Assistant can only control OpenThread <abbr title="Thread border routers">T
 
 Currently, the following <abbr title="Thread border router">TBR</abbr> devices are known to work well with Home Assistant:
 
-### Nabu Casa
+#### Nabu Casa
 
 - [Home Assistant Yellow](/yellow/) hub
 - [Home Assistant SkyConnect](/skyconnect/) Zigbee/Thread USB stick
 
-### Google
+#### Google
 
 - **Displays**: Nest Hub (2nd gen), Nest Hub Max
 - **Wi-Fi routers**: Nest Wifi Pro (Wi-Fi 6E), Nest Wifi
 
-### Apple
+#### Apple
 
 - **Speakers**: HomePod (2nd generation), HomePod mini
 - **TVs**: Apple TV 4K (3rd generation) Wi-Fi + Ethernet, Apple TV 4K (2nd generation)
 
-### Others
+#### Others
 
 There are other companies that provide devices with border router capability, such as Nanoleaf or Amazon. They won't be mentioned further because in our development and testing we focused on the above products.
 
