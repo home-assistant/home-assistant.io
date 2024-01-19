@@ -27,18 +27,18 @@ If you have a Thread-based consumer device, you will typically see a Thread logo
 ToDo: find up-to-date logo with correct color.
 
 
-The "Built on Thread: requires border router" logo means Thread is your only supported network protocol for this device. You cannot use Wi-Fi to onboard this device. It also means you need a [Thread border router](#thread-border-router-devices) device.
+The "Built on Thread: requires border router" logo means Thread is your only supported network protocol for this device. You cannot use Wi-Fi to onboard this device.
 
 In addition, you will see a Matter or Apple HomeKit logo on the packaging.
 
 <p class='img'><img src="/images/integrations/thread/matter_onpackbadge_logo.png"  width="200"><img src="/images/integrations/thread/apple-works-with-homekit-logo.png"  width="200"> Matter or Apple HomeKit logo on the packaging.
  </p>
 
-Matter and HomeKit are smart home protocols. They are responsible for handling the Thread credentials and connect your Thread device to the Thread network. Both home automation standards are supported natively by Home Assistant.
+Matter and HomeKit are smart home protocols. They are responsible for handling the Thread credentials and connecting your Thread device to the Thread network. They are needed to control your device. Both home automation standards are supported natively by Home Assistant.
 
 ## Adding a Thread-based device to Home Assistant
 
-How a Thread-based is added to Home Assistant depends on the home automation standard it uses.
+How a Thread-based device is added to Home Assistant depends on the home automation standard it uses.
 
 1. If you see the Matter logo on your device, follow the procedure [adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
 
