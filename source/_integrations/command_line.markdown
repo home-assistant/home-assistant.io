@@ -477,11 +477,11 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 # Example configuration.yaml entry
 command_line:
   - sensor:
-      name: CPU Temperature
-      command: "cat /sys/class/thermal/thermal_zone0/temp"
-      # If errors occur, make sure configuration file is encoded as UTF-8
-      unit_of_measurement: "°C"
-      value_template: "{{ value | multiply(0.001) | round(1) }}"
+      - name: CPU Temperature
+        command: "cat /sys/class/thermal/thermal_zone0/temp"
+        # If errors occur, make sure configuration file is encoded as UTF-8
+        unit_of_measurement: "°C"
+        value_template: "{{ value | multiply(0.001) | round(1) }}"
 ```
 {% endraw%}
 
