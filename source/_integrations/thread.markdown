@@ -128,6 +128,19 @@ You can only set a Thread network as preferred if the credentials are known.
    - Importing the credentials allows a Google- or Apple-created Thread network to be the preferred network of Home Assistant.
    <img width="400" src='/images/integrations/thread/thread-preferred-network.png'>
 
+#### Using Home Assistant as a <abbr title="Thread border routers">TBRs</abbr> without setting up another vendor's TBR first
+
+This scenario currently only works in one particular case, under the following conditions:
+
+- You do not have a Google <abbr title="Thread border routers">TBRs</abbr> set up yet (otherwise the Google <abbr title="Thread border routers">TBRs</abbr> will be the preferred BR, and Android APIs do not allow to change that currently)
+- You have the OpenThread Border Router add-on installed (or the Silicon Labs Multiprotocol add-on, which includes an OpenThread Border Router). For instructions on how to enable Thread on SkyConnect or Yellow, refer to the following guides:
+  - [Enabling Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
+  - [Enabling Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
+- You have an Android phone and the Home Assistant Companion App.
+- The devices you want to add to the network support Matter. For instructions on how to add Thread-based Matter devices, refer to the section [Adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant)
+
+Which TBR are supported mostly depends on (access to) the Thread credentials. And Thread credentials are required during on-boarding/commissioning, which is part of the smart home protocol.
+
 ### Combining Thread networks
 
 In the current implementation, having <abbr title="Thread border routers">TBRs</abbr> results in separate networks using different credentials. This prevents devices from roaming between the Thread networks. In theory, it would be better to join all Thread networks into a single network to increase the size of the mesh network. A dense mesh network should lead to better <abbr title="radio frequency">RF</abbr> coverage and better link quality, which lowers transmission latencies, making communication faster.
@@ -138,12 +151,21 @@ Currently, combining Thread networks seems to lead to instabilities. Therefore, 
 
 </div>
 
-## Related hardware
+## Related topics
+
+### Related hardware
 
 - [Home Assistant Yellow](/yellow/) hub
 - [Home Assistant SkyConnect](/skyconnect/) Zigbee/Thread USB stick
 
-## Related guides
+### Related integrations for smart home standards
+
+- [Matter](/integrations/matter/)
+- [HomeKit](/integrations/homekit_controller/)
+
+### Related guides
 
 - [Adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant)
 - [Adding an Apple HomeKit device through Thread](/integrations/homekit_controller/#adding-a-homekit-device-through-thread)
+- [Enabling Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
+- [Enabling Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
