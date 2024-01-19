@@ -54,6 +54,7 @@ Enjoy the release!
 - [Release 2024.1.1 - January 5](#release-202411---january-5)
 - [Release 2024.1.2 - January 6](#release-202412---january-6)
 - [Release 2024.1.3 - January 12](#release-202413---january-12)
+- [Release 2024.1.4 - January 19](#release-202414---january-19)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -622,6 +623,89 @@ The following integrations are now available via the Home Assistant UI:
 [@thecode]: https://github.com/thecode
 [@vexofp]: https://github.com/vexofp
 [@zxdavb]: https://github.com/zxdavb
+
+## Release 2024.1.4 - January 19
+
+- Fix MatrixBot not resolving room aliases per-command ([@PaarthShah] - [#106347])
+- Bump Pyenphase to 1.16.0 ([@catsmanac] - [#107719])
+- Fix loading empty yaml files with include_dir_named ([@pedrolamas] - [#107853])
+- Bump openwebifpy to 4.2.1 ([@autinerd] - [#107894])
+- Bump aiohomekit to 3.1.3 ([@bdraco] - [#107929])
+- Skip disk types in System Monitor ([@gjohansson-ST] - [#107943])
+- Fix duplicate unique id in System Monitor (again) ([@gjohansson-ST] - [#107947])
+- Bump pyenphase to 1.17.0 ([@catsmanac] - [#107950])
+- Update sleep period for Shelly devices with buggy fw ([@chemelli74] - [#107961])
+- Reload ZHA only a single time when the connection is lost multiple times ([@puddly] - [#107963])
+- Don't load entities for docker virtual ethernet interfaces in System Monitor ([@gjohansson-ST] - [#107966])
+- Improve coordinator logic in Tessie to allow sleep ([@Bre77] - [#107988])
+- Fix Shelly Gen1 entity description restore ([@thecode] - [#108052])
+- Fix malformed user input error on MJPEG config flow ([@codyc1515] - [#108058])
+- Fix turning on the light with a specific color ([@marcelveldt] - [#108080])
+- Bump Jinja2 to 3.1.3 ([@edenhaus] - [#108082])
+- Use compat for supported features in media player ([@joostlek] - [#108102])
+- Speed up ZHA initialization and improve startup responsiveness ([@puddly] - [#108103])
+- Bump `aioridwell` to 2024.01.0 ([@bachya] - [#108126])
+- Bump flipr-api to 1.5.1 ([@cnico] - [#108130])
+- Send target temp to Shelly TRV in F when needed ([@jra3] - [#108188])
+- Use cache update for WIFI blinds ([@starkillerOG] - [#108224])
+- Bump reolink_aio to 0.8.7 ([@starkillerOG] - [#108248])
+- Bump PyTado to 0.17.4 ([@erwindouna] - [#108255])
+- Bump aiounifi to v69 to improve websocket logging ([@Kane610] - [#108265])
+- Bump ZHA dependency zigpy to 0.60.6 ([@puddly] - [#108266])
+
+[#106347]: https://github.com/home-assistant/core/pull/106347
+[#106970]: https://github.com/home-assistant/core/pull/106970
+[#107239]: https://github.com/home-assistant/core/pull/107239
+[#107365]: https://github.com/home-assistant/core/pull/107365
+[#107719]: https://github.com/home-assistant/core/pull/107719
+[#107853]: https://github.com/home-assistant/core/pull/107853
+[#107883]: https://github.com/home-assistant/core/pull/107883
+[#107894]: https://github.com/home-assistant/core/pull/107894
+[#107929]: https://github.com/home-assistant/core/pull/107929
+[#107943]: https://github.com/home-assistant/core/pull/107943
+[#107947]: https://github.com/home-assistant/core/pull/107947
+[#107950]: https://github.com/home-assistant/core/pull/107950
+[#107961]: https://github.com/home-assistant/core/pull/107961
+[#107963]: https://github.com/home-assistant/core/pull/107963
+[#107966]: https://github.com/home-assistant/core/pull/107966
+[#107988]: https://github.com/home-assistant/core/pull/107988
+[#108052]: https://github.com/home-assistant/core/pull/108052
+[#108058]: https://github.com/home-assistant/core/pull/108058
+[#108080]: https://github.com/home-assistant/core/pull/108080
+[#108082]: https://github.com/home-assistant/core/pull/108082
+[#108102]: https://github.com/home-assistant/core/pull/108102
+[#108103]: https://github.com/home-assistant/core/pull/108103
+[#108126]: https://github.com/home-assistant/core/pull/108126
+[#108130]: https://github.com/home-assistant/core/pull/108130
+[#108134]: https://github.com/home-assistant/core/pull/108134
+[#108188]: https://github.com/home-assistant/core/pull/108188
+[#108224]: https://github.com/home-assistant/core/pull/108224
+[#108248]: https://github.com/home-assistant/core/pull/108248
+[#108255]: https://github.com/home-assistant/core/pull/108255
+[#108265]: https://github.com/home-assistant/core/pull/108265
+[#108266]: https://github.com/home-assistant/core/pull/108266
+[@Bre77]: https://github.com/Bre77
+[@Kane610]: https://github.com/Kane610
+[@PaarthShah]: https://github.com/PaarthShah
+[@allenporter]: https://github.com/allenporter
+[@autinerd]: https://github.com/autinerd
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@catsmanac]: https://github.com/catsmanac
+[@chemelli74]: https://github.com/chemelli74
+[@cnico]: https://github.com/cnico
+[@codyc1515]: https://github.com/codyc1515
+[@edenhaus]: https://github.com/edenhaus
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@jra3]: https://github.com/jra3
+[@marcelveldt]: https://github.com/marcelveldt
+[@pedrolamas]: https://github.com/pedrolamas
+[@puddly]: https://github.com/puddly
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
 
 ## Need help? Join the community!
 
