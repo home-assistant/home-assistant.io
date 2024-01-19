@@ -1,6 +1,6 @@
 ---
-title: Analytics Insights
-description: Instructions on how to integrate Analytics Insights within Home Assistant.
+title: Home Assistant Analytics Insights
+description: Instructions on how to integrate Home Assistant Analytics Insights within Home Assistant.
 ha_category:
   - Sensor
 ha_release: '2024.2'
@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@joostlek'
-ha_domain: homeassistant_analyitcs
+ha_domain: analytics_insights
 ha_platforms:
   - sensor
 ha_integration_type: service
