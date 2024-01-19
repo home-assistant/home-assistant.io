@@ -163,6 +163,7 @@ The integration will create sensor entities for a variety of metrics that relate
 - Charger Current
 - Change Rate
 - Battery Range
+- Time to charged
 
 #### Drive State
 
