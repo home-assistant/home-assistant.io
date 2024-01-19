@@ -94,7 +94,7 @@ The community will also get a chance to vote for a favorite entry. The choice of
 - Learn more about the different chapters of Year of the Voice [here](https://www.home-assistant.io/blog/2022/12/20/year-of-voice/).
 - Learn more about Wyoming Satellite in the [launch live stream](https://www.youtube.com/watch?v=99lGuB4J-4o&ab_channel=HomeAssistant) and [here](https://github.com/rhasspy/wyoming-satellite).
 - Learn how to create a basic voice assistant within minutes for $13 [here](https://www.home-assistant.io/voice_control/thirteen-usd-voice-remote/).
-- Learn more about ESPHome-based voice assistant in the [launch live stream](https://www.youtube.com/watch?v=99lGuB4J-4o&ab_channel=HomeAssistant).
+- Learn more about ESPHome-based voice assistant in the [launch live stream](https://www.youtube.com/watch?v=99lGuB4J-4o&ab_channel=HomeAssistant) and [here](https://github.com/jlpouffier/voice-assistant-esphome-tutorial/tree/main).
 - Learn how to create custom wake words [here](https://www.home-assistant.io/voice_control/create_wake_word/).
 - Learn how to create custom sentences [here](https://www.home-assistant.io/voice_control/custom_sentences/).
 
