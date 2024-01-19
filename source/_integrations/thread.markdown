@@ -34,7 +34,7 @@ In addition, you will see a Matter or Apple HomeKit logo on the packaging.
 <p class='img'><img src="/images/integrations/thread/matter_onpackbadge_logo.png"  width="200"><img src="/images/integrations/thread/apple-works-with-homekit-logo.png"  width="200"> Matter or Apple HomeKit logo on the packaging.
  </p>
 
-Matter and HomeKit are smart home protocols. They are responsible for handling the Thread credentials and connecting your Thread device to the Thread network. They are needed to control your device. Both home automation standards are supported natively by Home Assistant.
+Matter and Apple HomeKit are smart home protocols. They are responsible for handling the Thread credentials and connecting your Thread device to the Thread network. They are needed to control your device. Both home automation standards are supported natively by Home Assistant.
 
 ## Adding a Thread-based device to Home Assistant
 
@@ -99,15 +99,17 @@ This section explains why you might see multiple networks on the Thread configur
 
 ### Different Thread networks
 
-Today, each vendor forms their own Thread network when you start using their products. This means you can end up having a Home Assistant, an Apple, and a Google Thread network in your home. These are all separate networks using different credentials, which prevents devices from roaming between the Thread networks.
-
-Home Assistant discovers all Thread border routers in your network by their mDNS/DNS-SD announcements. The local announcements allow us to learn which networks exist, but do not contain the network credentials. The Thread configuration panel lists all Thread border routers and groups them by the Thread network.
+Today, each vendor forms their own Thread network when you start using their products. This means you can end up having a Home Assistant, an Apple, and a Google Thread network in your home. The Thread configuration panel lists all Thread border routers and groups them by the Thread network.
 
 <p class='img'><img width="400" src='/images/integrations/thread/thread-no-3rd-party-credentials.png'>
 The Thread configuration page shows three vendor-specific Thread networks.
 </p>
 
-The screenshot above shows the Thread configuration page with three different Thread networks. The <img width="30px" src='/images/integrations/thread/information-outline.png'> icon indicates that Home Assistant has the credentials for that network. In this case, only the credentials of the `home assistant` network are known.
+These are all separate networks using different credentials, which prevents devices from roaming between the Thread networks.
+
+The <img width="30px" src='/images/integrations/thread/information-outline.png'> icon indicates that Home Assistant has the credentials for that network. In this case, only the credentials of the `home assistant` network are known.
+
+Technical detail: Home Assistant discovers all Thread border routers in your network by their mDNS/DNS-SD announcements. The local announcements allow us to learn which networks exist, but do not contain the network credentials.
 
 #### The preferred network
 
@@ -128,7 +130,7 @@ The Android and iOS companion apps are used to import Thread credentials. Naviga
 Importing credentials on Android phone.
 </p>
 
-<p class='img'><img src='/images/integrations/thread/thread-preferred-network.png'>
+<p class='img'><img width="400" src='/images/integrations/thread/thread-preferred-network.png'>
 This Thread configuration page shows three different Thread networks. Google's Thread network is the preferred Thread network.
 </p>
 
