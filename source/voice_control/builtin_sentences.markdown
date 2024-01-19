@@ -80,7 +80,7 @@ The list of supported sentences is constantly being updated for each language. T
 
         - () mean alternative elements.
         - [] mean optional elements.
-        - <> mean an expansion rule. The view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
+        - <> mean an expansion rule. To view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
         - The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/).
 3. View the [sentence definition](https://github.com/home-assistant/intents/tree/main/sentences) for your language.
 4. View the [response definition](https://github.com/home-assistant/intents/tree/main/responses)
