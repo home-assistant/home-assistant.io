@@ -91,7 +91,7 @@ Currently, the following <abbr title="Thread border router">TBR</abbr> devices a
 
 #### Others
 
-There are other companies that provide devices with border router capability, such as Nanoleaf or Amazon. They won't be mentioned further because in our development and testing we focused on the above products.
+There are also other companies that provide devices with border router capability, such as Nanoleaf or Amazon.
 
 ## Understanding the Thread configuration page
 
