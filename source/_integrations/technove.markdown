@@ -22,13 +22,13 @@ The TechnoVE integration provides connectivity with TechnoVE WiFi Charging stati
 
 The {% term integration %} adds the following sensors:
 
-- Input Voltage
-- Output Voltage
-- Max Current
-- Max Station Current
+- Input voltage
+- Output voltage
+- Max current
+- Max station current
 - Current
-- Total Energy Usage
-- Last Session Energy Usage
-- Wi-Fi Signal Strength
-- Wi-Fi Network Name
+- Total energy usage
+- Last session energy usage
+- Wi-Fi signal strength
+- Wi-Fi network name
 - Status
