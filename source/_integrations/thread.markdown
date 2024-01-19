@@ -119,7 +119,7 @@ The **preferred network** function isn't completely implemented yet. In particul
 
 You can only set a Thread network as preferred if the credentials are known.
 
-1. To import Thread credentials, The Android and iOS companion apps are used.
+1. To import Thread credentials, you need your Android and iOS companion app.
 2. On your companion app, navigate to the Thread configuration page.
    - You should see an **Import credentials** button on the lower right corner.
 
