@@ -646,7 +646,6 @@ The following integrations are now available via the Home Assistant UI:
 - Speed up ZHA initialization and improve startup responsiveness ([@puddly] - [#108103])
 - Bump `aioridwell` to 2024.01.0 ([@bachya] - [#108126])
 - Bump flipr-api to 1.5.1 ([@cnico] - [#108130])
-- Add debugging to assist in debugging already configured error ([@allenporter] - [#108134])
 - Send target temp to Shelly TRV in F when needed ([@jra3] - [#108188])
 - Use cache update for WIFI blinds ([@starkillerOG] - [#108224])
 - Bump reolink_aio to 0.8.7 ([@starkillerOG] - [#108248])
