@@ -19,6 +19,8 @@ ha_integration_type: device
 
 Integrates Dormakaba dKey Bluetooth Low Energy connected locks into Home Assistant.
 
+The integration only supports connecting to the lock via Bluetooth, connecting via the Dormakaba dKey gateway is not supported.
+
 {% include integrations/config_flow.md %}
 
 In addition to a lock entity, each added dKey lock will also have:
