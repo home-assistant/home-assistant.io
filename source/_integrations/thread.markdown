@@ -60,17 +60,17 @@ Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbe
 
 Thread devices use the IPv6 standard to communicate both inside and outside the mesh network.
 
-### Thread border routers connect Thread devices to your network
+### About Thread border routers
 
-To communicate outside the mesh with any IPv6-capable device, the devices use Thread border routers. A Thread border router is connected to your network either via Wi-Fi or Ethernet and uses its <abbr title="radio frequency">RF</abbr> radio to communicate with the Thread mesh network. The <abbr title="Thread border router">TBR</abbr> routes packets between your local network and the Thread mesh. It does not look at the content of these packets, it just forwards them.
+The devices use Thread border routers to communicate outside the mesh with any IPv6-capable device. A Thread border router is connected to your network either via Wi-Fi or Ethernet and uses its <abbr title="radio frequency">RF</abbr> radio to communicate with the Thread mesh network. The <abbr title="Thread border router">TBR</abbr> routes packets between your local network and the Thread mesh. It does not look at the content of these packets, it just forwards them.
 
-Often, Thread border routing is only a secondary functionality of a smart home device. For example, the Nest Hub (2nd gen) is a smart display, a Google Home controller, and a Chromecast target, but also has a Thread border router included.
+Often, Thread border routing is only an auxiliary functionality of a smart home device. For example, the Nest Hub (2nd gen) is a smart display, a Google Home controller, and a Chromecast target, but also has a Thread border router included.
 
 Unlike other protocols, Thread can use multiple border routers in a single network. This increases wireless coverage and reduces the risk of a single point of failure. Ideal for home automation, with a potentially large number of devices spread over a large area.
 
 Home Assistant can only control OpenThread <abbr title="Thread border routers">TBRs</abbr>. OpenThread is an open source implementation of Thread, originally released by Google.
 
-### Thread border router devices
+### List of Thread border router devices
 
 Currently, the following <abbr title="Thread border router">TBR</abbr> devices are known to work well with Home Assistant:
 
@@ -97,7 +97,7 @@ There are other companies that provide devices with border router capability, su
 
 This section explains why you might see multiple networks on the Thread configuration page and what this means for your network.
 
-### Different Thread networks
+### About different Thread networks
 
 Today, each vendor forms their own Thread network when you start using their products. This means you can end up having a Home Assistant, an Apple, and a Google Thread network in your home. The Thread configuration panel lists all Thread border routers and groups them by the Thread network.
 
@@ -111,7 +111,7 @@ The <img width="30px" src='/images/integrations/thread/information-outline.png'>
 
 Technical detail: Home Assistant discovers all Thread border routers in your network by their mDNS/DNS-SD announcements. The local announcements allow us to learn which networks exist, but do not contain the network credentials.
 
-#### The preferred network
+#### About the preferred network
 
 The intention of the **Preferred network** in Home Assistant is that it will be used as the default network when adding Thread⁻based devices.
 
