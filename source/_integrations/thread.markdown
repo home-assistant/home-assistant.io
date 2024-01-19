@@ -26,22 +26,37 @@ If you have a Thread-based consumer device, you will typically see a Thread logo
 
 ToDo: find up-to-date logo with correct color.
 
-The "Built on Thread: requires border router" logo means Thread is your only supported network protocol for this device. This also means you need a device that can function as a [Thread border router](#thread-border-routers-connect-thread-devices-to-your-network), also called <abbr title="Thread border router">TBR</abbr>. Border routers connect your Thread devices to your network, and enable Home Assistant to talk to the Thread-based device. There are various [Thread border router options on the market](#thread-border-router-devices). Which Thread border router works best to integrate the device with Home Assistant depends on the smart home protocol (Matter or Apple HomeKit) used by your device. This protocol is responsible for handling the Thread credentials and connect your Thread device to the Thread network. This is why you see at least one of their logos also on the packaging. Both home automation standards are supported natively by Home Assistant.
 
-To learn how to add your Thread-based device to Home Assistant, check the logo on your device and select the corresponding link below to go to the Thread section on the Matter or Apple HomeKit integration page:
+The "Built on Thread: requires border router" logo means Thread is your only supported network protocol for this device. You cannot use Wi-Fi to onboard this device. It also means you need a [Thread border router](#thread-border-router-devices) device.
 
-| Logo                                                                        | Home Assistant integration        |
-| :-------------------------------------------------------------------------: | :--------------------------------:|
-| <img src="/images/integrations/thread/matter_onpackbadge_logo.png"  width="200">  | [Matter](/integrations/matter/#adding-a-matter-device-to-home-assistant)   |
-| <img src="/images/integrations/thread/apple-works-with-homekit-logo.png"  width="200"> | [Apple HomeKit](/integrations/homekit_controller/#adding-a-homekit-device-through-thread) |
+In addition, you will see a Matter or Apple HomeKit logo on the packaging.
+
+<p class='img'><img src="/images/integrations/thread/matter_onpackbadge_logo.png"  width="200"><img src="/images/integrations/thread/apple-works-with-homekit-logo.png"  width="200"> Matter or Apple HomeKit logo on the packaging.
+ </p>
+
+Matter and HomeKit are smart home protocols. They are responsible for handling the Thread credentials and connect your Thread device to the Thread network. Both home automation standards are supported natively by Home Assistant.
+
+## Adding a Thread-based device to Home Assistant
+
+How a Thread-based is added to Home Assistant depends on the home automation standard it uses.
+
+1. If you see the Matter logo on your device, follow the procedure [adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
+
+   <img src="/images/integrations/thread/matter_onpackbadge_logo.png"  width="200">
+
+2. If you see the Apple HomeKit logo on your device, follow the procedure [adding a HomeKit device to Home Assistant](/integrations/homekit_controller/#adding-a-homekit-device-through-thread).
+
+   <img src="/images/integrations/thread/apple-works-with-homekit-logo.png"  width="200">
 
 ## About Thread
 
-This section introduces the terms *Thread protocol* and *border router* and lists border routers that are supported by Home Assistant.
+This section introduces the terms *Thread* and *border router* and lists border routers that are supported by Home Assistant.
 
 ### A communication protocol for IoT devices
 
-Thread is a low-power mesh networking standard for IoT devices. The low-power aspect is important for battery-powered smart home devices. However, it's also low-bandwidth, making it ideal for applications that don't send a lot of data, like switches or motion sensors. Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbee (IEEE 802.15.4) but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread does not allow controlling devices: It is just a communication protocol. To control the Thread devices, a higher-level protocol is required: Matter or Apple HomeKit (see above).
+Thread is a low-power mesh networking standard for IoT devices. The low-power aspect is important for battery-powered smart home devices. However, it's also low-bandwidth, making it ideal for applications that don't send a lot of data, like switches or motion sensors.
+
+Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbee (IEEE 802.15.4) but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread does not allow controlling devices: It is just a communication protocol. To control the Thread devices, a higher-level protocol is required: Matter or Apple HomeKit.
 
 Thread devices use the IPv6 standard to communicate both inside and outside the mesh network.
 
