@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The TechnoVE integration provides connectivity with TechnoVE WiFi Charging station through the station local API.
+The TechnoVE integration provides connectivity with TechnoVE Charging station through the station local API.
 
 {% include integrations/config_flow.md %}
 
