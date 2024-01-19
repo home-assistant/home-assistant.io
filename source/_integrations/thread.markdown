@@ -24,9 +24,6 @@ If you have a Thread-based consumer device, you will typically see a Thread logo
 
 <p class='img'><img width="200" src='/images/integrations/thread/thread-requires-border-router.png'></p>
 
-ToDo: find up-to-date logo with correct color.
-
-
 The "Built on Thread: requires border router" logo means Thread is the only supported network protocol for this device. You cannot use Wi-Fi to communicate with this device.
 
 In addition, you will see a Matter or Apple HomeKit logo on the packaging.
