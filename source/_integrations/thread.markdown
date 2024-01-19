@@ -103,7 +103,7 @@ These are all separate networks using different credentials. This means devices 
 
 The <img width="30px" src='/images/integrations/thread/information-outline.png'> icon indicates that Home Assistant has the credentials for that network. In this case, only the credentials of the `home assistant` network are known.
 
-Technical detail: Home Assistant discovers all Thread border routers in your network by their mDNS/DNS-SD announcements. The local announcements allow us to learn which networks exist, but do not contain the network credentials.
+Home Assistant discovers all Thread border routers in your network because they send mDNS/DNS-SD announcements. These local announcements don't contain the network credentials. That's why you see the network there, but not the credentials.
 
 #### About the preferred network
 
