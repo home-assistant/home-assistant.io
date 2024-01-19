@@ -118,23 +118,23 @@ The intention of the **Preferred network** in Home Assistant is that it will be 
 <div class="note">
 
 The **preferred network** function isn't completely implemented yet. In particular, when adding Matter devices through the companion apps, the preferred network of the mobile device is being used.
+
 </div>
 
-You can only set a Thread network as preferred if the credentials are known. A Thread device can be connected to any of those Thread networks, not just the preferred one.
+A Thread device can be connected to any of those Thread networks, not just the preferred one.
 
-### Importing Thread credentials
+#### Making a network your preferred network
 
-The Android and iOS companion apps are used to import Thread credentials. Navigate to the Thread configuration page on your companion app. You should see an **Import credentials** button on the lower right corner.
+You can only set a Thread network as preferred if the credentials are known.
 
-<p class='img'><img width="400" src='/images/integrations/thread/thread-import-credentials.png'>
-Importing credentials on Android phone.
-</p>
+1. To import Thread credentials, The Android and iOS companion apps are used.
+2. On your companion app, navigate to the Thread configuration page.
+   - You should see an **Import credentials** button on the lower right corner.
 
-<p class='img'><img width="400" src='/images/integrations/thread/thread-preferred-network.png'>
-This Thread configuration page shows three different Thread networks. Google's Thread network is the preferred Thread network.
-</p>
+   <img width="400" src='/images/integrations/thread/thread-import-credentials.png'>
 
-This allows a Google- or Apple-created Thread network to be the preferred network of Home Assistant.
+   - Importing the credentials allows a Google- or Apple-created Thread network to be the preferred network of Home Assistant.
+   <img width="400" src='/images/integrations/thread/thread-preferred-network.png'>
 
 ### Combining Thread networks
 
