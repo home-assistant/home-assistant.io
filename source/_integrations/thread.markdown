@@ -34,7 +34,7 @@ In addition, you will see a Matter or Apple HomeKit logo on the packaging.
 <p class='img'><img src="/images/integrations/thread/matter_onpackbadge_logo.png"  width="200"><img src="/images/integrations/thread/apple-works-with-homekit-logo.png"  width="200"> Matter or Apple HomeKit logo on the packaging.
  </p>
 
-Matter and Apple HomeKit are smart home protocols. They are responsible for handling the Thread credentials and connecting your Thread device to the Thread network. They are needed to control your device. Both home automation standards are supported natively by Home Assistant.
+Matter and Apple HomeKit are smart home protocols. They are responsible for handling the Thread credentials and connecting your Thread device to the Thread network. A smart home protocol is needed to control your device. Both home automation standards are supported natively by Home Assistant.
 
 ## Adding a Thread-based device to Home Assistant
 
