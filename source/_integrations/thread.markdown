@@ -27,12 +27,9 @@ If you have a Thread-based consumer device, you will typically see a Thread logo
 ToDo: find up-to-date logo with correct color.
 
 
-The "Built on Thread: requires border router" logo means Thread is your only supported network protocol for this device. You cannot use Wi-Fi to onboard this device.
+The "Built on Thread: requires border router" logo means Thread is the only supported network protocol for this device. You cannot use Wi-Fi to communicate with this device.
 
 In addition, you will see a Matter or Apple HomeKit logo on the packaging.
-
-<p class='img'><img src="/images/integrations/thread/matter_onpackbadge_logo.png"  width="200"><img src="/images/integrations/thread/apple-works-with-homekit-logo.png"  width="200"> Matter or Apple HomeKit logo on the packaging.
- </p>
 
 Matter and Apple HomeKit are smart home protocols. They are responsible for handling the Thread credentials and connecting your Thread device to the Thread network. A smart home protocol is needed to control your device. Both home automation standards are supported natively by Home Assistant.
 
@@ -56,9 +53,7 @@ This section introduces the terms *Thread* and *border router* and lists border 
 
 Thread is a low-power mesh networking standard for IoT devices. The low-power aspect is important for battery-powered smart home devices. However, it's also low-bandwidth, making it ideal for applications that don't send a lot of data, like switches or motion sensors.
 
-Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbee (IEEE 802.15.4) but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread does not allow controlling devices: It is just a communication protocol. To control the Thread devices, a higher-level protocol is required: Matter or Apple HomeKit.
-
-Thread devices use the IPv6 standard to communicate both inside and outside the mesh network.
+Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbee (IEEE 802.15.4) but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread by itself does not allow controlling devices: It is just a communication protocol. To control the Thread devices, a higher-level protocol is required: Matter or Apple HomeKit. Thread devices use the IPv6 standard to communicate both inside and outside the mesh network.
 
 ### About Thread border routers
 
@@ -68,7 +63,9 @@ Often, Thread border routing is only an auxiliary functionality of a smart home 
 
 Unlike other protocols, Thread can use multiple border routers in a single network. This increases wireless coverage and reduces the risk of a single point of failure. Ideal for home automation, with a potentially large number of devices spread over a large area.
 
-Home Assistant can only control OpenThread <abbr title="Thread border routers">TBRs</abbr>. OpenThread is an open source implementation of Thread, originally released by Google.
+OpenThread is an open source implementation of Thread, originally released by Google. Almost all commercially available Thread border routers are based on the open source implementation. However, the configuration of <abbr title="Thread border routers">TBRs</abbr> is not part of the Thread standard. This means that Google and Apple <abbr title="Thread border routers">TBRs</abbr> implementation setup and configured by their respective ecosystems. 
+
+Home Assistant can only control OpenThread border routers built with the REST API available in the open source implementation. The OpenThread Border Router add-on (as well as the OpenThread Border Router bundled in the Silicon Labs Multiprotocol add-on) are built from this open source OpenThread code and have the REST API enabled.
 
 ### List of Thread border router devices
 
@@ -105,7 +102,7 @@ Today, each vendor forms their own Thread network when you start using their pro
 The Thread configuration page shows three vendor-specific Thread networks.
 </p>
 
-These are all separate networks using different credentials, which prevents devices from roaming between the Thread networks.
+These are all separate networks using different credentials. This means devices can't roam between the Thread networks.
 
 The <img width="30px" src='/images/integrations/thread/information-outline.png'> icon indicates that Home Assistant has the credentials for that network. In this case, only the credentials of the `home assistant` network are known.
 
@@ -120,8 +117,6 @@ The intention of the **Preferred network** in Home Assistant is that it will be 
 The **preferred network** function isn't completely implemented yet. In particular, when adding Matter devices through the companion apps, the preferred network of the mobile device is being used.
 
 </div>
-
-A Thread device can be connected to any of those Thread networks, not just the preferred one.
 
 #### Making a network your preferred network
 
@@ -140,9 +135,9 @@ You can only set a Thread network as preferred if the credentials are known.
 
 In the current implementation, having <abbr title="Thread border routers">TBRs</abbr> results in separate networks using different credentials. This prevents devices from roaming between the Thread networks. In theory, it would be better to join all Thread networks into a single network to increase the size of the mesh network. A dense mesh network should lead to better <abbr title="radio frequency">RF</abbr> coverage and better link quality, which lowers transmission latencies, making communication faster.
 
-<div class="note">
+<div class="warning">
 
-However, in the current implementation, combining Thread networks seems to lead to instabilities. Therefore, we do not recommend combining networks in production just yet. This is especially true for our OpenThread Border Router in combination with Google or Apple Thread networks.
+Currently, combining Thread networks seems to lead to instabilities. Therefore, we do not recommend combining networks in production just yet. This is especially true for our OpenThread Border Router in combination with Google or Apple Thread networks.
 
 </div>
 
