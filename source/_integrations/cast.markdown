@@ -257,6 +257,72 @@ Optional:
       service: media_player.play_media
 ```
 
+### [NRK Radio](https://radio.nrk.no)
+
+#### Finding Media IDs
+
+Media ID can be found in the URL, e.g:
+- Live channel: <https://radio.nrk.no/direkte/p1>, media ID is `p1`
+- Podcast: <https://radio.nrk.no/podkast/tazte_priv/l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314>, media ID is `l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314`
+- On-demand program: <https://radio.nrk.no/serie/radiodokumentaren/sesong/201011/MDUP01004510>, media ID is `MDUP01004510`
+
+#### Media parameters
+
+- `app_name`: `nrkradio`
+- `media_id`: NRK Radio media ID
+
+#### Example
+
+Example values to cast the item at <https://radio.nrk.no/podkast/tazte_priv/l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314>
+
+```yaml
+'cast_nrkradio_to_chromecast':
+  alias: "Cast NRK Radio to Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "nrkradio",
+            "media_id": "l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314"
+          }'
+      service: media_player.play_media
+```
+
+### [NRK TV](https://tv.nrk.no)
+
+#### Finding Media IDs
+
+ - Live programs: ID is in the URL, e.g. for <https://tv.nrk.no/direkte/nrk1>, the media ID is `nrk1`
+ - On-demand programs: ID is found by clicking share button, e.g. for <https://tv.nrk.no/serie/uti-vaar-hage/sesong/2/episode/2> the share link is `https://tv.nrk.no/se?v=OUHA43000207` and the media ID is `OUHA43000207`
+
+#### Media parameters
+
+- `app_name`: `nrktv`
+- `media_id`: NRK TV media ID
+
+#### Example
+
+Example values to cast the item at <https://tv.nrk.no/serie/uti-vaar-hage/sesong/2/episode/2>
+
+```yaml
+'cast_nrktv_to_chromecast':
+  alias: "Cast NRK TV to Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "nrktv",
+            "media_id": "OUHA43000207"
+          }'
+      service: media_player.play_media
+```
+
 ### Plex
 
 To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-media_playerplay_media) and prepend the `media_content_id` with `plex://`:

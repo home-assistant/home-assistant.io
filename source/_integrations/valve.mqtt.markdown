@@ -134,6 +134,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: Suggest an area if the device isn’t in one yet.
       required: false
