@@ -71,7 +71,7 @@ Currently, the following <abbr title="Thread border router">TBR</abbr> devices a
 #### Nabu Casa
 
 - [Home Assistant Yellow](/yellow/) hub
-- [Home Assistant SkyConnect](/skyconnect/) Zigbee/Thread USB stick
+- [Home Assistant SkyConnect](/skyconnect/) USB stick. Out of the box, it runs Zigbee, but you can make it [run Thread](https://skyconnect.home-assistant.io/procedures/enable-thread/) instead.
 
 #### Google
 
