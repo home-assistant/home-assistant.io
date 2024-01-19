@@ -557,6 +557,7 @@ support_url:
     'hw':                  'hw_version',
     'sw':                  'sw_version',
     'sa':                  'suggested_area',
+    'sn':                  'serial_number',
 ```
 {% enddetails %}
 {% details "Supported abbreviations for origin info" %}
@@ -900,6 +901,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "mf": "Bla electronics",
       "mdl": "xya",
       "sw": "1.0",
+      "sn": "ea334450945afc",
       "hw": "1.0rev2",
     },
     "o": {
