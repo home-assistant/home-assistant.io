@@ -12,6 +12,6 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Bzu Tech** {% term integration %} allows you to integrate your [Bzu Cloud](https://canary.is) sensors in Home Assistant.
+The **Bzu Tech** {% term integration %} allows you to integrate your [Bzu Cloud](https://cloud.bzutech.com.br) sensors in Home Assistant.
 
 {% include integrations/config_flow.md %}
