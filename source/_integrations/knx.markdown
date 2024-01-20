@@ -168,7 +168,7 @@ This trigger is also provided as a device trigger by the `KNX Interface` device.
 
 {% configuration %}
 destination:
-  description: A group address a list of group addresses the trigger should listen on. If not set, the trigger will listen on all group addresses.
+  description: A group address or a list of group addresses the trigger should listen on. If not set, or an empty list, the trigger will listen on all group addresses.
   type: [string, list]
   required: false
 group_value_write:
@@ -197,6 +197,12 @@ outgoing:
   default: true
   required: false
 {% endconfiguration %}
+
+<div class='note'>
+
+If `destination` is explicitly set to `null` / `None`, the trigger is a no-op. It will never fire. This can be used in blueprints to provide inputs for addresses that are optional.
+
+</div>
 
 #### Available trigger data
 
