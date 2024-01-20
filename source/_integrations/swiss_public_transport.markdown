@@ -41,21 +41,6 @@ name:
 
 The public timetables are coming from [Swiss public transport](https://transport.opendata.ch/).
 
-### Custom polling rate
+### Defining a custom polling interval
 
-When setting up more than 2 connections, the default polling rate saturates the rate limit of the API. Here is an example of an automation using the `time_pattern` trigger and the `homeassistant.update_entity` service.
-
-_Don't forget to deactivate the polling in the integration's system options._
-
-```yaml
-alias: 180s custom polling example
-trigger:
-  - platform: time_pattern
-    minutes: /3
-action:
-  - service: homeassistant.update_entity
-    target:
-      entity_id: sensor.a_b_departure
-    data: {}
-mode: single
-```
+{% include common-tasks/define_custom_polling.md %}
