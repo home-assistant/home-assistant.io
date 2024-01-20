@@ -29,6 +29,8 @@ memory usage, CPU usage, and running processes.
 - Disk use - (One per disk/mount point)
 - Disk usage (percent) - (One per disk/mount point)
 
+**Note:** Enabled disk entities will always be loaded even if the disk is unavailable at startup.
+
 ### Network
 
 - IPv4 address - (One per network interface)
