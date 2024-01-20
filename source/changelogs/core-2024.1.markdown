@@ -1041,6 +1041,16 @@ For a summary in a more readable format:
 [@starkillerOG]: https://github.com/starkillerOG
 [@thecode]: https://github.com/thecode
 
+## Release 2024.1.5 - January 20
+
+- Bump async-upnp-client to 0.38.1 ([@StevenLooman] - [#108382])
+- Fix empty files included by !include_dir_named ([@emontnemery] - [#108489])
+
+[#108382]: https://github.com/home-assistant/core/pull/108382
+[#108489]: https://github.com/home-assistant/core/pull/108489
+[@StevenLooman]: https://github.com/StevenLooman
+[@emontnemery]: https://github.com/emontnemery
+
 [#100573]: https://github.com/home-assistant/core/pull/100573
 [#100601]: https://github.com/home-assistant/core/pull/100601
 [#101102]: https://github.com/home-assistant/core/pull/101102
