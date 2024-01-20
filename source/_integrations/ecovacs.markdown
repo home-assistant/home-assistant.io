@@ -24,8 +24,6 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-Note: For some countries, you will need to set `continent` to `ww` (meaning worldwide). There is unfortunately no way to know the correct settings other than guessing and checking.
-
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
 
 
