@@ -44,3 +44,16 @@ The JVC Projector remote platform will create a [Remote](/integrations/remote/) 
 - `lens_control`
 - `setting_memory`
 - `gamma_settings`
+
+## Sensor types
+
+When configured, the integration will create two sensors for each configured client ID:
+
+- Power, returns the status in "off", "standby", "on", "warming", "cooling", "error"
+- Input, possible values are: "hdmi1", "hdmi2"
+
+### Binary sensor
+
+The following sensor types are supported:
+
+- Power on is True when projector is in status "on", "warming"
