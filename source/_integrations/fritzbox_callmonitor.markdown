@@ -30,6 +30,8 @@ To use the FRITZ!Box call monitor in your installation, a user with at least `Vo
 7.  Check the rights box next to `Voice messages, faxes, FRITZ!App Fon and call list`.
 8.  Click the `Apply` button.
 
+You also need network access from HA to your Fritz!Box on port tcp/1012 for the call monitoring, as well as *one time access* to port tcp/80 for setting up the integration.
+
 ## Setup
 
 To activate the call monitor on your FRITZ!Box, dial **#96\*5\*** from any phone connected to it.
