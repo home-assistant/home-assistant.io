@@ -1045,11 +1045,14 @@ For a summary in a more readable format:
 
 - Bump async-upnp-client to 0.38.1 ([@StevenLooman] - [#108382])
 - Fix empty files included by !include_dir_named ([@emontnemery] - [#108489])
+- Pin pandas to 2.1.4 ([@frenck] - [#108509])
 
 [#108382]: https://github.com/home-assistant/core/pull/108382
 [#108489]: https://github.com/home-assistant/core/pull/108489
+[#108509]: https://github.com/home-assistant/core/pull/108509
 [@StevenLooman]: https://github.com/StevenLooman
 [@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
 
 [#100573]: https://github.com/home-assistant/core/pull/100573
 [#100601]: https://github.com/home-assistant/core/pull/100601
