@@ -17,7 +17,7 @@ ha_integration_type: integration
 
 The `swiss_public_transport` sensor will give you the next three departure times from a given location to another one in Switzerland.
 
-The [Swiss public transport API](https://transport.opendata.ch/) only allows 1000 requests per 24 hours. The default polling rate is set to `180s`, which works for two connections set up in parallel. If more entries are needed, consider [defining-a-custom-polling-interval](#defining-a-custom-polling-interval) to reduce the amount of requests.
+The [Swiss public transport API](https://transport.opendata.ch/) only allows 1000 requests per 24 hours. The default polling rate is set to `180s`, which works for two connections set up in parallel. If more entries are needed, consider [defining a custom polling interval](#defining-a-custom-polling-interval) to reduce the amount of requests.
 
 The [Stationboard](https://transport.opendata.ch/examples/stationboard.html) website can help to determine the exact name of the start and the end station.
 
