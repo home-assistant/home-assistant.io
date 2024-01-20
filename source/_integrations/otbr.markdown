@@ -22,6 +22,6 @@ This integration is being installed automatically when the **Open Thread Border 
 
 The integration is automatically set up when the **Silicon Labs Multiprotocol** add-on is installed.
 
-Installing this integration manually is an advanced use case, for example if ou run your own border router. If you do have such a use case, follow these steps:
+Installing this integration manually is an advanced use case, for example if you run your own border router. If you do have such a use case, follow these steps:
 
 {% include integrations/config_flow.md %}
