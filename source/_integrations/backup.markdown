@@ -3,7 +3,7 @@ title: Backup
 description: Allow creating backups of container and core installations.
 ha_category:
   - Other
-ha_release: 2022.4
+ha_release: 2024.1.5
 ha_quality_scale: internal
 ha_domain: backup
 ha_codeowners:
@@ -60,12 +60,16 @@ This is a YAML example for an automation that initiate a backup every night
 at 3 AM:
 
 ```yaml
-automation:
-  - alias: "Backup Home Assistant every night at 3 AM"
-    trigger:
-      platform: time
-      at: "03:00:00"
-    action:
-      alias: "Create backup now"
-      service: backup.create
+- id: '1702841556346'
+  alias: Backup Home Assistant every night at 3 AM
+  description: Create Backup
+  trigger:
+  - platform: time
+    at: 03:00:00
+  condition: []
+  action:
+  - service: backup.create
+    metadata: {}
+    data: {}
+  mode: single
 ```
