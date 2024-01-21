@@ -16,6 +16,8 @@ ha_integration_type: integration
 
 Integrates LeaOne health devices into Home Assistant.
 
+LeoOne produces Bluetooth scales and other health devices under the Xiaogui and BAGAIL brands.
+
 ## Supported devices
 
 - Bluetooth scale TZC4 (metric)
