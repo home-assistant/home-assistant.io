@@ -44,3 +44,15 @@ The JVC Projector remote platform will create a [Remote](/integrations/remote/) 
 - `lens_control`
 - `setting_memory`
 - `gamma_settings`
+- `hdmi_1`
+- `hdmi_2`
+- `mode_1`
+- `mode_2`
+- `mode_3`
+- `lens_ap`
+- `gamma`
+- `color_temp`
+- `natural`
+- `cinema`
+- `anamo`
+- `3d_format`
