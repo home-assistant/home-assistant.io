@@ -35,7 +35,7 @@ Both [Anthem]'s current and last generation of <abbr title="Audio & video">A/V</
 
 If your model is not on the list, please give it a test. If everything works correctly, then add it to the list by selecting the **Edit this page on GitHub** link above.
 
-Support is provided through the Python [anthemav] module. Older, RS-232 serial-based units like the [D2v series](https://www.anthemav.com/products-archived/model=d2v/page=overview) use a different protocol entirely and are not currently supported.
+Support is provided through the Python [anthemav] module. Older, RS-232 serial-based units like the [D2v series](https://www.anthemav.com/products-archived/model=d2v/page=overview) use a different protocol entirely and are supported by a [custom integration](https://github.com/gwendalg/anthem-serial).
 
 [Anthem]: https://www.anthemav.com/
 [anthemav]: https://github.com/nugget/python-anthemav
