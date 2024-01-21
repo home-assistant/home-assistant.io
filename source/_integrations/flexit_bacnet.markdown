@@ -56,4 +56,8 @@ The integration adds entities for sensors with different readings from the devic
  - Heat exchanger efficiency
  - Heat exchanger speed
 
+### Binary sensor
+
+The integration adds an entity for a binary sensor called _Air filter polluted_ which tells if it's time to change the filters in the unit.
+
 {% include integrations/config_flow.md %}
