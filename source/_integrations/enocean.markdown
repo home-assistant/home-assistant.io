@@ -322,6 +322,30 @@ The window handle sensor can have the following states:
 - **open**: The window handle is in open position (typically left or right, or 3 o'clock or 9 o'clock)
 - **tilt**: The window handle is in tilt position (typically up or 12 o'clock)
 
+
+### Magnet contact
+
+There are simple Reed sensors consisting of a sensor on the wall or window/door frame and a magnet on the window/door. As soon as the magnet is more than a few millimeters distant from the sensor, it reports open. This supports devices according to EEPs (EnOcean Equipment Profiles): D5-00-01 (Single Input Contact).
+
+To configure a window handle, add the following code to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry for window handle EEP D5-00-01
+sensor:
+  - name: Living Room Window
+    platform: enocean
+    id: [0x01,0x02,0x03,0x04]
+    device_class: magnetcontact
+```
+
+The configuration does not have any optional parameters.
+
+The magnet contact sensor can have the following states:
+
+- **closed**: The magnet contact is closed, that means the associated window or door is closed
+- **open**: The magnet contact is open, that means the associated window or door is open
+
+
 ## Switch
 
 An EnOcean switch can take many forms. Currently, only a few types have been tested: Permundo PSC234 and Nod On SIN-2-1-01.
