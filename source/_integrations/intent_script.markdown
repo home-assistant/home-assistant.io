@@ -98,7 +98,7 @@ conversation:
 intent_script:
   EventCountToday:
     action:
-      - service: calendar.list_events
+      - service: calendar.get_events
         target:
           entity_id: calendar.my_calendar
         data_template:
@@ -108,7 +108,7 @@ intent_script:
       - stop: ""
         response_variable: result                     # and return it
     speech:
-      text: "{{ action_response.events | length }}"   # use the action's response
+      text: "{{ action_response['calendar.my_calendar'].events | length }}"   # use the action's response
 ```
 
 {% endraw %}

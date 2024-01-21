@@ -27,8 +27,6 @@ The integration can control your Alarm Panel by publishing to the `command_topic
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To enable this platform, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -135,6 +133,10 @@ device:
       type: string
     name:
       description: "The name of the device."
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:

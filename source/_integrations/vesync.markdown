@@ -12,6 +12,7 @@ ha_codeowners:
   - '@markperdue'
   - '@webdjoe'
   - '@thegardenmonkey'
+  - '@cdnninja'
 ha_domain: vesync
 ha_platforms:
   - diagnostics

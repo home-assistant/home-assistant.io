@@ -1,4 +1,4 @@
-# Install Home Assistant Operating System
+## Install Home Assistant Operating System
 
 {% assign release_url = "https://github.com/home-assistant/operating-system/releases/download" %}
 

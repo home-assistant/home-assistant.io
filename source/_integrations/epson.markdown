@@ -24,7 +24,7 @@ When you want to add a device for the first time, turn it on before following th
 
 - turn on/off
 - set input
-- set/get color mode
+- set/get color mode including high/low lamp
 - increase/decrease volume
 - mute/unmute audio
 - send next/previous track
@@ -37,6 +37,7 @@ When you want to add a device for the first time, turn it on before following th
 
 - Epson EH-TW5350
 - Epson EH-TW7000
+- Epson EH-TW9400W (shares platform with 7400/8400/9400(w))
 
 To make this module work you need to connect your projector to your LAN.
 The best is to use iProjection app by Epson to test if it is working.

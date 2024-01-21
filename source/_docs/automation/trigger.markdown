@@ -148,6 +148,12 @@ automation:
       event: start
 ```
 
+<div class='note'>
+
+Automations triggered by the `shutdown` event have 20 seconds to run, after which they are stopped to continue with the shutdown.
+
+</div>
+
 ## MQTT trigger
 
 Fires when a specific message is received on given MQTT topic. Optionally can match on the payload being sent over the topic. The default payload encoding is 'utf-8'. For images and other byte payloads use `encoding: ''` to disable payload decoding completely.

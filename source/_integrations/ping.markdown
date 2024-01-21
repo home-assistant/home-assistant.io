@@ -27,8 +27,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Polling interval
 
-By default, the integration will ping the device every 5 minutes. 
-If you wish to do a ping more frequently, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired frequency.
+By default, the integration will ping the device every 30 seconds. 
+If you wish to do a ping at a different interval, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired frequency.
 
 For more detailed steps on how to define a custom interval, follow the procedure below.
 
@@ -36,17 +36,25 @@ For more detailed steps on how to define a custom interval, follow the procedure
 
 {% include common-tasks/define_custom_polling.md %}
 
+## Integration options
+
+It is possible to change some behaviors through the integration options.
+To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. Select the **Ping** integration, then select **Configure**.
+
+- **Ping count**: Number of echo requests to send to the target. The default is 5.
+- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home". The default is 180 seconds (3 minutes).
+
 ## Binary sensor
 
 The `ping` binary sensor platform allows you to use `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
-This sensor is enabled by default. The default polling interval is 5 minutes.
+This sensor is enabled by default. The default polling interval is 30 seconds.
 
 The sensor exposes the different round trip times in milliseconds measured by `ping` as attributes:
 
-- `round_trip_time_mdev`
-- `round_trip_time_avg`
-- `round_trip_time_min`
-- `round_trip_time_max`
+- `round_trip_time_mdev` - the standard deviation
+- `round_trip_time_avg` - the average round trip time
+- `round_trip_time_min` - the shortest round trip time
+- `round_trip_time_max` - the longest round trip time
 
 <div class='note'>
 When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.

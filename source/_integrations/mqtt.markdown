@@ -37,6 +37,7 @@ ha_platforms:
   - text
   - update
   - vacuum
+  - valve
   - water_heater
 ha_integration_type: integration
 ha_quality_scale: gold
@@ -240,6 +241,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Tag scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
@@ -314,10 +316,6 @@ support_url:
     'bri_tpl':             'brightness_template',
     'bri_val_tpl':         'brightness_value_template',
     'clr_temp_cmd_tpl':    'color_temp_command_template',
-    'bat_lev_t':           'battery_level_topic',
-    'bat_lev_tpl':         'battery_level_template',
-    'chrg_t':              'charging_topic',
-    'chrg_tpl':            'charging_template',
     'clr_temp_cmd_t':      'color_temp_command_topic',
     'clr_temp_stat_t':     'color_temp_state_topic',
     'clr_temp_tpl':        'color_temp_template',
@@ -325,8 +323,6 @@ support_url:
     'clrm':                'color_mode',
     'clrm_stat_t':         'color_mode_state_topic',
     'clrm_val_tpl':        'color_mode_value_template',
-    'cln_t':               'cleaning_topic',
-    'cln_tpl':             'cleaning_template',
     'cmd_off_tpl':         'command_off_template',
     'cmd_on_tpl':          'command_on_template',
     'cmd_t':               'command_topic',
@@ -343,17 +339,11 @@ support_url:
     'dir_cmd_tpl':         'direction_command_template',
     'dir_stat_t':          'direction_state_topic',
     'dir_val_tpl':         'direction_value_template',
-    'dock_t':              'docked_topic',
-    'dock_tpl':            'docked_template',
     'e':                   'encoding',
     'en':                  'enabled_by_default',
     'ent_cat':             'entity_category',
     'ent_pic':             'entity_picture',
-    'err_t':               'error_topic',
-    'err_tpl':             'error_template',
     'evt_typ':             'event_types',
-    'fanspd_t':            'fan_speed_topic',
-    'fanspd_tpl':          'fan_speed_template',
     'fanspd_lst':          'fan_speed_list',
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
@@ -447,7 +437,6 @@ support_url:
     'pl_paus':             'payload_pause',
     'pl_stop':             'payload_stop',
     'pl_strt':             'payload_start',
-    'pl_stpa':             'payload_start_pause',
     'pl_ret':              'payload_return_to_base',
     'pl_rst_hum':          'payload_reset_humidity',
     'pl_rst_mode':         'payload_reset_mode',
@@ -457,6 +446,7 @@ support_url:
     'pl_ton':              'payload_turn_on',
     'pl_trig':             'payload_trigger',
     'pl_unlk':             'payload_unlock',
+    'pos':                 'reports_position',
     'pos_clsd':            'position_closed',
     'pos_open':            'position_open',
     'pr_mode_cmd_t':       'preset_mode_command_topic',
@@ -567,6 +557,7 @@ support_url:
     'hw':                  'hw_version',
     'sw':                  'sw_version',
     'sa':                  'suggested_area',
+    'sn':                  'serial_number',
 ```
 {% enddetails %}
 {% details "Supported abbreviations for origin info" %}
@@ -680,6 +671,8 @@ The following software has built-in support for MQTT discovery:
 
 - [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
+- [ble2mqtt](https://github.com/devbis/ble2mqtt)
+- [digitalstrom-mqtt](https://github.com/gaetancollaud/digitalstrom-mqtt)
 - [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
 - [EMS-ESP32 (and EMS-ESP)](https://github.com/emsesp/EMS-ESP32)
@@ -908,6 +901,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "mf": "Bla electronics",
       "mdl": "xya",
       "sw": "1.0",
+      "sn": "ea334450945afc",
       "hw": "1.0rev2",
     },
     "o": {
@@ -993,6 +987,7 @@ mqtt:
 - [Text](/integrations/text.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}

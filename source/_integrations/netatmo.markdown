@@ -6,6 +6,7 @@ ha_category:
   - Climate
   - Cover
   - Environment
+  - Fan
   - Hub
   - Light
   - Media source
@@ -24,6 +25,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - fan
   - light
   - select
   - sensor
@@ -38,6 +40,7 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Climate](#climate)
 - [Cover](#cover)
+- [Fan](#fan)
 - [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -66,6 +69,10 @@ The `netatmo` thermostat platform is consuming the information provided by a [Ne
 ## Cover
 
 The `netatmo` cover platform provides support for Bubendorff shutters. 
+
+## Fan
+
+The `netatmo` fan plaform provides support for Legrand centralized ventilation control.
 
 ## Light
 
