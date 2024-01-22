@@ -304,7 +304,7 @@ We welcome the following new integrations in this release:
 [Devialet]: /integrations/devialet
 [V2C]: /integrations/v2c
 [Linear Garage Door]: /integrations/linear_garage_door
-[MyPermobil]: /integrations/mypermobil
+[MyPermobil]: /integrations/permobil
 [OurGroceries]: /integrations/ourgroceries
 
 ## Integrations now available to set up from the UI
