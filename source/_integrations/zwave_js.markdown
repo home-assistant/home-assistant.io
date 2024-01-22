@@ -849,9 +849,9 @@ That depends. There are two generations of Z-Wave encryption, Security S0, and S
 
 Security S0 imposes significant additional traffic on your mesh and is recommended only for older devices that do not support Security S2 but require encryption to work, such as door locks.
 
-S2 security does not impose additional network traffic and provides additional benefits. For example, end devices using S2 require the hub to report whether it has received and understood their reports.
+Security S2 does not impose additional network traffic and provides additional benefits. For example, end devices using S2 require the hub to report whether it has received and understood their reports.
 
-By default, Z-Wave prefers S2 security, if supported. S0 is used only when absolutely necessary.
+By default, Z-Wave prefers Security S2, if supported. Security S0 is used only when absolutely necessary.
 
 ### Where can I see the security keys in the Z-Wave JS add-on?
 
