@@ -18,10 +18,7 @@ This integration is installed automatically when the **Open Thread Border Router
 - [Enabling Thread on Home Assistant Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
 - [Enabling Thread on Home Assistant SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
 
-The integration is installed automatically when the **Silicon Labs Multiprotocol** add-on is installed. This happens when you do one of the following procedures:
-
-- [Enabling Multiprotocol on Home Assistant Yellow](https://yellow.home-assistant.io/guides/enable-multiprotocol/)
-- [Enabling Multiprotocol on Home Assistant SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-multiprotocol/)
+The integration is also installed automatically when enabling the experimental **Silicon Labs Multiprotocol** support.
 
 Installing this integration manually is an advanced use case, for example if you run your own border router. If you do have such a use case, follow these steps:
 
