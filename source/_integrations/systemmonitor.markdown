@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_domain: systemmonitor
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ha_codeowners:
@@ -55,9 +56,9 @@ memory usage, CPU usage, and running processes.
 - Swap use
 - Swap usage (percent)
 
-### Add `process` sensor
+## Add `process` binary sensor
 
-The `process` sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & Services" %}**, select the **System Monitor** integration and click **Configure** to select which `process` sensors should be created.
+The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & Services" %}**, select the **System Monitor** integration and click **Configure** to select which `process` binary sensors should be created.
 
 ## Disk usage
 
