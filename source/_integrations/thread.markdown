@@ -66,24 +66,27 @@ Home Assistant can only control OpenThread border routers built with the REST AP
 
 ### List of Thread border router devices
 
-Currently, the following <abbr title="Thread border router">TBR</abbr> devices are known to work well with Home Assistant:
+Currently, the following <abbr title="Thread border router">TBR</abbr> devices are known to work with Home Assistant:
+
+#### Home Assistant
+
+The Thread radio on the Home Assistant SkyConnect and Home Assistant Yellow together with the Open Thread Border Router add-on can be used as a border router. Note that it is currently limited to users on the Android ecosystem and one single border router.
+The Thread support on these devices is in experimental state.
+
+- [Home Assistant Yellow](/yellow/) hub
+- [Home Assistant SkyConnect](/skyconnect/) USB stick. Out of the box, it runs Zigbee, but you can make it [run Thread](https://skyconnect.home-assistant.io/procedures/enable-thread/) instead.
 
 #### Google
 
 - **Displays**: Nest Hub (2nd gen), Nest Hub Max
 - **Wi-Fi routers**: Nest Wifi Pro (Wi-Fi 6E), Nest Wifi
 
+Recommended only if you are on the Android ecosystem. Requires a recent Android phone and one of the devices listed above. If no existing Google border router present (and also no desire to add one later), you may want to use Home Assistant OTBR (see above).
+
 #### Apple
 
 - **Speakers**: HomePod (2nd generation), HomePod mini
 - **TVs**: Apple TV 4K (3rd generation) Wi-Fi + Ethernet, Apple TV 4K (2nd generation)
-
-#### Nabu Casa
-
-The Thread support on these devices is in experimental state.
-
-- [Home Assistant Yellow](/yellow/) hub
-- [Home Assistant SkyConnect](/skyconnect/) USB stick. Out of the box, it runs Zigbee, but you can make it [run Thread](https://skyconnect.home-assistant.io/procedures/enable-thread/) instead.
 
 #### Others
 
