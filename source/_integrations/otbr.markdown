@@ -17,8 +17,6 @@ This integration is installed automatically when the **Open Thread Border Router
 
 - [Enabling Thread on Home Assistant Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
 - [Enabling Thread on Home Assistant SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
-- [Adding a HomeKit device via Thread](https://www.home-assistant.io/integrations/homekit_controller/)
-- [Adding a Matter device via Thread](https://www.home-assistant.io/integrations/matter/#adding-a-matter-device-to-home-assistant)
 
 The integration is installed automatically when the **Silicon Labs Multiprotocol** add-on is installed. This happens when you do one of the following procedures:
 
