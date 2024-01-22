@@ -81,8 +81,6 @@ The Thread support on these devices is in experimental state.
 - **Displays**: Nest Hub (2nd gen), Nest Hub Max
 - **Wi-Fi routers**: Nest Wifi Pro (Wi-Fi 6E), Nest Wifi
 
-Recommended only if you are on the Android ecosystem. Requires a recent Android phone and one of the devices listed above. If no existing Google border router present (and also no desire to add one later), you may want to use Home Assistant OTBR (see above).
-
 #### Apple
 
 - **Speakers**: HomePod (2nd generation), HomePod mini
