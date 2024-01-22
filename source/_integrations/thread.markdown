@@ -135,7 +135,7 @@ You can only set a Thread network as preferred if the credentials are known.
 This scenario currently only works in one particular case, under the following conditions:
 
 - You do not have a Google <abbr title="Thread border routers">TBRs</abbr> set up yet (otherwise the Google <abbr title="Thread border routers">TBRs</abbr> will be the preferred BR, and Android APIs do not allow to change that currently)
-- You have the OpenThread Border Router add-on installed (or the Silicon Labs Multiprotocol add-on, which includes an OpenThread Border Router). For instructions on how to enable Thread on SkyConnect or Yellow, refer to the following guides:
+- You have the OpenThread Border Router add-on installed. For instructions on how to enable Thread on SkyConnect or Yellow, refer to the following guides:
   - [Enabling Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
   - [Enabling Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
 - You have an Android phone and the Home Assistant Companion App.
