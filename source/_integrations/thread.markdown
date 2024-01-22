@@ -62,7 +62,7 @@ Unlike other protocols, Thread can use multiple border routers in a single netwo
 
 OpenThread is an open source implementation of Thread, originally released by Google. Almost all commercially available Thread border routers are based on the open source implementation. However, the configuration of <abbr title="Thread border routers">TBRs</abbr> is not part of the Thread standard. This means that Google and Apple <abbr title="Thread border routers">TBRs</abbr> implementation setup and configured by their respective ecosystems.
 
-Home Assistant can only control OpenThread border routers built with the REST API available in the open source implementation. The OpenThread Border Router add-on (as well as the OpenThread Border Router bundled in the Silicon Labs Multiprotocol add-on) are built from this open source OpenThread code and have the REST API enabled.
+Home Assistant can only control OpenThread border routers built with the REST API available in the open source implementation. The OpenThread Border Router add-on (as well as the OpenThread Border Router bundled in the experimental Silicon Labs Multiprotocol add-on) are built from this open source OpenThread code and have the REST API enabled.
 
 ### List of Thread border router devices
 
@@ -136,7 +136,7 @@ This scenario currently only works in one particular case, under the following c
 
 - Make sure there are no other Thread networks set up:
   - For example: Make sure you do not have any Google <abbr title="Thread border routers">TBRs</abbr> set up yet (otherwise the Google <abbr title="Thread border routers">TBRs</abbr> will be the preferred Thread network, and Android APIs do not allow to change that currently).
-- You have the OpenThread Border Router add-on installed. For instructions on how to enable Thread on SkyConnect or Yellow, refer to the following guides:
+- You have the OpenThread Border Router add-on installed. If you have the experimental Silicon Labs Multiprotocol add-on installed, we recommend migrating to the pure Thread firmware, as especially Thread traffic appears to cause stability issues. For instructions on how to enable/migrate to a dedicated Thread setup on SkyConnect or Yellow, refer to the following guides:
   - [Enabling Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
   - [Enabling Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
 - You have an Android phone and the Home Assistant Companion App. (Note: this does not work with the iOS Companion App).
