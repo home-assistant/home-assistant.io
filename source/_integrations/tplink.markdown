@@ -13,6 +13,7 @@ ha_codeowners:
   - '@rytilahti'
   - '@thegardenmonkey'
   - '@bdraco'
+  - '@sdb9696'
 ha_domain: tplink
 ha_platforms:
   - diagnostics
@@ -29,13 +30,7 @@ The `tplink` integration allows you to control your [TP-Link Kasa Smart Home Dev
 You need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done either by using [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning) or by adding it to the official Kasa or Tapo app before trying to add them to Home Assistant.
 
 If your device is a newer Kasa or Tapo device it will require your TP-Link cloud username and password to authenticate for local access.
-If you have an older device that does not currently require authentication and you want it to stay that way, then you should disable automatic firmware updates, otherwise it may upgrade to firmware that requires it.
-
-There is currently support for the following device types within Home Assistant:
-
-- **Light**
-- **Switch**
-- **Sensor**
+If you have an older device that does not currently require authentication, you may consider disabling automatic firmware updates to keep it that way.
 
 {% include integrations/config_flow.md %}
 
@@ -43,9 +38,11 @@ There is currently support for the following device types within Home Assistant:
 
 See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kasa#supported-devices) for an up to date list.
 
-## Supported devices not requiring authentication
+Devices not listed below may work but if you encounter issues submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
 
-### Plugs
+### Not requiring authentication
+
+#### Plugs
 
 - HS100
 - HS103
@@ -58,9 +55,9 @@ See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kas
 - KP125
 - KP401
 - EP10
-- EP25 (hw_version < 2.6)
+- EP25 (Hardware version < 2.6)
 
-### Power Strips
+#### Power Strips
 
 - EP40
 - HS300
@@ -69,7 +66,7 @@ See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kas
 - KP400
 - KP405
 
-### Wall switches
+#### Wall switches
 
 - ES20M
 - HS200
@@ -79,7 +76,7 @@ See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kas
 - KS220M
 - KS230
 
-### Bulbs
+#### Bulbs
 
 - EP40
 - LB100
@@ -95,45 +92,40 @@ See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kas
 - KL130
 - KL135
 
-### Light strips
+#### Light strips
 
 - KL400
 - KL420
 - KL430
 
-## Supported devices requiring authentication
+### Requiring authentication
 
-### Plugs
+#### Plugs
 
-- EP25 (hw_version >= 2.6)
+- EP25 (Hardware version >= 2.6)
 - KP125M
 - P110
-- HS100 (UK hw_version = 4.1 fw_version = 1.1.0)
+- HS100 (UK Hardware version 4.1 with firmware 1.1.0)
 
-### Wall switches
+#### Wall switches
 
 - KS205
 - KS225
 
-### Bulbs
+#### Bulbs
 
 - L510B
 - L530E
 
-### Light strips
+#### Light strips
 
 - L900-5
 - L900-10
 
 
-## Unsupported devices
-
-Other devices may work but if you encuonter issues submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
-
-Other bulbs may also work, but with limited color temperature range (2700-5000).
-If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
-
 ## Light strip effects
+
+Light strip effects are currently only supported for the device types not requiring authentication.
 
 ### Random Effect - Service `tplink.random_effect`
 
