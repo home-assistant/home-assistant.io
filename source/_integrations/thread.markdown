@@ -68,11 +68,6 @@ Home Assistant can only control OpenThread border routers built with the REST AP
 
 Currently, the following <abbr title="Thread border router">TBR</abbr> devices are known to work well with Home Assistant:
 
-#### Nabu Casa
-
-- [Home Assistant Yellow](/yellow/) hub
-- [Home Assistant SkyConnect](/skyconnect/) USB stick. Out of the box, it runs Zigbee, but you can make it [run Thread](https://skyconnect.home-assistant.io/procedures/enable-thread/) instead.
-
 #### Google
 
 - **Displays**: Nest Hub (2nd gen), Nest Hub Max
@@ -82,6 +77,13 @@ Currently, the following <abbr title="Thread border router">TBR</abbr> devices a
 
 - **Speakers**: HomePod (2nd generation), HomePod mini
 - **TVs**: Apple TV 4K (3rd generation) Wi-Fi + Ethernet, Apple TV 4K (2nd generation)
+
+#### Nabu Casa
+
+The Thread support on these devices is in experimental state.
+
+- [Home Assistant Yellow](/yellow/) hub
+- [Home Assistant SkyConnect](/skyconnect/) USB stick. Out of the box, it runs Zigbee, but you can make it [run Thread](https://skyconnect.home-assistant.io/procedures/enable-thread/) instead.
 
 #### Others
 
