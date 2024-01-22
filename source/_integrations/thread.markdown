@@ -66,11 +66,14 @@ Home Assistant can only control OpenThread border routers built with the REST AP
 
 ### List of Thread border router devices
 
-Currently, the following <abbr title="Thread border router">TBR</abbr> devices are known to work with Home Assistant:
+Currently, the following <abbr title="Thread border router">TBR</abbr> devices are known to work with Home Assistant.
+These border routers may require an iPhone or Android phone for onboarding. What the exact requirements are depends on the home automation protocol (Matter or Apple HomeKit) that your devices are using. Before buying a border router, check the prerequisites in the corresponding procedures:
+
+- [Adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant)
+- [Adding an Apple HomeKit device through Thread](/integrations/homekit_controller/#adding-a-homekit-device-through-thread)
 
 #### Home Assistant
 
-The Thread radio on the Home Assistant SkyConnect and Home Assistant Yellow together with the Open Thread Border Router add-on can be used as a border router. Note that it is currently limited to users on the Android ecosystem and one single border router.
 The Thread support on these devices is in experimental state.
 
 - [Home Assistant Yellow](/yellow/) hub
