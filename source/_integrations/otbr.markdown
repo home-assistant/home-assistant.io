@@ -13,7 +13,7 @@ ha_config_flow: true
 
 The Open Thread Border Router integration allows calling an Open Thread Border Router's REST API from Python and via WebSocket.
 
-This integration is installed automatically when the **Open Thread Border Router** add-on is installed. This happens when you do one of the following procedures:
+This integration is installed automatically when the **Open Thread Border Router** add-on is installed. For  Home Assistant Yellow or SkyConnect refer to the following procedures:
 
 - [Enabling Thread on Home Assistant Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
 - [Enabling Thread on Home Assistant SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
