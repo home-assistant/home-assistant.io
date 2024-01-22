@@ -5,7 +5,7 @@ ha_category:
   - Energy
   - Sensor
 ha_release: 2024.2
-ha_domain: oru_opower
+ha_domain: coautilities
 ha_integration_type: virtual
 ha_supporting_domain: opower
 ha_supporting_integration: Opower
