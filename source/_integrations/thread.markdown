@@ -60,7 +60,7 @@ Often, Thread border routing is only an auxiliary functionality of a smart home 
 
 Unlike other protocols, Thread can use multiple border routers in a single network. This increases wireless coverage and reduces the risk of a single point of failure. Ideal for home automation, with a potentially large number of devices spread over a large area.
 
-OpenThread is an open source implementation of Thread, originally released by Google. Almost all commercially available Thread border routers are based on the open source implementation. However, the configuration of <abbr title="Thread border routers">TBRs</abbr> is not part of the Thread standard. This means that Google and Apple <abbr title="Thread border routers">TBRs</abbr> implementation setup and configured by their respective ecosystems. 
+OpenThread is an open source implementation of Thread, originally released by Google. Almost all commercially available Thread border routers are based on the open source implementation. However, the configuration of <abbr title="Thread border routers">TBRs</abbr> is not part of the Thread standard. This means that Google and Apple <abbr title="Thread border routers">TBRs</abbr> implementation setup and configured by their respective ecosystems.
 
 Home Assistant can only control OpenThread border routers built with the REST API available in the open source implementation. The OpenThread Border Router add-on (as well as the OpenThread Border Router bundled in the Silicon Labs Multiprotocol add-on) are built from this open source OpenThread code and have the REST API enabled.
 
@@ -138,7 +138,7 @@ This scenario currently only works in one particular case, under the following c
 - You have the OpenThread Border Router add-on installed. For instructions on how to enable Thread on SkyConnect or Yellow, refer to the following guides:
   - [Enabling Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
   - [Enabling Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
-- You have an Android phone and the Home Assistant Companion App.
+- You have an Android phone and the Home Assistant Companion App. (Note: this does not work with the iOS Companion App).
 - The devices you want to add to the network support Matter. For instructions on how to add Thread-based Matter devices, refer to the section [Adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant)
 
 Which TBR are supported mostly depends on (access to) the Thread credentials. And Thread credentials are required during on-boarding/commissioning, which is part of the smart home protocol.
