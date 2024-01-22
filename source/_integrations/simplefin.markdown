@@ -28,4 +28,4 @@ Within the SimpleFIN Interface you can make a **Claim Token** which is a 1-time 
 
 ### Accounts & Devices
 
-Each financial institution you setup will configured as a **Device** within HomeAssistant. And any associated accounts will be linked to these devices.
+Each financial institution you setup will configured as a **Device** within Home Assistant. And any associated accounts will be linked to these devices.
