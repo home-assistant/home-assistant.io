@@ -24,7 +24,7 @@ ha_integration_type: integration
 
 ## Setup Guide
 
-Within the SimpleFIN Interface you can make a **Claim Token**. You will exchange this 1-time **Claim Token** during the setup process for access information from which Home Assistant will be able to pull read-only data.
+Within the SimpleFIN Interface you can make a **Claim Token** which is a 1-time token that can be exchanged for an **Access URL**. You can enter either a **Claim Token** or an **Access URL** as a configuraiton element for this integration. 
 
 ### Accounts & Devices
 
