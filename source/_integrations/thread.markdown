@@ -34,11 +34,11 @@ Matter and Apple HomeKit are smart home protocols. They are responsible for hand
 
 How a Thread-based device is added to Home Assistant depends on the home automation standard it uses.
 
-1. If you see the Matter logo on your device, follow the procedure [adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
+1. If you see the Matter logo on your device packaging, follow the procedure [adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
 
    <img src="/images/integrations/thread/matter_onpackbadge_logo.png"  width="200">
 
-2. If you see the Apple HomeKit logo on your device, follow the procedure [adding a HomeKit device to Home Assistant](/integrations/homekit_controller/#adding-a-homekit-device-through-thread).
+2. If you see the Apple HomeKit logo on your device packaging, follow the procedure [adding a HomeKit device to Home Assistant](/integrations/homekit_controller/#adding-a-homekit-device-through-thread).
 
    <img src="/images/integrations/thread/apple-works-with-homekit-logo.png"  width="200">
 
