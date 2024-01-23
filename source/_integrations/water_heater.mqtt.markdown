@@ -1,18 +1,16 @@
 ---
-title: "MQTT Water Heater"
-description: "Instructions on how to integrate MQTT Water Heater into Home Assistant."
+title: "MQTT water heater"
+description: "Instructions on how to integrate MQTT water heater into Home Assistant."
 ha_category:
-  - Water Heater
+  - Water heater
 ha_release: 2023.7
 ha_iot_class: Local Polling
 ha_domain: mqtt
 ---
 
-The `mqtt` water heater platform lets you control your MQTT enabled Water Heater devices.
+The `mqtt` water heater platform lets you control your MQTT enabled water heater devices.
 
 ## Configuration
-
-<a id='new_format'></a>
 
 To enable this water heater platform in your installation, first add the following to your `configuration.yaml` file:
 
@@ -70,7 +68,7 @@ current_temperature_topic:
   required: false
   type: string
 device:
-  description: 'Information about the device this Water Heater device is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
+  description: 'Information about the device this water heater device is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
   required: false
   type: map
   keys:
@@ -100,6 +98,10 @@ device:
       type: string
     name:
       description: 'The name of the device.'
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -158,7 +160,7 @@ mode_command_template:
   required: false
   type: template
 mode_command_topic:
-  description: The MQTT topic to publish commands to change the Water Heater operation mode.
+  description: The MQTT topic to publish commands to change the water heater operation mode.
   required: false
   type: string
 mode_state_template:
@@ -166,7 +168,7 @@ mode_state_template:
   required: false
   type: template
 mode_state_topic:
-  description: The MQTT topic to subscribe for changes of the Water Heater operation mode. If this is not set, the operation mode works in optimistic mode (see below).
+  description: The MQTT topic to subscribe for changes of the water heater operation mode. If this is not set, the operation mode works in optimistic mode (see below).
   required: false
   type: string
 modes:
@@ -175,10 +177,10 @@ modes:
   default: ['off', 'eco', 'electric', 'gas', 'heat_pump', 'high_demand', 'performance']
   type: list
 name:
-  description: The name of the Water Heater. Can be set to `null` if only the device name is relevant.
+  description: The name of the water heater. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
-  default: MQTT Water Heater
+  default: MQTT water heater
 object_id:
   description: Used instead of `name` for automatic generation of `entity_id`
   required: false
@@ -252,7 +254,7 @@ temperature_unit:
   required: false
   type: string
 unique_id:
-   description: An ID that uniquely identifies this Water Heater device. If two Water Heater devices have the same unique ID, Home Assistant will raise an exception.
+   description: An ID that uniquely identifies this water heater device. If two water heater devices have the same unique ID, Home Assistant will raise an exception.
    required: false
    type: string
 value_template:
@@ -263,9 +265,9 @@ value_template:
 
 ## Optimistic mode
 
-If a property works in *optimistic mode* (when the corresponding state topic is not set), Home Assistant will assume that any state changes published to the command topics did work and change the internal state of the entity immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the entity is only updated when the requested update is confirmed by the device through the state topic. You can enforce optimistic mode by setting the `optimistic` option to `true`. When set, the internal state will always be updated, even when a state topic is defined.
+If a property works in *optimistic mode* (when the corresponding state topic is not set), Home Assistant will assume that any state changes published to the command topics did work and change the internal state of the {% term entity %} immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the {% term entity %} is only updated when the requested update is confirmed by the device through the state topic. You can enforce optimistic mode by setting the `optimistic` option to `true`. When set, the internal state will always be updated, even when a state topic is defined.
 
-## Using Templates
+## Using templates
 
 For all `*_state_topic`s, a template can be specified that will be used to render the incoming payloads on these topics. Also, a default template that applies to all state topics can be specified as `value_template`. This can be useful if you received payloads are e.g., in JSON format. Since in JSON, a quoted string (e.g., `"foo"`) is just a string, this can also be used for unquoting.
 

@@ -2,7 +2,7 @@
 title: Denon AVR Network Receivers
 description: Instructions on how to integrate Denon AVR Network Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Push
 ha_release: 0.7.2
 ha_domain: denonavr
@@ -36,6 +36,7 @@ Known supported devices:
 - Denon AVR-X2500H
 - Denon AVR-X2600H
 - Denon AVR-X2700H
+- Denon AVR-X2800H
 - Denon AVR-X3000
 - Denon AVR-X3200W
 - Denon AVR-X3300W
@@ -48,6 +49,7 @@ Known supported devices:
 - Denon AVR-X4400H
 - Denon AVR-X4500H
 - Denon AVR-X4700H
+- Denon AVC-X4800H
 - Denon AVR-X6500H
 - Denon AVR-X6700H
 - Denon AVR-X7200W

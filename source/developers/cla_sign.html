@@ -437,7 +437,7 @@ description: "The Home Assistant contributor license agreement (CLA) signature p
     if (codeCheck && codeCheck.length > 0) {
       $.ajax({
         type: "POST",
-        url: "https://cla.home-assistant.io/github/exchange",
+        url: "https://service-hub-bots.home-assistant.io/cla-sign/authorize",
         data: JSON.stringify({"code": codeCheck}),
         contentType: "application/json",
       }).done(function(data){
@@ -446,7 +446,7 @@ description: "The Home Assistant contributor license agreement (CLA) signature p
           var clean_uri = uri.substring(0, uri.indexOf("?"));
           window.history.replaceState({}, document.title, clean_uri);
         }
-        localStorage.setItem("gh_token", data.token);
+        localStorage.setItem("gh_token", data.access_token);
         fill_fields();
       });
     } else if (localStorage.getItem("gh_token") != null) {

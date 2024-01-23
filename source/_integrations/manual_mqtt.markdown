@@ -1,5 +1,5 @@
 ---
-title: Manual MQTT Alarm Control Panel
+title: Manual MQTT Alarm control panel
 description: Instructions on how to integrate manual alarms into Home Assistant with MQTT support.
 ha_category:
   - Alarm
@@ -128,7 +128,7 @@ command_topic:
   required: true
   type: string
 qos:
-  description: The maximum QoS level for subscribing and publishing to MQTT messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -193,7 +193,7 @@ alarm_control_panel:
 
 Refer to the [Manual Alarm Control page](/integrations/manual#examples) for more real-life examples on how to use this panel.
 
-## MQTT Control
+## MQTT control
 
 The state of this alarm can be controlled using [MQTT](/integrations/mqtt/). Ensure you've configured that before adding this component.
 

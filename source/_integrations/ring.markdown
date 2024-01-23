@@ -2,7 +2,7 @@
 title: Ring
 description: Instructions on how to integrate your Ring.com devices within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Doorbell
   - Light
@@ -16,18 +16,21 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - camera
+  - diagnostics
   - light
   - sensor
   - siren
   - switch
 ha_integration_type: integration
+ha_codeowners:
+  - '@sdb9696'
 ---
 
 The Ring integration allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Camera](#camera)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -38,7 +41,7 @@ This integration does NOT allow for live viewing of your Ring camera within Home
 
 {% include integrations/config_flow.md %}
 
-## Binary Sensor
+## Binary sensor
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Currently, it supports doorbell, external chimes and stickup cameras.
 

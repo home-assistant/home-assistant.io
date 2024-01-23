@@ -3,9 +3,9 @@ title: "Automation Trigger"
 description: "All the different ways how automations can be triggered."
 ---
 
-Triggers are what starts the processing of an automation rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
+Triggers are what starts the processing of an {% term automation %} rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
 
-An automation can be triggered by an event, a certain entity state, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
+An {% term automation %} can be triggered by an {% term event %}, a certain {% term entity %} {% term state %}, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
 
 - [Trigger ID](#trigger-id)
 - [Trigger variables](#trigger-variables)
@@ -33,7 +33,8 @@ An automation can be triggered by an event, a certain entity state, at a given t
 
 All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (i.e., several triggers of different types that should all turn some entity on).
 
-### Video Tutorial
+### Video tutorial
+
 This video tutorial explains how trigger IDs work.
 
 <lite-youtube videoid="fE_MYcXYwMI" videotitle="How to use Trigger IDs in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
@@ -146,6 +147,12 @@ automation:
       # Event can also be 'shutdown'
       event: start
 ```
+
+<div class='note'>
+
+Automations triggered by the `shutdown` event have 20 seconds to run, after which they are stopped to continue with the shutdown.
+
+</div>
 
 ## MQTT trigger
 
@@ -673,7 +680,7 @@ If for your use case this is undesired, you could consider using the automation 
 
 The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are three allowed formats:
 
-### Time String
+### Time string
 
 A string that represents a time to fire on each day. Can be specified as `HH:MM` or `HH:MM:SS`. If the seconds are not specified, `:00` will be used.
 
@@ -685,9 +692,9 @@ automation:
       at: "15:32:00"
 ```
 
-### Input Datetime
+### Input datetime
 
-The Entity ID of an [Input Datetime](/integrations/input_datetime/).
+The entity ID of an [input datetime](/integrations/input_datetime/).
 
 | has_date | has_time | Description                              |
 | -------- | -------- | ---------------------------------------- |
@@ -740,7 +747,7 @@ automation:
           entity_id: light.bedroom
 ```
 
-### Multiple Times
+### Multiple times
 
 Multiple times can be provided in a list. Both formats can be intermixed.
 
@@ -939,7 +946,7 @@ The sentences matched by this trigger will be:
 
 Punctuation and casing are ignored, so "It's PARTY TIME!!!" will also match.
 
-### Sentence Wildcards
+### Sentence wildcards
 
 Adding one or more `{lists}` to your trigger sentences will capture any text at that point in the sentence. A `slots` object will be [available in the trigger data](/docs/automation/templating#sentence).
 This allows you to match sentences with variable parts, such as album/artist names or a description of a picture.
@@ -971,7 +978,7 @@ automation:
       event: sunset
 ```
 
-## Multiple Entity IDs for the same Trigger
+## Multiple entity IDs for the same trigger
 
 It is possible to specify multiple entities for the same trigger. To do so add multiple entities using a nested list. The trigger will fire and start, processing your automation each time the trigger is true for any entity listed.
 

@@ -37,7 +37,7 @@ sensor:
     type: string
 {% endconfiguration %}
 
-## Available Metrics
+## Available metrics
 
 Every ten minutes, it'll fetch the last ten minutes average of the following measurements:
 
