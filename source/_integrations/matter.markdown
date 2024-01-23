@@ -128,7 +128,7 @@ Each Matter network is called a fabric. Each home automation controller that con
 
 ### To add a new device using the iOS Companion app
 
-This guide describes how to add a new device that has never been added to your network before. This will use the Bluetooth connection of your phone to add the device.
+This guide describes how to add a new device. This will use the Bluetooth connection of your phone to add the device.
 
 1. Open The Home Assistant app on your phone.
 2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
@@ -149,7 +149,7 @@ This guide describes how to add a new device that has never been added to your n
 
 ### To add a new device using the Android Companion app
 
-This guide describes how to add a new device that has never been added to your network before. This will use the Bluetooth connection of your phone to add the device.
+This guide describes how to add a new device. This will use the Bluetooth connection of your phone to add the device.
 
 1. Open The Home Assistant app on your phone.
 2. Power up the device by plugging it in or add a battery. Most devices will now go into pairing mode.
