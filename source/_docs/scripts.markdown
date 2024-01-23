@@ -923,8 +923,8 @@ assistant. The conversation response can be templated.
 ```yaml
 # Example of a templated conversation response resulting in "Testing 123"
 - variables:
-    my_var: 123
-- set_conversation_response: "Testing {my_var}":
+    my_var: "123"
+- set_conversation_response: "{{ 'Testing ' + my_var }}":
 ```
 
 The response is handed to the conversation engine when the automation finishes. If
