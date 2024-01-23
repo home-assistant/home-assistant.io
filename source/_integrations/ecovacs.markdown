@@ -12,19 +12,27 @@ ha_codeowners:
   - '@edenhaus'
 ha_domain: ecovacs
 ha_platforms:
+  - binary_sensor
   - vacuum
 ha_integration_type: integration
 ---
 
-The `ecovacs` integration is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
-
-There is currently support for the following device types within Home Assistant:
-
-- [Vacuum](#vacuum)
+The `ecovacs` {% term integration %} is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
 
 {% include integrations/config_flow.md %}
 
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
+
+## Provided entities
+
+The Ecovacs integration provides a vacuum {% term entity %} for each device that is connected to your Ecovacs account.
+
+Using the vacuum entity, you can monitor and control your Ecovacs Deebot vacuum.
+
+Additionally, **depending on your model**, the integration provides the following entities:
+
+- **Binary sensor**: 
+  - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`. 
 
 
 ## Vacuum
