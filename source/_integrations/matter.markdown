@@ -34,7 +34,7 @@ The Matter integration allows you to control Matter devices on your local Wi-Fi 
 The integration is marked BETA: Both the Matter standard itself and its implementation within Home Assistant are in a early stage. You may run into compatibility issues and/or other bugs.
 </div>
 
-# Introduction- What is Matter?
+# Introduction - What is Matter?
 
 Matter is a new smart home connectivity standard for home automation products and IoT (Internet of Things) devices, see its [Wikipedia article](https://en.wikipedia.org/wiki/Matter_(standard)).
 
@@ -62,7 +62,7 @@ Matter goes hand-in-hand with (but is not the same as) [Thread](<https://en.wiki
 Thread devices become directly addressable by Matter controllers (such as Home Assistant) thanks to the use of so-called Thread Border Routers, which are in fact just devices that are both within your network and have a Thread chip builtin and thus act as a "router" between the Thread radio signal and your local network. These border routers (you will probably end up having multiple of them in your house) make sure that your Thread-based devices are reachable on your regular network and thus can be controlled with Matter. Examples of Thread Borders routers are the Apple TV 4K, HomePod (gen 2 or Mini), and the Google Nest Hub V2, so devices that you may already own. Besides that, all kind of other border routers are available, built-in to hardware appliances or software solutions based on OpenThread Border Router, such as the add-on we provide to use with the built-in Zigbee/Thread chip of the [Home Assistant Yellow](/yellow/) or the [Home Assistant SkyConnect](/skyconnect/) dongle.
 
 To use any Thread-based devices on a Matter controller, you need to have at least one Thread Border router device within range of the device.
-More info about Thread and diagnosing Thread networks and Border routers, see the [Thread](/integrations/thread/) integration.
+More info about Thread and diagnosing Thread networks and Border routers, refer to the [Thread](/integrations/thread/) integration page.
 
 <div class='note'>
 Many devices that (will) hit the market will use Thread for radio communication and Matter as a control protocol, but this is not guaranteed. For example, Thread-based devices are available that only support Apple HomeKit or some vendor-specific communication protocol. There are also a few cases where you need to apply for a (beta) firmware update on the device to enable Matter as a communication protocol. Therefore, do not assume Matter support when you see a Thread logo when looking for devices. Please be sure to look for the *Matter* logo itself (on either Wi-Fi/Ethernet-based devices or Thread) or any other confirmation by the manufacturer that the device supports Matter.
