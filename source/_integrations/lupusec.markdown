@@ -9,7 +9,7 @@ ha_category:
 ha_release: 0.83
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@majuss'
+  - '@majuss', '@suaveolent'
 ha_domain: lupusec
 ha_platforms:
   - alarm_control_panel
@@ -24,6 +24,7 @@ Supported units:
 
 - Lupusec XT1
 - Lupusec XT2 Plus
+- Lupusec XT3 Plus
 
 The following devices are supported by the underlying `lupupy` Python library and integrated into Home Assistant.
 
@@ -33,6 +34,9 @@ The following devices are supported by the underlying `lupupy` Python library an
 
 ## Configuration
 
+{% include integrations/config_flow.md %}
+
+### Manual Configuration
 To use Lupusec devices in your installation, add the following `lupusec` section to your `configuration.yaml` file:
 
 ```yaml
