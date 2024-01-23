@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Bzu Tech** {% term integration %} allows you to integrate your [BzuCloud](https://cloud.bzutech.com.br) sensors and devices* in Home Assistant, generating a **Sensor {% term Entity %}** that can be used in automations, dashboards and more.
+The **Bzu Tech** {% term integration %} allows you to integrate your [BzuCloud](https://cloud.bzutech.com.br) sensors and devices in Home Assistant. It provides a sensor {% term entity %} that can be used in automations, dashboards and more.
 
 {% include integrations/config_flow.md %}
 
