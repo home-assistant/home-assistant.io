@@ -127,7 +127,7 @@ Each Matter network is called a fabric. Each home automation controller that con
     - We are not going to add the new device to Google Home. The app is needed because Google included the Matter SDK there.
     - If you are using Thread: Make sure there is a Thread border router device (Nest Hub v2 or Nest Wi-Fi Pro) present in your home network.
   - iPhone
-    - Have an iPhone version 16 or higher
+    - Have the iOS version 16 or higher
     - Have the latest version of the Home Assistant Companion app installed.
     - If you are using Thread: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K) present in your home network.
 - Make sure the device is in close range of the border router and your phone.
