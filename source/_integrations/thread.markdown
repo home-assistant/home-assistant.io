@@ -74,10 +74,10 @@ These border routers may require an iPhone or Android phone for onboarding. What
 
 #### Home Assistant
 
-The Thread support on these devices is in experimental state. Out of the box, they runs Zigbee, not Thread.
+The Thread support on these devices is in experimental state. Out of the box, they run Zigbee, not Thread.
 
-- [Home Assistant Yellow](/yellow/). Follow this procedure to [enable Thread](https://yellow.home-assistant.io/procedures/enable-thread/).
-- [Home Assistant SkyConnect](/skyconnect/) USB stick. Follow this procedure to [enable Thread](https://skyconnect.home-assistant.io/procedures/enable-thread/).
+- [Home Assistant Yellow](/yellow/). Follow this procedure to [enable Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/).
+- [Home Assistant SkyConnect](/skyconnect/) USB stick. Follow this procedure to [enable Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/).
 
 #### Google
 
