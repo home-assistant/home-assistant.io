@@ -127,7 +127,7 @@ Each Matter network is called a fabric. Each home automation controller that con
 - Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](#bluetooth-used-during-commissioning):
   - Android:
     - Have an Android phone (a full Android, not F-Droid).
-    - Have the latest version of Home Assistant Companion app installed.
+    - Have the latest version of the Home Assistant Companion app installed.
     - Have Google Home app installed on the Android.
     - We are not going to add the new device to Google Home. The app is needed because Google included the Matter SDK there.
     - If you are using Thread: Make sure there is a Thread border router device (Nest Hub v2 or Nest Wi-Fi Pro) present in your home network.
