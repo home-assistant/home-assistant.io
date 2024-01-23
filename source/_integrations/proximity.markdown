@@ -22,16 +22,16 @@ Some examples of its use include:
 
 ## Sensors
 
-The following sensor entities will be created
+The following sensor entities will be created.
 
 ### Distance
 
-For each tracked device or person, the distance from the monitored zone in an unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection.
+For each tracked device or person, a sensor showing the distance from the monitored zone in a unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection is created.
 You can use the [Min/Max](/integrations/min_max) integration to determine the nearest and furthest distance.
 
 ### Direction of travel
 
-For each tracked device or person, the direction of travel to or from the monitored zone. Values are:
+For each tracked device or person, a Sensor showing the direction of travel to or from the monitored zone is created. Possible states are:
 
 - `not_set`
 - `arrived`
@@ -42,7 +42,7 @@ For each tracked device or person, the direction of travel to or from the monito
 
 ### Nearest device
 
-The device or person which is nearest to the zone
+A Sensor showing the device or person which is nearest to the zone is created.
 
 ## Configuration
 
