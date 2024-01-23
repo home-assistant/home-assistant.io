@@ -113,7 +113,7 @@ Each Matter network is called a fabric. Each home automation controller that con
   - Make sure IPv6 is enabled in your home network. You do not need IPv6 from your <abbr title="internet service provider">ISP</abbr>, just in your local network.
   - Make sure IPv6 is enabled in Home Assistant:
     - Go to {% my network title="**Settings** > **System** > **Network**" %}, and under **Configure network interfaces**, make sure that IPv6 is enabled.
-  - Avoid using Matter in a complex network setup with vLANS or mDNS responders. These are more likely to cause network issues than if you use Matter in a flat network.
+  - If you are a lover of complex networks: Avoid using Matter in a setup with vLANS or mDNS responders. These are more likely to cause network issues than if you use Matter in a flat network.
   - If you are adding a Wi-Fi-based Matter device: Matter devices use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 - In Home Assistant, have the Matter integration installed.
   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
