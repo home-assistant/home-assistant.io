@@ -31,7 +31,7 @@ You can use the [Min/Max](/integrations/min_max) integration to determine the ne
 
 ### Direction of travel
 
-For each tracked device or person, a Sensor showing the direction of travel to or from the monitored zone is created. Possible states are:
+For each tracked device or person, a sensor showing the direction of travel to or from the monitored zone is created. Possible states are:
 
 - `not_set`
 - `arrived`
@@ -42,7 +42,7 @@ For each tracked device or person, a Sensor showing the direction of travel to o
 
 ### Nearest device
 
-A Sensor showing the device or person which is nearest to the zone is created.
+A sensor showing the device or person which is nearest to the monitored zone is created.
 
 ## Configuration
 
