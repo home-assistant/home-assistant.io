@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: ecovacs
 ha_platforms:
   - binary_sensor
+  - sensor
   - vacuum
 ha_integration_type: integration
 ---
@@ -33,7 +34,20 @@ Additionally, **depending on your model**, the integration provides the followin
 
 - **Binary sensor**: 
   - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`. 
-
+- **Sensor**:
+  - `Error`: The error code and a description of the error. `0` means no error. Disabled by default
+  - `Lifespan`: For each component a entity with the remaining lifespan will be created
+  - `Network`: The follwing network realted entities will be created. All disabled by default
+    - `Ip address`
+    - `Wi-Fi RSSI`
+    - `Wi-Fi SSID`
+  - `Cleaning cycle`:
+    - `Area`: The cleaned area
+    - `Time`: The cleaned time
+  -  `Total statistics`: Updated after each cleaning cycle:
+    - `Area`: Total cleaned area
+    - `Cleanings`: The number of cleanings
+    - `Time`: The total cleaning time
 
 ## Vacuum
 
