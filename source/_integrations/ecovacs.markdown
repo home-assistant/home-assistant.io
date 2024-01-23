@@ -29,7 +29,7 @@ The Ecovacs integration provides a vacuum {% term entity %} for each device that
 
 Using the vacuum entity, you can monitor and control your Ecovacs Deebot vacuum.
 
-Additionally, **depending on your model** the integration provides the following entities:
+Additionally, **depending on your model**, the integration provides the following entities:
 
 - **Binary sensor**: 
   - `Mop attached`: On if the mop is attached. Some models reports a state change only if the state of the vacuum has changed. 
