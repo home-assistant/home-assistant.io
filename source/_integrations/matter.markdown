@@ -109,12 +109,7 @@ Each Matter network is called a fabric. Each home automation controller that con
 - Check if the QR code is only on the packaging or if it is also on the device.
   - If it is only on the packaging, snap a picture of the QR code and the device and store the image and the numerical code in a save place.
   - If you lose the QR code and disconnect the device at some point, you won't be able to connect to that device again without the QR code.
-- Check your network settings:
-  - Make sure IPv6 is enabled in your home network. You do not need IPv6 from your <abbr title="internet service provider">ISP</abbr>, just in your local network.
-  - Make sure IPv6 is enabled in Home Assistant:
-    - Go to {% my network title="**Settings** > **System** > **Network**" %}, and under **Configure network interfaces**, make sure that IPv6 is enabled.
-  - If you are a lover of complex networks: Avoid using Matter in a setup with vLANS or mDNS responders. These are more likely to cause network issues than if you use Matter in a flat network.
-  - If you are adding a Wi-Fi-based Matter device: Matter devices use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
+- If you are adding a Wi-Fi-based Matter device: Matter devices use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 - In Home Assistant, have the Matter integration installed.
   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
   - Add the **Matter (BETA)** integration.
