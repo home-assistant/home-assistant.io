@@ -105,6 +105,7 @@ At the initial setup, the integration pulls historical monthly usage/cost since 
 After the initial setup, the integration keeps pulling data (twice per day) for the past 30 days to allow for any corrections in the data from the utilities.
 
 Similar to sensors, if there are multiple meters for a single utility account, the statistics IDs and names will use a UUID to distinguish the data streams within that single account.
+If you have multiple meters, when integrating statistics into the energy dashboard, you may have to guess and check to determine which statistic means what.
 
 In the configuration of the energy dashboard (**{% my config_energy title="Settings > Dashboards > Energy" %}**):
 
