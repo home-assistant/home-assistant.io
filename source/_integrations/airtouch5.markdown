@@ -3,7 +3,7 @@ title: AirTouch 5
 description: Instructions on how to integrate the AirTouch 5 A/C controller into Home Assistant.
 ha_category:
   - Climate
-ha_release: 2023.9
+ha_release: 2024.2
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -26,12 +26,3 @@ The AirTouch 5 integration allows you to control Ducted Air Conditioning Systems
 
 The integration will create a climate entity for each AC unit and each zone.
 
-### Cover
-
-Each zone has a cover entity to represent the state of the damper. The damper position can be controlled only if the zone is not temperature controlled.
-
-### Binary Sensor
-
-Each AC unit has binary sensors to show whether bypass or spill is active.
-
-Each zone has binary sensors to show if the battery is low or spill is active.
