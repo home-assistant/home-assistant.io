@@ -10,9 +10,7 @@ ha_codeowners:
   - '@danzel'
 ha_domain: airtouch5
 ha_platforms:
-  - binary_sensor
   - climate
-  - cover
 ha_integration_type: integration
 ---
 
