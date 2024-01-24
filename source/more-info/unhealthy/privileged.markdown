@@ -16,3 +16,7 @@ If you are running an older version of our Home Assistant OS, update it in the
 If this is not our Home Assistant OS, your operating system might be out of date. Try checking for and
 installing updates, then restarting your system. If this doesn't work, you may need to re-run our
 [convenience installation script](https://github.com/home-assistant/supervised-installer).
+
+Note this may lock you out of your instance unless you have physical access, since it will reset all
+network settings and take over the machine again. If you are able, a more targeted fix is probably
+warranted.
