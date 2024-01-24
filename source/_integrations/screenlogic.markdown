@@ -49,7 +49,7 @@ Sets the operation of any connected color-capable lights.
 
 ### `screenlogic.start_super_chlorination`
 
-Begins super chlorination, running for the specified time period or 24 hours if none specified.
+Begins super chlorination, running for the specified period or 24 hours if none is specified.
 
 | Service data attribute | Optional | Description                                                                                                                                                        |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
