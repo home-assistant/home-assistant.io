@@ -25,6 +25,7 @@ This integration interacts with your [Tedee](https://tedee.com) locks by communi
 
 - You will need the bridge to add your locks using this integration.
 - You need to have the local API enabled.
+- Bridge firmware needs to be at least version `2.2.18086`  for push updates to work without errors
 
 If you do not own the bridge, you can still add your locks to Home Assistant through the [HomeKit device integration](/integrations/homekit_controller.markdown). Communication will happen over Bluetooth in that case, and features will be limited.
 
