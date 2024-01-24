@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_quality_scale: internal
+ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
 ha_domain: time_date
@@ -16,30 +17,7 @@ ha_integration_type: integration
 
 The time and date (`time_date`) integration allows one to create sensors for the current date or time in different formats. All values are based on the timezone which is set in "General Configuration". 
 
-To have these sensors available in your installation, add the following to your `configuration.yaml` file (each option creates a separate sensor that contains appropriate data, e.g.,  `sensor.date` for the `date` option):
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: time_date
-    display_options:
-      - 'time'
-      - 'date'
-      - 'date_time'
-      - 'date_time_utc'
-      - 'date_time_iso'
-      - 'time_date'
-      - 'time_utc'
-```
-
-
-{% configuration %}
-display_options:
-  description: The sensors to create. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* create combined date and the time sensors. The other types just the time sensor or the date sensor.
-  required: true
-  type: list
-{% endconfiguration %}
-
+{% include integrations/config_flow.md %}
 
 Sensors including the time update every minute, the date sensor updates each day at midnight.
 
