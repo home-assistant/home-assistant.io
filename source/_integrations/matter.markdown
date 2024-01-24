@@ -31,10 +31,10 @@ ha_integration_type: integration
 The Matter integration allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
 
 <div class='note warning'>
-The integration is marked BETA: Both the Matter standard itself and its implementation within Home Assistant are in a early stage. You may run into compatibility issues and/or other bugs.
+The integration is marked BETA: Both the Matter standard itself and its implementation within Home Assistant are in an early stage. You may run into compatibility issues and/or other bugs.
 </div>
 
-# Introduction- What is Matter?
+# Introduction - What is Matter?
 
 Matter is a new smart home connectivity standard for home automation products and IoT (Internet of Things) devices, see its [Wikipedia article](https://en.wikipedia.org/wiki/Matter_(standard)).
 
@@ -57,12 +57,7 @@ Home Assistant, as a Matter controller, only supports **control** of Matter devi
 
 ## Thread
 
-Matter goes hand-in-hand with (but is not the same as) [Thread](<https://en.wikipedia.org/wiki/Thread_(network_protocol)>), which is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport for Matter.
-
-Thread devices become directly addressable by Matter controllers (such as Home Assistant) thanks to the use of so-called Thread Border Routers, which are in fact just devices that are both within your network and have a Thread chip builtin and thus act as a "router" between the Thread radio signal and your local network. These border routers (you will probably end up having multiple of them in your house) make sure that your Thread-based devices are reachable on your regular network and thus can be controlled with Matter. Examples of Thread Borders routers are the Apple TV 4K, HomePod (gen 2 or Mini), and the Google Nest Hub V2, so devices that you may already own. Besides that, all kind of other border routers are available, built-in to hardware appliances or software solutions based on OpenThread Border Router, such as the add-on we provide to use with the built-in Zigbee/Thread chip of the [Home Assistant Yellow](/yellow/) or the [Home Assistant SkyConnect](/skyconnect/) dongle.
-
-To use any Thread-based devices on a Matter controller, you need to have at least one Thread Border router device within range of the device.
-More info about Thread and diagnosing Thread networks and Border routers, see the [Thread](/integrations/thread/) integration.
+Matter goes hand-in-hand with (but is not the same as) [Thread](/integrations/thread). Thread is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport protocol for Matter.
 
 <div class='note'>
 Many devices that (will) hit the market will use Thread for radio communication and Matter as a control protocol, but this is not guaranteed. For example, Thread-based devices are available that only support Apple HomeKit or some vendor-specific communication protocol. There are also a few cases where you need to apply for a (beta) firmware update on the device to enable Matter as a communication protocol. Therefore, do not assume Matter support when you see a Thread logo when looking for devices. Please be sure to look for the *Matter* logo itself (on either Wi-Fi/Ethernet-based devices or Thread) or any other confirmation by the manufacturer that the device supports Matter.
@@ -104,10 +99,12 @@ Each Matter network is called a fabric. Each home automation controller that con
 
 ### Prerequisites
 
+- Make sure you have the latest version of Home Assistant installed.
 - On the device packaging, check for both the Matter logo and for either the Wi-Fi or the Thread logo.
 - Check if the QR code is only on the packaging or if it is also on the device.
-  - If it is only on the packaging, snap a picture of the QR code and the device and store it in a save place.
+  - If it is only on the packaging, snap a picture of the QR code and the device and store the image and the numerical code in a save place.
   - If you lose the QR code and disconnect the device at some point, you won't be able to connect to that device again without the QR code.
+- If you are adding a Wi-Fi-based Matter device: Matter devices often use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 - In Home Assistant, have the Matter integration installed.
   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
   - Add the **Matter (BETA)** integration.
@@ -120,15 +117,14 @@ Each Matter network is called a fabric. Each home automation controller that con
 - Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](#bluetooth-used-during-commissioning):
   - Android:
     - Have an Android phone (a full Android, not F-Droid).
-    - Have the Home Assistant Companion app installed.
+    - Have the latest version of the Home Assistant Companion app installed.
     - Have Google Home app installed on the Android.
     - We are not going to add the new device to Google Home. The app is needed because Google included the Matter SDK there.
     - If you are using Thread: Make sure there is a Thread border router device (Nest Hub v2 or Nest Wi-Fi Pro) present in your home network.
   - iPhone
-    - Version 16 or higher
+    - Have the iOS version 16 or higher
+    - Have the latest version of the Home Assistant Companion app installed.
     - If you are using Thread: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K) present in your home network.
-- If you are adding a Wi-Fi-based Matter device: Matter devices use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
-
 - Make sure the device is in close range of the border router and your phone.
 
 ### To add a new device using the iOS Companion app
