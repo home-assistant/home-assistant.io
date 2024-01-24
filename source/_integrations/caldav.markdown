@@ -11,6 +11,7 @@ ha_platforms:
   - calendar
   - todo
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The CalDAV integration allows you to connect your WebDAV calendar to Home Assistant
@@ -29,7 +30,7 @@ for it. An example CalDAV URL is `https://caldav.icloud.com/`.
 
 This integration was tested against [iCloud Calendar](https://www.icloud.com/calendar/), [Nextcloud](https://nextcloud.com/), [Owncloud](https://owncloud.org/), [Baikal](https://sabre.io/baikal/). Any integration complying with the RFC4791 should work.
 
-## Manual Configuration
+## Manual configuration
 
 You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your `configuration.yaml` file. This method does not support to-do lists.
 

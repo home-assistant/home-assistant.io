@@ -134,7 +134,7 @@ Users of Xiaomi Vacuum cleaners can now use this great custom Lovelace card:
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Huawei LTE** - Configuration has been consolidated below `huawei_lte`. Device tracker no longer uses known_devices.yaml but entity registry. - ([@scop] - [#26675]) ([huawei_lte docs])
 

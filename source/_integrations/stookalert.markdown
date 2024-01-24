@@ -2,7 +2,7 @@
 title: RIVM Stookalert
 description: Instructions on how to use Stookalert data within Home Assistant
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Environment
 ha_release: 0.104
 ha_iot_class: Cloud Polling

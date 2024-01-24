@@ -19,7 +19,7 @@ The time and date (`time_date`) integration allows one to create sensors for the
 
 {% include integrations/config_flow.md %}
 
-Sensors including the time update every minute, the date sensor updates each day at midnight, and the beat sensor updates with each beat (86.4 seconds).
+Sensors including the time update every minute, the date sensor updates each day at midnight.
 
 <p class='img'>
   <img src='/images/screenshots/time_date.png' />

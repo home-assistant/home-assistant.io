@@ -48,7 +48,7 @@ Bram
 - [Release 2023.9.2 - September 12](#release-202392---september-12)
 - [Release 2023.9.3 - September 24](#release-202393---september-24)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
 Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=JSNRrWk9IHs)
@@ -644,7 +644,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking changes
+## Backward-incompatible changes
 
 {% details "BMW Connected Drive" %}
 

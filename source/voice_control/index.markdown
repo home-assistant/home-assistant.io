@@ -4,50 +4,46 @@ title: Assist - Talking to Home Assistant
 
 <img src='/images/assist/assist-logo.png' class='no-shadow' alt='Assist logo' style='width: 150px; float: right'>
 
-Assist is our feature to allow you to control Home Assistant using natural language. It is built on top of an open voice foundation and powered by knowledge provided by our community.
-
-## Supported platforms
+Assist allows you to control Home Assistant using natural language. It is built on top of an open voice foundation and powered by knowledge provided by our community.
 
 Assist is available to use on most platforms that can interface with Home Assistant. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>:
 
 <lite-youtube videoid="qkgdHTHM7Uw" videotitle="Home Assistant Year of the Voice, Part 3"></lite-youtube>
 
-### Phone
+_Want to use Home Assistant with Google Assistant or Amazon Alexa? Get started with [Home Assistant Cloud](https://www.nabucasa.com/config/)._
 
-The easiest way to get started with Assist is probably by using it on your phone.
+## Assist on your phone
+
+The easiest way to get started with Assist is by using it on your phone.
 
 - Inside the Home Assistant app in the top-right corner, select the Assist icon.
 - On Apple devices via [Siri and Assist shortcuts](/voice_control/apple).
 - On Android phones as the default [digital assistant or home screen shortcut](/voice_control/android).
 - On a tablet in kiosk mode, you can use a [dashboard button](/voice_control/start_assist_from_dashboard/) to start Assist.
 
-### Watch
+## Voice assistant devices using Assist
 
-Assist is also available on watches:
+Voice assistant devices allow you to add Assist to a room and respond to wake words. Follow our tutorial to [create your own for just $13.](/voice_control/thirteen-usd-voice-remote/)
 
-- On Wear OS watches as the default digital assistant or using [Assist tile or complication](/voice_control/android/#assist-on-wear-os/).
-
-<lite-youtube videoid="Dr_ZCbt8w5k" videotitle="Assist on Wear OS"></lite-youtube>
-
-### Google Assistant or Amazon Alexa
-
-_Want to use Home Assistant with Google Assistant or Amazon Alexa? Get started with [Home Assistant Cloud](https://www.nabucasa.com/config/)._
-
-### Analog phone
-
-With the Voice over IP integration, you can even use an [analog phone](/voice_control/worlds-most-private-voice-assistant/) to talk to Assist.
-
-<lite-youtube videoid="0YJzLIMrnGk" videotitle="Using an analog phone to control Home Assistant"></lite-youtube>
-
-### ESPHome
-
-And of course you can use [ESPHome devices](/voice_control/thirteen-usd-voice-remote/), to create your own awesome Assistant device. Like @piitaya did with his 3D printed R5 droid.
+You can use [ESPHome](https://www.esphome.io/components/voice_assistant.html) to create your own awesome voice assistant, like [@piitaya](https://github.com/piitaya) did with his 3D printed R5 droid:
 
 <lite-youtube videoid="vQ7Hmeume9g" videotitle="Wake word demonstration on ESPHome-based 3D printed droid in Home Assistant"></lite-youtube>
 
-## Wake words
+## Assist on your watch
 
-You can [enable a wake word](/voice_control/install_wake_word_add_on) to activate Assist. There are predefined wake words, such as "OK Nabu", but you can also [define your own wake word](/voice_control/create_wake_word/)
+Assist is available on watches. On Wear OS watches you can set Assist as the default digital assistant or add the [Assist tile or complication](/voice_control/android/#assist-on-wear-os/).
+
+<lite-youtube videoid="Dr_ZCbt8w5k" videotitle="Assist on Wear OS"></lite-youtube>
+
+## Assist on your analog phone
+
+If you are interested in a voice assistant that is not always listening, consider using Assist on an analog phone. It will only listen when you pick up the horn, and the responses are for your ears only. Follow our tutorial to create your own [analog phone voice assistant](/voice_control/worlds-most-private-voice-assistant/).
+
+<lite-youtube videoid="0YJzLIMrnGk" videotitle="Using an analog phone to control Home Assistant"></lite-youtube>
+
+## Custom wake words
+
+Wake words allow you to activate Assist by saying an activation phrase instead of pressing a button. [Learn how to configure a wake word.](/voice_control/install_wake_word_add_on). There are predefined wake words, such as "OK Nabu", but you can also [define your own wake word](/voice_control/create_wake_word/)
 
 <lite-youtube videoid="ziebKt4XLZQ" videotitle="Wake word demonstration on $13 ATOM Echo in Home Assistant"></lite-youtube>
 
