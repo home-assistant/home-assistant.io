@@ -187,7 +187,7 @@ Use one of these methods if your Matter device was added to Apple Home or Google
   - When prompted to **Select the connection method**:
     - If you run Home Assistant OS in a regular setup: select **Submit**.
       - This will install the official Matter server add-on.
-    - If you are already running the Matter server in another add-on, in or a custom container:
+    - If you are running the Matter server in a custom container (not recommended):
       - Deselect the checkbox, then select **Submit**.
       - In the next step, provide the URL to your Matter server.
 
@@ -216,7 +216,7 @@ To allow Home Assistant to control the Matter device that has previously been ad
 5. Choose Home Assistant from the list.
    - You are redirected to the Home Assistant Companion app now.
    - Select **Add device**.
-   - **Troubleshooting**: If Home Assistant fails to add the device, check if you have the Matter integration installed.
+   - **Troubleshooting**: If Home Assistant fails to add the device, check if you have the Matter integration installed and the latest version of the Companion app.
 6. Once the device has been added to Home Assistant, you see a notification **Your device has been added**.
    - When the process finishes, you're redirected to the device page in Home Assistant.
    - You can now control your device from within Home Assistant, as well as from Google Home.
