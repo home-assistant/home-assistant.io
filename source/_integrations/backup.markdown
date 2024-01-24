@@ -3,7 +3,7 @@ title: Backup
 description: Allow creating backups of container and core installations.
 ha_category:
   - Other
-ha_release: 2024.1.5
+ha_release: 2022.4
 ha_quality_scale: internal
 ha_domain: backup
 ha_codeowners:
