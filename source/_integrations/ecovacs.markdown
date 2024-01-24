@@ -37,7 +37,7 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
 - **Select**:
   - `Water amount`: Specify the water amount used during cleaning with the mop.
-  - `Work mode`: Specify the mode, how the bot shoud clean.
+  - `Work mode`: Specify the mode, how the bot should clean.
 - **Sensor**:
   - `Error`: The error code and a description of the error. `0` means no error. Disabled by default
   - `Lifespan`: For each component an entity with the remaining lifespan will be created
