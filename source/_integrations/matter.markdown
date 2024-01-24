@@ -99,10 +99,12 @@ Each Matter network is called a fabric. Each home automation controller that con
 
 ### Prerequisites
 
+- Make sure you have the latest version of Home Assistant installed.
 - On the device packaging, check for both the Matter logo and for either the Wi-Fi or the Thread logo.
 - Check if the QR code is only on the packaging or if it is also on the device.
-  - If it is only on the packaging, snap a picture of the QR code and the device and store it in a save place.
+  - If it is only on the packaging, snap a picture of the QR code and the device and store the image and the numerical code in a save place.
   - If you lose the QR code and disconnect the device at some point, you won't be able to connect to that device again without the QR code.
+- If you are adding a Wi-Fi-based Matter device: Matter devices often use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 - In Home Assistant, have the Matter integration installed.
   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
   - Add the **Matter (BETA)** integration.
@@ -115,15 +117,14 @@ Each Matter network is called a fabric. Each home automation controller that con
 - Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](#bluetooth-used-during-commissioning):
   - Android:
     - Have an Android phone (a full Android, not F-Droid).
-    - Have the Home Assistant Companion app installed.
+    - Have the latest version of the Home Assistant Companion app installed.
     - Have Google Home app installed on the Android.
     - We are not going to add the new device to Google Home. The app is needed because Google included the Matter SDK there.
     - If you are using Thread: Make sure there is a Thread border router device (Nest Hub v2 or Nest Wi-Fi Pro) present in your home network.
   - iPhone
-    - Version 16 or higher
+    - Have the iOS version 16 or higher
+    - Have the latest version of the Home Assistant Companion app installed.
     - If you are using Thread: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K) present in your home network.
-- If you are adding a Wi-Fi-based Matter device: Matter devices use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
-
 - Make sure the device is in close range of the border router and your phone.
 
 ### To add a new device using the iOS Companion app
