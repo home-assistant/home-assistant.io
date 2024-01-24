@@ -17,7 +17,7 @@ Screenshot of the statistics graph card with none metered entities and `chart_ty
 Screenshot of the statistics graph card with a metered entity and `chart_type` `bar`.
 </p>
 
-Statistics are gathered every 5 minutes for sensors that support it. It will either keep the `min`, `max`, and `mean` of a sensor's value for a specific hour or the `sum` for a metered entity.
+Statistics are gathered every 5 minutes for sensors that support it. It will either keep the `min`[^1], `max`[^1], and `mean`[^1] of a sensor's value for a specific hour or the `sum`[^1] for a metered entity.
 
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
@@ -96,3 +96,4 @@ entities:
   - entity: sensor.inside_temperature
     name: Inside
 ```
+[^1]:Min and max: Shows you the lowest (minimum) and highest (maximum) values. Mean: Is the average of the given values Sum: Is the total of all the data values.
