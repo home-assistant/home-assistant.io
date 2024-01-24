@@ -33,12 +33,11 @@ You can use the [Min/Max](/integrations/min_max) integration to determine the ne
 
 For each tracked device or person, a sensor showing the direction of travel to or from the monitored zone is created. Possible states are:
 
-- `not_set`
 - `arrived`
-- `towards`
 - `away_from`
-- `unknown`
 - `stationary`
+- `towards`
+- `unknown`
 
 ### Nearest device
 
