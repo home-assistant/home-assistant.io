@@ -14,7 +14,6 @@ ha_domain: utility_meter
 ha_platforms:
   - select
   - sensor
-ha_config_flow: true
 ha_integration_type: helper
 ---
 

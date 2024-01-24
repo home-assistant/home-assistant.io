@@ -94,6 +94,11 @@ Depending on the supported features of the camera, number entities are added for
 - Auto track disappear time
 - Auto track stop time
 - Day night switch threshold*
+- Image brightness* (default 128)
+- Image contrast* (default 128)
+- Image saturation* (default 128)
+- Image sharpness* (default 128)
+- Image hue* (default 128)
 
 **Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
@@ -238,6 +243,7 @@ The following models have been tested and confirmed to work:
 - [RLC-520A](https://reolink.com/product/rlc-520a/)
 - RLC-522*
 - [RLC-810A](https://reolink.com/product/rlc-810a/)
+- [RLC-810WA](https://reolink.com/product/rlc-810wa/)
 - [RLC-811A](https://reolink.com/product/rlc-811a/)
 - [RLC-81PA](https://reolink.com/product/rlc-81pa/)
 - [RLC-820A](https://reolink.com/product/rlc-820a/)
@@ -248,6 +254,7 @@ The following models have been tested and confirmed to work:
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
+- [RLN12W NVR](https://reolink.com/product/rln12w/)
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))

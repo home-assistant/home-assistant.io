@@ -18,6 +18,8 @@ ha_platforms:
 ha_zeroconf: true
 ha_integration_type: integration
 ha_quality_scale: platinum
+works_with:
+  - local
 ---
 
 Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It can collect data locally from the HomeWizard Energy products and create them as sensors in Home Assistant.

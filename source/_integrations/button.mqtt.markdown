@@ -12,8 +12,6 @@ The `mqtt` button platform lets you send an MQTT message when the button is pres
 
 ## Configuration
 
-<a id='new_format'></a>
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -97,6 +95,10 @@ device:
       type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:

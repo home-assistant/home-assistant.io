@@ -27,7 +27,6 @@ homeassistant:
   media_dirs:
     media: "/media"
     recordings: "/mnt/recordings"
-  legacy_templates: false
 ```
 
 <div class='note'>
@@ -102,11 +101,6 @@ media_dirs:
   description: A mapping of local media sources and their paths on disk.
   required: false
   type: map
-legacy_templates:
-  description: Enable this option to restore pre-0.117 template rendering. Which renders all templates to string, instead of native types.
-  required: false
-  type: boolean
-  default: false
 language:
   description: "Default language used by Home Assistant. This may, for example, influence the language used by voice assistants. The language should be specified as an RFC 5646 language tag, and must be a language which Home Assistant is translated to."
   required: false

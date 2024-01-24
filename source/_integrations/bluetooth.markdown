@@ -257,7 +257,7 @@ The following remote adapters are supported:
   - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
 - [Shelly](/integrations/shelly/)
   - Bluetooth advertisement listening: Shelly v2 device with firmware 12.0 or later
-  - Bluetooth advertisement bundling: not supported
+  - Bluetooth advertisement bundling: Shelly v2 device with firmware 12.0 or later
   - Single active connection: not supported
   - Multiple active connections: not supported
 

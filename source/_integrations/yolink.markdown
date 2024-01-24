@@ -7,6 +7,7 @@ ha_category:
   - Cover
   - Light
   - Lock
+  - Number
   - Sensor
   - Siren
   - Switch
@@ -22,6 +23,7 @@ ha_platforms:
   - cover
   - light
   - lock
+  - number
   - sensor
   - siren
   - switch
@@ -36,6 +38,20 @@ Integrates [YoLink](https://www.yosmart.com/) Devices into Home Assistant.
 Home Assistant will use account linking provided by Nabu Casa for authenticating with YoLink, this service is provided for free and does not require a Nabu Casa subscription. The steps below are thus not required.
 If you want to use separate credentials, please contact <service@yosmart.com> to obtain a `client_id` and `client_secret`. Then you can add your credentials via application credentials. Settings > Devices & Services > click the menu (three dots at the top right of the screen) and then **Application Credentials**. Enter your credentials in the pop-up window.
 {% enddetails %}
+
+## Services
+
+### `Play on SpeakerHub`
+
+With this service, you can convert text to speech for playback on SpeakerHub.
+
+Service data attribute | Optional | Description
+-|-|-
+`target_device` | no| SpeakerHub device ID for audio playback.
+`message` | no| Text for speech conversion.
+`tone` | no| Tone before playing audio.
+`volume` | no| Speaker volume during playback.
+`repeat` | no| The number of times the text will be repeated.
 
 The integration is tested and verified for the following devices from YoLink:
 
@@ -58,4 +74,5 @@ The integration is tested and verified for the following devices from YoLink:
 - YS3604 (FlexFob)
 - YS7106 (PowerFailureAlar)
 - YS4908 (Finger)
-- ‎YS7805 (Outdoor Motion Detector Sensor)
+- YS7805 (Outdoor Motion Detector Sensor)
+- YS1604 (SpeakerHub)

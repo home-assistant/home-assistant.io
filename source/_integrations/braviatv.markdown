@@ -14,6 +14,7 @@ ha_domain: braviatv
 ha_config_flow: true
 ha_platforms:
   - button
+  - diagnostics
   - media_player
   - remote
 ha_ssdp: true

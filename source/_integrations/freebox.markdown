@@ -45,37 +45,6 @@ You can find out your Freebox host and port by opening this address <http://mafr
 The returned JSON should contain an `api_domain` (`host`) and a `https_port` (`port`).
 Please consult the [API documentation](https://dev.freebox.fr/sdk/os/) for more information.
 
-### Via the frontend
-
-Menu: **Settings** -> **Devices & Services**. Search for "Freebox", add your host and port, click submit.
-
-If you add the integration for the first time, follow the instructions in the [Initial setup](#initial-setup) section.
-
-### Via the configuration file
-
-```yaml
-freebox:
-  host: foobar.fbxos.fr
-  port: 1234
-```
-
-{% configuration %}
-host:
-  description: The URL of the Freebox.
-  required: true
-  type: string
-port:
-  description: The HTTPS port the Freebox is listening on.
-  required: true
-  type: string
-{% endconfiguration %}
-
-<div class='note warning'>
-  
-  If you change your Freebox router for a new one, go into your Home Assistant configuration `.storage` folder and delete the "freebox" folder, then add the integration again.
-
-</div>
-
 ### Initial setup
 
 <div class='note warning'>
