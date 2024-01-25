@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: jvc_projector
 ha_platforms:
   - remote
+  - binary_sensor
 ha_integration_type: device
 ---
 
