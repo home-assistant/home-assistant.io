@@ -20,8 +20,11 @@ You can watch the entire live stream here:
 We’ll also highlight each segment of the live stream in this blog under each corresponding heading, so you can start watching the specific parts that interest you!
 
 <!--more-->
+
 ## Why we believe in Matter
+
 <lite-youtube videoid="rEugjMk-4II" videoStartAt="213" videotitle="State of Matter"></lite-youtube>
+
 We believe in Matter: it’s open source, and most importantly, it’s fully local by default. Matter will allow us to control devices ranging from lights, to robot vacuums, to TVs, and to many other IP-connected devices, all through a standardized protocol. It is a huge step forward towards having more sustainable and worry-free smart home products. For this reason, Nabu Casa uses the revenue we get from the subscribers to Home Assistant Cloud (thank you all!) to employ developers who are dedicated to implementing Matter. And we have even joined the Connectivity Standards Alliance (CSA) - the organization behind the Matter standard - as a participant to have a front-row seat and to defend the [Open Home values](https://www.home-assistant.io/blog/2021/12/23/the-open-home/) during the development of the standard.
 
 Matter launched only one year ago, compared to twenty years for a standard like Zigbee, so it’s important to account for that in your expectations. If you’ve already invested heavily in an existing local standard, like Zigbee or Z-Wave, Matter is probably not your best choice at this point. We think there is no reason to throw these current smart home devices out, especially when they still work fine - after all, sustainability is one of our [Open Home values](/blog/2021/12/23/the-open-home/). But if you are new to the smart home scene and looking for devices with local, cloud-free standards that will still work even many years from now, keep an eye on Matter. The standard is rapidly evolving, with major updates twice a year where new device types and enhancements to existing ones are released.
