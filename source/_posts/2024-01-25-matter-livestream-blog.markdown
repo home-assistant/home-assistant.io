@@ -50,8 +50,11 @@ We are still ironing out bugs, writing documentation, adding missing features, a
 It has been a bumpy - sometimes even frustrating - ride, but everything is slowly getting into good shape. Vendors have ironed out bugs in their Matter device firmware, all kinds of new devices are popping up in stores, and the Matter 1.1 and 1.2 updates brought tons of stability fixes to the standard. 
 
 From our perspective, it’s amazing that Matter is already in this state after being started only a couple of years ago. You can clearly see the enormous power of so many companies, from small to big, believing in Matter and working together to improve it.
+
 ### Get started with Matter in Home Assistant
+
 <lite-youtube videoid="rEugjMk-4II" videoStartAt="2652" videotitle="State of Matter"></lite-youtube>
+
 If you want to get started with Matter in Home Assistant, it is really important that you read the [documentation](/integrations/matter/) or watch this chapter of our live stream, which covers it all.
 
 Matter has a few gotcha’s you should know about, and because we are still in the Beta stage, not everything is as polished as we want it to be.
