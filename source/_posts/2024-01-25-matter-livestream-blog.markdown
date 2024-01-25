@@ -9,7 +9,6 @@ comments: true
 categories: Matter
 og_image: /images/blog/2024-01-matter/matter.png
 ---
-## Introduction
 During our State of Matter live stream two weeks ago, we explained what Matter is, how it relates to Thread, and how you can compare it with existing protocols you may already know, like Zigbee or Z-Wave. 
 
 In this blog post, we’ve extracted the highlights of the stream for you. We also link to our updated [Matter](/integrations/matter/) and [Thread](/integrations/thread/) documentation where relevant.
