@@ -25,7 +25,7 @@ We’ll also highlight each segment of the live stream in this blog under each c
 ## Why we believe in Matter
 We believe in Matter: it’s open source, and most importantly, it’s fully local by default. Matter will allow us to control devices ranging from lights, to robot vacuums, to TVs, and to many other IP-connected devices, all through a standardized protocol. It is a huge step forward towards having more sustainable and worry-free smart home products. For this reason, Nabu Casa uses the revenue we get from the subscribers to Home Assistant Cloud (thank you all!) to employ developers who are dedicated to implementing Matter. And we have even joined the Connectivity Standards Alliance (CSA) - the organization behind the Matter standard - as a participant to have a front-row seat and to defend the [Open Home values](https://www.home-assistant.io/blog/2021/12/23/the-open-home/) during the development of the standard.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rEugjMk-4II?si=zfPnYs9Ae0-XEwyu&amp;start=213" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<lite-youtube videoid="rEugjMk-4II" videoStartAt="213" videotitle="State of Matter"></lite-youtube>
 
 Matter launched only one year ago, compared to twenty years for a standard like Zigbee, so it’s important to account for that in your expectations. If you’ve already invested heavily in an existing local standard, like Zigbee or Z-Wave, Matter is probably not your best choice at this point. We think there is no reason to throw these current smart home devices out, especially when they still work fine - after all, sustainability is one of our [Open Home values](/blog/2021/12/23/the-open-home/). But if you are new to the smart home scene and looking for devices with local, cloud-free standards that will still work even many years from now, keep an eye on Matter. The standard is rapidly evolving, with major updates twice a year where new device types and enhancements to existing ones are released.
 
@@ -33,7 +33,7 @@ After this first year, the current selection of Matter devices is still a bit li
 ## Demystifying Matter
 To really understand what we’re talking about when it comes to Matter, we recommend you read our [updated Matter documentation](/integrations/matter/) or watch the following chapter from our live stream:
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rEugjMk-4II?si=NlgtTnPvmiFJlIZb&amp;start=525" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<lite-youtube videoid="rEugjMk-4II" videoStartAt="525" videotitle="State of Matter"></lite-youtube>
 
 In this segment, our product manager JLo explains Matter in an easy-to-understand, visual manner. You’ll no longer have to wonder about Thread, Border routers, Bridges, or other Matter terminology after you’ve watched this video.
 ## The current state of Matter in Home Assistant
@@ -47,7 +47,7 @@ From our perspective, it’s amazing that Matter is already in this state after 
 ### Get started with Matter in Home Assistant
 If you want to get started with Matter in Home Assistant, it is really important that you read the [documentation](/integrations/matter/) or watch the following chapter of our live stream, which covers it all:
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rEugjMk-4II?si=Jt0GxN6_WmyoNIqI&amp;start=2652" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<lite-youtube videoid="rEugjMk-4II" videoStartAt="2652" videotitle="State of Matter"></lite-youtube>
 
 Matter has a few gotcha’s you should know about, and because we are still in the Beta stage, not everything is as polished as we want it to be.
 
@@ -80,7 +80,7 @@ If you run into problems, please join our [Discord server](/join-chat/), where w
 ## The Future of Matter in Home Assistant
 In the near future, we are focusing on improving the user experience to onboard and manage Matter devices. Especially adding new Matter devices to Home Assistant should be as stress-free as possible.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rEugjMk-4II?si=wKBhMHU0kYnDajTn&amp;start=4450" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<lite-youtube videoid="rEugjMk-4II" videoStartAt="4450" videotitle="State of Matter"></lite-youtube>
 
 This is what we are focusing on now:
 - Functionality to 'share' a device from Home Assistant to another Matter controller.
@@ -100,7 +100,7 @@ We are also continuously keeping the quality of our Matter integration up to the
 ## Using Home Assistant Yellow or Home Assistant SkyConnect
 As we mentioned while talking about the recommended scenarios earlier, using the Home Assistant Yellow or Home Assistant SkyConnect for Thread is still in development and only recommended for technically experienced users.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rEugjMk-4II?si=K8Tc-FK7TgLH7FtR&amp;start=5209" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<lite-youtube videoid="rEugjMk-4II" videoStartAt="5209" videotitle="State of Matter"></lite-youtube>
 
 That’s why our current recommendation for Home Assistant Yellow and Home Assistant SkyConnect is to use the Zigbee firmware to power your Zigbee network. This is a stable solution that has worked reliably since the introduction of these products and offers a great experience.
 
