@@ -98,9 +98,9 @@ You can add a HomeKit [compatible device](#supported-devices) to Home Assistant 
    - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 - If your Home Assistant instance does not natively support Bluetooth, use an ESPHome Bluetooth proxy.
   - A proxy can also be helpful if your Home Assistant device is too far away from the device you are trying to pair.
-- If your HomeKit device has been used with Thread before, or is still paired with iOS, reset the device.
+- If your HomeKit device has been used with {% term Thread %} before, or is still paired with iOS, reset the device.
   - HomeKit devices can only be paired to a single controller at once.
-  - If it has been in a Thread network before, the device might remember the Thread credentials of a different network. A reset makes sure the device is not connected to any Thread network.
+  - If it has been in a {% term Thread %} network before, the device might remember the {% term Thread %} credentials of a different network. A reset makes sure the device is not connected to any {% term Thread %} network.
 
 ### To add a HomeKit device through Bluetooth
 
@@ -116,28 +116,28 @@ You can add a HomeKit [compatible device](#supported-devices) to Home Assistant 
 
 ## Adding a HomeKit device through Thread
 
-This section shows the the ways you can join a HomeKit device to a Thread network:
+This section shows the the ways you can join a HomeKit device to a {% term Thread %} network:
 
 1. via Home Assistant
-2. via Apple Thread border router
+2. via Apple {% term Thread border router %}
 
 ### Adding a HomeKit device to a Thread network via Home Assistant
 
-There are two methods to add a HomeKit [compatible device](#supported-devices) to a Thread network:
+There are two methods to add a HomeKit [compatible device](#supported-devices) to a {% term Thread %} network:
 
-- via Home Assistant's preferred Thread network
+- via Home Assistant's preferred {% term Thread %} network
 - via [Apple Thread border router](#adding-a-homekit-device-via-apple-thread-border-router)
 
-This section describes how to add it via Home Assistant's preferred Thread network.
+This section describes how to add it via Home Assistant's preferred {% term Thread %} network.
 
 #### Prerequisites
 
-- A HomeKit device which supports Thread. This is indicated by the Thread label on the packaging.
+- A HomeKit device which supports {% term Thread %}. This is indicated by the Thread label on the packaging.
 - Make sure the HomeKit device has been [joined using Bluetooth](#adding-a-homekit-device-through-bluetooth).
 - **Thread network**: In order to use HomeKit over Thread, you need a working border router.
   - Make sure your Home Assistant device is on the same network (LAN) as the border router.
-  - Make sure the Thread network you'd like to use is known by Home Assistant and marked as **Preferred network** in the Thread configuration.
-  - If you have a Home Assistant Yellow or SkyConnect, you can enable multiprotocol to set up an Open Thread border router and with that a Thread network.
+  - Make sure the {% term Thread %} network you'd like to use is known by Home Assistant and marked as **Preferred network** in the {% term Thread %} configuration.
+  - If you have a Home Assistant Yellow or SkyConnect, you can enable multiprotocol to set up an Open Thread border router and with that a {% term Thread %} network.
     - Documentation on [enabling multiprotocol on Yellow](https://yellow.home-assistant.io/guides/enable-multiprotocol/)
     - Documentation on [enabling multiprotocol on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-multiprotocol/)
 
@@ -146,34 +146,34 @@ This section describes how to add it via Home Assistant's preferred Thread netwo
 1. To open the device configuration page, on the **HomeKit** integration, select the **device**.
 2. Under **Diagnostic**, you can see the **Thread Status** as **Disabled**.
    ![Device configuration page](/images/integrations/homekit_controller/homekit_controller_add_02.png)
-3. To enable Thread, under **Configuration**, select **Press**. This will provision the preferred Thread credentials.
+3. To enable {% term Thread %}, under **Configuration**, select **Press**. This will provision the preferred Thread credentials.
    - The status has now changed:
      - Depending on the device type, the mesh size and health, the Thread status can be **Child**, **Router**, or **Leader**.
        ![Thread status](/images/integrations/homekit_controller/homekit_controller_add_02.png)
-   - That's it. Your HomeKit device now communicates via Thread.
+   - That's it. Your HomeKit device now communicates via {% term Thread %}.
 
 ### Adding a HomeKit device via Apple Thread border router
 
-There are two methods to add a HomeKit [compatible device](#supported-devices) to a Thread network:
+There are two methods to add a HomeKit [compatible device](#supported-devices) to a {% term Thread %} network:
 
 - via [Home Assistant's preferred Thread network](#adding-a-homekit-device-to-a-thread-network-via-home-assistant)
-- via Apple Thread border router
+- via Apple {% term Thread border router %}
 
 This section describes how to add a HomeKit [compatible device](#supported-devices) using an Apple Thread border router device such as a HomePod mini.
 
 #### Prerequisites
 
-- An Apple device that can act as a Thread border router, such as a HomePod mini.
-- A HomeKit device which supports Thread. This is indicated by the Thread label on the packaging.
+- An Apple device that can act as a {% term Thread border router %}, such as a HomePod mini.
+- A HomeKit device which supports {% term Thread %}. This is indicated by the Thread label on the packaging.
 - Make sure your Home Assistant instance is on the same network (LAN) as the border router.
 - Make sure the HomeKit device has been paired in the Apple Home app (using the iOS Home app).
 
 #### To add a HomeKit device via Apple Thread border router
 
 1. Remove the HomeKit device from the Apple Home app. Don't reset the device.
-   - This leaves the Thread network details on the HomeKit device.
+   - This leaves the {% term Thread %} network details on the HomeKit device.
    - The device will be automatically discovered by the HomeKit controller integration in Home Assistant.
-   - It will appear as a discovered device over Thread.
+   - It will appear as a discovered device over {% term Thread %}.
 2. Under **{% my integrations title="Settings > Devices & Services" %}**, on the HomeKit integration, select **Configure**.
 
    ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
@@ -186,7 +186,7 @@ This section describes how to add a HomeKit [compatible device](#supported-devic
 5. Under **Diagnostic**, check the status:
    - Depending on the device type, the mesh size and health, the Thread status can be **Child**, **Router**, or **Leader**.
      ![Thread status](/images/integrations/homekit_controller/homekit_controller_add_02.png)
-   - That's it. Your HomeKit device now communicates via Thread.
+   - That's it. Your HomeKit device now communicates via {% term Thread %}.
 
 ## Supported devices
 
