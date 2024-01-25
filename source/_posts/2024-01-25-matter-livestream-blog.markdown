@@ -110,8 +110,11 @@ This is what we want to achieve in the long run:
 On top of this, we will continuously focus on extending the support for new devices as new device types are added to the specification or existing ones are extended. In some cases, manufacturers even contribute to Home Assistant themselves to ensure a new device type is supported. 
 
 We are also continuously keeping the quality of our Matter integration up to the standard of Home Assistant and fixing the most impactful issues our users are facing. For example, right now, we are making sure Matter devices that lose power are handled better in Home Assistant.
+
 ## Using Home Assistant Yellow or Home Assistant SkyConnect
+
 <lite-youtube videoid="rEugjMk-4II" videoStartAt="5209" videotitle="State of Matter"></lite-youtube>
+
 As we mentioned while talking about the recommended scenarios earlier, using the Home Assistant Yellow or Home Assistant SkyConnect for Thread is still in development and only recommended for technically experienced users.
 
 That’s why our current recommendation for Home Assistant Yellow and Home Assistant SkyConnect is to use the Zigbee firmware to power your Zigbee network. This is a stable solution that has worked reliably since the introduction of these products and offers a great experience.
