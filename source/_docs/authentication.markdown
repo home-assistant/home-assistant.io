@@ -41,7 +41,7 @@ You can:
 - Log out of Home Assistant.
 
 <div class="note">
-Unused refresh tokens will be automatically removed. A refresh token is considered unused if it has not been used for a login within 90 days.
+Unused refresh tokens will be automatically removed. A refresh token is considered unused if it has not been used for a login within 90 days. If you need a permanent token, then we recommend to use [Long Lived Access Tokens](/docs/auth_api/#long-lived-access-token).
 </div>
 
 ### Securing your login
