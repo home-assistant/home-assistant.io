@@ -33,7 +33,4 @@ The following devices are supported by the underlying `lupupy` Python library an
 - **Binary sensor**: Displays the status of binary sensors. Door, window, water, and smoke sensors are supported.
 - **Switch**: Turn off and on your Lupus power switches.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
-
