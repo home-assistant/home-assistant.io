@@ -73,8 +73,10 @@ Using Home Assistant itself as a Thread border router (for example, by using the
 
 ### Important
 
-You do *not* need any additional hardware or radios to work with Matter devices. Any device that is running Home Assistant Operating System, be it a Home Assistant Green, a Raspberry Pi, or any other installation, is already a fully functional Matter Controller. You can connect to WiFi-based Matter devices straight out of the box. Only if you plan to use Thread-based Matter devices do you need additional hardware in the form of a Thread border router. 
+You do *not* need any additional hardware or radios to work with Matter devices. Any device that is running Home Assistant Operating System, be it a Home Assistant Green, a Raspberry Pi, or any other installation, is already a fully functional Matter Controller. You can connect to WiFi-based Matter devices straight out of the box. Only if you plan to use Thread-based Matter devices do you need additional hardware in the form of a Thread border router.
+
 ### Our tips for a frustration-free Matter experience:
+
 - Read the [documentation](/integrations/matter/) for Matter.
 - The easiest devices to get started with are WiFi-based Matter devices and Matter bridges. Do note that many brands with Matter bridges also have excellent native integrations in Home Assistant, and these integrations may offer features not yet available in the Matter standard.
 - You need to run the Home Assistant Operating System. Other installation types are not supported.
