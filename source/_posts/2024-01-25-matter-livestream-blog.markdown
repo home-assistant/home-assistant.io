@@ -40,7 +40,9 @@ To really understand what we’re talking about when it comes to Matter, we reco
 <p><img src='/images/blog/2024-01-matter/matter-diagram.png' class='no-shadow' /></p>
 
 In this segment, our product manager JLo explains Matter in an easy-to-understand, visual manner, using the diagram you see above. You’ll no longer have to wonder about Thread, Border routers, Bridges, or other Matter terminology after you’ve watched this video.
+
 ## The current state of Matter in Home Assistant
+
 For the past year, we have been working on getting the foundation ready to support Matter devices in Home Assistant. Our implementation is based on the official Matter SDK, and we plan for it to become officially certified by the CSA to show that it will work problem-free with all products that carry the Matter logo. But we are not there yet; that is why we still label Matter as Beta in the integrations list. This will not change until our implementation has been certified.
 
 We are still ironing out bugs, writing documentation, adding missing features, and doing a lot of troubleshooting. We are not alone on this, as many manufacturers needed this first year to get comfortable with the new standard as well, resulting in some unstable early devices coming to the market. We’ve also had to tweak our Home Assistant Operating System to work well with Matter, Thread, and its IPv6 requirement.
