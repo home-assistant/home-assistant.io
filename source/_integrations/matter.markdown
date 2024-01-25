@@ -180,7 +180,7 @@ This method will allow you to select a Matter device from Apple Home and share i
 
 1.  Find your device in Apple Home and press the jogwheel to edit it. In the page with detailed descriptions and settings for the device, scroll all the way down and press the button **Turn On Pairing Mode**.
 2.  You are now given a Setup code, copy this to the clipboard.
-3.  Follow the [Add a device using the iOS Companion app](#add-a-device-using-the-ios-companion-app) directions above to add the device to Home Assistant where you paste the code you just received from Apple Home.
+3.  Follow the [add a new device using the iOS Companion app](#to-add-a-new-device-using-the-ios-companion-app) directions above to add the device to Home Assistant where you paste the code you just received from Apple Home.
 
 <lite-youtube videoid="nyGyZv90jnQ" videotitle="Share Matter device from Apple Home to Home Assistant"></lite-youtube>
 
