@@ -163,7 +163,7 @@ This section describes how to add a HomeKit [compatible device](#supported-devic
 
 #### Prerequisites
 
-- An Apple device that can act as a {% term Thread border router %}, such as a HomePod mini.
+- An Apple device that can act as a Thread border router, such as a HomePod mini.
 - A HomeKit device which supports {% term Thread %}. This is indicated by the Thread label on the packaging.
 - Make sure your Home Assistant instance is on the same network (LAN) as the border router.
 - Make sure the HomeKit device has been paired in the Apple Home app (using the iOS Home app).
