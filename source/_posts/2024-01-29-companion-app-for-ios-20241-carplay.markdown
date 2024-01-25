@@ -14,7 +14,7 @@ Hey, this is Bruno. I have recently joined Nabu Casa to work full-time on the Ho
 
 CarPlay support now gives Home Assistant users easy access to their devices and areas and the ability to create custom actions. Custom actions allow users to create advanced action sequences like unlocking the front door and turning on the porch lights. And all of this works across the multiple Home Assistant servers that you have configured in the app.
 
-VIDEO HERE
+<lite-youtube videoid="u__oD7OhdJI" videotitle="Carplay is here!"></lite-youtube>
 
 Big thanks to DXspark for helping us make the foundation of CarPlay and kicking off the project.
 ![DXspark](/images/blog/2024-01-ios-carplay/dxspark.png)
