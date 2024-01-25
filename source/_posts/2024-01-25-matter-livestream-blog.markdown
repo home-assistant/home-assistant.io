@@ -71,8 +71,11 @@ You do *not* need any additional hardware or radios to work with Matter devices.
 - If you are planning on using Thread-based Matter devices, you will need one or more [Thread border routers](/integrations/thread/) in your home. Home Assistant can work with third-party Thread border routers from Google or Apple as well, without having to add your devices to their ecosystem.
 - Always check the device packaging to make sure it has a Matter badge. Thread is also used for other standards, so a device with a Thread badge on the packaging does not have to be a Matter device.
 - Note that Matter is still in an early stage, so not every advanced feature you are used to may currently be implemented in this standard.
+
 - Use the latest version of both Home Assistant and the Home Assistant Companion apps, as we are improving Matter support and fixing bugs continuously. Using the latest version can make the difference in being able to add a device to Home Assistant or not.
+
 ### Support
+
 If you run into problems, please join our [Discord server](/join-chat/), where we have a dedicated Matter channel. Both our developers and many very experienced members of our community are active there to help you out with your Matter setup. Please only open an issue on our GitHub issue tracker if you encounter an actual bug.
 ## The Future of Matter in Home Assistant
 <lite-youtube videoid="rEugjMk-4II" videoStartAt="4450" videotitle="State of Matter"></lite-youtube>
