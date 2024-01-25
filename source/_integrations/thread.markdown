@@ -26,15 +26,15 @@ If you have a Thread-based consumer device, you will typically see a Thread logo
 
 The "Built on Thread: requires border router" logo means Thread is the only supported network protocol for this device. You cannot use Wi-Fi to communicate with this device.
 
-In addition, you will see a Matter or Apple HomeKit logo on the packaging.
+In addition, you will see a {% term Matter %} or Apple HomeKit logo on the packaging.
 
-Matter and Apple HomeKit are smart home protocols. They are responsible for handling the Thread credentials and connecting your Thread device to the Thread network. A smart home protocol is needed to control your device. Both home automation standards are supported natively by Home Assistant.
+{% term Matter %} and Apple HomeKit are smart home protocols. They are responsible for handling the Thread credentials and connecting your Thread device to the Thread network. A smart home protocol is needed to control your device. Both home automation standards are supported natively by Home Assistant.
 
 ## Adding a Thread-based device to Home Assistant
 
 How a Thread-based device is added to Home Assistant depends on the home automation standard it uses.
 
-1. If you see the Matter logo on your device packaging, follow the procedure [adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
+1. If you see the {% term Matter %} logo on your device packaging, follow the procedure [adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
 
    <img src="/images/integrations/thread/matter_onpackbadge_logo.png"  width="200">
 
@@ -50,7 +50,7 @@ This section introduces the terms *Thread* and *border router* and lists border 
 
 Thread is a low-power mesh networking standard for IoT devices. The low-power aspect is important for battery-powered smart home devices. However, it's also low-bandwidth, making it ideal for applications that don't send a lot of data, like switches or motion sensors.
 
-Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbee (IEEE 802.15.4) but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread by itself does not allow controlling devices: It is just a communication protocol. To control the Thread devices, a higher-level protocol is required: Matter or Apple HomeKit. Thread devices use the IPv6 standard to communicate both inside and outside the mesh network.
+Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbee (IEEE 802.15.4) but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread by itself does not allow controlling devices: It is just a communication protocol. To control the Thread devices, a higher-level protocol is required: {% term Matter %} or Apple HomeKit. Thread devices use the IPv6 standard to communicate both inside and outside the mesh network.
 
 ### About Thread border routers
 
@@ -62,12 +62,12 @@ Unlike other protocols, Thread can use multiple border routers in a single netwo
 
 OpenThread is an open source implementation of Thread, originally released by Google. Almost all commercially available Thread border routers are based on the open source implementation. However, the configuration of <abbr title="Thread border routers">TBRs</abbr> is not part of the Thread standard. This means that Google and Apple <abbr title="Thread border routers">TBRs</abbr> implementation setup and configured by their respective ecosystems.
 
-Home Assistant can only control OpenThread border routers built with the REST API available in the open source implementation. The OpenThread Border Router add-on (as well as the OpenThread Border Router bundled in the experimental Silicon Labs Multiprotocol add-on) are built from this open source OpenThread code and have the REST API enabled.
+While Home Assistant can *use* any border router, it can *configure* and *control* only OpenThread border routers built with the REST API available in the open source implementation. The OpenThread Border Router add-on (as well as the OpenThread Border Router bundled in the experimental Silicon Labs Multiprotocol add-on) are built from this open source OpenThread code and have the REST API enabled.
 
 ### List of Thread border router devices
 
 Currently, the following <abbr title="Thread border router">TBR</abbr> devices are known to work with Home Assistant.
-These border routers may require an iPhone or Android phone for onboarding. What the exact requirements are, depends on the home automation protocol (Matter or Apple HomeKit) that your devices are using. Before buying a border router, check the prerequisites in the corresponding procedures:
+These border routers may require an iPhone or Android phone for onboarding. What the exact requirements are, depends on the home automation protocol ({% term Matter %} or Apple HomeKit) that your devices are using. Before buying a border router, check the prerequisites in the corresponding procedures:
 
 - [Adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant)
 - [Adding an Apple HomeKit device through Thread](/integrations/homekit_controller/#adding-a-homekit-device-through-thread)
@@ -117,7 +117,7 @@ The intention of the **Preferred network** in Home Assistant is that it will be 
 
 <div class="note">
 
-The **preferred network** function isn't completely implemented yet. In particular, when adding Matter devices through the companion apps, the preferred network of the mobile device is being used.
+The **preferred network** function isn't completely implemented yet. In particular, when adding {% term Matter %} devices through the companion apps, the preferred network of the mobile device is being used.
 
 </div>
 
@@ -144,7 +144,7 @@ This scenario currently only works in one particular case, under the following c
   - [Enabling Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
   - [Enabling Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
 - You have an Android phone and the Home Assistant Companion App. (Note: this does not work with the iOS Companion App).
-- The devices you want to add to the network support Matter. For instructions on how to add Thread-based Matter devices, refer to the section [Adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant)
+- The devices you want to add to the network support {% term Matter %}. For instructions on how to add Thread-based {% term Matter %} devices, refer to the section [Adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant)
 
 Which TBR are supported mostly depends on (access to) the Thread credentials. And Thread credentials are required during on-boarding/commissioning, which is part of the smart home protocol.
 
