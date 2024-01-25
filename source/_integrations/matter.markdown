@@ -95,7 +95,9 @@ Running Matter on a Home Assistant Core installation is not supported.
 
 ## Adding a Matter device to Home Assistant
 
-Each Matter network is called a fabric. Each home automation controller that controls Matter devices has its own "fabric". You can add devices directly to the fabric of your Home Assistant instance, or share them from another fabric (ie Google, Apple) to Home Assistant's fabric. We're going to explore all these options below.
+Each Matter network is called a fabric. Each home automation controller that controls Matter devices has its own "fabric". You can add devices directly to the fabric of your Home Assistant instance, or share them from another fabric (for example from Google or Apple) to Home Assistant's fabric. We're going to explore all these options below.
+
+Note: The section below mentions third-party Thread border routers such as the Nest Hub v2 or the HomePod Mini. This doesn’t mean you have to add your devices into these ecosystems. Home Assistant only uses them to access the Thread radio network. The communication between the Home Assistant Matter controller and your Matter devices is encrypted. The Thread border router passes the data along, it cannot read its content.
 
 ### Prerequisites
 
