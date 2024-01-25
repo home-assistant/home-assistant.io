@@ -34,16 +34,15 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-Set `username`and `password` to your Viessmann Developer Portal login credentials.
+Use your ViCare app login credentials for `username`and `password`.
+
 The required Client ID can be obtained as follows:
-1. Register and login in the [Viessmann Developer Portal](https://developer.viessmann.com). Use the same account as the one you registered your device with in ViCare.
-2. In the menu navigate to API Keys.
-3. Create a new OAuth client using the following data:
-  ```txt
-  Name: PyViCare
-  Google reCAPTCHA: Disabled
-  Redirect URIs: vicare://oauth-callback/everest
-  ```
+1. Login to the [Viessmann Developer Portal](https://app.developer.viessmann.com/) with **your existing ViCare app username/password**.
+2. On the developer dashboard click *add* in the *clients* section.
+3. Create a new client using following data:
+   - Name: HomeAssistant
+   - Google reCAPTCHA: Disabled
+   - Redirect URIs: `vicare://oauth-callback/everest`
 4. Copy the Client ID from the Viessmann portal and enter this in the API Key field in Home Assistant.
 
 The `heating_type` can either be `auto` to automatically find the most suitable type for your device or one of `gas`, `oil`, `pellets`, `heatpump`, `fuelcell`, `hybrid`.
