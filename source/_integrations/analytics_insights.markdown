@@ -16,6 +16,7 @@ ha_integration_type: service
 
 The **Analytics Insights** {% term integration %} allows you to get integration usage statistics into Home Assistant.
 The data comes from [Home Assistant Analytics](https://analytics.home-assistant.io/).
+For more information about the component that collects analytics, checkout [Analytics](/analytics).
 
 Only integrations with one or more active installations will be displayed. This means it will take some time before newly released integrations are visible.
 
