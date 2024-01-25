@@ -388,6 +388,8 @@
   definition: >-
     A Thread border router forwards data packets between your local network and the Thread network. This enables smart home devices within a Thread network to communicate with IPv6-capable devices in your local network. A Thread border router is connected to your network either via Wi-Fi or Ethernet and uses its radio frequency (RF) radio to communicate with the Thread mesh network. In case of Matter, the data that is forwarded is encrypted. Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod mini, and the Home Assistant SkyConnect together with the OpenThread Border Router add-on.
   link: /integrations/thread/#about-thread-border-routers
+  aliases:
+    - Thread border routers
 - term: Trigger
   definition: >-
     A trigger is a set of values or conditions of a platform that are defined
