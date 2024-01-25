@@ -30,8 +30,11 @@ We believe in Matter: it’s open source, and most importantly, it’s fully loc
 Matter launched only one year ago, compared to twenty years for a standard like Zigbee, so it’s important to account for that in your expectations. If you’ve already invested heavily in an existing local standard, like Zigbee or Z-Wave, Matter is probably not your best choice at this point. We think there is no reason to throw these current smart home devices out, especially when they still work fine - after all, sustainability is one of our [Open Home values](/blog/2021/12/23/the-open-home/). But if you are new to the smart home scene and looking for devices with local, cloud-free standards that will still work even many years from now, keep an eye on Matter. The standard is rapidly evolving, with major updates twice a year where new device types and enhancements to existing ones are released.
 
 After this first year, the current selection of Matter devices is still a bit limited, but a lot of companies have been using this time to develop them, and we expect more to be released soon. More and more companies are [joining the CSA](https://csa-iot.org/members/) and taking up the standard every month. We think Matter is here to stay and is going to be widely adopted.
+
 ## Demystifying Matter
+
 <lite-youtube videoid="rEugjMk-4II" videoStartAt="525" videotitle="State of Matter"></lite-youtube>
+
 To really understand what we’re talking about when it comes to Matter, we recommend you read our [updated Matter documentation](/integrations/matter/) or watch this chapter from our live stream.
 
 <p><img src='/images/blog/2024-01-matter/matter-diagram.png' class='no-shadow' /></p>
