@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: ecovacs
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - select
   - sensor
   - vacuum
