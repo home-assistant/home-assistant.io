@@ -384,6 +384,10 @@
   link: /integrations/thread/
   excerpt: >
     Thread is a low-power mesh networking standard that is specifically designed for smart home applications. It is a protocol that defines how devices communicate.
+- term: Thread border router
+  definition: >-
+    A Thread border router forwards data packets between your local network and the Thread network. This enables smart home devices within a Thread network to communicate with IPv6-capable devices in your local network. A Thread border router is connected to your network either via Wi-Fi or Ethernet and uses its radio frequency (RF) radio to communicate with the Thread mesh network. The router cannot look at the content of these packets, it just forwards them. Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod mini, and the Home Assistant SkyConnect.
+  link: /integrations/thread/#about-thread-border-routers
 - term: Trigger
   definition: >-
     A trigger is a set of values or conditions of a platform that are defined
