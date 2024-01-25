@@ -928,6 +928,8 @@ assistant. The conversation response can be templated.
     my_var: "123"
 - set_conversation_response: "{{ 'Testing ' + my_var }}":
 
+{% endraw %}
+
 The response is handed to the conversation engine when the automation finishes. If
 the `set_conversation_response` is executed multiple times, the most recent
 response will be handed to the conversation engine. To clear the response, set it
