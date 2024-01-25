@@ -46,15 +46,6 @@ Unlike other common radio-based protocols for IoT, (like Zigbee, Z-Wave, and Blu
 
 Home Assistant is a so-called "_controller_" in a Matter ecosystem, meaning that it can control Matter-based devices. Other examples of Matter controllers are the Google Nest products, Apple HomePod speakers, Samsung SmartThings Station, and some newer Amazon Echo devices.
 
-## Bridge devices
-
-One of the great things about Matter is that you can have both Wi-Fi and Thread based devices on the same controller.
-Next to actual devices (like actors or sensors), you will also see bridges. The bridge connects the network over Ethernet or Wi-Fi and bridges multiple devices into a Matter network. A great example is the Philips Hue V2 bridge, which is a Zigbee hub and a Matter bridge. This bridge exposes all Zigbee devices already connected to the bridge as Matter devices on the network. Also, Aqara, SwitchBot, and IKEA have launched such Hub devices.
-
-<div class='note'>
-Home Assistant, as a Matter controller, only supports **control** of Matter devices. Home Assistant is not a bridge itself and it cannot turn existing devices within Home Assistant into Matter compatible devices.
-</div>
-
 ## Thread
 
 Matter goes hand-in-hand with (but is not the same as) {% term Thread %}. {% term Thread %} is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport protocol for Matter.
@@ -229,6 +220,8 @@ To allow Home Assistant to control the Matter device that has previously been ad
 ### Using a Matter bridge
 
 For some ecosystems, you can add some of their non-Matter devices into Home Assistant via a *Matter bridge*. Examples of Matter bridges are the SwitchBot&nbsp;Hub&nbsp;2, Aqara&nbsp;Hub&nbsp;M2, Ikea&nbsp;Dirigera, or the Philips Hue Bridge. Using a bridge allows you to keep controlling these devices via their native App, while having them available in Home Assistant at the same time. The Aquara Hub, for example, uses a cloud-based integration. By bridging it into Home Assistant via Matter (instead of using their cloud-based integration), you can make it use local communication.
+
+Home Assistant, as a Matter controller, only supports **control** of Matter devices. Home Assistant is not a bridge itself and it cannot turn existing devices within Home Assistant into Matter compatible devices.
 
 #### How to add a Matter bridge to Home Assistant
 
