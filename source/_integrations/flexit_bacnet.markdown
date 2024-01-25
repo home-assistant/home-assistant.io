@@ -60,4 +60,8 @@ The integration adds entities for sensors with different readings from the devic
 
 The integration adds an entity for a binary sensor called _Air filter polluted_ which tells if it's time to change the filters in the unit.
 
+### Switch
+
+The integration adds an entity for a switch called _Electric heater_ that controls the heating element in the unit.
+
 {% include integrations/config_flow.md %}
