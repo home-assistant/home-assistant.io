@@ -57,15 +57,15 @@ Home Assistant, as a Matter controller, only supports **control** of Matter devi
 
 ## Thread
 
-Matter goes hand-in-hand with (but is not the same as) [Thread](/integrations/thread). Thread is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport protocol for Matter.
+Matter goes hand-in-hand with (but is not the same as) {% term Thread %}. {% term Thread %} is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport protocol for Matter.
 
 <div class='note'>
-Many devices that (will) hit the market will use Thread for radio communication and Matter as a control protocol, but this is not guaranteed. For example, Thread-based devices are available that only support Apple HomeKit or some vendor-specific communication protocol. There are also a few cases where you need to apply for a (beta) firmware update on the device to enable Matter as a communication protocol. Therefore, do not assume Matter support when you see a Thread logo when looking for devices. Please be sure to look for the *Matter* logo itself (on either Wi-Fi/Ethernet-based devices or Thread) or any other confirmation by the manufacturer that the device supports Matter.
+Many devices that (will) hit the market will use {% term Thread %} for radio communication and Matter as a control protocol, but this is not guaranteed. For example, Thread-based devices are available that only support Apple HomeKit or some vendor-specific communication protocol. There are also a few cases where you need to apply for a (beta) firmware update on the device to enable Matter as a communication protocol. Therefore, do not assume Matter support when you see a Thread logo when looking for devices. Please be sure to look for the *Matter* logo itself (on either Wi-Fi/Ethernet-based devices or {% term Thread %}) or any other confirmation by the manufacturer that the device supports Matter.
 </div>
 
 ## Bluetooth used during commissioning
 
-Most (if not all) Matter-compliant devices will also have a Bluetooth chip onboard, this is to ease commissioning (a somewhat technical term for adding a device to your controller). Bluetooth will not be used to control a device but only to pair it after unboxing or factory resetting. The Home Assistant controller uses the Home Assistant Companion app to do {% term commissioning %}, so you can bring your phone close to the device you want to {% term commission %}. The controller will then send your network credentials to your device over Bluetooth in the {% term commissioning %} process. If that succeeds, the device will communicate over its native interface, meaning Wi-Fi, Ethernet, or Thread.
+Most (if not all) Matter-compliant devices will also have a Bluetooth chip onboard, this is to ease commissioning (a somewhat technical term for adding a device to your controller). Bluetooth will not be used to control a device but only to pair it after unboxing or factory resetting. The Home Assistant controller uses the Home Assistant Companion app to do {% term commissioning %}, so you can bring your phone close to the device you want to {% term commission %}. The controller will then send your network credentials to your device over Bluetooth in the {% term commissioning %} process. If that succeeds, the device will communicate over its native interface, meaning Wi-Fi, Ethernet, or {% term Thread %}.
 
 <div class='note'>
 Although your Home Assistant server might have a Bluetooth adapter on board that the controller can use to {% term commission %} devices, we choose not to utilize that adapter. Mainly to prevent issues with the built-in Bluetooth integration but also because it makes more sense to bring your mobile devices close to the Matter device you'd like to {% term commission %}.
@@ -79,7 +79,7 @@ For devices where Home Assistant provides a native integration (with local API),
 
 ![image](/images/integrations/matter/matter_thread_infographic.webp)
 
-Image taken from [this excellent article by The Verge](https://www.theverge.com/23165855/thread-smart-home-protocol-matter-apple-google-interview) about Matter that shows the landscape of Matter, Thread, Border routers and bridges in a nice visualized way.
+Image taken from [this excellent article by The Verge](https://www.theverge.com/23165855/thread-smart-home-protocol-matter-apple-google-interview) about Matter that shows the landscape of Matter, {% term Thread %}, Border routers and bridges in a nice visualized way.
 
 {% include integrations/config_flow.md %}
 
@@ -102,7 +102,7 @@ Note: The section below mentions third-party Thread border routers such as the N
 ### Prerequisites
 
 - Make sure you have the latest version of Home Assistant installed.
-- On the device packaging, check for both the Matter logo and for either the Wi-Fi or the Thread logo.
+- On the device packaging, check for both the Matter logo and for either the Wi-Fi or the {% term Thread %} logo.
 - Check if the QR code is only on the packaging or if it is also on the device.
   - If it is only on the packaging, snap a picture of the QR code and the device and store the image and the numerical code in a save place.
   - If you lose the QR code and disconnect the device at some point, you won't be able to connect to that device again without the QR code.
@@ -122,11 +122,11 @@ Note: The section below mentions third-party Thread border routers such as the N
     - Have the latest version of the Home Assistant Companion app installed.
     - Have Google Home app installed on the Android.
     - We are not going to add the new device to Google Home. The app is needed because Google included the Matter SDK there.
-    - If you are using Thread: Make sure there is a Thread border router device (Nest Hub v2 or Nest Wi-Fi Pro) present in your home network.
+    - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub v2 or Nest Wi-Fi Pro) present in your home network.
   - iPhone
     - Have the iOS version 16 or higher
     - Have the latest version of the Home Assistant Companion app installed.
-    - If you are using Thread: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K) present in your home network.
+    - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K) present in your home network.
 - Make sure the device is in close range of the border router and your phone.
 
 ### To add a new device using the iOS Companion app
@@ -264,7 +264,7 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 - Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Not using Home Assistant OS is at your own risk. We do provide some [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) on how to run the Matter Server as a Docker container. The documentation includes a description of the host and networking requirements.
 
-- To use Thread devices you will need a Thread Network with at least one Thread Border Router in your network nearby the Thread device(s). Apple users need for example the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub V2. Use the Thread integration in Home Assistant to diagnose your Thread network(s).
+- To use {% term Thread %} devices you will need a {% term Thread %} network with at least one Thread Border Router in your network nearby the {% term Thread %} device(s). Apple users need for example the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub V2. Use the Thread integration in Home Assistant to diagnose your {% term Thread %} network(s).
 
 - Start simple and work from there, keep your network simple and add for example an ESP32 test device. Once that works, move on to the next step or more devices.
 
@@ -290,6 +290,17 @@ Also see this [extended troubleshooting guide](https://developers.home.google.co
 
 ### Unable to commission devices, it keeps giving errors or stops working randomly
 
-The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use Wi-Fi (including Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use Thread must be joined to Thread networks for which there is at least one border router connected to the Home Assistant LAN.
+The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use Wi-Fi (including Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use {% term Thread %} must be joined to {% term Thread %} networks for which there is at least one border router connected to the Home Assistant LAN.
 
 If you experience any issues with discovering devices (for example, if the initial {% term commissioning %} keeps failing or if devices become unavailable randomly), investigate your network topology. For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and may not integrate well with enterprise networking solutions like VLANs, Multicast filtering, and (malfunctioning) IGMP snooping. To avoid issues, try to keep your network topology as simple and flat as possible.
+
+## Related topics
+
+### Related integrations
+
+- [Thread](/integrations/thread/)
+- [HomeKit](/integrations/homekit_controller/)
+
+### Related guides
+
+- [Adding an Apple HomeKit device through Thread](/integrations/homekit_controller/#adding-a-homekit-device-through-thread)
