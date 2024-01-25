@@ -16,7 +16,7 @@ ha_zeroconf: true
 
 The Thread integration helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password). The Thread integration in Home Assistant is currently still a work in progress.
 
-You do not need to install this integration. The Thread integration shows up automatically when Home Assistant detects a [border router](#thread-border-router-devices).
+You do not need to install this integration. The Thread integration shows up automatically when Home Assistant detects a [border router](#about-thread-border-routers).
 
 ## Logos on Thread-based smart home devices
 
@@ -127,7 +127,7 @@ You can only set a Thread network as preferred if the credentials are known.
 
 1. To import Thread credentials, you need your Android and iOS companion app.
 2. On your companion app, navigate to the Thread configuration page.
-   - You should see an **Import credentials** button on the lower right corner.
+   - You should see an **Import credentials** button in the lower right corner.
 
    <img width="400" src='/images/integrations/thread/thread-import-credentials.png'>
 
