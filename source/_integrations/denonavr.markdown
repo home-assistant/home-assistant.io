@@ -78,6 +78,7 @@ Known supported devices:
 - Marantz AV7702
 - Marantz AV7703
 - Marantz AV7704
+- Marantz AV8802A
 - Marantz CINEMA 50
 - Marantz CINEMA 70s
 - Marantz M-CR510

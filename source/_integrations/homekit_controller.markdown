@@ -126,7 +126,7 @@ This section shows the the ways you can join a HomeKit device to a Thread networ
 There are two methods to add a HomeKit [compatible device](#supported-devices) to a Thread network:
 
 - via Home Assistant's preferred Thread network
-- via [Apple Thread border router](#adding-a-homekit-device-to-home-assistant-via-apple-thread-border-router)
+- via [Apple Thread border router](#adding-a-homekit-device-via-apple-thread-border-router)
 
 This section describes how to add it via Home Assistant's preferred Thread network.
 
