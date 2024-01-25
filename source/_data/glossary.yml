@@ -187,6 +187,7 @@
     Home Assistant Core they usually refer to a standalone installation method
     that can be installed using a Virtual Environment or Docker. Home Assistant
     Core does not use the Home Assistant Supervisor.
+  link: /installation/#advanced-installation-methods
   excerpt: >
     Home Assistant Core is the hart of Home Assistant itself. It is a Python
     program that powers every installation type, but can be installed standalone.
@@ -199,21 +200,24 @@
   excerpt: >
     Home Assistant Supervised is the full Home Assistant ecosystem, without the
     Home Assistant Operating System.
+  link: /installation/#advanced-installation-methods
 - term: Home Assistant Supervisor
   definition: >-
     The Home Assistant Supervisor is a program that manages a Home Assistant
     installation, taking care of installing and updating Home Assistant,
     add-ons, itself and, if used, updating the Home Assistant Operating System.
+  link: /installation/#advanced-installation-methods
 - term: Home Assistant Operating System
   definition: >-
     Home Assistant OS, the Home Assistant Operating System, is an embedded,
     minimalistic, operating system designed to run the Home Assistant ecosystem
     on single board computers (like the Raspberry Pi) or Virtual Machines.
     The Home Assistant Supervisor can keep it up to date, removing the need for
-    you to manage an operating system.
+    you to manage an operating system. Home Assistant Operating System is the recommended installation method for most users.
   excerpt: >
     Home Assistant OS, the Home Assistant Operating System, is an embedded,
-    minimalistic, operating system designed to run the Home Assistant ecosystem.
+    minimalistic, operating system designed to run the Home Assistant ecosystem. It is the recommended installation method for most users.
+  link: /installation/#advanced-installation-methods
 - term: Host
   definition: >-
     A device that can communicate with other devices on a network. During setup and configuration,
