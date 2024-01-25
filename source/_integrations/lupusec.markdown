@@ -9,7 +9,8 @@ ha_category:
 ha_release: 0.83
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@majuss', '@suaveolent'
+  - '@majuss'
+  - '@suaveolent'
 ha_domain: lupusec
 ha_platforms:
   - alarm_control_panel
@@ -36,32 +37,3 @@ The following devices are supported by the underlying `lupupy` Python library an
 
 {% include integrations/config_flow.md %}
 
-### Manual Configuration
-To use Lupusec devices in your installation, add the following `lupusec` section to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-lupusec:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  ip_address: YOUR_IP_ADDRESS
-```
-
-{% configuration %}
-username:
-  description: The login username of your Lupusec alarm panel.
-  required: true
-  type: string
-password:
-  description: The login password of your Lupusec alarm panel.
-  required: true
-  type: string
-ip_address:
-  description: The IP address of your Lupusec alarm panel.
-  required: true
-  type: string
-name:
-  description: Name for your Lupusec panel.
-  required: false
-  type: string
-{% endconfiguration %}
