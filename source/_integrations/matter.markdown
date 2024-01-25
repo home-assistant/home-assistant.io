@@ -129,7 +129,7 @@ Each Matter network is called a fabric. Each home automation controller that con
 
 ### To add a new device using the iOS Companion app
 
-This will use the Bluetooth connection of your phone to add the device.
+This guide describes how to add a new device. This will use the Bluetooth connection of your phone to add the device.
 
 1. Open The Home Assistant app on your phone.
 2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
@@ -150,7 +150,7 @@ This will use the Bluetooth connection of your phone to add the device.
 
 ### To add a new device using the Android Companion app
 
-This will use the Bluetooth connection of your phone to add the device.
+This guide describes how to add a new device. This will use the Bluetooth connection of your phone to add the device.
 
 1. Open The Home Assistant app on your phone.
 2. Power up the device by plugging it in or add a battery. Most devices will now go into pairing mode.
@@ -174,25 +174,53 @@ This will use the Bluetooth connection of your phone to add the device.
 
 <lite-youtube videoid="Fk0n0r0eKcE" videotitle="Add Matter device via Android app in Home Assistant"></lite-youtube>
 
+## Sharing a device from Apple Home or Google Home
+
+Use one of these methods if your Matter device was added to Apple Home or Google Home and you want to control it from both Apple or Google Home and Home Assistant.
+
+### Prerequisites
+
+- Latest version of the Home Assistant Companion App installed.
+- Have the Matter device integrated to Apple Home or Google Home respectively
+- In Home Assistant, have the Matter integration installed.
+  - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+  - Add the **Matter (BETA)** integration.
+  - When prompted to **Select the connection method**:
+    - If you run Home Assistant OS in a regular setup: select **Submit**.
+      - This will install the official Matter server add-on.
+    - If you are running the Matter server in a custom container (not recommended):
+      - Deselect the checkbox, then select **Submit**.
+      - In the next step, provide the URL to your Matter server.
+
 ### Share a device from Apple Home
 
-This method will allow you to select a Matter device from Apple Home and share it to Home Assistant. The result is that the device can be controlled from both Apple Home and Home Assistant at the same time.
+To allow Home Assistant to control the Matter device that has previously been added to Apple Home, follow these steps:
 
-1.  Find your device in Apple Home and press the jogwheel to edit it. In the page with detailed descriptions and settings for the device, scroll all the way down and press the button **Turn On Pairing Mode**.
-2.  You are now given a Setup code, copy this to the clipboard.
-3.  Follow the [add a new device using the iOS Companion app](#to-add-a-new-device-using-the-ios-companion-app) directions above to add the device to Home Assistant where you paste the code you just received from Apple Home.
+1. In Apple Home find your device and select the cogwheel to view the **Accessory Settings**.
+2. Scroll all the way down and select **Turn On Pairing Mode**.
+3. You are now given a setup code, copy this to the clipboard.
+4. In the Home Assistant Companion App, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+5. Select **Devices** > **Add device** and on the QR code scanner page, select **More options**.
+6. From the list, select your device and paste the code you just received from Apple Home.
+7. Once the device is connected with Home Assistant, the device page opens and you can control it from there.
 
 <lite-youtube videoid="nyGyZv90jnQ" videotitle="Share Matter device from Apple Home to Home Assistant"></lite-youtube>
 
 ### Share a device from Google Home
 
-This method will allow you to share a device that was added to Google Home to Home Assistant. The result is that the device can be controlled from both Google Home and Home Assistant at the same time.
+To allow Home Assistant to control the Matter device that has previously been added to Google Home, follow these steps:
 
-1.  Open the device in Google Home and press the settings button (jog wheel) in the top right.
-2.  Click **Linked Matter apps and services**.
-3.  Press the button **Link apps and services** to link the device to Home Assistant.
-4.  Choose Home Assistant from the list, you are redirected to the Home Assistant Companion app now. Press **Add device**.
-5.  Your device will now be added to Home Assistant. When the process finishes, you're redirected to the device page in Home Assistant.
+1. In Google Home, open the **Devices** page and select the cogwheel.
+2. On the **Settings** page, select your Matter device.
+3. Select **Linked Matter apps and services**.
+4. Select **Link apps and services** to link the device to Home Assistant.
+5. Choose Home Assistant from the list.
+   - You are redirected to the Home Assistant Companion app now.
+   - Select **Add device**.
+   - **Troubleshooting**: If Home Assistant fails to add the device, check if you have the Matter integration installed and the latest version of the Companion app.
+6. Once the device has been added to Home Assistant, you see a notification **Your device has been added**.
+   - When the process finishes, you're redirected to the device page in Home Assistant.
+   - You can now control your device from within Home Assistant, as well as from Google Home.
 
 <lite-youtube videoid="-B4WWevd2JI" videotitle="Share Matter device from Google Home to Home Assistant"></lite-youtube>
 
