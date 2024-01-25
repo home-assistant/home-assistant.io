@@ -12,6 +12,7 @@ group :development do
   gem 'sassc', '2.1.0'
   gem 'rubocop', '1.60.2'
   gem 'ruby-lsp', '0.13.4'
+  gem 'rackup', '2.1.0'
 end
 
 group :jekyll_plugins do
