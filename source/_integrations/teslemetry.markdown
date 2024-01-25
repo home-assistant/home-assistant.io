@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Bre77'
-ha_domain: tessie
+ha_domain: teslemetry
 ha_platforms:
   - climate
 ha_integration_type: integration
