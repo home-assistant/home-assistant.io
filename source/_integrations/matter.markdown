@@ -65,10 +65,10 @@ Many devices that (will) hit the market will use {% term Thread %} for radio com
 
 ## Bluetooth used during commissioning
 
-Most (if not all) Matter-compliant devices will also have a Bluetooth chip onboard, this is to ease commissioning (a somewhat technical term for adding a device to your controller). Bluetooth will not be used to control a device but only to pair it after unboxing or factory resetting. The Home Assistant controller uses the Home Assistant Companion app to do {% term commissioning %}, so you can bring your phone close to the device you want to {% term commission %}. The controller will then send your network credentials to your device over Bluetooth in the {% term commissioning %} process. If that succeeds, the device will communicate over its native interface, meaning Wi-Fi, Ethernet, or {% term Thread %}.
+Most (if not all) Matter-compliant devices have a Bluetooth chip onboard to ease {% term commissioning %}. Bluetooth is not used to control but to pair a device after unboxing or after factory resetting. The Home Assistant controller uses the Home Assistant Companion app for {% term commissioning %}. During commissioning, you need to bring your phone close to the device. The controller then sends your network credentials to your device over Bluetooth. Once that is done, the device communicates over its native interface: Wi-Fi, Ethernet, or Thread.
 
 <div class='note'>
-Although your Home Assistant server might have a Bluetooth adapter on board that the controller can use to {% term commission %} devices, we choose not to utilize that adapter. Mainly to prevent issues with the built-in Bluetooth integration but also because it makes more sense to bring your mobile devices close to the Matter device you'd like to {% term commission %}.
+Although your Home Assistant server might have a Bluetooth adapter on board that the controller can use to {% term commission %} devices, Home Assistant does not to utilize that adapter. Mainly to prevent issues with the built-in Bluetooth integration but also because it might be is easier to bring your mobile devices close to the Matter device than bringing the device near your server.
 </div>
 
 ## Multi fabric: join to multiple controllers
