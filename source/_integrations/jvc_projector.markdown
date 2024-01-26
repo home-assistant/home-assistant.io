@@ -8,9 +8,11 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@SteveEasley'
+  - '@msavazzi'
 ha_domain: jvc_projector
 ha_platforms:
   - remote
+  - binary_sensor
 ha_integration_type: device
 ---
 
@@ -56,3 +58,8 @@ The JVC Projector remote platform will create a [Remote](/integrations/remote/) 
 - `cinema`
 - `anamo`
 - `3d_format`
+
+### Binary sensor
+
+The status reported is:
+- **Power on** is **True** when the projector is either in status **on** or **warming**.
