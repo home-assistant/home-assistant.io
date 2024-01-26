@@ -37,13 +37,13 @@ There is currently support for the following device types within Home Assistant:
 Use your ViCare app login credentials for *username* and *password*.
 
 The required *client ID* can be obtained from the [Viessmann Developer Portal](https://app.developer.viessmann.com/):
-1. Login with **your existing ViCare app username/password**.
-2. On the developer dashboard click *add* in the *clients* section.
+1. Log in with **your existing ViCare app username/password**.
+2. On the developer dashboard, click **Add** in the **Clients** section.
 3. Create a new client using following data:
    - Name: `HomeAssistant`
    - Google reCAPTCHA: Disabled
    - Redirect URIs: `vicare://oauth-callback/everest`
-4. Find the *client ID* in the *clients* section on the developer dashboard.
+4. Find the **Client ID** in the **Clients** section on the developer dashboard.
 
 The `heating_type` can either be `auto` to automatically find the most suitable type for your device or one of `gas`, `oil`, `pellets`, `heatpump`, `fuelcell`, `hybrid`.
 
