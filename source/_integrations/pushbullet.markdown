@@ -18,7 +18,7 @@ ha_config_flow: true
 
 There is currently support for the following device types within Home Assistant:
 
-- [Sensor](#sensor)
+- [Sensor](#sensors)
 - [Notifications](#notifications)
 
 <div class='note'>
