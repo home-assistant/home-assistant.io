@@ -43,7 +43,7 @@ Since Philips Dynalite has virtually no auto-discover capabilities, once it is a
 
 There are global setup parameters and advanced parameters that should normally be left as is. The most important part is defining the areas. Each area normally corresponds to a room or function. They have to be added manually via the UI and match the setup of the existing dynalite installation.
 
-## Initial Configuration and Discovery
+## Initial configuration and discovery
 
 Maybe the most difficult thing about a Dynalite system is finding out the areas and channel mapping. If you have them or have access to the Dynalite software and your configuration files, this could be easy,
 but in the likely case that your system was installed by an integrator, you will have to discover them on your own.

@@ -2,7 +2,7 @@
 title: Flume
 description: Documentation about the flume sensor.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.103
@@ -76,7 +76,7 @@ action:
 
 {% endraw %}
 
-## Configuration for Binary Sensor
+## Configuration for binary sensor
 
 The following YAML creates a binary sensor. This requires the default sensor to be configured successfully.
 

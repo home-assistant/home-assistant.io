@@ -15,9 +15,9 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The WattTime integration allows users to get real-time emissions data for a latitude/longitude from [WattTime](https://www.watttime.org).
+The **WattTime** {% term integration %} allows users to get real-time emissions data for a latitude/longitude from [WattTime](https://www.watttime.org).
 
-## Registering an Account
+## Registering an account
 
 WattTime account registration is accomplished [via the REST API itself](https://www.watttime.org/api-documentation/#register-new-user). The simplest way to do this is by using cURL on the command line:
 

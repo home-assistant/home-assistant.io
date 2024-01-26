@@ -3,7 +3,7 @@ title: Pentair ScreenLogic
 description: Instructions on how to integrate a ScreenLogic gateway within Home Assistant.
 ha_release: '2021.4'
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Hub
   - Sensor
@@ -47,9 +47,26 @@ Sets the operation of any connected color-capable lights.
 | `target`               | no       | An `area` containing the ScreenLogic device, the ScreenLogic `device` itself, or any `entity` from the ScreenLogic device you wish to set the color mode on. |
 | `color_mode`           | no       | The color mode to set. Valid values are listed below.                                                                                                        |
 
+### `screenlogic.start_super_chlorination`
+
+Begins super chlorination, running for the specified period or 24 hours if none is specified.
+
+| Service data attribute | Optional | Description                                                                                                                                                        |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `target`               | no       | An `area` containing the ScreenLogic device, the ScreenLogic `device` itself, or any `entity` from the ScreenLogic device you wish to start super chlorination on. |
+| `runtime`              | yes      | Number of hours to run super chlorination for. Defaults to 24 hours.                                                                                               |
+
+### `screenlogic.stop_super_chlorination`
+
+Stops super chlorination.
+
+| Service data attribute | Optional | Description                                                                                                                                                       |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `target`               | no       | An `area` containing the ScreenLogic device, the ScreenLogic `device` itself, or any `entity` from the ScreenLogic device you wish to stop super chlorination on. |
+
 ## Reference
 
-### Color Modes
+### Color modes
 
 | color_mode   | Name         | Description                                                                                               |
 | ------------ | ------------ | --------------------------------------------------------------------------------------------------------- |

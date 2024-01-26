@@ -49,7 +49,7 @@ Also note that you have till the end of the weekend to [submit an application][a
 - myStrom Wifi Bulbs ([@fabaff] - [#7161]) ([light.mystrom docs]) (new-platform)
 
 <!--more-->
-## Breaking changes
+## Backward-incompatible changes
 
 - Remove deprecated classes from `homeassistant.remote` ([@balloob] - [#7011])
 - min_max sensor has a different default name and will ignore states that are unknown ([@micw] - [#6786])

@@ -1,18 +1,18 @@
 ---
 type: card
-title: "Area Card"
+title: "Area card"
 sidebar_label: Area
-description: "The Area card gives control of your entities in a specified area."
+description: "The area card gives control of your entities in a specified area."
 ---
 
-The Area card lets you control and monitor an individual area.
+The area card lets you control and monitor an individual area.
 
 <p class='img'>
-  <img src='/images/dashboards/area-card.png' alt='Screenshot of the Area card'>
-  Screenshot of the Area card.
+  <img src='/images/dashboards/area-card.png' alt='Screenshot of the area card'>
+  Screenshot of the area card.
 </p>
 
-To add the Area card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
@@ -20,9 +20,9 @@ Buttons will appear on the card for the entities in the area including fan, ligh
 
 If a camera is added to the area you can show the camera feed instead of the area picture.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -56,6 +56,16 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+alert_classes:
+  required: false
+  type: list
+  default: "moisture, motion"
+  description: A list of binary sensor device classes which will populate alert icons in the card when the state is on.
+sensor_classes:
+  required: false
+  type: list
+  default: "temperature, humidity"
+  description: A list of sensor device classes which will display their averaged sensor readings for the area. 
 {% endconfiguration %}
 
 ### Example

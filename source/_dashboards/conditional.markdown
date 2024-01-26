@@ -5,17 +5,18 @@ sidebar_label: Conditional
 description: The Conditional card displays another card based on conditions.
 ---
 
-The Conditional card displays another card based on conditions.
+The conditional card displays another card based on conditions.
 
-Note: if there are multiple conditions there will be treated as an 'and' condition. This means that for the card to show, _all_ conditions must be met.
+![Screenshot of the conditional card](/images/dashboards/conditional_card.gif)
 
-To add the Conditional card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker. Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
+{% include dashboard/edit_dashboard.md %}
+Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
 
 Most options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -34,6 +35,7 @@ card:
 
 ## Examples
 
+Only show when all the conditions are met:
 ```yaml
 type: conditional
 conditions:
@@ -54,6 +56,25 @@ card:
     - group.kitchen
     - lock.kitchen_door
     - light.bed_light
+```
+
+Example condition where only one of the conditions needs to be met:
+```yaml
+type: conditional
+conditions:
+  - condition: or
+    conditions:
+      - condition: state
+        entity: binary_sensor.co_alert
+        state: 'on'
+      - condition: state
+        entity: binary_sensor.rookmelder
+        state: 'on'
+card:
+  type: entities
+  entities:
+    - binary_sensor.co_alert
+    - binary_sensor.rookmelder
 ```
 
 ## Card conditions
@@ -95,7 +116,7 @@ state_not:
 
 *one is required (`state` or `state_not`)
 
-### Numeric State
+### Numeric state
 
 Tests if an entity state matches the thresholds.
 

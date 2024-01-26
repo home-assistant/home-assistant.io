@@ -2,7 +2,7 @@
 title: Fibaro
 description: Instructions on how to setup Fibaro Home Center and Yubii Home within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Event
@@ -55,7 +55,7 @@ It is recommended to assign a static IP address to your Fibaro controller. This 
 
 ## Supported platforms
 
-- Binary Sensor
+- Binary sensor
 - Climate
 - Cover
 - Event

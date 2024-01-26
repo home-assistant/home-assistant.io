@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: picnic
 ha_platforms:
   - sensor
+  - todo
 ha_integration_type: integration
 ---
 
@@ -41,9 +42,12 @@ This integration provides the following sensors. Some sensors are disabled by de
 | Next delivery slot start       | Start of the next delivery's delivery slot. |
 | Next delivery slot end         | End of the next delivery's delivery slot. |
 
-## Shopping cart
 
-This integration provides a _read-only_ list containing the content of your shopping cart. This list is provided as a [to-do list](/integrations/todo/) and can also be found in the to-do list dashboard in the main sidebar of your Home Assistant instance. 
+ ## Shopping cart
+
+This integration provides a list containing the content of your shopping cart. This list is provided as a [to-do list](/integrations/todo/) and can also be found in the to-do list dashboard in the main sidebar of your Home Assistant instance. 
+
+You can add products to your shopping cart by entering a name in the **Add item** field. Just like with the [`picnic.add_product`](#service-picnicadd_product) service, a search will be done and the first item found will be added.
 
 ## Services
 

@@ -3,7 +3,7 @@ title: Minut Point
 description: Instructions on how to integrate Minut Point into Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Sensor
 ha_release: 0.83
@@ -27,7 +27,7 @@ Once Home Assistant is started, a configurator will pop up asking you to Authent
 There is currently support for the following device types within Home Assistant:
 
 - [Alarm](#alarm)
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
 ### Configuration
@@ -54,12 +54,12 @@ client_secret:
 
 The integration supports the following device types within Home Assistant:
   - [Alarm](#alarm)
-  - [Binary Sensor](#binary-sensor)
+  - [Binary sensor](#binary-sensor)
   - [Sensor](#sensor)
 
 <div class='note'>
 
-The Point is just active occasionally so the [Sensors](#sensor) are only updated every hour or so. The [Binary Sensors](#binary-sensor) are however updated via [Cloud Push](/blog/2016/02/12/classifying-the-internet-of-things/#cloud-pushing-new-state), making the changes close to instant.
+The Point is just active occasionally so the [sensors](#sensor) are only updated every hour or so. The [binary sensors](#binary-sensor) are however updated via [Cloud Push](/blog/2016/02/12/classifying-the-internet-of-things/#cloud-pushing-new-state), making the changes close to instant.
 
 </div>
 
@@ -73,7 +73,7 @@ The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is im
 
 </div>
 
-## Binary Sensor
+## Binary sensor
 
 Each Point exposes the following binary sensors:
 
