@@ -26,6 +26,10 @@ Integrate Refoss devices into Home Assistant.
 - The integration will occupy port: 9989.    
 {% include integrations/config_flow.md %}
 
+### Supported device model
+
+- r10
+  
 ### Discover device
 
   - After integrating Refoss, it will start socket broadcast and Home Assistant will automatically discover Refoss devices under the current LAN.
