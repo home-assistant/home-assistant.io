@@ -28,7 +28,7 @@ Integrate Refoss devices into Home Assistant.
 
 ### Supported device model
 
-- R10
+- Refoss Smart Wi-Fi Switch, R10
   
 ### Discover device
 
