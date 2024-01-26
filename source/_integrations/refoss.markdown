@@ -28,7 +28,7 @@ Integrate Refoss devices into Home Assistant.
 
 ### Supported device model
 
-- r10
+- R10
   
 ### Discover device
 
