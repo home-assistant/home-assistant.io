@@ -7,6 +7,7 @@ ha_release: 2024.2
 ha_iot_class: Local Polling
 ha_domain: technove
 ha_config_flow: true
+ha_zeroconf: true
 ha_codeowners:
   - '@Moustachauve'
 ha_platforms:

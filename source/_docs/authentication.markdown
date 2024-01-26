@@ -40,6 +40,10 @@ You can:
 - Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) so scripts can securely interact with Home Assistant.
 - Log out of Home Assistant.
 
+<div class="note">
+Unused refresh tokens will be automatically removed. A refresh token is considered unused if it has not been used for a login within 90 days. If you need a permanent token, then we recommend using [Long Lived Access Tokens](/docs/auth_api/#long-lived-access-token).
+</div>
+
 ### Securing your login
 
 _Make sure to choose a secure password!_ At some time in the future, you will probably want to access Home Assistant from outside your local network. This means you are also exposed to random black-hats trying to do the same. Treat the password like the key to your house.
