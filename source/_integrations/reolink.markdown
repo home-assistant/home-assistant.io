@@ -62,7 +62,7 @@ The latency for receiving the events is the best for ONVIF push and the worst fo
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
-To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#Reducing_latency_of_motion_events) section.
+To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
 
 ## Asterisk (*) next to entities listed in this documentation
 
