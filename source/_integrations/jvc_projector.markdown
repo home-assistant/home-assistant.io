@@ -62,4 +62,4 @@ The JVC Projector remote platform will create a [Remote](/integrations/remote/) 
 ### Binary sensor
 
 The status reported is:
-- Power on is True when projector is in status "on", "warming"
+- **Power on** is **True** when the projector is either in status **on** or **warming**.
