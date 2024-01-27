@@ -19,6 +19,17 @@ The TechnoVE integration provides connectivity with TechnoVE Smart Charging Stat
 
 {% include integrations/config_flow.md %}
 
+## Binary Sensors
+
+The {% term integration %} adds the following binary sensors:
+
+- Battery protected - On / Off
+- Charging - Charging / Not charging
+- Conflict with power sharing mode - On / Off
+- Power sharing mode - On / Off
+- Static IP - Connected / Not Connected
+- Update - Up-to-date / Update available
+
 ## Sensors
 
 The {% term integration %} adds the following sensors:
