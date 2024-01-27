@@ -55,8 +55,8 @@ api_secret:
   type: string
   required: true
 verify_ssl:
-  description: Set to true to enable the validation of the OPNsense API SSL.
-  type: boolean
+  description: Set to true to enable the validation of the OPNsense API SSL using the system's CA certificate bundle, false to disable. Any other string is interpreted as the path to a bundle that you would like to use instead. This path is local to your Home Assistant instance.
+  type: string
   required: false
   default: false
 tracker_interfaces:
