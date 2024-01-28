@@ -162,7 +162,7 @@ For example, when someone rings the doorbell, a
 - `sensor_paired_and_named`
 - `user_initiated_test`
 
-If `last_event_type` is `camera_motion_detected` then `SIMPLISAFE_EVENT` will include 
+If `last_event_type` is `camera_motion_detected` then `SIMPLISAFE_EVENT` will include
 a `media_urls` key that is a dictionary that looks like
 
 ```python
@@ -172,10 +172,10 @@ a `media_urls` key that is a dictionary that looks like
 }
 ```
 
-The 'image_url' is an absolute URL to a JPEG file. The 'clip_url' is an absolute URL 
-to a short MPEG4 video clip. Both refer to the motion detected by the camera.  You 
-can obtain these files locally using the "capture_motion_image" and "capture_motion_clip" 
-services respectively. 
+The 'image_url' is an absolute URL to a JPEG file. The 'clip_url' is an absolute URL
+to a short MPEG4 video clip. Both refer to the motion detected by the camera.  You
+can obtain these files locally using the "capture_motion_image" and "capture_motion_clip"
+services respectively.
 
 To build an automation using one of these event types, use `SIMPLISAFE_EVENT`
 as an event trigger, with `last_event_type` as the `event_data`.
@@ -202,13 +202,13 @@ event data that contains the following keys:
 
 Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fire once
 again for any notifications still active in the SimpliSafe web and mobile apps. To
-prevent this, either (a) clear them in the web/mobile app or (b) utilize the 
+prevent this, either (a) clear them in the web/mobile app or (b) utilize the
 `clear_notifications` button provided by the alarm control panel.
 
 ### `MOTION EVENT AUTOMATIONS`
 
-When a `camera_motion_event` occurs on a camera (currently only outdoor cameras are supported), 
-you may want to capture the image and video clip associated with that event.  First create a trigger 
+When a `camera_motion_event` occurs on a camera (currently only outdoor cameras are supported),
+you may want to capture the image and video clip associated with that event.  First create a trigger
 that looks something like this:
 
 ```yaml
@@ -221,7 +221,7 @@ trigger:
         last_event_sensor_serial: f11b6abd
 ```
 
-where the `last_event_sensor_serial` is the serial number of a specifc camera you are targetting.  One
+where the `last_event_sensor_serial` is the serial number of a specifc camera you are targeting.  One
 way to obtain that serial number is to use the "Developer tools" and listen on `SIMPLISAFE_EVENT` events
 and then walk in front of your camera.  `last_event_sensor_serial` will contain that serial number.
 
@@ -245,7 +245,7 @@ data:
   entity_id: camera.back_yard_camera_one
 ```
 
-In this example, we are creating a directory structure that contains the latest image, and a history of 
+In this example, we are creating a directory structure that contains the latest image, and a history of
 video clips.  You could use the "files" integration and this snippet in your "configuration.yaml" file:
 
 ```yaml
@@ -254,4 +254,3 @@ sensor:
     folder: /config/www/simplisafe/back_yard/clips
     name: back_yard_media
 ```
-
