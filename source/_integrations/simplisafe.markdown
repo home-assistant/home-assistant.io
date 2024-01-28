@@ -246,7 +246,7 @@ data:
 ```
 
 In this example, we are creating a directory structure that contains the latest image, and a history of 
-video clips.  You could use the "files" integration and this snipet in your "configuration.yaml" file:
+video clips.  You could use the "files" integration and this snippet in your "configuration.yaml" file:
 
 ```yaml
 sensor:
