@@ -37,6 +37,7 @@ There is currently support for the following device types within Home Assistant:
 - **Smoke Detector**: reports on the smoke sensor status*.
 - **Smoke+CO Detector**: reports on the smoke and carbon monoxide sensor status*.
 - **Water Sensor**: reports on water sensor status*.
+- **Outdoor Camera**: capture motion event images and media clips
 
 - Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
 
@@ -88,6 +89,25 @@ Set one or more system properties.
 | `light`                | yes      | Whether the light on the base station should display when armed              |
 | `voice_prompt_volume`  | yes      | The volume of the base station's voice prompts                               |
 
+### `simplisafe.capture_motion_image`
+
+Capture a motion event jpeg image.
+
+| Service Data Attribute | Optional | Description                                                                  |
+| ---------------------- | -------- | ---------------------------------------------------------------------------- |
+| `entity_id`            | no       | The entity id of a camera                                                    |
+| `width`                | yes      | Desired width in pixels of the captured image.  Default is 720.  240-1080.   |
+| `filename`             | no       | A file name (or template) to save the image to                               |
+
+### `simplisafe.capture_motion_clip`
+
+Capture a motion event mp4 clip.
+
+| Service Data Attribute | Optional | Description                                                                  |
+| ---------------------- | -------- | ---------------------------------------------------------------------------- |
+| `entity_id`            | no       | The entity id of a camera                                                    |
+| `filename`             | no       | A file name (or template) to save the video clip to                          |
+
 ## Events
 
 ### `SIMPLISAFE_EVENT`
@@ -104,6 +124,7 @@ following keys:
 - `last_event_sensor_type`: the type of sensor that triggered the event (if appropriate)
 - `system_id`: the system ID to which the event belongs
 - `last_event_timestamp`: the UTC datetime at which the event was received
+- `media_urls`: a dict containing media URLs if the event_type is `camera_motion_detected` (see below)
 
 For example, when someone rings the doorbell, a
 `SIMPLISAFE_EVENT` event will fire with the following event data:
@@ -141,7 +162,22 @@ For example, when someone rings the doorbell, a
 - `sensor_paired_and_named`
 - `user_initiated_test`
 
-To build an automation using one of these, use `SIMPLISAFE_EVENT`
+If `last_event_type` is `camera_motion_detected` then `SIMPLISAFE_EVENT` will include 
+a `media_urls` key that is a dictionary that looks like
+
+```python
+{
+  'image_url': "https://xxx.us-east-1.prd.cam.simplisafe.com/xxx",
+  'clip_url': "https://xxx.us-east-1.prd.cam.simplisafe.com/xxx"
+}
+```
+
+The 'image_url' is an absolute URL to a JPEG file. The 'clip_url' is an absolute URL 
+to a short MPEG4 video clip. Both refer to the motion detected by the camera.  You 
+can obtain these files locally using the "capture_motion_image" and "capture_motion_clip" 
+services respectively. 
+
+To build an automation using one of these event types, use `SIMPLISAFE_EVENT`
 as an event trigger, with `last_event_type` as the `event_data`.
 For example, the following will trigger when the doorbell rings:
 
@@ -168,3 +204,54 @@ Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fi
 again for any notifications still active in the SimpliSafe web and mobile apps. To
 prevent this, either (a) clear them in the web/mobile app or (b) utilize the 
 `clear_notifications` button provided by the alarm control panel.
+
+### `MOTION EVENT AUTOMATIONS`
+
+When a `camera_motion_event` occurs on a camera (currently only outdoor cameras are supported), 
+you may want to capture the image and video clip associated with that event.  First create a trigger 
+that looks something like this:
+
+```yaml
+trigger:
+  - platform: event
+    event_type: SIMPLISAFE_EVENT
+    event_data:
+        last_event_type: camera_motion_detected
+        last_event_sensor_type: OUTDOOR_CAMERA
+        last_event_sensor_serial: f11b6abd
+```
+
+where the `last_event_sensor_serial` is the serial number of a specifc camera you are targetting.  One
+way to obtain that serial number is to use the "Developer tools" and listen on `SIMPLISAFE_EVENT` events
+and then walk in front of your camera.  `last_event_sensor_serial` will contain that serial number.
+
+Then for actions associated with that trigger, something like this:
+
+```yaml
+service: simplisafe.capture_motion_clip
+data:
+  entity_id: camera.back_yard_camera_one
+  filename: >-
+    /config/www/simplisafe/back_yard/clips/{{now().strftime('%Y%m%d%H%M%S')}}.mp4
+```
+
+and
+
+```yaml
+service: simplisafe.capture_motion_image
+data:
+  width: 720
+  filename: "/config/www/simplisafe/back_yard/latest.jpg"
+  entity_id: camera.back_yard_camera_one
+```
+
+In this example, we are creating a directory structure that contains the latest image, and a history of 
+video clips.  You could use the "files" integration and this snipet in your "configuration.yaml" file:
+
+```yaml
+sensor:
+  - platform: files
+    folder: /config/www/simplisafe/back_yard/clips
+    name: back_yard_media
+```
+
