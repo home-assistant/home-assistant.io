@@ -51,7 +51,7 @@ There are three generations of devices and all generations are supported by this
 
 Generation 1 devices use the `CoIoT` protocol to communicate with the integration. `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** > **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
 
-We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. **This is mandatory for battery operated devices**. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
+We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. **This is mandatory for sleeping devices** (usually battery operated). After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
 
 Home Assistant will display a repair issue for the Shelly device if push updates from this device do not reach the Home Assistant server.
 
@@ -66,7 +66,7 @@ The list below will help you diagnose and fix the problem:
 
 ## Shelly device configuration (generation 2 and 3)
 
-Generation 2 and 3 devices use the `RPC` protocol to communicate with the integration. **Battery powered devices** need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
+Generation 2 and 3 devices use the `RPC` protocol to communicate with the integration. **Sleeping devices** (usually battery operated) need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
 
 `ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 In case your installation is set up to use SSL encryption (HTTP**S** with certificate), an additional `s` needs to be added to the WebSocket protocol, too, so that it reads `wss://` (for example: `wss://192.168.1.100:8123/api/shelly/ws`).
