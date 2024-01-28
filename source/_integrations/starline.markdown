@@ -43,6 +43,7 @@ Create a new application in the [StarLine developer profile](https://my.starline
 
 <div class='note'>
 
+The integration makes API calls to StarLine servers to retrieve data. It gets only the latest set of values that are valid for the moment of the API call. It means that integration does not retrieve or store values, StarLine events or parameters between the API calls.
 You can make up to 1000 API calls per day, which means you could make one approximately every 86 seconds.
 By default, the state of integration will be updated every 3 minutes and OBD information will be updated every 3 hours, making 488 calls per day.
 It is not recommended to set an update interval of less than 90 seconds.
