@@ -1010,7 +1010,7 @@ Pause and Restart Timer entities in Home Assistant.
 - _"Alexa, restart the microwave."_
 
 <div class="note">
-To avoid issues with Alexa built in timer functionality. The timer entity can not include the word "timer" in the friendly name.
+To avoid issues with Alexa's built-in timer functionality, the timer entity should not include the word "timer" in its friendly name.
 </div>
 
 ### Vacuum
