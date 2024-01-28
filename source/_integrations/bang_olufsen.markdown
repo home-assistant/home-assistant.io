@@ -4,7 +4,7 @@ description: Instructions on how to integrate Bang & Olufsen devices into Home A
 ha_category:
   - Media Player
   - Multimedia
-ha_release: 2023.2
+ha_release: 2024.2
 ha_iot_class: Local Push
 ha_domain: bang_olufsen
 ha_platforms:
@@ -16,7 +16,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The `bang_olufsen` integration enables control of some of the features of certain [Bang & Olufsen](https://www.bang-olufsen.com/) devices through Home Assistant.
+The Bang & Olufsen integration enables control of some of the features of certain [Bang & Olufsen](https://www.bang-olufsen.com/) devices through Home Assistant.
 
 ## Compatible devices
 
@@ -156,6 +156,6 @@ WebSocket notifications received from the device are fired as events in Home Ass
 
 ### Getting Deezer URIs
 
-In order to find Deezer playlist, album URIs and user IDs for Deezer flows, the Deezer website has to be accessed. When navigating to an album, the URL will look something like: <https://www.deezer.com/en/album/ALBUM_ID>, and this simply needs to be converted to: `album:ALBUM_ID` and the same applies to playlist, which have the format: `playlist:PLAYLIST_ID`.
+To find Deezer playlist, album URIs, and user IDs for Deezer flows, the Deezer website has to be accessed. When navigating to an album, the URL will look something like: <https://www.deezer.com/en/album/ALBUM_ID>, and this needs to be converted to: `album:ALBUM_ID` and the same applies to playlists, which have the format: `playlist:PLAYLIST_ID`.
 
 Additionally a Deezer user ID can be found at <https://www.deezer.com/en/profile/USER_ID> by selecting the active user in a web browser.
