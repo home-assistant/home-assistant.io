@@ -240,6 +240,7 @@ The following models have been tested and confirmed to work:
 - [RLC-810A](https://reolink.com/product/rlc-810a/)
 - [RLC-810WA](https://reolink.com/product/rlc-810wa/)
 - [RLC-811A](https://reolink.com/product/rlc-811a/)
+- [RLC-81MA](https://reolink.com/product/rlc-81ma/)
 - [RLC-81PA](https://reolink.com/product/rlc-81pa/)
 - [RLC-820A](https://reolink.com/product/rlc-820a/)
 - [RLC-822A](https://reolink.com/product/rlc-822a/)
