@@ -16,8 +16,13 @@ CarPlay support now gives Home Assistant users easy access to their devices and 
 
 <lite-youtube videoid="u__oD7OhdJI" videotitle="Carplay is here!"></lite-youtube>
 
-Big thanks to DXspark for helping us make the foundation of CarPlay and kicking off the project.
-![DXspark](/images/blog/2024-01-ios-carplay/dxspark.png)
+<table>
+<tr>
+<th style="font-weight: 400">Big thanks to DXspark for helping us make the foundation of CarPlay and kicking off the project.</th>
+<th><img src="/images/blog/2024-01-ios-carplay/dxspark.png" alt="drawing" style="width: 300px;" alt="DXspark"/>
+</th>
+</tr>
+</table>
 
 <!--more-->
 
