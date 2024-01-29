@@ -36,7 +36,7 @@ This integration will offer various sensors depending on the configuration of yo
 - Historical energy production & consumption
 - Power production per-inverter
 
-Production and consumption sensors for each phase are available for Envoy-metered with installed and configured current transformers (CT) on more than 1 phase.
+Production and consumption sensors for each phase are available for Envoy S Metered with installed and configured current transformers (CT) on more than 1 phase.
 
 _Consumption sensors require your Envoy to be properly configured with consumption CT sensors installed._
 
