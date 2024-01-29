@@ -38,7 +38,7 @@ Use your ViCare app login credentials for *username* and *password*.
 
 The required *client ID* can be obtained from the [Viessmann Developer Portal](https://app.developer.viessmann.com/):
 1. Log in with **your existing ViCare app username and password**.
-2. On the developer dashboard, click **Add** in the **Clients** section.
+2. On the developer dashboard, select **Add** in the **Clients** section.
 3. Create a new client using the following data:
    - Name: `HomeAssistant`
    - Google reCAPTCHA: Disabled
