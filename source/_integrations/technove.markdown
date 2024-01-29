@@ -25,7 +25,6 @@ The {% term integration %} adds the following sensors:
 
 - Input voltage
 - Output voltage
-- Max current
 - Max station current
 - Current
 - Total energy usage
