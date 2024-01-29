@@ -19,6 +19,7 @@ The Opower integration allows you to get energy information from utilities that 
 
 More than 175 utilities use Opower. Currently only the following utilities are supported by this integration:
 
+- City of Austin Utilities
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)
 - Enmax Energy
