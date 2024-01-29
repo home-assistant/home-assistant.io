@@ -16,7 +16,7 @@ ha_integration_type: service
 
 [Electric Kiwi](https://www.electrickiwi.co.nz/) is an independent power and broadband company in New Zealand, offering variable rates for peak, shoulder, and off-peak pricing with a selectable hour of free power. 
 
-This integration uses the official [Electric Kiwi API](https://developer.electrickiwi.co.nz) to provide account information, including balances and savings, show and select your hour of free power.
+This integration uses the official [Electric Kiwi API](https://developer.electrickiwi.co.nz) to provide account information, including balances and savings, and to show and select your hour of free power.
 
 {% include integrations/config_flow.md %}
 
