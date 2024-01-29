@@ -171,6 +171,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+platform:
+  description: Must be `sensor`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 suggested_display_precision:
   description: The number of decimals which should be used in the sensor's state after rounding.
   required: false

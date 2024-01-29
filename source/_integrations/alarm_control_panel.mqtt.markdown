@@ -231,6 +231,10 @@ payload_trigger:
   required: false
   type: string
   default: TRIGGER
+platform:
+  description: Must be `alarm_control_panel`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
