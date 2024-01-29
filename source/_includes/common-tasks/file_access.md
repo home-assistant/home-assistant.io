@@ -55,7 +55,7 @@ There is no configuration required for editing files within your `/config` direc
 
 ### Installing and using the File Editor add-on
 
-The File Editor add-on is a web-based filesystem browser and text editor. It is a more basic and light weight alternative to Visual Studio Code. YAML files are automatically checked for syntax errors while editing. To install and use the File Editor in Home Assistant, follow these steps:
+The File Editor add-on is a web-based file system browser and text editor. It is a more basic and light weight alternative to Visual Studio Code. YAML files are automatically checked for syntax errors while editing. To install and use the File Editor in Home Assistant, follow these steps:
 
 1. To install the add-on, go to {% my supervisor_addon title="**Settings** > **Add-ons** > **File editor**" addon="core_configurator" %}.
    - Once you have the add-on installed, you can edit files within your `/config` directory.
