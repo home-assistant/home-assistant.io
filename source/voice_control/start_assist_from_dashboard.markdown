@@ -6,7 +6,7 @@ If you are using Home Assistant in kiosk mode, for example if you have a tablet 
 
 ## Prerequisites
 
-- You have an [local assistant](/voice_control/voice_remote_local_assistant/) or [Cloud assistant](/voice_control/voice_remote_cloud_assistant/) set up.
+- You have a [local assistant](/voice_control/voice_remote_local_assistant/) or a [Cloud assistant](/voice_control/voice_remote_cloud_assistant/) set up.
 - You have the devices you want to control via Assist [exposed to Assist](/voice_control/voice_remote_expose_devices/).
 
 ## To add an Assist button to the dashboard
