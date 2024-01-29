@@ -22,9 +22,9 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
   - update
   - vacuum
-  - time
 ha_integration_type: hub
 ---
 

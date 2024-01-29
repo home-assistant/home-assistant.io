@@ -3,7 +3,7 @@ title: "Using automation blueprints"
 description: "How to create automations based off blueprints."
 ---
 
-Automation blueprints are pre-made automations that you can easily add to your Home Assistant instance. Each blueprint can be added as many times as you want.
+Automation blueprints are pre-made {% term automations %} that you can easily add to your Home Assistant instance. Each blueprint can be added as many times as you want.
 
 Quick links:
 
@@ -11,7 +11,7 @@ Quick links:
 
 ## Blueprint automations
 
-Automations based on a blueprint need to be configured. What needs to be configured differs on each blueprint.
+Automations based on a blueprint need to be configured. What needs to be configured differs by blueprint.
 
 1. To create your first automation based on a blueprint, go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
 2. Find the blueprint that you want to use and select **Create Automation**.
@@ -41,12 +41,24 @@ Home Assistant can import blueprints from the Home Assistant forums, GitHub, and
 
 The blueprint can now be used for creating automations.
 
-## Keeping blueprints up to date
+## Re-importing a blueprint
 
 Blueprints created by the community may go through multiple revisions. Sometimes a user creates a blueprint,
 the community provides feedback, and new functionality is added.
 
-While there's no built-in functionality to update a blueprint you've already imported, you can manually edit
+The quickest way to get these changes is by re-importing the blueprint. This will overwrite the blueprint you currently have.
+
+1. **Before you do this**: If the re-imported blueprint is not compatible, it can break your automations.
+   - In this case, you will need to manually adjust your automations.
+2. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
+3. On the blueprint that you want to re-import, select the three-dot menu, and select **Re-import blueprint**.
+
+## Updating an imported blueprint manually
+
+Blueprints created by the community may go through multiple revisions. Sometimes a user creates a blueprint,
+the community provides feedback, and new functionality is added.
+
+If you do not want to [re-import the blueprint](/docs/automation/using_blueprints/#re-importing-a-blueprint) for some reason, you can manually edit
 its YAML content to keep it up to date:
 
 1. Navigate to the blueprints directory (`blueprints/automation/`).

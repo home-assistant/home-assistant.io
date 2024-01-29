@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: loqed
 ha_platforms:
   - lock
+  - sensor
 ha_config_flow: true
 ha_integration_type: integration
 ha_zeroconf: true

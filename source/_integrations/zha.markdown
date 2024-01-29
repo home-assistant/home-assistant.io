@@ -3,7 +3,7 @@ title: Zigbee Home Automation
 description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
@@ -24,6 +24,7 @@ ha_codeowners:
   - '@dmulcahey'
   - '@adminiuga'
   - '@puddly'
+  - '@TheJulianJES'
 ha_domain: zha
 ha_platforms:
   - alarm_control_panel
@@ -45,14 +46,14 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://csa-iot.org/) directly to Home Assistant, using one of the many available Zigbee coordinators.
+The ZHA (Zigbee Home Automation) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of the many available Zigbee coordinators.
 
 ZHA uses an open-source Python library implementing a hardware-independent Zigbee stack called [zigpy](https://github.com/zigpy/zigpy). All coordinators compatible with zigpy can be used with ZHA.
 
-There is currently support for the following device types within Home Assistant:
+This {% term integration %} currently supports the following device types within Home Assistant:
 
-- [Alarm Control Panel](/integrations/alarm_control_panel/)
-- [Binary Sensor](/integrations/binary_sensor/)
+- [Alarm control panel](/integrations/alarm_control_panel/)
+- [Binary sensor](/integrations/binary_sensor/)
 - [Button](/integrations/button/)
 - [Climate](/integrations/climate/) (beta)
 - [Cover](/integrations/cover/)
@@ -65,23 +66,23 @@ There is currently support for the following device types within Home Assistant:
 - [Siren](/integrations/siren/)
 - [Switch](/integrations/switch/)
 
-There is also support for Zigbee grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a Zigbee group in the ZHA integration before the group entity is created. As well as support for [binding and unbinding (i.e. bind a remote to a lightbulb or group)](#binding-and-unbinding).
+In addition, it has support for "Zigbee groups" that enable native on-device grouping of multiple Zigbee lights, switches, and fans that enable controlling all entities for those devices in those groups with one command. At least two entities must be added to a Zigbee group inside the ZHA {% term integration %} before a group entity is created. There is also support for native on-device Zigbee [binding and unbinding (i.e. bind a remote to a lightbulb or group)](#binding-and-unbinding).
 
 ## Introduction
 
-ZHA integration is a Zigbee gateway implementation that follows the standard Zigbee 3.0 specification (and earlier revisions). In Zigbee, there are three different device types: Zigbee Coordinator (ZC), Zigbee Router (ZR), and Zigbee End Device (ZED). A Zigbee network always has one (and no more) Zigbee Coordinator, however, a Zigbee network can have multiple Zigbee Routers and multiple Zigbee End Devices.
+ZHA {% term integration %} is a Zigbee gateway implementation that follows the standard Zigbee 3.0 specification (and earlier revisions). In Zigbee, there are three different device types: Zigbee Coordinator (ZC), Zigbee Router (ZR), and Zigbee End Device (ZED). A Zigbee network always has one (and no more) Zigbee Coordinator, however, a Zigbee network can have multiple Zigbee Routers and multiple Zigbee End Devices.
 
 A Zigbee Coordinator is the central device in a Zigbee network that manages and controls the network. It acts as a physical interface for the Zigbee wireless protocol, as well as being responsible for maintaining the Zigbee network topology and ensuring secure and efficient communication between Zigbee devices. Zigbee Router devices are mains-powered and will act as Zigbee signal repeaters within the Zigbee network mesh to extend its range and improve coverage, while Zigbee End Device devices are usually battery-operated sensors that will not act as Zigbee signal repeaters.
 
-In the case of ZHA, the Zigbee Coordinator is a radio adapter or hardware module, that contains a microcontroller that runs the Zigbee protocol stack which the ZHA integration uses to manage and communicate with a Zigbee network and its devices.
+In the case of ZHA, the Zigbee Coordinator is a radio adapter or hardware module, that contains a microcontroller that runs the Zigbee protocol stack which the ZHA {% term integration %} uses to manage and communicate with a Zigbee network and its devices.
 
-Before installing the ZHA integration, you will need to buy and connect a Zigbee Coordinator radio adapter or hardware module, those usually come in the form of a USB dongle that plugs directly into the computer that is running the Home Assistant installation. The ZHA integration can work with many different "Zigbee Coordinator" adapters, however, be sure to read the respective sections below about compatible Zigbee radio adapters and hardware modules.
+Before installing the ZHA {% term integration %}, you will need to buy and connect a Zigbee Coordinator radio adapter or hardware module, those usually come in the form of a USB dongle that plugs directly into the computer that is running the Home Assistant installation. The ZHA {% term integration %} can work with many different "Zigbee Coordinator" adapters, however, be sure to read the respective sections below about compatible Zigbee radio adapters and hardware modules.
 
 Once ZHA has been set up and the Zigbee Coordinator radio adapter or module is configured, you will be able to directly join/pair any Zigbee device to the Zigbee network; regardless of the manufacturer and brand of that Zigbee-based product. Note, that while it is generally recommended to buy Zigbee 3.0 compliant devices as those should, in theory, offer greater interoperability, be sure of the sections about which devices are supported and exception handling.
 
 ## Compatible hardware
 
-ZHA integration uses a hardware independent Zigbee stack implementation with modular design, which means that it can support any one of the many Zigbee coordinator radio modules/adapters available from different manufacturers, as long as that module/adapter is compatible with [zigpy](https://github.com/zigpy/zigpy).
+ZHA {% term integration %} uses a hardware independent Zigbee stack implementation with modular design, which means that it can support any one of the many Zigbee coordinator radio modules/adapters available from different manufacturers, as long as that module/adapter is compatible with [zigpy](https://github.com/zigpy/zigpy).
 
 Note! Zigbee 3.0 support or not in zigpy, depends primarily on your Zigbee coordinator hardware and its firmware. Some Zigbee coordinator hardware supports Zigbee 3.0 but might be shipped with an older firmware which does not. In such a case you may want to upgrade the firmware manually yourself.
 
@@ -92,7 +93,8 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 ### Recommended Zigbee radio adapters and modules
 
 - Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
-  - [Home Assistant SkyConnect](/skyconnect/)
+  - [Home Assistant SkyConnect](/skyconnect/) (EFR32MG21-based USB dongle)
+  - [Home Assistant Yellow](/yellow/) with integrated EFR32MG21 radio
   - [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)
   - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs-usb-adapter.html)/POPP ZB-Stick (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
   - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs-zigbee-shield.html) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
@@ -108,7 +110,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 - Silicon Labs EmberZNet based radios using legacy hardware using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
   - [ITead Sonoff ZBBridge](https://itead.cc/product/sonoff-zbbridge/) (Note! [WiFi-based bridges are not recommended for ZHA with EZSP radios](https://github.com/home-assistant/home-assistant.io/issues/17170). Also, this first has to be flashed with [Tasmota firmware and Silabs EmberZNet NCP EZSP UART Host firmware to use as Serial-to-IP adapter](https://www.digiblur.com/2020/07/how-to-use-sonoff-zigbee-bridge-with.html))
   - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee Ember 3581 USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/walthowd/husbzb-firmware))
-  - [Bitron Video/Smabit BV AV2010/10 USB-Stick](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/) with Silicon Labs Ember 3587
+  - [Bitron Video/Smabit BV AV2010/10 USB-Stick](https://manuals.smabit.eu/len/av2010_10.html) with Silicon Labs Ember 3587
   - Telegesis ETRX357USB/ETRX357USB-LR/ETRX357USB-LRS+8M (Note! These first have to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware))
 - Texas Instruments based radios using legacy hardware (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
   - [CC2538 USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters) (no longer recommended as only got deprecated old end-of-life firmware)
@@ -126,6 +128,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - [PiZiGate (ZiGate Raspberry Pi module)](https://zigate.fr/produit/pizigatev2/)
   - [ZiGate-Ethernet (Ethernet gateway board for PiZiGate)](https://zigate.fr/produit/zigate-ethernet/)
   - [ZiGate + WiFi Pack](https://zigate.fr/produit/zigatev2-pack-wifi/)
+
 #### Warning about Wi-Fi-based Zigbee-to-Serial bridges/gateways
 
 <div class="note warning">
@@ -141,7 +144,7 @@ Connect your radio module and restart Home Assistant.
 
 From the Home Assistant front page go to **Configuration** and then select **Integrations** from the list.
 
-Use the plus button in the bottom right to add a new integration called **ZHA**.
+Use the plus button in the bottom right to add a new {% term integration %} called **ZHA**.
 
 In the popup:
 
@@ -149,7 +152,7 @@ In the popup:
 radio is connected
 - Submit
 
-Press `Submit` and the integration will try to detect radio type automatically. If unsuccessful, you will get
+Press `Submit` and the {% term integration %} will try to detect radio type automatically. If unsuccessful, you will get
 a new pop-up asking for a radio type. In the pop-up:
 
 - Radio Type
@@ -178,7 +181,7 @@ A list of available device paths can be found in {% my hardware title="Settings 
 
 Press `Submit`. The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
-### ZiGate or Sonoff ZBBridge Devices
+### ZiGate or Sonoff ZBBridge devices
 
 If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path configuration:
 
@@ -195,14 +198,16 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------ |
 | [ITead SONOFF Zigbee 3.0 USB Dongle Plus V2 Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)        | USB              | 1A86:55D4                      |
 | [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-P" (CC2652P variant)](https://itead.cc/product/sonoff-zigbee-3-0-usb-dongle-plus/) | USB              | 10C4:EA60                      |
-| [Bitron Video/SMaBiT BV AV2010/10](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/)                                        | USB              | 10C4:8B34                      |
+| [Bitron Video/SMaBiT BV AV2010/10](https://manuals.smabit.eu/len/av2010_10.html)                                                            | USB              | 10C4:8B34                      |
 | [ConBee II](https://phoscon.de/conbee2)                                                                                                     | USB              | 1CF1:0030                      |
+| [ConBee III](https://phoscon.de/conbee3)                                                                                                    | USB              | 0403:6015                      |
 | [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)                                         | USB              | 10C4:8A2A                      |
 | [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/)                                                                      | USB              | 10C4:EA60                      |
 | [ZigStar Stick (CC2652 + CH340B variant)](https://zig-star.com/projects/zigbee-stick-v4/)                                                   | USB              | 1A86:7523                      |
 | [Tube’s EFR32 Pro Ethernet/Serial Coordinator](https://www.tubeszb.com/)                                                                    | USB              | 10C4:EA60                      |
 | [ZigStar Coordinators](https://zig-star.com/)                                                                                               | USB              | 1A86:7523                      |
 | [SMLIGHT SLZB-06 POE Zigbee LAN WiFi USB Adapter](https://smlight.tech/product/slzb-06/)                                                    | Zeroconf         | slzb-06.local.                 |
+| [ZigStar UZG Universal Zigbee Gateway (UZG-01)](https://uzg.zig-star.com)                                                                   | Zeroconf         | uzg-01._tcp.local.             |
 | [ZigStar LAN/POE Coordinators](https://zig-star.com/projects/zigbee-gw-lan/)                                                                | Zeroconf         | zigstargw.local.               |
 | [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                              | Zeroconf         | tube_zb_gw_cc2652p2.local.     |
 | [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                              | Zeroconf         | tube_zb_gw_cc2652p2_poe.local. |
@@ -232,11 +237,11 @@ custom_quirks_path:
 
 ### OTA firmware updates
 
-The ZHA integration has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
+The ZHA {% term integration %} has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
 
 Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE/OSRAM, SALUS/Computime, and INOVELLI devices. Support for OTA updates from other manufacturers could be supported in the future if they publish their firmware images publicly.
 
-To enable OTA firmware updates for the ZHA integration you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
+To enable OTA firmware updates for the ZHA {% term integration %} you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
 
 ```yaml
 zha:
@@ -316,10 +321,10 @@ To add new devices to the network, call the `permit` service on the `zha` domain
 
 This service opens network for joining new devices.
 
-| Data       | Optional | Description                                            |
-| ---------- | -------- | ------------------------------------------------------ |
-| `duration` | yes      | For how long to allow new devices to join, default 60s |
-| `ieee`     | yes      | allow new devices to join via an existing device       |
+| Data       | Optional | Description                                                                    |
+| ---------- | -------- | ------------------------------------------------------------------------------ |
+| `duration` | yes      | For how long to allow new devices to join, default 60s                         |
+| `ieee`     | yes      | The IEEE address of an existing device via which the new device is to be added |
 
 To join a new device using an install code (ZB3 devices) use the following data attributes (must use parameters only
 from the same group:
@@ -334,6 +339,7 @@ from the same group:
   Currently `qr_code` supports QR Install Codes from:
 
   - Aqara
+  - Bosch
   - Consciot
   - Embrighten
 
@@ -387,7 +393,7 @@ Tip! It is highly recommended that you read through the two segments under the t
 **To add a new Zigbee device:**
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-2. Select the **Zigbee Home Automation** integration. Then, select **Configure**.
+2. Select the **Zigbee Home Automation** {% term integration %}. Then, select **Configure**.
 3. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
 4. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
 5. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
@@ -400,7 +406,7 @@ Because Zigbee should use a [wireless mesh network](https://en.wikipedia.org/wik
 
 All Zigbee coordinator firmware will only allow you to directly connect a certain amount of devices. That limit is set for two reasons; firstly, to not overload the Zigbee coordinator, and secondly, to encourage your Zigbee network to quickly begin to utilize a "[mesh networking](https://en.wikipedia.org/wiki/Mesh_networking)" topology instead of only a "[star network](https://en.wikipedia.org/wiki/Star_network)" topology.
 
-The total number of Zigbee devices that you can have on a Zigbee network depends on a few things. The Zigbee coordinator hardware and its firmware only play a larger role in Zigbee networks with a lot of devices. More important is the number of directly connected devices ("direct children") versus the number of routers that are connected to your Zigbee coordinator. The Zigpy library, which the ZHA integration depends on, has an upper limit that is 32 direct children, but you can still have hundreds of Zigbee devices in total connected indirectly through routes via Zigbee router devices.
+The total number of Zigbee devices that you can have on a Zigbee network depends on a few things. The Zigbee coordinator hardware and its firmware only play a larger role in Zigbee networks with a lot of devices. More important is the number of directly connected devices ("direct children") versus the number of routers that are connected to your Zigbee coordinator. The Zigpy library, which the ZHA {% term integration %} depends on, has an upper limit that is 32 direct children, but you can still have hundreds of Zigbee devices in total connected indirectly through routes via Zigbee router devices.
 
 In this theoretical example, a CC2652-based Zigbee coordinator has three CC2530 Zigbee router devices for a total limit of 77 devices:
 
@@ -425,7 +431,7 @@ Binding a remote directly to a bulb or group has the benefit of faster response 
 
 ## Zigbee backup and restore in ZHA
 
-Zigbee Home Automation (ZHA) integration now features Zigbee network backup, restore/recovery, and migrating between Zigbee coordinators. Backups are taken automatically however, a single backup to a file for easy download can also be manually created from the configuration page under Network Settings.
+Zigbee Home Automation (ZHA) {% term integration %} now features Zigbee network backup, restore/recovery, and migrating between Zigbee coordinators. Backups are taken automatically however, a single backup to a file for easy download can also be manually created from the configuration page under Network Settings.
 
 After restoring a Home Assistant backup, you can re-configure ZHA and migrate to a new Zigbee Coordinator adapter without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio adapter type and model comes out that you may want to migrate to.
 
@@ -437,13 +443,13 @@ Follow this guide if you have a Zigbee Home Assistant (ZHA) network running and 
 
 ### Prerequisites
 
-- Your old Zigbee Coordinator radio adapter is used in the ZHA integration (not in deCONZ or MQTT).
+- Your old Zigbee Coordinator radio adapter is used in the ZHA {% term integration %} (not in deCONZ or MQTT).
 - It is of radio type ezsp (Silicon Labs EmberZnet), znp (Texas Instruments Z-Stack ZNP), or deCONZ (ConBee/RaspBee from dresden elektronik).
   - If your old Zigbee coordinator is a deCONZ (ConBee/RaspBee) radio adapter, make sure it is running [firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later.
 
 ### To migrate to a new Zigbee coordinator radio inside ZHA
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}** and select the ZHA integration. Then select **Configure**.
+1. Go to **{% my integrations title="Settings > Devices & Services" %}** and select the ZHA {% term integration %}. Then select **Configure**.
 2. Under **Network settings**, select **Migrate radio**.
 3. Reconfiguration of ZHA will start. Select **Submit**.
 4. Under **Migrate or re-configure**, select **Migrate to a new radio**.
@@ -485,24 +491,23 @@ ZHA does not currently support devices that can only use the ZSE ("Zigbee Smart 
 
 ### Knowing which devices are supported
 
-Home Assistant's ZHA integration supports all standard Zigbee device types. It should be compatible with most Zigbee devices as long as they fully conform to the official ZCL (Zigbee Cluster Library) specifications defined by the [CSA (Connectivity Standards Alliance, formerly the Zigbee Alliance)](https://csa-iot.org/all-solutions/zigbee/). There is therefore no official compatibility list of devices that will work out-of-the-box with the ZHA integration.
+Home Assistant's ZHA {% term integration %} supports all standard Zigbee device types. It should be compatible with most Zigbee devices as long as they fully conform to the official ZCL (Zigbee Cluster Library) specifications defined by the [CSA (Connectivity Standards Alliance, formerly the Zigbee Alliance)](https://csa-iot.org/all-solutions/zigbee/). There is therefore no official compatibility list of devices that will work out-of-the-box with the ZHA {% term integration %}
+Not all hardware manufacturers always fully comply with the standard specifications. Sometimes, they may also implement unique features. For this reason, some Zigbee devices pair/join fine with ZHA but then only show none or only a few entities in the {% term integration %}. Developers can work around most such interoperability issues by adding conversion/translation code in custom device handlers. For more information, refer to the section below on _How to add support for new and unsupported devices_.
 
-Not all hardware manufacturers always fully comply with the standard specifications. Sometimes, they may also implement unique features. For this reason, some Zigbee devices pair/join fine with ZHA but then only show none or only a few entities in the integration. Developers can work around most such interoperability issues by adding conversion/translation code in custom device handlers. For more information, refer to the section below on _How to add support for new and unsupported devices_.
-
-For clarification, normally only devices that do not fully conform to CSA's ZCL specifications that will not present all standard attributes as entities for configuration in the ZHA integration. Zigbee devices that only use the standard clusters and attributes that are Zigbee specifications set by the Connectivity Standards Alliance should not need custom device handlers.
+For clarification, normally only devices that do not fully conform to CSA's ZCL specifications that will not present all standard attributes as entities for configuration in the ZHA {% term integration %}. Zigbee devices that only use the standard clusters and attributes that are Zigbee specifications set by the Connectivity Standards Alliance should not need custom device handlers.
 
 Before continuing with this section: If a device does not join/pair at all, read the troubleshooting sections about how to avoid pairing/connection difficulties, interference avoidance, and network range/coverage optimization.
 
 Tip to new Zigbee users: Checkout [blakadder's unofficial Zigbee Device Compatibility Repository](https://zigbee.blakadder.com). Anyone can help maintain the site by submitting device compatibility information to it. The repository contains independent community member's reports or device-specific pairing tips for several home automation gateway/bridge/hub software, including open-source Zigbee implementations, such as ZHA, Zigbee2MQTT, and Tasmota (Zigbee2Tasmota).
 
-#### How to add support for new and unsupported devices
+### How to add support for new and unsupported devices
 
-If your Zigbee device pairs/joins successfully with the ZHA integration but does not show all of the expected entities: 
+If your Zigbee device pairs/joins successfully with the ZHA {% term integration %} but does not show all of the expected entities: 
 1. Try to re-pair/re-join the device several times.
 2. Checkout the troubleshooting section.
 3. Still not working? You may need a custom device handler. This handler will have exception handling code to work around device-specific issues.
 
-For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Cluster Library), the ZHA integration relies on a project called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)". It contains device-specific Python scripts called "quirks". These scripts can resolve compliance and interoperability issues by implementing on-the-fly conversion of custom Zigbee configurations or by implementing manufacturer-specific features for specific devices.
+For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Cluster Library), the ZHA {% term integration %} relies on a project called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)". It contains device-specific Python scripts called "quirks". These scripts can resolve compliance and interoperability issues by implementing on-the-fly conversion of custom Zigbee configurations or by implementing manufacturer-specific features for specific devices.
 
 People familiar with other Zigbee gateway solutions for home automation may know similar concepts of using custom Zigbee device handlers/converters for non-standard devices. For example, [Zigbee2MQTT (and IoBroker) uses zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html) and [SmartThings Classics (Legacy) platform has Hub Connected Device Handlers](https://developer.smartthings.com/docs/devices/hub-connected/legacy).
 
@@ -581,6 +586,29 @@ Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to al
   - Place your Zigbee Coordinator away from any Wi-Fi access points and all other sources of WiFi.
   - Wi-Fi frequency ranges can overlap with Zigbee, see the section above on defining Zigbee channel use.
 
+### Zigbee network visualization in ZHA UI
+
+The ZHA configuration UI has a tab to visualize device links in your Zigbee network topology.
+
+The network visualization can help to identify devices with poor connection (that is, low values on the link). You will need to look at the ZHA logs to find more detailed information required for troubleshooting.
+
+The visualization shows multi-hop connections between your paired devices and their reported cumulative values of Received Signal Strength Indicator (RSSI) and Link Quality Indication (LQI).
+
+The exact method in which these values are reported depends on the Zigbee network stack used on each device. LQI values can be modified at each step as the message propagates through the mesh networking matrix.
+
+#### How to interpret RSSI and LQI values
+
+Interpreting RSSI and LQI values is complex. Unless you are a Zigbee specialist yourself or are guided by one, please ignore those values. They can be misleading. If you delve into this, it is important to understand not to judge RSSI or LQI values on their own. When troubleshooting Zigbee messages that are being dropped, you must interpret the combination of both RSSI and LQI.
+
+RSSI (Received Signal Strength Indicator) values are an indicator value of the raw signal strength between two devices. RSSI values are negative numbers in -dBm format (0 to -100 power ratio in decibels of the measured power referenced to one milliwatt). Lower negative values indicate less interference and a good signal. RSSI information is only between the endpoint device and the first hop from that device. As such, it may not necessarily show signal strength to the Zigbee Coordinator but instead could be showing signal strength to the nearest Zigbee Router device.
+
+- Generally, anything -60 and above (meaning -50, -40, etc.) in RSSI should be considered a strong signal (not losing messages).
+- Anything at -80 and below (meaning -85, -90, etc.) should be considered a noise environment and you risk losing messages.
+
+LQI (Link Quality Index) values can be hard to interpret for Zigbee. This is because the Zigbee specifications and the (IEEE 802.15.4 specification) do not standardize how to perform LQI measurements. LQI values are shown as positive numbers on a scale. But because the value provided by the Zigbee devices is not measured using unified standards from all device manufacturers and Zigbee stacks, the values can not always be trusted. For example, Zigbee devices based on Silicon Labs EmberZNet stack use positive display numbers for LQI, where higher is better and lower is worse. The Texas Instruments Z-Stack computes LQI for each received packet from the raw “received signal strength index” (RSSI) by linearly scaling it between the minimum and maximum defined RF power levels for the radio that more or less just provides an LQI value that, based on the strength of the received signal.  This can be misleading in case the user has a noisy environment with interference within the same frequency range (as the RSSI value may be shown as increased even though the true link quality decreases). Other manufacturers and Zigbee stacks measure and calculate LQI values in another way.
+
+- In theory, an LQI value of 255 means a zero error rate in theory. In general, a positive high LQI value is better and a lower LQI value is worse. However, depending on your devices, that might not be the reality.
+
 ### Reporting issues
 
 When reporting issues, please provide the following information in addition to information requested by issue template:
@@ -592,7 +620,7 @@ When reporting issues, please provide the following information in addition to i
 
 ### Debug logging
 
-To enable debug logging for the ZHA integration and radio libraries, add the following [logger](/integrations/logger/) configuration to `configuration.yaml`:
+To enable debug logging for the ZHA {% term integration %} and radio libraries, add the following [logger](/integrations/logger/) configuration to `configuration.yaml`:
 
 ```yaml
 logger:
@@ -616,7 +644,9 @@ logger:
 
 Philips Hue bulbs/lights that have previously been paired/added to another bridge/gateway will not show up during search in ZHA to pair/add a Zigbee device. That is because you have to first manually restore your bulbs/lights back to their factory default settings first, and just removing them from your old bridge/gateway is not enough to do so. Instead to achieve a proper device factory reset you can use one of these methods below.
 
-Using a Philips Hue Dimmer Switch or Lutron Connected Bulb Remote is probably the easiest way to factory-reset your bulbs. For this to work, the remote does not have to be paired with your previous bridge. Also, make sure there are no other Hue bulbs nearby that have just been turned on when using this method as you otherwise risk resetting them too.
+You can use a Philips Hue Dimmer Switch or Lutron Connected Bulb Remote to factory-reset your bulbs. For this to work, the remote does not have to be paired with your previous bridge. Also, make sure there are no other Hue bulbs nearby that have just been turned on when using this method. Otherwise, you risk resetting them too.
+
+Newer Philips Hue bulbs you can reset via Bluetooth. The official Android app can connect to one of these bulbs even if it is already paired to a bridge. Then, you can reset the bulb in the app.
 
 #### Philips Hue Dimmer Switch
 

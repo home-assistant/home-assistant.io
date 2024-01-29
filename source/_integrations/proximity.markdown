@@ -3,15 +3,17 @@ title: Proximity
 description: Instructions on how to setup Proximity monitoring within Home Assistant.
 ha_category:
   - Automation
-  - Presence Detection
+  - Presence detection
 ha_release: 0.13
 ha_quality_scale: internal
 ha_domain: proximity
 ha_iot_class: Calculated
 ha_integration_type: integration
+ha_codeowners:
+  - '@mib1185'
 ---
 
-The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
+The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel.
 
 This integration is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The [zone](/docs/automation/trigger#zone-trigger) and [state](/docs/automation/trigger#state-trigger) based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.
 
@@ -20,23 +22,30 @@ Some examples of its use include:
 - Increase thermostat temperature as you near home
 - Decrease temperature the further away from home you travel
 
-The Proximity entity which is created has the following values:
+## Sensors
 
-- `state`: Distance from the monitored zone (in `unit_of_measurement`)
-- `dir_of_travel`: Direction of the closest device or person to the monitored zone. Values are:
-  - `not set`
-  - `arrived`
-  - `towards`
-  - `away_from`
-  - `unknown`
-  - `stationary`
-- `unit_of_measurement`: Measurement of distance. Values are:
-  - `km`
-  - `m`
-  - `mi`
-  - `yd`
-  - `ft`
-- `nearest`: The device or person which is nearest to the zone
+The following sensor entities will be created.
+
+### Distance
+
+For each tracked device or person, a sensor showing the distance from the monitored zone in a unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection is created.
+You can use the [Min/Max](/integrations/min_max) integration to determine the nearest and furthest distance.
+
+### Direction of travel
+
+For each tracked device or person, a sensor showing the direction of travel to or from the monitored zone is created. Possible states are:
+
+- `arrived`
+- `away_from`
+- `stationary`
+- `towards`
+- `unknown`
+
+### Nearest device
+
+A sensor showing the device or person which is nearest to the monitored zone is created.
+
+## Configuration
 
 To enable this integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -52,17 +61,21 @@ proximity:
     unit_of_measurement: mi
 ```
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how to set up geofencing in Home Assistant using the proximity integration.
 
 <lite-youtube videoid="pjAyRN5UiBg" videotitle="Geofencing in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
 
 {% configuration %}
-zone:
-  description: The zone to which this integration is measuring the distance to. Default is the home zone.
-  required: false
+friendly_name:
+  description: The name of the proximity entity.
+  required: true
   type: map
   keys:
+    zone:
+      description: The zone to which this integration is measuring the distance to. Default is the `home` zone.
+      required: false
+      type: string
     ignored_zones:
       description: Where proximity is not calculated for a device or person (either the device being monitored or ones being compared (e.g., work or school).
       required: false

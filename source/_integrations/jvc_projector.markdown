@@ -8,15 +8,17 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@SteveEasley'
+  - '@msavazzi'
 ha_domain: jvc_projector
 ha_platforms:
   - remote
+  - binary_sensor
 ha_integration_type: device
 ---
 
 The JVC Projector integration allows for the automation of [JVC Projectors](https://www.jvc.com/usa/projectors/).
 
-## Supported Models
+## Supported models
 
 This integration is intended for the automation of any modern JVC Projector with a LAN network port.
 
@@ -44,3 +46,20 @@ The JVC Projector remote platform will create a [Remote](/integrations/remote/) 
 - `lens_control`
 - `setting_memory`
 - `gamma_settings`
+- `hdmi_1`
+- `hdmi_2`
+- `mode_1`
+- `mode_2`
+- `mode_3`
+- `lens_ap`
+- `gamma`
+- `color_temp`
+- `natural`
+- `cinema`
+- `anamo`
+- `3d_format`
+
+### Binary sensor
+
+The status reported is:
+- **Power on** is **True** when the projector is either in status **on** or **warming**.

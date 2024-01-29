@@ -14,11 +14,11 @@ ha_integration_type: entity
 
 Keeps track on `number` entities in your environment, their state, and allows you to control them. This integration allows other integrations to get a value input from user within a range.
 
-Number entities cannot be implemented manually, but can be provided by other
-integrations. If you are looking for a way to create a number entity,
-please take a look at the [Number helper](/integrations/input_number).
+{% include integrations/building_block_integration.md %}
 
-## Device Class
+If you are looking for a way to create a number entity, please take a look at the [Number helper](/integrations/input_number).
+
+## Device class
 
 The type of data a number represents impacts how it is displayed in the frontend. This is controlled by the number's device class designation. Built-in numbers and many created from an integration will have this designation predefined. Those can be modified in the [customize section](/docs/configuration/customizing-devices/). When manually creating a new number the device class may be optionally assigned. A full list of available number device classes is below:
 

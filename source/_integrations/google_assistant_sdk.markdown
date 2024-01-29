@@ -13,6 +13,9 @@ ha_integration_type: service
 ha_platforms:
   - notify
 ha_quality_scale: platinum
+google_dev_console_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
+api: Google Assistant API
+api_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 ---
 
 The Google Assistant SDK integration allows Home Assistant to interact with Google Assistant. If you want to use Google Assistant (for example, from your phone or Google Home device) to interact with your Home Assistant managed devices, then you want the [Google Assistant](/integrations/google_assistant) integration.
@@ -42,33 +45,9 @@ This integration allows:
 ## Prerequisites
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
-These credentials are the same as the ones for [Nest](/integrations/nest) or [Google Sheets](/integrations/google_sheets).
-If you have already set up credentials, you can do step 1 and then skip to step 13 on the below instructions.
+These credentials are the same as the ones for [Nest](/integrations/nest) or [Google Sheets](/integrations/google_sheets), [YouTube](/integrations/youtube), and [Google Mail](/integrations/google_mail).
 
-{% details "Generate Client ID and Client Secret" %}
-
-This section explains how to generate a Client ID and Client Secret on
-[Google Developers Console](https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview).
-
-1. First go to the Google Developers Console to enable [Google Assistant API](https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview)
-2. Select an existing project or create a new one from the dropdown menu in the upper left corner.
-3. Click to enable this API.
-4. Click on the field on the left of the screen, **OAuth Consent Screen**.
-5. Select **External** and **Create**.
-6. Set the _App Name_ (the name of the application asking for consent) to anything you want e.g. _Home Assistant_.
-7. You then need to select a _Support email_. To do this, simply click the drop down box and select your email address.
-8. You finally need to complete the section: _Developer contact information_. To do this, simply enter your email address (same as above is fine).
-9. Scroll to the bottom and click **Save and Continue**. Don't have to fill out anything else or it may enable additional review.
-10. You will then be automatically taken to the Scopes page. You do not need to add any scopes here so click Save and Continue to move to the Optional info page. You do not need to add anything to the Optional info page so click Save and Continue which will take you to the Summary page. Click Back to Dashboard.
-11. Click **OAuth consent screen** again and set _Publish Status_ to **Production** otherwise your credentials will expire every 7 days.
-12. Make sure **Publishing status** is set to production.
-13. Click **Credentials** in the menu on the left hand side of the screen, then click **Create credentials** (at the top of the screen), then select _OAuth client ID_.
-14. Set the Application type to _Web application_ and give this credential set a name (like "Home Assistant Credentials").
-15. Add https://my.home-assistant.io/redirect/oauth to _Authorized redirect URIs_ then click **Create**.
-16. You will then be presented with a pop-up saying _OAuth client created_ showing _Your Client ID_ and _Your Client Secret_. Make a note of these (for example, copy and paste them into a text editor) as you will need these shortly. Once you have noted these strings, click **OK**. If you need to find these credentials again at any point then simply navigate to _APIs & Services > Credentials_ and you will see _Home Assistant Credentials_ (or whatever you named them in the previous step) under _OAuth 2.0 Client IDs_. To view both the _Client ID_ and _Client secret_, click on the pencil icon, this will take you to the settings page for these credentials and the information will be on the right hand side of the page.
-17. Double check that the _Google Assistant API_ has been automatically enabled. To do this, select **Library** from the menu, then search for _Google Assistant API_. If it is enabled you will see _API Enabled_ with a green tick next to it. If it is not enabled, then enable it.
-
-{% enddetails %}
+{% include integrations/google_client_secret.md %}
 
 {% include integrations/config_flow.md %}
 
@@ -107,6 +86,9 @@ The easiest way to check if the integration is working is to check [My Google Ac
 - If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity), the integration is working fine. If the commands don't have the expected outcome, don't open an issue in the Home Assistant Core project or the [underlying library](https://github.com/tronikos/gassist_text). You should instead report the issue directly to Google [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
   - Media playback commands (other than play news, play podcast, play white noise, or play rain sounds) don't work.
   - Routines don't work.
+  - Broadcast doesn't work with IPv6.
+  - Broadcast to specific rooms often doesn't work for non-English languages.
+  - Commands that need to verify your identity through voice match do not work.
 
 ## Configuration
 
@@ -139,7 +121,7 @@ data:
   media_player: media_player.living_room_speaker
 ```
 
-You can also send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
+You can send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
 
 ```yaml
 service: google_assistant_sdk.send_text_command
@@ -147,6 +129,28 @@ data:
   command:
     - "open the garage door"
     - "1234"
+```
+
+You can get responses. Example:
+
+```yaml
+service: google_assistant_sdk.send_text_command
+data:
+  command:
+    - "tell me a joke"
+    - "tell me another one"
+```
+
+returns:
+
+```yaml
+responses:
+  - text: |-
+      What do you call a belt made of watches?
+      A waist of time 👖 🕝
+  - text: |-
+      What's the most musical part of the turkey?
+      The drumsticks 🍗
 ```
 
 ### Service `notify.google_assistant_sdk`
@@ -180,6 +184,7 @@ data:
 ## Conversation agent
 
 You can add an assistant with the conversation agent set to "Google Assistant SDK".
+See setup your assistant section [here](/voice_control/voice_remote_local_assistant/).
 Then you can converse with Google Assistant by tapping the Assist icon at the top right of your dashboard:
 
 ![Screenshot Conversation](/images/integrations/google_assistant_sdk/conversation.png)
