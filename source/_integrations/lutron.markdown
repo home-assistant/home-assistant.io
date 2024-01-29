@@ -3,6 +3,7 @@ title: Lutron
 description: Instructions on how to use Lutron devices with Home Assistant.
 ha_category:
   - Cover
+  - Fan
   - Hub
   - Light
   - Scene
@@ -11,10 +12,12 @@ ha_release: 0.37
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@cdheiser'
+  - '@wilburCforce'
 ha_domain: lutron
 ha_platforms:
   - binary_sensor
   - cover
+  - fan
   - light
   - scene
   - switch
