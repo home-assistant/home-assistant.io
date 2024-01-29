@@ -2,7 +2,7 @@
 layout: post
 title: "Companion app for iOS 2024.1: CarPlay is here!"
 description: "Home Assistant arrives in CarPlay; open your garage with a simple tap!"
-date: 2024-01-25 00:00:02
+date: 2024-01-29 00:00:02
 date_formatted: "January 29, 2024"
 author: Bruno Pantaleão
 comments: true
