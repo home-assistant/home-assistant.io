@@ -53,6 +53,7 @@ The integration will create binary sensor entities for a variety of metrics that
 
 - Battery Heater
 - Battery Charing
+- Charge cable
 - Preconditioning Enabled
 - Scheduled Charging Enabled
 - Trip Charging Enabled
@@ -73,9 +74,13 @@ The integration will create binary sensor entities for a variety of metrics that
 - Tire Pressure Warning Front Right
 - Tire Pressure Warning Rear Left
 - Tire Pressure Warning Rear Right
+- Front driver door
 - Front driver window
+- Front passenger door
 - Front passenger window
+- Rear driver door
 - Rear driver window
+- Rear passenger door
 - Rear passenger window
 
 
