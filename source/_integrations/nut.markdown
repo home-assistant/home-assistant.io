@@ -22,6 +22,9 @@ The Network UPS Tools (NUT) integration allows you to monitor and manage a UPS (
 
 {% include integrations/config_flow.md %}
 
+## Connecting to Add-on instance
+If you are using [NUT add-on](https://github.com/hassio-addons/addon-nut) to run the server, you have to use the add-on specific hostname for the connection. It can be found on the add-on status page and looks like this: `a0d7b954-nut`.
+
 ## Example Resources
 
 Given the following example output from NUT (your variables may differ):
