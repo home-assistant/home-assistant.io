@@ -31,3 +31,50 @@ The integration will create a climate entity to control the vehicle's climate co
 - Turn on and off
 - Change the set temperature
 - Change to one of the four modes: Off, Keep mode, Dog mode, and Camp mode 
+
+### Sensor
+
+The integration will create sensor entities for a variety of metrics that relate to your vehicles, energy sites, and Wall Connectors:
+
+#### Energy sites
+- Solar power
+- Energy left
+- Total pack energy
+- Percentage charged
+- Battery power
+- Load power
+- Grid power
+- Grid services power
+- generator power
+
+#### Vehicles
+- Battery level
+- Battery range
+- Change energy added
+- Change power
+- Change rate
+- Charge voltage
+- Charger current
+- Destination
+- Distance to arrival
+- Driver temperature setting
+- Inside temperature
+- Odometer
+- Online
+- Outside temperature
+- Passenger temperature setting
+- Power
+- Speed
+- State of charge at arrival
+- Time to arrival
+- Time to full charge
+- Tire pressure front left
+- Tire pressure front right
+- Tire pressure rear left
+- Tire pressure rear right
+- Traffic delay
+
+#### Wall connectors
+- Power
+- State (disabled by default)
+- Fault state (disabled by default)
