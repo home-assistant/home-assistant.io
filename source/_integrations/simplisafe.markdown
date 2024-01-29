@@ -232,7 +232,7 @@ service: simplisafe.capture_motion_clip
 data:
   entity_id: camera.back_yard_camera_one
   filename: >-
-    /config/www/simplisafe/back_yard/clips/{{now().strftime('%Y%m%d%H%M%S')}}.mp4
+    /config/www/simplisafe/back_yard/clips/{{now()}}.mp4
 ```
 
 and
