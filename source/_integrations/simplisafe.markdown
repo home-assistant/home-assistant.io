@@ -227,13 +227,17 @@ and then walk in front of your camera.  `last_event_sensor_serial` will contain 
 
 Then for actions associated with that trigger, something like this:
 
+{% raw %}
+
 ```yaml
 service: simplisafe.capture_motion_clip
 data:
   entity_id: camera.back_yard_camera_one
   filename: >-
-    /config/www/simplisafe/back_yard/clips/{{now()}}.mp4
+    /config/www/simplisafe/back_yard/clips/{{now().strftime('%Y%m%d%H%M%S')}}.mp4
 ```
+
+{% endraw %}
 
 and
 
