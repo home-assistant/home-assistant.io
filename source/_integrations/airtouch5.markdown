@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The AirTouch 5 integration allows you to control Ducted Air Conditioning Systems that are using the [AirTouch 5](https://www.airtouch.net.au/smart-air-conditioning/airtouch-5/) Controller.
+The AirTouch 5 integration allows you to control ducted air conditioning systems that are using the [AirTouch 5](https://www.airtouch.net.au/smart-air-conditioning/airtouch-5/) controller.
 
 {% include integrations/config_flow.md %}
 
