@@ -299,7 +299,7 @@
     are normally automatically updated. However, changes made outside of the front
     end will not be reflected in Home Assistant and require a reload.
     To perform a manual reload, go to **Settings** > **System** >
-    **Restart Home Assistant** (top right) > **Quick reload**. More granular
+    **Restart Home Assistant** (top right) > **Quick reload**. If you do not see the **Quick reload** option in the menu, you need to enable **Advanced mode** in your user settings. More granular
     reload options are available in *YAML configuration reloading* section
     in **Developer tools** > **YAML**.
   excerpt: >
