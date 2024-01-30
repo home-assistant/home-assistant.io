@@ -26,7 +26,6 @@ If you want to test if a sentence works in a specific language without actually 
    - Which of the targeted entities were matched.
 ![Open the Assist developer tool sentence parser](/images/assist/assistant-debug-06.png)
 
-
 ## Test a sentence per assistant without voice: while executing the commands
 
 If you want to test if a sentence works with a specific assistant while actively executing the commands, use the sentence parser in the **Debug** view.
@@ -90,7 +89,7 @@ The example below shows common pitfalls when enquiring about the weather. While 
 
 ## Tweaking the Assist audio configuration for your device
 
-You think there is an issue with background background noise or speaker volume? In some cases, it can help to tweak settings such as noise suppression and gain of your voice assistant device (such as the S32-S3-BOX-3).
+You think there is an issue with background noise or speaker volume? In some cases, it can help to tweak settings such as noise suppression and gain of your voice assistant device (such as the S32-S3-BOX-3).
 
 ### To tweak the Assist audio configuration for your device
 
@@ -119,7 +118,7 @@ You think there is an issue with background background noise or speaker volume? 
 7. Save the changes and restart Home Assistant.
 8. Navigate to `/share/assist_pipeline`.
    - For each voice command you gave, you will find a subfolder with the audio file in `.wav` format.
-9.  Listen to the audio file of interest.
+9. Listen to the audio file of interest.
 10. Open the configuration file:
     - In the ESPHome add-on, on your device, select **Edit**.
     - This lets you edit the configuration file of that device.
