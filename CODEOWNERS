@@ -338,6 +338,7 @@ source/_integrations/huisbaasje.markdown @dennisschroer
 source/_integrations/humidifier.markdown @home-assistant/core @Shulyaka
 source/_integrations/hunterdouglas_powerview.markdown @bdraco @kingy444 @trullock
 source/_integrations/hurrican_shutters_wholesale.markdown @starkillerOG
+source/_integrations/huum.markdown @frwickst
 source/_integrations/hvv_departures.markdown @vigonotion
 source/_integrations/hydrawise.markdown @dknowles2 @ptcryan
 source/_integrations/hyperion.markdown @dermotduffy
