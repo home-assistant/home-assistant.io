@@ -721,6 +721,72 @@ The following integrations are now available via the Home Assistant UI:
 [@emontnemery]: https://github.com/emontnemery
 [@frenck]: https://github.com/frenck
 
+## Release 2024.1.6 - January 30
+
+- Pass default SSLContext instances to Octoprint custom HTTP sessions ([@vexofp] - [#105351])
+- Reduce overhead for google calendar state updates ([@allenporter] - [#108133])
+- Fix SleepIQ setting FootWarmer timer ([@jmwaldrip] - [#108433])
+- Fix zha illuminance measured value mapping ([@floriankisser] - [#108547])
+- Bump yolink-api to 0.3.6 fix aiomqtt breaking changes ([@matrixd2] - [#108555])
+- Update openerz-api to 0.3.0 ([@misialq] - [#108575])
+- Bump aiovodafone to 0.5.4 ([@chemelli74] - [#108592])
+- Bump airthings-ble to 0.6.0 ([@LaStrada] - [#108612])
+- Fix alexa fails reporting the state in specific cases ([@jbouwh] - [#108743])
+- Reduce log level of ZHA endpoint handler init ([@puddly] - [#108749])
+- Fix google_assistant climate modes might be None ([@jbouwh] - [#108793])
+- Fix unhandled exception on humidifier intent when available_modes is None ([@jbouwh] - [#108802])
+- Fix processing supported color modes for emulated_hue ([@jbouwh] - [#108803])
+- Reduce log level for creating ZHA cluster handler ([@TheJulianJES] - [#108809])
+- Fix stalls in config flow of APCUPSD ([@yuxincs] - [#108931])
+- Add strings to Sensirion BLE ([@joostlek] - [#109001])
+- Fix entity naming for heatpump heatings in ViCare ([@CFenner] - [#109013])
+- Bump aiohttp to 3.9.3 ([@bdraco] - [#109025])
+- Bump ZHA dependency zigpy to 0.60.7 ([@puddly] - [#109082])
+- Add missing abort message for Spotify ([@joostlek] - [#109102])
+
+[#105351]: https://github.com/home-assistant/core/pull/105351
+[#106970]: https://github.com/home-assistant/core/pull/106970
+[#107239]: https://github.com/home-assistant/core/pull/107239
+[#107365]: https://github.com/home-assistant/core/pull/107365
+[#107883]: https://github.com/home-assistant/core/pull/107883
+[#108133]: https://github.com/home-assistant/core/pull/108133
+[#108379]: https://github.com/home-assistant/core/pull/108379
+[#108433]: https://github.com/home-assistant/core/pull/108433
+[#108502]: https://github.com/home-assistant/core/pull/108502
+[#108547]: https://github.com/home-assistant/core/pull/108547
+[#108555]: https://github.com/home-assistant/core/pull/108555
+[#108575]: https://github.com/home-assistant/core/pull/108575
+[#108592]: https://github.com/home-assistant/core/pull/108592
+[#108612]: https://github.com/home-assistant/core/pull/108612
+[#108743]: https://github.com/home-assistant/core/pull/108743
+[#108749]: https://github.com/home-assistant/core/pull/108749
+[#108793]: https://github.com/home-assistant/core/pull/108793
+[#108802]: https://github.com/home-assistant/core/pull/108802
+[#108803]: https://github.com/home-assistant/core/pull/108803
+[#108809]: https://github.com/home-assistant/core/pull/108809
+[#108931]: https://github.com/home-assistant/core/pull/108931
+[#109001]: https://github.com/home-assistant/core/pull/109001
+[#109013]: https://github.com/home-assistant/core/pull/109013
+[#109025]: https://github.com/home-assistant/core/pull/109025
+[#109082]: https://github.com/home-assistant/core/pull/109082
+[#109102]: https://github.com/home-assistant/core/pull/109102
+[@CFenner]: https://github.com/CFenner
+[@LaStrada]: https://github.com/LaStrada
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@floriankisser]: https://github.com/floriankisser
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@jmwaldrip]: https://github.com/jmwaldrip
+[@joostlek]: https://github.com/joostlek
+[@matrixd2]: https://github.com/matrixd2
+[@misialq]: https://github.com/misialq
+[@puddly]: https://github.com/puddly
+[@vexofp]: https://github.com/vexofp
+[@yuxincs]: https://github.com/yuxincs
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
