@@ -37,15 +37,15 @@ The integration will create a climate entity to control the vehicle's climate co
 The integration will create sensor entities for a variety of metrics that relate to your vehicles, energy sites, and Wall Connectors:
 
 #### Energy sites
-- Solar power
-- Energy left
-- Total pack energy
-- Percentage charged
 - Battery power
-- Load power
+- Energy left
+- Generator power
 - Grid power
 - Grid services power
-- generator power
+- Load power
+- Percentage charged
+- Solar power
+- Total pack energy
 
 #### Vehicles
 - Battery level
@@ -75,6 +75,7 @@ The integration will create sensor entities for a variety of metrics that relate
 - Traffic delay
 
 #### Wall connectors
+- Fault state (disabled by default)
 - Power
 - State (disabled by default)
-- Fault state (disabled by default)
+- Vehicle
