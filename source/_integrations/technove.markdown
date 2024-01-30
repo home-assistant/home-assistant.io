@@ -20,7 +20,7 @@ The TechnoVE integration provides connectivity with TechnoVE Smart Charging Stat
 
 {% include integrations/config_flow.md %}
 
-## Binary Sensors
+## Binary sensors
 
 The {% term integration %} adds the following binary sensors:
 
