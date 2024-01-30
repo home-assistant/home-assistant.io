@@ -134,19 +134,19 @@ You can only set a Thread network as preferred if the credentials are known.
    - Importing the credentials allows a Google- or Apple-created Thread network to be the preferred network of Home Assistant.
    <img width="400" src='/images/integrations/thread/thread-preferred-network.png'>
 
-#### Using Home Assistant as a <abbr title="Thread border routers">TBRs</abbr> without setting up another vendor's TBR first
+#### Using Home Assistant as a <abbr title="Thread border router">TBR</abbr> without setting up another vendor's TBR first
 
 This scenario currently only works in one particular case, under the following conditions:
 
 - Make sure there are no other Thread networks set up:
-  - For example: Make sure you do not have any Google <abbr title="Thread border routers">TBRs</abbr> set up yet (otherwise the Google <abbr title="Thread border routers">TBRs</abbr> will be the preferred Thread network, and Android APIs do not allow to change that currently).
+  - For example: Make sure you do not have any Google <abbr title="Thread border routers">TBRs</abbr> set up yet (otherwise the Google <abbr title="Thread border router">TBR</abbr> will be the preferred Thread network, and Android APIs do not allow to change that currently).
 - You have the OpenThread Border Router add-on installed. If you have the experimental Silicon Labs Multiprotocol add-on installed, we recommend migrating to the pure Thread firmware, as especially Thread traffic appears to cause stability issues. For instructions on how to enable/migrate to a dedicated Thread setup on SkyConnect or Yellow, refer to the following guides:
   - [Enabling Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
   - [Enabling Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
 - You have an Android phone and the Home Assistant Companion App. (Note: this does not work with the iOS Companion App).
 - The devices you want to add to the network support {% term Matter %}. For instructions on how to add Thread-based {% term Matter %} devices, refer to the section [Adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant)
 
-Which TBR are supported mostly depends on (access to) the Thread credentials. And Thread credentials are required during on-boarding/commissioning, which is part of the smart home protocol.
+Which TBRs are supported mostly depends on (access to) the Thread credentials. And Thread credentials are required during on-boarding/commissioning, which is part of the smart home protocol.
 
 ### Combining Thread networks
 
