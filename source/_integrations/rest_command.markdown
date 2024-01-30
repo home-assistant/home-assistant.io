@@ -92,6 +92,55 @@ rest_command:
     payload: "mode=off"
 ```
 
+### Using REST command Response in automations
+
+REST commands provide a service response in a dictionary containing `status` (containing the HTTP response code), and `content` containing the response body as text or JSON. This response can be accessed in automations using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+
+The following example shows how the REST command response may be used in automations. In this case, checking the [Traefik API](https://doc.traefik.io/traefik/operations/api/) for errors.
+
+{% raw %}
+
+```yaml
+# Create a ToDo notification based on file contents
+automation:
+  - alias: "Check API response"
+    trigger:
+      - ...
+    action:
+      - service: rest_command.traefik_get_rawdata
+        response_variable: traefik_response
+      - if: "{{ traefik_response['status'] == 200 }}"
+        then:
+          - alias: "Parse data"
+            variables:
+              routers: "{{ traefik_response['content']['routers'] }}"
+              router_errors: >
+                {%- for router in routers -%}
+                  {%- if 'error' in routers[router] -%}
+                    {{router}}: {{ routers[router]['error'] }}
+                  {% endif -%}
+                {%- endfor -%}
+              got_errors: "{{ router_errors|length > 0 }}"
+          - if: "{{ got_errors }}"
+            then:
+              - service: notify.mobile_app_iphone
+                data:
+                  title: "Traefik errors"
+                  message: "{{ router_errors }}"
+        else:
+          - service: notify.mobile_app_iphone
+            data:
+              title: "Could not reach Traefik"
+              message: "HTTP code: {{ traefik_response['returncode'] }}"
+
+rest_command:
+  traefik_get_rawdata:
+    url: http://127.0.0.1:8080/api/rawdata
+    method: GET
+```
+
+{% endraw %}
+
 ### Using templates to change the payload based on entities
 
 The commands can be dynamic, using templates to insert values of other entities. Service call support variables for doing things with templates.
