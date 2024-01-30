@@ -15,8 +15,8 @@ ha_platforms:
   - todo
 ---
 
-The `bring` **to-do list** allows you to interact with your [Bring!](https://www.getbring.com/) shopping lists from within Home Assistant.
+The **Bring** integration allows you to interact with your [Bring!](https://www.getbring.com/) shopping lists within Home Assistant.
 
-The authentication uses directly your `email` / `password` and if you want to automatically receive notifications via the Bring! App when Home Assistant adds or removes an item from the list, you should use a dedicated account (such as `email: your.name+ha@gmail.com`) to connect Home Assistant with [Bring!](https://www.getbring.com/).
+For authentication, the integration requires the `email` and `password` you used for your Bring! account. If you want to automatically receive notifications via the Bring! app when Home Assistant adds or removes an item from the list, you should use a dedicated account (such as `email: your.name+ha@gmail.com`) to connect Home Assistant with [Bring!](https://www.getbring.com/).
 
 {% include integrations/config_flow.md %}
