@@ -309,17 +309,42 @@ The `<node_id>` level can be used by clients to only subscribe to their own (com
 
 Best practice for entities with a `unique_id` is to set `<object_id>` to `unique_id` and omit the `<node_id>`.
 
-
-#### Component discovery payload
+#### Single component discovery payload
 
 The `<component>` part in the discovery topic must be one of the supported MQTT platforms.
 The options in the payload are only used to set up one specific component.
 
-For examples [see](/integrations/mqtt/#discovery-examples-with-component-discovery).
+```json
+{
+  "dev": {
+    "ids": "ea334450945afc",
+    "name": "Kitchen",
+    "mf": "Bla electronics",
+    "mdl": "xya",
+    "sw": "1.0",
+    "sn": "ea334450945afc",
+    "hw": "1.0rev2",
+  },
+  "o": {
+    "name":"bla2mqtt",
+    "sw": "2.1",
+    "url": "https://bla2mqtt.example.com/support",
+  },
+  "device_class":"temperature",
+  "unit_of_measurement":"°C",
+  "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+  "unique_id":"temp01ae_t",
+  "state_topic":"sensorBedroom/state",
+  "qos": 2,
+}
+
+To remove the component publish an empty string to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
+
+For more examples [see](/integrations/mqtt/#discovery-examples-with-component-discovery).
 
 #### Device discovery payload
 
-It is also possible to process a discovery payload that allows to set up multiple entities for a device.
+It is also possible to process a discovery payload that allows to set up multiple entities for a single device.
 The `<component>` part in the discovery topic must be set to `device`.
 
 The shared options are at root level of the JSON message and include the `device` mapping (abbreviated as `dev`). The `device` mapping is a required option and cannot be overridden at entity level.
@@ -373,6 +398,83 @@ The component specific options are placed as mappings under the `components` key
 ```
 
 The components id's under the `components` (`cmp`) key should are used as part of the discovery identification. A `platform` config option is required for each component config that is added to identify the component platform.
+
+To remove the components publish an empty string to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
+
+To remove a single component from the device discovery an empty config can be published as an update. Note that it is still required to add the platform option.
+
+```json
+{
+  "dev": {
+    "ids": "ea334450945afc",
+    "name": "Kitchen",
+    "mf": "Bla electronics",
+    "mdl": "xya",
+    "sw": "1.0",
+    "sn": "ea334450945afc",
+    "hw": "1.0rev2",
+  },
+  "o": {
+    "name":"bla2mqtt",
+    "sw": "2.1",
+    "url": "https://bla2mqtt.example.com/support",
+  },
+  "cmp": {
+    "some_unique_component_id1": {
+      "platform": "sensor",
+      "device_class":"temperature",
+      "unit_of_measurement":"°C",
+      "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+      "unique_id":"temp01ae_t",
+    },
+    "some_unique_id2": {
+      "platform": "sensor",
+    }
+  },
+  "state_topic":"sensorBedroom/state",
+  "qos": 2,
+}
+```
+
+This will explicitly cleanup the humidity sensor and its entry.
+
+After the component has been removed an other update should be send where the part for the humidity sensor is left away:
+
+```json
+{
+  "dev": {
+    "ids": "ea334450945afc",
+    "name": "Kitchen",
+    "mf": "Bla electronics",
+    "mdl": "xya",
+    "sw": "1.0",
+    "sn": "ea334450945afc",
+    "hw": "1.0rev2",
+  },
+  "o": {
+    "name":"bla2mqtt",
+    "sw": "2.1",
+    "url": "https://bla2mqtt.example.com/support",
+  },
+  "cmp": {
+    "some_unique_component_id1": {
+      "platform": "sensor",
+      "device_class":"temperature",
+      "unit_of_measurement":"°C",
+      "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+      "unique_id":"temp01ae_t",
+    }
+  },
+  "state_topic":"sensorBedroom/state",
+  "qos": 2,
+}
+```
+
+<div class='note warning'>
+
+A component config part in a device discovery payload must have the `platform` option set with the name of the `component` and also must have at least one component specific config option.
+
+</div>
 
 #### Discovery payload
 
