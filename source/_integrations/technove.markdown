@@ -11,6 +11,7 @@ ha_zeroconf: true
 ha_codeowners:
   - '@Moustachauve'
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ---
