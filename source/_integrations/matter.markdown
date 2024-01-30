@@ -112,7 +112,7 @@ Make sure you have all these components ready before trying to add a Matter devi
   - If it is only on the packaging, snap a picture of the QR code and the device and store the image and the numerical code in a save place.
   - If you lose the QR code and disconnect the device at some point, you won't be able to connect to that device again without the QR code.
 
-#### Android or iPhone
+#### Prepare Android or iPhone
 
 - Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](#bluetooth-used-during-commissioning):
   - Android:
