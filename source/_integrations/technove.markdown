@@ -11,6 +11,7 @@ ha_codeowners:
   - '@Moustachauve'
 ha_platforms:
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -32,3 +33,9 @@ The {% term integration %} adds the following sensors:
 - Wi-Fi signal strength
 - Wi-Fi network name
 - Status
+
+## Switch
+
+The {% term integration %} adds the following switch:
+
+- Auto-charge mode
