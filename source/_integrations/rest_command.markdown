@@ -107,7 +107,7 @@ automation:
     action:
       - service: rest_command.traefik_get_rawdata
         response_variable: traefik_response
-      - if: "{{ traefik_response['returncode'] == 200 }}"
+      - if: "{{ traefik_response['status'] == 200 }}"
         then:
           - alias: "Parse data"
             variables:
