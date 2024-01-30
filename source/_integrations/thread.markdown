@@ -56,7 +56,9 @@ Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbe
 
 The devices use Thread border routers to communicate outside the mesh with any IPv6-capable device. A Thread border router is connected to your network either via Wi-Fi or Ethernet and uses its <abbr title="radio frequency">RF</abbr> radio to communicate with the Thread mesh network. The <abbr title="Thread border router">TBR</abbr> routes packets between your local network and the Thread mesh. It does not look at the content of these packets, it just forwards them.
 
-Often, Thread border routing is only an auxiliary functionality of a smart home device. For example, the Nest Hub (2nd gen) is a smart display, a Google Home controller, and a Chromecast target, but also has a Thread border router included.
+![image](/images/integrations/matter/matter_thread_infographic.webp)
+
+Image taken from [this excellent article by The Verge](https://www.theverge.com/23165855/thread-smart-home-protocol-matter-apple-google-interview) showing the landscape of {% term Matter %}, {% term Thread %}, and Border routers. Instead of Matter, you could also see another protocol here, such as HomeKit.
 
 Unlike other protocols, Thread can use multiple border routers in a single network. This increases wireless coverage and reduces the risk of a single point of failure. Ideal for home automation, with a potentially large number of devices spread over a large area.
 
@@ -65,6 +67,8 @@ OpenThread is an open source implementation of Thread, originally released by Go
 While Home Assistant can *use* any border router, it can *configure* and *control* only OpenThread border routers built with the REST API available in the open source implementation. The OpenThread Border Router add-on (as well as the OpenThread Border Router bundled in the experimental Silicon Labs Multiprotocol add-on) are built from this open source OpenThread code and have the REST API enabled.
 
 ### List of Thread border router devices
+
+Often, Thread border routing is only an auxiliary functionality of a smart home device. For example, the Nest Hub (2nd gen) is a smart display, a Google Home controller, and a Chromecast target, but also has a Thread border router included.
 
 Currently, the following <abbr title="Thread border router">TBR</abbr> devices are known to work with Home Assistant.
 These border routers may require an iPhone or Android phone for onboarding. What the exact requirements are, depends on the home automation protocol ({% term Matter %} or Apple HomeKit) that your devices are using. Before buying a border router, check the prerequisites in the corresponding procedures:
