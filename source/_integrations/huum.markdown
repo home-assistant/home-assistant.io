@@ -23,7 +23,7 @@ If the sauna door is open, the sauna will not turn on.
 
 <div class='note info'>
 
-When the sauna is off, you must turn on the sauna after settings the temperature.
+When the sauna is off, you must turn on the sauna after setting the temperature.
 This is as a security measure so that one does not turn on the
 sauna by mistake.
 
