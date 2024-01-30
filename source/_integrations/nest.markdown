@@ -42,6 +42,12 @@ The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buyin
 
 </div>
 
+<div class='note'>
+
+The Google Nest integration uses a Cloud Pub/Sub subscription with a 15 minute retention by default. The Google Cloud Pub/sub billing changes effective June 30, 2024 do not apply (only applies to subscriptions with a 24-hour retention). See the [Pub/Sub console](https://console.cloud.google.com/cloudpubsub/subscription/list) to view your subscriptions.
+
+</div>
+
 <lite-youtube videoid="RwZmQ7QfhsM" videotitle="Finally! A WORKING NEST Integration with Home Assistant using Oauth!" posterquality="maxresdefault"></lite-youtube>
 
 ## Configuration
