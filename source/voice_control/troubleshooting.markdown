@@ -94,8 +94,20 @@ You think there is an issue with background background noise or speaker volume? 
 
 ### To tweak the Assist audio configuration for your device
 
-1. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
-2. Edit the general configuration:
+1. Make sure you have the ESPHome add-on installed:
+   - Go to {% my supervisor_store title="**Settings** > **Add-ons** > **Add-on store**" %}.
+   - If you do not have the **ESPHome** add-on installed, install it.
+2. Start the ESPHome add-on, and select **Open Web UI**.
+3. Adopt your device to the ESPHome add-on:
+   - Once the ESPHome add-on is started, you see your device as **Discovered**.
+   - Select **Adopt**.
+   - When prompted, enter the Network credentials of your local 2.4 GHz Wi-Fi network and select **Adopt**.
+
+4. If you see a notification that there is an update available for this device, select **Update**.
+5. Make sure you have access to the configuration file.
+   - If you are unsure what method to use, [install the File editor](/common-tasks/os/#installing-and-using-the-file-editor-add-on) add-on.
+   - In the File Editor configuration, make sure the **Enforce basepath** option is disabled.
+6. Edit the general configuration to enable debug mode:
    - Access the `config` folder and open the `configuration.yaml` file.
    - Enter the following text:
 
@@ -104,19 +116,25 @@ You think there is an issue with background background noise or speaker volume? 
          debug_recording_dir: /share/assist_pipeline
       ```
 
-3. Save the changes and restart Home Assistant.
-4. Make sure you have the [Samba add-on installed](/common-tasks/os/#configuring-access-to-files).
-5. On your computer, access your Home Assistant server via Samba.
-   - Navigate to `/share/assist_pipeline`.
+7. Save the changes and restart Home Assistant.
+8. Navigate to `/share/assist_pipeline`.
    - For each voice command you gave, you will find a subfolder with the audio file in `.wav` format.
-6. Listen to the audio file of interest.
-7. Adjust noise suppression and volume, if needed:
-   - Access the `config` folder and open the `esphome/your-device-name.yaml` file.
-     - `your-device-name` is a placeholder for the product name. 
-     - For example, if you have an ATOM Echo, look for ATOM Echo. If you have an S3-BOX, look for S3-BOX in the YAML filename.
-   - Find the `voice_assistant` section.
-   - If the audio is too noisy, increase the `noise_suppression_level` (max.&nbsp;4).
-   - If the audio is too quiet, increase either the `auto_gain` (max.&nbsp;31) or the `volume_multiplier` (no maximum, but a too high value will cause distortion eventually).
-8. Collecting the debug recordings impacts your disk space.
-   - Once you have found a configuration that works, delete the folder with the audio files.
-   - In the `configuration.yaml` file, delete the `assist_pipeline entry` and restart Home Assistant.
+9.  Listen to the audio file of interest.
+10. Open the configuration file:
+    - In the ESPHome add-on, on your device, select **Edit**.
+    - This lets you edit the configuration file of that device.
+11. To add a section to adjust noise suppression and volume, add the following lines:
+
+      ```yaml
+      voice_assistant:
+         noise_suppression_level: 3
+         auto_gain: 31dBFS
+         volume_multiplier: 10.0
+      ```
+
+12. Adjust the settings:
+    - If the audio is too noisy, increase the `noise_suppression_level` (max.&nbsp;4).
+    - If the audio is too quiet, increase either the `auto_gain` (max.&nbsp;31) or the `volume_multiplier` (no maximum, but a too high value will cause distortion eventually).
+13. Note: Collecting debug recordings impacts your disk space.
+    - Once you have found a configuration that works, delete the folder with the audio files.
+    - In the `configuration.yaml` file, delete the `assist_pipeline entry` and restart Home Assistant.
