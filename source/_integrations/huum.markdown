@@ -3,7 +3,7 @@ title: Huum
 description: Instructions on how to integrate a Huum saunas into Home Assistant.
 ha_category:
   - Climate
-ha_release: 2022.6
+ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@frwickst'
@@ -14,13 +14,19 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Integrates Huum saunas into Home Assistant.
+Integrates [Huum](https://huum.eu/) saunas into Home Assistant.
 
-The sauna can only be controlled through Huum’s Cloud API; no local connection is available.
-
-You’ll need your username (which is usually your email) and password for the integration.
+You’ll need your username (which is usually your email) and password to configure the integration.
 
 The integration takes the same security measures regarding an open sauna door as the Huum app.
 If the sauna door is open, the sauna will not turn on.
+
+<div class='note info'>
+
+    When the sauna is off, you must turn on the sauna after settings the temperature.
+    This is as a security measure so that one does not turn on the
+    sauna by mistake.
+
+</div>
 
 {% include integrations/config_flow.md %}
