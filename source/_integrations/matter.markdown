@@ -50,6 +50,8 @@ Home Assistant is a so-called "_controller_" in a Matter ecosystem, meaning that
 
 {% term Thread %} is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport protocol for Matter.
 
+For more information about Thread, refer to the [Thread documentation](/integrations/thread/).
+
 ### Thread devices don't necessarily support Matter
 
 Many devices on the market use {% term Thread %} for radio communication and Matter as a control protocol. But this is not guaranteed. Some Thread-based devices support Apple HomeKit or another vendor-specific communication protocol. There are also a few cases where you need to apply for a (beta) firmware update on the device to enable Matter as a communication protocol.
