@@ -22,6 +22,8 @@ Some examples of its use include:
 - Increase thermostat temperature as you near home
 - Decrease temperature the further away from home you travel
 
+{% include integrations/config_flow.md %}
+
 ## Sensors
 
 The following sensor entities will be created.
@@ -44,80 +46,3 @@ For each tracked device or person, a sensor showing the direction of travel to o
 ### Nearest device
 
 A sensor showing the device or person which is nearest to the monitored zone is created.
-
-## Configuration
-
-To enable this integration in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-proximity:
-  home: 
-    ignored_zones:
-      - work
-    devices:
-      - device_tracker.car1
-    tolerance: 50
-    unit_of_measurement: mi
-```
-
-### Video tutorial
-This video tutorial explains how to set up geofencing in Home Assistant using the proximity integration.
-
-<lite-youtube videoid="pjAyRN5UiBg" videotitle="Geofencing in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
-
-{% configuration %}
-friendly_name:
-  description: The name of the proximity entity.
-  required: true
-  type: map
-  keys:
-    zone:
-      description: The zone to which this integration is measuring the distance to. Default is the `home` zone.
-      required: false
-      type: string
-    ignored_zones:
-      description: Where proximity is not calculated for a device or person (either the device being monitored or ones being compared (e.g., work or school).
-      required: false
-      type: list
-    devices:
-      description: A list of devices and/or persons to compare location against to check closeness to the configured zone.
-      required: false
-      type: list
-    tolerance:
-      description: The tolerance used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.
-      required: false
-      type: integer
-    unit_of_measurement:
-      description: The unit of measurement for distance. Valid values are (km, m, mi, yd, ft) [kilometers, meters, miles, yards and feet respectively].
-      required: false
-      type: string
-      default: km
-{% endconfiguration %}
-
-To add multiple proximity components, add a mapping to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-proximity:
-  home:
-    ignored_zones:
-      - work
-      - school
-    devices:
-      - device_tracker.car1
-      - device_tracker.iphone1
-      - device_tracker.iphone2
-    tolerance: 50
-    unit_of_measurement: mi
-  home3:
-    zone: home3
-    devices:
-      - device_tracker.iphone1
-    tolerance: 50
-  work:
-    zone: work
-    devices:
-      - person.paulus
-    tolerance: 10
-```
