@@ -48,7 +48,13 @@ Home Assistant is a so-called "_controller_" in a Matter ecosystem, meaning that
 
 ## What does Thread have to do with Matter?
 
-{% term Thread %} is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport protocol for Matter.
+{% term Thread %} is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport protocol for Matter. 
+
+The figure below illustrates the landscape of {% term Matter %}, {% term Thread %}, and Border routers. Instead of Matter, you could also see another protocol here, such as HomeKit. The Thread border router forwards traffic from the devices in the Thread network to devices outside that network.
+
+![image](/images/integrations/matter/matter_thread_infographic.png)
+
+Image taken from [the Thread Smart Home Fact Sheet](https://www.threadgroup.org/support#Resources) by the Thread Group.
 
 For more information about Thread, refer to the [Thread documentation](/integrations/thread/).
 
