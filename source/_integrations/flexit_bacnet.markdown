@@ -7,7 +7,10 @@ ha_release: 2024.1
 ha_iot_class: Local Polling
 ha_domain: flexit_bacnet
 ha_platforms:
+  - binary_sensor
   - climate
+  - sensor
+  - switch
 ha_integration_type: device
 ha_codeowners:
   - '@lellky'
