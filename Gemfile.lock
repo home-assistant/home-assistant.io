@@ -134,7 +134,7 @@ GEM
       rack-protection (= 4.0.0)
       rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
-    sorbet-runtime (0.5.11219)
+    sorbet-runtime (0.5.11222)
     stringex (2.8.6)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
