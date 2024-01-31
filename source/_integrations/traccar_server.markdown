@@ -1,7 +1,7 @@
 ---
 title: Traccar Server
 description: Documentation for the Traccar Server integration.
-ha_release: 1970.1.1 # placeholder version
+ha_release: 2024.2
 ha_category:
   - Car
   - Presence detection
