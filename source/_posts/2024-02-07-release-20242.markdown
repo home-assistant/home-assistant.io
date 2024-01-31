@@ -97,10 +97,19 @@ The following virtual integrations have been added:
 
 The following integrations are now available via the Home Assistant UI:
 
-- **[Lorem ipsum]**, done by [@frenck]
+- **[Ecovacs]**, done by [@edenhaus]
+- **[Lupus Electronics LUPUSEC]**, done by [@suaveolent]
+- **[Lutron]**, done by [@wilburCforce]
+- **[Time & Date]**, done by [@gjohansson-ST]
 
-[@frenck]: https://github.com/frenck
-[Lorem ipsum]: /integrations/lorem_ipsum
+[@edenhaus]: https://github.com/edenhaus
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@suaveolent]: https://github.com/suaveolent
+[@wilburCforce]: https://github.com/wilburCforce
+[Ecovacs]: /integrations/ecovacs
+[Lupus Electronics LUPUSEC]: /integrations/lupusec
+[Lutron]: /integrations/lutron
+[Time & Date]: /integrations/time_date
 
 ## Need help? Join the community!
 
