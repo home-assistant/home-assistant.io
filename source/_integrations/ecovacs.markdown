@@ -64,6 +64,7 @@ Additionally, **depending on your model**, the integration provides the followin
     - `Area`: Total cleaned area
     - `Cleanings`: The number of cleanings
     - `Time`: The total cleaning time
+
 - **Switch**:
   - `Advanced mode`: Enable advanced mode. Disabled by default.
   - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.
