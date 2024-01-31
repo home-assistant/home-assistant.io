@@ -10,6 +10,8 @@ ha_codeowners:
   - '@pajzo'
 ha_config_flow: true
 ha_integration_type: integration
+ha_platforms:
+  - sensor
 ---
 
 The myUplink integration lets you get information about the devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).

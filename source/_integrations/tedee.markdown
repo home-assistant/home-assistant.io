@@ -11,11 +11,12 @@ ha_config_flow: true
 ha_domain: tedee
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - lock
   - sensor
 ha_codeowners:
-  - '@zweckj'
   - '@patrickhilker'
+  - '@zweckj'
 ha_integration_type: integration
 ---
 
@@ -48,4 +49,4 @@ We have three binary sensors: One that indicates whether the battery is currentl
 
 ## Sensors
 
-The integration currently offers two sensors: A battery sensor, indicating the charge of your lock, and a "pull spring duration" sensor, indicating how long (in seconds) your latch will stay pulled after a pull operation (if supported). 
+The integration currently offers two sensors: A battery sensor, indicating the charge of your lock, and a "pull spring duration" sensor, indicating how long (in seconds) your latch will stay pulled after a pull operation (if supported).

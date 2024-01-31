@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdr99'
 ha_platforms:
+  - diagnostics
   - sensor
   - water_heater
 ha_integration_type: integration
