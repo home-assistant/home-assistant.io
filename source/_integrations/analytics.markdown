@@ -103,7 +103,11 @@ If your system includes the Supervisor, this will also contain:
     "board": "odroid-n2",
     "version": "{{site.data.version_data.hassos['odroid-n2']}}"
   },
-  "integrations": ["awesome_integration"],
+  "integrations": [
+    "hue",
+    "youtube",
+    "hacs"
+  ],
   "addons": [
       {
           "slug": "awesome_addon",
