@@ -26,7 +26,7 @@ Devices are a logical grouping for one or more {% term entities %}. A {% term de
 
 Devices and entities are used throughout Home Assistant. To name a few examples:
 
-- [Dashboards](#dashboards) can show a state of an {% term entity %}. For example, if a light is on or off.
+- [Dashboards](/getting-started/onboarding_dashboard/) can show a state of an {% term entity %}. For example, if a light is on or off.
 - An [automation](#automations) can be triggered from a state change on an {% term entity %}. For example, a motion sensor entity detects motion and triggers a light to turn on.
 - A predefined color and brightness setting for a light saved as a [scene](#scenes).
 

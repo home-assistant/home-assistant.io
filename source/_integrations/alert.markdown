@@ -32,7 +32,7 @@ State | Description
 ### Basic example
 
 The `alert` integration makes use of any of the `notification` integrations. To
-setup the `alert` integration, first, you must set up a [notification integration](/integrations/#notifications).
+setup the `alert` integration, first, you must set up a [notification integration](/integrations/notify).
 Then, add the following to your configuration file:
 
 ```yaml
