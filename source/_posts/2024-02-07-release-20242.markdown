@@ -2,7 +2,7 @@
 layout: post
 title: "2024.2: Beta release notes"
 description: "The beta release notes for Home Assistant 2024.2"
-date: 2024-01-04 00:00:00
+date: 2024-01-31 00:00:00
 date_formatted: "Febuary 7, 2024"
 author: Franck Nijhof
 author_twitter: frenck
