@@ -327,17 +327,23 @@ The following virtual integrations have been added:
 The following integrations are now available via the Home Assistant UI:
 
 - **[Ecovacs]**, done by [@edenhaus]
+- **[GPSD]**, done by [@jrieger]
 - **[Lupus Electronics LUPUSEC]**, done by [@suaveolent]
 - **[Lutron]**, done by [@wilburCforce]
+- **[Proximity]**, done by [@mib1185]
 - **[Time & Date]**, done by [@gjohansson-ST]
 
 [@edenhaus]: https://github.com/edenhaus
 [@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jrieger]: https://github.com/jrieger
+[@mib1185]: https://github.com/mib1185
 [@suaveolent]: https://github.com/suaveolent
 [@wilburCforce]: https://github.com/wilburCforce
 [Ecovacs]: /integrations/ecovacs
+[GPSD]: /integrations/gpsd
 [Lupus Electronics LUPUSEC]: /integrations/lupusec
 [Lutron]: /integrations/lutron
+[Proximity]: /integrations/proximity
 [Time & Date]: /integrations/time_date
 
 ## Need help? Join the community!

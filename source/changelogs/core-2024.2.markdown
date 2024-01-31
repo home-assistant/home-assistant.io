@@ -1043,6 +1043,18 @@ For a summary in a more readable format:
 - Add readable state for tesla wall connector ([@piitaya] - [#107909])
 - Rename Traccar to Traccar Client ([@ludeeus] - [#109217])
 - Use EnumSensor instead of custom formatter() in ZHA Sensor entities ([@Caius-Bonus] - [#109218])
+- Add ZHA support for Bosch Twinguard and siren install QR codes ([@idstein] - [#107460])
+- Add brands definition for Traccar ([@ludeeus] - [#109219])
+- Import Traccar YAML configuration to Traccar Server ([@ludeeus] - [#109226])
+- Add config flow to GPSD ([@jrieger] - [#106196])
+- Add qr code selector ([@bramkragten] - [#109214])
+- Fix ring chimes data update ([@sdb9696] - [#109220])
+- Update frontend to 20240131.0 ([@bramkragten] - [#109231])
+- Add test for integration migrated in climate ([@gjohansson-ST] - [#109224])
+- Suppress log warnings when a sensor group has non numeric members ([@mill1000] - [#102828])
+- Add reauth flow to kitchen sink ([@emontnemery] - [#109202])
+- Sort script actions ([@emontnemery] - [#108247])
+- Add translations to GPSd ([@jrieger] - [#108600])
 
 [#100684]: https://github.com/home-assistant/core/pull/100684
 [#100806]: https://github.com/home-assistant/core/pull/100806
@@ -1050,6 +1062,7 @@ For a summary in a more readable format:
 [#101673]: https://github.com/home-assistant/core/pull/101673
 [#102291]: https://github.com/home-assistant/core/pull/102291
 [#102635]: https://github.com/home-assistant/core/pull/102635
+[#102828]: https://github.com/home-assistant/core/pull/102828
 [#102846]: https://github.com/home-assistant/core/pull/102846
 [#102972]: https://github.com/home-assistant/core/pull/102972
 [#103294]: https://github.com/home-assistant/core/pull/103294
@@ -1090,6 +1103,7 @@ For a summary in a more readable format:
 [#106077]: https://github.com/home-assistant/core/pull/106077
 [#106078]: https://github.com/home-assistant/core/pull/106078
 [#106119]: https://github.com/home-assistant/core/pull/106119
+[#106196]: https://github.com/home-assistant/core/pull/106196
 [#106286]: https://github.com/home-assistant/core/pull/106286
 [#106420]: https://github.com/home-assistant/core/pull/106420
 [#106485]: https://github.com/home-assistant/core/pull/106485
@@ -1356,6 +1370,7 @@ For a summary in a more readable format:
 [#107454]: https://github.com/home-assistant/core/pull/107454
 [#107458]: https://github.com/home-assistant/core/pull/107458
 [#107459]: https://github.com/home-assistant/core/pull/107459
+[#107460]: https://github.com/home-assistant/core/pull/107460
 [#107467]: https://github.com/home-assistant/core/pull/107467
 [#107469]: https://github.com/home-assistant/core/pull/107469
 [#107480]: https://github.com/home-assistant/core/pull/107480
@@ -1636,6 +1651,7 @@ For a summary in a more readable format:
 [#108240]: https://github.com/home-assistant/core/pull/108240
 [#108243]: https://github.com/home-assistant/core/pull/108243
 [#108244]: https://github.com/home-assistant/core/pull/108244
+[#108247]: https://github.com/home-assistant/core/pull/108247
 [#108252]: https://github.com/home-assistant/core/pull/108252
 [#108253]: https://github.com/home-assistant/core/pull/108253
 [#108257]: https://github.com/home-assistant/core/pull/108257
@@ -1792,6 +1808,7 @@ For a summary in a more readable format:
 [#108587]: https://github.com/home-assistant/core/pull/108587
 [#108594]: https://github.com/home-assistant/core/pull/108594
 [#108599]: https://github.com/home-assistant/core/pull/108599
+[#108600]: https://github.com/home-assistant/core/pull/108600
 [#108604]: https://github.com/home-assistant/core/pull/108604
 [#108605]: https://github.com/home-assistant/core/pull/108605
 [#108606]: https://github.com/home-assistant/core/pull/108606
@@ -2054,11 +2071,18 @@ For a summary in a more readable format:
 [#109192]: https://github.com/home-assistant/core/pull/109192
 [#109195]: https://github.com/home-assistant/core/pull/109195
 [#109200]: https://github.com/home-assistant/core/pull/109200
+[#109202]: https://github.com/home-assistant/core/pull/109202
 [#109207]: https://github.com/home-assistant/core/pull/109207
 [#109209]: https://github.com/home-assistant/core/pull/109209
+[#109214]: https://github.com/home-assistant/core/pull/109214
 [#109216]: https://github.com/home-assistant/core/pull/109216
 [#109217]: https://github.com/home-assistant/core/pull/109217
 [#109218]: https://github.com/home-assistant/core/pull/109218
+[#109219]: https://github.com/home-assistant/core/pull/109219
+[#109220]: https://github.com/home-assistant/core/pull/109220
+[#109224]: https://github.com/home-assistant/core/pull/109224
+[#109226]: https://github.com/home-assistant/core/pull/109226
+[#109231]: https://github.com/home-assistant/core/pull/109231
 [#66130]: https://github.com/home-assistant/core/pull/66130
 [#80061]: https://github.com/home-assistant/core/pull/80061
 [#86522]: https://github.com/home-assistant/core/pull/86522
@@ -2166,6 +2190,7 @@ For a summary in a more readable format:
 [@frwickst]: https://github.com/frwickst
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@h3ss]: https://github.com/h3ss
+[@idstein]: https://github.com/idstein
 [@janiversen]: https://github.com/janiversen
 [@jbouwh]: https://github.com/jbouwh
 [@jeverley]: https://github.com/jeverley
@@ -2199,6 +2224,7 @@ For a summary in a more readable format:
 [@mib1185]: https://github.com/mib1185
 [@michaelarnauts]: https://github.com/michaelarnauts
 [@mikey0000]: https://github.com/mikey0000
+[@mill1000]: https://github.com/mill1000
 [@mj23000]: https://github.com/mj23000
 [@mkmer]: https://github.com/mkmer
 [@msavazzi]: https://github.com/msavazzi
@@ -2392,6 +2418,7 @@ For a summary in a more readable format:
 [govee_ble docs]: /integrations/govee_ble/
 [govee_light_api docs]: /integrations/govee_light_api/
 [govee_light_local docs]: /integrations/govee_light_local/
+[gpsd docs]: /integrations/gpsd/
 [group docs]: /integrations/group/
 [guardian docs]: /integrations/guardian/
 [harmony docs]: /integrations/harmony/
@@ -2437,6 +2464,7 @@ For a summary in a more readable format:
 [jellyfin docs]: /integrations/jellyfin/
 [justnimbus docs]: /integrations/justnimbus/
 [jvc_projector docs]: /integrations/jvc_projector/
+[kitchen_sink docs]: /integrations/kitchen_sink/
 [kmtronic docs]: /integrations/kmtronic/
 [knx docs]: /integrations/knx/
 [kostal_plenticore docs]: /integrations/kostal_plenticore/
