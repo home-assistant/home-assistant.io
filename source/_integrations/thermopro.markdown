@@ -8,6 +8,7 @@ ha_release: 2022.9
 ha_iot_class: Local Push
 ha_codeowners:
   - '@bdraco'
+  - '@h3ss'
 ha_domain: thermopro
 ha_config_flow: true
 ha_platforms:
