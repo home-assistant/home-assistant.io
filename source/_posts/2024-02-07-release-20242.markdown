@@ -551,6 +551,9 @@ changes and new features available for your integration: Be sure to follow our
 
 The following integrations are also no longer available as of this release:
 
+- **Facebox** has been removed. It is no longer possible to get API keys and
+  thus no longer possible to use this integration.  
+  ([@reedy] - [#107005])
 - **Legrand Home+ Control** has been removed as their API shut down in December.
   Use [the Netatmo integration](/integrations/netatmo/) as an alternative to
   integrate your Legrand Home+ Control devices.  
@@ -562,6 +565,8 @@ The following integrations are also no longer available as of this release:
 
 [@jpbede]: https://github.com/jpbede
 [@pnbruckner]: https://github.com/pnbruckner
+[@reedy]: https://github.com/reedy
+[#107005]: https://github.com/home-assistant/core/pull/107005
 [#107587]: https://github.com/home-assistant/core/pull/107587
 [#107805]: https://github.com/home-assistant/core/pull/107805
 
