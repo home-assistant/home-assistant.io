@@ -46,13 +46,23 @@ Unlike other common radio-based protocols for IoT, (like Zigbee, Z-Wave, and Blu
 
 Home Assistant is a so-called "_controller_" in a Matter ecosystem, meaning that it can control Matter-based devices. Other examples of Matter controllers are the Google Nest products, Apple HomePod speakers, Samsung SmartThings Station, and some newer Amazon Echo devices.
 
-## Thread
+## What does Thread have to do with Matter?
 
-Matter goes hand-in-hand with (but is not the same as) {% term Thread %}. {% term Thread %} is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport protocol for Matter.
+{% term Thread %} is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it a suitable transport protocol option for Matter.
 
-<div class='note'>
-Many devices that (will) hit the market will use {% term Thread %} for radio communication and Matter as a control protocol, but this is not guaranteed. For example, Thread-based devices are available that only support Apple HomeKit or some vendor-specific communication protocol. There are also a few cases where you need to apply for a (beta) firmware update on the device to enable Matter as a communication protocol. Therefore, do not assume Matter support when you see a Thread logo when looking for devices. Please be sure to look for the *Matter* logo itself (on either Wi-Fi/Ethernet-based devices or {% term Thread %}) or any other confirmation by the manufacturer that the device supports Matter.
-</div>
+The figure below illustrates the landscape of {% term Matter %}, {% term Thread %}, and Border routers. The Thread border router forwards traffic from the devices in the Thread network to devices outside that network.
+
+![image](/images/integrations/matter/matter_thread_infographic.png)
+
+Image taken from [the Thread Smart Home Fact Sheet](https://www.threadgroup.org/support#Resources) by the Thread Group.
+
+For more information about Thread, refer to the [Thread documentation](/integrations/thread/).
+
+### Thread devices don't necessarily support Matter
+
+Many devices on the market use {% term Thread %} for radio communication and Matter as a control protocol. But this is not guaranteed. Some Thread-based devices support Apple HomeKit or another vendor-specific communication protocol. There are also a few cases where you need to apply for a (beta) firmware update on the device to enable Matter as a communication protocol.
+
+Don't assume Matter support when you see a Thread logo on a device. Always look for the _Matter_ logo itself (on either Wi-Fi/Ethernet-based devices or {% term Thread %}) or any other confirmation by the manufacturer that the device supports Matter.
 
 ## Bluetooth used during commissioning
 
@@ -68,9 +78,6 @@ One of the great features of Matter is the so-called _Multi Fabric_ feature: you
 
 For devices where Home Assistant provides a native integration (with local API), Matter may not be the best option. Matter, being a universal standard, might not have the nitty-gritty features that come with a product-specific protocol. A good example is Philips Hue: the communication over Matter only provides the basic controls over lights, while the official [Hue integration](/integrations/hue) brings all Hue unique features like (dynamic) scenes, entertainment mode, etc.
 
-![image](/images/integrations/matter/matter_thread_infographic.webp)
-
-Image taken from [this excellent article by The Verge](https://www.theverge.com/23165855/thread-smart-home-protocol-matter-apple-google-interview) about Matter that shows the landscape of Matter, {% term Thread %}, Border routers and bridges in a nice visualized way.
 
 {% include integrations/config_flow.md %}
 
