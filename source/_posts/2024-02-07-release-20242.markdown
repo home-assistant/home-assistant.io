@@ -79,11 +79,81 @@ noteworthy changes this release:
 
 We welcome the following new integrations in this release:
 
-- **[Lorem ipsum]**, added by [@frenck]<br />
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.
+- **[AirTouch 5]**, added by [@danzel]<br />
+  Control your AirTouch 5 ducted air conditioning systems.
+- **[Bang & Olufsen]**, added by [@mj23000]<br />
+  Control your Bang & Olufsen Beolab and Beosound devices.
+- **[Bring]**, added by [@miaucl]<br />
+  Use Bring to create shopping lists and share them with your family.
+- **[Elvia]**, added by [@ludeeus]<br />
+  Import your historic energy usage from an Elvia operated grid.
+- **[Epion]**, added by [@lhgravendeel]<br />
+  Monitor your Epion air quality sensors.
+- **[Govee lights local]**, added by [@Galorhallen]<br />
+  Control your Govee lights locally.
+- **[Home Assistant Analytics Insights]**, added by [@joostlek]<br />
+  This integration allows you to monitor information from the public and open [Home Assistant Analytics](https://analytics.home-assistant.io/).
+- **[Hong Kong Observatory]**, added by [@MisterCommand]<br />
+  Get weather information from the Hong Kong Observatory.
+- **[Huum]**, added by [@frwickst]<br />
+  Control your Huum smart sauna heaters.
+- **[La Marzocco]**, added by [@zweckj]<br />
+  Control your La Marzocco espresso machines.
+- **[LeaOne]**, added by [@bdraco]<br />
+  Monitor your LeaOne health device under the Xiaogui and BAGAIL brands.
+- **[myUplink]**, added by [@pajzo]<br />
+  Monitor myUplink supported devices in Home Assistant.
+- **[Rabbit Air]**, added by [@al-s]<br />
+  Locally control and monitor your Rabbit Air air purifiers.
+- **[Rainforest RAVEn]**, added by [@cottsay]<br />
+  Pull in energy data from your Rainforest RAVEn energy monitor.
+- **[Romy]**, added by [@xeniter]<br />
+  Control your Romy vacuum cleaners.
+- **[Tedee]**, added by [@zweckj]<br />
+  Use your Tedee smart locks in Home Assistant.
+- **[Teslemetry]**, added by [@Bre77]<br />
+  Pull in live telemetry data from your Tesla vehicle via the Tesla Fleet API. 
+- **[TechnoVE]**, added by [@Moustachauve]<br />
+  Control of TechnoVE Smart Charging Station using a local API.
+- **[Traccar server]**, added by [@ludeeus]<br />
+  Track your GPS devices by pulling data from a Traccar server.
 
-[@frenck]: https://github.com/frenck
-[Lorem ipsum]: /integrations/ipsum
+[@al-s]: https://github.com/al-s
+[@bdraco]: https://github.com/bdraco
+[@Bre77]: https://github.com/Bre77
+[@cottsay]: https://github.com/cottsay
+[@danzel]: https://github.com/danzel
+[@frwickst]: https://github.com/frwickst
+[@Galorhallen]: https://github.com/Galorhallen
+[@joostlek]: https://github.com/joostlek
+[@lhgravendeel]: https://github.com/lhgravendeel
+[@ludeeus]: https://github.com/ludeeus
+[@miaucl]: https://github.com/miaucl
+[@MisterCommand]: https://github.com/MisterCommand
+[@mj23000]: https://github.com/mj23000
+[@Moustachauve]: https://github.com/Moustachauve
+[@pajzo]: https://github.com/pajzo
+[@xeniter]: https://github.com/xeniter
+[@zweckj]: https://github.com/zweckj
+[AirTouch 5]: /integrations/airtouch5
+[Bang & Olufsen]: /integrations/bang_olufsen
+[Bring]: /integrations/bring
+[Elvia]: /integrations/elvia
+[Epion]: /integrations/epion
+[Govee lights local]: /integrations/govee_light_local
+[Home Assistant Analytics Insights]: /integrations/analytics_insights
+[Hong Kong Observatory]: /integrations/hko
+[Huum]: /integrations/huum
+[La Marzocco]: /integrations/lamarzocco
+[LeaOne]: /integrations/leaone
+[myUplink]: /integrations/myuplink
+[Rabbit Air]: /integrations/rabbitair
+[Rainforest RAVEn]: /integrations/rainforest_raven
+[Romy]: /integrations/romy
+[TechnoVE]: /integrations/technove
+[Tedee]: /integrations/tedee
+[Teslemetry]: /integrations/teslemetry
+[Traccar server]: /integrations/traccar_server
 
 This release also has a new virtual integration. Virtual integrations are stubs
 that are handled by other (existing) integrations to help with findability.
