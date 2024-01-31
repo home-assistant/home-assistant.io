@@ -48,7 +48,14 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Lorem ipsum](#lorem-ipsum)
+- [Improved drag \& drop support for automations](#improved-drag--drop-support-for-automations)
+- [Download statistics from the history dashboard](#download-statistics-from-the-history-dashboard)
+- [Shipping on a new Python version](#shipping-on-a-new-python-version)
+- [Update entities for ZHA devices](#update-entities-for-zha-devices)
+- [Matter diagnostics and actions](#matter-diagnostics-and-actions)
+- [All known assist devices](#all-known-assist-devices)
+- [Icons everywhere](#icons-everywhere)
+- [Integration authentication issues are now shown in the repairs dashboards](#integration-authentication-issues-are-now-shown-in-the-repairs-dashboards)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -57,23 +64,174 @@ Enjoy the (beta) release!
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=#)
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=8-YwXkgD3CY)
 7 February 2024, at 12:00 PST / 21:00 CET!
 
-<lite-youtube videoid="#" videotitle="Home Assistant 2024.2 Release Party"></lite-youtube>
+<lite-youtube videoid="8-YwXkgD3CY" videotitle="Home Assistant 2024.2 Release Party"></lite-youtube>
 
-## Lorem ipsum
+## Improved drag & drop support for automations
 
-Lorem ipsum
+As of this release, dragging and dropping triggers, conditions and actions in
+the automation editor is always possible. Previously, you had to enable
+re-ordering explicitly in the automation editor settings, now it is always
+possible.
+
+<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/5878303/a75028e9-e5ab-449c-ae6b-a62aeeafa1ac' alt='Temporary screenshot that needs to be replaced.'>
+
+But what is even more exciting, is that you can now drag and drop elements
+into other nested elements. For example, you can now drag a condition into
+the condition of an if-then or choose action.
+
+<video width="600" controls>
+  <source src="https://github.com/home-assistant/frontend/assets/5878303/4be1b5ae-15e4-4e80-b3b9-cd48eb012aac" type="video/mp4">
+</video>
+
+## Download statistics from the history dashboard
+
+You can now download the statistics you are viewing, from the history dashboard
+as a CSV file. This allows you to do further analysis on the data, in for
+example Excel, or to visualize it in other ways. Thanks, [@balloob]!
+
+<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/1444314/08a785c1-e32b-4caf-96c2-70d4cbcd46e0' alt='Temporary screenshot that needs to be replaced.'>
+
+[@balloob]: https://github.com/balloob
+
+## Shipping on a new Python version
+
+This release ships running on Python 3.12! In case you are wondering, what is
+that? Well, Python is the programming language Home Assistant is written in.
+
+Why it matters? It provides many improvements to the foundation we are building
+Home Assistant on, most noteably: It is faster! 🚀
+
+Don't worry! If you run the Home Assistant Operating System or are using the
+Home Assistant Container installation type: You won’t have to do anything, as we
+handle the upgrade to Python 3.12 for you. Just upgrade Home Assistant as
+you normally would and you are good to go! 😎
+
+## Update entities for ZHA devices
+
+[ZHA](/integrations/zha) (Zigbee Home Automation, our built-in Zigbee integration)
+now provides update entities to Home Assistant!
+
+This means you can get notified when a device has a firmware update available,
+and you can trigger the update from Home Assistant!
+
+<img class="no-shadow" src='https://github.com/home-assistant/core/assets/1335687/17420fd3-a054-4683-a950-a47b06b5faf6' alt='Temporary screenshot that needs to be replaced.'>
+
+## Matter diagnostics and actions
+
+Home Assistant works actively on providing the best support for [Matter](/integrations/matter)
+devices out of the box. To help with that, we have added more information and
+controls for your Matter devices in the UI.
+
+On the device page of the Matter device in Home Assistant, we will now show
+additional diagnostic information about the device. This information can be
+used to troubleshoot issues with the device or when reporting issues. Some
+examples include: The type of network the device is using, its addresses and IDs,
+device types and its connected [fabrics](/integrations/matter#multi-fabric-join-to-multiple-controllers).
+
+<img class="no-shadow" src='https://cdn.discordapp.com/attachments/505841299220594748/1202269675736539196/CleanShot_2024-01-31_at_16.10.09.png?ex=65ccd7e3&is=65ba62e3&hm=39f8817abfbae8d3a866dbd3e201a27e445dd3d7cfd60683524bedd03e0985b2&' alt='Temporary screenshot that needs to be replaced.'>
+
+Besides more information, there are also new actions you can take on the device.
+For example, ping the device, start comissioning or removing a fabric, or force
+a full device interview to sync all its information.
+
+## All known assist devices
+
+We've added a small additional page, to give you insight into the Assist devices
+you have active in your Home. You can find this on the
+{% my voice_assistants title="Assist configuration dashboard" %} by selecting
+the new "assist devices" button.
+
+<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/1444314/1e18d5c0-b5d3-438e-8d98-edbc312dbb01' alt='Temporary screenshot that needs to be replaced.'>
+
+{% my voice_assistants badge %}
+
+## Icons everywhere
+
+This release, we completely changed how Home Assistant handles icons. An big
+effort from many people, with almost... no change! That is right, _almost_
+everthing looks just the same as before.
+
+We did make some improvements! For example, integrations can now
+provide icons for things like fan speeds, or thermostat presets, but also
+actions can now have their own icons to match their specific goal:
+
+<img class="no-shadow" src='https://cdn.discordapp.com/attachments/674164904298676225/1202026201879953408/CleanShot_2024-01-31_at_00.02.502x.png?ex=65cbf523&is=65b98023&hm=8ba42ce1c98c9d92c8033e100913ee843bbb8df7a8d37e97e7c73d4d863dbc98&' alt='Temporary screenshot that needs to be replaced.'>
+
+Areas now have icons! You can set them in the area configuration. They show
+up in the area target pickers/selectors and in the area dashboard itself
+(in case you didn't upload a picture).
+
+<img class="no-shadow" src='https://cdn.discordapp.com/attachments/505841299220594748/1202269492701573200/CleanShot_2024-01-31_at_16.09.20.png?ex=65ccd7b8&is=65ba62b8&hm=40f92cd7b6ca3bbe4077d65eacd0b34b1ca1bc4a7545a6df9dcbd091bdf3dc55&' alt='Temporary screenshot that needs to be replaced.'>
+
+## Integration authentication issues are now shown in the repairs dashboards
+
+When one of your integrations is having authentication issues, Home Assistant
+will now report this in the {% my repairs title="repairs dashboard" %}.
+
+Previously this was only visible on the integration dashboard, but now it shows
+up in the repairs dashboard as this is the place where Home Assistant reports
+all issues with your system.
+
+<video width="600" controls>
+  <source src="https://cdn.discordapp.com/attachments/505841299220594748/1202269900790571018/CleanShot_2024-01-31_at_14.09.45.mp4?ex=65ccd819&is=65ba6319&hm=275b23b1ba35018d1db79ba9fa4c32fe8093d219ed65ac110dedcbac2efa2738&" type="video/mp4">
+</video>
+
+_(This temporary video is not the best example, as it doesn't really ask for
+new authentication details. We will update this video before the release.)_
 
 ## Other noteworthy changes
 
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- Lorem ipsum, thanks [@frenck]!
+- [@edenhaus] improved how we handle errors in our form fields. We no longer
+  show the technical coding gibberish that often showed up in the past. Nice!
+- When you [change the type of a switch entity] to, for example, a garage door 
+  entity, you will now have to option to invert its behavior.
+  Thanks, [@emontnemery]!
+- The [Ecovacs] integration received lots of love from [@edenhaus], and now
+  has support for many Deebot vacuum models with tons of entities to automate
+  with. Nice job!
+- [@mib1185] added automatic cleanups of old/unused refresh tokens 🧹. This
+  means you will be logged out on a device that hasn't used Home Assistant for
+  90 days. Clean and tidy!
+- The [Tuya] integration can now be set up using the the Tuya Smart or Smart
+  Life app directly. No more need for developer accounts or complicated
+  procedures!
+- Are you an Jinja templating Ninja? [@TNTLarsn] added a new `bitwise_xor`
+  filter for you to use. Awesome!
 
-[@frenck]: https://github.com/frenck
+[@edenhaus]: https://github.com/edenhaus
+[@emontnemery]: https://github.com/emontnemery
+[@mib1185]: https://github.commib1185
+[@TNTLarsn]: https://github.com/TNTLarsn
+[change the type of a switch entity]: /integrations/switch_as_x
+[Ecovacs]: /integrations/ecovacs
+[Tuya]: /integrations/tuya
+
+{% details "To process" %}
+
+- Add binary sensor platform to JVC Projector ([@msavazzi] - [#108668]) ([jvc_projector docs]) (new-platform)
+- Add binary sensors to flexit_bacnet integration ([@lellky] - [#108571]) ([flexit_bacnet docs]) (new-platform)
+- Add button platform to Opengarage ([@jkrall] - [#103569]) ([opengarage docs]) (new-platform)
+- Add color temp support for older HomeKit devices ([@bdraco] - [#107206]) ([homekit_controller docs])
+- Add device info to Netgear LTE ([@tkdrob] - [#106568]) ([netgear_lte docs])
+- Add GPS satellites count to Starline sensor ([@Anonym-tsk] - [#105740]) ([starline docs])
+- Add new event sensors from UniFi Protect 2.11 ([@AngellusMortis] - [#107773]) ([unifiprotect docs])
+- Add Record distance sensor to MyPermobil ([@IsakNyberg] - [#106519]) ([permobil docs])
+- Add sensor platform to Proximity ([@mib1185] - [#101497]) ([proximity docs]) (new-platform)
+- Add sensors to the flexit_bacnet integration ([@lellky] - [#108297]) ([flexit_bacnet docs]) (new-platform)
+- Add SpeakerHub support to YoLink ([@matrixd2] - [#104678]) ([yolink docs]) (new-platform)
+- Add Tami4 integration boil water button ([@Guy293] - [#103400]) ([tami4 docs]) (new-platform)
+- Add utility meter option for the sensor to always be available ([@dougiteixeira] - [#103481]) ([utility_meter docs])
+- Flow rate unit conversions and device class ([@elupus] - [#106077]) ([recorder docs]) ([sensor docs]) ([number docs])
+- Improved Assist debug ([@synesthesiam] - [#108889]) ([conversation docs])
+- Move core fundamental components into bootstrap ([@frenck] - [#105560]) ([default_config docs])
+
+{% enddetails %}
 
 ## New integrations
 
