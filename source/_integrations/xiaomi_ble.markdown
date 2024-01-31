@@ -3,6 +3,7 @@ title: Xiaomi BLE
 description: Instructions on how to integrate Xiaomi BLE devices into Home Assistant.
 ha_category:
   - Binary sensor
+  - Event
   - Sensor
 ha_bluetooth: true
 ha_release: 2022.8
@@ -14,6 +15,7 @@ ha_domain: xiaomi_ble
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - event
   - sensor
 ha_integration_type: integration
 ---
@@ -40,11 +42,20 @@ It is possible that we detect your device because it uses the MiBeacon protocol 
 
 It also supports the following classes of binary sensors:
 
+- Door
 - Light
-- Smoke
 - Moisture
+- Motion
+- Opening
+- Smoke
+- Toothbrush
 
-The entities for the sensor classes are added after the values are first received. This means entities for values that are broadcasted at a lower interval (e.g., battery) might show up later.
+And also supports the following events:
+
+- Motion detected (MUE4094RT only)
+- Button press
+
+The entities are added after the values are first received. This means entities for values that are broadcasted at a lower interval (e.g., battery) might show up later.
 
 ## Encryption
 
@@ -57,8 +68,8 @@ This key is called the bindkey or beaconkey.
 
 There are a few ways to obtain a bindkey for your device:
 
-- Set your own. The [Telink Flasher](https://atc1441.github.io/TelinkFlasher.html) allows you to generate new bindkeys for devices it supports. The new bind key will work with Home Assistant, but the Mi Home app will not recognize the sensor anymore once the device has been activated by the TeLink flasher application. To use the sensor again with the Xiaomi Mi Home app, the device needs to be removed and then re-added inside the Mi Home app.
 - Extract the keys from Xiaomi Cloud using a [token extractor](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) tool.
+- Set your own. The [Telink Flasher](https://pvvx.github.io/ATC_MiThermometer/TelinkMiFlasher.html) allows you to generate new bindkeys for devices it supports (LYWSD03MMC, MJWSD05MMC, MHO-C401, CGG1, and CGDK2). The new bind key will work with Home Assistant, but the Mi Home app will not recognize the sensor anymore once the device has been activated by the TeLink flasher application. To use the sensor again with the Xiaomi Mi Home app, the device needs to be removed and then re-added inside the Mi Home app.
 
 ## Devices
 
