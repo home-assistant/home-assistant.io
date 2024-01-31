@@ -1,5 +1,5 @@
 ---
-title: Traccar
+title: Traccar Client
 description: Instructions how to use Traccar GPS tracker to track devices in Home Assistant.
 ha_release: 0.83
 ha_category:
