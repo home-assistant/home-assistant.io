@@ -89,9 +89,10 @@ This release also has a new virtual integration. Virtual integrations are stubs
 that are handled by other (existing) integrations to help with findability.
 The following virtual integrations have been added:
 
-- **[Lorem ipsum]**, provided by [Lorem ipsum]
+- **[City of Austin Utilities]**, provided by [Opower]
 
-[Lorem ipsum]: /integrations/lorem
+[City of Austin Utilities]: /integrations/coautilities
+[Opower]: /integrations/opower
 
 ## Integrations now available to set up from the UI
 
