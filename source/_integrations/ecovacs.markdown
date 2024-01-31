@@ -65,10 +65,10 @@ Additionally, **depending on your model**, the integration provides the followin
     - `Cleanings`: The number of cleanings
     - `Time`: The total cleaning time
 - **Switch**:
-  - `Advanced mode`: Enable advanced mode. Disabled by default
-  - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet was detected. Disabled by default
-  - `Continuous cleaning`: Enable continuous cleaning, which means the bot resume the cleaning job if he needed to charge in between. Disabled by default
-  - `True detect`: Enable "True detect" feature. Disabled by default
+  - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.
+  - `Continuous cleaning`: Enable continuous cleaning, which means the bot resumes the cleaning job if he needs to charge in between. Disabled by default.
+  - `True detect`: Enable "True detect" feature. Disabled by default.
 
 ## Vacuum
 
