@@ -43,6 +43,9 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Relocate`: Button entity to trigger manual relocation.
 - **Image**:
   - `Map`: The floorplan/map as an image in SVG format.
+- **Number**:
+  - `Clean count`: Set the number of times to clean the area.
+  - `Volume`: Set the volume.
 - **Select**:
   - `Water amount`: Specify the water amount used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean.
