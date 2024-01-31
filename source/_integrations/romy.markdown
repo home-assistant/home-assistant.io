@@ -4,16 +4,13 @@ description: Integrate your ROMY vacuum robot with Home Assistant.
 ha_category:
   - Vacuum
 ha_iot_class: Local Polling
-ha_release: 2023.5
+ha_release: 2024.2
 ha_config_flow: true
 ha_codeowners:
   - '@xeniter'
 ha_domain: romy
 ha_platforms:
-  - binary_sensor
-  - sensor
   - vacuum
-  - button
 ha_integration_type: integration
 ---
 
@@ -37,24 +34,12 @@ Currently supported services are:
 - `stop`
 - `return_to_base`
 
-## Sensors
-
-Currently supported sensors are:
-
-- battery level
-- wifi rssi level
-- dustbin level
-- docked
-- dustbin present
-- watertank present
-- watertank empty
-
 
 ## Troubleshooting
 
-### local HTTP interface password
+### Local HTTP interface password
 
-You have to enable the local interface first with a password, this is printed as QR Code on a label directly under the dustbin inside the robot.
+You have to enable the local interface first with a password. This is printed as QR Code on a label directly under the dust bin inside the robot.
 
 ### ROMY robot interface protocol
 
