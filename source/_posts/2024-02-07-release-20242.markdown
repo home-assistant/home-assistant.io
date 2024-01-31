@@ -129,14 +129,406 @@ other news about building an Open Home; straight into your inbox.
 
 ## Backward-incompatible changes
 
-{% details "Lorem ipsum" %}
+{% details "Authentication" %}
 
-Lorem ipsum
+We changes the way refresh tokens are handled. Refresh tokens are part of what
+keeps you logged in to Home Assistant.
 
-([@frenck] - [#12345]) ([documentation](/integrations/lorem))
+Refresh tokens will be automatically deleted when unused. A refresh token
+is considered unused if it has not been used for a login within 90 days.
+
+This means that if your logged in session hasn't been used for 90 days, you
+will be logged out. You will need to log in again.
+
+If you need a permanent token, then we recommend using [Long-lived access tokens](/docs/auth_api/#long-lived-access-token).
+
+([@mib1185] - [#108428]) ([documentation](/docs/authentication/))
+
+[@mib1185]: https://github.com/mib1185
+[#108428]: https://github.com/home-assistant/core/pull/108428
+
+{% enddetails %}
+
+{% details "Blink" %}
+
+The options flow that gave to option to set a custom scan interval, has been
+removed.
+
+Adjustable scan interval is no longer allowed, but above all, the option has
+had no effect on the integration since 2023.11.
+
+You can use an automation as an alternative to create a custom polling rate
+([documentation](/common-tasks/general/#defining-a-custom-polling-interval)).
+Updating one entity in a blink configuration will update all entities in each
+blink configuration.
+
+([@mkmer] - [#106735]) ([documentation](/integrations/blink))
+
+[@mkmer]: https://github.com/mkmer
+[#106735]: https://github.com/home-assistant/core/pull/106735
+
+---
+
+Update WIFI diagnostic to match new API units - previously Blink reported RSSI
+dBm, now they report generic 0-5 for signal strength.
+
+([@mkmer] - [#107539]) ([documentation](/integrations/blink))
+
+[@mkmer]: https://github.com/mkmer
+[#107539]: https://github.com/home-assistant/core/pull/107539
+
+{% enddetails %}
+
+{% details "Cisco Webex Teams" %}
+
+This integration has been disabled. The upstream libraries used by
+Home Assistant are not compatible with Python 3.12.
+
+This compatibility issue has been [reported upstream](https://github.com/WebexCommunity/WebexPythonSDK/issues/139).
+
+([@frenck] - [#108163]) ([documentation](/integrations/cisco_webex_teams))
 
 [@frenck]: https://github.com/frenck
-[#12345]: https://github.com/home-assistant/core/pull/12345
+[#108163]: https://github.com/home-assistant/core/pull/108163
+
+{% enddetails %}
+
+{% details "EZVIZ" %}
+
+The services `ezviz.ptz`, `ezviz.sound_alarm`, and `alarm_sound` have been moved
+to button and select entities in release 2023.8. Support for the deprecated
+services has now been completely removed.
+
+If you are using these services in automations or script, you will need to
+update them to match this change.
+
+([@jpbede] - [#107582]) ([documentation](/integrations/ezviz))
+
+[@jpbede]: https://github.com/jpbede
+[#107582]: https://github.com/home-assistant/core/pull/107582
+
+{% enddetails %}
+
+{% details "Google Generative AI Conversation" %}
+
+Any previous integration setups might have to be recreated or reconfigured with
+the new `models/gemini-pro` instead of the legacy `models/chat-bison-001`.
+
+([@tronikos] - [#105789]) ([documentation](/integrations/google_generative_ai_conversation))
+
+[@tronikos]: https://github.com/tronikos
+[#105789]: https://github.com/home-assistant/core/pull/105789
+
+{% enddetails %}
+
+{% details "Honeywell Total Connect Comfort (US)" %}
+
+Preset mode was returning "unknown" rather than "none".
+Any references to `preset_mode` may need to be updated
+
+([@mkmer] - [#108599]) ([documentation](/integrations/honeywell))
+
+[@mkmer]: https://github.com/mkmer
+[#108599]: https://github.com/home-assistant/core/pull/108599
+
+{% enddetails %}
+
+{% details "Huawei LTE" %}
+
+The services `huawei_lte.clear_traffic_statistics` and `huawei_lte.reboot` have
+been moved to button entities in release 2023.8. Support for the deprecated
+services has now been completely removed.
+
+If you are using these services in automations or script, you will need to
+update them to match this change.
+
+([@jpbede] - [#107578]) ([documentation](/integrations/huawei_lte))
+
+[@jpbede]: https://github.com/jpbede
+[#107578]: https://github.com/home-assistant/core/pull/107578
+
+{% enddetails %}
+
+{% details "JustNimbus" %}
+
+The following sensors have been removed from the JustNimbus integration,
+since they're no longer available through JustNimbus' API:
+
+- Pump starts
+- Pump hours
+- Error code
+- Total replenished
+- Pump flow
+- Drink flow
+
+The following sensors have been renamed:
+
+- Total saved (`total_saved`) -> Total saved (`water_saved`)
+- Total use (`totver`) -> Total use (`water_used`)
+- Maximum reservoir content (`reservoir_content_max`) -> Reservoir capacity (`reservoir_capacity`)
+
+Automations or scripts using any of the removed or renamed entities should be
+updated. Once updated the old entities can be safely removed.
+
+([@kvanzuijlen] - [#99212]) ([documentation](/integrations/justnimbus))
+
+[@kvanzuijlen]: https://github.com/kvanzuijlen
+[#99212]: https://github.com/home-assistant/core/pull/99212
+
+{% enddetails %}
+
+{% details "Litter-Robot" %}
+
+The services `vacuum.turn_on` and `vacuum.turn_off` were deprecated in 2023.11.
+Support for the deprecated services has now been completely removed.
+
+If you arestill using them, please adjust your automations and scripts and
+use `vacuum.start` and `vacuum.stop` instead.
+
+([@jpbede] - [#107882]) ([documentation](/integrations/litterrobot))
+
+[@jpbede]: https://github.com/jpbede
+[#107882]: https://github.com/home-assistant/core/pull/107882
+
+{% enddetails %}
+
+{% details "Lutron" %}
+
+The Lutron integration previously created fans as light entities. This has been
+changed to create actual fan entities instead.
+
+If you have automations, scripts, scenes or dashboards that used these light
+entities, you will need to update them to use the new fan entities.
+
+([@wilburCforce] - [#107402]) ([documentation](/integrations/lutron))
+
+[@wilburCforce]: https://github.com/wilburCforce
+[#107402]: https://github.com/home-assistant/core/pull/107402
+
+{% enddetails %}
+
+{% details "Met Office" %}
+
+This integration has been disabled. The upstream libraries used by
+Home Assistant are not compatible with Python 3.12.
+
+This compatibility issue has been [reported upstream](https://github.com/EJEP/datapoint-python/issues/183).
+
+([@frenck] - [#108163]) ([documentation](/integrations/metoffice))
+
+[@frenck]: https://github.com/frenck
+[#108163]: https://github.com/home-assistant/core/pull/108163
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+MQTT `sensor` or `binary_sensor` configuration that have an `entity_category`
+explicitly set to `config` will fail to set up. Maintainers should set the
+`entity_category` attribute to `diagnostic` or omit the config attribute.
+
+[Related developer blogpost](https://developers.home-assistant.io/blog/2021/10/26/config-entity/)
+
+([@jbouwh] - [#107199]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#107199]: https://github.com/home-assistant/core/pull/107199
+
+---
+
+When an MQTT entity has a device name that is equal to the entity name, or
+starts with the device name, this will no longer be corrected.
+
+When entities like these are created they will have both device and entity name
+in the friendly name. If the device name is to be omitted because it is the same
+as the entity name, then the entity `name` attribute sould be set to `null` in
+the JSON payload or YAML configuration.
+
+[Related developer blogpost](https://developers.home-assistant.io/blog/2023/07/21/change-naming-mqtt-entities)
+
+([@jbouwh] - [#107188]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#107188]: https://github.com/home-assistant/core/pull/107188
+
+---
+
+The support for MQTT vacuum entities with a `legacy` schema is removed after 6
+months of deprecation. Users can use the `state` schema instead,
+which is now the default.
+
+([@jbouwh] - [#107274]) ([documentation](/integrations/lorem))
+
+[@jbouwh]: https://github.com/jbouwh
+[#107274]: https://github.com/home-assistant/core/pull/107274
+
+{% enddetails %}
+
+{% details "Renson" %}
+
+The start time of day and start time of night sensors have been replaced by
+time entities. If you used these sensors in automations or scripts, you will
+need to update your automations to use the new time entities.
+
+([@jimmyd-be] - [#105031]) ([documentation](/integrations/renson))
+
+[@jimmyd-be]: https://github.com/jimmyd-be
+[#105031]: https://github.com/home-assistant/core/pull/105031
+
+{% enddetails %}
+
+{% details "RESTful Command" %}
+
+Call to RESTful command services will no longer silently fail and will raise an
+exception on, for example, timeout or decoding errors.
+
+You could consider using [`continue_on_error`](/docs/scripts/#continuing-on-error)
+for scripts and automations that use RESTful commands that are allowed to fail
+occasionally.
+
+([@RoboMagus] - [#97208]) ([documentation](/integrations/rest_command))
+
+[@RoboMagus]: https://github.com/RoboMagus
+[#97208]: https://github.com/home-assistant/core/pull/97208
+
+{% enddetails %}
+
+{% details "Roborock" %}
+
+The services `vacuum.start_pause` was deprecated in 2023.8. Support for the
+deprecated services has now been completely removed.
+
+If you are still using them, please adjust your automations and scripts,
+use `vacuum.pause` or `vacuum.start` instead.
+
+([@jpbede] - [#107895]) ([documentation](/integrations/roborock))
+
+[@jpbede]: https://github.com/jpbede
+[#107895]: https://github.com/home-assistant/core/pull/107895
+
+{% enddetails %}
+
+{% details "Swiss public transport" %}
+
+The state value of the sensor is now a standardize timestamp.
+Further, all `timestamps` and `durations` in the additional fields are now also
+proper datetime/durations.
+
+([@miaucl] - [#12341064855]) ([documentation](/integrations/swiss_public_transport))
+
+[@miaucl]: https://github.com/miaucl
+[#106485]: https://github.com/home-assistant/core/pull/106485
+
+{% enddetails %}
+
+{% details "TP-Link Smart Home" %}
+
+To prevent overloading the power strips, the energy data is now polled every
+60 seconds. If you need to poll the data faster, please use an automation that
+calls the `homeassistant.update_entity` service.
+
+([@bdraco] - [#104208]) ([documentation](/integrations/tplink))
+
+[@bdraco]: https://github.com/bdraco
+[#104208]: https://github.com/home-assistant/core/pull/104208
+
+{% enddetails %}
+
+{% details "Tuya" %}
+
+Tuya has provided an easier and improved login method for Home Assistant users.
+
+Having a developer account with Tuya is no longer required; instead, you can
+scan a QR code with your Tuya Smart of Smart Life app to authenticate it
+with Home Assistant.
+
+After updating to this release, Home Assistant will ask you to re-authenticate
+your Tuya Smart or Smart Life account using this new method.
+
+([@frenck] - [#109155]) ([documentation](/integrations/tuya))
+
+[@frenck]: https://github.com/frenck
+[#109155]: https://github.com/home-assistant/core/pull/109155
+
+---
+
+The services `vacuum.turn_on` and `vacuum.turn_off` were deprecated in 2023.8.
+Support for the deprecated services has now been completely removed.
+
+If you are still using them, please adjust your automations and scripts and
+use `vacuum.start` and `vacuum.stop` instead.
+
+([@jpbede] - [#107896]) ([documentation](/integrations/tuya))
+
+[@jpbede]: https://github.com/jpbede
+[#107896]: https://github.com/home-assistant/core/pull/107896
+
+---
+
+Previously, Tuya would fall back to using the metric system if the temperature
+unit was not reported by a climate device. This behavior has been changed to
+use the default unit configured on your system instead.
+
+([@DellanX] - [#108050]) ([documentation](/integrations/tuya))
+
+[@DellanX]: https://github.com/DellanX
+[#108050]: https://github.com/home-assistant/core/pull/108050
+
+{% enddetails %}
+
+{% details "Webooks" %}
+
+Since version 2023.7 you have been informed that the "local only" option of
+webhooks would become the default. With this release this change was now put
+into affect. Please, if needed, adjust your automation triggers.
+
+([@jpbede] - [#107670]) ([documentation](/integrations/webhook))
+
+[@jpbede]: https://github.com/jpbede
+[#107670]: https://github.com/home-assistant/core/pull/107670
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+The default rounding of numeric sensors to two decimals, has been removed.
+
+We now let the device and driver decide what precision should be reported. This
+allows devices with greater precision to report accurately.
+
+You can change the display precision in the UI for the sensor or use a template
+sensor if you want to change the precision.
+
+([@MartinHjelmare] - [#107100]) ([documentation](/integrations/zwave_js))
+
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[#107100]: https://github.com/home-assistant/core/pull/107100
+
+---
+
+Set suggested precision to 0 decimals for voltage sensors with native unit in V.
+This will uniform the display precision of voltage sensors where there otherwise
+seems to be a variety of precision reported from different devices.
+
+If you want to change the precision you can do that in the sensor options in the
+UI or with a template sensor.
+
+([@MartinHjelmare] - [#107116]) ([documentation](/integrations/zwave_js))
+
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[#107116]: https://github.com/home-assistant/core/pull/107116
+
+---
+
+The Fan and Dry climate Preset modes have been removed after a period of
+deprecation. You should update your automations or scripts to use the
+corresponding Dry and Fan **HVAC modes** instead, if you haven't done so
+already.
+
+([@jbouwh] - [#108124]) ([documentation](/integrations/zwave_js))
+
+[@jbouwh]: https://github.com/jbouwh
+[#108124]: https://github.com/home-assistant/core/pull/108124
 
 {% enddetails %}
 
@@ -144,7 +536,14 @@ If you are a custom integration developer and want to learn about breaking
 changes and new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
-- [Lorem ipsum](https://developers.home-assistant.io/blog)
+- [Changes to FlowManager.async_show_progress](https://developers.home-assistant.io/blog/2024/01/11/async-show-progress-changes)
+- [Changes to light color mode when lights display an effect](https://developers.home-assistant.io/blog/2024/01/23/light-color-mode-changes/)
+- [Deprecate invalid use of sensor unit of measurement and state class](https://developers.home-assistant.io/blog/2024/01/17/deprecate-invalid-sensor-uom-state-class-use)
+- [Enumerating services](https://developers.home-assistant.io/blog/2024/01/22/async_services_for_domain)
+- [Icon translations](https://developers.home-assistant.io/blog/2024/01/19/icon-translations)
+- [Introducing entity translation placeholders](https://developers.home-assistant.io/blog/2024/01/19/entity-translations-placeholders)
+- [New entity features in Climate entity](https://developers.home-assistant.io/blog/2024/01/24/climate-climateentityfeatures-expanded)
+- [Properties changes for ha-state-icon](https://developers.home-assistant.io/blog/2024/01/30/ha-state-icon-properties-changes)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
@@ -152,11 +551,19 @@ changes and new features available for your integration: Be sure to follow our
 
 The following integrations are also no longer available as of this release:
 
-- **Lorem ipsum** has been removed. Lorem slipsum might be a good replacement.
-  ([@frenck] - [#12345])
+- **Legrand Home+ Control** has been removed as their API shut down in December.
+  Use [the Netatmo integration](/integrations/netatmo/) as an alternative to
+  integrate your Legrand Home+ Control devices.  
+  ([@jpbede] - [#107587])
+- **Life360** has been removed. They are now actively blocking third-party
+  access, including Home Assistant. The [Home Assistant Companion app](https://companion.home-assistant.io/)
+  is a good, and (above all) privacy-friendly alternative.  
+  ([@pnbruckner] - [#107805])
 
-[@frenck]: https://github.com/frenck
-[#12345]: https://github.com/home-assistant/core/pull/12345
+[@jpbede]: https://github.com/jpbede
+[@pnbruckner]: https://github.com/pnbruckner
+[#107587]: https://github.com/home-assistant/core/pull/107587
+[#107805]: https://github.com/home-assistant/core/pull/107805
 
 ## All changes
 
