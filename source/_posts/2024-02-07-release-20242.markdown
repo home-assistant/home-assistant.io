@@ -54,6 +54,8 @@ Enjoy the (beta) release!
 - [Update entities for ZHA devices](#update-entities-for-zha-devices)
 - [Matter diagnostics and actions](#matter-diagnostics-and-actions)
 - [All known assist devices](#all-known-assist-devices)
+- [Better errors when using Assist](#better-errors-when-using-assist)
+- [Custom response in the automation editor when using a sentence trigger](#custom-response-in-the-automation-editor-when-using-a-sentence-trigger)
 - [Icons everywhere](#icons-everywhere)
 - [Integration authentication issues are now shown in the repairs dashboards](#integration-authentication-issues-are-now-shown-in-the-repairs-dashboards)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -155,6 +157,32 @@ the new "assist devices" button.
 <img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/1444314/1e18d5c0-b5d3-438e-8d98-edbc312dbb01' alt='Temporary screenshot that needs to be replaced.'>
 
 {% my voice_assistants badge %}
+
+## Better errors when using Assist
+
+If you use [Assist](/voice_control/), our private voice assistant, you may have noticed that its responses were not meaningful when something was not understood.
+
+Some of the errors encountered while using Assist can easily be fixed on your side by adding aliases to entities or areas, exposing entities to Assist, or assigning entities and devices to the correct areas.
+
+So we are taking the first step to help you fix these errors: as of this release, Assist provides much better errors in case your intention is understood, but something else is missing (An unknown name, area, device class, or domain).
+
+<img class="no-shadow" src='/images/blog/2024-02/assist-errors.png' alt='Screenshot showing the new errors assist will return in case the intention is understood, but something else is missing.'>
+
+## Custom response in the automation editor when using a sentence trigger
+
+As almost every component and feature of Home Assistant, Assist can be customized and extended to understand more sentences.
+
+A few releases ago, we introduced a very simple way to extend what Assist understands: The [sentence trigger](/docs/automation/trigger/#sentence-trigger) in our automation engine.
+
+Up until now, using a sentence trigger always led to the same Assist response: “Done”. In fact, the only way to define a custom response was to write complex custom sentences in YAML.
+
+This release introduces a new action to set a custom response in your sentence-triggered automations directly inside the automation editor.
+
+<img class="no-shadow" src='/images/blog/2024-02/assist-custom-response-editor.png' alt='Screenshot showing how to build a custom response in our automation editor.'>
+
+The response field accepts templates, so it can be used to build complex responses, for example, listing all your room temperatures.
+
+<img class="no-shadow" src='/images/blog/2024-02/assist-custom-response.png' alt='Screenshot showing a custom response in Assist.'>
 
 ## Icons everywhere
 
