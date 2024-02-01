@@ -35,11 +35,11 @@ You can access the **History** panel from the side bar. To export the data, foll
 
 <img class="no-shadow" src='/images/integrations/history/history-panel_export-data.png' alt='History panel can be accessed via sidebar.'>
 
-## About the time frame
+## About the data sources
 
-By default, the recorder stores the sensor data for 10 days. Older data is purged automatically.
+By default, the recorder stores the sensor data for 10 days. Older data is purged automatically. The data for the last 10 days is taken from the recorder.
 
-If you select a time frame that exceeds 10 days, the data is taken from the long term statistics table. The long term statistics data is sampled an averaged once per hour, to save storage. Therefore, the values might look different from what you see from the recorder data, which shows the measured values at the sample rate defined for that sensor.
+If you select a time frame that exceeds 10 days, the data is taken from the long term statistics table. The long term statistics data is sampled and averaged once per hour, to save storage. Therefore, the values might look different from what you see from the recorder data, which shows the measured values at the sample rate defined for that sensor.
 
 <img class="no-shadow" src='/images/integrations/history/history-panel_including-long-term-storage.png' alt='If the chosen time frame exceeds the retention period defined in the recorder, the long term statistics table is used as a data source.'>
 
