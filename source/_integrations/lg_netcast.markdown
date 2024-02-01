@@ -44,7 +44,7 @@ automation:
           broadcast_address: 11.22.33.44
 ```
 
-Any other [actions](/docks/automation/action/) to power on the device can be configured.
+Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
 ## Change channel through play_media service
 
