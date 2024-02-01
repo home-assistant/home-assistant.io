@@ -108,9 +108,9 @@ Make sure you have all these components ready before trying to add a Matter devi
 #### Check logos on the device
 
 - On the device packaging, check for both the Matter logo and for either the Wi-Fi or the {% term Thread %} logo.
-- Check if the QR code is only on the packaging or if it is also on the device.
-  - If it is only on the packaging, snap a picture of the QR code and the device and store the image and the numerical code in a save place.
-  - If you lose the QR code and disconnect the device at some point, you won't be able to connect to that device again without the QR code.
+- Check if the QR code or the numeric setup code is on the device.
+  - If you reset your device you'll need the QR code *or* numeric setup code to {% term commission %} that device again! Without this information, commissioning won't be possible.
+  - If the QR code or the numeric setup code is only in accompanied documentation, it is good practice to snap a picture of the QR code and/or numeric setup code as a backup, ideally along with the device for reference, and store the code in a safe place.
 
 #### Prepare Android or iPhone
 
@@ -118,9 +118,7 @@ Make sure you have all these components ready before trying to add a Matter devi
   - Android:
     - Have an Android phone (a full Android, not F-Droid).
     - Have the latest version of the Home Assistant Companion app installed.
-    - Have the Google Home app installed on the Android.
-    - We are not going to add the new device to Google Home. The app is needed because Google included the Matter SDK there.
-    - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Generation) or Nest Wi-Fi Pro) present in your home network.
+    - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro) present in your home network.
   - iPhone
     - Have the iOS version 16 or higher
     - Have the latest version of the Home Assistant Companion app installed.
@@ -265,7 +263,7 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 - Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Not using Home Assistant OS is at your own risk. We do provide some [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) on how to run the Matter Server as a Docker container. The documentation includes a description of the host and networking requirements.
 
-- To use {% term Thread %} devices you will need a {% term Thread %} network with at least one Thread border router in your network nearby the {% term Thread %} device(s). Apple users, for example, need the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub (2nd Generation). Use the Thread integration in Home Assistant to diagnose your {% term Thread %} network(s).
+- To use {% term Thread %} devices you will need a {% term Thread %} network with at least one Thread border router in your network nearby the {% term Thread %} device(s). Apple users, for example, need the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub (2nd Gen). Use the Thread integration in Home Assistant to diagnose your {% term Thread %} network(s).
 
 - Start simple and work from there, keep your network simple and add for example an ESP32 test device. Once that works, move on to the next step or more devices.
 
