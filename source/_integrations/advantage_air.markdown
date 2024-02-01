@@ -6,9 +6,9 @@ ha_category:
   - Climate
   - Cover
   - Light
+  - Select
   - Sensor
   - Switch
-  - Update
   - Update
 ha_release: 0.117
 ha_iot_class: Local Polling
