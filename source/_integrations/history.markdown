@@ -24,9 +24,9 @@ This integration is by default enabled, unless you've disabled or removed the [`
 history:
 ```
 
-## History panel in side bar
+## Exporting data from the History panel
 
-By default, you can access the **History** panel from the side bar. To export the data, follow these steps:
+You can access the **History** panel from the side bar. To export the data, follow these steps:
 
 1. Select the areas, devices, or entities of interest.
 2. Set the time frame.
@@ -43,7 +43,7 @@ If you select a time frame that exceeds 10 days, the data is taken from the long
 
 <img class="no-shadow" src='/images/integrations/history/history-panel_including-long-term-storage.png' alt='If the chosen time frame exceeds the retention period defined in the recorder, the long term statistics table is used as a data source.'>
 
- If you want to be able to see the data in full resolution for a longer period of time, you could change the retention period for that sensor in the recorder. If you do this, you may need to increase the storage capacity of your device.
+ If you want to see the data in full resolution for a longer period of time, you could change the retention period for that sensor in the recorder. If you do this, you may need to increase the storage capacity of your device.
 
 ## API
 
