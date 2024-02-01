@@ -49,7 +49,7 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Improved drag \& drop support for automations](#improved-drag--drop-support-for-automations)
-- [Download statistics from the history dashboard](#download-statistics-from-the-history-dashboard)
+- [Download data from the history dashboard](#download-data-from-the-history-dashboard)
 - [Shipping on a new Python version](#shipping-on-a-new-python-version)
 - [Update entities for ZHA devices](#update-entities-for-zha-devices)
 - [Matter diagnostics and actions](#matter-diagnostics-and-actions)
@@ -86,9 +86,9 @@ the condition of an if-then or choose action.
   <source src="https://github.com/home-assistant/frontend/assets/5878303/4be1b5ae-15e4-4e80-b3b9-cd48eb012aac" type="video/mp4">
 </video>
 
-## Download statistics from the history dashboard
+## Download data from the history dashboard
 
-You can now download the statistics you are viewing, from the history dashboard
+You can now download the data you are viewing in the history dashboard
 as a CSV file. This allows you to do further analysis on the data, in for
 example Excel, or to visualize it in other ways. Thanks, [@balloob]!
 
@@ -118,6 +118,14 @@ This means you can get notified when a device has a firmware update available,
 and you can trigger the update from Home Assistant!
 
 <img class="no-shadow" src='https://github.com/home-assistant/core/assets/1335687/17420fd3-a054-4683-a950-a47b06b5faf6' alt='Temporary screenshot that needs to be replaced.'>
+
+Noticed the weird version numbers? Unfortunately, that is how version numbers
+in the Zigbee standard work and look, we currently have no way to translate
+them to something more human-readable format.
+
+Currently, it supports updating Inovelli, OSRAM/Ledvance, Sonoff, and
+ThirdReality devices, and we are looking at adding support for more brands
+in the future.
 
 ## Matter diagnostics and actions
 
@@ -190,7 +198,7 @@ noteworthy changes this release:
 - [@edenhaus] improved how we handle errors in our form fields. We no longer
   show the technical coding gibberish that often showed up in the past. Nice!
 - When you [change the type of a switch entity] to, for example, a garage door 
-  entity, you will now have to option to invert its behavior.
+  entity, you will now have the option to invert its behavior.
   Thanks, [@emontnemery]!
 - The [Ecovacs] integration received lots of love from [@edenhaus], and now
   has support for many Deebot vacuum models with tons of entities to automate
@@ -206,7 +214,7 @@ noteworthy changes this release:
 
 [@edenhaus]: https://github.com/edenhaus
 [@emontnemery]: https://github.com/emontnemery
-[@mib1185]: https://github.commib1185
+[@mib1185]: https://github.com/mib1185
 [@TNTLarsn]: https://github.com/TNTLarsn
 [change the type of a switch entity]: /integrations/switch_as_x
 [Ecovacs]: /integrations/ecovacs
@@ -456,6 +464,18 @@ the new `models/gemini-pro` instead of the legacy `models/chat-bison-001`.
 
 {% enddetails %}
 
+{% details "HomeWizard Energy" %}
+
+The Gas meter ID sensor is removed, the meter ID is now shown as a serial number
+in the device info panel instead.
+
+([@DCSBL] - [#100684]) ([documentation](/integrations/homewizard))
+
+[@DCSBL]: https://github.com/DCSBL
+[#100684]: https://github.com/home-assistant/core/pull/100684
+
+{% enddetails %}
+
 {% details "Honeywell Total Connect Comfort (US)" %}
 
 Preset mode was returning "unknown" rather than "none".
@@ -517,7 +537,7 @@ updated. Once updated the old entities can be safely removed.
 The services `vacuum.turn_on` and `vacuum.turn_off` were deprecated in 2023.11.
 Support for the deprecated services has now been completely removed.
 
-If you arestill using them, please adjust your automations and scripts and
+If you are still using them, please adjust your automations and scripts and
 use `vacuum.start` and `vacuum.stop` instead.
 
 ([@jpbede] - [#107882]) ([documentation](/integrations/litterrobot))
@@ -592,10 +612,30 @@ The support for MQTT vacuum entities with a `legacy` schema is removed after 6
 months of deprecation. Users can use the `state` schema instead,
 which is now the default.
 
-([@jbouwh] - [#107274]) ([documentation](/integrations/lorem))
+([@jbouwh] - [#107274]) ([documentation](/integrations/mqtt))
 
 [@jbouwh]: https://github.com/jbouwh
 [#107274]: https://github.com/home-assistant/core/pull/107274
+
+{% enddetails %}
+
+{% details "Proximity" %}
+
+The proximity entity is deprecated and will be removed in 2024.8. It is
+superseded by sensor entities.
+
+For each tracked person or device one sensor for the distance and the
+direction of travel to/from the monitored zone is created. Further for each
+Proximity configuration one sensor which shows the nearest device or person
+to the monitored zone is created.
+
+With this you can use the [Min/Max](/integrations/min_max) integration to
+determine the nearest and furthest distance.
+
+([@mib1185] - [#108730]) ([documentation](/integrations/proximity))
+
+[@mib1185]: https://github.com/mib1185
+[#108730]: https://github.com/home-assistant/core/pull/108730
 
 {% enddetails %}
 
@@ -643,6 +683,20 @@ use `vacuum.pause` or `vacuum.start` instead.
 
 {% enddetails %}
 
+{% details "Sensors" %}
+
+Setting `last_reset` for entities with a `state_class` other than `total` is
+no longer supported. Please update your configuration if `state_class`
+is manually configured (for example, in templates or when using customize to
+override this attribute).
+
+([@jpbede] - [#108391]) ([documentation](/integrations/sensor))
+
+[@jpbede]: https://github.com/jpbede
+[#108391]: https://github.com/home-assistant/core/pull/108391
+
+{% enddetails %}
+
 {% details "Swiss public transport" %}
 
 The state value of the sensor is now a standardize timestamp.
@@ -666,6 +720,25 @@ calls the `homeassistant.update_entity` service.
 
 [@bdraco]: https://github.com/bdraco
 [#104208]: https://github.com/home-assistant/core/pull/104208
+
+{% enddetails %}
+
+{% details "Traccar" %}
+
+The YAML configuration for the Traccar integration has been deprecated
+and will be removed in Home Assistant 2024.8.0. Your YAML configuration will
+be automatically imported to the new [Traccar Server](/integrations/traccar_server)
+integration.
+
+If you previously used the `scan_interval` option, this is not bing imported.
+If you are in need of a custom polling interval, you can use an automation
+to define your own custom polling behavior.
+[Learn more about that here.](/common-tasks/general/#defining-a-custom-polling-interval)
+
+([@ludeeus] - [#109226]) ([documentation](/integrations/traccar_server))
+
+[@ludeeus]: https://github.com/ludeeus
+[#109226]: https://github.com/home-assistant/core/pull/109226
 
 {% enddetails %}
 
@@ -711,16 +784,31 @@ use the default unit configured on your system instead.
 
 {% enddetails %}
 
-{% details "Webooks" %}
+{% details "Webhooks" %}
 
 Since version 2023.7 you have been informed that the "local only" option of
-webhooks would become the default. With this release this change was now put
-into affect. Please, if needed, adjust your automation triggers.
+webhooks would become the default. With this release this change is now put
+into effect. Please, if needed, adjust your automation triggers.
 
 ([@jpbede] - [#107670]) ([documentation](/integrations/webhook))
 
 [@jpbede]: https://github.com/jpbede
 [#107670]: https://github.com/home-assistant/core/pull/107670
+
+{% enddetails %}
+
+{% details "Withings" %}
+
+In withings, the unit of measurement of all duration related sensors
+(for example, sleep, goal, and active time today) have been changed from
+measuring in seconds to measuring in either hours or minutes.
+
+If you want to measure in a different unit, please change the
+preferred unit of measurement in the entity settings.
+
+([@joostlek]) ([documentation](/integrations/withings))
+
+[@joostlek]: https://github.com/joostlek
 
 {% enddetails %}
 
