@@ -29,13 +29,27 @@ history:
 By default, you can access the **History** panel from the side bar. To export the data, follow these steps:
 
 1. Select the areas, devices, or entities of interest.
-2. Set the timeframe.
+2. Set the time frame.
 3. In the top right corner, select the **Download data** button.
    **Result**: Your data is exported in CSV format.
 
 <img class="no-shadow" src='/images/integrations/history/history-panel_export-data.png' alt='History panel can be accessed via sidebar.'>
 
+## About the time frame
+
+By default, the recorder stores the sensor data for 10 days. Older data is purged automatically.
+
+If you select a time frame that exceeds 10 days, the data is taken from the long term statistics table. The long term statistics data is filtered to minimize the burden on storage. For example, it may have a lower sample rate. Therefore, the values might look different from what you see from the recorder.
+
+<img class="no-shadow" src='/images/integrations/history/history-panel_including-long-term-storage.png' alt='If the chosen time frame exceeds the retention period defined in the recorder, the long term statistics table is used as a data source.'>
+
+ If you want to be able to see the data in full resolution for a longer period of time, you could change the retention period for that sensor in the recorder. If you do this, you may need to increase the storage capacity of your device.
+
 ## API
 
 The history information is also available through the
 [RESTful API](/developers/rest_api/#get-apihistory).
+
+## Related topics
+
+- [Recorder integration](/integrations/recorder/)
