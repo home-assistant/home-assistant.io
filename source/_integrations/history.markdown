@@ -39,7 +39,7 @@ By default, you can access the **History** panel from the side bar. To export th
 
 By default, the recorder stores the sensor data for 10 days. Older data is purged automatically.
 
-If you select a time frame that exceeds 10 days, the data is taken from the long term statistics table. The long term statistics data is filtered to minimize the burden on storage. For example, it may have a lower sample rate. Therefore, the values might look different from what you see from the recorder.
+If you select a time frame that exceeds 10 days, the data is taken from the long term statistics table. The long term statistics data is sampled an averaged once per hour, to save storage. Therefore, the values might look different from what you see from the recorder data, which shows the measured values at the sample rate defined for that sensor.
 
 <img class="no-shadow" src='/images/integrations/history/history-panel_including-long-term-storage.png' alt='If the chosen time frame exceeds the retention period defined in the recorder, the long term statistics table is used as a data source.'>
 
