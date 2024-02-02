@@ -12,7 +12,7 @@ The conditional card displays another card based on conditions.
   Screenshot of the conditional card.
 </p>
 
-Note: if there are multiple conditions there will be treated as an 'and' condition by default. This means that for the card to show, _all_ conditions must be met.
+Note: if there are multiple conditions, they will be treated as an 'and' condition by default. This means that for the card to show, _all_ conditions must be met.
 
 An 'or' condition can also be used, it requires the user to explicitly set that (see the example below).
 
