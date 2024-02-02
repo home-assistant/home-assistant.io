@@ -30,6 +30,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
 - City of Austin Utilities
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)
+- Duquesne Light Company (DQE)
 - Enmax Energy
 - Evergy
 - Exelon subsidiaries
