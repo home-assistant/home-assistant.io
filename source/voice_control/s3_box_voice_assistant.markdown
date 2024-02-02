@@ -12,7 +12,7 @@ This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3, or an ESP3
 
 ## Prerequisites
 
-- Home Assistant 2023.12, installed with the Home Assistant Operating System
+- Home Assistant 2023.12, installed with the Home Assistant Operating System. If you do not have Home Assistant installed yet, refer to the [installation page](/installation/) for instructions.
 - [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - Have [enabled a wake word](/voice_control/install_wake_word_add_on/) for your voice assistant
 - The password to your 2.4&nbsp;GHz Wi-Fi network
@@ -26,11 +26,10 @@ This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3, or an ESP3
 
 Before you can use this device with Home Assistant, you need to install a bit of software on it.
 
-1. Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.
+1. Make sure this page is opened in a Chromium-based browser on a **desktop**. The software installation does not work with a tablet or phone.
 
-   - If you have an ESP32-S3-BOX-3, select the **Connect** button below. If your browser does not support web serial, you will see a warning instead of a button.
-     - If your device does not readily connect for flashing, you may need to put your ESP32-S3-BOX-3 into "flash mode" by holding the "boot" button (left side upper button), tapping the "reset" button (left side lower button), and then releasing them both. Wait a few seconds before attempting to connect.
-
+   - If you have an ESP32-S3-BOX-3, select the **Connect** button below to display a list of available USB devices. Do not connect the ESP32-S3-BOX-3 yet. We want to see the list of available USB devices first, so that it is easier to recognize the ESP device afterwards.
+   - If your browser does not support web serial, you will see a warning message indicating this instead of a button.
 
       <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/esp32-s3-box-3/manifest.json"></esp-web-install-button>

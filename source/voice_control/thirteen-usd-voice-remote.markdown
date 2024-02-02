@@ -14,7 +14,7 @@ your smart home. Issue commands and get responses!
 
 ## Prerequisites
 
-- Home Assistant 2023.10, installed with the Home Assistant Operating System
+- Home Assistant 2023.10, installed with the Home Assistant Operating System. If you do not have Home Assistant installed yet, refer to the [installation page](/installation/) for instructions.
 - [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - Have [enabled a wake word](/voice_control/install_wake_word_add_on/) for your voice assistant
 - The password to your 2.4&nbsp;GHz Wi-Fi network

@@ -303,6 +303,7 @@ from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
 chat_id: "<origin chat id>"
 chat: "<chat info>"
+date: "<message timestamp>"
 ```
 
 Any other message not starting with `/` will be processed as simple text, firing a `telegram_text` event on the event bus with the following `event_data`:
@@ -314,6 +315,7 @@ from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
 chat_id: "<origin chat id>"
 chat: "<chat info>"
+date: "<message timestamp>"
 ```
 
 If the message is sent from a [press from an inline button](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), for example, a callback query is received, and Home Assistant will fire a `telegram_callback` event with:

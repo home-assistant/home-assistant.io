@@ -38,6 +38,11 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+show_current_as_primary:
+  required: false
+  description: Show current temperature as primary information instead of target temperature. The target temperature will be displayed as secondary information.
+  type: boolean
+  default: false
 features:
   required: false
   description: Additional widgets to control your entity. See [available features](/dashboards/features). Only climate related features are supported.

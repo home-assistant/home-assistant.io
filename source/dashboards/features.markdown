@@ -41,6 +41,42 @@ modes:
   type: list
 {% endconfiguration %}
 
+## Climate fan modes
+
+Widget that displays buttons or icons to control the fan mode for a [climate](/integrations/climate) device.
+
+<p class='img'>
+  <img src='/images/dashboards/features/climate_fan_modes.png' alt='Screenshot of the tile card with the climate fan modes feature'>
+  Screenshot of the tile card with the climate fan modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-fan-modes"
+    style: "icons"
+    fan_modes:
+      - "off"
+      - low
+      - medium
+      - high
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`climate-fan-modes`"
+  type: string
+style:
+  required: false
+  description: "How the fan modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+fan_modes:
+  required: true
+  description: List of fan modes to show on the card. The list can contain `on`, `off`, `auto`, `low`, `medium`, `high`, `middle`, `focus` and `diffuse` or any other custom fan mode.
+  type: list
+{% endconfiguration %}
+
 ## Climate HVAC modes
 
 Widget that displays buttons to control the HVAC mode for a [climate](/integrations/climate).

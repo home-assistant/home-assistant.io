@@ -62,7 +62,7 @@ The latency for receiving the events is the best for ONVIF push and the worst fo
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
-To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#Reducing_latency_of_motion_events) section.
+To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
 
 ## Asterisk (*) next to entities listed in this documentation
 
@@ -160,6 +160,7 @@ In some camera models, there is a delay of up to 5 seconds between the turn-off 
 
 Depending on the supported features of the camera, switch entities are added for:
 
+- Infrared lights in night mode
 - Record audio
 - Siren on event
 - Auto tracking
@@ -172,6 +173,8 @@ Depending on the supported features of the camera, switch entities are added for
 - Email on event
 - FTP upload
 - HDR*
+
+When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 
 For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and **FTP** will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
 
@@ -187,12 +190,9 @@ The Push-notification in the Reolink app is independent of the Home Assistant se
 Depending on the supported features of the camera, light entities are added for:
 
 - Floodlight
-- Infra red lights in night mode
 - Status LED
 
 When the **floodlight** entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the **Floodlight mode** select entity.
-
-When **IR light** entity is OFF always OFF, when ON IR LEDs will be on when the camera is in night vision mode, see the **Day night mode** select entity.
 
 ## Sensor entities
 
@@ -240,6 +240,7 @@ The following models have been tested and confirmed to work:
 - [RLC-810A](https://reolink.com/product/rlc-810a/)
 - [RLC-810WA](https://reolink.com/product/rlc-810wa/)
 - [RLC-811A](https://reolink.com/product/rlc-811a/)
+- [RLC-81MA](https://reolink.com/product/rlc-81ma/)
 - [RLC-81PA](https://reolink.com/product/rlc-81pa/)
 - [RLC-820A](https://reolink.com/product/rlc-820a/)
 - [RLC-822A](https://reolink.com/product/rlc-822a/)

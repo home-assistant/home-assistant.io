@@ -94,7 +94,7 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.meteoalarm
-      from: ‘off’
+      from: 'off'
     action:
       - service: notify.notify
         data:

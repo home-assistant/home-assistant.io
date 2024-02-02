@@ -10,6 +10,7 @@ ha_codeowners:
   - '@IceBotYT'
 ha_domain: peco
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ---

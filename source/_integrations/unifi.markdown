@@ -78,7 +78,7 @@ Provides QR Code images that can be scanned to easily join a specific WLAN. Enti
 
 ## Presence detection
 
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://ui.com/consoles) application. By default devices are marked as away 300 seconds after they were last seen.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://ui.com/cloud-gateways) application. By default devices are marked as away 300 seconds after they were last seen.
 
 ### Troubleshooting and Time Synchronization
 
@@ -147,6 +147,10 @@ Get entities reporting the power utilization for outlets that support metrics (s
 ### Device temperature sensor
 
 Get entities reporting the general temperature of a UniFi Network device.
+
+### Device state
+
+Get entities reporting the current state of a UniFi Network device.
 
 ## Firmware updates
 

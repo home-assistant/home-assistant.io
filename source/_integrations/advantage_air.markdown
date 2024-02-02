@@ -2,13 +2,13 @@
 title: Advantage Air
 description: Instructions on how to integrate Advantage Air A/C controller into Home Assistant.
 ha_category:
-  - Binary switch
+  - Binary sensor
   - Climate
   - Cover
   - Light
+  - Select
   - Sensor
   - Switch
-  - Update
   - Update
 ha_release: 0.117
 ha_iot_class: Local Polling
@@ -71,7 +71,7 @@ The integration will create a binary sensor for each zone that has a motion sens
 
 ### Switch
 
-The integration will create a switch entity to toggle air conditioning fresh air mode, if it is supported.
+The integration will create switch entities to toggle the MyFan/ezFan setting, and to toggle air conditioning fresh air mode, if they are supported by your hardware.
 
 With MyPlace, any relays will be created as switch entities.
 
