@@ -1,8 +1,8 @@
 ---
-title: "MQTT Device Tracker"
+title: "MQTT device tracker"
 description: "Instructions on how to use MQTT to track devices in Home Assistant."
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Configurable
 ha_release: 0.7.3
 ha_domain: mqtt
@@ -13,18 +13,17 @@ The `mqtt` device tracker platform allows you to define new device_trackers thro
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  device_tracker:
-  - name: "annetherese_n4"
-    state_topic: "location/annetherese"
-  - name: "paulus_oneplus"
-    state_topic: "location/paulus"
+  - device_tracker:
+      name: "annetherese_n4"
+      state_topic: "location/annetherese"
+  - device_tracker:
+      name: "paulus_oneplus"
+      state_topic: "location/paulus"
 ```
 
 {% configuration %}
@@ -70,13 +69,13 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
-      description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
-      type: [list, map]
+      type: list
     hw_version:
       description: The hardware version of the device.
       required: false
@@ -160,9 +159,9 @@ payload_reset:
   description: The payload value that will have the device's location automatically derived from Home Assistant's zones.
   required: false
   type: string
-  default: "None"
+  default: '"None"'
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -253,8 +252,8 @@ The following example shows how to configure the same device tracker through con
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  device_tracker:
-    - name: "My Tracker"
+  - device_tracker:
+      name: "My Tracker"
       state_topic: "a4567d663eaf/state"
       payload_home: "home"
       payload_not_home: "not_home"

@@ -1,7 +1,6 @@
 ---
 title: LIFX Cloud
 description: Instructions on using native LIFX scenes with Home Assistant.
-logo: lifx.png
 ha_category:
   - Scene
 ha_iot_class: Cloud Push

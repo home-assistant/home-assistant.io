@@ -20,17 +20,27 @@ The IMAP integration is observing your [IMAP server](https://en.wikipedia.org/wi
 
 ### Gmail with App Password
 
-If you’re going to use Gmail, you need to create an [App Password](https://support.google.com/mail/answer/185833).
+If you’re going to use Gmail, 2-step verification must be enabled on your Gmail account.  Once it is enabled, you need to create an [App Password](https://support.google.com/mail/answer/185833).
 
 1. Go to your [Google Account](https://myaccount.google.com/)
 2. Select **Security**
-3. Under “Signing in to Google” select **App Passwords**
-4. Sign in to your Account, and create a new App Password for Gmail.
-5. Then you can setup the intergation as below:
+3. Under “How you sign into Google” select **2-Step Verification**.
+4. Sign in to your Account.
+5. At the bottom of the 2-Step Verification page, click **App Passwords**.
+6. Give your app a name that makes sense to you (Home Assistant IMAP, for example).
+7. Click **Create**, then make a note of your 16-character app password for safekeeping (remove the spaces when you save it).
+8. Click **Done**.
+9. Add the IMAP Integration to your Home Assistant instance using the My button above.  Enter the following information as needed:
+
+    - Username: Your Gmail email login
+    - Password: your 16-character app password (without the spaces)
     - Server: `imap.gmail.com`
     - Port: `993`
-    - Username: Your full email address
-    - Password: The new app password
+
+10. Click **Submit**.
+11. Assign your integration to an "Area" if desired, then click **Finish**.
+
+Congratulations, you now have a sensor that counts the number of unread e-mails in your Gmail account.  From here you can create additional sensors based upon the data that comes through the event bus when there's a new message detected.
 
 ### Configuring IMAP Searches
 
@@ -44,11 +54,12 @@ By default, this integration will count unread emails. By configuring the search
 ### Selecting a charset supported by the imap server
 
 Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US-ASCII` as charset:
-  - Server: `outlook.office365.com`
-  - Port: `993`
-  - Username: Your full email address
-  - Password: Your password
-  - Charset: `US-ASCII`
+
+- Server: `outlook.office365.com`
+- Port: `993`
+- Username: Your full email address
+- Password: Your password
+- Charset: `US-ASCII`
 
 <div class="note">
 
@@ -56,12 +67,12 @@ Yahoo also requires the character set `US-ASCII`.
 
 </div>
 
-### Selecting an alternate SSL cipher list or disable SSL verification (advanced mode)
+### Selecting an alternate SSL cipher list or disabling SSL verification (advanced mode)
 
-If the default IMAP server settings do not work, you might try to set an alternate SLL cipher list.
-The SSL cipher list option allows to select the list of SSL ciphers to be accepted from this endpoint. `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_)
+If the default IMAP server settings do not work, you might try to set an alternate SSL cipher list.
+The SSL cipher list option allows you to select the list of SSL ciphers to be accepted from this endpoint: `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
 
-If you are using self signed certificates can can turn of SSL verification.
+If you are using self signed certificates, you can turn off SSL verification.
 
 <div class='note info'>
 
@@ -69,14 +80,23 @@ The SSL cipher list and verify SSL are advanced settings. The options are availa
 
 </div>
 
+### Enable IMAP-Push
+
+IMAP-Push is enabled by default if your IMAP server supports it. If you use an unreliable IMAP service that periodically drops the connection and causes issues, you might consider turning off IMAP-Push. This will fall back to polling the IMAP server.
+
+<div class='note info'>
+
+The enforce polling option is an advanced setting. The option is available only when advanced mode is enabled (see user settings).
+
+</div>
+
 ### Troubleshooting
 
 Email providers may limit the number of reported emails. The number may be less than the limit (10,000 at least for Yahoo) even if you set the `IMAP search` to reduce the number of results. If you are not getting expected events and cleaning your Inbox or the configured folder is not desired, set up an email filter for the specific sender to go into a new folder. Then create a new config entry or modify the existing one with the desired folder.
 
-
 ### Using events
 
-When a new message arrives that meets the search criteria the `imap` integration will send a custom [event](/docs/automation/trigger/#event-trigger) that can be used to trigger an automation.
+When a new message arrives or a message is removed within the defined search command scope, the `imap` integration will send a custom [event](/docs/automation/trigger/#event-trigger) that can be used to trigger an automation.
 It is also possible to use to create a template [`binary_sensor` or `sensor`](/integrations/template/#trigger-based-template-binary-sensors-buttons-numbers-selects-and-sensors) based the [event data](/docs/automation/templating/#event).
 
 The table below shows what attributes come with `trigger.event.data`. The data is a dictionary that has the keys that are shown below.
@@ -99,7 +119,7 @@ search:
 folder:
   description: The IMAP folder configuration
 text:
-  description: The email body `text` of the message (by default, only the first 2048 bytes will be available.)
+  description: The email body `text` of the message. By default, only the first 2048 bytes of the body text will be available, the rest will be clipped off. You can increase the maximum text size of the body, but this is not advised and will never guarantee that the whole message text is available. A better practice is using a custom event data template (advanced settings) that can be used to parse the whole message, not limited by size. The rendered result will then be added as attribute `custom` to the event data to be used for automations.
 sender:
   description: The `sender` of the message
 subject:
@@ -110,6 +130,8 @@ headers:
   description: The `headers` of the message in the for of a dictionary. The values are iterable as headers can occur more than once.
 custom:
   description: Holds the result of the custom event data [template](/docs/configuration/templating). All attributes are available as a variable in the template.
+initial:
+  description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message received has not been changed, then an `imap_content` event is generated and the `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email, the `initial` property will always be set to `True`.
 
 {% endconfiguration_basic %}
 
@@ -143,6 +165,7 @@ template:
           Sender: "{{ trigger.event.data['sender'] }}"
           Date: "{{ trigger.event.data['date'] }}"
           Subject: "{{ trigger.event.data['subject'] }}"
+          Initial: "{{ trigger.event.data['initial'] }}"
           To: "{{ trigger.event.data['headers'].get('Delivered-To', ['n/a'])[0] }}"
           Return-Path: "{{ trigger.event.data['headers'].get('Return-Path',['n/a'])[0] }}"
           Received-first: "{{ trigger.event.data['headers'].get('Received',['n/a'])[0] }}"
@@ -165,6 +188,7 @@ template:
         id: "custom_event"
         event_data:
           sender: "no-reply@smartconnect.apc.com"
+          initial: true
     sensor:
       - name: house_electricity
         state: >-
@@ -202,22 +226,22 @@ template:
         id: "custom_event"
         event_data:
           sender: "no-reply@smartconnect.apc.com"
-  - sensor:
-    - name: "Previous Day Energy Use"
-      unit_of_measurement: "kWh"
-      state: >
-       {{ trigger.event.data["text"]
-         | regex_findall_index("\*Yesterday's Energy Use:\* ([0-9]+) kWh") }}
-    - name: "Previous Day Cost"
-      unit_of_measurement: "$"
-      state: >
+    sensor:
+      - name: "Previous Day Energy Use"
+        unit_of_measurement: "kWh"
+        state: >
         {{ trigger.event.data["text"]
-          | regex_findall_index("\*Yesterday's estimated energy cost:\* \$([0-9.]+)") }}
-    - name: "Billing Cycle Total"
-      unit_of_measurement: "$"
-      state: >
-        {{ trigger.event.data["text"]
-          | regex_findall_index("\ days:\* \$([0-9.]+)") }}
+          | regex_findall_index("\*Yesterday's Energy Use:\* ([0-9]+) kWh") }}
+      - name: "Previous Day Cost"
+        unit_of_measurement: "$"
+        state: >
+          {{ trigger.event.data["text"]
+            | regex_findall_index("\*Yesterday's estimated energy cost:\* \$([0-9.]+)") }}
+      - name: "Billing Cycle Total"
+        unit_of_measurement: "$"
+        state: >
+          {{ trigger.event.data["text"]
+            | regex_findall_index("\ days:\* \$([0-9.]+)") }}
 ```
 
 {% endraw %}

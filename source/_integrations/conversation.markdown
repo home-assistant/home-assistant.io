@@ -13,7 +13,7 @@ ha_domain: conversation
 ha_integration_type: system
 ---
 
-The conversation integration allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation/process` service with the transcribed text.
+The **Conversation** {% term integration %} allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation/process` service with the transcribed text.
 
 <p class='img'>
   <img src="/images/screenshots/voice-commands.png" />
@@ -174,4 +174,5 @@ This service is able to return [response data](/docs/scripts/service-calls/#use-
 
 | Service data attribute | Optional | Description                                                              |
 |------------------------|----------|--------------------------------------------------------------------------|
-| `language`             | yes      | Language to clear intent cache for. Defaults to Home Assistant language. |
+| `language`             | yes      | Language to clear intent cache for. No value clears all languages        |
+| `agent_id`             | yes      | ID of conversation agent. Defaults to the built-in Home Assistant agent. |

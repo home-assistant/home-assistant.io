@@ -11,19 +11,21 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Date integration is built for the controlling and monitoring of dates on devices.
+The **Date** {% term integration %} is built for the controlling and monitoring of dates on devices.
 
-Date entities cannot be created manually, but can be provided by other integrations. If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
+{% include integrations/building_block_integration.md %}
+
+If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
 ## Services
 
-### date services
+### Date services
 
-Available services: `date.set_value`
+Available {% term services %}: `date.set_value`
 
 ### Service `date.set_value`
 
-Set a new value for the date entity.
+Set a new value for the date {% term entity %}.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

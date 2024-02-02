@@ -15,10 +15,12 @@ Keeps track on `select` entities in your environment, their state, and allows
 you to control them. This integration allows other integrations to offer
 a limited set of selectable options for the entity.
 
+{% include integrations/building_block_integration.md %}
+
 ## Services
 
-The select entity exposes additional to control the entity in, for example,
-automation or scripts. These service can be created via the UI, but are
+The select entity exposes additional services to control the entity in, for example,
+automation or scripts. These services can be created via the UI, but are
 also available in YAML (for which examples are provided below).
 
 ### Service `select.select_first`

@@ -2,7 +2,7 @@
 title: TCP
 description: Instructions on how to set up TCP within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_release: 0.14
 ha_iot_class: Local Polling
@@ -17,7 +17,7 @@ The TCP integration allows the integration of some services for which a specific
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
 ## Sensor
@@ -151,7 +151,7 @@ sensor:
 {% endraw %}
 
 
-## Binary Sensor
+## Binary sensor
 
 The TCP Binary Sensor is a type of [TCP Sensor](#sensor) which is either "off" or "on". In order to use this sensor type, in addition to the configuration for the TCP Sensor, you must supply a `value_on` value to represent what is returned when the device is turned on.
 

@@ -15,8 +15,9 @@ If you are using Docker then you need to be on at least version 19.03.9, ideally
 
 Installation with Docker is straightforward. Adjust the following command so that:
 
-- `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it.
+- `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it. Make sure that you keep the `:/config` part.
 - `MY_TIME_ZONE` is a [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), like `TZ=America/Los_Angeles`.
+- D-Bus is optional but required if you plan to use the [Bluetooth integration](/integrations/bluetooth).
 
 {% endif %}
 
@@ -128,8 +129,8 @@ As jemalloc can cause issues on certain hardware, it can be disabled by passing 
     services:
       homeassistant:
       ...
-      environment:
-        - DISABLE_JEMALLOC: true
+        environment:
+          DISABLE_JEMALLOC: true
     ```
 
 {% endtabbed_block %}

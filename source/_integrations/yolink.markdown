@@ -2,7 +2,7 @@
 title: YoLink
 description: Instructions on how to integrate YoLink Devices into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Light
@@ -57,3 +57,5 @@ The integration is tested and verified for the following devices from YoLink:
 - YS6801/2 (MultiOutlet)
 - YS3604 (FlexFob)
 - YS7106 (PowerFailureAlar)
+- YS4908 (Finger)
+- ‎YS7805 (Outdoor Motion Detector Sensor)

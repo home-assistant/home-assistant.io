@@ -2,7 +2,7 @@
 title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -103,7 +103,7 @@ proxmoxve:
           - VM_ID_2
 ```
 
-## Binary Sensor
+## Binary sensor
 
 The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM's state is running or off if the VM's state is different.
 

@@ -16,7 +16,7 @@ ha_integration_type: device
 
 The JVC Projector integration allows for the automation of [JVC Projectors](https://www.jvc.com/usa/projectors/).
 
-## Supported Models
+## Supported models
 
 This integration is intended for the automation of any modern JVC Projector with a LAN network port.
 

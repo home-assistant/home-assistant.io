@@ -27,6 +27,8 @@ Add Sensor:
   description: Track an additional sensor.
 Remove Sensor:
   description: Untrack a sensor.
+Settings:
+  description: Configure additional settings (e.g., show/hide sensor icons on the map).
 {% endconfiguration_basic %}
 
 ## Creating an API key

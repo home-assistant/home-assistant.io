@@ -18,15 +18,13 @@ When a `state_topic` is not available, the siren will work in optimistic mode. I
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect operation.
 
-<a id='new_format'></a>
-
 To enable this siren in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  siren:
-    - command_topic: "home/bedroom/siren/set"
+  - siren:
+      command_topic: "home/bedroom/siren/set"
 ```
 
 {% configuration %}
@@ -89,7 +87,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -142,7 +140,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -156,7 +153,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name to use when displaying this siren.
+  description: The name to use when displaying this siren. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Siren
@@ -190,7 +187,7 @@ payload_on:
   type: string
   default: "ON"
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -252,8 +249,8 @@ The example below shows a full configuration for a siren.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  siren:
-    - unique_id: custom_siren
+  - siren:
+      unique_id: custom_siren
       name: "Intrusion siren"
       state_topic: "home/alarm/siren1"
       command_topic: "home/alarm/siren1/set"
@@ -282,8 +279,8 @@ The example below shows a configuration for an On/Off type siren, which does not
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  siren:
-    - unique_id: tasmota_siren
+  - siren:
+      unique_id: tasmota_siren
       name: "garage"
       state_topic: "stat/SIREN/RESULT"
       command_topic: "cmnd/SIREN/POWER"

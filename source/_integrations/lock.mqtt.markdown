@@ -21,15 +21,13 @@ Optimistic mode can be forced, even if state topic is available. Try to enable i
 It's mandatory for locks to support `lock` and `unlock`. A lock may optionally support `open`, (e.g. to open the bolt in addition to the latch), in this case, `payload_open` is required in the configuration. If the lock is in optimistic mode, it will change states to `unlocked` when handling the `open` command.
 
 An MQTT lock can also report the intermediate states `unlocking`, `locking` or `jammed` if the motor reports a jammed state.
-<a id='new_format'></a>
-
 To enable MQTT locks in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  lock:
-    - command_topic: "home/frontdoor/set"
+  - lock:
+      command_topic: "home/frontdoor/set"
 ```
 
 {% configuration %}
@@ -87,7 +85,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -140,7 +138,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -154,7 +151,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the lock.
+  description: The name of the lock. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Lock
@@ -191,9 +188,13 @@ payload_open:
   description: The payload sent to the lock to open it.
   required: false
   type: string
-  default: OPEN
+payload_reset:
+  description: A special payload that resets the state to `unknown` when received on the `state_topic`.
+  required: false
+  type: string
+  default: '"None"'
 qos:
-  description: The maximum QoS level of the state topic. It will also be used for messages published to command topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -260,8 +261,8 @@ The example below shows a full configuration for a MQTT lock.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  lock:
-    - name: Frontdoor
+  - lock:
+      name: Frontdoor
       state_topic: "home-assistant/frontdoor/state"
       code_format: "^\\d{4}$"
       command_topic: "home-assistant/frontdoor/set"

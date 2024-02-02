@@ -2,7 +2,7 @@
 title: Sensibo
 description: Instructions on how to integrate Sensibo A/C controller into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Fan
@@ -76,20 +76,20 @@ You can reset your filter check by using the button available on climate devices
 
 By pressing the button, you tell your device that you have cleaned or replaced the filter.
 
-## Number Entities
+## Number entities
 
 By using the number entities you can calibrate the temperature and hunmidity of your device.
 
 These entities are disabled by default.
 
-## Select Entities
+## Select entities
 
 For supported devices, this integration provides support to set the following modes by the select entity:
 
 - Horizontal swing
 - Light
 
-## Sensor Entities
+## Sensor entities
 
 For all devices, these sensors are available:
 
@@ -130,7 +130,7 @@ For climate devices, these sensors are available:
 - Climate React low temperature threshold
 - Climate React high temperature threshold
 
-## Switch Entities
+## Switch entities
 
 For climate devices, these switches are available:
 
@@ -146,7 +146,7 @@ For Pure devices, this integration provides support to enable/disable Pure Boost
 
 To customize the settings of Pure Boost, you can use the custom `sensibo.enable_pure_boost` service. See [Pure Boost](#pure-boost)
 
-## Custom Services
+## Custom services
 
 ### Full state
 

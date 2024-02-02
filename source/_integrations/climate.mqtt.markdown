@@ -12,15 +12,13 @@ The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To enable this climate platform in your installation, first add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  climate:
-    - name: Study
+  - climate:
+      name: Study
       mode_command_topic: "study/ac/mode/set"
 ```
 
@@ -33,18 +31,6 @@ action_topic:
   description: >-
     The MQTT topic to subscribe for changes of the current action. If this is set, the climate graph uses the value received as data source.
     Valid values: `off`, `heating`, `cooling`, `drying`, `idle`, `fan`.
-  required: false
-  type: string
-aux_command_topic:
-  description: The MQTT topic to publish commands to switch auxiliary heat.
-  required: false
-  type: string
-aux_state_template:
-  description: A template to render the value received on the `aux_state_topic` with.
-  required: false
-  type: template
-aux_state_topic:
-  description: The MQTT topic to subscribe for changes of the auxiliary heat mode. If this is not set, the auxiliary heat mode works in optimistic mode (see below).
   required: false
   type: string
 availability:
@@ -105,7 +91,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -158,7 +144,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 fan_mode_command_template:
   description: A template to render the value sent to the `fan_mode_command_topic` with.
   required: false
@@ -183,7 +168,7 @@ fan_modes:
 initial:
   description: Set the initial target temperature. The default value depends on the temperature unit and will be 21° or 69.8°F.
   required: false
-  type: integer
+  type: float
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -236,7 +221,7 @@ modes:
   default: ['auto', 'off', 'cool', 'heat', 'dry', 'fan_only']
   type: list
 name:
-  description: The name of the HVAC.
+  description: The name of the HVAC. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT HVAC
@@ -421,7 +406,7 @@ value_template:
 
 If a property works in *optimistic mode* (when the corresponding state topic is not set), Home Assistant will assume that any state changes published to the command topics did work and change the internal state of the entity immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the entity is only updated when the requested update is confirmed by the device through the state topic. You can enforce optimistic mode by setting the `optimistic` option to `true`. When set, the internal state will always be updated, even when a state topic is defined.
 
-## Using Templates
+## Using templates
 
 For all `*_state_topic`s, a template can be specified that will be used to render the incoming payloads on these topics. Also, a default template that applies to all state topics can be specified as `value_template`. This can be useful if you received payloads are e.g., in JSON format. Since in JSON, a quoted string (e.g., `"foo"`) is just a string, this can also be used for unquoting.
 
@@ -431,8 +416,8 @@ Say you receive the operation mode `"auto"` via your `mode_state_topic`, but the
 
 ```yaml
 mqtt:
-  climate:
-    - name: Study
+  - climate:
+      name: Study
       modes:
         - "off"
         - "heat"
@@ -457,8 +442,8 @@ A full configuration example looks like the one below.
 ```yaml
 # Full example configuration.yaml entry
 mqtt:
-  climate:
-    - name: Study
+  - climate:
+      name: Study
       modes:
         - "off"
         - "cool"

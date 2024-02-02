@@ -3,10 +3,11 @@ title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 featured: true
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
+  - Date
   - Fan
   - Hub
   - Light
@@ -32,6 +33,7 @@ ha_platforms:
   - button
   - climate
   - cover
+  - date
   - diagnostics
   - fan
   - light
@@ -42,8 +44,8 @@ ha_platforms:
   - sensor
   - switch
   - text
-  - weather
   - time
+  - weather
 ha_config_flow: true
 ha_integration_type: hub
 ---
@@ -54,10 +56,11 @@ The integration requires a local KNX/IP interface or router. Through this, it wi
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Button](#button)
 - [Climate](#climate)
 - [Cover](#cover)
+- [Date](#date)
 - [Fan](#fan)
 - [Light](#light)
 - [Notify](#notify)
@@ -70,9 +73,13 @@ There is currently support for the following device types within Home Assistant:
 - [Time](#time)
 - [Weather](#weather)
 
+## Free KNX online training
+
+As a Home Assistant KNX user, you can start a FREE KNX online training and get a discounted ETS Home license on the [KNX website](https://www.knx.org/knx-en/for-your-home/home-assistant/).
+
 {% include integrations/config_flow.md %}
 
-## Basic Configuration
+## Basic configuration
 
 In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files. See [Splitting up the configuration](/docs/configuration/splitting_configuration/).
 
@@ -257,7 +264,7 @@ automation:
           address: "0/4/21"
 ```
 
-### Register Event
+### Register event
 
 The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses configured in the `event` key in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
 
@@ -277,7 +284,7 @@ type:
   required: false
 {% endconfiguration %}
 
-### Register Exposure
+### Register exposure
 
 The `knx.exposure_register` service can be used to register (or unregister) exposures to the KNX bus. Exposures defined in `configuration.yaml` can not be unregistered. Per address only one exposure can be registered. See [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus)
 
@@ -366,7 +373,7 @@ respond_to_read:
   default: true
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors.
 
@@ -537,7 +544,7 @@ name:
 address:
   description: Group address to send to.
   required: true
-  type: [string, list]
+  type: string
 payload:
   description: The raw payload that shall be sent.
   required: false
@@ -816,6 +823,8 @@ The KNX cover platform is used as an interface to KNX covers.
 
 Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully open in regards to covers. The corresponding value inversion is done internally by the KNX integration.
 
+Home Assistant will, by default, `close` a cover by moving it in the `DOWN` direction in the KNX nomenclature, and `open` a cover by moving it in the `UP` direction.
+
 </div>
 
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
@@ -845,7 +854,7 @@ move_long_address:
   required: false
   type: [string, list]
 move_short_address:
-  description: KNX group address for moving the cover stepwise up or down. Used by some covers also as the means to stop the cover, if no dedicated `stop_address` exists on the actuator. *DPT 1*
+  description: KNX group address for moving the cover stepwise up or down. Used by some covers also as the means to stop the cover. Stepwise moves are only mapped to tilt angle functions in Home Assistant, as no stepwise move of cover position is generally supported by the architecture. If tilt angle is not supported, prefer the use of a `stop_address`. *DPT 1*
   required: false
   type: [string, list]
 stop_address:
@@ -879,12 +888,12 @@ travelling_time_up:
   default: 25
   type: integer
 invert_updown:
-  description: Set this to `true` to invert the binary up/down commands from/to your KNX actuator. Default is 0 for UP; 1 for DOWN.
+  description: Set this to `true` to invert the up/down commands from/to your KNX actuator. Default is to consider `UP` (0) as opening of a cover and `DOWN` (1) as closing of a cover.
   required: false
   default: false
   type: boolean
 invert_position:
-  description: Set this to `true` if your actuator reports fully closed position as 0% in KNX.
+  description: Set this to `true` if your actuator reports fully down position as 0% in KNX.
   required: false
   default: false
   type: boolean
@@ -897,6 +906,147 @@ device_class:
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
+
+## Date
+
+The KNX date platform allows to send date values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+
+<div class='note'>
+
+Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Dates that have a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+<div class='note'>
+
+DPT 11.001 covers the range 1990 to 2089. Year values outside of this range are not allowed.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  date:
+    - name: "Date"
+      address: "0/0/2"
+      state_address: "0/0/2"
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: The group address to which new values will be sent. *DPT 11.001*
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus. *DPT 11.001*
+  required: false
+  type: [string, list]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
+  required: false
+  type: [boolean, string, integer]
+  default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
+
+## DateTime
+
+The KNX datetime platform allows to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
+
+<div class='note'>
+
+Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+DateTimes that have a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+<div class='note'>
+
+System timezone is used as DPT 19.001 doesn't provide timezone information.
+Year values outside of the range 1900 to 2155 are invalid.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  datetime:
+    - name: "DateTime"
+      address: "0/0/3"
+      state_address: "0/0/4"
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: The group address to which new values will be sent. *DPT 19.001*
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus. *DPT 19.001*
+  required: false
+  type: [string, list]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
+
+    - `true` equivalent to "expire 60" (default)
+
+    - `false` no GroupValueRead telegrams will be sent to the bus
+
+    - `every <minutes>` to update it regularly every \<minutes\>
+
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+
+    - `<minutes>` equivalent to "expire \<minutes\>"
+
+    - `init` to just initialize the state on startup
+
+  required: false
+  type: [boolean, string, integer]
+  default: true
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -1514,7 +1664,7 @@ device_class:
   type: string
 {% endconfiguration %}
 
-### Value Types
+### Value types
 
 | KNX DPT | type                          | size in byte |           range            | unit           |
 | ------: | ----------------------------- | -----------: | :------------------------: | -------------- |
@@ -1579,7 +1729,7 @@ device_class:
 |  12.001 | pulse_4_ucount                |            4 |      0 ... 4294967295      | counter pulses |
 |  12.100 | long_time_period_sec          |            4 |      0 ... 4294967295      | s              |
 |  12.101 | long_time_period_min          |            4 |      0 ... 4294967295      | min            |
-|  12.100 | long_time_period_hrs          |            4 |      0 ... 4294967295      | h              |
+|  12.102 | long_time_period_hrs          |            4 |      0 ... 4294967295      | h              |
 | 12.1200 | volume_liquid_litre           |            4 |      0 ... 4294967295      | l              |
 | 12.1201 | volume_m3                     |            4 |      0 ... 4294967295      | m³             |
 |      13 | 4byte_signed                  |            4 | -2147483648 ... 2147483647 |                |

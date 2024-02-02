@@ -2,7 +2,7 @@
 title: Actiontec
 description: Instructions on how to integrate Actiontec routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Polling
 ha_release: 0.7
 ha_domain: actiontec
@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This platform allows you to detect presence by looking at connected devices to an [Actiontec](https://www.actiontec.com/) device.
+The **Actiontec** {% term integration %} allows you to detect presence by looking at devices connected to an [Actiontec](https://www.actiontec.com/) device.
 
 Supported devices (tested):
 

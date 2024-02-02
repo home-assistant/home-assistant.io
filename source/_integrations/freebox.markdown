@@ -2,9 +2,10 @@
 title: Freebox
 description: Instructions on how to integrate Freebox routers into Home Assistant.
 ha_category:
+  - Alarm Control Panel
   - Camera
   - Network
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Switch
 ha_release: 0.85
@@ -15,6 +16,8 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: freebox
 ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
   - button
   - camera
   - device_tracker
@@ -29,10 +32,13 @@ The `freebox` integration allows you to observe and control [Freebox router](htt
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
+- [Binary sensor](#binary-sensor) for monitoring Raid arrays health
 - [Device tracker](#presence-detection) for connected devices
 - [Switch](#switch) to control Wi-Fi
 - [Camera](#camera)
-
+- [Binary sensors](#binary)
+- [Alarm_control_panel](#alarm-control-panel)
+  
 {% include integrations/config_flow.md %}
 
 You can find out your Freebox host and port by opening this address <http://mafreebox.freebox.fr/api_version> in your browser.
@@ -93,7 +99,7 @@ Only the routers with Freebox OS are supported:
 - Freebox V6 also known as Freebox Revolution
 - Freebox mini 4k
 
-## Presence Detection
+## Presence detection
 
 This platform offers presence detection by keeping track of the devices connected to a [Freebox](https://www.free.fr/freebox/) router.
 
@@ -117,8 +123,25 @@ The monitored metrics are:
 - Free partition space of used disks
 - Number of missed calls
 
+## Binary sensor
+
+The health status of each RAID array can be monitored with a diagnostics binary sensor reflecting the `degraded` state (OK means not degraded, PROBLEM means degraded).
+
 ## Camera
+
 Cameras are only available in Freebox V7 (also known as Freebox Delta).
+
+## Binary
+This platform offers you sensors to monitor:
+- motion sensor
+- door opener 
+- plastic cover
+
+## Alarm control panel
+
+This integration allows you to view and control the Freebox alarm control panel.
+
+
 
 ## Service
 

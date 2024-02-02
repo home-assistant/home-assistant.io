@@ -12,9 +12,9 @@ Actions can be enabled on:
 - [Glance](/dashboards/glance/)
 - [Light](/dashboards/light/)
 - [Picture](/dashboards/picture/)
-- [Picture Element](/dashboards/picture-elements/)
-- [Picture Entity](/dashboards/picture-entity/)
-- [Picture Glance](/dashboards/picture-glance/)
+- [Picture element](/dashboards/picture-elements/)
+- [Picture entity](/dashboards/picture-entity/)
+- [Picture glance](/dashboards/picture-glance/)
 
 ## Tap-Action
 
@@ -41,6 +41,11 @@ tap_action:
       description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
       default: none
+    navigation_replace:
+      required: false
+      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      type: boolean
+      default: none
     url_path:
       required: false
       description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
@@ -63,9 +68,9 @@ tap_action:
       default: "false"
     pipeline_id:
       required: false
-      description: "Assist pipeline id to use when the `action` is defined as `assist`"
+      description: "Assist pipeline to use when the `action` is defined as `assist`. It can be either `last_used`, `preferred`, or a pipeline id."
       type: string
-      default: none
+      default: "`last_used`"
     start_listening:
       required: false
       description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
@@ -97,6 +102,11 @@ hold_action:
       required: false
       description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
+      default: none
+    navigation_replace:
+      required: false
+      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      type: boolean
       default: none
     url_path:
       required: false
@@ -155,6 +165,11 @@ double_tap_action:
       description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
       default: none
+    navigation_replace:
+      required: false
+      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      type: boolean
+      default: none
     url_path:
       required: false
       description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
@@ -187,7 +202,7 @@ double_tap_action:
       default: none
 {% endconfiguration %}
 
-## Options For Confirmation
+## Options for confirmation
 
 If you define confirmation as an object instead of boolean, you can add more customization and configurations.
 
@@ -214,7 +229,7 @@ exemptions:
   type: list
 {% endconfiguration %}
 
-## Options For Exemptions
+## Options for exemptions
 
 {% configuration exemptions %}
 user:

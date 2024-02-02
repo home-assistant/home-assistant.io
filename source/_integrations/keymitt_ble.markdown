@@ -29,7 +29,7 @@ Please note, that the devices cannot remain paired to the MicroBot application f
 
 {% include integrations/config_flow.md %}
 
-### Supported Devices
+### Supported devices
 
 This Integration is for the MicroBot Push only. The Keymitt lock is not supported.
 

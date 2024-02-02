@@ -46,7 +46,7 @@ script:
 
 {% endraw %}
 
-### Important Template Rules
+### Important template rules
 
 There are a few very important rules to remember when adding templates to YAML:
 
@@ -57,7 +57,7 @@ There are a few very important rules to remember when adding templates to YAML:
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
-### Enabled Jinja Extensions
+### Enabled Jinja extensions
 
 Jinja supports a set of language extensions that add new functionality to the language.
 To improve the experience of writing Jinja templates, we have enabled the following
@@ -65,7 +65,7 @@ extensions:
 
 - [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
 
-### Reusing Templates
+### Reusing templates
 
 You can write reusable Jinja templates by adding them to a `custom_templates` folder under your
 configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
@@ -102,7 +102,7 @@ In your automations, you could then reuse this macro by importing it:
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
 
-### Limited Templates
+### Limited templates
 
 Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
 
@@ -115,7 +115,7 @@ Not supported in [limited templates](#limited-templates).
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
 - `states` can also be used as a function, `states(entity_id, rounded=False, with_unit=False)`, which returns the state string (not the state object) of the given entity, `unknown` if it doesn't exist, and `unavailable` if the object exists but is not available.
   - The optional arguments `rounded` and `with_unit` control the formatting of sensor state strings, please see the [examples](#formatting-sensor-states) below.
-- `states.sensor.temperature.state_with_unit` formats the state string in the same was is if calling `states('sensor.temperature', rounded=True, with_unit=True)`.
+- `states.sensor.temperature.state_with_unit` formats the state string in the same way as if calling `states('sensor.temperature', rounded=True, with_unit=True)`.
 - `is_state` compares an entity's state with a specified state or list of states and returns `True` or `False`. `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state. `is_state('device_tracker.paulus', ['home', 'work'])` will test if the given entity is any of the states in the list.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
@@ -325,7 +325,7 @@ List of lights that are on with a brightness of 255:
 
 {% endraw %}
 
-### Working with Groups
+### Working with groups
 
 Not supported in [limited templates](#limited-templates).
 
@@ -418,7 +418,7 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
-### Config Entries
+### Config entries
 
 - `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
 
@@ -631,7 +631,7 @@ If your template is returning a timestamp that should be displayed in the fronte
 
 {% raw %}
 
-`{{ states.sun.sun.last_changed }}` => `2021-01-24 07:06:59+00:00` (missing "T" separator)
+`{{ states.sun.sun.last_changed }}` => `2023-07-30 20:03:49.253717+00:00` (missing "T" separator)
 
 {% endraw %}
 
@@ -639,7 +639,7 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 {% raw %}
 
-`{{ states.sun.sun.last_changed.isoformat() }}` => `2021-01-24T07:06:59+00:00` (contains "T" separator)
+`{{ states.sun.sun.last_changed.isoformat() }}` => `2023-07-30T20:03:49.253717+00:00` (contains "T" separator)
 
 {% endraw %}
 
@@ -905,6 +905,8 @@ The numeric functions and filters raise an error if the input is not a valid num
 - `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
 - `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
 - `average([x, y, ...], default)` will return the average value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `median([x, y, ...], default)` will return the median value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `statistical_mode([x, y, ...], default)` will return the statistical mode value (most frequent occurrence) of the sequence. If the list is empty, it returns the `default` value, or if omitted raises an error. It can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
@@ -915,6 +917,27 @@ The numeric functions and filters raise an error if the input is not a valid num
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
+
+### Complex type checking
+
+In addition to strings and numbers, Python (and Jinja) supports lists, sets, and dictionaries. To help you with testing these types, you can use the following tests:
+
+- `x is list` will return whether `x` is a `list` or not (e.g. `[1, 2] is list` will return `True`).
+- `x is set` will return whether `x` is a `set` or not (e.g. `{1, 2} is set` will return `True`).
+- `x is tuple` will return whether `x` is a `tuple` or not (e.g. `(1, 2) is tuple` will return `True`).
+- `x is datetime` will return whether `x` is a `datetime` or not (e.g. `datetime(2020, 1, 1, 0, 0, 0) is datetime` will return `True`).
+- `x is string_like` will return whether `x` is a string, bytes, or bytearray object.
+
+Note that, in Home Assistant, Jinja has built-in tests for `boolean` (`True`/`False`), `callable` (any function), `float` (a number with a decimal), `integer` (a number without a decimal), `iterable` (a value that can be iterated over such as a `list`, `set`, `string`, or generator), `mapping` (mainly `dict` but also supports other dictionary like types), `number` (`float` or `int`), `sequence` (a value that can be iterated over and indexed such as `list` and `string`), and `string`.
+
+### Type conversions
+
+While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to a `tuple` or `set`. To help you with using these types, you can use the following functions:
+
+- `set(x)` will convert any iterable `x` to a `set` (e.g. `set([1, 2]) == {1, 2}`)
+- `tuple(x)` will convert any iterable `x` to a `tuple` (e.g. `tuple("abc") == ("a", "b", "c")`)
+
+Note that, in Home Assistant, to convert a value to a `list`, a `string`, an `int`, or a `float`, Jinja has built-in functions with names that correspond to each type.
 
 ### Functions and filters to process raw data
 
@@ -1045,7 +1068,7 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_template title="Developer Tools -> Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to **{% my developer_template title="Developer Tools > Template" %}**, create your output in "Template editor", and check the result.
 
 {% raw %}
 

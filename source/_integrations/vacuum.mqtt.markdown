@@ -7,8 +7,8 @@ ha_release: 0.54
 ha_domain: mqtt
 ---
 
-The `mqtt` vacuum integration allows you to control your MQTT-enabled vacuum.
-The initial state of the MQTT vacuum entity will set to `unknown` and can be reset by a device by sending a `null` payload as state.
+The `mqtt` vacuum {% term integration %} allows you to control your MQTT-enabled vacuum.
+The initial state of the MQTT vacuum {% term entity %} will set to `unknown` and can be reset by a device by sending a `null` payload as state.
 
 ## Configuration
 
@@ -61,7 +61,7 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -118,7 +118,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the vacuum.
+  description: The name of the vacuum. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Vacuum
@@ -167,7 +167,7 @@ payload_stop:
   type: string
   default: stop
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -190,7 +190,7 @@ set_fan_speed_topic:
   required: false
   type: string
 state_topic:
-  description: "The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `battery_level` and `fan_speed` keys as shown in the [example](#state-mqtt-protocol)."
+  description: "The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `battery_level` and `fan_speed` keys as shown in the [example](#configuration-example)."
   required: false
   type: string
 supported_features:
@@ -209,8 +209,8 @@ unique_id:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  vacuum:
-    - name: "MQTT Vacuum"
+  - vacuum:
+      name: "MQTT Vacuum"
       schema: state
       supported_features:
         - start
@@ -251,7 +251,7 @@ Possible MQTT payloads:
 - `clean_spot` - Initialize a spot cleaning cycle
 - `locate` - Locate the vacuum (typically by playing a song)
 
-### Send Custom Command
+### Send custom command
 
 Vacuum send_command allows three parameters:
 

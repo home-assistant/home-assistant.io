@@ -1,7 +1,6 @@
 ---
 title: DSMR Slimme Meter
 description: Instructions on how to integrate DSMR Smartmeter within Home Assistant.
-logo: netbeheernederland.jpg
 ha_category:
   - Energy
 ha_release: 0.34
@@ -58,11 +57,18 @@ This integration is known to work for:
 - Landis+Gyr E350 (DMSR 4)
 - Landis+Gyr ZCF110 / ZM F110 (DSMR 4.2)
 - Kaifa E0026
+- Kaifa MA304C (DSMR 4.2)
 - Kamstrup 382JxC (DSMR 2.2)
 - Sagemcom XS210 ESMR5
 - Sagemcom T211 
 - Ziv E0058 ESMR5
 - EasyMeter Q3D
+
+### M-Bus support
+
+A smart meter can have multiple subdevices, also known as [M-Bus](https://m-bus.com/) devices.
+For the <abbr title="Dutch smart meter requirement">DSMR</abbr> version 5B, support was added for water and gas M-Bus devices. This means you can have up to 4 subdevices on your <abbr title="Dutch smart meter requirement">DSMR</abbr> meter.
+While previously only 1 gas meter was supported, there is now support for multiple gas and water meters.
 
 ### Connecting to the meter
 
@@ -86,12 +92,14 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 - [ser2net](https://ser2net.sourceforge.net)
 - [Smart Meter bridge](https://github.com/legolasbo/smartmeterBridge)
 - [WIZnet WIZ110SR](https://www.wiznet.io/product-item/wiz110sr/)
+- [esp8266 SmartMeter (Poluket)](https://www.domohab.be/categorie-produit/passerelle/) (create for DSMR5 / ESMR5 Meter)
 
 DIY solutions (ESP8266 based):
 
 - [esp8266_p1meter (daniel-jong)](https://github.com/daniel-jong/esp8266_p1meter) (parse on ESP8266 publish to MQTT)
 - [DSMR reader for ESPHome (mmakaay)](https://github.com/mmakaay/dsmr-reader-for-esphome)
 - [p1-esp8266 (DavyLandman)](https://github.com/DavyLandman/p1-esp8266) (turn ESP8266 into a serial forwarder)
+
 
 {% include integrations/config_flow.md %}
 
