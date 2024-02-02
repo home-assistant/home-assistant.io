@@ -247,8 +247,10 @@ features:
   - type: "fan-preset-modes"
     style: "icons"
     preset_modes:
-      - home
-      - eco
+      - auto
+      - smart
+      - sleep
+      - 'on'
 ```
 
 {% configuration features %}
