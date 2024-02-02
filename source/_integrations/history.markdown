@@ -53,3 +53,4 @@ The history information is also available through the
 ## Related topics
 
 - [Recorder integration](/integrations/recorder/)
+- [Home Assistant Data Science Portal](https://data.home-assistant.io)
