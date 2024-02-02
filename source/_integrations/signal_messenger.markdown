@@ -115,6 +115,9 @@ action:
 
 ### Text message with an attachment
 
+This example assumes you have an image stored in the default `www`-folder in Home Assistant Operating System.
+
+
 ```yaml
 ...
 action:
@@ -123,7 +126,7 @@ action:
     message: "Alarm in the living room!"
     data:
       attachments:
-        - "/tmp/surveillance_camera.jpg"
+        - "/config/www/surveillance_camera.jpg"
 ```
 
 ### Text message with an attachment from a URL
