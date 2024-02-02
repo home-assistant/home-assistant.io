@@ -115,6 +115,40 @@ hvac_modes:
   type: list
 {% endconfiguration %}
 
+## Climate preset modes
+
+Widget that displays buttons or icons to control the preset mode for a [climate](/integrations/climate).
+
+<p class='img'>
+  <img src='/images/dashboards/features/climate_preset_modes.png' alt='Screenshot of the tile card with the climate preset modes feature'>
+  Screenshot of the tile card with the climate preset modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-preset-modes"
+    style: "icons"
+    preset_modes:
+      - home
+      - eco
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`climate-preset-modes`"
+  type: string
+style:
+  required: false
+  description: "How the preset modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+preset_modes:
+  required: true
+  description: List of preset modes to show on the card. The list can contain `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, and `activity` or any other custom preset mode.
+  type: list
+{% endconfiguration %}
+
 ## Cover open/close
 
 Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
@@ -197,6 +231,40 @@ type:
   required: true
   description: "`cover-tilt-position`"
   type: string
+{% endconfiguration %}
+
+## Fan preset modes
+
+Widget that displays buttons or icons to control the preset mode for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_preset_modes.png' alt='Screenshot of the tile card with the fan preset modes feature'>
+  Screenshot of the tile card with the fan preset modes feature
+</p>
+
+```yaml
+features:
+  - type: "fan-preset-modes"
+    style: "icons"
+    preset_modes:
+      - home
+      - eco
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-preset-modes`"
+  type: string
+style:
+  required: false
+  description: "How the preset modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+preset_modes:
+  required: true
+  description: List of preset modes to show on the card. The list can contain any supported preset modes.
+  type: list
 {% endconfiguration %}
 
 ## Fan speed
@@ -370,40 +438,6 @@ style:
   description: "Which style of control to display. It can be either `buttons` or `slider`."
   type: string
   default: slider
-{% endconfiguration %}
-
-## Preset modes
-
-Widget that displays buttons or icons to control the preset mode for a [climate](/integrations/climate) or a [fan](/integrations/fan).
-
-<p class='img'>
-  <img src='/images/dashboards/features/preset_modes.png' alt='Screenshot of the tile card with the preset modes feature'>
-  Screenshot of the tile card with the preset modes feature
-</p>
-
-```yaml
-features:
-  - type: "preset-modes"
-    style: "icons"
-    preset_modes:
-      - home
-      - eco
-```
-
-{% configuration features %}
-type:
-  required: true
-  description: "`preset-modes`"
-  type: string
-style:
-  required: false
-  description: "How the preset modes should be displayed. It can be either `dropdown` or `icons`."
-  type: string
-  default: dropdown
-preset_modes:
-  required: true
-  description: List of preset modes to show on the card. The list can contain `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, and `activity` or any other custom preset mode.
-  type: list
 {% endconfiguration %}
 
 ## Target humidity
