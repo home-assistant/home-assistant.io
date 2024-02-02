@@ -71,42 +71,57 @@ The integration setup will next give you instructions to enter the [Application 
 
 ## Enable personal results (for advanced users)
 
-If you want to enable personal commands (e.g. "remind me tomorrow at 9 pm to take out the trash") follow the steps below after successfully installing the integration. This is for advanced users since it requires creating an OAuth client ID of Desktop app, running a Python program on your desktop or laptop, copying the resulting credentials to your Home Assistant config files, and likely running an Android emulator.
+
+This guide shows you how to enable personal commands such as "remind me tomorrow at 9 pm to take out the trash".
+
+This guide is for advanced users only. It requires creating an OAuth client ID of the Desktop app, running a Python program on your desktop or laptop, copying the resulting credentials to your Home Assistant config files, and likely running an Android emulator.
+
+ ### Prerequisites
+ 
+- Successfully installed the Google Assistant integration. 
+
 
 {% details "Create credentials" %}
 
-1. Navigate to [Google Developers Console > Credentials](https://console.cloud.google.com/apis/credentials)
+1. Navigate to [Google Developers Console > Credentials](https://console.cloud.google.com/apis/credentials).
 2. Select the project you created earlier from the dropdown menu in the upper left corner.
-3. Click Create credentials (at the top of the screen), then select OAuth client ID.
-4. Set the Application type to "Desktop app" and give this credential set a name (like "Home Assistant Desktop Credentials").
-5. Click Create.
-6. In the OAuth client created screen, click on Download JSON.
-7. Rename the downloaded file to `client_secret.json`
-8. On your Windows or Linux or Mac machine download Python if you don't have it already.
-9. Open terminal (on windows click on start and then type cmd).
-10. On the terminal run the following commands (preferably in a Python virtual environment): 
+3. Select **Create credentials** (at the top of the screen), then select **OAuth client ID**.
+4. Set the Application type to **Desktop app** and give this credential set a name (like "Home Assistant Desktop Credentials").
+5. Select **Create**.
+6. In the OAuth client-created screen, select **Download JSON**.
+7. Rename the downloaded file to `client_secret.json`.
+8. On your Windows, Linux, or Mac machine, download Python if you don't have it already.
+9. Open the terminal (on Windows, select **Start** and then type `cmd`).
+10. In the terminal, run the following commands (preferably in a Python virtual environment): 
 11. `python -m pip install --upgrade google-auth-oauthlib[tool]`
-12. Under Windows: `google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype --scope https://www.googleapis.com/auth/gcm --save --client-secrets %userprofile%\Downloads\client_secret.json`
-13. Or under Linux: `google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype --scope https://www.googleapis.com/auth/gcm --save --client-secrets ~/Downloads/client_secret.json`
-14. A browser window will open asking you to select the account to continue to the cloud project you created earlier.
-15. Once you select the correct account, add a tick to both: "Use your Google Assistant: broad access to your Google account." and "Send information to your Android device.".
-16. Click continue.
-17. If everything was successful you will get "The authentication flow has completed. You may close this window." in your browser and in your terminal you will see the path where the credentials was saved. E.g. `credentials saved: C:\Users\user\AppData\Roaming\google-oauthlib-tool\credentials.json`
-18. Open `credentials.json` in a text editor. Keep it open since you will need to copy several values from it.
-19. In the file editor of your Home Assistant, typically http://homeassistant.local:8123/core_configurator, open `/homeassistant/.storage/application_credentials`. Locate the entry for `google_assistant_sdk` and modify `client_id` and `client_secret` to match the ones from `credentials.json`. Save the file.
-20. Open `/homeassistant/.storage/core.config_entries`. Locate the entry for `google_assistant_sdk` and modify `refresh_token` to match the one from `credentials.json`. Save the file.
-21. Restart Home Assistant.
+  - Under Windows: `google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype --scope https://www.googleapis.com/auth/gcm --save --client-secrets %userprofile%\Downloads\client_secret.json`
+  - Under Linux: `google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype --scope https://www.googleapis.com/auth/gcm --save --client-secrets ~/Downloads/client_secret.json`
+  - **Result**: A browser window will open, asking you to select the account to continue to the cloud project you created earlier.
+12. Once you select the correct account, select both checkboxes: 
+  - **Use your Google Assistant: broad access to your Google account**
+  - **Send information to your Android device**
+13. Select **Continue**.
+  - **Result**: If everything was successful, you will get a **The authentication flow has completed. You may close this window** message in your browser. 
+  - In your terminal you will see the path where the credentials were saved. For example: `credentials saved: C:\Users\user\AppData\Roaming\google-oauthlib-tool\credentials.json`
+14. Open the `credentials.json` in a text editor. Keep it open since you will need to copy several values from it.
+15. In the file editor of your Home Assistant, typically http://homeassistant.local:8123/core_configurator, open `/homeassistant/.storage/application_credentials`.
+  - Locate the entry for `google_assistant_sdk` and modify `client_id` and `client_secret` to match the ones from `credentials.json`.
+  - Save the file.
+16. Open `/homeassistant/.storage/core.config_entries`. 
+    - Locate the entry for `google_assistant_sdk` and modify `refresh_token` to match the one from `credentials.json`. 
+    -  Save the file.
+17. Restart Home Assistant.
 
 {% enddetails %}
 
 {% details "Enable personal results" %}
 
-1. In the Developer Tools > Services, issue a query that requires personal results, e.g. call `google_assistant_sdk.send_text_command` with `command: "what is my name"`
-2. On your phone you should receive a notification "Allow personal answers" "Allow Google Assistant to answer your questions about your calendar, trips, and more"
-3. DO NOT tap on ALLOW (it won't work until you enter a device name). Instead tap on the notification text.
-4. If the app doesn't open you need to retry on an a device running Android 12. If you don't have such a device you can use an Android emulator.
-5. Tap on Device Name, enter any device name (like Home Assistant), and tap on OK.
-6. Only after having a non empty device name enable the checkbox next to Personal results.
+1. Go to   **{% my developer_services title="Developer Tools > Services" %}** and issue a query that requires personal results, for example call `google_assistant_sdk.send_text_command` with `command: "what is my name"`
+2. On your phone, you should receive a notification **Allow personal answers** **Allow Google Assistant to answer your questions about your calendar, trips, and more**.
+3. DO NOT tap on **ALLOW** (it won't work until you enter a device name). Instead, tap on the notification text.
+4. If the app doesn't open, you need to retry on a device running Android 12. If you don't have such a device, you can use an Android emulator.
+5. Tap on **Device Name**, enter any device name (like Home Assistant), and tap on **OK**.
+6. Only after having a non-empty device name, enable the checkbox next to **Personal results**.
 
 {% enddetails %}
 
