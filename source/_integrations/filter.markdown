@@ -17,7 +17,7 @@ ha_integration_type: integration
 
 The `filter` platform enables sensors that process the states of other entities.
 
-`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/dashboards/history-graph/) component.
+`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/dashboards/history-graph/) integration.
 
 <p class='img'>
   <img src='/images/screenshots/filter-sensor.png' />
@@ -115,6 +115,12 @@ filters:
       default: positive infinity
 {% endconfiguration %}
 
+<div class="note warning">
+
+When configuring a `window_size` that is not a time and with a value larger than the default of `1`, the database must examine nearly every stored state for that entity during Home Assistant startup. If you have modified the [Recorder `purge_keep_days`](/integrations/recorder/#purge_keep_days) value or have many states stored in the database for the filtered entity, this can cause your Home Assistant instance can to respond poorly during startup.
+
+</div>
+
 ## Filters
 
 ### Low-pass
@@ -152,7 +158,7 @@ To adjust the rate you need to set the window_size. To throttle a sensor down to
 
 This filter is relevant when you have a sensor which produces states at a very high-rate, which you might want to throttle down for storing or visualization purposes.
 
-### Time Throttle
+### Time throttle
 
 The Time Throttle filter (`time_throttle`) will only update the state of the sensor for the first state in the window. This means the filter will skip all other values.
 

@@ -17,7 +17,7 @@ ha_integration_type: integration
 The `atome` sensor platform is retrieving the consumption of your home from the [Direct Energy Atome electric meter](https://total.direct-energie.com/particuliers/electricite/compteur-linky/atome).
 This special little device is connected to a Linky Electric Meter, and sends live data to a cloud platform.
 
-As there is no official documentation for the API, the component retrieves data from the API used in the Atome mobile app, [hosted here](https://esoftlink.esoftthings.com/).
+As there is no official documentation for the API, the integration retrieves data from the API used in the Atome mobile app, [hosted here](https://esoftlink.esoftthings.com/).
 
 ## Configuration
 

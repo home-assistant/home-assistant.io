@@ -16,7 +16,7 @@ The `http` integration serves all files and data required for the Home Assistant
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
 <div class='note'>
@@ -42,7 +42,7 @@ server_port:
   type: integer
   default: 8123
 ssl_certificate:
-  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/hassio-addons/tree/master/letsencrypt) this will be at `/ssl/fullchain.pem`. We recommend to use the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) instead of using this option.
+  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/fullchain.pem`. We recommend to use the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) instead of using this option.
   required: false
   type: string
 ssl_peer_certificate:
@@ -50,7 +50,7 @@ ssl_peer_certificate:
   required: false
   type: string
 ssl_key:
-  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/hassio-addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
+  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
   required: false
   type: string
 cors_allowed_origins:
@@ -62,6 +62,11 @@ use_x_forwarded_for:
   required: false
   type: boolean
   default: false
+use_x_frame_options:
+  description: "Controls the `X-Frame-Options` header to help prevent [clickjacking](https://en.wikipedia.org/wiki/Clickjacking)."
+  required: false
+  type: boolean
+  default: true
 trusted_proxies:
   description: "List of trusted proxies, consisting of IP addresses or networks, that are allowed to set the `X-Forwarded-For` header.  This is required when using `use_x_forwarded_for` because all requests to Home Assistant, regardless of source, will arrive from the reverse proxy IP address. Therefore in a reverse proxy scenario, this option should be set with extreme care. If the immediate upstream proxy is not in the list, the request will be rejected. If any other intermediate proxy is not in the list, the first untrusted proxy will be considered the client."
   required: false
@@ -118,7 +123,7 @@ http:
 
 ## APIs
 
-On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest), [Python API](https://developers.home-assistant.io/docs/api_lib_index) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket) available.
+On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP.
 
@@ -157,7 +162,7 @@ If you want to use Home Assistant to host or serve static files then create a di
 
 </div>
 
-## Binary Sensor
+## Binary sensor
 
 The HTTP binary sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
 
@@ -188,7 +193,7 @@ $ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
     http://localhost:8123/api/states/binary_sensor.radio
 ```
 
-To check if the sensor is working, use again `curl` to retrieve the [current state](/developers/rest_api/#get-apistatesltentity_id).
+To check if the sensor is working, use again `curl` to retrieve the [current state](https://developers.home-assistant.io/docs/api/rest/).
 
 ```bash
 $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
@@ -227,7 +232,7 @@ print(response.text)
 
 #### Using `httpie`
 
-[`httpie`](https://github.com/jkbrzt/httpie) is a user-friendly CLI HTTP client.
+[`httpie`](https://github.com/httpie/httpie) is a user-friendly CLI HTTP client.
 
 ```bash
 $ http -v POST http://localhost:8123/api/states/binary_sensor.radio \
@@ -266,7 +271,7 @@ $ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
        http://localhost:8123/api/states/sensor.bathroom_temperature
 ```
 
-You can then use `curl` again to retrieve the [current sensor state](/developers/rest_api/#get-apistatesltentity_id) and verify the sensor is working.
+You can then use `curl` again to retrieve the [current sensor state](https://developers.home-assistant.io/docs/api/rest/) and verify the sensor is working.
 
 ```bash
 $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
@@ -284,4 +289,4 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
 }
 ```
 
-For more examples please visit the [HTTP Binary Sensor](#examples) page.
+For more examples please visit the [HTTP binary sensor](#examples) page.

@@ -1,19 +1,22 @@
 ---
-title: Shopping List
+title: Shopping list
 description: Instructions on how to integrate a Shopping list into Home Assistant using Intent.
 ha_category:
   - Intent
+  - To-do list
 ha_release: '0.50'
 ha_config_flow: true
 ha_quality_scale: internal
 ha_iot_class: Local Push
 ha_domain: shopping_list
 ha_integration_type: integration
+ha_platforms:
+  - todo
 ---
 
 The `shopping_list` integration allows you to keep track of shopping list items. 
 
-Your shopping list will be accessible from the sidebar, and you can optionally add the [Shopping List card](/dashboards/shopping-list/) to your dashboard. With the [Conversation integration](/integrations/conversation/) you can add items to your shopping list using voice commands like "Add eggs to my shopping list." 
+Your shopping list will be accessible from the sidebar, and you can optionally add the [shopping list card](/dashboards/shopping-list/) to your dashboard. With the [conversation integration](/integrations/conversation/) you can add items to your shopping list using voice commands like "Add eggs to my shopping list." 
 
 {% include integrations/config_flow.md %}
 
@@ -65,7 +68,15 @@ Mark all items as incomplete in the shopping list.
 
 Clear completed items from the shopping list.
 
-## Using in Automations
+### Service `shopping_list.sort`
+
+Sort all items by name in the shopping list.
+
+| Service data attribute | Optional | Description                                                         |
+|------------------------|----------|---------------------------------------------------------------------|
+| `reverse`              |      yes | Whether to sort in reverse (_descending_) order. (default: `False`) |
+
+## Using in automations
 
 A `shopping_list_updated` event is triggered when items in the list are modified, with the following data payload attached to it. This can be used to trigger automations such as sending a push notification when someone adds an item to the shopping list, which when clicked, will open the list.
 

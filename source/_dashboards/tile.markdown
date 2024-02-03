@@ -1,6 +1,6 @@
 ---
 type: card
-title: "Tile Card"
+title: "Tile card"
 sidebar_label: Tile
 description: "The tile card gives you a quick overview of your entity. The card allows you to toggle the entity, show the more-info dialog, or custom actions."
 ---
@@ -8,11 +8,11 @@ description: "The tile card gives you a quick overview of your entity. The card 
 The tile card gives you a quick overview of your entity. The card allows you to toggle the entity and show the more info dialog. A badge is shown for some entities like the [climate](/integrations/climate) or [person](/integrations/person) entities.
 
 <p class='img'>
-  <img src='/images/dashboards/tile_card.png' alt='Screenshot of the tile card'>
-  Screenshot of the Tile card.
+  <img src='/images/dashboards/tile_card.png' alt='Screenshot of tile cards'>
+  Screenshot of tile cards.
 </p>
 
-To add the Tile card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Tile** from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 {% configuration %}
 type:
@@ -25,11 +25,11 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites the name of entity.
+  description: Overwrites the entity name.
   type: string
 icon:
   required: false
-  description: Overwrites the icon of entity.
+  description: Overwrites the entity icon.
   type: string
 color:
   required: false
@@ -46,9 +46,27 @@ vertical:
   description: Displays the icon above the name and state.
   type: boolean
   default: false
+hide_state:
+  required: false
+  description: Hide the entity state.
+  type: boolean
+  default: false
+state_content:
+  required: false
+  description: >
+    Content to display for the state. Can be `state`, `last-changed`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
+  type: [string, list]
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
+  type: map
+hold_action:
+  required: false
+  description: Action taken on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 icon_tap_action:
   required: false
@@ -56,7 +74,7 @@ icon_tap_action:
   type: map
 features:
   required: false
-  description: Additional widgets to control your entity. See [available features](/dashboards/tile/#tile-features).
+  description: Additional widgets to control your entity. See [available features](/dashboards/features).
   type: list
 {% endconfiguration %}
 
@@ -86,6 +104,16 @@ show_entity_picture: true
 type: tile
 entity: person.anne_therese
 vertical: true
+hide_state: true
+```
+
+```yaml
+type: tile
+entity: light.living_room
+state_content: 
+  - state
+  - brightness
+  - last-changed
 ```
 
 ```yaml
@@ -93,109 +121,11 @@ type: tile
 entity: vacuum.ground_floor
 features:
   - type: vacuum-commands
-      commands:
-        - start_pause
-        - return_home
+    commands:
+      - start_pause
+      - return_home
 ```
 
 ## Available color tokens
 
 Some color tokens are available to colorize the tile card : `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
-
-## Tile features
-
-Some entities have support for "features". These widgets add quick controls to the tile card.
-
-### Cover open/close
-
-Widget that display buttons to open, close or stop a [cover](/integrations/cover).
-
-<p class='img'>
-  <img src='/images/dashboards/tile-features/cover_open_close.png' alt='Screenshot of the tile card with open/close feature'>
-  Screenshot of the tile card with cover open/close feature
-</p>
-
-```yaml
-features:
-  - type: "cover-open-close"
-```
-
-{% configuration %}
-type:
-  required: true
-  description: "`cover-open-close`"
-  type: string
-{% endconfiguration %}
-
-### Cover tilt
-
-Widget that display buttons to open, close or stop a [cover](/integrations/cover).
-
-<p class='img'>
-  <img src='/images/dashboards/tile-features/cover_tilt.png' alt='Screenshot of the tile card with tilt feature'>
-  Screenshot of the tile card with cover tilt feature
-</p>
-
-```yaml
-features:
-  - type: "cover-tilt"
-```
-
-{% configuration %}
-type:
-  required: true
-  description: "`cover-tilt`"
-  type: string
-{% endconfiguration %}
-
-### Light brightness
-
-Widget that display a slider to select the brightness for a [light](/integrations/light).
-
-<p class='img'>
-  <img src='/images/dashboards/tile-features/light_brightness.png' alt='Screenshot of the tile card with light brightness feature'>
-  Screenshot of the tile card with light brightness feature
-</p>
-
-```yaml
-features:
-  - type: "light-brightness"
-```
-
-{% configuration %}
-type:
-  required: true
-  description: "`light-brightness`"
-  type: string
-{% endconfiguration %}
-
-### Vacuum commands
-
-Widget that display buttons to control a [vacuum](/integrations/vacuum).
-
-<p class='img'>
-  <img src='/images/dashboards/tile-features/vacuum_commands.png' alt='Screenshot of the tile card with vacuum commands feature'>
-  Screenshot of the tile card with vacuum commands feature
-</p>
-
-```yaml
-features:
-  - type: "vacuum-commands"
-    commands:
-      - start_pause
-      - stop
-      - clean_spot
-      - locate
-      - return_home
-```
-
-{% configuration %}
-type:
-  required: true
-  description: "`vacuum-commands`"
-  type: string
-commands:
-  required: true
-  description: List of commands to show on the card. The list can contain `start_pause`, `stop`, `clean_spot`, `locate` and `return_home`.
-  type: list
-{% endconfiguration %}

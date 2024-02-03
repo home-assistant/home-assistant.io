@@ -17,6 +17,7 @@ ha_homekit: true
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - event
   - light
   - scene
   - sensor

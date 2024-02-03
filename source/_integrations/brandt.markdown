@@ -2,8 +2,8 @@
 title: Brandt Smart Control
 description: Connect and control your Brandt Smart Control devices using the Overkiz integration
 ha_category:
-  - Alarm Control Panel
-  - Binary Sensor
+  - Alarm
+  - Binary sensor
   - Button
   - Climate
   - Cover
@@ -16,7 +16,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
-  - Water Heater
+  - Water heater
 ha_domain: brandt
 ha_integration_type: virtual
 ha_supporting_domain: overkiz
@@ -44,7 +44,7 @@ ha_platforms:
   - siren
   - switch
   - water_heater
-ha_iot_class: Cloud Polling
+ha_iot_class: Local Polling
 ha_dhcp: true
 ha_zeroconf: true
 ---

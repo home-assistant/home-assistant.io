@@ -1,0 +1,1003 @@
+---
+layout: post
+title: "2023.3: Dialogs!"
+description: "A brand new restart dialog, ask Assist about the state of your home, amazing new dialogs for lights and switches, Thread & Matter updates, control the precision of your sensors, and Python 3.11 support."
+date: 2023-03-01 00:00:00
+date_formatted: "March 1, 2023"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2023-03/social.png
+---
+
+<a href='/integrations/#version/2023.3'><img src='/images/blog/2023-03/social.png' style='border: 0;box-shadow: none;'></a>
+
+Home Assistant Core 2023.3! 🎉
+
+February was a short month, resulting in a short release cycle, but... That
+didn't stop anybody from stuffing this release with many great improvements!
+
+As the release title most fittingly puts it, most features of this release
+show up in dialogs. New dialogs, restyled dialogs, new features that appear
+in dialogs, and all sorts of new dialogues you can have with Assist. Something
+with "dialogs" all over these release notes!
+
+Besides dialogs, this release brings in three new integrations, updates to
+Thread and Matter, and quite an impressive list of other noteworthy changes.
+
+My personal favorite in this release is, undoubtedly, the all-new restart dialog.
+It brings in proper choice, less navigation, and it looks slick! I am genuinely
+really loving and enjoying the result. 🤩
+
+Enjoy the release!
+
+../Frenck
+
+<!--more-->
+
+- [Restarting Home Assistant](#restarting-home-assistant)
+- [Asking Assist for the current state of things](#asking-assist-for-the-current-state-of-things)
+- [Cleaner entity information dialogs](#cleaner-entity-information-dialogs)
+- [New dialogs for lights, switches and siren entities](#new-dialogs-for-lights-switches-and-siren-entities)
+- [Sensor display precision](#sensor-display-precision)
+- [New create automation dialog](#new-create-automation-dialog)
+- [Thread \& Matter](#thread--matter)
+- [Python 3.11 support](#python-311-support)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Release 2023.3.1 - March 2](#release-202331---march-2)
+- [Release 2023.3.2 - March 8](#release-202332---march-8)
+- [Release 2023.3.3 - March 9](#release-202333---march-9)
+- [Release 2023.3.4 - March 13](#release-202334---march-13)
+- [Release 2023.3.5 - March 16](#release-202335---march-16)
+- [Release 2023.3.6 - March 22](#release-202336---march-22)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=3UaLAhG9Brc) 1 March 2023, at 12:00 PST / 21:00 CET!
+
+<lite-youtube videoid="3UaLAhG9Brc" videotitle="Home Assistant 2023.2 Release Party"></lite-youtube>
+
+## Restarting Home Assistant
+
+Since we started redesigning our menu structure (a little over a year
+ago), "Restarting" Home Assistant has been a source of discussion in our
+community. Home Assistant can be restarted, reloaded, rebooted,
+and powered off; it quickly became unclear what to use and when.
+
+We've come up with a solution inspired by the good old Windows XP computer
+turn-off screen. [@matthiasdebaat] made a UX that has been implemented
+by [@piitaya] that will hopefully make this all better, more clear.
+
+<img class="no-shadow" src='/images/blog/2023-03/restart-home-assistant.png' alt='Screenshot showing the new restart dialog of Home Assistant that provides a guidance on what action to take.'>
+
+Nice, right? 🤩 What is entirely new is the first item shown: "Quick reload".
+Quick reload calls all active integrations in your system that support
+reloading YAML configuration on the fly 🚀.
+
+This means all integrations individually listed as reloadable under the YAML
+tab in the developer tools are reloaded simultaneously! Also, [@frenck] made
+quick reload available as a {% my developer_call_service service="homeassistant.reload_all" title="service" %},
+so you can automate with it.
+
+Lastly, another place for finding it more easily; the option to restart has
+also been added to the three-dotted overflow menu in the top right of the
+settings screen.
+
+[@frenck]: https://github.com/frenck
+[@matthiasdebaat]: https://github.com/matthiasdebaat
+[@piitaya]: https://github.com/piitaya
+
+## Asking Assist for the current state of things
+
+This release updates Assist with the capability to ask for the state of things
+around your home. For example:
+
+<img class="no-shadow" src='/images/blog/2023-03/ask-assist-for-states.png' alt='Screenshot showing the assist conversation dialog demonstrating new intents to get the state of things in your home.'>
+
+Intents for three types of questions have been added:
+
+- Ask for the state of a single entity:
+  - _"What is the outside temperature?"_
+  - _"Is the front door locked?"_
+  - _"What is the power consumption in the office?"_
+- Any or all questions:
+  - _"Are any lights on in the bedroom?"_
+  - _"Are all windows closed in the kitchen?"_
+- How many or which questions:
+  - _"How many lights are on in the office?"_
+  - _"Which doors are open?"_
+
+Thanks, [@synesthesiam] for implementing this, and thanks to language leaders
+and contributors for helping out providing translations for all these [intents]! ❤️
+
+Want to help with adding support for these intents in your language? Please do!
+Read more about [contributing sentences in our documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/contributing).
+
+[@synesthesiam]: https://github.com/synesthesiam
+[intents]: https://github.com/home-assistant/intents
+
+## Cleaner entity information dialogs
+
+The entity information dialog (also known as the more-info dialog) got some
+nice improvements in this release.
+
+<img class="no-shadow" src='/images/blog/2023-03/new-entity-dialog.png' alt='Screenshot showing the new entity information dialogs, highlighting the top bar changes.'>
+
+The "Info", "History", "Settings", and "Related" tabs have been removed, which
+gives the dialog a much cleaner look. Icons for settings and history have been
+added in the top right to replace these tabs. The new three-dotted overflow menu
+can bring up related entity information and provides a direct link to the device
+dashboard of the device that provided this entity.
+
+Nice job [@matthiasdebaat] and [@piitaya]!
+
+[@matthiasdebaat]: https://github.com/matthiasdebaat
+[@piitaya]: https://github.com/piitaya
+
+## New dialogs for lights, switches and siren entities
+
+There is more to tell about this release's more-info dialogs. [@matthiasdebaat]
+and [@piitaya] have been working on the designs shared
+[during the State of the Open Home 2022](https://www.youtube.com/live/D936T1Ze8-4?feature=share&t=5193).
+This release brings in the first overhauls to the entity dialogs of light,
+switch, and siren entities.
+
+<img class="no-shadow" style="padding-right: 24px" src='/images/blog/2023-03/new-light-switch-more-info-dialog.png' alt='Screenshots showing the new entity more-info dialogs for a light, a switch and a switch with an assumed state.'>
+
+The new dialogs are nice and clean. The new sliders and buttons work absolutely
+magnificent on both desk and mobile. For the brightness slider, you can drag
+it all down without turning the light off, making it possible to dim your
+light to even the lowest point.
+
+In case of a light, additional controls for turning on/off, color (temperature),
+and effects appear right below the slider. In the top right, you'll find the new
+controls that come with the cleaner look we discussed in the previous paragraph.
+
+[@matthiasdebaat]: https://github.com/matthiasdebaat
+[@piitaya]: https://github.com/piitaya
+
+## Sensor display precision
+
+Got a sensor that has too many decimals in its numeric value? Would you like
+to display it rounded to a single or maybe even no decimals?
+
+Just ~~create a template sensor~~ change it directly from the UI!
+
+<img class="no-shadow" src='/images/blog/2023-03/entity-precision.png' alt='Screenshot showing you can now set the numerical
+precision of a sensor entity value shown in the UI from the entity settings dialog.'>
+
+Thanks [@emontnemery] for building out this feature!
+
+This has also been extended into integrations, which now can provide
+a more precise value while suggesting to, show it with less precision
+by default. This allows you to change it if you don't like the defaults.
+
+You can also take advantage of the configured precision when writing templates,
+as the `states()` function has been extended to help with that.
+You can find more information on
+[formatting sensor states in the templating documentation](/docs/configuration/templating/#formatting-sensor-states).
+
+[@emontnemery]: https://github.com/emontnemery
+
+## New create automation dialog
+
+Let's continue the dialogs theme this release! As [@piitaya] also gave
+the dialog you see when you create a new automation, a facelift!
+
+You can now quickly find and pick a Blueprint to use for your automation or
+create one from scratch. The overall look and feel is much more modern, and
+fits our current design better.
+
+<img class="no-shadow" src='/images/blog/2023-03/new-automation-dialog.png' alt='Screenshot showing the improved createnew automation dialogs, which allows easily starting a new automation from a blueprint or from scratch.'>
+
+You may notice it now shows author information in this dialog. If you create
+Blueprints, you can now add [author information] to your Blueprint,
+which will be shown in this dialog.
+
+[@piitaya]: https://github.com/piitaya
+[author information]: /docs/blueprint/schema/#author
+
+## Thread & Matter
+
+Behind the scenes, a lot is happening; adding, extending and improving
+Thread & Matter support for Home Assistant.
+
+A couple of weeks ago, we published [an extensive blog article on where we're at](/blog/2023/02/08/state-of-matter-and-thread/).
+Some of the features mentioned in that blog post will become available today.
+
+The most visual change is that the [Thread integration](/integrations/thread)
+will now show up on your devices & services dashboard. The "Configure" button
+on the Thread card will reveal the all-new Thread panel.
+
+<img class="no-shadow" src='/images/blog/2023-03/thread-panel.png' alt='Screenshot of the all new Thread panel, giving insight into your Thread network(s).'>
+
+The Thread panel lets you view your Thread network(s) and provides controls
+to add an OpenThread border router. More importantly, an option to download
+diagnostics has been added in the three-dotted menu in the top right. This will
+help with finding, triaging, and fixing issues as the development
+on Thread continues.
+
+As for Matter, it now supports connecting to Matter bridges! So, you can
+now connect, for example, your Hue hub over Matter!
+
+<p class='img'>
+<img src='/images/blog/2023-03/matter-bridges.png' alt='Screenshot showing the Home Assistant Matter integration card, with lots of devices and entities; brought in by Hue bridges.'></a>
+Two Philips Hue bridges connected using Matter, and it is fast!
+</p>
+
+Although, if you want to connect your Hue hub, we of course recommend using
+the dedicated [Hue integration](/integrations/hue), which will provide a much
+more stable and feature rich solution. Nevertheless, having bridge support is
+a huge milestone!
+
+Adding a Matter device is now also more logical. Just add a new device
+from the Devices & Services page, just like how you would add any other device
+or integration to Home Assistant. Oh! Let's not forget about [@ArturoGuerra],
+who added support for color lights to Matter! Thanks!
+
+[@ArturoGuerra]: https://github.com/ArturoGuerra
+
+## Python 3.11 support
+
+Support for Python 3.11 is here! 🐍
+
+This change is only interesting if you manually run Home Assistant
+directly in Python (the Home Assistant Core installation method). If that
+is the case, you can now start using Home Assistant with Python 3.11, which
+should dramatically improve performance over previous Python versions.
+
+We are also working on upgrading to Python 3.11 for our Home Assistant OS,
+Supervised, and Container installation methods so we can provide
+the same performance improvements. We'll keep you posted.
+
+## Other noteworthy changes
+
+There is much more juice in this release; here are some of the other
+noteworthy changes this release:
+
+- You can now change the unit of measurement for a sensor that provides power readings.
+  So, if you like your kW sensor to be displayed as W, that is now possible. Thanks, [@emontnemery]!
+- All [contributed translations] are now automatically updated with each release!
+  This includes patch releases. Thanks, [@frenck].
+- Faster it is! [@bdraco] keeps improving the performance, and this release is no exception!
+  The statistics should be almost instant now, which is notable on
+  the energy dashboard. Lots of MQTT-related performance improvements too!
+- The statistic graph card can now hide the legend, nice and clean [@piitaya]!
+- You can now use templates in the `for` parameter of [state conditions]. Thanks, [@emontnemery]!
+- Our (opt-in only) {% my analytics %} will now include the database engine and version
+  you use with your recorder. This helps us making database-related decisions and improvements.
+  Thanks, [@ludeeus]!
+- [@marcelveldt] added support for Smart Scenes (Natural Light) to the [Philips Hue] integrations. Nice!
+- If your [ONVIF] camera supports it, it will now provide switch entities
+  for auto-focus, wiper, and IR lights. Thanks, [@partofthething]!
+- The input select helper first, last, previous, and next services are now also
+  available on select entities, thanks [@frenck].
+- It looks like [@jesserockz] took a small break from [ESPHome] to implement support
+  for the SwitchBot Blind Tilt to the [SwitchBot] integration. Thank you!
+- The [OpenAI Conversation] integration now has options to customize it to your liking, thanks [@bendews]!
+- [@marcolivierarsenault] added support for [ecobee] ventilator, awesome!
+- The [Reolink] integration now provides entities to update the firmware of your camera, control zoom,
+  and control auto-focus. Thanks [@starkillerOG]!
+- [KNX] Data Secure support is added, and importing your Keyfile to use it is now super easy. Just upload it from your browser
+  when configuring it in Home Assistant. Awesome [@farmio]!
+- [@thecode] added support for [Shelly] Pro 3EM energy sensors, nice!
+- [ScreenLogic] now supports local push updates for almost all entities. Thanks [@dieselrabbit]!
+
+[@bdraco]: https://github.com/bdraco
+[@bendews]: https://github.com/bendews
+[@dieselrabbit]: https://github.com/dieselrabbit
+[@emontnemery]: https://github.com/emontnemery
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@jesserockz]: https://github.com/jesserockz
+[@ludeeus]: https://github.com/ludeeus
+[@marcelveldt]: https://github.com/marcelveldt
+[@marcolivierarsenault]: https://github.com/marcolivierarsenault
+[@partofthething]: https://github.com/partofthething
+[@piitaya]: https://github.com/piitaya
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
+[contributed translations]: https://developers.home-assistant.io/docs/translations
+[ecobee]: /integrations/ecobee
+[ESPHome]: https://esphome.io
+[KNX]: /integrations/knx
+[ONVIF]: /integrations/onvif
+[OpenAI Conversation]: /integrations/openai_conversation
+[Philips Hue]: /integrations/hue
+[Reolink]: /integrations/reolink
+[ScreenLogic]: /integrations/screenlogic
+[Shelly]: /integrations/shelly
+[state conditions]: /docs/scripts/conditions/#state-condition
+[SwitchBot]: /integrations/switchbot
+
+## New Integrations
+
+We welcome the following new integrations in this release:
+
+- **[Dormakaba dKey]**, added by [@emontnemery]<br />
+  Connect and control your Dormakaba dKey Bluetooth Low Energy locks.
+- **[easyEnergy]**, added by [@klaasnicolaas]<br />
+  Retrieves dynamic (hourly) energy & gas prices from the Dutch utility company
+  easyEnergy.
+- **[TP-Link Omada SDN Controller]**, added by [@MarkGodwin]<br />
+  Control your TP-Link Omada SDN Devices, such as network switches,
+  access points, and internet gateways.
+
+[@emontnemery]: https://github.com/emontnemery
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@MarkGodwin]: https://github.com/MarkGodwin
+[Dormakaba dKey]: /integrations/dormakaba_dkey
+[easyEnergy]: /integrations/easyenergy
+[TP-Link Omada SDN Controller]: /integrations/tplink_omada
+
+## Release 2023.3.1 - March 2
+
+- Update pyTibber to 0.27.0 ([@toini] - [#86940]) ([tibber docs]) (breaking-change)
+- Bump requests to 2.28.2 ([@mitch-dc] - [#88956])
+- Bump py-dormakaba-dkey to 1.0.4 ([@emontnemery] - [#88992]) ([dormakaba_dkey docs])
+- Fix KNX Keyfile upload ([@farmio] - [#89029]) ([knx docs])
+- Update orjson to 3.8.7 ([@frenck] - [#89037])
+- Update frontend to 20230302.0 ([@piitaya] - [#89042]) ([frontend docs])
+- Fix check on non numeric custom sensor device classes ([@jbouwh] - [#89052]) ([sensor docs])
+- Bump nuheat to 1.0.1 ([@mitch-dc] - [#88958]) ([nuheat docs])
+
+[@mitch-dc]: https://github.com/mitch-dc
+[#88958]: https://github.com/home-assistant/core/pull/88958
+[nuheat docs]: /integrations/nuheat/
+[#86940]: https://github.com/home-assistant/core/pull/86940
+[#88956]: https://github.com/home-assistant/core/pull/88956
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#88992]: https://github.com/home-assistant/core/pull/88992
+[#89029]: https://github.com/home-assistant/core/pull/89029
+[#89037]: https://github.com/home-assistant/core/pull/89037
+[#89042]: https://github.com/home-assistant/core/pull/89042
+[#89052]: https://github.com/home-assistant/core/pull/89052
+[@emontnemery]: https://github.com/emontnemery
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@mitch-dc]: https://github.com/mitch-dc
+[@piitaya]: https://github.com/piitaya
+[@toini]: https://github.com/toini
+[abode docs]: /integrations/abode/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[frontend docs]: /integrations/frontend/
+[knx docs]: /integrations/knx/
+[sensor docs]: /integrations/sensor/
+[tibber docs]: /integrations/tibber/
+
+## Release 2023.3.2 - March 8
+
+- Check type key of zone exists in geniushub ([@warksit] - [#86798]) ([geniushub docs])
+- Cache transient templates compiles provided via api ([@bdraco] - [#89065]) ([websocket_api docs]) ([api docs]) ([mobile_app docs])
+- Handle InnoDB deadlocks during migration ([@bdraco] - [#89073]) ([recorder docs])
+- Bump pyfibaro version to 0.6.9 ([@rappenze] - [#89120]) ([fibaro docs]) (dependency)
+- Fix host IP and scheme entry issues in TP-Link Omada ([@MarkGodwin] - [#89130]) ([tplink_omada docs])
+- Fix Tuya Python 3.11 compatibility issue ([@frenck] - [#89189]) ([tuya docs])
+- Bump aioesphomeapi to 13.4.2 ([@bdraco] - [#89210]) ([esphome docs]) (dependency)
+- Update frontend to 20230306.0 ([@bramkragten] - [#89227]) ([frontend docs])
+- Fix conditional check ([@cdce8p] - [#89231]) ([konnected docs])
+- Bump sqlalchemy to 2.0.5post1 ([@bdraco] - [#89253]) ([recorder docs]) ([sql docs]) (dependency)
+- Make sql subqueries threadsafe ([@bdraco] - [#89254]) ([recorder docs])
+- Bump python-snapcast to 2.3.2 ([@luar123] - [#89259]) ([snapcast docs]) (dependency)
+- Ignore DSL entities if SFR box is not adsl ([@epenet] - [#89291]) ([sfr_box docs])
+- Clean ZHA radio path with trailing whitespace ([@puddly] - [#89299]) ([zha docs])
+- Fix Insteon open issues with adding devices by address and missing events ([@teharris1] - [#89305]) ([insteon docs])
+- Fix thread diagnostics loading blocking the event loop ([@bdraco] - [#89307]) ([thread docs])
+- Remove invalid device class in air-Q integration ([@Sibgatulin] - [#89329]) ([airq docs])
+- Recreate iaqualink httpx client upon service exception ([@flz] - [#89341]) ([iaqualink docs])
+- Fix bluetooth history and device expire running in the executor ([@bdraco] - [#89342]) ([bluetooth docs])
+- Fix setting Reolink focus ([@starkillerOG] - [#89374]) ([reolink docs])
+- Improve Supervisor API handling ([@frenck] - [#89379]) ([hassio docs])
+- Fix invalid state class in litterrobot ([@epenet] - [#89380]) ([litterrobot docs])
+
+[#86798]: https://github.com/home-assistant/core/pull/86798
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#89059]: https://github.com/home-assistant/core/pull/89059
+[#89065]: https://github.com/home-assistant/core/pull/89065
+[#89073]: https://github.com/home-assistant/core/pull/89073
+[#89120]: https://github.com/home-assistant/core/pull/89120
+[#89130]: https://github.com/home-assistant/core/pull/89130
+[#89189]: https://github.com/home-assistant/core/pull/89189
+[#89210]: https://github.com/home-assistant/core/pull/89210
+[#89227]: https://github.com/home-assistant/core/pull/89227
+[#89231]: https://github.com/home-assistant/core/pull/89231
+[#89253]: https://github.com/home-assistant/core/pull/89253
+[#89254]: https://github.com/home-assistant/core/pull/89254
+[#89259]: https://github.com/home-assistant/core/pull/89259
+[#89291]: https://github.com/home-assistant/core/pull/89291
+[#89299]: https://github.com/home-assistant/core/pull/89299
+[#89305]: https://github.com/home-assistant/core/pull/89305
+[#89307]: https://github.com/home-assistant/core/pull/89307
+[#89329]: https://github.com/home-assistant/core/pull/89329
+[#89341]: https://github.com/home-assistant/core/pull/89341
+[#89342]: https://github.com/home-assistant/core/pull/89342
+[#89374]: https://github.com/home-assistant/core/pull/89374
+[#89379]: https://github.com/home-assistant/core/pull/89379
+[#89380]: https://github.com/home-assistant/core/pull/89380
+[@MarkGodwin]: https://github.com/MarkGodwin
+[@Sibgatulin]: https://github.com/Sibgatulin
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@epenet]: https://github.com/epenet
+[@flz]: https://github.com/flz
+[@frenck]: https://github.com/frenck
+[@luar123]: https://github.com/luar123
+[@puddly]: https://github.com/puddly
+[@rappenze]: https://github.com/rappenze
+[@starkillerOG]: https://github.com/starkillerOG
+[@teharris1]: https://github.com/teharris1
+[@warksit]: https://github.com/warksit
+[abode docs]: /integrations/abode/
+[airq docs]: /integrations/airq/
+[api docs]: /integrations/api/
+[bluetooth docs]: /integrations/bluetooth/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[esphome docs]: /integrations/esphome/
+[fibaro docs]: /integrations/fibaro/
+[frontend docs]: /integrations/frontend/
+[geniushub docs]: /integrations/geniushub/
+[hassio docs]: /integrations/hassio/
+[iaqualink docs]: /integrations/iaqualink/
+[insteon docs]: /integrations/insteon/
+[knx docs]: /integrations/knx/
+[konnected docs]: /integrations/konnected/
+[litterrobot docs]: /integrations/litterrobot/
+[mobile_app docs]: /integrations/mobile_app/
+[recorder docs]: /integrations/recorder/
+[reolink docs]: /integrations/reolink/
+[sensor docs]: /integrations/sensor/
+[sfr_box docs]: /integrations/sfr_box/
+[snapcast docs]: /integrations/snapcast/
+[sql docs]: /integrations/sql/
+[thread docs]: /integrations/thread/
+[tibber docs]: /integrations/tibber/
+[tplink_omada docs]: /integrations/tplink_omada/
+[tuya docs]: /integrations/tuya/
+[websocket_api docs]: /integrations/websocket_api/
+[zha docs]: /integrations/zha/
+
+## Release 2023.3.3 - March 9
+
+- Fix MQTT rgb light brightness scaling ([@jbouwh] - [#89264]) ([mqtt docs])
+- Bump roombapy to 1.6.6 ([@Dilski] - [#89366]) ([roomba docs])
+- Bump pymazda to 0.3.8 ([@bdr99] - [#89387]) ([mazda docs])
+- Allow enum as MQTT sensor device_class ([@jbouwh] - [#89391]) ([mqtt docs])
+- Add paths for add-on changelog and documentation ([@ludeeus] - [#89411]) ([hassio docs])
+- Update frontend to 20230309.0 ([@piitaya] - [#89446]) ([frontend docs])
+- Fix Dormakaba dKey deadbolt binary sensor ([@emontnemery] - [#89447]) ([dormakaba_dkey docs])
+
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#89059]: https://github.com/home-assistant/core/pull/89059
+[#89264]: https://github.com/home-assistant/core/pull/89264
+[#89366]: https://github.com/home-assistant/core/pull/89366
+[#89381]: https://github.com/home-assistant/core/pull/89381
+[#89387]: https://github.com/home-assistant/core/pull/89387
+[#89391]: https://github.com/home-assistant/core/pull/89391
+[#89411]: https://github.com/home-assistant/core/pull/89411
+[#89446]: https://github.com/home-assistant/core/pull/89446
+[#89447]: https://github.com/home-assistant/core/pull/89447
+[@Dilski]: https://github.com/Dilski
+[@balloob]: https://github.com/balloob
+[@bdr99]: https://github.com/bdr99
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@ludeeus]: https://github.com/ludeeus
+[@piitaya]: https://github.com/piitaya
+[abode docs]: /integrations/abode/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[knx docs]: /integrations/knx/
+[mazda docs]: /integrations/mazda/
+[mqtt docs]: /integrations/mqtt/
+[roomba docs]: /integrations/roomba/
+[sensor docs]: /integrations/sensor/
+[tibber docs]: /integrations/tibber/
+
+## Release 2023.3.4 - March 13
+
+- Recode Home Assistant instance name to ascii for Jellyfin ([@j-stienstra] - [#87368]) ([jellyfin docs])
+- Fix gtfs with 2023.3 (sqlachemy update) ([@vingerha] - [#89175]) ([gtfs docs])
+- Reconnect on any ScreenLogic exception ([@dieselrabbit] - [#89269]) ([screenlogic docs])
+- Fix data migration never finishing when database has invalid datetimes ([@bdraco] - [#89474]) ([recorder docs])
+- Fix bug in fibaro cover ([@rappenze] - [#89502]) ([fibaro docs])
+- Bump pydeconz to v110 ([@Kane610] - [#89527]) ([deconz docs])
+- Fix get_significant_states_with_session query looking at legacy columns ([@bdraco] - [#89558]) ([recorder docs])
+- Bump aiopvpc to 4.1.0 ([@azogue] - [#89593]) ([pvpc_hourly_pricing docs])
+- Increase maximum aiohttp connections to 4096 ([@bdraco] - [#89611])
+- Rename modules named repairs.py which are not repairs platforms ([@emontnemery] - [#89618]) ([hassio docs]) ([bayesian docs])
+- Improved "ON" state check for `Use room sensor for cooling` ([@tomrennen] - [#89634]) ([nibe_heatpump docs])
+- Bump SQLAlchemy to 2.0.6 ([@balloob] - [#89650]) ([recorder docs]) ([sql docs])
+- Bump ZHA dependencies ([@puddly] - [#89667]) ([zha docs])
+
+[@puddly]: https://github.com/puddly
+[#89667]: https://github.com/home-assistant/core/pull/89667
+[zha docs]: /integrations/zha/
+[#89650]: https://github.com/home-assistant/core/pull/89650
+[sql docs]: /integrations/sql/
+[recorder docs]: /integrations/recorder/
+[#87368]: https://github.com/home-assistant/core/pull/87368
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#89059]: https://github.com/home-assistant/core/pull/89059
+[#89175]: https://github.com/home-assistant/core/pull/89175
+[#89269]: https://github.com/home-assistant/core/pull/89269
+[#89381]: https://github.com/home-assistant/core/pull/89381
+[#89459]: https://github.com/home-assistant/core/pull/89459
+[#89474]: https://github.com/home-assistant/core/pull/89474
+[#89502]: https://github.com/home-assistant/core/pull/89502
+[#89527]: https://github.com/home-assistant/core/pull/89527
+[#89558]: https://github.com/home-assistant/core/pull/89558
+[#89593]: https://github.com/home-assistant/core/pull/89593
+[#89611]: https://github.com/home-assistant/core/pull/89611
+[#89618]: https://github.com/home-assistant/core/pull/89618
+[#89634]: https://github.com/home-assistant/core/pull/89634
+[@Kane610]: https://github.com/Kane610
+[@azogue]: https://github.com/azogue
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@dieselrabbit]: https://github.com/dieselrabbit
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@j-stienstra]: https://github.com/j-stienstra
+[@rappenze]: https://github.com/rappenze
+[@tomrennen]: https://github.com/tomrennen
+[@vingerha]: https://github.com/vingerha
+[abode docs]: /integrations/abode/
+[bayesian docs]: /integrations/bayesian/
+[deconz docs]: /integrations/deconz/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[fibaro docs]: /integrations/fibaro/
+[frontend docs]: /integrations/frontend/
+[gtfs docs]: /integrations/gtfs/
+[hassio docs]: /integrations/hassio/
+[jellyfin docs]: /integrations/jellyfin/
+[knx docs]: /integrations/knx/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[pvpc_hourly_pricing docs]: /integrations/pvpc_hourly_pricing/
+[recorder docs]: /integrations/recorder/
+[screenlogic docs]: /integrations/screenlogic/
+[sensor docs]: /integrations/sensor/
+[tibber docs]: /integrations/tibber/
+
+## Release 2023.3.5 - March 16
+
+- ArestData does not have available ([@zhangsheng377] - [#88631]) ([arest docs])
+- Bump aioesphomeapi to 13.5.0 ([@bdraco] - [#89262]) ([esphome docs]) (dependency)
+- Handle int or mapping for off case in nibe cooling ([@elupus] - [#89680]) ([nibe_heatpump docs])
+- Secure modbus hub_collect remains valid ([@janiversen] - [#89684]) ([modbus docs])
+- Update to nibe 2.1.4 ([@elupus] - [#89686]) ([nibe_heatpump docs]) (dependency)
+- Bump bond-async to 0.1.23 ([@marciogranzotto] - [#89697]) ([bond docs]) (dependency)
+- Correct modbus serial method parameter ([@janiversen] - [#89738]) ([modbus docs])
+- Fix imap server push holding HA startup ([@jbouwh] - [#89750]) ([imap docs])
+- Bump aioesphomeapi to 13.5.1 ([@bdraco] - [#89777]) ([esphome docs]) (dependency)
+- Update frontend to 20230309.1 ([@bramkragten] - [#89802]) ([frontend docs])
+
+[#88631]: https://github.com/home-assistant/core/pull/88631
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#89059]: https://github.com/home-assistant/core/pull/89059
+[#89262]: https://github.com/home-assistant/core/pull/89262
+[#89381]: https://github.com/home-assistant/core/pull/89381
+[#89459]: https://github.com/home-assistant/core/pull/89459
+[#89647]: https://github.com/home-assistant/core/pull/89647
+[#89680]: https://github.com/home-assistant/core/pull/89680
+[#89684]: https://github.com/home-assistant/core/pull/89684
+[#89686]: https://github.com/home-assistant/core/pull/89686
+[#89697]: https://github.com/home-assistant/core/pull/89697
+[#89738]: https://github.com/home-assistant/core/pull/89738
+[#89750]: https://github.com/home-assistant/core/pull/89750
+[#89777]: https://github.com/home-assistant/core/pull/89777
+[#89802]: https://github.com/home-assistant/core/pull/89802
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@jbouwh]: https://github.com/jbouwh
+[@marciogranzotto]: https://github.com/marciogranzotto
+[@zhangsheng377]: https://github.com/zhangsheng377
+[abode docs]: /integrations/abode/
+[arest docs]: /integrations/arest/
+[bond docs]: /integrations/bond/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[imap docs]: /integrations/imap/
+[knx docs]: /integrations/knx/
+[modbus docs]: /integrations/modbus/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[sensor docs]: /integrations/sensor/
+[tibber docs]: /integrations/tibber
+
+## Release 2023.3.6 - March 22
+
+- Fix imap_email_content unknown status and replaying stale states ([@jbouwh] - [#89563]) ([imap_email_content docs])
+- Bump aioharmony to 0.2.10 ([@bdraco] - [#89831]) ([harmony docs])
+- Correct missing wordswap for S series nibe ([@elupus] - [#89866]) ([nibe_heatpump docs])
+- Fix blocking MQTT entry unload ([@jbouwh] - [#89922]) ([mqtt docs])
+- Remove async_block_till_done in freebox ([@bdraco] - [#89928]) ([freebox docs])
+- Bump aiomusiccast to 0.14.8 ([@micha91] - [#89978]) ([yamaha_musiccast docs])
+- Handle cancelation of wait_for_ble_connections_free in esphome bluetooth ([@bdraco] - [#90014]) ([esphome docs])
+- Bump yalexs_ble to 2.1.0 ([@bdraco] - [#89772]) ([august docs]) ([yalexs_ble docs])
+- Bump yalexs-ble to 2.1.1 ([@bdraco] - [#90015]) ([yalexs_ble docs])
+- Bump easyEnergy to v0.2.1 ([@klaasnicolaas] - [#89630]) ([easyenergy docs])
+- Bump easyEnergy to v0.2.2 ([@klaasnicolaas] - [#90080]) ([easyenergy docs])
+- Bump to oralb-ble 0.17.6 ([@Lash-L] - [#90081]) ([oralb docs])
+- Bump PySwitchbot to 0.37.4 ([@bdraco] - [#90146]) ([switchbot docs])
+- Always enforce URL param ordering for signed URLs ([@balloob] - [#90148]) ([http docs])
+
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#89059]: https://github.com/home-assistant/core/pull/89059
+[#89381]: https://github.com/home-assistant/core/pull/89381
+[#89459]: https://github.com/home-assistant/core/pull/89459
+[#89563]: https://github.com/home-assistant/core/pull/89563
+[#89630]: https://github.com/home-assistant/core/pull/89630
+[#89647]: https://github.com/home-assistant/core/pull/89647
+[#89772]: https://github.com/home-assistant/core/pull/89772
+[#89814]: https://github.com/home-assistant/core/pull/89814
+[#89831]: https://github.com/home-assistant/core/pull/89831
+[#89866]: https://github.com/home-assistant/core/pull/89866
+[#89922]: https://github.com/home-assistant/core/pull/89922
+[#89928]: https://github.com/home-assistant/core/pull/89928
+[#89978]: https://github.com/home-assistant/core/pull/89978
+[#90014]: https://github.com/home-assistant/core/pull/90014
+[#90015]: https://github.com/home-assistant/core/pull/90015
+[#90080]: https://github.com/home-assistant/core/pull/90080
+[#90081]: https://github.com/home-assistant/core/pull/90081
+[#90146]: https://github.com/home-assistant/core/pull/90146
+[#90148]: https://github.com/home-assistant/core/pull/90148
+[@Lash-L]: https://github.com/Lash-L
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@micha91]: https://github.com/micha91
+[abode docs]: /integrations/abode/
+[august docs]: /integrations/august/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[easyenergy docs]: /integrations/easyenergy/
+[esphome docs]: /integrations/esphome/
+[freebox docs]: /integrations/freebox/
+[frontend docs]: /integrations/frontend/
+[harmony docs]: /integrations/harmony/
+[http docs]: /integrations/http/
+[imap_email_content docs]: /integrations/imap_email_content/
+[knx docs]: /integrations/knx/
+[mqtt docs]: /integrations/mqtt/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[oralb docs]: /integrations/oralb/
+[sensor docs]: /integrations/sensor/
+[switchbot docs]: /integrations/switchbot/
+[tibber docs]: /integrations/tibber/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+[yamaha_musiccast docs]: /integrations/yamaha_musiccast/
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+{% details "Assist / Conversation" %}
+
+Previously, all entities and areas were exposed to Assist's default agent. This
+is now restricted to entities of the following domains:
+
+- `climate`
+- `cover`
+- `fan`
+- `humidifier`
+- `light`
+- `lock`
+- `scene`
+- `script`
+- `sensor`
+- `switch`
+- `vacuum`
+- `water_heater`
+
+Only areas with exposed entities will be exposed themselves. In the future,
+this will be customizable through the frontend.
+
+([@synesthesiam] - [#88274]) ([documentation](/integrations/conversation))
+
+[@synesthesiam]: https://github.com/synesthesiam
+[#88274]: https://github.com/home-assistant/core/pull/88274
+
+{% enddetails %}
+
+{% details "Atmospheric pressure device triggers" %}
+
+A bug with the atmospheric pressure sensor device triggers has been corrected.
+Automations using such device triggers will need to be adjusted/reconfigured.
+
+([@epenet] - [#88320]) ([documentation](/integrations/sensor))
+
+[@epenet]: https://github.com/epenet
+[#87377]: https://github.com/home-assistant/core/pull/88320
+
+{% enddetails %}
+
+{% details "ecobee" %}
+
+The aux heat toggle will now show as enabled when the device is in
+"aux heat only" mode instead of only when it is running.
+
+([@Lash-L] - [#86100]) ([documentation](/integrations/ecobee))
+
+[@Lash-L]: https://github.com/Lash-L
+[#86100]: https://github.com/home-assistant/core/pull/86100
+
+{% enddetails %}
+
+{% details "Fibaro" %}
+
+The previously deprecated YAML configuration of the Fibaro integration
+has been removed.
+
+Fibaro is now configured via the UI, any existing YAML configuration has
+been imported in previous releases and can now be safely removed from
+your YAML configuration files.
+
+([@rappenze] - [#87939]) ([documentation](/integrations/fibaro))
+
+[@rappenze]: https://github.com/rappenze
+[#87939]: https://github.com/home-assistant/core/pull/87939
+
+{% enddetails %}
+
+{% details "GoodWe Inverter" %}
+
+Inverter "Operation Mode" select values were changed to snake_case and localized.
+
+- "General mode" -> `general`
+- "Off grid mode" -> `off_grid`
+- "Backup mode" -> `backup`
+- "Eco mode" -> `eco`
+- "Peak shaving" -> `peak_shaving`
+- "Eco charge mode" -> `eco_charge`
+- "Eco discharge mode" -> `eco_discharge`
+
+If you used these select values in your automations or scripts, you will need
+to adjust those to match this change.
+
+([@mletenay] - [#86901]) ([documentation](/integrations/goodwe))
+
+[@mletenay]: https://github.com/mletenay
+[#86901]: https://github.com/home-assistant/core/pull/86901
+
+{% enddetails %}
+
+{% details "HomeKit" %}
+
+VOC mappings in the HomeKit integration have been improved to use the IAQ
+guidelines for Europe released by the WHO (World Health Organization).
+
+HomeKit | Previous VOC µg/m3 | New VOC µg/m3
+-- | -- | --
+Excellent | <= 24 | <= 250
+Good | <= 48 | <= 500
+Fair | <= 64 | <= 1000
+Inferior | <= 96 | <= 3000
+Poor | > 96 | > 3000
+
+Reference: [Sensirion_Gas_Sensors_SGP3x_TVOC_Concept.pdf](https://github.com/paulvha/svm30/blob/master/extras/Sensirion_Gas_Sensors_SGP3x_TVOC_Concept.pdf)
+
+([@emanuelst] - [#87663]) ([documentation](/integrations/homekit))
+
+[@emanuelst]: https://github.com/emanuelst
+[#87663]: https://github.com/home-assistant/core/pull/87663
+
+{% enddetails %}
+
+{% details "Matter" %}
+
+With this release, you will need to update your Matter Server instance.
+You must use `python-matter-server` 3.0.0 or greater (schema 2).
+
+- If you use the `Matter Server` add-on, you need to have at least version `4.0.0`.
+- If you run your own Docker container, or some other installation method,
+  you will need to update your `python-matter-server` instance to at least `3.0.0`.
+
+([@marcelveldt] - [#88607]) ([documentation](/integrations/matter))
+
+[@marcelveldt]: https://github.com/marcelveldt
+[#88607]: https://github.com/home-assistant/core/pull/88607
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+The behavior for receiving values on sensors that expect numeric* values
+has changed.
+
+- A `'None'` value or a value rendered to `'None'` will
+  set such a sensor to an `unknown` state.
+- Empty values on such sensors (`''`) are ignored and will not affect the state
+  of the sensor.
+
+Integrations need to be corrected to send the correct values if an update is
+published and no valid update value is available for the sensor.
+
+- Other sensors that do not expect a numeric value will still accept
+  an empty string as a value.
+
+\* Sensors expect numeric values if at least one of the following applies:
+- A `device_class` is set but is not a `date`, `timestamp`, `enum`, or any custom device class.
+- A `state_class` is set.
+- A `unit_of_measurement` is set.
+- A `suggested_display_precision` is set.
+
+([@jbouwh] - [#87004]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#87004]: https://github.com/home-assistant/core/pull/87004
+
+{% enddetails %}
+
+{% details "Plugwise" %}
+
+The unit of measurement for the P1 gas consumed interval sensor is changed
+from `m³` to `m³/h`. Go to Developer Option --> Statistics for the options
+on how to handle this change in your existing installation.
+
+([@bouwew] - [#87449]) ([documentation](/integrations/plugwise))
+
+[@bouwew]: https://github.com/bouwew
+[#87449]: https://github.com/home-assistant/core/pull/87449
+
+{% enddetails %}
+
+{% details "Profiler" %}
+
+The `profiler.memory` service is unavailable when using Python 3.11, due to
+an incompatibility with a needed dependency for this service. It will return
+when the used `guppy3` package becomes available with Python 3.11 compatibility.
+
+([@bdraco] - [#88136]) ([documentation](/integrations/profiler))
+
+[@bdraco]: https://github.com/bdraco
+[#88136]: https://github.com/home-assistant/core/pull/88136
+
+{% enddetails %}
+
+{% details "Template: Covers" %}
+
+Template covers using `optimistic: false` without `value_template` nor
+`position_template` still updated state optimistically. The integration now respects the optimistic setting of false. If you want to keep the
+previous behavior, you must set the `optimistic` value to `true`,
+or remove the optimistic declaration.
+
+([@ylemoigne] - [#87925]) ([documentation](/integrations/template))
+
+[@ylemoigne]: https://github.com/ylemoigne
+[#87925]: https://github.com/home-assistant/core/pull/87925
+
+{% enddetails %}
+
+{% details "Trafikverket Weather" %}
+
+The unit of measurement was incorrectly set to `mm` while the
+API is returning `mm/h`. The unit of measurement and device class have now been corrected.
+
+([@gjohansson-ST] - [#87308]) ([documentation](/integrations/trafikverket_weatherstation))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#87308]: https://github.com/home-assistant/core/pull/87308
+
+{% enddetails %}
+
+{% details "Todoist" %}
+
+Labels used by custom projects for filtering are now case-sensitive.
+
+Previously the labels were automatically lower-cased by the integration,
+but in Todoist a label like `Test` and `test` are considered unique.
+Because of that labels will now be case sensitive in your configuration.
+
+([@boralyl] - [#87904]) ([documentation](/integrations/todoist))
+
+[@boralyl]: https://github.com/boralyl
+[#87904]: https://github.com/home-assistant/core/pull/87904
+
+{% enddetails %}
+
+{% details "UniFi Protect" %}
+
+The `event_id` and `event_score` state attributes are now excluded from being
+recorded in the database. They remain available for use in automations
+and scripts.
+
+([@bdraco] - [#88387]) ([documentation](/integrations/unifiprotect))
+
+[@bdraco]: https://github.com/bdraco
+[#88387]: https://github.com/home-assistant/core/pull/88387
+
+---
+
+The previously deprecated "Detected Object" sensor has been removed.
+
+The sensor was removed because if multiple objects are detected at once
+(very common for package detection), Home Assistant could not be automated
+using the second detected object. The sensor has been split out from the single
+Detected Object sensor into multiple binary issues for each detection type.
+
+([@bdraco] - [#85656]) ([documentation](/integrations/unifiprotect))
+
+[@bdraco]: https://github.com/bdraco
+[#85656]: https://github.com/home-assistant/core/pull/85656
+
+{% enddetails %}
+
+{% details "Wiffi" %}
+
+The Wiffi unit of illuminance `lux` has been adjusted to the standard unit
+Home Assistant uses `lx`.
+
+([@mampfes] - [#87377]) ([documentation](/integrations/wiffi))
+
+[@mampfes]: https://github.com/mampfes
+[#87377]: https://github.com/home-assistant/core/pull/87377
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+With this release, you will need to update your zwave-js-server instance.
+You must use `zwave-js-server` 1.26.0 or greater (schema 26).
+
+- If you use the `Z-Wave JS` add-on, you need at least version `0.1.76`.
+- If you use the `Z-Wave JS UI` add-on, you need at least version `1.6.3`.
+- If you use the `Z-Wave JS UI` Docker container, you need at least version `8.8.6`.
+- If you run your own Docker container or some other installation method,
+  you will need to update your `zwave-js-server` instance to at least `1.26.0`.
+
+([@raman325] - [#88520]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#88520]: https://github.com/home-assistant/core/pull/88520
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+- [Added support for snapshot testing](https://developers.home-assistant.io/blog/2023/02/20/snapshot-testing/)
+- [Custom tile features](https://developers.home-assistant.io/blog/2023/02/28/custom-tile-features)
+- [Deprecated callback signatures for MQTT subscribe removed](https://developers.home-assistant.io/blog/2023/02/21/deprecated-callback-removed/)
+- [Intent Responses and Whitespace](https://developers.home-assistant.io/blog/2023/02/03/responses)
+- [Introducing drafting of PRs in our review process](https://developers.home-assistant.io/blog/2023/02/07/introducing-PR-drafting-in-reviews)
+- [The HassGetState intent](https://developers.home-assistant.io/blog/2023/02/09/hassgetstate)
+- [The number of decimals used when displaying a sensor state is now configurable](https://developers.home-assistant.io/blog/2023/02/08/sensor_presentation_rounding)
+- [Translation files removed from Core repository](https://developers.home-assistant.io/blog/2023/02/06/translations-files-removed-from-core)
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2023.3](/changelogs/core-2023.3)

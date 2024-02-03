@@ -1,12 +1,12 @@
 ---
 title: Amazon Fire TV
-description: Connect and control your Amazon Fire TV devices using the Android TV integration
+description: Connect and control your Amazon Fire TV devices using the Android Debug Bridge integration
 ha_category:
-  - Media Player
+  - Media player
 ha_domain: fire_tv
 ha_integration_type: virtual
 ha_supporting_domain: androidtv
-ha_supporting_integration: Android TV
+ha_supporting_integration: Android Debug Bridge
 ha_release: 0.7.6
 ha_codeowners:
   - '@JeffLIrion'

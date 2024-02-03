@@ -12,15 +12,13 @@ The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To enable this climate platform in your installation, first add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  climate:
-    - name: Study
+  - climate:
+      name: Study
       mode_command_topic: "study/ac/mode/set"
 ```
 
@@ -33,18 +31,6 @@ action_topic:
   description: >-
     The MQTT topic to subscribe for changes of the current action. If this is set, the climate graph uses the value received as data source.
     Valid values: `off`, `heating`, `cooling`, `drying`, `idle`, `fan`.
-  required: false
-  type: string
-aux_command_topic:
-  description: The MQTT topic to publish commands to switch auxiliary heat.
-  required: false
-  type: string
-aux_state_template:
-  description: A template to render the value received on the `aux_state_topic` with.
-  required: false
-  type: template
-aux_state_topic:
-  description: The MQTT topic to subscribe for changes of the auxiliary heat mode. If this is not set, the auxiliary heat mode works in optimistic mode (see below).
   required: false
   type: string
 availability:
@@ -88,7 +74,7 @@ current_humidity_template:
   required: false
   type: template
 current_humidity_topic:
-  description: The MQTT topic on which to listen for the current humidity. A `"None"` value received will reset the current temperature. Empty values (`'''`) will be ignored. 
+  description: The MQTT topic on which to listen for the current humidity. A `"None"` value received will reset the current humidity. Empty values (`'''`) will be ignored. 
   required: false
   type: string
 current_temperature_template:
@@ -96,16 +82,16 @@ current_temperature_template:
   required: false
   type: template
 current_temperature_topic:
-  description: The MQTT topic on which to listen for the current temperature. A `"None"` value received will reset the current humidity. Empty values (`'''`) will be ignored.
+  description: The MQTT topic on which to listen for the current temperature. A `"None"` value received will reset the current temperature. Empty values (`'''`) will be ignored.
   required: false
   type: string
 device:
-  description: 'Information about the device this HVAC device is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
+  description: 'Information about the device this HVAC device is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -130,6 +116,10 @@ device:
       type: string
     name:
       description: 'The name of the device.'
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -158,7 +148,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 fan_mode_command_template:
   description: A template to render the value sent to the `fan_mode_command_topic` with.
   required: false
@@ -181,10 +170,9 @@ fan_modes:
   default: ['auto', 'low', 'medium', 'high']
   type: list
 initial:
-  description: Set the initial target temperature.
+  description: Set the initial target temperature. The default value depends on the temperature unit and will be 21° or 69.8°F.
   required: false
-  type: integer
-  default: 21
+  type: float
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -203,7 +191,7 @@ max_humidity:
   type: integer
   default: 99
 max_temp:
-  description: Maximum set point available.
+  description: Maximum set point available. The default value depends on the temperature unit, and will be 35°C or 95°F.
   type: float
   required: false
 min_humidity:
@@ -212,7 +200,7 @@ min_humidity:
   type: integer
   default: 30
 min_temp:
-  description: Minimum set point available.
+  description: Minimum set point available. The default value depends on the temperature unit, and will be 7°C or 44.6°F.
   type: float
   required: false
 mode_command_template:
@@ -220,7 +208,7 @@ mode_command_template:
   required: false
   type: template
 mode_command_topic:
-  description: The MQTT topic to publish commands to change the HVAC operation mode. Use with `mode_command_template` if you only want to publish the power state.
+  description: The MQTT topic to publish commands to change the HVAC operation mode.
   required: false
   type: string
 mode_state_template:
@@ -237,7 +225,7 @@ modes:
   default: ['auto', 'off', 'cool', 'heat', 'dry', 'fan_only']
   type: list
 name:
-  description: The name of the HVAC.
+  description: The name of the HVAC. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT HVAC
@@ -261,15 +249,23 @@ payload_not_available:
   type: string
   default: offline
 payload_off:
-  description: The payload that represents disabled state.
+  description: The payload sent to turn off the device.
   required: false
   type: string
   default: "OFF"
 payload_on:
-  description: The payload that represents enabled state.
+  description: The payload sent to turn the device on.
   required: false
   type: string
   default: "ON"
+power_command_template:
+  description: A template to render the value sent to the `power_command_topic` with. The `value` parameter is the payload set for `payload_on` or `payload_off`.
+  required: false
+  type: template
+power_command_topic:
+  description: The MQTT topic to publish commands to change the HVAC power state. Sends the payload configured with `payload_on` if the climate is turned on via the `climate.turn_on`, or the payload configured with `payload_off` if the climate is turned off via the `climate.turn_off` service. Note that `optimistic` mode is not supported through `climate.turn_on` and `climate.turn_off` services. When called, these services will send a power command to the device but will not optimistically update the state of the climate entity. The climate device should report its state back via `mode_state_topic`.
+  required: false
+  type: string
 precision:
   description: The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`.
   required: false
@@ -290,7 +286,7 @@ preset_mode_state_topic:
 preset_mode_value_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the `preset_mode` value from the payload received on `preset_mode_state_topic`.
   required: false
-  type: string
+  type: template
 preset_modes:
   description: List of preset modes this climate is supporting. Common examples include `eco`, `away`, `boost`, `comfort`, `home`, `sleep` and `activity`.
   required: false
@@ -342,7 +338,7 @@ target_humidity_state_topic:
 target_humidity_state_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value for the climate `target_humidity` state.
   required: false
-  type: string
+  type: template
 temperature_command_template:
   description: A template to render the value sent to the `temperature_command_topic` with.
   required: false
@@ -414,7 +410,7 @@ value_template:
 
 If a property works in *optimistic mode* (when the corresponding state topic is not set), Home Assistant will assume that any state changes published to the command topics did work and change the internal state of the entity immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the entity is only updated when the requested update is confirmed by the device through the state topic. You can enforce optimistic mode by setting the `optimistic` option to `true`. When set, the internal state will always be updated, even when a state topic is defined.
 
-## Using Templates
+## Using templates
 
 For all `*_state_topic`s, a template can be specified that will be used to render the incoming payloads on these topics. Also, a default template that applies to all state topics can be specified as `value_template`. This can be useful if you received payloads are e.g., in JSON format. Since in JSON, a quoted string (e.g., `"foo"`) is just a string, this can also be used for unquoting.
 
@@ -424,8 +420,8 @@ Say you receive the operation mode `"auto"` via your `mode_state_topic`, but the
 
 ```yaml
 mqtt:
-  climate:
-    - name: Study
+  - climate:
+      name: Study
       modes:
         - "off"
         - "heat"
@@ -450,8 +446,8 @@ A full configuration example looks like the one below.
 ```yaml
 # Full example configuration.yaml entry
 mqtt:
-  climate:
-    - name: Study
+  - climate:
+      name: Study
       modes:
         - "off"
         - "cool"
@@ -467,6 +463,7 @@ mqtt:
         - "eco"
         - "sleep"
         - "activity"
+      power_command_topic: "study/ac/power/set"
       preset_mode_command_topic: "study/ac/preset_mode/set"
       mode_command_topic: "study/ac/mode/set"
       mode_command_template: "{{ value if value=="off" else "on" }}"

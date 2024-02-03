@@ -22,13 +22,13 @@ Listing all loaded files:
 docker exec homeassistant python -m homeassistant --script check_config --files
 ```
 
-Viewing a component’s configuration ([`light`](/integrations/light) in this example):
+Viewing an integration’s configuration ([`light`](/integrations/light) in this example):
 
 ```bash
 docker exec homeassistant python -m homeassistant --script check_config --info light
 ```
 
-Or all components’ configuration
+Or all integrations’ configuration
 
 ```bash
 docker exec homeassistant python -m homeassistant --script check_config --info all
@@ -68,13 +68,13 @@ docker exec homeassistant python -m homeassistant --script check_config --help
     hass --script check_config --files
     ```
 
-    Viewing a component’s configuration ([`light`](/integrations/light) in this example):
+    Viewing a integration’s configuration ([`light`](/integrations/light) in this example):
 
     ```bash
     hass --script check_config --info light
     ```
 
-    Or all components’ configuration
+    Or all integrations’ configuration
 
     ```bash
     hass --script check_config --info all

@@ -29,10 +29,15 @@ Reload all YAML configuration that can be reloaded without restarting Home Assis
 
 It calls the `reload` service on all domains that have it available. Additionally,
 it reloads the core configuration (equivalent to calling
-`homeassistant.reload_core_config`) and themes (`frontend.reload_themes`).
+`homeassistant.reload_core_config`), themes (`frontend.reload_themes`), and custom Jinja (`homeassistant.reload_custom_templates`).
 
 Prior to reloading, a basic configuration check is performed. If that fails, the reload
 will not be performed and will raise an error.
+
+### Service `homeassistant.reload_custom_templates`
+
+Reload all Jinja templates in the `config/custom_templates` directory. Changes to these templates
+will take effect the next time an importing template is rendered.
 
 ### Service `homeassistant.reload_config_entry`
 
@@ -67,6 +72,7 @@ Update the location of the Home Assistant default zone (usually "Home").
 |---------------------------|----------|-------------------------------------------------------|
 | `latitude`                |       no | Latitude of your location.                            |
 | `longitude`               |       no | Longitude of your location.                           |
+| `elevation`               |      yes | Elevation of your location.                           |
 
 #### Example
 
@@ -76,6 +82,7 @@ action:
   data:
     latitude: 32.87336
     longitude: 117.22743
+    elevation: 120
 ```
 
 ### Service `homeassistant.toggle`

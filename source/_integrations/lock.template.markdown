@@ -110,7 +110,7 @@ lock:
 
 {% endraw %}
 
-### Optimistic Mode
+### Optimistic mode
 
 This example shows a lock in optimistic mode. This lock will immediately change state after command and will not wait for state update from the sensor.
 

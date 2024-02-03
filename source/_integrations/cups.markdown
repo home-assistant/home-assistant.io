@@ -2,7 +2,7 @@
 title: CUPS
 description: Instructions on how to integrate CUPS sensors into Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_iot_class: Local Polling
 ha_release: 0.32
 ha_codeowners:
@@ -13,7 +13,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `cups` sensor platform is using the open source printing system [CUPS](https://www.cups.org/) to show details about your printers, including the ink levels. It can obtain the information using a CUPS server or communicating directly with the printer with the Internet Printing Protocol.
+The `cups` sensor platform uses the open source printing system [CUPS](https://www.cups.org/) to show details about your printers, including the ink levels. It can obtain the information using a CUPS server or by communicating directly with the printer with the Internet Printing Protocol.
 
 ## Setup
 
@@ -40,7 +40,7 @@ sensor:
 
 {% configuration %}
 printers:
-  description: List of printers to add. If you're not using a CUPS server, add here your "Printer Name".
+  description: List of printers to add. If you're not using a CUPS server, add your "Printer Name" here.
   required: true
   type: list
 host:
@@ -73,9 +73,3 @@ sensor:
     printers:
       - ipp/print
 ```
-
-<div class='note'>
-
-You will need to install the `python3-dev` or `python3-devel` and the development files for CUPS (`libcups2-dev` or`cups-devel`) package on your system manually (eg. `sudo apt-get install python3-dev libcups2-dev` or `sudo dnf -y install python3-devel cups-devel`) along with a compiler (`gcc`).
-
-</div>

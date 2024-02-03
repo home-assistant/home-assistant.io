@@ -2,7 +2,7 @@
 title: Onkyo
 description: Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: onkyo
@@ -90,6 +90,8 @@ If your source is not listed above, and you want to figure out how to format tha
 ```bash
 onkyo --host 192.168.0.100 source=query
 ```
+
+If this returns multiple, comma-separated values, use the first one. For example, if `dvd,bd,dvd` is returned, use `dvd`.
 
 To find your receivers max volume use the onkyo-eiscp Python module set the receiver to its maximum volume
 (don't do this whilst playing something!) and run:

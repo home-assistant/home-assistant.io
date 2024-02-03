@@ -1,9 +1,9 @@
 ---
-title: "Troubleshooting Automations"
+title: "Troubleshooting automations"
 description: "Tips on how to troubleshoot your automations."
 ---
 
-When an automation is run, all steps are recorded and a trace is made. From the UI choose **Settings** which is located in the sidebar, then click on **Automations & Scenes** to go to the automation editor or click this button directly: {% my automations badge %}
+When an {% term automation %} is run, all steps are recorded and a trace is made. From the UI, open **Settings**, which is located in the sidebar, then select **Automations & Scenes** to go to the automation editor or click this button directly: {% my automations badge %}
 
 Click on the clock icon next to an automation to enter the debugging screen. Alternatively, click on **Show trace** directly from a Logbook automation entry.
 
@@ -15,7 +15,7 @@ The debugging screen is split into four features, the first being the Step Detai
 
 Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) assigned in order for debugging traces to be stored.
 
-#### Traces ####
+#### Traces
 
 The last 5 traces are recorded for all automations. It is possible to change this by adding the following code to your automation.
 

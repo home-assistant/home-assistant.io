@@ -42,13 +42,11 @@ Optimistic mode can be forced, even if the `state_topic` is available. Try to en
 Home Assistant internally assumes that a light's state corresponds to a defined `color_mode`.
 The state of MQTT lights with default schema and support for both color and color temperature will set the `color_mode` according to the last received valid color or color temperature. Optionally, a `color_mode_state_topic` can be configured for explicit control of the `color_mode`
 
-<a id='new_format'></a>
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - command_topic: "office/rgb1/light/switch"
+  - light:
+      command_topic: "office/rgb1/light/switch"
 ```
 
 {% configuration %}
@@ -95,7 +93,7 @@ brightness_command_topic:
 brightness_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `brightness_command_topic`. Available variables: `value`."
   required: false
-  type: string
+  type: template
 brightness_scale:
   description: "Defines the maximum brightness value (i.e., 100%) of the MQTT device."
   required: false
@@ -108,7 +106,7 @@ brightness_state_topic:
 brightness_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the brightness value."
   required: false
-  type: string
+  type: template
 color_mode_state_topic:
   description: "The MQTT topic subscribed to receive color mode updates. If this is not configured, `color_mode` will be automatically set according to the last received valid color or color temperature"
   required: false
@@ -116,11 +114,11 @@ color_mode_state_topic:
 color_mode_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the color mode."
   required: false
-  type: string
+  type: template
 color_temp_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `color_temp_command_topic`. Available variables: `value`."
   required: false
-  type: string
+  type: template
 color_temp_command_topic:
   description: The MQTT topic to publish commands to change the light’s color temperature state. The color temperature command slider has a range of 153 to 500 mireds (micro reciprocal degrees).
   required: false
@@ -132,18 +130,18 @@ color_temp_state_topic:
 color_temp_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the color temperature value."
   required: false
-  type: string
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: true
   type: string
 device:
-  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
+  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -168,6 +166,10 @@ device:
       type: string
     name:
       description: 'The name of the device.'
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -196,7 +198,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 effect_command_topic:
   description: "The MQTT topic to publish commands to change the light's effect state."
   required: false
@@ -204,7 +205,7 @@ effect_command_topic:
 effect_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `effect_command_topic`. Available variables: `value`."
   required: false
-  type: string
+  type: template
 effect_list:
   description: The list of effects the light supports.
   required: false
@@ -216,11 +217,11 @@ effect_state_topic:
 effect_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the effect value."
   required: false
-  type: string
+  type: template
 hs_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `hs_command_topic`. Available variables: `hue` and `sat`."
   required: false
-  type: string
+  type: template
 hs_command_topic:
   description: "The MQTT topic to publish commands to change the light's color state in HS format (Hue Saturation).
   Range for Hue: 0° .. 360°, Range of Saturation: 0..100.
@@ -235,7 +236,7 @@ hs_state_topic:
 hs_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the HS value."
   required: false
-  type: string
+  type: template
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -257,7 +258,7 @@ min_mireds:
   required: false
   type: integer
 name:
-  description: The name of the light.
+  description: The name of the light. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Light
@@ -295,7 +296,7 @@ payload_on:
   type: string
   default: "ON"
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -307,7 +308,7 @@ retain:
 rgb_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `rgb_command_topic`. Available variables: `red`, `green` and `blue`."
   required: false
-  type: string
+  type: template
 rgb_command_topic:
   description: "The MQTT topic to publish commands to change the light's RGB state."
   required: false
@@ -319,11 +320,11 @@ rgb_state_topic:
 rgb_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the RGB value."
   required: false
-  type: string
+  type: template
 rgbw_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `rgbw_command_topic`. Available variables: `red`, `green`, `blue` and `white`."
   required: false
-  type: string
+  type: template
 rgbw_command_topic:
   description: "The MQTT topic to publish commands to change the light's RGBW state."
   required: false
@@ -335,11 +336,11 @@ rgbw_state_topic:
 rgbw_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the RGBW value."
   required: false
-  type: string
+  type: template
 rgbww_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `rgbww_command_topic`. Available variables: `red`, `green`, `blue`, `cold_white` and `warm_white`."
   required: false
-  type: string
+  type: template
 rgbww_command_topic:
   description: "The MQTT topic to publish commands to change the light's RGBWW state."
   required: false
@@ -351,7 +352,7 @@ rgbww_state_topic:
 rgbww_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the RGBWW value."
   required: false
-  type: string
+  type: template
 schema:
   description: The schema to use. Must be `default` or omitted to select the default schema.
   required: false
@@ -364,7 +365,7 @@ state_topic:
 state_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the state value. The template should match the payload `on` and `off` values, so if your light uses `power on` to turn on, your `state_value_template` string should return `power on` when the switch is on. For example if the message is just `on`, your `state_value_template` should be `power {{ value }}`."
   required: false
-  type: string
+  type: template
 unique_id:
   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
   required: false
@@ -381,7 +382,7 @@ white_scale:
 xy_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `xy_command_topic`. Available variables: `x` and `y`."
   required: false
-  type: string
+  type: template
 xy_command_topic:
   description: "The MQTT topic to publish commands to change the light's XY state."
   required: false
@@ -393,7 +394,7 @@ xy_state_topic:
 xy_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the XY value."
   required: false
-  type: string
+  type: template
 {% endconfiguration %}
 
 <div class='note warning'>
@@ -419,8 +420,8 @@ To enable a light with brightness and RGB support in your installation, add the 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - name: "Office Light RGB"
+  - light:
+      name: "Office Light RGB"
       state_topic: "office/rgb1/light/status"
       command_topic: "office/rgb1/light/switch"
       brightness_state_topic: "office/rgb1/brightness/status"
@@ -445,8 +446,8 @@ To enable a light with brightness (no RGB version) in your installation, add the
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - name: "Office light"
+  - light:
+      name: "Office light"
       state_topic: "office/light/status"
       command_topic: "office/light/switch"
       brightness_state_topic: 'office/light/brightness'
@@ -464,8 +465,8 @@ To enable a light that sends only brightness topics to turn it on, add the follo
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - name: "Brightness light"
+  - light:
+      name: "Brightness light"
       state_topic: "office/light/status"
       command_topic: "office/light/switch"
       payload_off: "OFF"
@@ -519,8 +520,8 @@ Optimistic mode can be forced, even if state topic is available. Try enabling it
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: json
+  - light:
+      schema: json
       command_topic: "home/rgb1/set"
 ```
 
@@ -581,12 +582,12 @@ command_topic:
   required: true
   type: string
 device:
-  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
+  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -609,6 +610,10 @@ device:
       description: 'The name of the device.'
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     sw_version:
       description: 'The firmware version of the device.'
       required: false
@@ -627,7 +632,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 effect:
   description: Flag that defines if the light supports effects.
   required: false
@@ -692,7 +696,7 @@ payload_not_available:
   type: string
   default: offline
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -711,7 +715,7 @@ state_topic:
   required: false
   type: string
 supported_color_modes:
-  description: A list of color modes supported by the list. This is required if `color_mode` is `True`. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`.
+  description: A list of color modes supported by the list. This is required if `color_mode` is `True`. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
   required: false
   type: list
 unique_id:
@@ -748,8 +752,8 @@ To enable a light with brightness and RGB support in your installation, add the 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: json
+  - light:
+      schema: json
       name: mqtt_json_light_1
       state_topic: "home/rgb1"
       command_topic: "home/rgb1/set"
@@ -765,8 +769,8 @@ To enable a light with brightness (but no color support) in your installation, a
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: json
+  - light:
+      schema: json
       name: mqtt_json_light_1
       state_topic: "home/rgb1"
       command_topic: "home/rgb1/set"
@@ -775,15 +779,15 @@ mqtt:
       supported_color_modes: ["brightness"]
 ```
 
-### Brightness Scaled
+### Brightness scaled
 
 To enable a light using a brightness scale other than 8bit the `brightness_scale` option may be added to denote the "fully on" value:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: json
+  - light:
+      schema: json
       name: mqtt_json_light_1
       state_topic: "home/light"
       command_topic: "home/light/set"
@@ -802,14 +806,14 @@ Home Assistant will then convert its 8bit value in the message to and from the d
 }
 ```
 
-### HS Color
+### HS color
 
 To use a light with hue+saturation as the color model, set `supported_color_modes` to `["hs"]` in the platform configuration:
 
 ```yaml
 mqtt:
-  light:
-    - schema: json
+  - light:
+      schema: json
       name: mqtt_json_hs_light
       state_topic: "home/light"
       command_topic: "home/light/set"
@@ -837,8 +841,8 @@ To enable a light with brightness, RGB support and a separate white channel (RGB
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: json
+  - light:
+      schema: json
       name: mqtt_json_light_1
       state_topic: "home/rgbw1"
       command_topic: "home/rgbw1/set"
@@ -881,8 +885,8 @@ Optimistic mode can be forced, even if state topic is available. Try enabling it
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: template
+  - light:
+      schema: template
       command_topic: "home/rgb1/set"
       command_on_template: "on"
       command_off_template: "off"
@@ -928,34 +932,34 @@ availability_topic:
 blue_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract blue color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
-  type: string
+  type: template
 brightness_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract brightness from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
-  type: string
+  type: template
 color_temp_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract color temperature from the state payload value. Expected result of the template is an integer representing mired units."
   required: false
-  type: string
+  type: template
 command_off_template:
   description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) for *off* state changes. Available variables: `state` and `transition`."
   required: true
-  type: string
+  type: template
 command_on_template:
   description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `color_temp` is provided as integer representing mired units."
   required: true
-  type: string
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true
   type: string
 device:
-  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
+  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
@@ -978,6 +982,10 @@ device:
       description: 'The name of the device.'
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     sw_version:
       description: 'The firmware version of the device.'
       required: false
@@ -996,7 +1004,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 effect_list:
   description: List of possible effects.
   required: false
@@ -1004,11 +1011,11 @@ effect_list:
 effect_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract effect from the state payload value."
   required: false
-  type: string
+  type: template
 green_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract green color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
-  type: string
+  type: template
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -1054,14 +1061,14 @@ payload_not_available:
   type: string
   default: offline
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
 red_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract red color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
-  type: string
+  type: template
 schema:
   description: The schema to use. Must be `template` to select the template schema.
   required: false
@@ -1070,7 +1077,7 @@ schema:
 state_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract state from the state payload value."
   required: false
-  type: string
+  type: template
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
@@ -1100,8 +1107,8 @@ For a simple string payload with the format `state,brightness,r-g-b,h-s` (e.g., 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: template
+  - light:
+      schema: template
       command_topic: "home/rgb1/set"
       state_topic: "home/rgb1/status"
       command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }},{{ hue|d }}-{{ sat|d }}"
@@ -1124,8 +1131,8 @@ For a JSON payload with the format `{"state": "on", "brightness": 255, "color": 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: template
+  - light:
+      schema: template
       effect_list:
         - rainbow
         - colorloop
@@ -1169,8 +1176,8 @@ Add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  light:
-    - schema: template
+  - light:
+      schema: template
       name: "Bulb-white"
       command_topic: "shellies/bulb/color/0/set"
       state_topic: "shellies/bulb/color/0/status"

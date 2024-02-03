@@ -1,24 +1,24 @@
 ---
 type: card
-title: "Map Card"
+title: "Map card"
 sidebar_label: Map
-description: "The Map card that allows you to display entities on a map"
+description: "The map card that allows you to display entities on a map"
 ---
 
-The Map card that allows you to display entities on a map
+The map card that allows you to display entities on a map
 
 <p class='img'>
 <img src='/images/dashboards/map_card.png' alt='Screenshot of the map card'>
 Screenshot of the map card.
 </p>
 
-To add the Map card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -27,7 +27,7 @@ type:
   type: string
 entities:
   required: true
-  description: List of entity IDs. Either this or the `geo_location_sources` configuration option is required.
+  description: List of entity IDs or `entity` objects (see below). Either this or the `geo_location_sources` configuration option is required.
   type: list
 geo_location_sources:
   required: true
@@ -36,6 +36,11 @@ geo_location_sources:
 auto_fit:
   required: false
   description: The map will follow moving `entities` by adjusting the viewport of the map each time an entity is updated. 
+  type: boolean
+  default: false
+fit_zones:
+  required: false
+  description: Whether the map should consider the zones in the list of specified entities when fitting its viewport.
   type: boolean
   default: false
 title:
@@ -75,6 +80,31 @@ hours_to_show:
 
 </div>
 
+## Options for entities
+
+If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration.
+
+{% configuration %}
+entity:
+  required: true
+  description: Entity ID.
+  type: string
+name:
+  required: false
+  description: Replace the default label for the marker.
+  type: string
+label_mode:
+  required: false
+  default: name
+  description: When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  type: string
+focus:
+  required: false
+  default: true
+  description: When set to `false`, this entity will not be considered for determining the default zoom or fit of the map.
+  type: boolean
+{% endconfiguration %}
+
 ## Examples
 
 ```yaml
@@ -99,5 +129,8 @@ entities:
 type: map
 entities:
   - device_tracker.demo_paulus
+  - entity: sensor.gas_station_gas_price
+    label_mode: state
+    focus: false
 hours_to_show: 48
 ```

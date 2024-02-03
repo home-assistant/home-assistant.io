@@ -1,0 +1,31 @@
+---
+title: "Glossary"
+description: "Home Assistant's Glossary."
+---
+
+{% assign entries = site.data.glossary | sort: 'term' %}
+
+The glossary covers terms which are used around Home Assistant.
+
+<div class="config-vars basic">
+
+{% for entry in entries %}
+
+<div class="config-vars-item">
+  <div class="config-vars-label">
+    <a name="{{ entry.term | slugify }}" class="title-link" href="#{{ entry.term | slugify }}"></a>
+    <span class="config-vars-label-name">{{ entry.term }}</span>
+  </div>
+  <div class="config-vars-description-and-children">
+    <span class="config-vars-description">
+      {{ entry.definition | markdownify | newline_to_br }}
+      {%- if entry.link -%}
+      <a href="{{ entry.link }}">Read more about: {{ entry.term }}</a>
+      {%- endif -%}
+    </span>
+  </div>
+</div>
+
+{% endfor %}
+
+</div>

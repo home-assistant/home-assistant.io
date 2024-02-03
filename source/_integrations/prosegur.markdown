@@ -12,6 +12,8 @@ ha_domain: prosegur
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
+  - camera
+  - diagnostics
 ha_integration_type: integration
 ---
 
@@ -30,4 +32,3 @@ There is currently support for the following device types within Home Assistant:
 ### Service `camera.request_image`
 
 This service will have Prosegur cloud service "Request image" from your local camera. This service should only be called seldom, as Prosegur tends to throttle this service for long periods of time, resulting in errors for both this integration and your Prosegur mobile application.
-

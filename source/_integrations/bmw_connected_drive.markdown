@@ -2,13 +2,16 @@
 title: BMW Connected Drive
 description: Instructions on how to setup your BMW Connected Drive account with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Car
   - Lock
   - Notifications
-  - Presence Detection
+  - Number
+  - Presence detection
+  - Select
   - Sensor
+  - Switch
 ha_release: 0.64
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -23,28 +26,34 @@ ha_platforms:
   - diagnostics
   - lock
   - notify
+  - number
+  - select
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
-The `bmw_connected_drive` integration lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account and a Connected Drive enabled vehicle for this to work.
+The **BMW Connected Drive** {% term integration %} lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account and a Connected Drive enabled vehicle for this to work.
 
-The `bmw_connected_drive` integration also works with (recent) Mini vehicles. You need to have a working Mini Connected account, and a Mini Connected enabled vehicle for this to work.
+The **BMW Connected Drive** {% term integration %} also works with (recent) Mini vehicles. You need to have a working Mini Connected account, and a Mini Connected enabled vehicle for this to work.
 
 <div class='note'>
-The entities available in Home Assistant heavily depend on your vehicle's capabilities (model year, headunit, etc.). The integration will make sure all available car attributes are added as entities.
+The {% term entities %} available in Home Assistant heavily depend on your vehicle's capabilities (model year, headunit, etc.). The integration will make sure all available car attributes are added as entities.
 </div>
 
 For compatibility with your BMW vehicle check the [bimmer_connected page](https://github.com/bimmerconnected/bimmer_connected) on GitHub.
 
 This integration provides the following platforms:
 
-- Binary Sensors: Doors, windows, condition based services, check control messages, parking lights, door lock state, charging status (electric cars) and connections status (electric cars).
+- Binary sensors: Doors, windows, condition based services, check control messages, parking lights, door lock state, charging status (electric cars) and connections status (electric cars).
 - Device tracker: The location of your car.
 - [Lock](/integrations/bmw_connected_drive/#lock): Control the lock of your car.
 - Sensors: Mileage, remaining range, remaining fuel, charging time remaining (electric cars), charging status (electric cars), remaining range electric (electric cars).
 - [Notifications](/integrations/bmw_connected_drive/#notifications): Send Points of Interest (POI) to your car.
 - [Buttons](/integrations/bmw_connected_drive/#buttons): Turn on air condition, sound the horn, flash the lights, update the vehicle location and update the state.
+- [Selects](/integrations/bmw_connected_drive/#selects): Display and control charging related settings for (PH)EVs.
+- [Switches](/integrations/bmw_connected_drive/#switches): Display and toggle settings on your car.
+- [Numbers](/integrations/bmw_connected_drive/#numbers): Display and control numeric charging related settings for (PH)EVs.
 
 ## Configuration
 
@@ -101,10 +110,6 @@ The air conditioning of the vehicle can be activated with the `button.<your_vehi
 
 What exactly is started here depends on the type of vehicle. It might range from just ventilation over auxiliary heating to real air conditioning. If your vehicle is equipped with auxiliary heating, only trigger this service if the vehicle is parked in a location where it is safe to use it (e.g., not in an underground parking or closed garage).
 
-Some newer cars also support stopping an active air conditioning with the `button.<your_vehicle>_deactivate_air_conditioning` button.
-
-This will only work if you have the option to stop the AC in the *MyBMW* app. If your car doesn't support this service, nothing will happen.
-
 ### Sound the horn
 
 The `button.<your_vehicle>_sound_horn` button sounds the horn of the vehicle. This option is not available in some countries (among which  the UK). Use this feature responsibly, as it might annoy your neighbors.
@@ -130,9 +135,31 @@ The `button.<your_vehicle>_find_vehicle` button requests the vehicle to update t
 
 </div>
 
-### Update the state / refresh from cloud
+## Selects
 
-The `button.<vehicle_model>_refresh_from_cloud` button fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles.
+If you have a (PH)EV, you can control the charging process through Home Assistant. The selects are created automatically depending on your vehicle's capabilities and can be pressed/executed from the UI or using the `select.select_option` service. For more information, please see the [select documentation](/integrations/select/).
+
+Using these selects will impact the state of your vehicle. Use them with care!
+
+- **Charging Mode**: Vehicle can be set to `IMMEDIATE_CHARGING` (charge as soon as plugged in) or `DELAYED_CHARGING` (charge only if within charging window). It can be used to start/stop charging if the charging window is set accordingly.
+- **AC Charging Limit**: The maximum current a vehicle will charge with. Not available on all EVs.
+
+## Switches
+
+If supported by your vehicle, you can display and toggle remote services with start/stop functionality.
+
+Using these selects will impact the state of your vehicle, use them with care!
+
+- **Climate**: Toggle vehicle climatization. It is not possible to force it to heating/cooling, the vehicle will decide on its own. If turned on, it will run for 30 minutes (as if toggled via the MyBMW app).
+- **Charging**: Toggle vehicle charging if plugged in. Only available on some electric vehicles.
+
+## Numbers
+
+If you have a (PH)EV, you can control the charging process through Home Assistant. The number entities are created automatically depending on your vehicle's capabilities and can be changed from the UI or using the `number.set_value` service. For more information, please see the [number documentation](/integrations/number/).
+
+Using these selects will impact the state of your vehicle, use them with care!
+
+- **Target SoC**: Vehicle will charge until this battery level is reached. Not available on all EVs.
 
 ## Disclaimer
 

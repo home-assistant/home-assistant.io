@@ -3,7 +3,7 @@ title: Zone
 description: Instructions on how to set up zones within Home Assistant.
 ha_category:
   - Organization
-  - Presence Detection
+  - Presence detection
 ha_release: 0.69
 ha_quality_scale: internal
 ha_codeowners:
@@ -80,8 +80,7 @@ If no configuration is given, the `zone` integration will create a zone for home
 
 <div class='note'>
 
-Devices that are in the zone **'Home'** will not appear on the map in the Home Assistant UI.
-
+Devices that are in the zone **'Home'** will not appear on the map in the Home Assistant UI. To apply the changes to the **'Home'** `zone`, you must restart Home Assistant.
 </div>
 
 ## Icons

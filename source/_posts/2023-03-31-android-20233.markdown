@@ -1,0 +1,127 @@
+---
+layout: post
+title: "Android 2023.3: Multiple servers & Windows 11 app"
+description: "It's finally here: add multiple servers to the Home Assistant Android app, install the app on Windows 11 devices and more!"
+date: 2023-03-30 00:00:00
+date_formatted: "March 30, 2023"
+author: Joris Pelgröm
+comments: true
+categories:
+ - Release-Notes
+og_image: /images/blog/2023-03-30-android/social.png
+---
+
+![Home Assistant logo with 'Android Companion 2023.3' text](/images/blog/2023-03-30-android/social.png)
+
+It's finally here, one of the most common feature requests for the Home Assistant
+Android Companion app: you can now configure multiple Home Assistant servers. The
+app can send sensor updates to all servers and easily mix and match widgets, tiles,
+and controls for different servers 🎉
+
+Plus, a preview of the Home Assistant app is now available via the Amazon Appstore
+on Windows 11, which allows you to quickly connect your computer to Home Assistant.
+
+There are also other changes that add some polish to the app and improve support
+for features in the latest Home Assistant releases, so let's dig into the update!
+
+## Configure multiple Home Assistant servers
+
+Sometimes, one Home Assistant instance is not enough. You like Home Assistant so
+much that you decide to help someone else get started, there's a second home in
+your life, or you regularly visit someplace else where they're using Home Assistant.
+
+Before this update, if you wanted to access more than one server it was a bit of a
+hassle. Switching apps, creating bookmarks, and using different profiles. Let alone
+connecting your Android device to multiple servers for features like sensors
+and notifications.
+
+This issue now belongs to the past, as there's a new option in **{% my config title="Settings" %}** >
+**Companion app** to configure a second server, and another one after that, and another...
+They will all show up in the app, and you can use all features you've come to
+expect, like lots of sensors for your device and support for push notifications.
+Each one gets individual settings, so if you don't want to share your step count
+and enable location tracking everywhere, that's OK.
+
+![Screenshots of a phone showing different dashboards in the app, one of them showing a pop-up titled 'Choose server'](/images/blog/2023-03-30-android/multiserver.png)
+
+That's not all - you can also use all servers _outside_ the app, mixing and
+matching servers when using shortcuts, notifications, widgets, tiles and controls.
+Toggling lights from three different homes side-by-side? No problem!
+
+Note: the Wear OS app does not yet support multiple servers.
+
+## Now available on Windows 11 (preview)
+
+The Home Assistant Android Companion app is now available [via the Amazon Appstore]
+on [supported Windows 11 devices]. While there are already great options to integrate your
+computer from the community out there, the Companion app makes it easy to start
+and benefits from all the work on the Android app, frequently adding new features.
+
+![Screenshot of the Home Assistant Android app on a Windows 11 device](/images/blog/2023-03-30-android/windows.png)
+
+Windows does not always provide correct information to the app and may shut down
+background work, including sensors, after several minutes, which is why we are
+releasing Windows 11 support for the app as a preview. Android support in Windows
+11 continues to get better and we intend to make adjustments to improve the
+experience in the future.
+
+[via the Amazon Appstore]: amzn://apps/android?asin=B09RP3DM5T
+[supported Windows 11 devices]: https://support.microsoft.com/windows/f8d0abb5-44ad-47d8-b9fb-ad6b1459ff6c
+
+## Refining Wear OS
+
+The Home Assistant app has been available for over a year now on Wear OS watches
+and continues to improve. Earlier this year, initial support for Assist was added,
+and in this update [@dshokouhi] made it easier to access using a watchface
+complication. Now Assist is only a tap away!
+
+Got a lot of entities and want to hide the clutter on your watch? You could already
+add favorites which would be displayed at the top of the app, but it would still load
+all entities below them. Now, there is an option to only show favorites to reduce
+what gets loaded and prevent accidental changes. Try it out and let us know if you
+prefer this more focused experience!
+
+![Screenshots of a Wear OS device, showing an Assist complication a watchface, updated launch screen, and favorites only home screen](/images/blog/2023-03-30-android/wear.png)
+
+[@SkechyWolf] and [@dshokouhi] also worked on the look and feel of the app to make it
+fit in better with other modern Wear apps.
+
+[@SkechyWolf]: https://github.com/SkechyWolf
+[@dshokouhi]: https://github.com/dshokouhi
+
+<!--more-->
+
+## Other noteworthy changes
+
+There's more in this update, here are some highlights:
+
+- Any sensor with a location attached will now show up for navigation when using Android
+  Auto. Nice one, [@dshokouhi]!
+- [@jpelgrom] added initial support for the new Thread integration in 2023.3. Thank you!
+- [@Adi146] and [@dshokouhi] worked to make the Beacon Monitor more reliable when in the
+  background and when toggling it on and off, nice to see improvements!
+- Put a lot of work in a custom dashboard, only to have it break on your phone because of
+  text that is ever so slightly too small or unwanted auto-rotation? No more, as [@dmiales]
+  tweaked settings to prevent this from happening!
+- Got a notification that should only show up on your watch? In the previous update, support
+  was added for notifications to the Wear OS app, and in this update work continues by
+  [@dshokouhi], with the app now supporting TTS notifications.
+
+Even more people worked on fixing bugs in this update, like [@Suxsem] and [@JBassett]. Thanks
+to all of those who contributed. If you have a good idea to improve the app or found a bug to
+fix, feel free to [join us on the forums] or [contribute on GitHub].
+
+[join us on the forums]: https://community.home-assistant.io/c/mobile-apps/android-companion/42
+[contribute on GitHub]: https://github.com/home-assistant/android
+[@Adi146]: https://github.com/Adi146
+[@dmiales]: https://github.com/dmiales
+[@JBassett]: https://github.com/JBassett
+[@jpelgrom]: https://github.com/jpelgrom
+[@Suxsem]: https://github.com/Suxsem
+
+## All changes
+
+You can find a complete list of all changes made for this update here:
+[Full changelog for Home Assistant Android 2023.3.0].
+
+[Full changelog for Home Assistant Android 2023.3.0]: https://github.com/home-assistant/android/releases/tag/2023.3.0

@@ -76,7 +76,7 @@ We have a lot of ideas! We are not going to make any promises but here are some 
 - Google Home / Google Assistant Smart Home skill
 - Allow easy linking of other cloud services to Home Assistant. No more local juggling with OAuth flows. For example, link your Fitbit account and the Fitbit component will show up in Home Assistant.
 - Encrypted backups of your Hass.io data
-- Text to speech powered by AWS Polly
+- Text-to-speech powered by AWS Polly
 - Generic HTTP cloud endpoint for people to send messages to their local instance. This will allow people to build applications on top of the Home Assistant cloud.
 - IFTTT integration
 - Alexa shopping list integration
