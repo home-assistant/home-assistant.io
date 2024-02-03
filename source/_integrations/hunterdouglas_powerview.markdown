@@ -38,13 +38,29 @@ There is currently support for the following device types within Home Assistant:
 - Select
 - Sensor
 
-<div class="note">
-The Gen1 and Gen2 Powerview Hubs do not automatically wake shades or report position changes made via pebble remotes.
+{% include integrations/config_flow.md %}
 
-Calling the update entity service (`homeassistant.update_entity`) on a shade entity will trigger the hub to awaken a shade and report its current position. [An example automation is available](#force-update-shade-position) below for mains powered shades. While the automation will work for battery-powered shades, it will quickly drain their batteries for these devices.
+## Hub Capabilities
+
+### Generation 1 + 2
+
+Generation 1 and 2 hubs work better with Home Assistant when all calls are made directly via the Powerview application or Home Assistant itself.
+
+Generation 1 and 2 Pebble remotes use proprietary Bluetooth Low Energy (PLE) and do not report shade position changes back to the hub.
+
+This will result in the shade positioning displayed within Home Assistant being incorrect.
+
+<div class="note">
+Calling the update entity service (`homeassistant.update_entity`) on a shade entity will trigger the hub to awaken a shade and report its current position.
+
+[An example automation is available](#force-update-shade-position) below for mains powered shades. While the automation will work for battery-powered shades, it will quickly drain the batteries for these devices.
 </div>
 
-{% include integrations/config_flow.md %}
+### Generation 3
+
+Generation 3 introduced RF Radio Pebble Remotes.
+
+Generation 3 shades report position changes back to the hub automatically and should not require any additional automations or considerations for positioning to appear correctly in Home Assistant.
 
 ## Shades
 
