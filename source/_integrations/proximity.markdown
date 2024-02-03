@@ -48,5 +48,5 @@ For each tracked device or person, a sensor is created showing the direction of 
 A sensor is created showing the device or person which is nearest (_shortest distance_) to the monitored zone. If several devices or persons are at the same nearest distance, this sensor displays them all.
 
 <div class="note">
-To calculate the distance and the direction of travel for a tracked device or person, they must specify a geo location.
+To calculate the distance and the direction of travel for a tracked device or person, they must specify a geo-location.
 </div>
