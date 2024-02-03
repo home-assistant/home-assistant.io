@@ -33,7 +33,7 @@ To use this integration, you need to create an API token.
 ## Updates
 
 The integration will fetch new data every hour.
-The first time it runs, the data for the past year will be imported.
+The first time it runs, the data for the past 3 years will be imported.
 
 The consumption data that is shown both on [Min side](https://www.elvia.no/logg-inn/) and in Elvia's app is the same data as this integration will use. And until the data is updated in those dashboards (which happens once every hour), the data will not be available in Home Assistant.
 
