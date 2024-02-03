@@ -27,7 +27,7 @@ Traccar uses GPS for tracking and has support for over 1500 different types of d
 
 ## Events
 
-The Traccar Server integration options allows you to define a list of events that you want to listen for. These events will be sent to Home Assistant as [events](/docs/configuration/events/).
+The Traccar Server integration options allow you to define a list of events you want to listen for. These events will be sent to Home Assistant as [events](/docs/configuration/events/).
 
 All events will be prefixed with `traccar_` followed by a snake_cased version of the event name.
 Examples:
@@ -71,9 +71,9 @@ Attributes:
 
 ## Devices
 
-The Traccar Server integration will create devices for each device registered in Traccar Server that has at least one position update.
+The Traccar Server integration will create devices for each device registered in the Traccar Server with at least one position update.
 
-These device representations in Home Assistant will have [entities](#entities) associated with them, which you can use in [automations](/docs/automation), [scripts](/docs/script) and display on your [dashboard](/docs/dashboard).
+These device representations in Home Assistant will have [entities](#entities) associated with them, which you can use in [automations](/docs/automation), [scripts](/docs/script), and display on your [dashboard](/docs/dashboard).
 
 ## Entities
 
@@ -112,7 +112,7 @@ Battery Level:
 Category:
   description: The category of the device in Traccar if defined.
 Geofence:
-  description: The name of the geofence the device located in.
+  description: The name of the geofence the device is located in.
 Motion:
   description: If the device is moving or not.
 Speed:
