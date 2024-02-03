@@ -55,12 +55,15 @@ All Home Assistant platforms are supported by the Tuya integration, except the l
 You need to have the Tuya Smart or Smart Life app installed, with an account created and
 at least one device added to that account.
 
-You will need your **User Code**. You can find this code in the Smart Life app or
-Tuya Smart app in **Settings** > **Account and Security** screen, and enter the
-code shown on the **User Code** field.
+### Obtaining User Code for sign-in
+To sign-in, you will need to get your **User Code** from the Smart Life /
+Tuya Smart app. You can find it by opening the app and:
 
-Please note, that the user code is case sensitive, please be sure to enter it
-exactly as shown in the app.
+1. On the tab bar, tap **Me**
+2. In the top-right corner, tap the **⚙️ (gear)** icon
+3. Tap **Account and Security**
+4. At the bottom, **User Code** will be shown
+5. Enter this in Home Assistant exactly as shown (it is case-sensitive)
 
 {% include integrations/config_flow.md %}
 
