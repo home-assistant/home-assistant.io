@@ -82,7 +82,7 @@ interrupt: 1
 | `password`             |      yes | Password if the URL requires authentication. Is placed inside `image`, `icon` or both.
 | `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used and is placed inside `image`, `icon` or both.
 
-Example for posting both image and icon from URL:
+Example Service data for both image and icons:
 
 ```yaml
 # If your urls do not require extra authentication
