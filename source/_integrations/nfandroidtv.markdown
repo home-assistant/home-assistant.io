@@ -72,58 +72,39 @@ interrupt: 1
 
 ## Service data for sending images and icons
 
-The following attributes can be placed inside `data` to send images and icons.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `image`                 |      yes | Groups the attributes for image upload. If present, either `url` or `path` have to be provided.
-| `icon`                 |      yes | Groups the attributes for icon upload. If present, either `url` or `path` have to be provided.
-| `path`                |      yes | Local path of an image file. Is placed inside `image`, `icon` or both.
+| `image`                |      yes | Groups the attributes for image upload. It can take a `url` or `path` directly, however if you need to use any of the authentication options either `url` or `path` have to be provided. |
+| `icon`                 |      yes | Groups the attributes for icon upload. It can take a `url` or `path` directly, however if you need to use any of the authentication options either `url` or `path` have to be provided. |
+| `path`                 |      yes | Local path of an image file. Is placed inside `image`, `icon` or both.
 | `url`                  |      yes | URL of an image file. Is placed inside `image`, `icon` or both.
 | `username`             |      yes | Username if the URL requires authentication. Is placed inside `image`, `icon` or both`.
 | `password`             |      yes | Password if the URL requires authentication. Is placed inside `image`, `icon` or both.
 | `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used and is placed inside `image`, `icon` or both.
 
-Example for posting image from URL:
-
-```yaml
-image:
-  url: "http://[url to image file]"
-  username: "optional user, if necessary"
-  password: "optional password, if necessary"
-  auth: "digest"
-```
-
-Example for posting image from local path:
-
-```yaml
-image:
-  path: "/path/to/file.ext"
-```
-
-Example for posting icon from URL:
-
-```yaml
-icon:
-  url: "http://[url to image file]"
-  username: "optional user, if necessary"
-  password: "optional password, if necessary"
-  auth: "digest"
-```
-
 Example for posting both image and icon from URL:
 
 ```yaml
+# If your urls do not require extra authentication
+icon: "http://[url to image file]"
+image: "http://[url to image file]"
+
+# Paths in most cases
+icon: "/you/path/location"
+image: "/you/path/location"
+
+# If your urls require extra authentication
 image:
-  url: "http://[url to image file]"
-  username: "optional user, if necessary"
-  password: "optional password, if necessary"
-  auth: "digest"
+  url: "http://[url to image file]" # replace url with path if using a local file
+  username: "optional user, if necessary" # Optional
+  password: "optional password, if necessary" # Optional 
+  auth: "digest" # Optional
 icon:
-  url: "http://[url to image file]"
-  username: "optional user, if necessary"
-  password: "optional password, if necessary"
-  auth: "digest"
+  url: "http://[url to image file]" # replace url with path if using a local file
+  username: "optional user, if necessary" # Optional
+  password: "optional password, if necessary" # Optional
+  auth: "digest" # Optional
 ```
 
 Example of an automation with an service call, full configuration:
