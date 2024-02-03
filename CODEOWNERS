@@ -490,6 +490,7 @@ source/_integrations/monoprice.markdown @etsinko @OnFreund
 source/_integrations/moon.markdown @fabaff @frenck
 source/_integrations/mopeka.markdown @bdraco
 source/_integrations/motion_blinds.markdown @starkillerOG
+source/_integrations/motionblinds_ble.markdown @LennP @jerrybboy
 source/_integrations/motioneye.markdown @dermotduffy
 source/_integrations/mqtt.markdown @emontnemery @jbouwh
 source/_integrations/msteams.markdown @peroyvind
