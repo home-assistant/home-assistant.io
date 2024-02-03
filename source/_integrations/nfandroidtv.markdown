@@ -72,7 +72,6 @@ interrupt: 1
 
 ## Service data for sending images and icons
 
-
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `image`                |      yes | Groups the attributes for image upload. It can take a `url` or `path` directly, however if you need to use any of the authentication options either `url` or `path` have to be provided. |
@@ -93,15 +92,20 @@ image: "http://[url to image file]"
 # Paths in most cases
 icon: "/you/path/location"
 image: "/you/path/location"
+# Or alternatively
+icon:
+  path: "/you/path/location"
+image:
+  path: "/you/path/location"
 
 # If your urls require extra authentication
 image:
-  url: "http://[url to image file]" # replace url with path if using a local file
+  url: "http://[url to image file]"
   username: "optional user, if necessary" # Optional
   password: "optional password, if necessary" # Optional 
   auth: "digest" # Optional
 icon:
-  url: "http://[url to image file]" # replace url with path if using a local file
+  url: "http://[url to image file]"
   username: "optional user, if necessary" # Optional
   password: "optional password, if necessary" # Optional
   auth: "digest" # Optional
