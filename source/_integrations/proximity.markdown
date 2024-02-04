@@ -31,7 +31,6 @@ The following sensor entities will be created.
 ### Distance
 
 For each tracked [device](/integrations/device_tracker/) or [person](/integrations/person/), a sensor is created showing the distance from the monitored zone in a unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection. When a tracked person or device enters the monitored zone, the distance is set to 0.
-You can use the [Min/Max](/integrations/min_max) integration to determine the nearest and furthest distance.
 
 ### Direction of travel
 
@@ -43,10 +42,24 @@ For each tracked device or person, a sensor is created showing the direction of 
 - `towards`
 - `unknown`
 
+<div class="note">
+To calculate the distance and the direction of travel for a tracked device or person, they must specify a geo-location.
+</div>
+
 ### Nearest device
 
 A sensor is created showing the device or person which is nearest (_shortest distance_) to the monitored zone. If several devices or persons are at the same nearest distance, this sensor displays them all.
 
-<div class="note">
-To calculate the distance and the direction of travel for a tracked device or person, they must specify a geo-location.
-</div>
+### Nearest Distance
+
+A sensor is created showing the distance of the nearest device or person to the monitored zone in a unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection. When a tracked person or device enters the monitored zone, the distance is set to 0.
+
+### Nearest Direction of travel
+
+A sensor is created showing the direction of travel of the nearest device or person to the monitored zone. Possible states are:
+
+- `arrived`
+- `away_from`
+- `stationary`
+- `towards`
+- `unknown`
