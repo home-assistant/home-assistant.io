@@ -655,10 +655,7 @@ superseded by sensor entities.
 For each tracked person or device one sensor for the distance and the
 direction of travel to/from the monitored zone is created. Further for each
 Proximity configuration one sensor which shows the nearest device or person
-to the monitored zone is created.
-
-With this you can use the [Min/Max](/integrations/min_max) integration to
-determine the nearest and furthest distance.
+and its distance and direction of travel to the monitored zone is created.
 
 ([@mib1185] - [#108730]) ([documentation](/integrations/proximity))
 
