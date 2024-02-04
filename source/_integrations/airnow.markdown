@@ -33,7 +33,7 @@ itself later.
 If the integration continues to report "No results found for that location" and cannot be added to Home Assistant,
 please do the following before submitting a bug report.  First navigate to the 
 [AirNow Current Observations By Lat/Lon](https://docs.airnowapi.org/CurrentObservationsByLatLon/query) page, enter the
-same latitude/longitude and station radius, select "application/json" as the output format, click "Build" and then "Run".
+same latitude/longitude and station radius, select `application/json` as the output format, click "Build" and then "Run".
 If the query returns a result other than `[]`, open a bug report and include the query result (you may sanitize the data
 to remove your latitude and longitude, but please do not remove any fields).  This information will help a lot to figure
 out the source of the issue.
