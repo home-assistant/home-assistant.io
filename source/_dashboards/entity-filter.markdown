@@ -30,8 +30,12 @@ entities:
   description: A list of entity IDs or `entity` objects, see below.
   type: list
 conditions:
-  required: true
-  description: List of strings representing states or conditions to check. See [available conditions](#conditions-options).
+  required: false
+  description: List of conditions to check. See [available conditions](#conditions-options).*
+  type: list
+state_filter:
+  required: false
+  description: (legacy) List of strings representing states or filters to check. See [available legacy filters](#legacy-state-filters).*
   type: list
 card:
   required: false
@@ -44,6 +48,8 @@ show_empty:
   type: boolean
   default: true
 {% endconfiguration %}
+
+*one is required (`conditions` or `state_filter`)
 
 ### Options for entities
 
@@ -77,139 +83,19 @@ format:
   type: string
 conditions:
   required: false
-  description: List of strings representing states or conditions to check. See [available conditions](#conditions-options).
+  description: List of conditions to check. See [available conditions](#conditions-options).*
+  type: list
+state_filter:
+  required: false
+  description: (legacy) List of strings representing states or filters to check. See [available legacy filters](#legacy-state-filters).*
   type: list
 {% endconfiguration %}
 
-#### Examples
-
-Show only active switches or lights in the house.
-
-```yaml
-type: entity-filter
-entities:
-  - entity: light.bed_light
-    name: Bed
-  - light.kitchen_lights
-  - light.ceiling_lights
-conditions:
-  - "on"
-```
-
-Show only people that are at home using [glance](/dashboards/glance/):
-
-```yaml
-type: entity-filter
-entities:
-  - device_tracker.demo_paulus
-  - device_tracker.demo_anne_therese
-  - device_tracker.demo_home_boy
-conditions:
-  - home
-card:
-  type: glance
-  title: People at home
-```
-
-<p class='img'>
-  <img src='/images/dashboards/entity_filter_glance.png' alt='Entity filter combined with glance card'>
-  Entity filter combined with glance card.
-</p>
+*only one filter will be applied: `conditions` or `state_filter` if `conditions` is not present
 
 ## Conditions options
 
-If you define `conditions` as objects instead of strings, you can add more customization to your filter, as described below.
 You can specify multiple `conditions`, in which case the entity will be displayed if it matches any condition.
-
-### Operator (legacy)
-
-Tests if an entity state correspond to the applied `operator`.
-
-{% configuration condition_operator %}
-value:
-  required: true
-  description: String representing the state or an entity ID.
-  type: string
-operator:
-  required: true
-  description: Operator to use in the comparison. Can be `==`, `<=`, `<`, `>=`, `>`, `!=`, `in`, `not in`, or `regex`.
-  type: string
-attribute:
-  required: false
-  description: Attribute of the entity to use instead of the state.
-  type: string
-{% endconfiguration %}
-
-#### Examples
-
-Displays everyone who is at home or at work.
-
-```yaml
-type: entity-filter
-entities:
-  - device_tracker.demo_paulus
-  - device_tracker.demo_anne_therese
-  - device_tracker.demo_home_boy
-conditions:
-  - operator: "=="
-    value: home
-  - operator: "=="
-    value: work    
-card:
-  type: glance
-  title: Who's at work or home
-```
-
-Specify filter for a single entity.
-
-```yaml
-type: entity-filter
-conditions:
-  - "on"
-  - operator: ">"
-    value: 90
-entities:
-  - sensor.water_leak
-  - sensor.outside_temp
-  - entity: sensor.humidity_and_temp
-    conditions:
-      - operator: ">"
-        value: 50
-        attribute: humidity
-```
-
-Show lowest price gas station(s)
-
-```yaml
-type: entity-filter
-entities:
-  - sensor.gas_station_1
-  - sensor.gas_station_2
-  - sensor.gas_station_3
-conditions:
-  - operator: ==
-    value: sensor.gas_station_lowest_price
-```
-
-Use a regex filter against entity attributes. This regex filter below looks for expressions that are 1 digit in length and where the number is between 0-7 (so show holidays today or in the next 7 days) and displays those holidays as entities in the Entity Filter card.
-
-```yaml
-type: entity-filter
-card:
-  title: "Upcoming Holidays In Next 7 Days"
-  show_header_toggle: false
-conditions:
-  - operator: regex
-    value: "^([0-7]{1})$"
-    attribute: eta
-entities:
-  - entity: sensor.upcoming_ical_holidays_0
-  - entity: sensor.upcoming_ical_holidays_1
-  - entity: sensor.upcoming_ical_holidays_2
-  - entity: sensor.upcoming_ical_holidays_3
-  - entity: sensor.upcoming_ical_holidays_4
-show_empty: false
-```
 
 ### State
 
@@ -235,6 +121,17 @@ conditions:
     state_not: "off"
 ```
 
+```yaml
+type: entity-filter
+entities:
+  - sensor.gas_station_1
+  - sensor.gas_station_2
+  - sensor.gas_station_3
+conditions:
+  - condition: state
+    state: sensor.gas_station_lowest_price
+```
+
 {% configuration condition_state %}
 condition:
   required: true
@@ -242,11 +139,11 @@ condition:
   type: string
 state:
   required: false
-  description: Entity state or ID to be equal to this value. Can contain an array of states *
+  description: Entity state or ID to be equal to this value. Can contain an array of states.*
   type: [list, string]
 state_not:
   required: false
-  description: Entity state or ID to not be equal to this value. Can contain an array of states *
+  description: Entity state or ID to not be equal to this value. Can contain an array of states.*
   type: [list, string]
 {% endconfiguration %}
 
@@ -275,11 +172,11 @@ condition:
   type: string
 above:
   required: false
-  description: Entity state or ID to be above this value *
+  description: Entity state or ID to be above this value.*
   type: string
 below:
   required: false
-  description: Entity state or ID to be below this value *
+  description: Entity state or ID to be below this value.*
   type: string
 {% endconfiguration %}
 
@@ -399,3 +296,121 @@ conditions:
   description: List of conditions to check. See [available conditions](#conditions-options).
   type: list
 {% endconfiguration %}
+
+## Legacy state filters
+
+### String filter
+
+Show only active switches or lights in the house.
+
+```yaml
+type: entity-filter
+entities:
+  - entity: light.bed_light
+    name: Bed
+  - light.kitchen_lights
+  - light.ceiling_lights
+state_filter:
+  - "on"
+```
+
+Show only people that are at home using [glance](/dashboards/glance/):
+
+```yaml
+type: entity-filter
+entities:
+  - device_tracker.demo_paulus
+  - device_tracker.demo_anne_therese
+  - device_tracker.demo_home_boy
+state_filter:
+  - home
+card:
+  type: glance
+  title: People at home
+```
+
+<p class='img'>
+  <img src='/images/dashboards/entity_filter_glance.png' alt='Entity filter combined with glance card'>
+  Entity filter combined with glance card.
+</p>
+
+You can also specify multiple `state_filter` conditions, in which case the entity will be displayed if it matches any condition.
+
+If you define `state_filter` as objects instead of strings, you can add more customization to your filter, as described below.
+
+### Operator filter
+
+Tests if an entity state correspond to the applied `operator`.
+
+{% configuration condition_operator %}
+value:
+  required: true
+  description: String representing the state.
+  type: string
+operator:
+  required: true
+  description: Operator to use in the comparison. Can be `==`, `<=`, `<`, `>=`, `>`, `!=`, `in`, `not in`, or `regex`.
+  type: string
+attribute:
+  required: false
+  description: Attribute of the entity to use instead of the state.
+  type: string
+{% endconfiguration %}
+
+#### Examples
+
+Displays everyone who is at home or at work.
+
+```yaml
+type: entity-filter
+entities:
+  - device_tracker.demo_paulus
+  - device_tracker.demo_anne_therese
+  - device_tracker.demo_home_boy
+state_filter:
+  - operator: "=="
+    value: home
+  - operator: "=="
+    value: work
+card:
+  type: glance
+  title: Who's at work or home
+```
+
+Specify filter for a single entity.
+
+```yaml
+type: entity-filter
+state_filter:
+  - "on"
+  - operator: ">"
+    value: 90
+entities:
+  - sensor.water_leak
+  - sensor.outside_temp
+  - entity: sensor.humidity_and_temp
+    state_filter:
+      - operator: ">"
+        value: 50
+        attribute: humidity
+```
+
+Use a regex filter against entity attributes. This regex filter below looks for expressions that are 1 digit in length and where the number is between 0-7 (so show holidays today or in the next 7 days) and displays those holidays as entities in the Entity Filter card.
+
+```yaml
+type: entity-filter
+card:
+  title: "Upcoming Holidays In Next 7 Days"
+  show_header_toggle: false
+state_filter:
+  - operator: regex
+    value: "^([0-7]{1})$"
+    attribute: eta
+entities:
+  - entity: sensor.upcoming_ical_holidays_0
+  - entity: sensor.upcoming_ical_holidays_1
+  - entity: sensor.upcoming_ical_holidays_2
+  - entity: sensor.upcoming_ical_holidays_3
+  - entity: sensor.upcoming_ical_holidays_4
+show_empty: false
+```

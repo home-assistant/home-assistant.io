@@ -36,6 +36,7 @@ card:
 ## Examples
 
 Only show when all the conditions are met:
+
 ```yaml
 type: conditional
 conditions:
@@ -59,6 +60,7 @@ card:
 ```
 
 Example condition where only one of the conditions needs to be met:
+
 ```yaml
 type: conditional
 conditions:
@@ -106,11 +108,11 @@ entity:
   type: string
 state:
   required: false
-  description: Entity state or ID to be equal to this value. Can contain an array of states *
+  description: Entity state or ID to be equal to this value. Can contain an array of states.*
   type: [list, string]
 state_not:
   required: false
-  description: Entity state or ID to not be equal to this value. Can contain an array of states *
+  description: Entity state or ID to not be equal to this value. Can contain an array of states.*
   type: [list, string]
 {% endconfiguration %}
 
@@ -138,11 +140,11 @@ entity:
   type: string
 above:
   required: false
-  description: Entity state or ID to be above this value *
+  description: Entity state or ID to be above this value.*
   type: string
 below:
   required: false
-  description: Entity state or ID to be below this value *
+  description: Entity state or ID to be below this value.*
   type: string
 {% endconfiguration %}
 
