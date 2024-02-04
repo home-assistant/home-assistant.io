@@ -116,7 +116,10 @@ The integration will create device tracker entities for the vehicle's current lo
 
 ### Lock
 
-The integration will create a lock entity for each vehicle and for the charge cable lock.
+The integration will create lock entities to lock and unlock the vehicle, and to control:
+
+- Charge cable
+- Speed limit
 
 ### Media Player
 
