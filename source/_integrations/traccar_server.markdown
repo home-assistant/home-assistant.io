@@ -139,7 +139,7 @@ In this section you will find some example automations that you can use to get s
 
 The allows you to do something when the device `device_tracker.millennium_falcon` enters the defined geofence.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/traccar_server/device_enter_geofence.yaml" %}
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/traccar_server_device_enter_geofence.yaml" %}
 
 {% details "Show me the YAML!" %}
 
@@ -159,7 +159,7 @@ action:
 
 The allows you to do something when the device `device_tracker.millennium_falcon` exceeds a defined speed.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/traccar_server/device_speed_limit.yaml" %}
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/traccar_server_device_speed_limit.yaml" %}
 
 {% details "Show me the YAML!" %}
 
