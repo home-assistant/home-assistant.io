@@ -26,17 +26,13 @@ To generate an AirNow API key, go to the [AirNow Developer Tools Page](https://d
 
 ## Troubleshooting
 
-The EPA AirNow API is often flaky and will occasionally not return any results for a particular location.  This will
-prevent the integration from being added to Home Assistant, but the situation is usually temporary and will resolve
-itself later.
+The EPA AirNow API is often flaky and will occasionally not return any results for a particular location. This will prevent the integration from being added to Home Assistant, but the situation is usually temporary and will resolve itself later.
 
-If the integration continues to report "No results found for that location" and cannot be added to Home Assistant,
-please do the following before submitting a bug report.  First navigate to the 
-[AirNow Current Observations By Lat/Lon](https://docs.airnowapi.org/CurrentObservationsByLatLon/query) page, enter the
-same latitude/longitude and station radius, select `application/json` as the output format, click "Build" and then "Run".
-If the query returns a result other than `[]`, open a bug report and include the query result (you may sanitize the data
-to remove your latitude and longitude, but please do not remove any fields).  This information will help a lot to figure
-out the source of the issue.
+If the integration continues to report "No results found for that location" and cannot be added to Home Assistant, please do the following before submitting a bug report.
+
+First, navigate to the [AirNow Current Observations By Lat/Lon](https://docs.airnowapi.org/CurrentObservationsByLatLon/query) page, enter the same latitude/longitude and station radius, select `application/json` as the output format, select "Build" and then "Run".
+
+If the query returns a result other than `[]`, open a bug report and include the query result (you may sanitize the data to remove your latitude and longitude, but please do not remove any fields). This information will help a lot to figure out the source of the issue.
 
 <div class="note">
 
