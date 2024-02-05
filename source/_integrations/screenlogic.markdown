@@ -62,7 +62,7 @@ Stops super chlorination.
 
 | Service data attribute | Optional | Description                                                                          |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------ |
-| `config_entry`         | no       | Integration entry_id of the ScreenLogic instance wish to stop super chlorination on. |
+| `config_entry`         | no       | Integration entry_id of the ScreenLogic instance you wish to stop super chlorination on. |
 
 ## Reference
 
