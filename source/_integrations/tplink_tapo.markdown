@@ -7,7 +7,7 @@ ha_category:
   - Sensor
   - Switch
 ha_domain: tplink_tapo
-ha_release: 2024.2
+ha_release: 0.89
 ha_integration_type: virtual
 ha_supporting_domain: tplink
 ha_supporting_integration: tplink
