@@ -39,40 +39,41 @@ The integration will create sensor entities for a variety of metrics that relate
 #### Energy sites
 - Battery power
 - Energy left
-- Generator power
+- Generator power (disabled by default)
 - Grid power
 - Grid services power
 - Load power
 - Percentage charged
 - Solar power
-- Total pack energy
+- Total pack energy (disabled by default)
 
 #### Vehicles
 - Battery level
 - Battery range
 - Change energy added
 - Change power
-- Change rate
+- Change rate (disabled by default)
 - Charge voltage
 - Charger current
 - Destination
 - Distance to arrival
-- Driver temperature setting
+- Driver temperature setting (disabled by default)
 - Inside temperature
-- Odometer
+- Odometer (disabled by default)
 - Online
 - Outside temperature
-- Passenger temperature setting
-- Power
-- Speed
-- State of charge at arrival
+- Passenger temperature setting (disabled by default)
+- Power (disabled by default)
+- Shift State (disabled by default)
+- Speed (disabled by default)
+- State of charge at arrival (disabled by default)
 - Time to arrival
 - Time to full charge
-- Tire pressure front left
-- Tire pressure front right
-- Tire pressure rear left
-- Tire pressure rear right
-- Traffic delay
+- Tire pressure front left (disabled by default)
+- Tire pressure front right (disabled by default)
+- Tire pressure rear left (disabled by default)
+- Tire pressure rear right (disabled by default)
+- Traffic delay (disabled by default)
 
 #### Wall connectors
 - Fault state (disabled by default)
