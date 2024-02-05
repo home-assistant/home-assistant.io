@@ -1,6 +1,6 @@
 ---
-title: Bliss Automation
-description: Connect and control your Bliss Automation devices using the Motion Blinds integration
+title: Bliss by Alta Automation
+description: Connect and control your Bliss by Alta Automation devices using the Motion Blinds integration
 ha_category:
   - Cover
 ha_domain: bliss_automation
