@@ -50,13 +50,13 @@ To calculate the distance and the direction of travel for a tracked device or pe
 
 A sensor is created showing the device or person which is nearest (_shortest distance_) to the monitored zone. If several devices or persons are at the same nearest distance, this sensor displays them all.
 
-### Nearest Distance
+### Nearest distance
 
-A sensor is created showing the distance of the nearest device or person to the monitored zone in a unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection. When a tracked person or device enters the monitored zone, the distance is set to 0.
+This sensor shows the distance of the device or person nearest to the monitored zone. The unit depends on your settings for the [Home Assistant unit system](/docs/configuration/basic). When a tracked person or device enters the monitored zone, the distance is set to 0.
 
 ### Nearest Direction of travel
 
-A sensor is created showing the direction of travel of the nearest device or person to the monitored zone. Possible states are:
+This sensor shows the direction of travel of the nearest device or person to the monitored zone. Possible states are:
 
 - `arrived`
 - `away_from`
