@@ -241,7 +241,7 @@ This action can use the same triggers that are available in an automation's `tri
 
 {% endraw %}
 
-### Wait Timeout
+### Wait timeout
 
 With both types of waits it is possible to set a timeout after which the script will continue its execution if the condition/event is not satisfied. Timeout has the same syntax as `delay`, and like `delay`, also accepts templates.
 
@@ -275,7 +275,7 @@ You can also get the script to abort after the timeout by using optional `contin
 
 Without `continue_on_timeout: false` the script will always continue since the default for `continue_on_timeout` is `true`.
 
-### Wait Variable
+### Wait variable
 
 After each time a wait completes, either because the condition was met, the event happened, or the timeout expired, the variable `wait` will be created/updated to indicate the result.
 
@@ -387,12 +387,12 @@ The following automation example shows how to capture the custom event `event_li
 
 {% endraw %}
 
-## Repeat a Group of Actions
+## Repeat a group of actions
 
 This action allows you to repeat a sequence of other actions. Nesting is fully supported.
 There are three ways to control how many times the sequence will be run.
 
-### Counted Repeat
+### Counted repeat
 
 This form accepts a count value. The value may be specified by a template, in which case
 the template is rendered when the repeat step is reached.
@@ -473,7 +473,7 @@ repeat:
 
 {% endraw %}
 
-### While Loop
+### While loop
 
 This form accepts a list of conditions (see [conditions page] for available options) that are evaluated _before_ each time the sequence
 is run. The sequence will be run _as long as_ the condition(s) evaluate to true.
@@ -514,7 +514,7 @@ For example:
 
 {% endraw %}
 
-### Repeat Until
+### Repeat until
 
 This form accepts a list of conditions that are evaluated _after_ each time the sequence
 is run. Therefore the sequence will always run at least once. The sequence will be run
@@ -564,7 +564,7 @@ For example:
 ```
 {% endraw %}
 
-### Repeat Loop Variable
+### Repeat loop variable
 
 A variable named `repeat` is defined within the repeat action (i.e., it is available inside `sequence`, `while` & `until`.)
 It contains the following fields:
@@ -823,7 +823,8 @@ Some of the caveats of running actions in parallel:
 
 ## Stopping a script sequence
 
-It is possible to halt a script sequence at any point. Using the `stop` action.
+It is possible to halt a script sequence at any point and return script responses
+using the `stop` action.
 
 The `stop` action takes a text as input explaining the reason for halting the
 sequence. This text will be logged and shows up in the automations and
@@ -834,6 +835,15 @@ for example, a condition is not met.
 
 ```yaml
 - stop: "Stop running the rest of the sequence"
+```
+
+To return a response from a script, use the `response_variable` option. This
+option expects the name of the variable that contains the data to return. The
+response data must contains a mapping of key/value pairs.
+
+```yaml
+- stop: "Stop running the rest of the sequence"
+  response_variable: "my_response_variable"
 ```
 
 There is also an `error` option, to indicate we are stopping because of
@@ -903,6 +913,36 @@ script:
         target:
           entity_id: light.ceiling
 ```
+
+## Respond to a conversation
+
+The `set_conversation_response` script action allows returning a custom response
+when an automation is triggered by a conversation engine, for example a voice
+assistant. The conversation response can be templated.
+
+{% raw %}
+
+```yaml
+# Example of a templated conversation response resulting in "Testing 123"
+- variables:
+    my_var: "123"
+- set_conversation_response: "{{ 'Testing ' + my_var }}":
+```
+
+{% endraw %}
+
+The response is handed to the conversation engine when the automation finishes. If
+the `set_conversation_response` is executed multiple times, the most recent
+response will be handed to the conversation engine. To clear the response, set it
+to `None`:
+
+```yaml
+# Example of a clearing a conversation response
+set_conversation_response: ~
+```
+
+If the automation was not triggered by a conversation engine, the response
+will not be used by anything.
 
 [Script integration]: /integrations/script/
 [automations]: /docs/automation/action/

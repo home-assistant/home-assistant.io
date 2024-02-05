@@ -23,6 +23,8 @@ Integrates [ThermoPro](https://buythermopro.com/) devices into Home Assistant.
 - [TP357](https://buythermopro.com/product/thermopro-tp357-bluetooth-digital-indoor-hygrometer-thermometer/)
 - [TP358](https://buythermopro.com/product/tp358/)
 - [TP393](https://buythermopro.com/product/tp393/)
+- [TP960](https://buythermopro.com/product/tempspike/)
+- [TP962](https://buythermopro.com/twin-tempspike/)
 
 The ThermoPro integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 

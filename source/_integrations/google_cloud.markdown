@@ -30,9 +30,9 @@ tts:
 
 API key obtaining process described in corresponding documentation:
 
-* [Text-to-speech](https://cloud.google.com/text-to-speech/docs/quickstart-protocol)
-* [Speech-to-text](https://cloud.google.com/speech-to-text/docs/quickstart-protocol)
-* [Geocoding](https://developers.google.com/maps/documentation/geocoding/start)
+- [Text-to-speech](https://cloud.google.com/text-to-speech/docs/quickstart-protocol)
+- [Speech-to-text](https://cloud.google.com/speech-to-text/docs/quickstart-protocol)
+- [Geocoding](https://developers.google.com/maps/documentation/geocoding/start)
 
 Basic instruction for all APIs:
 
@@ -43,20 +43,25 @@ Basic instruction for all APIs:
 5. Enable needed Cloud API visiting one of the links below or [APIs library](https://console.cloud.google.com/apis/library), selecting your `Project` from the dropdown list and clicking the `Continue` button:
 
 
-    * [Text-to-speech](https://console.cloud.google.com/flows/enableapi?apiid=texttospeech.googleapis.com)
-    * [Speech-to-text](https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com)
-    * [Geocoding](https://console.cloud.google.com/flows/enableapi?apiid=geocoding-backend.googleapis.com)
+    - [Text-to-speech](https://console.cloud.google.com/flows/enableapi?apiid=texttospeech.googleapis.com)
+    - [Speech-to-text](https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com)
+    - [Geocoding](https://console.cloud.google.com/flows/enableapi?apiid=geocoding-backend.googleapis.com)
 6. Set up authentication:
 
     1. Visit [this link](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
-    2. From the `Service account` list, select `New service account`.
+    2. From the toolbar above the `Service account` list, select `Create service account`.
     3. In the `Service account name` field, enter any name.
 
     If you are requesting a text-to-speech API key:
 
     4. Don't select a value from the Role list. **No role is required to access this service**.
-    5. Click `Create`. A note appears, warning that this service account has no role.
-    6. Click `Create without role`. A JSON file that contains your `API key` downloads to your computer.
+    5. Click `Create`. If a note appears, warning that this service account has no role, you may ignore that.
+    6. Return to the `Service account` list page and click on the service account you created in step 5 to see the details for this service account.
+    7. Choose the `Keys` tab within the details view for this service account.
+    8. In the `Add Key` dropdown, select `Create New Key`.
+    9. Specify a `JSON` key type  and click `Create`.
+    10. A `[serviceaccountname].json` file will download to your browser.
+
 
 ## Google Cloud text-to-speech
 
@@ -66,10 +71,13 @@ Basic instruction for all APIs:
 
 The Cloud text-to-speech API is priced monthly based on the amount of characters to synthesize into audio sent to the service.
 
-| Feature                       | Monthly free tier         | Paid usage                        |
-|-------------------------------|---------------------------|-----------------------------------|
-| Standard (non-WaveNet) voices | 0 to 4 million characters | $4.00 USD / 1 million characters  |
-| WaveNet voices                | 0 to 1 million characters | $16.00 USD / 1 million characters |
+| Voice                         | Monthly free tier         | Paid usage                        |
+| ----------------------------- | ------------------------- | --------------------------------- |
+| Neural2                       | 0 to 1 million bytes      | $16.00 USD / 1 million bytes      |
+| Polyglot (Preview)            | 0 to 1 million bytes      | $16.00 USD / 1 million bytes      |
+| Studio (Preview)              | 0 to 100 thousand bytes   | $160.00 USD / 1 million bytes     |
+| Standard                      | 0 to 4 million characters | $4.00 USD / 1 million characters  |
+| WaveNet                       | 0 to 1 million characters | $16.00 USD / 1 million characters |
 
 ### Text-to-speech configuration
 

@@ -2,7 +2,7 @@
 title: Android TV Remote
 description: Instructions on how to integrate Android TV Remote into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
 ha_release: 2023.5
 ha_iot_class: Local Push
@@ -20,7 +20,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Android TV Remote integration allows you to control an Android TV and launching apps. For this to work the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices.
+The **Android TV Remote** {% term integration %} allows you to control an Android TV and launching apps. For this to work, the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices (Fire TV devices are a notable exception).
 
 For a quick introduction on how to get started with Android TV Remote, check out this video:
 
@@ -30,22 +30,23 @@ For a quick introduction on how to get started with Android TV Remote, check out
 
 ## Media player
 
-This integration adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](https://www.home-assistant.io/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](https://www.home-assistant.io/integrations/universal/) integration.
+This {% term integration %} adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](/integrations/universal/) integration. See [Using with Google Cast](#using-with-google-cast) section for more details.
 
-Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels.
+Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels. Only `url` and `channel` media types are supported.
 
 ### Launching apps
 
-You can pass any URL to the device to open it in the built-in browser. Using `Deep Links` you can launch some applications.
+You can pass any URL to the device. Using `Deep Links`, you can launch some applications.
 
 Examples of some `Deep Links` for popular applications:
 
 | App | URL |
 | --- | --- |
-| YouTube | https://www.youtube.com
-| Netflix | https://www.netflix.com/title
-| Prime Video | https://app.primevideo.com
-| Disney+ | https://www.disneyplus.com
+| YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
+| Netflix | `https://www.netflix.com/title` or `netflix://`
+| Prime Video | `https://app.primevideo.com`
+| Disney+ | `https://www.disneyplus.com`
+| Plex | `plex://`
 
 Examples:
 
@@ -71,7 +72,7 @@ target:
 
 ### Switch channels
 
-You can pass the channel number to switch the channel. The channel number must be an integer.
+You can pass the channel number to switch channels. The channel number must be an integer.
 
 Example:
 
@@ -84,6 +85,46 @@ data:
 target:
   entity_id: media_player.living_room_tv
 ```
+
+### Using with Google Cast
+
+Android TV Remote {% term integration %} provides information about the power status of the device and gives you the ability to control playback. However, it does not provide information about the currently playing content (media title, duration, play/pause state, etc.). In turn, [Google Cast](/integrations/cast/) integration does not provide reliable information about the power status of the device (e.g. on Android TV Home Screen) and does not allow to control playback in Android apps without [MediaSession](https://developer.android.com/reference/android/media/session/MediaSession) support. However, it can display full information about the content being played in supported apps. For convenience, you can combine two media players into one using [Universal Media Player](/integrations/universal/) integration. Universal Media Player will automatically select the appropriate active media player entity.
+
+{% details "Example YAML configuration" %}
+
+Replace `media_player.living_room_tv_remote` with your Android TV Remote media player entity ID.
+Replace `media_player.living_room_tv_cast` with your Google Cast media player entity ID.
+
+```yaml
+media_player:
+  - platform: universal
+    name: living_room_tv
+    unique_id: living_room_tv
+    device_class: tv
+    children:
+      - media_player.living_room_tv_remote
+      - media_player.living_room_tv_cast
+    browse_media_entity: media_player.living_room_tv_cast
+    commands:
+      turn_off:
+        service: media_player.turn_off
+        data:
+          entity_id: media_player.living_room_tv_remote
+      turn_on:
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.living_room_tv_remote
+      volume_up:
+        service: media_player.volume_up
+        data:
+          entity_id: media_player.living_room_tv_remote
+      volume_down:
+        service: media_player.volume_down
+        data:
+          entity_id: media_player.living_room_tv_remote
+```
+
+{% enddetails %}
 
 ## Remote
 
@@ -102,6 +143,7 @@ Navigation:
 - BUTTON_B
 - BUTTON_X
 - BUTTON_Y
+- BACK
 
 Volume Control:
 - VOLUME_DOWN
@@ -157,6 +199,7 @@ Other:
 - BUTTON_MODE
 - EXPLORER
 - MENU
+- HOME
 - INFO
 - GUIDE
 - TV_TELETEXT
@@ -166,10 +209,9 @@ Other:
 - SETTINGS
 - SEARCH
 - ASSIST
+- POWER
 
 {% enddetails %}
-
-For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
 
 If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app. See [Launching apps section](#launching-apps).
 
@@ -220,9 +262,11 @@ Below is an example for you to start with. Many of the buttons support long pres
 
 ![Screenshot Android TV Remote example](/images/integrations/androidtv_remote/lovelace_example.png)
 
-{% details "Lovelace example" %}
+{% details "YAML Lovelace example" %}
 
+Add a Manual card with the following code. 
 Replace all instances of `living_room_tv` with your entity ID.
+ - To use the `replace all` functionality, inside the code editor, press `ctrl+F` (or `command+F` on Mac).
 
 ```yaml
 type: vertical-stack
@@ -484,3 +528,15 @@ cards:
 ```
 
 {% enddetails %}
+
+
+## Limitations and known issues
+
+- The integration doesn't work with Fire TV devices because they are missing the [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service). Attempts to sideload it haven't been successful.
+- If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot send commands with this integration either.
+- Commands don't work on Netflix. They don't work from the Google TV mobile app or the Google Home mobile app either.
+- Some devices, like Xiaomi, become unavailable after they are turned off and can't be turned on with this integration.
+- Some devices, like TCL, become unavailable after they are turned off, unless you activate the **Screenless service**. To activate it, go to **Settings** > **System** > **Power and energy** > **Screenless service**, and activate it.
+- Some devices experience disconnects every 15 seconds. This is typically resolved by rebooting the Android TV device after the initial setup of the integration.
+- If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **Settings** > **Apps** > **Show system apps**. Then, select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to pair again.
+- Some onscreen keyboards enabled by TV manufacturers do not support concurrent virtual and onscreen keyboard use. This presents whenever a text field is selected, such as "search" where a constant **use the keyboard on your mobile device** will show, preventing you from opening the onscreen keyboard to type. This can be overcome by either disabling your 3rd party keyboard and using the default Gboard keyboard or by unselecting **Enable IME** in the **Configure** page of the integration.

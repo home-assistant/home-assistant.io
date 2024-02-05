@@ -3,11 +3,14 @@ title: Airzone Cloud
 description: Instructions on how to integrate Airzone Cloud within Home Assistant.
 ha_release: 2023.6
 ha_category:
+  - Binary sensor
   - Sensor
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: airzone_cloud
 ha_platforms:
+  - binary_sensor
+  - climate
   - diagnostics
   - sensor
 ha_codeowners:
@@ -41,6 +44,30 @@ Username:
 Password:
   description: "Cloud API password"
 {% endconfiguration_basic %}
+
+## Binary sensors
+
+For each Airzone system (HVAC machine), the following *binary sensors* are created:
+
+| Condition           | Description                                               |
+| :------------------ | :-------------------------------------------------------- |
+| problems            | Indicates that the current system has errors or warnings. |
+
+For each Airzone zone (thermostat), the following *binary sensors* are created:
+
+| Condition           | Description                                             |
+| :------------------ | :------------------------------------------------------ |
+| problems            | Indicates that the current zone has errors or warnings. |
+
+## Climate
+
+For each Airzone Aidoo (HVAC Wi-Fi controller), a climate entity is created.
+
+For each Airzone zone (thermostat), a climate entity is created.
+
+**HVAC mode can only be changed on a *parent zone*.**
+
+*Child zones* can only enable/disable the current HVAC mode selected on the corresponding *parent zone*. Attempting to change the HVAC mode on a *child zone* will result in a Home Assistant error.
 
 ## Sensors
 

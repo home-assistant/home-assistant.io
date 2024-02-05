@@ -2,7 +2,7 @@
 title: MusicCast
 description: Instructions on how to integrate Yamaha MusicCast Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.53
 ha_codeowners:
   - '@vigonotion'
@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Yamaha MusicCast integration allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/musiccast/index.html) from Home Assistant.
+The Yamaha **MusicCast** {% term integration %} allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/musiccast/index.html) from Home Assistant.
 
 Supported devices are listed on their [site](https://usa.yamaha.com/products/contents/audio_visual/musiccast/musiccast-compatiblity.html).
 
@@ -27,14 +27,14 @@ Supported devices are listed on their [site](https://usa.yamaha.com/products/con
 
 ## Grouping functionality
 
-The Yamaha MusicCast integration implements the grouping services. There are some limitations in the MusicCast system for grouping:
+The Yamaha MusicCast {% term integration %} implements the grouping services. There are some limitations in the MusicCast system for grouping:
 
 - It is not possible to let mediaplayer entities of the same device (e.g., different zones) be in distinct groups.
 - If a non-main zone is the master of a group, it is not possible to let other mediaplayers of the same device join this group.
 
-## Play Media functionality
+## Play media functionality
 
-The MusicCast integration supports the Home Assistant media browser for all streaming services, your device supports. For services such as Deezer, you have to log in using the official MusicCast app. In addition, local HTTP URLs can be played back using this service. This includes the Home Assistant text-to-speech services.
+The MusicCast {% term integration %} supports the Home Assistant media browser for all streaming services, your device supports. For services such as Deezer, you have to log in using the official MusicCast app. In addition, local HTTP URLs can be played back using this service. This includes the Home Assistant text-to-speech services.
 
 It is also possible to recall NetUSB presets using the play media service. To do so "presets:<preset_num>" has to be used as `media_content_id` in the service call.
 
@@ -62,17 +62,17 @@ data:
   media_content_type: "music"
 ```
 
-## Configuration/Diagnostic Entities
+## Configuration / diagnostic entities
 
 Depending on the features supported by the device, several entities will be added for every MusicCast Device. Some of the entities are related to the MusicCast device and some are related to a zone of the device. All device and main zone related entities will be assigned to the Home Assistant device of the main zone. Entities related to other zones will be assigned to the Home Assistant device of the corresponding zone.
 
-### Number Entities
+### Number entities
 
 The following entities will be added, if they are supported by the MusicCast device:
 - Equalizer (configuration, zone level)
-  - One number entity each is added for high, mid and low
+  - One number {% term entity %} each is added for high, mid and low
 - Tone Control (configuration, zone level)
-  - One number entity each is added for bass and treble
+  - One number {% term entity %} each is added for bass and treble
 - Dialogue Level (configuration, zone level)
   - Set the volume of dialogues in relation to the general volume
 - Dialogue Lift (configuration, zone level)
@@ -80,7 +80,8 @@ The following entities will be added, if they are supported by the MusicCast dev
 - DTS Dialogue Control (configuration, zone level)
   - Control the volume of dialogues for DTS:X content
 
-### Select Entities
+### Select entities
+
 The following entities will be added, if they are supported by the MusicCast device:
 - Dimmer (configuration, device level)
   - Set the display brightness
@@ -99,7 +100,8 @@ The following entities will be added, if they are supported by the MusicCast dev
 - Link Audio Quality (configuration, zone level)
   - Set the audio quality for grouped speakers
 
-### Switch Entities
+### Switch entities
+
 The following entities will be added, if they are supported by the MusicCast device:
 - Speaker A (configuration, device level)
   - A switch to turn on the speaker set A
@@ -124,8 +126,8 @@ In this section known problems and their resolution are documented.
 
 ### Errors on handling UDP messages
 
-The Yamaha MusicCast integration is working with updates sent from the device to Home Assistant instead of pulling all information every few seconds. There is no error correction mechanism in these messages, so that only 100% correct messages can be processed. Whenever there is a corrupt message the Yamaha MusicCast integration will update all device information and log an error message like these:
-* `Received invalid message: <message>`
-* `Received non UTF-8 compliant message: b'<binary>'`
+The Yamaha MusicCast {% term integration %} is working with updates sent from the device to Home Assistant instead of pulling all information every few seconds. There is no error correction mechanism in these messages, so that only 100% correct messages can be processed. Whenever there is a corrupt message the Yamaha MusicCast integration will update all device information and log an error message like these:
+- `Received invalid message: <message>`
+- `Received non UTF-8 compliant message: b'<binary>'`
 
 If you receive these errors frequently, you should first try to disconnect your MusicCast devices from the power, wait 30 seconds and reconnect them to the power. If this does not help, you can try to use a LAN cable instead of WiFi to connect the device to the network.

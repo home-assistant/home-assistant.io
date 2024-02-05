@@ -1,10 +1,9 @@
 ---
 title: Speech-to-text (STT)
 description: Instructions on how to set up speech-to-text (STT) with Home Assistant.
-ha_release: "0.102"
+ha_release: '0.102'
 ha_codeowners:
-  - "@home-assistant/core"
-  - "@pvizeli"
+  - '@home-assistant/core'
 ha_domain: stt
 ha_quality_scale: internal
 ha_category: []
@@ -13,7 +12,7 @@ ha_integration_type: entity
 
 A speech-to-text (STT) entity allows other integrations or applications to stream speech data to the STT API and get text back.
 
-The speech-to-text entities cannot be implemented manually, but can be provided by integrations.
+{% include integrations/building_block_integration.md %}
 
 ## The state of a speech-to-text entity
 

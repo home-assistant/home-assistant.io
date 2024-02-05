@@ -29,7 +29,7 @@ homeassistant:
 
 Note that each line after `homeassistant:` is indented two (2) spaces. Since the configuration files in Home Assistant are based on the YAML language, indentation and spacing are important. Also note that seemingly strange entry under `customize:`.
 
-`!include filename.yaml` is the statement that tells Home Assistant to insert the contents of `filename.yaml` at that point. This is how we are going to break a monolithic and hard to read file (when it gets big) into more manageable chunks.
+`!include customize.yaml` is the statement that tells Home Assistant to insert the contents of `customize.yaml` at that point. This is how we are going to break a monolithic and hard to read file (when it gets big) into more manageable chunks.
 
 Now before we start splitting out the different components, let's look at the other integrations (in our example) that will stay in the base file:
 
@@ -200,7 +200,7 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 - [Core](/common-tasks/core/#configuration-check)
 - [Supervised](/common-tasks/supervised/#configuration-check)
 
-## Advanced Usage
+## Advanced usage
 
 We offer four advanced options to include whole directories at once. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
 

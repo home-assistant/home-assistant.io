@@ -28,11 +28,6 @@ Currently supported services are:
 - `stop`
 - `return_to_base`
 - `locate`
+- `set_fan_speed`
 
 If `pause` does not work for you, then it is not supported by your vacuum. The `stop` service will provide similar functionality.
-
-## Troubleshooting
-
-### Integration Disconnecting
-
-If the integration frequently disconnects and you have an ad blocker runner like [Pi-hole](https://pi-hole.net/) or [AdGuard](https://adguard.com) add `ads-field.aylanetworks.com` to the Allow list . This domain is needed for the connection and can be part of the automatic blocking because of `ads` being part of the subdomain.

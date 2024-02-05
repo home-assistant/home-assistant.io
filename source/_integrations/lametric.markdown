@@ -250,12 +250,12 @@ your LaMetric devices, use the following steps:
 1. Log in with your LaMetric device account to [developer.lametric.com](https://developer.lametric.com).
 2. Click the Create button and choose [Notification](https://developer.lametric.com/applications/createsource) app.
 3. Fill in the form. You can put almost anything in the fields, they just need to be populated:
-  * App Name: Home Assistant 
-  * Description: Home Assistant
-  * Redirect URI: `https://my.home-assistant.io/redirect/oauth`
-  * Privacy Policy: `http://localhost/`
-  * Check the "basic" and "read_devices" permission boxes
-  * Click Save
+  - App Name: Home Assistant 
+  - Description: Home Assistant
+  - Redirect URI: `https://my.home-assistant.io/redirect/oauth`
+  - Privacy Policy: `http://localhost/`
+  - Check the "basic" and "read_devices" permission boxes
+  - Click Save
 4. You should be directed to your [Notification Apps list](https://developer.lametric.com/applications/sources),
    click on "Home Assistant", copy your client ID and Client Secret.
 

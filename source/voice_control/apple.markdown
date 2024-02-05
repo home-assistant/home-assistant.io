@@ -27,7 +27,7 @@ There are two versions of the shortcut. The normal shortcut works better with Si
 
 ### Adjusting the language
 
-Shortcuts triggerd via Siri will always use the same language as Siri is set to. The Assist Button shortcut is meant to be manually triggered and can be configured for any language.
+Shortcuts triggered via Siri will always use the same language as Siri is set to. The Assist Button shortcut is meant to be manually triggered and can be configured for any language.
 
 Open the shortcuts app, and edit the Button Assist shortcut. The text in quotes will be shown in the language of your device.
 
@@ -40,7 +40,7 @@ You can import the button shortcut multiple times to create versions for differe
 
 ## Multiple servers
 
-The Assist shortcut works also if you have configured multiple Home Assistant servers. By default it will prompt you to pick the server to sent the command too. This is not very hands-off, and so you can update the shortcut to point at a specific server. You will need to import the shortcuts multiple times, once for each server.
+The Assist shortcut works also if you have configured multiple Home Assistant servers. By default it will prompt you to pick the server to sent the command to. This is not very hands-off, and so you can update the shortcut to point at a specific server. You will need to import the shortcuts multiple times, once for each server.
 
 Open the shortcuts app and edit each Assist shortcut. The text in quotes will be shown in the language of your device.
 

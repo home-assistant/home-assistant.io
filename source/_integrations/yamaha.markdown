@@ -2,7 +2,7 @@
 title: Yamaha Network Receivers
 description: Instructions on how to integrate Yamaha Network Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.16
 ha_iot_class: Local Polling
 ha_domain: yamaha
@@ -20,7 +20,7 @@ Supported devices:
 - [RX-V573](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v573/specs.html)
 - [RX-V585](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
 - [RX-V673](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v673/specs.html)
-- [RX-V685](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
+- [RX-V685](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v685_u/specs.html)
 - [RX-V773](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v773/specs.html)
 - [RX-V3067](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v3067/specs.html)
 - And more
@@ -32,7 +32,8 @@ To add a Yamaha Network Receiver to your installation, add the following to your
 media_player:
   - platform: yamaha
 ```
-
+You **must** enable network standby on your receiver, or else startup of Home Assistant will hang if you
+have your receiver switched off.
 {% configuration %}
 name:
   description: Name of the device. This overrides the default name (often model number) that is returned by the device.
@@ -60,21 +61,6 @@ zone_names:
   type: list
 {% endconfiguration %}
 
-### Discovery notes
-
-- If the `discovery` integration is enabled, all units on the network
-  will be discovered using UPnP.
-- For receivers that support more than one zone, Home Assistant will
-  add one media player per zone supported by the player, named "$name
-  Zone 2" and "$name Zone 3".
-- If you specify `host` manually, you **must** enable network standby
-  on your receiver, or else startup of Home Assistant will hang if you
-  have your receiver switched off.
-- In some cases, auto-discovery fails due to a known bug in the
-  receiver's firmware. It is possible to manually specify the
-  receiver's IP address or via its hostname (if it is discoverable by
-  your DNS) then.
-
 ### Supported operations
 
 - Media players created by Yamaha support powering on/off, mute,
@@ -83,6 +69,7 @@ zone_names:
 - The `play_media` service is implemented for `NET RADIO` source
   only. The `media_id` is a `>` separated string of the menu path on
   the vtuner service. For instance `Bookmarks>Internet>WAMC 90.3 FM`.
+  MusicCast devices use the path `Radio>Favorites>WAMC 90.3 FM`.
 
 ### Example configuration
 

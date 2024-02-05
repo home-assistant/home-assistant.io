@@ -18,31 +18,41 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Attribute selector](#attribute-selector)
 - [Assist pipeline selector](#assist-pipeline-selector)
+- [Backup location selector](#backup-location-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
+- [Condition selector](#condition-selector)
 - [Config entry selector](#config-entry-selector)
 - [Constant selector](#constant-selector)
+- [Conversation agent selector](#conversation-agent-selector)
+- [Country selector](#country-selector)
 - [Date selector](#date-selector)
-- [Date & time selector](#date--time-selector)
+- [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
 - [Icon selector](#icon-selector)
 - [Language selector](#language-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
+- [Trigger selector](#trigger-selector)
 
 Interactive demos of each of these selectors can be found on the
 [Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
@@ -66,7 +76,7 @@ action:
 The output of this selector is a list of actions. For example:
 
 ```yaml
-# Example Action selector output result
+# Example action selector output result
 - service: scene.turn_on
   target:
     entity_id: scene.watching_movies
@@ -87,7 +97,7 @@ selected add-on.
 This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
-# Example Add-on selector
+# Example add-on selector
 addon:
 ```
 
@@ -121,6 +131,7 @@ device:
     that at least provide one device that matches the given conditions. Can be
     either a object or a list of object.
   type: list
+  required: false
   keys:
     integration:
       description: >
@@ -191,10 +202,10 @@ The output of this selector is the area ID, or (in case `multiple` is set to
 `true`) a list of area IDs.
 
 ```yaml
-# Example Area selector output result, when multiple is set to false
+# Example area selector output result, when multiple is set to false
 living_room
 
-# Example Area selector output result, when multiple is set to true
+# Example area selector output result, when multiple is set to true
 - living_room
 - kitchen
 ```
@@ -259,6 +270,21 @@ This selector does not have any other options; therefore, it only has its key.
 assist_pipeline:
 ```
 
+## Backup location selector
+
+This can only be used on an installation with a Supervisor (Operating System or
+Supervised). For installations of type Home Assistant Core or Container, an error
+will be displayed.
+
+The backup location selector shows a list of places a backup could go, depending
+on what you have configured in [storage](https://my.home-assistant.io/redirect/storage/).
+
+![Screenshot of an assist pipeline selector](/images/blueprints/selector-backup-location.png)
+
+The output of this selector is the name of the selected network storage. It may
+also be the value `/backup`, if the user chooses to use the local data disk option
+instead of one of the configured network storage locations.
+
 ## Boolean selector
 
 The boolean selector shows a toggle that allows the user to turn on or off
@@ -279,9 +305,7 @@ The output of this selector is `true` when the toggle is on, `false` otherwise.
 
 ## Color temperature selector
 
-The color temperature selector provides a select that allows for selecting
-a color temperature. The selector returns the number of mireds selected and
-allows limiting the range of selectable mireds.
+The color temperature selector allows you to select a color temperature from a gradient using a slider.
 
 ![Screenshot of the Color temperature selector](/images/blueprints/selector-color-temp.png)
 
@@ -290,19 +314,47 @@ color_temp:
 ```
 
 {% configuration color_temp %}
-min_mireds:
-  description: The minimum color temperature in mireds.
-  type: integer
-  default: 153
+unit:
+  description: The chosen unit for the color temperature. This can be either `kelvin` or `mired`. `mired` is the default for historical reasons.
+  type: string
   required: false
-max_mireds:
-  description: The maximum color temperature in mireds.
+  default: mired
+min:
+  description: The minimum color temperature in the chosen unit.
   type: integer
-  default: 500
+  default: 2700 for kelvin 153 for mired
+  required: false
+max:
+  description: The maximum color temperature in the chosen unit.
+  type: integer
+  default: 6500 for kelvin 500 for mired
   required: false
 {% endconfiguration %}
 
-The output of this selector is the number of mired selected, for example, `243`.
+The output of this selector is the number representing the chosen color temperature for the unit used.
+
+## Condition selector
+
+The condition selector allows the user to input one or more conditions.
+On the user interface, the condition part of the automation editor will be shown.
+The value of the input will contain a list of conditions.
+
+![Screenshot of an condition selector](/images/blueprints/selector-condition.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+condition:
+```
+
+The output of this selector is a list of conditions. For example:
+
+```yaml
+# Example condition selector output result
+- condition: numeric_state
+  entity_id: "sensor.outside_temperature"
+  below: 20
+```
 
 ## Config entry selector
 
@@ -336,12 +388,34 @@ is that the constant selector has no value when it's not enabled.
 The selector's value must be configured, and optionally, a label.
 
 ```yaml
-boolean:
+constant:
   value: true
   label: Enabled
 ```
 
-The output of this selector is the configured value when the toggle is on, it has not output otherwise.
+The output of this selector is the configured value when the toggle is on, it has no output otherwise.
+
+## Conversation agent selector
+
+The conversation agent selector allows picking a conversation agent.
+
+![Screenshot of a conversation agent selector](/images/blueprints/selector-conversation-agent.png)
+
+The selector has 1 option, `language`. This filters the conversation agents shown, depending on the language.
+
+```yaml
+conversation_agent:
+  language: en
+```
+
+{% configuration conversation_agent %}
+language:
+  description: Limits the list of conversation agents to those supporting the specified language.
+  type: string
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the ID of the conversation agent.
 
 ## Date selector
 
@@ -357,6 +431,32 @@ date:
 
 The output of this selector will contain the date in Year-Month-Day
 (`YYYY-MM-DD`) format, for example, `2022-02-22`.
+
+## Country selector
+
+The country selector allows a user to pick a country from a list of countries.
+
+![Screenshot of a country selector](/images/blueprints/country_selector.png)
+
+```yaml
+country:
+```
+
+{% configuration entity %}
+countries:
+  description: A list of countries to pick from, this should be ISO 3166 country codes.
+  type: list
+  default: The available countries in the Home Assistant frontend
+  required: false
+no_sort:
+  description: >
+    Should the options be sorted by name, if set to true, the order of the provided countries is kept.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is an ISO 3166 country code.
 
 ## Date & time selector
 
@@ -471,10 +571,10 @@ The output of this selector is the device ID, or (in case `multiple` is set to
 `true`) a list of devices IDs.
 
 ```yaml
-# Example Device selector output result, when multiple is set to false
+# Example device selector output result, when multiple is set to false
 faadde5365842003e8ca55267fe9d1f4
 
-# Example Device selector output result, when multiple is set to true
+# Example device selector output result, when multiple is set to true
 - faadde5365842003e8ca55267fe9d1f4
 - 3da77cb054352848b9544d40e19de562
 ```
@@ -620,7 +720,7 @@ light.living_room
 An example entity selector that, will only show entities that are:
 
 - Provided by the [ZHA](/integrations/zha) integration.
-- From the [Binary Sensor](/integrations/binary_sensor) domain.
+- From the [Binary sensor](/integrations/binary_sensor) domain.
 - Have presented themselves as devices of a motion device class.
 - Allows selecting one or more entities.
 
@@ -917,6 +1017,12 @@ translation_key:
     for more information.
   type: string
   required: false
+sort:
+  description: >
+    Display options in alphabetical order.
+  type: boolean
+  required: false
+  default: false
 {% endconfiguration %}
 
 Alternatively, a mapping can be used for the options. When you want to return
@@ -1109,7 +1215,7 @@ The output of this selector is a template string.
 
 ## Text selector
 
-The text selector can be used to input a text string. The value of the input will contain the selected text.
+The text selector can be used to enter a text string. It can also be used to enter a list of text strings; if `multiple` is set to `true`. The value of the input will contain the selected text. This can be used in shopping lists, for example.
 
 ![Screenshot of text selectors](/images/blueprints/selector-text.png)
 
@@ -1124,6 +1230,10 @@ multiline:
   description: Set to true to display the input as a multi-line text box on the user interface.
   type: boolean
   default: false
+  required: false
+prefix:
+  description: An optional prefix to show before the text input box.
+  type: string
   required: false
 suffix:
   description: An optional suffix to show after the text input box.
@@ -1145,6 +1255,12 @@ autocomplete:
     Any value supported by the HTML attribute is valid.
   type: string
   required: false
+multiple:
+  description: >
+    Allows adding list of text strings. If set to `true`, the resulting value of this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
 The output of this selector is a single string value.
@@ -1160,7 +1276,13 @@ installed in Home Assistant.
 theme:
 ```
 
-This selector does not have any other options; therefore, it only has its key.
+{% configuration theme %}
+include_default:
+  description: Includes Home Assistant default theme in the list.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
 
 The output of this selector will contain the selected theme, for example:
 `waves_dark`.
@@ -1180,3 +1302,26 @@ time:
 
 The output of this selector will contain the time in 24-hour format,
 for example, `23:59:59`.
+
+## Trigger selector
+
+The triggers selector allows the user to input one or more triggers.
+On the user interface, the trigger part of the automation editor is shown.
+The value of the input contains a list of triggers.
+
+![Screenshot of an trigger selector](/images/blueprints/selector-trigger.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+trigger:
+```
+
+The output of this selector is a list of triggers. For example:
+
+```yaml
+# Example trigger selector output result
+- platform: numeric_state
+  entity_id: "sensor.outside_temperature"
+  below: 20
+```

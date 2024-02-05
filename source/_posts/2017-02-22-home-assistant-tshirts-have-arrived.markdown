@@ -16,7 +16,7 @@ og_image: /images/blog/2017-02-shirts/social.png
 
 What time is it? Yep, t-shirt time. Today we're launching the first two Home Assistant designs. We have a blue t-shirt as pictured above and a design for on black/gray shirts as pictured below.
 
-[Visit the Home Assistant store](https://teespring.com/stores/home-assistant-store)
+[Visit the Home Assistant store](https://home-assistant-store.creator-spring.com/)
 
 <p class='img'>
   <img src='/images/blog/2017-02-shirts/family.png' />
@@ -49,14 +49,5 @@ More photos after the click.
   Cool kid listening to music + sidekick. Both wearing the new blue Home Assistant shirt.
 </p>
 
-[eff]: https://www.eff.org
-[le]: https://letsencrypt.org
+[blue-us]: https://home-assistant-store.creator-spring.com/listing/home-assistant-shirt
 [ts]: https://teespring.com
-[ts-eu]: https://teespring.com/teespring-europe
-[store-us]: https://teespring.com/stores/home-assistant-us-store
-[store-eu]: https://teespring.com/stores/home-assistant-eu-store
-[eff-issues]: https://www.eff.org/issues
-[blue-us]: https://teespring.com/home-assistant-shirt
-[black-us]: https://teespring.com/hass-shirt-black
-[blue-eu]: https://teespring.com/hass-blue-shirt-eu-2
-[black-eu]: https://teespring.com/hass-shirt-black-eu-2

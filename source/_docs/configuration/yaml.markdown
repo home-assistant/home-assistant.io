@@ -3,9 +3,9 @@ title: "YAML"
 description: "Details about YAML to configure Home Assistant."
 ---
 
-Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.
+Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. YAML might take a while to get used to but is powerful in allowing you to express complex configurations.
 
-While more and more integrations are configured through the UI, for some, you will add code in your `configuration.yaml` file to specify its settings.
+While more and more integrations are configured through the UI, for some, you will add code in your [`configuration.yaml`](/docs/configuration/) file to specify its settings.
 
 The following example entry assumes that you would like to set up the [notify integration](/integrations/notify) with the [pushbullet platform](/integrations/pushbullet).
 
@@ -19,17 +19,17 @@ notify:
 - An **integration** provides the core logic for some functionality (like `notify` provides sending notifications).
 - A **platform** makes the connection to a specific software or hardware platform (like `pushbullet` works with the service from pushbullet.com).
 
-The basics of YAML syntax are block collections and mappings containing key-value pairs. Each item in a collection starts with a `-` while mappings have the format `key: value`.  This is somewhat similar to a Hash table or more specifically a dictionary in Python. These can be nested as well.  **Beware that if you specify duplicate keys, the last value for a key is used**.
+The basics of YAML syntax are block collections and mappings containing key-value pairs. Each item in a collection starts with a `-` while mappings have the format `key: value`. This is somewhat similar to a Hash table or more specifically a dictionary in Python. These can be nested as well. **Beware that if you specify duplicate keys, the last value for a key is used**.
 
-Note that indentation is an important part of specifying relationships using YAML. Things that are indented are nested "inside" things that are one level higher. So in the above example, `platform: pushbullet` is a property of (nested inside) the `notify` integration.
+In YAML, indentation is important for specifying relationships. Indented lines are nested inside lines that are one level higher. In the above example, `platform: pushbullet` is a property of (nested inside) the `notify` integration.
 
-Getting the right indentation can be tricky if you're not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. Convention is to use 2 spaces for each level of indentation.
+Getting the right indentation can be tricky if you're not using an editor with a fixed-width font. Tabs are not allowed to be used for indentation. The convention is to use 2 spaces for each level of indentation.
 
-You can use the online service [YAML Validator](https://codebeautify.org/yaml-validator/) to check if your YAML syntax is correct before loading it into Home Assistant which will save you some time. If you do so, be aware that this is a third-party service and is not maintained by the Home Assistant community.
+To check if your YAML syntax is correct before loading it into Home Assistant, you can use the third-party service [YAML Validator](https://codebeautify.org/yaml-validator/) (not maintained by the Home Assistant community).
 
 <div class='note'>
 
-Please pay attention to not storing private data (passwords, API keys, etc.) directly in your `configuration.yaml` file. Private data can be stored in either a [separate file](/docs/configuration/secrets/) or in [environmental variables](/docs/configuration/yaml/#using-environment-variables), which circumvents this security problem.
+Pay attention to not storing private data (passwords, API keys, etc.) directly in your `configuration.yaml` file. Private data can be stored in either a [separate file](/docs/configuration/secrets/) or in [environmental variables](/docs/configuration/yaml/#using-environment-variables), which circumvents this security problem.
 
 </div>
 
@@ -76,7 +76,7 @@ example:
 
 #### Default value
 
-If an environment variable is not set, you can fallback to a default value.
+If an environment variable is not set, you can fall back to a default value.
 
 ```yaml
 example:
@@ -93,7 +93,7 @@ light: !include lights.yaml
 
 More information about this feature can also be found at [splitting configuration](/docs/configuration/splitting_configuration/).
 
-## Common Issues
+## Common issues
 
 ### found character '\t'
 

@@ -11,7 +11,9 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Fan integration allows you to control and monitor Fan devices.
+The fan integration allows you to control and monitor fan devices.
+
+{% include integrations/building_block_integration.md %}
 
 ## Services
 
@@ -22,7 +24,7 @@ Available services:
 
 <div class='note'>
 
-Not all fan services may be available for your platform. You can check which services are available for your fan(s) under **Developer Tools** -> **Services**.
+Not all fan services may be available for your platform. You can check which services are available for your fan(s) under **Developer Tools** > **Services**.
 
 </div>
 
@@ -52,7 +54,7 @@ automation:
 
 ### Service `fan.set_preset_mode`
 
-Sets a preset mode for the fan device. Available preset modes are defined by the integration that supplies the fan entity to Home Assistant. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed.html) component provides by default three available presets: `Low`, `Medium` and `High`.
+Sets a preset mode for the fan device. Available preset modes are defined by the integration that supplies the fan entity to Home Assistant. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed.html) component provides three available presets by default: `Low`, `Medium`, and `High`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

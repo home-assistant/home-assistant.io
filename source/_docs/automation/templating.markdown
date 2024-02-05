@@ -1,5 +1,5 @@
 ---
-title: "Automation Trigger Variables"
+title: "Automation trigger variables"
 description: "List all available variables made available by triggers."
 ---
 
@@ -7,13 +7,13 @@ Automations support [templating](/docs/configuration/templating/) in the same wa
 
 The template variable `this` is also available when evaluating any `trigger_variables` declared in the configuration.
 
-## Available this Data
+## Available `this` data
 
-The variable `this` is the [state object](/docs/configuration/state_object) of the automation at the moment of triggering the actions. State objects also contain context data which can be used to identify the user that caused a script or automation to execute. Note that `this` will not change while executing the actions.
+The variable `this` is the [state object](/docs/configuration/state_object) of the automation at the moment of triggering the actions. State objects also contain context data which can be used to identify the user that caused a {% term script %} or {% term automation %} to execute. Note that `this` will not change while executing the {% term actions %}.
 
-## Available Trigger Data
+## Available trigger data
 
-The variable `trigger` is an object that contains details about which trigger triggered the automation.
+The variable `trigger` is an object that contains details about which {% term trigger %} triggered the automation.
 
 Templates can use the data to modify the actions performed by the automation or displayed in a message. For example, you could create an automation that multiple sensors can trigger and then use the sensor's location to specify a light to activate; or you could send a notification containing the friendly name of the sensor that triggered it.
 
@@ -78,9 +78,9 @@ These are the properties available for a [MQTT trigger](/docs/automation/trigger
 | `trigger.payload_json` | Dictionary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
-### Numeric State
+### Numeric state
 
-These are the properties available for a [Numeric State trigger](/docs/automation/trigger/#numeric-state-trigger).
+These are the properties available for a [numeric state trigger](/docs/automation/trigger/#numeric-state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -91,6 +91,17 @@ These are the properties available for a [Numeric State trigger](/docs/automatio
 | `trigger.from_state` | The previous [state object] of the entity.
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has met above/below criteria, if any.
+
+### Sentence
+
+These are the properties available for a [Sentence trigger](/docs/automation/trigger/#sentence-trigger).
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `conversation`
+| `trigger.sentence` | Text of the sentence that was matched
+| `trigger.slots`    | Object with matched slot values
+| `trigger.details` | Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains: <ul><li>`name` - name of the slot</li><li>`text` - matched text</li><li>`value` - output value (see [lists](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>
 
 ### State
 
@@ -135,14 +146,28 @@ These are the properties available for a [Time trigger](/docs/automation/trigger
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
 
-### Time Pattern
+### Time pattern
 
-These are the properties available for a [Time Pattern trigger](/docs/automation/trigger/#time-pattern-trigger).
+These are the properties available for a [time pattern trigger](/docs/automation/trigger/#time-pattern-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time_pattern`
 | `trigger.now` | DateTime object that triggered the time_pattern trigger.
+
+### Persistent notification
+
+These properties are available for a [persistent notification trigger](/docs/automation/trigger/#persistent-notification-trigger).
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `persistent_notification`
+| `trigger.update_type` | Type of persistent notification update `added`, `removed`, `current`, or `updated`.
+| `trigger.notification` | Notification object that triggered the persistent notification trigger.
+| `trigger.notification.notification_id` | The notification ID
+| `trigger.notification.title` | Title of the notification
+| `trigger.notification.message` | Message of the notification
+| `trigger.notification.created_at` | DateTime object indicating when the notification was created.
 
 ### Webhook
 
@@ -215,6 +240,29 @@ automation 3:
       target:
         # Turn off whichever entity triggered the automation.
         entity_id: "{{ trigger.entity_id }}"
+
+automation 4:
+  trigger:
+    # When an NFC tag is scanned by Home Assistant...
+    - platform: event
+      event_type: tag_scanned
+      # ...By certain people
+      context:
+        user_id:
+          - 06cbf6deafc54cf0b2ffa49552a396ba
+          - 2df8a2a6e0be4d5d962aad2d39ed4c9c
+  condition:
+    # Check NFC tag (ID) is the one by the front door
+    - condition: template
+      value_template: "{{ trigger.event.data.tag_id == '8b6d6755-b4d5-4c23-818b-cf224d221ab7'}}"
+  action:
+    # Turn off various lights
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.kitchen
+          - light.bedroom
+          - light.living_room
 ```
 
 {% endraw %}

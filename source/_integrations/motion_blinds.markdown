@@ -20,6 +20,7 @@ The integration allows you to control [Motion Blinds](https://motionblinds.com/)
 
 Additionally the following brands have been reported to also work with this integration:
 
+- [Acomax](https://www.acomax.de/)
 - [AMP Motorization](https://www.ampmotorization.com/)
 - [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [Bloc Blinds](https://www.blocblinds.com/)
@@ -32,6 +33,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [Inspired Shades](https://www.inspired-shades.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
+- [Madeco](https://www.madeco.fr/)
 - [Martec](https://www.martec.co.nz/)
 - [Motion Blinds](https://motionblinds.com/)
 - [Raven Rock MFG](https://www.ravenrockmfg.com/)
@@ -48,12 +50,17 @@ The following bridges are reported to work with this integration:
  - D1554 Connector mini-bridge
  - DD7002B Brel-Home box
  - D1554 Brel Home USB plug
+ - Brel HUB-03
+ - Acomax FX-I 620 Bridge Maxi
 
 {% include integrations/config_flow.md %}
 
 ## Retrieving the API Key
 
-### Motion Blinds app
+The 16 character API key needed to setup the Home Assistant integration needs to be retrieved by first connecting the blind/bridge to the official app of its respective brand.
+In that app the key can often be found by clicking multiple times on specific places on the "About" page.
+
+### Motion blinds app
 
 The Motion Blinds API uses a 16 character key that can be retrieved from the official "Motion Blinds" app for [IOS](https://apps.apple.com/us/app/motion-blinds/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
 

@@ -56,6 +56,10 @@ authentication:
   description:  Type of the HTTP authentication. `basic` or `digest`.
   required: false
   type: string
+availability:
+  description: Defines a template if the entity state is available or not.
+  required: false
+  type: template
 device_class:
   description: Sets the [class of the device](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
@@ -407,7 +411,7 @@ rest:
 
 {% endraw %}
 
-The example below shows how to extract multiple values from a dictionary from the XML file of a Steamist Steambath Wi-Fi interface. The values are used to create a switch and multiple sensors without having to poll the endpoint numerous times.
+The example below shows how to extract multiple values from a dictionary from the XML file of a Steamist Steambath Wi-Fi interface. The values are used to create multiple sensors without having to poll the endpoint numerous times.
 
 {% raw %}
 
@@ -419,39 +423,13 @@ rest:
   
     sensor:
       - name: "Steam Temp"
-        value_template: "{{ json_value['response']['temp0'] | regex_findall_index('([0-9]+)XF') }}"
+        value_template: "{{ value_json['response']['temp0'] | regex_findall_index('([0-9]+)XF') }}"
         unit_of_measurement: "°F"
 
        steam_time_remaining:
       - name: "Steam Time Remaining"
-        value_template: "{{ json_value['response']['time0'] }}"
+        value_template: "{{ value_json['response']['time0'] }}"
         unit_of_measurement: "minutes"
-
-    switch:
-      - name: "Steam"
-        value_template: "{{ json_value['response']['usr0'] | int >= 1 }}"
-        turn_on:
-          - service: rest_command.set_steam_led
-            data:
-               led: 6
-          - service: homeassistant.update_entity
-            target:
-               entity_id: sensor.steam_system_data
-          - delay: 00:00:15
-          - service: homeassistant.update_entity
-            target:
-               entity_id: sensor.steam_system_data
-        turn_off:
-          - service: rest_command.set_steam_led
-            data:
-               led: 7
-          - service: homeassistant.update_entity
-            target:
-               entity_id: sensor.steam_system_data
-          - delay: 00:00:15
-          - service: homeassistant.update_entity
-            target:
-               entity_id: sensor.steam_system_data
 
 rest_command:  
   set_steam_led:

@@ -13,7 +13,7 @@ ha_domain: conversation
 ha_integration_type: system
 ---
 
-The conversation integration allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation/process` service with the transcribed text.
+The **Conversation** {% term integration %} allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation/process` service with the transcribed text.
 
 <p class='img'>
   <img src="/images/screenshots/voice-commands.png" />
@@ -62,7 +62,7 @@ To teach Home Assistant how to handle the custom `CustomOutsideHumidity` {% term
 intent_script:
   CustomOutsideHumidity:
     speech:
-      text: "It is currently {{ states("sensor.outside_humidity") }} percent humidity outside."
+      text: "It is currently {{ states('sensor.outside_humidity') }} percent humidity outside."
 ```
 
 {% endraw %}
@@ -159,12 +159,21 @@ It's now possible to say "engage all lights in the bedroom", which will turn on 
 
 ## Service `conversation.process`
 
-| Service data attribute | Optional | Description      |
-|------------------------|----------|------------------|
-| `text`                 | yes      | Transcribed text |
+Send a message to a conversation agent for processing.
+
+| Service data attribute | Optional | Description                                                                                                               |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `text`                 | no       | Transcribed text input                                                                                                    |
+| `language`             | yes      | Language of the text                                                                                                      |
+| `agent_id`             | yes      | ID of conversation agent. The conversation agent is the brains of the assistant. It processes the incoming text commands. |
+| `conversation_id`      | yes      | ID of a new or previous conversation. Will continue an old conversation or start a new one.                               |
+
+This service is able to return [response data](/docs/scripts/service-calls/#use-templates-to-handle-response-data). The response is the same response as for the
+[`/api/conversation/process` API](https://developers.home-assistant.io/docs/intent_conversation_api#conversation-response).
 
 ## Service `conversation.reload`
 
 | Service data attribute | Optional | Description                                                              |
 |------------------------|----------|--------------------------------------------------------------------------|
-| `language`             | yes      | Language to clear intent cache for. Defaults to Home Assistant language. |
+| `language`             | yes      | Language to clear intent cache for. No value clears all languages        |
+| `agent_id`             | yes      | ID of conversation agent. Defaults to the built-in Home Assistant agent. |

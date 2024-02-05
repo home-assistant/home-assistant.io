@@ -2,7 +2,7 @@
 title: Microsoft Face
 description: Instructions on how to integrate Microsoft Face integration into Home Assistant.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_iot_class: Cloud Push
 ha_release: 0.37
 ha_domain: microsoft_face
@@ -26,7 +26,7 @@ Please note that all keys on cognitive services must be recreated every 90 days.
 
 ## Configuration
 
-To enable the Microsoft Face component,
+To enable the Microsoft Face integration,
 add the following to your `configuration.yaml` file:
 
 ```yaml

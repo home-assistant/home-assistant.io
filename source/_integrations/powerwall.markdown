@@ -2,7 +2,7 @@
 title: Tesla Powerwall
 description: Instructions on how to integrate Tesla Power Walls into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Energy
   - Sensor
   - Switch
@@ -26,15 +26,15 @@ The `powerwall` integration allows you to integrate your [Tesla Powerwall](https
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
 {% include integrations/config_flow.md %}
 
-### Binary Sensor
+### Binary sensor
 
-The following binary sensors are added for each Powerwall:
+The following binary sensors are added for each Backup Gateway:
 
 - Grid Services - On/ Off
 - Grid Status - On/ Off
@@ -44,7 +44,7 @@ The following binary sensors are added for each Powerwall:
 
 ### Sensor
 
-The following sensors are added for each Powerwall:
+The following sensors are added for each Backup Gateway aggregated across all Powerwalls:
 
 - Powerwall Backup Reserve - Reserve energy for grid outages in %
 - Powerwall Battery Now - Usage in kW
@@ -56,7 +56,7 @@ The following sensors are added for each Powerwall:
 - Powerwall Backup Reserve - Percentage of battery which will be reserved for a grid outage
 - Frequency/ Average Current/ Average Voltage Now
 
-The following sensors show the direction of energy:
+The following sensors show the direction of energy in aggregate:
 
 - Powerwall Solar Export - Solar energy exported in kWh
 - Powerwall Solar Import - Solar energy imported in kWh
@@ -69,13 +69,24 @@ The following sensors show the direction of energy:
 - Powerwall Generator Export - Generator energy exported in kWh
 - Powerwall Generator Import - Generator energy imported in kWh
 
+The following sensors are added for each Powerwall:
+- Powerwall Battery Capacity - Capacity in kWh
+- Powerwall Battery Remaining - Remaining capacity in kWh
+- Frequency/ Average Current/ Average Voltage Now
+- Powerwall Load Now - Load usage in kW
+- Powerwall Battery Export - Battery energy exported in kWh
+- Powerwall Battery Import - Battery energy imported in kWh
+- Powerwall Charge - Percent charge remaining in %
+- Powerwall Grid State - State of grid power
+
+
 ### Switch
 
-The following switches are added for each Powerwall:
+The following switches are added for each Powerwall Backup Gateway:
 
 - Off-Grid operation - Take your Powerwall off-grid (simulate a grid outage)
 
-### Device Info
+### Device info
 
 - Model Number
 - Firmware Revision

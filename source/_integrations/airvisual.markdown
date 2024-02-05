@@ -47,11 +47,11 @@ For example, Sao Paulo, Brazil shows a breadcrumb title of `Brazil > Sao Paulo >
 - State: `Sao Paulo`
 - Country: `Brazil`
 
-## Sensor Types
+## Sensor types
 
 When configured, the platform will create three sensors for each air quality standard:
 
-#### Air Quality Index
+### Air quality index
 
 - **Description:** This sensor displays a numeric air quality index (AQI), a metric for the overall "health" of the air.
 - **Example Sensor Name:** `sensor.chinese_air_quality_index`
@@ -67,13 +67,13 @@ AQI | Status | Description
 201 - 300 | **Very unhealthy** | Health warnings of emergency conditions. The entire population is more likely to be affected
 301+ | **Hazardous** | Health alert: everyone may experience more serious health effects
 
-#### Air Pollution Level
+### Air pollution level
 
 - **Description:** This sensor displays the associated `Status` (from the above table) for the current AQI.
 - **Sample Sensor Name:** `sensor.us_air_pollution_level`
 - **Example Sensor Value:** `Moderate`
 
-#### Main Pollutant
+### Main pollutant
 
 - **Description:** This sensor displays the pollutant whose value is currently highest.
 - **Sample Sensor Name:** `sensor.us_main_pollutant`

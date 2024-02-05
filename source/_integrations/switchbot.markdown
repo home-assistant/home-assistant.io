@@ -1,8 +1,8 @@
 ---
-title: SwitchBot
+title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Light
   - Lock
@@ -11,7 +11,6 @@ ha_category:
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@bdraco'
   - '@danielhiversen'
   - '@RenierM26'
   - '@murtas'
@@ -48,15 +47,17 @@ Please note, device names configured in the SwitchBot app are not transferred in
 
 {% include integrations/config_flow.md %}
 
-## Supported Devices
+## Supported devices
 
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
 - [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
-- [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain)
+- [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
+- [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
 - [Humidifier (WoHumi)](https://eu.switch-bot.com/products/switchbot-smart-humidifier)
 - Light Strip (WoStrip)
 - [Meter](https://switch-bot.com/pages/switchbot-meter)/[Meter Plus 70BB](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
+- [Indoor/Outdoor Meter](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) (WoIOSensorTH)
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
@@ -167,3 +168,7 @@ The SwitchBot integration will automatically discover devices once the [Bluetoot
 "No unconfigured devices found":
   description: Make sure your devices are powered on and are in range.
 {% endconfiguration_basic %}
+
+### Slow connection times
+
+Move the device closer, or replace the Bluetooth adapter with a faster one. See [Improving connection times](/integrations/bluetooth/#improving-connection-times) for more information.

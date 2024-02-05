@@ -14,18 +14,17 @@ ha_domain: utility_meter
 ha_platforms:
   - select
   - sensor
-ha_config_flow: true
 ha_integration_type: helper
 ---
 
-The Utility Meter integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
+The **Utility Meter** {% term integration %} provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
 
 From a user perspective, utility meters operate in cycles (usually monthly) for billing purposes. This sensor will track a source sensor values, automatically resetting the meter based on the configured cycle. On reset an attribute will store the previous meter value, providing the means for comparison operations (e.g., "did I spend more or less this month?") or billing estimation (e.g., through a sensor template that multiplies the metered value per the charged unit amount).
 
-Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new entity will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
+Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new {% term entity %} will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
 
 <div class='note'>
-Sensors created with this integration are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor will be incomplete; a sensor tracking daily usage will start to be accurate the next day after the integration was activated. A sensor tracking monthly usage will present accurate data starting the first of the next month after being added to Home Assistant.
+Sensors created with this {% term integration %} are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor will be incomplete; a sensor tracking daily usage will start to be accurate the next day after the {% term integration %} was activated. A sensor tracking monthly usage will present accurate data starting the first of the next month after being added to Home Assistant.
 </div>
 
 {% include integrations/config_flow.md %}
@@ -59,15 +58,19 @@ Periodically resetting:
   description: >
     Enable this if the source sensor state is expected to reset to 0, for example, a smart plug that resets on boot.
     When this option is disabled (for example, if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and the last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
+Sensor always available:
+  description: >
+    If activated, the sensor will always be available with the last totalized value, even if the source entity is unavailable or unknown.
+    You need to understand that with this option activated, when the source entity becomes unavailable, the utility meter sensor will have the last totalized value and will not change until the source entity returns to a valid state.
 {% endconfiguration_basic %}
 
 If the meter reset cycle and reset offsets are to limited for your use case,
 consider using the YAML configuration below, which support CRON-style patterns
 that provide a greater flexibility.
 
-## YAML Configuration
+## YAML configuration
 
-Alternatively, this integration can be configured and set up manually via YAML
+Alternatively, this {% term integration %} can be configured and set up manually via YAML
 instead. To enable the Integration sensor in your installation, add the
 following to your `configuration.yaml` file:
 
@@ -126,6 +129,11 @@ periodically_resetting:
   required: false
   default: true
   type: boolean
+always_available:
+  description: If activated, the sensor will always be available with the last totalized value, even if the source entity is unavailable or unknown.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 <p class='note warning'>
@@ -163,7 +171,7 @@ Calibrate the Utility Meter. Change the value of a given sensor.
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 | `value` | no | Number | Value to calibrate the sensor with | 
 
-## Advanced Configuration
+## Advanced configuration
 
 The following configuration shows an example where 2 utility_meters (`daily_energy` and `monthly_energy`) track daily and monthly energy consumptions.
 
@@ -241,9 +249,9 @@ utility_meter:
     cron: "0 17 L * *"
 ```
 
-## Advanced Configuration for DSMR users
+## Advanced configuration for DSMR users
 
-When using the [DSMR integration](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` integration.
+When using the [DSMR integration](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` {% term integration %}.
 
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
 
@@ -251,7 +259,7 @@ If you want to create a daily and monthly sensor for each tariff, you have to tr
 - `sensor.energy_consumption_tarif_2` for tarif 2 power (for example peak)
 - `sensor.gas_consumption` for gas consumption
 
-So, tracking daily and monthly consumption for each sensor, will require setting up 6 entries under the `utility_meter` integration.
+So, tracking daily and monthly consumption for each sensor, will require setting up 6 entries under the `utility_meter` {% term integration %}.
 
 ```yaml
 utility_meter:

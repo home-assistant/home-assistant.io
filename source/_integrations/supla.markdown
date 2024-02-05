@@ -1,6 +1,6 @@
 ---
-title: Supla
-description: Instructions for integration with Supla Cloud's Web API
+title: SUPLA
+description: Instructions for integration with SUPLA-CLOUD's Web API
 ha_release: 0.92
 ha_category:
   - Cover
@@ -15,22 +15,25 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The [Supla](https://supla.org/) is an Open Source home automation system for ESP8266 based devices. It has its own set of protocols, its own firmware and commercially available devices (produced for example by [Zamel](https://zamel.pl/pl-PL/produkty/supla-sterowanie-wi-fi))
+The SUPLA integration allows you to use [SUPLA](https://supla.org/) devices in Home Assistant.
 
-Currently only covers (shutters in Supla's lingo), gates, garage doors and switches are supported, but, thanks to comprehensive and universal REST API, it's pretty easy to add more.
+SUPLA-DEV is an open source home automation system for Raspberry Pi, Arduino or ESP8266-based devices. It has its own protocols, firmware and commercially available devices, such as those produced by [Zamel](https://supla.zamel.com/en/).
 
-Right now it's impossible to add a device -- all of them are discovered from Supla Cloud's servers or yours.
-Devices disabled on Supla Cloud will not be loaded into Home Assistant.
+Currently, only covers (shutters in SUPLA's terminology), gates, garage doors, and switches are supported, but thanks to comprehensive and universal REST API, it's pretty easy to add more.
+
+Right now, it's impossible to add a device -- all of them are discovered from SUPLA-CLOUD's servers or yours.
+
+For more complete Home Assistant support based on MQTT autodiscovery, consider switching your Supla devices to MQTT (through the setup interface). Or use the MQTT broker provided by [Supla Cloud] (https://cloud.supla.org/integrations/mqtt-broker).
 
 ## Configuration
 
-To use Supla devices in your installation, add the following to your `configuration.yaml`:
+To use SUPLA devices in your installation, add the following to your `configuration.yaml`:
 
 ```yaml
 supla:
   servers:
-    - server: svr1.supla.org
-      access_token: YOUR_ACCESS_TOKEN
+    - server: "svr1.supla.org"
+      access_token: "YOUR_ACCESS_TOKEN"
 ```
 
 {% configuration %}
@@ -40,11 +43,11 @@ servers:
   type: list
   keys:
     server:
-      description: Address of your Supla Cloud server (either IP or DNS name)
+      description: Address of the SUPLA-CLOUD server (either IP address or DNS name); can either be the (cloud hosted)[https://cloud.supla.org] instance, or a (self hosted)[https://github.com/SUPLA/supla-cloud] instance.
       required: true
       type: string
     access_token:
-      description: An access token for REST API configuration. Can be acquired from `http[s]://your.server.org/integrations/tokens` (please add at least Channel's Read and Action Execution permissions).
+      description: An access token for REST API configuration. Under **Scopes** > **Channels**, at least the **Read** and **Action execution** permissions are required to be enabled. A token can be obtained from the Security section of SUPLA-CLOUD for [Personal Access Token](https://cloud.supla.org/security/personal-access-tokens) page, or from your own self hosted instance.
       required: true
       type: string
 {% endconfiguration %}

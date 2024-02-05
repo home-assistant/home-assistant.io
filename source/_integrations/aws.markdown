@@ -17,7 +17,7 @@ The `aws` integration provides a single place to interact with [Amazon Web Servi
 
 You have to have an AWS account to use Amazon Web Services, create one [here](https://aws.amazon.com/free/) with a 12 months free tier benefit. Please note, even in the first 12-months, you may still be billed if you use more resources than offered in the free tier. We advise you to monitor your costs in the [AWS Billing Console](https://console.aws.amazon.com/billing/) closely. You can read the [Control your AWS costs](https://aws.amazon.com/getting-started/hands-on/control-your-costs-free-tier-budgets/) guide for more information.
 
-The `lambda`, `sns`, `sqs`, and `events` services, used in the `aws` component, all provide an **Always Free** tier for all users even after the 12-month period. The general usage in Home Automation will most likely not reach the free tier limit. Please read [Lambda Pricing](https://aws.amazon.com/lambda/pricing/), [SNS Pricing](https://aws.amazon.com/sns/pricing/), [SQS Pricing](https://aws.amazon.com/sqs/pricing/), and [EventBridge Pricing](https://aws.amazon.com/eventbridge/pricing/) for more details.
+The `lambda`, `sns`, `sqs`, and `events` services, used in the `aws` integration, all provide an **Always Free** tier for all users even after the 12-month period. The general usage in Home Automation will most likely not reach the free tier limit. Please read [Lambda Pricing](https://aws.amazon.com/lambda/pricing/), [SNS Pricing](https://aws.amazon.com/sns/pricing/), [SQS Pricing](https://aws.amazon.com/sqs/pricing/), and [EventBridge Pricing](https://aws.amazon.com/eventbridge/pricing/) for more details.
 
 The `aws` integration is using [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) to communicate with Amazon Web Services, which is also used by the [AWS Command Client Interface](https://aws.amazon.com/cli/) tool. Therefore, `aws` shares the same credential and profiles with `awscli` tool. Please read [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) to learn how to get access keys and how to manage them on your local system securely.
 
@@ -102,7 +102,7 @@ context:
   type: string
 {% endconfiguration %}
 
-## Lambda Notify Usage
+## Lambda notify usage
 
 AWS Lambda is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will invoke a Lambda for all targets given in the notification payload. A target can be formatted as a function name, an entire ARN ([Amazon Resource Name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html)) or a partial ARN. For more information, please see the [botocore documentation](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke.html).
 
@@ -130,7 +130,7 @@ The context will look like this:
 }
 ```
 
-## SNS Notify Usage
+## SNS notify usage
 
 AWS SNS is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will publish a message to all targets given in the notification payload. A target must be a SNS topic or endpoint ARN ([Amazon Resource Name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html)). For more information, please see the [botocore documentation](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/sns/client/publish.html).
 
