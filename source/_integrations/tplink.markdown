@@ -123,6 +123,9 @@ Devices not listed below may work but if you encounter issues submit a bug repor
 - L900-10
 - L920
 
+#### Power Strips
+
+- P300
 
 ## Light strip effects
 

@@ -10,13 +10,17 @@ ha_codeowners:
   - '@OverloadUT'
   - '@mib1185'
   - '@edenhaus'
+ha_config_flow: true
 ha_domain: ecovacs
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - image
+  - number
   - select
   - sensor
+  - switch
   - vacuum
 ha_integration_type: integration
 ---
@@ -26,6 +30,8 @@ The `ecovacs` {% term integration %} is the main integration to integrate all [E
 {% include integrations/config_flow.md %}
 
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
+
+With `advanced_mode` enabled, users can use their self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. More information can be found in the [Bumper's documentation](https://bumper.readthedocs.io).
 
 ## Provided entities
 
@@ -37,14 +43,20 @@ Additionally, **depending on your model**, the integration provides the followin
 
 - **Binary sensor**: 
   - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
+- **Button**:
+  - `Reset lifespan`: For each supported component an button entity to reset the lifespan will be created. All disabled by default
+  - `Relocate`: Button entity to trigger manual relocation.
 - **Image**:
   - `Map`: The floorplan/map as an image in SVG format.
+- **Number**:
+  - `Clean count`: Set the number of times to clean the area.
+  - `Volume`: Set the volume.
 - **Select**:
   - `Water amount`: Specify the water amount used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean.
 - **Sensor**:
   - `Error`: The error code and a description of the error. `0` means no error. Disabled by default
-  - `Lifespan`: For each component an entity with the remaining lifespan will be created
+  - `Lifespan`: For each supported component an entity with the remaining lifespan will be created
   - `Network`: The following network related entities will be created. All disabled by default
     - `Ip address`
     - `Wi-Fi RSSI`
@@ -56,6 +68,11 @@ Additionally, **depending on your model**, the integration provides the followin
     - `Area`: Total cleaned area
     - `Cleanings`: The number of cleanings
     - `Time`: The total cleaning time
+- **Switch**:
+  - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.
+  - `Continuous cleaning`: Enable continuous cleaning, which means the bot resumes the cleaning job if he needs to charge in between. Disabled by default.
+  - `True detect`: Enable "True detect" feature. Disabled by default.
 
 ## Vacuum
 

@@ -143,6 +143,7 @@ Navigation:
 - BUTTON_B
 - BUTTON_X
 - BUTTON_Y
+- BACK
 
 Volume Control:
 - VOLUME_DOWN
@@ -208,6 +209,7 @@ Other:
 - SETTINGS
 - SEARCH
 - ASSIST
+- POWER
 
 {% enddetails %}
 
@@ -534,6 +536,7 @@ cards:
 - If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot send commands with this integration either.
 - Commands don't work on Netflix. They don't work from the Google TV mobile app or the Google Home mobile app either.
 - Some devices, like Xiaomi, become unavailable after they are turned off and can't be turned on with this integration.
+- Some devices, like TCL, become unavailable after they are turned off, unless you activate the **Screenless service**. To activate it, go to **Settings** > **System** > **Power and energy** > **Screenless service**, and activate it.
 - Some devices experience disconnects every 15 seconds. This is typically resolved by rebooting the Android TV device after the initial setup of the integration.
-- If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **settings** > **Apps** >  **Show system apps**. Then,  select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to pair again.
+- If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **Settings** > **Apps** > **Show system apps**. Then, select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to pair again.
 - Some onscreen keyboards enabled by TV manufacturers do not support concurrent virtual and onscreen keyboard use. This presents whenever a text field is selected, such as "search" where a constant **use the keyboard on your mobile device** will show, preventing you from opening the onscreen keyboard to type. This can be overcome by either disabling your 3rd party keyboard and using the default Gboard keyboard or by unselecting **Enable IME** in the **Configure** page of the integration.
