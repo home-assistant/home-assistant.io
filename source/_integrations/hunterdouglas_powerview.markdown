@@ -40,7 +40,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-## Hub Capabilities
+## Hub capabilities
 
 ### Generation 1 + 2
 
@@ -60,12 +60,12 @@ Calling the update entity service (`homeassistant.update_entity`) on a shade ent
 
 Generation 3 introduced RF Radio Pebble Remotes.
 
-Generation 3 shades report position changes back to the hub automatically and should not require any additional automations or considerations for positioning to appear correctly in Home Assistant.
+Generation 3 shades report position changes back to the hub automatically. They should appear correctly in Home Assistant without requiring any additional automations or considerations for positioning.
 
 ## Shades
 
 <div class="note">
-Your shades may still make work even if not listed. If you encounter issues please raise a feature request on the community forum.
+Your shades may still make work even if not listed. If you encounter issues, please raise a feature request on the community forum.
 </div>
 
 | Name (Type)                               | Capabilities                    |
