@@ -25,11 +25,16 @@ If you have not set up voice control yet, set up the hardware first. For instruc
    - Do not use punctuation.
    - You can add multiple sentences. They will then all trigger that automation.
    ![Add a custom sentence](/images/assist/sentence_trigger_01.png)
-4. To test the automation, go to **Overview** and in the top right corner, open Assist.
+4. To add a custom response, select **Add action**. Scroll all the way down and select **Other actions**.
+   - Then, select **Set conversation response**.
+     ![Set conversation response](/images/assist/assist_set-conversation-response.png)
+5. In the text field, enter the response you want to hear from Assist and select **Save**.
+   ![Enter the response text](/images/assist/assist_set-conversation-response_02.png)
+6. To test the automation, go to **Overview** and in the top right corner, open Assist.
    - Enter one of the sentences.
-5. If it did not work out, checkout the [troubleshooting](/voice_control/troubleshooting/) section.
+7. If it did not work out, checkout the [troubleshooting](/voice_control/troubleshooting/) section.
    - One of the causes could be that the device you're targeting has not been exposed to Assist.
-6. Pick up your voice control device and speak the custom sentence.
+8. Pick up your voice control device and speak the custom sentence.
    - Your automation should now be triggered.
 
 ## Setting up custom sentences in configuration.yaml
