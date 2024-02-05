@@ -76,7 +76,7 @@ Image taken from [this excellent article by The Verge](https://www.theverge.com/
 
 ## Supported installation types
 
-It is recommended to run the Matter add-on on Home Assistant OS. This is currently the best-supported option.
+It is recommended to run the Matter add-on on Home Assistant OS. This is currently the only supported option. Other installation types are without support and at your own risk.
 
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
 
