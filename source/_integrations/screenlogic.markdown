@@ -60,9 +60,9 @@ Begins super chlorination, running for the specified period or 24 hours if none 
 
 Stops super chlorination.
 
-| Service data attribute | Optional | Description                                                                                                                                                       |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `target`               | no       | An `area` containing the ScreenLogic device, the ScreenLogic `device` itself, or any `entity` from the ScreenLogic device you wish to stop super chlorination on. |
+| Service data attribute | Optional | Description                                                                          |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------ |
+| `config_entry`         | no       | Integration entry_id of the ScreenLogic instance you wish to stop super chlorination on. |
 
 ## Reference
 
