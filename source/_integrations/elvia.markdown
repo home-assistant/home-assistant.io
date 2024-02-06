@@ -13,7 +13,7 @@ ha_integration_type: integration
 ---
 
 The Elvia integration will import your historical grid consumption.
-You can use the Elvia integration, regardless of which provider you are subscribed to, as long as Elvia operates the grid. If you are unsure, this can work for you. Login to [Min side](https://www.elvia.no/logg-inn/). If you see a meter there, you can use it.
+You can use the Elvia integration, regardless of which provider you are subscribed to, as long as Elvia operates the grid. If you are unsure if this works for you, log in to [Min side](https://www.elvia.no/logg-inn/) and check. If you see a meter there, you can use it.
 
 The imported data can be used in the [Energy dashboard](/docs/energy/) and with the [statistics-graph card](/dashboards/statistics-graph/).
 
