@@ -52,7 +52,7 @@ For example, your calendar named *Personal* is created as entity `calendar.perso
 
 ## Calendar event automations
 
-Individual Calendar *Events* are what powering automations such as:
+Individual Calendar *Events* are what is powering automations such as:
 
 - Turn on a light at the *start* of the event named *Front Yard Light*
 - Send a notification *5 minutes before the start of any event*

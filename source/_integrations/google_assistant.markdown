@@ -271,7 +271,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - alarm_control_panel (arm/disarm)
 - button (scene)
 - camera (streaming, requires compatible camera)
-- climate (temperature setting, hvac_mode)
+- climate (on/off, temperature setting, hvac_mode)
 - cover (on/off/set position/stop/start=toggle cover)
 - event (only entities with device class `doorbell` are supported)
 - fan (on/off/speed percentage/preset mode)

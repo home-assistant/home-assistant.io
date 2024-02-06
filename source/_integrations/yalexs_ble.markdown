@@ -37,6 +37,7 @@ Devices must have a Yale Access module installed to function with this {% term i
 - YRD420 (Yale Assure Lock 2)
 - YRD450 (Yale Assure Lock 2 Key Free)
 - YUR/SSDL/1/SIL (Yale Unity Screen Door Lock - Australia)
+- YUR/DEL/1/SIL (Yale Unity Entrance Lock - Australia)
 - IES-D210W-G0 (Yale Smart Safe)
 - YRSM-1 (Yale Smart Safe)
 - ASL-05 (August WiFi Smart Lock - Gen 4)

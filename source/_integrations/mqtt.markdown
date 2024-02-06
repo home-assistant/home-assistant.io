@@ -79,9 +79,7 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 3. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
-
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
-
 </div>
 
 ### Advanced broker configuration
@@ -298,16 +296,16 @@ support_url:
     'act_tpl':             'action_template',
     'atype':               'automation_type',
     'aux_cmd_t':           'aux_command_topic',
-    'aux_stat_tpl':        'aux_state_template',
     'aux_stat_t':          'aux_state_topic',
+    'aux_stat_tpl':        'aux_state_template',
     'av_tones':            'available_tones',
     'avty':                'availability',
     'avty_mode':           'availability_mode',
     'avty_t':              'availability_topic',
     'avty_tpl':            'availability_template',
     'away_mode_cmd_t':     'away_mode_command_topic',
-    'away_mode_stat_tpl':  'away_mode_state_template',
     'away_mode_stat_t':    'away_mode_state_topic',
+    'away_mode_stat_tpl':  'away_mode_state_template',
     'b_tpl':               'blue_template',
     'bri_cmd_t':           'brightness_command_topic',
     'bri_cmd_tpl':         'brightness_command_template',
@@ -344,6 +342,7 @@ support_url:
     'ent_cat':             'entity_category',
     'ent_pic':             'entity_picture',
     'evt_typ':             'event_types',
+    'exp_aft':             'expire_after',
     'fanspd_lst':          'fan_speed_list',
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
@@ -353,11 +352,10 @@ support_url:
     'fx_stat_t':           'effect_state_topic',
     'fx_tpl':              'effect_template',
     'fx_val_tpl':          'effect_value_template',
-    'exp_aft':             'expire_after',
-    'fan_mode_cmd_tpl':    'fan_mode_command_template',
     'fan_mode_cmd_t':      'fan_mode_command_topic',
-    'fan_mode_stat_tpl':   'fan_mode_state_template',
+    'fan_mode_cmd_tpl':    'fan_mode_command_template',
     'fan_mode_stat_t':     'fan_mode_state_topic',
+    'fan_mode_stat_tpl':   'fan_mode_state_template',
     'frc_upd':             'force_update',
     'g_tpl':               'green_template',
     'hs_cmd_t':            'hs_command_topic',
@@ -380,18 +378,18 @@ support_url:
     'lrst_t':              'last_reset_topic',
     'lrst_val_tpl':        'last_reset_value_template',
     'max':                 'max',
-    'min':                 'min',
-    'max_mirs':            'max_mireds',
-    'min_mirs':            'min_mireds',
-    'max_temp':            'max_temp',
-    'min_temp':            'min_temp',
     'max_hum':             'max_humidity',
+    'max_mirs':            'max_mireds',
+    'max_temp':            'max_temp',
+    'min':                 'min',
     'min_hum':             'min_humidity',
+    'min_mirs':            'min_mireds',
+    'min_temp':            'min_temp',
     'mode':                'mode',
-    'mode_cmd_tpl':        'mode_command_template',
     'mode_cmd_t':          'mode_command_topic',
-    'mode_stat_tpl':       'mode_state_template',
+    'mode_cmd_tpl':        'mode_command_template',
     'mode_stat_t':         'mode_state_topic',
+    'mode_stat_tpl':       'mode_state_template',
     'modes':               'modes',
     'name':                'name',
     'o':                   'origin',
@@ -408,25 +406,22 @@ support_url:
     'pct_cmd_tpl':         'percentage_command_template',
     'pct_stat_t':          'percentage_state_topic',
     'pct_val_tpl':         'percentage_value_template',
-    'ptrn':                'pattern',
     'pl':                  'payload',
     'pl_arm_away':         'payload_arm_away',
-    'pl_arm_home':         'payload_arm_home',
     'pl_arm_custom_b':     'payload_arm_custom_bypass',
+    'pl_arm_home':         'payload_arm_home',
     'pl_arm_nite':         'payload_arm_night',
     'pl_arm_vacation':     'payload_arm_vacation',
-    'pl_prs':              'payload_press',
-    'pl_rst':              'payload_reset',
     'pl_avail':            'payload_available',
     'pl_cln_sp':           'payload_clean_spot',
     'pl_cls':              'payload_close',
-    'pl_disarm':           'payload_disarm',
     'pl_dir_fwd':          'payload_direction_forward',
     'pl_dir_rev':          'payload_direction_reverse',
+    'pl_disarm':           'payload_disarm',
     'pl_home':             'payload_home',
     'pl_inst':             'payload_install',
-    'pl_lock':             'payload_lock',
     'pl_loc':              'payload_locate',
+    'pl_lock':             'payload_lock',
     'pl_not_avail':        'payload_not_available',
     'pl_not_home':         'payload_not_home',
     'pl_off':              'payload_off',
@@ -437,11 +432,16 @@ support_url:
     'pl_paus':             'payload_pause',
     'pl_stop':             'payload_stop',
     'pl_strt':             'payload_start',
+    'pl_prs':              'payload_press',
     'pl_ret':              'payload_return_to_base',
+    'pl_rst':              'payload_reset',
     'pl_rst_hum':          'payload_reset_humidity',
     'pl_rst_mode':         'payload_reset_mode',
     'pl_rst_pct':          'payload_reset_percentage',
     'pl_rst_pr_mode':      'payload_reset_preset_mode',
+    'pl_stop':             'payload_stop',
+    'pl_stpa':             'payload_start_pause',
+    'pl_strt':             'payload_start',
     'pl_toff':             'payload_turn_off',
     'pl_ton':              'payload_turn_on',
     'pl_trig':             'payload_trigger',
@@ -454,6 +454,7 @@ support_url:
     'pr_mode_stat_t':      'preset_mode_state_topic',
     'pr_mode_val_tpl':     'preset_mode_value_template',
     'pr_modes':            'preset_modes',
+    'ptrn':                'pattern',
     'r_tpl':               'red_template',
     'rel_s':               'release_summary',
     'rel_u':               'release_url',
@@ -473,26 +474,26 @@ support_url:
     'send_cmd_t':          'send_command_topic',
     'send_if_off':         'send_if_off',
     'set_fan_spd_t':       'set_fan_speed_topic',
-    'set_pos_tpl':         'set_position_template',
     'set_pos_t':           'set_position_topic',
+    'set_pos_tpl':         'set_position_template',
     'pos_t':               'position_topic',
     'pos_tpl':             'position_template',
     'spd_rng_min':         'speed_range_min',
     'spd_rng_max':         'speed_range_max',
     'src_type':            'source_type',
     'stat_cla':            'state_class',
-    'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',
+    'stat_clsd':           'state_closed',
     'stat_jam':            'state_jammed',
+    'stat_locked':         'state_locked',
+    'stat_locking':        'state_locking',
     'stat_off':            'state_off',
     'stat_on':             'state_on',
     'stat_open':           'state_open',
     'stat_opening':        'state_opening',
     'stat_stopped':        'state_stopped',
-    'stat_locked':         'state_locked',
-    'stat_locking':         'state_locking',
     'stat_unlocked':       'state_unlocked',
-    'stat_unlocking':       'state_unlocking',
+    'stat_unlocking':      'state_unlocking',
     'stat_t':              'state_topic',
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
@@ -503,22 +504,23 @@ support_url:
     'sup_dur':             'support_duration',
     'sup_vol':             'support_volume_set',
     'sup_feat':            'supported_features',
-    'swing_mode_cmd_tpl':  'swing_mode_command_template',
     'swing_mode_cmd_t':    'swing_mode_command_topic',
-    'swing_mode_stat_tpl': 'swing_mode_state_template',
+    'swing_mode_cmd_tpl':  'swing_mode_command_template',
     'swing_mode_stat_t':   'swing_mode_state_topic',
-    'temp_cmd_tpl':        'temperature_command_template',
+    'swing_mode_stat_tpl': 'swing_mode_state_template',
+    't':                   'topic',
     'temp_cmd_t':          'temperature_command_topic',
-    'temp_hi_cmd_tpl':     'temperature_high_command_template',
+    'temp_cmd_tpl':        'temperature_command_template',
     'temp_hi_cmd_t':       'temperature_high_command_topic',
-    'temp_hi_stat_tpl':    'temperature_high_state_template',
+    'temp_hi_cmd_tpl':     'temperature_high_command_template',
     'temp_hi_stat_t':      'temperature_high_state_topic',
-    'temp_lo_cmd_tpl':     'temperature_low_command_template',
+    'temp_hi_stat_tpl':    'temperature_high_state_template',
     'temp_lo_cmd_t':       'temperature_low_command_topic',
-    'temp_lo_stat_tpl':    'temperature_low_state_template',
+    'temp_lo_cmd_tpl':     'temperature_low_command_template',
     'temp_lo_stat_t':      'temperature_low_state_topic',
-    'temp_stat_tpl':       'temperature_state_template',
+    'temp_lo_stat_tpl':    'temperature_low_state_template',
     'temp_stat_t':         'temperature_state_topic',
+    'temp_stat_tpl':       'temperature_state_template',
     'temp_unit':           'temperature_unit',
     'tilt_clsd_val':       'tilt_closed_value',
     'tilt_cmd_t':          'tilt_command_topic',
@@ -530,7 +532,6 @@ support_url:
     'tilt_status_t':       'tilt_status_topic',
     'tilt_status_tpl':     'tilt_status_template',
     'tit':                 'title',
-    't':                   'topic',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
     'url_t':               'url_topic',
@@ -557,6 +558,7 @@ support_url:
     'hw':                  'hw_version',
     'sw':                  'sw_version',
     'sa':                  'suggested_area',
+    'sn':                  'serial_number',
 ```
 {% enddetails %}
 {% details "Supported abbreviations for origin info" %}
@@ -681,7 +683,7 @@ The following software has built-in support for MQTT discovery:
 - [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
-- [MyElectricalData](https://github.com/MyElectricalData/myelectricaldata#english)
+- [MyElectricalData](https://github.com/MyElectricalData/myelectricaldata_import#english)
 - [Nuki Hub](https://github.com/technyon/nuki_hub)
 - [Nuki Smart Lock 3.0 Pro](https://support.nuki.io/hc/articles/12947926779409-MQTT-support), [more info](https://developer.nuki.io/t/mqtt-api-specification-v1-3/17626)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
@@ -707,7 +709,8 @@ A motion detection device which can be represented by a [binary sensor](/integra
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
-- Configuration payload with derived device name:  
+- Configuration payload with derived device name:
+
 ```json
 {
    "name":null,
@@ -722,11 +725,13 @@ A motion detection device which can be represented by a [binary sensor](/integra
    }
 }
 ```
+
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together. We can set "name" to `null` if we want to inherit the device name for the entity. If we set an entity name, the `friendly_name` will be a combination of the device and entity name. If `name` is left away and a `device_class` is set, the entity name part will be derived from the `device_class`.
 
 - Example configuration payload with no name set and derived `device_class` name:
+
 ```json
 {
    "name":null,
@@ -769,7 +774,8 @@ For more details please refer to the [MQTT testing section](/integrations/mqtt/#
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
 - Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: 
+- Configuration payload no1:
+
 ```json
 {
    "device_class":"temperature",
@@ -779,14 +785,23 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
    "unique_id":"temp01ae",
    "device":{
       "identifiers":[
-         "bedroom01ae"
+          "bedroom01ae"
       ],
-      "name":"Bedroom"
+      "name":"Bedroom",
+      "manufacturer": "Example sensors Ltd.",
+      "model": "K9",
+      "serial_number": "12AE3010545",
+      "hw_version": "1.01a",
+      "sw_version": "2024.1.0",
+      "configuration_url": "https://example.com/sensor_portal/config"
    }
 }
+
 ```
+
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: 
+- Configuration payload no2:
+
 ```json
 {
    "device_class":"humidity",
@@ -797,12 +812,19 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
    "device":{
       "identifiers":[
          "bedroom01ae"
-      ],
-      "name":"Bedroom"
+      ]
    }
 }
 ```
-- Common state payload: 
+
+The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows to set up multiple entities that share the same device.
+
+<p class='note info'>
+If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.
+</p>
+
+A common state payload that can be parsed with the `value_template` in the sensor configs:
+
 ```json
 {
    "temperature":23.20,
@@ -818,6 +840,7 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
 - Payload:  
+
 ```json
 {
    "name":"Irrigation",
@@ -832,6 +855,7 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
    }
 }
 ```
+
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 ```bash
@@ -852,7 +876,8 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - Command topic: `homeassistant/switch/irrigation/set`
 - State topic: `homeassistant/switch/irrigation/state`
-- Configuration payload: 
+- Configuration payload:
+
 ```json
 {
    "~":"homeassistant/switch/irrigation",
@@ -900,6 +925,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "mf": "Bla electronics",
       "mdl": "xya",
       "sw": "1.0",
+      "sn": "ea334450945afc",
       "hw": "1.0rev2",
     },
     "o": {

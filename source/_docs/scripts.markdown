@@ -914,6 +914,36 @@ script:
           entity_id: light.ceiling
 ```
 
+## Respond to a conversation
+
+The `set_conversation_response` script action allows returning a custom response
+when an automation is triggered by a conversation engine, for example a voice
+assistant. The conversation response can be templated.
+
+{% raw %}
+
+```yaml
+# Example of a templated conversation response resulting in "Testing 123"
+- variables:
+    my_var: "123"
+- set_conversation_response: "{{ 'Testing ' + my_var }}":
+```
+
+{% endraw %}
+
+The response is handed to the conversation engine when the automation finishes. If
+the `set_conversation_response` is executed multiple times, the most recent
+response will be handed to the conversation engine. To clear the response, set it
+to `None`:
+
+```yaml
+# Example of a clearing a conversation response
+set_conversation_response: ~
+```
+
+If the automation was not triggered by a conversation engine, the response
+will not be used by anything.
+
 [Script integration]: /integrations/script/
 [automations]: /docs/automation/action/
 [Alexa/Amazon Echo]: /integrations/alexa/

@@ -26,6 +26,7 @@ source/_integrations/airq.markdown @Sibgatulin @dl2080
 source/_integrations/airthings.markdown @danielhiversen
 source/_integrations/airthings_ble.markdown @vincegio @LaStrada
 source/_integrations/airtouch4.markdown @samsinnamon
+source/_integrations/airtouch5.markdown @danzel
 source/_integrations/airvisual.markdown @bachya
 source/_integrations/airvisual_pro.markdown @bachya
 source/_integrations/airzone.markdown @Noltari
@@ -337,6 +338,7 @@ source/_integrations/huisbaasje.markdown @dennisschroer
 source/_integrations/humidifier.markdown @home-assistant/core @Shulyaka
 source/_integrations/hunterdouglas_powerview.markdown @bdraco @kingy444 @trullock
 source/_integrations/hurrican_shutters_wholesale.markdown @starkillerOG
+source/_integrations/huum.markdown @frwickst
 source/_integrations/hvv_departures.markdown @vigonotion
 source/_integrations/hydrawise.markdown @dknowles2 @ptcryan
 source/_integrations/hyperion.markdown @dermotduffy
@@ -382,7 +384,7 @@ source/_integrations/jellyfin.markdown @j-stienstra @ctalkington
 source/_integrations/jewish_calendar.markdown @tsvi
 source/_integrations/juicenet.markdown @jesserockz
 source/_integrations/justnimbus.markdown @kvanzuijlen
-source/_integrations/jvc_projector.markdown @SteveEasley
+source/_integrations/jvc_projector.markdown @SteveEasley @msavazzi
 source/_integrations/kaiterra.markdown @Michsior14
 source/_integrations/kaleidescape.markdown @SteveEasley
 source/_integrations/keba.markdown @dannerph

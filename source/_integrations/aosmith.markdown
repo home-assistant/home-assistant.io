@@ -21,9 +21,15 @@ Before using this integration, your water heater must be connected to a Wi-Fi ne
 
 ## Known compatible models
 
-- [HPTS-50](https://www.hotwater.com/products/HPTS-50-SG200.html)
-- [HPTS-66](https://www.hotwater.com/products/HPTS-66-SG200.html)
-- [HPTS-80](https://www.hotwater.com/products/HPTS-80-SG200.html)
+- HPS10-50H45DV
+- HPS10-66H45DV
+- HPS10-80H45DV
+- HPTS-50
+- HPTS-66
+- HPTS-80
+- HPV10-50H01DV
+- HPV10-66H01DV
+- HPV10-80H01DV
 
 Water heaters that can be controlled using the A. O. Smith mobile app should be compatible with this integration. If your water heater is not detected by the integration, but it can be controlled using the mobile app, please [open an issue on GitHub](https://github.com/home-assistant/core/issues/new?template=bug_report.yml&integration_name=A.%20O.%20Smith&integration_link=https%3A%2F%2Fwww.home-assistant.io%2Fintegrations%2Faosmith) so that support can be added. Similarly, if your water heater is working with this integration, but its model number is not listed here, please [open an documentation issue](https://github.com/home-assistant/home-assistant.io/issues/new?template=feedback.yml&url=https%3A%2F%2Fwww.home-assistant.io%2Fintegrations%2Faosmith) so it can be added to the list.
 
@@ -37,6 +43,17 @@ The water heater entity offers the following capabilities:
 - Adjust target temperature
 - Change operation mode
 - Enable/disable away mode (will set the water heater to "vacation" mode)
+
+#### Operation modes
+
+This table shows the supported operation modes. The available modes will depend on your specific water heater model.
+
+| Mode displayed in A. O. Smith app  | Mode displayed in Home Assistant | Mode name for `water_heater.set_operation_mode` service |
+| ---------------------------------- | -------------------------------- | ------------------------------------------------------- |
+| Electric/Standard                  | Electric                         | `electric`                                              |
+| Hybrid                             | Eco                              | `eco`                                                   |
+| Heat Pump                          | Heat Pump                        | `heat_pump`                                             |
+| Vacation                           | N/A - use away mode              | N/A - use `water_heater.set_away_mode`                  |
 
 ### Sensor
 
