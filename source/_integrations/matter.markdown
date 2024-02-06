@@ -255,6 +255,19 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
    - For example, if you shared it with Google Home, it lists **Google LLC**.
      ![image](/images/integrations/matter/matter_share-device-with-other-platform.png)
 
+## Removing a device from a network
+
+Follow these steps if you want to remove a device from a particular network.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+2. From the list of devices, select the device you want to remove from a network.
+3. In the **Device info** section, next to **Share device**, select the three dot menu. Then, select **Manage fabrics**.
+4. From the list, remove the network of interest. 
+   - If you want to remove Apple Home, also remove the Apple Keychain entry.
+   ![image](/images/integrations/matter/matter-remove-from-network.png)
+
+
+
 ## Experiment with Matter using a ESP32 dev board
 
 You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lighting app.
