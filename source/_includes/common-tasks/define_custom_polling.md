@@ -1,6 +1,13 @@
 
 
-If you want to define a specific interval at which your device is being polled for data, you can disable the default polling interval and create your own polling service.
+If you want to define a specific interval at which your device is being polled for data, you can disable the default polling interval and create your own polling automation.
+
+The reason why we chose this approach is because this gives you way more flexibility on when to poll.
+
+1. This already works with most of the integrations. Since changing polling interval is something that could be a use case for ever integration, it makes sense to pick an approach that works for every integration without having to add support for every individual integrations.
+2. You can poll whenever you want. With this approach you can make your polling smarter and more efficient. For example, if you have a rate limited solar panel provider with a max amount of requests per day. It might make sense to lower/stop the polling at night so you can poll more when it actually makes sense.
+
+To add the automation:
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}, and select your integration.
 2. On the integration entry, select the three dots.
