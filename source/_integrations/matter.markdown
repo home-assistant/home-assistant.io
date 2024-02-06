@@ -269,6 +269,7 @@ The device information section provides some networking information of a device.
 This section provides a bit more information on some of the categories:
 
 **Network type**: Shows which network type the device belongs to. For example, Thread or Wi-Fi.
+
 **Device type**: There are 4 device types:
 
 - **End device**: End device that always keeps it radio on. Typically these devices are not battery-powered.
@@ -277,6 +278,7 @@ This section provides a bit more information on some of the categories:
 - **Bridge**
 
 **Network name**: Name of the network the device joined when it was first commissioned first.
+
 **IP addresses**: For Thread networks, typically more than one IPv6 address is shown: link local, unique local, and global unicast. Sometimes, no IPv6 address is shown.
 
 ## Experiment with Matter using a ESP32 dev board
