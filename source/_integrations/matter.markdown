@@ -257,7 +257,7 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
 
 ## Removing a device from a network
 
-Follow these steps if you want to remove a device from a particular network.
+Follow these steps if you want to remove a device from a particular Matter controller.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
 2. From the list of devices, select the device you want to remove from a network.
