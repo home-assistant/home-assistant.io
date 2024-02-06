@@ -255,6 +255,26 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
    - For example, if you shared it with Google Home, it lists **Google LLC**.
      ![image](/images/integrations/matter/matter_share-device-with-other-platform.png)
 
+## About Matter device information
+
+The device information section provides some networking information of a device. For devices that are behind a bridge, this information is not available.
+
+1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+2. From the list of devices, select the device you want to look at.
+
+![image](/images/integrations/matter/matter_thread_infographic.png)
+
+**Network type**: Shows which network type the device belongs to.
+**Device type**: There are 4 device types:
+
+- End device: End device that always keeps it radio on. Typically these devices are not battery-powered.
+- Sleepy end device: non-routing end device. Normally disabled, wakes on occasion to poll for messages from its parent. Typically battery-powered.
+- Routing end device: End device that always keeps it radio on and can route traffic for other, non-routing end devices.
+- Bridge
+
+**Network name**: Name of the network which the device joined when it was commissioned first.
+**IP addresses**: For Thread networks, typically more than one IPv6 address is shown: link local, unique local, and global unicast. Sometimes, no IPv6 address is shown.
+
 ## Experiment with Matter using a ESP32 dev board
 
 You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lighting app.
