@@ -16,7 +16,7 @@ Templating is a powerful feature that allows you to control information going in
 
 ## Building templates
 
-Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.com/p/jinja) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. Jinja2 supports a wide variety of operations:
+Templating in Home Assistant is based on a modified [Jinja2](https://palletsprojects.com/p/jinja) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. Jinja2 supports a wide variety of operations:
 
 - [Mathematical operation](https://jinja.palletsprojects.com/en/latest/templates/#math)
 - [Comparisons](https://jinja.palletsprojects.com/en/latest/templates/#comparisons)
