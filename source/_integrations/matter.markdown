@@ -262,15 +262,19 @@ The device information section provides some networking information of a device.
 1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
 2. From the list of devices, select the device you want to look at.
 
-![image](/images/integrations/matter/matter_device-info.png)
+<p class='img'>
+<img src='/images/integrations/matter/matter_device-info.png' alt='Matter device information'>
+</p>
 
-**Network type**: Shows which network type the device belongs to.
+This section provides a bit more information on some of the categories:
+
+**Network type**: Shows which network type the device belongs to. For example, Thread or Wi-Fi.
 **Device type**: There are 4 device types:
 
-- End device: End device that always keeps it radio on. Typically these devices are not battery-powered.
-- Sleepy end device: non-routing end device. Normally disabled, wakes on occasion to poll for messages from its parent. Typically battery-powered.
-- Routing end device: End device that always keeps it radio on and can route traffic for other, non-routing end devices.
-- Bridge
+- **End device**: End device that always keeps it radio on. Typically these devices are not battery-powered.
+- **Sleepy end device**: non-routing end device. Normally disabled, wakes on occasion to poll for messages from its parent. Typically battery-powered.
+- **Routing end device**: End device that always keeps it radio on and can route traffic for other, non-routing end devices.
+- **Bridge**
 
 **Network name**: Name of the network the device joined when it was first commissioned first.
 **IP addresses**: For Thread networks, typically more than one IPv6 address is shown: link local, unique local, and global unicast. Sometimes, no IPv6 address is shown.
