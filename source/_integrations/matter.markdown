@@ -257,7 +257,7 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
 
 ## About Matter device information
 
-The device information section provides some networking information of a device. For devices that are behind a bridge, this information is not available.
+The device information section provides some diagnostic information of a device.
 
 1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
 2. From the list of devices, select the device you want to look at.
