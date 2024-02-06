@@ -262,7 +262,7 @@ The device information section provides some networking information of a device.
 1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
 2. From the list of devices, select the device you want to look at.
 
-![image](/images/integrations/matter/matter_thread_infographic.png)
+![image](/images/integrations/matter/matter_device-info.png)
 
 **Network type**: Shows which network type the device belongs to.
 **Device type**: There are 4 device types:
