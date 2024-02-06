@@ -272,7 +272,7 @@ The device information section provides some networking information of a device.
 - Routing end device: End device that always keeps it radio on and can route traffic for other, non-routing end devices.
 - Bridge
 
-**Network name**: Name of the network which the device joined when it was commissioned first.
+**Network name**: Name of the network the device joined when it was first commissioned first.
 **IP addresses**: For Thread networks, typically more than one IPv6 address is shown: link local, unique local, and global unicast. Sometimes, no IPv6 address is shown.
 
 ## Experiment with Matter using a ESP32 dev board
