@@ -22,9 +22,17 @@ Before using this integration, your water heater must be connected to a Wi-Fi ne
 
 ## Known compatible models
 
+- EE9-40R55DV
+- EE9-40H55DV
+- EE9-50R55DV
+- EE9-50H55DV
+- EE12-50R55DVF
+- EE12-50H55DVF
+- EE12-55H55DVF
 - HPS10-50H45DV
 - HPS10-66H45DV
 - HPS10-80H45DV
+- HPSX-50-DHPT
 - HPTS-50
 - HPTS-66
 - HPTS-80
