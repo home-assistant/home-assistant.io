@@ -273,13 +273,13 @@ This section provides a bit more information on some of the categories:
 **Device type**: There are 4 device types:
 
 - **End device**: End device that always keeps it radio on. Typically these devices are not battery-powered.
-- **Sleepy end device**: non-routing end device. Normally disabled, wakes on occasion to poll for messages from its parent. Typically battery-powered.
-- **Routing end device**: End device that always keeps it radio on and can route traffic for other, non-routing end devices.
+- **Sleepy end device**: non-routing end device. Normally sleeping, wakes on occasion to check for messages. Typically battery-powered.
+- **Routing end device**: End device that always keeps its radio on and can route traffic for other, routing and non-routing end devices.
 - **Bridge**
 
-**Network name**: Name of the network the device joined when it was first commissioned first.
+**Network name**: Name of the network the device joined when it was commissioned.
 
-**IP addresses**: For Thread networks, typically more than one IPv6 address is shown: link local, unique local, and global unicast. Sometimes, no IPv6 address is shown.
+**IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
 
 ## Experiment with Matter using a ESP32 dev board
 
