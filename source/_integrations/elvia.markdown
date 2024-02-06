@@ -37,7 +37,7 @@ The first time it runs, the data for the past three years will be imported.
 
 The integration is scheduled to be updated hourly, so there will be some delay when you see the updated data inside Home Assistant compared to [Min side](https://www.elvia.no/logg-inn/) and Elvia's mobile apps.
 
-If you are after instant monitoring of your consumption, you would have to use another integration, like [Tibber](/integrations/tibber/).
+If you are interested in real-time monitoring, this integration is not for you. In this case, you need to use a real-time metering integration like [Tibber](/integrations/tibber/).
 
 ## Multiple meters for a single API token
 
