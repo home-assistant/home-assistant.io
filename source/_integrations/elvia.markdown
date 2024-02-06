@@ -35,7 +35,7 @@ To use this integration, you need to create an API token.
 The integration will fetch new data every hour.
 The first time it runs, the data for the past three years will be imported.
 
-The consumption data shown on [Min side](https://www.elvia.no/logg-inn/) and in Elvia's app is the same as this integration will use. And until the data is updated in those dashboards (which happens once every hour), the data will not be available in Home Assistant.
+The integration is scheduled to be updated hourly, so there will be some delay when you see the updated data inside Home Assistant compared to [Min side](https://www.elvia.no/logg-inn/) and Elvia's mobile apps.
 
 If you are after instant monitoring of your consumption, you would have to use another integration, like [Tibber](/integrations/tibber/).
 
