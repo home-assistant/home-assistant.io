@@ -272,7 +272,7 @@ This section provides a bit more information on some of the categories:
 
 **Device type**: There are 4 device types:
 
-- **End device**: End device that always keeps it radio on. Typically these devices are not battery-powered.
+- **End device**: End device that always keeps its radio on. Typically these devices are not battery-powered.
 - **Sleepy end device**: non-routing end device. Normally sleeping, wakes on occasion to check for messages. Typically battery-powered.
 - **Routing end device**: End device that always keeps its radio on and can route traffic for other, routing and non-routing end devices.
 - **Bridge**
