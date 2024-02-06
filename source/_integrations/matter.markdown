@@ -255,6 +255,7 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
    - For example, if you shared it with Google Home, it lists **Google LLC**.
      ![image](/images/integrations/matter/matter_share-device-with-other-platform.png)
 
+
 ## Removing a device from a Matter controller
 
 Follow these steps if you want to remove a device from a particular Matter controller.
@@ -266,6 +267,33 @@ Follow these steps if you want to remove a device from a particular Matter contr
    - If you want to remove Apple Home, also remove the Apple Keychain entry.
    ![image](/images/integrations/matter/matter-remove-from-network.png)
 5. If you want to remove the device from Home Assistant, select the three-dot menu and select **Delete**.
+
+## About Matter device information
+
+The device information section provides some diagnostic information of a device.
+
+1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+2. From the list of devices, select the device you want to look at.
+
+<p class='img'>
+<img src='/images/integrations/matter/matter_device-info.png' alt='Matter device information'>
+</p>
+
+This section provides a bit more information on some of the categories:
+
+**Network type**: Shows which network type the device belongs to. For example, Thread or Wi-Fi.
+
+**Device type**: There are 4 device types:
+
+- **End device**: End device that always keeps its radio on. Typically these devices are not battery-powered.
+- **Sleepy end device**: non-routing end device. Normally sleeping, wakes on occasion to check for messages. Typically battery-powered.
+- **Routing end device**: End device that always keeps its radio on and can route traffic for other, routing and non-routing end devices.
+- **Bridge**
+
+**Network name**: Name of the network the device joined when it was commissioned.
+
+**IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
+
 
 ## Experiment with Matter using a ESP32 dev board
 
