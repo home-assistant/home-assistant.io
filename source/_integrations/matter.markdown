@@ -240,7 +240,7 @@ In some cases, bridging devices into Home Assistant via Matter might not bring y
 
 <lite-youtube videoid="rEugjMk-4II" videoStartAt="4192" videotitle="Bridge a Matter device to Home Assistant"></lite-youtube>
 
-## Sharing a device from Home Assistant with another platform
+## Sharing a device across platforms
 
 Follow these steps if you have added a Matter device to Home Assistant and you want to make it available in an other platform, such as Google Home or Apple Home.
 
