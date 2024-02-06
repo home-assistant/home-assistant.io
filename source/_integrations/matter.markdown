@@ -261,6 +261,32 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
    - For example, if you shared it with Google Home, it lists **Google LLC**.
      ![image](/images/integrations/matter/matter_share-device-with-other-platform.png)
 
+## About Matter device information
+
+The device information section provides some diagnostic information of a device.
+
+1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+2. From the list of devices, select the device you want to look at.
+
+<p class='img'>
+<img src='/images/integrations/matter/matter_device-info.png' alt='Matter device information'>
+</p>
+
+This section provides a bit more information on some of the categories:
+
+**Network type**: Shows which network type the device belongs to. For example, Thread or Wi-Fi.
+
+**Device type**: There are 4 device types:
+
+- **End device**: End device that always keeps its radio on. Typically these devices are not battery-powered.
+- **Sleepy end device**: non-routing end device. Normally sleeping, wakes on occasion to check for messages. Typically battery-powered.
+- **Routing end device**: End device that always keeps its radio on and can route traffic for other, routing and non-routing end devices.
+- **Bridge**
+
+**Network name**: Name of the network the device joined when it was commissioned.
+
+**IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
+
 ## Experiment with Matter using a ESP32 dev board
 
 You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lighting app.
