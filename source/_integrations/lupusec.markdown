@@ -25,7 +25,7 @@ Supported units:
 
 - Lupusec XT1
 - Lupusec XT2 Plus
-- Lupusec XT3 Plus
+- Lupusec XT3
 
 The following devices are supported by the underlying `lupupy` Python library and integrated into Home Assistant.
 
