@@ -174,7 +174,7 @@ This guide describes how to add a new device. This will use the Bluetooth connec
 
 <lite-youtube videoid="Fk0n0r0eKcE" videotitle="Add Matter device via Android app in Home Assistant"></lite-youtube>
 
-## Sharing a device from Apple Home or Google Home
+## Sharing a device from another platform with Home Assistant
 
 Use one of these methods if your Matter device was added to Apple Home or Google Home and you want to control it from both Apple or Google Home and Home Assistant.
 
@@ -239,6 +239,21 @@ How you add a bridge to Home Assistant depends on the device. Check the document
 In some cases, bridging devices into Home Assistant via Matter might not bring you benefits. So far, The Philips Hue bridge, for example, supports Matter. But Matter only support a limited set of features. The native Home Assistant integration of Philips Hue comes with a wide variety of features. It also runs locally. You would not gain anything by adding your Philipps Hue devices to Home Assistant via Matter bridging. On the contrary, you would lose some of the features.
 
 <lite-youtube videoid="rEugjMk-4II" videoStartAt="4192" videotitle="Bridge a Matter device to Home Assistant"></lite-youtube>
+
+## Sharing a device across platforms
+
+Follow these steps if you have added a Matter device to Home Assistant and you want to make it available in an other platform, such as Google Home or Apple Home.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+2. From the list of devices, select the device you want to share.
+3. Select **Share device**, then in the dialog, select **Share device** again.
+   - There is no need to press a hardware button on the device to set it to commissioning mode.
+4. To join the device to the other platform, in their app, scan the QR code or enter the sharing code.
+5. Follow the instructions in their app. Once the process is complete, you can see that the device is shared in Home Assistant:
+   - Next to the **Share device** button, select the three dots menu, then **Manage fabrics**.
+   - In the list there, the new platform should be listed.
+   - For example, if you shared it with Google Home, it lists **Google LLC**.
+     ![image](/images/integrations/matter/matter_share-device-with-other-platform.png)
 
 ## Experiment with Matter using a ESP32 dev board
 
