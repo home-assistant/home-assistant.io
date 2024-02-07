@@ -38,7 +38,7 @@ allowed_chat_ids:
 chat_id:
   description: Telegram chat id. Users would have a positive id and a group would have a negative id.
   required: true
-  type: int
+  type: integer
 user_id:
   descrition: Home Assistant user id to use as part of the event context.
   required: false
