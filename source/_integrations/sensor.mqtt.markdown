@@ -1,6 +1,6 @@
 ---
 title: "MQTT Sensor"
-description: "Instructions on how to integrate MQTT sensors within Home Assistant."
+description: "Instructions on how to integrate MQTT sensors within Home Assistant TEST."
 ha_category:
   - Sensor
 ha_release: 0.7
@@ -185,7 +185,7 @@ state_class:
   required: false
   type: string
 state_topic:
-  description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class`, `unit_of_measurement` or `suggested_display_precision` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state, a `'null'` value will set the sensor to an `unknown` state. The `device_class` can be `null`. When the device class is defined for timestamp or date the following values are expected: datetime object, e.g. `2021-11-18T20:25:00+00:00` or `2021-11-18, or unix timestamp, e.g. `1707265443.323565`.
+  description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class`, `unit_of_measurement` or `suggested_display_precision` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state, a `'null'` value will set the sensor to an `unknown` state. The `device_class` can be `null`.
   required: true
   type: string
 unique_id:
