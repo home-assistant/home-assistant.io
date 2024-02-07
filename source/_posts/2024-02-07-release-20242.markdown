@@ -48,7 +48,7 @@ _Oh! And don't forget Valentine's Day is coming up!_ 😘
 - [Export data from the history dashboard](#export-data-from-the-history-dashboard)
 - [Improved error responses when using Assist](#improved-error-responses-when-using-assist)
 - [Custom Assist responses in automations using the sentence trigger](#custom-assist-responses-in-automations-using-the-sentence-trigger)
-- [All known assist devices](#all-known-assist-devices)
+- [All known Assist devices](#all-known-assist-devices)
 - [Updating your Zigbee devices](#updating-your-zigbee-devices)
 - [Matter diagnostics and actions](#matter-diagnostics-and-actions)
 - [Icons everywhere](#icons-everywhere)
@@ -115,7 +115,7 @@ So we are taking the first step to help you fix these errors: as of this release
 Assist provides much better errors in case your intention is understood,
 but something else is missing (An unknown name, area, device class, or domain).
 
-<img class="no-shadow" src='/images/blog/2024-02/assist-errors.png' alt='Screenshot showing the new errors assist will return in case the intention is understood, but something else is missing.'>
+<img class="no-shadow" src='/images/blog/2024-02/assist-errors.png' alt='Screenshot showing the new errors Assist will return in case the intention is understood, but something else is missing.'>
 
 ## Custom Assist responses in automations using the sentence trigger
 
@@ -143,12 +143,12 @@ responses, for example, listing all your room temperatures.
 A very cool feature that might come in handy if you build an automation
 blueprint to submit as an entry for our [voice assistant contest](/blog/2024/01/voice-assistant-contest/)!
 
-## All known assist devices
+## All known Assist devices
 
 Last addition for voice, we've added a small additional page to give you an
 overview of all the Assist devices you have active in your Home. You can find
 this on the {% my voice_assistants title="Assist configuration dashboard" %}
-by selecting the new "assist devices" button.
+by selecting the new "Assist devices" button.
 
 <img class="no-shadow" src='/images/blog/2024-02/assist-devices.png' alt='Screenshot showing a custom response in Assist.'>
 
