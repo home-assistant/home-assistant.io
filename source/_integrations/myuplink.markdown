@@ -7,12 +7,12 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: '2024.2'
 ha_domain: myuplink
-ha_platforms:
-  - sensor
-  - update
 ha_codeowners:
   - '@pajzo'
 ha_config_flow: true
+ha_platforms:
+  - sensor
+  - update
 ha_integration_type: integration
 ---
 
