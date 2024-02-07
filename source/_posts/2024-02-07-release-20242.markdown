@@ -280,7 +280,7 @@ We welcome the following new integrations in this release:
 - **[Bring]**, added by [@miaucl]<br />
   Use Bring to create shopping lists and share them with your family.
 - **[Elvia]**, added by [@ludeeus]<br />
-  Import your historic energy usage from an Elvia operated grid.
+  Import your historic energy usage from an Elvia-operated grid.
 - **[Epion]**, added by [@lhgravendeel]<br />
   Monitor your Epion air quality sensors.
 - **[Govee lights local]**, added by [@Galorhallen]<br />
@@ -296,7 +296,7 @@ We welcome the following new integrations in this release:
 - **[LeaOne]**, added by [@bdraco]<br />
   Monitor your LeaOne health device under the Xiaogui and BAGAIL brands.
 - **[myUplink]**, added by [@pajzo]<br />
-  Monitor myUplink supported devices in Home Assistant.
+  Monitor myUplink-supported devices in Home Assistant.
 - **[Rabbit Air]**, added by [@al-s]<br />
   Locally control and monitor your Rabbit Air air purifiers.
 - **[Rainforest RAVEn]**, added by [@cottsay]<br />
@@ -354,9 +354,12 @@ that are handled by other (existing) integrations to help with findability.
 The following virtual integrations have been added:
 
 - **[City of Austin Utilities]**, provided by [Opower]
+- **[Tapo]**, provided by [TP-Link Smart Home]
 
 [City of Austin Utilities]: /integrations/coautilities
 [Opower]: /integrations/opower
+[Tapo]: /integrations/tplink_tapo
+[TP-Link Smart Home]: /integrations/tplink
 
 ## Integrations now available to set up from the UI
 
