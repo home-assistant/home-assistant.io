@@ -202,6 +202,58 @@ value_template:
 
 In this section you find some real-life examples of how to use this sensor.
 
+### Processing Unix EPOCH timestamps
+
+The example below shows how an MQTT sensor can process a Unix EPOCH payload.
+
+{% raw %}
+
+Set up via YAML:
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  sensor:
+    - name: "turned on"
+      state_topic: "pump/timestamp_on"
+      device_class: "timestamp"
+      value_template: "{{ as_datetime(value) }}"
+      unique_id: "hp_1231232_ts_on"
+      device:
+        name: "Heat pump"
+        identifiers:
+          - "hp_1231232"
+```
+
+{% endraw %}
+
+Or set up via MQTT discovery:
+
+Discovery topic: `homeassistant/sensor/hp_1231232/config`
+
+```json
+{
+  "name": "turned on",
+  "state_topic": "pump/timestamp_on",
+  "device_class": "timestamp",
+  "value_template": "{{ as_datetime(value) }}",
+  "unique_id": "hp_1231232_ts_on",
+  "device": {
+    "name": "Heat pump",
+    "identifiers": [
+      "hp_1231232"
+    ]
+  }
+}
+```
+
+Test it:
+
+Payload topic: `pump/timestamp_on`
+Payload: `1707294116`
+
+The `value_template` will render the Unix EPOCH timestamp to correct format: `2024-02-07 08:21:56+00:00`.
+
 ### JSON attributes topic configuration
 
 The example sensor below shows a configuration example which uses the following separate topic and JSON structure to add extra attributes.
