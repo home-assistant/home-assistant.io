@@ -106,6 +106,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - Sena UD100-G03 (CSR8510A10) 📶
 - StarTech USBBT1EDR4 (CSR8510A10)
 - Techkey PBT06H (CSR8510A10)
+- TRENDnet TBW-106UB (CSR8510A10)
 - TRENDnet TBW-107UB (CSR8510A10)
 - UGREEN CM109 (CSR8510A10)
 - Warmstor WBT-AD01 (CSR8510A10)
