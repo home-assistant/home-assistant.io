@@ -228,46 +228,53 @@ noteworthy changes this release:
 - When you [change the type of a switch entity] to, for example, a garage door 
   entity, you will now have the option to invert its behavior.
   Thanks, [@emontnemery]!
-- The [Ecovacs] integration received lots of love from [@edenhaus], and now
+- The [Ecovacs] integration received lots of love from [@edenhaus] and now
   has support for many Deebot vacuum models with tons of entities to automate
   with. Nice job!
 - [@mib1185] added automatic cleanups of old/unused refresh tokens 🧹. This
   means you will be logged out on a device that hasn't used Home Assistant for
   90 days. Clean and tidy!
-- The [Tuya] integration can now be set up using the the Tuya Smart or Smart
-  Life app directly. No more need for developer accounts or complicated
+- The [Tuya] integration can now be set up directly using the Tuya Smart
+  or Smart Life app. No more need for developer accounts or complicated
   procedures!
+- Using the [utility meter] integration on, for example, your solar inverter,
+  which turns off at night? You can now set the sensor to always be available,
+  even when the source entity is unavailable. Thanks, [@dougiteixeira]!
+- The [TP-Link Smart Home] integration now supports newer devices,
+  including [Tapo-branded] devices! Awesome job [@sdb9696], [@bdraco],
+  and [@rytilahti]!
+- [@AngellusMortis] added new sound event sensors introduced in
+  UniFi Protect version 2.11 to the [UniFi Protect] integration. Nice!
 - Are you an Jinja templating Ninja? [@TNTLarsn] added a new `bitwise_xor`
   filter for you to use. Awesome!
+- The [Google Generative AI Conversation] allows using the [new Gemini Pro models](https://blog.google/products/bard/google-bard-gemini-pro-image-generation/),
+  including support for the Vision models. This allows you to use images in your
+  prompts too! See an example in the screenshot down below. Super impressive,
+  thanks [@tronikos]!
 
+<p class='img'>
+<img src='/images/blog/2024-02/gemini-google-generative-ai.png' alt='Screenshot showing Google Generative AI with the Gemini models describing what it sees in the image that was taken from the doorbell. In this case, a package that is being delivered.'>
+The Google Generative AI Conversation integration using the new Gemini Pro Vision models to describe what is seen on the doorbell camera.
+</p>
+
+[Google Generative AI Conversation]: /integrations/google_generative_ai_conversation
+[@tronikos]: https://github.com/tronikos
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@bdraco]: https://github.com/bdraco
+[@dougiteixeira]: https://github.com/dougiteixeira
 [@edenhaus]: https://github.com/edenhaus
 [@emontnemery]: https://github.com/emontnemery
 [@mib1185]: https://github.com/mib1185
+[@rytilahti]: https://github.com/rytilahti
+[@sdb9696]: https://github.com/sdb9696
 [@TNTLarsn]: https://github.com/TNTLarsn
 [change the type of a switch entity]: /integrations/switch_as_x
 [Ecovacs]: /integrations/ecovacs
+[Tapo-branded]: /integrations/tplink_tapo
+[TP-Link Smart Home]: /integrations/tplink
 [Tuya]: /integrations/tuya
-
-{% details "To process" %}
-
-- Add binary sensor platform to JVC Projector ([@msavazzi] - [#108668]) ([jvc_projector docs]) (new-platform)
-- Add binary sensors to flexit_bacnet integration ([@lellky] - [#108571]) ([flexit_bacnet docs]) (new-platform)
-- Add button platform to Opengarage ([@jkrall] - [#103569]) ([opengarage docs]) (new-platform)
-- Add color temp support for older HomeKit devices ([@bdraco] - [#107206]) ([homekit_controller docs])
-- Add device info to Netgear LTE ([@tkdrob] - [#106568]) ([netgear_lte docs])
-- Add GPS satellites count to Starline sensor ([@Anonym-tsk] - [#105740]) ([starline docs])
-- Add new event sensors from UniFi Protect 2.11 ([@AngellusMortis] - [#107773]) ([unifiprotect docs])
-- Add Record distance sensor to MyPermobil ([@IsakNyberg] - [#106519]) ([permobil docs])
-- Add sensor platform to Proximity ([@mib1185] - [#101497]) ([proximity docs]) (new-platform)
-- Add sensors to the flexit_bacnet integration ([@lellky] - [#108297]) ([flexit_bacnet docs]) (new-platform)
-- Add SpeakerHub support to YoLink ([@matrixd2] - [#104678]) ([yolink docs]) (new-platform)
-- Add Tami4 integration boil water button ([@Guy293] - [#103400]) ([tami4 docs]) (new-platform)
-- Add utility meter option for the sensor to always be available ([@dougiteixeira] - [#103481]) ([utility_meter docs])
-- Flow rate unit conversions and device class ([@elupus] - [#106077]) ([recorder docs]) ([sensor docs]) ([number docs])
-- Improved Assist debug ([@synesthesiam] - [#108889]) ([conversation docs])
-- Move core fundamental components into bootstrap ([@frenck] - [#105560]) ([default_config docs])
-
-{% enddetails %}
+[UniFi Protect]: /integrations/unifiprotect
+[utility meter]: /integrations/utility_meter
 
 ## New integrations
 
