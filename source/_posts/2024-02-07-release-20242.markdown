@@ -21,18 +21,18 @@ Undoubtedly, you've heard about last year's ["The Year of the Voice"](/blog/2022
 2023 might be over, but we are definitely not done with voice yet! This release
 contains some very cool new features for voice.
 
-Not just that, we've also launched a [voice assistant contest] that you could
-join, and I'm happy to inform you that we will have another voice-related
-[live stream on 21 February 2024, at 12:00 PST / 21:00 CET: Chapter 6](https://www.youtube.com/watch?v=NQIv3nsu7dE)!
+Not just that, we've also launched a [voice assistant contest](/blog/2024/01/17/voice-assistant-contest/)
+that you could join, and I'm happy to inform you that we will have another voice-related
+live stream on 21 February 2024, at 12:00 PST / 21:00 CET: [Chapter 6](https://www.youtube.com/watch?v=NQIv3nsu7dE)!
 
-But there is more in this release besides voice! Drag 'n drop magic for our
-automation editor, you can now update Zigbee devices directly
-from Home Assistant. We have icons in more places 🤩, and quite a lot of
-new functionality for Matter devices.
+But there is more in this release besides voice! There's drag 'n drop magic for
+our automation editor, and you can now update Zigbee devices directly
+from Home Assistant. We also have icons in more places 🤩, and quite a lot of
+new functionalities for Matter devices.
 
 In general, contributions to our open-source project have been amazing this
 month. I've never seen so many contributed bug fixes, improvements, and new
-features in a single release. Like... 19 new integrations! This is,
+features in a single release. Like... 21 new integrations! This is,
 without a doubt, the largest release we've ever put out.
 A big shout-out to everyone who helped! ❤️
 
@@ -119,7 +119,7 @@ but something else is missing (An unknown name, area, device class, or domain).
 
 ## Custom Assist responses in automations using the sentence trigger
 
-As almost every component and feature of Home Assistant, Assist can be
+Like almost every other component and feature of Home Assistant, Assist can be
 customized and extended to understand more sentences.
 
 A few releases ago, we introduced a very simple way to extend what Assist
@@ -168,7 +168,7 @@ and you can trigger the update from Home Assistant!
 <img class="no-shadow" src='/images/blog/2024-02/zha-updating-devices.png' alt='Screenshot showing an Zigbee device connected via ZHA being updated.'>
 
 Noticed the weird version numbers? Unfortunately, that is how version numbers
-in the Zigbee standard work and look, we haven't figured out away to translate
+in the Zigbee standard work and look. We haven't figured out away to translate
 them to something more human-readable format that matches what the manufacturer
 communicates.
 
@@ -186,7 +186,7 @@ controls for your Matter devices in the UI.
 On the device page of the Matter device in Home Assistant, we will now show
 additional diagnostic information about the device. This information can be
 used to troubleshoot issues with the device or when reporting issues. Some
-examples include the network type the device is uses, its addresses, and IDs,
+examples include the network type the device uses, its addresses, and IDs,
 device types and its connected [fabrics](/integrations/matter#multi-fabric-join-to-multiple-controllers).
 
 <img class="no-shadow" src='/images/blog/2024-02/matter-diagnostic-information.png' alt='Screenshots showing a matter device in the UI with additional diagnostic information. The other screenshots shows the overflow menu on the device, that provides more actions.'>
@@ -231,9 +231,9 @@ all issues with your system.
 ## Revamped Proximity integration
 
 For this release, [@mib1185] completely revamped our [Proximity] integration.
-In case you are unfamiliar with it, it allows you tomonitor the proximity of
-devices (or persons) to a particular [zone]. It provides information on how
-close one is to a zone and if they are traveling towards or away from it.
+In case you are unfamiliar with it, it allows you to monitor the proximity of
+persons to a particular [zone]. It provides information on how close one is
+to a zone and if they are traveling towards or away from it.
 
 It is an extremely powerful tool for automations. It allows you to create
 automations based on the proximity of people. For example, if you are within
@@ -473,7 +473,7 @@ is considered unused if it has not been used for a login within 90 days.
 If your logged-in session hasn’t been used for 90 days, you will be logged out.
 You will need to log in again.
 
-We recommend using [Long-lived access tokens](/docs/auth_api/#long-lived-access-token)
+We recommend using [Long-lived access tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token)
 if you need a permanent token.
 
 ([@mib1185] - [#108428]) ([documentation](/docs/authentication/))
@@ -729,8 +729,8 @@ which is now the default.
 
 {% details "Proximity" %}
 
-The proximity entity is deprecated and will be removed in 2024.8. It is
-superseded by sensor entities.
+The proximity entity (`proximit.*`) is deprecated and will be removed in 2024.8.
+It is superseded by sensor entities.
 
 For each tracked person or device, one sensor for the distance and the
 direction of travel to/from the monitored zone is created. Further, for each
