@@ -38,7 +38,7 @@ chat_id:
   required: true
   type: integer
 user_id:
-  descrition: Home Assistant user id to use as part of the event context.
+  description: Home Assistant user id to use as part of the event context.
   required: false
   type: string
 api_key:
