@@ -247,10 +247,18 @@ Discovery topic: `homeassistant/sensor/hp_1231232/config`
 }
 ```
 
-Test it:
+To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
 Payload topic: `pump/timestamp_on`
 Payload: `1707294116`
+
+To set the state of the sensor manually:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -u username -p some_password -t pump/timestamp_on -m '1707294116'
+```
+
+Make sure the IP address of you MQTT broker is used, and that user credential have been set up correctly.
 
 The `value_template` will render the Unix EPOCH timestamp to correct format: `2024-02-07 08:21:56+00:00`.
 
