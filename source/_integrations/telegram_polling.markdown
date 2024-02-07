@@ -34,7 +34,7 @@ allowed_chat_ids:
   required: true
   type: list
 chat_id:
-  description: Telegram chat id. Users would have a positive id and a group would have a negative id.
+  description: Telegram chat id. Users would have a positive id and groups would have a negative id.
   required: true
   type: integer
 user_id:
