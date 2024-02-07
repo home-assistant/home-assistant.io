@@ -402,16 +402,17 @@ other news about building an Open Home; straight into your inbox.
 
 {% details "Authentication" %}
 
-We changes the way refresh tokens are handled. Refresh tokens are part of what
+We changed the way refresh tokens are handled. Refresh tokens are part of what
 keeps you logged in to Home Assistant.
 
 Refresh tokens will be automatically deleted when unused. A refresh token
 is considered unused if it has not been used for a login within 90 days.
 
-This means that if your logged in session hasn't been used for 90 days, you
-will be logged out. You will need to log in again.
+If your logged-in session hasn’t been used for 90 days, you will be logged out.
+You will need to log in again.
 
-If you need a permanent token, then we recommend using [Long-lived access tokens](/docs/auth_api/#long-lived-access-token).
+We recommend using [Long-lived access tokens](/docs/auth_api/#long-lived-access-token)
+if you need a permanent token.
 
 ([@mib1185] - [#108428]) ([documentation](/docs/authentication/))
 
@@ -422,10 +423,10 @@ If you need a permanent token, then we recommend using [Long-lived access tokens
 
 {% details "Blink" %}
 
-The options flow that gave to option to set a custom scan interval, has been
+The options flow that gave the option to set a custom scan interval has been
 removed.
 
-Adjustable scan interval is no longer allowed, but above all, the option has
+Adjustable scan interval is no longer allowed, but the option has
 had no effect on the integration since 2023.11.
 
 You can use an automation as an alternative to create a custom polling rate
@@ -440,7 +441,7 @@ blink configuration.
 
 ---
 
-Update WIFI diagnostic to match new API units - previously Blink reported RSSI
+Update Wi-Fi diagnostic to match new API units - previously Blink reported RSSI
 dBm, now they report generic 0-5 for signal strength.
 
 ([@mkmer] - [#107539]) ([documentation](/integrations/blink))
@@ -470,7 +471,7 @@ The services `ezviz.ptz`, `ezviz.sound_alarm`, and `alarm_sound` have been moved
 to button and select entities in release 2023.8. Support for the deprecated
 services has now been completely removed.
 
-If you are using these services in automations or script, you will need to
+If you are using these services in automations or scripts, you will need to
 update them to match this change.
 
 ([@jpbede] - [#107582]) ([documentation](/integrations/ezviz))
@@ -494,8 +495,8 @@ the new `models/gemini-pro` instead of the legacy `models/chat-bison-001`.
 
 {% details "HomeWizard Energy" %}
 
-The Gas meter ID sensor is removed, the meter ID is now shown as a serial number
-in the device info panel instead.
+The Gas meter ID sensor is removed andthe meter ID is now shown as a serial
+number in the device info panel instead.
 
 ([@DCSBL] - [#100684]) ([documentation](/integrations/homewizard))
 
@@ -506,8 +507,8 @@ in the device info panel instead.
 
 {% details "Honeywell Total Connect Comfort (US)" %}
 
-Preset mode was returning "unknown" rather than "none".
-Any references to `preset_mode` may need to be updated
+The preset mode was returning "unknown" rather than "none".
+Any references to `preset_mode` may need to be updated.
 
 ([@mkmer] - [#108599]) ([documentation](/integrations/honeywell))
 
@@ -522,7 +523,7 @@ The services `huawei_lte.clear_traffic_statistics` and `huawei_lte.reboot` have
 been moved to button entities in release 2023.8. Support for the deprecated
 services has now been completely removed.
 
-If you are using these services in automations or script, you will need to
+If you are using these services in automations or scripts, you will need to
 update them to match this change.
 
 ([@jpbede] - [#107578]) ([documentation](/integrations/huawei_lte))
@@ -534,7 +535,7 @@ update them to match this change.
 
 {% details "JustNimbus" %}
 
-The following sensors have been removed from the JustNimbus integration,
+The following sensors have been removed from the JustNimbus integration
 since they're no longer available through JustNimbus' API:
 
 - Pump starts
@@ -551,7 +552,7 @@ The following sensors have been renamed:
 - Maximum reservoir content (`reservoir_content_max`) -> Reservoir capacity (`reservoir_capacity`)
 
 Automations or scripts using any of the removed or renamed entities should be
-updated. Once updated the old entities can be safely removed.
+updated. Once updated, the old entities can be safely removed.
 
 ([@kvanzuijlen] - [#99212]) ([documentation](/integrations/justnimbus))
 
@@ -580,13 +581,30 @@ use `vacuum.start` and `vacuum.stop` instead.
 The Lutron integration previously created fans as light entities. This has been
 changed to create actual fan entities instead.
 
-If you have automations, scripts, scenes or dashboards that used these light
+If you have automations, scripts, scenes, or dashboards that used these light
 entities, you will need to update them to use the new fan entities.
 
 ([@wilburCforce] - [#107402]) ([documentation](/integrations/lutron))
 
 [@wilburCforce]: https://github.com/wilburCforce
 [#107402]: https://github.com/home-assistant/core/pull/107402
+
+{% enddetails %}
+
+{% details "MELCloud" %}
+
+The daily energy sensors have been removed to prevent being throttled by the
+external API. This mostly affects ATW devices.
+
+For ATA devices, this sensor is also removed. However, the total energy consumed
+(if your device supports that) remains available. The latter supports long-term
+statistics, providing insights into daily energy usage via the energy dashboard
+or statistic card.
+
+([@vilppuvuorinen] - [#109832]) ([documentation](/integrations/melcloud))
+
+[@vilppuvuorinen]: https://github.com/vilppuvuorinen
+[#109832]: https://github.com/home-assistant/core/pull/109832
 
 {% enddetails %}
 
@@ -606,7 +624,7 @@ This compatibility issue has been [reported upstream](https://github.com/EJEP/da
 
 {% details "MQTT" %}
 
-MQTT `sensor` or `binary_sensor` configuration that have an `entity_category`
+MQTT `sensor` or `binary_sensor` configuration with an `entity_category`
 explicitly set to `config` will fail to set up. Maintainers should set the
 `entity_category` attribute to `diagnostic` or omit the config attribute.
 
@@ -619,13 +637,13 @@ explicitly set to `config` will fail to set up. Maintainers should set the
 
 ---
 
-When an MQTT entity has a device name that is equal to the entity name, or
-starts with the device name, this will no longer be corrected.
+When an MQTT entity has a device name equal to the entity name or starts with
+the device name, this will no longer be corrected.
 
-When entities like these are created they will have both device and entity name
-in the friendly name. If the device name is to be omitted because it is the same
-as the entity name, then the entity `name` attribute sould be set to `null` in
-the JSON payload or YAML configuration.
+When entities like these are created, they will have device and entity names in
+the friendly name. Suppose the device name is omitted because it is the same
+as the entity name. In that case, the entity name attribute should be null
+in the JSON payload or YAML configuration.
 
 [Related developer blogpost](https://developers.home-assistant.io/blog/2023/07/21/change-naming-mqtt-entities)
 
@@ -652,9 +670,9 @@ which is now the default.
 The proximity entity is deprecated and will be removed in 2024.8. It is
 superseded by sensor entities.
 
-For each tracked person or device one sensor for the distance and the
-direction of travel to/from the monitored zone is created. Further for each
-Proximity configuration one sensor which shows the nearest device or person
+For each tracked person or device, one sensor for the distance and the
+direction of travel to/from the monitored zone is created. Further, for each
+Proximity configuration, one sensor that shows the nearest device or person
 and its distance and direction of travel to the monitored zone is created.
 
 ([@mib1185] - [#108730]) ([documentation](/integrations/proximity))
@@ -668,7 +686,7 @@ and its distance and direction of travel to the monitored zone is created.
 
 The start time of day and start time of night sensors have been replaced by
 time entities. If you used these sensors in automations or scripts, you will
-need to update your automations to use the new time entities.
+need to update them to use the new time entities.
 
 ([@jimmyd-be] - [#105031]) ([documentation](/integrations/renson))
 
@@ -724,7 +742,7 @@ override this attribute).
 
 {% details "Swiss public transport" %}
 
-The state value of the sensor is now a standardize timestamp.
+The state value of the sensor is now a standardized timestamp.
 Further, all `timestamps` and `durations` in the additional fields are now also
 proper datetime/durations.
 
@@ -755,7 +773,7 @@ and will be removed in Home Assistant 2024.8.0. Your YAML configuration will
 be automatically imported to the new [Traccar Server](/integrations/traccar_server)
 integration.
 
-If you previously used the `scan_interval` option, this is not bing imported.
+If you previously used the `scan_interval` option, this is not being imported.
 If you are in need of a custom polling interval, you can use an automation
 to define your own custom polling behavior.
 [Learn more about that here.](/common-tasks/general/#defining-a-custom-polling-interval)
@@ -788,7 +806,7 @@ your Tuya Smart or Smart Life account using this new method.
 The services `vacuum.turn_on` and `vacuum.turn_off` were deprecated in 2023.8.
 Support for the deprecated services has now been completely removed.
 
-If you are still using them, please adjust your automations and scripts and
+If still use them, please adjust your automations and scripts and
 use `vacuum.start` and `vacuum.stop` instead.
 
 ([@jpbede] - [#107896]) ([documentation](/integrations/tuya))
@@ -812,7 +830,7 @@ use the default unit configured on your system instead.
 {% details "Webhooks" %}
 
 Since version 2023.7 you have been informed that the "local only" option of
-webhooks would become the default. With this release this change is now put
+webhooks will become the default. With this release this change is now put
 into effect. Please, if needed, adjust your automation triggers.
 
 ([@jpbede] - [#107670]) ([documentation](/integrations/webhook))
@@ -824,8 +842,8 @@ into effect. Please, if needed, adjust your automation triggers.
 
 {% details "Withings" %}
 
-In withings, the unit of measurement of all duration related sensors
-(for example, sleep, goal, and active time today) have been changed from
+In withings, the unit of measurement of all duration-related sensors
+(for example, sleep, goal, and active time today) has been changed from
 measuring in seconds to measuring in either hours or minutes.
 
 If you want to measure in a different unit, please change the
@@ -839,7 +857,7 @@ preferred unit of measurement in the entity settings.
 
 {% details "Z-Wave" %}
 
-The default rounding of numeric sensors to two decimals, has been removed.
+The default rounding of numeric sensors to two decimals has been removed.
 
 We now let the device and driver decide what precision should be reported. This
 allows devices with greater precision to report accurately.
@@ -854,11 +872,11 @@ sensor if you want to change the precision.
 
 ---
 
-Set suggested precision to 0 decimals for voltage sensors with native unit in V.
+Set suggested precision to 0 decimals for voltage sensors with a native unit in V.
 This will uniform the display precision of voltage sensors where there otherwise
 seems to be a variety of precision reported from different devices.
 
-If you want to change the precision you can do that in the sensor options in the
+If you want to change the precision, you can do that in the sensor options in the
 UI or with a template sensor.
 
 ([@MartinHjelmare] - [#107116]) ([documentation](/integrations/zwave_js))
@@ -869,9 +887,8 @@ UI or with a template sensor.
 ---
 
 The Fan and Dry climate Preset modes have been removed after a period of
-deprecation. You should update your automations or scripts to use the
-corresponding Dry and Fan **HVAC modes** instead, if you haven't done so
-already.
+deprecation. If you haven't done so, you should update your automations or
+scripts to use the corresponding Dry and Fan **HVAC modes** instead.
 
 ([@jbouwh] - [#108124]) ([documentation](/integrations/zwave_js))
 
