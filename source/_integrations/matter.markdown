@@ -266,7 +266,7 @@ Follow these steps if you want to remove a device from a particular Matter contr
 4. From the list, remove the controller of interest.
    - If you want to remove Apple Home, also remove the Apple Keychain entry.
    ![image](/images/integrations/matter/matter-remove-from-network.png)
-5. If you want to remove the device from Home Assistant, select the three-dot menu and select **Delete**.
+5. If you want to remove the device from Home Assistant itself, select the three-dot menu and select **Delete**.
 
 ## About Matter device information
 
