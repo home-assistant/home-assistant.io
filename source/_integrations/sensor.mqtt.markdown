@@ -200,7 +200,7 @@ value_template:
 
 ## Examples
 
-In this section you find some real-life examples of how to use this sensor.
+In this section, you find some real-life examples showing how to use this sensor.
 
 ### Processing Unix EPOCH timestamps
 
@@ -262,7 +262,7 @@ To set the state of the sensor manually:
 mosquitto_pub -h 127.0.0.1 -u username -p some_password -t pump/timestamp_on -m '1707294116'
 ```
 
-Make sure the IP address of you MQTT broker is used, and that user credential have been set up correctly.
+Make sure the IP address of your MQTT broker is used and that user credentials have been set up correctly.
 
 The `value_template` will render the Unix EPOCH timestamp to correct format: `2024-02-07 08:21:56+00:00`.
 
