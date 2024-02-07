@@ -3,12 +3,16 @@ title: myUplink
 description: Instructions on how to set up the myUplink integration within Home Assistant.
 ha_category:
   - Sensor
+  - Update
 ha_iot_class: Cloud Polling
 ha_release: '2024.2'
 ha_domain: myuplink
 ha_codeowners:
   - '@pajzo'
 ha_config_flow: true
+ha_platforms:
+  - sensor
+  - update
 ha_integration_type: integration
 ha_platforms:
   - sensor
