@@ -255,6 +255,19 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
    - For example, if you shared it with Google Home, it lists **Google LLC**.
      ![image](/images/integrations/matter/matter_share-device-with-other-platform.png)
 
+
+## Removing a device from a Matter controller
+
+Follow these steps if you want to remove a device from a particular Matter controller.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+2. From the list of devices, select the device you want to remove from a controller.
+3. In the **Device info** section, next to **Share device**, select the three-dot menu. Then, select **Manage fabrics**.
+4. From the list, remove the controller of interest.
+   - If you want to remove Apple Home, also remove the Apple Keychain entry.
+   ![image](/images/integrations/matter/matter-remove-from-network.png)
+5. If you want to remove the device from Home Assistant itself, select the three-dot menu and select **Delete**.
+
 ## About Matter device information
 
 The device information section provides some diagnostic information of a device.
@@ -280,6 +293,7 @@ This section provides a bit more information on some of the categories:
 **Network name**: Name of the network the device joined when it was commissioned.
 
 **IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
+
 
 ## Experiment with Matter using a ESP32 dev board
 
