@@ -200,7 +200,71 @@ value_template:
 
 ## Examples
 
-In this section you find some real-life examples of how to use this sensor.
+In this section, you find some real-life examples showing how to use this sensor.
+
+### Processing Unix EPOCH timestamps
+
+The example below shows how an MQTT sensor can process a Unix EPOCH payload.
+
+{% raw %}
+
+Set up via YAML:
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  sensor:
+    - name: "turned on"
+      state_topic: "pump/timestamp_on"
+      device_class: "timestamp"
+      value_template: "{{ as_datetime(value) }}"
+      unique_id: "hp_1231232_ts_on"
+      device:
+        name: "Heat pump"
+        identifiers:
+          - "hp_1231232"
+```
+
+{% endraw %}
+
+Or set up via MQTT discovery:
+
+Discovery topic: `homeassistant/sensor/hp_1231232/config`
+
+{% raw %}
+
+```json
+{
+  "name": "turned on",
+  "state_topic": "pump/timestamp_on",
+  "device_class": "timestamp",
+  "value_template": "{{ as_datetime(value) }}",
+  "unique_id": "hp_1231232_ts_on",
+  "device": {
+    "name": "Heat pump",
+    "identifiers": [
+      "hp_1231232"
+    ]
+  }
+}
+```
+
+{% endraw %}
+
+To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
+
+Payload topic: `pump/timestamp_on`
+Payload: `1707294116`
+
+To set the state of the sensor manually:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -u username -p some_password -t pump/timestamp_on -m '1707294116'
+```
+
+Make sure the IP address of your MQTT broker is used and that user credentials have been set up correctly.
+
+The `value_template` will render the Unix EPOCH timestamp to correct format: `2024-02-07 08:21:56+00:00`.
 
 ### JSON attributes topic configuration
 
