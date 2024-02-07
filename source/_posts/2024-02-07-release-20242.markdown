@@ -899,8 +899,8 @@ changes and new features available for your integration: Be sure to follow our
 
 The following integrations are also no longer available as of this release:
 
-- **Facebox** has been removed. It is no longer possible to get API keys and
-  thus no longer possible to use this integration.  
+- **Facebox** has been removed. It is no longer possible to get API keys,
+  and thus, it is no longer possible to use this integration.
   ([@reedy] - [#107005])
 - **Legrand Home+ Control** has been removed as their API shut down in December.
   Use [the Netatmo integration](/integrations/netatmo/) as an alternative to
@@ -908,7 +908,7 @@ The following integrations are also no longer available as of this release:
   ([@jpbede] - [#107587])
 - **Life360** has been removed. They are now actively blocking third-party
   access, including Home Assistant. The [Home Assistant Companion app](https://companion.home-assistant.io/)
-  is a good, and (above all) privacy-friendly alternative.  
+  is a good and (above all) privacy-friendly alternative.  
   ([@pnbruckner] - [#107805])
 
 [@jpbede]: https://github.com/jpbede
