@@ -231,6 +231,8 @@ Or set up via MQTT discovery:
 
 Discovery topic: `homeassistant/sensor/hp_1231232/config`
 
+{% raw %}
+
 ```json
 {
   "name": "turned on",
@@ -246,6 +248,8 @@ Discovery topic: `homeassistant/sensor/hp_1231232/config`
   }
 }
 ```
+
+{% endraw %}
 
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
