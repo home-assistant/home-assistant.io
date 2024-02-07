@@ -168,7 +168,7 @@ and you can trigger the update from Home Assistant!
 <img class="no-shadow" src='/images/blog/2024-02/zha-updating-devices.png' alt='Screenshot showing an Zigbee device connected via ZHA being updated.'>
 
 Noticed the weird version numbers? Unfortunately, that is how version numbers
-in the Zigbee standard work and look. We haven't figured out away to translate
+in the Zigbee standard work and look. We haven't figured out a way to translate
 them to something more human-readable format that matches what the manufacturer
 communicates.
 
@@ -245,7 +245,7 @@ The best part? This integration is now available to set up from the UI!
 Not just that, but it now uses normal sensor entities that we are all already
 familiar with. This will make automating and displaying the data a breeze!
 
-<img class="no-shadow" src='/images/blog/2024-02/proximity.png' alt='Screenshots of an set up proximity integration, the proximity of a person towards the home zone.'>
+<img class="no-shadow" src='/images/blog/2024-02/proximity.png' alt='Screenshots of a set up proximity integration, and the proximity of a person moving towards the home zone.'>
 
 Thanks [@mib1185]! You did an outstanding job on this one!
 
@@ -297,7 +297,7 @@ noteworthy changes this release:
   and [@rytilahti]!
 - [@AngellusMortis] added new sound event sensors introduced in
   UniFi Protect version 2.11 to the [UniFi Protect] integration. Nice!
-- Are you an Jinja templating Ninja? [@TNTLarsn] added a new `bitwise_xor`
+- Are you a Jinja templating Ninja? [@TNTLarsn] added a new `bitwise_xor`
   filter for you to use. Awesome!
 - The [Google Generative AI Conversation] allows using the [new Gemini Pro models](https://blog.google/products/bard/google-bard-gemini-pro-image-generation/),
   including support for the Vision models. This allows you to use images in your
@@ -557,7 +557,7 @@ the new `models/gemini-pro` instead of the legacy `models/chat-bison-001`.
 
 {% details "HomeWizard Energy" %}
 
-The Gas meter ID sensor is removed andthe meter ID is now shown as a serial
+The Gas meter ID sensor is removed and the meter ID is now shown as a serial
 number in the device info panel instead.
 
 ([@DCSBL] - [#100684]) ([documentation](/integrations/homewizard))
@@ -729,7 +729,7 @@ which is now the default.
 
 {% details "Proximity" %}
 
-The proximity entity (`proximit.*`) is deprecated and will be removed in 2024.8.
+The proximity entity (`proximity.*`) is deprecated and will be removed in 2024.8.
 It is superseded by sensor entities.
 
 For each tracked person or device, one sensor for the distance and the
@@ -775,11 +775,11 @@ occasionally.
 
 {% details "Roborock" %}
 
-The services `vacuum.start_pause` was deprecated in 2023.8. Support for the
-deprecated services has now been completely removed.
+The service `vacuum.start_pause` was deprecated in 2023.8. Support for the
+deprecated service has now been completely removed.
 
-If you are still using them, please adjust your automations and scripts,
-use `vacuum.pause` or `vacuum.start` instead.
+If you are still using this service, please adjust your automations and scripts,
+to use `vacuum.pause` or `vacuum.start` instead.
 
 ([@jpbede] - [#107895]) ([documentation](/integrations/roborock))
 
@@ -852,7 +852,7 @@ to define your own custom polling behavior.
 Tuya has provided an easier and improved login method for Home Assistant users.
 
 Having a developer account with Tuya is no longer required; instead, you can
-scan a QR code with your Tuya Smart of Smart Life app to authenticate it
+scan a QR code with your Tuya Smart or Smart Life app to authenticate it
 with Home Assistant.
 
 After updating to this release, Home Assistant will ask you to re-authenticate
