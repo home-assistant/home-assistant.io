@@ -1033,7 +1033,7 @@ mqtt:
       ...
 ```
 
-If you have a lot of manual configured items you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
 <div class='note info'>
 
