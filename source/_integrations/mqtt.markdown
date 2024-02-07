@@ -347,12 +347,12 @@ For more examples [see](/integrations/mqtt/#discovery-examples-with-component-di
 It is also possible to process a discovery payload that allows to set up multiple entities for a single device.
 The `<component>` part in the discovery topic must be set to `device`.
 
-The shared options are at root level of the JSON message and include the `device` mapping (abbreviated as `dev`). The `device` mapping is a required option and cannot be overridden at entity level.
+The shared options are at root level of the JSON message and must include the `device` mapping (abbreviated as `dev`) and `origin` mapping (abbreviated as `o`). The `device` and `origin` mappings are required options and cannot be overridden at entity/component level.
 
 Supported shared options are:
 
 - The `availability` [options](/integrations/mqtt/#using-availability-topics).
-- The `origin` [options](/integrations/mqtt/#adding-information-about-the-origin-af-a-discovery-message)
+- The `origin` (required) [options](/integrations/mqtt/#adding-information-about-the-origin-af-a-discovery-message)
 - `command_topic`
 - `state_topic`
 - `qos`
@@ -787,7 +787,7 @@ support_url:
 
 #### Adding information about the origin af a discovery message
 
-It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can be abbreviated to `o`) to the discovery payload. Note that these options also support abbreviations. Information of the origin will be logged to the core event log when an item is discovered or updated.
+It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can be abbreviated to `o`) to the discovery payload. For device based discovery adding shared `origin` info is required. Note that these options also support abbreviations. Information of the origin will be logged to the core event log when an item is discovered or updated.
 
 {% configuration_basic %}
 name:
@@ -797,6 +797,15 @@ sw_version:
 support_url:
   description: Support URL of the application that supplies the discovered MQTT item.
 {% endconfiguration_basic %}
+
+{% details "Supported abbreviations for origin info" %}
+
+```txt
+    'name':                'name',
+    'sw':                  'sw_version',
+    'url':                 'support_url',
+```
+{% enddetails %}
 
 ### Discovery messages en availability
 
