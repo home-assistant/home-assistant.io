@@ -5,8 +5,8 @@ ha_category:
   - Sensor
   - Update
  ha_platforms:
-     - sensor
-     - update
+   - sensor
+   - update
 ha_iot_class: Cloud Polling
 ha_release: '2024.2'
 ha_domain: myuplink
