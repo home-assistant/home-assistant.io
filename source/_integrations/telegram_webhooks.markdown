@@ -25,8 +25,9 @@ telegram_bot:
   - platform: webhooks
     api_key: YOUR_API_KEY
     allowed_chat_ids:
-      - 123456789 # example id of a user
-      - -987654321  # example id of a group, starts with a -
+      - chat_id: 123456789 # example id of a user
+        user_id: 3328b4936eccd805bd65063c0562dcd2
+      - chat_id: -987654321  # example id of a group, starts with a -
 ```
 
 {% configuration %}
@@ -34,6 +35,14 @@ allowed_chat_ids:
   description: A list of ids representing the users and group chats that are authorized to interact with the bot.
   required: true
   type: list
+chat_id:
+  description: Telegram chat id. Users would have a positive id and a group would have a negative id.
+  required: true
+  type: int
+user_id:
+  descrition: Home Assistant user id to use as part of the event context.
+  required: false
+  type: string
 api_key:
   description: The API token of your bot.
   required: true
