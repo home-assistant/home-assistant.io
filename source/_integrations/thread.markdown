@@ -126,7 +126,7 @@ Currently this use case requires an Android phone. If you want to add Matter dev
      ![image](/images/integrations/thread/thread-preferred-network-ha-only.png)
 
 3. To add Matter-based Thread devices, your phone needs to know the credentials of your newly created Thread network.
-   - To share the credentials with your Android phone, open the Home Assistant companion app.
+   - To share the credentials with your Android phone, open the Home Assistant Companion app.
    - In the Companion app, go to **Settings** > **Companion app** > **Troubleshooting**, then select **Sync Thread credentials**.
    - Follow the instructions on screen.
 
