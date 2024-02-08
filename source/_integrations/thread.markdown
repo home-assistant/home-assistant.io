@@ -129,6 +129,7 @@ Currently this use case requires an Android phone. If you want to add Matter dev
    - To share the credentials with your Android phone, open the Home Assistant Companion app.
    - In the Companion app, go to **Settings** > **Companion app** > **Troubleshooting**, then select **Sync Thread credentials**.
    - Follow the instructions on screen.
+   - **Result**: You will see a confirmation stating that Thread credentials from Home Assistant have been added to this device.
 
 ## Understanding the Thread configuration page
 
