@@ -53,6 +53,7 @@ The following selectors are currently available:
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
 - [Trigger selector](#trigger-selector)
+- [QR code selector](#qr-code-selector)
 
 Interactive demos of each of these selectors can be found on the
 [Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
@@ -417,20 +418,6 @@ language:
 
 The output of this selector is the ID of the conversation agent.
 
-## Date selector
-
-The date selector shows a date input that allows the user to specify a date.
-
-![Screenshot of the Date selector](/images/blueprints/selector-date.png)
-
-This selector does not have any other options; therefore, it only has its key.
-
-```yaml
-date:
-```
-
-The output of this selector will contain the date in Year-Month-Day
-(`YYYY-MM-DD`) format, for example, `2022-02-22`.
 
 ## Country selector
 
@@ -457,6 +444,21 @@ no_sort:
 {% endconfiguration %}
 
 The output of this selector is an ISO 3166 country code.
+
+## Date selector
+
+The date selector shows a date input that allows the user to specify a date.
+
+![Screenshot of the Date selector](/images/blueprints/selector-date.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+date:
+```
+
+The output of this selector will contain the date in Year-Month-Day
+(`YYYY-MM-DD`) format, for example, `2022-02-22`.
 
 ## Date & time selector
 
@@ -1325,3 +1327,38 @@ The output of this selector is a list of triggers. For example:
   entity_id: "sensor.outside_temperature"
   below: 20
 ```
+
+## QR code selector
+
+The QR code selector shows a QR code. It has no return value.
+
+![Screenshot of a QR code selector](/images/blueprints/selector-qr-code.png)
+
+The QR code's data must be configured, and optionally, the scale, and error correction level can be set.
+The scale makes the QR code bigger or smaller.
+
+{% configuration qr_code %}
+data:
+  description: The data that should be represented in the QR code.
+  type: any
+  required: true
+scale:
+  description: The scale factor to use, this will make the QR code bigger or smaller.
+  type: number
+  required: false
+  default: 4
+error_correction_level:
+  description: The error correction level of the QR code, with a higher error correction level the QR code can be scanned even when some pieces are missing. Can be "low", "medium", "quartile" or "high".
+  type: string
+  required: false
+  default: medium
+{% endconfiguration %}
+
+```yaml
+qr_code:
+  data: "https://home-assistant.io"
+  scale: 5
+  error_correction_level: quartile
+```
+
+The output of this selector is the configured value when the toggle is on, it has no output otherwise.
