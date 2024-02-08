@@ -82,8 +82,7 @@ These border routers may require an iPhone or Android phone for onboarding. What
 
 The Thread support on these devices is in experimental state. Out of the box, they run Zigbee, not Thread.
 
-- [Home Assistant Yellow](/yellow/). Follow this procedure to [enable Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/).
-- [Home Assistant SkyConnect](/skyconnect/) USB stick. Follow this procedure to [enable Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/).
+- If you have a Home Assistant Yellow or SkyConnect, you can use their Thread radio. Follow these steps to [turn Home Assistant into a Thread border router](#turning-home-assistant-into-a-thread-border-router).
 
 #### Google
 
@@ -98,6 +97,38 @@ The Thread support on these devices is in experimental state. Out of the box, th
 #### Others
 
 There are also other companies that provide devices with border router capability, such as Nanoleaf or Amazon.
+
+## Turning Home Assistant into a Thread border router
+
+Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, SkyConnect, or another compatible radio.
+
+Find out if you already have Thread networks:
+
+- Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+- If you do not see a **Thread** integration, add it.
+- Then, select **Configure**.
+- I do not have any Thread networks yet, follow [Make Home Assistant your first Thread network](#to-make-home-assistant-your-first-thread-network)
+
+### To make Home Assistant your first Thread network
+
+Currently this use case requires an Android phone. If you want to add Matter devices via an iOS phone, this use case is not supported yet.
+
+1. To enable Thread support on your Home Assistant Yellow or SkyConnect, you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
+   - [Enable Thread on Home Assistant Yellow](https://yellow.home-assistant.io/procedures/enable-thread/).
+   - [Enable Thread on Home Assistant SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/).
+
+2. Make sure the Home Assistant Thread network is defined as preferred network.
+   - This should happen automatically, but check to be sure.
+   - Go to {% my integrations title="**Settings** > **Devices & Services**" %}, select the **Thread** integration.
+   - Then, select **Configure**.
+   - You should see the Home Assistant logo under **Preferred network**.
+
+     ![image](/images/integrations/thread/thread-preferred-network-ha-only.png)
+
+3. To add Matter-based Thread devices, your phone needs to know the credentials of your newly created Thread network.
+   - To share the credentials with your Android phone, open the Home Assistant companion app.
+   - In the Companion app, go to **Settings** > **Companion app** > **Troubleshooting**, then select **Sync Thread credentials**.
+   - Follow the instructions on screen.
 
 ## Understanding the Thread configuration page
 
@@ -140,19 +171,7 @@ You can only set a Thread network as preferred if the credentials are known.
    - Importing the credentials allows a Google- or Apple-created Thread network to be the preferred network of Home Assistant.
    <img width="400" src='/images/integrations/thread/thread-preferred-network.png'>
 
-#### Using Home Assistant as a <abbr title="Thread border router">TBR</abbr> without setting up another vendor's TBR first
 
-This scenario currently only works in one particular case, under the following conditions:
-
-- Make sure there are no other Thread networks set up:
-  - For example: Make sure you do not have any Google <abbr title="Thread border routers">TBRs</abbr> set up yet (otherwise the Google <abbr title="Thread border router">TBR</abbr> will be the preferred Thread network, and Android APIs do not allow to change that currently).
-- You have the OpenThread Border Router add-on installed. If you have the experimental Silicon Labs Multiprotocol add-on installed, we recommend migrating to the pure Thread firmware, as especially Thread traffic appears to cause stability issues. For instructions on how to enable/migrate to a dedicated Thread setup on SkyConnect or Yellow, refer to the following guides:
-  - [Enabling Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
-  - [Enabling Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
-- You have an Android phone and the Home Assistant Companion App. (Note: this does not work with the iOS Companion App).
-- The devices you want to add to the network support {% term Matter %}. For instructions on how to add Thread-based {% term Matter %} devices, refer to the section [Adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant)
-
-Which TBRs are supported mostly depends on (access to) the Thread credentials. And Thread credentials are required during on-boarding/commissioning, which is part of the smart home protocol.
 
 ### Combining Thread networks
 
