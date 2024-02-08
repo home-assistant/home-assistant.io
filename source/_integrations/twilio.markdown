@@ -45,7 +45,10 @@ To be able to receive events from Twilio, your Home Assistant instance needs to 
 
 To set it up, go to the integrations page in the configuration screen and find Twilio. Click on configure. Follow the instructions on the screen to configure Twilio.
 
-You will get a URL of the following format: `https://<home-assistant-domain>/api/webhook/9940e99a26fae4dcf6fe0a478124b6b58b578ea4c55c9a584beb1c9f5057bb91`. To generate inbound events, you have to configure your webhooks with [Twilio](https://www.twilio.com/docs/glossary/what-is-a-webhook).
+You will get a URL of the following format: `https://<home-assistant-domain>/api/webhook/9940e99a26fae4dcf6fe0a478124b6b58b578ea4c55c9a584beb1c9f5057bb91`. To generate inbound events, you have to configure your [webhooks with Twilio](https://www.twilio.com/docs/glossary/what-is-a-webhook):
+ - Go to your Twilio [console](https://www.twilio.com/console)
+ - Under phone numbers -> active numbers -> (select number) -> configure
+ - Paste your URL in the webhook URL box for "A call comes in" and "A message comes in" and save
 
 Events coming in from Twilio will be available as events in Home Assistant and are fired as `twilio_data_received`. The data specified by Twilio will be available as the event data. You can use this event to trigger automations.
 
@@ -68,3 +71,23 @@ automation:
 ```
 
 The above opens the garage door when the number `+1XXXXXXXXXXX` calls `+1YYYYYYYYYYY` (considering that `+1YYYYYYYYYYY` is one of your numbers registered in Twilio).
+
+An example of an SMS handler:
+
+```yaml
+alias: Twilio incoming
+trigger:
+  - platform: event
+    event_type: twilio_data_received
+action:
+  - variables:
+      sender: |
+        {{ trigger.event.data.From }}
+      message: |
+        {{ trigger.event.data.Body }}
+  - service: notify.persistent_notification
+    data:
+      message: |
+        incoming twilio message from {{sender}}: {{ message }}
+        all event data: {{ trigger.event.data }}
+```
