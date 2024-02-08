@@ -106,8 +106,8 @@ Find out if you already have Thread networks:
 
 - Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
 - If you do not see a **Thread** integration, add it.
-- Then, select **Configure**.
-- I do not have any Thread networks yet, follow [Make Home Assistant your first Thread network](#to-make-home-assistant-your-first-thread-network)
+- Then, select **Configure** and check if you see any Thread networks on the overview page..
+- If you do not have any Thread networks yet, follow [Make Home Assistant your first Thread network](#to-make-home-assistant-your-first-thread-network)
 
 ### To make Home Assistant your first Thread network
 
