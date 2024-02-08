@@ -309,42 +309,9 @@ The `<node_id>` level can be used by clients to only subscribe to their own (com
 
 Best practice for entities with a `unique_id` is to set `<object_id>` to `unique_id` and omit the `<node_id>`.
 
-#### Single component discovery payload
-
-The `<component>` part in the discovery topic must be one of the supported MQTT platforms.
-The options in the payload are only used to set up one specific component.
-
-```json
-{
-  "dev": {
-    "ids": "ea334450945afc",
-    "name": "Kitchen",
-    "mf": "Bla electronics",
-    "mdl": "xya",
-    "sw": "1.0",
-    "sn": "ea334450945afc",
-    "hw": "1.0rev2",
-  },
-  "o": {
-    "name":"bla2mqtt",
-    "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support",
-  },
-  "device_class":"temperature",
-  "unit_of_measurement":"°C",
-  "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
-  "unique_id":"temp01ae_t",
-  "state_topic":"sensorBedroom/state",
-  "qos": 2,
-}
-
-To remove the component publish an empty string to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
-
-For more examples [see](/integrations/mqtt/#discovery-examples-with-component-discovery).
-
 #### Device discovery payload
 
-It is also possible to process a discovery payload that allows to set up multiple entities for a single device.
+A device should send a discovery payload to expose all components for a device.
 The `<component>` part in the discovery topic must be set to `device`.
 
 The shared options are at root level of the JSON message and must include the `device` mapping (abbreviated as `dev`) and `origin` mapping (abbreviated as `o`). The `device` and `origin` mappings are required options and cannot be overridden at entity/component level.
@@ -476,9 +443,44 @@ A component config part in a device discovery payload must have the `platform` o
 
 </div>
 
+#### Single component discovery payload (legacy)
+
+The `<component>` part in the discovery topic must be one of the supported MQTT platforms.
+The options in the payload are only used to set up one specific component. If there are more components, more discovery payloads need to be send for the other components. It is highly recommend to use the device based discovery instead.
+
+Example discovery payload:
+
+```json
+{
+  "dev": {
+    "ids": "ea334450945afc",
+    "name": "Kitchen",
+    "mf": "Bla electronics",
+    "mdl": "xya",
+    "sw": "1.0",
+    "sn": "ea334450945afc",
+    "hw": "1.0rev2",
+  },
+  "o": {
+    "name":"bla2mqtt",
+    "sw": "2.1",
+    "url": "https://bla2mqtt.example.com/support",
+  },
+  "device_class":"temperature",
+  "unit_of_measurement":"°C",
+  "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+  "unique_id":"temp01ae_t",
+  "state_topic":"sensorBedroom/state",
+  "qos": 2,
+}
+
+To remove the component publish an empty string to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
+
+For more examples [see](/integrations/mqtt/#discovery-examples-with-component-discovery).
+
 #### Discovery payload
 
-The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
+The payload must be a serialized JSON dictionary and will be checked much like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
 
 Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
