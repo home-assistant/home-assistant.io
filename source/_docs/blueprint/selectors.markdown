@@ -1344,7 +1344,7 @@ data:
   required: true
 scale:
   description: The scale factor to use, this will make the QR code bigger or smaller.
-  type: number
+  type: integer
   required: false
   default: 4
 error_correction_level:
