@@ -25,7 +25,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `ecovacs` {% term integration %} is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
+The `ecovacs` {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
 
 {% include integrations/config_flow.md %}
 
