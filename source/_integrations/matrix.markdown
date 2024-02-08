@@ -89,7 +89,7 @@ In order to prevent infinite loops when reacting to commands, you have to use a 
 
 </div>
 
-### Event Data
+### Event data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
 

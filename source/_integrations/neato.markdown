@@ -100,7 +100,7 @@ And a specific Platform Service:
 
 - `neato.custom_cleaning`
 
-### Platform Services
+### Platform services
 
 #### Service `neato.custom_cleaning`
 

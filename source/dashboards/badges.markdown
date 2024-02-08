@@ -5,6 +5,11 @@ description: "Description of the various badges that are available."
 
 Badges are widgets that sit at the top of a panel, above all the cards.
 
+<p class="img">
+  <img src="/images/dashboards/badges.png" alt="Badges">
+  Badges at the top of a panel.
+</p>
+
 ## State Label Badge
 
 The State Label badge allows you to display a state badge. This badge supports [actions](/dashboards/actions/).
@@ -63,7 +68,7 @@ state_filter:
   type: list
 {% endconfiguration %}
 
-### Options For Entities
+### Options for entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configurations:
 
@@ -94,7 +99,7 @@ state_filter:
   type: list
 {% endconfiguration %}
 
-### Options For state_filter
+### Options for state filter
 
 If you define state_filter as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
 

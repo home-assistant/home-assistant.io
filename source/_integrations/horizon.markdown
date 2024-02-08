@@ -2,7 +2,7 @@
 title: Unitymedia Horizon HD Recorder
 description: Instructions how to integrate the Unitymedia Horizon HD Recorder into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Polling
 ha_release: 0.72
 ha_domain: horizon

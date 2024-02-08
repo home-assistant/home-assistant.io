@@ -3,7 +3,7 @@ title: HomeKit Device
 description: Instructions for how to integrate your HomeKit devices within Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Fan
@@ -52,7 +52,7 @@ There are different methods to add a HomeKit device to Home Assistant:
 
 - [via Ethernet or Wi-Fi](#adding-a-homekit-device-via-ethernet-or-wi-fi)
 - [via Bluetooth](#adding-a-homekit-device-through-bluetooth)
-- via Thread
+- [via Thread](#adding-a-homekit-device-through-thread)
   - [by using Home Assistant’s preferred Thread network](#adding-a-homekit-device-to-a-thread-network-via-home-assistant)
   - [by using Apple Thread border router](#adding-a-homekit-device-via-apple-thread-border-router)
 
@@ -64,7 +64,7 @@ The HomeKit Device integration automatically detects HomeKit [compatible devices
 
 - If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`](/integrations/zeroconf/) to your `configuration.yaml` file.
 - Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
-   - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
+  - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 - Make sure your device is powered up.
 - Make sure the device is on your network, but not paired with another HomeKit controller. Depending on the device, you need to follow a different set of steps:
   - If your device is not already in your network: Join the device to your network:
@@ -98,9 +98,9 @@ You can add a HomeKit [compatible device](#supported-devices) to Home Assistant 
    - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 - If your Home Assistant instance does not natively support Bluetooth, use an ESPHome Bluetooth proxy.
   - A proxy can also be helpful if your Home Assistant device is too far away from the device you are trying to pair.
-- If your HomeKit device has been used with Thread before, or is still paired with iOS, reset the device.
+- If your HomeKit device has been used with {% term Thread %} before, or is still paired with iOS, reset the device.
   - HomeKit devices can only be paired to a single controller at once.
-  - If it has been in a Thread network before, the device might remember the Thread credentials of a different network. A reset makes sure the device is not connected to any Thread network.
+  - If it has been in a {% term Thread %} network before, the device might remember the {% term Thread %} credentials of a different network. A reset makes sure the device is not connected to any {% term Thread %} network.
 
 ### To add a HomeKit device through Bluetooth
 
@@ -114,59 +114,66 @@ You can add a HomeKit [compatible device](#supported-devices) to Home Assistant 
    - Bluetooth devices may take significantly longer to pair than IP devices.
    - Add the device to a room and **Finish**.
 
-## Adding a HomeKit device to a Thread network via Home Assistant
+## Adding a HomeKit device through Thread
 
-There are two methods to add a HomeKit [compatible device](#supported-devices) to a Thread network:
+This section shows the the ways you can join a HomeKit device to a {% term Thread %} network:
 
-- via Home Assistant's preferred Thread network
-- via [Apple Thread border router](#adding-a-homekit-device-to-home-assistant-via-apple-thread-border-router)
+1. via Home Assistant
+2. via Apple Thread border router
 
-This section describes how to add it via Home Assistant's preferred Thread network.
+### Adding a HomeKit device to a Thread network via Home Assistant
 
-### Prerequisites
+There are two methods to add a HomeKit [compatible device](#supported-devices) to a {% term Thread %} network:
 
-- A HomeKit device which supports Thread. This is indicated by the Thread label on the packaging.
+- via Home Assistant's preferred {% term Thread %} network
+- via [Apple Thread border router](#adding-a-homekit-device-via-apple-thread-border-router)
+
+This section describes how to add it via Home Assistant's preferred {% term Thread %} network.
+
+#### Prerequisites
+
+- A HomeKit device which supports {% term Thread %}. This is indicated by the Thread label on the packaging.
 - Make sure the HomeKit device has been [joined using Bluetooth](#adding-a-homekit-device-through-bluetooth).
 - **Thread network**: In order to use HomeKit over Thread, you need a working border router.
   - Make sure your Home Assistant device is on the same network (LAN) as the border router.
-  - Make sure the Thread network you'd like to use is known by Home Assistant and marked as **Preferred network** in the Thread configuration.
-  - If you have a Home Assistant Yellow or SkyConnect, you can enable multiprotocol to set up an Open Thread border router and with that a Thread network.
+  - Make sure the {% term Thread %} network you'd like to use is known by Home Assistant and marked as **Preferred network** in the {% term Thread %} configuration.
+  - If you have a Home Assistant Yellow or SkyConnect, you can enable multiprotocol to set up an Open Thread border router and with that a {% term Thread %} network.
     - Documentation on [enabling multiprotocol on Yellow](https://yellow.home-assistant.io/guides/enable-multiprotocol/)
     - Documentation on [enabling multiprotocol on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-multiprotocol/)
 
-### To add a HomeKit device to a Thread network via Home Assistant
+#### To add a HomeKit device to a Thread network via Home Assistant
 
 1. To open the device configuration page, on the **HomeKit** integration, select the **device**.
 2. Under **Diagnostic**, you can see the **Thread Status** as **Disabled**.
    ![Device configuration page](/images/integrations/homekit_controller/homekit_controller_add_02.png)
-3. To enable Thread, under **Configuration**, select **Press**. This will provision the preferred Thread credentials.
+3. To enable {% term Thread %}, under **Configuration**, select **Press**. This will provision the preferred Thread credentials.
    - The status has now changed:
      - Depending on the device type, the mesh size and health, the Thread status can be **Child**, **Router**, or **Leader**.
        ![Thread status](/images/integrations/homekit_controller/homekit_controller_add_02.png)
-   - That's it. Your HomeKit device now communicates via Thread.
+   - That's it. Your HomeKit device now communicates via {% term Thread %}.
 
-## Adding a HomeKit device via Apple Thread border router
+### Adding a HomeKit device via Apple Thread border router
 
-There are two methods to add a HomeKit [compatible device](#supported-devices) to a Thread network:
+There are two methods to add a HomeKit [compatible device](#supported-devices) to a {% term Thread %} network:
 
 - via [Home Assistant's preferred Thread network](#adding-a-homekit-device-to-a-thread-network-via-home-assistant)
 - via Apple Thread border router
 
 This section describes how to add a HomeKit [compatible device](#supported-devices) using an Apple Thread border router device such as a HomePod mini.
 
-### Prerequisites
+#### Prerequisites
 
 - An Apple device that can act as a Thread border router, such as a HomePod mini.
-- A HomeKit device which supports Thread. This is indicated by the Thread label on the packaging.
+- A HomeKit device which supports {% term Thread %}. This is indicated by the Thread label on the packaging.
 - Make sure your Home Assistant instance is on the same network (LAN) as the border router.
 - Make sure the HomeKit device has been paired in the Apple Home app (using the iOS Home app).
 
-### To add a HomeKit device via Apple Thread border router
+#### To add a HomeKit device via Apple Thread border router
 
 1. Remove the HomeKit device from the Apple Home app. Don't reset the device.
-   - This leaves the Thread network details on the HomeKit device.
+   - This leaves the {% term Thread %} network details on the HomeKit device.
    - The device will be automatically discovered by the HomeKit controller integration in Home Assistant.
-   - It will appear as a discovered device over Thread.
+   - It will appear as a discovered device over {% term Thread %}.
 2. Under **{% my integrations title="Settings > Devices & Services" %}**, on the HomeKit integration, select **Configure**.
 
    ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
@@ -179,24 +186,24 @@ This section describes how to add a HomeKit [compatible device](#supported-devic
 5. Under **Diagnostic**, check the status:
    - Depending on the device type, the mesh size and health, the Thread status can be **Child**, **Router**, or **Leader**.
      ![Thread status](/images/integrations/homekit_controller/homekit_controller_add_02.png)
-   - That's it. Your HomeKit device now communicates via Thread.
+   - That's it. Your HomeKit device now communicates via {% term Thread %}.
 
 ## Supported devices
 
 There is currently support for the following device types (also called *domains*) within Home Assistant. They are listed with their default types.
 
-- Alarm Control Panel (HomeKit security system)
+- Alarm control panel (HomeKit security system)
 - Climate (HomeKit thermostats and air conditioners)
 - Cover (HomeKit garage door openers, windows, or window coverings)
 - Light (HomeKit lights)
 - Lock (HomeKit lock)
 - Switch (HomeKit switches, outlets and valves)
-- Binary Sensor (HomeKit motion, contact, occupancy, carbon monoxide and smoke sensors)
+- Binary sensor (HomeKit motion, contact, occupancy, carbon monoxide and smoke sensors)
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 - Fan
-- Air Quality
+- Air quality
 - Humidifier (HomeKit humidifiers and dehumidifiers)
-- Automation Triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
+- Automation triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
 
 <div class='note'>
 

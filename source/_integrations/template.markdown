@@ -2,7 +2,7 @@
 title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Helper
   - Image
@@ -40,7 +40,7 @@ The `template` integration allows creating entities which derive their values fr
 
 Sensors, binary (on/off) sensors, buttons, images, numbers and selects are covered on this page. For other types, please see the specific pages:
 
-- [Alarm Control Panel](/integrations/alarm_control_panel.template/)
+- [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
 - [Light](/integrations/light.template/)
@@ -146,6 +146,11 @@ sensor:
       description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
+      default: None
+    last_reset:
+      description: "Defines a template that describes when the state of the sensor was last reset. Must render to a valid `datetime`. Only available when `state_class` is set to `total`"
+      required: false
+      type: template
       default: None
 binary_sensor:
   description: List of binary sensors
@@ -400,7 +405,7 @@ template:
 
 [trigger-doc]: /docs/automation/trigger
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how to set up a Trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
@@ -648,7 +653,7 @@ template:
 
 {% endraw %}
 
-### State based binary sensor - Device Tracker sensor with Latitude and Longitude Attributes
+### State based binary sensor - device tracker sensor with latitude and longitude attributes
 
 This example shows how to combine a non-GPS (e.g., NMAP) and GPS device tracker while still including latitude and longitude attributes
 
@@ -779,7 +784,7 @@ template:
       - platform: time_pattern
         hours: /1
     action:
-      - service: weather.get_forecast
+      - service: weather.get_forecasts
         data:
           type: hourly
         target:
@@ -790,7 +795,7 @@ template:
         unique_id: weather_forecast_hourly
         state: "{{ now().isoformat() }}"
         attributes:
-          forecast: "{{ hourly.forecast }}"
+          forecast: "{{ hourly['weather.home'].forecast }}"
 ```
 
 {% endraw %}

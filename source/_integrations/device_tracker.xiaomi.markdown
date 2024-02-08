@@ -1,8 +1,8 @@
 ---
-title: "Xiaomi Router"
+title: "Xiaomi router"
 description: "Instructions on how to integrate Xiaomi routers into Home Assistant."
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.36
 ha_domain: xiaomi
 ---

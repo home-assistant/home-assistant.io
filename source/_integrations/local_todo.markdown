@@ -1,17 +1,17 @@
 ---
-title: Local to-do list
+title: Local To-do
 description: Instructions on how to use local to-do lists in Home Assistant.
 ha_category:
-  - To-do List
+  - To-do list
 ha_iot_class: Local Polling
 ha_release: 2023.11
 ha_config_flow: true
 ha_domain: local_todo
-ha_platforms:
-  - todo
 ha_codeowners:
   - '@allenporter'
 ha_integration_type: integration
+ha_platforms:
+  - todo
 ---
 
 The **Local to-do list** integration allows you to create to-do lists in Home Assistant.

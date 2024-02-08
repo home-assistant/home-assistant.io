@@ -38,7 +38,7 @@ Please refer to the [creator's disclaimer and terms of use notice](https://www.g
 
 {% include integrations/config_flow.md %}
 
-## State Attributes
+## State attributes
 
 The following state attributes are available for each entity in addition to the standard ones:
 
@@ -84,7 +84,7 @@ from the feed.
 | updated                | Number of entities that were updated during last update (optional).  |
 | removed                | Number of entities that were removed during last update (optional).  |
 
-## Full Configuration
+## Full configuration
 
 ```yaml
 # Example configuration.yaml entry
