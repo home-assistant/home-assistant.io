@@ -2,11 +2,6 @@
 
 If you want to define a specific interval at which your device is being polled for data, you can disable the default polling interval and create your own polling automation.
 
-Creating an automation for polling gives you more flexibility on when to poll.
-
-1. Using the homassistant.update_entity service to update an entity already works with most of the integrations. Since changing the polling interval could be a use case for every integration, it makes sense to pick an approach that works for every integration without having to add support to every individual integration.
-2. You can poll whenever you want. With this approach, you can make your polling smarter and more efficient. For example, if you have a rate-limited solar panel provider with a maximum number of requests per day, it might make sense to lower/stop the polling at night so you can poll more during the day when it matters.
-
 To add the automation:
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}, and select your integration.
