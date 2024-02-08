@@ -13,7 +13,7 @@ Creating an automation for polling gives you more flexibility on when to poll.
 
 Why use an automation instead of changing the integration's configuration for polling?
 
-1. One reason is that it reduces maintenance cost. Not all integrations have a configurable polling interval. The homassistant.update_entity service on the other hand works with most of the integrations. Using an automation to change the polling interval removes the burden of having implement and maintain this functionality for every single integration.
-2. The other reason is that it provides more flexibility. An automation allows you to poll whenever you want. For example, if you have a rate-limited solar panel provider with a maximum number of requests per day, you may want to lower/stop the polling at night but poll more frequently during the day.
+1. Not all integrations have a configurable polling interval. However, the homassistant.update_entity service works with most of the integrations.
+2. An automation allows you to poll whenever you want. For example, if you have a rate-limited solar panel provider with a maximum number of requests per day, you may want to lower/stop the polling at night but poll more frequently during the day.
 
 {% include common-tasks/define_custom_polling.md %}
