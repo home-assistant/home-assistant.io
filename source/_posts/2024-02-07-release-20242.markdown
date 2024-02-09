@@ -3,7 +3,7 @@ layout: post
 title: "2024.2: More voice, more icons, more integrations, more... everything!"
 description: "Improved drag 'n drop in automations, proximity, custom Assist responses, export your data, ZHA firmware updates, Matter diagnostics and actions, icons everywhere, and more!"
 date: 2024-02-07 00:00:00
-date_formatted: "Febuary 7, 2024"
+date_formatted: "February 7, 2024"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
