@@ -97,7 +97,7 @@ verify_ssl:
   type: boolean
   default: true
 scan_interval:
-  description: Define the refrequency to call the REST endpoint to get the current state in seconds.
+  description: Define the frequency for calling the REST endpoint to get the current state in seconds.
   required: false
   type: integer
   default: 30
