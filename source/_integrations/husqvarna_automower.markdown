@@ -19,7 +19,7 @@ The Husqvarna Automower integration provides connectivity with Husqvarna Automow
 In order to use this integration you must properly configure OAuth2 credentials using your Husqvarna account.  Refer to [this guide](https://developer.husqvarnagroup.cloud/docs/get-started) for general overview of the process.
 Your Husqvarna account username/password used for the *Automower® Connect*  phone app is required.  Most users probably created a Husqvarna account during initial mower setup.
 
-1. Go to the [Husqvarna Developers Portal](https://developer.husqvarnagroup.cloud) and sign in with your Husqvarna account. Authorize *Developer Portale* to access Husqvarna account when prompted.
+1. Go to the [Husqvarna Developers Portal](https://developer.husqvarnagroup.cloud) and sign in with your Husqvarna account. Authorize *Developer Portal* to access Husqvarna account when prompted.
 
 2. After signing in you will be automatically redirected to "My applications". (Otherwise go to: [Applications](https://developer.husqvarnagroup.cloud/applications))
 
@@ -31,18 +31,18 @@ Your Husqvarna account username/password used for the *Automower® Connect*  pho
    - Redirect URL: `https://my.home-assistant.io/redirect/oauth`
      Make sure no extra spaces were appended at end of URL from copy and paste.
 
-    ![Create new Application](https://github.com/Thomas55555/home-assistant.io/assets/59625598/97abbbac-a089-4d9a-be3d-3a3f9c50442c)
+    ![Create new Application](/images/integrations/husqvarna_automower/create_new_application.png)
 
    - Click **CREATE**.  *Application Key* and *Application Secret* will be generated and shown.  Protect these like a username and password.
 
 4. Click on **CONNECT NEW API** and connect the **Authentication API**.
-   ![Authentication API*](https://github.com/Thomas55555/home-assistant.io/assets/59625598/1d541011-6a38-4678-ac98-b73b2dac5aab)
+   ![Authentication API*](/images/integrations/husqvarna_automower/connect_authentication_api.png)
 
 5. Click on **CONNECT NEW API** again and connect the **Automower Connect API**.
-   ![Automower Connect API](https://github.com/Thomas55555/home-assistant.io/assets/59625598/3ade9aee-8643-44de-ab43-38cf95dd59fb)
+   ![Automower Connect API](/images/integrations/husqvarna_automower/connect_automower_api.png)
 
 6. Leave this tab open in browser and continue with Home Assistant configuration.
-   ![Application Overview](https://github.com/Thomas55555/home-assistant.io/assets/59625598/8bdfef10-9cc4-40ee-8b44-e845661551dc)
+   ![Application Overview](/images/integrations/husqvarna_automower/application_overview.png)
 
 ### Home Assistant
 
@@ -55,9 +55,9 @@ The My Home Assistant redirect feature needs to be setup to redirect to your Hom
 
 3. Acknowledge prompt to setup application credentials.
 
-4. Enter the following from the Husqvrana developer tab:
+4. Enter the following from the Husqvarna developer tab:
 
-   - A name of the applicatione
+   - A name of the application
    - Copy and paste the *Application key* into the *OAuth Client ID* field
    - Copy and paste the *Application secret* into the *OAuth Client Secret* field
 
@@ -71,12 +71,15 @@ The My Home Assistant redirect feature needs to be setup to redirect to your Hom
 
 {% include integrations/config_flow.md %}
 
-There is currently support for the following device types within Home Assistant:
 
-- Lawn Mower
+## Entities
 
-## Lawn Mower
+Once you have enabled the Husqvarna Automower integration, you should see the following entities:
 
-Once you have enabled the Husqvarna Automower integration, you should see the following sensors:
+### Lawn Mower
 
-- Lawn Mower
+The integration will create a lawn mower entity to control the mower. This entity can:
+
+- Resume the schedule
+- Pause mowing
+- Park until next schedule
