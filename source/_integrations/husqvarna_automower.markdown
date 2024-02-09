@@ -3,7 +3,7 @@ title: Husqvarna Automower
 description: Instructions on how to integrate Husqvarna Automower lawn mowers into Home Assistant.
 ha_category:
   - Lawn Mower
-ha_release: 2023.10
+ha_release: 2024.3
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
