@@ -96,6 +96,11 @@ verify_ssl:
   required: false
   type: boolean
   default: true
+scan_interval:
+  description: Define the frequency for calling the REST endpoint to get the current state in seconds.
+  required: false
+  type: integer
+  default: 30
 {% endconfiguration %}
 
 <div class='note warning'>
