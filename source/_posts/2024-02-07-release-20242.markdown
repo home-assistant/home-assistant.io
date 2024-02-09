@@ -58,6 +58,7 @@ _Oh! And don't forget Valentine's Day is coming up!_ 😘
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2024.2.1 - February 9](#release-202421---february-9)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -443,6 +444,68 @@ The following integrations are now available via the Home Assistant UI:
 [Lutron]: /integrations/lutron
 [Proximity]: /integrations/proximity
 [Time & Date]: /integrations/time_date
+
+## Release 2024.2.1 - February 9
+
+- Catch APIRateLimit in Honeywell ([@mkmer] - [#107806])
+- Allow disabling home assistant watchdog ([@mdegat01] - [#109818])
+- Assist fixes ([@synesthesiam] - [#109889])
+- Bump Python matter server to 5.5.0 ([@marcelveldt] - [#109894])
+- Bump aioelectricitymaps to 0.4.0 ([@jpbede] - [#109895])
+- Skip polling of unavailable Matter nodes ([@marcelveldt] - [#109917])
+- Bump aio-geojson-geonetnz-volcano to 0.9 ([@exxamalte] - [#109940])
+- Handle Matter nodes that become available after startup is done ([@marcelveldt] - [#109956])
+- Allow modbus "scale" to be negative. ([@janiversen] - [#109965])
+- Don't blow up if config entries have unhashable unique IDs ([@emontnemery] - [#109966])
+- Bump pyMicrobot to 0.0.12 ([@spycle] - [#109970])
+- Allow modbus min/max temperature to be negative. ([@janiversen] - [#109977])
+- Bump deebot-client to 5.1.1 ([@edenhaus] - [#109994])
+- Allow modbus negative min/max value. ([@janiversen] - [#109995])
+- Bump aioecowitt to 2024.2.1 ([@edenhaus] - [#109999])
+- Avoid key_error in modbus climate with non-defined fan_mode. ([@janiversen] - [#110017])
+- Update frontend to 20240207.1 ([@bramkragten] - [#110039])
+- Matching duplicate named entities is now an error in Assist ([@synesthesiam] - [#110050])
+- Log error and continue on parsing issues of translated strings ([@mib1185] - [#110046])
+- Bump evohome-async to 0.4.18 ([@zxdavb] - [#110056])
+- Bump py-aosmith to 1.0.8 ([@bdr99] - [#110061])
+
+[#107806]: https://github.com/home-assistant/core/pull/107806
+[#109818]: https://github.com/home-assistant/core/pull/109818
+[#109883]: https://github.com/home-assistant/core/pull/109883
+[#109889]: https://github.com/home-assistant/core/pull/109889
+[#109894]: https://github.com/home-assistant/core/pull/109894
+[#109895]: https://github.com/home-assistant/core/pull/109895
+[#109917]: https://github.com/home-assistant/core/pull/109917
+[#109940]: https://github.com/home-assistant/core/pull/109940
+[#109956]: https://github.com/home-assistant/core/pull/109956
+[#109965]: https://github.com/home-assistant/core/pull/109965
+[#109966]: https://github.com/home-assistant/core/pull/109966
+[#109970]: https://github.com/home-assistant/core/pull/109970
+[#109977]: https://github.com/home-assistant/core/pull/109977
+[#109994]: https://github.com/home-assistant/core/pull/109994
+[#109995]: https://github.com/home-assistant/core/pull/109995
+[#109999]: https://github.com/home-assistant/core/pull/109999
+[#110017]: https://github.com/home-assistant/core/pull/110017
+[#110039]: https://github.com/home-assistant/core/pull/110039
+[#110046]: https://github.com/home-assistant/core/pull/110046
+[#110050]: https://github.com/home-assistant/core/pull/110050
+[#110056]: https://github.com/home-assistant/core/pull/110056
+[#110061]: https://github.com/home-assistant/core/pull/110061
+[@bdr99]: https://github.com/bdr99
+[@bramkragten]: https://github.com/bramkragten
+[@edenhaus]: https://github.com/edenhaus
+[@emontnemery]: https://github.com/emontnemery
+[@exxamalte]: https://github.com/exxamalte
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@jpbede]: https://github.com/jpbede
+[@marcelveldt]: https://github.com/marcelveldt
+[@mdegat01]: https://github.com/mdegat01
+[@mib1185]: https://github.com/mib1185
+[@mkmer]: https://github.com/mkmer
+[@spycle]: https://github.com/spycle
+[@synesthesiam]: https://github.com/synesthesiam
+[@zxdavb]: https://github.com/zxdavb
 
 ## Need help? Join the community!
 
