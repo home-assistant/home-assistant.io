@@ -70,7 +70,7 @@ The favorites sensor provides the names and `media_content_id` values for each o
 
 When calling the `media_player.play_media` service, the `media_content_type` must be set to "favorite_item_id" and the `media_content_id` must be set to just the key portion of the favorite item. 
 
-Example service call:
+Example service call using the item id:
 
 ```yaml
 service: media_player.play_media
@@ -79,6 +79,17 @@ target:
 data:
   media_content_type: "favorite_item_id"
   media_content_id: "FV:2/31"
+```
+
+or using the Sonos playlist name:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos_speaker1
+data:
+  media_content_type: playlist
+  media_content_id: stevie_wonder
 ```
 
 Example templates:
@@ -184,6 +195,41 @@ data:
   media_content_id: >
     plex://{ "library_name": "Music", "artist_name": "M83", "album_name": "Hurry Up, We're Dreaming" }
 ```
+
+#### Sonos Music Library
+
+Use a Sonos music library? The integration can work with that as well. Play all albums by the Beatles.
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos      
+data:
+  media_content_type: album
+  media_content_id: A:ALBUMARTIST/Beatles
+```
+
+Play a specific album:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos      
+data:
+  media_content_type: album
+  media_content_id: A:ALBUM/Burning Sky
+```
+
+List of content_ids
+
+| Content Id Prefixes | Description |
+| -------------------- | -------- |
+|  A:ALBUM             | Album |
+|  A:ALBUMARTIST       | Album Artist |
+|  A:ARTIST            | Contributing Artist |
+|  A:COMPOSER          | Composer |
+|  A:PLAYLIST          | Imported Playlist |
+|  A:TRACKS            | Track |
 
 ## Services
 
