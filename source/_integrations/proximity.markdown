@@ -63,3 +63,9 @@ This sensor shows the direction of travel of the nearest device or person to the
 - `stationary`
 - `towards`
 - `unknown`
+
+### Video tutorial
+This comprehensive video tutorial explains how to utilize the Proximity integration to automatically adjust the heating in your home based on your presence, whether you're leaving or entering an area around your house.
+
+<lite-youtube videoid="0ojMz1s3Y84" videotitle="Mastering Geofencing in Home Assistant with Proximity and Presence Detection: An Ultimate Guide" posterquality="maxresdefault"></lite-youtube>
+
