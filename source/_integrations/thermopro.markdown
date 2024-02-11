@@ -25,6 +25,7 @@ Integrates [ThermoPro](https://buythermopro.com/) devices into Home Assistant.
 - [TP393](https://buythermopro.com/product/tp393/)
 - [TP960](https://buythermopro.com/product/tempspike/)
 - [TP962](https://buythermopro.com/twin-tempspike/)
+- [TP970](https://buythermopro.com/product/tempspike-plus-tp970/)
 
 The ThermoPro integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
