@@ -2,8 +2,9 @@
 title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
+  - Image
   - Number
   - Select
   - Sensor
@@ -21,6 +22,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - image
   - number
   - select
   - sensor
@@ -32,7 +34,7 @@ ha_integration_type: integration
 
 The Roborock integration allows you to control your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) vacuum while using the Roborock app.
 
-This integration requires a cloud connection to set up the device, but it communicates with the device entirely over your home network.
+This integration requires a continuous cloud connection while using the device. However, excluding map data, communication between the integration and the device is conducted locally.
 
 Once you log in with your Roborock account, the integration will automatically discover your Roborock devices and get the needed information to communicate locally with them. Please ensure your Home Assistant instance can communicate with the local IP of your device. We recommend setting a static IP for your Roborock Vacuum to help prevent future issues. The device communicates on port 58867. Depending on your firewall, you may need to allow communication from Home Assistant to your vacuum on that port.
 
@@ -126,6 +128,10 @@ Reset main brush consumable - The main brush/ roller is expected to be replaced 
 
 Reset air filter - The air filter is expected to be replaced every 150 hours.
 
+### Image
+
+You can see all the maps within your Roborock account. Keep in mind that they are device-specific. The maps require the cloud API to communicate as the maps are seemingly stored on the cloud. If someone can figure out a way around this - contributions are always welcome.
+
 
 ## FAQ
 
@@ -153,10 +159,11 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
 2. [Enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) for this integration and reload it.
 3. Search your logs for 'Got home data' and find the attribute rooms.
 4. Write the rooms down; they have a name and 6 digit ID.
-5. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %}. Select your vacuum as the entity and `get_room_mapping` as the command.
-6. Go back to your logs and look at the response to `get_room_mapping`. This is a list of the 6-digit IDs you saw earlier to 2-digit IDs (use the first number, for instance `16` in `[16, '14000663', 12]` ([internal room id, unique room id, room type])). In your original list of room names and 6-digit IDs, replace the 6-digit ID with its pairing 2-digit ID.
-7. Now, you have the 2-digit ID that your vacuum uses to describe a room.
-8. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
+5. Make sure the map you want the room IDs for is selected in your app. Room IDs are non-unique and will repeat if you have multiple maps.
+6. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %}. Select your vacuum as the entity and `get_room_mapping` as the command.
+7. Go back to your logs and look at the response to `get_room_mapping`. This is a list of the 6-digit IDs you saw earlier to 2-digit IDs (use the first number, for instance `16` in `[16, '14000663', 12]` ([internal room id, unique room id, room type])). In your original list of room names and 6-digit IDs, replace the 6-digit ID with its pairing 2-digit ID.
+8. Now, you have the 2-digit ID that your vacuum uses to describe a room.
+9. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 
 Example:
 ```yaml

@@ -11,25 +11,32 @@ ha_platforms:
   - calendar
   - todo
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The CalDAV integration allows you to connect your WebDAV calendar to Home Assistant
 as one of these entity types:
 
--  A [calendar](/integrations/calendar) entity which can be used to trigger automations based on the the start or end of an event using criteria such as the event name or description.
+- A [calendar](/integrations/calendar) entity which can be used to trigger automations based on the the start or end of an event using criteria such as the event name or description.
 - A [todo](/integrations/todo) entity which tracks the number of active items
 on the to-do list.
 
-The WebDAV entities are updated roughly every 15 minutes. 
+The WebDAV entities are updated roughly every 15 minutes.
 
 {% include integrations/config_flow.md %}
 
-During the configuraiton flow you will be asked for the CalDAV server and credentials
+During the configuration flow you will be asked for the CalDAV server and credentials
 for it. An example CalDAV URL is `https://caldav.icloud.com/`.
 
-This integration was tested against [iCloud Calendar](https://www.icloud.com/calendar/), [Nextcloud](https://nextcloud.com/), [Owncloud](https://owncloud.org/), [Baikal](https://sabre.io/baikal/). Any integration complying with the RFC4791 should work.
+This integration was tested against the following systems, but any other complying with the RFC4791 should work:
 
-## Manual Configuration
+- [Baikal](https://sabre.io/baikal/)
+- [iCloud Calendar](https://www.icloud.com/calendar/)
+- [Nextcloud](https://nextcloud.com/)
+- [Owncloud](https://owncloud.org/)
+- [Synology Calendar](https://www.synology.com/en-us/dsm/feature/calendar)
+
+## Manual configuration
 
 You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your `configuration.yaml` file. This method does not support to-do lists.
 
@@ -142,7 +149,6 @@ verify_ssl:
 {% endconfiguration %}
 
 {% enddetails %}
-
 
 ## Calendar Event Automations
 

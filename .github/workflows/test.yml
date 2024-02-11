@@ -10,9 +10,9 @@ jobs:
       - name: Check out files from GitHub
         uses: actions/checkout@v4.1.1
       - name: Setting up Node.js
-        uses: actions/setup-node@v4.0.0
+        uses: actions/setup-node@v4.0.1
         with:
-          node-version: 16.x
+          node-version: 20
           cache: "npm"
       - name: Install dependencies
         run: npm install
@@ -27,9 +27,9 @@ jobs:
       - name: Check out files from GitHub
         uses: actions/checkout@v4.1.1
       - name: Setting up Node.js
-        uses: actions/setup-node@v4.0.0
+        uses: actions/setup-node@v4.0.1
         with:
-          node-version: 16.x
+          node-version: 20
           cache: "npm"
       - name: Install dependencies
         run: npm install

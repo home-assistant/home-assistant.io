@@ -32,6 +32,12 @@ Although SQLAlchemy supports database solutions in addition to the ones supporte
 
 The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
 
+<div class='note'>
+
+Changing database used by the recorder may result in losing your existing history. Migrating data is not supported.
+
+</div>
+
 To change the defaults for the `recorder` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -119,7 +125,7 @@ recorder:
           type: list
 {% endconfiguration %}
 
-## Configure Filter
+## Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `recorder`, you can use the `include` and `exclude` parameters.
 

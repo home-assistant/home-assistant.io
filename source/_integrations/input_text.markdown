@@ -88,7 +88,7 @@ This integration provides a service to modify the state of the `input_text` and 
 | `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities.
 | `reload` | | Reload `input_text` configuration |
 
-### Restore State
+### Restore state
 
 If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
@@ -104,7 +104,7 @@ scene:
       input_text.example: Hello!
 ```
 
-## Automation Examples
+## Automation examples
 
 Here's an example using `input_text` in an action in an automation.
 

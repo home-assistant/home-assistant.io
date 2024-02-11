@@ -2,7 +2,7 @@
 title: Tailscale
 description: Instructions on how to integrate Tailscale within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Network
   - Sensor
 ha_release: 2021.12

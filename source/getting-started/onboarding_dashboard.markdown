@@ -5,6 +5,12 @@ description: "Instructions on editing the dashboard for the first time"
 
 ## First contact with the Overview dashboard
 
+The **Overview** dashboard is the first page you see after the [onboarding process](/getting-started/onboarding). Dashboards are customizable pages to display information in Home Assistant. 
+
+By default, there are two dashboards: **Overview** and **Energy**. The image below shows a customized example of the **Overview** dashboard. If you just onboarded, your dashboard will be nearly empty.
+
+![Dashboard](/images/getting-started/lovelace.png)
+
 The procedure below is optional. The idea is to learn some basics on changing the dashboard.
 
 ### To change a card on the Overview dashboard
@@ -26,7 +32,10 @@ The procedure below is optional. The idea is to learn some basics on changing th
     - Once you are done, select **Update**.
    ![Weather details](/images/getting-started/onboarding_card_settings_01.png)
 
-4. To change the type of dashboard card, select the three-dots, then **Device info**.
+4. To change the type of dashboard card, in the top right corner, select the three-dots, then, in the **Edit dashboard** dialog, select the three dots again and select **Take control**.
+   ![Take control of the dashboard](/images/getting-started/dashboard-take-control.png)
+   - Read and accept this before continuing.
+   - On the dashboard, select the weather card, select the three dots, then **Device info**.
    - Under **Sensors**, select **Add to dashboard**, then **Pick different card**.
    ![Dashboard - change the card type](/images/getting-started/onboarding_pick_different_card_01.png)
 
@@ -47,4 +56,4 @@ The procedure below is optional. The idea is to learn some basics on changing th
    - When you are done, in the top right corner, select **Done**.
 9. Congratulations! You have completed your first dashboard customization.
 
-{% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}
+{% include getting-started/next_step.html step="Integrations" link="/getting-started/integration/" %}

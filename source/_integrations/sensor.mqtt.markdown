@@ -12,14 +12,13 @@ This `mqtt` sensor platform uses the MQTT message payload as the sensor value. I
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To use your MQTT sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
+  sensor:
+    - name: "Bedroom Temperature"
       state_topic: "home/bedroom/temperature"
 ```
 
@@ -93,6 +92,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -107,10 +110,8 @@ device:
       type: string
 device_class:
   description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend. The `device_class` can be `null`.
-  default: None
   required: false
   type: device_class
-  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -125,7 +126,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity. When set, the entity category must be `diagnostic` for sensors.
   required: false
   type: string
-  default: None
 expire_after:
   description: If set, it defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`. Default the sensors state never expires.
   required: false
@@ -184,10 +184,8 @@ state_class:
   description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
   type: string
-  default: None
 state_topic:
   description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class`, `unit_of_measurement` or `suggested_display_precision` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state, a `'null'` value will set the sensor to an `unknown` state. The `device_class` can be `null`.
-  default: None
   required: true
   type: string
 unique_id:
@@ -196,7 +194,6 @@ unique_id:
   type: string
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any. The `unit_of_measurement` can be `null`.
-  default: None
   required: false
   type: string
 value_template:
@@ -233,8 +230,8 @@ Extra attributes will be displayed in the frontend and can also be extracted in 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "RSSI"
+  sensor:
+    - name: "RSSI"
       state_topic: "home/sensor1/infojson"
       unit_of_measurement: "dBm"
       value_template: "{{ value_json.RSSI }}"
@@ -273,14 +270,14 @@ Extra attributes will be displayed in the frontend and can also be extracted in 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Timer 1"
+  sensor:
+    - name: "Timer 1"
       state_topic: "tele/sonoff/sensor"
       value_template: "{{ value_json.Timer1.Arm }}"
       json_attributes_topic: "tele/sonoff/sensor"
       json_attributes_template: "{{ value_json.Timer1 | tojson }}"
-  - sensor:
-      name: "Timer 2"
+
+    - name: "Timer 2"
       state_topic: "tele/sonoff/sensor"
       value_template: "{{ value_json.Timer2.Arm }}"
       json_attributes_topic: "tele/sonoff/sensor"
@@ -300,8 +297,8 @@ The example below shows how a simple filter, that calculates the value by adding
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Temp 1"
+  sensor:
+    - name: "Temp 1"
       state_topic: "sensor/temperature"
       value_template: |-
         {% if states(entity_id) == None %}
@@ -338,8 +335,8 @@ Thus the trick is extracting the battery level from the payload.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Battery Tablet"
+  sensor:
+    - name: "Battery Tablet"
       state_topic: "owntracks/tablet/tablet"
       unit_of_measurement: "%"
       value_template: "{{ value_json.batt }}"
@@ -366,14 +363,13 @@ Then use this configuration example to extract the data from the payload:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Temperature"
+  sensor:
+    - name: "Temperature"
       state_topic: "office/sensor1"
       suggested_display_precision: 1
       unit_of_measurement: "°C"
-      value_template: "{{ value_json.temperature }}"
-  - sensor:
-      name: "Humidity"
+      value_template: "{{ value_json.temperature }}
+    - name: "Humidity"
       state_topic: "office/sensor1"
       unit_of_measurement: "%"
       value_template: "{{ value_json.humidity }}"
@@ -403,7 +399,7 @@ The configuration will look like the example below:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Brightness"
+  sensor:
+    - name: "Brightness"
       state_topic: "home/bathroom/analog/brightness"
 ```

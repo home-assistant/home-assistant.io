@@ -60,7 +60,7 @@ Further data that is read from the device is added as diagnostic entities:
 - Settings and firmware
 - Flow hours
 
-## Energy Dashboard
+## Energy dashboard
 
 Either heat usage or volume usage can be used as "Gas" on the energy dashboard. If you want to supply a price per MWh, make sure to apply the conversion factor first.
 
