@@ -14,7 +14,7 @@ ha_integration_type: entity
 
 The Siren integration is built for the controlling and monitoring of siren/chime devices.
 
-Siren entities are created automatically by integrations that support them.
+{% include integrations/building_block_integration.md %}
 
 ## Services
 

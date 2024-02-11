@@ -35,5 +35,5 @@ room:
   description: Gitter room to monitor.
   required: false
   type: string
-  default: home-assistant/home-assistant
+  default: "`home-assistant/home-assistant`"
 {% endconfiguration %}

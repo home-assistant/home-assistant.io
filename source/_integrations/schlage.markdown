@@ -11,10 +11,13 @@ ha_config_flow: true
 ha_codeowners:
   - '@dknowles2'
 ha_platforms:
+  - binary_sensor
+  - diagnostics
   - lock
   - sensor
   - switch
 ha_integration_type: integration
+ha_domain: schlage
 ---
 
 The Schlage integration provides connectivity with Schlage WiFi smart locks through Schlage's cloud API.
@@ -23,9 +26,16 @@ The Schlage integration provides connectivity with Schlage WiFi smart locks thro
 
 There is currently support for the following device types within Home Assistant:
 
+- Binary sensor
 - Lock
 - Sensor
 - Switch
+
+## Binary sensor
+
+Once you have enabled the Schlage integration, you should see the following binary sensor:
+
+- **Keypad disabled** - Indicates that the keypad has been disabled, typically due to too many incorrect lock codes being attempted.
 
 ## Sensor
 

@@ -91,7 +91,7 @@ To run without the monkey patch, start Home Assistant with `HASS_NO_MONKEY=1 has
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking changes
+## Backward-incompatible changes
 
 - Update opencv config to match other image processors ([@Teagan42] - [#7864]) ([image_processing.opencv docs]) (breaking change)
 

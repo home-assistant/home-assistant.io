@@ -3,7 +3,7 @@ title: Abode
 description: Instructions on integrating Abode home security with Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Cover
   - Hub
@@ -30,15 +30,15 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
+The **Abode** {% term integration %} allows you to integrate your Abode Home Security systems into Home Assistant and use its alarm system and sensors to trigger automations.
 
 Please visit the [Abode website](https://goabode.com/) for further information about Abode Security.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following {% term device %} types within Home Assistant:
 
-- **Alarm Control Panel**: Reports on the current alarm status and can be used to arm and disarm the system.
-- **Binary Sensor**: Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
-- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image. Can be turned off and on using the [`camera.turn_off`](/integrations/camera/#service-turn_off) and [`camera.turn_on`](/integrations/camera/#service-turn_on) services.
+- **Alarm control panel**: Reports on the current alarm status and can be used to arm and disarm the system.
+- **Binary sensor**: Reports on `Quick Actions`, `Door Contacts`, `Connectivity` {% term sensors %} (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
+- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image. Can be turned off and on using the [`camera.turn_off`](/integrations/camera/#service-turn_off) and [`camera.turn_on`](/integrations/camera/#service-turn_on) {% term services %}.
 - **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
 - **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
 - **Light**: Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
@@ -49,7 +49,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Events
 
-There are a number of events that can be triggered from Abode.
+There are a number of {% term events %} that can be triggered from Abode.
 They are grouped into the below events:
 
 - **abode_alarm**: Fired when an alarm event is triggered from Abode. This includes Smoke, CO, Panic, and Burglar alarms.
@@ -64,7 +64,7 @@ They are grouped into the below events:
 - **abode_capture**: Fired when an image is captured.
 - **abode_device**: Fired for device changes/additions/deletions.
 
-All events have the fields:
+All {% term events %} have the fields:
 
 Field | Description
 ----- | -----------
@@ -84,7 +84,7 @@ Field | Description
 There is a unique list of known event_codes that can be found
 [here](https://github.com/MisterWil/abodepy/files/1262019/timeline_events.txt).
 
-## Services
+## {% term Services %}
 
 ### Service `change_setting`
 

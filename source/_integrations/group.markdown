@@ -2,14 +2,14 @@
 title: Group
 description: Instructions on how to setup groups within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
-  - Fan
   - Event
+  - Fan
   - Helper
   - Light
   - Lock
-  - Media Player
+  - Media player
   - Notifications
   - Organization
   - Sensor
@@ -126,7 +126,7 @@ To add or remove entities from an existing group, click on `Group options`, all 
 
 ![Group members](/images/integrations/group/Group_members.png)
 
-## YAML Configuration
+## YAML configuration
 
 Alternatively, this integration can be configured and set up manually via YAML
 instead. Here are example of how to configure groups when using the `configuration.yaml` file.
@@ -284,7 +284,7 @@ state_class:
   required: false
 {% endconfiguration %}
 
-## Notify Groups
+## Notify groups
 
 This group is a special case of groups currently only available via YAML configuration.
 

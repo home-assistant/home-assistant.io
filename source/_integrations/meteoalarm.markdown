@@ -2,7 +2,7 @@
 title: MeteoAlarm
 description: Instructions on how to set up MeteoAlarm binary sensors within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.93
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -94,7 +94,7 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.meteoalarm
-      from: ‘off’
+      from: 'off'
     action:
       - service: notify.notify
         data:

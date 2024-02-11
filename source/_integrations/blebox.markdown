@@ -28,71 +28,554 @@ ha_zeroconf: true
 
 For the best experience, make sure your BleBox devices have the most recent available firmware installed.
 
-Additionally, if you are configuring a gateBox, it may be useful to set the second button as "stop" in your device's settings (via website or phone app).
 
-## Covers
+## BleBox controllers
 
-This integration adds the BleBox device as a cover in Home Assistant.
+### rollerGate
 
-Currently, this includes support for the following product classes:
+This integration adds the Blebox device as a cover entity to Home Assistant.
 
-- BleBox shutterBox
-- BleBox rollerGate
-- BleBox gateBox
+#### Key supported features
 
-Set of features includes tilt support for shutterBox.
+- Open
+- Close
+- Position
+- Stop
 
-## Binary sensors
-This integration adds BleBox device as a binary_sensor in Home Assistant.
+### gateBox
 
-Currently, this includes support for the following product classes:
+This integration adds the Blebox device as a cover entity to Home Assistant.
 
-- BleBox rainSensor
-- BleBox wind&rainSensor 
+#### Key supported features
 
-## Sensors
+- Open (trigger primary output)
+- Close (trigger primary output)
+- Stop (trigger secondary output)
+- Gate state (open, close, unknown)
 
-This integration adds the BleBox device as a sensor in Home Assistant.
+#### Additional features
 
-Currently, this includes support for the following product classes and their features:
+- "stop" requires setting your device's secondary trigger as stop (via website or phone app).
 
-- BleBox tempSensor (temperature only)
-- Blebox humiditySensor
-- BleBox airSensor
+### gateBox Pro
 
-## Switches
+This integration adds the Blebox device as a cover entity to Home Assistant.
 
-This integration adds the BleBox device as a switch (or multiple switches) in Home Assistant.
+#### Key supported features
 
-Currently, this includes support for the following product classes:
+- Open (trigger primary output)
+- Close (trigger primary output)
+- Stop (trigger secondary output)
+- Gate state (open, close, unknown)
 
-- BleBox switchBox
-- BleBox switchBoxD
+#### Additional features
 
-## Climate
+- "stop" requires setting your device's secondary trigger as stop (via website or phone app).
 
-This integration adds the BleBox device as a climate in Home Assistant.
+### doorBox
 
-Currently, this includes support for the following product classes:
+This integration adds the Blebox device as a cover entity to Home Assistant.
 
-- BleBox saunaBox
-- BleBox thermoBox
+#### Key supported features
 
+- Open
+- Door state (open, close, unknown)
 
-## Lights
+### saunaBox
 
-This integration adds the BleBox device as a light in Home Assistant.
+This integration adds the Blebox device as a climate entity to Home Assistant.
 
-Currently, the following product classes are supported:
+#### Key supported features
 
-- BleBox dimmerBox
-- BleBox wLightBoxS
-- BleBox wLightBox
+- On
+- Off
+- Setting target temperature
+- Read current temperature
 
-## Button
+### thermoBox
 
-This integration adds the BleBox device as a button in Home Assistant
+This integration adds the Blebox device as a climate entity to Home Assistant.
 
-Currently, this includes support for the following product classes:
+#### Key supported features
 
-- BleBox tvLiftBox
+- On
+- Off
+- Set target temperature
+- Read current temperature
+
+#### Additional features
+
+- Changing operation mode (cooling/heating) requires direct access to device or from wBox app
+
+### shutterBox
+
+This integration adds the Blebox device as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+- Tilt regulation
+
+### shutterBoxDC
+
+This integration adds the Blebox device as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+- Tilt regulation
+
+### shutterBox DIN
+
+This integration adds the Blebox device as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+- Tilt regulation
+
+### switchBox
+
+This integration adds the Blebox device as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Energy consumption measurement
+
+### switchBox DIN
+
+This integration adds the Blebox device as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Energy consumption measurement
+
+### switchBoxD
+
+This integration adds the Blebox device as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Energy consumption measurement
+
+### switchBoxD DIN
+
+This integration adds the Blebox device as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Energy consumption measurement
+
+### switchBoxDC
+
+This integration adds the Blebox device as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### switchBox LIGHT
+
+This integration adds the Blebox device as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### switchBoxT PRO
+
+This integration adds the Blebox device as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### dimmerBox
+
+This integration adds the Blebox device as a light entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Brightness
+
+### wLightBox
+
+This integration adds the Blebox device as a light entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+- Color
+
+#### Additional features
+
+- Changing color mode available from direct device access or wBox app. Device needs to be reloaded from Home Assistant.
+
+### wLightBox PRO
+
+This integration adds the Blebox device as a light entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+- Color
+
+#### Additional features
+
+- Changing color mode available from direct device access or wBox app. Device needs to be reloaded from Home Assistant.
+
+### wLightBoxS
+
+This integration adds the Blebox device as a light entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+
+### wLightBoxS PRO
+
+This integration adds the Blebox device as a light entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+
+### pixelBox
+
+This integration adds the Blebox device as a light entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+- Color
+
+### tempSensor
+
+This integration adds the Blebox device as a sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of temperature
+
+### tempSensorAC
+
+This integration adds the Blebox device as a sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of temperature for all probes
+
+### tempSensor PRO
+
+This integration adds the Blebox device as a sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of temperature for all probes
+
+### humiditySensor
+
+This integration adds the Blebox device as a sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of humidity
+- Periodic read of temperature
+
+### wind&RainSensor
+
+This integration adds the Blebox device as a sensor & binary sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of current wind speed
+- Periodic read of state of rain detection
+
+### rainSensor
+
+This integration adds the Blebox device as a binary sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of state of rain detection
+
+### airSensor
+
+This integration adds the Blebox device as a sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of:
+  - pm1
+  - pm2.5
+  - pm10
+
+### windSensor PRO
+
+This integration adds the Blebox device as a sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of current wind speed
+
+------
+
+## "BleBox inside" controllers
+
+### Simon 54 GO SHUTTER
+
+This integration adds the Simon 54 GO device ("blebox inside")  as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+- Tilt regulation
+
+### Simon 54 GO SWITCH
+
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### Simon 54 GO SWITCH D
+
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### Simon 54 GO LED 230V (dimmer)
+
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Brightness
+
+### Simon 54 GO LED MONO
+
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+- Color
+
+### Simon 54 GO RGBW
+
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+- Color
+
+### Simon 55 GO SHUTTER
+
+This integration adds the Simon 55 GO device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+- Tilt regulation
+
+### Simon 55 GO SWITCH
+
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+
+### Simon 55 GO SWITCH D
+
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Brightness
+
+### Simon 55 GO LED 230V (dimmer)
+
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Brightness
+
+### Simon 55 GO LED MONO
+
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+- Color
+
+### Simon 55 GO RGBW
+
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+- Color
+
+### FAKRO FTP-V/FTU-V WiFi
+
+This integration adds the Fakro device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+
+### FAKRO ARF/ARP WiFi
+
+This integration adds the Fakro device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+
+### FAKRO ARZ/AMZ/VMZ WiFi
+
+This integration adds the Fakro device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+
+### SABAJ TV K-SMRT-4 - WIFI RJ-45
+
+This integration adds the SABAJ device ("blebox inside") as a button entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Up
+- Down
+- Fav
+
+### Wiśniowski RiCo
+
+This integration adds the Wiśniowski device ("blebox inside") as a cover entity to Home Assistant.
+
+- Open (trigger primary output)
+- Close (trigger primary output)
+- Stop (trigger secondary output)
+- Gate state (open, close, unknown) - only Pro version
+
+#### Additional features
+
+- "stop" requires setting your device's secondary trigger as stop (via website or phone app)
+
+### Polfendo smartGateControl
+
+This integration adds the Polfendo device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Close
+- Position
+- Stop
+
+### Plast-met SMART LIGHT BOSSPIO
+
+This integration adds the Plast-met device ("blebox inside") as a light entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+
+### Plast-met SMART LIGHT SIMPIO
+
+This integration adds the Plast-met device ("blebox inside") as a light entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Effects
+- Brightness
+
+### Tedee relay module
+
+This integration adds the Tedee device ("blebox inside") as a cover entity to Home Assistant.
+
+#### Key supported features
+
+- Open
+- Door state (open, close, unknown)

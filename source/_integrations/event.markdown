@@ -2,7 +2,7 @@
 title: Event
 description: Instructions on how to use event entities in Home Assistant.
 ha_category:
-  - Events
+  - Event
 ha_release: 2023.8
 ha_quality_scale: internal
 ha_domain: event
@@ -17,7 +17,7 @@ These events are stateless. For example, a doorbell does not have a state like b
 
 The event entity can capture these events in the physical world and makes them available in Home Assistant as an entity.
 
-Please note, the event integration cannot be directly used; you cannot create your own event entities using this integration. This integration is a building block for other integrations to use, enabling them to create event entities for you.
+{% include integrations/building_block_integration.md %}
 
 ## The state of an event entity
 
