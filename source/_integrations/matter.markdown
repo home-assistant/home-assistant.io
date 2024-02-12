@@ -174,7 +174,7 @@ This guide describes how to add a new device. This will use the Bluetooth connec
 
 <lite-youtube videoid="Fk0n0r0eKcE" videotitle="Add Matter device via Android app in Home Assistant"></lite-youtube>
 
-## Sharing a device from Apple Home or Google Home
+## Sharing a device from another platform with Home Assistant
 
 Use one of these methods if your Matter device was added to Apple Home or Google Home and you want to control it from both Apple or Google Home and Home Assistant.
 
@@ -239,6 +239,61 @@ How you add a bridge to Home Assistant depends on the device. Check the document
 In some cases, bridging devices into Home Assistant via Matter might not bring you benefits. So far, The Philips Hue bridge, for example, supports Matter. But Matter only support a limited set of features. The native Home Assistant integration of Philips Hue comes with a wide variety of features. It also runs locally. You would not gain anything by adding your Philipps Hue devices to Home Assistant via Matter bridging. On the contrary, you would lose some of the features.
 
 <lite-youtube videoid="rEugjMk-4II" videoStartAt="4192" videotitle="Bridge a Matter device to Home Assistant"></lite-youtube>
+
+## Sharing a device across platforms
+
+Follow these steps if you have added a Matter device to Home Assistant and you want to make it available in an other platform, such as Google Home or Apple Home.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+2. From the list of devices, select the device you want to share.
+3. Select **Share device**, then in the dialog, select **Share device** again.
+   - There is no need to press a hardware button on the device to set it to commissioning mode.
+4. To join the device to the other platform, in their app, scan the QR code or enter the sharing code.
+5. Follow the instructions in their app. Once the process is complete, you can see that the device is shared in Home Assistant:
+   - Next to the **Share device** button, select the three dots menu, then **Manage fabrics**.
+   - In the list there, the new platform should be listed.
+   - For example, if you shared it with Google Home, it lists **Google LLC**.
+     ![image](/images/integrations/matter/matter_share-device-with-other-platform.png)
+
+
+## Removing a device from a Matter controller
+
+Follow these steps if you want to remove a device from a particular Matter controller.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+2. From the list of devices, select the device you want to remove from a controller.
+3. In the **Device info** section, next to **Share device**, select the three-dot menu. Then, select **Manage fabrics**.
+4. From the list, remove the controller of interest.
+   - If you want to remove Apple Home, also remove the Apple Keychain entry.
+   ![image](/images/integrations/matter/matter-remove-from-network.png)
+5. If you want to remove the device from Home Assistant itself, select the three-dot menu and select **Delete**.
+
+## About Matter device information
+
+The device information section provides some diagnostic information of a device.
+
+1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter (BETA)** integration card, select **Devices**.
+2. From the list of devices, select the device you want to look at.
+
+<p class='img'>
+<img src='/images/integrations/matter/matter_device-info.png' alt='Matter device information'>
+</p>
+
+This section provides a bit more information on some of the categories:
+
+**Network type**: Shows which network type the device belongs to. For example, Thread or Wi-Fi.
+
+**Device type**: There are 4 device types:
+
+- **End device**: End device that always keeps its radio on. Typically these devices are not battery-powered.
+- **Sleepy end device**: non-routing end device. Normally sleeping, wakes on occasion to check for messages. Typically battery-powered.
+- **Routing end device**: End device that always keeps its radio on and can route traffic for other, routing and non-routing end devices.
+- **Bridge**
+
+**Network name**: Name of the network the device joined when it was commissioned.
+
+**IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
+
 
 ## Experiment with Matter using a ESP32 dev board
 
