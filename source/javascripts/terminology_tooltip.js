@@ -10,7 +10,7 @@
     const tooltip = terminology.querySelector('.terminology-tooltip');
 
     terminology.addEventListener('mouseenter', () => {
-        let tooltipRect = tooltip.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
 
         if (tooltipRect.top < topMargin) {
             // doesn't fit on top -> moving to bottom
