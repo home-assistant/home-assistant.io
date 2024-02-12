@@ -1,20 +1,20 @@
 'use strict';
 
-[...document.getElementsByClassName('terminology')].forEach($terminology => {
+[...document.getElementsByClassName('terminology')].forEach(terminology => {
     const horizontalMargin = 20;
 
     const topMargin = document
         .getElementsByClassName('site-header')[0]
         .clientHeight;
 
-    const $tooltip = $terminology.querySelector('.terminology-tooltip');
+    const tooltip = terminology.querySelector('.terminology-tooltip');
 
-    $terminology.addEventListener('mouseenter', () => {
-        let tooltipRect = $tooltip.getBoundingClientRect();
+    terminology.addEventListener('mouseenter', () => {
+        let tooltipRect = tooltip.getBoundingClientRect();
 
         if (tooltipRect.top < topMargin) {
             // doesn't fit on top -> moving to bottom
-            $tooltip.classList.add('below');
+            tooltip.classList.add('below');
         }
 
         let horizontalMove = 0;
@@ -27,12 +27,12 @@
             horizontalMove = window.innerWidth - tooltipRect.right - horizontalMargin;
         }
 
-        $tooltip.style.setProperty('--horizontal-move', `${horizontalMove}px`);
+        tooltip.style.setProperty('--horizontal-move', `${horizontalMove}px`);
     });
 
-    $terminology.addEventListener('mouseleave', () => {
+    terminology.addEventListener('mouseleave', () => {
         // reset
-        $tooltip.style.setProperty('--horizontal-move', '0px');
-        $tooltip.classList.remove('below');
+        tooltip.style.setProperty('--horizontal-move', '0px');
+        tooltip.classList.remove('below');
     });
 });
