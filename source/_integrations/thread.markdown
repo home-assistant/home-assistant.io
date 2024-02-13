@@ -107,8 +107,8 @@ Find out if you already have Thread networks:
 - Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
 - If you do not see a **Thread** integration, add it.
 - Then, select **Configure** and check if you see any Thread networks on the overview page.
-- Case 1: If you do not have any Thread networks yet, follow [Case 1: Make Home Assistant your first Thread network](#case-1-to-make-home-assistant-your-first-thread-network)
-- Case 2: If you have existing networks, follow [Case 2: Create a HA border router when there is an existing network](#case-2-to-create-a-ha-border-router-when-there-is-an-existing-network)
+- Case 1: If you do not have any Thread networks yet, follow [Case 1: Make Home Assistant your first Thread network](#case-1-making-home-assistant-your-first-thread-network)
+- Case 2: If you have existing networks, follow [Case 2: Create a HA border router when there is an existing network](#case-2-creating-a-ha-border-router-when-there-is-an-existing-network)
 
 ### Case 1: Making Home Assistant your first Thread network
 
@@ -142,7 +142,7 @@ Currently this use case requires an Android phone. If you want to add Matter dev
    - Follow the instructions on screen.
    - **Result**: You will see a confirmation stating that Thread credentials from Home Assistant have been added to this device.
 
-### Case 2: Create a HA border router when there is an existing network
+### Case 2: Creating a HA border router when there is an existing network
 
 Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, SkyConnect, or another compatible radio but you already have third-party Thread networks present.
 
