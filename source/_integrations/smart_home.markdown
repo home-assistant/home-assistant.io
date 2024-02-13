@@ -9,7 +9,7 @@ ha_supporting_domain: motion_blinds
 ha_supporting_integration: Motionblinds
 ha_release: 2020.12
 ha_codeowners:
-  - "@starkillerOG"
+  - '@starkillerOG'
 ha_config_flow: true
 ha_platforms:
   - cover
