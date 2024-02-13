@@ -22,6 +22,9 @@ Their website is not as straightforward so check the [getting started](https://w
 1. Register for a [Met Office account](https://register.metoffice.gov.uk/WaveRegistrationClient/public/register.do?service=datapoint). 
 2. After registration and verification of your account, [login](https://register.metoffice.gov.uk/MyAccountClient/account/view) to retrieve your API key.
 
+> [!CAUTION]
+> Intergration No Longer Supported since 2024.2
+
 {% include integrations/config_flow.md %}
 
 ## Entities
