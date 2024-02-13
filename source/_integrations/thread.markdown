@@ -80,7 +80,7 @@ These border routers may require an iPhone or Android phone for onboarding. What
 
 #### Home Assistant
 
-The Thread support on these devices is in experimental state. Out of the box, they run Zigbee, not Thread.
+Out of the box, Home Assistant SkyConnect and Yellow run Zigbee, not Thread. Currently, enabling Thread involves manual steps. The integration of the Home Assistant based Thread border router with Matter is work-in-progress.
 
 - If you have a Home Assistant Yellow or SkyConnect, you can use their Thread radio. Follow these steps to [turn Home Assistant into a Thread border router](#turning-home-assistant-into-a-thread-border-router).
 
