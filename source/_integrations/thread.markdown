@@ -144,7 +144,7 @@ Currently this use case requires an Android phone. If you want to add Matter dev
 
 ### Case 2: Creating a HA border router when there is an existing network
 
-Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, SkyConnect, or another compatible radio but you already have third-party Thread networks present.
+Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, SkyConnect, or another compatible radio but you already have third-party Thread networks present. These steps will join the two networks. For more information on why networks are joined, read the section on [Combining Thread networks](#combining-thread-networks).
 
 ![image](/images/integrations/thread/thread-no-preferred-network-but-third-party-present.png)
 
@@ -221,17 +221,9 @@ You can only set a Thread network as preferred if the credentials are known.
    - Importing the credentials allows a Google- or Apple-created Thread network to be the preferred network of Home Assistant.
    <img width="400" src='/images/integrations/thread/thread-preferred-network.png'>
 
-
-
 ### Combining Thread networks
 
 In the current implementation, having multiple <abbr title="Thread border routers">TBRs</abbr> from different vendors results in separate networks using different credentials. This prevents devices from roaming between the Thread networks. In theory, it would be better to join all Thread networks into a single network to increase the size of the mesh network. A dense mesh network should lead to better <abbr title="radio frequency">RF</abbr> coverage and better link quality, which lowers transmission latencies, making communication faster.
-
-<div class="warning">
-
-Currently, combining Thread networks seems to lead to instabilities. Therefore, we do not recommend combining networks in production just yet. This is especially true for our OpenThread Border Router in combination with Google or Apple Thread networks.
-
-</div>
 
 ## Related topics
 
