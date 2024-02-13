@@ -112,9 +112,9 @@ Find out if you already have Thread networks:
 
 ### Case 1: Making Home Assistant your first Thread network
 
-Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, SkyConnect, or another compatible radio and you do not have any third-party Thread networks present yet.
+Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, SkyConnect, or another compatible radio and you do not have any third-party Thread networks present yet. This will automatically create a new Thread network with the name `ha-thread-xxxx`. The last for digits are a network-specific identifier (PAN ID).
 
-Currently this use case requires an Android phone. If you want to add Matter devices via an iOS phone, this use case is not supported yet.
+Note: To add Matter devices to this Thread network, an Android phone is required. Adding Matter devices to this Thread network using an iOS phone is not yet supported.
 
 #### Prerequisites
 
