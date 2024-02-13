@@ -141,6 +141,7 @@ Note: To add Matter devices to this Thread network, an Android phone is required
    - In the Companion app, go to **Settings** > **Companion app** > **Troubleshooting**, then select **Sync Thread credentials**.
    - Follow the instructions on screen.
    - **Result**: You will see a confirmation stating that Thread credentials from Home Assistant have been added to this device.
+4. To add Matter-based Thread devices, follow the steps on [Adding a matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
 
 ### Case 2: Creating a HA border router when there is an existing network
 
