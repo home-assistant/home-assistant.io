@@ -51,6 +51,10 @@ Host:
 | Coffee target temperature | Temperature the coffee boiler is set to | GS3 AV, GS3 MP | - |
 | Steam target temperature | Temperature the steam boiler is set to | GS3 AV, GS3 MP | - |
 | Tea water duration | Dose hot water (in seconds) | GS3 AV, GS3 MP | - |
+| Dose | Doseage (in ticks) for each key | GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Prebrew on time | Time prebrew wets the puck | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Prebrew off time | Time prebrew waits before turning on the pump | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Preinfusion time | Duration of preinfusion | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 
 
 ## Switches
