@@ -144,21 +144,21 @@ Note: To add Matter devices to this Thread network, an Android phone is required
 
 ### Case 2: Creating a HA border router when there is an existing network
 
-Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, SkyConnect, or another compatible radio but you already have third-party Thread networks present. These steps will join the two networks. For more information on why networks are joined, read the section on [Combining Thread networks](#combining-thread-networks).
+Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, SkyConnect, or another compatible radio but you already have third-party Thread networks present. These steps will join the Home Assistant Thread border router with the existing Thread network.
 
 ![image](/images/integrations/thread/thread-no-preferred-network-but-third-party-present.png)
 
-If you have both Google and Apple border routers present, decide which one you would like to join with the Home Assistant border router.
+If you have both Google and Apple Thread networks present, decide which one you would like add the Home Assistant border router to.
 
 #### Prerequisites
 
 - Device with a Thread-capable radio, such as Home Assistant Yellow, SkyConnect, or another compatible radio
 - Third-party Thread network listed
-- Android phone if you have a Google border router, iPhone if you have an Apple border router
+- Android phone if you have a Google Thread network, iPhone if you have an Apple Thread network
 
 #### To create a HA border router when there is an existing network
 
-Note: the steps and images here are done with a Google border router. But the process is very similar if you are using an Apple border router with an iPhone.
+Note: the steps and images here show the process with a Google Thread network. But the process is very similar if you have an Apple Thread network with an iPhone.
 
 1. Make sure you have an Android/iPhone phone and your phone is in the same Wi-Fi network as your Google border router.
 2. First you need to import the Thread credentials of your Google thread network.
