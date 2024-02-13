@@ -13,4 +13,4 @@ ha_integration_type: system
 
 The Hardware integration provides an API which offers information about certain board types, USB dongles, and resource usage.
 
-This integration is enabeld by default.
+This integration is enabled by default.
