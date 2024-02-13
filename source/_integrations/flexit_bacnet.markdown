@@ -67,6 +67,7 @@ The integration adds an entity for a binary sensor called _Air filter polluted_ 
 ### Number
 
 The integration adds entities for setting setpoints for the fan in the respective mode:
+
  - Away
  - Home
  - Fireplace
