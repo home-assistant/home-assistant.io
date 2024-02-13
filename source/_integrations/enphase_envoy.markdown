@@ -73,4 +73,4 @@ The default polling interval is 60 seconds. To customize the polling interval, r
 
 ## Credentials update
 
-This integration supports changing authentication credentials by adding another envoy integration specifying the same or new ip address, username and password. Use this if you need to update your Enlighten credentials in Home Assistant. The existing entry is detected using the Envoy serial-number obtained from the specified ip address.
+This integration supports changing authentication credentials by adding another envoy integration specifying the same or new IP address, username and password. Use this if you need to update your Enlighten credentials in Home Assistant. The existing entry is detected using the Envoy serial-number obtained from the specified IP address.
