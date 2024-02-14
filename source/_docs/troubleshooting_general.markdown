@@ -23,12 +23,15 @@ Recovery mode loads a few minimal integrations and parts of the configuration th
 
 You need to identify the issue in the configuration files and fix it there. The issue could be caused by something as simple as an invalid YAML file.
 
-- If you are still logged in, you can [edit your configuration](/docs/configuration/#editing-configurationyaml). If needed, you can install an add-on such as VS code to edit the configuration file.
+- If you are still logged in, you can [edit your configuration](/docs/configuration/#editing-configurationyaml).
+  - In the Home Assistant user interface, open the add-on you usually use and edit the configuration file.
+- Restart Home Assistant.
+  - If needed, you can install an add-on such as VS code to edit the configuration file.
 - If you are locked out because you forgot your password, you cannot edit the configuration file from the user interface. Follow the steps to [reset your password](/docs/locked_out/).
 
 ## Restarting Home Assistant in safe mode
 
-If your Home Assistant is acting up and you cannot identify a root cause, you can use **Safe mode** to narrow down the field of possible causes.
+If your Home Assistant is acting up and you cannot identify a root cause, you can use **Safe mode** to narrow down the number of possible causes.
 Safe mode loads Home Assistant Core, but no custom integrations, no custom cards, and no custom themes. If the issue does not persist in Safe mode, the issue is not with Home Assistant Core. Before reporting an issue, check if the issue persists in Safe mode.
 
 To enable Safe mode, go to **Settings** > **System** > **Restart Home Assistant** (top right) > **Restart Home Assistant in safe mode**.
