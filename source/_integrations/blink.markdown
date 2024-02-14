@@ -62,6 +62,10 @@ Please note that each camera reports two different states: one as `sensor.blink_
 
 Any sequential calls to {% term services %} relating to blink should have a minimum of a 5 second delay in between them to prevent the calls from being throttled and ignored. The services that act on a camera needs a target parameter.
 
+### `blink.record`
+
+Trigger a camera to record a new video clip.
+
 ### `blink.trigger_camera`
 
 Trigger a camera to take a new still image.
