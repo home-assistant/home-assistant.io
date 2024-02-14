@@ -66,4 +66,4 @@ target:
 
 ## Switches
 
-The integration creates a switch for the pi-hole allowing you to toggle the pi-hole on and off.
+The integration creates a switch for the Pi-hole allowing you to toggle the Pi-hole on and off.
