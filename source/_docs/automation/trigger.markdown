@@ -635,6 +635,56 @@ This is achieved by having the template result in a true boolean expression (for
 
 With template triggers you can also evaluate attribute changes by using is_state_attr (like `{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
 
+Alternatively, if one of more of `from`, `to`, `not_from`, or `not_to` are given, the trigger will fire on any matching value change.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: template
+      value_template: "{% states('device_tracker.paulus') %}"
+      from: away
+      to: home
+```
+
+{% endraw %}
+
+Just like state triggers, `to`/`from`/`not_to`/`not_from` can accept a list...
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: template
+      value_template: "{% states("input_number.value") %}"
+      to:
+        - "3"
+        - "14"
+```
+
+{% endraw %}
+
+... or `*` can be used to match any value.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: template
+      value_template: "{% states("input_number.value") %}"
+      # Triggers whenever input_number.value changes
+      to: "*"
+```
+
+{% endraw %}
+
+If `to`/`not_to` is provided without `from`/`not_from`, the automation will trigger whenever the template updates to return a valid value, no matter what the previous value was. If `from`/`not_from` is provided without `to`/`not_to`, the aotmation will trigger whenever the template updates from a valid value, no matter what the new value is.
+
+You can also use templates with the `for` option.
+
 {% raw %}
 
 ```yaml
@@ -649,8 +699,6 @@ automation:
 
 {% endraw %}
 
-You can also use templates in the `for` option.
-
 {% raw %}
 
 ```yaml
@@ -664,7 +712,7 @@ automation:
 
 {% endraw %}
 
-The `for` template(s) will be evaluated when the `value_template` becomes 'true'.
+The `for` template(s) will be evaluated when the `value_template` becomes 'true', or matches the to/from/not_to/not_from options.
 
 Templates that do not contain an entity will be rendered once per minute.
 
@@ -673,6 +721,8 @@ Templates that do not contain an entity will be rendered once per minute.
 Use of the `for` option will not survive Home Assistant restart or the reload of automations. During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
 
 If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
+
+After triggering, the value returned by the template is available at `trigger.value`
 
 </div>
 
