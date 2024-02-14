@@ -3,22 +3,21 @@ title: "General troubleshooting"
 description: "General troubleshooting information"
 ---
 
-This page provides some information about troubleshooting topics that are not related to the installation itself but are of a more generic nature.
+This page provides some information about more generic troubleshooting topics.
 
 ## Home Assistant went into recovery mode
 
-
 ### Symptom: Home Assistant is in recovery mode
 
-It can happen that Home Assistant appears in **Recovery mode**. If this is the case, you will see a red banner on top of the page. On the **Overview** page, you see a **Recovery mode** notification.
+On top of the page you see a red banner. On the **Overview** page, you see a **Recovery mode** notification.
 
 ![image](/images/docs/troubleshooting/recovery_mode_active.png)
 
 ### Description
 
-When Home Assistant is in recovery mode, it means there was an issue with the configuration.
+When Home Assistant is in recovery mode, there was an issue with the configuration.
 
-Recovery mode loads a few minimal integrations and parts of the configuration of the last time when it did start. It will show you a user interface, the settings, and add-ons.
+Recovery mode loads a few minimal integrations and parts of the configuration that was used the last time when it did start. You can still see the user interface, the settings, and add-ons.
 
 ### Resolution
 
