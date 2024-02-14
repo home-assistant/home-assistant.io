@@ -69,9 +69,11 @@ The integration setup will next give you instructions to enter the [Application 
 
 {% enddetails %}
 
-## IPv6
+## Broadcast message feature and IPv6
 
-Due to limitations in Google's SDK, broadcasts do not currently support IPv6. In order for broadcasts to work, IPv6 needs to be disabled for both your Home Assistant server as well as all speakers. To disable IPv6 on your Home Assistant server, set `net.ipv6.conf.all.disable_ipv6=1` in `/etc/sysctl.conf` or your Docker configuration.
+Due to limitations in Google's SDK, broadcasting messages to Google Assistant speakers and displays isn't supported in networks using IPv6. In order for broadcasts to work, IPv6 needs to be disabled for both your Home Assistant server as well as all speakers and displays.
+
+To disable IPv6 on Home Assistant Operating System or Supervised installations, go to Settings > System > Network and set IPv6 to "Disabled". Note that leaving link-local addressing on seems to be sufficient, e.g. if your Server uses NetworkManager the `ipv6.method` `link-local` is sufficient.
 
 IPv6 also needs to be disabled for the Google speakers. Some wifi access points (such as Ubiquiti and TP-Link Omada) allow multiple SSIDs to be created, with separate IPv6 settings per SSID. In this case, instead of disabling IPv6 for everything, it is recommended to create a separate "No IPv6" SSID and have the Google speakers connect to that. Otherwise, you will need to disable IPv6 for your entire network, usually through a configuration option on your router.
 
