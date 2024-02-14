@@ -66,4 +66,4 @@ target:
 
 ## Switches
 
-The integratation will create a switch for the pi-hole named `switch.pi_hole` which will allow you to toggle the pi-hole on and off.
+The integration creates a switch for the pi-hole allowing you to toggle the pi-hole on and off.
