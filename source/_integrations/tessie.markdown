@@ -195,4 +195,4 @@ The integration will create switch entities to control various aspects of your v
 
 ### Update
 
-The integration will show vehicle software updates and their installation progress.
+The integration will show vehicle software updates and their installation progress. Updates can only be installed from Home Assistant after they have finished downloading.
