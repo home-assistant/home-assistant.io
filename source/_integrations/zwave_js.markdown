@@ -132,7 +132,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 ### Entities available for every Z-Wave device
 
-1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device.  The sensor is disabled by default.  The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
+1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is disabled by default. The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
 2. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` service.
 3. **Controller/node statistics** sensors: Z-Wave JS collects statistics about communications between [nodes](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) and the [controller](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot). The statistics can be used to troubleshoot RF issues in your environment. These statistics are available in the network configuration and device info panels. But they are also available as sensors which are disabled by default.
 
@@ -199,8 +199,10 @@ This service will update a configuration parameter. To update multiple partial p
 | `device_id`            | no       | Device ID (or list of device IDs) to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                  |
 | `area_id`              | no       | Area ID (or list of area IDs) for devices/entities to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided. |
 | `parameter`            | yes      | The parameter number or the name of the property. The name of the property is case sensitive.                                                                   |
-| `bitmask`              | no       | The bitmask for a partial parameter in hex (0xff) or decimal (255) format. If the name of the parameter is provided, this is not needed.                        |
+| `bitmask`              | no       | The bitmask for a partial parameter in hex (0xff) or decimal (255) format. If the name of the parameter is provided, this is not needed. Cannot be combined with value_size or value_format.                       |
 | `value`                | yes      | The target value for the parameter as the integer value or the state label. The state label is case sensitive.                                                  |
+| `value_size`                | no      | The size of the target parameter value, either 1, 2, or 4. Used in combination with value_format when a config parameter is not defined in your device's configuration file. Cannot be combined with bitmask.                                                  |
+| `value_format`                | no      | The format of the target parameter value, 0 for signed integer, 1 for unsigned integer, 2 for enumerated, 3 for bitfield. Used in combination with value_size when a config parameter is not defined in your device's configuration file. Cannot be combined with bitmask.                                                  |
 
 #### Examples of setting a single parameter value
 
@@ -388,6 +390,19 @@ Call this service to use the Command Class API directly. In most cases, the `zwa
 | `method_name`          | yes      | The name of the method that is being called from the CC API.                                                                                                                                                                                                                                                           |
 | `parameters`           | yes      | A list of parameters to pass to the CC API method.                                                                                                                                                                                                                                                                     |
 
+### Service `zwave_js.refresh_notifications`
+
+This service will refresh the notifications of a given type on a device that
+supports the Notification Command Class.
+
+| Service Data Attribute | Required | Description                                            |
+| ---------------------- | -------- | ------------------------------------------------------ |
+| `entity_id`            | no       | Entity (or list of entities) to refresh notifications for. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                         |
+| `device_id`            | no       | Device ID (or list of device IDs) to refresh notifications for. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                         |
+| `area_id`              | no       | Area ID (or list of area IDs) for devices/entities to refresh notifications for. At least one `entity_id`, `device_id`, or `area_id` must be provided. |
+| `notification_type`            | yes      | The type of notification to refresh.              |
+| `notification_event`            | no      | The notification event to refresh.              |
+
 ### Service `zwave_js.reset_meter`
 
 This service will reset the meters on a device that supports the Meter Command Class.
@@ -397,6 +412,20 @@ This service will reset the meters on a device that supports the Meter Command C
 | `entity_id`            | yes      | Entity (or list of entities) for the meters you want to reset.                                              |
 | `meter_type`           | no       | If supported by the device, indicates the type of meter to reset. Not all devices support this option.      |
 | `value`                | no       | If supported by the device, indicates the value to reset the meter to. Not all devices support this option. |
+
+### Service `zwave_js.set_lock_configuration`
+
+This service will set the configuration of a lock.
+
+| Service Data Attribute | Required | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            | no       | Lock entity or list of entities to set the usercode. |
+| `operation_type`       | yes       | Lock operation type, one of `timed` or `constant`.   |
+| `lock_timeout`       | no       | Seconds until lock mode times out. Should only be used if operation type is `timed`.   |
+| `auto_relock_time`       | no       | Duration in seconds until lock returns to secure state. Only enforced when operation type is `constant`.   |
+| `hold_and_release_time`       | no       | Duration in seconds the latch stays retracted.   |
+| `twist_assist`       | no       | Enable Twist Assist.   |
+| `block_to_block`       | no       | Enable block-to-block functionality.   |
 
 ### Service `zwave_js.set_lock_usercode`
 
@@ -663,7 +692,7 @@ trigger:
   # `event_source` and `event` are required
   event_source: node   # options are node, controller, and driver
   event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs (see links above)
-  # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparsion check would never evaluate to true.
+  # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparison check would never evaluate to true.
   event_data:
     args:
       isFinal: true
@@ -816,11 +845,13 @@ Names set in Home Assistant will not import into Z-Wave JS UI.
 
 ### Should I use `Secure Inclusion`?
 
-That depends. There are two generations of Z-Wave security, S0, and S2.
+That depends. There are two generations of Z-Wave encryption, Security S0, and Security S2. Both provide encryption and allow detecting packet corruption.
 
-S0 security imposes significant additional traffic on your mesh and is recommended only for devices that require security, such as door locks.
+Security S0 imposes significant additional traffic on your mesh and is recommended only for older devices that do not support Security S2 but require encryption to work, such as door locks.
 
-S2 security does not impose additional network traffic and provides additional benefits, such as detecting packet corruption. By default, Z-Wave attempts S2 security during inclusion if supported, falling back to S0 security only when necessary.
+Security S2 does not impose additional network traffic and provides additional benefits. For example, end devices using S2 require the hub to report whether it has received and understood their reports.
+
+By default, Z-Wave prefers Security S2, if supported. Security S0 is used only when absolutely necessary.
 
 ### Where can I see the security keys in the Z-Wave JS add-on?
 
@@ -874,7 +905,7 @@ When trying to determine why something isn't working as you expect, or when repo
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
 2. Select the **Z-Wave** integration. Then, select the three dots.
-3. From he dropdown menu, select **Download diagnostics**.
+3. From the dropdown menu, select **Download diagnostics**.
 
 ### How do I address interference issues?
 

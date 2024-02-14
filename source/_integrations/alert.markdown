@@ -32,7 +32,7 @@ State | Description
 ### Basic example
 
 The `alert` integration makes use of any of the `notification` integrations. To
-setup the `alert` integration, first, you must setup a `notification` integration.
+setup the `alert` integration, first, you must set up a [notification integration](/integrations/notify).
 Then, add the following to your configuration file:
 
 ```yaml
@@ -78,7 +78,7 @@ repeat:
   required: true
   type: [integer, list]
 can_acknowledge:
-  description: Allows the alert to be unacknowledgeable.
+  description: Control whether the notification can be acknowledged; set to `false` if the alert should not be acknowledgeable.
   required: false
   type: boolean
   default: true

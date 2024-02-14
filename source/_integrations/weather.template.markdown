@@ -116,6 +116,10 @@ visibility_unit:
   description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
   required: false
   type: string
+forecast_template:
+  description: Forecast data.
+  required: false
+  type: template
 forecast_daily_template:
   description: Daily forecast data.
   required: false

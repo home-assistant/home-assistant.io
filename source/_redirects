@@ -4,7 +4,7 @@ layout: null
 
 # These redirects are handled by Netlify
 #
-{% assign recent_release_post = site.categories['Core'].first %}
+{% assign release_notes = site.categories['Release-Notes'] %}
 
 # General use redirects
 /join-chat https://discord.gg/home-assistant
@@ -18,9 +18,9 @@ layout: null
 /community https://community.home-assistant.io/
 /latest-security-alert /security/
 
-# Link to latest release note
-/latest-release-notes/ {{ recent_release_post.url }}{{ site.patch_version_notes }} 302!
-
+# Link to latest release notes
+/latest-release-notes/ {{ release_notes | where: "categories", "Core" | map: 'url' | first }}{{ site.patch_version_notes }} 302!
+/latest-ios-release-notes/ {{ release_notes | where: "categories", "iOS" | map: 'url' | first }} 302!
 
 # Matter workshop June 2022
 /skyconnect-interest https://docs.google.com/forms/d/e/1FAIpQLScEjHSBJszUZfgO3MIDO51IHr3Oeohcs8BLpRIjY1liJ58IpA/viewform?usp=sf_link
@@ -251,10 +251,14 @@ layout: null
 /docs/assist/using_voice_assistants_overview/ /voice_control/
 /docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
+# Redirect for the QR Codes on the S3 Box
+/s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
+/s3-box-no-ha /voice_control/troubleshooting_the_s3_box/#error-no-home-assistant
 /docs/assist/troubleshooting/ /voice_control/troubleshooting/
 /docs/assist/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
 /projects/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
 /docs/assist/thirteen-usd-voice-remote/ /voice_control/thirteen-usd-voice-remote/
+/draw_assist /voice_control/s3-box-customize/#to-draw-your-own-images
 /projects/thirteen-usd-voice-remote/ /voice_control/thirteen-usd-voice-remote/
 /docs/backend/updater /integrations/analytics
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
@@ -466,6 +470,7 @@ layout: null
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
 /state-of-the-union /blog/2019/11/22/state-of-the-union
 /blog/2022/03/30/release-20224 /blog/2022/04/06/release-20224/
+/blog/2024/01/11/voice-assistant-contest /blog/2024/01/17/voice-assistant-contest
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
@@ -498,7 +503,9 @@ layout: null
 /integrations/ee_brightbox /more-info/removed-integration 301
 /integrations/eight_sleep /more-info/removed-integration 301
 /integrations/envirophat /more-info/removed-integration 301
+/integrations/eq3btsmart /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
+/integrations/facebox /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
 /integrations/flunearyou /more-info/removed-integration 301
 /integrations/fortigate /more-info/removed-integration 301
@@ -517,6 +524,7 @@ layout: null
 /integrations/hydroquebec /more-info/removed-integration 301
 /integrations/ialarm_xr /more-info/removed-integration 301
 /integrations/iota /more-info/removed-integration 301
+/integrations/life360 /more-info/removed-integration 301
 /integrations/lifx_legacy /more-info/removed-integration 301
 /integrations/linksys_ap /more-info/removed-integration 301
 /integrations/linky /more-info/removed-integration 301

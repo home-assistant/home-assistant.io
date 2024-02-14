@@ -45,6 +45,7 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
   - Z-Wave.Me RaZberry 7 (ZME_RAZBERRY7, 700 series)
   - Z-Wave.Me RaZberry 7 Pro (ZMEERAZBERRY7_PRO or ZMEURAZBERRY7_PRO, 700 series)
   - Z-Wave.Me Razberry 2 (500 series)
+  - Z-Wave.Me Razberry 1 (300 series)
 
 If you are just starting out, we recommend that you purchase a 700 series controller or a Raspberry Pi module. The 700 series controllers are the more recent version (when compared to the 500 series). The 700 series controllers support SmartStart, which allows you to add a device by scanning a QR code.
 

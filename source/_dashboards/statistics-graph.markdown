@@ -17,7 +17,7 @@ Screenshot of the statistics graph card with none metered entities and `chart_ty
 Screenshot of the statistics graph card with a metered entity and `chart_type` `bar`.
 </p>
 
-Statistics are gathered every 5 minutes for sensors that support it. It will either keep the `min`, `max`, and `mean` of a sensor's value for a specific hour or the `sum` for a metered entity.
+Statistics are gathered every 5 minutes for sensors that support it. It will either keep the <abbr title="Minimum">`min`</abbr>, <abbr title="Maximum">`max`</abbr>, and <abbr title="Average">`mean`</abbr> of a sensor's value for a specific hour or the <abbr title="Total">`sum`</abbr> for a metered entity.
 
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
@@ -63,6 +63,11 @@ hide_legend:
   required: false
   description:  If true, the legend will be hidden.
   type: boolean  
+  default: false
+logarithmic_scale:
+  required: false
+  description: If true, numerical values on the Y-axis will be displayed with a logarithmic scale.
+  type: boolean
   default: false
 {% endconfiguration %}
 

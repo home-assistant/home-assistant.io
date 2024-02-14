@@ -1,13 +1,13 @@
 ---
-title: Motion Blinds
-description: Instructions on how to integrate Motion Blinds from Coulisse B.V. into Home Assistant.
+title: Motionblinds
+description: Instructions on how to integrate Motionblinds from Coulisse B.V. into Home Assistant.
 ha_category:
   - Cover
 ha_iot_class: Local Push
 ha_release: 2020.12
 ha_domain: motion_blinds
 ha_codeowners:
-  - '@starkillerOG'
+  - "@starkillerOG"
 ha_config_flow: true
 ha_platforms:
   - cover
@@ -16,10 +16,11 @@ ha_dhcp: true
 ha_integration_type: integration
 ---
 
-The integration allows you to control [Motion Blinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
+The integration allows you to control [Motionblinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
 
 Additionally the following brands have been reported to also work with this integration:
 
+- [Acomax](https://www.acomax.de/)
 - [AMP Motorization](https://www.ampmotorization.com/)
 - [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [Bloc Blinds](https://www.blocblinds.com/)
@@ -34,22 +35,24 @@ Additionally the following brands have been reported to also work with this inte
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
 - [Madeco](https://www.madeco.fr/)
 - [Martec](https://www.martec.co.nz/)
-- [Motion Blinds](https://motionblinds.com/)
+- [Motionblinds](https://motionblinds.com/)
 - [Raven Rock MFG](https://www.ravenrockmfg.com/)
 - [ScreenAway](https://www.screenaway.com.au/)
-- [Smart Blinds](https://www.smartblinds.nl/)
+- [Smartblinds](https://www.smartblinds.nl/)
 - [Smart Home](https://www.smart-home.hu)
 - [Uprise Smart Shades](http://uprisesmartshades.com)
 
 This integration allows for both directly controlling blinds that support wifi-connection and controlling Uni- and Bi-direction blinds that connect to a 433MHz WiFi bridge.
 The following bridges are reported to work with this integration:
- - CM-20 Motion Blinds bridge
- - CMD-01 Motion Blinds mini-bridge
- - DD7002B Connector bridge
- - D1554 Connector mini-bridge
- - DD7002B Brel-Home box
- - D1554 Brel Home USB plug
- - Brel HUB-03
+
+- CM-20 Motionblinds bridge
+- CMD-01 Motionblinds mini-bridge
+- DD7002B Connector bridge
+- D1554 Connector mini-bridge
+- DD7002B Brel-Home box
+- D1554 Brel Home USB plug
+- Brel HUB-03
+- Acomax FX-I 620 Bridge Maxi
 
 {% include integrations/config_flow.md %}
 
@@ -58,9 +61,9 @@ The following bridges are reported to work with this integration:
 The 16 character API key needed to setup the Home Assistant integration needs to be retrieved by first connecting the blind/bridge to the official app of its respective brand.
 In that app the key can often be found by clicking multiple times on specific places on the "About" page.
 
-### Motion blinds app
+### Motionblinds app
 
-The Motion Blinds API uses a 16 character key that can be retrieved from the official "Motion Blinds" app for [IOS](https://apps.apple.com/us/app/motion-blinds/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
+The Motionblinds API uses a 16 character key that can be retrieved from the official "Motionblinds" app for [IOS](https://apps.apple.com/us/app/motion-blinds/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
 
 Open the app, click the 3 dots in the top right corner, go to "settings", go to "Motion APP About", Please quickly tap this "Motion APP About" page 5 times, a popup will appear that gives you the key.
 
@@ -81,6 +84,7 @@ In the Brel Home app on Android go to the `me` page (home screen 4th tab), tap 5
 In the official Bloc Blinds app go to settings (three bars > gear icon), go to the `About` page, Tap five time on the bloc blinds icon in the middle and a pop-up with the key will be shown.
 
 ### Connector app
+
 Click the about page of the connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)).
 
 ## Top Down Bottom Up (TDBU) blinds
@@ -140,10 +144,10 @@ For tilt capable blinds a new position and tilt can be specified and the blind w
 
 | Service data attribute | Optional | Description                                                                                       |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------- |
-| `entity_id`            |      yes | Name of the motion blind cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
-| `absolute_position`    |       no | Absolute position to move to. For example 70                                                      |
-| `tilt_position`        |      yes | Tilt position to move to. For example 50                                                          |
-| `width`                |      yes | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
+| `entity_id`            | yes      | Name of the Motionblinds cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
+| `absolute_position`    | no       | Absolute position to move to. For example 70                                                      |
+| `tilt_position`        | yes      | Tilt position to move to. For example 50                                                          |
+| `width`                | yes      | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
 
 ## Troubleshooting
 
@@ -174,18 +178,19 @@ For Ubiquiti routers/access points the "Enable multicast enhancement (IGMPv3)" s
 ### Bypassing UDP multicast
 
 If UDP Multicast does not work in your setup (due to network limitations), this integration can be used in local polling mode.
-Go to Settings -> Integrations -> on the already set up Motion Blinds integration click "configure" --> disable the "Wait for multicast push on update" option (disabled by default).
+Go to Settings -> Integrations -> on the already set up Motionblinds integration click "configure" --> disable the "Wait for multicast push on update" option (disabled by default).
 
-The default update interval of the Motion Blinds integration is every 10 minutes. When UDP multicast pushes do not work, this polling interval can be a bit high.
+The default update interval of the Motionblinds integration is every 10 minutes. When UDP multicast pushes do not work, this polling interval can be a bit high.
 To increase the polling interval:
-Go to Settings -> Integrations -> on the already set up Motion Blinds integration click more options (three dots) and select "System options" -> disable "polling for updates".
+Go to Settings -> Integrations -> on the already set up Motionblinds integration click more options (three dots) and select "System options" -> disable "polling for updates".
 Now create an automation with as trigger a time pattern and select your desired polling time.
-As the action select "Call service" and select "Update entity", select one of the motion blinds covers as entity.
-You only have to create one automation with only one motion blind cover as entity, the rest will update at the same time.
+As the action select "Call service" and select "Update entity", select one of the Motionblinds covers as entity.
+You only have to create one automation with only one Motionblinds cover as entity, the rest will update at the same time.
 
 Example YAML automation for custom polling interval (every minute):
+
 ```yaml
-alias: Motion blinds polling automation
+alias: Motionblinds polling automation
 mode: single
 trigger:
   - platform: time_pattern

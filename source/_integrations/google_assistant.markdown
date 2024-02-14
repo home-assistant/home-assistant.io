@@ -271,8 +271,8 @@ Currently, the following domains are available to be used with Google Assistant,
 - alarm_control_panel (arm/disarm)
 - button (scene)
 - camera (streaming, requires compatible camera)
-- climate (temperature setting, hvac_mode)
-- cover (on/off/set position)
+- climate (on/off, temperature setting, hvac_mode)
+- cover (on/off/set position/stop/start=toggle cover)
 - event (only entities with device class `doorbell` are supported)
 - fan (on/off/speed percentage/preset mode)
 - group (on/off)
@@ -289,6 +289,8 @@ Currently, the following domains are available to be used with Google Assistant,
 - sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
 - switch (on/off)
 - vacuum (dock/start/stop/pause)
+- valve (open/close/set position/stop/start=toggle valve)
+- water_heater (on-off/temperature setting/operation mode)
 
 <div class='note'>
 
@@ -363,7 +365,7 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
-Your fulfillment URL may be invalid or unreachable. Recheck the `Fulfillment URL` as specified in [Manual Setup](#manual-setup) and verify that it's publicly reachable.
+Your fulfillment URL may be invalid or unreachable. Recheck the `Fulfillment URL` as specified in [Manual Setup](#manual-setup-if-you-dont-have-home-assistant-cloud) and verify that it's publicly reachable.
 
 #### 500 / 429 error on request sync
 

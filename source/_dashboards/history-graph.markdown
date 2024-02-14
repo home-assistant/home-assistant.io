@@ -48,6 +48,24 @@ show_names:
   description: If false, no entity names are shown in the card.
   type: boolean
   default: true
+logarithmic_scale:
+  required: false
+  description: If true, numerical values on the Y-axis will be displayed with a logarithmic scale.
+  type: boolean
+  default: false
+min_y_axis:
+  required: false
+  description: Lower bound for the Y-axis range.
+  type: float
+max_y_axis:
+  required: false
+  description: Upper bound for the Y-axis range.
+  type: float
+fit_y_data:
+  required: false
+  description: If true, configured Y-axis bounds would automatically extend (but not shrink) to fit the data.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Options for entities

@@ -14,6 +14,7 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
+  - diagnostics
   - light
   - number
   - select
@@ -39,9 +40,9 @@ Protocol:
 
 ## Camera streams
 
-This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, Snapshots Main, and Snapshots Sub.
-The Sub stream camera entity is enabled by default; the other streams are disabled by default.
-The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
+This integration creates a few camera entities, one for each stream type with different resolutions: Clear, Fluent, Balanced, Snapshots Clear, and Snapshots Fluent.
+The Fluent stream camera entity is enabled by default; the other streams are disabled by default.
+The Snapshots stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
 Dual lens cameras provide additional streams for the second lens.
 
 ## Binary sensors
@@ -53,6 +54,7 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI person detection
 - AI vehicle detection
 - AI pet detection
+- AI animal detection
 - AI face detection
 
 These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
@@ -60,7 +62,7 @@ The latency for receiving the events is the best for ONVIF push and the worst fo
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
-To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#Reducing_latency_of_motion_events) section.
+To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
 
 ## Asterisk (*) next to entities listed in this documentation
 
@@ -80,23 +82,33 @@ Depending on the supported features of the camera, number entities are added for
 - AI person sensitivity
 - AI vehicle sensitivity
 - AI pet sensitivity
+- AI animal sensitivity
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
 - AI pet delay*
+- AI animal delay*
 - Auto quick reply time
 - Auto track limit left
 - Auto track limit right
 - Auto track disappear time
 - Auto track stop time
+- Day night switch threshold*
+- Image brightness* (default 128)
+- Image contrast* (default 128)
+- Image saturation* (default 128)
+- Image sharpness* (default 128)
+- Image hue* (default 128)
 
 **Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
-When the camera is not moved and no person/pet/vehicle is detected for the **Guard return time** in seconds, and the **Guard return** switch is ON, the camera will move back to the guard position.
+When the camera is not moved and no person/pet/animal/vehicle is detected for the **Guard return time** in seconds, and the **Guard return** switch is ON, the camera will move back to the guard position.
 
 When a Reolink doorbell is pressed the quick reply message from the **Auto quick reply message** select entity will be played after **Auto quick reply time** seconds, unless the **Auto quick reply message** is set to off.
 
 If the **Auto tracking** switch entity is enabled, and a object disappears from view OR stops moving for the **Auto track disappear time**/**Auto track stop time**, the camera goes back to its original position.
+
+**Day night switch threshold** determines at which light level the camera switches from **Color** to **Black & white**. This value only applies if the **Day night mode** select is on **Auto**.
 
 ## Button entities
 
@@ -117,6 +129,15 @@ Depending on the supported features of the camera, button entities are added for
 **PTZ left**, **right**, **up**, **down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
 
 **Guard set current position** will set the current position as the new guard position.
+
+### Service reolink.ptz_move
+
+Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` service can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` service, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
+
+| Service data attribute | Optional | Description                                                                              |
+| ---------------------- | -------- | -----------------------------------------------------------------------------------------|
+| `entity_id`            |      no  | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
+| `speed`                |      no  | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                         |
 
 ## Select entities
 
@@ -144,6 +165,7 @@ In some camera models, there is a delay of up to 5 seconds between the turn-off 
 
 Depending on the supported features of the camera, switch entities are added for:
 
+- Infrared lights in night mode
 - Record audio
 - Siren on event
 - Auto tracking
@@ -155,20 +177,27 @@ Depending on the supported features of the camera, switch entities are added for
 - Buzzer on event
 - Email on event
 - FTP upload
+- HDR*
+
+When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 
 For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and **FTP** will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
+
+**Push** notifications to a phone will only be provided if the following conditions are met: 
+- The **Push notifications** switch in Home Assistant is ON. 
+- For NVRs,  both the global and channel switch are ON.
+- The Push-notification in the Reolink App of that phone is ON.
+
+The Push-notification in the Reolink app is independent of the Home Assistant setting. It is also independent of the settings on other phones connected to the same camera. Reolink does this so you have an independent way of turning off push notifications per phone.
 
 ## Light entities
 
 Depending on the supported features of the camera, light entities are added for:
 
 - Floodlight
-- Infra red lights in night mode
 - Status LED
 
 When the **floodlight** entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the **Floodlight mode** select entity.
-
-When **IR light** entity is OFF always OFF, when ON IR LEDs will be on when the camera is in night vision mode, see the **Day night mode** select entity.
 
 ## Sensor entities
 
@@ -183,6 +212,12 @@ An update entity is available that checks for firmware updates every 12 hours.
 This does the same as pressing the "Check for latest version" in the Reolink applications.
 Unfortunately this does not always shows the latest available firmware (also not in the Reolink applications).
 The latest firmware can be downloaded from the [Reolink download center](https://reolink.com/download-center/) and uploaded to the camera/NVR manually.
+
+## Media browser for playback of recordings
+
+Depending on the support of the camera, the Reolink integration will provide a media browser through which recorded videos of the camera can be accessed.
+In the sidebar, select "Media" > "Reolink" and select the **camera** of which you want to see recordings. Optionally, select if you want a high or low **resolution** stream and select the recording **date**. Here, all available video files of that day will be shown.
+Recordings up to 1 month old can be viewed in Home Assistant.
 
 ## Tested models
 
@@ -208,7 +243,9 @@ The following models have been tested and confirmed to work:
 - [RLC-520A](https://reolink.com/product/rlc-520a/)
 - RLC-522*
 - [RLC-810A](https://reolink.com/product/rlc-810a/)
+- [RLC-810WA](https://reolink.com/product/rlc-810wa/)
 - [RLC-811A](https://reolink.com/product/rlc-811a/)
+- [RLC-81MA](https://reolink.com/product/rlc-81ma/)
 - [RLC-81PA](https://reolink.com/product/rlc-81pa/)
 - [RLC-820A](https://reolink.com/product/rlc-820a/)
 - [RLC-822A](https://reolink.com/product/rlc-822a/)
@@ -218,6 +255,7 @@ The following models have been tested and confirmed to work:
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
+- [RLN12W NVR](https://reolink.com/product/rln12w/)
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
@@ -300,6 +338,8 @@ A valid address could, for example, be `http://192.168.1.10:8123` where `192.168
 - Since a HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
 Therefore, ensure no Global SSL certificate is configured in the [`configuration.yaml` under HTTP](/integrations/http/#ssl_certificate).
 An SSL certificate can still be enforced for external connections, by, for instance, using the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) or [NGINX Proxy Manager add-on](https://github.com/hassio-addons/addon-nginx-proxy-manager) instead of a globally enforced SSL certificate.
+
+To see if a Reolink integration is currently using `ONVIF push`, `ONVIF long polling` or `Fast polling`, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"event connection": "ONVIF push"\"ONVIF long polling"\"Fast polling"` in the txt file.
 
 ## Related topics
 

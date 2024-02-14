@@ -63,3 +63,7 @@ data:
 target:
   entity_id: all
 ```
+
+## Switches
+
+The integratation will create a switch for the pi-hole named `switch.pi_hole` which will allow you to toggle the pi-hole on and off.

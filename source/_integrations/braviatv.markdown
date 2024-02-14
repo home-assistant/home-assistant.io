@@ -14,6 +14,7 @@ ha_domain: braviatv
 ha_config_flow: true
 ha_platforms:
   - button
+  - diagnostics
   - media_player
   - remote
 ha_ssdp: true
@@ -50,7 +51,7 @@ Using the media browser, you can view a list of all installed applications and T
 
 ## Play media service
 
-The `play_media` {% term service %} can be used in a automation or script to switch to a specified application or TV channel. It selects the best matching application or channel according to the `media_content_id`:
+The `play_media` {% term service %} can be used in an automation or script to switch to a specified application or TV channel. It selects the best matching application or channel according to the `media_content_id`:
 
  1. Channel number *(i.e., '1' or '6')*
  2. Exact app or channel name *(i.e., 'Google Play' or 'CNN')*

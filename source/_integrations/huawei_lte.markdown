@@ -3,9 +3,11 @@ title: Huawei LTE
 description: Instructions on how to integrate Huawei LTE router and modem devices with Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Network
   - Notifications
   - Presence detection
+  - Select
   - Sensor
   - Switch
 ha_release: 0.79
@@ -18,8 +20,10 @@ ha_domain: huawei_lte
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - button
   - device_tracker
   - notify
+  - select
   - sensor
   - switch
 ha_integration_type: integration
@@ -34,6 +38,8 @@ There is currently support for the following platforms within Home Assistant:
 - Sensors - device, network, signal, SMS count, traffic, and battery information
 - Switch - mobile data on/off, Wi-Fi guest network on/off
 - Binary sensor - mobile and Wi-Fi connection status, SMS storage full/not
+- Button - clear traffic statistics, restart
+- Select - preferred network mode
 
 ## Setup
 
@@ -75,22 +81,6 @@ numbers can be set using the integration's configuration options.
 ## Services
 
 The following router action services are available. When invoked by a user, administrator access is required.
-
-### Service `huawei_lte.clear_traffic_statistics`
-
-Clear traffic statistics.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `url`                  | yes, if only one router configured | Router URL. |
-
-### Service `huawei_lte.reboot`
-
-Reboot router.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `url`                  | yes, if only one router configured | Router URL. |
 
 ### Service `huawei_lte.suspend_integration`
 

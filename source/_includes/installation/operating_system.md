@@ -1,4 +1,4 @@
-# Install Home Assistant Operating System
+## Install Home Assistant Operating System
 
 {% assign release_url = "https://github.com/home-assistant/operating-system/releases/download" %}
 
@@ -6,7 +6,7 @@
 
 Follow this guide if you want to get started with Home Assistant easily or if you have little to no Linux experience.
 
-{% if page.installation_type == 'ODROID' %}
+{% if page.installation_type == 'odroid' %}
 
 ## Suggested hardware
 
@@ -114,10 +114,10 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 4. When prompted, make sure to select **Try Ubuntu**. This runs Ubuntu on the USB flash device.
    - The system then starts Ubuntu.
    - Connect your system to your network and make sure it has internet access.
-5. In Ubuntu, open a browser and open [this procedure](/installation/generic-x86-64).
+5. In Ubuntu, open a browser and open the current documentation page, so you can follow the steps.
    - From there, [download the image][generic-x86-64].
 6. In Ubuntu, in the bottom left corner, select **Show Applications**.
-7. In the applications, search and open **Disks** and start restoring the HOAS image:
+7. In the applications, search and open **Disks** and start restoring the HAOS image:
    1. In **Disks**, on the left side, select the internal disk device you want to install HAOS onto.
    2. On top of the screen, select the three dots menu and select **Restore Disk Image...**.
       ![Restore disk image: select three dots menu](/images/installation/ubuntu_restore_disk_image.png)
@@ -161,7 +161,7 @@ Use this method only if Method 1 does not work for you.
    - This means you will lose all the data as well as the previously installed operating system.
    - Back up your data before continuing with the next step.
 2. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.
-    {% if page.installation_type == 'ODROID' %}
+    {% if page.installation_type == 'odroid' %}
       If you are using ODROID M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
 
       If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
@@ -265,14 +265,14 @@ If you are running an older Windows version or have a stricter network configura
 ### Download the appropriate image
 
 - [VirtualBox][vdi] (.vdi)
-{% if page.installation_type == 'windows' or page.installation_type == 'Linux' %}
+{% if page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
-- [Vmware Workstation][vmdk] (.vmdk)
 {% elsif page.installation_type == 'alternative' %}
 - [KVM/Proxmox][qcow2] (.qcow2)
 - [VMware ESXi/vSphere][Virtual Appliance] (.ova)
 {% endif %}
 {% if page.installation_type == 'windows' %}
+- [VMware Workstation][vmdk] (.vmdk)
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
 
@@ -280,7 +280,7 @@ After downloading, decompress the image. If the image comes in a ZIP file, for e
 
 Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines, install Home Assistant OS directly on a [Home Assistant Yellow](/installation/yellow), a [Raspberry Pi](/installation/raspberrypi), or an [ODROID](/installation/odroid).
 
-{% if page.installation_type == 'macOS' %}
+{% if page.installation_type == 'macos' %}
 
 - If VirtualBox is not supported on your Mac, and you have experience using virtual machines, you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
 {% endif %}
@@ -305,14 +305,15 @@ Minimum recommended assignments:
   content: |
     1. Create a new virtual machine.
     2. Select type **Linux** and version **Linux 2.6 / 3.x / 4.x (64-bit)**.
-    3. Select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
-    4. Edit the **Settings** of the VM and go to **System** > **Motherboard**. Select **Enable EFI**.
+    3. Under **Hardware**, select the amount of memory and number of CPUs. Then, select **Enable EFI**.
+       - Make sure **EFI** is enabled. If EFI is not enabled, HAOS won't boot.
+    4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
     5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.
     <div class="note warning">
     Please keep in mind that the bridged adapter only functions over a hardwired Ethernet connection.
     Using Wi-Fi on your VirtualBox host is unsupported.
     </div>
-    6. Then go to **Audio** and choose **Intel HD Audio** as audio controller.
+    6. Then go to <b>Audio</b> and choose <b>Intel HD Audio</b> as audio controller.
     <div class="note info">
 
     By default, VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
@@ -325,6 +326,8 @@ Minimum recommended assignments:
     More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
     </div>
+
+{% unless page.installation_type == 'macos' %}
 
 - title: Unraid
   content: |
@@ -343,8 +346,6 @@ Minimum recommended assignments:
     13. Select **Create**.
     14. Select the name of your new VM and select the capacity number for your disk. Here, you can expand the disk to whatever your needs are. The default is 32&nbsp;GB.
     15. Select the icon of your new VM and select **start with console (VNC)**.
-
-{% unless page.installation_type == 'macOS' %}
 
 - title: KVM (virt-manager)
   content: |
@@ -393,17 +394,42 @@ Minimum recommended assignments:
 
 {% endunless %}
 
-{% if page.installation_type == 'windows' or page.installation_type == 'Linux' %}
+{% if page.installation_type == 'windows' %}
 
-- title: Vmware Workstation
+- title: VMware Workstation
   content: |
-    1. Create a new virtual machine.
-    2. Select **Custom**, make it compatible with the default of Workstation and ESX.
-    3. Choose **I will install the operating system later**, select **Linux** > **Other Linux 5.x or later kernel 64-bit**.
-    4. Select **Use Bridged Networking**.
-    5. Select **Use an existing virtual disk** and select the VMDK file above.
+    1. Start VMware Workstation and select **Create a New Virtual Machine**.
+       - Note: the exact name and location of the settings below depend on the VMware version. This procedure is based on version 17.
+    2. Select **I will install the operating system later**, then select **Linux** > **Other Linux 5.x kernel 64-bit**.
+    3. Give the VM a name, `home-assistant`, and define an easy to reach storage location, such as `C:\home-assistant`.
+    4. Specify the disk size and select **Store virtual disk as a single file**.
+    5. Select **Customize Hardware**.
+    6. Define the amount of memory and the number of cores the VM is allowed to use.
+    7. Remove the **New CD/DVD** entry. It will not be used.
+    8. Connect an Ethernet cable and make sure it is connected to your network.
+    9. Under **Network adapter**, select **Bridged: Connected directly to the physical network**.
+       - Make sure **Replicate physical network connection state** is not selected.
+       - Select **Configure Adapters**.
+       - Make sure all virtual adapters and Bluetooth devices are deselected.
+       - Select your host network adapter. Most likely, this is one of the first 2 checkboxes in the list:
+         - Select the one for Ethernet.
+         - The exact names of these adapters depend on your hardware.
+    10. At the end of the wizard, select **Finish**.
 
-    After the VM has been created, go to **Settings** > **Options** > **Advanced**. Under **Firmware type** select **UEFI**.
+      ## Edit the VM settings
+
+      11. In Windows Explorer, navigate to the storage location of your newly created VM, for example under `C:\home-assistant`.
+      12. Delete the `home-assistant.vmdk` file.
+      3. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file. 
+         - If you haven't unzipped the archive, unzip it.
+         - Within the folder, find the `.vmdk` file and rename it to `home-assistant.vmdk`.
+         - Paste the file (not the unzipped folder) into the `C:\home-assistant` folder.
+      4. Right-click the `.vmx` file and select **Open with** > **Notepad**.
+      5. Under `.encoding`, add a line. Enter `firmware = "efi"`.
+      6. Now continue with the next step to start your VM. 
+         - If you see a message about side channel mitigations, select **OK**.
+         - If you see a message stating that the `.vmdk` file could not be found, in step 3, you likely pasted the folder, not the file. Repeat step 3.
+
 
 {% elsif page.installation_type == 'alternative' %}
 

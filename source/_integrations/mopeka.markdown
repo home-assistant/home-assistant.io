@@ -23,5 +23,7 @@ The Mopeka integration will automatically discover devices once the [Bluetooth](
 
 ## Supported devices
 
+The integration only supports measuring LPG (Liquefied petroleum gas). Other substances will produce incorrect readings.
+
 - [Pro Plus](https://www.mopekaiot.com/product/mopeka-pro-plus-sensor) (M1015)
 - [Pro Check](https://www.mopekaiot.com/product/mopeka-pro-check-sensor-aluminum-lpg-cylinders-w-collar) (M1017)

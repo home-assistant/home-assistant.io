@@ -16,6 +16,10 @@ This platform allows you to detect presence by looking at connected devices to a
 Supported devices (tested):
 
 - Aruba AP-105
+- Aruba AP-205
+- Aruba AP-505
+- Aruba AP-515
+- Aruba IAP-315
 - Aruba IAP-335
 - Aruba Instant IAP-275
 

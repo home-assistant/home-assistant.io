@@ -147,6 +147,11 @@ sensor:
       required: false
       type: string
       default: None
+    last_reset:
+      description: "Defines a template that describes when the state of the sensor was last reset. Must render to a valid `datetime`. Only available when `state_class` is set to `total`"
+      required: false
+      type: template
+      default: None
 binary_sensor:
   description: List of binary sensors
   required: true
@@ -779,7 +784,7 @@ template:
       - platform: time_pattern
         hours: /1
     action:
-      - service: weather.get_forecast
+      - service: weather.get_forecasts
         data:
           type: hourly
         target:
@@ -790,7 +795,7 @@ template:
         unique_id: weather_forecast_hourly
         state: "{{ now().isoformat() }}"
         attributes:
-          forecast: "{{ hourly.forecast }}"
+          forecast: "{{ hourly['weather.home'].forecast }}"
 ```
 
 {% endraw %}
