@@ -70,7 +70,7 @@ square: false
 cards:
   - type: picture-entity
     entity: group.all_lights
-    image:  /local/house.png
+    image: /local/house.png
   - type: horizontal-stack
     cards:
       - type: picture-entity
