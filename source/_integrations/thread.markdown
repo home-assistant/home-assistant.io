@@ -70,7 +70,7 @@ While Home Assistant can *use* any border router, it can *configure* and *contro
 
 ### List of Thread border router devices
 
-Often, Thread border routing is only an auxiliary functionality of a smart home device. For example, the Nest Hub (2nd gen) is a smart display, a Google Home controller, and a Chromecast target, but also has a Thread border router included.
+Home Assistant can act as a Thread border router. But it also supports third-party border routers. Often, Thread border routing is only an auxiliary functionality of a smart home device. For example, the Nest Hub (2nd gen) is a smart display, a Google Home controller, and a Chromecast target, but also has a Thread border router included.
 
 Currently, the following <abbr title="Thread border router">TBR</abbr> devices are known to work with Home Assistant.
 These border routers may require an iPhone or Android phone for onboarding. What the exact requirements are, depends on the home automation protocol ({% term Matter %} or Apple HomeKit) that your devices are using. Before buying a border router, check the prerequisites in the corresponding procedures:
