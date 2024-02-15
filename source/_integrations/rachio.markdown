@@ -2,7 +2,7 @@
 title: Rachio
 description: Instructions on how to use Rachio with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Irrigation
   - Switch
 ha_iot_class: Cloud Push
@@ -24,7 +24,7 @@ The `rachio` platform allows you to control your [Rachio irrigation system](http
 
 There is currently support for the following device types within Home Assistant:
 
-- **Binary Sensor** - Allows you to view the status of your [Rachio irrigation system](https://rachio.com/).
+- **Binary sensor** - Allows you to view the status of your [Rachio irrigation system](https://rachio.com/).
 - [**Switch**](#switch)
 
 They will be automatically added if the Rachio integration is loaded.

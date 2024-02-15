@@ -46,7 +46,22 @@
         </div>
       </section>
     {%- endunless -%}
-  {% endif %}
+  {% endif %} 
+
+  {%- if page.ha_category.first -%}
+    <section class="aside-module grid__item one-whole lap-one-half">
+      <div class='section'>
+        <h1 class="title delta">Categories</h1>
+        <ul class='divided'>
+        {%- for category in page.ha_category -%}
+          <li>
+            <a href='/integrations/#{{ category | slugify }}'>{{ category }}</a>
+          </li>
+        {%- endfor -%}
+        </ul>
+      </div>
+    </section>
+  {%- endif -%}
 </div>
 <script type="text/javascript">
   // Some sidebars are longer than the screen so they can't be locked.

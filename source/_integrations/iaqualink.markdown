@@ -2,7 +2,7 @@
 title: Jandy iAqualink
 description: Instructions on how to configure Jandy iAqualink integration.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Light
   - Sensor
@@ -26,7 +26,7 @@ ha_integration_type: integration
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Climate
 - Light
 - Sensor

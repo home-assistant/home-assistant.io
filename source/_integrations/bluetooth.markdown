@@ -15,7 +15,7 @@ ha_platforms:
   - diagnostics
 ---
 
-The Bluetooth integration will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
+The **Bluetooth** {% term integration %} will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
 
 {% include integrations/config_flow.md %}
 
@@ -77,7 +77,7 @@ On Debian based host systems, the `sudo apt-get -y install bluez` command will i
 
 {% enddetails %}
 
-## Installing a USB Bluetooth Adapter
+## Installing a USB Bluetooth adapter
 
 Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
 
@@ -85,7 +85,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 ### Known working high-performance adapters
 
-#### Cambridge Silicon Radio (CSR) Based adapters
+#### Cambridge Silicon Radio (CSR) -based adapters
 
 - ANNE PRO CSR 4.0 (CSR8510A10)
 - Avantree BTDG-40S (CSR8510A10)
@@ -234,7 +234,7 @@ The following methods are known to work to add multiple adapters:
 
 Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/bluetooth/?_highlight=Best+practices#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
-## Passive Scanning
+## Passive scanning
 
 Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 5.63 or later with experimental features enabled. This functionality is available with Home Assistant Operating System 9.4 and later.
 
@@ -257,7 +257,7 @@ The following remote adapters are supported:
   - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
 - [Shelly](/integrations/shelly/)
   - Bluetooth advertisement listening: Shelly v2 device with firmware 12.0 or later
-  - Bluetooth advertisement bundling: not supported
+  - Bluetooth advertisement bundling: Shelly v2 device with firmware 12.0 or later
   - Single active connection: not supported
   - Multiple active connections: not supported
 

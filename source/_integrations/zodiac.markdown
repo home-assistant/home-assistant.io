@@ -15,7 +15,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The Zodiac integration tracks the current zodiac sign.
+The **Zodiac** {% term integration %} tracks the current zodiac sign.
 
 {% include integrations/config_flow.md %}
 

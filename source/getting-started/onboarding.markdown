@@ -6,22 +6,29 @@ description: "Instructions to get Home Assistant configured."
 Alright, you made it here. The tough part is done.
 
 - As the last step of the [installation procedure](/installation/) specific to your device, you entered the Home Assistant device's address in your browser's address bar.
-    - Typically, this is `http://homeassistant.local:8123/`
+    - Typically, this is `http://homeassistant.local:8123/`.
     - If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your device's IP address).
 
     - **Result**: You now see the welcome screen. Depending on your hardware, preparation may take a while.
 
     ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01_.png)
 
+    - Depending on the preinstalled software version, you might see a slightly different version of the welcome screen.
+      - To view the log files, select the pulsing blue dot.
+
+    ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01.png)
+
 With Home Assistant installed, it's time to set up the basics.
 
-In this step, you will create the owner's account of Home Assistant. This account is an administrator account. It will always be able to change everything.
+We will now create the owner's account of Home Assistant. This account is an administrator account. It will always be able to change everything.
  
 1. If you want to restore from a backup of a previous installation, select **Restore from backup**.
     - Continue with the procedure on [restoring from backup](/common-tasks/os/#restoring-a-backup).
     - Ignore the rest of this procedure. The following steps describe how to create a new installation, not how to restore from backup.
 2. If this is your initial installation, select **Create my smart home**.
-3. Enter a name, username, and password. Select **Create account**.
+3. Enter a name, username, and password.
+   - Store the name, username, and password in a password manager. There is no way to recover the owner credentials.
+   - Select **Create account**.
 
     ![Set your username and password.](/images/getting-started/username.png)
 
@@ -46,6 +53,6 @@ In this step, you will create the owner's account of Home Assistant. This accoun
     ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
 
 7. Finally, select **Finish**.
-   - Now you're brought to the Home Assistant web interface. If some of your devices were discovered and setup automatically, this default dashboard may already show some of your devices.
+   - Now you're brought to the Home Assistant web interface. If some of your devices were discovered and set up automatically, this default dashboard may already show some of your devices.
 
 {% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}

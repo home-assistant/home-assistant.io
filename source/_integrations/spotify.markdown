@@ -2,7 +2,7 @@
 title: Spotify
 description: Instructions on how to integrate Spotify into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.43
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -43,7 +43,7 @@ to allow you to log in with your Spotify account.
 
 2. Log in to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard).
 
-3. Click the [**Create app**](https://developer.spotify.com/dashboard/create) button in the top right.
+3. Select the [**Create app**](https://developer.spotify.com/dashboard/create) button in the top right.
   
   ![Spotify Developer Dashboard](/images/integrations/spotify/create-spotify-application.png)
    
@@ -57,22 +57,24 @@ to allow you to log in with your Spotify account.
 
   ![Creating a Spotify Application](/images/integrations/spotify/create-spotify-application.png)
 
-5. Check the box to agree with the requirements and click the **Save** button
+5. Select Web API.
+
+6. Check the box to agree with the requirements and click the **Save** button
    to confirm the application creation.
 
-6. Spotify will now show the new application you have just created. Click on
+7. Spotify will now show the new application you have just created. Select
    the **Settings** button in the top right to configure it.
 
   ![Edit the Spotify Application settings](/images/integrations/spotify/edit-settings.png)
 
-7. Before we can start configuring Home Assistant, we need to grab the application
+8. Before we can start configuring Home Assistant, we need to grab the application
    credentials Home Assistant needs.
 
-  Click on the **View client secret** button to reveal the client secret.
+  Select on the **View client secret** button to reveal the client secret.
 
   ![Show the client secret of the Spotify Application](/images/integrations/spotify/show-client-secret.png)
 
-8. The _"Client ID"_ and _"Client secret"_ are the two pieces of information
+9. The _"Client ID"_ and _"Client secret"_ are the two pieces of information
    that Home Assistant needs to communicate with Spotify and is what we
    call: Application credentials.
 
@@ -105,7 +107,7 @@ This integration supports multiple Spotify accounts at once. You don't need to
 create another Spotify application in the Spotify Developer Portal.
 Multiple Spotify accounts can be linked to a _single_ Spotify application.
 
-You will have to add those accounts into the **Users and Access** section of
+You will have to add those accounts into the **User Management** section of
 your application in the Spotify Developer Portal.
 
 To add an additional Spotify account to Home Assistant, go to the Spotify
@@ -119,7 +121,8 @@ To play media Spotify first needs a device selected for audio output known as th
 ```yaml
 # Example code to select an AV receiver as the output device
 service: media_player.select_source
-entity_id: media_player.spotify
+target:
+  entity_id: media_player.spotify
 data:
   source: "Denon AVR-X2000"
 ```
@@ -146,6 +149,6 @@ script:
 
 The `media_content_id` value can be obtained from the Spotify desktop app by clicking on the more options ("...") next to the album art picture, selecting "Share" and then "Copy Spotify URI" or "Copy Playlist Link" (also available in the Spotify phone and web app). Alternatively a Spotify URI string (e.g. `spotify:playlist:5xddIVAtLrZKtt4YGLM1SQ`) can be supplied for the `media_content_id`.
 
-## Unsupported Devices
+## Unsupported devices
 
 - **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API.

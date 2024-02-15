@@ -2,7 +2,7 @@
 title: Firmata
 description: Connect Arduino-compatible boards within Home Assistant
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - DIY
   - Light
   - Sensor
@@ -26,7 +26,7 @@ The Firmata protocol is a standard protocol for microcontrollers. Most of these 
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary_sensor)
+- [Binary sensor](#binary_sensors)
 - [Light](#lights)
 - [Sensor](#sensors)
 - [Switch](#switches)
