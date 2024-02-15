@@ -13,7 +13,7 @@ ha_integration_type: entity
 
 Events are signals that are emitted when something happens, for example, when a user presses a physical button like a doorbell or when a button on a remote control is pressed.
 
-These events do not capture a state. For example, a doorbell does not have a state like being "on" or "off" but instead is momentarily pressed. Some events can have variations in the type of event that is emitted. For example, maybe your remote control is capable of emitting a single press, a double press, or a long press.
+These events do not capture a state in the traditional sense. For example, a doorbell does not have a state such as "on" or "off" but instead is momentarily pressed. Some events can have variations in the type of event that is emitted. For example, maybe your remote control is capable of emitting a single press, a double press, or a long press.
 
 The event entity can capture these events in the physical world and makes them available in Home Assistant as an entity.
 
