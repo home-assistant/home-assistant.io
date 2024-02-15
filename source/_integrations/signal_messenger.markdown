@@ -70,7 +70,7 @@ recipients:
 
 You can use Signal Messenger REST API as a Home Assistant trigger. In this example, we will make a simple chatbot. If you write anything to your Signal account linked to Signal Messenger REST API, the automation gets triggered, with the condition that the number (attribute source) is correct, to take action by sending a Signal notification back with a "Message received!".
 
-To accomplish this, edit the configuration of Home Assistant, adding a [RESTful resource](/integrations/rest/) as follows:
+To accomplish this, make sure the addon's `mode` parameter is set to `native` or `normal`, and edit the configuration of Home Assistant, adding a [RESTful resource](/integrations/rest/) as follows:
 
 ```yaml
 - resource: "http://127.0.0.1:8080/v1/receive/<number>"

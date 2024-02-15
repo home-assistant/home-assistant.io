@@ -78,7 +78,7 @@ repeat:
   required: true
   type: [integer, list]
 can_acknowledge:
-  description: Allows the alert to be unacknowledgeable.
+  description: Control whether the notification can be acknowledged; set to `false` if the alert should not be acknowledgeable.
   required: false
   type: boolean
   default: true

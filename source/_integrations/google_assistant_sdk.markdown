@@ -129,7 +129,7 @@ If you have an error with your credentials you can delete them in the [Applicati
 
 If commands don't work try removing superfluous words such as "the". E.g. "play rain sounds on bedroom speaker" instead of "play rain sounds on the bedroom speaker".
 
-If broadcasting doesn't work, make sure: the speakers aren't in do not disturb mode, the Home Assistant server is in the same network as the speakers, and IPv6 is disabled in the router.
+If broadcasting doesn't work, make sure: the speakers aren't in do not disturb mode, the Home Assistant server is in the same network as the speakers.
 
 The easiest way to check if the integration is working is to check [My Google Activity](https://myactivity.google.com/myactivity) for the issued commands and their responses.
 
@@ -139,7 +139,6 @@ The easiest way to check if the integration is working is to check [My Google Ac
 - If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity), the integration is working fine. If the commands don't have the expected outcome, don't open an issue in the Home Assistant Core project or the [underlying library](https://github.com/tronikos/gassist_text). You should instead report the issue directly to Google [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
   - Media playback commands (other than play news, play podcast, play white noise, or play rain sounds) don't work.
   - Routines don't work.
-  - Broadcast doesn't work with IPv6.
   - Broadcast to specific rooms often doesn't work for non-English languages.
   - Commands that need to verify your identity through voice match do not work.
 
