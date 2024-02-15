@@ -20,7 +20,7 @@ as a source for air quality data for your location.
 
 ## Setup
 
-To generate an AirNow API key, go to the [AirNow Developer Tools Page](https://docs.airnowapi.org/account/request/) page.
+To generate an AirNow API key, go to the [AirNow Developer Tools](https://docs.airnowapi.org/account/request/) page.
 
 {% include integrations/config_flow.md %}
 
