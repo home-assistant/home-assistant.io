@@ -1380,6 +1380,108 @@ For a summary in a more readable format:
 [@synesthesiam]: https://github.com/synesthesiam
 [@zxdavb]: https://github.com/zxdavb
 
+## Release 2024.2.2 - February 16
+
+- Better teardown and setup of Roborock connections ([@Lash-L] - [#106092])
+- Fix freebox pairing in bridge mode ([@agrenott] - [#106131])
+- Update pytechnove to 1.2.2 ([@Moustachauve] - [#110074])
+- Bump aio-geojson-usgs-earthquakes to 0.3 ([@exxamalte] - [#110084])
+- Bump yalexs to 1.11.1, fixing camera snapshots from Yale Home ([@abjorck] - [#110089])
+- Fix typo in sensor icons configuration ([@bieniu] - [#110133])
+- Only schedule august activity update when a new activity is seen ([@bdraco] - [#110141])
+- Bump yalexs to 1.11.2 ([@bdraco] - [#110144])
+- Properly report cover positions to prometheus ([@agoode] - [#110157])
+- Fix device class repairs issues placeholders in Group ([@silamon] - [#110181])
+- Bump datapoint to 0.9.9 + re-enable Met Office Integration ([@DustyArmstrong] - [#110206])
+- Bump evohome-async to 0.4.19 ([@zxdavb] - [#110225])
+- Fix state classes issue translation in Group ([@silamon] - [#110238])
+- Handle no data error in Electricity Maps config flow ([@jpbede] - [#110259])
+- Fix cpu percentage in System Monitor ([@gjohansson-ST] - [#110268])
+- Bump aiopegelonline to 0.0.8 ([@mib1185] - [#110274])
+- Bump PySwitchbot to 0.45.0 ([@bdraco] - [#110275])
+- Update xknxproject to 3.6.0 ([@farmio] - [#110282])
+- Fix TDBU naming in Motionblinds ([@starkillerOG] - [#110283])
+- Bump linear-garage-door to 0.2.9 ([@IceBotYT] - [#110298])
+- Fix Starline GPS count sensor ([@Anonym-tsk] - [#110348])
+- Fix zone radius calculation when radius is not 0 ([@bdraco] - [#110354])
+- Bump py-sucks to 0.9.9 ([@mib1185] - [#110397])
+- Bump async-upnp-client to 0.38.2 ([@StevenLooman] - [#110411])
+- Mitigate session closed error in Netgear LTE ([@tkdrob] - [#110412])
+- Update pylutron to 0.2.11 ([@wilburCforce] - [#109853])
+- Update pylutron to 0.2.12 ([@wilburCforce] - [#110414])
+- Fix Raspberry Pi utilities installation on Alpine 3.19 ([@agners] - [#110463])
+- Coerce to float in Sensibo climate react custom service ([@gjohansson-ST] - [#110508])
+- Bump orjson to 3.9.14 ([@bdraco] - [#110552])
+- Fix tplink not updating IP from DHCP discovery and discovering twice ([@bdraco] - [#110557])
+- Modbus, allow received int to be a float. ([@janiversen] - [#110648])
+- Fix elkm1 service calls running in the executor ([@bdraco] - [#110655])
+- Bump aiounifi to v71 ([@Kane610] - [#110658])
+- Bump deebot-client to 5.2.1 ([@edenhaus] - [#110683])
+
+[#106092]: https://github.com/home-assistant/core/pull/106092
+[#106131]: https://github.com/home-assistant/core/pull/106131
+[#109853]: https://github.com/home-assistant/core/pull/109853
+[#109883]: https://github.com/home-assistant/core/pull/109883
+[#110074]: https://github.com/home-assistant/core/pull/110074
+[#110078]: https://github.com/home-assistant/core/pull/110078
+[#110084]: https://github.com/home-assistant/core/pull/110084
+[#110089]: https://github.com/home-assistant/core/pull/110089
+[#110133]: https://github.com/home-assistant/core/pull/110133
+[#110141]: https://github.com/home-assistant/core/pull/110141
+[#110144]: https://github.com/home-assistant/core/pull/110144
+[#110157]: https://github.com/home-assistant/core/pull/110157
+[#110181]: https://github.com/home-assistant/core/pull/110181
+[#110206]: https://github.com/home-assistant/core/pull/110206
+[#110225]: https://github.com/home-assistant/core/pull/110225
+[#110238]: https://github.com/home-assistant/core/pull/110238
+[#110259]: https://github.com/home-assistant/core/pull/110259
+[#110268]: https://github.com/home-assistant/core/pull/110268
+[#110274]: https://github.com/home-assistant/core/pull/110274
+[#110275]: https://github.com/home-assistant/core/pull/110275
+[#110282]: https://github.com/home-assistant/core/pull/110282
+[#110283]: https://github.com/home-assistant/core/pull/110283
+[#110298]: https://github.com/home-assistant/core/pull/110298
+[#110348]: https://github.com/home-assistant/core/pull/110348
+[#110354]: https://github.com/home-assistant/core/pull/110354
+[#110397]: https://github.com/home-assistant/core/pull/110397
+[#110411]: https://github.com/home-assistant/core/pull/110411
+[#110412]: https://github.com/home-assistant/core/pull/110412
+[#110414]: https://github.com/home-assistant/core/pull/110414
+[#110463]: https://github.com/home-assistant/core/pull/110463
+[#110508]: https://github.com/home-assistant/core/pull/110508
+[#110552]: https://github.com/home-assistant/core/pull/110552
+[#110557]: https://github.com/home-assistant/core/pull/110557
+[#110648]: https://github.com/home-assistant/core/pull/110648
+[#110655]: https://github.com/home-assistant/core/pull/110655
+[#110658]: https://github.com/home-assistant/core/pull/110658
+[#110683]: https://github.com/home-assistant/core/pull/110683
+[@Anonym-tsk]: https://github.com/Anonym-tsk
+[@DustyArmstrong]: https://github.com/DustyArmstrong
+[@IceBotYT]: https://github.com/IceBotYT
+[@Kane610]: https://github.com/Kane610
+[@Lash-L]: https://github.com/Lash-L
+[@Moustachauve]: https://github.com/Moustachauve
+[@StevenLooman]: https://github.com/StevenLooman
+[@abjorck]: https://github.com/abjorck
+[@agners]: https://github.com/agners
+[@agoode]: https://github.com/agoode
+[@agrenott]: https://github.com/agrenott
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@edenhaus]: https://github.com/edenhaus
+[@exxamalte]: https://github.com/exxamalte
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@janiversen]: https://github.com/janiversen
+[@jpbede]: https://github.com/jpbede
+[@mib1185]: https://github.com/mib1185
+[@silamon]: https://github.com/silamon
+[@starkillerOG]: https://github.com/starkillerOG
+[@tkdrob]: https://github.com/tkdrob
+[@wilburCforce]: https://github.com/wilburCforce
+[@zxdavb]: https://github.com/zxdavb
+
 [#100684]: https://github.com/home-assistant/core/pull/100684
 [#100806]: https://github.com/home-assistant/core/pull/100806
 [#101497]: https://github.com/home-assistant/core/pull/101497
