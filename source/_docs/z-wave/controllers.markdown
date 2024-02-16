@@ -85,9 +85,20 @@ It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blu
 
 ### Razberry Board
 
-You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
+You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Raspberry Pi 3). You do this by adding the following to the end of `/boot/config.txt`:
 
-For both processes below you will need to insert your SD card into your PC and open the `/boot/config.txt` file with your favorite text editor.
+For both processes below you will need to insert your SD card into your PC and open the configuration file with your favorite text editor.
+
+- If you are using Home Assistant Operating System, once you mounted the disk, you will see the `config.txt` directly in the root directory.
+- If you are using Home Assistant Supervised, the config file is stored in the boot folder: `/boot/config.txt`.
+
+#### Raspberry Pi 5 procedure
+
+Add the following parameters to the bottom of the `config.txt` file.
+
+```text
+dtoverlay=uart0
+```
 
 #### Raspberry Pi 4 procedure
 
