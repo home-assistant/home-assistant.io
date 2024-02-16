@@ -98,28 +98,28 @@ The only characters valid in entity names are:
 
 If you create an entity with other characters then Home Assistant may not generate an error for that entity. However you will find that attempts to use that entity will generate errors (or possibly fail silently).
 
-## Debug Logs and Diagnostics
+## Debug logs and diagnostics
 
 The first thing you will need before reporting an issue online is debug logs and diagnostics (if available) for the integration giving you trouble. Getting those ahead of time will ensure someone can help resolve your issue in the fastest possible manner.
 
-### Enabling Debug Logging
+### Enabling debug logging
 
-To enable debug logging for an integration, go to **Settings** > **Devices & Services** and select the integration. Select the triple dots for the integration giving you trouble and select **Enable Debug Logging**.
-
-### Disable Debug Logging and Download Logs
-
-Once you enable debug logging, you ideally need to make the error happen. Run your automation, change up your device or whatever was giving you an error and then come back and disable Debug Logging. Disabling debug logging is the same as enabling, but now you will see **Disable Debug Logging**. After you disable debug logging, it will automatically prompt you to download your log file. Save this to a safe location to upload later.
+To enable debug logging for an integration, go to **Settings** > **Devices & Services** > **Integrations** and go to the detail page of the integration. Select the **Enable Debug Logging** button on the left side of the integration detail page.
 
 <p class='img'>
-  <img src='/images/docs/configuration/disable-debug-logging.gif' alt='Example of Disable Debug Logging'>
-  Example of Disable Debug Logging.
+  <img src='/images/docs/configuration/enable-debug-logging.png' alt='Example of Enable debug logging'>
+  Example of Enable debug logging.
 </p>
 
-### Download Diagnostics
+### Disable debug logging and download logs
 
-After you download logs, you will also want to download the diagnostics for the integration giving you trouble. If the integration provides diagnostics, it will appear in the same menu that the Debug Logging toggle appeared.
+Once you enable debug logging, you ideally need to make the error happen. Run your automation, change up your device or whatever was giving you an error and then come back and disable the debug logging. Disabling the debug logging is the same as enabling, but now the button says **Disable Debug Logging**. After you disable it, you will be automatically prompted you to download your log file. Save this to a safe location to upload later.
+
+### Download diagnostics
+
+After you download logs, you will also want to download the diagnostics for the integration giving you trouble. If the integration provides diagnostics, it will appear in the three dot menu next to the integration configuration.
 
 <p class='img'>
-  <img src='/images/docs/configuration/download-diagnostics.gif' alt='Example of Download Diagnostics'>
+  <img src='/images/docs/configuration/download-diagnostics.png' alt='Example of Download Diagnostics'>
   Example of Download Diagnostics.
 </p>

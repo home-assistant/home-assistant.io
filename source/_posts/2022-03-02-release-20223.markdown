@@ -59,7 +59,7 @@ Enjoy the release!
 - [Release 2022.3.7 - March 23](#release-202237---march-23)
 - [Release 2022.3.8 - March 29](#release-202238---march-29)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
@@ -692,7 +692,7 @@ into your inbox.
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
@@ -1277,7 +1277,7 @@ You can find more information on the new dependency resolver in Python pip here:
 {% details "async_timeout()" %}
 
 We now use version 3.8+ of `aiohttp`, which requires `async_timeout` 4.0+
-which has multiple breaking changes:
+which has multiple backward-incompatible changes:
 
 - `async_timeout.timeout` drops the `loop=` keyword arg.
 - `async_timeout.current_task` has been removed.

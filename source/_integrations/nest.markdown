@@ -6,7 +6,7 @@ ha_category:
   - Climate
   - Doorbell
   - Hub
-  - Media Source
+  - Media source
   - Sensor
 ha_iot_class: Cloud Push
 ha_release: 0.7
@@ -17,7 +17,6 @@ ha_domain: nest
 ha_quality_scale: platinum
 ha_dhcp: true
 ha_platforms:
-  - binary_sensor
   - camera
   - climate
   - diagnostics
@@ -33,13 +32,19 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Camera](#camera)
 
-Cameras and Doorbells use [Automation and Device Triggers](#automation-and-device-triggers) for events and a [Media Source](#media-source) for capturing media images on supported devices. Other device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
+Cameras and doorbells use [Automation and device triggers](#automation-and-device-triggers) for events and a [media source](#media-source) for capturing media images on supported devices. Other device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
 <div class='note'>
 
 The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
+
+</div>
+
+<div class='note'>
+
+The Google Nest integration uses a Cloud Pub/Sub subscription with a 15-minute retention period by default. The Google Cloud Pub/Sub billing changes, effective June 30, 2024, do not apply. The billing changes only apply to subscriptions with a 24-hour retention period. See the [Pub/Sub console](https://console.cloud.google.com/cloudpubsub/subscription/list) to view your subscriptions if you previously created one manually.
 
 </div>
 
@@ -284,7 +289,7 @@ All cameras have motion and person triggers, however only some support capturing
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
 
 
-## Automation and Device Triggers
+## Automation and device triggers
 
 The Nest integration provides [device triggers](/docs/automation/trigger/#device-triggers) to enable automation in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
 
@@ -323,12 +328,43 @@ This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to know when there's a camera event*
 - *Allow Home Assistant to know when there's a doorbell event*
-- *Other permissions in the Nest or Google Home apps*.
+- *Other permissions and notification settings in the Nest or Google Home apps*.
 </div>
 
-## Media Source
+### Google Home App Notification Settings
 
-The Nest [Media Source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
+The Google Home App Notifications settings control not only which notifications are sent to your phone,
+but also what gets published to the Pub/Sub feed.
+
+For example, if you enable *Away-only notifications*, Home Assistant will only receive events when your phone is away from home.
+
+Another thing that may not be intuitive, is that seeing the event in your device history does not mean it was published to the feed.
+However, if you are getting push notifications, the settings are likely working.
+
+Note: The exact settings and effect they have on the feed may vary by camera model or app version.
+
+
+If you are still not getting notifications, you can read this [troubleshooting guide from Google]<!-- textlint-disable -->
+(https://support.google.com/googlenest/answer/9230439#zippy=%2Cyour-camera-detected-something-but-you-didnt-get-a-camera-alert)
+<!-- textlint-enable -->
+
+{% details "Google Home App Notification Settings" %}
+
+
+| Google Home App Setting  | Notes                                                                                 |
+| ------------------------ | :-----------------------------------------------------------------------------------: |
+| Notifications: Push      | Required for any detection event to be published                                      |
+| Notifications: Away-Only | Events will only be published when a user is detected as away from home                 |
+| Seen: Motion             | Required for `Motion` events to be published                                          |
+| Seen: Person             | Required for `Person` events to be published                                          |
+
+![Screenshot of Google Home App Notification Settings](/images/integrations/nest/google_home_notification_settings.png)
+
+{% enddetails %}
+
+## Media source
+
+The Nest [media source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
 
 The table above describes which devices support event image snapshots or 10-frame mp4 video clips for recent events.
 
@@ -467,6 +503,8 @@ Once you have completed the above steps, you can continue through the flow to re
 
 ## Troubleshooting
 
+- *No access to partner information* "Information could not be retrieved" error message during the setup wizard means that the Google Account used is not able to access the Home. Please ensure that you have successfully migrated your Nest Account to a Google Account using the Google Nest App. Additionally, if your home has multiple members, please note that the individual who initially set up the home must complete the migration of their Nest Account to a Google Account before you can establish a connection with Home Assistant.
+
 - You can manage devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Restart Home Assistant to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
 
 - *Error 400: invalid_request* plus a message about not complying with *Google's OAuth Policy for keeping accounts secure* is shown when using *App Auth* or *Desktop Auth* or *OOB Auth* which has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google. Follow the steps in the previous section to upgrade Home Assistant and restore access.
@@ -500,6 +538,8 @@ authentication process.
 {% enddetails %}
 
 - *Something went wrong: Please contact the developer of this app if the issue persists*: This typically means you are using the wrong type of credential (e.g. *Desktop Auth*). Make sure the credential in the [Google Cloud Console](https://console.developers.google.com/apis/credentials) is a *Web Application* credential following the instructions above.
+
+- *Something went wrong, please try again in a few minutes*: According to Google's [Partner Connections Manager Error Reference](https://developers.google.com/nest/device-access/reference/errors/pcm), this error covers all other undocumented internal errors within Partner Connections. One of the issues that cause this error is synchronization problems between the Nest and Google Home apps. Confirm that your Nest device is visible within both apps under the same Home. If it is missing within Google Home, create a new dummy home on the Nest app, which triggers the synchronization process. (This is the workaround recommended by the Google support team). The dummy entry can be deleted once the Nest device is visible within the Google Home app.
 
 - *Can’t link to [Project Name]: Please contact [Project Name] if the issue persists*: This typically means that the *OAuth Client ID* used is mismatched
 
@@ -574,10 +614,4 @@ logger:
 
 - It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `subscriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
 
-# Works With Nest API
-
-<div class='note warning'>
-
-The Legacy [Works with Nest](https://developers.nest.com/) API is deprecated, and will be shut down by Google in September 2023.
-
-</div>
+- *Not receiving camera motion and person events*: assuming the integration is correctly configured (for example, the oauth and SDM API are set up correctly, you can see camera streams, and permissions are correctly set in [Partner Connections Manager](https://nestservices.google.com/partnerconnections)): If you are then still not seeing events, it's possible you need to adjust the Google Home App settings. Refer to the [Google Home App Notification Settings](#google-home-app-notification-settings) for details.

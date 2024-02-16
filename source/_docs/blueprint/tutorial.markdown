@@ -5,7 +5,7 @@ description: "Tutorial on creating an automation blueprint."
 
 <div class='note'>
 
-While the tutorial only shows how to create an automation blueprint, scripts also support blueprints in the same way.
+While the tutorial only shows how to create an automation blueprint, {% term scripts %} also support blueprints in the same way.
 
 </div>
 
@@ -22,7 +22,7 @@ In this tutorial, we're going to create an automation blueprint that controls a 
 
 ### Creating an automation
 
-To create a blueprint, we first need to have a working automation. 
+To create a blueprint, we first need to have a working automation.
 For this tutorial, we use a simple automation. The process for converting a complex automation is no different.
 
 The automation we're going to use in this tutorial controls a light based on a motion sensor:
@@ -177,15 +177,17 @@ blueprint:
       description: This sensor will be synchronized with the light.
       selector:
         entity:
-          domain: binary_sensor
-          device_class: motion
+          filter:
+            - domain: binary_sensor
+            - device_class: motion
     target_light:
       name: Lights
       description: The lights to keep in sync.
       selector:
         target:
           entity:
-            domain: light
+            filter:
+              - domain: light
 ```
 
 By limiting our blueprint to working with lights and motion sensors, we unlock a couple of benefits: the UI will be able to limit suggested values to lights and motion sensors instead of all devices. It will also allow the user to pick an area to control the lights in.
@@ -207,15 +209,17 @@ blueprint:
       description: This sensor will be synchronized with the light.
       selector:
         entity:
-          domain: binary_sensor
-          device_class: motion
+          filter:
+            - domain: binary_sensor
+            - device_class: motion
     target_light:
       name: Lights
       description: The lights to keep in sync.
       selector:
         target:
           entity:
-            domain: light
+            filter:
+              - domain: light
 
 trigger:
   - platform: state
@@ -244,7 +248,7 @@ Don't forget to reload automations after you make changes to your blueprint to h
 
 ![Screenshot of the blueprint UI](/images/blueprints/tutorial-ui.png)
 
-## Video Tutorial
+## Video tutorial
 
 This video tutorial explains how to create a blueprint that toggles a light on motion when the lux value is below a certain threshold.
 

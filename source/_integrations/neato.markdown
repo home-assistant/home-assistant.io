@@ -2,10 +2,10 @@
 title: Neato Botvac
 description: Instructions on how to integrate your Neato within Home Assistant.
 ha_category:
+  - Button
   - Camera
   - Sensor
   - Switch
-  - Button
   - Vacuum
 ha_iot_class: Cloud Polling
 ha_release: 0.33
@@ -15,10 +15,10 @@ ha_codeowners:
   - '@Santobert'
 ha_domain: neato
 ha_platforms:
+  - button
   - camera
   - sensor
   - switch
-  - button
   - vacuum
 ha_integration_type: integration
 ---
@@ -100,7 +100,7 @@ And a specific Platform Service:
 
 - `neato.custom_cleaning`
 
-### Platform Services
+### Platform services
 
 #### Service `neato.custom_cleaning`
 

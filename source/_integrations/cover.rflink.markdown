@@ -1,7 +1,6 @@
 ---
 title: "RFLink Cover"
 description: "Instructions on how to integrate RFLink Somfy RTS and KAKU ASUN-650 covers into Home Assistant."
-logo: rflink.png
 ha_category:
   - Cover
 ha_iot_class: Assumed State

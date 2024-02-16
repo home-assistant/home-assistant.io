@@ -4,7 +4,7 @@ description: Get energy usage from Orange and Rockland Utilities using the Opowe
 ha_category:
   - Energy
   - Sensor
-ha_release: 2023.9
+ha_release: 2023.8
 ha_domain: oru_opower
 ha_integration_type: virtual
 ha_supporting_domain: opower

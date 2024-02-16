@@ -12,10 +12,12 @@ ha_codeowners:
   - '@dknowles2'
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - lock
   - sensor
   - switch
 ha_integration_type: integration
+ha_domain: schlage
 ---
 
 The Schlage integration provides connectivity with Schlage WiFi smart locks through Schlage's cloud API.

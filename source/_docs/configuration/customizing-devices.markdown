@@ -7,8 +7,8 @@ description: "Simple customization for entities."
 
 You can use the UI to change the entity ID and friendly name of supported entities. To do this:
 
-1. Select the entity, either from the frontend or by clicking the info button next to the entity in the Developer Tools "States" tab.
-2. Click on the cog icon in the right corner of the entity's dialog
+1. Select the {% term entity %}, either from the frontend or by selecting the info button next to the entity in the Developer Tools "States" tab.
+2. Select the cog icon in the right corner of the entity's dialog
 ![Entity dialog box.](/images/docs/configuration/customizing-entity-dialog.png)
 3. Enter the new name or the new entity ID (remember not to change the domain of the entity - the part before the `.`)
 ![Settings for entity.](/images/docs/configuration/customizing-entity.png)
@@ -57,15 +57,15 @@ initial_state:
   default: None
 {% endconfiguration %}
 
-### Device Class
+### Device class
 
 Device class is currently supported by the following platforms:
 
-- [Binary Sensor](/integrations/binary_sensor/)
+- [Binary sensor](/integrations/binary_sensor/)
 - [Button](/integrations/button/)
 - [Cover](/integrations/cover/)
 - [Humidifier](/integrations/humidifier/)
-- [Media Player](/integrations/media_player/)
+- [Media player](/integrations/media_player/)
 - [Number](/integrations/number/)
 - [Sensor](/integrations/sensor/)
 - [Switch](/integrations/switch/)
