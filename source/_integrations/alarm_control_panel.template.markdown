@@ -9,7 +9,7 @@ ha_qa_scale: internal
 ha_domain: template
 ---
 
-The `template` integrations creates alarm control panels that combine integrations or adds pre-processing logic to actions.
+The `template` integrations creates alarm control panels that combine integrations or adds preprocessing logic to actions.
 
 There are several powerful ways to use this integration, including grouping existing integrations into a simpler integrations, or adding logic that Home Assistant will execute when accessed.
 
