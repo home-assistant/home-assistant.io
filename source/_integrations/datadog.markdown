@@ -27,7 +27,7 @@ The integration also sends events from the logbook into Datadog, allowing you to
 
 You need to have a Datadog agent installed in a network accessible by Home Assistant.
 
-In the [Datadog Agent configuration](https://github.com/DataDog/datadog-agent/blob/main/pkg/config/config_template.yaml#L2203-L2207), you must enable [DogStatsD](https://docs.datadoghq.com/developers/dogstatsd/) non local traffic to allow StatsD data collection from outside `localhost`.
+In the [Datadog Agent configuration](https://github.com/DataDog/datadog-agent/blob/main/pkg/config/config_template.yaml#L2203-L2207), you must enable [DogStatsD](https://docs.datadoghq.com/developers/dogstatsd/) non-local traffic to allow StatsD data collection from outside `localhost`.
 
 ## Configuration
 
