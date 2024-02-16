@@ -16,11 +16,14 @@ Please remember to ensure you're using an [appropriate power supply](https://www
 
 </div>
 
+Before installing Home Assistant, you might want to <a href="/installation#compare-installation-methods">compare installation methods</a>. Most notably, 
+<a href="/addons">add-ons</a> are only available with the Home Assistant Operating System.
+
 ## Suggested Hardware
 
 We will need a few things to get started with installing Home Assistant. Links below lead to Amazon US. If you’re not in the US, you should be able to find these items in web stores in your country.
 
-- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 is ok too, if you have one laying around). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) to find official distributors with stock.
+- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 Model B is ok too, but the Model A does not have enough RAM). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) to find official distributors with stock.
 - [Power Supply for Raspberry Pi 4](https://amzn.to/2ReZ2Vq) or [Power Supply for Raspberry Pi 3](https://amzn.to/2R8yG7h)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32&nbsp;GB or bigger card is recommended.
 - SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
@@ -36,8 +39,8 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 
 1. Download and install the Raspberry Pi Imager on your computer as described under [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/). 
    ![Install Raspberry Pi Imager](/images/installation/rpi_imager.png)
-2. Open the Raspberry Pi Imager.
-    ![Open Raspberry Pi Imager](/images/installation/rpi-imager-start.png)
+2. Open the Raspberry Pi Imager and select your Raspberry Pi device.
+    ![Open Raspberry Pi Imager](/images/installation/rpi_imager_start.png)
 3. Choose the operating system:
    1. Select **Choose OS**.
    2. Select **Other specific-purpose OS** > **Home assistants and home automation** > **Home Assistant**.
@@ -48,22 +51,32 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
    2. Select your SD card.
     ![Select the storage](/images/installation/rpi-select-sd-card.png)
 5. Write the installer onto the SD card:
-   1. To start the process, select **Write**.
+   1. To start the process, select **Next**.
    2. Wait for the Home Assistant OS to be written to the SD card.
-    ![Select write](/images/installation/rpi-select-write.png)
+    ![Select write](/images/installation/rpi_choose_next.png)
 6. Eject the SD card.
 
 ### Start up your Raspberry Pi
 
 1. Insert the SD card into your Raspberry Pi.
-2. Plug in an Ethernet cable that is connected to the network.
+2. Plug in an Ethernet cable and make sure the Raspberry Pi is connected to the same network as your computer.
 3. Connect the power supply to start up the device.
 
-4. In the browser of your desktop system, within a few minutes you will be able to reach your new Home Assistant at <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
+### Access Home Assistant
 
-<div class="note">
-If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your Raspberry Pi’s IP address).
-</div>
+Within a few minutes after connecting the Raspberry Pi, you will be able to reach your new Home Assistant.
+
+- In the browser of your desktop system, enter <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
+ 
+    <div class="note">
+    If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your Raspberry Pi’s IP address).
+    </div>
+
+- The time it takes for this page to become available depends on your hardware. On a Raspberry Pi 4, this page should be available within a minute.
+  - If it does not show up after 5 minutes on a Pi 4, maybe the image was not written properly.
+    - Try to flash the SD card again, possibly even try a different SD card.
+  - If this did not help, view the console output on the Raspberry Pi.
+    - To do this, connect a monitor via HDMI.
 
 Congratulations! You finished the Raspberry Pi setup!
 

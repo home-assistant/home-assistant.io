@@ -6,9 +6,7 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@adamchengtkc'
   - '@janiversen'
-  - '@vzahradnik'
 ha_domain: modbus
 ha_platforms:
   - binary_sensor
@@ -24,7 +22,7 @@ ha_integration_type: integration
 
 [modbus](http://www.modbus.org/) is a communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit).
 
-The integration adheres strictly to the [protocol specification](https://modbus.org/docs/modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the actual protocol implmentation.
+The integration adheres strictly to the [protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the protocol implementation.
 
 The modbus integration supports all devices adhering to the modbus standard. The communication to the device/devices can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communication channels e.g. a serial port connection combined with one or more TCP connections.
 
@@ -54,11 +52,6 @@ name:
   description: "Name of this hub. Must be unique."
   required: true
   type: string
-retries:
-  description: "Number of times to retry a request."
-  required: false
-  default: 3
-  type: integer
 timeout:
   description: "Timeout while waiting for a response in seconds."
   required: false
@@ -117,10 +110,8 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
-    retries: 3
     timeout: 5
 ```
 
@@ -165,10 +156,8 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
-    retries: 3
     timeout: 5
 ```
 
@@ -209,10 +198,8 @@ modbus:
     host: IP_ADDRESS
     port: 502
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
-    retries: 3
     timeout: 5
 ```
 
@@ -305,10 +292,8 @@ modbus:
     parity: E
     stopbits: 1
 
-    close_comm_on_error: true
     delay: 0
     message_wait_milliseconds: 30
-    retries: 3
     timeout: 5
 ```
 
@@ -363,13 +348,6 @@ address:
   description: "Address of coil/register."
   required: true
   type: integer
-lazy_error_count:
-  description: "Number of errors before entity becomes unavailable.
-  Is used to prevent spontaneous errors affecting statistic graphs.
-  A succesfull request resets the error count."
-  required: false
-  type: integer
-  default: 0
 name:
   description: "Name of the entity which must be unique within the entity type."
   required: true
@@ -377,8 +355,8 @@ name:
 scan_interval:
   description: "Update interval in seconds.
   scan_interval = 0 for no polling.
-  Entities are unavailable until the first scan interval is passed,
-  except for entities with scan_interval = 0, which are read at startup and not updated."
+  Entities are read shortly after startup and then according to scan_interval.
+  Remark, when restarting HA the last known value is restored."
   required: false
   type: integer
   default: 15
@@ -514,7 +492,6 @@ modbus:
         address: 100
         device_class: door
         input_type: coil
-        lazy_error_count: 0
         scan_interval: 15
         slave: 1
         slave_count: 0
@@ -545,7 +522,7 @@ The master configuration like device_class are automatically copied to the slave
 
 ## Configuring climate entities
 
-The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature.
+The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature, HVAC mode and fan state.
 
 Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
@@ -576,8 +553,6 @@ climates:
           description: "64 bit signed float (4 register holds 1 value)."
         int:
           description: "**DEPRECATED** is silently converted to `int16`"
-        int8:
-          description: "8 bit signed integer (1 register holds 1 value in lower byte)."
         int16:
           description: "16 bit signed integer (1 register holds 1 value)."
         int32:
@@ -588,8 +563,6 @@ climates:
           description: "set of 8 bit characters, `count:` must be configured."
         uint:
           description: "**DEPRECATED** is silently converted to `uint16`"
-        uint8:
-          description: "8 bit unsigned integer (1 register holds 1 value in lower byte)."
         uint16:
           description: "16 bit unsigned integer (1 register holds 1 value)."
         uint32:
@@ -631,7 +604,7 @@ climates:
             state_auto:
               description: "Value corresponding to HVAC Auto mode."
               required: false
-              type: integer
+              type: [integer, list]
             state_dry:
               description: "Value corresponding to HVAC Dry mode."
               required: false
@@ -644,6 +617,61 @@ climates:
               description: "Value corresponding to HVAC Heat/Cool mode."
               required: false
               type: [integer, list]
+    fan_mode_register:
+      description: "Configuration of register for Fan mode"
+      required: false
+      type: map
+      keys:
+        address:
+          description: "Address of Fan mode register. (int to call write_register, list of 1 int to call write_registers)"
+          required: true
+          type: [integer, list]
+        values:
+          description: "Mapping between the register values and Fan modes
+            This is typically used to control one of: Speed, Direction or On/Off state."
+          required: true
+          type: map
+          keys:
+            state_fan_on:
+              description: "Value corresponding to Fan On mode."
+              required: false
+              type: integer
+            state_fan_off:
+              description: "Value corresponding to Fan Off mode."
+              required: false
+              type: integer
+            state_fan_low:
+              description: "Value corresponding to Fan Low mode."
+              required: false
+              type: integer
+            state_fan_medium:
+              description: "Value corresponding to Fan Medium mode."
+              required: false
+              type: integer
+            state_fan_high:
+              description: "Value corresponding to Fan High mode."
+              required: false
+              type: integer
+            state_fan_auto:
+              description: "Value corresponding to Fan Auto mode."
+              required: false
+              type: integer
+            state_fan_top:
+              description: "Value corresponding to Fan Top mode."
+              required: false
+              type: integer
+            state_fan_middle:
+              description: "Value corresponding to Fan Middle mode."
+              required: false
+              type: integer
+            state_fan_focus:
+              description: "Value corresponding to Fan Focus mode."
+              required: false
+              type: integer
+            state_fan_diffuse:
+              description: "Value corresponding to Fan Diffuse mode."
+              required: false
+              type: integer
     hvac_onoff_register:
       description: "Address of On/Off state.
         When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
@@ -700,14 +728,12 @@ climates:
       default: none
       type: list
       keys:
-        none:
-          description: "No swapping."
         byte:
           description: "Swap bytes AB -> BA."
         word:
-          description: "Swap word ABCD -> CDAB, **not valid with data types: `int8`, `uint8`, `int16`, `uint16`**"
+          description: "Swap word ABCD -> CDAB, **not valid with data types: `int16`, `uint16`**"
         word_byte:
-          description: "Swap word ABCD -> DCBA, **not valid with data types: `int8`, `uint8`, `int16`, `uint16`**"
+          description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
     target_temp_register:
       description: "Register address for target temperature (Setpoint)."
       required: true
@@ -1209,8 +1235,6 @@ sensors:
           description: "64 bit signed float (4 register holds 1 value)."
         int:
           description: "**DEPRECATED** is silently converted to `int16`"
-        int8:
-          description: "8 bit signed integer (1 register holds 1 value in lower byte)."
         int16:
           description: "16 bit signed integer (1 register holds 1 value)."
         int32:
@@ -1221,8 +1245,6 @@ sensors:
           description: "set of 8 bit characters, `count:` must be configured."
         uint:
           description: "**DEPRECATED** is silently converted to `uint16`"
-        uint8:
-          description: "8 bit unsigned integer (1 register holds 1 value in lower byte)."
         uint16:
           description: "16 bit unsigned integer (1 register holds 1 value)."
         uint32:
@@ -1308,14 +1330,12 @@ sensors:
       default: none
       type: list
       keys:
-        none:
-          description: "No swapping."
         byte:
           description: "Swap bytes AB -> BA."
         word:
-          description: "Swap word ABCD -> CDAB, **not valid with data types: `int8`, `uint8`, `int16`, `uint16`**"
+          description: "Swap word ABCD -> CDAB, **not valid with data types: `int16`, `uint16`**"
         word_byte:
-          description: "Swap word ABCD -> DCBA, **not valid with data types: `int8`, `uint8`, `int16`, `uint16`**"
+          description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
     unit_of_measurement:
       description: "Unit to attach to value."
       required: false
@@ -1533,7 +1553,6 @@ Some parameters exclude other parameters, the following tables show what can be 
 | structure       | Yes    | No     | No  | No  | No  |
 | slave_count     | No     | No     | Yes | Yes | Yes |
 | virtual_count   | No     | No     | Yes | Yes | Yes |
-| swap: none      | Yes    | Yes    | Yes | Yes | Yes |
 | swap: byte      | No     | No     | Yes | Yes | Yes |
 | swap: word      | No     | No     | No  | Yes | Yes |
 | swap: word_byte | No     | No     | No  | Yes | Yes |
@@ -1619,10 +1638,4 @@ and restart Home Assistant, reproduce the problem, and include the log in the is
 
 # Building on top of modbus
 
- - [modbus Binary Sensor](#configuring-platform-binary-sensor)
- - [modbus Climate](#configuring-platform-climate)
- - [modbus Cover](#configuring-platform-cover)
- - [modbus Fan](#configuring-platform-fan)
- - [modbus Light](#configuring-platform-light)
- - [modbus Sensor](#configuring-platform-sensor)
- - [modbus Switch](#configuring-platform-switch)
+The only recommended way is to inherit the entities needed.

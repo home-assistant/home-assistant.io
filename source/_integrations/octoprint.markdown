@@ -2,8 +2,8 @@
 title: OctoPrint
 description: Integration between OctoPrint and Home Assistant.
 ha_category:
-  - 3D Printing
-  - Binary Sensor
+  - 3D printing
+  - Binary sensor
   - Button
   - Sensor
 ha_config_flow: true
@@ -57,11 +57,11 @@ verify ssl:
   default: false
 {% endconfiguration_basic %}
 
-### API Key
-For the integration to work, please check that in Octoprint, the plugin Discovery is enabled and in the settings -> printer notifications menu pop-ups are enabled.
-The Octoprint integration will attempt to register itself via the [application keys plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, open the Octoprint UI and click allow on the prompt.
+### API key
+For the integration to work, please check that in Octoprint, the [Discovery Plugin](https://docs.octoprint.org/en/master/bundledplugins/discovery.html) is enabled and in the **Settings** -> **Printer Notifications** menu that **Enable popups** is checked.
+The Octoprint integration will attempt to register itself via the [Application Keys Plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, open the Octoprint UI and click allow on the prompt.
 
-## Binary Sensor
+## Binary sensor
 
 The OctoPrint integration provides the following binary sensors:
 
@@ -71,6 +71,7 @@ The OctoPrint integration provides the following binary sensors:
 ## Sensor
 
 The OctoPrint integration lets you monitor various states of your 3D printer and its print jobs.
+
 Supported sensors:
 
 - Current Printer State

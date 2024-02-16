@@ -13,6 +13,8 @@ ha_integration_type: entity
 
 This integration allows you to track and control various light bulbs. Read the integration documentation for your particular light hardware to learn how to enable it.
 
+{% include integrations/building_block_integration.md %}
+
 ### Default turn-on values
 
 To set the default color, brightness and transition values when the light is turned on, create a custom `light_profiles.csv`, normally located in the default configuration folder where you find `configuration.yaml`.

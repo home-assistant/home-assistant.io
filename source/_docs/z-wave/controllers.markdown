@@ -20,7 +20,7 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
 
 </div>
 
-- 800 series controllers
+- 800 series controllers (with some caveats, see notes)
   - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
 - 700 series controllers
@@ -45,6 +45,7 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
   - Z-Wave.Me RaZberry 7 (ZME_RAZBERRY7, 700 series)
   - Z-Wave.Me RaZberry 7 Pro (ZMEERAZBERRY7_PRO or ZMEURAZBERRY7_PRO, 700 series)
   - Z-Wave.Me Razberry 2 (500 series)
+  - Z-Wave.Me Razberry 1 (300 series)
 
 If you are just starting out, we recommend that you purchase a 700 series controller or a Raspberry Pi module. The 700 series controllers are the more recent version (when compared to the 500 series). The 700 series controllers support SmartStart, which allows you to add a device by scanning a QR code.
 
@@ -52,7 +53,7 @@ If you are just starting out, we recommend that you purchase a 700 series contro
   If you're using Home Assistant OS, Supervised, or Container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
 </div>
 
-## Stick Alternatives
+## Stick alternatives
 
 The alternative to a stick is a hub that supports Z-Wave. Home Assistant supports the following hubs with Z-Wave support:
 
@@ -61,7 +62,16 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 - [SmartThings](/integrations/smartthings/)
 - [Z-Wave.Me Z-Way](/integrations/zwave_me)
 
-## Controller Notes
+## Controller notes
+
+### 800 Series Controllers
+
+Z-Wave JS and Z-Wave JS UI do not support the following features available on most 800 series controllers.
+
+Unsupported:
+
+ - Long Range
+ - NVM Backup/Restore
 
 ### Aeotec Z-Stick
 

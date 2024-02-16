@@ -2,7 +2,7 @@
 title: Danfoss Air
 description: How to integrate Danfoss Air HRV in Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Sensor
   - Switch
@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `danfoss_air` integration allows you to access information from your Danfoss Air HRV unit.
+The **Danfoss Air** {% term integration %} allows you to access information from your Danfoss Air HRV unit.
 
 *Note*: Danfoss Air CCM only accepts one TCP connection at a time. Due to this the integration will not work while you have the HRV PC-Tool open.
 
