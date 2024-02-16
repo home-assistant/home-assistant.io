@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Voice - Chapter 6 Livestream"
-description: "We are organizing a voice assistant contest between the 17th of January and the 10th of March. You can win some Home Assistant Green, some Home Assistant SkyConnect, and a chance to be on a livestream with us to talk about your creation."
+description: "Our Year of the Voice has ended, but that does not mean development has stopped! In our Chapter 6 livestream we're excited to show you what we've been working on since last year."
 date: 2024-02-16 00:00:01
-date_formatted: "Feburary 16, 2024"
-author: Jean-Loïc Pouffier
+date_formatted: "February 16, 2024"
+author: Paulus Schoutsen
 comments: true
 categories: Assist
 og_image: /images/blog/2024-02-voice-chapter-6/banner.png
