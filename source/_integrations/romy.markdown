@@ -34,7 +34,27 @@ Currently supported services are:
 - `continue`
 - `stop`
 - `return_to_base`
+- `send_command`
 
+## Clean a specific area / room with send_command
+
+### Example
+
+```yaml
+service: vacuum.send_command
+data:
+  command: /set/clean_map
+  params:
+    - map_id: 4
+      area_ids: 8,7
+target:
+  entity_id: vacuum.romy_aicu_aicyourromysuniqueid
+```
+### Get map ids and areas
+
+Visit Robeye (http site from robot under port 8080) and click left on "Maps from Robot"
+
+Or fetch it with /get/maps and fetch areas from for example map 4 with /get/areas?map_id=4
 
 ## Troubleshooting
 
