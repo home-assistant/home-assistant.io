@@ -13,76 +13,15 @@ ha_integration_type: integration
 
 The SMTP platform allows you to deliver notifications from Home Assistant to an e-mail recipient.
 
-To enable notification by e-mail in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: "NOTIFIER_NAME"
-    platform: smtp
-    sender: "YOUR_SENDER"
-    recipient: "YOUR_RECIPIENT"
-```
+{% include integrations/config_flow.md %}
 
 Check your e-mail provider configuration or help pages to get the correct SMTP settings.
 
-{% configuration %}
-name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-  required: false
-  type: string
-  default: notify
-sender:
-  description: E-mail address of the sender.
-  required: true
-  type: string
-recipient:
-  description: Default E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your E-mail notifications by default (when not specifying `target` in the service call). Any E-mail address(es) specified in the service call's `target` field will override this recipient content.
-  required: true
-  type: [list, string]
-server:
-  description: SMTP server which is used to send the notifications.
-  required: false
-  type: string
-  default: localhost
-port:
-  description: The port that the SMTP server is using.
-  required: false
-  type: integer
-  default: 587
-timeout:
-  description: The timeout in seconds that the SMTP server is using.
-  required: false
-  type: integer
-  default: 5
-username:
-  description: Username for the SMTP account.
-  required: false
-  type: string
-password:
-  description: Password for the SMTP server that belongs to the given username. Make sure to wrap it in double quotes; e.g., `"MY_PASSWORD"`.
-  required: false
-  type: string
-encryption:
-  description: Set mode for encryption, `starttls`, `tls` or `none`.
-  required: false
-  type: string
-  default: starttls
-sender_name:
-  description: "Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>)."
-  required: false
-  type: string
-debug:
-  description: Enables Debug, e.g., `true` or `false`.
-  required: false
-  type: boolean
-  default: false
-verify_ssl:
-  description: If the SSL certificate of the server needs to be verified.
-  required: false
-  type: boolean
-  default: true
-{% endconfiguration %}
+<div class='note info'>
+
+Some advanced settings are accessible only when advanced mode is enabled (see user settings).
+
+</div>
 
 ### Usage
 
@@ -191,25 +130,21 @@ If you are in doubt about the SMTP settings required, check your e-mail provider
 
 ### Google Mail
 
-A sample configuration entry for Google Mail.
+A sample of the config entry settings for Google Mail.
 
-```yaml
-# Example configuration.yaml entry for Google Mail.
-notify:
-  - name: "NOTIFIER_NAME"
-    platform: smtp
-    server: "smtp.gmail.com"
-    port: 587
-    timeout: 15
-    sender: "YOUR_USERNAME@gmail.com"
-    encryption: starttls
-    username: "YOUR_USERNAME@gmail.com"
-    password: "YOUR_APP_PASSWORD"
-    recipient:
-      - "RECIPIENT_1@example.com"
-      - "RECIPIENT_N@example.com"
-    sender_name: "SENDER_NAME"
-```
+Setting | Value
+-- | --
+name| notifier_name
+platform| smtp
+server| smtp.gmail.com
+ port| 587
+timeout| 15
+sender| <YOUR_USERNAME@gmail.com>
+encryption| starttls
+username| <YOUR_USERNAME@gmail.com>
+password| YOUR_APP_PASSWORD
+recipient | <RECIPIENT_1@example.com>; <RECIPIENT_2@example.com>
+sender_name | your_name
 
 Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
 
