@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Button
   - Fan
+  - Switch
   - Time
   - Number
 ha_release: 2023.7
@@ -17,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - button
   - fan
+  - switch
   - number
   - sensor
   - time
