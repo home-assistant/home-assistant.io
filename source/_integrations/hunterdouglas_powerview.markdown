@@ -213,7 +213,7 @@ Set the type for connected power source. Available options are Hardwired Power S
 <div class="note">
 Gen 3 Only.
 </div>
-Velocity controls the speed of the shade. The default speed from Hunter Douglas is actually 0, setting this higher will increase the speed of the shade.
+Velocity controls the speed of the shade. The default speed from Hunter Douglas is 0; setting this higher will increase the speed of the shade.
 
 ## Example Automations
 
