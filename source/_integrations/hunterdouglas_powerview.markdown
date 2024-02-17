@@ -4,6 +4,7 @@ description: Instructions on how to setup Hunter Douglas PowerView scenes within
 ha_category:
   - Button
   - Cover
+  - Number
   - Scene
   - Select
   - Sensor
@@ -20,6 +21,7 @@ ha_platforms:
   - button
   - cover
   - diagnostics
+  - number
   - scene
   - select
   - sensor
@@ -34,6 +36,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Button
 - Cover
+- Number
 - Scene
 - Select
 - Sensor
@@ -202,6 +205,15 @@ Move the shade to the favorite position as programmed physically on the device. 
 Gen 1 and Gen 2 Only.
 </div>
 Set the type for connected power source. Available options are Hardwired Power Supply, Battery Wand and Rechargeable Battery
+
+## Number Entities
+
+### Velocity
+
+<div class="note">
+Gen 3 Only.
+</div>
+Velocity controls the speed of the shade. The default speed from Hunter Douglas is actually 0, setting this higher will increase the speed of the shade.
 
 ## Example Automations
 
