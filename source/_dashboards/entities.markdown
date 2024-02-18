@@ -81,7 +81,7 @@ image:
   type: string
 secondary_info:
   required: false
-  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-updated`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
+  description: "Show additional info. Values: `entity-id`, `last-changed` (shows how much time has elapsed from the last change of the entity's value), `last-updated` (shows how much time has elapsed from the last update of the entity's value, even if the value did not change), `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
   type: string
 format:
   required: false
