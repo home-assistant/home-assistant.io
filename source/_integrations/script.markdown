@@ -172,7 +172,7 @@ script:
 ```
 {% endraw %}
 
-Aside from the Automation editor UI, variables can be passed to Scripts within the service data. This can be used either by calling the script directly or the generic `script.turn_on` service. THe difference is described in [Waiting for Script to Complete](#waiting-for-script-to-complete). All service data will be made available as variables in templates, even if not specified as Fields in the Script. This example shows calling the Script directly:
+Aside from the Automation editor UI, variables can be passed to Scripts within the service data. This can be used either by calling the script directly or the generic `script.turn_on` service. The difference is described in [Waiting for Script to Complete](#waiting-for-script-to-complete). All service data will be made available as variables in templates, even if not specified as Fields in the Script. This example shows calling the Script directly:
 
 {% raw %}
 ```yaml
