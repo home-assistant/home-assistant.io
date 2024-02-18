@@ -36,9 +36,21 @@ This integration will offer various sensors depending on the configuration of yo
 - Historical energy production & consumption
 - Power production per-inverter
 
-Production and consumption sensors for each phase are available for Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (CT) on more than 1 phase.
-
 _Consumption sensors require your Envoy to be properly configured with consumption CT sensors installed._
+
+For Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (CT), additional features are available:
+
+- Production and consumption sensors for each phase, if CT are installed on more than 1 phase.
+- Sensors for net production (grid export) and net consumption (grid import) if the consumption CT is a net-consumption CT.
+- Disabled sensors for:
+  
+  - Frequency Net consumption CT.
+  - Voltage Net consumption CT.[^1]
+  - Metering Status for net consumption and production CT (`normal` | `not-metering` | `check-wiring`).
+  - Meter status flags active for net consumption and production CT.[^2]
+
+[^1]: For multi-phase system the Envoy sums the voltages of the phases. May be valid for split-phase, but for 3 phase systems use the individual phases rather then the summed value.
+[^2]: If this value is non-zero consult the diagnostic report of the envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`).
 
 For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/IQ Batteries installed, additional features are available:
 
@@ -74,3 +86,15 @@ The default polling interval is 60 seconds. To customize the polling interval, r
 ## Credentials update
 
 This integration supports updating configuration by re-adding the integration and specifying the same or new IP address, username, and password. Use this method if your Enlighten credentials or the device's IP address has changed and needs to be updated.
+
+## Energy Dashboard
+
+This integration provides several values suitable for the energy dashboard:
+
+- For `Solar production` use the `Envoy Lifetime energy production` entity.
+- For `Grid consumption` use the `Envoy Lifetime net energy consumption` entity.[^3]
+- For `Return to grid` use the `Envoy Lifetime net energy production` entity.[^3]
+
+[^3]: Only when using  Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (CT)
+
+There are no readily available battery energy sensors for use with the `Home Battery storage`. One can consider using the Encharge  `real_power_mw` entity as an input to Riemann integrators for charge (negative) or discharge (positive) values. As the [polling interval](#polling-interval) is 1 minute these may be off though.
