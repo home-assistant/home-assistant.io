@@ -143,7 +143,6 @@ Mode | Description
 ### Full configuration
 
 {% raw %}
-
 ```yaml
 script: 
   wakeup:
@@ -187,7 +186,6 @@ script: 
         target:
           entity_id: "{{ turn_on_entity }}"
 ```
-
 {% endraw %}
 
 ### Passing variables to scripts
@@ -273,8 +271,6 @@ automation:
 Script variables that may be used by templates include those provided from the configuration as Fields, those that are passed as data when started from a service, and the `this` variable whose value is a dictionary of the current script's state.
 
 </div>
-
-{% endraw %}
 
 ### Waiting for Script to Complete
 
