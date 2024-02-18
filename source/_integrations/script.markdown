@@ -122,11 +122,6 @@ sequence:
   type: list
 {% endconfiguration %}
 
-### Video tutorial
-This video tutorial explains how scripts work, how to use fields in scripts, and how to use response variables in scripts.
-
-<lite-youtube videoid="vD_xckjQxRk" videotitle="Mastering Scripts in Home Assistant: A Comprehensive Guide" posterquality="maxresdefault"></lite-youtube>
-
 ### Script modes
 
 Mode | Description
@@ -139,54 +134,6 @@ Mode | Description
 <p class='img'>
   <img src='/images/integrations/script/script_modes.jpg'>
 </p>
-
-### Full configuration
-
-{% raw %}
-```yaml
-script: 
-  wakeup:
-    alias: "Wake Up"
-    icon: "mdi:party-popper"
-    description: "Turns on the bedroom lights and then the living room lights after a delay"
-    variables:
-      turn_on_entity: group.living_room
-    fields:
-      minutes:
-        name: Minutes
-        description: "The amount of time to wait before turning on the living room lights"
-        selector:
-          number:
-            min: 0
-            max: 60
-            step: 1
-            unit_of_measurement: minutes
-            mode: slider
-    # If called again while still running (probably in delay step), start over.
-    mode: restart
-    sequence:
-      # This is Home Assistant Script Syntax
-      - event: LOGBOOK_ENTRY
-        event_data:
-          name: Paulus
-          message: is waking up
-          entity_id: device_tracker.paulus
-          domain: light
-      - alias: "Bedroom lights on"
-        service: light.turn_on
-        target:
-          entity_id: group.bedroom
-        data:
-          brightness: 100
-      - delay:
-          # supports seconds, milliseconds, minutes, hours
-          minutes: "{{ minutes }}"
-      - alias: "Living room lights on"
-        service: light.turn_on
-        target:
-          entity_id: "{{ turn_on_entity }}"
-```
-{% endraw %}
 
 ### Passing variables to scripts
 
@@ -308,3 +255,57 @@ script:
 ```
 
 {% endraw %}
+
+### Full configuration
+
+{% raw %}
+```yaml
+script: 
+  wakeup:
+    alias: "Wake Up"
+    icon: "mdi:party-popper"
+    description: "Turns on the bedroom lights and then the living room lights after a delay"
+    variables:
+      turn_on_entity: group.living_room
+    fields:
+      minutes:
+        name: Minutes
+        description: "The amount of time to wait before turning on the living room lights"
+        selector:
+          number:
+            min: 0
+            max: 60
+            step: 1
+            unit_of_measurement: minutes
+            mode: slider
+    # If called again while still running (probably in delay step), start over.
+    mode: restart
+    sequence:
+      # This is Home Assistant Script Syntax
+      - event: LOGBOOK_ENTRY
+        event_data:
+          name: Paulus
+          message: is waking up
+          entity_id: device_tracker.paulus
+          domain: light
+      - alias: "Bedroom lights on"
+        service: light.turn_on
+        target:
+          entity_id: group.bedroom
+        data:
+          brightness: 100
+      - delay:
+          # supports seconds, milliseconds, minutes, hours
+          minutes: "{{ minutes }}"
+      - alias: "Living room lights on"
+        service: light.turn_on
+        target:
+          entity_id: "{{ turn_on_entity }}"
+```
+{% endraw %}
+
+
+## Video tutorial
+This video tutorial explains how scripts work, how to use fields in scripts, and how to use response variables in scripts.
+
+<lite-youtube videoid="vD_xckjQxRk" videotitle="Mastering Scripts in Home Assistant: A Comprehensive Guide" posterquality="maxresdefault"></lite-youtube>
