@@ -225,7 +225,26 @@ script:
 ```
 {% endraw %}
 
-Aside from the UI editor, there are two ways to pass variables. One way is using the generic `script.turn_on` service. To pass variables to the script with this service, call it with the desired variables:
+Aside from the Automation editor UI, variables can be passed to Scripts within the service data. This can be used either by calling the script directly or the generic `script.turn_on` service. THe difference is described in [Waiting for Script to Complete](#waiting-for-script-to-complete). All service data will be made available as variables in templates, even if not specified as Fields in the Script. This example shows calling the Script directly:
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+automation:
+  trigger:
+    platform: state
+    entity_id: light.bedroom
+    from: "off"
+    to: "on"
+  action:
+    service: script.notify_pushover
+    data:
+      title: "State change"
+      message: "The light is on!"
+```
+{% endraw %}
+
+This example shows using `script.turn_on` service:
 
 {% raw %}
 ```yaml
@@ -247,24 +266,7 @@ automation:
 ```
 {% endraw %}
 
-The other way is calling the script as a service directly. In this case, all service data will be made available as variables, even if not specified as Fields in the script. If we apply this approach on the script above, it would look like this:
 
-{% raw %}
-```yaml
-# Example configuration.yaml entry
-automation:
-  trigger:
-    platform: state
-    entity_id: light.bedroom
-    from: "off"
-    to: "on"
-  action:
-    service: script.notify_pushover
-    data:
-      title: "State change"
-      message: "The light is on!"
-```
-{% endraw %}
 
 <div class='note'>
 
