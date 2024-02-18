@@ -194,47 +194,16 @@ script: 
 
 As part of the service, variables can be passed along to a script so they become available within templates in that script.
 
-There are two ways to achieve this. One way is using the generic `script.turn_on` service. To pass variables to the script with this service, call it with the desired variables:
-
-```yaml
-# Example configuration.yaml entry
-automation:
-  trigger:
-    platform: state
-    entity_id: light.bedroom
-    from: "off"
-    to: "on"
-  action:
-    service: script.turn_on
-    target:
-      entity_id: script.notify_pushover
-    data:
-      variables:
-        title: "State change"
-        message: "The light is on!"
-```
-
-The other way is calling the script as a service directly. In this case, all service data will be made available as variables. If we apply this approach on the script above, it would look like this:
-
-```yaml
-# Example configuration.yaml entry
-automation:
-  trigger:
-    platform: state
-    entity_id: light.bedroom
-    from: "off"
-    to: "on"
-  action:
-    service: script.notify_pushover
-    data:
-      title: "State change"
-      message: "The light is on!"
-```
+To configure a script to accept variables using the UI, the variables can be added as Fields in the script editor.
+1. In the script editor, in the 3-dots menu, click Add Fields.
+2. A new section called Fields is added between the basic information and Sequence sections.
+3. Choose the name, type, and options of each desired Field.
+4. Fields set up here will be shown in other UI editors, such as in an Automation that calls the Script as inputs depending on the type of Field.
+5. To use the Field data, use them as templates using the "field key name" when they were added, as shown below.
 
 Using the variables in the script requires the use of templates:
 
 {% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 script:
@@ -256,10 +225,52 @@ script:
           title: "{{ title }}"
           message: "{{ message }}"
 ```
+{% endraw %}
+
+Aside from the UI editor, there are two ways to pass variables. One way is using the generic `script.turn_on` service. To pass variables to the script with this service, call it with the desired variables:
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+automation:
+  trigger:
+    platform: state
+    entity_id: light.bedroom
+    from: "off"
+    to: "on"
+  action:
+    service: script.turn_on
+    target:
+      entity_id: script.notify_pushover
+    data:
+      variables:
+        title: "State change"
+        message: "The light is on!"
+```
+{% endraw %}
+
+The other way is calling the script as a service directly. In this case, all service data will be made available as variables, even if not specified as Fields in the script. If we apply this approach on the script above, it would look like this:
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+automation:
+  trigger:
+    platform: state
+    entity_id: light.bedroom
+    from: "off"
+    to: "on"
+  action:
+    service: script.notify_pushover
+    data:
+      title: "State change"
+      message: "The light is on!"
+```
+{% endraw %}
 
 <div class='note'>
 
-Script variables that may be used by templates include those provided from the configuration, those that are passed when started from a service and the `this` variable whose value is a dictionary of the current script's state.
+Script variables that may be used by templates include those provided from the configuration as Fields, those that are passed as data when started from a service, and the `this` variable whose value is a dictionary of the current script's state.
 
 </div>
 
