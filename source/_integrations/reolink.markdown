@@ -50,7 +50,7 @@ Dual lens cameras provide additional streams for the second lens.
 Depending on the supported features of the camera, binary sensors are added for:
 
 - Motion detection
-- Doorbell presses
+- Visitor (Doorbell presses)
 - AI person detection
 - AI vehicle detection
 - AI pet detection
