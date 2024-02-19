@@ -165,9 +165,11 @@ Use this method only if Method 1 does not work for you.
       If you are using ODROID M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
 
       If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
+
+      If you are using an ODROID M1S, you need to follow this guide to [boot your device into UMS mode](/common-tasks/os/#flashing-an-odroid-m1s).
     {% endif %}
-3. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
-4. Download the image to your computer.
+4. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
+5. Download the image to your computer.
    - Copy the URL for the image.
    - If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}.
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
