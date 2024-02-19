@@ -4,7 +4,8 @@ Home Assistant can be flashed to an ODROID-M1S by connecting the device directly
 Unlike other ODROID boards the M1S does not have a socket for an optionl eMMC module. It also does not have a separate flash chip that holds a dedicated bootloader.
 Instead the M1S has a build-in 64GB eMMC soldered directly on the board that holds a petitboot bootloader by default. This guide will show you how to flash HAOS to the build-in eMMC.
 
-**Warning: This will erase the petitboot bootloader from the eMMC and replace it by a u-boot bootloader. After that it requires special tricks to re-flash a petitboot image again.**
+<ins>**Warning:</ins> This will erase the petitboot bootloader from the eMMC and replace it by a u-boot bootloader. After that it requires special tricks to re-flash a petitboot image again.
+If you wish to return to any official Hardkernel images then short the maskRom pads near the 40pin connector while booting from a [Hardkernel recovery image](https://wiki.odroid.com/odroid-m1s/getting_started/os_installation_guide?redirect=1#user_installer).**
 
 ### What you will need
 
