@@ -183,6 +183,8 @@ Use this method only if Method 1 does not work for you.
 
     {% if variant.key == "odroid-n2" %}
     [Guide: Flashing Odroid-N2 using OTG-USB](/hassio/flashing_n2_otg/)
+    {% elsif variant.key == "odroid-m1s" %}
+    [Guide: Flashing Odroid-M1S using OTG-USB](/hassio/flashing_m1s_otg/)
     {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
       *(64-bit is recommended)*
     {% endif %}
