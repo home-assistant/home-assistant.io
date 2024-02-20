@@ -18,7 +18,7 @@ A sensor platform for [DTE](https://www.newlook.dteenergy.com/) using an early m
 
 <div class='note'>
 
-The firmware of the DTE v2 bridges that started shipping circa mid-2020 will not work with this integration. This includes the model containing integrated wifi.
+The firmware of the DTE v2 bridges that started shipping circa mid-2020 will not work with this integration. This includes the model containing integrated Wi-Fi.
 
 You can check if your firmware is still supported by trying accessing `http://{ip_address}:8888/zigbee/se/instantaneousdemand`, and see if
 you get a response.
