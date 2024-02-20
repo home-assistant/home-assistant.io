@@ -50,7 +50,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
     - Under **Wake word engine location**, select **On device**, if you want your wake word to be processed locally.
       - Local processing is faster.
 
-   ![ESP32-S3-BOX-3 on device wake word processing](/images/assist/wake_word_engine_location.png)
+      ![ESP32-S3-BOX-3 on device wake word processing](/images/assist/wake_word_engine_location.png)
 
 11. Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
 
