@@ -52,7 +52,10 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
       ![ESP32-S3-BOX-3 on device wake word processing](/images/assist/wake_word_engine_location.png)
 
-11. Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
+11. You can also change the on-device wake word.
+    - Currently you can use *Hey Jarvis* or *Alexa* as an alternative to *Okay Nabu*.
+    - To change your wake word, follow the steps in [Customizing the S3-BOX with on-device wake words](/voice_control/s3-box-customize/#customizing-the-s3-box-with-on-device-wake-words).
+12. Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
 
 ## Controlling Home Assistant
 
@@ -87,3 +90,4 @@ Before you can use this device with Home Assistant, you need to install a bit of
 - [Troubleshooting the ESP32-S3-BOX-3](/voice_control/troubleshooting_the_s3_box/)
 - [ESPHome projects page](https://esphome.io/projects/index.html)
 - [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
+- [Customizing the S3-BOX with on-device wake words](/voice_control/s3-box-customize/#customizing-the-s3-box-with-on-device-wake-words)

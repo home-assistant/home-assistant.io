@@ -1,8 +1,10 @@
 ---
-title: "Customize the S3-BOX-3 with your own illustrations"
+title: "Customize the S3-BOX-3"
 product_name: ESP32-S3-BOX-3
 device_name_entry: ESP32-S3-BOX-3
 ---
+
+## Customize the S3-BOX-3 with your own illustrations
 
 This tutorial will show you how to replace the Home Assistant status illustrations on the Espressif [ESP32-S3-BOX-3](https://www.espressif.com/en/news/ESP32-S3-BOX-3) with your own images.
 
@@ -11,7 +13,7 @@ You can either prepare your own illustrations or import some from a community re
 <lite-youtube videoid="HQQfaXTbhvc" videotitle="Okay Frenck! Open-source voice assistant running on an Espressif ESP32-S3-Box
 "></lite-youtube>
 
-## ESP32-S3-BOX-3 voice assistant status illustrations
+### ESP32-S3-BOX-3 voice assistant status illustrations
 
 The ESP32-S3-BOX-3 voice assistant has 6 illustrations to indicate its state:
 
@@ -22,14 +24,14 @@ The ESP32-S3-BOX-3 voice assistant has 6 illustrations to indicate its state:
 
 The chart shows the default illustrations. The next steps show you how to change those.
 
-## Prerequisites
+### Prerequisites
 
 - Latest version of Home Assistant, installed with the Home Assistant Operating System
 - [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html?gatewayAdapt=4itemAdapt). The ESP32-S3-BOX-Lite or the ESP32-S3-BOX also work, but they are not currently on the market.
 - Successfully completed the [ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/) tutorial
 
-## Adopting the device in the ESPHome add-on
+### Adopting the device in the ESPHome add-on
 
 Before you can import new illustrations, you need to install the ESPHome add-on and adopt the device in the add-on.
 
@@ -47,12 +49,12 @@ Before you can import new illustrations, you need to install the ESPHome add-on 
    - [Option 1: Using images from a community repository](#option-1-using-images-from-a-community-repository)
    - [Option 2: Using your own images](#option-2-using-your-own-illustrations)
 
-## Option 1: Using images from a community repository
+### Option 1: Using images from a community repository
 
 If you want new images but don't want to create your own, you can use images from the community.
 If you want to use your own images, skip this procedure and go to [Option 2: Using your own imagess](#option-2-using-your-own-illustrations) instead.
 
-### To use images from the community
+#### To use images from the community
 
 1. On the **ESP32-S3-BOX-3** add-on, select edit.
    - **Result**: An editor opens, showing the configuration file.
@@ -79,18 +81,18 @@ If you want to use your own images, skip this procedure and go to [Option 2: Usi
 5. Once the installation is complete, you can see the new image on the ESP32-S3-BOX-3.
    - Now, speak a command to test the new setting. For example, *OK Nabu, turn off the living room lights*.
 
-## Option 2: Using your own illustrations
+### Option 2: Using your own illustrations
 
 There are 2 parts to this:
 
 - [Preparing your own illustrations](#to-prepare-your-own-images)
 - [Adding your illustrations to the configuration](#to-add-your-images-to-the-configuration)
 
-### About the image specifications
+#### About the image specifications
 
 Here's what you need to know to get the best result on your ESP32-S3-BOX-3 screen.
 
-#### Using light and dark image background
+##### Using light and dark image background
 
 In the [overview diagram](#esp32-s3-box-3-voice-assistant-status-illustrations), you can see that the default images use different background colors. This is to make it easier to recognize a state change when you look at your screen.
 
@@ -102,12 +104,12 @@ In your images, you could use 2 different background colors:
 
 If your images have transparency, you can define the background color in the configuration. The procedure below shows how to change the background.
 
-#### Image dimensions and file format
+##### Image dimensions and file format
 
 - **Dimensions**: The screen is 320 x 240 pixels. If the image you provide is not in a 4:3 ratio, the remaining area will be filled with background color.
 - **File format**: PNG, JPEG, or SVG
 
-### To prepare your own images
+#### To prepare your own images
 
 1. Create your own images according to the specifications defined in the section [About the image specifications](#about-the-image-specifications).
    - You could even draw your own!
@@ -121,7 +123,7 @@ If your images have transparency, you can define the background color in the con
    - Copy your image folder in there.
    ![ESP32-S3-BOX-3 config file](/images/assist/s32-s3-add-image-folder.png)
 
-### To add your images to the configuration
+#### To add your images to the configuration
 
 1. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
 2. On the **ESP32-S3-BOX-3** add-on, select edit.
@@ -175,6 +177,40 @@ If your images have transparency, you can define the background color in the con
 3. When you are done:
    - Snap a picture of each.
    - [Follow these steps](#to-prepare-your-own-images) to bring them onto your Voice Assistant.
+
+## Customizing the S3-BOX with on-device wake words
+
+If you are running the latest version of ESPHome on your device, you can already process your wake word locally on your S3-BOX. 
+Do these steps if you do not have the latest version of ESPHome or if you want to change the wake word itself.
+
+Currently, the following wake words can be processed locally:
+
+- *OK Nabu*
+- *Hey Jarvis*
+- *Alexa*
+
+### To customize the S3-BOX with on-device wake words
+
+1. If you haven't done so already, [adopt the device in the ESPHome add-on](#adopting-the-device-in-the-esphome-add-on).
+2. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
+2. On the **ESP32-S3-BOX-3** add-on, select edit.
+   - **Result**: An editor opens, showing the configuration file.
+   ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
+
+3. To add the wake word you want to be processed on the S3-Box, add the following line into the `substitutions` block.
+   - Instead of `okay_nabu`, you can also use `alexa` or `hey_jarvis`.
+
+     ```yaml
+     substitutions:
+       ...
+       micro_wake_word_model: okay_nabu
+     ```
+
+5. Save the changes and in the top right corner, select **Install**.
+6. Save the changes.
+   - Depending on your environment, the installation process can take a while.
+7. Once the installation is complete, you can see the new image on the S3-BOX.
+   - Now, speak a command to test the new setting. For example, *OK Nabu, turn on the light*.
 
 ## Related topics
 
