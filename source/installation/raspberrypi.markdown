@@ -23,6 +23,7 @@ Before installing Home Assistant, you might want to <a href="/installation#compa
 
 We will need a few things to get started with installing Home Assistant. Links below lead to Amazon US. If you’re not in the US, you should be able to find these items in web stores in your country.
 
+- [Raspberry Pi 5](https://amzn.to/3UH6TcD)
 - [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 Model B is ok too, but the Model A does not have enough RAM). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) to find official distributors with stock.
 - [Power Supply for Raspberry Pi 4](https://amzn.to/2ReZ2Vq) or [Power Supply for Raspberry Pi 3](https://amzn.to/2R8yG7h)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32&nbsp;GB or bigger card is recommended.
