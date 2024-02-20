@@ -122,8 +122,8 @@ Example template sensor that contains the hourly forecast
 ```yaml
 template:
   - trigger:
-      - platform: time_pattern
-        hours: /1
+      - platform: state
+        entity_id: weather.home
     action:
       - service: weather.get_forecasts
         data:
