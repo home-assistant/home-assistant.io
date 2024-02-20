@@ -193,11 +193,11 @@ Currently, the following wake words can be processed locally:
 
 1. If you haven't done so already, [adopt the device in the ESPHome add-on](#adopting-the-device-in-the-esphome-add-on).
 2. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
-2. On the **ESP32-S3-BOX-3** add-on, select edit.
+3. On the **ESP32-S3-BOX-3** add-on, select edit.
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 
-3. To add the wake word you want to be processed on the S3-Box, add the following line into the `substitutions` block.
+4. To add the wake word you want to be processed on the S3-Box, add the following line into the `substitutions` block.
    - Instead of `okay_nabu`, you can also use `alexa` or `hey_jarvis`.
 
      ```yaml
