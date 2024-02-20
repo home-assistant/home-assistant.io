@@ -93,8 +93,7 @@ method:
 max_dt:
   description: "If the source sensor is constant this duration will be used for time based updates."
   required: false
-  type: integer
-  default: 60
+  type: time
 {% endconfiguration %}
 
 The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. 
@@ -130,6 +129,8 @@ sensor:
     name: energy_spent
     unit_prefix: k
     round: 2
+    max_dt:
+      minutes: 5
 ```
 
 This configuration will provide you with `sensor.energy_spent` which will have your energy in kWh, as a `device_class` of `energy`.
