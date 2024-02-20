@@ -14,7 +14,6 @@ This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3, or an ESP3
 
 - Home Assistant 2023.12, installed with the Home Assistant Operating System. If you do not have Home Assistant installed yet, refer to the [installation page](/installation/) for instructions.
 - [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
-- Have [enabled a wake word](/voice_control/install_wake_word_add_on/) for your voice assistant
 - The password to your 2.4&nbsp;GHz Wi-Fi network
 - Chrome or Edge browser on a desktop (not Android/iOS)
 - One of the three Espressif ESP32-S3-BOX variants:
@@ -46,7 +45,14 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
    - Your ESP32-S3-BOX is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
 
-10. Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
+10. If you want, the wake word can be processed locally on the ESP32-S3 device, rather than on your Home Assistant server. (The server is the device where Home Assistant is installed, for example on Home Assistant Green).
+    - Under **Devices**, under the ESP32-S3-BOX entry, select **Device** to open the device page.
+    - Under **Wake word engine location**, select **On device**, if you want your wake word to be processed locally.
+      - Local processing is faster.
+
+   ![ESP32-S3-BOX-3 on device wake word processing](/images/assist/wake_word_engine_location.png)
+
+11. Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
 
 ## Controlling Home Assistant
 
@@ -77,7 +83,6 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 ## Related topics
 
-- [Enable a wake word](/voice_control/install_wake_word_add_on/)
 - [General troubleshooting section for Assist](/voice_control/troubleshooting/)
 - [Troubleshooting the ESP32-S3-BOX-3](/voice_control/troubleshooting_the_s3_box/)
 - [ESPHome projects page](https://esphome.io/projects/index.html)

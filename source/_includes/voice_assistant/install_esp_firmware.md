@@ -3,9 +3,9 @@
 2. To connect the {{ product_name }} to your computer, follow these steps:
    - In the pop-up window, view the available ports.
    - Plug the USB-C cable into the {{ product_name }} and connect it to your computer.{% if page.product_name == 'ESP32-S3-BOX' %}
-     - If you have an ESP32-S3-BOX-3, plug it into the box directly, not into the docking station (not into the blue part). 
+     - If you have an ESP32-S3-BOX-3, plug it into the box directly, not into the docking station (not into the blue part).
      - **Troubleshooting**: If your ESP32-S3-BOX-3 does not appear in the list of devices presented by your browser, you need to manually invoke "flash mode":
-       - Hold the "boot" button (left side upper button) as you tap the "reset" button (left side lower button)
+       - Hold the "boot" button (left side upper button) as you tap the "reset" button (left side lower button).
        - After a few seconds, the ESP32-S3-BOX-3 should appear in the list of USB devices presented by your browser.
        - Follow the steps until step 3. After selecting the **Next** button, on the S3-Box, tap the "Reset" button again.
        - Then, select the blue **Connect button** again, select the USB device and follow the prompts to configure the Wi-Fi.{% endif %}
