@@ -2,6 +2,7 @@
 title: Neato Botvac
 description: Instructions on how to integrate your Neato within Home Assistant.
 ha_category:
+  - Button
   - Camera
   - Sensor
   - Switch
@@ -14,6 +15,7 @@ ha_codeowners:
   - '@Santobert'
 ha_domain: neato
 ha_platforms:
+  - button
   - camera
   - sensor
   - switch
@@ -28,6 +30,7 @@ There is support for the following platform types within Home Assistant:
 - **Camera** - allows you to view the latest cleaning map.
 - **Sensor** - allows you to view the battery level.
 - **Switch** - allows you to enable or disable the schedule.
+- [**Button**](#button) - allows you to dismiss an alert visible in the app.
 - [**Vacuum**](#vacuum)
 
 ## Prerequisites
@@ -36,12 +39,15 @@ Visit [the Neato Developer Network](https://developers.neatorobotics.com/applica
 
 <div class='note'>
 
-You will have to enter a name, a description and your redirect URL.
+You will have to enter a name, a description, and the redirect URI:
 
-Use `https://my.home-assistant.io/redirect/oauth` as the redirect URL.
+- **Name**: can be anything you like, for example, "Home Assistant".
+- **Description**: can be anything you like, for example, "Home Assistant integration for Neato"
+- **Redirect URI**: `https://my.home-assistant.io/redirect/oauth`
+- **Terms Of Service URL**: leave blank
+- **Privacy Policy URL**: leave blank
 
 You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
-
 </div>
 
 {% details "I have manually disabled My Home Assistant" %}
@@ -70,6 +76,10 @@ After the update to firmware 4.0 (which adds cleaning maps) there is also suppor
 
 </div>
 
+## Button
+
+Each `neato` vacuum has a _Dismiss alert_ button. This allows to dismiss an alert visible in the app (e.g. dust bin full) and preventing the vacuum to start cleaning.
+
 ## Vacuum
 
 The `neato` vacuum platform allows you to control your [Neato Botvac Connected][botvac-connected].
@@ -90,7 +100,7 @@ And a specific Platform Service:
 
 - `neato.custom_cleaning`
 
-### Platform Services
+### Platform services
 
 #### Service `neato.custom_cleaning`
 

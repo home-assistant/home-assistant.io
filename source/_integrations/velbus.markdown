@@ -2,7 +2,8 @@
 title: Velbus
 description: Access and control your Velbus devices.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
+  - Button
   - Climate
   - Hub
   - Light
@@ -22,21 +23,13 @@ ha_platforms:
   - cover
   - diagnostics
   - light
+  - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `velbus` integration is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
-
-There is currently support for the following device types within Home Assistant:
-
-- Binary Sensor
-- Climate
-- Sensor
-- Switch
-- Cover
-- Light
+The **Velbus** {% term integration %} is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
 
 The pushbutton LEDs of input modules are disabled by default. These can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
 
@@ -53,6 +46,7 @@ The port string used in the user interface or the configuration file can have 2 
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
 - `velbus.scan`: Scan the bus for new devices.
 - `velbus.set_memo_text`: Show memo text on Velbus display modules.
+- `velbus.clear_cache`: Clear the full velbuscache or the cache for one module only.
 
 ### Service `velbus.sync_clock`
 
@@ -95,10 +89,36 @@ script:
       service: velbus.set_memo_text
 ```
 
+### Service `velbus.clear_cache`
+
+You can use the service `velbus.clear_cache` to clear the cache of one module or the full cache. Once the clear happens, the integration will start a new scan.
+Use this service when you make changes to your configuration via velbuslink.
+
+| Service data attribute | Optional | Description                              |
+| ---------------------- | -------- | ---------------------------------------- |
+| `interface`            | no       | The port used to connect to the bus (the same one used during configuration). |
+| `address`              | no       | The module address in decimal format, which is displayed on the device list on the integration page, if provided the service will only clear the cache for this model, without an address, the full velbuscache will be cleared. |
+
+## VMB7IN and the Energy dashboard
+
+In some cases, the VMB7IN sensor does not report what the counter is counting. If the counter is related to an energy device, everything will work out of the box.
+But if the VMB7IN sensor is a water or gas counter, you will need to specify this in your configuration.yaml file.
+
+```yaml
+homeassistant:
+  customize:
+    sensor.eau_counter:
+      device_class: water
+```
+
+The device_class attribute can have 2 values:
+- gas: if the counter represents a gas meter
+- water: if the counter represents a water meter
+
 ## Example automation
 
-The Velbus integration allows you to link a Velbus button (i.e., a button of a [VMBGPOD](https://www.velbus.eu/products/view/?id=416302&lang=en) module) to a controllable entity of Home Assistant.
-The actual linking can be realized by two automation rules. One rule to control the device using the push button and a second rule to update the LED state of the push button as soon as the entity state changes.
+The Velbus {% term integration %} allows you to link a Velbus button (i.e., a button of a [VMBGPOD](https://www.velbus.eu/products/view/?id=416302&lang=en) module) to a controllable {% term entity %} of Home Assistant.
+The actual linking can be realized by two automation rules. One rule to control the device using the push button and a second rule to update the LED state of the push button as soon as the {% term entity %} state changes.
 
 ```yaml
 # Control light living from Velbus push_button_10

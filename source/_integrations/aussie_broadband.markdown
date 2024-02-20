@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Aussie Broadband integration displays various service metrics using the [Aussie Broadband API](https://myaussie-api.aussiebroadband.com.au).
+The Aussie Broadband integration displays various service metrics using the Aussie Broadband API.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ The integration will create sensor entities for a variety of metrics that relate
 - Billing Cycle Length
 - Billing Cycle Remaining
 
-#### Mobile Phone
+#### Mobile phone
 - Data Usage
 - National Calls
 - Mobile Calls

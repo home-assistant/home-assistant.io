@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: ign_sismologia
 ha_platforms:
   - geo_location
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `ign_sismologia` platform lets you integrate a GeoRSS feed provided by the 

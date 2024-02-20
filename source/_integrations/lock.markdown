@@ -8,13 +8,15 @@ ha_quality_scale: internal
 ha_domain: lock
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 Keeps track which locks are in your environment, their state and allows you to control them.
 
- * Maintains a state per lock and a combined state `all_locks`.
- * Registers services `lock.lock`, `lock.unlock` and `lock.open` (unlatch) to control locks.
+- Maintains a state per lock and a combined state `all_locks`.
+- Registers services `lock.lock`, `lock.unlock` and `lock.open` (unlatch) to control locks.
+
+{% include integrations/building_block_integration.md %}
 
 ### Services
 
@@ -24,9 +26,9 @@ A lock integration provides the following services:
 
 Lock your door, the attribute should appear under a 'data' attribute for the service.
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |       no | Entity of the relevant lock.                          |
+| Service data attribute | Optional | Description                  |
+| ---------------------- | -------- | ---------------------------- |
+| `entity_id`            | no       | Entity of the relevant lock. |
 
 ##### Example
 
@@ -41,9 +43,9 @@ action:
 
 Unlock your door, the attribute should appear under a 'data' attribute for the service.
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |       no | Entity of the relevant lock.                          |
+| Service data attribute | Optional | Description                  |
+| ---------------------- | -------- | ---------------------------- |
+| `entity_id`            | no       | Entity of the relevant lock. |
 
 ##### Example
 
@@ -62,6 +64,6 @@ Go to the **Developer Tools**, then to **Call Service** in the frontend, and cho
 {"entity_id":"lock.front_door"}
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on specific lock. Use `entity_id: all` to target all.
+| Service data attribute | Optional | Description                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------- |
+| `entity_id`            | yes      | Only act on specific lock. Use `entity_id: all` to target all. |

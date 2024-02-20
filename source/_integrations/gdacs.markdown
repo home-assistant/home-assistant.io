@@ -13,21 +13,14 @@ ha_domain: gdacs
 ha_platforms:
   - geo_location
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `gdacs` integration lets you use a GeoRSS feed provided by 
-[GDACS](https://www.gdacs.org/) with information 
-about major droughts, earthquakes, floods, tropical cyclones, tsunamis and 
-volcanic activities worldwide.
-It retrieves alerts from a feed and shows information of those alerts filtered 
-by distance to Home Assistant's location.
-The filter is set in the configuration as categories, radius (kilometers or miles based on unit system set in Home Assistant), latitude and longatude.
+The `gdacs` integration lets you use a GeoRSS feed provided by [GDACS](https://www.gdacs.org/) with information about major droughts, earthquakes, floods, tropical cyclones, tsunamis and volcanic activities worldwide.
+It retrieves alerts from a feed and shows information of those alerts filtered by distance to Home Assistant's location.
+The filter is set in the configuration as categories, radius (kilometers or miles based on unit system set in Home Assistant), latitude and longitude.
 
-Entities are generated, updated and removed automatically with each update 
-from the feed. Each entity defines latitude and longitude and will be shown 
-on the default map automatically, or on a map card by defining the source 
-`gdacs`. The distance is available as the state of each entity converted to the configured unit system (kilometers or miles).
+Entities are generated, updated and removed automatically with each update from the feed. Each entity defines latitude and longitude and will be shown on the default map automatically, or on a map card by defining the source `gdacs`. The distance is available as the state of each entity converted to the configured unit system (kilometers or miles).
 
 <p class='img'>
   <img src='/images/screenshots/gdacs-alerts-feed-map.png' />
@@ -37,10 +30,7 @@ The data is updated every 5 minutes.
 
 <div class='note'>
 
-The material used by this integration is provided by the [Global Disaster 
-Alert and Coordination System (GDACS)](https://www.gdacs.org/) - a cooperation 
-framework between the United Nations and the European Commission - under the 
-[Creative Commons Attribution 4.0 International (CC BY 4.0) license](http://creativecommons.org/licenses/by/4.0/).
+The material used by this integration is provided by the [Global Disaster Alert and Coordination System (GDACS)](https://www.gdacs.org/) - a cooperation framework between the United Nations and the European Commission - under the [Creative Commons Attribution 4.0 International (CC BY 4.0) license](https://creativecommons.org/licenses/by/4.0/).
 It has only been modified for the purpose of presenting the material in Home Assistant.
 Please refer to the [creator's disclaimer and terms of use notice](https://www.gdacs.org/About/termofuse.aspx) for more information.
 
@@ -48,10 +38,9 @@ Please refer to the [creator's disclaimer and terms of use notice](https://www.g
 
 {% include integrations/config_flow.md %}
 
-## State Attributes
+## State attributes
 
-The following state attributes are available for each entity in addition to 
-the standard ones:
+The following state attributes are available for each entity in addition to the standard ones:
 
 | Attribute        | Description |
 |------------------|-------------|
@@ -95,7 +84,7 @@ from the feed.
 | updated                | Number of entities that were updated during last update (optional).  |
 | removed                | Number of entities that were removed during last update (optional).  |
 
-## Full Configuration
+## Full configuration
 
 ```yaml
 # Example configuration.yaml entry

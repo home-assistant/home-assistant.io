@@ -8,10 +8,12 @@ ha_quality_scale: internal
 ha_domain: fan
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
-The Fan integration allows you to control and monitor Fan devices.
+The fan integration allows you to control and monitor fan devices.
+
+{% include integrations/building_block_integration.md %}
 
 ## Services
 
@@ -20,12 +22,9 @@ The Fan integration allows you to control and monitor Fan devices.
 Available services:
 `fan.set_percentage`, `fan.set_preset_mode`, `fan.set_direction`, `fan.oscillate`, `fan.turn_on`, `fan.turn_off`, `fan.toggle`, `fan.increase_speed`, `fan.decrease_speed`
 
-Deprecated services:
-`fan.set_speed`
-
 <div class='note'>
 
-Not all fan services may be available for your platform. You can check which services are available for your fan(s) under **Developer Tools** -> **Services**.
+Not all fan services may be available for your platform. You can check which services are available for your fan(s) under **Developer Tools** > **Services**.
 
 </div>
 
@@ -55,7 +54,7 @@ automation:
 
 ### Service `fan.set_preset_mode`
 
-Sets a preset mode for the fan device. Available preset modes are defined by the integration that supplies the fan entity to Home Assistant. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed.html) component provides by default three available presets: `Low`, `Medium` and `High`.
+Sets a preset mode for the fan device. Available preset modes are defined by the integration that supplies the fan entity to Home Assistant. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed.html) component provides three available presets by default: `Low`, `Medium`, and `High`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -143,15 +142,6 @@ Turn fan device off. This is only supported if the fan device supports being tur
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
 
-
-### Deprecated Service `fan.set_speed`
-
-Sets the speed for fan device.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `speed` | no | Speed setting
 
 #### Automation example
 

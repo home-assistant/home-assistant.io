@@ -1,28 +1,16 @@
 ---
 title: Image
-description: The image integration handle image assets in Home Assistant.
+description: Instructions on how to integrate images within Home Assistant.
 ha_category:
-  - Other
-ha_release: 0.115
+  - Image
+ha_release: 2023.7
+ha_quality_scale: internal
+ha_domain: image
 ha_codeowners:
   - '@home-assistant/core'
-ha_domain: image
-ha_quality_scale: internal
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
-The Image integration allows Home Assistant to handle image assets in Home Assistant, for example,
-the profile photos of your systems account.
+The image integration allows other integrations to display a static image.
 
-## Configuration
-
-This integration is by default enabled, unless you've disabled or removed the
-[`default_config:`](/integrations/default_config/) line from your configuration.
-
-If that is the case, the following example shows you how to enable this
-integration manually:
-
-```yaml
-# Example configuration.yaml entry
-image:
-```
+{% include integrations/building_block_integration.md %}

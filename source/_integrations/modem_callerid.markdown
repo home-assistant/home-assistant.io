@@ -12,7 +12,7 @@ ha_platforms:
   - button
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The `modem_callerid` integration uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1). Usually any modem that uses a CX93001 will support this.
@@ -22,6 +22,14 @@ When the sensor detects a new call, its state changes to 'ring' for each ring an
 This integration also offers a button to pick up and then hang up the call to properly reject it (via ATA and ATH).
 
 {% include integrations/config_flow.md %}
+
+## Compatibility
+
+Reported models with this integration include that work:
+- [StarTech.com USB56KEMH2](https://www.startech.com/en-us/networking-io/usb56kemh2)
+
+Devices that did not work:
+- [StarTech.com USB56KEM3](https://www.startech.com/en-us/networking-io/usb56kem3)
 
 ## Examples
 

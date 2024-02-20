@@ -15,7 +15,7 @@ The `fleetgo` device tracker platform allows you to integrate your vehicles equi
 
 ## Setup
 
-To use this component, you need an **API key** and **API secret**, which can be requested by contacting [info@fleetgo.com](mailto:info@fleetgo.com?subject=API%20Key).
+To use this integration, you need an **API key** and **API secret**, which can be requested by contacting [info@fleetgo.com](mailto:info@fleetgo.com?subject=API%20Key).
 
 ## Configuration
 

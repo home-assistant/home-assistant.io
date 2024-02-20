@@ -2,7 +2,7 @@
 title: Sensibo
 description: Instructions on how to integrate Sensibo A/C controller into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Fan
@@ -10,7 +10,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
-  - Updates
+  - Update
 ha_release: 0.44
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -34,7 +34,7 @@ ha_integration_type: integration
 ha_quality_scale: platinum
 ---
 
-Integrates [Sensibo](https://sensibo.com) Air Conditioning controller into Home Assistant.
+Integrates [Sensibo](https://sensibo.com) devices into Home Assistant.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ For motion sensors (supported by Sensibo Air devices), this integration provides
 
 For climate devices, these sensors are available:
 
-- Room presence
+- Room presence (for Air devices with an attached motion sensor)
 
 For Pure devices, these sensors are available:
 
@@ -66,7 +66,7 @@ For Pure devices, these sensors are available:
 - Pure Boost linked with Presence
 - Pure Boost linked with Outdoor Air Quality
 
-For climate devices, these sensors are available:
+For all devices, these sensors are available:
 
 - Filter Clean Required
 
@@ -76,22 +76,33 @@ You can reset your filter check by using the button available on climate devices
 
 By pressing the button, you tell your device that you have cleaned or replaced the filter.
 
-## Select Entities
+## Number entities
+
+By using the number entities you can calibrate the temperature and hunmidity of your device.
+
+These entities are disabled by default.
+
+## Select entities
 
 For supported devices, this integration provides support to set the following modes by the select entity:
 
 - Horizontal swing
 - Light
 
-## Sensor Entities
+## Sensor entities
+
+For all devices, these sensors are available:
+
+- Filter last reset
+- Feels Like
+- Timer end time
 
 For motion sensors (supported by Sensibo Air devices), this integration provides the following sensors:
 
 - Temperature
-- Feels Like
 - Humidity
 
-For diagnostics, not automatically displayed on dashboards, these sensors are available:
+For diagnostics, not automatically displayed on dashboards, these sensors are available for motion sensors:
 
 - Voltage
 - Rssi
@@ -106,21 +117,54 @@ For AirQ device, these sensors are available:
 - TVOC
 - CO2
 
+For Element device, these sensors are available:
+
+- PM 2.5
+- TVOC
+- CO2
+- Ethanol
+- Air quality
+
 For climate devices, these sensors are available:
 
-- Filter last reset
+- Climate React low temperature threshold
+- Climate React high temperature threshold
 
-## Switch Entities
+## Switch entities
 
-For climate devices, this integration provides support to enable/disable a timer to delay a start or stop (depending on the current state) of your device.
+For climate devices, these switches are available:
+
+Support to enable/disable a timer to delay a start or stop (depending on the current state) of your device.
 
 The switch uses a timer of 60 minutes delay. You can choose a custom delay using the custom `sensibo.enable_timer` service. See [Timer](#timer).
+
+Support to enable/disable Climate React
+
+Usage of the Climate React switch requires that the service has been configured previously in the app or by using the custom `sensibo.enable_climate_react` service. See [Climate React](#climate-react)
 
 For Pure devices, this integration provides support to enable/disable Pure Boost.
 
 To customize the settings of Pure Boost, you can use the custom `sensibo.enable_pure_boost` service. See [Pure Boost](#pure-boost)
 
-## Custom Services
+## Custom services
+
+### Full state
+
+You can send a full state command to Sensibo instead of single commands using the service `sensibo.full_state`.
+
+All fields are required to be according to Sensibo API specifications and are case-sensitive.
+
+To see the options for each field to use this service:
+
+1. Switch to the relevant HVAC mode (not all HVAC modes have the same options).
+2. Retrieve the options for `fan_modes` and `swing_modes` from the climate entity's attributes.
+3. Retrieve the option set from the respective select entity for `horizontal_swing` and `light` if those are present.
+
+### Assume state
+
+For devices which are also controlled in other ways or often goes out of sync with Sensibo there is a `sensibo.assume_state` service.
+
+With this service you can tell Sensibo if your device is currently running or not without sending a new command to you device.
 
 ### Pure Boost
 
@@ -133,6 +177,31 @@ Using Geo integration for Pure Boost is only possible by pre-configuration of Pr
 ### Timer
 
 You can enable a timer with a custom delay using the service `sensibo.enable_timer` that is provided.
+
+### Climate React
+
+You can configure your Climate React settings using the services `sensibo.enable_climate_react`.
+
+- Configuring this service also turns Climate React on
+
+When using the service, the state needs to be set to precisely what Sensibo API expects. The first time it's recommended to use the app to configure it. From that point, you can see what the API requires and how to write from the Climate React switch attribute.
+
+Example for low threshold state:
+
+{% raw %}
+
+```yaml
+on: true
+fanLevel: "high"
+temperatureUnit: "C"
+targetTemperature: 23
+mode: "cool"
+swing: "fixedBottom"
+horizontalSwing: "fixedLeft"
+light: "on"
+```
+
+{% endraw %}
 
 ## Adding a quick switch example
 

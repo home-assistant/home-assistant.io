@@ -2,7 +2,7 @@
 title: Pioneer
 description: Instructions on how to integrate a Pioneer Network Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.19
 ha_iot_class: Local Polling
 ha_domain: pioneer
@@ -50,7 +50,7 @@ sources:
 
 Notes:
 
-- Some Pioneer AVRs use the port 23 default and some are reported to use 8102.
+- Some Pioneer AVRs use the port 23 default and some are reported to use 8102. Depending on the model you may be able to configure the port setting through the receiver's HTTP interface, e.g. `http://192.168.0.10/1000/port_number.asp`. On models that can listen to multiple ports you could consider leaving the default port for use by hardcoded tools, and open another port for configurable tools such as Home Assistant.
 - `timeout` is a socket level option and should only be configured if you know what you are doing.
 
 ### Source codes
@@ -176,4 +176,32 @@ sources:
   'Media Server': '44'
   'Favorites': '45'
   'Game': '49'
+```
+
+#### VSX-1021
+
+```yaml
+port: 8102
+sources:
+  'Phono': '00'
+  'CD': '01'
+  'Tuner': '02'
+  'CD-R/Tape': '03'
+  'DVD': '04'
+  'TV/Sat': '05'
+  'Video 1': '10'
+  'Multi Channel In': '12'
+  'Video 2': '14'
+  'DVR/BDR': '15'
+  'iPod/USB': '17'
+  'XM Radio': '18'
+  'HDMI 1': '19'
+  'HDMI 2': '20'
+  'HDMI 3': '21'
+  'HDMI 4': '22'
+  'HDMI 5': '23'
+  'Blu-Ray': '25'
+  'Home Media Gallery (Internet Radio)': '26'
+  'Sirius': '27'
+  'Adapter Port': '33'
 ```

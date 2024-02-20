@@ -20,7 +20,7 @@ ha_integration_type: integration
 ---
 
 The `tibber` integration provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
-If you have a [Tibber Pulse](https://norge.tibber.com/products/pulse/) or [Watty](https://tibber.com/se/store/produkt/watty-smart-energimatare) it will also show the electricity consumption in real-time. You get a sensor for monthly consumption, monthly cost, and monthly peak hour. If you do have a real-time meter it is updated once every hour, oterwise it is updated once per day. Statistics with hourly consumption and cost data is generated that can be used in the [Energy Dashboard](/docs/energy/). (The ids are `tibber:energy_consumption_HOMEID` and `tibber:energy_totalcost_HOMEID` )
+If you have a [Tibber Pulse](https://tibber.com/no/store/produkt/pulse) or [Watty](https://tibber.com/se/store/produkt/watty-smart-energimatare) it will also show the electricity consumption in real-time. You get a sensor for monthly consumption, monthly cost, and monthly peak hour. If you do have a real-time meter it is updated once every hour, otherwise it is updated once per day. Statistics with hourly consumption and cost data is generated that can be used in the [Energy Dashboard](/docs/energy/) (the ids are `tibber:energy_consumption_HOMEID` and `tibber:energy_totalcost_HOMEID`). If you produce energy there are also statistics with hourly production and profit data generated which can also be used there (the ids are `tibber:energy_production_HOMEID` and `tibber:energy_profit_HOMEID`).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -55,6 +55,32 @@ The `tibber` sensor provides the current electricity price if you are a [Tibber]
 You also get sensors for monthly consumption, monthly cost, and monthly peak hour
 If you have a Tibber Pulse it will also show the electricity consumption in real time.
 
+## Available sensors
+
+- Accumulated cost since midnight (requires active Tibber power deal)
+- kWh consumed since midnight
+- net kWh produced since midnight
+- net kWh produced since last hour shift
+- Current on L1, L2 and L3
+- Estimate of kWh consumption current hour
+- kWh consumed since since last hour shift
+- Average consumption since midnight (Watt)
+- Last meter active import register state (kWh)
+- Last meter active export register state (kWh)
+- Peak consumption since midnight (Watt)
+- Min consumption since midnight (Watt)
+- Consumption at the moment (Watt)
+- Consumption at the moment (Watt)
+- Net production (A-) at the moment (Watt)
+- The total price (energy + taxes)
+- Device signal strength (Pulse - dB; Watty - percent)
+- Voltage on phase 1, 2 and 3
+- Monthly cost
+- Monthly net consumption
+- Monthly peak hour
+- Time of max hour consumption
+
+</div>
 
 ## Examples
 
@@ -82,5 +108,7 @@ The electricity price can be used to make automations. The sensor has a `max_pri
        target: "device/daniel_telefon_cat"
        message: "The electricity price is now {{ states('sensor.electricity_price_hamretunet_10') }}"
 ```
+
+
 
 {% endraw %}

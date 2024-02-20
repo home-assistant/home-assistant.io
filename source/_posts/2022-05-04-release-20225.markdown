@@ -67,7 +67,7 @@ Enjoy the release!
 - [Release 2022.5.4 - May 12](#release-202254---may-12)
 - [Release 2022.5.5 - May 18](#release-202255---may-18)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -99,7 +99,7 @@ logical place for YAML configuration checks and reloading.
 You might notice some of the new menu items are fairly empty. For those menus,
 like "Storage" and "Hardware", we have more content planned soon!
 
-Just to be sure, we have added a list of changes to the breaking changes section;
+Just to be sure, we have added a list of changes to the backward-incompatible changes section;
 please check those out in case you are missing something.
 
 ## Find entities even quicker than before
@@ -956,7 +956,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
@@ -1222,6 +1222,19 @@ This makes the discovery of LIFX faster and more reliable.
 
 [@Djelibeybi]: https://github.com/Djelibeybi
 [#70458]: https://github.com/home-assistant/core/pull/70458
+
+{% enddetails %}
+
+{% details "Media Player" %}
+
+Media Player now supports a new state, `buffering`. Integrations supporting this state previously reported `playing` but may now report `buffering`. This may also introduce new state transitions between the two states during playback.
+
+In order to maintain previous behavior, replace usage of `playing` with both the `buffering` and `playing` states, and consider how to handle transitions between the two.
+
+([@emontnemery] - [#70863]) ([documentation](/integrations/media_player))
+
+[@emontnemery]: [https://github.com/emontnemery]
+[#70863]: https://github.com/home-assistant/core/pull/70863
 
 {% enddetails %}
 
@@ -1549,7 +1562,7 @@ Home Assistant startup, instead of to "unknown".
 
 {% enddetails %}
 
-{% details "Text-to-Speech (TTS)" %}
+{% details "text-to-speech (TTS)" %}
 
 The TTS `base_url` option is deprecated. Please, configure internal/external
 URL instead.

@@ -14,18 +14,18 @@ ha_domain: adguard
 ha_platforms:
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-AdGuard Home is a network-wide ad- and tracker-blocking DNS server with parental
-control (adult content blocking) capabilities. The AdGuard integration allows
-you to control and monitor your AdGuard Home instance in Home Assistant.
+AdGuard Home is a network-wide DNS server that supports ad, tracker,
+and adult content blocking. The **AdGuard** integration allows you to control and
+monitor your AdGuard Home instance in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
 ## Sensors
 
-This integration provides sensors for the following information from AdGuard Home:
+This integration provides {% term sensors %} for the following information from AdGuard Home:
 
 - Number of DNS queries.
 - Number of blocked DNS queries.
@@ -60,7 +60,7 @@ AdGuard relies on Query Log to provide stats.
 
 ## Services
 
-These services allow one to manage filter subscriptions in AdGuard Home.
+These {% term services %} allow one to manage filter subscriptions in AdGuard Home.
 Using these services in automations could be helpful to block certain
 sites/domains at certain times.
 

@@ -10,14 +10,14 @@ ha_codeowners:
   - '@home-assistant/core'
   - '@ludeeus'
 ha_domain: analytics
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 {% assign current_version = site.current_major_version | append: "." | append: site.current_minor_version | append: "." | append: site.current_patch_version  %}
 
 Home Assistant allows users to share their usage data via the analytics integration. The aggregated data is available at <https://analytics.home-assistant.io>. It is used to influence Home Assistant development priorities and to convince manufacturers to add local control and privacy-focused features.
 
-## Data Collection
+## Data collection
 
 The information sent depends on what options you opt-in to. You can opt-in during onboarding and by going to **{% my analytics title="Settings > System > Analytics" %}** .
 
@@ -75,6 +75,7 @@ This includes:
 
 - The names of all your core integrations
 - The names and versions of all your custom integrations if you have any
+- The name and version of the engine used in the [recorder integration](/integrations/recorder)
 - Boolean to indicate that the [energy integration](/integrations/energy) is configured
 - Boolean to indicate that [HTTP certificate](https://www.home-assistant.io/integrations/http/#ssl_certificate) is configured
 
@@ -113,6 +114,10 @@ If your system includes the Supervisor, this will also contain:
   ],
   "energy": {
     "configured": true
+  },
+  "recorder": {
+    "engine": "sqlite",
+    "version": "123"
   },
   "certificate": false
 }

@@ -1,5 +1,5 @@
 ---
-title: TP-Link Kasa Smart
+title: TP-Link Smart Home
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
 ha_category:
   - Hub
@@ -12,6 +12,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@rytilahti'
   - '@thegardenmonkey'
+  - '@bdraco'
+  - '@sdb9696'
 ha_domain: tplink
 ha_platforms:
   - diagnostics
@@ -23,65 +25,111 @@ ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 
-The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as plugs, power strips, wall switches and bulbs.
+The `tplink` integration allows you to control your [TP-Link Kasa Smart Home Devices](https://www.tp-link.com/kasa-smart/) and [TP-Link Tapo Devices](https://www.tapo.com/) such as plugs, power strips, wall switches and bulbs.
 
-You need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done either by using [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning) or by adding it to the official Kasa app before trying to add them to Home Assistant. If you use the app, do not upgrade the firmware if it presents the option to avoid blocking the local access by potential firmware updates.
+You need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done either by using [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning) or by adding it to the official Kasa or Tapo app before trying to add them to Home Assistant.
 
-There is currently support for the following device types within Home Assistant:
-
-- **Light**
-- **Switch**
-- **Sensor**
+If your device is a newer Kasa or Tapo device it will require your TP-Link cloud username and password to authenticate for local access.
+If you have an older device that does not currently require authentication, you may consider disabling automatic firmware updates to keep it that way.
 
 {% include integrations/config_flow.md %}
 
 ## Supported Devices
-### Plugs
+
+See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kasa#supported-devices) for an up to date list.
+
+Devices not listed below may work but if you encounter issues submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
+
+### Not requiring authentication
+
+#### Plugs
 
 - HS100
 - HS103
 - HS105
-- HS110 (supports consumption sensors)
+- HS107
+- HS110
+- KP100
 - KP105
-- KP115 (supports consumption sensors)
-- KP125 (supports consumption sensors)
+- KP115
+- KP125
+- KP401
+- EP10
+- EP25 (Hardware version < 2.6)
 
-### Strip (Multi-Plug)
+#### Power Strips
 
-- HS107 (indoor 2-outlet)
-- HS300 (powerstrip 6-outlet) (supports consumption sensors)
-- KP303 (powerstrip 3-outlet)
-- KP400 (outdoor 2-outlet)
-- KP200 (indoor 2-outlet)
-- KP40 (outdoor 2-outlet)
-- EP40 (outdoor 2-outlet)
+- EP40
+- HS300
+- KP303
+- KP200
+- KP400
+- KP405
 
-### Wall Switches
+#### Wall switches
 
+- ES20M
 - HS200
 - HS210
-- HS220 (acts as a light)
+- HS220
+- KS200M
+- KS220M
+- KS230
 
-### Bulbs
+#### Bulbs
 
+- EP40
 - LB100
 - LB110
 - LB120
 - LB130
 - LB230
+- KL50
+- KL60
 - KL110
 - KL120
 - KL125
 - KL130
-- KB130
+- KL135
 
-### Light Strips
+#### Light strips
 
 - KL400
 - KL420
 - KL430
 
-Other bulbs may also work, but with limited color temperature range (2700-5000). If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
+### Requiring authentication
+
+#### Plugs
+
+- EP25 (Hardware version >= 2.6)
+- KP125M
+- P110
+- HS100 (UK Hardware version 4.1 with firmware 1.1.0)
+
+#### Wall switches
+
+- KS205
+- KS225
+
+#### Bulbs
+
+- L510B
+- L530E
+
+#### Light strips
+
+- L900-5
+- L900-10
+- L920
+
+#### Power Strips
+
+- P300
+
+## Light strip effects
+
+Light strip effects are currently only supported for the device types not requiring authentication.
 
 ### Random Effect - Service `tplink.random_effect`
 
@@ -132,7 +180,7 @@ data:
   random_seed: 80
 ```
 
-### Seqeuence Effect - Service `tplink.sequence_effect`
+### Sequence Effect - Service `tplink.sequence_effect`
 
 The light strips allow setting a sequence effect.
 
@@ -143,6 +191,7 @@ The light strips allow setting a sequence effect.
 | `segments` | List of segments (0 for all) |
 | `brightness` | Initial brightness |
 | `duration` | Duration |
+| `repeat_times` | Repetitions (0 for continuous) |
 | `transition` | Transition |
 | `spread` | Speed of spread |
 | `direction` | Direction |

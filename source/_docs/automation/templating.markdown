@@ -1,5 +1,5 @@
 ---
-title: "Automation Trigger Variables"
+title: "Automation trigger variables"
 description: "List all available variables made available by triggers."
 ---
 
@@ -7,24 +7,30 @@ Automations support [templating](/docs/configuration/templating/) in the same wa
 
 The template variable `this` is also available when evaluating any `trigger_variables` declared in the configuration.
 
-## Available this Data
+## Available `this` data
 
-The variable `this` is the [state object](/docs/configuration/state_object) of the automation at the moment of triggering the actions. State objects also contain context data which can be used to identify the user that caused a script or automation to execute. Note that `this` will not change while executing the actions.
+The variable `this` is the [state object](/docs/configuration/state_object) of the automation at the moment of triggering the actions. State objects also contain context data which can be used to identify the user that caused a {% term script %} or {% term automation %} to execute. Note that `this` will not change while executing the {% term actions %}.
 
-## Available Trigger Data
+## Available trigger data
 
-The following tables show the available trigger data per platform.
+The variable `trigger` is an object that contains details about which {% term trigger %} triggered the automation.
+
+Templates can use the data to modify the actions performed by the automation or displayed in a message. For example, you could create an automation that multiple sensors can trigger and then use the sensor's location to specify a light to activate; or you could send a notification containing the friendly name of the sensor that triggered it.
+
+Each [trigger platform](/docs/automation/trigger/#event-trigger) can include additional data specific to that platform.
 
 ### All
 
-The following describes trigger data associated with all platforms.
+Triggers from all platforms will include the following data.
 
 | Template variable | Data |
 | ---- | ---- |
-| `trigger.id` | Optional trigger `id`, or index of the trigger.
+| `trigger.id` | The [`id` of the trigger](/docs/automation/trigger/#trigger-id).
 | `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
 
 ### Calendar
+
+These are the properties available for a [Calendar trigger](/docs/automation/trigger/#calendar-trigger).
 
 | Template variable                    | Data                                                                                                                            |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -41,14 +47,17 @@ The following describes trigger data associated with all platforms.
 
 ### Device
 
+These are the properties available for a [Device trigger](/docs/automation/trigger/#device-trigger).
+
+Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `device`.
-| `trigger.event` | Event object that matched.
-| `trigger.event.event_type` | Event type.
-| `trigger.event.data` | Optional event data.
 
 ### Event
+
+These are the properties available for a [Event trigger](/docs/automation/trigger/#event-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -59,6 +68,8 @@ The following describes trigger data associated with all platforms.
 
 ### MQTT
 
+These are the properties available for a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger).
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `mqtt`.
@@ -67,7 +78,9 @@ The following describes trigger data associated with all platforms.
 | `trigger.payload_json` | Dictionary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
-### Numeric State
+### Numeric state
+
+These are the properties available for a [numeric state trigger](/docs/automation/trigger/#numeric-state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -79,7 +92,20 @@ The following describes trigger data associated with all platforms.
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has met above/below criteria, if any.
 
+### Sentence
+
+These are the properties available for a [Sentence trigger](/docs/automation/trigger/#sentence-trigger).
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `conversation`
+| `trigger.sentence` | Text of the sentence that was matched
+| `trigger.slots`    | Object with matched slot values
+| `trigger.details` | Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains: <ul><li>`name` - name of the slot</li><li>`text` - matched text</li><li>`value` - output value (see [lists](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>
+
 ### State
+
+These are the properties available for a [State trigger](/docs/automation/trigger/#state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -91,6 +117,8 @@ The following describes trigger data associated with all platforms.
 
 ### Sun
 
+These are the properties available for a [Sun trigger](/docs/automation/trigger/#sun-trigger).
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `sun`
@@ -98,6 +126,8 @@ The following describes trigger data associated with all platforms.
 | `trigger.offset` | Timedelta object with offset to the event, if any.
 
 ### Template
+
+These are the properties available for a [Template trigger](/docs/automation/trigger/#template-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -109,19 +139,39 @@ The following describes trigger data associated with all platforms.
 
 ### Time
 
+These are the properties available for a [Time trigger](/docs/automation/trigger/#time-trigger).
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
 
-### Time Pattern
+### Time pattern
+
+These are the properties available for a [time pattern trigger](/docs/automation/trigger/#time-pattern-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time_pattern`
 | `trigger.now` | DateTime object that triggered the time_pattern trigger.
 
+### Persistent notification
+
+These properties are available for a [persistent notification trigger](/docs/automation/trigger/#persistent-notification-trigger).
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `persistent_notification`
+| `trigger.update_type` | Type of persistent notification update `added`, `removed`, `current`, or `updated`.
+| `trigger.notification` | Notification object that triggered the persistent notification trigger.
+| `trigger.notification.notification_id` | The notification ID
+| `trigger.notification.title` | Title of the notification
+| `trigger.notification.message` | Message of the notification
+| `trigger.notification.created_at` | DateTime object indicating when the notification was created.
+
 ### Webhook
+
+These are the properties available for a [Webhook trigger](/docs/automation/trigger/#webhook-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -132,6 +182,8 @@ The following describes trigger data associated with all platforms.
 | `trigger.query` | The URL query parameters of the request (if provided).
 
 ### Zone
+
+These are the properties available for a [Zone trigger](/docs/automation/trigger/#zone-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -188,6 +240,29 @@ automation 3:
       target:
         # Turn off whichever entity triggered the automation.
         entity_id: "{{ trigger.entity_id }}"
+
+automation 4:
+  trigger:
+    # When an NFC tag is scanned by Home Assistant...
+    - platform: event
+      event_type: tag_scanned
+      # ...By certain people
+      context:
+        user_id:
+          - 06cbf6deafc54cf0b2ffa49552a396ba
+          - 2df8a2a6e0be4d5d962aad2d39ed4c9c
+  condition:
+    # Check NFC tag (ID) is the one by the front door
+    - condition: template
+      value_template: "{{ trigger.event.data.tag_id == '8b6d6755-b4d5-4c23-818b-cf224d221ab7'}}"
+  action:
+    # Turn off various lights
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.kitchen
+          - light.bedroom
+          - light.living_room
 ```
 
 {% endraw %}

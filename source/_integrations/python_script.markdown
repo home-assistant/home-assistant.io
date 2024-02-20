@@ -16,8 +16,15 @@ This integration allows you to write Python scripts that are exposed as services
 | `hass` | The Home Assistant object. Access is only allowed to call services, set/remove states and fire events. [API reference][hass-api]
 | `data` | The data passed to the Python Script service call.
 | `logger` | A logger to allow you to log messages: `logger.info()`, `logger.warning()`, `logger.error()`. [API reference][logger-api]
+| `time` | The stdlib `time` available as limited access.
+| `datetime` | The stdlib `datetime` available as limited access.
+| `dt_util` | The ` homeassistant.util.dt` module.
+| `output` | An empty dictionary. Add items to return data as [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
 
-[hass-api]: /developers/development_hass_object/
+Other imports like `min`, `max` are available as builtins. See the [python_script](https://github.com/home-assistant/core/blob/dev/homeassistant/components/python_script/__init__.py) source code for up-to-date information on the available objects inside the script.
+  
+
+[hass-api]: https://developers.home-assistant.io/docs/dev_101_hass/
 [logger-api]: https://docs.python.org/3.7/library/logging.html#logger-objects
 
 <div class='note'>
@@ -26,32 +33,80 @@ It is not possible to use Python imports with this integration. If you want to d
 
 </div>
 
-## Writing your first script
+## Writing your first script, reading input and logging the activity
+
+This is a simplified example that does no real work.
+It is created as a first step, to help with:
+
+- Demonstrating how to setup the script
+- How to process the input data
+- How to log the script activity
+- How to troubleshoot / manually call the script.
+
+Start by enabling the Python Scripts integration and create the first script.
 
 - Add to `configuration.yaml`: `python_script:`
-- Create folder `<config>/python_scripts`
-- Create a file `hello_world.py` in the folder and give it this content:
+- Create the folder `<config>/python_scripts`
+- Create a file `<config>/python_scripts/hello_world.py` in the folder and give it this content:
 
 ```python
+# `data` is available as builtin and is a dictionary with the input data.
 name = data.get("name", "world")
-logger.info("Hello %s", name)
-hass.bus.fire(name, {"wow": "from a Python script!"})
+# `logger` and `time` are available as builtin without the need of explicit import.
+logger.info("Hello {} at {}".format(name, time.time()))
 ```
 
-- Start Home Assistant
-- Call your new {% my developer_call_service service="python_script.hello_world" %} service (with parameters) from the {% my developer_services %}. 
+- Start Home Assistant to reload the script configuration.
+- Call your new {% my developer_call_service service="python_script.hello_world" %} service (with parameters) from the {% my developer_services %}, using the YAML mode. 
 
 ```yaml
-name: you
+service: python_script.hello_world
+data:
+  name: "Input-Text"
 ```
 
 <div class='note'>
 
 Running this script show absolutely no output on the screen, but it logs with level `info`. You must have the [Logger](/integrations/logger/) enabled at least for level `info`.
 
+ Your `configuration.yaml` should include something like this.
+ 
+```yaml
+logger:
+  default: info
+```
+  
 </div>
 
-## Calling Services
+## Triggering events
+
+The following example shows how to trigger a custom event over the `hass.bus`.
+
+This example uses the `hello_world.py` from the previous example.
+Edit the file adding the code listed below to the end of the file.
+There is no need to reload the configuration or restart Home Assistant.
+
+```python
+hass.bus.fire("hello_world_event", {"wow": "from a Python script!"})
+```
+
+This script doesn't output anything. However, you can view the events being fired in the Developer tools.
+
+From a separate browser window or tab, go to `Developer Tools -> Events` and at `Listen to events` type `hello_world_event` and then press `Start listening`. You should see something like this:
+
+```yaml
+event_type: hello_world_event
+data:
+  wow: from a Python script!
+origin: LOCAL
+time_fired: "2022-09-19T16:15:39.613378+00:00"
+context:
+  id: 01GDB8H9JXJ1N23Q62SHX6PTBK
+  parent_id: null
+  user_id: null
+```
+
+## Calling services
 
 The following example shows how to call a service from `python_script`. This script takes two parameters: `entity_id` (required), `rgb_color` (optional) and calls `light.turn_on` service by setting the brightness value to `255`.
 
@@ -73,6 +128,37 @@ The above `python_script` can be called using the following YAML as an input.
   data:
     rgb_color: [255, 0, 0]
 ```
+
+Services can also respond with data. Retrieving this data in your Python script can be done by setting the `blocking` and `return_response` arguments of the `hass.services.call` function to `True`. This is shown in the example below, in this case, retrieving the weather forecast and putting it into a variable:
+
+```python
+# get_forecast.py
+service_data = {"type": "daily", "entity_id": ["weather.YOUR_HOME", "weather.YOUR_SCHOOL"]}
+current_forecast = hass.services.call("weather", "get_forecasts", service_data, blocking=True, return_response=True)
+```
+
+## Returning data
+
+Python script itself can respond with data. Just add items to the `output` variable in your `python_script` and the whole dictionary will be returned. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+
+```python
+# hello_world.py
+output["hello"] = f"hello {data.get('name', 'world')}"
+```
+
+The above `python_script` can be called using the following YAML and return a result to later steps.
+
+{% raw %}
+
+```yaml
+- service: python_script.hello_world
+  response_variable: python_script_output
+- service: notify.mobile_app_iphone
+  data:
+    message: "{{ python_script_output['hello'] }}"
+```
+
+{% endraw %}
 
 ## Documenting your Python scripts
 
@@ -100,6 +186,10 @@ Available services: `reload`.
 
 ### Service `python_script.reload`
 
-Reload all available python_scripts from the `<config>/python_scripts` folder. Use this when creating a new Python script and you're not restarting Home Assistant.
+Reload all available python_scripts from the `<config>/python_scripts` folder, as a quicker alternative to restarting Home Assistant.
+
+Use this when creating a new Python script, or after updating the `<config>/python_scripts/services.yaml` file. 
+
+You don't have to call this service when you change an existing Python script.
 
 This service takes no service data attributes.

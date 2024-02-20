@@ -1,6 +1,6 @@
 ---
-title: "Authentication Providers"
-description: "Guide on configuring different auth providers."
+title: "Authentication providers"
+description: "Guide on configuring different authentication providers."
 ---
 
 <div class='note warning'>
@@ -19,14 +19,19 @@ If you decide to use `trusted_networks` as your `auth_provider` there won't be a
 
 </div>
 
-Authentication providers are configured in your `configuration.yaml` under the `homeassistant:` block. You can supply more than one, for example:
+Authentication providers are configured in your `configuration.yaml` under the `homeassistant:` block. 
+If you are moving configuration to packages, this particular configuration must stay within 'configuration.yaml'. See Issue 16441 in the warning block at the bottom of this page.
+
+
+You can supply more than one, for example:
 
 ```yaml
 homeassistant:
   auth_providers:
     - type: homeassistant
-    - type: legacy_api_password
-      api_password: !secret http_password
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.0.0/24
 ```
 
 ## Available auth providers
@@ -49,15 +54,21 @@ homeassistant:
 
 If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically.
 
-### Trusted Networks
+### Trusted networks
 
-The Trusted Networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "allowlisting"). For example, you can allowlist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
+The trusted networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "allowlisting"). For example, you can allowlist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
 
 When you log in from one of these networks, you will be asked which user account to use and won't need to enter a password.
 
 <div class='note info'>
 
 The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you are using this auth provider.
+
+</div>
+
+<div class='note info'>
+
+You cannot trust a network that you are using in any [trusted_proxies](/integrations/http/#reverse-proxies). The `trusted_networks` authentication will fail with the message: Your computer is not allowed
 
 </div>
 
@@ -93,7 +104,7 @@ allow_bypass_login:
   type: boolean
 {% endconfiguration %}
 
-#### Trusted Users Examples
+#### Trusted users examples
 
 ```yaml
 homeassistant:
@@ -121,7 +132,7 @@ In above example, if user try to access Home Assistant from 192.168.0.1, they wi
 
 Specially, you can use `group: GROUP_ID` to assign all users in certain `user group` to be available to choose. Group and users can be mix and match.
 
-#### Skip Login Page Examples
+#### Skip login page examples
 
 This is a feature to allow you to bring back some of the experience before the user system was implemented. You can directly jump to the main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose from in the login form. 
 
@@ -142,9 +153,9 @@ homeassistant:
 
 Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, then you can change to use Home Assistant Authentication Provider to login, if you access your Home Assistant instance from outside network.
 
-### Command Line
+### Command line
 
-The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
+The command line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
 
 This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/bob1de/ldap-auth-sh), for instance. Please note, this will only work when using the Home Assistant Core installation type.
 
@@ -165,11 +176,15 @@ When `meta: true` is set in the auth provider's configuration, your command can 
 
 ```txt
 name = John Doe
+group = system-users
+local_only = true
 ```
 
 Leading and trailing whitespace, as well as lines starting with `#` are ignored. The following variables are supported. More may be added in the future.
 
-* `name`: The real name of the user to be displayed in their profile.
+- `name`: The real name of the user to be displayed in their profile.
+- `group`: The user group uses the value `system-admin` for administrator (this is the default) or `system-users` for regular users.
+- `local_only`: The user can only log in from the local network if you set the value to `true`. If you do not define this variable, the user can log in from anywhere.
 
 Stderr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
 
@@ -179,31 +194,4 @@ Any leading and trailing whitespace is stripped from usernames before they're pa
 
 <div class='note'>
 For now, meta variables are only respected the first time a particular user is authenticated. Upon subsequent authentications of the same user, the previously created user object with the old values is reused.
-</div>
-
-### Legacy API password
-
-<div class='note warning'>
-This is a legacy feature for backwards compatibility and will be dropped in a future release. You should move to one of the other auth providers.
-</div>
-
-Activating this auth provider will allow you to authenticate with the API password set in the HTTP component.
-
-```yaml
-homeassistant:
-  auth_providers:
-   - type: legacy_api_password
-     api_password: !secret http_password
-```
-
-`api_password` is required option since 0.90 release.
-
-Activating this auth provider will also allow you to provide the API password using an authentication header to make requests against the Home Assistant API. This feature will be dropped in the future in favor of long-lived access tokens.
-
-If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically if `api_password` was configured under `http` section.
-
-<div class='note warning'>
-
-[Issue 16441](https://github.com/home-assistant/core/issues/16441): the legacy API password auth provider, won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
-
 </div>

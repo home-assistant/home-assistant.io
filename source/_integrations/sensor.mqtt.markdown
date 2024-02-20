@@ -18,27 +18,9 @@ To use your MQTT sensor in your installation, add the following to your `configu
 # Example configuration.yaml entry
 mqtt:
   sensor:
-    - state_topic: "home/bedroom/temperature"
+    - name: "Bedroom Temperature"
+      state_topic: "home/bedroom/temperature"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `sensor` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-sensor:
-  - platform: mqtt
-    state_topic: "home/bedroom/temperature"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:
@@ -61,7 +43,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -70,7 +52,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -78,18 +60,22 @@ availability_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/device_registry_index/). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
+    hw_version:
+      description: The hardware version of the device.
+      required: false
+      type: string
     identifiers:
       description: A list of IDs that uniquely identify the device. For example a serial number.
       required: false
@@ -106,6 +92,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -119,10 +109,9 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
+  description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend. The `device_class` can be `null`.
   required: false
   type: device_class
-  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -134,12 +123,11 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity. When set, the entity category must be `diagnostic` for sensors.
   required: false
   type: string
-  default: None
 expire_after:
-  description: Defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`.
+  description: If set, it defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`. Default the sensors state never expires.
   required: false
   type: integer
   default: 0
@@ -153,7 +141,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
   required: false
   type: template
 json_attributes_topic:
@@ -161,11 +149,11 @@ json_attributes_topic:
   required: false
   type: string
 last_reset_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the last_reset. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the last_reset. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes."
   required: false
-  type: string
+  type: template
 name:
-  description: The name of the MQTT sensor.
+  description: The name of the MQTT sensor. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Sensor
@@ -183,8 +171,12 @@ payload_not_available:
   required: false
   type: string
   default: offline
+suggested_display_precision:
+  description: The number of decimals which should be used in the sensor's state after rounding.
+  required: false
+  type: integer
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -192,9 +184,8 @@ state_class:
   description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
   type: string
-  default: None
 state_topic:
-  description: The MQTT topic subscribed to receive sensor values.
+  description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class`, `unit_of_measurement` or `suggested_display_precision` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state, a `'null'` value will set the sensor to an `unknown` state. The `device_class` can be `null`.
   required: true
   type: string
 unique_id:
@@ -202,11 +193,11 @@ unique_id:
   required: false
   type: string
 unit_of_measurement:
-  description: Defines the units of measurement of the sensor, if any.
+  description: Defines the units of measurement of the sensor, if any. The `unit_of_measurement` can be `null`.
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes. If the template throws an error, the current state will be used instead."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the value. If the template throws an error, the current state will be used instead."
   required: false
   type: template
 {% endconfiguration %}
@@ -217,7 +208,20 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### JSON attributes topic configuration
 
-The example sensor below shows a configuration example which uses a JSON dict: `{"ClientName": <string>, "IP": <string>, "MAC": <string>, "RSSI": <string>, "HostName": <string>, "ConnectedSSID": <string>}` in a separate topic `home/sensor1/attributes` to add extra attributes. It also makes use of the `availability` topic.
+The example sensor below shows a configuration example which uses the following separate topic and JSON structure to add extra attributes.
+
+Topic: `home/sensor1/attributes`
+ ```json
+ {
+    "ClientName": <string>,
+    "IP": <string>,
+    "MAC": <string>,
+    "RSSI": <string>,
+    "HostName": <string>,
+    "ConnectedSSID": <string>
+}
+ ```
+ It also makes use of the `availability` topic.
 
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
 
@@ -242,7 +246,22 @@ mqtt:
 
 ### JSON attributes template configuration
 
-The example sensor below shows a configuration example which uses a JSON dict: `{"Timer1":{"Arm": <status>, "Time": <time>}, "Timer2":{"Arm": <status>, "Time": <time>}}` on topic `tele/sonoff/sensor` with a template to add `Timer1.Arm` and `Timer1.Time` as extra attributes. To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_template` to: {% raw %}`"{{ {'Arm': value_json.Timer1} | tojson }}"`{% endraw %}.
+The example sensor below shows a configuration example which uses the following topic and JSON structure with a template to add `Timer1.Arm` and `Timer1.Time` as extra attributes.
+
+Topic: `tele/sonoff/sensor`
+```json
+{
+    "Timer1": {
+        "Arm": <status>,
+        "Time": <time>
+    },
+    "Timer2": {
+        "Arm": <status>,
+        "Time": <time>
+    }
+}
+``` 
+To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_template` to: {% raw %}`"{{ {'Arm': value_json.Timer1} | tojson }}"`{% endraw %}.
 
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.
 
@@ -257,6 +276,7 @@ mqtt:
       value_template: "{{ value_json.Timer1.Arm }}"
       json_attributes_topic: "tele/sonoff/sensor"
       json_attributes_template: "{{ value_json.Timer1 | tojson }}"
+
     - name: "Timer 2"
       state_topic: "tele/sonoff/sensor"
       value_template: "{{ value_json.Timer2.Arm }}"
@@ -294,8 +314,18 @@ mqtt:
 
 If you are using the [OwnTracks](/integrations/owntracks) and enable the reporting of the battery level then you can use an MQTT sensor to keep track of your battery. A regular MQTT message from OwnTracks looks like this:
 
-```bash
-owntracks/tablet/tablet {"_type":"location","lon":7.21,"t":"u","batt":92,"tst":144995643,"tid":"ta","acc":27,"lat":46.12}
+Topic: `owntracks/tablet/tablet`
+```json
+{
+    "_type": "location",
+    "lon": 7.21,
+    "t": "u",
+    "batt": 92,
+    "tst": 144995643,
+    "tid": "ta",
+    "acc": 27,
+    "lat": 46.12
+} 
 ```
 
 Thus the trick is extracting the battery level from the payload.
@@ -318,8 +348,8 @@ mqtt:
 
 If you are using a DHT sensor and a NodeMCU board (esp8266), you can retrieve temperature and humidity with a MQTT sensor. A code example can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_sensor_dht22). A regular MQTT message from this example looks like this:
 
+Topic: `office/sensor1`
 ```json
-office/sensor1
   {
     "temperature": 23.20,
     "humidity": 43.70
@@ -336,8 +366,9 @@ mqtt:
   sensor:
     - name: "Temperature"
       state_topic: "office/sensor1"
+      suggested_display_precision: 1
       unit_of_measurement: "°C"
-      value_template: "{{ value_json.temperature }}"
+      value_template: "{{ value_json.temperature }}
     - name: "Humidity"
       state_topic: "office/sensor1"
       unit_of_measurement: "%"

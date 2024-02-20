@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@frenck'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The season integration will provide the current astronomical or meteorological season (Spring, Summer, Autumn, Winter)

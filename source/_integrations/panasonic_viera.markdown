@@ -2,7 +2,7 @@
 title: Panasonic Viera
 description: Instructions on how to integrate a Panasonic Viera TV with Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
 ha_release: 0.17
 ha_iot_class: Local Polling
@@ -18,7 +18,7 @@ The Panasonic Viera integration allows you to control a Panasonic Viera TV.
 
 There is currently support for the following device types within Home Assistant:
 
-- Media Player
+- Media player
 - [Remote](#remote)
 
 {% include integrations/config_flow.md %}
@@ -118,7 +118,7 @@ Some of the known valid key values are:
 - `back`
 - `power`
 
-The list with all known valid keys can be found [here](https://github.com/florianholzapfel/panasonic-viera/blob/521cefadc8e1543514ce41d3d49e9218d1c2302d/panasonic_viera/__init__.py#L35). Additionally, you can also send custom commands, such as `"NRC_HOME-ONOFF"` (which is the same as `home`). Two further undocumented commands are `"NRC_CHG_HDMI1-ONOFF"` and `"NRC_CHG_HDMI1-ONOFF"` for selecting HDMI inputs.
+The list with all known valid keys can be found [here](https://github.com/florianholzapfel/panasonic-viera/blob/521cefadc8e1543514ce41d3d49e9218d1c2302d/panasonic_viera/__init__.py#L35). Additionally, you can also send custom commands, such as `"NRC_HOME-ONOFF"` (which is the same as `home`). Further undocumented commands are `"NRC_HDMI1-ONOFF"`, `"NRC_HDMI2-ONOFF"`, `"NRC_HDMI3-ONOFF"` and `"NRC_HDMI4-ONOFF"` for selecting HDMI inputs and `"NRC_NETFLIX-ONOFF"`, `"NRC_APPS-ONOFF"`, "`NRC_MYAPP-ONOFF`" for apps.
 
 ### Currently known supported models
 
@@ -146,6 +146,7 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-55EXW604S
 - TX-55FX680W
 - TX-55FZ802B
+- TX-55JZ1000W
 - TX-58AX802B
 - TX-58DX700B
 - TX-58DX800E
@@ -159,5 +160,6 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-P42VT30E
 - TX-P50GT30Y
 - TX-P50GT60E
+- TX-65HZ1000W
 
 If your model is not on the list, give it a test. If everything works correctly, then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).

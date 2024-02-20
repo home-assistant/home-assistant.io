@@ -21,8 +21,6 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@icemanch'
-  - '@bdraco'
-ha_quality_scale: platinum
 ha_config_flow: true
 ha_dhcp: true
 ha_integration_type: integration
@@ -36,7 +34,7 @@ Example of bulbs:
 
 - [MagicLight Smart Bulbs](https://www.magiclightbulbs.com/lightbulbs) or [Amazon](https://www.amazon.com/gp/product/B081YJHHB1/)
 - [RGBCW Downlights](https://www.amazon.com/gp/product/B093Q83G7S/)
-- [RGBCW Floodlights](https://www.amazon.com/gp/product/B09J38NKPN)
+- [RGBCW Floodlights](https://www.amazon.com/dp/product/B08CDS3N6H)
 
 Examples of controllers with strips:
 
@@ -47,7 +45,7 @@ Examples of controllers:
 - [Single color](https://www.amazon.com/gp/product/B07J5B3R5L/)
 - [RGB](https://www.amazon.com/gp/product/B07C1LN7FZ/)
 - [RGBW](https://www.amazon.com/gp/product/B07J9QCQNN/)
-- [RGBCW](https://www.amazon.com/gp/product/B09BMC4JNJ/)
+- [RGBCW](https://www.amazon.co.uk/gp/product/B09BMC4JNJ/)
 - [RGB/W/CW](https://www.amazon.com/gp/product/B01DY56N8U/)
 
 Examples of addressable controllers:
@@ -83,7 +81,7 @@ These devices have been sold under at least the following brands:
 - [Diode Dynamics](https://www.diodedynamics.com/)
 - [Flux LED](https://www.fluxsmartlighting.com/)
 - [FVTLED](https://fvtled.com/)
-- [GEV LIG](https://www.gev.de/)
+- GEV LIG
 - GEYUEYA Home
 - GIDEALED
 - [GIDERWEL](https://giderwel.com/)
@@ -98,7 +96,7 @@ These devices have been sold under at least the following brands:
 - INDARUN
 - iNextStation
 - [Koopower](https://www.koopower.com/)
-- [Lallumer](https://www.lapuretes.cn/)
+- Lallumer
 - LEDENET
 - [LiteWRX](https://litewrx.com/)
 - Lytworx
@@ -110,7 +108,7 @@ These devices have been sold under at least the following brands:
 - Mowelai
 - Nexlux
 - OBSESS
-- [Offdarks](http://offdarks.net)
+- Offdarks
 - PH LED
 - PHOPOLLO
 - [Pin Stadium Pinball Lights](https://pinstadium.com/)
@@ -138,9 +136,9 @@ After the devices have been added they can be configured with different effects 
 A list of RGB colors can be entered to create an effect. The effect speed can be adjusted using the slider underneath.
 
 **Custom Effect Type**\
-This determines the transition between each color. 
+This determines the transition between each color.
 
-### Supported Models
+### Supported models
 
 The following models have been tested.
 
@@ -180,7 +178,7 @@ The following models have been tested.
 | 0xE1  | Ceiling Light CCT           | no         |                                 |
 | 0xE2  | Ceiling Light Assist        | no         | Auxiliary Switch not supported  |
 
-### Untested Models
+### Untested models
 
 The following models have not been tested but may work.
 
@@ -224,7 +222,7 @@ The Magic Home light offers a number of effects which are not included in other 
 | `random`                                                                                                     | Chooses a random color by selecting random values for R, G, and B. |
 
 
-### Custom Effects - Service `flux_led.set_custom_effect`
+### Custom effects - service `flux_led.set_custom_effect`
 
 The integration offers a custom service to enable you to set the lights to a custom light effect. 
 
@@ -246,7 +244,7 @@ speed_pct: 80
 transition: "jump"
 ```
 
-### Set Zones - Service `flux_led.set_zones`
+### Set zones - service `flux_led.set_zones`
 
 The Addressable v3 (0xA3) models allow setting a color effect per zone. The length of each zone is the number of pixels per segment divided by the number of colors. If the device is turned off, setting the zones will not turn it on. A separate call to `light.turn_on` is needed to turn on the device.
 
@@ -258,7 +256,7 @@ The Addressable v3 (0xA3) models allow setting a color effect per zone. The leng
 | `effect` | The effect you would like. Valid options are `static`, `running_water`, `strobe`, `jump`, or `breathing`. (Default `static`) |
 
 ```yaml
-#Example Service Call
+#Example service call
 service: flux_led.set_zones
 target:
   entity_id:

@@ -8,20 +8,22 @@ ha_quality_scale: internal
 ha_domain: climate
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
-The Climate integration allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.
+The **Climate** {% term integration %} allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.
+
+{% include integrations/building_block_integration.md %}
 
 ## Services
 
 ### Climate control services
 
-Available services: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_hvac_mode`, `climate.set_swing_mode`, `climate.turn_on`, `climate.turn_off`
+Available services: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_hvac_mode`, `climate.set_swing_mode`, `climate.turn_on`, `climate.turn_off`, `climate.toggle`
 
 <div class='note'>
 
-Not all climate services may be available for your platform. You can check which climate services are available under **Developer Tools** -> **Services**.
+Not all climate {% term services %}  may be available for your platform. You can check which climate services are available under **Developer Tools** -> **Services**.
 
 </div>
 
@@ -227,6 +229,14 @@ Turn climate device on. This is only supported if the climate device supports be
 ### Service `climate.turn_off`
 
 Turn climate device off. This is only supported if the climate device has the HVAC mode `off`.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+
+### Service `climate.toggle`
+
+Toggle climate device. This is only supported if the climate device supports being turned on and off.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

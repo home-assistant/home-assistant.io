@@ -20,8 +20,8 @@ homeassistant:
   # Location required to calculate the time the sun rises and sets
   latitude: 37
   longitude: -121
-  # 'metric' for Metric, 'imperial' for Imperial
-  unit_system: imperial
+  # 'metric' for Metric, 'us_customary' for US Customary
+  unit_system: us_customary
   # Pick yours from here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: "America/Los_Angeles"
   customize: !include customize.yaml
@@ -29,7 +29,7 @@ homeassistant:
 
 Note that each line after `homeassistant:` is indented two (2) spaces. Since the configuration files in Home Assistant are based on the YAML language, indentation and spacing are important. Also note that seemingly strange entry under `customize:`.
 
-`!include filename.yaml` is the statement that tells Home Assistant to insert the contents of `filename.yaml` at that point. This is how we are going to break a monolithic and hard to read file (when it gets big) into more manageable chunks.
+`!include customize.yaml` is the statement that tells Home Assistant to insert the contents of `customize.yaml` at that point. This is how we are going to break a monolithic and hard to read file (when it gets big) into more manageable chunks.
 
 Now before we start splitting out the different components, let's look at the other integrations (in our example) that will stay in the base file:
 
@@ -44,10 +44,14 @@ ifttt:
   key: ["nope"]
 
 mqtt:
-  broker: 127.0.0.1
+  sensor:
+    - name: "test sensor 1"
+      state_topic: "test/some_topic1"
+    - name: "test sensor 2"
+      state_topic: "test/some_topic2"
 ```
 
-As with the core snippet, indentation makes a difference. The integration headers (`mqtt:`) should be fully left aligned (aka no indent), and the parameters (`broker:`) should be indented two (2) spaces.
+As with the core snippet, indentation makes a difference. The integration headers (`mqtt:`) should be fully left aligned (aka no indent), and the key (`sensor:`) should be indented two (2) spaces. The list `-` under the key `sensor` should be indented another two (2) spaces followed by a single space. The `mqtt` sensor list contains two (2) configurations containing two (2) keys each.
 
 While some of these integrations can technically be moved to a separate file they are so small or "one off's" where splitting them off is superfluous. Also, you'll notice the # symbol (hash/pound). This represents a "comment" as far as the commands are interpreted. Put another way, any line prefixed with a `#` will be ignored. This makes breaking up files for human readability really convenient, not to mention turning off features while leaving the entry intact.
 
@@ -161,7 +165,7 @@ This (large) sensor configuration gives us another example:
 - platform: steam_online
   api_key: ["not telling"]
   accounts:
-      - 76561198012067051
+    - 76561198012067051
 
 #### TIME/DATE ##################################
 - platform: time_date
@@ -196,7 +200,7 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 - [Core](/common-tasks/core/#configuration-check)
 - [Supervised](/common-tasks/supervised/#configuration-check)
 
-## Advanced Usage
+## Advanced usage
 
 We offer four advanced options to include whole directories at once. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
 

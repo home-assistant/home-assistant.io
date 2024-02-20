@@ -5,6 +5,11 @@ description: "Description of the various badges that are available."
 
 Badges are widgets that sit at the top of a panel, above all the cards.
 
+<p class="img">
+  <img src="/images/dashboards/badges.png" alt="Badges">
+  Badges at the top of a panel.
+</p>
+
 ## State Label Badge
 
 The State Label badge allows you to display a state badge. This badge supports [actions](/dashboards/actions/).
@@ -30,7 +35,7 @@ name:
   default: Name of entity
 icon:
   required: false
-  description: Overwrites icon or entity picture. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
+  description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
   type: string
   default: Entity domain icon
 image:
@@ -40,11 +45,6 @@ image:
 show_name:
   required: false
   description: Show name.
-  type: boolean
-  default: "true"
-show_icon:
-  required: false
-  description: Show icon.
   type: boolean
   default: "true"
 {% endconfiguration %}
@@ -68,7 +68,7 @@ state_filter:
   type: list
 {% endconfiguration %}
 
-### Options For Entities
+### Options for entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configurations:
 
@@ -87,7 +87,7 @@ name:
   type: string
 icon:
   required: false
-  description: Overwrites icon or entity picture. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
+  description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
   type: string
 image:
   required: false
@@ -99,7 +99,7 @@ state_filter:
   type: list
 {% endconfiguration %}
 
-### Options For state_filter
+### Options for state filter
 
 If you define state_filter as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
 

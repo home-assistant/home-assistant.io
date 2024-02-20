@@ -2,7 +2,7 @@
 title: Freedompro
 description: Instructions for how to integrate Freedompro accessories within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Fan
@@ -34,7 +34,7 @@ Freedompro with its products installed on the electrical system, allows you to c
 
 This integration lets you control all [Freedompro](https://freedompro.eu/) accessories.
 
-## Preliminary Steps
+## Preliminary steps
 
 You will need to obtain an API key from [Freedompro Cloud](https://home.freedompro.eu/) to use this integration.
 

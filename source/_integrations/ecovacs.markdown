@@ -8,77 +8,77 @@ ha_iot_class: Cloud Push
 ha_release: 0.77
 ha_codeowners:
   - '@OverloadUT'
+  - '@mib1185'
+  - '@edenhaus'
+ha_config_flow: true
 ha_domain: ecovacs
 ha_platforms:
+  - binary_sensor
+  - button
+  - diagnostics
+  - image
+  - number
+  - select
+  - sensor
+  - switch
   - vacuum
 ha_integration_type: integration
 ---
 
-The `ecovacs` integration is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
+The `ecovacs` {% term integration %} is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
 
-There is currently support for the following device types within Home Assistant:
-
-- [Vacuum](#vacuum)
-
-## Configuration
-
-To add your Ecovacs devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
-
-```yaml
-ecovacs:
-  username: YOUR_ECOVACS_USERNAME
-  password: YOUR_ECOVACS_PASSWORD
-  country: YOUR_TWO_LETTER_COUNTRY_CODE
-  continent: YOUR_TWO_LETTER_CONTINENT_CODE
-```
-
-{% configuration %}
-username:
-  description: Your username to login to your Ecovacs account.
-  required: true
-  type: string
-password:
-  description: Your password to login to your Ecovacs account.
-  required: true
-  type: string
-country:
-  description: Your two-letter country code (us, uk, etc).
-  required: true
-  type: string
-continent:
-  description: Your two-letter continent code (na, eu, etc).
-  required: true
-  type: string
-{% endconfiguration %}
-
-Note: For some countries, you will need to set `continent` to `ww` (meaning worldwide.) There is unfortunately no way to know the correct settings other than guessing and checking. See the [sucks library protocol documentation](https://github.com/wpietri/sucks/blob/master/protocol.md) for more information about what has been figured out about the Ecovacs servers.
+{% include integrations/config_flow.md %}
 
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
 
-### Stability and Reporting Bugs
+With `advanced_mode` enabled, users can use their self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. More information can be found in the [Bumper's documentation](https://bumper.readthedocs.io).
 
-The library that talks to the Ecovacs servers is in a very early state and still under development. As such, it is likely that not all regions and devices will work at the current time.
+## Provided entities
 
-Please see the [sucks library documentation](https://github.com/wpietri/sucks) for some more information about what has been tested, and check out the GitHub issues to see if the issue you're having is known or being worked on.
+The Ecovacs integration provides a vacuum {% term entity %} for each device that is connected to your Ecovacs account.
 
-If you have an issue with the Ecovacs component, please file a [GitHub Issue](https://github.com/home-assistant/home-assistant/issues) and include your Home Assistant logs in the report. To get full debug output from both the Ecovacs integration and the underlying `sucks` library, place this in your `configuration.yaml` file:
+Using the vacuum entity, you can monitor and control your Ecovacs Deebot vacuum.
 
-```yaml
-logger:
-  logs:
-    homeassistant.components.ecovacs: debug
-    homeassistant.components.vacuum.ecovacs: debug
-    sucks: debug
-```
+Additionally, **depending on your model**, the integration provides the following entities:
 
-**Warning**: doing this will cause your authentication token to be visible in your log files. Be sure to remove any tokens and other authentication details from your log before posting them in an issue.
-
+- **Binary sensor**: 
+  - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
+- **Button**:
+  - `Reset lifespan`: For each supported component an button entity to reset the lifespan will be created. All disabled by default
+  - `Relocate`: Button entity to trigger manual relocation.
+- **Image**:
+  - `Map`: The floorplan/map as an image in SVG format.
+- **Number**:
+  - `Clean count`: Set the number of times to clean the area.
+  - `Volume`: Set the volume.
+- **Select**:
+  - `Water amount`: Specify the water amount used during cleaning with the mop.
+  - `Work mode`: Specify the mode, how the bot should clean.
+- **Sensor**:
+  - `Error`: The error code and a description of the error. `0` means no error. Disabled by default
+  - `Lifespan`: For each supported component an entity with the remaining lifespan will be created
+  - `Network`: The following network related entities will be created. All disabled by default
+    - `Ip address`
+    - `Wi-Fi RSSI`
+    - `Wi-Fi SSID`
+  - `Cleaning cycle`:
+    - `Area`: The cleaned area
+    - `Time`: The cleaned time
+  -  `Total statistics`: Updated after each cleaning cycle:
+    - `Area`: Total cleaned area
+    - `Cleanings`: The number of cleanings
+    - `Time`: The total cleaning time
+- **Switch**:
+  - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.
+  - `Continuous cleaning`: Enable continuous cleaning, which means the bot resumes the cleaning job if he needs to charge in between. Disabled by default.
+  - `True detect`: Enable "True detect" feature. Disabled by default.
 
 ## Vacuum
 
 The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Deebot vacuums.
 
-### Component Lifespans
+### Integration lifespan
 
 The remaining lifespan of components on your Deebot vacuum will be reported as attributes on the vacuum entity. The value will be a whole number representing the percentage of life remaining.
 
@@ -112,7 +112,7 @@ template:
 
 {% endraw %}
 
-### Handling Errors
+### Handling errors
 
 The vacuum entity has an `error` attribute that will contain the _most recent_ error message that came from the vacuum. There is not a comprehensive list of all error messages, so you may need to do some experimentation to determine the error messages that your vacuum can send.
 

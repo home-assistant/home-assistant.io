@@ -2,29 +2,28 @@
 type: card
 title: "Gauge Card"
 sidebar_label: Gauge
-description: "The Gauge card is a basic card that allows visually seeing sensor data."
+description: "The gauge card is a basic card that allows visually seeing sensor data."
 ---
 
-The Gauge card is a basic card that allows visually seeing sensor data.
+The gauge card is a basic card that allows visually seeing sensor data.
 
 <p class='img'>
 <img src='/images/dashboards/gauge_card.gif' alt='Screenshot of the Gauge card'>
-Screenshot of the Gauge card.
+Screenshot of the gauge card.
 </p>
 
 <p class='img'>
 <img src='/images/dashboards/gauge_needle_card.png' alt='Screenshot of the Gauge card in needle mode'>
-Screenshot of the Gauge card in needle mode.
+Screenshot of the gauge card in needle mode.
 </p>
 
-To add the Gauge card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Gauge** from the card picker. All options for this card can be configured via the user interface.
+{% include dashboard/edit_dashboard.md %}
 
-Alternatively, the card can be configured using YAML:
+All options for this card can be configured via the user interface.
 
-```yaml
-type: gauge
-entity: sensor.cpu_usage
-```
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -61,7 +60,7 @@ max:
   default: 100
 needle:
   required: false
-  description: Show the gauge as a needle gauge.
+  description: Show the gauge as a needle gauge. Required to be set to true, if using segments.
   type: boolean
   default: false
 severity:
@@ -83,7 +82,7 @@ severity:
       type: integer
 segments:
   required: false
-  description: List of colors and their corresponding start values. Segments will override the severity settings.
+  description: List of colors and their corresponding start values. Segments will override the severity settings. Needle required to be true.
   type: list
   keys:
     from:
@@ -100,7 +99,7 @@ segments:
       type: string
 {% endconfiguration %}
 
-## Examples
+### Examples
 
 Title and unit of measurement:
 
@@ -153,4 +152,32 @@ segments:
     color: '#ffa600'
   - from: 65
     color: '#db4437'
+```
+
+CSS variables can be used (instead of CSS '#rrggbb') for default gauge segment colors:
+
+- `var(--success-color)` for green color
+- `var(--warning-color)` for yellow color
+- `var(--error-color)` for red color
+- `var(--info-color)` for blue color
+
+Therefore, the previous example can be defined also as:
+
+```yaml
+type: gauge
+entity: sensor.kitchen_humidity
+needle: true
+min: 20
+max: 80
+segments:
+  - from: 0
+    color: var(--error-color)
+  - from: 35
+    color: var(--warning-color)
+  - from: 40
+    color: var(--success-color)
+  - from: 60
+    color: var(--warning-color)
+  - from: 65
+    color: var(--error-color)
 ```

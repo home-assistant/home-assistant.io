@@ -1,13 +1,14 @@
 ---
 title: Elexa Guardian
-description: Instructions on how to integrate SimpliSafe into Home Assistant.
+description: Instructions on how to integrate Guardian into Home Assistant.
 ha_iot_class: Local Polling
 ha_release: '0.111'
 ha_category:
+  - Binary sensor
   - Button
-  - Binary Sensor
   - Sensor
   - Switch
+  - Valve
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'
@@ -19,8 +20,9 @@ ha_platforms:
   - diagnostics
   - sensor
   - switch
+  - valve
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The `guardian` integration integrates
@@ -28,22 +30,15 @@ The `guardian` integration integrates
 
 There is currently support for the following device types within Home Assistant:
 
-- **Binary Sensor**: reports the status of the onboard leak detector and access point
+- **Binary sensor**: reports the status of the onboard leak detector and access point
 - **Button**: add various configuration controls
 - **Sensor**: reports on the device's detected temperature and uptime
-- **Switch**: allows the user to open and close the valve
+- **Switch**: allows the user to enable and disable the onboard access point
+- **Valve**: allows the user to open and close the valve
 
 {% include integrations/config_flow.md %}
 
 ## Services
-
-### `guardian.disable_ap`
-
-Disable the device's onboard access point.
-
-### `guardian.enable_ap`
-
-Enable the device's onboard access point.
 
 ### `guardian.pair_sensor`
 

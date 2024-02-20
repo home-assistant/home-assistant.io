@@ -1,16 +1,22 @@
 ---
 type: card
-title: Picture Entity Card
-sidebar_label: Picture Entity
-description: The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of camera entities.
+title: Picture entity card
+sidebar_label: Picture entity
+description: The picture entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of camera entities.
 ---
 
-The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
+The picture entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
 
 <p class='img'>
   <img src='/images/dashboards/picture_entity.gif' alt='Picture entity card'>
   Background changes according to the entity state.
 </p>
+
+{% include dashboard/edit_dashboard.md %}
+
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -46,6 +52,11 @@ aspect_ratio:
   required: false
   description: 'Forces the height of the image to be a ratio of the width. Valid formats: Height percentage value (`23%`) or ratio expressed with colon or "x" separator (`16:9` or `16x9`). For a ratio, the second element can be omitted and will default to "1" (`1.78` equals `1.78:1`).'
   type: string
+fit_mode:
+  required: false
+  description: 'Defines the manner in which the image is stretched/clipped to fit the card area. `cover`: The image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit. `contain`: The image keeps its aspect ratio, but is resized to fit within the given dimension. `fill`: The image is resized to fill the given dimension. If necessary, the image will be stretched or squished to fit.'
+  type: string
+  default: cover
 name:
   required: false
   description: Overwrite entity name.
@@ -78,7 +89,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## How to use state_filter
+### How to use state_filter
 
 Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
 
@@ -88,7 +99,7 @@ state_filter:
   "off": brightness(50%) hue-rotate(45deg)
 ```
 
-## Examples
+### Examples
 
 Basic example:
 

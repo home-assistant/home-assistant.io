@@ -1,18 +1,24 @@
 ---
 type: card
-title: "Entity Card"
+title: "Entity card"
 sidebar_label: Entity
-description: "The Entity card gives you a quick overview of your entity's state"
+description: "The entity card gives you a quick overview of your entity's state"
 ---
 
-The Entity card gives you a quick overview of your entity's state.
+The entity card gives you a quick overview of your entity's state.
 
 <p class='img'>
   <img src='/images/dashboards/entity_card.png' alt='Screenshot of the entity card'>
   Screenshot of the Entity card.
 </p>
 
-To add the Entity card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Entity** from the card picker.
+{% include dashboard/edit_dashboard.md %}
+
+All options for this card can be configured via the user interface.
+
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -56,9 +62,7 @@ footer:
   type: map
 {% endconfiguration %}
 
-## Example
-
-Alternatively, the card can be configured using YAML:
+### Example
 
 ```yaml
 - type: entity

@@ -90,7 +90,7 @@ contact:
           required: false
           type: string
         twitter:
-          description: Twitter username of the keymaster.
+          description: X username of the keymaster.
           required: false
           type: string
     irc:
@@ -98,7 +98,7 @@ contact:
       required: false
       type: string
     twitter:
-      description: The Twitter account of the Hackerspace.
+      description: The X account of the Hackerspace.
       required: false
       type: string
     facebook:
@@ -264,7 +264,7 @@ The list of sensors can be any sensor, not just temperature or humidity.
 
 ## Examples
 
-In this section you find some real-life examples of how to use this component.
+In this section you find some real-life examples of how to use this integration.
 
 ### Eastermundigen
 

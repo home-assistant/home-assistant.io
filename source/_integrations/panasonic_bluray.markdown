@@ -2,7 +2,7 @@
 title: Panasonic Blu-Ray Player
 description: Instructions on how to integrate a Panasonic Blu-Ray player into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Polling
 ha_release: 0.83
 ha_domain: panasonic_bluray
@@ -22,6 +22,12 @@ Currently known supported models:
 - DMP-BDT500
 - DMP-BBT01
 
+The following newer models currently support a limited set of status commands:
+
+- DP-UB420
+- DP-UB820
+- DP-UB9000
+ 
 If your model is not on the list, then give it a try, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_bluray.markdown).
 
 Example configuration:

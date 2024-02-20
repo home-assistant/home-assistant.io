@@ -2,9 +2,12 @@
 title: YoLink
 description: Instructions on how to integrate YoLink Devices into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
+  - Cover
+  - Light
   - Lock
+  - Number
   - Sensor
   - Siren
   - Switch
@@ -17,7 +20,10 @@ ha_domain: yolink
 ha_platforms:
   - binary_sensor
   - climate
+  - cover
+  - light
   - lock
+  - number
   - sensor
   - siren
   - switch
@@ -33,17 +39,40 @@ Home Assistant will use account linking provided by Nabu Casa for authenticating
 If you want to use separate credentials, please contact <service@yosmart.com> to obtain a `client_id` and `client_secret`. Then you can add your credentials via application credentials. Settings > Devices & Services > click the menu (three dots at the top right of the screen) and then **Application Credentials**. Enter your credentials in the pop-up window.
 {% enddetails %}
 
+## Services
+
+### `Play on SpeakerHub`
+
+With this service, you can convert text to speech for playback on SpeakerHub.
+
+Service data attribute | Optional | Description
+-|-|-
+`target_device` | no| SpeakerHub device ID for audio playback.
+`message` | no| Text for speech conversion.
+`tone` | no| Tone before playing audio.
+`volume` | no| Speaker volume during playback.
+`repeat` | no| The number of times the text will be repeated.
+
 The integration is tested and verified for the following devices from YoLink:
 
-* YS6602/4 (outlet | plug)
-* YS7103/4/5 (siren)
-* YS7704 (door sensor)
-* YS7804/5 (motion sensor)
-* YS7903/4 (leak sensor)
-* YS8003 (temperature/humidity sensor)
-* YS7201 (vibration sensor)
-* YS7607 (lock)
-* YS4909 (valve controller)
-* YS5705 (switch)
-* YS7A01 (CO & Smoke Sensor)
-* YS4002 (Thermostat)
+- YS6602/4 YS6704 (outlet | plug)
+- YS7103/4/5 (siren)
+- YS7704/7705/7706 (door sensor)
+- YS7707 (Contact Sensor)
+- YS7804/5 (motion sensor)
+- YS7903/4 (leak sensor)
+- YS8003/4/5/6 (temperature/humidity sensor)
+- YS7201 (vibration sensor)
+- YS7606/7 (lock)
+- YS4909 YS5001 (valve controller)
+- YS5705/6 (switch)
+- YS7A01/2 (CO & Smoke Sensor)
+- YS4002/3 (Thermostat)
+- YS4906/8 (Garage Door Sensor/ Garage Door Controller)
+- YS5707 (Dimmer)
+- YS6801/2 (MultiOutlet)
+- YS3604 (FlexFob)
+- YS7106 (PowerFailureAlar)
+- YS4908 (Finger)
+- YS7805 (Outdoor Motion Detector Sensor)
+- YS1604 (SpeakerHub)

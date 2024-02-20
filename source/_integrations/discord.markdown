@@ -11,10 +11,10 @@ ha_codeowners:
   - '@tkdrob'
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
+The [Discord service](https://discordapp.com/) is a platform for the notify integration. This allows integrations to send messages to the user using Discord.
 
 ## Prerequisites
 
@@ -35,27 +35,25 @@ The name you give your application on the [Discord My Apps page](https://discord
 
 ### Setting up the bot
 
-Bots can send messages to servers and users or attach locally available images. To add the bot to a server you are an admin on use the **Application ID** you noted above, found on the [Discord My Apps page](https://discordapp.com/developers/applications/me).
+Bots can send messages to servers and users or attach locally available images. To add the bot to a server you are an admin on, use the **Application ID** you noted above, found on the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
-<p class='img'>
-  <img src='/images/screenshots/discord-bot.png' />
-</p>
+![Screenshot of Discord bot config](/images/screenshots/discord-bot.png)
 
-Now use the Discord Authorization page with the **Application ID** of your [application](https://discordapp.com/developers/docs/topics/oauth2#bots).
+Next, decide what permissions your bot will have within your server. Under the 'Bot' section, select the permissions you want to grant and copy the permissions integer from the bottom field.
 
-`https://discordapp.com/api/oauth2/authorize?client_id=[APPLICATION_ID]&scope=bot&permissions=0`
+![Screenshot of Discord bot permissions](/images/screenshots/discord-bot-permissions.png)
 
-<p class='img'>
-  <img src='/images/screenshots/discord-auth.png' />
-</p>
+Now use the Discord Authorization page with the **Application ID** of your [application](https://discordapp.com/developers/docs/topics/oauth2#bots) and the **Permissions Integer**.
+
+`https://discordapp.com/api/oauth2/authorize?client_id=[APPLICATION_ID]&scope=bot&permissions=[PERMISSIONS_INTEGER]`
+
+![Screenshot of Discord bot auth](/images/screenshots/discord-auth.png)
 
 Wait for the confirmation which should say "Authorized".
 
-Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. In The Discord application go to **Settings** > **Advanced** > **Enable Developer Mode**.
+Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. Open Discord and go to **User Settings** > **Advanced** > **Enable Developer Mode**. User settings can be found next to your username in Discord.
 
-<p class='img'>
-  <img src='/images/screenshots/discord-api.png' />
-</p>
+![Screenshot of Discord bot create prompt](/images/screenshots/discord-api.png)
 
 Right click channel name and copy the channel ID (**Copy ID**).
 
@@ -67,13 +65,15 @@ This channel or a user ID has to be used as the target when calling the notifica
 
 When adding the Discord integration you will be asked for an API Key. Enter the hidden **Token** of your bot to link your Discord integration to the bot you created and allow Home Assistant to send messages as that bot.
 
-## Discord Service Data
+## Discord service data
 
 The following attributes can be placed inside the `data` key of the service call for extended functionality:
 
 | Attribute              | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `images`               |      yes | The file(s) to attach to message.
+| `urls`                 |      yes | The file(s) to download from a remote URL and attach to message.
+| `verify_ssl`           |      yes | A boolean to determine if SSL certs should be verified when calling the remote URLs in the `url` attribute. Defaults to `True`.
 | `embed`                |      yes | Array of [Discord embeds](https://discordpy.readthedocs.io/en/latest/api.html#embed). *NOTE*: if using `embed`, `message` is still required.
 
 To include messages with embedding, use these attributes underneath the `embed` key:
@@ -102,6 +102,22 @@ To include messages with embedding, use these attributes underneath the `embed` 
       - "/tmp/garage_cam"
       - "/tmp/garage.jpg"
 ```
+
+### Example service call with attachments sourced from remote URLs
+
+```yaml
+- service: notify.discord
+  data:
+    message: "A message from Home Assistant"
+    target: ["1234567890", "0987654321"]
+    data:
+      verify_ssl: False
+      urls: 
+      - "https://example.com/image.jpg"
+      - "https://example.com/video.mp4"
+```
+
+Note that `verify_ssl` defaults to `True`, and that any remote hosts will need to be in your [`allowlist_external_urls`](/docs/configuration/basic/#allowlist_external_urls) list. Discord limits attachment size to 8MB, so anything exceeding this will be skipped and noted in the error log.
 
 ### Example embed service call
 

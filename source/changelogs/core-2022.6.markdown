@@ -3,7 +3,7 @@ title: Full Changelog for Home Assistant Core 2022.6
 description: Detailed changelog for the Home Assistant Core 2022.6 release
 ---
 
-These are all the changes included in the Home Assistant Core 2202.6 release.
+These are all the changes included in the Home Assistant Core 2022.6 release.
 
 For a summary in a more readable format:
 [Release notes blog for this release](/blog/2022/06/01/release-20226/).

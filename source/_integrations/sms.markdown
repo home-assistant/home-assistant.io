@@ -26,56 +26,107 @@ This integration provides the following platforms:
 
 ## Notifications
 
-To configure the notification service, edit your `configuration.yaml` file:
-
-```yaml
-notify:
-  - platform: sms
-    name: sms_person1
-    recipient: PHONE_NUMBER
-  - platform: sms
-    name: sms_person2
-    recipient: PHONE_NUMBER
-```
-
-You can also receive SMS messages that are sent to the SIM card number in your device.
-Every time there is a message received, `event: sms.incoming_sms` is fired with date, phone number and text message.
+An SMS message can be sent by calling the `notify.sms`. It will send the message to all phone numbers specified in the `target` parameter.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-If the integration is used with the Home Assistant Operating System, then version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher is required.
+### Send message
 
-For installations not running on Home Assistant or Home Assistant Core using Docker, you must install `gammu-dev` package:
-
-```bash
-sudo apt-get install libgammu-dev
+```yaml
+action:
+  service: notify.sms
+  data:
+    message: "This is a message for you!"
+    target: "+5068081-8181"
 ```
 
-Before running for the first time, check that the system recognizes the modem by running:
+### Sending SMS using GSM alphabet
 
-```bash
-ls -l /dev/*USB*
+Some devices (receiving or sending) do not support Unicode (the default encoding). For these you can disable Unicode:
+
+```yaml
+action:
+  service: notify.sms
+  data:
+    message: "This is a message for you in ANSI"
+    target: "+5068081-8181"
+    data:
+      unicode: False
 ```
 
-Note: When running Home Assistant, you need to install the SSH add-on.
+### Getting SMS messages
 
-## Required Hardware
+You can also receive SMS messages that are sent to the SIM card number in your device.
+Every time there is a message received, `event: sms.incoming_sms` is fired with date, phone number and text message.
+Sample automation that forward all SMS to `user1`:
+
+#### Define a sensor in `configuration.yaml` to protect user phone number
+
+```yaml
+template:
+  - sensor:
+    - name: "User1 Phone Number"
+      state: !secret user1_phone_number
+```
+
+#### Define a script in `scripts.yaml` to use the sensor
+
+{% raw %}
+
+```yaml
+notify_sms_user1:
+  alias: "Notify via SMS to User1"
+  fields:
+    message:
+      description: "The message content"
+      example: "The light is on!"
+  sequence:
+  - service: notify.sms
+    data:
+      message: "{{ message }}"
+      target: "{{ states('sensor.user1_phone_number') }}"
+  mode: single
+  icon: mdi:chat-alert
+```
+
+{% endraw %}
+
+#### Putting it all together in `automations.yaml`
+
+{% raw %}
+
+```yaml
+- alias: "Forward SMS"
+  trigger:
+  - platform: event
+    event_type: sms.incoming_sms
+  action:
+  - service: script.notify_sms_user1
+    data:
+      message: |
+        From: {{trigger.event.data.phone}}
+        {{trigger.event.data.text}}  mode: single
+```
+
+{% endraw %}
+
+## Required hardware
 
 You will need a USB GSM stick modem or device like SIM800L v2 connected via USB UART.
 
 ### List of modems known to work
 - [SIM800C HAT form factor](https://www.amazon.com/gp/product/B07PQLRCNR/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) Make sure to `enable_uart=1` on your `config.txt` boot file.
 - [SIM800C](https://www.amazon.com/gp/product/B087Z6F953/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
-- [Huawei E3372-510](https://www.amazon.com/gp/product/B01N6P3HI2/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)(
-Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/convert-huawei-e3372h-153-from.html))
-- [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1)
+- [Huawei E3372](https://www.amazon.com/gp/product/B01N6P3HI2/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)(
+Note: E3372h-153 and E3372h-510 need to be unlocked [this guide](http://blog.asiantuntijakaveri.fi/2015/07/convert-huawei-e3372h-153-from.html), The Huawei E3372h-320 won't work at all, since it is locked down too much)
+- [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1) (note: Devices with firmware versions 22.XX need to be unlocked using [this guide](https://community.home-assistant.io/t/trouble-setting-up-huawei-e3531s-2-with-sms-notifications-via-gsm-modem-integration/462737/9?u=alexschmitz222))
 - [Huawei E3272](https://www.amazon.com/Huawei-E3272s-506-Unlocked-Americas-Europe/dp/B00HBL51OQ)
-- [SIM800C](https://www.amazon.com/gp/product/B087Z6F953/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 - ZTE K3565-Z
+- Lenovo F5521gw (mPCI-E)
 
 ### List of modems known to NOT work
 
-- No known modems
+- Huawei E3372h-320
 
 ### List of modems that may work
 

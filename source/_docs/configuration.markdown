@@ -3,22 +3,22 @@ title: "Configuration.yaml"
 description: "Configuring Home Assistant via text files."
 ---
 
-While you can configure most of Home Assistant directly from the user interface under {% my config %}, some parts need you to edit `configuration.yaml`. This file contains integrations to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
+While you can configure most of Home Assistant directly from the user interface under {% my config %}, some parts need you to edit `configuration.yaml`. This file contains {% term integrations %} to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
 
 If you run into trouble while configuring Home Assistant, refer to the [configuration troubleshooting page](/docs/configuration/troubleshooting/) and the [`configuration.yaml` examples](/examples/#example-configurationyaml).
 
 ## Editing `configuration.yaml`
 
-The easiest option to edit `configuration.yaml` is to use the {% my supervisor_addon title="Studio Code Server add-on" addon="a0d7b954_vscode" %}. This add-on runs VS Code, which  offers live syntax checking and auto-fill of various Home Assistant entities (if unavailable on your system, use {% my supervisor_addon title="File Editor add-on" addon="core_configurator" %} instead).
+The easiest option to edit `configuration.yaml` is to use the {% my supervisor_addon title="Studio Code Server add-on" addon="a0d7b954_vscode" %}. This add-on runs VS Code, which  offers live syntax checking and auto-fill of various Home Assistant entities. See [here](/common-tasks/supervised/#installing-and-using-the-visual-studio-code-vsc-add-on) for details. If unavailable on your system, use {% my supervisor_addon title="File Editor add-on" addon="core_configurator" %} instead. Again, details can be found [here](/common-tasks/supervised/#installing-and-using-the-file-editor-add-on).
 
-If you prefer to use a file editor on your computer, use the {% my supervisor_addon title="Samba add-on" addon="core_samba" %} to access the files as a network share.
+If you prefer to use a file editor on your computer, use the {% my supervisor_addon title="Samba add-on" addon="core_samba" %} to access the files as a network share. More details can be found [here](/common-tasks/supervised/#installing-and-using-the-samba-add-on).
 
-The path to your configuration directory can be found in the Home Assistant frontend by going to {% my system_health title="Settings > System > System Health" %}
+The path to your configuration directory can be found in the Home Assistant {% term frontend %} by going to {% my system_health title="Settings > System > Repairs > System information from the top right menu" %}
 
-<p class='img'>
-  <img src='/images/screenshots/system_health_config_dir.png' alt='Screenshot showing the top of the system health panel'>
-  Right under the version you are running, you will find what path Home Assistant has loaded the configuration from.
-</div>
+![Show system menu option](/images/screenshots/System_information_menu.png)
+
+Right under the version you are running, you will find what path Home Assistant has loaded the configuration from.
+![Screenshot showing the top of the system information panel](/images/screenshots/System_information.png)
 
 _If you use Home Assistant Container, you can find `configuration.yaml` in the config folder that you mounted in your container._
 
@@ -28,7 +28,7 @@ _If you use Home Assistant Core, you can find `configuration.yaml` in the config
 
 ## Reloading changes
 
-Most integrations in Home Assistant that do not interact with devices or services can reload changes made to their configuration in `configuration.yaml`. To do this, go to {% my server_controls title="Developer Tools > YAML" %} and scroll down to the YAML configuration reloading section (alternatively, hit "c" anywhere in the UI and search for it).
+Most integrations in Home Assistant that do not interact with {% term devices %} or {% term services %} can reload changes made to their configuration in `configuration.yaml`. To do this, go to {% my server_controls title="Developer Tools > YAML" %} and scroll down to the YAML configuration reloading section (alternatively, hit "c" anywhere in the UI and search for it).
 
 If you can't see your integration listed there, you will need to restart Home Assistant for changes to take effect.
 
@@ -40,6 +40,6 @@ If you can't see your integration listed there, you will need to restart Home As
 
 ## Migrating to a new system
 
-The preferred way of migrating to a new system is by {% my supervisor_backups title="making a backup" %}.
+The preferred way of migrating to a new system is by {% my supervisor_backups title="making a backup" %}. Once you have created the backup on the old system, you can download it to the system that is running the Home Assistant frontend. When setting up the new system, you may use the backup. Alternatively, you can upload it to your new system using the _Upload backup_ menu option of the _Backups_ menu. Then, a restore of the uploaded backup on the new system concludes the migration.
 
 If you run the container or core installation methods, you will need to manually make a backup of your configuration folder. Be aware that some of the files you need start with `.`, which is hidden by default from both `ls` (in SSH), in Windows Explorer, and macOS Finder. You'll need to ensure that you're viewing all files before you copy them.

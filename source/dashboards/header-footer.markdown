@@ -28,6 +28,10 @@ image:
   required: true
   description: The URL of an image.
   type: string
+alt_text:
+  required: false
+  description: Alternative text for the image. This is necessary for users of assistive technology. The [W3C images tutorial](https://www.w3.org/WAI/tutorials/images/) provides simple guidance for writing alternative text.
+  type: string  
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
@@ -69,7 +73,7 @@ entities:
       type: string
     icon:
       required: false
-      description: Override the entity icon. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
+      description: Override the entity icon. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
       type: string
     image:
       required: false

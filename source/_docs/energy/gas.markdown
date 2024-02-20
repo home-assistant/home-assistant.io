@@ -23,3 +23,12 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 
 ![Photo of SlimmeLezer attached to a smart electricity meter](/images/docs/energy/slimmelezer.jpg)
 
+#### Read the Gas Meter using an AI-on-the-edge-device
+
+[AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) is a project running on an ESP32-CAM and can be fully integrated into Home Assistant using the Home Assistant Discovery Functionality of MQTT. It digitalizes your gas/water/electricity meter display and provides its data in various ways. 
+
+![Photo of the AI-on-the-edge-device Workflow](/images/docs/energy/ai-on-the-edge-device.jpg)
+
+#### Read the Gas Meter using a magnetometer
+
+[Diaphragm gas meters](https://en.wikipedia.org/wiki/Gas_meter#Diaphragm/bellows_meters) are the most common type of gas meter, and their movement can frequently be observed with a magnetometer. The [QMC5883L](https://esphome.io/components/sensor/qmc5883l.html) is a common and inexpensive option that ESPHome supports. Many posts on the forums of users having luck with this method, such as [this one](https://community.home-assistant.io/t/water-gas-meter-monitoring-via-magnetometer-sine-wave-to-pulse-issue/245904).

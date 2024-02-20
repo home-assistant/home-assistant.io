@@ -1,13 +1,15 @@
 ---
-title: Media Extractor
-description: Instructions on how to integrate the Media Extractor into Home Assistant.
+title: Media extractor
+description: Instructions on how to integrate the Media extractor into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Calculated
 ha_release: 0.49
 ha_quality_scale: internal
 ha_domain: media_extractor
 ha_integration_type: integration
+ha_codeowners:
+  - '@joostlek'
 ---
 
 The `media_extractor` integration gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.
@@ -55,11 +57,11 @@ media_content_type: music
 
 Query examples with explanations:
 
- * **bestvideo**: Best video only stream
- * **best**: Best video + audio stream
- * **bestaudio[ext=m4a]**: Best audio stream with m4a extension
- * **worst**: Worst video + audio stream
- * **bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio**: Best m4a audio, otherwise best ogg audio and only then any best audio
+- **bestvideo**: Best video only stream
+- **best**: Best video + audio stream
+- **bestaudio[ext=m4a]**: Best audio stream with m4a extension
+- **worst**: Worst video + audio stream
+- **bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio**: Best m4a audio, otherwise best ogg audio and only then any best audio
 
 More info about queries can be found [here](https://github.com/ytdl-org/youtube-dl#format-selection).
 
@@ -69,8 +71,17 @@ Navigate to the **Services** tab inside **Developer Tools**. From the "Service" 
 
 This will download the file from the given URL.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name(s) of entities to seek media on, e.g., `media_player.living_room_chromecast`. Defaults to all.
-| `media_content_id`     |       no | The ID of the content to play. Platform dependent.
-| `media_content_type`   |       no | The type of the content to play. Must be one of MUSIC, TVSHOW, VIDEO, EPISODE, CHANNEL or PLAYLIST MUSIC.
+| Service data attribute | Optional | Description                                                                                               |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Name(s) of entities to seek media on, e.g., `media_player.living_room_chromecast`. Defaults to all.       |
+| `media_content_id`     | no       | The ID of the content to play. Platform dependent.                                                        |
+| `media_content_type`   | no       | The type of the content to play. Must be one of MUSIC, TVSHOW, VIDEO, EPISODE, CHANNEL or PLAYLIST MUSIC. |
+
+### Cookies
+
+Some supported video services provide a better experience when you are logged in. For example, if you use Twitch Turbo or are subscribed to a Twitch streamer, logging in prevents the video stream from showing an "An ad is currently playing. Come back after the break." message until the ad is over. Other examples are private or purchased YouTube videos which you can only watch while logged in.
+You can add a Netscape format cookie file in the Home Assistant configuration directory. The cookie file will be loaded each time a stream is loaded:
+
+```config/media_extractor/cookies.txt```
+
+To generate the cookie file, you can use a browser extension (like [Get Cookies.txt LOCALLY](https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc)). If you want to create one manually, follow this specification: [https://curl.se/rfc/cookie_spec.html](https://curl.se/rfc/cookie_spec.html).

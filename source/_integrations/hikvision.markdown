@@ -2,7 +2,7 @@
 title: Hikvision
 description: Instructions on how to set up Hikvision camera binary sensors within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.35
 ha_iot_class: Local Push
 ha_codeowners:
@@ -25,8 +25,8 @@ unchecking "Notify the surveillance center" in the camera configuration or by
 using the "ignored" customize option detailed below.
 
 <div class='note'>
-In order for the sensors to work the hikvision user must have the 'Remote: Notify Surveillance Center/Trigger Alarm Output' permission which can be enabled from the user management section of the web interface.
-Also the 'WEB Authentication' needs to be set to 'digest/basic' in the security/authentication section. Ensure this is applied on each individual camera in case of using an NVR.
+In order for the sensors to work the hikvision user must have the 'Remote: Notify Surveillance Center/Trigger Alarm Output' permission which can be enabled from the user management section of the web interface. If authentication issues persist after permissions are verified, try accessing using an admin user. Certain devices will only authenticate with an admin account despite permissions being set correctly.
+Also, the 'WEB Authentication' needs to be set to 'digest/basic' in the security/authentication section. Ensure this is applied on each individual camera in case of using an NVR.
 </div>
 
 For example, if you configure a camera with the name "Front Porch" that has
@@ -145,7 +145,6 @@ Supported sensor/event types are:
 - Motion
 - Line Crossing
 - Field Detection
-- Video Loss
 - Tamper Detection
 - Shelter Alarm
 - Disk Full

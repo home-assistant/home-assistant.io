@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `proliphix` climate platform let you control [Proliphix](http://www.proliphix.com) thermostat from Home Assistant.
+The `proliphix` climate platform let you control Proliphix thermostats from Home Assistant.
 
 Currently supported and tested thermostats:
 

@@ -10,21 +10,21 @@ ha_codeowners:
 ha_domain: yi
 ha_platforms:
   - camera
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The `yi` camera platform allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
 
-* Yi Home 17CN / 27US / 47US
-* Yi 1080p Home
-* Yi Dome
-* Yi 1080p Dome
+- Yi Home 17CN / 27US / 47US
+- Yi 1080p Home
+- Yi Dome
+- Yi 1080p Dome
 
 To successfully implement this platform, the Home Assistant host should be capable of multiple simultaneous reads. For every concurrent Home Assistant user, a connection will be made to the camera every 10 seconds. This should normally not be a problem.
 
-## Preparing the Device
+## Preparing the device
 
-### Installing Alternative Firmware
+### Installing alternative firmware
 
 In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3).
 If you have a 2019/2020 version camera use [yi-hack-MStar GitHub project](https://github.com/roleoroleo/yi-hack-MStar) or [yi-hack-Allwinner GitHub project](https://github.com/roleoroleo/yi-hack-Allwinner). In this case configure the cam as ONVIF and read the wiki for further details.
@@ -53,7 +53,7 @@ Some alternative Yi firmwares enable an experimental RTSP server, which will all
 
 </div>
 
-### Changing the FTP Password
+### Changing the FTP password
 
 Once the custom firmware is installed, a password must be added to the FTP
 server. To do so:
@@ -64,7 +64,7 @@ server. To do so:
 4. Enter your new password twice.
 5. Log out of Telnet.
 
-## Configuring the Platform
+## Configuring the platform
 
 To enable the platform, add the following lines to your`configuration.yaml` file:
 

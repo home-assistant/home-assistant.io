@@ -1,6 +1,6 @@
 ---
-title: "Template Alarm Control Panel"
-description: "Instructions on how to integrate Template Alarm Control Panels into Home Assistant."
+title: "Template Alarm control panel"
+description: "Instructions on how to integrate template alarm control panels into Home Assistant."
 ha_category: 
   - Alarm
 ha_release: 0.105
@@ -23,7 +23,7 @@ In optimistic mode, the alarm control panel will immediately change state after 
 
 ## Configuration
 
-To enable a Template Alarm Control Panel in your installation, add the following to your `configuration.yaml` file:
+To enable a template alarm control panel in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
 
@@ -50,7 +50,7 @@ alarm_control_panel:
           - condition: state
             entity_id: device_tracker.paulus
             state: "home"
-          - service: alarm_control_panel.alarm_arm_home
+          - service: alarm_control_panel.alarm_disarm
             target:
               entity_id: alarm_control_panel.real_alarm
             data:
@@ -129,6 +129,6 @@ State-based template entities have the special template variable `this` availabl
 
 ## Considerations
 
-If you are using the state of an integration that takes extra time to load, the Template Alarm Control Panel may get an `unknown` state during startup. This results in error messages in your log file until that integration has completed loading. If you use `is_state()` function in your template, you can avoid this situation.
+If you are using the state of an integration that takes extra time to load, the template alarm control panel may get an `unknown` state during startup. This results in error messages in your log file until that integration has completed loading. If you use `is_state()` function in your template, you can avoid this situation.
 
 For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an unknown result: {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}

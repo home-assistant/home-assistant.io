@@ -20,6 +20,7 @@ The integration allows you to control [Motion Blinds](https://motionblinds.com/)
 
 Additionally the following brands have been reported to also work with this integration:
 
+- [Acomax](https://www.acomax.de/)
 - [AMP Motorization](https://www.ampmotorization.com/)
 - [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [Bloc Blinds](https://www.blocblinds.com/)
@@ -32,9 +33,11 @@ Additionally the following brands have been reported to also work with this inte
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [Inspired Shades](https://www.inspired-shades.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
+- [Madeco](https://www.madeco.fr/)
 - [Martec](https://www.martec.co.nz/)
 - [Motion Blinds](https://motionblinds.com/)
 - [Raven Rock MFG](https://www.ravenrockmfg.com/)
+- [ScreenAway](https://www.screenaway.com.au/)
 - [Smart Blinds](https://www.smartblinds.nl/)
 - [Smart Home](https://www.smart-home.hu)
 - [Uprise Smart Shades](http://uprisesmartshades.com)
@@ -47,12 +50,17 @@ The following bridges are reported to work with this integration:
  - D1554 Connector mini-bridge
  - DD7002B Brel-Home box
  - D1554 Brel Home USB plug
+ - Brel HUB-03
+ - Acomax FX-I 620 Bridge Maxi
 
 {% include integrations/config_flow.md %}
 
 ## Retrieving the API Key
 
-### Motion Blinds app
+The 16 character API key needed to setup the Home Assistant integration needs to be retrieved by first connecting the blind/bridge to the official app of its respective brand.
+In that app the key can often be found by clicking multiple times on specific places on the "About" page.
+
+### Motion blinds app
 
 The Motion Blinds API uses a 16 character key that can be retrieved from the official "Motion Blinds" app for [IOS](https://apps.apple.com/us/app/motion-blinds/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
 
@@ -72,7 +80,7 @@ In the Brel Home app on Android go to the `me` page (home screen 4th tab), tap 5
 
 ### Bloc Blinds app
 
-The official Bloc Blinds app doesn't seem to hand out the API key on Android, it does seem to provide the API key on the iOS version of the official Bloc Blinds app.
+In the official Bloc Blinds app go to settings (three bars > gear icon), go to the `About` page, Tap five time on the bloc blinds icon in the middle and a pop-up with the key will be shown.
 
 ### Connector app
 Click the about page of the connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)).
@@ -86,14 +94,14 @@ Controlling the two bars can be done through three different entities that will 
 ### Top entity
 
 - 'Up/Open' will move the Top bar to the top of the window (absolute position 100).
-- 'Down/Close' will move the Top bar to the position of the Bottom bar, therefore, making the part of the window that is covered as small as possible, but the two bars will be at the position of the Bottom bar (not at the top of the window).
+- 'Down/Close' will move the Top bar to the position of the Bottom bar, therefore, making the part of the window that is covered as small as possible, but the two bars will be at the position of the Bottom bar (not at the top of the window). When the bars are moved completly together, the Top bar will not accept another "Down" command. First the Top bar needs to be moved up, even if the Bottom bar already moved further down.
 - 'Position' is the relative position in which the Top bar can move, so from the top of the window (100) to the position of the Bottom bar (0), note that the position will therefore change if the Bottom bar is moved, since the space in which the Top bar is allowed to move changes.
 - 'Absolute position' is the position of the Top bar with respect to the window, so 0 = bottom of the window and 100 = top of the window. Note that not all absolute positions are reachable at all moments due to the Bottom bar.
 - 'Width' is the percentage of the window covered by fabric (the space between the Top and Bottom bars).
 
 ### Bottom entity
 
-- 'Up/Open' will move the Bottom bar to the position of the Top bar.
+- 'Up/Open' will move the Bottom bar to the position of the Top bar. When the bars are moved completly together, the Bottom bar will not accept another "Up" command. First the Bottom bar needs to be moved down, even if the Top bar already moved further up.
 - 'Down/Close' will move the Top bar to the bottom of the window (absolute position 0).
 - 'Position' is the relative position in which the Bottom bar can move, so from the position of the Top bar (100) to the bottom of the window (0), note that the position will therefore change if the Top bar is moved, since the space in which the Bottom bar is allowed to move changes.
 - 'Absolute position' is the position of the Bottom bar with respect to the window, so 0 = bottom of the window and 100 = top of the window. Note that not all absolute positions are reachable at all moments due to the Top bar.
@@ -141,6 +149,14 @@ For tilt capable blinds a new position and tilt can be specified and the blind w
 
 ## Troubleshooting
 
+### Range of the gateway
+
+When the gateway is placed too far from the blinds, sometimes the blinds do react to commands from the gateway, but the gateway is not able to receive messages from the blinds. In those cases, the position of the blinds will not be reported correctly (both in Home Assistant and in the mobile app of the blinds). This can cause problems with specifically Top Down Bottom Up (TDBU) blinds since, for TDBUs, the requested position is checked to guard for collisions between the top and bottom motor; therefore, not all positions are allowed based on the current position of both motors. If the gateway does not receive the current position correctly, some commands may be wrongfully rejected to prevent collisions.
+
+Please try placing the gateway closer to the blinds if you experience issues.
+
+### Allowing UDP multicast communication
+
 Home Assistant uses the following UDP multicast addresses/ports for communication with the gateway:
 
 - Motion hub receive UDP multicast `238.0.0.18:32100`
@@ -160,7 +176,7 @@ For Ubiquiti routers/access points the "Enable multicast enhancement (IGMPv3)" s
 ### Bypassing UDP multicast
 
 If UDP Multicast does not work in your setup (due to network limitations), this integration can be used in local polling mode.
-Go to Settings -> Integrations -> on the already set up Motion Blinds integration click "configure" --> disable the "Wait for push" option (disabled by default).
+Go to Settings -> Integrations -> on the already set up Motion Blinds integration click "configure" --> disable the "Wait for multicast push on update" option (disabled by default).
 
 The default update interval of the Motion Blinds integration is every 10 minutes. When UDP multicast pushes do not work, this polling interval can be a bit high.
 To increase the polling interval:

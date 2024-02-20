@@ -5,11 +5,11 @@ ha_category:
   - Helper
   - Sensor
   - Utility
-ha_iot_class: Local Push
+ha_iot_class: Calculated
 ha_release: 0.31
 ha_quality_scale: internal
 ha_codeowners:
-  - '@fabaff'
+  - '@gjohansson-ST'
 ha_domain: min_max
 ha_config_flow: true
 ha_platforms:
@@ -17,11 +17,11 @@ ha_platforms:
 ha_integration_type: helper
 ---
 
-The Min/Max integration consumes the state from other sensors to determine the minimum, maximum, latest (last), mean and median of the collected states.
+The Min/Max integration consumes the state from other sensors to determine the minimum, maximum, latest (last), mean, median, range and sum of the collected states.
 
 The sensor provided by this integration will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/integrations/statistics) first.
 
-If the source sensor provides an unknown state, it will be ignored in the calculation. If the unit of measurement of the sensors differs, the Min/Max sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.
+If the source sensor provides an unknown state, it will be ignored in the calculation except for sum where it will set the state to unknown. If the unit of measurement of the sensors differs, the Min/Max sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -30,14 +30,14 @@ Name:
 Input entities:
   description: At least two entities to monitor. All entities must use the same unit of measurement.
 Type:
-  description: The type of the sensor, this can be either "min", "max", "last", "mean", or "median".
+  description: The type of the sensor, this can be either "min", "max", "last", "mean", "median", "range" or "sum".
 Precision:
-  description: Round the calculated mean or median value to at most N decimal places.
+  description: Round the calculated mean, median or sum value to at most N decimal places.
 {% endconfiguration_basic %}
 
-## YAML Configuration
+## YAML configuration
 
-Alternatlively, this integration can be configured and set up manually via YAML
+Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the Integration sensor in your installation, add the
 following to your `configuration.yaml` file:
 
@@ -57,7 +57,7 @@ entity_ids:
   required: true
   type: [list, string]
 type:
-  description: "The type of sensor: `min`, `max`, `last`, `mean` or `median`."
+  description: "The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range` or `sum`."
   required: false
   default: max
   type: string
@@ -70,4 +70,8 @@ round_digits:
   required: false
   type: integer
   default: 2
+unique_id:
+  description: Unique id to be able to configure the entity in the UI.
+  required: false
+  type: string
 {% endconfiguration %}

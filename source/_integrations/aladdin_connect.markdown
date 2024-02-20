@@ -8,13 +8,16 @@ ha_iot_class: Cloud Polling
 ha_domain: aladdin_connect
 ha_platforms:
   - cover
+  - diagnostics
+  - sensor
 ha_integration_type: integration
 ha_codeowners:
   - '@mkmer'
 ha_config_flow: true
+ha_quality_scale: platinum
 ---
 
-The `aladdin_connect` cover platform lets you control Genie Aladdin Connect garage doors through Home Assistant.
+The Aladdin Connect integration lets you control Genie Aladdin Connect garage doors through Home Assistant.
 
 <div class='note'>
 Only doors that are owned by your Aladdin Connect account will be available. Doors that your account has been granted shared access to are not yet supported.

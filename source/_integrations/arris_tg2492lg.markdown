@@ -1,9 +1,8 @@
 ---
 title: Arris TG2492LG
 description: Instructions on how to integrate Arris TG2492LG routers into Home Assistant.
-logo: arris.jpg
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.109
 ha_domain: arris_tg2492lg
 ha_codeowners:
@@ -18,8 +17,8 @@ This platform allows you to detect presence by looking at connected devices to a
 
 This is one of the routers provided by:
 
-* [Ziggo](https://www.ziggo.nl/), a cable operator in the Netherlands, to their customers as the Ziggo Connectbox.
-* [Virgin Media](https://www.virginmedia.com/), a cable operator in the United Kingdom, to their customers as the Hub 3.
+- [Ziggo](https://www.ziggo.nl/), a cable operator in the Netherlands, to their customers as the Ziggo Connectbox.
+- [Virgin Media](https://www.virginmedia.com/), a cable operator in the United Kingdom and Ireland, to their customers as the Hub 3.
 
 <div class='note warning'>
 The router prevents the admin user from logging in twice. This can cause problems with accessing the router's configuration pages while this platform is active.
