@@ -66,7 +66,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 3. Select the **Develop** tab at the top of the page, then, in the upper right hand corner, select the **Test** button to generate the draft version Test App. If you don't see this option, go to the **Test** tab instead, select the **Settings** button in the top right below the header, and ensure **On device testing** is enabled (if it isn't, enable it).
 
-4. Enable device sync
+4. Enable device sync ([see below for more information](#enable-device-sync)).
     1. Go to [Google Cloud Platform](https://console.cloud.google.com/).
     2. Go to **Select a project**.
     3. In the window that popped up, select your newly created project from step 1.
@@ -118,7 +118,7 @@ If you want to allow other household users to control the devices:
 
 If you want to support active reporting of state to Google's server (configuration option `report_state`) and synchronize Home Assistant devices with the Google Home app (`google_assistant.request_sync` service), you will need to create a service account. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration. This allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting)).
 
-The service account is created by following Step 4 (Enable device sync) of the previous tutorial.
+The service account is created by following Step 4 (Enable device sync) in the previous section [Google Cloud Platform configuration](#google-cloud-platform-configuration).
 
 Try it with "OK Google, sync my devices" - the Google Home app should import your exposed Home Assistant devices and prompt you to assign them to rooms.
 
