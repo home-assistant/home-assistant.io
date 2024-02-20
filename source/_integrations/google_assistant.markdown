@@ -68,28 +68,28 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 4. Enable device sync
     1. Go to [Google Cloud Platform](https://console.cloud.google.com/).
-    1. Go to **Select a project**.
-    2. In the window that popped up, select your newly created project from step 1.
-    3. Go to the menu and select **APIs and Services** and next **Credentials**.
-    4. In the **Credentials** view, select **Create credentials** and next **Service account**.
+    2. Go to **Select a project**.
+    3. In the window that popped up, select your newly created project from step 1.
+    4. Go to the menu and select **APIs and Services** and next **Credentials**.
+    5. In the **Credentials** view, select **Create credentials** and next **Service account**.
         1. **Service account name**: Give your account a self-selected name.
         2. Select **Create and Continue**.
         3. Under **Select a role**, select **Service Accounts** > **Service Account Token Creator**.
         4. Select **Continue** and then **Done**.
-    5. Under **Service Accounts**, there should now be an account called [name from 4.1]@[projectname].iam.gserviceaccount.com.
-    6. Select the pencil button of that service account.
-    7. Go to **Keys** and **Add key**.
-    8. Create a private key in JSON format.
-    9. This will start a download of a JSON file.
+    6. Under **Service Accounts**, there should now be an account called [name from 4.1]@[projectname].iam.gserviceaccount.com.
+    7. Select the pencil button of that service account.
+    8. Go to **Keys** and **Add key**.
+    9. Create a private key in JSON format.
+    10. This will start a download of a JSON file.
         1. Rename the file to `SERVICE_ACCOUNT.JSON`.
         2. Add this file to your config-folder. This will be the same folder as your `configuration.yaml`.
-    10. Go back to [Google Cloud Platform](https://console.cloud.google.com/) and select **Close**.
-    11. Then select **Save**.
-    12. Go to the **Search products and resources** and search for **Homegraph API** and select it.
-    13. Enable the HomeGraph API.
+    11. Go back to [Google Cloud Platform](https://console.cloud.google.com/) and select **Close**.
+    12. Then select **Save**.
+    13. Go to the **Search products and resources** and search for **Homegraph API** and select it.
+    14. Enable the HomeGraph API.
 
-6. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
-7. Add services in the Google Home App (note that app versions may be slightly different).
+5. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
+6. Add services in the Google Home App (note that app versions may be slightly different).
     1. Open the Google Home app.
     2. Select the `+` button on the top left corner, select **Set up device**. In the **Set up a device** screen, select **Works with Google**. You should have `[test] <Action Name>` listed under **Add new**. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
 
@@ -364,13 +364,13 @@ This error may occur if the service key is invalid. Try deleting and creating a 
 
 #### NGINX
 
-When using NGINX, ensure that your `proxy_pass` line *does not* have a trailing `/`, as this will result in errors. Your line should look like:
+When using NGINX, ensure that your `proxy_pass` line _does not_ have a trailing `/`, as this will result in errors. Your line should look like:
 
     proxy_pass http://localhost:8123;
 
 ### Unlink and relink
 
-If you're having trouble with *Account linking failed* after you unlinked your service, try clearing the browser history and cache.
+If you're having trouble with _Account linking failed_ after you unlinked your service, try clearing the browser history and cache.
 
 ### Failed linking - Could not update the setting. Please check your connection
 
