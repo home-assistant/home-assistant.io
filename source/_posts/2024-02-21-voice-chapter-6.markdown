@@ -25,7 +25,7 @@ Oh, and "one more thing": **on-device, open source wake word detection in ESPHom
 Check out this video of the new [microWakeWord] system running on an [ESP32-S3-BOX-3] alongside one doing wake word detection inside Home Assistant:
 
 <p class='img'>
-<lite-youtube videoid="XEreXC_4W34" videotitle="Wake Word Demo"></lite-youtube>
+<lite-youtube videoid="oSKBWtBJyDE" videotitle="On-device wake word is here! Demonstrating microWakeWord on the ESP32-S3-BOX-3 in Home Assistant."></lite-youtube>
 On-device vs. streaming wake word
 </p>
 
