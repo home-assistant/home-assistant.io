@@ -22,7 +22,6 @@ For authentication, the integration requires the `email` and `password` you used
 
 {% include integrations/config_flow.md %}
 
-
 ## Services
 
 You can use the services from the [to-do list](/integrations/todo/) to create, update or delete items on your Bring! shopping lists.
@@ -46,7 +45,6 @@ The **Bring** integration offers a service to send push notifications to the Bri
 | shopping_done | Shopping done - you can relax |
 | urgent_message | Breaking news - Please get 'item name' ! |
 
-
 ### Sending a going shopping notification
 
 ```yaml
@@ -54,9 +52,8 @@ The **Bring** integration offers a service to send push notifications to the Bri
 action:
   service: bring.push_notification
   data:
-    data:
-      entity_id: todo.bring_shoppinglist
-      notification_type: going_shopping 
+    entity_id: todo.bring_shoppinglist
+    notification_type: going_shopping 
 ```
 
 ### Sending an urgent message notification
@@ -68,8 +65,7 @@ Note that for the notification type `urgent_message` the attribute `item_name` i
 action:
   service: bring.push_notification
   data:
-    data:
-      entity_id: todo.bring_shoppinglist
-      notification_type: urgent_message
-      item_name: Cilantro
+    entity_id: todo.bring_shoppinglist
+    notification_type: urgent_message
+    item_name: Cilantro
 ```
