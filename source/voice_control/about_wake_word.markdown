@@ -87,7 +87,7 @@ Because openWakeWord is too large to run on low-power devices like the S3-BOX-3,
 <p><img src='/images/assist/assist_open-vs-micro-wake-word.png' class='no-shadow' /></p>
 
 Doing wake word detection on Home Assistant allows low-power devices like the [M5 ATOM Echo Development Kit][m5-tutorial] to simply stream audio and let all of the processing happen elsewhere.
-The downside is that adding more voice assistants requires more CPU usage in HA as well as more network traffic.
+The downside is that adding more voice assistants requires more CPU usage in Home Assistant as well as more network traffic.
 
 Enter *microWakeWord*; a more light-weight model based on [Google's Inception neural network](https://towardsdatascience.com/a-simple-guide-to-the-versions-of-the-inception-network-7fc52b863202). Because his new model is not as large, it can be run on low-power devices with an ESP32 chip, such as the ESP32-S3 chip inside the S3-BOX-3! _(It also works on the, now discontinued, S3-BOX and S3-BOX-Lite)_.
 
