@@ -46,7 +46,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
    - Your ESP32-S3-BOX is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
 
 10. If you want, you can process the wake word on the ESP32-S3 device, rather than on your Home Assistant server. (The server is the device where Home Assistant is installed, for example on Home Assistant Green).
-    - Under **Devices**, on the ESP32-S3-BOX entry, select **Device** to open the device page.
+    - Under **Devices**, on the ESP32-S3-BOX-3 entry, select **Device** to open the device page.
     - Under **Wake word engine location**, select **On device**, if you want your wake word to be processed locally.
       - Local processing is faster.
       - The wake word is now *Okay Nabu*.
@@ -55,7 +55,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 11. If you chose on-device wake word, but you do not want to use *Okay Nabu*, you can change the on-device wake word.
     - Currently, *Hey Jarvis* or *Alexa* are the supported alternatives.
-    - To change your wake word, follow the steps in [Customizing the S3-BOX with on-device wake words](/voice_control/s3-box-customize/#customizing-on-device-wake-words-microwakeword).
+    - To change your wake word, follow the steps in [Customizing the S3-BOX-3 with on-device wake words](/voice_control/s3-box-customize/#customizing-on-device-wake-words-microwakeword).
 12. Congratulations! You can now voice control Home Assistant via a ESP32 device with a display. Now give some commands.
 
 ## Controlling Home Assistant

@@ -185,13 +185,15 @@ If you are running the latest version of ESPHome on your device, you can already
 ### Prerequisites
 
 - Home Assistant 2024.2, installed with the Home Assistant Operating System. If you do not have Home Assistant installed yet, refer to the [installation page](/installation/) for instructions.
-- Successfully [installed ESPHome on the S3-BOX](/voice_control/s3_box_voice_assistant/)
+- Successfully [installed ESPHome on the S3-BOX-3](/voice_control/s3_box_voice_assistant/)
 - ESPHome 2024.2 or later
 - Home Assistant server with at least 2&nbsp;GB of RAM
-  - The firmware needs to be compiled on the server before it is installed on the S3-BOX.
+  - The firmware needs to be compiled on the server before it is installed on the S3-BOX-*.
   - Compiling requires a bit of RAM.
 
-### To customize the S3-BOX with on-device wake words
+(It also works on the, now discontinued, S3-BOX and S3-BOX-Lite)_
+
+### To customize the S3-BOX-* with on-device wake words
 
 1. If you haven't done so already, [adopt the device in the ESPHome add-on](#adopting-the-device-in-the-esphome-add-on).
 2. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
@@ -210,7 +212,7 @@ If you are running the latest version of ESPHome on your device, you can already
 
 5. Save the changes and in the top right corner, select **Install**.
    - Depending on your environment, the installation process can take a while.
-   - On Home Assistant Green, for example, it takes about 45 minutes.86. Once the installation is complete, you can see the new image on the S3-BOX.
+   - On Home Assistant Green, for example, it takes about 45 minutes.86. Once the installation is complete, you can see the new image on the S3-BOX-3.
 6.  - Now, speak a command to test the new setting. For example, *OK Nabu, turn on the light*.
 
 ## Related topics
