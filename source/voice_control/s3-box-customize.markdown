@@ -178,15 +178,9 @@ If your images have transparency, you can define the background color in the con
    - Snap a picture of each.
    - [Follow these steps](#to-prepare-your-own-images) to bring them onto your Voice Assistant.
 
-## Customize on-device wake words (microWakeWord)
+## Customizing on-device wake words (microWakeWord)
 
-If you are running the latest version of ESPHome on your device, you can already process your wake word on your S3-BOX (instead of running it on the Home Assistant server), using *Okay Nabu*. This is done using the [microWakeWord](https://github.com/kahrendt/microWakeWord) model. The following steps show you how to change the on-device wake word.
-
-Currently, the following wake words can be processed on-device (using the microWakeWork model):
-
-- *Okay Nabu*
-- *Hey Jarvis*
-- *Alexa*
+If you are running the latest version of ESPHome on your device, you can already process your wake word on your S3-BOX (instead of running it on the Home Assistant server), using *Okay Nabu*. This is done using the [microWakeWord](https://github.com/kahrendt/microWakeWord) model. You can also change the on-device wake word to *Hey Jarvis* or *Alexa*.
 
 ### Prerequisites
 
