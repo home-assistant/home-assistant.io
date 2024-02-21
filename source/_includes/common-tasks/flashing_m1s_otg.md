@@ -30,7 +30,7 @@ To flash your eMMC using OTG-USB, you will need the following items:
 1. Connect the ODROID-M1S to your PC via the micro-USB port. 
 2. When the ODROID-M1S is recognized as a USB connected storage device, you can flash the eMMC with [Etcher](https://www.balena.io/etcher/).
 ![ums](https://wiki.odroid.com/_media/odroid-m1s/getting_started/disk_management.png)
-   - Use the latest stable version of Home Assistant OS for the [ODROID-M1S](https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos['odroid-m1S']}}/haos_odroid-m1s-{{site.data.version_data.hassos['odroid-m1s']}}.img.xz).
+   - Use the latest stable version of Home Assistant OS for the [ODROID-M1S](https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos['odroid-m1s']}}/haos_odroid-m1s-{{site.data.version_data.hassos['odroid-m1s']}}.img.xz).
    - In Balena, use **Flash from file**. **Flash from URL** does not work on all systems.
 
 3. When the flash process is complete, disconnect the ODROID-M1S from your PC.
