@@ -84,8 +84,6 @@ The [microWakeWord](https://github.com/kahrendt/microWakeWord) created by [Kevin
 
 Because openWakeWord is too large to run on low-power devices like the S3-BOX-3, openWakeWord runs wake word detection on the Home Assistant server.
 
-<p><img src='/images/assist/assist_open-vs-micro-wake-word.png' class='no-shadow' /></p>
-
 Doing wake word detection on Home Assistant allows low-power devices like the [M5 ATOM Echo Development Kit](/voice_control/thirteen-usd-voice-remote/) to simply stream audio and let all of the processing happen elsewhere.
 The downside is that adding more voice assistants requires more CPU usage in Home Assistant as well as more network traffic.
 
