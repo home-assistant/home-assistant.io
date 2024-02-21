@@ -39,7 +39,7 @@ ha_integration_type: device
 ha_quality_scale: platinum
 ---
 
-Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
+Integrate [Shelly devices](https://shelly.com) into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
