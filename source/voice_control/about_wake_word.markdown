@@ -82,14 +82,14 @@ As an example, we’re also making the **Porcupine (v1)** wake word engine avail
 
 The [microWakeWord] created by [Kevin Ahrendt] enables ESPHome to detect wake words on devices like the ESP32-S3-BOX-3.
 
-Because openWakeWord is too large to run on low power devices like the S3-BOX-3, openWakeWord runs wake word detection on the Home Assistant server.
+Because openWakeWord is too large to run on low-power devices like the S3-BOX-3, openWakeWord runs wake word detection on the Home Assistant server.
 
 <p><img src='/images/assist/assist_open-vs-micro-wake-word.png' class='no-shadow' /></p>
 
-Doing wake word detection in HA allows tiny devices like the [M5 ATOM Echo Development Kit][m5-tutorial] to simply stream audio and let all of the processing happen elsewhere.
+Doing wake word detection in HA allows low-power devices like the [M5 ATOM Echo Development Kit][m5-tutorial] to simply stream audio and let all of the processing happen elsewhere.
 The downside is that adding more voice assistants requires more CPU usage in HA as well as more network traffic.
 
-Enter *microWakeWord*; a more light-weight model based on [Google's Inception neural network](https://towardsdatascience.com/a-simple-guide-to-the-versions-of-the-inception-network-7fc52b863202). Because his new model is not as large, it can be run on the ESP32-S3 chip inside the S3-BOX-3!
+Enter *microWakeWord*; a more light-weight model based on [Google's Inception neural network](https://towardsdatascience.com/a-simple-guide-to-the-versions-of-the-inception-network-7fc52b863202). Because his new model is not as large, it can be run on low-power devices with an ESP32 chip, such as the ESP32-S3 chip inside the S3-BOX-3! _(It also works on the, now discontinued, S3-BOX and S3-BOX-Lite)_.
 
 Currently, there are [three models](https://github.com/esphome/micro-wake-word-models/tree/main/models) trained for microWakeWord:
 
