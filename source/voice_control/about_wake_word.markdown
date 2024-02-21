@@ -93,9 +93,9 @@ Enter *microWakeWord*; a more light-weight model based on [Google's Inception ne
 
 Currently, there are [three models](https://github.com/esphome/micro-wake-word-models/tree/main/models) trained for microWakeWord:
 
-* "okay nabu"
-* "hey jarvis"
-* "alexa"
+- *okay nabu*
+- *hey jarvis*
+- *alexa*
 
 ## Try it!
 
