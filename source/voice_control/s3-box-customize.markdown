@@ -178,16 +178,24 @@ If your images have transparency, you can define the background color in the con
    - Snap a picture of each.
    - [Follow these steps](#to-prepare-your-own-images) to bring them onto your Voice Assistant.
 
-## Customizing the S3-BOX with on-device wake words
+## Customize on-device wake words (microWakeWord)
 
-If you are running the latest version of ESPHome on your device, you can already process your wake word locally on your S3-BOX. 
-Do these steps if you do not have the latest version of ESPHome or if you want to change the wake word itself.
+If you are running the latest version of ESPHome on your device, you can already process your wake word on your S3-BOX (instead of running it on the Home Assistant server), using *Okay Nabu*. This is done using the [microWakeWord](https://github.com/kahrendt/microWakeWord) model. The following steps show you how to change the on-device wake word.
 
-Currently, the following wake words can be processed locally:
+Currently, the following wake words can be processed on-device (using the microWakeWork model):
 
-- *OK Nabu*
+- *Okay Nabu*
 - *Hey Jarvis*
 - *Alexa*
+
+### Prerequisites
+
+- Home Assistant 2024.2, installed with the Home Assistant Operating System. If you do not have Home Assistant installed yet, refer to the [installation page](/installation/) for instructions.
+- Successfully [installed ESPHome on the S3-BOX](/voice_control/s3_box_voice_assistant/)
+- ESPHome 2024.2 or later
+- Home Assistant server with at least 2&nbsp;GB of RAM
+  - The firmware needs to be compiled on the server before it is installed on the S3-BOX.
+  - Compiling requires a bit of RAM.
 
 ### To customize the S3-BOX with on-device wake words
 
@@ -197,7 +205,7 @@ Currently, the following wake words can be processed locally:
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 
-4. To add the wake word you want to be processed on the S3-Box, add the following line into the `substitutions` block.
+4. To change the wake word, add the following line into the `substitutions` block.
    - Instead of `okay_nabu`, you can also use `alexa` or `hey_jarvis`.
 
      ```yaml
@@ -207,8 +215,8 @@ Currently, the following wake words can be processed locally:
      ```
 
 5. Save the changes and in the top right corner, select **Install**.
-6. Save the changes.
    - Depending on your environment, the installation process can take a while.
+   - On Home Assistant Green, for example, it takes about 45 minutes.
 7. Once the installation is complete, you can see the new image on the S3-BOX.
    - Now, speak a command to test the new setting. For example, *OK Nabu, turn on the light*.
 
@@ -221,3 +229,7 @@ Currently, the following wake words can be processed locally:
 - [General troubleshooting section for Assist](/voice_control/troubleshooting/)
 - [Troubleshooting the ESP32-S3-BOX-3](/voice_control/troubleshooting_the_s3_box/)
 - [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
+- [microWakeWord]
+
+[microWakeWord]: https://github.com/kahrendt/microWakeWord
+[Kevin Ahrendt]: https://www.kevinahrendt.com/
