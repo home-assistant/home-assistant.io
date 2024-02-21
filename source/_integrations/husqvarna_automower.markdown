@@ -3,6 +3,7 @@ title: Husqvarna Automower
 description: Instructions on how to integrate Husqvarna Automower lawn mowers into Home Assistant.
 ha_category:
   - Lawn Mower
+  - Sensor
 ha_release: 2024.3
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -10,6 +11,7 @@ ha_codeowners:
   - '@Thomas55555'
 ha_platforms:
   - lawn_mower
+  - sensor
 ha_integration_type: integration
 ha_domain: husqvarna_automower
 ---
@@ -83,3 +85,19 @@ The integration will create a lawn mower entity to control the mower. This entit
 - Resume the schedule
 - Pause mowing
 - Park until next schedule
+
+### Sensor
+
+The integration will create the following sensors:
+
+- Battery level
+- Number of charging cycles
+- Number of collisions
+- Cutting blade usage time (if available)
+- Total charging time
+- Total cutting time
+- Total running time
+- Total searching time
+- Total drive distance
+- Next start
+- Mode
