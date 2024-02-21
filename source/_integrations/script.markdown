@@ -139,12 +139,12 @@ Mode | Description
 
 As part of the service, variables can be passed along to a script so they become available within templates in that script.
 
-To configure a script to accept variables using the UI, the variables can be added as Fields in the script editor.
-1. In the script editor, in the 3-dots menu, click Add Fields.
-2. A new section called Fields is added between the basic information and Sequence sections.
-3. Choose the name, type, and options of each desired Field.
-4. Fields set up here will be shown in other UI editors, such as in an Automation that calls the Script as inputs depending on the type of Field.
-5. To use the Field data, use them as templates using the "field key name" when they were added, as shown below.
+To configure a script to accept variables using the UI, the variables can be added as fields in the script editor.
+1. In the script editor, in the 3-dots menu, select **Add fields**.
+2. A new section called **Fields** is added between the basic information and **Sequence** sections.
+3. Enter a name and choose type and options of each desired field.
+4. Fields set up here will be shown in other UI editors, such as in an automation that calls the script as inputs depending on the type of field.
+5. To use the field data, use them as templates using the **Field key name** when they were added, as shown in the example below.
 
 Using the variables in the script requires the use of templates:
 
@@ -172,7 +172,7 @@ script:
 ```
 {% endraw %}
 
-Aside from the Automation editor UI, variables can be passed to Scripts within the service data. This can be used either by calling the script directly or the generic `script.turn_on` service. The difference is described in [Waiting for Script to Complete](#waiting-for-script-to-complete). All service data will be made available as variables in templates, even if not specified as Fields in the Script. This example shows calling the Script directly:
+Aside from the automation editor UI, variables can be passed to scripts within the service data. This can be used either by calling the script directly or the generic `script.turn_on` service. The difference is described in [Waiting for Script to Complete](#waiting-for-script-to-complete). All service data will be made available as variables in templates, even if not specified as fields in the script. This example shows how to the script directly:
 
 {% raw %}
 ```yaml
@@ -217,7 +217,10 @@ automation:
 
 <div class='note'>
 
-Script variables that may be used by templates include those provided from the configuration as Fields, those that are passed as data when started from a service, and the `this` variable whose value is a dictionary of the current script's state.
+Script variables that may be used by templates include the following: 
+- those provided from the configuration as fields
+- those that are passed as data when started from a service, 
+- the `this` variable the value of which is a dictionary of the current script's state.
 
 </div>
 
@@ -306,6 +309,7 @@ script: 
 
 
 ## Video tutorial
+
 This video tutorial explains how scripts work, how to use fields in scripts, and how to use response variables in scripts.
 
 <lite-youtube videoid="vD_xckjQxRk" videotitle="Mastering Scripts in Home Assistant: A Comprehensive Guide" posterquality="maxresdefault"></lite-youtube>
