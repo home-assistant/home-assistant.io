@@ -30,4 +30,4 @@ The integration will create a climate entity to control the vehicle's climate co
 
 - Turn on and off
 - Change the set temperature
-- Change to one of the four modes: Off, Keep mode, Dog mode, and Camp mode 
+- Change to one of the four modes: Off, Keep mode, Dog mode, and Camp mode

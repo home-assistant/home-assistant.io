@@ -4,11 +4,19 @@ description: Instructions on how to integrate your La Marzocco coffee machine wi
 ha_release: 2024.2
 ha_category:
   - Switch
+  - Update
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: lamarzocco
 ha_platforms:
+  - binary_sensor
+  - button
+  - diagnostics
+  - number
+  - select
+  - sensor
   - switch
+  - update
 ha_codeowners:
   - '@zweckj'
 ha_integration_type: device
@@ -95,4 +103,3 @@ Host:
 |-------------|-------------| ------------------------| ---------------------- |
 | Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
 | Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
-

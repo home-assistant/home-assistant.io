@@ -63,3 +63,7 @@ data:
 target:
   entity_id: all
 ```
+
+## Switches
+
+The integration creates a switch for the Pi-hole allowing you to toggle the Pi-hole on and off.

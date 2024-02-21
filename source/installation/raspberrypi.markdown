@@ -122,7 +122,7 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 6. **Select target**.
 ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
 7. Select the SD card you want to use for your installation.
-![Screenshot of the Etcher software showing teh targets available.](/images/installation/etcher4.png)
+![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
 8. Select **Flash!** to start writing the image.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
 9. Once Balena Etcher has finished writing the image, you will see a confirmation.
