@@ -197,7 +197,7 @@ If you are running the latest version of ESPHome on your device, you can already
 
 1. If you haven't done so already, [adopt the device in the ESPHome add-on](#adopting-the-device-in-the-esphome-add-on).
 2. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
-3. On the **ESP32-S3-BOX-3** add-on, select edit.
+3. On the **ESP32-S3-BOX-3** entry, select edit.
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 
@@ -211,7 +211,7 @@ If you are running the latest version of ESPHome on your device, you can already
      ```
 
 5. Save the changes and in the top right corner, select **Install**.
-   - Depending on your environment, the installation process can take a while.
+   - Depending on your environment, the installation process can take a while. (On Home Assistant Green, for example, it takes about 45 minutes.)
    - On Home Assistant Green, for example, it takes about 45 minutes.86. Once the installation is complete, you can see the new image on the S3-BOX-3.
 6.  - Now, speak a command to test the new setting. For example, *OK Nabu, turn on the light*.
 

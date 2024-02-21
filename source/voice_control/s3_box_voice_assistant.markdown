@@ -47,7 +47,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 10. If you want, you can process the wake word on the ESP32-S3 device, rather than on your Home Assistant server. (The server is the device where Home Assistant is installed, for example on Home Assistant Green).
     - Under **Devices**, on the ESP32-S3-BOX-3 entry, select **Device** to open the device page.
-    - Under **Wake word engine location**, select **On device**, if you want your wake word to be processed locally.
+    - Under **Wake word engine location**, select **On device**, if you want your wake word to be processed on the device itself, and not in Home Assistant.
       - Local processing is faster.
       - The wake word is now *Okay Nabu*.
 
