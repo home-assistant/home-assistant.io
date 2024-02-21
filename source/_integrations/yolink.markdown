@@ -65,7 +65,6 @@ The integration is tested and verified for the following devices from YoLink:
 - YS4003-UC (YoLink Thermostat Heatpump)
 - YS4906-UC + YS7706-UC (Garage Door Kit 1)
 - YS4908-UC + YS7706-UC (Garage Door Kit 2 (Finger))
-- YS4909 YS5001 (valve controller)
 - YS4909-UC (Water Valve Controller)
 - YS5001-UC (X3 Water Valve Controller)
 - YS5002-UC (YoLink Motorized Ball Valve)
