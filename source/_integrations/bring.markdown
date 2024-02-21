@@ -43,7 +43,7 @@ The **Bring** integration offers a service to send push notifications to the Bri
 | going_shopping| I'm going shopping! - Last chance for adjustments |
 | changed_list | List changed - Check it out |
 | shopping_done | Shopping done - you can relax |
-| urgent_message | Breaking news - Please get 'item name' ! |
+| urgent_message | Breaking news - Please get `item name`! |
 
 ### Sending a going shopping notification
 
