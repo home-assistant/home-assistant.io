@@ -216,9 +216,8 @@ Currently, the following wake words can be processed on-device (using the microW
 
 5. Save the changes and in the top right corner, select **Install**.
    - Depending on your environment, the installation process can take a while.
-   - On Home Assistant Green, for example, it takes about 45 minutes.
-7. Once the installation is complete, you can see the new image on the S3-BOX.
-   - Now, speak a command to test the new setting. For example, *OK Nabu, turn on the light*.
+   - On Home Assistant Green, for example, it takes about 45 minutes.86. Once the installation is complete, you can see the new image on the S3-BOX.
+6.  - Now, speak a command to test the new setting. For example, *OK Nabu, turn on the light*.
 
 ## Related topics
 
