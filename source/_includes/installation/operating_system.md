@@ -216,7 +216,7 @@ Use this method only if Method 1 does not work for you.
 9. Select **Flash!** to start writing the image.
    - If the operation fails, decompress the .xz file and try again.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-1.  When Balena Etcher has finished writing the image, you will see a confirmation.
+   1.  When Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
