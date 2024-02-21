@@ -222,7 +222,7 @@ If you are running the latest version of ESPHome on your device, you can already
 - [General troubleshooting section for Assist](/voice_control/troubleshooting/)
 - [Troubleshooting the ESP32-S3-BOX-3](/voice_control/troubleshooting_the_s3_box/)
 - [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
-- [microWakeWord]
+- [microWakeWord](https://github.com/kahrendt/microWakeWord)
 
 [microWakeWord]: https://github.com/kahrendt/microWakeWord
 [Kevin Ahrendt]: https://www.kevinahrendt.com/

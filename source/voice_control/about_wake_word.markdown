@@ -80,7 +80,7 @@ As an example, we’re also making the **Porcupine (v1)** wake word engine avail
 
 ## About on-device wake word processing (microWakeWord)
 
-The [microWakeWord] created by [Kevin Ahrendt] enables ESPHome to detect wake words on devices like the ESP32-S3-BOX-3.
+The [microWakeWord](https://github.com/kahrendt/microWakeWord) created by [Kevin Ahrendt](https://www.kevinahrendt.com/) enables ESPHome to detect wake words on devices like the ESP32-S3-BOX-3.
 
 Because openWakeWord is too large to run on low-power devices like the S3-BOX-3, openWakeWord runs wake word detection on the Home Assistant server.
 
