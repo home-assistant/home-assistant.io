@@ -180,7 +180,7 @@ If your images have transparency, you can define the background color in the con
 
 ## Customizing on-device wake words (microWakeWord)
 
-You can also change the on-device wake word (microWakeWord) that is used on your S3-BOX-3.
+You can change the on-device wake word (microWakeWord) that is used on your S3-BOX-3.
 
 Do the following steps if one of the following options apply:
 
