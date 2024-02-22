@@ -178,14 +178,18 @@ If your images have transparency, you can define the background color in the con
    - Snap a picture of each.
    - [Follow these steps](#to-prepare-your-own-images) to bring them onto your Voice Assistant.
 
-## Customizing on-device wake words (microWakeWord)
+## Installing on-device wake words (microWakeWord)
 
-You can change the on-device wake word (microWakeWord) that is used on your S3-BOX-3.
+Follow these steps if you want to enable your S3-BOX-3 to process wake word on-device, instead of running it on the Home Assistant server. This is done using the [microWakeWord](https://github.com/kahrendt/microWakeWord) model.
 
-Do the following steps if one of the following options apply:
+How you get started with microWakeWord depends on your current setup:
 
-- **Option 1**: Your first installation of the S3-BOX-3 is ESPHome 2024.2. In this case, it already supports the on-device wake word *Hey Jarvis*. Follow these steps only if you want to change the wake word. The currently supported on-device wake words are *Okay Nabu*, *Hey Jarvis*, or *Alexa*.
-- **Option 2**: You have an existing S3-BOX-3 running an older version of ESPHome. In this case, the S3-BOX-3 is not updated automatically to support on-device wake word. Follow these steps if you want to update the firmware to process your wake word on your S3-BOX-3, instead of running it on the Home Assistant server. This is done using the [microWakeWord](https://github.com/kahrendt/microWakeWord) model.
+1. If you just installed ESPHome for the first time on your S3-BOX-3 (February 22 and later, ESPHome 2024.2 or later), there is nothing for you to do here.
+   - In this case, it already supports the on-device wake word *Hey Jarvis*.
+   - What you can do, however, is [customize the wake word](#customizing-on-device-wake-words-microwakeword). The currently supported on-device wake words are *Okay Nabu*, *Hey Jarvis*, or *Alexa*.
+2. If you installed ESPHome prior to February 22 on your S3-BOX-3, you need to change your configuration. Follow these steps:
+
+*(It also works on the (now discontinued) S3-BOX and S3-BOX-Lite)*
 
 ### Prerequisites
 
@@ -195,6 +199,48 @@ Do the following steps if one of the following options apply:
 - Home Assistant server with at least 2&nbsp;GB of RAM
   - The firmware needs to be compiled on the server before it is installed on the S3-BOX-3.
   - Compiling requires a bit of RAM.
+
+*(It also works on the (now discontinued) S3-BOX and S3-BOX-Lite)*
+
+### To install on-device wake words on the S3-BOX-3
+
+1. If you haven't done so already, [adopt the device in the ESPHome add-on](#adopting-the-device-in-the-esphome-add-on).
+2. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
+3. On the **ESP32-S3-BOX-3** entry, select edit.
+   - **Result**: An editor opens, showing the configuration file.
+   ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
+
+4. Edit the path listed in the `esphome.voice-assistant` entry:
+
+     ```yaml
+     packages:
+        esphome.voice-assistant: github://esphome/firmware/wake-word-voice-assistant/esp32-s3-box.yaml@main
+     ```
+
+5. Save the changes and in the top right corner, select **Install**.
+   - Depending on your environment, the installation process can take a while.
+   - On Home Assistant Green, for example, it takes about 45 minutes.
+6. Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX** listed.
+    - On the ESP32-S3-BOX-3 entry, select **Device** to open the device page.
+    - Under **Wake word engine location**, select **On device**.
+
+      ![ESP32-S3-BOX-3 on device wake word processing](/images/assist/wake_word_engine_location.png)
+
+7.  - Now, speak a command to test the new setting. For example, *OK Nabu, turn on the light*.
+
+## Customizing on-device wake words (microWakeWord)
+
+You can change the on-device wake word (microWakeWord) that is used on your S3-BOX-3.
+
+### Prerequisites
+
+- Home Assistant 2024.2, installed with the Home Assistant Operating System. If you do not have Home Assistant installed yet, refer to the [installation page](/installation/) for instructions.
+- Successfully [installed ESPHome on the S3-BOX-3](/voice_control/s3_box_voice_assistant/)
+- ESPHome 2024.2 or later
+- Home Assistant server with at least 2&nbsp;GB of RAM
+  - The firmware needs to be compiled on the server before it is installed on the S3-BOX-3.
+  - Compiling requires a bit of RAM.
+- [On-device wake word installed](#installing-on-device-wake-words-microwakeword) on your S3-BOX-3.
 
 *(It also works on the (now discontinued) S3-BOX and S3-BOX-Lite)*
 
@@ -216,9 +262,8 @@ Do the following steps if one of the following options apply:
      ```
 
 5. Save the changes and in the top right corner, select **Install**.
-   - Depending on your environment, the installation process can take a while. (On Home Assistant Green, for example, it takes about 45 minutes.)
+   - Depending on your environment, the installation process can take a while.
    - On Home Assistant Green, for example, it takes about 45 minutes.
-   - Once the installation is complete, you can see the new image on the S3-BOX-3.
 6. Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX** listed.
     - On the ESP32-S3-BOX-3 entry, select **Device** to open the device page.
     - Under **Wake word engine location**, select **On device**.

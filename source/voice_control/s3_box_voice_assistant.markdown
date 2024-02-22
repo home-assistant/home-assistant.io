@@ -91,4 +91,4 @@ Before you can use this device with Home Assistant, you need to install a bit of
 - [Troubleshooting the ESP32-S3-BOX-3](/voice_control/troubleshooting_the_s3_box/)
 - [ESPHome projects page](https://esphome.io/projects/index.html)
 - [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
-- [Customizing the S3-BOX with on-device wake words](/voice_control/s3-box-customize/#customizing-on-device-wake-words-microwakeword)
+- [Customizing the S3-BOX with on-device wake words](/voice_control/s3-box-customize/#customizing-on-device-wake-words-microwakeword)- 
