@@ -5,6 +5,7 @@ ha_category:
   - Switch
   - Sensor
   - Light
+  - Cover
 ha_release: 2024.3
 ha_codeowners:
   - '@microBeesTech'
@@ -15,6 +16,7 @@ ha_platforms:
   - switch
   - sensor
   - light
+  - cover
 ha_integration_type: integration
 ---
 
@@ -28,5 +30,6 @@ There is currently support for the following device types within Home Assistant:
 - **Switch**
 - **Sensor**
 - **Light**
+- **Cover**
 
 {% include integrations/config_flow.md %}
