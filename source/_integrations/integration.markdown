@@ -90,7 +90,7 @@ method:
   required: false
   type: string
   default: trapezoidal
-max_dt:
+max_age:
   description: "If the source sensor is constant this duration will be used for time based updates."
   required: false
   type: time
@@ -102,7 +102,7 @@ The unit of `source` together with `unit_prefix` and `unit_time` is used to gene
 
 Riemann Sum is a approximation of an integral by a finite sum and is therefore intrinsically inaccurate, nonetheless, values can be more or less accurate.
 
-The integration method defines how to calculate the area under the source sensor when it changes. The config max_dt defines when to trigger integration if the source sensor is constant.
+The integration method defines how to calculate the area under the source sensor when it changes. The config max_age defines when to trigger integration if the source sensor is constant.
 
 ### Trapezoidal
 
@@ -129,7 +129,7 @@ sensor:
     name: energy_spent
     unit_prefix: k
     round: 2
-    max_dt:
+    max_age:
       minutes: 5
 ```
 
