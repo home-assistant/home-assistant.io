@@ -58,6 +58,10 @@ Periodically resetting:
   description: >
     Enable this if the source sensor state is expected to reset to 0, for example, a smart plug that resets on boot.
     When this option is disabled (for example, if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and the last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
+Sensor always available:
+  description: >
+    If activated, the sensor will always be available with the last totalized value, even if the source entity is unavailable or unknown.
+    You need to understand that with this option activated, when the source entity becomes unavailable, the utility meter sensor will have the last totalized value and will not change until the source entity returns to a valid state.
 {% endconfiguration_basic %}
 
 If the meter reset cycle and reset offsets are to limited for your use case,
@@ -124,6 +128,11 @@ periodically_resetting:
   description: Enable this if the source sensor state is expected to reset to 0, for example, a smart plug that resets on boot. When this option is disabled (for example, if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and the last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
   required: false
   default: true
+  type: boolean
+always_available:
+  description: If activated, the sensor will always be available with the last totalized value, even if the source entity is unavailable or unknown.
+  required: false
+  default: false
   type: boolean
 {% endconfiguration %}
 

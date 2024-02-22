@@ -28,11 +28,12 @@
     installed on Home Assistant OS.
 - term: Area
   definition: >-
+    An area in Home Assistant is a logical grouping of devices and entities that are meant to match areas (or rooms) in the physical world: your home. For example, the `living room` area groups devices and entities in your living room. Areas allow you to target service calls at an entire group of devices. For example, turning off all the lights in the living room.
     Locations within your home such as living room, dance floor, etc.
-    Devices can be associated to an area for easier sorting and automatically
+    Areas can also be used for automatically
     generated cards, such as the [Area card](/dashboards/area/).
   excerpt: >-
-    Places within your home such as rooms, spaces, etc.
+    An area in Home Assistant is a logical grouping of devices and entities that are meant to match areas (or rooms) in the physical world: your home. For example, the `living room` area groups devices and entities in your living room.
   aliases:
     - areas
 - term: Automation
@@ -74,6 +75,14 @@
     A blueprint is a script or automation configuration with certain parts marked as configurable. This allows users to create multiple scripts or automations based on the same blueprint, with each having its own configuration-specific settings.
   aliases:
     - blueprints
+- term: Commissioning
+  definition: >-
+    In the context of Matter devices, *commissioning* is the process of adding a device to a Matter controller. It is the equivalent of pairing a device in Zigbee or Z-Wave. Commissioning is done by scanning a QR code or entering a code manually. The code is printed on the device or its packaging. The code contains information about the device, such as its type, manufacturer, and serial number. The controller uses this information to identify the device and to download the required information to control the device. For example, the controller downloads the device's capabilities, such as the supported commands and the available attributes. The controller also downloads the device's configuration, such as the device's name and location.
+  link: /integrations/matter/
+  aliases:
+    - commission
+  excerpt: >
+    In the context of Matter devices, *commissioning* is the process of adding a device to a Matter controller. It is the equivalent of pairing a device in Zigbee or Z-Wave.
 - term: Component
   definition: >-
     Better known as: Integrations. Integrations used to be known as components.
@@ -178,6 +187,7 @@
     Home Assistant Core they usually refer to a standalone installation method
     that can be installed using a Virtual Environment or Docker. Home Assistant
     Core does not use the Home Assistant Supervisor.
+  link: /installation/#advanced-installation-methods
   excerpt: >
     Home Assistant Core is the hart of Home Assistant itself. It is a Python
     program that powers every installation type, but can be installed standalone.
@@ -190,21 +200,24 @@
   excerpt: >
     Home Assistant Supervised is the full Home Assistant ecosystem, without the
     Home Assistant Operating System.
+  link: /installation/#advanced-installation-methods
 - term: Home Assistant Supervisor
   definition: >-
     The Home Assistant Supervisor is a program that manages a Home Assistant
     installation, taking care of installing and updating Home Assistant,
     add-ons, itself and, if used, updating the Home Assistant Operating System.
+  link: /installation/#advanced-installation-methods
 - term: Home Assistant Operating System
   definition: >-
     Home Assistant OS, the Home Assistant Operating System, is an embedded,
     minimalistic, operating system designed to run the Home Assistant ecosystem
     on single board computers (like the Raspberry Pi) or Virtual Machines.
     The Home Assistant Supervisor can keep it up to date, removing the need for
-    you to manage an operating system.
+    you to manage an operating system. Home Assistant Operating System is the recommended installation method for most users.
   excerpt: >
     Home Assistant OS, the Home Assistant Operating System, is an embedded,
-    minimalistic, operating system designed to run the Home Assistant ecosystem.
+    minimalistic, operating system designed to run the Home Assistant ecosystem. It is the recommended installation method for most users.
+  link: /installation/#advanced-installation-methods
 - term: Host
   definition: >-
     A device that can communicate with other devices on a network. During setup and configuration,
@@ -286,7 +299,7 @@
     are normally automatically updated. However, changes made outside of the front
     end will not be reflected in Home Assistant and require a reload.
     To perform a manual reload, go to **Settings** > **System** >
-    **Restart Home Assistant** (top right) > **Quick reload**. More granular
+    **Restart Home Assistant** (top right) > **Quick reload**. If you do not see the **Quick reload** option in the menu, you need to enable **Advanced mode** in your user settings. More granular
     reload options are available in *YAML configuration reloading* section
     in **Developer tools** > **YAML**.
   excerpt: >
@@ -375,6 +388,12 @@
   link: /integrations/thread/
   excerpt: >
     Thread is a low-power mesh networking standard that is specifically designed for smart home applications. It is a protocol that defines how devices communicate.
+- term: Thread border router
+  definition: >-
+    A Thread border router forwards data packets between your local network and the Thread network. This enables smart home devices within a Thread network to communicate with IPv6-capable devices in your local network. A Thread border router is connected to your network either via Wi-Fi or Ethernet and uses its radio frequency (RF) radio to communicate with the Thread mesh network. In case of Matter, the data that is forwarded is encrypted. Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod mini, and the Home Assistant SkyConnect together with the OpenThread Border Router add-on.
+  link: /integrations/thread/#about-thread-border-routers
+  aliases:
+    - Thread border routers
 - term: Trigger
   definition: >-
     A trigger is a set of values or conditions of a platform that are defined

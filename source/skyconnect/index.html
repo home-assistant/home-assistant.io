@@ -1,7 +1,7 @@
 ---
 layout: landingpage
 title: "Home Assistant SkyConnect"
-description: "Best way to add Zigbee and Matter to Home Assistant"
+description: "Best way to add Zigbee and Thread to Home Assistant"
 date: 2022-10-05
 tagline: Home Assistant SkyConnect
 tagline_wide: false
@@ -76,10 +76,10 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
       <div class="banner-overlay-header">Available now</div>
       <div class="banner-overlay-content">
         The Home Assistant SkyConnect is the easiest way to add Zigbee support
-        to your Home Assistant instance and make it Matter-ready.
+        to your Home Assistant instance.
         <br /><br />
-        A future firmware update will bring Thread support; allowing SkyConnect
-        to power your Matter and Zigbee networks at the same time.
+        We will soon add Thread support; allowing your Home Assistant SkyConnect
+        to be used to connect to Thread-based Matter devices.
       </div>
     </div>
     <div class="material-card text box">
@@ -122,27 +122,6 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
       <span>Automatically detected by Home Assistant</span>
     </div>
   </div>
-</div>
-
-<div class="material-card text multi-pan">
-  <h1>Concurrent Zigbee and Thread on a single chip</h1>
-  <p>
-    Out of the box the Home Assistant SkyConnect will support only Zigbee. We're
-    working on a firmware update that makes it possible to run both Zigbee and
-    Thread at the same time. Thread is the mesh networking protocol that powers
-    Matter, the new standard for smart home devices.
-  </p>
-  <p>
-    Once available, Home Assistant SkyConnect will run part of the software that
-    normally runs inside Zigbee and Thread chips inside Home Assistant add-ons.
-    These add-ons will be installed and updated automatically without requiring
-    user interaction.
-  </p>
-  <p style="margin-bottom: 0">
-    We will make this multi-protocol set-up first available for Home Assistant
-    OS installations. We will be looking into making this available for Home
-    Assistant Supervised and Home Assistant Container installations afterwards.
-  </p>
 </div>
 
 <div class="sub-title">Specifications</div>
@@ -196,26 +175,14 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
 
 <h1 class="sub-title">FAQs</h1>
 <div class="faq-list">
-  {% details "Why start with Home Assistant OS support for multi-protocol?" %} A
-  standalone Zigbee or standalone Thread stick works by turning radio signals
-  into radio packets and then processing those radio packets and making that
-  available over a serial port.<br /><br />
-  With multi-protocol, the processing of the radio packets is moved into Linux
-  daemons. This means we run one daemon to split the radio packets into Zigbee
-  and Thread streams, one daemon to process the Zigbee radio packets and one
-  daemon to process the Thread radio packets.<br /><br />
-  To make this all work together, we need to strictly manage the version of the
-  firmware on the stick and the three different Linux daemons. The easiest way
-  for us to do this is using Home Assistant add-ons in a known host environment,
-  which is Home Assistant OS. {% enddetails %} {% details "Why include a USB
-  extension cable?" %} USB 3.0 ports (the ones with blue on the inside)
-  are known to cause significant noise and radio interference to any 2.4Ghz
-  wireless devices. This includes Zigbee and Thread. If you do not use the
-  extension cable, it may not work at all, and if it does, it could be flaky at
-  best with intermittent problems (issues with pairing, device dropouts, unreachable
-  devices, timeout errors, etc).
+  {% details "Why include a USB extension cable?" %} USB 3.0 ports (the ones with blue on the inside) are known to cause significant noise and radio interference to any 2.4Ghz  wireless devices. This includes Zigbee and Thread. If you do not use the extension cable, it may not work at all, and if it does, it could be flaky at best with intermittent problems (issues with pairing, device dropouts, unreachable devices, timeout errors, etc).
   <br><br>
   <a href="https://www.youtube.com/watch?v=tHqZhNcFEvA">See demo on YouTube.</a> {% enddetails %}
+  {% details "Which use case do you recommend for Home Assistant SkyConnect?" %}
+  Our current recommendation for Home Assistant SkyConnect is to use the Zigbee firmware to power your Zigbee network. This solution offers a great experience out-of-the-box.<br /><br />
+  As part of our efforts to bring Matter to Home Assistant, we're now focused on ensuring that the Thread experience will catch up and become a first-class citizen, making it easy to connect to your Thread-based Matter devices in Home Assistant without a third-party Thread border router. The Thread firmware is already fully functional under the hood, but we still have some work to do to make the experience of using Thread-based devices in Home Assistant feel good. Once the experience has improved, we will recommend using this Thread firmware to power your Thread network as an alternative to using third-party Thread border routers from Apple or Google.{% enddetails %}
+  {% details "What is the current state of multiprotocol support?" %} When we launched Home Assistant SkyConnect, we announced our intent to release a firmware supporting multiprotocol, which allows the Silicon Labs chip to connect to both Zigbee and Thread networks with one radio. This experimental firmware has been available since December 2022. It integrates the Silicon Labs SDK, which adds this support for multiprotocol. During the further development and testing of the multiprotocol firmware, we have concluded that while Silicon Labs' multiprotocol works, it comes with technical limitations. These limitations mean users will not have the best experience compared to using dedicated Zigbee and Thread radios. That is why we do not recommend using this firmware, and it will remain an experimental feature of Home Assistant SkyConnect. If you currently have the multiprotocol firmware installed but don't actively use it to connect to Thread devices, we recommend that you <a href="https://skyconnect.home-assistant.io/procedures/disable-multiprotocol/">disable multiprotocol</a>.<br /><br />
+  Nothing changes for current users of the multiprotocol firmware who are happy with their experience. The experimental multiprotocol firmware will remain available, but we will not recommend it to new users. Instead, we will focus on making sure the dedicated Zigbee and Thread firmwares for Home Assistant SkyConnect deliver the best experience to users.{% enddetails %}
 </div>
 
 <div style="margin-top: 24px; text-align: center; font-size: .8rem;">
@@ -310,6 +277,36 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
         </div>
       </a>
 
+      <a href="https://cloudfree.shop/product/home-assistant-skyconnect/" target="_blank">
+        <div class="distributor">
+          <div>
+            <div>🇺🇸</div>
+            <div>CloudFree</div>
+            <div>Shipping from US</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a href="https://www.domadoo.fr/fr/box-domotique/6938-dongle-usb-zigbee-30-sky-connect-pour-home-assistant-nabu-casa-0794677011635.html" target="_blank">
+        <div class="distributor">
+          <div>
+            <div>🇫🇷</div>
+            <div>Domadoo</div>
+            <div>Shipping from France</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
       <a
         href="https://shop.everythingsmart.io/products/home-assistant-skyconnect"
         target="_blank"
@@ -355,6 +352,24 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
             <div>🇳🇱</div>
             <div>HAshop</div>
             <div>Shipping from the Netherlands</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a
+      href="https://mauser.pt/catalog/product_info.php?products_id=095-1222"
+      target="_blank"
+      >
+        <div class="distributor">
+          <div>
+            <div>🇵🇹</div>
+            <div>Mauser</div>
+            <div>Shipping from Portugal</div>
           </div>
           <svg width="24" height="24" viewBox="0 0 24 24">
             <path
@@ -535,6 +550,24 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
             <div>🇬🇧</div>
             <div>The Pi Hut</div>
             <div>Shipping from the United Kingdom</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a
+        href="https://www.wifishop.ro/home-assistant-45/home-assistant-skyconnect.html"
+        target="_blank"
+      >
+        <div class="distributor">
+          <div>
+            <div>🇷🇴</div>
+            <div>WIFIShop</div>
+            <div>Shipping from Romania</div>
           </div>
           <svg width="24" height="24" viewBox="0 0 24 24">
             <path
