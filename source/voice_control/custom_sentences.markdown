@@ -164,7 +164,6 @@ responses:
 
 {% endraw %}
 
-
 ## Related topics
 
 - [View existing intents](https://developers.home-assistant.io/docs/intent_builtin/)
@@ -173,3 +172,5 @@ responses:
 - [Assist for Apple](/voice_control/apple/)
 - [Assist for Android](/voice_control/android/)
 - [Conversation response script action](/docs/scripts/#respond-to-a-conversation)
+- [Sentence triggers](/docs/automation/trigger/#sentence-trigger)
+- [Sentence wildcards](/docs/automation/trigger/#sentence-wildcards)
