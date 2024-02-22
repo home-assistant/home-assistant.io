@@ -14,6 +14,7 @@ If you have not set up voice control yet, set up the hardware first. For instruc
 
 - [World's most private voice assistant](/voice_control/worlds-most-private-voice-assistant/): Using a classic landline phone
 - [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/): Using a button with speaker and mic
+- [S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/): Using a small device with speaker, mic, and display
 - [Assist for Apple](/voice_control/apple/): Using your iPhone, Mac, or Apple watch
 - [Assist for Android](/voice_control/android/): Using your Android phone, tablet, or a Wear OS watch
 
@@ -29,7 +30,27 @@ If you have not set up voice control yet, set up the hardware first. For instruc
    - Then, select **Set conversation response**.
      ![Set conversation response](/images/assist/assist_set-conversation-response.png)
 5. In the text field, enter the response you want to hear from Assist and select **Save**.
-   ![Enter the response text](/images/assist/assist_set-conversation-response_02.png)
+
+   ![Enter the response text](/images/assist/assist_set-conversation-response_02.png)  
+
+   - You can also use [wildcards](/docs/automation/trigger/#sentence-wildcards). For example, the trigger:
+
+      ```yaml
+      play {album} by {artist}
+      ```
+
+      could have the response:
+
+      {% raw %}
+
+      ```yaml
+      Playing {{ trigger.slots.album }} by {{ trigger.slots.artist }}
+      ```
+
+      {% endraw %}
+
+   - For more details, refer to [conversation response script action](/docs/scripts/#respond-to-a-conversation).
+ 
 6. To test the automation, go to **Overview** and in the top right corner, open Assist.
    - Enter one of the sentences.
 7. If it did not work out, checkout the [troubleshooting](/voice_control/troubleshooting/) section.
@@ -144,11 +165,17 @@ responses:
 
 {% endraw %}
 
-
 ## Related topics
 
 - [View existing intents](https://developers.home-assistant.io/docs/intent_builtin/)
 - [Create aliases](/voice_control/aliases/)
+- [Conversation response script action](/docs/scripts/#respond-to-a-conversation)
+- [Sentence triggers](/docs/automation/trigger/#sentence-trigger)
+- [Sentence wildcards](/docs/automation/trigger/#sentence-wildcards)
+
+### Related devices and installation tutorials
+
 - [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/)
+- [S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/)
 - [Assist for Apple](/voice_control/apple/)
 - [Assist for Android](/voice_control/android/)
