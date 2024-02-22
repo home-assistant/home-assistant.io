@@ -31,6 +31,8 @@ Variants without pre-installed Home Assistant:
 - ODROID N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650?ref=eeb6nfw07e) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418?ref=eeb6nfw07e)
 - [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e)
 - [ODROID M1](https://ameridroid.com/products/odroid-M1?ref=eeb6nfw07e)
+- [ODROID M1S: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-m1s?variant=47425396474135?ref=eeb6nfw07e)
+- [ODROID M1S: 8 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-m1s?variant=47425396506903?ref=eeb6nfw07e)
 
 - [Power Supply](https://ameridroid.com/products/12v-2a-power-supply-plug?ref=eeb6nfw07e)
 - [CR2032 Coin Cell](https://ameridroid.com/products/rtc-bios-battery?ref=eeb6nfw07e)
