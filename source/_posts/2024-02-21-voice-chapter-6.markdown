@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Voice - Chapter 6"
-description: "Improved errors and ESPHome wake word"
+title: "On device wake word on ESP32-S3 is here - Voice: Chapter 6"
+description: "Improved errors, more intents and on device ESPHome wake word"
 date: 2024-02-21 00:00:00
 date_formatted: "February 21, 2024"
 author: Michael Hansen
