@@ -168,8 +168,8 @@ Use this method only if Method 1 does not work for you.
 
       If you are using an ODROID M1S, you need to follow this guide to [boot your device into UMS mode](/common-tasks/os/#flashing-an-odroid-m1s).
     {% endif %}
-4. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
-5. Download the image to your computer.
+3. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
+4. Download the image to your computer.
    - Copy the URL for the image.
    - If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}.
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
