@@ -24,26 +24,12 @@ To flash your eMMC using OTG-USB, you will need the following items:
       (balena Etcher will complain that something went wring during flashin. You can ignore this message)
 3. Plug-in that SD card to your ODROID-M1S and boot it.
 
-### Flashing Home Assistant
+### Flashing Home Assistant M1S
+1. Download the latest stable version of Home Assistant OS for the [ODROID-M1S](https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos['odroid-m1s']}}/haos_odroid-m1s-{{site.data.version_data.hassos['odroid-m1s']}}.img.xz).
+2. Apart from the HAOS image to flash (M1S instead of N2+ version), you can follow the N2+ step-by-step flashing guide [HERE](/common-tasks/os/#flashing-home-assistant).
 
-1. Connect the ODROID-M1S to your PC via the micro-USB port. 
-2. When the ODROID-M1S is recognized as a USB connected storage device, you can flash the eMMC with [Etcher](https://www.balena.io/etcher/).
-![ums](https://wiki.odroid.com/_media/odroid-m1s/getting_started/disk_management.png)
-   - Use the latest stable version of Home Assistant OS for the [ODROID-M1S](https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos['odroid-m1s']}}/haos_odroid-m1s-{{site.data.version_data.hassos['odroid-m1s']}}.img.xz).
-   - In Balena, use **Flash from file**. **Flash from URL** does not work on all systems.
 
-3. When the flash process is complete, disconnect the ODROID-M1S from your PC.
-   - Remove the power cable.
-   - Remove the micro-USB cable
-
-4. Connect your ODROID-M1S to your network with an Ethernet cable and plug in power.
-
-5. If your router supports mDNS, you can reach your installation at `http://homeassistant.local:8123`. 
-   - If your network doesn’t support mDNS, you’ll have to use the IP address of your ODROID-M1S instead of `homeassistant.local`. For example, `http://192.168.0.9:8123`. 
-   - You should be able to find the IP address of your ODROID-M1S from the admin interface of your router.
-6. Continue with [onboarding](/getting-started/onboarding/).
-
-### _HK Recovery_
+#### _HK Recovery_
 If you want to restore your M1S back into Hardkernels initial state, you will have to restore the HK's bootloader.
 A reliable way of reflashing the eMMC in this case is to use HAOS booted from an SD card. To do that, insert the SD card with HAOS to the micro SD slot and plug the board in. Once the device boots to the HA CLI, enter `login` to enter the root shell and use `curl` to download an image and `dd` it to the eMMC block device:
 
