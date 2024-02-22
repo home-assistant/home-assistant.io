@@ -586,7 +586,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
   ```
 
   {% endraw %}
-
+- `is_datetime(value)` checks wether the input value is a datetime object, returns a boolean value. This function can also be used as filter `| is_datetime`.
 - `as_datetime()` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts datetime object to local time. This function can also be used as a filter.
