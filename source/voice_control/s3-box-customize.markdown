@@ -187,7 +187,7 @@ You can change the on-device wake word (microWakeWord) that is used on your S3-B
 - Home Assistant 2024.2, installed with the Home Assistant Operating System. If you do not have Home Assistant installed yet, refer to the [installation page](/installation/) for instructions.
 - Successfully [installed ESPHome on the S3-BOX-3](/voice_control/s3_box_voice_assistant/)
 - ESPHome 2024.2 or later
-- Home Assistant server with at least 2&nbsp;GB of RAM
+- Home Assistant server with at least 2&nbsp;GB of RAM free
   - The firmware needs to be compiled on the server before it is installed on the S3-BOX-3.
   - Compiling requires a bit of RAM.
 - [On-device wake word installed](#installing-on-device-wake-words-microwakeword) on your S3-BOX-3.
