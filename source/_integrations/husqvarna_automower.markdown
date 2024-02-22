@@ -91,13 +91,13 @@ The integration will create a lawn mower entity to control the mower. This entit
 The integration will create the following sensors:
 
 - Battery level
+- Cutting blade usage time (if available)
+- Mode
+- Next start
 - Number of charging cycles
 - Number of collisions
-- Cutting blade usage time (if available)
 - Total charging time
 - Total cutting time
+- Total drive distance
 - Total running time
 - Total searching time
-- Total drive distance
-- Next start
-- Mode
