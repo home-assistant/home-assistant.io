@@ -206,7 +206,7 @@ Gen 1 and Gen 2 Only.
 </div>
 Set the type for connected power source. Available options are Hardwired Power Supply, Battery Wand and Rechargeable Battery
 
-## Number Entities
+## Number entities
 
 ### Velocity
 
