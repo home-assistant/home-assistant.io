@@ -633,7 +633,6 @@ The following integrations are now available via the Home Assistant UI:
 - Bump reolink-aio to 0.8.8 ([@starkillerOG] - [#110959])
 - Reset error state when Ecovacs bot is operational again ([@mib1185] - [#110962])
 - Bump motionblinds to 0.6.21 ([@starkillerOG] - [#110970])
-- Fix Shelly RPC RSSI sensor removal ([@thecode] - [#111035])
 - Bump holidays to 0.43 ([@gjohansson-ST] - [#111039])
 - Fixes UniFi Protect light state check ([@AngellusMortis] - [#111058])
 - Bump pywebpush to 1.14.1 ([@thecode] - [#111082])
