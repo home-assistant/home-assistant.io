@@ -196,3 +196,18 @@ The following example limits the number of shown devices to 5:
 type: energy-devices-graph
 max_devices: 5
 ```
+
+## Detail devices energy graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/devices-detail-graph.png' alt='Screenshot of the devices energy graph card'>
+  Screenshot of the detail devices energy graph card.
+</p>
+
+Similar to the devices energy graph, but shows individual usage on a time axis. 
+
+### Examples
+
+```yaml
+type: energy-devices-detail-graph
+```
