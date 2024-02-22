@@ -10,6 +10,7 @@ ha_domain: tankerkoenig
 ha_codeowners:
   - '@guillempages'
   - '@mib1185'
+  - '@jpbede'
 ha_platforms:
   - binary_sensor
   - diagnostics

@@ -6,13 +6,13 @@ Now you're in Home Assistant, let's look at the most important concepts.
 
 ## Integrations
 
-Integrations are pieces of software that allow Home Assistant to connect to other software and platforms. For example, a product by Philips called Hue would use the Philips Hue {% term integration %} and allow Home Assistant to talk to the hardware controller Hue Bridge. Any Home Assistant compatible {% term devices %} connected to the Hue Bridge would appear in Home Assistant as [devices](#devices--entities).
+Integrations are pieces of software that allow Home Assistant to connect to other software and platforms. For example, a product by Philips called Hue would use the Philips Hue {% term integration %} and allow Home Assistant to talk to the hardware controller Hue Bridge. Any Home Assistant compatible {% term devices %} connected to the Hue Bridge would appear in Home Assistant as [devices](#devices).
 
 ![Integrations](/images/getting-started/integrations-new.png)
 
 For a full list of compatible {% term integrations %}, refer to the [integrations](/integrations) documentation.
 
-Once an {% term integration %} has been added, the hardware and/or data are represented in Home Assistant as [devices and entities](#devices--entities).
+Once an {% term integration %} has been added, the hardware and/or data are represented in Home Assistant as [devices and entities](#devices).
 
 ## Entities
 
