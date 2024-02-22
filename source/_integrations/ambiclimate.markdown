@@ -71,4 +71,4 @@ Enable temperature mode on your AC:
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `Name` | yes | String with device name.
-| `value` | yes | Target value in celsius
+| `value` | yes | Target value in Celsius

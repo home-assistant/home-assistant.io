@@ -10,8 +10,8 @@ ha_codeowners:
   - '@IsakNyberg'
 ha_config_flow: true
 ha_platforms:
-  - Sensor
-ha_integration_type: hub
+  - sensor
+ha_integration_type: integration
 ---
 
 The **MyPermobil** integration allows you to view various sensors with information about your Permobil wheelchair. For example: battery status, distance traveled, and number of seating adjustments. The values of the sensors may be delayed by several minutes and should not be relied on for any crucial applications. For the integration to work, you must ensure that _voice assistant linking_ is activated in the MyPermobil app. To do this, open the app and navigate to **Settings** > **My Account** > **Connection Settings**.
