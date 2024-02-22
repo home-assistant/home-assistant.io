@@ -180,7 +180,12 @@ If your images have transparency, you can define the background color in the con
 
 ## Customizing on-device wake words (microWakeWord)
 
-You can update the firmware to process your wake word on your S3-BOX-3, instead of running it on the Home Assistant server. This is done using the [microWakeWord](https://github.com/kahrendt/microWakeWord) model. The currently supported on-device wake words are *Okay Nabu*, *Hey Jarvis*, or *Alexa*.
+You can update the firmware to process your wake word on your S3-BOX-3, instead of running it on the Home Assistant server. This is done using the [microWakeWord](https://github.com/kahrendt/microWakeWord) model. 
+
+Do the following steps if one of the following options apply:
+
+- **Option 1**: If your first installation of the S3-BOX-3 is ESPHome 2024.2, it already supports the on-device wake word *Hey Jarvis*. Follow these steps if you want to change the wake word. The currently supported on-device wake words are *Okay Nabu*, *Hey Jarvis*, or *Alexa*.
+- **Option 2**: If you have an existing S3-BOX-3 running an older version of ESPHome and you want to enable on-device wake word.
 
 ### Prerequisites
 
