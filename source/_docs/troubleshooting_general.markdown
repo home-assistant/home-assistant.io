@@ -17,7 +17,7 @@ On top of the page you see a red banner. On the **Overview** page, you see a **R
 
 When Home Assistant is in recovery mode, there was an issue with the configuration.
 
-Recovery mode loads a few minimal integrations and parts of the configuration that was used the last time when it did start. You can still see the user interface, the settings, and add-ons.
+Recovery mode loads a minimum set of integrations to allow troubleshooting the configuration. Recovery mode will use the parts of the configuration that was used the last time Home Assistant started successfully. You can still see the user interface, the settings, and add-ons.
 
 ### Resolution
 

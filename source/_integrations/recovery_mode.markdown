@@ -21,7 +21,7 @@ it will still continue to start using bits and pieces from the configuration
 of the last time it did start.
 
 When this happens, Home Assistant will start in **Recovery mode** using this
-integration. In this mode, nothing is loaded, but it does give you access to
+integration. In this mode, no user configured integrations are loaded, but it does give you access to
 the Home Assistant frontend, settings and add-ons.
 
 This gives you the possibility to correct the issue and restart Home Assistant
