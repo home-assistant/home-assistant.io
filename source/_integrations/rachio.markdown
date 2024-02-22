@@ -10,6 +10,7 @@ ha_release: 0.73
 ha_domain: rachio
 ha_codeowners:
   - '@bdraco'
+  - '@rfverbruggen'
 ha_config_flow: true
 ha_homekit: true
 ha_dhcp: true

@@ -13,7 +13,7 @@ ha_codeowners:
   - '@mib1185'
 ---
 
-The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
+The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel.
 
 This integration is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The [zone](/docs/automation/trigger#zone-trigger) and [state](/docs/automation/trigger#state-trigger) based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.
 
@@ -22,95 +22,50 @@ Some examples of its use include:
 - Increase thermostat temperature as you near home
 - Decrease temperature the further away from home you travel
 
-The Proximity entity which is created has the following values:
+{% include integrations/config_flow.md %}
 
-- `state`: Distance from the monitored zone (in `unit_of_measurement`)
-- `dir_of_travel`: Direction of the closest device or person to the monitored zone. Values are:
-  - `not set`
-  - `arrived`
-  - `towards`
-  - `away_from`
-  - `unknown`
-  - `stationary`
-- `unit_of_measurement`: Measurement of distance. Values are:
-  - `km`
-  - `m`
-  - `mi`
-  - `yd`
-  - `ft`
-- `nearest`: The device or person which is nearest to the zone
+## Sensors
 
-To enable this integration in your installation, add the following to your `configuration.yaml` file:
+The following sensor entities will be created.
 
-```yaml
-# Example configuration.yaml entry
-proximity:
-  home: 
-    ignored_zones:
-      - work
-    devices:
-      - device_tracker.car1
-    tolerance: 50
-    unit_of_measurement: mi
-```
+### Distance
+
+For each tracked [device](/integrations/device_tracker/) or [person](/integrations/person/), a sensor is created showing the distance from the monitored zone in a unit depending on your [Home Assistant Unit System](/docs/configuration/basic) selection. When a tracked person or device enters the monitored zone, the distance is set to 0.
+
+### Direction of travel
+
+For each tracked device or person, a sensor is created showing the direction of travel to or from the monitored zone. Possible states are:
+
+- `arrived`
+- `away_from`
+- `stationary`
+- `towards`
+- `unknown`
+
+<div class="note">
+To calculate the distance and the direction of travel for a tracked device or person, they must specify a geo-location.
+</div>
+
+### Nearest device
+
+A sensor is created showing the device or person which is nearest (_shortest distance_) to the monitored zone. If several devices or persons are at the same nearest distance, this sensor displays them all.
+
+### Nearest distance
+
+This sensor shows the distance of the device or person nearest to the monitored zone. The unit depends on your settings for the [Home Assistant unit system](/docs/configuration/basic). When a tracked person or device enters the monitored zone, the distance is set to 0.
+
+### Nearest Direction of travel
+
+This sensor shows the direction of travel of the nearest device or person to the monitored zone. Possible states are:
+
+- `arrived`
+- `away_from`
+- `stationary`
+- `towards`
+- `unknown`
 
 ### Video tutorial
-This video tutorial explains how to set up geofencing in Home Assistant using the proximity integration.
 
-<lite-youtube videoid="pjAyRN5UiBg" videotitle="Geofencing in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
+This comprehensive video tutorial explains how to utilize the Proximity integration to automatically adjust the heating in your home based on your presence, whether you're leaving or entering an area around your house.
 
-{% configuration %}
-friendly_name:
-  description: The name of the proximity entity.
-  required: true
-  type: map
-  keys:
-    zone:
-      description: The zone to which this integration is measuring the distance to. Default is the `home` zone.
-      required: false
-      type: string
-    ignored_zones:
-      description: Where proximity is not calculated for a device or person (either the device being monitored or ones being compared (e.g., work or school).
-      required: false
-      type: list
-    devices:
-      description: A list of devices and/or persons to compare location against to check closeness to the configured zone.
-      required: false
-      type: list
-    tolerance:
-      description: The tolerance used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.
-      required: false
-      type: integer
-    unit_of_measurement:
-      description: The unit of measurement for distance. Valid values are (km, m, mi, yd, ft) [kilometers, meters, miles, yards and feet respectively].
-      required: false
-      type: string
-      default: km
-{% endconfiguration %}
-
-To add multiple proximity components, add a mapping to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-proximity:
-  home:
-    ignored_zones:
-      - work
-      - school
-    devices:
-      - device_tracker.car1
-      - device_tracker.iphone1
-      - device_tracker.iphone2
-    tolerance: 50
-    unit_of_measurement: mi
-  home3:
-    zone: home3
-    devices:
-      - device_tracker.iphone1
-    tolerance: 50
-  work:
-    zone: work
-    devices:
-      - person.paulus
-    tolerance: 10
-```
+<lite-youtube videoid="0ojMz1s3Y84" videotitle="Mastering Geofencing in Home Assistant with Proximity and Presence Detection: An Ultimate Guide" posterquality="maxresdefault"></lite-youtube>

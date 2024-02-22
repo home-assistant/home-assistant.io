@@ -448,6 +448,33 @@ type:
   type: string
 {% endconfiguration %}
 
+## Update actions
+
+Widget that displays actions to install or skip an [update](/integrations/update).
+
+<p class='img'>
+  <img src='/images/dashboards/features/update_actions.png' alt='Screenshot of the tile card with update actions feature'>
+  Screenshot of the tile card with update actions feature
+</p>
+
+```yaml
+features:
+  - type: "update-actions"
+    backup: "ask"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`update-actions`"
+  type: string
+backup:
+  required: false
+  description: Whether a backup should be done before updating. The value can be `ask`, `yes`, or `no`. `ask` will open a dialog to ask if a backup should be done.
+  type: list
+  default: ask
+{% endconfiguration %}
+
 ## Vacuum commands
 
 Widget that displays buttons to control a [vacuum](/integrations/vacuum).

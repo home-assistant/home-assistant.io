@@ -325,6 +325,32 @@ List of lights that are on with a brightness of 255:
 
 {% endraw %}
 
+
+### State translated
+
+Not supported in [limited templates](#limited-templates).
+
+The `state_translated` function returns a translated state of an entity using a language that is currently configured in the [general settings](https://my.home-assistant.io/redirect/general/).
+
+#### State translated examples
+
+{% raw %}
+
+```text
+{{ states("sun.sun") }}             # below_horizon
+{{ state_translated("sun.sun") }}   # Below horizon
+{{ "sun.sun" | state_translated }}  # Below horizon
+```
+
+```text
+{{ states("binary_sensor.movement_backyard") }}             # on
+{{ state_translated("binary_sensor.movement_backyard") }}   # Detected
+{{ "binary_sensor.movement_backyard" | state_translated }}  # Detected
+```
+
+{% endraw %}
+
+
 ### Working with groups
 
 Not supported in [limited templates](#limited-templates).
@@ -587,7 +613,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
   {% endraw %}
 - `is_datetime(value)` checks wether the input value is a datetime object, returns a boolean value. This function can also be used as filter `| is_datetime`.
-- `as_datetime()` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object.
+- `as_datetime(value, default)` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts datetime object to local time. This function can also be used as a filter.
 - `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3.10/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
@@ -916,6 +942,7 @@ The numeric functions and filters raise an error if the input is not a valid num
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
+- Filter `value_one|bitwise_xor(value_two)` perform a bitwise xor(\^) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 
 ### Complex type checking

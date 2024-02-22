@@ -3,11 +3,17 @@ title: Vogel's MotionMount
 description: Instructions on how to integrate Vogel's MotionMount into Home Assistant.
 ha_category:
   - Number
+  - Select
+  - Binary sensor
+  - Sensor
 ha_release: 2024.1
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_platforms:
   - number
+  - select
+  - binary_sensor
+  - sensor
 ha_codeowners:
   - '@RJPoelstra'
 ha_domain: motionmount

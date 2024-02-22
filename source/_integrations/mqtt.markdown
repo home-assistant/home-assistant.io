@@ -47,6 +47,71 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 {% include integrations/config_flow.md %}
 
+<a name="configuration-via-mqtt-discovery"></a>
+{% details "Configuration of MQTT components via MQTT discovery" %}
+
+- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
+- [Binary sensor](/integrations/binary_sensor.mqtt/)
+- [Button](/integrations/button.mqtt/)
+- [Camera](/integrations/camera.mqtt/)
+- [Cover](/integrations/cover.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
+- [Device trigger](/integrations/device_trigger.mqtt/)
+- [Event](/integrations/event.mqtt/)
+- [Fan](/integrations/fan.mqtt/)
+- [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
+- [Climate/HVAC](/integrations/climate.mqtt/)
+- [Lawn mower](/integrations/lawn_mower.mqtt/)
+- [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
+- [Number](/integrations/number.mqtt/)
+- [Scene](/integrations/scene.mqtt/)
+- [Select](/integrations/select.mqtt/)
+- [Sensor](/integrations/sensor.mqtt/)
+- [Siren](/integrations/siren.mqtt/)
+- [Switch](/integrations/switch.mqtt/)
+- [Update](/integrations/update.mqtt/)
+- [Tag scanner](/integrations/tag.mqtt/)
+- [Text](/integrations/text.mqtt/)
+- [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
+
+{% enddetails %}
+
+<a name="configuration-via-yaml"></a>
+{% details "Configuration of MQTT components via YAML" %}
+
+- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
+- [Binary sensor](/integrations/binary_sensor.mqtt/)
+- [Button](/integrations/button.mqtt/)
+- [Camera](/integrations/camera.mqtt/)
+- [Cover](/integrations/cover.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
+- [Event](/integrations/event.mqtt/)
+- [Fan](/integrations/fan.mqtt/)
+- [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
+- [Climate/HVACs](/integrations/climate.mqtt/)
+- [Lawn mower](/integrations/lawn_mower.mqtt/)
+- [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
+- [Number](/integrations/number.mqtt/)
+- [Scene](/integrations/scene.mqtt/)
+- [Select](/integrations/select.mqtt/)
+- [Sensor](/integrations/sensor.mqtt/)
+- [Siren](/integrations/siren.mqtt/)
+- [Switch](/integrations/switch.mqtt/)
+- [Text](/integrations/text.mqtt/)
+- [Update](/integrations/update.mqtt/)
+- [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
+
+{% enddetails %}
+
+
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
 ## Choose an MQTT broker
@@ -212,40 +277,14 @@ Note that on each MQTT entity, the `has_entity_name` attribute will be set to `T
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
 
-{% details "Entity integrations supported by MQTT discovery" %}
-
-- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
-- [Binary sensor](/integrations/binary_sensor.mqtt/)
-- [Button](/integrations/button.mqtt/)
-- [Camera](/integrations/camera.mqtt/)
-- [Cover](/integrations/cover.mqtt/)
-- [Device tracker](/integrations/device_tracker.mqtt/)
-- [Device trigger](/integrations/device_trigger.mqtt/)
-- [Event](/integrations/event.mqtt/)
-- [Fan](/integrations/fan.mqtt/)
-- [Humidifier](/integrations/humidifier.mqtt/)
-- [Image](/integrations/image.mqtt/)
-- [Climate/HVAC](/integrations/climate.mqtt/)
-- [Lawn mower](/integrations/lawn_mower.mqtt/)
-- [Light](/integrations/light.mqtt/)
-- [Lock](/integrations/lock.mqtt/)
-- [Number](/integrations/number.mqtt/)
-- [Scene](/integrations/scene.mqtt/)
-- [Select](/integrations/select.mqtt/)
-- [Sensor](/integrations/sensor.mqtt/)
-- [Siren](/integrations/siren.mqtt/)
-- [Switch](/integrations/switch.mqtt/)
-- [Update](/integrations/update.mqtt/)
-- [Tag scanner](/integrations/tag.mqtt/)
-- [Text](/integrations/text.mqtt/)
-- [Vacuum](/integrations/vacuum.mqtt/)
-- [Valve](/integrations/valve.mqtt/)
-- [Water heater](/integrations/water_heater.mqtt/)
-
-{% enddetails %}
-
 MQTT discovery is enabled by default, but can be disabled. The prefix for the discovery topic (default `homeassistant`) can be changed.
 See the [MQTT Options sections](#configure-mqtt-options)
+
+<div class='note info'>
+
+Documentation on the MQTT components that support MQTT discovery [can be found here](/integrations/mqtt/#configuration-via-mqtt-discovery).
+
+</div>
 
 ### Discovery messages
 
@@ -314,10 +353,6 @@ support_url:
     'bri_tpl':             'brightness_template',
     'bri_val_tpl':         'brightness_value_template',
     'clr_temp_cmd_tpl':    'color_temp_command_template',
-    'bat_lev_t':           'battery_level_topic',
-    'bat_lev_tpl':         'battery_level_template',
-    'chrg_t':              'charging_topic',
-    'chrg_tpl':            'charging_template',
     'clr_temp_cmd_t':      'color_temp_command_topic',
     'clr_temp_stat_t':     'color_temp_state_topic',
     'clr_temp_tpl':        'color_temp_template',
@@ -325,8 +360,6 @@ support_url:
     'clrm':                'color_mode',
     'clrm_stat_t':         'color_mode_state_topic',
     'clrm_val_tpl':        'color_mode_value_template',
-    'cln_t':               'cleaning_topic',
-    'cln_tpl':             'cleaning_template',
     'cmd_off_tpl':         'command_off_template',
     'cmd_on_tpl':          'command_on_template',
     'cmd_t':               'command_topic',
@@ -343,18 +376,12 @@ support_url:
     'dir_cmd_tpl':         'direction_command_template',
     'dir_stat_t':          'direction_state_topic',
     'dir_val_tpl':         'direction_value_template',
-    'dock_t':              'docked_topic',
-    'dock_tpl':            'docked_template',
     'e':                   'encoding',
     'en':                  'enabled_by_default',
     'ent_cat':             'entity_category',
     'ent_pic':             'entity_picture',
-    'err_t':               'error_topic',
-    'err_tpl':             'error_template',
     'evt_typ':             'event_types',
     'exp_aft':             'expire_after',
-    'fanspd_t':            'fan_speed_topic',
-    'fanspd_tpl':          'fan_speed_template',
     'fanspd_lst':          'fan_speed_list',
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
@@ -442,6 +469,8 @@ support_url:
     'pl_osc_off':          'payload_oscillation_off',
     'pl_osc_on':           'payload_oscillation_on',
     'pl_paus':             'payload_pause',
+    'pl_stop':             'payload_stop',
+    'pl_strt':             'payload_start',
     'pl_prs':              'payload_press',
     'pl_ret':              'payload_return_to_base',
     'pl_rst':              'payload_reset',
@@ -568,6 +597,7 @@ support_url:
     'hw':                  'hw_version',
     'sw':                  'sw_version',
     'sa':                  'suggested_area',
+    'sn':                  'serial_number',
 ```
 {% enddetails %}
 {% details "Supported abbreviations for origin info" %}
@@ -934,6 +964,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "mf": "Bla electronics",
       "mdl": "xya",
       "sw": "1.0",
+      "sn": "ea334450945afc",
       "hw": "1.0rev2",
     },
     "o": {
@@ -994,37 +1025,13 @@ mqtt:
       ...
 ```
 
-{% details "MQTT components that support setup via YAML" %}
+If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
-- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
-- [Binary sensor](/integrations/binary_sensor.mqtt/)
-- [Button](/integrations/button.mqtt/)
-- [Camera](/integrations/camera.mqtt/)
-- [Cover](/integrations/cover.mqtt/)
-- [Device tracker](/integrations/device_tracker.mqtt/)
-- [Event](/integrations/event.mqtt/)
-- [Fan](/integrations/fan.mqtt/)
-- [Humidifier](/integrations/humidifier.mqtt/)
-- [Image](/integrations/image.mqtt/)
-- [Climate/HVACs](/integrations/climate.mqtt/)
-- [Lawn mower](/integrations/lawn_mower.mqtt/)
-- [Light](/integrations/light.mqtt/)
-- [Lock](/integrations/lock.mqtt/)
-- [Number](/integrations/number.mqtt/)
-- [Scene](/integrations/scene.mqtt/)
-- [Select](/integrations/select.mqtt/)
-- [Sensor](/integrations/sensor.mqtt/)
-- [Siren](/integrations/siren.mqtt/)
-- [Switch](/integrations/switch.mqtt/)
-- [Text](/integrations/text.mqtt/)
-- [Update](/integrations/update.mqtt/)
-- [Vacuum](/integrations/vacuum.mqtt/)
-- [Valve](/integrations/valve.mqtt/)
-- [Water heater](/integrations/water_heater.mqtt/)
+<div class='note info'>
 
-{% enddetails %}
+Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
 
-If you have a lot of manual configured items you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+</div>
 
 ## Using Templates
 

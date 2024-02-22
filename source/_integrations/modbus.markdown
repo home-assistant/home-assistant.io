@@ -623,9 +623,9 @@ climates:
       type: map
       keys:
         address:
-          description: "Address of Fan mode register."
+          description: "Address of Fan mode register. (int to call write_register, list of 1 int to call write_registers)"
           required: true
-          type: integer
+          type: [integer, list]
         values:
           description: "Mapping between the register values and Fan modes
             This is typically used to control one of: Speed, Direction or On/Off state."

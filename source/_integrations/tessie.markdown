@@ -68,8 +68,11 @@ The integration will create binary sensor entities for a variety of metrics rela
 
 - Dashcam recording
 - Front driver window
+- Front passenger door
 - Front passenger window
+- Rear driver door
 - Rear driver window
+- Rear passenger door
 - Rear passenger window
 - Tire pressure warning front left
 - Tire pressure warning front right
@@ -113,7 +116,10 @@ The integration will create device tracker entities for the vehicle's current lo
 
 ### Lock
 
-The integration will create a lock entity for each vehicle.
+The integration will create lock entities to lock and unlock the vehicle, and to control:
+
+- Charge cable
+- Speed limit
 
 ### Media Player
 
@@ -162,9 +168,14 @@ The integration will create sensor entities for a variety of metrics related to 
 
 #### Drive state
 
+- Destination
+- Distance to arrival
 - Power
 - Shift state
 - Speed
+- State of charge at arrival
+- Time to arrival
+- Traffic delay
 
 #### Vehicle state
 
@@ -187,4 +198,4 @@ The integration will create switch entities to control various aspects of your v
 
 ### Update
 
-The integration will show vehicle software updates and their installation progress.
+The integration will show vehicle software updates and their installation progress. Updates can only be installed from Home Assistant after they have finished downloading.
