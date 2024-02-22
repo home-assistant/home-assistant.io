@@ -2,8 +2,8 @@
 layout: post
 title: "What about Grace? Tune in to our special livestream next week!"
 description: "Why is Grace important to us? Well, we have a habit of naming our projects after influential women in tech. And we have been working on a little something special and can’t wait to show you!"
-date: 2024-02-21 00:00:01
-date_formatted: "February 21, 2024"
+date: 2024-02-22 00:00:01
+date_formatted: "February 22, 2024"
 author: Madelena Mak
 comments: true
 categories: Announcements
