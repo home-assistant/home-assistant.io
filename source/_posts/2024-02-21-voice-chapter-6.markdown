@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "On device wake word on ESP32-S3 is here - Voice: Chapter 6"
-description: "Improved errors, more intents and on device ESPHome wake word"
+description: "This chapter brings on-device wake word detection (microWakeWord), customization for sentence triggers, additional intents for controlling devices, and better error messages."
 date: 2024-02-21 00:00:00
 date_formatted: "February 21, 2024"
 author: Michael Hansen
@@ -10,7 +10,12 @@ categories: Assist
 og_image: /images/blog/2024-02-21-voice-chapter-6/social.jpg
 ---
 
-<p><img src='/images/blog/2024-02-21-voice-chapter-6/social.jpg' class='no-shadow' /></p>
+**TL;DR:** We have added on-device wake word detection (microWakeWord)! It's faster and more scalable than processing the wake word in Home Assistant. We will keep supporting wake word processing in Home Assistant. Also new is more customization for sentence triggers, additional intents for controlling more devices, and better error messages and debugging tools.
+
+<p class='img'>
+<lite-youtube videoid="NQIv3nsu7dE" videotitle="Voice - Chapter 6 Livestream"></lite-youtube>
+Watch the full Voice chapter 6 livestream
+</p>
 
 2023's [Year of the Voice] built a solid foundation for letting users control Home Assistant by speaking in their own language.
 
