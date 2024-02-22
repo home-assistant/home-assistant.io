@@ -1,11 +1,10 @@
 ## Flashing an ODROID-M1S
 
 Home Assistant can be flashed to an ODROID-M1S by connecting the device directly to your computer via the USB-OTG connection on the front of the board. 
-Unlike other ODROID boards the M1S does not have a socket for an optionl eMMC module. It also does not have a separate flash chip that holds a dedicated bootloader.
+Unlike other ODROID boards the M1S does not have a socket for an optional eMMC module. It also does not have a separate flash chip that holds a dedicated bootloader.
 Instead the M1S has a build-in 64GB eMMC soldered directly on the board that holds a petitboot bootloader by default. This guide will show you how to flash HAOS to the build-in eMMC.
 
-<ins>**Warning:</ins> This will erase the petitboot bootloader from the eMMC and replace it by a u-boot bootloader. After that it requires special tricks to re-flash a petitboot image again.
-If you wish to return to any official Hardkernel images then short the maskRom pads near the 40pin connector while booting from a [Hardkernel recovery image](https://wiki.odroid.com/odroid-m1s/getting_started/os_installation_guide?redirect=1#user_installer).**
+<ins>**Warning:</ins> Installing HAOS replaces the firmware and SPL on the eMMC with the mainline version provided by HAOS. As a result, it is not possible to use the SD card with the EMMC2UMS image anymore, because the mainline SPL is not compatible with U-Boot in the EMMC2UMS image at this time (February 2024). This does not pose any problem for standard use, just makes it more complicated in case you want to return to the Hardkernel-provided OS (see HK Recovery).**
 
 ### What you will need
 
@@ -35,7 +34,7 @@ To flash your eMMC using OTG-USB, you will need the following items:
 
 3. When the flash process is complete, disconnect the ODROID-M1S from your PC.
    - Remove the power cable.
-   - Remove the micro-USB cabel
+   - Remove the micro-USB cable
 
 4. Connect your ODROID-M1S to your network with an Ethernet cable and plug in power.
 
@@ -43,3 +42,14 @@ To flash your eMMC using OTG-USB, you will need the following items:
    - If your network doesn’t support mDNS, you’ll have to use the IP address of your ODROID-M1S instead of `homeassistant.local`. For example, `http://192.168.0.9:8123`. 
    - You should be able to find the IP address of your ODROID-M1S from the admin interface of your router.
 6. Continue with [onboarding](/getting-started/onboarding/).
+
+### _HK Recovery_
+If you want to restore your M1S back into Hardkernels initial state, you will have to restore the HK's bootloader.
+A reliable way of reflashing the eMMC in this case is to use HAOS booted from an SD card. To do that, insert the SD card with HAOS to the micro SD slot and plug the board in. Once the device boots to the HA CLI, enter `login` to enter the root shell and use `curl` to download an image and `dd` it to the eMMC block device:
+
+```sh
+curl https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img | dd of=/dev/mmcblk0
+```
+
+This way the device will start in the UMS mode on the next boot with the SD card removed. Alternatively you can use the [Hardkernel installer image](https://wiki.odroid.com/odroid-m1s/getting_started/os_installation_guide#user_installer) directly instead of the EMMC2UMS image.
+
