@@ -23,7 +23,7 @@ Recovery mode loads a minimum set of integrations to allow troubleshooting the c
 
 You need to identify the issue in the configuration files and fix it there. The issue could be caused by something as simple as an invalid YAML file.
 
-- If you are running Home Assistant Operating system, you can install an add-on such as VS code to edit the configuration file if needed.
+- If you are running Home Assistant Operating System, you can install an add-on such as VS code to edit the configuration file if needed.
 - If you are still logged in, you can [edit your configuration](/docs/configuration/#editing-configurationyaml).
   - In the Home Assistant user interface, open the add-on you usually use and edit the configuration file.
 - Restart Home Assistant.
