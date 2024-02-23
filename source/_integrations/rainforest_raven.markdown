@@ -10,6 +10,7 @@ ha_codeowners:
   - '@cottsay'
 ha_domain: rainforest_raven
 ha_platforms:
+  - diagnostics
   - sensor
 ha_config_flow: true
 ha_integration_type: integration

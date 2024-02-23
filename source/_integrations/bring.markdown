@@ -10,7 +10,7 @@ ha_codeowners:
   - '@miaucl'
   - '@tr4nt0r'
 ha_domain: bring
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - todo
 ---

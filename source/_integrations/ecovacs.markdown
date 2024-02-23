@@ -25,7 +25,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `ecovacs` {% term integration %} is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
+The `ecovacs` {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
 
 {% include integrations/config_flow.md %}
 
@@ -41,10 +41,10 @@ Using the vacuum entity, you can monitor and control your Ecovacs Deebot vacuum.
 
 Additionally, **depending on your model**, the integration provides the following entities:
 
-- **Binary sensor**: 
+- **Binary sensor**:
   - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
 - **Button**:
-  - `Reset lifespan`: For each supported component an button entity to reset the lifespan will be created. All disabled by default
+  - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
   - `Relocate`: Button entity to trigger manual relocation.
 - **Image**:
   - `Map`: The floorplan/map as an image in SVG format.
@@ -55,16 +55,16 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Water amount`: Specify the water amount used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean.
 - **Sensor**:
-  - `Error`: The error code and a description of the error. `0` means no error. Disabled by default
-  - `Lifespan`: For each supported component an entity with the remaining lifespan will be created
-  - `Network`: The following network related entities will be created. All disabled by default
+  - `Error`: The error code and a description of the error. `0` means no error. Disabled by default.
+  - `Lifespan`: For each supported component, an entity with the remaining lifespan will be created.
+  - `Network`: The following network related entities will be created. All disabled by default.
     - `Ip address`
     - `Wi-Fi RSSI`
     - `Wi-Fi SSID`
   - `Cleaning cycle`:
     - `Area`: The cleaned area
     - `Time`: The cleaned time
-  -  `Total statistics`: Updated after each cleaning cycle:
+  - `Total statistics`: Updated after each cleaning cycle:
     - `Area`: Total cleaned area
     - `Cleanings`: The number of cleanings
     - `Time`: The total cleaning time
