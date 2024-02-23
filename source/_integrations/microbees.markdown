@@ -4,6 +4,7 @@ description: Instructions on how to integrate microBees devices into Home Assist
 ha_category:
   - Switch
   - Cover
+  - Sensor
 ha_release: 2024.3
 ha_codeowners:
   - '@microBeesTech'
@@ -13,6 +14,7 @@ ha_iot_class: Cloud Polling
 ha_platforms:
   - switch
   - cover
+  - sensor
 ha_integration_type: integration
 ---
 The microbees integration allows you to control your [microBees devices](https://www.microbees.com/) such as plugs and wall switches.
@@ -23,5 +25,6 @@ To retrieve the OAuth2 Client ID and Client Secret go to [microBees Developer Da
 There is currently support for the following device types within Home Assistant:
 - **Switch**
 - **Cover**
+- **Sensor**
   
 {% include integrations/config_flow.md %}
