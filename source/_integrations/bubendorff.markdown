@@ -6,9 +6,10 @@ ha_category:
   - Climate
   - Cover
   - Environment
+  - Fan
   - Hub
   - Light
-  - Media Source
+  - Media source
   - Sensor
   - Switch
   - Weather
@@ -25,6 +26,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - fan
   - light
   - select
   - sensor

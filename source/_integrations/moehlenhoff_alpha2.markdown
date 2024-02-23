@@ -11,14 +11,14 @@ ha_codeowners:
 ha_domain: moehlenhoff_alpha2
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - sensor
-  - button
 ha_integration_type: integration
 ---
 
-The Möhlenhoff Alpha 2 integration allows you to control a
-[Möhlenhoff Alpha 2](https://www.moehlenhoff.de/en/products/room-by-room-control/oem-alpha-2-system)
+The Möhlenhoff Alpha 2 integration allows you to control a [Möhlenhoff Alpha 2](https://dev.moehlenhoff.de/en/products/room-by-room-control/oem-alpha-2-system)
+
 temperature control system.
 
 ## Prerequisites

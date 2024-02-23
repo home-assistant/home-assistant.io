@@ -14,11 +14,11 @@ ha_codeowners:
   - '@engrbm87'
 ---
 
-The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows integrations to send messages to the user using Pushover.
+The [Pushover service](https://pushover.net/) is a platform for the notify integration. This allows integrations to send messages to the user using Pushover.
 
 ## Configuration
 
-In order to get an API key you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
+In order to get an API key, you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
 
 {% include integrations/config_flow.md %}
 
@@ -36,7 +36,7 @@ Example Automation:
       attachment: "local/image.png"
 ```
 
-Component specific values in the nested `data` section are optional.
+Integration-specific values in the nested `data` section are optional.
 
 Image attachments can be added using the `attachment` parameter, which can either be a local file reference (ex: `/tmp/image.png`).
 

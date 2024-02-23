@@ -3,16 +3,22 @@
   "description": "Home Assistant Website & Documentation",
   "version": "1.0.0",
   "devDependencies": {
-    "remark-cli": "^11.0.0",
-    "remark-frontmatter": "^4.0.1",
-    "remark-lint": "^9.1.1",
-    "remark-lint-fenced-code-flag": "^3.1.1",
-    "remark-lint-no-shell-dollars": "^3.1.1",
-    "remark-stringify": "^10.0.2",
-    "textlint": "^12.5.0",
+    "remark-cli": "^12.0.0",
+    "remark-frontmatter": "^5.0.0",
+    "remark-lint": "^9.1.2",
+    "remark-lint-fenced-code-flag": "^3.1.2",
+    "remark-lint-heading-increment": "^3.1.2",
+    "remark-lint-heading-style": "^3.1.2",
+    "remark-lint-no-shell-dollars": "^3.1.2",
+    "remark-lint-ordered-list-marker-style": "^3.1.2",
+    "remark-lint-ordered-list-marker-value": "^3.1.2",
+    "remark-lint-prohibited-strings": "^3.1.0",
+    "remark-lint-unordered-list-marker-style": "^3.1.2",
+    "remark-stringify": "^11.0.0",
+    "textlint": "^14.0.3",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-common-misspellings": "^1.0.1",
-    "textlint-rule-terminology": "^3.0.4"
+    "textlint-rule-terminology": "^4.0.1"
   },
   "resolutions": {
     "minimist": ">=1.2.5"

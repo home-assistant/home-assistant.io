@@ -24,5 +24,5 @@ integration manually:
 
 ```yaml
 # Example configuration.yaml entry
-image:
+image_upload:
 ```

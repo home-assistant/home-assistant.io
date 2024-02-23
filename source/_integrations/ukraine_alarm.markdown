@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Ukraine Alarm integration uses the siren.pp.ua API - public wrapper for [Ukraine Alarm](https://www.ukrainealarm.com/) web service to offer air-raid siren notifications. The integration will create 6 binary sensors for your selected region in Ukraine:
+The **Ukraine Alarm** {% term integration %} uses the siren.pp.ua API - public wrapper for [Ukraine Alarm](https://www.ukrainealarm.com/) web service to offer air-raid siren notifications. The {% term integration %} will create 6 binary sensors for your selected region in Ukraine:
 
 - Air
 - Artillery
@@ -25,10 +25,8 @@ The Ukraine Alarm integration uses the siren.pp.ua API - public wrapper for [Ukr
 
 Siren check interval is set to 10 seconds to avoid overloading the API and still be able to react fast enough.
 
-## Setup
-
 {% include integrations/config_flow.md %}
 
 ## Limitations
 
-You can add up to 5 regions for monitoring to don't hit API rate limit.
+You can monitor up to 5 regions to not hit the API rate limit.

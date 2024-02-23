@@ -12,19 +12,17 @@ The `mqtt` Select platform allows you to integrate devices that might expose con
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To enable MQTT Select in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  select:
-      - command_topic: topic
-        name: "Test Select"
-        options:
-          - "Option 1"
-          - "Option 2"
+  - select:
+      command_topic: topic
+      name: "Test Select"
+      options:
+        - "Option 1"
+        - "Option 2"
 ```
 
 {% configuration %}
@@ -73,16 +71,16 @@ command_topic:
   required: true
   type: string
 device:
-  description: "Information about the device this Select is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this Select is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
     hw_version:
@@ -103,6 +101,10 @@ device:
       type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -131,7 +133,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -145,7 +146,7 @@ json_attributes_topic:
   required: false
   type: string
 name:
-  description: The name of the Select.
+  description: The name of the Select. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
 object_id:
@@ -162,7 +163,7 @@ options:
   required: true
   type: list
 qos:
-  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0

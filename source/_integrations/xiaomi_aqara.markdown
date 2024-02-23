@@ -21,11 +21,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `xiaomi_aqara` integration allows you to integrate [Xiaomi](https://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
+The **Xiaomi Gateway (Aqara)** {% term integration %} allows you to integrate [Xiaomi](https://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
 
 Please note, there are two versions of the hub: v1 and v2. v1 can be used with Home Assistant without any problems, however, v2 might be less straight forward when it comes to enabling the local API, and might even require you to open up your device in order to do so. Xiaomi has suggested this is in the pipeline.
 
-## Supported Devices
+## Supported devices
 
 - Aqara Air Conditioning Companion (lumi.acpartner.v3)
 - Aqara Intelligent Door Lock (lock.aq1)
@@ -52,7 +52,7 @@ Please note, there are two versions of the hub: v1 and v2. v1 can be used with H
 - Water Leak Sensor
 - Xiaomi Mijia Gateway (lumi.gateway.v2, lumi.gateway.v3)
 
-## Unsupported Devices
+## Unsupported devices
 
 - Xiaomi Aqara Gateway (lumi.gateway.aqhm01), as it is not possible to activate dev mode in the Mi Home App.
 - Gateway Radio
@@ -155,7 +155,7 @@ Removes a specific device. The removal is required if a device shall be paired w
 
 ## Examples
 
-### Long Press on Smart Button 1st Generation
+### Long press on smart button 1st generation
 
 This example plays the sound of a dog barking when the button is held down and stops the sound when the button is pressed once. Only works for the round button of the 1st generation.
 
@@ -189,7 +189,7 @@ This example plays the sound of a dog barking when the button is held down and s
       gw_mac: xxxxxxxxxxxx
 ```
 
-### Double Click on Smart Button
+### Double click on smart button
 
 This example toggles the living room lamp on a double click of the button.
 

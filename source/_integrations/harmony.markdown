@@ -21,7 +21,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).
+The `harmony` integration allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).
 
 Supported units:
 
@@ -64,7 +64,7 @@ Start an activity. Will start the default `activity` from `configuration.yaml` i
 | `entity_id`            |       no | Entity ID to target.
 | `activity`             |      yes | Activity ID or Activity Name to start.
 
-##### Example
+#### Example
 
 In the file 'harmony_REMOTENAME.conf' you can find the available activities, for example:
 

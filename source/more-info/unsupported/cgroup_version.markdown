@@ -18,7 +18,7 @@ before we publish a version that will require you to upgrade CGroups.
 
 In a supervised installation if you have switched to CGroup v2 you will need to
 revert what you did. Or you can re-run the [supervised installer](https://github.com/home-assistant/supervised-installer)
-to fix it.
+to fix it. Please be sure to reboot the system after the installation is done.
 
 You should never see this issue on Home Assistant OS as all versions of the OS
 ship with a supported CGroup version.

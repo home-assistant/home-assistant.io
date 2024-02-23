@@ -1,18 +1,24 @@
 ---
 type: card
-title: "Plant Status Card"
-sidebar_label: Plant Status
-description: "The Plant Status card is for all the lovely botanists out there."
+title: "Plant status card"
+sidebar_label: Plant status
+description: "The plant status card is for all the lovely botanists out there."
 ---
 
-The Plant Status card is for all the lovely botanists out there.
+The plant status card is for all the lovely botanists out there.
 
 <p class='img'>
 <img src='/images/dashboards/plant_card.png' alt='Screenshot of the plant status card'>
 Screenshot of the plant status card.
 </p>
 
-To add the Plant Status card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Plant Status** from the card picker. All options for this card can be configured via the user interface.
+{% include dashboard/edit_dashboard.md %}
+
+All options for this card can be configured via the user interface.
+
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -34,9 +40,9 @@ theme:
   type: string
 {% endconfiguration %}
 
-## Example
+### Example
 
-Alternatively, the card can be configured using YAML:
+Basic example:
 
 ```yaml
 type: plant-status

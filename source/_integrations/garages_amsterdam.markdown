@@ -2,7 +2,7 @@
 title: Garages Amsterdam
 description: Instructions on how to integrate Garages Amsterdam within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_release: 2021.6
 ha_codeowners:
@@ -35,6 +35,6 @@ When you add a parking garage, 4 sensors are created in your configuration by de
 
 </div>
 
-### Binary Sensor
+### Binary sensor
 
 Each parking garage also has a binary sensor, which indicates whether there are problems in the data provision from the API. When it indicates `ok` everything is fine. If the state changes to `problem`, the upstream data might not be up to date or reliable and will remain in this state until new data is coming in.

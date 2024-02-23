@@ -12,15 +12,15 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `Azure Event Hub` integration allows you to hook into the Home Assistant event bus and send events to [Azure Event Hub](https://azure.microsoft.com/en-us/services/event-hubs/) or to an [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-read-builtin).
+The `Azure Event Hub` integration allows you to hook into the Home Assistant event bus and send events to [Azure Event Hub](https://azure.microsoft.com/products/event-hubs/) or to an [Azure IoT Hub](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin).
 
 ## First time setup
 
-This assumes you already have an Azure account. Otherwise create a Free account [here](https://azure.microsoft.com/en-us/free/).
+This assumes you already have an Azure account. Otherwise create a Free account [here](https://azure.microsoft.com/free/).
 
-You need to create an Event Hub namespace and an Event Hub in that namespace, you can follow [this guide](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create). Alternatively you can directly deploy an ARM template with the namespace and the Event Hub [from here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/event-hubs-create-event-hub-and-consumer-group).
+You need to create an Event Hub namespace and an Event Hub in that namespace, you can follow [this guide](https://learn.microsoft.com/azure/event-hubs/event-hubs-create). Alternatively you can directly deploy an ARM template with the namespace and the Event Hub [from here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/event-hubs-create-event-hub-and-consumer-group).
 
-You must then create a Shared Access Policy for the Event Hub with 'Send' claims or use the RootManageAccessKey from your namespace (this key has additional claims, including managing the event hub and listening, which are not needed for this purpose), for more details on the security of Event Hubs [go here](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-authentication-and-security-model-overview).
+You must then create a Shared Access Policy for the Event Hub with 'Send' claims or use the RootManageAccessKey from your namespace (this key has additional claims, including managing the event hub and listening, which are not needed for this purpose), for more details on the security of Event Hubs [go here](https://learn.microsoft.com/azure/event-hubs/authenticate-shared-access-signature).
 
 Once you have the name of your namespace, instance, Shared Access Policy and the key for that policy, you can setup the integration itself.
 
@@ -40,7 +40,7 @@ Not filtering domains or entities will send every event to Azure Event Hub, thus
 Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
 </div>
 
-### Filter Configuration
+### Filter configuration
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Azure Event Hub`, you can use the `filter` parameter.
 
@@ -94,10 +94,10 @@ filter:
 
 ## Using the data in Azure
 
-There are a number of ways to stream the data that comes into the Event Hub into storages in Azure, the easiest way is to use the built-in Capture function and this allows you to capture the data in Azure Blob Storage or Azure Data Lake store, [details here](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview).
+There are a number of ways to stream the data that comes into the Event Hub into storages in Azure, the easiest way is to use the built-in Capture function and this allows you to capture the data in Azure Blob Storage or Azure Data Lake store, [details here](https://learn.microsoft.com/azure/event-hubs/event-hubs-capture-overview).
 
-Other storages in Azure (and outside) are possible with an [Azure Stream Analytics job](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-inputs#stream-data-from-event-hubs), for instance for [Cosmos DB](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-documentdb-output), [Azure SQL DB](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-sql-output-perf), [Azure Table Storage](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-outputs#table-storage), custom writing to [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-custom-path-patterns-blob-storage-output) and [Topic and Queues](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-output).
+Other storages in Azure (and outside) are possible with an [Azure Stream Analytics job](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs#stream-data-from-event-hubs), for instance for [Cosmos DB](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output), [Azure SQL DB](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf), [Azure Table Storage](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs), custom writing to [Azure Blob Storage](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-custom-path-patterns-blob-storage-output) and [Topic and Queues](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-output).
 
-On the analytical side, Event Hub can be directly fed into [Azure Databricks Spark](https://docs.microsoft.com/en-us/azure/azure-databricks/databricks-stream-from-eventhubs?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fevent-hubs%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json), [Azure Time Series Insights](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub) and [Microsoft Power BI](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-tutorial-visualize-anomalies).
+On the analytical side, Event Hub can be directly fed into [Azure Databricks Spark](https://learn.microsoft.com/azure/databricks/structured-streaming/streaming-event-hubs), [Azure Time Series Insights](https://learn.microsoft.com/azure/time-series-insights/how-to-ingest-data-event-hub) and [Microsoft Power BI](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-real-time-fraud-detection).
 
-The final way to use the data in Azure is to connect an Azure Function to the Event Hub using the [Event Hub trigger binding](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs).
+The final way to use the data in Azure is to connect an Azure Function to the Event Hub using the [Event Hub trigger binding](https://learn.microsoft.com/azure/azure-functions/functions-bindings-event-hubs).

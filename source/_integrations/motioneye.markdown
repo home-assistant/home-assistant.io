@@ -1,9 +1,9 @@
 ---
 title: motionEye
-description: Instructions on how to integrate MotionEye into Home Assistant.
+description: Instructions on how to integrate motionEye into Home Assistant.
 ha_category:
   - Camera
-  - Media Source
+  - Media source
 ha_release: 2021.5
 ha_iot_class: Local Polling
 ha_domain: motioneye
@@ -54,7 +54,7 @@ Configure motionEye webhooks to report events to Home Assistant:
   description: Whether or not motionEye webhooks should be configured to callback into Home Assistant. If this option is disabled, no motion detected or file stored events will be generated unless the webhooks are manually configured.
 Overwrite unrecognized webhooks:
   description: Whether or not to overwrite webhooks that are already configured and are not recognized as belonging to this integration (webhooks are deemed to belong to this integration if they contain `src=hass-motioneye` in the query string).
-Steam URL template:
+Stream URL template:
   description: A [jinja2](https://jinja.palletsprojects.com/) template that is used to override the standard MJPEG stream URL (e.g. for use with reverse proxies). See [Camera MJPEG Streams](#streams) below. This option is only shown to users who have [advanced mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode) enabled.
 {% endconfiguration_basic %}
 
@@ -62,15 +62,15 @@ Steam URL template:
 
 ### Entities
 
-| Platform        | Description                                                                                                                                                                                                                                   |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `camera`        | An MJPEG camera that shows the motionEye video stream.                                                                                                                                                                                        |
-| `switch`        | Switch entities to enable/disable motion detection, text overlay, video streaming, still image capture, movie capture and upload enabled.                                                                                                                     |
-| `sensor`        | An "action sensor" that shows the number of configured [actions](https://github.com/ccrisan/motioneye/wiki/Action-Buttons) for this device. The names of the available actions are viewable in the `actions`  attribute of the sensor entity. |
+| Platform | Description                                                                                                                                                                                                                                   |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `camera` | An MJPEG camera that shows the motionEye video stream.                                                                                                                                                                                        |
+| `switch` | Switch entities to enable/disable motion detection, text overlay, video streaming, still image capture, movie capture and upload enabled.                                                                                                     |
+| `sensor` | An "action sensor" that shows the number of configured [actions](https://github.com/ccrisan/motioneye/wiki/Action-Buttons) for this device. The names of the available actions are viewable in the `actions`  attribute of the sensor entity. |
 
 **Note**:
-   * If the video streaming switch is turned off, the camera entity, and services that operate on that camera, will become unavailable. The rest of the integration will continue to function.
-   * As cameras are added or removed to motionEye, devices/entities are automatically added or removed from Home Assistant.
+  - If the video streaming switch is turned off, the camera entity, and services that operate on that camera, will become unavailable. The rest of the integration will continue to function.
+  - As cameras are added or removed to motionEye, devices/entities are automatically added or removed from Home Assistant.
 
 
 <a name="streams"></a>
@@ -83,13 +83,13 @@ that is configured in the `motionEye` UI (under `Video Streaming`) on the host t
 motionEye integration is configured to use.
 
 Example:
-* If this integration is configured to talk to motionEye at `http://motioneye:8765`, and
+- If this integration is configured to talk to motionEye at `http://motioneye:8765`, and
   a camera is configured to stream on port `8081` -- Home Assistant needs to
   be able to communicate to `motioneye` port `8081`.
 
 ##### Stream URL Template
 
-For advanced usecases, this behavior can be changed with the [Steam URL
+For advanced usecases, this behavior can be changed with the [Stream URL
 template](#options) option. When set, this string will override the default
 stream address that is derived from the default behavior described above. This
 option supports [jinja2 templates](https://jinja.palletsprojects.com/) and has
@@ -133,21 +133,21 @@ in automations (etc).
 
 #### Data in events
 
-* The event data includes the Home Assistant `device_id` for this motionEye
+- The event data includes the Home Assistant `device_id` for this motionEye
   camera device and the Home Assistant device `name`.
-* Event data also includes as many [Motion Conversion
+- Event data also includes as many [Motion Conversion
   Specifiers](https://motion-project.github.io/motion_config.html#conversion_specifiers)
   as make sense for that event type.
-* Any additional `&key=value` pairs added manually to the motionEye webhook
+- Any additional `&key=value` pairs added manually to the motionEye webhook
   (in the motionEye UI) will automatically propagate to the event data. If
   you manually tweak the webhook, remove the `src=hass-motioneye` parameter
   or the webhook will be overwritten.
-* For file storage events, the integration will automatically add
+- For file storage events, the integration will automatically add
   `media_content_id` (an identifier that can be used to play the media in a
   Home Assistant media player) and `file_url` (a raw URL to the media). See
   [example automation](#automation-movies) below for an illustration of how
   this can be used.
-* `file_type` will be less than 8 if the media stored is an image, otherwise,
+- `file_type` will be less than 8 if the media stored is an image, otherwise,
   it is a movie/video. See [the motion
   source](https://github.com/Motion-Project/motion/blob/master/src/motion.h#L177)
   for more details.
@@ -241,13 +241,13 @@ Note: This is a thin wrapper on the [`motioneye.action` call](#action).
 
 ### motioneye.action
 
-Trigger a motionEye action (see [MotionEye Action Buttons](https://github.com/ccrisan/motioneye/wiki/Action-Buttons)).
+Trigger a motionEye action (see [motionEye Action Buttons](https://github.com/ccrisan/motioneye/wiki/Action-Buttons)).
 
 Parameters:
 
-| Parameter | Description |
-| - | - |
-| `entity_id` `device_id` | An entity id or device id to trigger the action on. |
+| Parameter               | Description                                                                                                                                                                                                                                              |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id` `device_id` | An entity id or device id to trigger the action on.                                                                                                                                                                                                      |
 | `action`                | A string representing the motionEye action to trigger. One of `snapshot`, `lock`, `unlock`, `light_on`, `light_off`, `alarm_on`, `alarm_off`, `up`, `right`, `down`, `left`, `zoom_in`, `zoom_out`, `preset1`-`preset9`, `record_start` or `record_stop` |
 
 **Note**: `record_start` and `record_stop` action are only partially implemented in motionEye itself and thus do not function as would be expected at this time ([relevant code](https://github.com/ccrisan/motioneye/blob/dev/motioneye/handlers.py#L1741)).
@@ -258,17 +258,17 @@ Set the text overlay for a camera.
 
 Parameters:
 
-| Parameter | Description |
-| - | - |
+| Parameter                              | Description                                                                                                                                                                 |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id` `device_id`                | An entity id or device id to set the text overlay on.                                                                                                                       |
 | `left_text` `right_text`               | One of `timestamp`, `camera-name`, `custom-text` or `disabled` to show a timestamp, the  name of the camera, custom text or nothing at all, on the left or right-hand side. |
 | `custom_left_text` `custom_right_text` | Custom text to show on the left or right, if the `custom-text` value is selected.                                                                                           |
 
 **Note**:
 
-* Calling this service triggers a reset of the motionEye cameras which will pause the
+- Calling this service triggers a reset of the motionEye cameras which will pause the
   stream / recordings / motion detection (etc).
-* Ensure the `Text Overlay` switch is turned on to actually display the configured text overlays.
+- Ensure the `Text Overlay` switch is turned on to actually display the configured text overlays.
 
 #### Example:
 
@@ -404,7 +404,7 @@ An automation to cast stored movie clips to a TV as they arrive.
 
 ### Debug Logging
 
-To enable debug logging for both the component and the underlying client library,
+To enable debug logging for both the integration and the underlying client library,
 enable the following in your `configuration.yaml` and then restart:
 
 ```yaml

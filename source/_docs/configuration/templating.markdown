@@ -10,8 +10,8 @@ This is an advanced feature of Home Assistant. You'll need a basic understanding
 
 Templating is a powerful feature that allows you to control information going into and out of the system. It is used for:
 
-- Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [Alexa](/integrations/alexa/) component.
-- Process incoming data from sources that provide raw data, like [MQTT](/integrations/mqtt/), [`rest` sensor](/integrations/rest/) or the [`command_line` sensor](/integrations/sensor.command_line/).
+- Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [Alexa](/integrations/alexa/) integration.
+- Process incoming data from sources that provide raw data, like [MQTT](/docs/configuration/templating/#using-templates-with-the-mqtt-integration), [`rest` sensor](/integrations/rest/) or the [`command_line` sensor](/integrations/sensor.command_line/).
 - [Automation Templating](/docs/automation/templating/).
 
 ## Building templates
@@ -46,22 +46,63 @@ script:
 
 {% endraw %}
 
-### Important Template Rules
+### Important template rules
 
 There are a few very important rules to remember when adding templates to YAML:
 
 1. You **must** surround single-line templates with double quotes (`"`) or single quotes (`'`).
-1. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.default), or both.
-1. It is advised that when comparing numbers, you convert the number(s) to a [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) or an [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) by using the respective [filter](https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters).
-1. While the [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) and [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
+2. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.default), or both.
+3. It is advised that when comparing numbers, you convert the number(s) to a [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) or an [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) by using the respective [filter](https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters).
+4. While the [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) and [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
+
+### Enabled Jinja extensions
+
+Jinja supports a set of language extensions that add new functionality to the language.
+To improve the experience of writing Jinja templates, we have enabled the following
+extensions:
+
+- [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+
+### Reusing templates
+
+You can write reusable Jinja templates by adding them to a `custom_templates` folder under your
+configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
+Templates in this folder will be loaded at startup. To reload the templates without
+restarting Home Assistant, invoke the {% my developer_call_service service="homeassistant.reload_custom_templates" %} service.
+
+Once the templates are loaded, Jinja [includes](https://jinja.palletsprojects.com/en/3.0.x/templates/#include) and [imports](https://jinja.palletsprojects.com/en/3.0.x/templates/#import) will work
+using `config/custom_templates` as the base directory.
+
+For example, you might define a macro in a template in `config/custom_templates/formatter.jinja`:
+
+{% raw %}
+
+```text
+{% macro format_entity(entity_id) %}
+{{ state_attr(entity_id, 'friendly_name') }} - {{ states(entity_id) }}
+{% endmacro %}
+```
+
+{% endraw %}
+
+In your automations, you could then reuse this macro by importing it:
+
+{% raw %}
+
+```text
+{% from 'formatter.jinja' import format_entity %}
+{{ format_entity('sensor.temperature') }}
+```
+
+{% endraw %}
 
 ## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
 
-### Limited Templates
+### Limited templates
 
 Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
 
@@ -69,21 +110,22 @@ Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_var
 
 Not supported in [limited templates](#limited-templates).
 
-- Iterating `states` will yield each state sorted alphabetically by entity ID.
-- Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
+- Iterating `states` will yield each state object.
+- Iterating `states.domain` will yield each state object of that domain.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
-- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available.
+- `states` can also be used as a function, `states(entity_id, rounded=False, with_unit=False)`, which returns the state string (not the state object) of the given entity, `unknown` if it doesn't exist, and `unavailable` if the object exists but is not available.
+  - The optional arguments `rounded` and `with_unit` control the formatting of sensor state strings, please see the [examples](#formatting-sensor-states) below.
+- `states.sensor.temperature.state_with_unit` formats the state string in the same way as if calling `states('sensor.temperature', rounded=True, with_unit=True)`.
 - `is_state` compares an entity's state with a specified state or list of states and returns `True` or `False`. `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state. `is_state('device_tracker.paulus', ['home', 'work'])` will test if the given entity is any of the states in the list.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
+- `has_value('sensor.my_sensor')` will test if the given entity is not unknown or unavailable. Can be used as a filter or a test.
 
 <div class='note warning'>
 
-  Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
+Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
 
 </div>
-
-Besides the normal [state object methods and properties](/topics/state_object/), `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
 
 #### States examples
 
@@ -104,6 +146,18 @@ Print out a list of all the sensor states:
 
 ```text
 {% for state in states.sensor %}
+  {{ state.entity_id }}={{ state.state }},
+{% endfor %}
+```
+
+{% endraw %}
+
+Print out a list of all the sensor states sorted by `entity_id`:
+
+{% raw %}
+
+```text
+{% for state in states.sensor | sort(attribute='entity_id') %}
   {{ state.entity_id }}={{ state.state }},
 {% endfor %}
 ```
@@ -134,6 +188,10 @@ Other state examples:
 {% if states('sensor.train_departure_time') in ("unavailable", "unknown") %}
   {{ ... }}
 
+{% if has_value('sensor.train_departure_time') %}
+  {{ ... }}
+
+
 {% set state = states('sensor.temperature') %}{{ state | float + 1 if is_number(state) else "invalid temperature" }}
 
 {% set state = states('sensor.temperature') %}{{ (state | float * 10) | round(2) if is_number(state)}}
@@ -154,9 +212,61 @@ Other state examples:
 {{ states('sensor.expires') | as_datetime }}
 
 # Make a list of states
-{{ ['light.kitchen', 'light.dinig_room'] | map('states') | list }}
+{{ ['light.kitchen', 'light.dining_room'] | map('states') | list }}
 ```
 
+{% endraw %}
+
+#### Formatting sensor states
+
+The examples below show the output of a temperature sensor with state `20.001`, unit `°C` and user configured presentation rounding set to 1 decimal.
+
+The following example results in the number `20.001`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature') }}
+```
+{% endraw %}
+
+The following example results in the string `"20.0 °C"`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature', with_unit=True) }}
+```
+{% endraw %}
+
+The following example result in the string `"20.001 °C"`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature', with_unit=True, rounded=False) }}
+```
+{% endraw %}
+
+The following example results in the number `20.0`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature', rounded=True) }}
+```
+{% endraw %}
+
+The following example results in the number `20.001`:
+
+{% raw %}
+```text
+{{ states.sensor.temperature.state }}
+```
+{% endraw %}
+
+The following example results in the string `"20.0 °C"`:
+
+{% raw %}
+```text
+{{ states.sensor.temperature.state_with_unit }}
+```
 {% endraw %}
 
 ### Attributes
@@ -215,7 +325,33 @@ List of lights that are on with a brightness of 255:
 
 {% endraw %}
 
-### Working with Groups
+
+### State translated
+
+Not supported in [limited templates](#limited-templates).
+
+The `state_translated` function returns a translated state of an entity using a language that is currently configured in the [general settings](https://my.home-assistant.io/redirect/general/).
+
+#### State translated examples
+
+{% raw %}
+
+```text
+{{ states("sun.sun") }}             # below_horizon
+{{ state_translated("sun.sun") }}   # Below horizon
+{{ "sun.sun" | state_translated }}  # Below horizon
+```
+
+```text
+{{ states("binary_sensor.movement_backyard") }}             # on
+{{ state_translated("binary_sensor.movement_backyard") }}   # Detected
+{{ "binary_sensor.movement_backyard" | state_translated }}  # Detected
+```
+
+{% endraw %}
+
+
+### Working with groups
 
 Not supported in [limited templates](#limited-templates).
 
@@ -239,7 +375,7 @@ The same thing can also be expressed as a filter:
 {% raw %}
 
 ```text
-{{ expand(['device_tracker.paulus', 'group.child_trackers']) 
+{{ expand(['device_tracker.paulus', 'group.child_trackers'])
   | selectattr("attributes.battery", 'defined')
   | join(', ', attribute="attributes.battery") }}
 ```
@@ -262,8 +398,23 @@ The same thing can also be expressed as a test:
 {% raw %}
 
 ```text
-{{ expand('group.energy_sensors') 
+{{ expand('group.energy_sensors')
   | selectattr("state", 'is_number') | join(', ') }}
+```
+
+{% endraw %}
+
+
+### Entities
+
+- `is_hidden_entity(entity_id)` returns whether an entity has been hidden. Can also be used as a test.
+
+### Entities examples
+
+{% raw %}
+
+```text
+{{ area_entities('kitchen') | reject('is_hidden_entity') }} # Gets a list of visible entities in the kitchen area
 ```
 
 {% endraw %}
@@ -293,7 +444,7 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
-### Config Entries
+### Config entries
 
 - `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
 
@@ -309,6 +460,7 @@ The same thing can also be expressed as a test:
 
 ### Areas
 
+- `areas()` returns the full list of area IDs
 - `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 - `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
@@ -317,6 +469,10 @@ The same thing can also be expressed as a test:
 #### Areas examples
 
 {% raw %}
+
+```text
+{{ areas() }}  # ['area_id']
+```
 
 ```text
 {{ area_id('Living Room') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
@@ -436,7 +592,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
 ### Time
 
-`now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
+`now()`, `relative_time()`, `today_at()`, and `utcnow()` are not supported in [limited templates](#limited-templates).
 
 - `now()` returns a datetime object that represents the current time in your time zone.
   - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3.8/library/datetime.html#datetime.datetime) attributes and functions.
@@ -446,19 +602,21 @@ For example, if you wanted to select a field from `trigger` in an automation bas
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
 - `today_at(value)` converts a string containing a military time format to a datetime object with today's date in your time zone.
 
-   {% raw %}
+  - Using `today_at()` will cause templates to be refreshed at the start of every new minute.
 
-   ```yaml
-   # Is the current time past 10:15?
-   {{ now() > today_at("10:15") }} 
-   ```
+  {% raw %}
 
-   {% endraw %}
+  ```text
+  # Is the current time past 10:15?
+  {{ now() > today_at("10:15") }}
+  ```
 
-- `as_datetime()` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object.
+  {% endraw %}
+
+- `as_datetime(value, default)` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts datetime object to local time. This function can also be used as a filter.
-- `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, returns the `default` value, or if omitted raises an error.
+- `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3.10/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
 - `relative_time()`: deprecated in favor of time_since(). relative_time(datetime) is equivalent to time_since(datetime)
 - `time_since(datetime, precision)` converts datetime object to its human-friendly time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` indicates the number of units returned with the last unit rounded (i.e `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months"). This function can also be used as a filter.
 If the datetime is in the future, returns 0 seconds.
@@ -468,29 +626,29 @@ If the datetime is in the past, returns 0 seconds.
 A precision of 0 returns all available units, default is 1.
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
-   {% raw %}
+  {% raw %}
 
-   ```yaml
-   # 77 minutes before current time. 
-   {{ now() - timedelta( hours = 1, minutes = 17 ) }} 
-   ```
+  ```text
+  # 77 minutes before current time.
+  {{ now() - timedelta( hours = 1, minutes = 17 ) }}
+  ```
 
-   {% endraw %}
+  {% endraw %}
 
 - `as_timedelta(string)` converts a string to a timedelta object. Expects data in the format `DD HH:MM:SS.uuuuuu`, `DD HH:MM:SS,uuuuuu`, or as specified by ISO 8601 (e.g. `P4DT1H15M20S` which is equivalent to `4 1:15:20`) or PostgreSQL’s day-time interval format (e.g. `3 days 04:05:06`) This function can also be used as a filter.
 
-   {% raw %}
+  {% raw %}
 
-   ```yaml
-   # Renders to "00:10:00" 
-   {{ as_timedelta("PT10M") }} 
-   ```
+  ```text
+  # Renders to "00:10:00"
+  {{ as_timedelta("PT10M") }}
+  ```
 
-   {% endraw %}
+  {% endraw %}
 
 - Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
+- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
 <div class='note'>
 
@@ -504,7 +662,7 @@ If your template is returning a timestamp that should be displayed in the fronte
 
 {% raw %}
 
-`{{ states.sun.sun.last_changed }}` => `2021-01-24 07:06:59+00:00` (missing "T" separator)
+`{{ states.sun.sun.last_changed }}` => `2023-07-30 20:03:49.253717+00:00` (missing "T" separator)
 
 {% endraw %}
 
@@ -512,7 +670,7 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 {% raw %}
 
-`{{ states.sun.sun.last_changed.isoformat() }}` => `2021-01-24T07:06:59+00:00` (contains "T" separator)
+`{{ states.sun.sun.last_changed.isoformat() }}` => `2023-07-30T20:03:49.253717+00:00` (contains "T" separator)
 
 {% endraw %}
 
@@ -520,7 +678,7 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 {% raw %}
 
-```yaml
+```text
 {{ 120 | timestamp_local }}
 ```
 
@@ -530,13 +688,14 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 The `to_json` filter serializes an object to a JSON string. In some cases, it may be necessary to format a JSON string for use with a webhook, as a parameter for command-line utilities or any number of other applications. This can be complicated in a template, especially when dealing with escaping special characters. Using the `to_json` filter, this is handled automatically.
 
-Similarly to the Python equivalent, the filter accepts an `ensure_ascii` parameter, defaulting to `True`. If `ensure_ascii` is `True`, the output is guaranteed to have all incoming non-ASCII characters escaped. If `ensure_ascii` is false, these characters will be output as-is.
+`to_json` also accepts boolean arguments for `pretty_print`, which will pretty print the JSON with a 2-space indent to make it more human-readable, and `sort_keys`, which will sort the keys of the JSON object, ensuring that the resulting string is consistent for the same input.
+
+If you need to generate JSON that will be used by a parser that lacks support for Unicode characters, you can add  `ensure_ascii=True` to have `to_json` generate Unicode escape sequences in strings.
 
 The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
 
-### To/From JSON examples
 
-In this example, the special character '°' will be automatically escaped in order to produce valid JSON. The difference between the stringified object and the actual JSON is evident.
+### To/From JSON examples
 
 #### Template
 
@@ -545,7 +704,7 @@ In this example, the special character '°' will be automatically escaped in ord
 ```text
 {% set temp = {'temperature': 25, 'unit': '°C'} %}
 stringified object: {{ temp }}
-object|to_json: {{ temp|to_json(ensure_ascii=False) }}
+object|to_json: {{ temp|to_json(sort_keys=True) }}
 ```
 
 {% endraw %}
@@ -556,7 +715,7 @@ object|to_json: {{ temp|to_json(ensure_ascii=False) }}
 
 ```text
 stringified object: {'temperature': 25, 'unit': '°C'}
-object|to_json: {"temperature": 25, "unit": "\u00b0C"}
+object|to_json: {"temperature": 25, "unit": "°C"}
 ```
 
 {% endraw %}
@@ -568,7 +727,7 @@ Conversely, `from_json` can be used to de-serialize a JSON string back into an o
 {% raw %}
 
 ```text
-{% set temp = '{"temperature": 25, "unit": "\u00b0C"}'|from_json %}
+{% set temp = '{"temperature": 25, "unit": "°C"}'|from_json %}
 The temperature is {{ temp.temperature }}{{ temp.unit }}
 ```
 
@@ -687,11 +846,11 @@ The last argument of the closest function has an implicit `expand`, and can take
 {% raw %}
 
 ```text
-Closest out of given entities: 
+Closest out of given entities:
     {{ closest(['group.children', states.device_tracker]) }}
-Closest to a coordinate:  
+Closest to a coordinate:
     {{ closest(23.456, 23.456, ['group.children', states.device_tracker]) }}
-Closest to some entity: 
+Closest to some entity:
     {{ closest(states.zone.school, ['group.children', states.device_tracker]) }}
 ```
 
@@ -702,13 +861,37 @@ It will also work as a filter over an iterable group of entities or groups:
 {% raw %}
 
 ```text
-Closest out of given entities: 
+Closest out of given entities:
     {{ ['group.children', states.device_tracker] | closest }}
-Closest to a coordinate:  
+Closest to a coordinate:
     {{ ['group.children', states.device_tracker] | closest(23.456, 23.456) }}
-Closest to some entity: 
+Closest to some entity:
     {{ ['group.children', states.device_tracker] | closest(states.zone.school) }}
 ```
+
+{% endraw %}
+
+### Contains
+
+Jinja provides by default a [`in` operator](https://jinja.palletsprojects.com/en/latest/templates/#other-operators) how return `True` when one element is `in` a provided list.
+The `contains` test and filter allow you to do the exact opposite and test for a list containing an element. This is particularly useful in `select` or `selectattr` filter, as well as to check if a device has a specific attribute, a `supported_color_modes`, a specific light effect.
+
+Some examples:
+{% raw %}
+
+- `{{ state_attr('light.dining_room', 'effect_list') | contains('rainbow') }}` will return `true` if the light has a `rainbow` effect.
+- `{{ expand('light.office') | selectattr("attributes.supported_color_modes", 'contains', 'color_temp') | list }}` will return all light that support color_temp in the office group.
+- ```text
+    {% set current_month = now().month %}
+    {% set extra_ambiance = [
+      {'name':'Halloween', 'month': [10,11]},
+      {'name':'Noel', 'month': [1,11,12]}
+    ]%}
+    {% set to_add = extra_ambiance | selectattr('month', 'contains', current_month ) | map(attribute='name') | list  %}
+    {% set to_remove = extra_ambiance | map(attribute='name') | reject('in', to_add) | list %}
+    {{ (state_attr('input_select.light_theme', 'options') + to_add ) | unique | reject('in', to_remove) | list }}
+  ```
+  This more complex example uses the `contains` filter to match the current month with a list. In this case, it's used to generate a list of light theme to give to the `Input select: Set options` service.
 
 {% endraw %}
 
@@ -732,14 +915,14 @@ The numeric functions and filters raise an error if the input is not a valid num
 </div>
 
 - `float(value, default)` function will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
-- `float(default)` filter will attempt to convert the input to a `float`.  If that fails, returns the `default` value, or if omitted raises an error.
+- `float(default)` filter will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
 - `is_number` will return `True` if the input can be parsed by Python's `float` function and the parsed input is not `inf` or `nan`, in all other cases returns `False`. Note that a Python `bool` will return `True` but the strings `"True"` and `"False"` will both return `False`. Can be used as a filter.
 - `int(value, default)` function is similar to `float`, but converts to an `int` instead. Like `float`, it has a filter form, and an error is raised if the `default` value is omitted. Fractional part is discarded: `int("1.5")` is `1`.
 - `bool(value, default)` function converts the value to either `true` or `false`.
-The following values are considered to be `true`: boolean `true`, non-zero `int`s and `float`s, and the strings `"true"`, `"yes"`, `"on"`, `"enable"`, and `"1"` (case-insensitive). `false` is returned for the opposite values: boolean `false`, integer or floating-point `0`, and the strings `"false"`, `"no"`, `"off"`, `"disable"`, and `"0"` (also case-insensitive).
-If the value is not listed here, the function returns the `default` value, or if omitted raises an error.
-This function is intended to be used on states of [binary sensors](/integrations/binary_sensor/), [switches](/integrations/switch/), or similar entities, so its behavior is different from Python's built-in `bool` conversion, which would consider e.g. `"on"`, `"off"`, and `"unknown"` all to be `true`, but `""` to be `false`; if that is desired, use `not not value` or a similar construct instead.
-Like `float` and `int`, `bool` has a filter form. Using `none` as the default value is particularly useful in combination with the [immediate if filter](#immediate-if-iif): it can handle all three possible cases in a single line.
+  The following values are considered to be `true`: boolean `true`, non-zero `int`s and `float`s, and the strings `"true"`, `"yes"`, `"on"`, `"enable"`, and `"1"` (case-insensitive). `false` is returned for the opposite values: boolean `false`, integer or floating-point `0`, and the strings `"false"`, `"no"`, `"off"`, `"disable"`, and `"0"` (also case-insensitive).
+  If the value is not listed here, the function returns the `default` value, or if omitted raises an error.
+  This function is intended to be used on states of [binary sensors](/integrations/binary_sensor/), [switches](/integrations/switch/), or similar entities, so its behavior is different from Python's built-in `bool` conversion, which would consider e.g. `"on"`, `"off"`, and `"unknown"` all to be `true`, but `""` to be `false`; if that is desired, use `not not value` or a similar construct instead.
+  Like `float` and `int`, `bool` has a filter form. Using `none` as the default value is particularly useful in combination with the [immediate if filter](#immediate-if-iif): it can handle all three possible cases in a single line.
 
 - `log(value, base, default)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. If `value` or `base` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can also be used as a filter.
 - `sin(value, default)` will return the sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
@@ -753,6 +936,8 @@ Like `float` and `int`, `bool` has a filter form. Using `none` as the default va
 - `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
 - `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
 - `average([x, y, ...], default)` will return the average value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `median([x, y, ...], default)` will return the median value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `statistical_mode([x, y, ...], default)` will return the statistical mode value (most frequent occurrence) of the sequence. If the list is empty, it returns the `default` value, or if omitted raises an error. It can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
@@ -762,7 +947,29 @@ Like `float` and `int`, `bool` has a filter form. Using `none` as the default va
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
+- Filter `value_one|bitwise_xor(value_two)` perform a bitwise xor(\^) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
+
+### Complex type checking
+
+In addition to strings and numbers, Python (and Jinja) supports lists, sets, and dictionaries. To help you with testing these types, you can use the following tests:
+
+- `x is list` will return whether `x` is a `list` or not (e.g. `[1, 2] is list` will return `True`).
+- `x is set` will return whether `x` is a `set` or not (e.g. `{1, 2} is set` will return `True`).
+- `x is tuple` will return whether `x` is a `tuple` or not (e.g. `(1, 2) is tuple` will return `True`).
+- `x is datetime` will return whether `x` is a `datetime` or not (e.g. `datetime(2020, 1, 1, 0, 0, 0) is datetime` will return `True`).
+- `x is string_like` will return whether `x` is a string, bytes, or bytearray object.
+
+Note that, in Home Assistant, Jinja has built-in tests for `boolean` (`True`/`False`), `callable` (any function), `float` (a number with a decimal), `integer` (a number without a decimal), `iterable` (a value that can be iterated over such as a `list`, `set`, `string`, or generator), `mapping` (mainly `dict` but also supports other dictionary like types), `number` (`float` or `int`), `sequence` (a value that can be iterated over and indexed such as `list` and `string`), and `string`.
+
+### Type conversions
+
+While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to a `tuple` or `set`. To help you with using these types, you can use the following functions:
+
+- `set(x)` will convert any iterable `x` to a `set` (e.g. `set([1, 2]) == {1, 2}`)
+- `tuple(x)` will convert any iterable `x` to a `tuple` (e.g. `tuple("abc") == ("a", "b", "c")`)
+
+Note that, in Home Assistant, to convert a value to a `list`, a `string`, an `int`, or a `float`, Jinja has built-in functions with names that correspond to each type.
 
 ### Functions and filters to process raw data
 
@@ -813,7 +1020,7 @@ The other part of templating is processing incoming data. It allows you to modif
 It depends per integration or platform, but it is common to be able to define a template using the `value_template` configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:
 
 | Variable     | Description                        |
-|--------------|------------------------------------|
+| ------------ | ---------------------------------- |
 | `value`      | The incoming value.                |
 | `value_json` | The incoming value parsed as JSON. |
 
@@ -831,7 +1038,7 @@ The template for `on` would be:
 {% raw %}
 
 ```yaml
-'{{value_json.on}}'
+"{{value_json.on}}"
 ```
 
 {% endraw %}
@@ -869,7 +1076,7 @@ The following overview contains a couple of options to get the needed values:
 # Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
 
-# Extract first prime number 
+# Extract first prime number
 {{ value_json.primes[0] }}
 
 # Format output
@@ -893,7 +1100,7 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_template title="Developer Tools -> Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to **{% my developer_template title="Developer Tools > Template" %}**, create your output in "Template editor", and check the result.
 
 {% raw %}
 
@@ -930,7 +1137,7 @@ With given payload:
 { "state": "ON", "temperature": 21.902 }
 ```
 
-Template {% raw %}```{{ value_json.temperature | round(1) }}```{% endraw %} renders to `21.9`.
+Template {% raw %}`{{ value_json.temperature | round(1) }}`{% endraw %} renders to `21.9`.
 
 Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
@@ -944,7 +1151,7 @@ For service calls command templates are defined to format the outgoing MQTT payl
 
 Example command template:
 
-With given value `21.9` template {% raw %}```{"temperature": {{ value }} }```{% endraw %} renders to:
+With given value `21.9` template {% raw %}`{"temperature": {{ value }} }`{% endraw %} renders to:
 
 ```json
 {
@@ -968,7 +1175,7 @@ The default priority of operators is that the filter (`|`) has priority over eve
 
 {% raw %}
 
-```yaml
+```text
 {{ states('sensor.temperature') | float / 10 | round(2) }}
 ```
 

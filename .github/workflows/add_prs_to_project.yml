@@ -13,12 +13,12 @@ jobs:
       - name: Generate app token
         id: token
         # Pinned to a specific version of the action for security reasons
-        uses: tibdex/github-app-token@021a2405c7f990db57f5eae5397423dcc554159c # v1.7.0
+        uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2.1.0
         with:
           app_id: ${{ secrets.PROJECTS_APP_ID }}
           private_key: ${{ secrets.PROJECTS_APP_PEM }}
       - name: Add to Project
-        uses: actions/add-to-project@v0.4.0
+        uses: actions/add-to-project@v0.5.0
         with:
           project-url: https://github.com/orgs/home-assistant/projects/10
           github-token: ${{ steps.token.outputs.token }}

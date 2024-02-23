@@ -2,7 +2,13 @@
 title: Advantage Air
 description: Instructions on how to integrate Advantage Air A/C controller into Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
+  - Cover
+  - Light
+  - Select
+  - Sensor
+  - Switch
   - Update
 ha_release: 0.117
 ha_iot_class: Local Polling
@@ -24,7 +30,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Advantage Air integration allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
+The **Advantage Air** {% term integration %} allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
 
 ## Prerequisites
 
@@ -36,11 +42,19 @@ The wall-mounted Android tablet running the [MyPlace](https://play.google.com/st
 
 ### Climate
 
-The integration will create a climate entity for each air conditioning system found and for each zone that is temperature-controlled.
+The integration will create a climate entity for each air conditioning system found and for each zone that is temperature-controlled. The main climate entity will change its supported features and modes based on the [MyComfort](https://www.advantageair.com.au/wp-content/uploads/2019/10/MyComfort.pdf) temperature mode currently set.
+
+- MyZone (default) - Use the MyZone select platform to pick which zone will be used for temperature control. Setting this to "Inactive" will use the return air vent temperature. e-zone systems do not support any MyComfort temperature modes, so will always be in the MyZone preset with MyZone set as "Inactive".
+- MyTemp - Use the main climate entity to change between cool, heat, and off. Use the zone climate entities to set the desired temperature in each zone.
+- MyAuto - Uses the average temperature of all zones for temperature control. When set to the Heat/Cool mode, you can adjust the heating and cooling target temperatures separately, and the MyAir system will automatically switch between heating and cooling as required.
+
+If you change MyComfort mode, you will need to restart Home Assistant or reload the integration.
 
 ### Cover
 
-The integration will create a cover entity for each zone that is not temperature controlled, allowing you to adjust the opening level manually from 0% to 100% in 5% increments.
+The integration will create a cover entity for each air conditioning zone that is not temperature controlled, allowing you to adjust the opening level manually from 0% to 100% in 5% increments.
+
+With MyPlace, any blinds and/or garage doors will be created as cover entities.
 
 ### Sensor
 
@@ -51,25 +65,27 @@ The integration will create sensor entities for a variety of aspects:
 - Each zone that is temperature-controlled will have a sensor to show the temperature (disabled by default), and how open the damper is.
 - Each zone with a wireless temperature or motion sensor will have a sensor that reports its wireless RSSI.
 
-### Binary Sensor
+### Binary sensor
 
-The `advantage_air` binary sensor platform will create a binary sensor for each zone that has a motion sensor.
+The integration will create a binary sensor for each zone that has a motion sensor.
 
 ### Switch
 
-The `advantage_air` switch platform will create a switch entity to toggle fresh air mode, if it is supported.
+The integration will create switch entities to toggle the MyFan/ezFan setting, and to toggle air conditioning fresh air mode, if they are supported by your hardware.
+
+With MyPlace, any relays will be created as switch entities.
 
 ### Select
 
-The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
+The MyZone select entity that allows you to change the zone used for the "MyZone" feature. Set this to "Inactive" to use the return air vent temperature.
 
 ### Update
 
-The `advantage_air` update platform shows if the controller app requires an update.
+The update platform shows if the controller app requires an update.
 
 ### Light
 
-The `advantage_air` light platform will create a light entity for each light in MyLights tab of the MyPlace app.
+With MyLights or MyPlace, light entities will be created for each light.
 
 ## Services
 

@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
+The [Discord service](https://discordapp.com/) is a platform for the notify integration. This allows integrations to send messages to the user using Discord.
 
 ## Prerequisites
 
@@ -35,27 +35,25 @@ The name you give your application on the [Discord My Apps page](https://discord
 
 ### Setting up the bot
 
-Bots can send messages to servers and users or attach locally available images. To add the bot to a server you are an admin on use the **Application ID** you noted above, found on the [Discord My Apps page](https://discordapp.com/developers/applications/me).
+Bots can send messages to servers and users or attach locally available images. To add the bot to a server you are an admin on, use the **Application ID** you noted above, found on the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
-<p class='img'>
-  <img src='/images/screenshots/discord-bot.png' />
-</p>
+![Screenshot of Discord bot config](/images/screenshots/discord-bot.png)
 
-Now use the Discord Authorization page with the **Application ID** of your [application](https://discordapp.com/developers/docs/topics/oauth2#bots).
+Next, decide what permissions your bot will have within your server. Under the 'Bot' section, select the permissions you want to grant and copy the permissions integer from the bottom field.
 
-`https://discordapp.com/api/oauth2/authorize?client_id=[APPLICATION_ID]&scope=bot&permissions=0`
+![Screenshot of Discord bot permissions](/images/screenshots/discord-bot-permissions.png)
 
-<p class='img'>
-  <img src='/images/screenshots/discord-auth.png' />
-</p>
+Now use the Discord Authorization page with the **Application ID** of your [application](https://discordapp.com/developers/docs/topics/oauth2#bots) and the **Permissions Integer**.
+
+`https://discordapp.com/api/oauth2/authorize?client_id=[APPLICATION_ID]&scope=bot&permissions=[PERMISSIONS_INTEGER]`
+
+![Screenshot of Discord bot auth](/images/screenshots/discord-auth.png)
 
 Wait for the confirmation which should say "Authorized".
 
-Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. In The Discord application go to **Settings** > **Advanced** > **Enable Developer Mode**.
+Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. Open Discord and go to **User Settings** > **Advanced** > **Enable Developer Mode**. User settings can be found next to your username in Discord.
 
-<p class='img'>
-  <img src='/images/screenshots/discord-api.png' />
-</p>
+![Screenshot of Discord bot create prompt](/images/screenshots/discord-api.png)
 
 Right click channel name and copy the channel ID (**Copy ID**).
 
@@ -67,7 +65,7 @@ This channel or a user ID has to be used as the target when calling the notifica
 
 When adding the Discord integration you will be asked for an API Key. Enter the hidden **Token** of your bot to link your Discord integration to the bot you created and allow Home Assistant to send messages as that bot.
 
-## Discord Service Data
+## Discord service data
 
 The following attributes can be placed inside the `data` key of the service call for extended functionality:
 
