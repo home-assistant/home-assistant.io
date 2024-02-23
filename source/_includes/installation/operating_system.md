@@ -162,11 +162,11 @@ Use this method only if Method 1 does not work for you.
    - Back up your data before continuing with the next step.
 2. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.
     {% if page.installation_type == 'odroid' %}
-      If you are using ODROID M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
+      If you are using ODROID-M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
 
-      If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
+      If you are using a [Home Assistant Blue](/blue) or ODROID-N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
 
-      If you are using an ODROID M1S, you need to follow this guide to [boot your device into UMS mode](/common-tasks/os/#flashing-an-odroid-m1s).
+      If you are using an ODROID-M1S, you need to follow this guide to [boot your device into UMS mode](/common-tasks/os/#flashing-an-odroid-m1s).
     {% endif %}
 3. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
 4. Download the image to your computer.
@@ -184,9 +184,9 @@ Use this method only if Method 1 does not work for you.
     ```
 
     {% if variant.key == "odroid-n2" %}
-    [Guide: Flashing Odroid-N2 using OTG-USB](/hassio/flashing_n2_otg/)
+    [Guide: Flashing ODROID-N2 using OTG-USB](/hassio/flashing_n2_otg/)
     {% elsif variant.key == "odroid-m1s" %}
-    [Guide: Flashing Odroid-M1S using OTG-USB](/hassio/flashing_m1s_otg/)
+    [Guide: Flashing ODROID-M1S using OTG-USB](/hassio/flashing_m1s_otg/)
     {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
       *(64-bit is recommended)*
     {% endif %}
@@ -216,7 +216,7 @@ Use this method only if Method 1 does not work for you.
 9. Select **Flash!** to start writing the image.
    - If the operation fails, decompress the .xz file and try again.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-   1.  When Balena Etcher has finished writing the image, you will see a confirmation.
+   - When Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
