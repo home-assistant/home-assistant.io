@@ -4,7 +4,10 @@ description: Instructions on how to use 17track.net data within Home Assistant
 ha_category:
   - Postal Service
 ha_release: 0.83
+ha_config_flow: true
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@shaiu'
 ha_domain: seventeentrack
 ha_platforms:
   - sensor
@@ -19,38 +22,7 @@ Although the 17track.net website states that account passwords cannot be longer 
 
 </div>
 
-## Configuration
-
-To enable the platform, add the following lines to your `configuration.yaml`
-file:
-
-```yaml
-sensor:
-  - platform: seventeentrack
-    username: EMAIL_ADDRESS
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: The email address associated with your 17track.net account.
-  required: true
-  type: string
-password:
-  description: The password associated with your 17track.net account.
-  required: true
-  type: string
-show_archived:
-  description: Whether sensors should be created for archived packages.
-  required: false
-  type: boolean
-  default: false
-show_delivered:
-  description: Whether sensors should be created for delivered packages.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Examples
 
