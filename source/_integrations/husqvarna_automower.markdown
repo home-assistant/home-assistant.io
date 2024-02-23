@@ -88,4 +88,4 @@ The integration will create a lawn mower entity to control the mower. This entit
 
 ### Switch
 
-The integration will create a switch to control the schedule of the mower. If the switch is on, the mower will mow according to the schedule. If the switch is off the mower will return to the dock and park until further notice.
+The integration will create a switch to enable or disable the schedule of the mower. If the switch is on, the mower will mow according to the schedule. If the switch is off the mower will return to the dock and park until further notice.
