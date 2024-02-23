@@ -459,7 +459,13 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts datetime object to local time. This function can also be used as a filter.
 - `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, returns the `default` value, or if omitted raises an error.
-- `relative_time(datetime, is_future=False, depth=1)` converts datetime object to its human-friendly time string. The time string can be in seconds, minutes, hours, days, months, and years. `is_future` determines if the datetime is in the future or not. If `is_future` is left at its default of False, only datetimes in the past may be used, otherwise, the unmodified datetime object is returned. If `is_future` is True, future datetimes may be used. In this case, if the datetime is in the past, the string "0 seconds" is returned. `depth` indicates the number of units returned with the last unit rounded (i.e `depth = 1` could return "2 years" while `depth = 2` could return "1 year 11 months"). This function can also be used as a filter.
+- `relative_time()`: deprecated in favor of time_since(). relative_time(datetime) is equivalent to time_since(datetime)
+- `time_since(datetime, precision)` converts datetime object to its human-friendly time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` indicates the number of units returned with the last unit rounded (i.e `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months"). This function can also be used as a filter.
+If the datetime is in the future, returns 0 seconds.
+A precision of 0 returns all available units, default is 1.
+- `time_until(datetime)` Like time_since(), converts a datetime object to its human-friendly time string. This function can also be used as a filter.
+If the datetime is in the past, returns 0 seconds.
+A precision of 0 returns all available units, default is 1.
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
    {% raw %}
