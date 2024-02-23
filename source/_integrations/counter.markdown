@@ -3,21 +3,22 @@ title: Counter
 description: Instructions on how to integrate counters into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.53
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: counter
-ha_integration_type: integration
+ha_integration_type: helper
 ---
 
-The `counter` integration allows one to count occurrences fired by automations.
+The Counter integration allows one to count occurrences fired by automations.
 
 ## Configuration
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
-**{% my helpers title="Configuration -> Helpers" %}** and click the add button;
-next choose the "**Counter**" option.
+**{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button;
+next choose the **{% my config_flow_start domain=page.ha_domain title=page.title %}** option.
 
 To be able to add **Helpers** via the user interface you should have
 `default_config:` in your `configuration.yaml`, it should already be there by
@@ -46,7 +47,7 @@ counter:
       required: false
       type: string
     initial:
-      description: Initial value when Home Assistant starts or the counter is reset.
+      description: Initial value (0 or positive integer) when Home Assistant starts or the counter is reset.
       required: false
       type: integer
       default: 0
@@ -74,9 +75,9 @@ counter:
       type: icon
 {% endconfiguration %}
 
-Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance` or `mdi:motorbike`.
+Pick an icon that from [Material Design Icons](https://pictogrammers.com/library/mdi/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance` or `mdi:motorbike`.
 
-### Restore State
+### Restore state
 
 This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity has `restore` set to `true`, which is the default. To disable this feature, set `restore` to `false`.
 
@@ -84,7 +85,7 @@ If `restore` is set to `true`, the `initial` value will only be used when no pre
 
 ## Services
 
-Available services: `increment`, `decrement`, `reset` and `configure`.
+Available services: `increment`, `decrement`, `reset`, and `set_value`.
 
 ### Service `counter.increment`
 
@@ -110,18 +111,14 @@ With this service the counter is reset to its initial value.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-### Service `counter.configure`
+### Service `counter.set_value`
 
-With this service the properties of the counter can be changed while running.
+This service allows setting the counter to a specific value.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
-| `minimum`              |     yes  | Set new value for minimum. None disables minimum. |
-| `maximum`              |     yes  | Set new value for maximum. None disables maximum. |
-| `step`                 |     yes  | Set new value for step. |
-| `initial`              |     yes  | Set new value for initial. |
-| `value`                |     yes  | Set the counters state to the given value. |
+| `value`                |     yes  | Set the counter to the given value. |
 
 ### Use the service
 

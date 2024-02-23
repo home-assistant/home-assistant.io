@@ -21,7 +21,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](https://www.logitech.com/en-us/product/harmony-hub).
+The `harmony` integration allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).
 
 Supported units:
 
@@ -35,7 +35,7 @@ Supported units:
 
 **Note:** Depending on the firmware, you may need to enable XMPP for this integration to work. From your Harmony app, go to: **Menu** > **Harmony Setup** > **Add/Edit Devices & Activities** > **Remote & Hub** > **Enable XMPP**.
 
-Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Devices & Services** >> **Your Logitech Harmony Hub**
+Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Settings** -> **Devices & Services** >> **Your Logitech Harmony Hub**
 
 ### Configuration file
 
@@ -64,7 +64,7 @@ Start an activity. Will start the default `activity` from `configuration.yaml` i
 | `entity_id`            |       no | Entity ID to target.
 | `activity`             |      yes | Activity ID or Activity Name to start.
 
-##### Example
+#### Example
 
 In the file 'harmony_REMOTENAME.conf' you can find the available activities, for example:
 

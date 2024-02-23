@@ -3,18 +3,22 @@ title: Camera
 description: Instructions on how to integrate cameras within Home Assistant.
 ha_category:
   - Camera
-  - Media Source
+  - Media source
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: camera
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
+ha_platforms:
+  - diagnostics
 ---
 
 The camera integration allows you to use IP cameras with Home Assistant.
 
-### Streaming Video
+{% include integrations/building_block_integration.md %}
+
+### Streaming video
 
 If your camera supports it, and the [`stream`](/integrations/stream) integration is setup, you will be able to stream your cameras in the frontend and on supported media players.
 

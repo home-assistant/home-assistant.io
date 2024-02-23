@@ -2,14 +2,12 @@
 title: aREST
 description: Instructions on how to integrate aREST within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - DIY
   - Sensor
   - Switch
 ha_iot_class: Local Polling
 ha_release: 0.9
-ha_codeowners:
-  - '@fabaff'
 ha_domain: arest
 ha_platforms:
   - binary_sensor
@@ -20,11 +18,11 @@ ha_integration_type: integration
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## Binary Sensor
+## Binary sensor
 
 The `arest` binary sensor platform allows you to get all data from your devices (like Arduinos with an ethernet/Wi-Fi connection, the ESP8266, and the Raspberry Pi) running the [aREST](https://arest.io/) RESTful framework.
 

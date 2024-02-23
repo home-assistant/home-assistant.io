@@ -2,7 +2,7 @@
 title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Hub
   - Light
@@ -36,7 +36,7 @@ There is currently support for the following device types within Home Assistant:
 - [Light](#lights)
 - [Switch](#switches)
 - [Sensor](#sensors)
-- [Binary Sensor](#binary-sensors)
+- [Binary sensor](#binary-sensors)
 - [Siren](#sirens)
 
 {% include integrations/config_flow.md %}
@@ -57,9 +57,9 @@ logger:
 
 ## Supported protocols
 
-Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either.
+Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either. The RFXcom transceiver loses significant sensitivity when more protocols are enabled. **Warning**: enabling the "BlindsT0" protocol blocks receiving any other protocol.
 
-If your 433.92 product is not showing in the logs, you may need to enable additional protocols. You can do this by configuring the device itself using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) to enable the required protocol, or you can configure the device in Home Assistant by configuring the [Protocols](#protocols).
+If your 433.92 MHz product is not showing in the logs, you may need to enable additional protocols. You can do this by configuring the device itself using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) to enable the required protocol, or you can configure the device in Home Assistant by configuring the [Protocols](#protocols).
 
 ## ser2net
 
@@ -88,7 +88,7 @@ connection: &rfxtrx
 
 ## Settings options
 
-To configure options for RFXtrx integration go to **Configuration** >> **Devices & Services** and press **Options** on the RFXtrx card.
+To configure options for RFXtrx integration go to **Settings** -> **Devices & Services** and press **Options** on the RFXtrx card.
 
 <img src='/images/integrations/rfxtrx/options.png' />
 
@@ -116,7 +116,7 @@ The RFXtrx integration support sensors that communicate in the frequency range o
 
 Also, several switches and other devices will also expose sensor entities with battery status as well as the signal level.
 
-#### Binary Sensors
+#### Binary sensors
 
 The RFXtrx integration support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
 
@@ -138,7 +138,7 @@ To add the device, enter the value unaltered in the Event Code field, and click 
 
 #### Convert switch event to dimming event
 
-To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) component.
+To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) integration.
 
 To convert a switch to a dimmable light, make sure the event contains a dimming command. You can usually convert a command by changing one byte.
 
@@ -158,7 +158,7 @@ Copy the event code from the state attribute of the switch, which shows up on th
 710030e4102 **01** 50<br>
 710030e4102 **02** 50
 
-### Protocols {#protocols}
+### Protocols
 
 When no protocols are selected in the device configuration, the RFXtrx device will use the protocols enabled in its non-volatile memory. You can set these using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads).
 
@@ -174,7 +174,7 @@ To configure device options, select a device from the list under *Select device 
 If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
 </div>
 
-#### Off Delay
+#### Off delay
 
 Binary sensors have only two states - "on" and "off". Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their "on" state:
 
@@ -344,11 +344,22 @@ action:
     event: 0b1111e003af16aa10000060
 ```
 
+Alternatively:
+
+- Go to: {% my developer_call_service title="Developer tools -> Services" service="rfxtrx.send" %}
+- Select: `RFXCOM RFXtrx: Send` from the Service drop-down menu.
+
+```yaml
+service: rfxtrx.send
+data:
+  event: "0b1111e003af16aa10000060"
+```
+
 ## Generate codes
 
 If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
 
-- Go to home-assistant-IP:8123/dev-template
+- Go to: {% my developer_template title="Developer tools -> Template" %}
 - Use the following codes to generate an event:
 
 ### Switch: ARC

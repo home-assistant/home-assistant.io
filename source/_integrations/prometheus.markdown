@@ -68,7 +68,7 @@ override_metric:
 component_config:
   type: string
   required: false
-  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_metric:
       type: string
@@ -77,7 +77,7 @@ component_config:
 component_config_domain:
   type: string
   required: false
-  description: This attribute contains domain-specific component override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains domain-specific integration override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_metric:
       type: string
@@ -86,13 +86,17 @@ component_config_domain:
 component_config_glob:
   type: string
   required: false
-  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_metric:
       type: string
       description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
       required: false
-
+requires_auth:
+  type: boolean
+  description: "This makes authentication optional for the `/api/prometheus` endpoint."
+  required: false
+  default: true
 {% endconfiguration %}
 
 ### Configure Filter
@@ -112,23 +116,7 @@ prometheus:
       - light.kitchen_light
 ```
 
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+{% include common-tasks/filters.md %}
 
 ## Full Example
 

@@ -5,8 +5,6 @@ ha_category:
   - Finance
 ha_iot_class: Cloud Polling
 ha_release: '0.60'
-ha_codeowners:
-  - '@fabaff'
 ha_domain: alpha_vantage
 ha_platforms:
   - sensor
@@ -75,7 +73,7 @@ foreign_exchange:
       type: string
 {% endconfiguration %}
 
-## API Information
+## API information
 
 Alpha Vantage offers two tiers of the API key, one free and one paid for. If you are using the free version you will be limited to five queries per minute. This means that you'll likely only be able to have one or two ticker entries. The paid version starts at thirty queries per minute increasing ticker quantity quite a bit.
 

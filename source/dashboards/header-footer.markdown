@@ -28,17 +28,21 @@ image:
   required: true
   description: The URL of an image.
   type: string
+alt_text:
+  required: false
+  description: Alternative text for the image. This is necessary for users of assistive technology. The [W3C images tutorial](https://www.w3.org/WAI/tutorials/images/) provides simple guidance for writing alternative text.
+  type: string  
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action to take on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+  description: Action taken on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action to take on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -69,7 +73,7 @@ entities:
       type: string
     icon:
       required: false
-      description: Override the entity icon. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
+      description: Override the entity icon. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
       type: string
     image:
       required: false
@@ -79,6 +83,29 @@ entities:
       required: false
       description: Label for the button.
       type: string
+    show_icon:
+      required: false
+      description: Show entity icon.
+      type: boolean
+      default: "true"  
+    show_name:
+      required: false
+      description: Show entity name.
+      type: boolean
+      default: "false"
+    tap_action:
+      required: false
+      description: Action taken on button tap. See [action documentation](/dashboards/actions/#tap-action).
+      type: map
+    hold_action:
+      required: false
+      description: Action taken on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+      type: map
+    double_tap_action:
+      required: false
+      description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+      type: map
+    
 {% endconfiguration %}
 
 ## Graph header & footer

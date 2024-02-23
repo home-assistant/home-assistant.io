@@ -22,22 +22,29 @@ The current logo was created by [Jeremy Geltman](https://jeremygeltman.com/). Fu
 
 Home Assistant is open source software and available under the [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license.
 
+## Hardware
+
+- End of 2020, [Home Assistant Blue](/blue/) was launched. The first dedicated smart home hub for Home Assistant. This limited edition is based on an ODROID and known for its blue aluminum case.
+- In September 2021, [Home Assistant Yellow](/yellow/) was launched. This extendable smart home hub is a custom, open-source design powered by a Raspberry Pi Compute Module 4. Home Assistant Yellow supports both Zigbee and Thread.
+- End of 2022, [Home Assistant SkyConnect](/skyconnect/) was launched: a USB dongle that provides Zigbee and Thread network support for hubs that do not have this built-in.
+- In September 2023, [Home Assistant Green](/green/) was launched. This plug-and-play smart home hub is an affordable and the easiest way to get started with Home Assistant.
+
 ## Numbers
 
 This sections just contains some random numbers of the Home Assistant eco-system. Sorry, only the main repository counts.
 
-| Description                                                                 | 2015    | 2016      | 2017       |
-| --------------------------------------------------------------------------- | ------- | --------- | ---------- |
-| [Forum posts](https://community.home-assistant.io/)                         | 352     | 33004     | 171981     |
-| [Forum topics](https://community.home-assistant.io/)                        | 83      | 4863      | 21512      |
-| [Forum members](https://community.home-assistant.io/)                       | 92      | 3931      | 16663      |
-| [GitHub stars](https://github.com/home-assistant/home-assistant/stargazers) | 2519    | 5239      | 12074      |
-| [GitHub forks](https://github.com/home-assistant/home-assistant/network)    | 374     | 1424      | 3474       |
-| Page views [ha.io](/)                                                       | 600,372 | 6,614,343 | 23,727,481 |
+| Description                                                                 | 2015 | 2016  | 2017 | 2023 |
+| --------------------------------------------------------------------------- | ---- | ----- | ---- | ---- |
+| [Forum posts](https://community.home-assistant.io/)                         | 352  | 33004 | 172k | 2.5M |
+| [Forum topics](https://community.home-assistant.io/)                        | 83   | 4863  | 22k  | 205k |
+| [Forum members](https://community.home-assistant.io/)                       | 92   | 3931  | 17k  | 193k |
+| [GitHub stars](https://github.com/home-assistant/home-assistant/stargazers) | 2519 | 5239  | 12k  | 62k  |
+| [GitHub forks](https://github.com/home-assistant/home-assistant/network)    | 374  | 1424  | 3.5k | 24k  |
+| Page views [ha.io](/)                                                       | 600k | 6.6M  | 23M  |      |
 
-## Commit per year
+## Commits per year
 
-The numbers below only covers the [main git repository](https://github.com/home-assistant/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/home-assistant/home-assistant.io), [home-assistant-polymer](https://github.com/home-assistant/home-assistant-polymer), etc.) into account.
+The numbers below only covers the [main git repository](https://github.com/home-assistant/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/home-assistant/home-assistant.io), [frontend](https://github.com/home-assistant/frontend), etc.) into account.
 
 ```bash
 2013: 147
@@ -45,6 +52,7 @@ The numbers below only covers the [main git repository](https://github.com/home-
 2015: 2963
 2016: 4299
 2017: 3917
+2022: 9991
 ```
 
 More details and statistics can be found on [GitHub](https://github.com/home-assistant/home-assistant/graphs/contributors).

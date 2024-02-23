@@ -10,7 +10,7 @@ You can add a view to your user interface, by clicking the menu (three dots at t
 Click the `+` button in the top menu bar.
 
 <p class="img">
-  <img src="/images/dashboards/lovelace_views.png" alt="Views toolbar">
+  <img src="/images/dashboards/views.png" alt="Views toolbar">
   Use titles and icons to describe the content of views.
 </p>
 
@@ -18,7 +18,7 @@ Click the `+` button in the top menu bar.
 
 You can link to one view from a card in another view when using cards that support navigation (`navigation_path`). The string supplied here will be appended to the string `/lovelace/` to create the path to the view. Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
 
-#### Example
+### Example
 
 View configuration:
 
@@ -42,7 +42,7 @@ Picture card configuration:
 
 If you define a view icon, the icon instead of the title will be displayed, the title will then be used as a tool-tip.
 
-#### Example
+### Example
 
 ```yaml
 - title: Garden
@@ -53,7 +53,7 @@ If you define a view icon, the icon instead of the title will be displayed, the 
 
 You can specify the visibility of views as a whole or per-user. (Note: This is only for the display of the tabs. The URL path is still accessible)
 
-#### Example
+### Example
 
 ```yaml
 views:
@@ -73,7 +73,7 @@ views:
       ...
 ```
 
-### Options For Visible
+### Options for visible objects
 
 If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
 
@@ -88,7 +88,7 @@ user:
 
 You can change the layout of a view by using a different view type. The default is [`masonry`](/dashboards/masonry).
 
-#### Example
+### Example
 
 ```yaml
 - title: Map
@@ -104,7 +104,7 @@ You can change the layout of a view by using a different view type. The default 
 
 Set a separate [theme](/integrations/frontend/#themes) for the view and its cards.
 
-#### Example
+### Example
 
 ```yaml
 - title: Home
@@ -115,7 +115,7 @@ Set a separate [theme](/integrations/frontend/#themes) for the view and its card
 
 You can style the background of your views with a [theme](/integrations/frontend/#themes). You can use the CSS variable `lovelace-background`. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
 
-#### Example
+### Example
 
 ```yaml
 # Example configuration.yaml entry
@@ -123,6 +123,32 @@ frontend:
   themes:
     example:
       lovelace-background: center / cover no-repeat url("/local/background.png") fixed
+```
+
+## Subview
+
+A "View" can be marked as "Subview". Subviews won’t show up in the navigation bar on top of the sidebar. Subviews can, for instance, be used to show detailed information; you could link to this subview from a page with a clean look with only basic information (by using [cards that support the `navigate` action](/dashboards/actions)). Think of a view with a few thermostats and a subview with status information on the heating/cooling device.
+
+When on the subview, the navigation bar only shows the name of the subview and a back button (no icon is shown).
+By default, clicking on back button will navigate to the previous view but a custom back path (`back_path`) can be set.
+
+You can access subviews from other parts of your dashboard by using [cards that support the `navigate` action](/dashboards/actions).
+
+### Example
+
+Simple subview:
+
+```yaml
+- title: Map
+  subview: true
+```
+
+Subview with custom back path:
+
+```yaml
+- title: Map
+  subview: true
+  back_path: /lovelace/home
 ```
 
 {% configuration views %}
@@ -150,29 +176,38 @@ views:
       type: list
     path:
       required: false
-      description: Paths are used in the URL, more info below.
+      description: Paths are used in the URL.
       type: string
       default: view index
     icon:
       required: false
-      description: Icon-name from Material Design Icons. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
+      description: Icon-name from Material Design Icons. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`. Only for "View", not for "Subview".
       type: string
     background:
       required: false
-      description: Style the background using CSS, more info below.
+      description: Style the background using CSS.
       type: string
     theme:
       required: false
-      description: Themes view and cards, more info below.
+      description: Themes view and cards.
       type: string
     visible:
       required: false
       description: "Hide/show the view tab from all users or a list of individual `visible` objects."
       type: [boolean, list]
       default: true
+    subview:
+      required: false
+      description: Mark the view as "Subview".
+      type: boolean
+      default: false
+    back_path:
+      required: false
+      description: Only for "Subview". Path to navigate when clicking on back button.
+      type: string
 {% endconfiguration %}
 
-#### Example
+### Example
 
 View configuration:
 
@@ -185,4 +220,18 @@ View configuration:
       icon: mdi:bulb
     - entity: switch.decorative_lights
       image: /local/lights.png
+```
+
+Subview configuration:
+
+```yaml
+- title: "Energieprijzen"
+  path: "energieprijzen"
+  subview: true
+  back_path: "/ui-data/climate"
+
+  cards:
+    - type: entities
+      entities:
+        - sensor.today_avg_price
 ```

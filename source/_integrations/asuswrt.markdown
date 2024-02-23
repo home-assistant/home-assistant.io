@@ -3,7 +3,7 @@ title: ASUSWRT
 description: Instructions on how to integrate ASUSWRT into Home Assistant.
 ha_category:
   - Hub
-  - Presence Detection
+  - Presence detection
   - Sensor
 ha_release: 0.83
 ha_config_flow: true
@@ -16,7 +16,7 @@ ha_platforms:
   - device_tracker
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The ASUSWRT integration can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.
@@ -34,7 +34,7 @@ You need to enable telnet on your router if you choose to use `protocol: telnet`
 
 </div>
 
-### Sensors Configuration
+### Sensors configuration
 
 These sensors are automatically created and associated to the router device:
 

@@ -2,7 +2,12 @@
 title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
+  - Button
+  - Helper
+  - Image
+  - Number
+  - Select
   - Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
@@ -18,6 +23,7 @@ ha_platforms:
   - button
   - cover
   - fan
+  - image
   - light
   - lock
   - number
@@ -26,14 +32,15 @@ ha_platforms:
   - switch
   - vacuum
   - weather
-ha_integration_type: integration
+ha_integration_type: helper
+ha_config_flow: true
 ---
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Sensors, binary (on/off) sensors, buttons, numbers and selects are covered on this page. For other types, please see the specific pages:
+Sensors, binary (on/off) sensors, buttons, images, numbers and selects are covered on this page. For other types, please see the specific pages:
 
-- [Alarm Control Panel](/integrations/alarm_control_panel.template/)
+- [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
 - [Light](/integrations/light.template/)
@@ -42,11 +49,21 @@ Sensors, binary (on/off) sensors, buttons, numbers and selects are covered on th
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor, binary sensor, button, number and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+Sensor and binary sensor can be configured using [UI](#ui-configuration) or [YAML](#yaml-configuration) file.
+
+Button, image, number, and select template entities are defined in your YAML configuration files under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-## State-based template binary sensors, buttons, numbers, selects and sensors
+# UI configuration
+
+Sensor template and binary sensor template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
+
+To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your `configuration.yaml`. It should already be there by default unless you removed it.
+
+# YAML configuration
+
+## State-based template binary sensors, buttons, images, numbers, selects and sensors
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -68,19 +85,16 @@ template:
 
 {% endraw %}
 
-### Template variables
 
-State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](#self-referencing) of an entity's state and attribute in templates.
+## Trigger-based template binary sensors, buttons, images, numbers, selects and sensors
 
-## Trigger-based template binary sensors, buttons, numbers, selects and sensors
-
-If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#storing-webhook-information)), or update entities based on a schedule.
+If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
 Whenever the trigger fires, all related entities will re-render and it will have access to [the trigger data](/docs/automation/templating/) in the templates.
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
-The state, including attributes, of trigger-based binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
+The state, including attributes, of trigger-based sensors and binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
 
 {% raw %}
 
@@ -110,13 +124,17 @@ unique_id:
   description: The unique ID for this config block. This will be prefixed to all unique IDs of all entities in this block.
   required: false
   type: string
+action:
+  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything via services, in particular services with [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  required: false
+  type: list
 sensor:
   description: List of sensors
   required: true
   type: map
   keys:
     state:
-      description: Defines a template to get the state of the sensor.
+      description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
       required: true
       type: template
     unit_of_measurement:
@@ -128,6 +146,11 @@ sensor:
       description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
+      default: None
+    last_reset:
+      description: "Defines a template that describes when the state of the sensor was last reset. Must render to a valid `datetime`. Only available when `state_class` is set to `total`"
+      required: false
+      type: template
       default: None
 binary_sensor:
   description: List of binary sensors
@@ -236,7 +259,106 @@ button:
       description: Defines actions to run to press the button.
       required: true
       type: action
-"[all sensor, binary sensor, button, number, select entities]":
+image:
+  description: List of images
+  required: true
+  type: map
+  keys:
+    url:
+      description: The URL on which the image is served.
+      required: true
+      type: template
+    verify_ssl:
+      description: Enable or disable SSL certificate verification. Set to false to use an http-only URL, or you have a self-signed SSL certificate and haven’t installed the CA certificate to enable verification.
+      required: false
+      type: boolean
+      default: true
+weather:
+  description: List of weather entities
+  required: true
+  type: map
+  keys:
+    condition_template:
+      description: The current weather condition.
+      required: true
+      type: template
+    temperature_template:
+      description: The current temperature.
+      required: true
+      type: template
+    dew_point_template:
+      description: The current dew point.
+      required: false
+      type: template
+    apparent_temperature_template:
+      description: The current apparent (feels-like) temperature.
+      required: false
+      type: template
+    temperature_unit:
+      description: Unit for temperature_template output. Valid options are °C, °F, and K.
+      required: false
+      type: string
+    humidity_template:
+      description: The current humidity.
+      required: true
+      type: template
+    pressure_template:
+      description: The current air pressure.
+      required: false
+      type: template
+    pressure_unit:
+      description: Unit for pressure_template output. Valid options are Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, psi.
+      required: false
+      type: string
+    wind_speed_template:
+      description: The current wind speed.
+      required: false
+      type: template
+    wind_gust_speed_template:
+      description: The current wind gust speed.
+      required: false
+      type: template
+    wind_speed_unit:
+      description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
+      required: false
+      type: string
+    wind_bearing_template:
+      description: The current wind bearing.
+      required: false
+      type: template
+    ozone_template:
+      description: The current ozone level.
+      required: false
+      type: template
+    cloud_coverage_template:
+      description: The current cloud coverage.
+      required: false
+      type: template
+    visibility_template:
+      description: The current visibility.
+      required: false
+      type: template
+    visibility_unit:
+      description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      required: false
+      type: string
+    forecast_daily_template:
+      description: Daily forecast data.
+      required: false
+      type: template
+    forecast_hourly_template:
+      description: Hourly forecast data.
+      required: false
+      type: template
+    forecast_twice_daily_template:
+      description: Twice daily forecast data.
+      required: false
+      type: template
+    precipitation_unit:
+      description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      required: false
+      type: string
+"[all sensor, binary sensor, button, image, number, select, weather entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map
@@ -254,7 +376,7 @@ button:
       required: false
       type: template
     availability:
-      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison is not case sensitive; `"TrUe"` and `"yEs"` are allowed.
       required: false
       type: template
       default: true
@@ -282,6 +404,15 @@ template:
 ```
 
 [trigger-doc]: /docs/automation/trigger
+
+### Video tutorial
+This video tutorial explains how to set up a Trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
+
+<lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
+
+## Template and action variables
+
+State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attribute in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/). 
 
 ## Rate limiting updates
 
@@ -328,7 +459,9 @@ If the template accesses every state on the system, a rate limit of one update p
 
 ### Startup
 
-If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use `is_state()` function in your template. For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
+If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use the `states()` function in your template. For example, you should replace {% raw %}`{{ states.sensor.moon.state }}`{% endraw %} with this equivalent that returns the state and never results in `unknown`: {% raw %}`{{ states('sensor.moon') }}` {% endraw %}. 
+
+The same would apply to the `is_state()` function. You should replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
 
 {% raw %}
 
@@ -340,9 +473,9 @@ If you are using the state of a platform that might not be available during star
 
 ## Examples
 
-In this section, you find some real-life examples of how to use this sensor.
+In this section, you find some real-life examples of how to use template sensors.
 
-### Storing webhook information
+### Trigger based sensor and binary sensor storing webhook information
 
 Template entities can be triggered using any automation trigger, including webhook triggers. Use a trigger-based template entity to store this information in template entities.
 
@@ -379,22 +512,22 @@ curl --header "Content-Type: application/json" \
   http://homeassistant.local:8123/api/webhook/my-super-secret-webhook-id
 ```
 
-### Turning an event into a binary sensor
+### Turning an event into a trigger based binary sensor
 
 You can use a trigger-based template entity to convert any event or other automation trigger into a binary sensor. The below configuration will turn on a binary sensor for 5 seconds when the automation trigger triggers.
 
 ```yaml
 template:
-  trigger:
-    platform: event
-    event_type: my_event
-  binary_sensor:
-    - name: Event recently fired
-      auto_off: 5
-      state: "true"
+  - trigger:
+      platform: event
+      event_type: my_event
+    binary_sensor:
+      - name: Event recently fired
+        auto_off: 5
+        state: "true"
 ```
 
-### Sun Angle
+### State based sensor exposing sun angle
 
 This example shows the sun angle in the frontend.
 
@@ -410,9 +543,9 @@ template:
 
 {% endraw %}
 
-### Renaming Sensor Output
+### State based sensor modifying another sensor's output
 
-If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun component](/integrations/sun/) as a simple example:
+If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun integration](/integrations/sun/) as a simple example:
 
 {% raw %}
 
@@ -430,7 +563,7 @@ template:
 
 {% endraw %}
 
-### Multiline Example With an `if` Test
+### State based sensor with multiline template with an `if` test
 
 This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend, and shows 'standby' if the power use is less than 1000 watts.
 
@@ -454,9 +587,11 @@ template:
 
 {% endraw %}
 
-### Change The Unit of Measurement
+### State based sensor changing the unit of measurement of another sensor
 
 With a Template Sensor, it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
+Because the sensors do math on the source sensor's state and need to render to a numeric value, an availability template is used
+to suppress rendering of the state template if the source sensor does not have a valid numeric state.
 
 {% raw %}
 
@@ -466,15 +601,17 @@ template:
       - name: "Transmission Down Speed"
         unit_of_measurement: "kB/s"
         state: "{{ states('sensor.transmission_down_speed')|float * 1024 }}"
+        availability: "{{ is_number(states('sensor.transmission_down_speed')) }}"
 
       - name: "Transmission Up Speed"
         unit_of_measurement: "kB/s"
         state: "{{ states('sensor.transmission_up_speed')|float * 1024 }}"
+        availability: "{{ is_number(states('sensor.transmission_up_speed')) }}"
 ```
 
 {% endraw %}
 
-### Washing Machine Running
+### State based binary sensor - Washing Machine Running
 
 This example creates a washing machine "load running" sensor by monitoring an
 energy meter connected to the washer. During the washer's operation, the energy meter will fluctuate wildly, hitting zero frequently even before the load is finished. By utilizing `delay_off`, we can have this sensor only turn off if there has been no washer activity for 5 minutes.
@@ -494,7 +631,7 @@ template:
 
 {% endraw %}
 
-### Is Anyone Home
+### State based binary sensor - Is Anyone Home
 
 This example is determining if anyone is home based on the combination of device tracking and motion sensors. It's extremely useful if you have kids/baby sitter/grand parents who might still be in your house that aren't represented by a trackable device in Home Assistant. This is providing a composite of Wi-Fi based device tracking and Z-Wave multisensor presence sensors.
 
@@ -516,7 +653,7 @@ template:
 
 {% endraw %}
 
-### Device Tracker sensor with Latitude and Longitude Attributes
+### State based binary sensor - device tracker sensor with latitude and longitude attributes
 
 This example shows how to combine a non-GPS (e.g., NMAP) and GPS device tracker while still including latitude and longitude attributes
 
@@ -546,7 +683,7 @@ template:
 
 {% endraw %}
 
-### Change the icon when a state changes
+### State based binary sensor - Change the icon when a state changes
 
 This example demonstrates how to use template to change the icon as its state changes. This icon is referencing its own state.
 
@@ -568,6 +705,54 @@ template:
 
 {% endraw %}
 
+A more advanced use case could be to set the icon based on the sensor's own state like above, but when triggered by an event. This example demonstrates a binary sensor that turns on momentarily, such as when a doorbell button is pressed. 
+
+The binary sensor turns on and sets the matching icon when the appropriate event is received. After 5 seconds, the binary sensor turns off automatically. To ensure the icon gets updated, there must be a trigger for when the state changes to off. 
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: event
+        event_type: YOUR_EVENT
+      - platform: state
+        entity_id: binary_sensor.doorbell_rang
+        to: "off"
+    binary_sensor:
+      name: doorbell_rang
+      icon: "{{ (trigger.platform == 'event') | iif('mdi:bell-ring-outline', 'mdi:bell-outline') }}"
+      state: "{{ trigger.platform == 'event' }}"
+      auto_off:
+        seconds: 5
+```
+
+{% endraw %}
+
+### State based select - Control Day/Night mode of a camera
+
+This show how a state based template select can be used to call a service.
+
+{% raw %}
+
+
+```yaml
+template:
+  select:
+    - name: "Porch Camera Day-Night Mode"
+      unique_id: porch_camera_day_night_mode
+      state: "{{ state_attr('camera.porch_camera_sd', 'day_night_mode') }}"
+      options: "{{ ['off', 'on', 'auto'] }}"
+      select_option:
+        - service: tapo_control.set_day_night_mode
+          data:
+            day_night_mode: "{{ option }}"
+          target:
+            entity_id: camera.porch_camera_sd
+```
+
+{% endraw %}
+
 ### Self referencing
 
 This example demonstrates how the `this` variable can be used in templates for self-referencing.
@@ -578,13 +763,43 @@ This example demonstrates how the `this` variable can be used in templates for s
 template:
   - sensor:
       - name: test
-        state: "{{ this.attributes.test }}"
+        state: "{{ this.attributes.test | default('Value when missing') }}"
         # not: "{{ state_attr('sensor.test', 'test') }}"
         attributes:
           test: "{{ now() }}"
 ```
 
 {% endraw %}
+
+### Trigger based handling of service response data
+
+This example demonstrates how to use an `action` to call a [service with response data](/docs/scripts/service-calls/#use-templates-to-handle-response-data)
+and use the response in a template.
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: /1
+    action:
+      - service: weather.get_forecasts
+        data:
+          type: hourly
+        target:
+          entity_id: weather.home
+        response_variable: hourly
+    sensor:
+      - name: Weather Forecast Hourly
+        unique_id: weather_forecast_hourly
+        state: "{{ now().isoformat() }}"
+        attributes:
+          forecast: "{{ hourly['weather.home'].forecast }}"
+```
+
+{% endraw %}
+
 
 ## Legacy binary sensor configuration format
 
@@ -735,7 +950,7 @@ sensor:
             required: true
             type: template
       availability_template:
-        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        description: Defines a template to get the `available` state of the integration. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the integration will always be `available`.
         required: false
         type: template
         default: true

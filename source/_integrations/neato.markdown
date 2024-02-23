@@ -2,6 +2,7 @@
 title: Neato Botvac
 description: Instructions on how to integrate your Neato within Home Assistant.
 ha_category:
+  - Button
   - Camera
   - Sensor
   - Switch
@@ -14,6 +15,7 @@ ha_codeowners:
   - '@Santobert'
 ha_domain: neato
 ha_platforms:
+  - button
   - camera
   - sensor
   - switch
@@ -28,54 +30,55 @@ There is support for the following platform types within Home Assistant:
 - **Camera** - allows you to view the latest cleaning map.
 - **Sensor** - allows you to view the battery level.
 - **Switch** - allows you to enable or disable the schedule.
+- [**Button**](#button) - allows you to dismiss an alert visible in the app.
 - [**Vacuum**](#vacuum)
 
 ## Prerequisites
 
-1. Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
+Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
 
 <div class='note'>
 
-You will have to enter a name, a description and your redirect URL.
+You will have to enter a name, a description, and the redirect URI:
 
-If Home Assistant runs on `https://hass.example.com` your redirect URL would be `https://hass.example.com/auth/external/callback`.
-
-Please note that your instance must be accessible via HTTPS. However, your instance does not need to be exposed to the Internet.
+- **Name**: can be anything you like, for example, "Home Assistant".
+- **Description**: can be anything you like, for example, "Home Assistant integration for Neato"
+- **Redirect URI**: `https://my.home-assistant.io/redirect/oauth`
+- **Terms Of Service URL**: leave blank
+- **Privacy Policy URL**: leave blank
 
 You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
-
 </div>
 
-2. Add the newly created `client_id` and `client_secret` to your configuration.yaml:
+{% details "I have manually disabled My Home Assistant" %}
 
-```yaml
-# Example configuration.yaml entry
-neato:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-```
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
 
-3. Restart Home Assistant
-4. Make sure you visit Home Assistant via a the same domain you used as `redirect_url` before
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
 
-{% configuration %}
-client_id:
-  description: Client ID for the Neato account.
-  required: true
-  type: string
-client_secret:
-  description: Client Secret for the Neato account.
-  required: true
-  type: string
-{% endconfiguration %}
+Internal examples: `https://192.168.0.2:8123/auth/external/callback`, `https://homeassistant.local:8123/auth/external/callback`." 
+
+Please note that your instance must be accessible via HTTPS. However, your
+instance does not need to be exposed to the Internet.
+
+{% enddetails %}
 
 {% include integrations/config_flow.md %}
+
+The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
 <div class='note'>
 
 After the update to firmware 4.0 (which adds cleaning maps) there is also support for displaying the maps of the Botvac D3 Connected and Botvac D5 Connected robots. More information on how to update can be found [here](https://support.neatorobotics.com/hc/en-us/articles/115004320694-Software-Update-4-0-for-Neato-Botvac-Connected-D3-D5-).
 
 </div>
+
+## Button
+
+Each `neato` vacuum has a _Dismiss alert_ button. This allows to dismiss an alert visible in the app (e.g. dust bin full) and preventing the vacuum to start cleaning.
 
 ## Vacuum
 
@@ -97,7 +100,7 @@ And a specific Platform Service:
 
 - `neato.custom_cleaning`
 
-### Platform Services
+### Platform services
 
 #### Service `neato.custom_cleaning`
 

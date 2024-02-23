@@ -3,7 +3,7 @@ title: Minut Point
 description: Instructions on how to integrate Minut Point into Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Sensor
 ha_release: 0.83
@@ -20,14 +20,14 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account and have a Pro subscription](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant URL + `/api/minut`, e.g.,  `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used as below.
+The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account and have a Pro subscription](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant URL + `/api/minut`, e.g.,  `http://homeassistant.local:8123/api/minut`. The `client_id` and `client_secret` should be used as below.
 
 Once Home Assistant is started, a configurator will pop up asking you to Authenticate your Point account via a link. When you follow the link and click on **Accept** you will be redirected to the `callback url` and the Point integration will be automatically configured and you can go back to the original dialog and press **Submit**.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Alarm](#alarm)
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
 ### Configuration
@@ -54,12 +54,12 @@ client_secret:
 
 The integration supports the following device types within Home Assistant:
   - [Alarm](#alarm)
-  - [Binary Sensor](#binary-sensor)
+  - [Binary sensor](#binary-sensor)
   - [Sensor](#sensor)
 
 <div class='note'>
 
-The Point is just active occasionally so the [Sensors](#sensor) are only updated every hour or so. The [Binary Sensors](#binary-sensor) are however updated via [Cloud Push](/blog/2016/02/12/classifying-the-internet-of-things/#cloud-pushing-new-state), making the changes close to instant.
+The Point is just active occasionally so the [sensors](#sensor) are only updated every hour or so. The [binary sensors](#binary-sensor) are however updated via [Cloud Push](/blog/2016/02/12/classifying-the-internet-of-things/#cloud-pushing-new-state), making the changes close to instant.
 
 </div>
 
@@ -73,11 +73,11 @@ The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is im
 
 </div>
 
-## Binary Sensor
+## Binary sensor
 
 Each Point exposes the following binary sensors:
 
-- **alarm**: `On` means alarm sound was recognised, `Off` means normal
+- **alarm**: `On` means alarm sound was recognized, `Off` means normal
 - **battery**: `On` means low, `Off` means normal
 - **button_press**: `On` means the button was pressed, `Off` means normal
 - **cold**: `On` means cold, `Off` means normal

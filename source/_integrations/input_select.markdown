@@ -14,7 +14,7 @@ ha_integration_type: helper
 
 The `input_select` integration allows the user to define a list of values that can be selected via the frontend and can be used within conditions of an automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
 
-The preferred way to configure an input select is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Dropdown** option.
+The preferred way to configure an input select is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_select" title="Dropdown" %}** option.
 
 To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
 If you removed `default_config:` from you configuration, you must add `input_select:` to your `configuration.yaml` first, then you can use the UI.
@@ -69,7 +69,7 @@ Because YAML defines [booleans](https://yaml.org/type/bool.html) as equivalent, 
 
 </div>
 
-### Restore State
+### Restore state
 
 If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
@@ -129,7 +129,7 @@ scene:
 ```
 
 
-## Automation Examples
+## Automation examples
 
 The following example shows the usage of the `input_select.select_option` service in an automation:
 

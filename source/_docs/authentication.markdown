@@ -1,17 +1,19 @@
 ---
 title: "Authentication"
-description: "Guide on authentication in Home Assistant."
+description: "Documentation on authentication in Home Assistant."
 ---
 
-Our authentication system secures access to Home Assistant.
+The authentication system secures access to Home Assistant.
 
-If you are starting Home Assistant for the first time, or you have logged out, you will be asked for credentials before you can log in. 
+## Login screen
 
-<img src='/images/docs/authentication/login.png' alt='Screenshot of the login screen' style='border: 0;box-shadow: none;'>
+You are greeted with a log in screen, asking you for user name and password.
+
+<img src='/images/docs/authentication/login-outside-local-network.png' alt='Screenshot of the login screen, when logging in from within the local network' style='border: 0;box-shadow: none;'>
 
 ## User accounts
 
-When you start Home Assistant for the first time the _owner_ user account is created. This account has some special privileges and can:
+When you start Home Assistant for the first time, the _owner_ user account is created. This account has some special privileges and can:
 
 - Create and manage other user accounts.
 - Configure integrations and other settings (coming soon).
@@ -21,33 +23,38 @@ For the moment, other user accounts will have the same access as the owner accou
 </div>
 
 <div class="note">
-If you want to manage users and you're an owner but you do not see "Users" in your main configuration menu, make sure that "Advanced Mode" is enabled for your user in your profile. 
+If you want to manage users and you're an owner but you do not see "Users" in your main configuration menu, make sure that "Advanced Mode" is enabled for your user in your profile.
 </div>
 
-### Your Account Profile
+### Your account profile
 
-Once you're logged in, you can see the details of your account at the _Profile_ page by clicking on the circular at the very bottom of the sidebar. 
+Once you're logged in, you can see the details of your account at the _Profile_ page by clicking on the circular at the very bottom of the sidebar.
 
 <img src='/images/docs/authentication/profile.png' alt='Screenshot of the profile page' style='border: 0;box-shadow: none;'>
 
 You can:
 
-* Change your password.
-* Enable or disable [multi-factor authentication](/docs/authentication/multi-factor-auth/).
-* Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
-* Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) so scripts can securely interact with Home Assistant. 
-* Log out of Home Assistant. 
+- Change your password.
+- Enable or disable [multi-factor authentication](/docs/authentication/multi-factor-auth/).
+- Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
+- Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) so scripts can securely interact with Home Assistant.
+- Log out of Home Assistant.
+
+<div class="note">
+
+Unused refresh tokens will be automatically removed. A refresh token is considered unused if it has not been used for a login within 90 days. If you need a permanent token, then we recommend using [Long Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token).
+
+</div>
 
 ### Securing your login
 
-_Make sure to choose a secure password!_ At some time in the future, you will probably want to access Home Assistant from outside your local network. This means you are also exposed to random black-hats trying to do the same. Treat the password like the key to your house. 
+_Make sure to choose a secure password!_ At some time in the future, you will probably want to access Home Assistant from outside your local network. This means you are also exposed to random black-hats trying to do the same. Treat the password like the key to your house.
 
-
-As an extra level of security, you can turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/). 
+As an extra level of security, you can turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 
 ## Other authentication techniques
 
-Home Assistant provides several ways to authenticate. See the [Auth Providers](/docs/authentication/providers/) section.
+Home Assistant provides several ways to authenticate. See the [Auth providers](/docs/authentication/providers/) section.
 
 ## Troubleshooting
 
@@ -75,17 +82,7 @@ INFO (MainThread) [homeassistant.components.http.auth] You need to use a bearer 
 
 ### Lost owner password
 
-Before using the procedure below, make sure you explore options provided [here](/docs/locked_out).
-
-While you should hopefully be storing your passwords in a password manager, if you lose the password associated with the owner account the only way to resolve this is to delete *all* the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
-
-- `auth`
-- `auth_provider.homeassistant`
-- `onboarding`
-- `hassio`
-- `cloud`
-
-When you start Home Assistant next, you'll be required to set up authentication again.
+If you lose the password associated with the owner account, you need to [start a new onboarding process](/docs/locked_out/#to-prepare-the-system-to-start-a-new-onboarding-process).
 
 ### Error: invalid client id or redirect URL
 
@@ -106,10 +103,6 @@ Replace `12.34.56.78` with your Home Assistant's public IP address.
 
 This will allow you to open Home Assistant at `http://homeassistant.home:8123/`
 
-### Stuck on Loading data
+### Stuck on loading data
 
-Some ad blocking software, such as Wipr, also blocks web sockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
-
-### Migrating from pre 0.77
-
-If you were using the authentication system before 0.77, you'd likely have `auth:` and `auth_providers:` defined. You'll need to remove these and let Home Assistant [handle it automatically](/docs/authentication/providers/#configuring-auth-providers).
+Some ad blocking software, such as Wipr, also blocks WebSockets. If you're stuck on the Loading data screen, try disabling your ad blocker.

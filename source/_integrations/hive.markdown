@@ -2,14 +2,14 @@
 title: Hive
 description: Instructions on how to integrate Hive devices with Home Assistant.
 ha_category:
-  - Alarm Control Panel
-  - Binary Sensor
+  - Alarm
+  - Binary sensor
   - Climate
   - Hub
   - Light
   - Sensor
   - Switch
-  - Water Heater
+  - Water heater
 ha_release: 0.59
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -26,6 +26,7 @@ ha_platforms:
   - water_heater
 ha_config_flow: true
 ha_integration_type: integration
+ha_homekit: true
 ---
 
 The Hive integration for Home Assistant allows you to interact with supported devices and services offered by
@@ -38,7 +39,7 @@ Read more about this in their [shutdown notice](https://www.hivehome.com/us/supp
 
 </div>
 
-This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant, 2FA authentication is also supported. Once configured Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
+This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant, 2FA authentication must be enabled to use this integration. Once configured Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
 
 {% include integrations/config_flow.md %}
 
@@ -122,7 +123,7 @@ script:
 
 ## Platforms
 
-### Alarm Control Panel
+### Alarm control panel
 
 The `hive` alarm control panel integration integrates your Hive alarm into Home Assistant.
 
@@ -130,7 +131,7 @@ The platform supports the following Hive devices:
 
 - Hive Home Shield
 
-### Binary Sensor
+### Binary sensor
 
 The `hive` binary sensor integration integrates your Hive sensors into Home Assistant.
 
@@ -184,7 +185,7 @@ The platform supports the following Hive products:
 - Hive Active Plug
 - Hive Heat on Demand
 
-### Water Heater
+### Water heater
 
 The `hive` water heater platform integrates your Hive hot water into Home Assistant, enabling control of setting the **mode**.
 

@@ -9,10 +9,12 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
   - '@Shulyaka'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 The `humidifier` integration is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
+
+{% include integrations/building_block_integration.md %}
 
 ## Services
 

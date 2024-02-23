@@ -1,18 +1,24 @@
 ---
 type: card
-title: "Picture Elements Card"
-sidebar_label: Picture Elements
-description: "The Picture Elements card is one of the most versatile types of cards. The cards allow you to position icons or text and even services! On an image based on coordinates."
+title: "Picture elements card"
+sidebar_label: Picture elements
+description: "The picture elements card is one of the most versatile types of cards. The cards allow you to position icons or text and even services! On an image based on coordinates."
 ---
 
-The Picture Elements card is one of the most versatile types of cards.
+The picture elements card is one of the most versatile types of cards.
+
+<p class='img'>
+  <img src='/images/dashboards/picture_elements.gif' alt='A functional floorplan powered by picture elements'>
+  A functional floorplan powered by picture elements.
+</p>
 
 The cards allow you to position icons or text and even services on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/dashboards/picture-glance/) with no restrictions!
 
-<p class='img'>
-  <img src='/images/dashboards/lovelace_picture_elements.gif' alt='A functional floorplan powered by picture elements'>
-  A functional floorplan powered by picture elements.
-</p>
+{% include dashboard/edit_dashboard.md %}
+
+## YAML configuration
+
+This card can only be configured in YAML.
 
 {% configuration %}
 type:
@@ -64,7 +70,7 @@ Elements are the active components (icons, badges, buttons, text, etc.) that ove
 
 There are several different element types that can be added to a Picture Elements card:
 
-- [State Badge](#state-badge)
+- [State badge](#state-badge)
 - [State Icon](#state-icon)
 - [State Label](#state-label)
 - [Service Call Button](#service-call-button)
@@ -73,7 +79,7 @@ There are several different element types that can be added to a Picture Element
 - [Conditional](#conditional-element)
 - [Custom](#custom-elements)
 
-### State Badge
+### State badge
 
 This element creates a badge representing the state of an entity.
 
@@ -109,7 +115,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-### State Icon
+### State icon
 
 This element represents an entity state using an icon.
 
@@ -137,41 +143,6 @@ state_color:
   default: true
 tap_action:
   required: false
-  description: Action to take on tap.
-  type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)."
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`."
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when `action` defined as `url`."
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`."
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`."
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below."
-      type: [boolean, map]
-      default: "false"
-tap_action:
-  required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
   type: map
 hold_action:
@@ -189,7 +160,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### State Label
+### State label
 
 This element represents an entity's state via text.
 
@@ -237,7 +208,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Service Call Button
+### Service call button
 
 This entity creates a button (with arbitrary text) that can be used to call a service.
 
@@ -265,7 +236,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Icon Element
+### Icon element
 
 This element creates a static icon that is not linked to the state of an entity.
 
@@ -305,7 +276,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Image Element
+### Image element
 
 This creates an image element that overlays the background image.
 
@@ -371,7 +342,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Conditional Element
+### Conditional element
 
 Much like the Conditional card, this element will let you show its sub-elements based on entity states.
 
@@ -399,14 +370,14 @@ conditions:
       type: string
 elements:
   required: true
-  description: One or more elements of any type to show when conditions are met. See below for an example.
+  description: One or more elements of any of the [listed types](#elements) to show when conditions are met. See below for an example.
   type: list
 {% endconfiguration %}
 
-### Custom Elements
+### Custom elements
 
 The process for creating and referencing custom elements is the same as for custom cards.
-Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card.html)
+Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card)
 for more information.
 
 {% configuration %}
@@ -421,7 +392,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-## Options For Exemptions
+## Options for exemptions
 
 {% configuration badges %}
 user:
@@ -442,8 +413,6 @@ style:
   # Positioning of the element
   left: 50%
   top: 50%
-  # Overwrite color for icons
-  "--paper-item-icon-color": pink
 ```
 
 ### How to use state_image
@@ -476,7 +445,7 @@ tap_action:
 hold_action:
   action: call-service
   service: light.turn_on
-  service_data:
+  data:
     entity_id: light.bed_light
     brightness_pct: 100
 ```
@@ -533,7 +502,7 @@ elements:
       left: 10%
 ```
 
-### Images Example
+### Images example
 
 ```yaml
 type: picture-elements
@@ -570,7 +539,7 @@ elements:
     tap_action:
       action: call-service
       service: media_player.media_play_pause
-      service_data:
+      data:
         entity_id: media_player.living_room
     image: /local/television.jpg
     filter: brightness(5%)
@@ -582,7 +551,7 @@ elements:
       width: 5%
 ```
 
-### Conditional Example
+### Conditional example
 
 ```yaml
 type: picture-elements

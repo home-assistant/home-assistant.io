@@ -1,6 +1,6 @@
 ## Configuring access to files
 
-Your Home Assistant Operating server includes two repositories by default: The official core add-on repository, and the community add-on repository. All of the add-ons mentioned here can be installed by navigating to the add-on store using {% my supervisor_store title="Configuration > Add-ons & Backups > Add-on Store" %} in the UI.
+Your Home Assistant Operating server includes two repositories by default: The official core add-on repository, and the community add-on repository. All of the add-ons mentioned here can be installed by navigating to the add-on store using {% my supervisor_store title="Settings > Add-ons > Add-on Store" %} in the UI.
 
 One of the first things to take care of after installing Home Assistant OS is to provide yourself access to files. There are several add-ons commonly used for this, and most users employ a mix of various add-ons. Default directories on the host are mapped to the add-ons so that they can be accessed by the services any particular add-on might provide. On the host system these directories exist on the `/data` partition at `/mnt/data/supervisor/`.
 
@@ -21,7 +21,7 @@ The Samba add-on creates smb shares which can be accessed from another computer.
 
 To configure the Samba add-on, you only need to set a user and password of your choice on the configuration page, save, and then start the add-on. The add-on will not start without setting a password!
 
-To connect to the Samba server from another device, you will use the IP address or hostname of your server. Either of these can be found on the {% my supervisor_info title="Configuration > Add-ons & Backups > System" %} page of your UI within the Host card.
+To connect to the Samba server from another device, you will use the IP address or hostname of your server. Either of these can be found on the {% my network title="Settings > System > Network" %} page of your UI.
 
 For connecting from Windows 10, you can enter the IP address or hostname in File Explorer's address bar with two backslashes, as shown in the example screenshot.
 
@@ -55,6 +55,12 @@ There is no configuration required for editing files within your `/config` direc
 
 ### Installing and using the File Editor add-on
 
-A more basic and light weight alternative to Visual Studio Code, the File Editor add-on provides access through Hass-Configurator, which is a web-based filesystem-browser and text-editor. YAML files are automatically checked for syntax errors while editing. This add-on can be installed via the add-on store from the official add-on repository.
+The File Editor add-on is a web-based file system browser and text editor. It is a more basic and light weight alternative to Visual Studio Code. YAML files are automatically checked for syntax errors while editing. To install and use the File Editor in Home Assistant, follow these steps:
 
-There is no configuration required for editing files within your `/config` directory. In order to enable access to further directories, editing the add-on configuration is required. See the add-on documentation for details.
+1. To install the add-on, go to {% my supervisor_addon title="**Settings** > **Add-ons** > **File editor**" addon="core_configurator" %}.
+   - Once you have the add-on installed, you can edit files within your `/config` directory.
+2. If you want to be able to access directories outside the `/config` directory, in the add-on, open the **Configuration** tab and disable the **Enforce basepath** option.
+   - Note: The **Enforce basepath** option is intended to protect you from inadvertently making changes to settings files.
+3. For information on other configuration settings, open the **Documentation** tab.
+4. To confirm your changes, select **Save**.
+5. To start browsing, on the **Info** tab, select **Open Web UI**.

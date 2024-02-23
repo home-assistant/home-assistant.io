@@ -7,39 +7,32 @@ ha_quality_scale: internal
 ha_domain: update
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
-An update entity is an entity that indicates if an update is available for a
+An update {% term entity %} is an entity that indicates if an update is available for a
 device or service. This can be any update, including update of a firmware
 for a device like a light bulb or router, or software updates for things like
 add-ons or containers.
 
-The state of the update entity indicates if there is an update pending or not,
+The state of the update {% term entity %} indicates if there is an update pending or not,
 and if there is an update available, more information on that update can be
-provided by an integration to the entity. For example, the version that is
+provided by an integration to the {% term entity %}. For example, the version that is
 available, a summary of the release notes, and even links that provide more
 information on the available update.
 
-Lastly, there are two services available for the update entity. If possible and
-made available by the integration providing the update entity, triggering
+Lastly, there are two services available for the update {% term entity %}. If possible and
+made available by the integration providing the update {% term entity %}, triggering
 the actual update from Home Assistant. The other service exposed allows for
 skipping the offered update.
 
-<div class='note'>
+{% include integrations/building_block_integration.md %}
 
-Update entities are here to be consumed and provided by other integrations and
-are are not designed to be created manually directly.
-
-This page, therefore, does not provide instructions on how to create update
-entities. Please see the ["Updates" category](/integrations/#updates) on the
-integrations page to find integration offering update entities.
-
-</div>
+For a list of {% term integrations %} offering update entities, on the integrations page, select the ["Update" category](/integrations/#update).
 
 ## The state of an update entity
 
-The state of an update entity reflects whether an update is available or not.
+The state of an update {% term entity %} reflects whether an update is available or not.
 When the state is `on`, it means there is an update available; when everything
 is up-to-date, the state is `off`.
 
@@ -56,18 +49,18 @@ information on the update state:
 - `release_summary`: A summary of the release notes for the update available.
 - `release_url`: A link to the full release announcement for the update available.
 
-## Device Classes
+## Device classes
 
 The way these update entities are displayed in the frontend depend on their
 device classes. The following device classes are supported for switches:
 
 - **`None`**: A generic software update. This is the default and doesn't need
   to be set.
-- **`firmware`**: This update integration provides firmwares.
+- **`firmware`**: This update {% term integration %} provides firmwares.
 
 ## Services
 
-The update entity exposes two services that can be used to install or skip
+The update {% term entity %} exposes two services that can be used to install or skip
 an offered software update.
 
 ### Service {% my developer_call_service service="update.install" %}
@@ -75,16 +68,16 @@ an offered software update.
 The {% my developer_call_service service="update.install" %} service can be used
 to install an offered update to the device or service.
 
-This service is only available for an update entity if an integration provides
-this capability. Additionally, if allowed by the integration, the service
+This service is only available for an update {% term entity %} if an {% term integration %} provides
+this capability. Additionally, if allowed by the {% term integration %}, the service
 provides for installing a specific version and even could make a
 backup before installing the update.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | String or list of strings that point at `entity_id`s of updates. To target all updates, set `entity_id` to `all`.
-| `version`              |     yes  | A specific update version to install, if not provided, the latest available update will be installed. Availability of this atrribute is dependent on the integration.
-| `backup`               |     yes  | If set to `true`, a backup will be made before installing the update. Availability of this attribute is dependent on the integration.
+| `version`              |     yes  | A specific update version to install, if not provided, the latest available update will be installed. Availability of this atrribute is dependent on the {% term integration %}.
+| `backup`               |     yes  | If set to `true`, a backup will be made before installing the update. Availability of this attribute is dependent on the {% term integration %}.
 
 Example service call:
 
@@ -100,7 +93,7 @@ target:
 The {% my developer_call_service service="update.skip" %} service can be used
 to skip an offered update to the device or service.
 
-After skipping an offered update, the entity will return to the `off` state,
+After skipping an offered update, the {% term entity %} will return to the `off` state,
 which means there is no update available.
 
 ```yaml
@@ -120,7 +113,7 @@ The {% my developer_call_service service="update.clear_skipped" %} service can
 be used to remove skipped version marker of a previously skipped an offered
 update to the device or service.
 
-After skipping an offered update, the entity will return to the `off` state,
+After skipping an offered update, the {% term entity %} will return to the `off` state,
 but will not return to it until a newer version becomes available again.
 
 Using the `update.clear_skipped` service, the skipped version marker can be

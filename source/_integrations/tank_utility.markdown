@@ -31,7 +31,7 @@ The device item value is the last segment of the URL path, e.g., the URL
 1. Obtain your personal token:
 
    ```bash
-   curl --user <my_username>:<my_password> https://data.tankutility.com/api/getToken`
+   curl --user <my_username>:<my_password> https://data.tankutility.com/api/getToken
    ```
 
    The JSON response structure should resemble:
@@ -54,7 +54,7 @@ The device item value is the last segment of the URL path, e.g., the URL
 
 ## Configuration
 
-To enable the component, add the following lines to your `configuration.yaml` file:
+To enable the integration, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -63,7 +63,7 @@ sensor:
     email: YOUR_EMAIL_ADDRESS
     password: YOUR_PASSWORD
     devices:
-      - 000000000000000000000000
+      - "000000000000000000000000"
 ```
 
 {% configuration %}
@@ -75,7 +75,7 @@ password:
   description: "Your [https://app.tankutility.com](https://app.tankutility.com) password."
   required: true
   type: string
-unit_of_measurement:
+devices:
   description: All devices to monitor.
   required: true
   type: map

@@ -3,7 +3,7 @@ title: Speedtest.net
 description: How to integrate Speedtest.net within Home Assistant.
 ha_category:
   - Sensor
-  - System Monitor
+  - System monitor
 ha_release: 0.13
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -18,14 +18,15 @@ ha_integration_type: integration
 
 The Speedtest.net integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
-
 {% include integrations/config_flow.md %}
 
 Most Speedtest.net servers require TCP port 8080 outbound to function. Without this port open you may experience significant delays or no results at all. See note on their [help page](https://www.speedtest.net/help).
 
-By default, a speed test will be run every hour. You can update frequency in the integration configuration.
+By default, a speed test will be run every hour. You can disable polling using system options and use the `update_entity` service to automate the speed test frequency.
 
-## Integration Sensors
+{% include common-tasks/define_custom_polling.md %}
+
+## Integration sensors
 
 The following sensors are added by the integration:
 
@@ -34,22 +35,13 @@ sensors:
 - Ping sensor: Reaction time in ms of your connection (how fast you get a response after you’ve sent out a request).
 - Download sensor: The download speed (Mbit/s).
 - Upload sensor: The upload speed (Mbit/s).
-  
-### Service
-
-Once loaded, the integration will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Speedtest.net speed test on demand. This service takes no parameters. This can be useful when auto update has been disabled in the integration options.
-
-```yaml
-action:
-  service: speedtestdotnet.speedtest
-```
 
 This integration uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.
 Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this integration may display.
 
 ## Examples
 
-In this section you will find some real-life examples of how to use this component.
+In this section you will find some real-life examples of how to use this integration.
 ### Using as a trigger in an automation
 
 {% raw %}

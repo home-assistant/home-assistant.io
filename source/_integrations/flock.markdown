@@ -5,8 +5,6 @@ ha_category:
   - Notifications
 ha_iot_class: Cloud Push
 ha_release: 0.71
-ha_codeowners:
-  - '@fabaff'
 ha_domain: flock
 ha_platforms:
   - notify

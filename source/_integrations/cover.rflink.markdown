@@ -1,7 +1,6 @@
 ---
 title: "RFLink Cover"
 description: "Instructions on how to integrate RFLink Somfy RTS and KAKU ASUN-650 covers into Home Assistant."
-logo: rflink.png
 ha_category:
   - Cover
 ha_iot_class: Assumed State
@@ -9,7 +8,7 @@ ha_release: 0.55
 ha_domain: rflink
 ---
 
-The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First, you have to set up your [RFLink hub](/integrations/rflink/).
 
@@ -166,7 +165,7 @@ cover:
         name: non_kaku_not_inverted_by_default
 ```
 
-The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the component will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted.
+The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the integration will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted.
 
 ## Setting up a non-RTS cover
 

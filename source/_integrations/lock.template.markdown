@@ -75,9 +75,9 @@ lock:
     default: false
 {% endconfiguration %}
 
-### Template variables
+### Template and action variables
 
-State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates.
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
 
 ## Considerations
 
@@ -110,7 +110,7 @@ lock:
 
 {% endraw %}
 
-### Optimistic Mode
+### Optimistic mode
 
 This example shows a lock in optimistic mode. This lock will immediately change state after command and will not wait for state update from the sensor.
 

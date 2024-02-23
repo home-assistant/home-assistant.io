@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-$primary-color: #049cdb;
+$primary-color: #1abcf2;
 
 .site-header {
   position: relative;
@@ -12,53 +12,67 @@ $primary-color: #049cdb;
   }
 }
 
-.search-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: white;
-  padding-top: 19px;
-  padding-right: 15%;
-
-  .search {
-    max-width: 500px;
-    width: 100%;
-    border-bottom: 2px solid $primary-color;
-    float: right;
-
-    .algolia-autocomplete {
-      width: calc(100% - 64px);
-      margin: 0 10px;
+.docsearch {
+  .DocSearch-Button {
+    padding: 0px;
+    margin-top: 16px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background: none;
+    &:hover {
+      box-shadow: none;
     }
-
-    input {
-      border: 0;
-      width: 100%;
-      outline: none;
-    }
+  }
+  .DocSearch-Button-Placeholder {
+    display: none;
+  }
+  .DocSearch-Button-Keys {
+    display: none;
+  }
+  .DocSearch-Search-Icon {
+    margin-right: 8px;
+    color: $primary-color;
   }
 }
 
-.integration-alert {
-  margin: -1em 0;
-  background-color: wheat;
-  padding: 4px;
+.DocSearch-Container {
+  z-index: 1000;
+}
 
-  a {
-    text-decoration: none !important;
+.integration-alert-container {
+  margin: -1em 0;
+}
+
+a.integration-alert {
+  margin: 1em 0;
+  background-color: wheat;
+  padding: 8px;
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  color: black;
+
+  svg {
+    width: 24px;
+    margin-right: 8px;
   }
 
+  .content {
+    flex: 1;
+  }
+
+  .learn-more {
+    padding: 4px 6px;
+    border-radius: 2px;
+    font-size: .8em;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .12);
+    }
+  }
 }
 
 @media only screen and (max-width: $menu-collapse) {
-  .search-container {
-    z-index: 20;
-    padding-right: 5px;
-    padding-left: 5px;
-  }
-
   .feedback {
     margin-bottom: 32px;
   }
@@ -87,9 +101,9 @@ $primary-color: #049cdb;
 
 .material-card {
   background-color: #fefefe;
-  border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
-    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, .12);
+  box-shadow: rgba(0,0,0,0.06) 0 0 10px;
 
   h1 {
     font-family: Roboto, Noto, sans-serif;
@@ -133,9 +147,6 @@ $primary-color: #049cdb;
 }
 
 .feedback {
-  box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, .12);
-  border-radius: 4px;
   h4 {
     margin: 0 0 8px !important;
 
@@ -144,9 +155,78 @@ $primary-color: #049cdb;
       color: #000;
     }
   }
+
   .links a {
     font-weight: 400;
     text-transform: none;
+  }
+}
+
+.installation-survey {
+  padding-bottom: 64px;
+
+  h4 {
+    margin: 0 0 8px !important;
+
+    a {
+      text-decoration: none !important;
+      color: #000;
+    }
+  }
+
+  p {
+    margin-bottom: 8px;
+  }
+}
+
+
+.button {
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 28px;
+    color: #fff;
+    background-color: #03a9f4;
+    border: none;
+    text-decoration: none !important;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
+  
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.2;
+    border-radius: 4px;
+  }
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.14), 0 1px 7px 0 rgba(0,0,0,.12), 0 3px 1px -1px rgba(0,0,0,.2);
+  }
+  &:hover::before {
+    background-color: rgba(255,255,255,.8);
+  }
+  &:focus {
+    outline: none;
+  }
+  &:focus::before {
+    background-color: white;
+  }
+  &:active::before {
+    background-color: grey;
+  }
+  :host([active]) & {
+    color: rgba(0, 0, 0, 0.38);
+    background-color: rgba(0, 0, 0, 0.12);
+    box-shadow: none;
+    cursor: unset;
+    pointer-events: none;
+  }
+  &.hidden {
+    display: none;
   }
 }
 
@@ -187,19 +267,62 @@ $primary-color: #049cdb;
     }
   }
 
+  .events {
+    padding: 16px;
+
+    h3 {
+      margin-top: 8px;
+    }
+
+    .event {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+
+      .caption {
+        padding: 0 12px;
+        max-width: 450px;
+      }
+
+      .title {
+        font-size: 20px;
+        font-weight: 400;
+      }
+
+      .secondary {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .subtitle {
+        font-size: 12px;
+        font-weight: initial;
+      }
+
+      img {
+        width: 200px;
+        height: 100%;
+      }
+    }
+  }
+
   .picture-promo {
     display: block;
     padding-top: 30%;
     background-size: cover;
     background-position: center;
     text-decoration: none;
+    border: none;
 
     .caption {
       padding: 16px 12px 12px;
       background-color: rgba(0, 0, 0, 0.54);
       color: white;
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -241,9 +364,9 @@ $primary-color: #049cdb;
   }
 
   .sponsors-and-press {
-    margin-top:24px;
+    margin-top: 24px;
   }
-  
+
   .sponsored-by {
     img {
       border: 0;
@@ -252,10 +375,10 @@ $primary-color: #049cdb;
       margin: 15px;
       max-width: 40%;
       max-height: 80px;
-    }    
+    }
 
   }
-  
+
   .seen-press {
 
     img {
@@ -275,6 +398,19 @@ $primary-color: #049cdb;
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .frontpage .events .event {
+    .caption {
+      padding-top: 4px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
 
 // https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
 
@@ -307,11 +443,11 @@ dt:hover a.title-link {
 
   img {
     border-radius: 3px;
-    width: 36px;
+    height: 36px;
     margin-right: 10px;
   }
 
-  a > * {
+  a>* {
     vertical-align: middle;
   }
 }
@@ -354,8 +490,8 @@ article.listing {
     box-shadow: none;
   }
 
-  & > table,
-  & > .entry-content > table {
+  &>table,
+  &>.entry-content>table {
     background-color: #f3fcf5;
   }
 
@@ -377,7 +513,7 @@ article.listing {
   li {
     margin-bottom: 10px;
 
-    & > p:last-child {
+    &>p:last-child {
       margin-bottom: 0;
     }
 
@@ -394,8 +530,7 @@ article.listing {
     }
   }
 
-  h1 {
-  }
+  h1 {}
 
   h2 {
     font-size: 1.5em;
@@ -485,11 +620,23 @@ div.note {
 
     img {
       vertical-align: middle;
+      height: 120px;
     }
 
     i {
       font-size: 2em;
       padding: 0 5px;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+
+      svg {
+        height: 48px;
+        padding: 10px 4px;
+        fill: currentColor;
+      }
     }
   }
 
@@ -508,17 +655,19 @@ div.note {
 
       li.toc-entry {
         list-style-type: none;
+
         li {
           list-style-type: circle;
           margin-left: 1em;
         }
+
         ul {
           margin-left: 1em;
         }
       }
     }
 
- }
+  }
 
   .brand-logo-container {
     text-align: center;
@@ -540,7 +689,7 @@ lite-youtube {
   position: relative;
   display: block;
   padding-bottom: calc(100% / (16 / 9));
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, .1);
 }
 
 lite-youtube::before {
@@ -556,7 +705,8 @@ lite-youtube::before {
 // https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
 .videoWrapper {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
+  /* 16:9 */
   height: 0;
   margin-bottom: 25px;
   background: #000;
@@ -719,10 +869,8 @@ code {
   hyphens: none;
 
   background-color: #fdfdfd;
-  background-image: linear-gradient(
-    transparent 50%,
-    rgba(69, 142, 209, 0.04) 50%
-  );
+  background-image: linear-gradient(transparent 50%,
+      rgba(69, 142, 209, 0.04) 50%);
   background-size: 3em 3em;
   background-origin: content-box;
   background-attachment: local;
@@ -733,12 +881,19 @@ code {
 }
 
 @media only screen and (max-width: $menu-collapse) {
+
   #not_found {
     .page {
       text-align: center;
 
       .search404-container {
         margin-bottom: 32px;
+        display: grid;
+
+        #search404 {
+          display: flex;
+          justify-self: center;
+        }
       }
     }
   }
@@ -752,12 +907,15 @@ code {
 
       .search404-container {
         margin-bottom: 32px;
+        display: grid;
 
         #search404 {
-          width: 420px;
+          display: flex;
+          justify-self: center;
         }
       }
     }
+
     footer {
       position: absolute;
       bottom: 0;
@@ -769,12 +927,14 @@ code {
 a.my {
   img {
     border: 0px;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
 
 :target {
   display: block;
   position: relative;
-  top: -100px; 
+  top: -100px;
   visibility: hidden;
 }

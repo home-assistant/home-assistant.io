@@ -1,17 +1,19 @@
 ---
-title: Media Player
+title: Media player
 description: Instructions on how to setup your media players with Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: media_player
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 Interacts with media players on your network.
+
+{% include integrations/building_block_integration.md %}
 
 ## Services
 
@@ -50,6 +52,8 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.                                                                                                                       |
 | `media_content_id`     |       no | A media identifier. The format of this is integration dependent. For example, you can provide URLs to Sonos and Cast but only a playlist ID to iTunes.                   |
 | `media_content_type`   |       no | A media type. Must be one of `music`, `tvshow`, `video`, `episode`, `channel` or `playlist`. For example, to play music you would set `media_content_type` to `music`. |
+| `enqueue`              |      yes | How the new media should interact with the queue. Must be one of `add`, `next`, `play`, `replace`. If the media player doesn't support this feature, the new media will play and the `enqueue` directive is ignored. |
+| `announce`             |      yes | Set to `true` to request the media player to temporarily stop playing media to announce this media and then resume. If the media player doesn't support this feature, the announcement will play but the media player and will not resume playing the interrupted media once the announcement finishes.
 | `extra`                |      yes | Extra dictionary data to send, e.g., title, thumbnail. Possible values can be found below.
 
 ##### Extra dictionary data
@@ -145,7 +149,7 @@ Currently only supported on [Denon AVR](/integrations/denonavr/) and  [Songpal](
 
 #### Service `media_player.shuffle_set`
 
-Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Roon](/integrations/roon), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
+Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Roon](/integrations/roon), [OwnTone](/integrations/forked_daapd), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
@@ -174,7 +178,7 @@ Allows to group media players together for synchronous playback. Only works on s
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Unjoin this media player from any player groups.     |
 
-### Device Class
+### Device class
 
 The way media players are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for media players:
 

@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `seventeentrack` sensor platform allows users to get package data tied to their [17track.net](https://www.17track.net/en) account. The platform creates both summary sensors, which show the number of packages in a current state (e.g., "In Transit"), as well as individual sensors for each package within the account.
+The `seventeentrack` sensor platform allows users to get package data tied to their [17track.net](https://www.17track.net/) account. The platform creates both summary sensors, which show the number of packages in a current state (e.g., "In Transit"), as well as individual sensors for each package within the account.
 
 <div class='note warning'>
 
@@ -23,6 +23,33 @@ Although the 17track.net website states that account passwords cannot be longer 
 </div>
 
 {% include integrations/config_flow.md %}
+
+## Package statuses
+
+[17track's API](https://api.17track.net/en/doc) provides the following tracking statuses. The integration creates a sensor for each status, which contains the packages in that status. The sensor's displayed value is the number of packages in that status.
+
+- Not found
+- In transit
+- Expired
+- Pick up
+- Undelivered
+- Delivered
+- Alert
+
+## Package-level attributes
+
+Each package entry (for example, within a status sensor) contains the following attributes.
+
+- package.friendly_name
+- package.status
+- package.destination_country
+- package.info_text
+- package.timestamp
+- package.location
+- package.origin_country
+- package.package_type
+- package.tracking_info_language
+- package.tracking_number
 
 ## Examples
 

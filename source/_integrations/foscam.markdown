@@ -7,6 +7,7 @@ ha_iot_class: Local Polling
 ha_release: 0.7.3
 ha_codeowners:
   - '@skgsergio'
+  - '@krmarien'
 ha_domain: foscam
 ha_config_flow: true
 ha_platforms:
@@ -28,7 +29,7 @@ Most Foscam IP Cameras supports two video streams, by default the `Main` stream 
 
 ### Service `foscam.ptz`
 
-If your Foscam camera supports PTZ, you will be able to pan or tilt your camera.
+If your Foscam camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan or tilt your camera.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
@@ -38,7 +39,7 @@ If your Foscam camera supports PTZ, you will be able to pan or tilt your camera.
 
 ### Service `foscam.ptz_preset`
 
-If your Foscam camera supports PTZ presets, you will be able to move the camera to a predefined preset using the preset name.
+If your Foscam camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> presets, you will be able to move the camera to a predefined preset using the preset name.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
@@ -70,7 +71,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: up
   - type: icon
@@ -82,7 +83,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: down
   - type: icon
@@ -94,7 +95,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: left
   - type: icon
@@ -106,7 +107,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: right
   - type: icon
@@ -118,7 +119,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: top_left
   - type: icon
@@ -130,7 +131,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: top_right
   - type: icon
@@ -142,7 +143,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: bottom_left
   - type: icon
@@ -154,7 +155,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: bottom_right
 ```

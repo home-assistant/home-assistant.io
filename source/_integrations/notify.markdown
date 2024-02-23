@@ -8,12 +8,14 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: notify
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 The `notify` integration makes it possible to send notifications to a wide variety of platforms. To use it you have to setup at least one notification target (notifier), check the [integrations list](/integrations/#notifications) for one that fits your use case.
 
-If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/).
+If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/). The Persistent Notification integration is also available as an automatically configured notifier. See [its documentation](/integrations/persistent_notification/) for more details.
+
+{% include integrations/building_block_integration.md %}
 
 ## Service
 
@@ -26,9 +28,11 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 | `target`               |      yes | Some platforms allow specifying a recipient that will receive the notification. See your platform page if it is supported.
 | `data`                 |      yes | On platforms who have extended functionality. See your platform page if it is supported.
 
-The notify integration supports specifying [templates](/topics/templating/). This will allow you to use the current state of Home Assistant in your notifications.
+The notify integration supports specifying [templates](/docs/configuration/templating/). This will allow you to use the current state of Home Assistant in your notifications.
 
 In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
+
+Be aware that you might want to change the actual service to whatever service you are actually using since `notify.notify` is shorthand for the first notify service the system can find and might therefore not be working as intended.
 
 ```yaml
 action:

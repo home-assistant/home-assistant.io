@@ -82,9 +82,9 @@ switch:
         type: template
 {% endconfiguration %}
 
-### Template variables
+### Template and action variables
 
-State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates.
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
 
 ## Considerations
 
@@ -203,7 +203,7 @@ switch:
 
 ### Change The Icon
 
-This example shows how to change the icon based on the day/night cycle.
+This example shows how to change the icon based on the state of the garage door.
 
 {% raw %}
 
@@ -212,7 +212,7 @@ switch:
   - platform: template
     switches:
       garage:
-        value_template: "{{ is_state('cover.garage_door', 'on') }}"
+        value_template: "{{ is_state('cover.garage_door', 'open') }}"
         turn_on:
           service: cover.open_cover
           target:
@@ -242,7 +242,7 @@ switch:
   - platform: template
     switches:
       garage:
-        value_template: "{{ is_state('cover.garage_door', 'on') }}"
+        value_template: "{{ is_state('cover.garage_door', 'open') }}"
         turn_on:
           service: cover.open_cover
           target:

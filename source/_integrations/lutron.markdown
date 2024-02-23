@@ -3,6 +3,7 @@ title: Lutron
 description: Instructions on how to use Lutron devices with Home Assistant.
 ha_category:
   - Cover
+  - Fan
   - Hub
   - Light
   - Scene
@@ -10,15 +11,18 @@ ha_category:
 ha_release: 0.37
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@JonGilmore'
+  - '@cdheiser'
+  - '@wilburCForce'
 ha_domain: lutron
 ha_platforms:
   - binary_sensor
   - cover
+  - fan
   - light
   - scene
   - switch
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` integration in Home Assistant is responsible for communicating with the main hub for these systems.
@@ -29,30 +33,9 @@ Presently, there's only support for communicating with the [RadioRA 2](http://ww
 
 When configured, the `lutron` integration will automatically discover the rooms and their associated switches/dimmers as configured by the RadioRA 2 software from Lutron. Each room will be treated as a separate group.
 
-To use Lutron RadioRA 2 devices in your installation, you'll need to first create a username/password in your Lutron programming software. Once a telnet username/password has been programmed, add the following to your `configuration.yaml` file using the IP address of your RadioRA 2 main repeater:
+To use Lutron RadioRA 2 devices in your installation, you'll need to first create a username/password in your Lutron programming software. Once a telnet username/password has been programmed, you can follow the instructions from the next chapter.
 
-``` yaml
-# Example configuration.yaml entry
-lutron:
-  host: IP_ADDRESS
-  username: USERNAME
-  password: PASSWORD
-```
-
-{% configuration %}
-host:
-  description: The IP address of the Main Repeater.
-  required: true
-  type: string
-username:
-  description: The login name of the user. The user `lutron` always exists, but other users can be added via RadioRA 2 software.
-  required: true
-  type: string
-password:
-  description: The password for the user specified above. `integration` is the password for the always-present `lutron` user.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 
@@ -60,11 +43,17 @@ It is recommended to assign a static IP address to your main repeater. This ensu
 
 </div>
 
+<div class='note'>
+
+If you are using RadioRA2 software version 12 or later, the default `lutron` user with password `integration` is not configured by default. To configure a new telnet user, go to **Settings** > **Integration** in your project and add a new telnet login. Once configured, use the transfer tab to push your changes to the RadioRA2 main repeater(s).
+
+</div>
+
 ## Keypad buttons
 
-Individual buttons on keypads are not represented as entities. Instead, they fire events called `lutron_event` whose payloads include `id` and `action` attributes.
+Individual buttons on keypads are not represented as entities. Instead, they fire events called `lutron_event` whose payloads include `id`, `action`, and `uuid` attributes.
 
-The `id` attribute includes the name of the keypad and the name of the button, normalized the same way entity names are. For example, if the keypad is called "Kitchen Keypad" and the button is called "Dinner" the event's `id` will be `kitchen_keypad_dinner`. If the button has not been assigned a name by the Lutron system installer then the button will have a name of "Unknown Button". In this case the `id` will be suffixed with the underlying Lutron button number and will be of the form `kitchen_keypad_unknown_button_1`.
+The `id` attribute includes the name of the keypad and the name of the button, normalized the same way entity names are. For example, if the keypad is called "Kitchen Keypad" and the button is called "Dinner" the event's `id` will be `kitchen_keypad_dinner`. If the button has not been assigned a name by the Lutron system installer then the button will have a name of "Unknown Button". In this case the `id` will be suffixed with the underlying Lutron button number and will be of the form `kitchen_keypad_unknown_button_1`. The `uuid` is available to distinguish buttons with the same name on one keypad.
 
 The `action` attribute varies depending on the button type.
 
@@ -87,11 +76,11 @@ The Lutron scene platform allows you to control scenes programmed into your SeeT
 
 After setup, scenes will appear in Home Assistant using the area, keypad and button name.
 
-## Occupancy Sensors
+## Occupancy sensors
 
 Any configured Powr Savr occupancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
 
-## Example Automations
+## Example automations
 
 ``` yaml
 - alias: "keypad button pressed notification"

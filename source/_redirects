@@ -1,5 +1,10 @@
+---
+layout: null
+---
+
 # These redirects are handled by Netlify
 #
+{% assign release_notes = site.categories['Release-Notes'] %}
 
 # General use redirects
 /join-chat https://discord.gg/home-assistant
@@ -7,14 +12,26 @@
 /newsletter https://building.open-home.io/
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
-/latest-security-alert /blog/2021/01/23/security-disclosure2/
+/merch https://home-assistant-store.creator-spring.com
+/feature-requests https://community.home-assistant.io/c/feature-requests
+/issues https://github.com/home-assistant/core/issues
+/community https://community.home-assistant.io/
+/latest-security-alert /security/
+
+# Link to latest release notes
+/latest-release-notes/ {{ release_notes | where: "categories", "Core" | map: 'url' | first }}{{ site.patch_version_notes }} 302!
+/latest-ios-release-notes/ {{ release_notes | where: "categories", "iOS" | map: 'url' | first }} 302!
+
+# Matter workshop June 2022
+/skyconnect-interest https://docs.google.com/forms/d/e/1FAIpQLScEjHSBJszUZfgO3MIDO51IHr3Oeohcs8BLpRIjY1liJ58IpA/viewform?usp=sf_link
+/matter-june-22 https://docs.google.com/document/d/1MldgA337wHTEx-vPkoxlCqKHrhVm5QIcHV32iLsv_2k/edit?usp=sharing
 
 # Redirect for Energy
 /energy /home-energy-management
 /integrations/energy /docs/energy 301!
 
-/amber https://www.crowdsupply.com/nabu-casa/home-assistant-yellow
-/yellow https://www.crowdsupply.com/nabu-casa/home-assistant-yellow
+/amber https://yellow.home-assistant.io
+/yellow https://yellow.home-assistant.io
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
 # Older development pages
@@ -134,20 +151,45 @@
 /components/telegram_bot.webhooks /integrations/telegram_webhooks
 /components/vacuum.mqtt /integrations/vacuum.mqtt
 /components/vacuum.template /integrations/vacuum.template
+/integrations/binary_sensor.group /integrations/group
+/integrations/binary_sensor.knx /integrations/knx#binary-sensor
+/integrations/binary_sensor.modbus /integrations/modbus/#configuring-binary-sensor-entities
 /integrations/binary_sensor.mysensors /integrations/mysensors#binary-sensor
+/integrations/binary_sensor.template /integrations/template/#binary_sensor
+/integrations/climate.knx /integrations/knx#climate
+/integrations/climate.modbus/ /integrations/modbus/#configuring-climate-entities
 /integrations/climate.mysensors /integrations/mysensors#climate
+/integrations/cover.command_line /integrations/command_line#Cover
+/integrations/cover.group /integrations/group
+/integrations/cover.knx /integrations/knx#cover
 /integrations/cover.mysensors /integrations/mysensors#cover
 /integrations/device_tracker.mysensors /integrations/mysensors#device-tracker
-/integrations/light.mysensors /integrations/mysensors#light
-/integrations/notify.mysensors /integrations/mysensors#notify
-/integrations/sensor.mysensors /integrations/mysensors#sensor
-/integrations/switch.mysensors /integrations/mysensors#switch
-/integrations/binary_sensor.group /integrations/group
-/integrations/cover.group /integrations/group
 /integrations/fan.group /integrations/group
+/integrations/fan.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-air-purifier-air-humidifier-and-standing-fan
 /integrations/light.group /integrations/group
+/integrations/light.knx /integrations/knx#light
+/integrations/light.mysensors /integrations/mysensors#light
+/integrations/light.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-philips-light
 /integrations/media_player.group /integrations/group
+/integrations/notify.command_line /integrations/command_line#Notify
 /integrations/notify.group /integrations/group#notify-groups
+/integrations/notify.knx /integrations/knx#notify
+/integrations/notify.mysensors /integrations/mysensors#notify
+/integrations/remote.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-ir-remote
+/integrations/sensor.buienradar /integrations/buienradar/#sensor
+/integrations/sensor.command_line /integrations/command_line#Sensor
+/integrations/sensor.knx /integrations/knx#sensor
+/integrations/sensor.modbus /integrations/modbus/#configuring-sensor-entities
+/integrations/sensor.mysensors /integrations/mysensors#sensor
+/integrations/sensor.websocket_api /integrations/websocket_api/#track-current-connections
+/integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
+/integrations/switch.command_line /integrations/command_line#Switch
+/integrations/switch.knx /integrations/knx#switch
+/integrations/switch.modbus /integrations/modbus/#configuring-switch-entities
+/integrations/switch.mysensors /integrations/mysensors#switch
+/integrations/switch.pca /integrations/elv/
+/integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
+/integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-mi-robot-vacuum
 
 /components/air_pollutants.* /integrations/:splat
 /components/air_quality.* /integrations/:splat
@@ -180,25 +222,44 @@
 
 # Renamed integrations
 /integrationss/air_pollutants /integrations/air_quality
+/integrations/calendar.google /integrations/google
 /integrations/climacell /integrations/tomorrowio
 /integrations/generic_ip_camera /integrations/generic
-/integrations/google /integrations/google_translate
+/integrations/homewizard_energy /integrations/homewizard
 /integrations/input_slider /integrations/input_number
+/integrations/leviton /integrations/leviton_z_wave
 /integrations/light.switch /integrations/switch_as_x
-/integrations/openalpr /integrations/openalpr_local
 /integrations/pca /integrations/elv
 /integrations/pollen /integrations/iqvia
 /integrations/polling /integrations/telegram_polling
 /integrations/ritassist /integrations/fleetgo
+/integrations/senseme /integrations/baf
 /integrations/synologydsm /integrations/synology_dsm
 /integrations/telegram_chatbot /integrations/telegram_bot
 /integrations/vlc-telnet /integrations/vlc_telnet
 /integrations/xiaomi /integrations/xiaomi_aqara
-/integrations/zigbee /integrations/xbee
+/integrations/zwave /integrations/zwave_js/
 
 # Moved documentation
 /details/database /docs/backend/database
 /details/updater /docs/backend/updater
+/docs/assist/ /voice_control/
+/docs/assist/android/ /voice_control/android/
+/docs/assist/apple/ /voice_control/apple/
+/docs/assist/builtin_sentences/ /voice_control/builtin_sentences/
+/docs/assist/custom_sentences/ /voice_control/custom_sentences/
+/docs/assist/using_voice_assistants_overview/ /voice_control/
+/docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
+/docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
+# Redirect for the QR Codes on the S3 Box
+/s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
+/s3-box-no-ha /voice_control/troubleshooting_the_s3_box/#error-no-home-assistant
+/docs/assist/troubleshooting/ /voice_control/troubleshooting/
+/docs/assist/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
+/projects/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
+/docs/assist/thirteen-usd-voice-remote/ /voice_control/thirteen-usd-voice-remote/
+/draw_assist /voice_control/s3-box-customize/#to-draw-your-own-images
+/projects/thirteen-usd-voice-remote/ /voice_control/thirteen-usd-voice-remote/
 /docs/backend/updater /integrations/analytics
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
@@ -220,6 +281,14 @@
 /docs/ecosystem/notebooks/installation https://data.home-assistant.io
 /docs/ecosystem/notebooks/stats https://data.home-assistant.io
 /docs/frontend/mobile https://companion.home-assistant.io
+/docs/mqtt /integrations/mqtt
+/docs/mqtt/birth_will /integrations/mqtt/#birth-and-last-will-messages
+/docs/mqtt/broker /integrations/mqtt/#broker-configuration
+/docs/mqtt/certificate /integrations/mqtt/#advanced-broker-configuration
+/docs/mqtt/discovery/ /integrations/mqtt/#mqtt-discovery
+/docs/mqtt/logging /integrations/mqtt/#logging
+/docs/mqtt/service /integrations/mqtt/#publish--dump-services
+/docs/mqtt/testing /integrations/mqtt/#testing-your-setup
 /docs/script/editor /docs/scripts/editor
 /docs/z-wave /integrations/zwave_js
 /docs/z-wave/adding /integrations/zwave_js#how-can-i-add-include-a-new-device-to-my-z-wave-network
@@ -239,6 +308,7 @@
 /ecosystem/notebooks/graph https://data.home-assistant.io
 /ecosystem/notebooks/installation https://data.home-assistant.io
 /ecosystem/notebooks/stats https://data.home-assistant.io
+/examples/notify.mqtt /integrations/mqtt/#mqtt-notifications
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 /installation/nuc /installation/generic-x86-64
 /integrations/auth /docs/authentication
@@ -247,6 +317,7 @@
 /integrations/trace /docs/automation/troubleshooting
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
+/integrations/imap_email_content /integrations/imap/#using-events
 /getting-started/automation-create-first /getting-started/automation
 /getting-started/automation-2 /getting-started/automation
 /getting-started/automation-action /docs/automation/action
@@ -258,7 +329,6 @@
 /getting-started/basic /docs/configuration/basic
 /getting-started/browsers /docs/frontend/browsers
 /getting-started/customizing-devices /docs/configuration/customizing-devices
-/getting-started/devices /docs/configuration/devices
 /getting-started/installation /docs/installation
 /getting-started/installation-docker /docs/installation/docker
 /getting-started/installation-virtualenv /docs/installation/virtualenv
@@ -309,6 +379,7 @@
 /common-tasks/os/#snapshots /common-tasks/os/#backups
 /common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
 /more-info/unsupported/container /more-info/unsupported/software
+/integrations/zigbee /integrations/zha
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -347,24 +418,24 @@
 /getting-started/autostart-systemd https://community.home-assistant.io/t/autostart-using-systemd/199497
 
 # Add-ons
-/addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
-/addons/check_config https://github.com/home-assistant/hassio-addons/blob/master/check_config/README.md
-/addons/configurator https://github.com/home-assistant/hassio-addons/blob/master/configurator/README.md
-/addons/dhcp_server https://github.com/home-assistant/hassio-addons/blob/master/dhcp_server/README.md
-/addons/dnsmasq https://github.com/home-assistant/hassio-addons/blob/master/dnsmasq/README.md
-/addons/duckdns https://github.com/home-assistant/hassio-addons/blob/master/duckdns/README.md
-/addons/git_pull https://github.com/home-assistant/hassio-addons/blob/master/git_pull/README.md
-/addons/google_assistant https://github.com/home-assistant/hassio-addons/blob/master/google_assistant/README.md
-/addons/homematic https://github.com/home-assistant/hassio-addons/blob/master/homematic/README.md
-/addons/lets_encrypt https://github.com/home-assistant/hassio-addons/blob/master/letsencrypt/README.md
-/addons/mariadb https://github.com/home-assistant/hassio-addons/blob/master/mariadb/README.md
-/addons/mosquitto https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/README.md
-/addons/nginx_proxy https://github.com/home-assistant/hassio-addons/blob/master/nginx_proxy/README.md
-/addons/rpc_shutdown https://github.com/home-assistant/hassio-addons/blob/master/rpc_shutdown/README.md
-/addons/samba https://github.com/home-assistant/hassio-addons/blob/master/samba/README.md
-/addons/snips https://github.com/home-assistant/hassio-addons/blob/master/snips/README.md
-/addons/ssh https://github.com/home-assistant/hassio-addons/blob/master/ssh/README.md
-/addons/tellstick https://github.com/home-assistant/hassio-addons/blob/master/tellstick/README.md
+/addons/cec_scan https://github.com/home-assistant/addons/blob/master/cec_scan/README.md
+/addons/check_config https://github.com/home-assistant/addons/blob/master/check_config/README.md
+/addons/configurator https://github.com/home-assistant/addons/blob/master/configurator/README.md
+/addons/dhcp_server https://github.com/home-assistant/addons/blob/master/dhcp_server/README.md
+/addons/dnsmasq https://github.com/home-assistant/addons/blob/master/dnsmasq/README.md
+/addons/duckdns https://github.com/home-assistant/addons/blob/master/duckdns/README.md
+/addons/git_pull https://github.com/home-assistant/addons/blob/master/git_pull/README.md
+/addons/google_assistant https://github.com/home-assistant/addons/blob/master/google_assistant/README.md
+/addons/homematic https://github.com/home-assistant/addons/blob/master/homematic/README.md
+/addons/lets_encrypt https://github.com/home-assistant/addons/blob/master/letsencrypt/README.md
+/addons/mariadb https://github.com/home-assistant/addons/blob/master/mariadb/README.md
+/addons/mosquitto https://github.com/home-assistant/addons/blob/master/mosquitto/README.md
+/addons/nginx_proxy https://github.com/home-assistant/addons/blob/master/nginx_proxy/README.md
+/addons/rpc_shutdown https://github.com/home-assistant/addons/blob/master/rpc_shutdown/README.md
+/addons/samba https://github.com/home-assistant/addons/blob/master/samba/README.md
+/addons/snips https://github.com/home-assistant/addons/blob/master/snips/README.md
+/addons/ssh https://github.com/home-assistant/addons/blob/master/ssh/README.md
+/addons/tellstick https://github.com/home-assistant/addons/blob/master/tellstick/README.md
 
 # Redirect old /demo to new demo page
 /demo https://demo.home-assistant.io
@@ -392,14 +463,19 @@
 /getting-started/installation-raspberry-pi-all-in-one /getting-started
 /docs/tools/keyring/ /docs/configuration/secrets
 /docs/tools/credstash/ /docs/configuration/secrets
+/docs/scripts/editor/ /docs/scripts
+/getting-started/devices /integrations
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
 /state-of-the-union /blog/2019/11/22/state-of-the-union
 /blog/2022/03/30/release-20224 /blog/2022/04/06/release-20224/
+/blog/2024/01/11/voice-assistant-contest /blog/2024/01/17/voice-assistant-contest
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/almond /more-info/removed-integration 301
+/integrations/ambee /more-info/removed-integration 301
 /integrations/apns /more-info/removed-integration 301
 /integrations/arlo /more-info/removed-integration 301
 /integrations/arduino /more-info/removed-integration 301
@@ -413,29 +489,43 @@
 /integrations/bom /more-info/removed-integration 301
 /integrations/ciscospark /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
+/integrations/coronavirus /more-info/removed-integration 301
 /integrations/crimereports /more-info/removed-integration 301
+/integrations/darksky /more-info/removed-integration 301
+/integrations/deutsche_bahn /more-info/removed-integration 301
 /integrations/device_tracker.trackr /more-info/removed-integration 301
 /integrations/dht /more-info/removed-integration 301
 /integrations/digitalloggers /more-info/removed-integration 301
+/integrations/discovery /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
+/integrations/dyson /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301
 /integrations/ee_brightbox /more-info/removed-integration 301
+/integrations/eight_sleep /more-info/removed-integration 301
 /integrations/envirophat /more-info/removed-integration 301
+/integrations/eq3btsmart /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
+/integrations/facebox /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
+/integrations/flunearyou /more-info/removed-integration 301
 /integrations/fortigate /more-info/removed-integration 301
 /integrations/fritzbox_netmonitor  /more-info/removed-integration 301
 /integrations/garmin_connect /more-info/removed-integration 301
 /integrations/gearbest /more-info/removed-integration 301
 /integrations/geizhals /more-info/removed-integration 301
 /integrations/gntp /more-info/removed-integration 301
+/integrations/goalfeed /more-info/removed-integration 301
+/integrations/gpmdp /more-info/removed-integration 301
 /integrations/griddy /more-info/removed-integration 301
+/integrations/hangouts /more-info/removed-integration 301
 /integrations/history_graph /more-info/removed-integration 301
 /integrations/htu21d /more-info/removed-integration 301
 /integrations/huawei_router /more-info/removed-integration 301
 /integrations/hydroquebec /more-info/removed-integration 301
-/integrations/ialarm /more-info/removed-integration 301
+/integrations/ialarm_xr /more-info/removed-integration 301
 /integrations/iota /more-info/removed-integration 301
+/integrations/life360 /more-info/removed-integration 301
+/integrations/lifx_legacy /more-info/removed-integration 301
 /integrations/linksys_ap /more-info/removed-integration 301
 /integrations/linky /more-info/removed-integration 301
 /integrations/liveboxplaytv /more-info/removed-integration 301
@@ -443,8 +533,13 @@
 /integrations/loop_energy /more-info/removed-integration 301
 /integrations/loopenergy /more-info/removed-integration 301
 /integrations/lyft /more-info/removed-integration 301
+/integrations/magicseaweed /more-info/removed-integration 301
+/integrations/mazda /more-info/removed-integration 301
 /integrations/mcp23017 /more-info/removed-integration 301
 /integrations/mhz19 /more-info/removed-integration 301
+/integrations/myq /blog/2023/11/06/removal-of-myq-integration/ 301
+/integrations/miflora /integrations/xiaomi_ble
+/integrations/mitemp_bt /integrations/xiaomi_ble
 /integrations/mopar /more-info/removed-integration 301
 /integrations/mpchc /more-info/removed-integration 301
 /integrations/mychevy /more-info/removed-integration 301
@@ -452,6 +547,8 @@
 /integrations/nello /more-info/removed-integration 301
 /integrations/nma /more-info/removed-integration 301
 /integrations/nuimo_controller /more-info/removed-integration 301
+/integrations/openalpr /more-info/removed-integration 301
+/integrations/openalpr_local /more-info/removed-integration 301
 /integrations/orangepi_gpio /more-info/removed-integration 301
 /integrations/ozw /more-info/removed-integration 301
 /integrations/pcal9535a /more-info/removed-integration 301
@@ -462,16 +559,20 @@
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
+/integrations/rpi_gpio /more-info/removed-integration 301
 /integrations/rpi_gpio_pwm /more-info/removed-integration 301
 /integrations/rpi_pfio /more-info/removed-integration 301
 /integrations/rpi_rf /more-info/removed-integration 301
 /integrations/ruter /more-info/removed-integration 301
 /integrations/salt /more-info/removed-integration 301
 /integrations/sensehat /more-info/removed-integration 301
+/integrations/shiftr /more-info/removed-integration 301
 /integrations/sht31 /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301
+/integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
+/integrations/somfy /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /integrations/srp_energy /more-info/removed-integration 301
 /integrations/synology /more-info/removed-integration 301
@@ -485,11 +586,21 @@
 /integrations/uber /more-info/removed-integration 301
 /integrations/updater /more-info/removed-integration 301
 /integrations/ups /more-info/removed-integration 301
+/integrations/uscis /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
+/integrations/weather.darksky /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
+/integrations/xbee /more-info/removed-integration 301
+/integrations/xbox_live /more-info/removed-integration 301
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
 /components/zwave /integrations/zwave_js
+
+# Lovelace images
+/images/dashboards/lovelace_* /images/dashboards/:splat
+
+# Unsupported reasons that are also unhealthy
+/more-info/unsupported/privileged /more-info/unhealthy/privileged

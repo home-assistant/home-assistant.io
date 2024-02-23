@@ -2,7 +2,7 @@
 title: Brother Printer
 description: Instructions on how to integrate a Brother printer into Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_release: 0.104
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -14,12 +14,12 @@ ha_zeroconf: true
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `Brother Printer` integration allows you to read current data from your local Brother printer.
+The **Brother Printer** {% term integration %} allows you to read current data from your local Brother printer.
 
-It usually provides information about the device's state, the left amount of ink or toner and the remaining life of the drum or other parts of the printer.
+It usually provides information about the device's state, the left amount of ink or toner and the remaining lifetime of the drum or other parts of the printer.
 The integration monitors every supported part.
 
 {% include integrations/config_flow.md %}
@@ -32,12 +32,13 @@ Some very old Brother printers use different data format and these models are no
 
 ## Configuring the printer
 
-To enable SNMP, navigate to the printer's web interface (for example: `http://192.168.5.6`) and turn it on under Network / Protocol / SNMP.
+To enable SNMP, navigate to the printer's web interface (for example: `http://192.168.5.6`) and turn it on under Network / Protocol / SNMP. For some models, access to the web interface is password-protected. For some printers, the default password is printed on a sticker on the back of the printer, preceded by "Pwd:". If the printer does not have a password on the sticker, the default password is "initpass".
+
 For some Brother devices, `SNMPv3 read-write access and v1/v2c read-only access` is the option required (under advanced settings).
 
 ![SNMP settings on Brother Printer web interface](/images/integrations/brother/brother-printer-webui.png)
 
-## Sensor Example
+## Sensor example
 
 You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows.  First, add the following to `configuration.yaml` under the `template:` section (Note: replace `sensor.hl_l2340d_status` with the actual name of your sensor):
 
@@ -51,7 +52,7 @@ template:
         {{ is_state('sensor.hl_l2340d_status', 'no paper') }}
 
   - binary_sensor:
-    - name: 'Later Printer Paper Jam'
+    - name: 'Laser Printer Paper Jam'
       state: >
         {{ is_state('sensor.hl_l2340d_status', 'paper jam') }}
 ```

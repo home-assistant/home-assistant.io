@@ -2,7 +2,7 @@
 title: Google Cast
 description: Instructions on how to integrate Google Cast into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Polling
@@ -25,7 +25,7 @@ Support for mDNS discovery in your local network is mandatory for automatic disc
 Known hosts:
   description: "A comma-separated list of hostnames or IP-addresses of cast devices, use if mDNS discovery is not working"
 Allowed UUIDs:
-  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))`. This option is only visible if advanced mode is enabled in your user profile.
+  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`. This option is only visible if advanced mode is enabled in your user profile.
 Ignore CEC:
   description: A comma-separated list of Chromecasts that should ignore CEC data for determining the
         active input. [See the upstream documentation for more information](https://github.com/home-assistant-libs/pychromecast#ignoring-cec-data). This option is only visible if advanced mode is enabled in your user profile.
@@ -33,7 +33,7 @@ Ignore CEC:
 
 ## Home Assistant Cast
 
-Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/dashboards/entities/#cast) to your dashboards, or by calling the `cast.show_lovelace_view` service. The service takes the path of a dashboard view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your dashboard's YAML for each view, as outlined in the [views documentation](/dashboards/views/#path). The `dashboard_path` is the part of the dashboard URL that follows the defined `base_url`, typically "lovelace". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the service call):
+Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/dashboards/entities/#cast) to your dashboards, or by calling the `cast.show_lovelace_view` service. The service takes the path of a dashboard view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your dashboard's YAML for each view, as outlined in the [views documentation](/dashboards/views/#path). The `dashboard_path` is the part of the dashboard URL that follows the defined `base_url`, typically "`lovelace`". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the service call):
 
 ```yaml
 cast_downstairs_on_kitchen:
@@ -257,9 +257,75 @@ Optional:
       service: media_player.play_media
 ```
 
+### [NRK Radio](https://radio.nrk.no)
+
+#### Finding Media IDs
+
+Media ID can be found in the URL, e.g:
+- Live channel: <https://radio.nrk.no/direkte/p1>, media ID is `p1`
+- Podcast: <https://radio.nrk.no/podkast/tazte_priv/l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314>, media ID is `l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314`
+- On-demand program: <https://radio.nrk.no/serie/radiodokumentaren/sesong/201011/MDUP01004510>, media ID is `MDUP01004510`
+
+#### Media parameters
+
+- `app_name`: `nrkradio`
+- `media_id`: NRK Radio media ID
+
+#### Example
+
+Example values to cast the item at <https://radio.nrk.no/podkast/tazte_priv/l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314>
+
+```yaml
+'cast_nrkradio_to_chromecast':
+  alias: "Cast NRK Radio to Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "nrkradio",
+            "media_id": "l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314"
+          }'
+      service: media_player.play_media
+```
+
+### [NRK TV](https://tv.nrk.no)
+
+#### Finding Media IDs
+
+ - Live programs: ID is in the URL, e.g. for <https://tv.nrk.no/direkte/nrk1>, the media ID is `nrk1`
+ - On-demand programs: ID is found by clicking share button, e.g. for <https://tv.nrk.no/serie/uti-vaar-hage/sesong/2/episode/2> the share link is `https://tv.nrk.no/se?v=OUHA43000207` and the media ID is `OUHA43000207`
+
+#### Media parameters
+
+- `app_name`: `nrktv`
+- `media_id`: NRK TV media ID
+
+#### Example
+
+Example values to cast the item at <https://tv.nrk.no/serie/uti-vaar-hage/sesong/2/episode/2>
+
+```yaml
+'cast_nrktv_to_chromecast':
+  alias: "Cast NRK TV to Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "nrktv",
+            "media_id": "OUHA43000207"
+          }'
+      service: media_player.play_media
+```
+
 ### Plex
 
-To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-play_media) and prepend the `media_content_id` with `plex://`:
+To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-media_playerplay_media) and prepend the `media_content_id` with `plex://`:
 
 ```yaml
 'cast_plex_to_chromecast':

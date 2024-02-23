@@ -9,7 +9,8 @@ There are various ways to get in touch with the Home Assistant community. It doe
 
 - [Forum][forum]
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
-- Follow us on [Twitter][twitter], use [@home_assistant][twitter]
+- Follow us on Mastodon, use [@homeassistant@fosstodon.org][mastodon]
+- Follow us on X, use [@home_assistant][x-twitter]
 - Join the [Facebook community][facebook]
 - Join the Reddit in [/r/homeassistant][reddit]
 
@@ -29,16 +30,13 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 ## Videos, talks, workshops and alike
 
 - [PyconFR 2018 - Faire de la domotique libriste avec Python](https://www.youtube.com/watch?v=Eu6umBJ51I4) (French) ([Slides](https://hackmd.io/p/BJTSyDkqm)) - October 2018
-- [Build your own smart home with Home Assistant](https://zmonkey.org/blog/files/Home%20Assistant%202018%20v1.0.pdf) at [OpenWest](https://openwest.org) - June 2018
 - [Automate your home with Home Assistant](https://www.youtube.com/watch?v=SSrgi4iHGbs) at [foss-north 2018](https://foss-north.se/2018/speakers-and-talks.html#jparadies) - March 2018
 - [Home Assistant - Smart Home für Jedermann](https://www.youtube.com/watch?v=74oPCh0NS4Y) (German) at [Pi and More 2018](https://piandmore.de/de/conference/pam10-5/schedule/event/305) ([Slides](https://benleb.de/talks/pam105_homeassistant.pdf)) - February 2018
-- [Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/english/2017-qecampX) at QECampX 2017 - October 2017
-- [Open Source Heimautomation mit Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-maker-faire-zurich) at [Mini Maker Faire Zurich 2017](https://www.makerfairezurich.ch/en/) - September 2017
 - [Why we can't have the Internet of Nice Things: A home automation primer](https://www.openwest.org/custom/description.php?id=92) at [OpenWest 2017](https://www.openwest.org) - July 2017
 - [Home Automation with Home Assistant](https://github.com/jjmontesl/talk-hass-pydaygalicia2017) at [PyDay Galicia 2017](https://pyday2017.python-vigo.es/gl/) - June 2017
 - [Home Automation with Python](https://www.youtube.com/watch?v=KNFZSSCPUyM) at [GLT 2017](https://glt17.linuxtage.at) - April 2017
-- [Home Assistant workshop](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-clt-workshop) at [CLT 2017](https://chemnitzer.linux-tage.de/2017/de/) - March 2017
-- [Home Assistant - Erweiterungen (Platforms/Components)](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2016-puzzle) at [Puzzle ITC](https://www.puzzle.ch/de/) - December 2016
+- [Home Assistant workshop](https://github.com/home-assistant-ecosystem/workshops/tree/main/2017-clt-workshop) at [CLT 2017](https://chemnitzer.linux-tage.de/2017/de/) at [CLT 2017](https://chemnitzer.linux-tage.de/2017/de/) - March 2017
+- [Home Assistant - Erweiterungen (Platforms/Components)](https://github.com/home-assistant-ecosystem/workshops/tree/main/2016-puzzle) at [Puzzle ITC](https://www.puzzle.ch/de/) - December 2016
 - [Automating Your Life - Home Automation](https://slides.com/teagan42/life_automation#/) at Develop Denver 2016 - August
 - [Building Online Communities: Home Assistant](https://medium.com/@gitter/building-online-communities-home-assistant-8818dff671ad#.och4x4rhx) - July 2016
 - [Home Assistant Support 101 - Getting around in Home Assistant](https://www.youtube.com/watch?v=dRfk9JAlPJk) (Slides) - June 2016
@@ -75,12 +73,11 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Smart Home Home Assistant Konfiguration mit YAML](https://onesmarthome.de/smart-home-home-assistant-konfiguration/) - July 2017
 - [Why can't we have the Internet of Nice Things?](https://opensource.com/article/17/7/home-automation-primer) - July 2017
 - [Smart Home Home Assistant Raspberry Pi Installation Hassbian](http://onesmarthome.de/smart-home-home-assistant-raspberry-pi-installation-hassbian/) - July 2017
-- [Jupiter Broadcasting - No Privacy Compromise Home Automation](https://www.jupiterbroadcasting.com/115566/no-privacy-compromise-home-automation/) - June 2017
+- [Jupiter Broadcasting - No Privacy Compromise Home Automation](https://www.youtube.com/watch?v=LQbOtUmITv8) - June 2017
 - [Monitor IoT devices with Home Assistant and Datadog](https://www.datadoghq.com/blog/monitor-home-assistant/) - June 2017
 - [Castálio Podcast - Episódio 102: Marcelo Mello - Red Hat e Automação Residencial com Home Assistant](https://youtu.be/hZq8ucpzjCs) - May 2017
 - [Paulus Schoutsen and Home Assistant - Episode 8](https://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/) - March 2017
 - [Zammad, Home Assistant and Freifunk - are the winner of the Thomas-Krenn-Awards 2017](https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/) - March 2017
-- [10 open source software tools for developing IoT applications](https://www.cbronline.com/news/internet-of-things/10-open-source-software-tools-developing-iot-applications/) - March 2017
 - [Home Assistant with Paulus Schoutsen - Episode 94](https://www.podcastinit.com/episode-94-home-assistant-with-paulus-schoutsen/) - January 2017
 - [Episode #11](https://pythonbytes.fm/episodes/show/11/django-2.0-is-dropping-python-2-entirely-pipenv-for-profile-functionality-and-pythonic-home-automation) at minute 15:20 by [Python Bytes](https://pythonbytes.fm/) - January 2017
 - [Now you can hide your smart home on the darknet](https://www.wired.com/2016/07/now-can-hide-smart-home-darknet/) - July 2016
@@ -92,7 +89,8 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Home Assistant – Open Source Python Home Automation Platform](https://www.automatedhome.co.uk/new-products/home-assistant-open-source-python-home-automation-platform.html) - January 2015
 
 [forum]: https://community.home-assistant.io/
-[twitter]: https://twitter.com/home_assistant
+[mastodon]: https://fosstodon.org/@homeassistant
+[x-twitter]: https://x.com/home_assistant
 [facebook]: https://www.facebook.com/homeassistantio
 [reddit]: https://reddit.com/r/homeassistant
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: /join-chat

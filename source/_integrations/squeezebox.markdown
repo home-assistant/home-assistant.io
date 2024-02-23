@@ -1,8 +1,8 @@
 ---
-title: Logitech Squeezebox
+title: Squeezebox (Logitech Media Server)
 description: Instructions on how to integrate a Logitech Squeezebox player into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: squeezebox
@@ -20,7 +20,11 @@ The Squeezebox integration allows you to control a [Logitech Squeezebox](https:/
 {% include integrations/config_flow.md %}
 
 <div class='note'>
-This platform uses the web interface of the Logitech Media Server to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser. Originally, this platform used the telnet interface, which defaults to 9090. If you previously specified the port in your configuration file, you will likely need to update it.
+This platform uses the web interface of the Logitech Media Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
+</div>
+
+<div class='note'>
+The integration now supports Logitech Media Servers behind an HTTPS reverse proxy. Please note that Logitech Media Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the `https` option. If you have configured a reverse proxy, remember to update the port number.
 </div>
 
 The Logitech Transporter which have two digital inputs can be activated using a script. The following example turns on the Transporter and activates the toslink input interface:
@@ -58,7 +62,7 @@ It can also be used to target a Squeezebox from IFTTT (or Dialogflow, Alexa...).
 
 For example, to play an album from your collection, create an IFTTT applet like this:
 
-- Trigger: Google assistant, with sentence: `I want to listen to album $`
+- Trigger: Google Assistant, with sentence: `I want to listen to album $`
 - Action: JSON post query with such JSON body:
 `{ "entity_id": "media_player.squeezebox_radio", "command": "playlist", "parameters": ["loadtracks", "album.titlesearch={{TextField}}"] }`
 
@@ -80,21 +84,3 @@ This service can be used to integrate a Squeezebox query into an automation. For
 `hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`
 To work with the results:
 `result = hass.states.get("media_player.kitchen").attributes['query_result']`
-
-### Service `sync`
-
-Add another player to this player's sync group. If the other player is already in a sync group, it will leave it.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
-| `other_player` | no | Name of the other Squeezebox player to join the sync group.
-
-### Service `unsync`
-
-Remove this player from its sync group.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
-=======

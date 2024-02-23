@@ -35,7 +35,7 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 
 The Zigbee Energy Profile is a wireless energy standard to provide real-time information about electricity usage. This standard is available in some meters in the US, UK and Australia. This is not "normal" Zigbee as implemented by Home Assistant but requires special certified hardware.
 
-One such option with a local API is the [Rainforest EAGLE-200](/integrations/rainforest_eagle/).
+We are not currently aware of a device that implements this which supports a local API and is compatible with Home Assistant.
 
 #### Reading the meter via a pulse counter
 
@@ -45,21 +45,35 @@ We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-as
 
 ![Photo of Home Assistant Glow attached to an electricity meter](/images/docs/energy/home-assistant-glow.jpg)
 
+#### Reading the meter via a IEC62056-21
+
+The IEC62056-21 is a common protocol not only for electric meters. It uses an infrared port to read data.
+[Aquaticus](https://github.com/aquaticus) has created an [ESPHome component](https://community.home-assistant.io/t/new-iec62056-21-component/555236) for reading this data. [PiggyMeter](https://aquaticus.info/meter.html) is a complete project that allows easy installation.
+![Photo of PiggyMeter attached to an electricity meter](https://aquaticus.info/_images/meter_and_probe.png)
+
+#### Using (Smart Message Language) interface
+
+In countries like Germany, SML (Smart Message Language) is used typically. ESPHome's [SML (Smart Message Language)](https://esphome.io/components/sml.html) is one way to integrate it. If you prefer to integrate it via MQTT, [sml2mqtt](https://github.com/spacemanspiff2007/sml2mqtt) is another open source option.
+
+#### Read the meter using an AI-on-the-edge-device
+
+[AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) is a project running on an ESP32-CAM and can be fully integrated into Home Assistant using the Home Assistant discovery functionality of MQTT. It digitalizes your gas/water/electricity meter display and provides its data in various ways.
+
+![Photo of the AI-on-the-edge-device Workflow](/images/docs/energy/ai-on-the-edge-device.jpg)
+
 ### Using a CT clamp sensor
 
-CT clamp sensors measure your energy usage by looking at the current passing through an electrical wire. This makes it possible to calculate the energy usage. In Home Assistant we have support for off-the-shelf CT clamp sensors and you can build your own.
-
-The off-the-shelf solution that we advise is the [Shelly EM](https://shop.shelly.cloud/shelly-em-2-x-120a-clamp-wifi-smart-home-automation?tracking=A7FsiPIfUWsFpnfKHa8SRyUYLXjr2hPq). The device has a local API, updates are pushed to Home Assistant and it has a high quality integration.
-
-You can build your own using ESPHome's [CT Clamp Current sensor](https://esphome.io/components/sensor/ct_clamp.html) or energy meter sensors like the [ATM90E32](https://esphome.io/components/sensor/atm90e32.html). For the DIY route, check out [this video by digiblur](https://www.youtube.com/watch?v=n2XZzciz0s4) to get started.
-
-_Attention! Installing CT clamp sensor devices requires opening your electrical cabinet. This work should be done by someone familiar with electrical wiring. Your qualified installer will know how to do this._
+{% include energy/ct_clamp.md %}
 
 ### Data provided by your energy provider
 
 Some energy providers will provide you real-time information about your usage and have this data integrated into Home Assistant.
 
-### Troubleshooting ###
+### Manual integration
+
+If you manually integrate your sensors, for example, using the [MQTT](/integrations/mqtt) or [Template](/integrations/template) integrations: Make sure you set and provide the `device_class`, `state_class`, and `unit_of_measurement` for those sensors.
+
+### Troubleshooting
 
 If you are unable to select your energy sensor in the grid consumption drop-down, make sure that its value is being recorded in the Recorder settings.
 

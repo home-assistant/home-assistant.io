@@ -2,7 +2,7 @@
 title: Toon
 description: Instructions on how to integrate Eneco Toon/Engie Electrabel Boxx/Viesgo within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Energy
   - Sensor
@@ -39,20 +39,20 @@ and a Toon API developer account.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
 ## Setting up a developer account
 
-In order to be able to use this component, you'll need to sign up for a free Toon API developer account.
+In order to be able to use this integration, you'll need to sign up for a free Toon API developer account.
 
 1. Visit the [Toon API developers website](https://developer.toon.eu/), and [sign in](https://developer.toon.eu/user/login). [Create an account](https://developer.toon.eu/user/register) if you don’t have one already.
 2. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page and click on "Add a new App" button on the top right.
 3. The "Add App" page shows a form with two fields:
    - **App Name**: Can be anything you like, for example, "Home Assistant" will just do.
-   - **Callback URL**: `https://homeassistant.local:8123/auth/external/callback` (Please replace the first part of the URL with the internal URL of your Home Assistant frontend).
+   - **Callback URL**: `https://my.home-assistant.io/redirect/oauth`.
 4. Click on "Create App" to complete the creation process.
 5. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page again and click on the app that you've just created.
 6. You need the codes now shown: "Consumer Key" and "Consumer Secret".
@@ -78,7 +78,20 @@ client_secret:
 
 {% include integrations/config_flow.md %}
 
-## Binary Sensor
+{% details "I have manually disabled My Home Assistant" %}
+
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the Callback URL
+instead.
+
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+
+{% enddetails %}
+
+## Binary sensor
 
 The Toon integration provides the following binary sensors:
 

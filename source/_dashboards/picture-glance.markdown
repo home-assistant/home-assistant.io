@@ -1,16 +1,22 @@
 ---
 type: card
-title: "Picture Glance Card"
-sidebar_label: Picture Glance
-description: "The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog."
+title: "Picture glance card"
+sidebar_label: Picture glance
+description: "The picture glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog."
 ---
 
-The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog.
+The picture glance card shows an image and lets you place small icons of entity states on top of that card to control those entities from there. In the image below: the entities on the right allow toggle actions, the others show the more information dialog.
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_picture_glance.gif' alt='Picture glance card for a living room'>
+  <img src='/images/dashboards/picture_glance.gif' alt='Picture glance card for a living room'>
   Picture glance card for a living room.
 </p>
+
+{% include dashboard/edit_dashboard.md %}
+
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -82,7 +88,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Options For Entities
+### Options for entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -126,7 +132,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Options For Exemptions
+### Options for exemptions
 
 {% configuration badges %}
 user:
@@ -135,7 +141,7 @@ user:
   type: string
 {% endconfiguration %}
 
-## How to use state_filter
+### How to use state_filter
 
 Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
 
@@ -146,7 +152,75 @@ state_filter:
 entity: switch.decorative_lights
 ```
 
-## Examples
+### Examples
+
+This section lists a few examples of how the picture glance card can be used.
+
+### Creating a card to control the camera
+
+If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> (can be moved in different directions), you can use the picture glance card to control the camera.
+
+<p class='img'>
+  <img src='/images/dashboards/picture_glance_camera_control.gif' alt='Picture glance card to control the camera'>
+  Picture glance card to control the camera.
+</p>
+
+1. Select your camera entity.
+    - **Image path** and **Image entity** are not required.
+    ![Select camera entity](/images/dashboards/picture_glance_card_select_camera_entity.png)
+2. If you want something to happen when you tap the card itself, define a tap action.
+   - Here, we toggle a light.
+   ![Select camera entity](/images/dashboards/picture_glance_card_define_tap_action.png)
+3. Select the entities to move the camera left, right, up, or down.
+   ![Select camera entity](/images/dashboards/picture_glance_card_select_camera_arrows.png)
+4. Select **Show code editor**.
+5. For each of the entities, specify an icon, as indicated in the YAML example.
+6. For the buttons to react on press (instead of bringing up the dialog):
+   - For each of the entities, under `tap_action`, call a `button.press` service.
+
+    ```yaml
+    camera_view: live
+    type: picture-glance
+    title: Desk
+    entities:
+      - entity: button.camera1_ptz_left
+        icon: mdi:pan-left
+        tap_action:
+          action: call-service
+          service: button.press
+          data:
+            entity_id: button.camera1_ptz_left
+      - entity: button.camera1_ptz_right
+        icon: mdi:pan-right
+        tap_action:
+          action: call-service
+          service: button.press
+          data:
+            entity_id: button.camera1_ptz_right
+      - entity: button.camera1_ptz_up
+        icon: mdi:pan-up
+        tap_action:
+          action: call-service
+          service: button.press
+          data:
+            entity_id: button.camera1_ptz_up
+      - entity: button.camera1_ptz_down
+        icon: mdi:pan-down
+        tap_action:
+          action: call-service
+          service: button.press
+          data:
+            entity_id: button.camera1_ptz_down
+    camera_image: camera.camera1_sub
+    tap_action:
+      action: call-service
+      service: light.toggle
+      target:
+        entity_id: light.philips_929003052501_01_huelight
+    ```
+7. That's it. You can now control your camera from the picture glance card on your dashboard.
+
+### More examples
 
 ```yaml
 type: picture-glance

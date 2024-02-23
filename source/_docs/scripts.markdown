@@ -5,7 +5,7 @@ toc: true
 no_toc: true
 ---
 
-Scripts are a sequence of actions that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in [automations] and [Alexa/Amazon Echo] configurations.
+Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script integration] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
 
 When the script is executed within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
@@ -95,7 +95,7 @@ Variables can be templated.
 
 Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
 
-The following example will always say "There are 0 people home". Inside the `if` sequence the `variables` action will only alter the `people` variable for that sequence.
+Inside the `if` sequence the `variables` action will only alter the `people` variable for that sequence.
 
 {% raw %}
 
@@ -114,11 +114,13 @@ sequence:
       - variables:
           people: "{{ people + 1 }}"
       # At this scope, people will now be 1 ...
+      - service: notify.notify
+        data:
+          message: "There are {{ people }} people home" # "There are 1 people home"
   # ... but at this scope it will still be 0
-  # Announce the count of people home
   - service: notify.notify
     data:
-      message: "There are {{ people }} people home"
+      message: "There are {{ people }} people home" # "There are 0 people home"
 ```
 
 {% endraw %}
@@ -154,7 +156,7 @@ The `condition` action only stops executing the current sequence block. When it 
       below: 20
 ```
 
-## Delay
+## Wait for time to pass (delay)
 
 Delays are useful for temporarily suspending your script and start it at a later moment. We support different syntaxes for a delay as shown below.
 
@@ -204,11 +206,11 @@ All forms accept templates.
 
 These actions allow a script to wait for entities in the system to be in a certain state as specified by a template, or some event to happen as expressed by one or more triggers.
 
-### Wait Template
+### Wait for a template
 
 This action evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
 
-The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) component that will update minutely or daily.
+The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) integration that will update minutely or daily.
 
 {% raw %}
 ```yaml
@@ -220,7 +222,7 @@ The template is re-evaluated whenever an entity ID that it references changes st
 
 {% endraw %}
 
-### Wait for Trigger
+### Wait for a trigger
 
 This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires. All previously defined [trigger variables](/docs/automation/trigger#trigger-variables), [variables](#variables) and [script variables] are passed to the trigger.
 {% raw %}
@@ -239,7 +241,7 @@ This action can use the same triggers that are available in an automation's `tri
 
 {% endraw %}
 
-### Wait Timeout
+### Wait timeout
 
 With both types of waits it is possible to set a timeout after which the script will continue its execution if the condition/event is not satisfied. Timeout has the same syntax as `delay`, and like `delay`, also accepts templates.
 
@@ -273,7 +275,7 @@ You can also get the script to abort after the timeout by using optional `contin
 
 Without `continue_on_timeout: false` the script will always continue since the default for `continue_on_timeout` is `true`.
 
-### Wait Variable
+### Wait variable
 
 After each time a wait completes, either because the condition was met, the event happened, or the timeout expired, the variable `wait` will be created/updated to indicate the result.
 
@@ -385,12 +387,12 @@ The following automation example shows how to capture the custom event `event_li
 
 {% endraw %}
 
-## Repeat a Group of Actions
+## Repeat a group of actions
 
 This action allows you to repeat a sequence of other actions. Nesting is fully supported.
 There are three ways to control how many times the sequence will be run.
 
-### Counted Repeat
+### Counted repeat
 
 This form accepts a count value. The value may be specified by a template, in which case
 the template is rendered when the repeat step is reached.
@@ -461,7 +463,7 @@ repeat:
     - language: English
       message: Hello World
     - language: Dutch
-      hello: Hallo Wereld
+      message: Hallo Wereld
   sequence:
     - service: notify.phone
       data:
@@ -471,7 +473,7 @@ repeat:
 
 {% endraw %}
 
-### While Loop
+### While loop
 
 This form accepts a list of conditions (see [conditions page] for available options) that are evaluated _before_ each time the sequence
 is run. The sequence will be run _as long as_ the condition(s) evaluate to true.
@@ -512,7 +514,7 @@ For example:
 
 {% endraw %}
 
-### Repeat Until
+### Repeat until
 
 This form accepts a list of conditions that are evaluated _after_ each time the sequence
 is run. Therefore the sequence will always run at least once. The sequence will be run
@@ -562,7 +564,7 @@ For example:
 ```
 {% endraw %}
 
-### Repeat Loop Variable
+### Repeat loop variable
 
 A variable named `repeat` is defined within the repeat action (i.e., it is available inside `sequence`, `while` & `until`.)
 It contains the following fields:
@@ -759,7 +761,7 @@ on each other and order doesn't matter. For those cases, the `parallel` action
 can be used to run the actions in the sequence in parallel, meaning all
 the actions are started at the same time.
 
-The following example shows sending messages out at the time (in parallel):
+The following example shows sending messages out at the same time (in parallel):
 
 ```yaml
 automation:
@@ -777,7 +779,7 @@ automation:
               message: "These messages are sent at the same time!"
 ```
 
-It is also possible to run a group of actions sequantially inside the parallel
+It is also possible to run a group of actions sequentially inside the parallel
 actions. The example below demonstrates that:
 
 ```yaml
@@ -821,7 +823,8 @@ Some of the caveats of running actions in parallel:
 
 ## Stopping a script sequence
 
-It is possible to halt a script sequence at any point. Using the `stop` action.
+It is possible to halt a script sequence at any point and return script responses
+using the `stop` action.
 
 The `stop` action takes a text as input explaining the reason for halting the
 sequence. This text will be logged and shows up in the automations and
@@ -832,6 +835,15 @@ for example, a condition is not met.
 
 ```yaml
 - stop: "Stop running the rest of the sequence"
+```
+
+To return a response from a script, use the `response_variable` option. This
+option expects the name of the variable that contains the data to return. The
+response data must contains a mapping of key/value pairs.
+
+```yaml
+- stop: "Stop running the rest of the sequence"
+  response_variable: "my_response_variable"
 ```
 
 There is also an `error` option, to indicate we are stopping because of
@@ -890,22 +902,52 @@ script:
       # This action will not run, as it is disabled.
       # The message will not be sent.
       - enabled: false
-        alias: "Notify that ceiling light is being turned on"
+        alias: "Notify that the ceiling light is being turned on"
         service: notify.notify
         data:
           message: "Turning on the ceiling light!"
 
       # This action will run, as it is not disabled
-      - alias: "Turn on ceiling light"
+      - alias: "Turn on the ceiling light"
         service: light.turn_on
         target:
           entity_id: light.ceiling
 ```
 
-[Script component]: /integrations/script/
-[automations]: /getting-started/automation-action/
+## Respond to a conversation
+
+The `set_conversation_response` script action allows returning a custom response
+when an automation is triggered by a conversation engine, for example a voice
+assistant. The conversation response can be templated.
+
+{% raw %}
+
+```yaml
+# Example of a templated conversation response resulting in "Testing 123"
+- variables:
+    my_var: "123"
+- set_conversation_response: "{{ 'Testing ' + my_var }}":
+```
+
+{% endraw %}
+
+The response is handed to the conversation engine when the automation finishes. If
+the `set_conversation_response` is executed multiple times, the most recent
+response will be handed to the conversation engine. To clear the response, set it
+to `None`:
+
+```yaml
+# Example of a clearing a conversation response
+set_conversation_response: ~
+```
+
+If the automation was not triggered by a conversation engine, the response
+will not be used by anything.
+
+[Script integration]: /integrations/script/
+[automations]: /docs/automation/action/
 [Alexa/Amazon Echo]: /integrations/alexa/
-[service calls page]: /getting-started/scripts-service-calls/
-[conditions page]: /getting-started/scripts-conditions/
+[service calls page]: /docs/scripts/service-calls/
+[conditions page]: /docs/scripts/conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
 [script variables]: /integrations/script/#configuration-variables

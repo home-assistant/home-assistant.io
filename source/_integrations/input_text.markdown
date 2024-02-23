@@ -14,10 +14,10 @@ ha_integration_type: helper
 
 The `input_text` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
 
-The preferred way to configure an input text is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Text** option.
+The preferred way to configure an input text is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_text" title="Text" %}** option.
 
 To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
-If you removed `default_config:` from you configuration, you must add `input_text:` to your `configuration.yaml` first, then you can use the UI.
+If you removed `default_config:` from your configuration, you must add `input_text:` to your `configuration.yaml` first, then you can use the UI.
 
 It can also be configured via `configuration.yaml`:
 
@@ -88,7 +88,7 @@ This integration provides a service to modify the state of the `input_text` and 
 | `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities.
 | `reload` | | Reload `input_text` configuration |
 
-### Restore State
+### Restore state
 
 If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
@@ -104,7 +104,7 @@ scene:
       input_text.example: Hello!
 ```
 
-## Automation Examples
+## Automation examples
 
 Here's an example using `input_text` in an action in an automation.
 

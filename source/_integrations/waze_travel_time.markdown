@@ -1,6 +1,6 @@
 ---
 title: Waze Travel Time
-description: Instructions on how to add Waze travel time to Home Assistant.
+description: Instructions on how to add Waze Travel Time to Home Assistant.
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
@@ -14,26 +14,26 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `waze_travel_time` sensor provides travel time from the [Waze](https://www.waze.com/).
+The **Waze Travel Time** {% term integration %} provides travel time from the [Waze](https://www.waze.com/).
 
 {% include integrations/config_flow.md %}
 
 Notes:
 
-- If a unit system is not specified, the integration will use the unit system configured on your Home Assistant instance.
-- Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates have to be separated by a comma). You can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name (case sensitive).
-- The string inputs for `Substring *` allow you to force the integration to use a particular route or avoid a particular route in its time travel calculation. These inputs are case insensitive matched against the description of the route.
-- When using the `Avoid Toll Roads?`, `Avoid Subscription Roads?` and `Avoid Ferries?` options be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behavior is that Waze will route you over roads having subscription options, so best is to set both `Avoid Toll Roads?` and `Avoid Subscription Roads?` or `Avoid Ferries?` if needed and experiment to ensure the desired outcome.
+- If a unit system is not specified, the {% term integration %} will use the unit system configured on your Home Assistant instance.
+- **Origin** and **Destination** can be the address or the GPS coordinates of the location. For coordinates, use the following format: `52.5200, 13.4050`. Make sure the coordinates are separated by a comma. They must not include letters. You can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name (case sensitive).
+- The string inputs for `Substring *` allow you to force the {% term integration %} to use a particular route or avoid a particular route in its time travel calculation. These inputs are case insensitive and matched against the description of the route.
+- When using the `Avoid Toll Roads?`, `Avoid Subscription Roads?` and `Avoid Ferries?` options, be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behavior is that Waze will route you over roads having subscription options. It is therefor best is to set both `Avoid Toll Roads?` and `Avoid Subscription Roads?` or `Avoid Ferries?` if needed and experiment to ensure the desired outcome.
 
-## Manual Polling
+## Defining a custom polling interval
 
-Some users will want to have more control over polling frequencies. To use more granular polling, disable automated polling in your config entry's System Options. To manually trigger a polling request, call the [`homeassistant.update_entity` service](/integrations/homeassistant/#service-homeassistantupdate_entity) as needed, either manually or via automations.
+{% include common-tasks/define_custom_polling.md %}
 
 ## Example using dynamic destination
 
-Using the flexible option to set a sensor value to the `Destination`, you can setup a single Waze integration that will calculate travel time to multiple optional locations on demand.
+Using the flexible option to set a sensor value to the `Destination`, you can setup a single Waze {% term integration %} that will calculate travel time to multiple optional locations on demand.
 
-In the following example, the `Input Select` is converted into an address which is used to modify the destination for Waze route calculation from `device_tracker.myphone` location (It takes a few minutes for the value to update due to the interval of Waze data fetching).
+In the following example, the `Input Select` is converted into an address which is used to modify the destination for the Waze route calculation from the `device_tracker.myphone` location. It takes a few minutes for the value to update due to the interval of Waze data fetching.
 
 {% raw %}
 
@@ -68,7 +68,7 @@ template:
 
 #### Tracking entity to entity
 
-In this example we use a device_tracker entity ID as the origin and the sensor created above as the destination.
+In this example, we use a device_tracker entity ID as the origin and the sensor created above as the destination.
 
   - Name: "Me to some destination"
   - Origin: `device_tracker.myphone`
@@ -84,7 +84,7 @@ In this example we are using the entity ID of a zone as the origin and the frien
   - Destination: "Eddies House"
   - Region: "US"
 
-#### Tracking entity in Imperial Units
+#### Tracking entity in imperial units
 
   - Name: "Somewhere in New York"
   - Origin: `person.paulus`
@@ -105,5 +105,5 @@ In this example we are using the entity ID of a zone as the origin and the frien
 ## Using the live map in an iFrame
 
 If you plan to use [Waze's live map](https://developers.google.com/waze/iframe/)
-in a dashboard [iframe](/dashboards/iframe/) then use
+in a dashboard [iframe](/dashboards/iframe/), then use
 [https://embed.waze.com/iframe](https://embed.waze.com/iframe) and not the live map URL itself.

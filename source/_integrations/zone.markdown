@@ -3,18 +3,22 @@ title: Zone
 description: Instructions on how to set up zones within Home Assistant.
 ha_category:
   - Organization
-  - Presence Detection
+  - Presence detection
 ha_release: 0.69
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: zone
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
-Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/getting-started/automation-trigger/#zone-trigger) or [condition](/getting-started/automation-condition/#zone-condition) inside automation setups.
+Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/docs/automation/trigger#zone-trigger) or [condition](/docs/scripts/conditions/#zone-condition) inside automation setups.
 
-Zones can be added and managed through the user interface at **{% my zones title="Configuration -> Zones" %}**.
+Zones can be added and managed through the user interface at **{% my zones title="Settings -> Areas & Zones" %}**.
+
+![Screenshot of the UI for adding or editing a zone](/images/integrations/zone/zone_edit_ui.png)
+
+You can add a zone in the user interface by specifying the GPS coordinates or dragging the icon on the map. You can adjust the zone radius (except for the Home zone) by changing the size of the zone circle.
 
 Zones can also be configured via `configuration.yaml`:
 
@@ -76,17 +80,16 @@ If no configuration is given, the `zone` integration will create a zone for home
 
 <div class='note'>
 
-Devices that are in the zone **'Home'** will not appear on the map in the Home Assistant UI.
-
+Devices that are in the zone **'Home'** will not appear on the map in the Home Assistant UI. To apply the changes to the **'Home'** `zone`, you must restart Home Assistant.
 </div>
 
 ## Icons
 
-It is preferred to pick an icon to use for your zone. Pick any icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
+It is recommended that you pick an icon to use for your zone. Pick any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
 
 ## State
 
-The state of a zone is a number, which represends the number of
+The state of a zone is a number, which represents the number of
 {% my people title="persons" %} that are currently in a zone.
 
 The number of persons in a zone can be helpful for automations, for example,

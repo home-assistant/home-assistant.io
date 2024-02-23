@@ -11,8 +11,9 @@ ha_codeowners:
 ha_domain: gios
 ha_quality_scale: platinum
 ha_platforms:
+  - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `gios` integration uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current) web service as a source for air quality data for your location.

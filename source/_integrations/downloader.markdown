@@ -28,7 +28,7 @@ download_dir:
 
 ### Use the service
 
-Go to the "Developer Tools", then to "Call Service", and choose `downloader/download_file` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE".
+Go to the "Developer Tools", then to "Services", and choose `downloader/download_file` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE".
 
 ```json
 {"url":"http://domain.tld/path/to/file"}
@@ -43,10 +43,10 @@ This will download the file from the given URL.
 | `filename`             |      yes | Determine the filename.                        |
 | `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |
 
-### Download Status Events
+### Download status events
 
-When a download finished successfully, Home Assistant will emit a 'downloader_download_completed' event to the event bus which you can use to write automations against.
-In case download failed another event 'downloader_download_failed' is emitted to indicate that the download did not complete successfully.
+When a download finished successfully, Home Assistant will emit a `downloader_download_completed` event to the event bus which you can use to write automations against.
+In case download failed another event `downloader_download_failed` is emitted to indicate that the download did not complete successfully.
 
 Along with the event the following payload parameters are available:
 
@@ -55,7 +55,7 @@ Along with the event the following payload parameters are available:
 | `url`  | The `url` that was requested.|                                                                                                                                      
 | `filename`    | The `name` of the file that was being downloaded.|
 
-#### Example Automation:
+#### Example automation:
 
 ```yaml
 - alias: "Download Failed Notification"

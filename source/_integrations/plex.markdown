@@ -2,8 +2,10 @@
 title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
 ha_category:
-  - Media Player
+  - Button
+  - Media player
   - Sensor
+  - Update
 featured: true
 ha_release: 0.7.4
 ha_iot_class: Local Push
@@ -15,19 +17,21 @@ ha_platforms:
   - button
   - media_player
   - sensor
+  - update
 ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [Media Players](/integrations/media_player/) and report playback status and library sizes via [Sensors](/integrations/sensor/) in Home Assistant. Media Players will allow you to control media playback and see the current playing item.
+The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [media players](/integrations/media_player/) and report playback status and library sizes via [sensors](/integrations/sensor/) in Home Assistant. Media players will allow you to control media playback and see the current playing item.
 
-Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available [here](#sonos-playback).
+Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available in the [Sonos playback](#sonos-playback) section.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 - [Button](#button)
-- [Media Player](#media-player)
+- [Update](#update)
+- [Media player](#media-player)
 
 If a Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
 
@@ -37,7 +41,7 @@ During setup, you will need to log in as a server administrator. The integration
 
 If your router enforces DNS rebind protection, connections to the local `plex.direct` hostname may fail (see [Plex documentation](https://support.plex.tv/articles/206225077-how-to-use-secure-server-connections/#dnsrebinding)). To avoid this, configure your router to allow DNS rebinding for `plex.direct` by following the instructions in the documentation link.
 
-### Integration Options
+### Integration options
 
 Several options are provided to adjust the behavior of `media_player` entities. These can be changed at **Plex** -> **Options** on the Integrations page.
 
@@ -49,7 +53,7 @@ Several options are provided to adjust the behavior of `media_player` entities. 
 
 **Ignore Plex Web clients**: Do not create `media_player` entities for Plex Web clients.
 
-### Manual Configuration
+### Manual configuration
 
 Alternatively, you can manually configure a Plex server connection by selecting the "Configure Plex server manually" when configuring a Plex integration. This option is only available to users in "Advanced Mode". This will allow you to specify the server connection options which will be validated before setup is completed. The available options are described below:
 
@@ -136,11 +140,17 @@ play_plex_on_tv:
 
 {% endraw %}
 
-## Media Player
+## Update
 
-The Plex media player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls (if supported by the streaming device).
+Notifications of new releases of Plex Media Server are shown using an Update entity. Detailed release notes are provided.
 
-By default, the Plex integration will create Media Player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
+Automatic upgrades of Plex Media Server can be triggered for some installation types, such as Windows and certain NAS devices.
+
+## Media player
+
+The Plex media player platform will create media player entities for each connected client device. These entities will display media information, playback progress, and playback controls (if supported by the streaming device).
+
+By default, the Plex integration will create media player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
 
 ### Service `media_player.play_media`
 
@@ -172,11 +182,11 @@ The integration must be configured with a token for playback commands to work. T
 
 #### Music
 
-| Service data attribute | Description                                                                                                                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | `entity_id` of the client                                                                                                                                                                            |
+| Service data attribute | Description                                                                                                                                                                                                                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | `entity_id` of the client                                                                                                                                                                                                                                                                        |
 | `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`artist_name` or `artist.title`</li><li>`album_name` or `album.title`</li><li>`track_name` or `track.title`</li><li>`track_number` or `track.index`</li><li>`shuffle` (0 or 1)</li><li>`allow_multiple` (0 or 1)</li></ul> |
-| `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
+| `media_content_type`   | `MUSIC`                                                                                                                                                                                                                                                                                          |
 
 ##### Examples:
 
@@ -214,13 +224,13 @@ media_content_type: PLAYLIST
 media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
 ```
 
-#### TV Episode
+#### TV episode
 
-| Service data attribute | Description                                                                                                                                                                        |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | `entity_id` of the client                                                                                                                                                          |
+| Service data attribute | Description                                                                                                                                                                                                                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                                                                                                                                                                                                                                              |
 | `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` or `show.title`</li><li>`season_number` or `season.index`</li><li>`episode_number` or `episode.index`</li><li>`shuffle` (0 or 1)</li><li>`resume` (0 or 1)</li><li>`offset` (in seconds)</li><li>`allow_multiple` (0 or 1)</li></ul> |
-| `media_content_type`   | `EPISODE`                                                                                                                                                                          |
+| `media_content_type`   | `EPISODE`                                                                                                                                                                                                                                                                                                              |
 
 ##### Examples:
 
@@ -250,11 +260,11 @@ media_content_id: '{ "library_name": "News TV", "show_name": "60 Minutes", "epis
 
 #### Movie
 
-| Service data attribute | Description                                                                                             |
-| ---------------------- | ------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | `entity_id` of the client                                                                               |
+| Service data attribute | Description                                                                                                                                     |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                                                                       |
 | `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`title`</li><li>`resume` (0 or 1)</li><li>`offset` (in seconds)</li></ul> |
-| `media_content_type`   | `movie`                                                                                                 |
+| `media_content_type`   | `movie`                                                                                                                                         |
 
 ##### Examples:
 
@@ -266,22 +276,22 @@ media_content_type: movie
 media_content_id: '{ "library_name": "Adult Movies", "title": "Blade" }'
 ```
 
-#### Advanced Searches
+#### Advanced searches
 
 Instead of searching for a specific known piece of media, many additional parameters are available to run more powerful searches. This can also be used when a simple search for a title has multiple matches, such as with movie remakes.
 
 These are examples of optional keys that can be included in the `media_content_id` JSON payload customize the search:
 
-* `unwatched`: Restrict search to unwatched items only (`true`, `false`)
-* `actor`: Restrict search for movies that include a specific actor
-* `collection`: Restrict search within a named Plex collection ("Back to the Future", "Indiana Jones")
-* `contentRating`: Restrict search to a specific content rating ("PG", "R")
-* `country`: Restrict search to a specific country of origin
-* `decade`: Restrict search to a specific decade ("1960", "2010")
-* `director`: Restrict search to a specific director
-* `genre`: Restrict search to a specific genre ("Animation", "Drama", "Sci-Fi")
-* `resolution`: Restrict search to a specific video resolution (480, 720, 1080, "4k")
-* `year`: Restrict search to a specific year
+- `unwatched`: Restrict search to unwatched items only (`true`, `false`)
+- `actor`: Restrict search for movies that include a specific actor
+- `collection`: Restrict search within a named Plex collection ("Back to the Future", "Indiana Jones")
+- `contentRating`: Restrict search to a specific content rating ("PG", "R")
+- `country`: Restrict search to a specific country of origin
+- `decade`: Restrict search to a specific decade ("1960", "2010")
+- `director`: Restrict search to a specific director
+- `genre`: Restrict search to a specific genre ("Animation", "Drama", "Sci-Fi")
+- `resolution`: Restrict search to a specific video resolution (480, 720, 1080, "4k")
+- `year`: Restrict search to a specific year
 
 More parameters and additional details can be found in the `plexapi` library [documentation](https://python-plexapi.readthedocs.io/en/latest/modules/library.html#plexapi.library.LibrarySection.search).
 
@@ -324,17 +334,17 @@ The search will attempt to guess the type of media based on the search parameter
 
 ### Compatibility
 
-| Client                           | Limitations                                                                                                                                                     |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Any (when all controls disabled) | A stop button will appear but is not functional.                                                                                                                |
-| Any (when casting)               | Controlling playback will work but with error logging.                                                                                                          |
-| Any (remote client)              | Controls disabled.                                                                                                                                              |
-| Apple TV                         | None                                                                                                                                                            |
-| iOS                              | None                                                                                                                                                            |
-| NVidia Shield                    | Controlling playback when the Shield is both a client and a server will work but with error logging                                                             |
-| Plex Web                         | None                                                                                                                                                            |
+| Client             | Limitations                                |
+| ------------------ | ------------------------------------------ |
+| Remote clients     | Controls are unavailable                   |
+| Apple TV           | None                                       |
+| iOS                | None                                       |
+| NVidia Shield      | None                                       |
+| Plexamp            | None (music playback only)                 |
+| Plex Desktop & Web | Controls are unavailable (as of June 2022) |
+| Plex HTPC          | None                                       |
 
-## Sonos Playback
+## Sonos playback
 
 To play Plex music directly to Sonos speakers, the following requirements must be met:
 
@@ -344,7 +354,7 @@ To play Plex music directly to Sonos speakers, the following requirements must b
 
 Call the `media_player.play_media` service with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both [music](#music) and [playlist](#playlist) `media_content_type` values are supported.
 
-##### Examples:
+### Examples:
 
 Play a track with advanced filtering on a Sonos Speaker
 
@@ -362,19 +372,19 @@ media_content_type: playlist
 media_content_id: 'plex://{ "playlist_name": "Party Mix" }'
 ```
 
-## Additional Services
+## Additional services
 
 ### Service `plex.refresh_library`
 
 Refresh a Plex library to scan for new and updated media.
 
-| Service data attribute | Required | Description | Example |
-| --- | --- | --- | --- |
-| `server_name` | No | Name of Plex server to use if multiple servers configured. | "My Plex Server" |
-| `library_name` | Yes | Name of Plex library to update. | "TV Shows" |
+| Service data attribute | Required | Description                                                | Example          |
+| ---------------------- | -------- | ---------------------------------------------------------- | ---------------- |
+| `server_name`          | No       | Name of Plex server to use if multiple servers configured. | "My Plex Server" |
+| `library_name`         | Yes      | Name of Plex library to update.                            | "TV Shows"       |
 
 
 ## Notes
 
-- The Plex integration supports multiple Plex servers. Additional connections can be configured under **Configuration** > **Devices & Services**.
+- The Plex integration supports multiple Plex servers. Additional connections can be configured under **Settings** -> **Devices & Services**.
 - Movies must be located under the 'Movies' section in a Plex library to properly view the 'playing' state.

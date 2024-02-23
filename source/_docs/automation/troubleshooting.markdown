@@ -1,9 +1,9 @@
 ---
-title: "Troubleshooting Automations"
+title: "Troubleshooting automations"
 description: "Tips on how to troubleshoot your automations."
 ---
 
-When an automation is run, all steps are recorded and a trace is made. From the UI choose **Configuration** which is located in the sidebar, then click on **Automation** to go to the automation editor or click this button directly: {% my automations badge %}
+When an {% term automation %} is run, all steps are recorded and a trace is made. From the UI, open **Settings**, which is located in the sidebar, then select **Automations & Scenes** to go to the automation editor or click this button directly: {% my automations badge %}
 
 Click on the clock icon next to an automation to enter the debugging screen. Alternatively, click on **Show trace** directly from a Logbook automation entry.
 
@@ -15,7 +15,7 @@ The debugging screen is split into four features, the first being the Step Detai
 
 Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) assigned in order for debugging traces to be stored.
 
-#### Traces ####
+#### Traces
 
 The last 5 traces are recorded for all automations. It is possible to change this by adding the following code to your automation.
 
@@ -24,7 +24,7 @@ trace:
     stored_traces: 1
 ```
 
-[template]: /topics/templating/
+[template]: /docs/configuration/templating/
 
 ## Testing your automation
 
@@ -35,7 +35,7 @@ Please note that if you click on **Trigger** of an automation in the frontend, *
 All this makes that Trigger feature pretty limited and nearly useless for debugging purposes so you need to find another way.
 Make sure you check and adapt to your circumstances appropriate examples from Automation Trigger, Conditions and Actions.
 
-It is also useful to go to **{% my server_controls title="Configuration -> Server Control" %}** and click on **Check Configuration** button in Configuration validation section to make sure there are no syntax errors before restarting Home Assistant. In order for **Check configuration** to be visible, you must enable **Advanced Mode** on {% my profile title="your user profile" %}.
+It is also useful to go to **{% my server_controls title="Developer Tools -> YAML" %}** and click on **Check Configuration** button in Configuration validation section to make sure there are no syntax errors before restarting Home Assistant. In order for **Check configuration** to be visible, you must enable **Advanced Mode** on {% my profile title="your user profile" %}.
 
 If your automation uses templates in any part, you can do the following to make sure it works as expected:
 

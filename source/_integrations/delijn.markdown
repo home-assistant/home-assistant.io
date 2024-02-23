@@ -37,7 +37,7 @@ sensor:
 
 {% configuration %}
 api_key:
-  description: "API Subscription key needed to access De Lijn API's."
+  description: "API Subscription key needed to access De Lijn APIs."
   required: true
   type: string
 next_departure:

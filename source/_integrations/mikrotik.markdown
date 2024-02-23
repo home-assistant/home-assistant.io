@@ -3,7 +3,7 @@ title: Mikrotik
 description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
 ha_category:
   - Hub
-  - Presence Detection
+  - Presence detection
 ha_release: 0.44
 ha_codeowners:
   - '@engrbm87'
@@ -19,11 +19,13 @@ The `mikrotik` platform offers presence detection by looking at connected device
 
 There is currently support for the following device types within Home Assistant:
 
-- Presence Detection
+- Presence detection
 
 ## Prerequisites
 
 You have to enable accessing the RouterOS API on your router to use this platform.
+
+RouterOS uses a ping test to determine client presence, make sure you are not blocking this on the client (Windows firewall default behavior), as this will result in the provided `device_tracker` having the state `not_home`.
 
 Terminal:
 
@@ -37,6 +39,7 @@ Web Frontend:
 Go to **IP** -> **Services** -> **API** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
+
 
 {% include integrations/config_flow.md %}
 
@@ -62,7 +65,7 @@ If everything is working fine you can disable the pure `api` service in RouterOS
 To use this device tracker you need restricted privileges only. To enhance the security of your MikroTik device create a "read only" user who is able to connect to API  and perform ping test only:
 
 ```bash
-/user group add name=homeassistant policy=read,api,!local,!telnet,!ssh,!ftp,!reboot,!write,!policy,test,!winbox,!password,!web,!sniff,!sensitive,!romon,!dude,!tikapp
+/user group add name=homeassistant policy=read,api,test,!local,!telnet,!ssh,!ftp,!reboot,!write,!policy,!winbox,!password,!web,!sniff,!sensitive,!romon,!dude,!tikapp
 /user add group=homeassistant name=homeassistant
 /user set password="YOUR_PASSWORD" homeassistant
 ```

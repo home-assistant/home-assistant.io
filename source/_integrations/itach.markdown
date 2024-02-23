@@ -11,9 +11,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `itach` remote platform allows you to control IR devices with a [Global Caché iTach Device](https://www.globalcache.com/products/itach/ip2irspecs) and GC-100 devices. The Global Cache IR API are similar across their product line. See API documentation links at the end of this page.
+The `itach` remote platform allows you to control IR devices with a Global Caché iTach Device and GC-100 devices. The Global Cache IR API are similar across their product line. See API documentation links at the end of this page.
 
-In order to utilize the digital input (binary sensor) and relay (switch) features of your Global Cache device you will need to use the [gc100 component](/integrations/gc100) and associated platforms.
+In order to utilize the digital input (binary sensor) and relay (switch) features of your Global Cache device you will need to use the [gc100 integration](/integrations/gc100) and associated platforms.
 
 To use your iTach remote in your installation, you will need to know the IR commands for your devices in Pronto hex format and add the following to your `configuration.yaml` file:
 

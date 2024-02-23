@@ -1,9 +1,9 @@
 ---
-title: "Quick Bar"
+title: "Quick bar"
 description: "Dialog for quickly accessing entities or running commands."
 ---
 
-The "Quick Bar" allows you to quickly look up entities or run commands without needing to navigate away from your current view (Similar to the "quick open" feature in VS Code, Chrome Developer Tools, etc).
+The **Quick bar** allows you to quickly look up entities or run commands without needing to navigate away from your current view (Similar to the "quick open" feature in VS Code, Chrome Developer Tools, etc).
 
 It can be launched from anywhere in the frontend using [hotkeys](#hotkeys).
 
@@ -26,11 +26,11 @@ Type these from anywhere in the application to launch the dialog.
   The application must have focus for the hotkey to register. If the dialog doesn't launch, try clicking into an empty part of the main content area of Home Assistant and type it again.
 </div>
 
-## Entity Filter
+## Entity filter
 
 *Hotkey: `e`*
 
-Similar to {% my entities title="Configuration -> Entities" %}, but more lightweight and accessible from anywhere in the frontend.
+Similar to {% my entities title="Settings -> Devices & Services -> Entities" %}, but more lightweight and accessible from anywhere in the frontend.
 
 <p class='img'>
   <img src='/images/docs/quick-bar/quick-bar-entity-filter.gif' alt='Quick Bar'>
@@ -41,7 +41,7 @@ Once launched, start typing your entity id (or ["bits and pieces" of your entity
 
 This is helpful when, say, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to Developer Tools.
 
-## Command Palette
+## Command palette
 
 *Hotkey: `c`*
 
@@ -66,7 +66,7 @@ Type | Available |
 
 Create [`my`](/integrations/my) links from any supported page in the user interface, when invoked on a supported page it will open a new tab that will allow you to share the link in different formats.
 
-## Disabling Shortcuts
+## Disabling shortcuts
 
 You can enable or disable all of Home Assistant's keyboard shortcuts by going to your User Profile and clicking the "Keyboard Shortcuts" toggle button.
 

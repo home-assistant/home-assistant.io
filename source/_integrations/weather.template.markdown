@@ -11,10 +11,11 @@ ha_domain: template
 
 The `template` integrations creates weather provider that combines integrations and an existing weather provider into a fused weather provider.
 
-There are several powerful ways to use this integration, including localizing your weather provider information with local information from temperature, humidity, pressure sensors that you own.
+There are several powerful ways to use this {% term integration %}, including localizing your weather provider information with local information from temperature, humidity, pressure sensors that you own.
 
 Another use case could be using temperature and humidity from one weather platform, with forecasts from a different one.
 
+Output will be converted according to the user's unit system or {% term entity %} override, see [documentation](https://developers.home-assistant.io/docs/core/entity/weather/#unit-conversion).
 
 ## Configuration
 
@@ -31,8 +32,9 @@ weather:
     name: "My Weather Station"
     condition_template: "{{ states('weather.my_region') }}"
     temperature_template: "{{ states('sensor.temperature') | float }}"
+    temperature_unit: "°C"
     humidity_template: "{{ states('sensor.humidity') | float }}"
-    forecast_template: "{{ state_attr('weather.my_region', 'forecast') }}"
+    forecast_daily_template: "{{ state_attr('weather.my_region', 'forecast') }}"
 ```
 
 {% endraw %}
@@ -41,7 +43,7 @@ weather:
 name:
   description: Name to use in the frontend.
   required: true
-  type: string
+  type: template
 unique_id:
   description: An ID that uniquely identifies this weather entity. Set this to a unique value to allow customization through the UI.
   required: false
@@ -54,6 +56,18 @@ temperature_template:
   description: The current temperature.
   required: true
   type: template
+dew_point_template:
+  description: The current dew point.
+  required: false
+  type: template
+apparent_temperature_template:
+  description: The current apparent (feels-like) temperature.
+  required: false
+  type: template
+temperature_unit:
+  description: Unit for temperature_template output. Valid options are °C, °F, and K.
+  required: false
+  type: string
 humidity_template:
   description: The current humidity.
   required: true
@@ -66,10 +80,22 @@ pressure_template:
   description: The current air pressure.
   required: false
   type: template
+pressure_unit:
+  description: Unit for pressure_template output. Valid options are Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, psi.
+  required: false
+  type: string
 wind_speed_template:
   description: The current wind speed.
   required: false
   type: template
+wind_gust_speed_template:
+  description: The current wind gust speed.
+  required: false
+  type: template
+wind_speed_unit:
+  description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
+  required: false
+  type: string
 wind_bearing_template:
   description: The current wind bearing.
   required: false
@@ -78,16 +104,40 @@ ozone_template:
   description: The current ozone level.
   required: false
   type: template
+cloud_coverage_template:
+  description: The current cloud coverage.
+  required: false
+  type: template
 visibility_template:
   description: The current visibility.
   required: false
   type: template
+visibility_unit:
+  description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+  required: false
+  type: string
 forecast_template:
+  description: Forecast data.
+  required: false
+  type: template
+forecast_daily_template:
   description: Daily forecast data.
   required: false
   type: template
+forecast_hourly_template:
+  description: Hourly forecast data.
+  required: false
+  type: template
+forecast_twice_daily_template:
+  description: Twice daily forecast data.
+  required: false
+  type: template
+precipitation_unit:
+  description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Template variables
 
-State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates.
+State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an {% term entity %}'s state and attribute in templates.

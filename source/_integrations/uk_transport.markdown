@@ -11,11 +11,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `uk_transport` sensor will display the time in minutes until the next departure in a specified direction from of a configured train station or bus stop. The sensor uses [transportAPI](https://www.transportapi.com/) to query live departure data and requires a developer application ID and key which can be obtained [here](https://developer.transportapi.com/). The [free tier](https://www.transportapi.com/benefits/) allows 30,000 requests a month, which is sufficient for a single sensor refreshing every 87 seconds.
+The `uk_transport` sensor will display the time in minutes until the next departure in a specified direction from of a configured train station or bus stop. The sensor uses [transportAPI](https://www.transportapi.com/) to query live departure data and requires a developer application ID and key which can be obtained [here](https://developer.transportapi.com/). The [free tier](https://www.transportapi.com/blog/2022/08/introducing-the-home-use-plan-for-transportapi/) allows 30 requests a day, which is sufficient for a single sensor refreshing every 48 minutes.
 
 <div class='note warning'>
 
-Additional sensors can be added but at the expense of a reduced refresh rate. 2 sensors can be updated every 2*87 = 174 seconds, and so on. Calculating and setting this rate is automatically handles by the integration.
+Additional sensors can be added but at the expense of a reduced refresh rate. 2 sensors can be updated every 2*48 = 96 minutes, and so on. Calculating and setting this rate is automatically handles by the integration.
 
 </div>
 
@@ -153,6 +153,6 @@ template:
 
 ## Managing API requests
 
-If you wish to manage the rate of API requests (e.g., to disable requests when you aren't interested in travel, so that you can request updates more frequently when you do travel) set a really long `scan_interval` in the configuration options, and use the service `homeassistant.update_entity` to request the update of an entity, rather than waiting for the next scheduled update.
+If you wish to manage the rate of API requests (e.g., to disable requests when you aren't interested in travel, so that you can request updates more frequently when you do travel) set a really long `scan_interval` in the configuration options, and use the service `homeassistant.update_entity` to request the update of an {% term entity %}, rather than waiting for the next scheduled update.
 
 Powered by [transportAPI](https://www.transportapi.com/)

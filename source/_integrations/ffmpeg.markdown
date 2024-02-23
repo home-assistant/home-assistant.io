@@ -2,7 +2,7 @@
 title: FFmpeg
 description: Instructions on how to integrate FFmpeg within Home Assistant.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_release: 0.29
 ha_domain: ffmpeg
 ha_platforms:
@@ -10,14 +10,13 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `ffmpeg` integration allows other Home Assistant integrations to process video and audio streams. This integration supports all FFmpeg versions since 3.0.0; if you have an older version, please update.
+The FFmpeg integration allows other Home Assistant integrations to process
+video and audio streams.
 
-<div class='note'>
-
-If you are running Home Assistant Core in a Python environment, you'll need have the `ffmpeg` binary in your system path.
-On Debian 8 or Raspbian (Jessie) you can install it from [debian-backports](https://backports.debian.org/Instructions/). If you want [hardware acceleration](https://trac.ffmpeg.org/wiki/HWAccelIntro) support on a Raspberry Pi, you will need to build from source by yourself.
-
-</div>
+This integration supports all FFmpeg versions since 3.0.0. If you run
+the Home Assistant Operating System or use the Home Assistant Container,
+this is already pre-installed for you. In all other cases, make sure
+you have FFmpeg installed on your system.
 
 ## Configuration
 
@@ -31,31 +30,18 @@ ffmpeg:
 ffmpeg_bin:
   description: The name or path to the `ffmpeg` binary.
   required: false
-  default: ffmpeg
+  default: "`ffmpeg`"
   type: string
 {% endconfiguration %}
 
-### Raspbian Debian Jessie Lite Installations
-To get the binary on Raspbian Debian Jessie Lite on a Raspberry Pi you need to perform the following:
-
-```bash
-sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
-sudo apt-get update
-sudo apt-get -t jessie-backports install ffmpeg
-```
-
-We can use now following in the configuration:
-
-```yaml
-ffmpeg:
-  ffmpeg_bin: /usr/bin/ffmpeg
-```
-
 ### Troubleshooting
 
-In most cases, `ffmpeg` automatically detects all needed options to read a video or audio stream or file. But it is possible in rare cases that you will need to set options to help `ffmpeg` out.
+In most cases, `ffmpeg` automatically detects all needed options to read
+a video or audio stream or file. But it is possible in rare cases that you
+will need to set options to help `ffmpeg` out.
 
-First, check that your stream is playable by `ffmpeg` outside of Home Assistant with (use option `-an` or `-vn` to disable video or audio stream):
+First, check that your stream is playable by `ffmpeg` outside of Home Assistant
+with (use option `-an` or `-vn` to disable video or audio stream):
 
 ```bash
 ffmpeg -i INPUT -an -f null -

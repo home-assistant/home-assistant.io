@@ -1,25 +1,24 @@
 ---
 type: card
-title: "Light Card"
+title: "Light card"
 sidebar_label: Light
-description: "The Light card allows you to change the brightness of the light."
+description: "The light card allows you to change the brightness of the light."
 ---
 
-The Light card allows you to change the brightness of the light.
+The light card allows you to change the brightness of the light.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_light_card.png' alt='Screenshot of the Light card'>
-Screenshot of the Light card.
+<img src='/images/dashboards/light_card.png' alt='Screenshot of the Light card'>
+Screenshot of the light card.
 </p>
 
-To add the Light card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Light** from the card picker. All options for this card can be configured via the user interface.
+{% include dashboard/edit_dashboard.md %}
 
-Alternatively, the card can be configured using YAML:
+All options for this card can be configured via the user interface.
 
-```yaml
-type: light
-entity: light.bedroom
-```
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -54,7 +53,14 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Examples
+### Examples
+
+Basic example:
+
+```yaml
+type: light
+entity: light.bedroom
+```
 
 Overwriting names example:
 
@@ -71,6 +77,6 @@ name: My Office
 ```
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_light_complex_card.png' alt='Screenshot of the Light card'>
+<img src='/images/dashboards/light_complex_card.png' alt='Screenshot of the Light card'>
 Screenshot of the Light card names.
 </p>

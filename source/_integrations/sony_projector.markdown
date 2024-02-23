@@ -35,3 +35,7 @@ name:
   required: false
   type: string
 {% endconfiguration %}
+
+Under your projector's web interface **Advanced Menu**, you may need to:
+- Enable/start the **PJ Talk** service.
+- Add the IP of your Home Assistant server to the **Host Address** field.

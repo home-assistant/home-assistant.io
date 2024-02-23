@@ -8,10 +8,14 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: script
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 The script integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via services.
+
+Scripts can be created via YAML configuration (described below) or via {% my scripts title="the UI" %}.
+
+{% my scripts badge %}
 
 ## Configuration
 
@@ -62,7 +66,7 @@ variables:
       description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
       type: any
 fields:
-  description: "Information about the script field parameters; see the [Passing variables to scripts](#passing-variables-to-scripts) section below. Please note: In order for this description to be displayed in the Services tab of the Developer Tools, the script description must be defined as well."
+  description: "Information about the script field parameters; see the [Passing variables to scripts](#passing-variables-to-scripts) section below."
   required: false
   default: {}
   type: map
@@ -118,7 +122,12 @@ sequence:
   type: list
 {% endconfiguration %}
 
-### Script Modes
+### Video tutorial
+This video tutorial explains how scripts work, how to use fields in scripts, and how to use response variables in scripts.
+
+<lite-youtube videoid="vD_xckjQxRk" videotitle="Mastering Scripts in Home Assistant: A Comprehensive Guide" posterquality="maxresdefault"></lite-youtube>
+
+### Script modes
 
 Mode | Description
 -|-
@@ -131,7 +140,7 @@ Mode | Description
   <img src='/images/integrations/script/script_modes.jpg'>
 </p>
 
-### Full Configuration
+### Full configuration
 
 {% raw %}
 

@@ -45,7 +45,7 @@ port:
 
 ## Sensor
 
-Once you have enabled the AquaLogic component, add the following to your `configuration.yaml` file:
+Once you have enabled the AquaLogic integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -84,7 +84,7 @@ monitored_conditions:
 
 ## Switch
 
-Once you have enabled the AquaLogic component, add the following to your `configuration.yaml` file:
+Once you have enabled the AquaLogic integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

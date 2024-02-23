@@ -2,7 +2,7 @@
 title: DOODS - Dedicated Open Object Detection Service
 description: Detect and recognize objects with DOODS.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_iot_class: Local Polling
 ha_release: '0.100'
 ha_domain: doods
@@ -149,7 +149,7 @@ labels:
 
 ## Supported labels
 
-Both detectors "default" and "tensorflow" use the labels in [this file](https://raw.githubusercontent.com/amikelive/coco-labels/master/coco-labels-2014_2017.txt).
+Both detectors `default` and `tensorflow` use the labels in [this file](https://raw.githubusercontent.com/amikelive/coco-labels/master/coco-labels-2014_2017.txt).
 
 ## Sample configuration
 

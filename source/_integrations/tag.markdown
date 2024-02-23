@@ -96,21 +96,22 @@ NFC tags come in many different shapes and formats. [NFC Stickers](https://amzn.
 
 To get started with printing cards, you need the following hardware:
 
-- [Inkjet Printer](https://amzn.to/3khMrts)
+- [Canon TS702a Inkjet Printer](https://www.amazon.com/TS702a-Compact-Connected-Inkjet-Printer/dp/B09TG8F4YS/)
 - [Compatible card printing tray](https://amzn.to/3hq59x2)
 - [Printable NFC cards](https://amzn.to/3iqHpKx)
 
-The seller of above tray + cards also made a [layout tool](https://brainstormidsupply.com/id-card-printing-layout-tool.html/) available to prepare printable PDFs. It runs fully in your browser and no data is sent to their server. If you've used above equipment, pick Canon MP tray as what you're printing on.
+The seller of above tray + cards also made an [ID card printing app](https://brainstormidsupply.com/try-id-maker/) available to prepare printable PDFs. It runs fully in your browser and no data is sent to their server. If you've used above equipment, pick Canon MP tray as what you're printing on.
 
 Happy printing!
 
 ![NFC Cards](/images/blog/2020-09-15-home-assistant-tags/cards.jpg)
 
-## Tag Scanned events
+## Tag scanned events
 
 When a tag is scanned, the `tag_scanned` event is fired. This event contains the values:
 
 | Value | Description |
 | - | - |
 | `tag_id` | Identifier of the tag. Use this to decide what to do.
+| `name` | Name of the tag. The name is not unique. Multiple tags can have the same name.
 | `device_id` | Device registry identifier of the device that scanned the tag. Use this to decide where to do it.

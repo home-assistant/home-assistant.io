@@ -2,7 +2,7 @@
 title: Emby
 description: Instructions on how to integrate Emby into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.32
 ha_iot_class: Local Push
 ha_codeowners:
@@ -13,7 +13,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `emby` platform allows you to control a [Emby](https://emby.media/) multimedia system from Home Assistant.
+The **Emby** {% term integration %} allows you to control a [Emby](https://emby.media/) multimedia system from Home Assistant.
 
 To add Emby to your installation, add the following to your `configuration.yaml` file:
 

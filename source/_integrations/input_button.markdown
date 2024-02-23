@@ -19,8 +19,8 @@ like an automation.
 ## Configuration
 
 The preferred way to configure button helpers is via the user interface.
-To add one, go to **{% my helpers title="Configuration -> Helpers" %}**
-and click the add button; next choose the "**Button**" option.
+To add one, go to **{% my helpers title="Settings -> Devices & Services -> Helpers" %}**
+and click the add button; next choose the **{% my config_flow_start domain="input_button" title="Button" %}** option.
 
 To be able to add **Helpers** via the user interface you should have
 `default_config:` in your `configuration.yaml`, it should already be there by
@@ -54,7 +54,7 @@ input_button:
       type: icon
 {% endconfiguration %}
 
-## Automation Examples
+## Automation examples
 
 The `input_button` entity is stateless, as in, it cannot have a state like the
 `on` or `off` state that, for example, a normal switch entity has.

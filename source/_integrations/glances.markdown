@@ -2,12 +2,11 @@
 title: Glances
 description: Instructions on how to integrate Glances sensors into Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_iot_class: Local Polling
 ha_release: 0.7.3
 ha_config_flow: true
 ha_codeowners:
-  - '@fabaff'
   - '@engrbm87'
 ha_domain: glances
 ha_platforms:
@@ -19,30 +18,20 @@ The `glances` integration allows you to monitor the system information provided 
 
 ## Setup
 
+<div class='note warning'>
+
+  Support for Glances api version 2 is deprecated. It is recommended to upgrade your Glances server to version 3. Once upgraded, reload the integration to connect again.
+
+</div>
+
 These sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3.
-To start a Glances RESTful API server on its default port 61208 then test you can use the following command:
-
-```bash
-$ sudo glances -w
-Glances web server started on http://0.0.0.0:61208/
-```
-
-Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/3`. Don't use `-s` as this will start the XML-RPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
-
-The details about your memory usage is provided as a JSON response. If so, you are good to proceed.
-
-```bash
-$ curl -X GET http://IP_ADDRESS:61208/api/3/mem/free
-{"free": 203943936}
-```
-
-If this doesn't work, try changing the `3` to `2`, if you don't have the latest version of Glances installed.
 
 For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).  
 
+
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+## Integration entities
 
 Glances integration will add the following sensors if available in the platform:
 

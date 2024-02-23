@@ -13,10 +13,10 @@ ha_platforms:
 ha_config_flow: true
 ha_codeowners:
   - '@frenck'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The uptime integration provides a sensor that stores the timestamp
+The **Uptime** {% term integration %} provides a sensor that stores the timestamp
 (date and time) when Home Assistant was last started.
 
 {% include integrations/config_flow.md %}

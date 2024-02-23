@@ -2,7 +2,7 @@
 title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.
 
-After configuring this component, the binary sensors automatically appear.
+After configuring this integration, the binary sensors automatically appear.
 
 ## Configuration
 
@@ -24,7 +24,7 @@ After configuring this component, the binary sensors automatically appear.
 You should have at least one VM or container entry configured, else this integration won't do anything.
 </div>
 
-To use the `proxmoxve` component, add the following configuration to your `configuration.yaml` file:
+To use the `proxmoxve` integration, add the following configuration to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -103,7 +103,7 @@ proxmoxve:
           - VM_ID_2
 ```
 
-## Binary Sensor
+## Binary sensor
 
 The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM's state is running or off if the VM's state is different.
 
@@ -121,7 +121,7 @@ Privileges can be either applied to Groups or Roles.
 1. Click `Datacenter`
 2. Open `Permissions` and click `Groups`
 3. Click the `Create` button above all the existing groups
-4. Name the new group (e.g.,  "HomeAssistant")
+4. Name the new group (e.g., `HomeAssistant`)
 5. Click `Create`
 
 ### Add Group Permissions to all Assets
@@ -143,7 +143,7 @@ Creating a dedicated user for Home Assistant, limited to only to the access just
 1. Click `Datacenter`
 2. Open `Permissions` and click `Users`
 3. Click `Add`
-4. Enter a username (e.g., "hass")
+4. Enter a username (e.g.,` hass`)
 5. Set the realm to "Proxmox VE authentication server"
 6. Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
 7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox

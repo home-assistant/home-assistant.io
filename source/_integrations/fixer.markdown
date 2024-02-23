@@ -5,8 +5,6 @@ ha_category:
   - Finance
 ha_iot_class: Cloud Polling
 ha_release: 0.23
-ha_codeowners:
-  - '@fabaff'
 ha_domain: fixer
 ha_platforms:
   - sensor
@@ -19,7 +17,7 @@ To get an overview about the available [currencies](https://fixer.io/symbols).
 
 ## Setup
 
-You need to create an [API key](https://fixer.io/product). The free account is limited to only EUR as a base currency, allows 250 requests per month, and updates every hour.
+You need to create an [API key](https://apilayer.com/marketplace/fixer-api#pricing). The free account is limited to only EUR as a base currency, allows 100 requests per month, and updates every hour.
 
 ## Configuration
 

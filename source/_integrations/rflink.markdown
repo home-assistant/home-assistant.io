@@ -17,7 +17,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
@@ -101,7 +101,7 @@ Tested with Wifi serial bridge [esp-link V2.2.3](https://github.com/jeelabs/esp-
 
 <div class='note warning'>
 
-Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://www.aliexpress.com/item/8CH-IIC-I2C-Logic-Level-Converter-Bi-Directional-Module-DC-DC-5V-to-3-3V-Setp/32238089139.html) is recommended for the CC2500 transceiver (used for IKEA Ansluta and Philips Living Colors)
+Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://aliexpress.com/item/32238089139.html) is recommended for the CC2500 transceiver (used for IKEA Ansluta and Philips Living Colors)
 
 </div>
 

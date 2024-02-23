@@ -26,7 +26,7 @@ Your Transmission client must first be configured to allow remote access. In you
 
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+## Integration entities
 
 The Transmission integration will add the following sensors and switches.
 
@@ -44,7 +44,7 @@ The Transmission integration will add the following sensors and switches.
 - `switch.transmission_switch`: A switch to start/stop all torrents.
 - `switch.transmission_turtle_mode`: A switch to enable turtle mode (a.k.a. alternative speed limits).
 
-## Event Automation
+## Event automation
 
 The Transmission integration is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus containing the torrent name and ID, which can be used with automations.
 
@@ -63,8 +63,8 @@ Example of an automation that notifies on successful download and removes the to
 ```yaml
 - alias: "Notify and remove completed torrent"
   trigger:
-    platform: event
-    event_type: transmission_downloaded_torrent
+    - platform: event
+      event_type: transmission_downloaded_torrent
   action:
     - service: notify.telegram_notifier
       data:
@@ -72,7 +72,7 @@ Example of an automation that notifies on successful download and removes the to
         message: "{{trigger.event.data.name}}"
     - service: transmission.remove_torrent
       data:
-        name: "Transmission"
+        entry_id: eeb52bc78e11d813a1e6bc68c8ff93c8
         id: "{{trigger.event.data.id}}"
 ```
 
@@ -80,13 +80,15 @@ Example of an automation that notifies on successful download and removes the to
 
 ## Services
 
+All Transmission services require integration `entry_id`. To find it, go to Developer Tools -> Services. Choose the desired service and select your integration from dropdown. Then switch to YAML mode to see `entry_id`.
+
 ### Service `add_torrent`
 
 Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), magnet link or a local file (make sure that the path is [white listed](/docs/configuration/basic/#allowlist_external_dirs)).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | yes | Name of the configured instance (Default: "Transmission")
+| `entry_id`    | no | The integration entry_id
 | `torrent` | no | Torrent to download
 
 ### Service `remove_torrent`
@@ -95,7 +97,7 @@ Removes a torrent from the client.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | no | Name of the configured instance (Default: "Transmission")
+| `entry_id`    | no | The integration entry_id
 | `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
 | `delete_data` | yes | Delete torrent data (Default: false)
 
@@ -105,7 +107,7 @@ Starts a torrent.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | no | Name of the configured instance (Default: "Transmission")
+| `entry_id`    | no | The integration entry_id
 | `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
 
 ### Service `stop_torrent`
@@ -114,7 +116,7 @@ Stops a torrent.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | no | Name of the configured instance (Default: "Transmission")
+| `entry_id`    | no | The integration entry_id
 | `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
 
 ## Templating

@@ -2,12 +2,16 @@
 type: card
 title: "Entities Card"
 sidebar_label: Entities
-description: "The Entities card is the most common type of card. It groups items together into lists."
+description: "The entities card is the most common type of card. It groups items together into lists."
 ---
 
-The Entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
+The entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
 
-To add the Entities card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Entities** from the card picker.
+{% include dashboard/edit_dashboard.md %}
+
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -50,7 +54,7 @@ footer:
   type: map
 {% endconfiguration %}
 
-## Options For Entities
+## Options for entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration.
 
@@ -61,7 +65,7 @@ entity:
   type: string
 type:
   required: false
-  description: "Sets a custom card type: `custom:my-custom-card`"
+  description: "Sets a custom card type: `custom:my-custom-card`. It also can be used to force entities with a default special row format to render as a simple state. You can do this by setting the type: `simple-entity`. This can be used, for example, to replace a helper with an editable control with a read-only value."
   type: string
 name:
   required: false
@@ -106,9 +110,9 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Special Row Elements
+## Special row elements
 
-Rather than only displaying an entity's state as a text output, the Entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
+Rather than only displaying an entity's state as a text output, the entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
 
 ### Attribute
 
@@ -223,7 +227,7 @@ entities:
       required: false
       description: If false, the button name is not shown.
       type: boolean
-      default: "true"
+      default: "false"
     show_icon:
       required: false
       description: If false, the icon is not shown.
@@ -288,30 +292,13 @@ type:
   type: string
 conditions:
   required: true
-  description: List of entity IDs and matching states.
+  description: List of conditions to check. See [available conditions](/dashboards/conditional/#card-conditions).
   type: list
-  keys:
-    entity:
-      required: true
-      description: Entity ID.
-      type: string
-    state:
-      required: false
-      description: Entity state is equal to this value.*
-      type: string
-    state_not:
-      required: false
-      description: Entity state is unequal to this value.*
-      type: string
 row:
   required: true
   description: Row to display if all conditions match. Can be any of the various supported rows described on this page.
   type: map
 {% endconfiguration %}
-
-*one is required (`state` or `state_not`)
-
-Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
 
 ### Divider
 
@@ -373,9 +360,9 @@ download:
   default: false
 {% endconfiguration %}
 
-## Examples
+### Examples
 
-### Entity rows
+#### Entity rows
 
 ```yaml
 type: entities
@@ -393,12 +380,12 @@ entities:
   - group.all_locks
 ```
 
-### Buttons row
+#### Buttons row
 
 Above the divider are regular entity rows, below one of type `buttons`. Note that regular entity rows automatically show the entity name, whereas for buttons you have to explicitly specify a label / name.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_entity_row_buttons.jpg' alt='Screenshot of buttons row'>
+<img src='/images/dashboards/entity_row_buttons.jpg' alt='Screenshot of buttons row'>
 Screenshot of buttons row.
 </p>
 
@@ -416,10 +403,10 @@ entities:
         name: Dining Ceiling
 ```
 
-### Other special rows
+#### Other special rows
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_entity_row_special.jpg' alt='Screenshot of other special rows'>
+<img src='/images/dashboards/entity_row_special.jpg' alt='Screenshot of other special rows'>
 Screenshot of other special rows.
 </p>
 
@@ -434,7 +421,7 @@ entities:
     tap_action:
       action: call-service
       service: light.toggle
-      service_data:
+      data:
         entity_id: light.bed_light
         transition: 10
   - type: divider

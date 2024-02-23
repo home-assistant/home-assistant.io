@@ -2,8 +2,8 @@
 title: Denon AVR Network Receivers
 description: Instructions on how to integrate Denon AVR Network Receivers into Home Assistant.
 ha_category:
-  - Media Player
-ha_iot_class: Local Polling
+  - Media player
+ha_iot_class: Local Push
 ha_release: 0.7.2
 ha_domain: denonavr
 ha_codeowners:
@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/en-gb/shop/networkmusicsystem/ceolpiccolon4) from Home Assistant. It might be that your device is supported by the [Denon] platform.
+The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/category/heos) from Home Assistant. It might be that your device is supported by the [Denon] platform.
 
 Known supported devices:
 
@@ -28,6 +28,7 @@ Known supported devices:
 - Denon AVR-X1500H
 - Denon AVR-X1600H
 - Denon AVR-X1700H
+- Denon AVR-X1800H
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X2200W
@@ -36,6 +37,7 @@ Known supported devices:
 - Denon AVR-X2500H
 - Denon AVR-X2600H
 - Denon AVR-X2700H
+- Denon AVR-X2800H
 - Denon AVR-X3000
 - Denon AVR-X3200W
 - Denon AVR-X3300W
@@ -47,9 +49,15 @@ Known supported devices:
 - Denon AVR-X4300H
 - Denon AVR-X4400H
 - Denon AVR-X4500H
+- Denon AVR-X4700H
+- Denon AVC-X4800H
 - Denon AVR-X6500H
 - Denon AVR-X6700H
+- Denon AVR-X7200W
+- Denon AVR-X8500H
+- Denon AVR-1713
 - Denon AVR-1912
+- Denon AVR-2112CI
 - Denon AVR-2312CI
 - Denon AVR-3311CI
 - Denon AVR-3312
@@ -58,13 +66,21 @@ Known supported devices:
 - Denon AVR-S650H
 - Denon AVR-S710W
 - Denon AVR-S720W
+- Denon AVR-S740H
 - Denon AVR-S750H
 - Denon AVR-S760H
+- Denon AVR-S770H
+- Denon AVR-S940H
+- Denon AVR-S950H
 - Denon AVR-S960H
 - Denon DN-500AV
+- Denon DRA-800H
 - Marantz AV7702
 - Marantz AV7703
 - Marantz AV7704
+- Marantz AV8802A
+- Marantz CINEMA 50
+- Marantz CINEMA 70s
 - Marantz M-CR510
 - Marantz M-CR511
 - Marantz M-CR603
@@ -72,13 +88,20 @@ Known supported devices:
 - Marantz M-CR611
 - Marantz SR5006
 - Marantz SR5008
+- Marantz SR5010
 - Marantz SR5011
+- Marantz SR5015
 - Marantz SR6007 - SR6012
 - Marantz SR7007
+- Marantz SR7010
+- Marantz SR7012
 - Marantz SR8015
 - Marantz NR1504
 - Marantz NR1506
+- Marantz NR1509
+- Marantz NR1510
 - Marantz NR1602
+- Marantz NR1603
 - Marantz NR1604
 - Marantz NR1606
 - Marantz NR1607
@@ -100,14 +123,19 @@ host:
   description: IP address of the device, e.g., 192.168.1.32. If not set, auto-discovery is used.
 show_all_sources:
   description: If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed. Some receivers have a bug that marks all sources as deleted in the interface. In this case, this option could help.
-zone1:
-  description: Specifies if zone 1 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
 zone2:
-  description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports. Some receivers do not support a second zone.
+  description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
+zone3:
+  description: Specifies if zone 3 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports. Some receivers do not support a second zone.
 update_audyssey:
   description: Specifies if Audyssey settings should be updated. This can take up to 10 seconds for some receivers.
   required: false
   default: false
+  type: boolean
+use_telnet:
+  description: Specifies if a telnet connection should be used to receive device status updates. Using telnet provides realtime updates (local push) for many values but each receiver is limited to a single connection. If you enable this setting, no other connection to your device can be made via telnet. This will be set to true for new installations of the integration but false for existing installs to prevent compatibility issues.
+  required: false
+  default: true
   type: boolean
 {% endconfiguration_basic %}
 
@@ -117,7 +145,7 @@ A few notes:
 - The `denonavr` platform supports some additional functionalities like album covers, custom input source names and auto discovery.
 - Marantz receivers seem to a have quite a similar interface. Thus if you own one, give it a try.
 - To remotely power on Marantz receivers with Home Assistant, the Auto-Standby feature must be enabled in the receiver's settings.
-- Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/scarface-4711/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under **Developer Tools** -> **States**.
+- Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/ol-iver/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under **Developer Tools** -> **States**.
 
 #### Service `denonavr.get_command`
 
