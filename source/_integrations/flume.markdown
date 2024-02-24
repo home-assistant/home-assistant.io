@@ -2,7 +2,7 @@
 title: Flume
 description: Documentation about the flume sensor.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.103
@@ -31,16 +31,52 @@ To add `Flume` to your installation, go to **Settings** -> **Devices & Services*
 
 ## Notifications
 
-Flume notifications are available via binary sensors. To clear the notifications, you will need to use your Flume app or go to: [https://portal.flumewater.com/notifications](https://portal.flumewater.com/notifications) and clear the notification in question.
-
-The following notifications are supported:
+Flume notifications are fetched every 5 minutes and are available via the service `flume.list_notifications`. Some notifications are available via the following binary sensors:
 
 - Bridge disconnected
 - High flow
 - Leak detected
+- Low battery
 
+To clear the notifications, you will need to use your Flume app or go to: [https://portal.flumewater.com/notifications](https://portal.flumewater.com/notifications) and clear the notification in question.
 
-## Configuration for Binary Sensor
+Example of an automation that sends a Home Assistant notification of the most recent usage alert:
+
+{% raw %}
+
+```yaml
+alias: "Notify: flume"
+trigger:
+  - platform: time_pattern
+    minutes: /5
+action:
+  - service: flume.list_notifications
+    data:
+      config_entry: 1234 # replace this with your config entry id
+    response_variable: notifications
+  - if:
+      - condition: template
+        value_template: >-
+          {{ notifications.notifications | selectattr('type', 'equalto', 1) | 
+          sort(attribute == ('created_datetime', reverse == true) | length > 0 }}
+    then:
+      - service: notify.all
+        data:
+          message: >-
+            {%- set usage_alert == notifications.notifications |
+            selectattr('type', 'equalto', 1) |
+            sort(attribute == 'created_datetime', reverse == true) | first %}
+            {{ usage_alert.message }}
+          title: >-
+            {%- set usage_alert == notifications.notifications |
+            selectattr('type', 'equalto', 1) |
+            sort(attribute == 'created_datetime', reverse=true) | first %}
+            {{ usage_alert.title }}
+```
+
+{% endraw %}
+
+## Configuration for binary sensor
 
 The following YAML creates a binary sensor. This requires the default sensor to be configured successfully.
 

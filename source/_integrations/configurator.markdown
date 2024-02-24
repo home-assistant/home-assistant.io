@@ -15,11 +15,11 @@ ha_integration_type: system
 This integration is intended for developers.
 </div>
 
-The configurator integration allows integrations to request information from the user. It is currently implemented as the minimum viable product:
+The **Configurator** {% term integration %} allows integrations to request information from the user. It is currently implemented as the minimum viable product:
 
-- It supports showing a text, image and button to the user
-- Input fields can be defined with a description, and optional type
-- It will trigger a callback when the button is pressed
+- It supports showing a text, image, and a button to the user.
+- Input fields can be defined with a description, and optional type.
+- It will trigger a callback when the button is pressed.
 
 The Hue integration in [the demo](https://demo.home-assistant.io/) and Plex are implemented using the configurator. See [the source of the demo integration](https://github.com/home-assistant/home-assistant/tree/dev/homeassistant/components/demo) for a simple example.
 

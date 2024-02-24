@@ -4,7 +4,7 @@ layout: null
 
 # These redirects are handled by Netlify
 #
-{% assign recent_release_post = site.categories['Core'].first %}
+{% assign release_notes = site.categories['Release-Notes'] %}
 
 # General use redirects
 /join-chat https://discord.gg/home-assistant
@@ -16,10 +16,11 @@ layout: null
 /feature-requests https://community.home-assistant.io/c/feature-requests
 /issues https://github.com/home-assistant/core/issues
 /community https://community.home-assistant.io/
+/latest-security-alert /security/
 
-# Link to latest release note
-/latest-release-notes/ {{ recent_release_post.url }}{{ site.patch_version_notes }} 302!
-
+# Link to latest release notes
+/latest-release-notes/ {{ release_notes | where: "categories", "Core" | map: 'url' | first }}{{ site.patch_version_notes }} 302!
+/latest-ios-release-notes/ {{ release_notes | where: "categories", "iOS" | map: 'url' | first }} 302!
 
 # Matter workshop June 2022
 /skyconnect-interest https://docs.google.com/forms/d/e/1FAIpQLScEjHSBJszUZfgO3MIDO51IHr3Oeohcs8BLpRIjY1liJ58IpA/viewform?usp=sf_link
@@ -150,24 +151,45 @@ layout: null
 /components/telegram_bot.webhooks /integrations/telegram_webhooks
 /components/vacuum.mqtt /integrations/vacuum.mqtt
 /components/vacuum.template /integrations/vacuum.template
+/integrations/binary_sensor.group /integrations/group
+/integrations/binary_sensor.knx /integrations/knx#binary-sensor
+/integrations/binary_sensor.modbus /integrations/modbus/#configuring-binary-sensor-entities
 /integrations/binary_sensor.mysensors /integrations/mysensors#binary-sensor
+/integrations/binary_sensor.template /integrations/template/#binary_sensor
+/integrations/climate.knx /integrations/knx#climate
+/integrations/climate.modbus/ /integrations/modbus/#configuring-climate-entities
 /integrations/climate.mysensors /integrations/mysensors#climate
+/integrations/cover.command_line /integrations/command_line#Cover
+/integrations/cover.group /integrations/group
+/integrations/cover.knx /integrations/knx#cover
 /integrations/cover.mysensors /integrations/mysensors#cover
 /integrations/device_tracker.mysensors /integrations/mysensors#device-tracker
-/integrations/light.mysensors /integrations/mysensors#light
-/integrations/notify.mysensors /integrations/mysensors#notify
-/integrations/sensor.mysensors /integrations/mysensors#sensor
-/integrations/switch.mysensors /integrations/mysensors#switch
-/integrations/binary_sensor.group /integrations/group
-/integrations/cover.group /integrations/group
 /integrations/fan.group /integrations/group
+/integrations/fan.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-air-purifier-air-humidifier-and-standing-fan
 /integrations/light.group /integrations/group
+/integrations/light.knx /integrations/knx#light
+/integrations/light.mysensors /integrations/mysensors#light
+/integrations/light.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-philips-light
 /integrations/media_player.group /integrations/group
-/integrations/notify.group /integrations/group#notify-groups
-/integrations/cover.command_line /integrations/command_line#Cover
 /integrations/notify.command_line /integrations/command_line#Notify
+/integrations/notify.group /integrations/group#notify-groups
+/integrations/notify.knx /integrations/knx#notify
+/integrations/notify.mysensors /integrations/mysensors#notify
+/integrations/remote.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-ir-remote
+/integrations/sensor.buienradar /integrations/buienradar/#sensor
 /integrations/sensor.command_line /integrations/command_line#Sensor
+/integrations/sensor.knx /integrations/knx#sensor
+/integrations/sensor.modbus /integrations/modbus/#configuring-sensor-entities
+/integrations/sensor.mysensors /integrations/mysensors#sensor
+/integrations/sensor.websocket_api /integrations/websocket_api/#track-current-connections
+/integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
 /integrations/switch.command_line /integrations/command_line#Switch
+/integrations/switch.knx /integrations/knx#switch
+/integrations/switch.modbus /integrations/modbus/#configuring-switch-entities
+/integrations/switch.mysensors /integrations/mysensors#switch
+/integrations/switch.pca /integrations/elv/
+/integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
+/integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-mi-robot-vacuum
 
 /components/air_pollutants.* /integrations/:splat
 /components/air_quality.* /integrations/:splat
@@ -200,9 +222,10 @@ layout: null
 
 # Renamed integrations
 /integrationss/air_pollutants /integrations/air_quality
+/integrations/calendar.google /integrations/google
 /integrations/climacell /integrations/tomorrowio
 /integrations/generic_ip_camera /integrations/generic
-/integrations/google /integrations/google_translate
+/integrations/homewizard_energy /integrations/homewizard
 /integrations/input_slider /integrations/input_number
 /integrations/leviton /integrations/leviton_z_wave
 /integrations/light.switch /integrations/switch_as_x
@@ -210,10 +233,12 @@ layout: null
 /integrations/pollen /integrations/iqvia
 /integrations/polling /integrations/telegram_polling
 /integrations/ritassist /integrations/fleetgo
+/integrations/senseme /integrations/baf
 /integrations/synologydsm /integrations/synology_dsm
 /integrations/telegram_chatbot /integrations/telegram_bot
 /integrations/vlc-telnet /integrations/vlc_telnet
 /integrations/xiaomi /integrations/xiaomi_aqara
+/integrations/zwave /integrations/zwave_js/
 
 # Moved documentation
 /details/database /docs/backend/database
@@ -223,13 +248,17 @@ layout: null
 /docs/assist/apple/ /voice_control/apple/
 /docs/assist/builtin_sentences/ /voice_control/builtin_sentences/
 /docs/assist/custom_sentences/ /voice_control/custom_sentences/
-/docs/assist/using_voice_assistants_overview/ /voice_control/using_voice_assistants_overview/
+/docs/assist/using_voice_assistants_overview/ /voice_control/
 /docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
+# Redirect for the QR Codes on the S3 Box
+/s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
+/s3-box-no-ha /voice_control/troubleshooting_the_s3_box/#error-no-home-assistant
 /docs/assist/troubleshooting/ /voice_control/troubleshooting/
 /docs/assist/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
 /projects/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
 /docs/assist/thirteen-usd-voice-remote/ /voice_control/thirteen-usd-voice-remote/
+/draw_assist /voice_control/s3-box-customize/#to-draw-your-own-images
 /projects/thirteen-usd-voice-remote/ /voice_control/thirteen-usd-voice-remote/
 /docs/backend/updater /integrations/analytics
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
@@ -441,6 +470,7 @@ layout: null
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
 /state-of-the-union /blog/2019/11/22/state-of-the-union
 /blog/2022/03/30/release-20224 /blog/2022/04/06/release-20224/
+/blog/2024/01/11/voice-assistant-contest /blog/2024/01/17/voice-assistant-contest
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
@@ -466,11 +496,16 @@ layout: null
 /integrations/device_tracker.trackr /more-info/removed-integration 301
 /integrations/dht /more-info/removed-integration 301
 /integrations/digitalloggers /more-info/removed-integration 301
+/integrations/discovery /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
+/integrations/dyson /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301
 /integrations/ee_brightbox /more-info/removed-integration 301
+/integrations/eight_sleep /more-info/removed-integration 301
 /integrations/envirophat /more-info/removed-integration 301
+/integrations/eq3btsmart /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
+/integrations/facebox /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
 /integrations/flunearyou /more-info/removed-integration 301
 /integrations/fortigate /more-info/removed-integration 301
@@ -487,8 +522,10 @@ layout: null
 /integrations/htu21d /more-info/removed-integration 301
 /integrations/huawei_router /more-info/removed-integration 301
 /integrations/hydroquebec /more-info/removed-integration 301
-/integrations/ialarm /more-info/removed-integration 301
+/integrations/ialarm_xr /more-info/removed-integration 301
 /integrations/iota /more-info/removed-integration 301
+/integrations/life360 /more-info/removed-integration 301
+/integrations/lifx_legacy /more-info/removed-integration 301
 /integrations/linksys_ap /more-info/removed-integration 301
 /integrations/linky /more-info/removed-integration 301
 /integrations/liveboxplaytv /more-info/removed-integration 301
@@ -497,8 +534,10 @@ layout: null
 /integrations/loopenergy /more-info/removed-integration 301
 /integrations/lyft /more-info/removed-integration 301
 /integrations/magicseaweed /more-info/removed-integration 301
+/integrations/mazda /more-info/removed-integration 301
 /integrations/mcp23017 /more-info/removed-integration 301
 /integrations/mhz19 /more-info/removed-integration 301
+/integrations/myq /blog/2023/11/06/removal-of-myq-integration/ 301
 /integrations/miflora /integrations/xiaomi_ble
 /integrations/mitemp_bt /integrations/xiaomi_ble
 /integrations/mopar /more-info/removed-integration 301

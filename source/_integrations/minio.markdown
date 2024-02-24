@@ -121,7 +121,7 @@ automation:
 
 {% endraw %}
 
-## Platform Services
+## Platform services
 
 These services are provided:
 

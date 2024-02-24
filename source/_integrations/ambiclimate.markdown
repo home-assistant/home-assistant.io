@@ -45,7 +45,7 @@ Note that you have to select manual mode from the Ambiclimate app to be able to 
 
 {% include integrations/config_flow.md %}
 
-## Integration services
+## Integration {% term services %}
 
 Enable comfort mode on your AC:
 
@@ -71,4 +71,4 @@ Enable temperature mode on your AC:
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `Name` | yes | String with device name.
-| `value` | yes | Target value in celsius
+| `value` | yes | Target value in Celsius

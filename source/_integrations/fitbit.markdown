@@ -11,6 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@allenporter'
+ha_config_flow: true
 ---
 
 The Fitbit sensor allows you to expose data from [Fitbit](https://fitbit.com/) to Home Assistant.
@@ -48,7 +49,7 @@ The integration setup will next give you instructions to enter the [Application 
 
 {% enddetails %}
 
-## Additional Information
+## Additional information
 
 Please be aware that Fitbit has very low rate limits, 150 per user per hour. The clock resets at the _top_ of the hour (meaning it is not a rolling 60 minutes). There is no way around the limits. Due to the rate limits, the sensor only updates every 30 minutes. You can manually trigger an update by restarting Home Assistant. Keep in mind that 1 request is used for every sensor.
 

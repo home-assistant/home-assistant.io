@@ -2,7 +2,7 @@
 title: TensorFlow
 description: Detect and recognize objects with TensorFlow.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_iot_class: Local Polling
 ha_release: 0.82
 ha_domain: tensorflow

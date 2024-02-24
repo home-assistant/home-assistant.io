@@ -2,7 +2,7 @@
 title: Hunter Hydrawise
 description: Instructions on how to integrate your Hunter Hydrawise Wi-Fi irrigation control system within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Irrigation
   - Sensor
   - Switch
@@ -24,7 +24,7 @@ The `hydrawise` integration allows you to integrate your [Hunter Hydrawise](http
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -39,7 +39,7 @@ To set up the Hydrawise integration, you must first obtain an API Key.
 
 {% include integrations/config_flow.md %}
 
-## Binary Sensor
+## Binary sensor
 
 Binary sensor entities are created for the controller:
 
@@ -67,7 +67,7 @@ Switches are added for each zone, controlling:
 - Smart watering features
 - Manual watering
 
-### Switch Operation
+### Switch operation
 
 When `auto_watering` is `on` the irrigation zone will follow the Smart Watering schedule set through the Hydrawise [mobile or web app](https://www.hydrawise.com). When the `auto_watering` switch is `off` the zone's Smart Watering schedule is suspended for 1 year.
 

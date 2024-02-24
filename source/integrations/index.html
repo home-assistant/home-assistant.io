@@ -22,7 +22,7 @@ regenerate: false
 
 {%- assign components = site.integrations | sort: 'title' -%}
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
-{%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
+{%- assign categories = components | map: 'ha_category' | join: ',' | downcase | split: ',' | uniq | sort -%}
 
 <p class='note'>
   Support for these integrations is provided by the Home Assistant community.
@@ -32,7 +32,10 @@ regenerate: false
 
     <div class="filter-button-group">
       <a href='#all' class="btn">All ({{tot}})</a>
-      <a href='#featured' class="btn featured">Featured</a>
+      <div class="featured">
+        <a href='#featured' class="btn">Featured</a>
+        <a href='#works-with-home-assistant' class="btn">Partner brands</a>
+      </div>
       <div class="version_select">Added in: <select name="versions">
           <option value="#"></option>
           {%- for group in components_by_version -%}
@@ -45,10 +48,28 @@ regenerate: false
           {%- endfor -%}
         </select></div>
       {%- for category in categories -%}
-      {%- assign components_count = components | where: 'ha_category', category | size -%}
-      {%- if category and category != 'Other' and components_count != 0 -%}
-      <a href='#{{ category | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category }} ({{ components_count }})</a>
-      {%- endif -%}
+        {%- assign category_name = "" -%}
+        {%- assign components_count = 0 -%}
+        {%- for comp in components -%}
+          {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
+          {%- if comp_categories contains category -%}
+            {%- if category_name == "" -%}
+              {%- for cat in comp.ha_category -%}
+                {%- assign lower_cat = cat | downcase -%}
+                {%- if lower_cat == category -%}
+                  {%- assign category_name = cat -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%} 
+            {%- assign components_count = components_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if category != 'other' and components_count != 0 -%}
+          {%- if category_name == "" -%}
+            {%- assign category_name = category | capitalize -%}
+          {%- endif -%}
+          <a href='#{{ category_name | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category_name }} ({{ components_count }})</a>
+        {%- endif -%}
       {%- endfor -%}
 
       <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
@@ -103,7 +124,7 @@ var allComponents = [
         {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
         {% assign categories = categories | push: category %}
       {%- endfor -%}
-      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", ha_brand: "{{component.ha_brand}}"},
+      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", ha_brand: "{{component.ha_brand}}", wwha: {% if component.works_with %}true{% else %}false{% endif %}},
     {% endif -%}
   {%- endfor -%}
   false
@@ -190,6 +211,12 @@ allComponents.pop(); // remove placeholder element at the end
           // only show those with featured = true
           filter = function (comp) {
             return comp.featured;
+          };
+
+        } else if (hash === '#works-with-home-assistant') {
+          // only show those partners of the Works with Home Assistant program
+          filter = function (comp) {
+            return comp.wwha;
           };
 
         } else if (hash.indexOf('#version/') === 0) {

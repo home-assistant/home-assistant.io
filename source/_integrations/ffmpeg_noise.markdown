@@ -2,7 +2,7 @@
 title: FFmpeg Noise
 description: Instructions on how to integrate an FFmpeg-based noise binary sensor
 ha_category:
-  - Image Processing
+  - Image processing
 ha_iot_class: Calculated
 ha_release: 0.27
 ha_domain: ffmpeg_noise
@@ -40,7 +40,7 @@ name:
   required: false
   type: string
 initial_state:
-  description: Start FFmpeg with home-assistant.
+  description: Start FFmpeg with Home Assistant.
   required: false
   type: boolean
   default: true
