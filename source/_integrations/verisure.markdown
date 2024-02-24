@@ -87,7 +87,7 @@ automation:
 
 Some users have reported that this integration currently doesn't work in the following countries:
 
-* France
-* Ireland
-* Italy 
-* Sweden
+- France
+- Ireland
+- Italy 
+- Sweden
