@@ -132,6 +132,7 @@ These are the properties available for a [Template trigger](/docs/automation/tri
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `template`
+| `trigger.value` | The value returned by the template.
 | `trigger.entity_id` | Entity ID that caused change.
 | `trigger.from_state` | Previous [state object] of entity that caused change.
 | `trigger.to_state` | New [state object] of entity that caused template to change.
