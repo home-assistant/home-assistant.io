@@ -38,5 +38,5 @@ The sensor provided by this integration will return one of the following values:
 </p>
 
 <p class='img'>
-<img src='/images/screenshots/more-calendar-moon.png' />
+<img src='/images/screenshots/calendar-moon.png' />
 </p>
