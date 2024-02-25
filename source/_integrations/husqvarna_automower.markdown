@@ -2,6 +2,7 @@
 title: Husqvarna Automower
 description: Instructions on how to integrate Husqvarna Automower lawn mowers into Home Assistant.
 ha_category:
+  - Device Tracker
   - Lawn Mower
   - Sensor
   - Switch
@@ -11,6 +12,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@Thomas55555'
 ha_platforms:
+  - device_tracker
   - lawn_mower
   - sensor
   - switch
@@ -75,10 +77,13 @@ The My Home Assistant redirect feature needs to be setup to redirect to your Hom
 
 {% include integrations/config_flow.md %}
 
-
 ## Entities
 
 Once you have enabled the Husqvarna Automower integration, you should see the following entities:
+
+### Device Tracker (if available)
+
+The integration will create a device tracker entity to show the position of the mower.
 
 ### Lawn Mower
 
