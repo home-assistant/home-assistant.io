@@ -11,6 +11,7 @@ ha_iot_class: Local Polling
 ha_domain: vallox
 ha_platforms:
   - binary_sensor
+  - button
   - fan
   - number
   - sensor
@@ -19,18 +20,23 @@ ha_codeowners:
   - '@andre-richter'
   - '@slovdahl'
   - '@viiru-'
+  - '@yozik04'
 ha_integration_type: integration
 ---
 
 The **Vallox** {% term integration %} lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
 
-The **fan** platform of this {% term integration %} allows you to turn on/off the complete unit via the toggle switch, control fan speed and select a ventilation profile.
+The **fan** platform of this integration allows you to control the entire unit. You can turn the unit on/off using the toggle switch, adjust the fan speed, and select a ventilation profile.
 
-The **sensor** platform exposes a number of relevant metrics like fan speed, various air temperatures, and humidity.
+The **sensor** platform allows you to monitor various metrics such as fan speeds, air temperatures, humidity, remaining filter life, cell state, and more.
 
-The **switch** platform allows locking heat recovery bypass.
+The **binary_sensor** platform allows you to monitor the status of the post heater.
 
-The **number** platform allows to control supply air temperatures.
+The **switch** platform allows you to lock the heat recovery bypass.
+
+The **number** platform gives you control over the supply air temperatures.
+
+The **button** platform allows you to reset the filter change date.
 
 {% include integrations/config_flow.md %}
 
