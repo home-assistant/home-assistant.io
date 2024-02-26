@@ -19,7 +19,7 @@ To flash your eMMC using OTG-USB, you will need the following items:
 
 (These steps are identical to the official [Hardkernel wiki](https://wiki.odroid.com/odroid-m1s/getting_started/os_installation_guide?redirect=1#install_over_usb_from_pc) page.)
 
-1. Download [ODROID-M1S_EMMC2UMS.img](https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img)
+1. Download [ODROID-M1S_EMMC2UMS.img](https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img).
 2. Use [balena Etcher](https://www.balena.io/etcher/) or another tool to flash the UMS utility onto an SD card.
    - use **Flash from file**. **Flash from URL** does not work on all systems.
       (balena Etcher will complain that something went wrong during flashing. You can ignore this message)
