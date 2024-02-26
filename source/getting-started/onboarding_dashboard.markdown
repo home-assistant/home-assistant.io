@@ -32,7 +32,7 @@ The procedure below is optional. The idea is to learn some basics on changing th
     - Once you are done, select **Update**.
    ![Weather details](/images/getting-started/onboarding_card_settings_01.png)
 
-4. To change the type of dashboard card, in the top right corner, select the three-dots, then, in the **Edit dashboard** dialog, select the three dots again and select **Take control**.
+4. To change the type of dashboard card, in the top right corner, select the pencil icon, then, in the **Edit dashboard** dialog, select the three dots and select **Take control**.
    ![Take control of the dashboard](/images/getting-started/dashboard-take-control.png)
    - Read and accept this before continuing.
    - On the dashboard, select the weather card, select the three dots, then **Device info**.
