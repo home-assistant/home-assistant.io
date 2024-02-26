@@ -11,7 +11,7 @@ ha_iot_class: Local Polling
 ha_domain: vallox
 ha_platforms:
   - binary_sensor
-  - button
+  - date
   - fan
   - number
   - sensor
@@ -36,7 +36,7 @@ The **switch** platform allows you to lock the heat recovery bypass.
 
 The **number** platform gives you control over the supply air temperatures.
 
-The **button** platform allows you to reset the filter change date.
+The **date** platform allows you to set the filter change date.
 
 {% include integrations/config_flow.md %}
 
