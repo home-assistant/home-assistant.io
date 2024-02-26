@@ -44,7 +44,7 @@ You might need a backup in case your system has crashed. If you only store them 
 
 There are multiple ways to store the backup on another device:
 
-- **Option 1**: Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, on the list, single-click ot tap the backup of interest.
+- **Option 1**: Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, on the list, single-click or tap the backup of interest.
   - **Result**: The backup dialog opens.
   - In the dialog, select the three dots menu and select **Download backup**.
   - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
