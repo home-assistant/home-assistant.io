@@ -704,7 +704,11 @@ The following integrations are now available via the Home Assistant UI:
 - Fix another name missing in wyoming getLogger ([@llluis] - [#111390]) ([wyoming docs])
 - Update caldav to 1.3.9 ([@cdce8p] - [#111429]) ([caldav docs])
 - Update guppy3 to 3.1.4.post1 ([@cdce8p] - [#111430]) ([profiler docs])
+- Bump openwebifpy to 4.2.4 ([@autinerd] - [#110676]) ([enigma2 docs])
 
+[@autinerd]: https://github.com/autinerd
+[enigma2 docs]: /integrations/enigma2/
+[#110676]: https://github.com/home-assistant/core/pull/110676
 [#109248]: https://github.com/home-assistant/core/pull/109248
 [#109883]: https://github.com/home-assistant/core/pull/109883
 [#110078]: https://github.com/home-assistant/core/pull/110078
