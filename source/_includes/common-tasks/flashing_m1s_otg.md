@@ -8,7 +8,7 @@ Instead the M1S has a build-in 64GB eMMC soldered directly on the board that hol
 
 ### What you will need
 
-To flash your eMMC using OTG-USB, you will need the following items:
+To flash your <abbr title="embedded MultiMediaCard">eMMC</abbr> using <abbr title="USB-On-The-Go">USB-OTG</abbr>, you will need the following items:
 
 - A small SD card
 - Another computer
