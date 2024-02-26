@@ -240,7 +240,7 @@ In this section you will find some example automations that you can use to get s
 
 #### Do something when a device enters a geofence
 
-The allows you to do something when the device `device_tracker.millennium_falcon` enters the defined geofence.
+The allows you to do something when the device "Millennium Falcon" enters the defined geofence.
 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/traccar_server_device_enter_geofence.yaml" %}
 
@@ -249,8 +249,7 @@ The allows you to do something when the device `device_tracker.millennium_falcon
 ```yaml
 trigger:
   - platform: state
-    entity_id: device_tracker.millennium_falcon
-    attribute: geofence
+    entity_id: sensor.millennium_falcon_geofence
     to: 'Tatooine'
 action:
   ...
@@ -260,7 +259,7 @@ action:
 
 #### Do something when a device are speeding
 
-The allows you to do something when the device `device_tracker.millennium_falcon` exceeds a defined speed.
+The allows you to do something when the device "Millennium Falcon" exceeds a defined speed.
 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/traccar_server_device_speed_limit.yaml" %}
 
@@ -269,14 +268,13 @@ The allows you to do something when the device `device_tracker.millennium_falcon
 ```yaml
 trigger:
   - platform: numeric_state
-    entity_id: device_tracker.millennium_falcon
-    attribute: speed
+    entity_id: sensor.millennium_falcon_speed
     above: 1337
 action:
   ...
 ```
 
-If you want to include the speed in a notification, you can use the `{{ trigger.to_state.attributes.speed }}` template.
+If you want to include the speed in a notification, you can use the `{{ trigger.to_state.state }}` template.
 
 Partial example:
 
@@ -286,7 +284,7 @@ trigger:
 action:
   - service: notify.notify
     data:
-      message: "The current speed of the Millennium falcon is {{ trigger.to_state.attributes.speed }}!"
+      message: "The current speed of the Millennium falcon is {{ trigger.to_state.state }}!"
 ```
 
 {% enddetails %}
