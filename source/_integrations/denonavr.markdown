@@ -28,6 +28,7 @@ Known supported devices:
 - Denon AVR-X1500H
 - Denon AVR-X1600H
 - Denon AVR-X1700H
+- Denon AVR-X1800H
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X2200W
@@ -68,13 +69,16 @@ Known supported devices:
 - Denon AVR-S740H
 - Denon AVR-S750H
 - Denon AVR-S760H
+- Denon AVR-S770H
 - Denon AVR-S940H
 - Denon AVR-S950H
 - Denon AVR-S960H
 - Denon DN-500AV
+- Denon DRA-800H
 - Marantz AV7702
 - Marantz AV7703
 - Marantz AV7704
+- Marantz AV8802A
 - Marantz CINEMA 50
 - Marantz CINEMA 70s
 - Marantz M-CR510

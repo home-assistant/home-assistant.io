@@ -10,10 +10,10 @@ ha_domain: bang_olufsen
 ha_platforms:
   - media_player
 ha_codeowners:
-  - "@mj23000"
+  - '@mj23000'
 ha_config_flow: true
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The Bang & Olufsen integration enables control of some of the features of certain [Bang & Olufsen](https://www.bang-olufsen.com/) devices through Home Assistant.

@@ -325,6 +325,32 @@ List of lights that are on with a brightness of 255:
 
 {% endraw %}
 
+
+### State translated
+
+Not supported in [limited templates](#limited-templates).
+
+The `state_translated` function returns a translated state of an entity using a language that is currently configured in the [general settings](https://my.home-assistant.io/redirect/general/).
+
+#### State translated examples
+
+{% raw %}
+
+```text
+{{ states("sun.sun") }}             # below_horizon
+{{ state_translated("sun.sun") }}   # Below horizon
+{{ "sun.sun" | state_translated }}  # Below horizon
+```
+
+```text
+{{ states("binary_sensor.movement_backyard") }}             # on
+{{ state_translated("binary_sensor.movement_backyard") }}   # Detected
+{{ "binary_sensor.movement_backyard" | state_translated }}  # Detected
+```
+
+{% endraw %}
+
+
 ### Working with groups
 
 Not supported in [limited templates](#limited-templates).

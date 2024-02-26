@@ -17,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - switch
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The `lupusec` integration allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
@@ -25,7 +26,7 @@ Supported units:
 
 - Lupusec XT1
 - Lupusec XT2 Plus
-- Lupusec XT3 Plus
+- Lupusec XT3
 
 The following devices are supported by the underlying `lupupy` Python library and integrated into Home Assistant.
 

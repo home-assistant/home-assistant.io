@@ -11,8 +11,8 @@ ha_codeowners:
   - '@msavazzi'
 ha_domain: jvc_projector
 ha_platforms:
-  - remote
   - binary_sensor
+  - remote
 ha_integration_type: device
 ---
 
