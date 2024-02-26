@@ -1,13 +1,13 @@
 ---
 title: WeatherFlow Cloud
 description: Instructions on the Cloud based WeatherFlow integration
-ha_release: '2024.3'
+ha_release: 2024.3
 ha_category:
   - Environment
   - Weather
 ha_platforms:
   - weather
-ha_iot_class: Cloud Poll
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@jeeftor'
