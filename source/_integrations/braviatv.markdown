@@ -49,6 +49,8 @@ The Bravia TV {% term integration %} provides information about the power status
 Replace `media_player.sony_tv_native` with your Bravia TV integration media player entity ID.
 Replace `media_player.sony_tv_cast` with your Google Cast integration media player entity ID.
 
+{% raw %}
+
 ```yaml
 media_player:
   - platform: universal
@@ -101,6 +103,8 @@ media_player:
         target:
           entity_id: media_player.sony_tv_native
 ```
+
+{% endraw %}
 
 {% enddetails %}
 
