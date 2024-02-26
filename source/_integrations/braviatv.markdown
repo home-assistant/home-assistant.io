@@ -32,22 +32,77 @@ Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_w
 The Bravia TV integration supports two types of authentication:
 
 - **PSK (Pre-Shared-Key)** is a user-defined secret key used for access control. This authentication method is recommended as more reliable and stable. To set up and enable PSK on your TV, go to: **Settings -> Network -> Home Network Setup -> IP Control**.
-- **PIN Code** authentication is easier and does not require additional settings.
+- **PIN Code** authentication is easier and does not require additional settings. [See this guide](#tv-does-not-generate-new-pin) if your TV does not show the PIN code.
 
 For more information, see [IP Control Authentication](https://pro-bravia.sony.net/develop/integrate/ip-control/index.html#ip-control-authentication).
 
-## Common issues
-
-### TV does not generate new pin
-
-If you have previously set up your TV with any Home Assistant instances via PIN code, you must remove Home Assistant from your TV in order for your TV to generate a new pin. To do this, you must do **one** of the following:
-
-- On your TV, go to: **Settings** > **Network** > **Remote device settings** > **Deregister remote device**. Disable and re-enable the **Control remotely** after. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidance.
-- Reset your TV to factory condition.
-
 ## Media browser
 
-Using the media browser, you can view a list of all installed applications and TV channels and launch them.
+Using the media browser, you can view a list of all installed applications and TV channels and launch them. You can access the media browser from the **Media** section in the Home Assistant side menu or by clicking the **Browse media** button on the media player card.
+
+## Using with Google Cast
+
+The Bravia TV {% term integration %} provides information about the power status of the device, current source, volume and gives you the ability to control playback, run applications and send remote control commands. Unfortunately, due to limitations of the Bravia REST API, it does not provide information about the currently playing content in applications (app name, media title, duration, play/pause state, etc.). In turn, [Google Cast](/integrations/cast/) integration does not provide reliable information about the power status of the device (e.g. on Home Screen) and does not allow to control playback in Android apps without [MediaSession](https://developer.android.com/reference/android/media/session/MediaSession) support. However, it can display full information about the content being played in supported apps. If your TV runs on Android or Google TV, you can use the the Google Cast integration together with the Bravia TV integration. For convenience, you can combine two media players into one using [Universal Media Player](/integrations/universal/). Universal Media Player will automatically select the appropriate active media player entity.
+
+{% details "Example YAML configuration" %}
+
+Replace `media_player.sony_tv_native` with your Bravia TV integration media player entity ID.
+Replace `media_player.sony_tv_cast` with your Google Cast integration media player entity ID.
+
+```yaml
+media_player:
+  - platform: universal
+    name: Sony TV
+    unique_id: sony_tv_combined
+    device_class: tv
+    children:
+      - media_player.sony_tv_native
+      - media_player.sony_tv_cast
+    active_child_template: >
+      {% if state_attr('media_player.sony_tv_native', 'media_content_id') %}
+         media_player.sony_tv_native
+      {% endif %}
+    attributes:
+      source: media_player.sony_tv_native|source
+      source_list: media_player.sony_tv_native|source_list
+    browse_media_entity: media_player.sony_tv_native
+    commands:
+      turn_off:
+        service: media_player.turn_off
+        data:
+          entity_id: media_player.sony_tv_native
+      turn_on:
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.sony_tv_native
+      select_source:
+        service: media_player.select_source
+        data:
+          entity_id: media_player.sony_tv_native
+          source: "{{ source }}"
+      media_play:
+        service: media_player.media_play
+        target:
+          entity_id: media_player.sony_tv_native
+      media_pause:
+        service: media_player.media_pause
+        target:
+          entity_id: media_player.sony_tv_native
+      media_play_pause:
+        service: media_player.media_play_pause
+        target:
+          entity_id: media_player.sony_tv_native
+      media_previous_track:
+        service: media_player.media_previous_track
+        target:
+          entity_id: media_player.sony_tv_native
+      media_next_track:
+        service: media_player.media_next_track
+        target:
+          entity_id: media_player.sony_tv_native
+```
+
+{% enddetails %}
 
 ## Play media service
 
@@ -93,9 +148,19 @@ data:
 
 ## Remote
 
-The integration supports `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service.
+The {% term integration %} supports `remote` platform. It allows you to send remote control commands to your TV with the `remote.send_command` service.
 
-The commands that can be sent to the TV depends on the model of your TV. To display a list of supported commands for your TV, call the service `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs).
+The commands that can be sent to the TV depends on the model of your TV. To display a list of supported commands for your TV, call the {% term service %} `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs).
+
+**Example to send `Down` key command:**
+
+```yaml
+service: remote.send_command
+target:
+  entity_id: remote.bravia_tv
+data:
+  command: "Down"
+```
 
 {% details "Some commonly used commands" %}
 
@@ -124,20 +189,34 @@ The commands that can be sent to the TV depends on the model of your TV. To disp
 
 {% enddetails %}
 
-**Example to send `Down` key command:**
-
-```yaml
-service: remote.send_command
-target:
-  entity_id: remote.bravia_tv
-data:
-  command: "Down"
-```
-
 ## Buttons
 
-The integration supports `button` platform and allows you to reboot the device or terminate all running applications.
+The {% term integration %} supports `button` platform and allows you to reboot the device or terminate all running applications.
 
-## For TVs older than 2013
+## Limitations and known issues
+
+### TV does not generate new pin
+
+If you have previously set up your TV with any Home Assistant instances via PIN code, you must remove Home Assistant from your TV in order for your TV to generate a new pin. On your TV, go to: **Settings** > **Network** > **Remote device settings** > **Deregister remote device**. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidance.
+
+### Sometimes the integration displays an error in the logs and does not respond to commands
+
+Unfortunately, the system service application (WebApiCore) on the TV that provides Sony Bravia REST API does not work very well and has many problems. The service may begin to reboot spontaneously or freeze, especially when the TV has not been rebooted for a long time or a heavy application is running. Perhaps sometimes the process is killed by Android TV itself due to lack of memory. When the service is being rebooted (about 30 seconds), the API will be unavailable, and any interaction with the {% term integration %} may result in an error in the logs.
+
+If you encounter this, you must completely reboot your TV. To do this, hold down the **Power** button on the remote control and select **Restart**. In addition, we recommend periodically completely restarting your TV. You can also create an {% term automation} that will automatically restart the TV (for example, every night if the TV is turned off).
+
+If this happens very often, you can try to reset **WebApiCore** service. On your TV, go to: **Settings** > **Apps** > **See all aps** > Find **WebApiCore** > Press **Clear data**.
+
+### Integration shows 'Smart TV' instead of the name of the running application
+
+See [Using with Google Cast](#using-with-google-cast) section for more details.
+
+### Continuous consumption of ~15W when the TV is turned off while integration is enabled
+
+The Bravia TV is #[local pulling integration](https://www.home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#polling-the-local-device). Even if the TV is turned off, its status is constantly polled to determine the current state, so the TV's network interface remains enabled. This is normal behavior. If you are concerned about this, you can disable polling for updates in the integration **System options** menu, but the TV status will no longer update automatically and you will have to force the entity update via a call to the `homeassistant.update_entity` {% term service %} manually.
+
+Please note that this behavior can be caused not only by integration, but also by some applications installed on the TV.
+
+### For TVs older than 2013
 
 Users of TVs older than 2013 can control their devices using [HDMI-CEC](/integrations/hdmi_cec/), [Broadlink](/integrations/broadlink/) or [Kodi](/integrations/kodi/) integrations.
