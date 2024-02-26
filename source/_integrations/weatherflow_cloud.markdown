@@ -1,7 +1,7 @@
 ---
 title: WeatherFlow Cloud
 description: Instructions on the Cloud based WeatherFlow integration
-ha_release: '2024.1'
+ha_release: '2024.3'
 ha_category:
   - Environment
 ha_platforms:
