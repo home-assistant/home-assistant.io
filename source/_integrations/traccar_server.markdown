@@ -80,6 +80,7 @@ These device representations in Home Assistant will have [entities](#entities) a
 The traccar server integration will create entities in with the following domains:
 
 - [Device Tracker](/integrations/device_tracker)
+- [Sensor](/integrations/sensor)
 
 For more details about each of these, see the sections below.
 
@@ -103,22 +104,10 @@ State:
 In addition to the custom attributes you can define in the Traccar Server integration options, the device tracker entity will have the following attributes:
 
 {% configuration_basic %}
-Address:
-  description: If a position update has an address associated with it, this will be the address.
-Altitude:
-  description: The altitude of the position update.
-Battery Level:
-  description: The battery level of the device if defined.
 Category:
   description: The category of the device in Traccar if defined.
-Geofence:
-  description: The name of the geofence the device is located in.
 Motion:
   description: If the device is moving or not.
-Speed:
-  description: The speed of the device.
-Status:
-  description: The status of the device in Traccar.
 Traccar ID:
   description: The ID of the device in Traccar.
 Tracker:
@@ -126,6 +115,120 @@ Tracker:
 {% endconfiguration_basic %}
 
 {% enddetails %}
+
+### Sensor - Address
+
+The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the address reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Address.
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `position_address`.
+State:
+  description: This will be the address reported by the Traccar Server, if geo detection is not configured this will be unknown`.
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
+
+### Sensor - Altitude
+
+The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the altitude reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Altitude.
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `position_altitude`.
+State:
+  description: This will be the altitude in meters (you can select a different unit in the entity options if you want).
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
+
+### Sensor - Battery
+
+The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the battery percentage reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Battery.
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `position_attributes.batteryLevel`.
+State:
+  description: This will be the battery percentage (level) as reported by the tracked device, if the device does not have a battery this will be unknown.
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
+
+### Sensor - Geofence
+
+The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the geofence reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Geofence.
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `geofence_geofence`.
+State:
+  description: This will be geofence that the device is in, if you have overlapping geofences it will show the first one as reported by the Traccar Server.
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
+
+### Sensor - Speed
+
+The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the speed reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Speed.
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `position_speed`.
+State:
+  description: This will be the speed of the device in knots (you can select a different unit in the entity options if you want).
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
+
+### Sensor - Status
+
+The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the status reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Status.
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `devcie_status`.
+State:
+  description: This will be one of the following; `offline`, `unknown`, `online`.
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
 
 ## Examples
 
