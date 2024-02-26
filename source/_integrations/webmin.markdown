@@ -3,7 +3,7 @@ title: Webmin
 description: Instructions on how to set up Webmin with Home Assistant.
 ha_category:
   - System monitor
-ha_release: '2024.2'
+ha_release: '2024.3'
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -16,7 +16,7 @@ ha_platforms:
 
 [Webmin](https://webmin.com) is a web-based interface for the system administration of Unix-like servers.
 
-This {% term integration %} provides sensors for monitoring the CPU usage, memory usage, and disk usage of your server.
+This {% term integration %} provides sensors for monitoring the CPU and memory usage of your server.
 
 {% include integrations/config_flow.md %}
 
@@ -29,3 +29,7 @@ Following sensors will be added:
 - Load (1m)
 - Load (5m)
 - Load (15m)
+- Memory total
+- Memory free
+- Swap total
+- Swap free
