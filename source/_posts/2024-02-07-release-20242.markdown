@@ -61,6 +61,7 @@ _Oh! And don't forget Valentine's Day is coming up!_ 😘
 - [Release 2024.2.1 - February 9](#release-202421---february-9)
 - [Release 2024.2.2 - February 16](#release-202422---february-16)
 - [Release 2024.2.3 - February 22](#release-202423---february-22)
+- [Release 2024.2.4 - February 25](#release-202424---february-25)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -280,7 +281,7 @@ noteworthy changes this release:
 
 - [@edenhaus] improved how we handle errors in our form fields. We no longer
   show the technical coding gibberish that often showed up in the past. Nice!
-- When you [change the type of a switch entity] to, for example, a garage door 
+- When you [change the type of a switch entity] to, for example, a garage door
   entity, you will now have the option to invert its behavior.
   Thanks, [@emontnemery]!
 - The [Ecovacs] integration received lots of love from [@edenhaus] and now
@@ -368,7 +369,7 @@ We welcome the following new integrations in this release:
 - **[Tedee]**, added by [@zweckj]<br />
   Use your Tedee smart locks in Home Assistant.
 - **[Teslemetry]**, added by [@Bre77]<br />
-  Pull in live telemetry data from your Tesla vehicle via the Tesla Fleet API. 
+  Pull in live telemetry data from your Tesla vehicle via the Tesla Fleet API.
 - **[TechnoVE]**, added by [@Moustachauve]<br />
   Control of TechnoVE Smart Charging Station using a local API.
 - **[Traccar server]**, added by [@ludeeus]<br />
@@ -691,6 +692,49 @@ The following integrations are now available via the Home Assistant UI:
 [@thecode]: https://github.com/thecode
 [@tkdrob]: https://github.com/tkdrob
 [@wilburCforce]: https://github.com/wilburCforce
+
+## Release 2024.2.4 - February 25
+
+- Return group unit of measurement when device_class is None ([@PoppyPop] - [#110973]) ([group docs])
+- Bump roombapy to 1.6.13 ([@Orhideous] - [#111187]) ([roomba docs])
+- Bump orjson to 3.9.15 ([@bdraco] - [#111233])
+- Set Lutron switch to device name ([@joostlek] - [#111293]) ([lutron docs])
+- Bump opower to 0.3.0 ([@swartzd] - [#109248]) ([opower docs])
+- Bump opower to 0.3.1 ([@benhoff] - [#111307])
+- Fix another name missing in wyoming getLogger ([@llluis] - [#111390]) ([wyoming docs])
+- Update caldav to 1.3.9 ([@cdce8p] - [#111429]) ([caldav docs])
+- Update guppy3 to 3.1.4.post1 ([@cdce8p] - [#111430]) ([profiler docs])
+
+[#109248]: https://github.com/home-assistant/core/pull/109248
+[#109883]: https://github.com/home-assistant/core/pull/109883
+[#110078]: https://github.com/home-assistant/core/pull/110078
+[#110720]: https://github.com/home-assistant/core/pull/110720
+[#110973]: https://github.com/home-assistant/core/pull/110973
+[#111133]: https://github.com/home-assistant/core/pull/111133
+[#111187]: https://github.com/home-assistant/core/pull/111187
+[#111233]: https://github.com/home-assistant/core/pull/111233
+[#111293]: https://github.com/home-assistant/core/pull/111293
+[#111307]: https://github.com/home-assistant/core/pull/111307
+[#111390]: https://github.com/home-assistant/core/pull/111390
+[#111429]: https://github.com/home-assistant/core/pull/111429
+[#111430]: https://github.com/home-assistant/core/pull/111430
+[@Orhideous]: https://github.com/Orhideous
+[@PoppyPop]: https://github.com/PoppyPop
+[@bdraco]: https://github.com/bdraco
+[@benhoff]: https://github.com/benhoff
+[@cdce8p]: https://github.com/cdce8p
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@llluis]: https://github.com/llluis
+[@swartzd]: https://github.com/swartzd
+[abode docs]: /integrations/abode/
+[caldav docs]: /integrations/caldav/
+[group docs]: /integrations/group/
+[lutron docs]: /integrations/lutron/
+[opower docs]: /integrations/opower/
+[profiler docs]: /integrations/profiler/
+[roomba docs]: /integrations/roomba/
+[wyoming docs]: /integrations/wyoming/
 
 ## Need help? Join the community!
 
@@ -1231,11 +1275,11 @@ The following integrations are also no longer available as of this release:
   ([@reedy] - [#107005])
 - **Legrand Home+ Control** has been removed as their API shut down in December.
   Use [the Netatmo integration](/integrations/netatmo/) as an alternative to
-  integrate your Legrand Home+ Control devices.  
+  integrate your Legrand Home+ Control devices.
   ([@jpbede] - [#107587])
 - **Life360** has been removed. They are now actively blocking third-party
   access, including Home Assistant. The [Home Assistant Companion app](https://companion.home-assistant.io/)
-  is a good and (above all) privacy-friendly alternative.  
+  is a good and (above all) privacy-friendly alternative.
   ([@pnbruckner] - [#107805])
 
 [@jpbede]: https://github.com/jpbede
