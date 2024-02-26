@@ -34,7 +34,7 @@ Home Assistant Supervisor and Core’s built-in backup functionality has become 
 
 <p><img src='/images/blog/2024-02-haos12/supervisor-backup-speed-improvements.png' class='no-shadow' alt='Comparison of the speed of a 100MB backup on a Home Assistant Yellow, .' /></p>
 
-Home Assistant OS users’ backup functionality is part of Supervisor. You’ll have received the improvements incrementally over the releases of the past few weeks. At the time of writing, your installation should run on Home Assistant Supervisor 2024.02.x with all these improvements built in.
+Home Assistant OS users’ backup functionality is part of Supervisor. You’ll have received the improvements incrementally over the releases of the past few weeks. At the time of writing, your installation should run on Home Assistant Supervisor 2024.02.0 with all these improvements built in.
 
 ## Safer add-on auto-updates
 
