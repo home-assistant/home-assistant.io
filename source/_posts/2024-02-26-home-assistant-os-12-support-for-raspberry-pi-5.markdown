@@ -38,7 +38,7 @@ Home Assistant OS sticks to the LTS (long-term support) kernels, which are usual
 
 Home Assistant Supervisor and Core’s built-in backup functionality has become much faster. Thanks to contributions from bdraco, the backup feature gained faster compression speeds due to a library named isal, which provides optimized low-level functions for compression and decompression. More importantly, the backup feature now avoids intermediate copies, making it faster on slower storage media especially. If you used uncompressed backups before because the backup used to be too slow for you, now is the time to give compressed backups a try again! 😀
 
-<p><img src='/images/blog/2024-02-haos12/supervisor-backup-speed-improvements.png' class='no-shadow' alt='Comparison of the speed of a 100MB backup on a Home Assistant Yellow, .' /></p>
+<p><img src='/images/blog/2024-02-haos12/supervisor-backup-speed-improvements.png' class='no-shadow' alt='Comparison of the speed of a 100MB backup on a Home Assistant Yellow, between Supervisor 2023.12.1 and 2024.02.0.' /></p>
 
 Home Assistant OS users’ backup functionality is part of Supervisor. You’ll have received the improvements incrementally over the releases of the past few weeks. At the time of writing, your installation should run on Home Assistant Supervisor 2024.02.0 with all these improvements built in.
 
