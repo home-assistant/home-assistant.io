@@ -205,7 +205,6 @@ layout: null
 /components/image_processing.* /integrations/:splat
 /components/light.* /integrations/:splat
 /components/lock.* /integrations/:splat
-/components/mailbox.* /integrations/:splat
 /components/media_player.* /integrations/:splat
 /components/notify.* /integrations/:splat
 /components/remote.* /integrations/:splat
