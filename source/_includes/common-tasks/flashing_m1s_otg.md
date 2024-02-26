@@ -37,5 +37,5 @@ A reliable way of reflashing the eMMC in this case is to use HAOS booted from an
 curl https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img | dd of=/dev/mmcblk0
 ```
 
-This way the device will start in the UMS mode on the next boot with the SD card removed. Alternatively you can use the [Hardkernel installer image](https://wiki.odroid.com/odroid-m1s/getting_started/os_installation_guide#user_installer) directly instead of the EMMC2UMS image.
+This way, the device will start in the UMS mode on the next boot with the SD card removed. Alternatively, you can use the [Hardkernel installer image](https://wiki.odroid.com/odroid-m1s/getting_started/os_installation_guide#user_installer) directly instead of the EMMC2UMS image.
 
