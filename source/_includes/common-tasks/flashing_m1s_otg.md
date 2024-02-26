@@ -32,6 +32,7 @@ To flash your eMMC using OTG-USB, you will need the following items:
 
 
 #### _HK Recovery_
+
 If you want to restore your M1S back into Hardkernel's initial state, you will have to restore the HK's bootloader.
 A reliable way of reflashing the eMMC in this case is to use HAOS booted from an SD card. To do that, insert the SD card with HAOS to the micro SD slot and plug the board in. Once the device boots to the HA CLI, enter `login` to enter the root shell and use `curl` to download an image and `dd` it to the eMMC block device:
 
