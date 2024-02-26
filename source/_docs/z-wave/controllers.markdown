@@ -85,7 +85,7 @@ It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blu
 
 ### Razberry Board
 
-You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Raspberry Pi 3). You do this by adding the following to the end of `/boot/config.txt`:
+On Raspberry Pi 3 and 4, you need to disable the on-board Bluetooth since the board requires the use of the hardware UART (whose pins are shared with the Bluetooth). You do this by adjusting the `/boot/config.txt`.
 
 For both processes below you will need to insert your SD card into your PC and open the configuration file with your favorite text editor.
 
