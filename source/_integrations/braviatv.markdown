@@ -207,7 +207,7 @@ If you have previously set up your TV with any Home Assistant instances via PIN 
 
 Unfortunately, the system service application (WebApiCore) on the TV that provides Sony Bravia REST API does not work very well and has many problems. The service may begin to reboot spontaneously or freeze, especially when the TV has not been rebooted for a long time or a heavy application is running. Perhaps sometimes the process is killed by Android TV itself due to lack of memory. When the service is being rebooted (about 30 seconds), the API will be unavailable, and any interaction with the {% term integration %} may result in an error in the logs.
 
-If you encounter this, you must completely reboot your TV. To do this, hold down the **Power** button on the remote control and select **Restart**. In addition, we recommend periodically completely restarting your TV. You can also create an {% term automation} that will automatically restart the TV (for example, every night if the TV is turned off).
+If you encounter this, you must completely reboot your TV. To do this, hold down the **Power** button on the remote control and select **Restart**. In addition, we recommend periodically completely restarting your TV. You can also create an {% term automation %} that will automatically restart the TV (for example, every night if the TV is turned off).
 
 If this happens very often, you can try to reset **WebApiCore** service. On your TV, go to: **Settings** > **Apps** > **See all aps** > Find **WebApiCore** > Press **Clear data**.
 
