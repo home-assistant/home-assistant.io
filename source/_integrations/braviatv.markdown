@@ -46,8 +46,7 @@ The Bravia TV {% term integration %} provides information about the power status
 
 {% details "Example YAML configuration" %}
 
-Replace `media_player.sony_tv_native` with your Bravia TV integration media player entity ID.
-Replace `media_player.sony_tv_cast` with your Google Cast integration media player entity ID.
+Replace `media_player.sony_tv_native` with your Bravia TV integration media player {% term entity %} ID. Replace `media_player.sony_tv_cast` with your Google Cast integration media player {% term entity %} ID.
 
 {% raw %}
 
@@ -110,7 +109,7 @@ media_player:
 
 ## Play media service
 
-The `play_media` {% term service %} can be used in an automation or script to switch to a specified application or TV channel. It selects the best matching application or channel according to the `media_content_id`:
+The `play_media` {% term service %} can be used in an {% term automation %} or {% term script %} to switch to a specified application or TV channel. It selects the best matching application or channel according to the `media_content_id`:
 
  1. Channel number *(i.e., '1' or '6')*
  2. Exact app or channel name *(i.e., 'Google Play' or 'CNN')*
@@ -152,7 +151,7 @@ data:
 
 ## Remote
 
-The {% term integration %} supports `remote` platform. It allows you to send remote control commands to your TV with the `remote.send_command` service.
+The {% term integration %} supports `remote` {% term platform %}. It allows you to send remote control commands to your TV with the `remote.send_command` service.
 
 The commands that can be sent to the TV depends on the model of your TV. To display a list of supported commands for your TV, call the {% term service %} `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs).
 
@@ -195,7 +194,7 @@ data:
 
 ## Buttons
 
-The {% term integration %} supports `button` platform and allows you to reboot the device or terminate all running applications.
+The {% term integration %} supports `button` {% term platform %} and allows you to reboot the device or terminate all running applications.
 
 ## Limitations and known issues
 
@@ -215,9 +214,9 @@ If this happens very often, you can try to reset **WebApiCore** service. On your
 
 See [Using with Google Cast](#using-with-google-cast) section for more details.
 
-### Continuous consumption of ~15W when the TV is turned off while integration is enabled
+### Power consumption ~15W when the TV in standby mode while integration is enabled
 
-The Bravia TV is #[local pulling integration](https://www.home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#polling-the-local-device). Even if the TV is turned off, its status is constantly polled to determine the current state, so the TV's network interface remains enabled. This is normal behavior. If you are concerned about this, you can disable polling for updates in the integration **System options** menu, but the TV status will no longer update automatically and you will have to force the entity update via a call to the `homeassistant.update_entity` {% term service %} manually.
+The Bravia TV is [local pulling integration](https://www.home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#polling-the-local-device). Even if the TV is turned off, its status is constantly polled to determine the current state, so the TV's network interface remains enabled. This is normal behavior. If you are concerned about this, you can disable polling for updates in the integration **System options** menu, but the TV status will no longer update automatically and you will have to force the {% term entity %} update by calling `homeassistant.update_entity` {% term service %} manually.
 
 Please note that this behavior can be caused not only by integration, but also by some applications installed on the TV.
 
