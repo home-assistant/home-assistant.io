@@ -26,6 +26,7 @@ To flash your eMMC using OTG-USB, you will need the following items:
 3. Plug-in that SD card to your ODROID-M1S and boot it.
 
 ### Flashing Home Assistant M1S
+
 1. Download the latest stable version of Home Assistant OS for the [ODROID-M1S](https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos['odroid-m1s']}}/haos_odroid-m1s-{{site.data.version_data.hassos['odroid-m1s']}}.img.xz).
 2. Apart from the HAOS image to flash (M1S instead of N2+ version), you can follow the N2+ step-by-step flashing guide [HERE](/common-tasks/os/#flashing-home-assistant).
 
