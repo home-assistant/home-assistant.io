@@ -16,6 +16,7 @@ To flash your eMMC using OTG-USB, you will need the following items:
 - the special Hardkernel eMMC-to-USB-mass-storage image
 
 ### Boot into mass-storage mode
+
 (These steps are identical to the official [Hardkernel wiki](https://wiki.odroid.com/odroid-m1s/getting_started/os_installation_guide?redirect=1#install_over_usb_from_pc) page.)
 
 1. Download [ODROID-M1S_EMMC2UMS.img](https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img)
