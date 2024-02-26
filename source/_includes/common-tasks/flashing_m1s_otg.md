@@ -22,7 +22,7 @@ To flash your eMMC using OTG-USB, you will need the following items:
 1. Download [ODROID-M1S_EMMC2UMS.img](https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img)
 2. Use [balena Etcher](https://www.balena.io/etcher/) or another tool to flash the UMS utility onto an SD card.
    - use **Flash from file**. **Flash from URL** does not work on all systems.
-      (balena Etcher will complain that something went wring during flashin. You can ignore this message)
+      (balena Etcher will complain that something went wrong during flashing. You can ignore this message)
 3. Plug-in that SD card to your ODROID-M1S and boot it.
 
 ### Flashing Home Assistant M1S
