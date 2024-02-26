@@ -216,6 +216,8 @@ installation:
       board: Raspberry Pi
       installation_media: "SD card"
       variants:
+        - name: "Raspberry Pi 5"
+          key: "rpi5-64"
         - name: "Raspberry Pi 4"
           key: "rpi4-64"
         - name: "Raspberry Pi 3"
