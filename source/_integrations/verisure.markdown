@@ -83,7 +83,7 @@ automation:
 | auto | Lock was locked/unlocked automatically by Verisure rule |
 | remote | Lock was locked/unlocked automatically by Verisure App |
 
-## Limitations and Known Issues
+## Limitations and known issues
 
 Some users have reported that this integration currently doesn't work in the following countries:
 
