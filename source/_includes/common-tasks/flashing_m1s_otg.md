@@ -34,7 +34,7 @@ To flash your <abbr title="embedded MultiMediaCard">eMMC</abbr> using <abbr titl
 #### _HK Recovery_
 
 If you want to restore your M1S back into Hardkernel's initial state, you will have to restore the HK's bootloader.
-A reliable way of reflashing the eMMC in this case is to use HAOS booted from an SD card. To do that, insert the SD card with HAOS to the micro SD slot and plug the board in. Once the device boots to the HA CLI, enter `login` to enter the root shell and use `curl` to download an image and `dd` it to the eMMC block device:
+A reliable way of reflashing the eMMC in this case is to use Home Assistant OS booted from an SD card. To do that, insert the SD card with Home Assistant OS to the micro SD slot and plug the board in. Once the device boots to the Home Assistant CLI (command line), enter `login` to enter the root shell and use `curl` to download an image and `dd` it to the eMMC block device:
 
 ```sh
 curl https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img | dd of=/dev/mmcblk0
