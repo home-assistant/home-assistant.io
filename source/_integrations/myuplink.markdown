@@ -27,7 +27,7 @@ ha_platforms:
 
 The myUplink integration lets you get information about the devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
 
-Depending on the type of devices in your system, one or more entities are added to Home Assistant. Currently there is support for reading sensor states. There is also support for switches and number entities if suitable data points are discovered in the system. Note that you may need a valid subscription with MyUplink to allow controlling your equipment with switches and number entities.
+Depending on the type of devices in your system, one or more entities are added to Home Assistant. Currently, there is support for reading sensor states. There is also support for switches and number entities if suitable data points are discovered in the system. Note that you may need a valid subscription with MyUplink to control your equipment with switches and number entities.
 
 ## Prerequisites
 
