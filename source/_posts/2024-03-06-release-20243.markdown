@@ -67,7 +67,7 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 ## Dashboard sections view
 
-A brand new, expiremental, view has been added this release: Sections!
+A brand new, experimental, view has been added this release: Sections!
 
 <img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/5878303/d1b9f4d8-3d00-42a1-8479-0363e3b740e6' alt='Temporary image that needs replacement.'>
 
@@ -96,12 +96,12 @@ can also control the volume.
 
 ## Disabling the remotely enabling of Home Assistant Remote UI
 
-If you are using [Home Assistant Cloud](https://nabucasa.com), you can acccess
+If you are using [Home Assistant Cloud](https://nabucasa.com), you can access
 your Home Assistant instance remotely using the Remote UI feature.
 
 If this feature is for some reason disabled and you are currently not at home,
-you can enable the Remote UI feature remotely, by logging in into your Nabucasa
-account, and request your Home Assistant instance to turn it on.
+you can enable the Remote UI feature remotely, by logging in into your [Nabu Casa
+account](https://account.nabucasa.com/), and request your Home Assistant instance to turn it on.
 
 Feedback from the community has shown that this feature is not always desired,
 and this release adds a new option to disable the remotely enabling of the
