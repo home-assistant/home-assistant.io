@@ -38,9 +38,20 @@ Protocol:
   description: Switch between RTSP, RTMP or FLV streaming protocol.
 {% endconfiguration_basic %}
 
+## Asterisk (*) next to entities listed in this documentation
+
+If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#enabling-entities) first.
+
 ## Camera streams
 
-This integration creates a few camera entities, one for each stream type with different resolutions: Clear, Fluent, Balanced, Snapshots Clear, and Snapshots Fluent.
+This integration creates a few camera entities, one for each stream type with different resolutions:
+
+- Fluent (Low resolution)
+- Balanced* (Mid resolution)
+- Clear* (High resolution, resource intensive)
+- Snapshots Fluent* (Low resolution)
+- Snapshots Clear* (High resolution)
+
 The Fluent stream camera entity is enabled by default; the other streams are disabled by default.
 The Snapshots stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
 Dual lens cameras provide additional streams for the second lens.
@@ -63,10 +74,6 @@ For redundancy, these sensors are polled every 60 seconds together with the upda
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
-
-## Asterisk (*) next to entities listed in this documentation
-
-If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#enabling-entities) first.
 
 ## Number entities
 
