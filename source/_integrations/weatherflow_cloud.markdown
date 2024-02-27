@@ -4,8 +4,10 @@ description: Instructions on the Cloud based WeatherFlow integration
 ha_release: 2024.3
 ha_category:
   - Environment
+  - Sensor
   - Weather
 ha_platforms:
+  - sensor
   - weather
 ha_iot_class: Cloud Polling
 ha_config_flow: true
