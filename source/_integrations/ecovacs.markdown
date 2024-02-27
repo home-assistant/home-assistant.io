@@ -135,7 +135,7 @@ When connecting with to a self-hosted instance you can connect to the server dir
 - `Username`: Enter the e-mail address configured in your instance or any valid one if auth is disabled
 - `Password`: you can enter any password (as long as it is 6 characters) 
 - `REST URL`: http://`SELF_HOSTED_INSTANCE`:8007
-- `MQTT URL`: mqtt://`SELF_HOSTED_INSTANCE`:8883
+- `MQTT URL`: mqtts://`SELF_HOSTED_INSTANCE`:8883
 - `Verify MQTT SSL certificate`: disabled
 
 Replace `SELF_HOSTED_INSTANCE` with either the IP address or the hostname of your instance.
