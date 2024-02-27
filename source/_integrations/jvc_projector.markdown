@@ -84,3 +84,9 @@ Detailed HDMI Input values:
 
 - `hdmi1`
 - `hdmi2`
+
+### Selects
+
+The following Select entities are added which allow changing device state from a list of options.
+
+- `input`
