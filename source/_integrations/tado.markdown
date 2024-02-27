@@ -146,7 +146,7 @@ automation:
 
 ### Service `tado.add_meter_reading`
 
-You can use the service `tado.add_meter_reading` to add your meter readings to Tado Energy IQ. With Energy IQ you can track your energy consumption and take control over your heating expenses.
+You can use the service `tado.add_meter_reading` to add your meter readings to Tado Energy IQ. With Energy IQ, you can track your energy consumption and take control of your heating expenses.
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
