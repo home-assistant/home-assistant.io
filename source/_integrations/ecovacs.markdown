@@ -129,7 +129,7 @@ Alternatively, you can use the `ecovacs_error` event to watch for errors. This e
 
 Finally, if a vacuum becomes unavailable (usually due to being idle and off its charger long enough for it to completely power off,) the vacuum's `status` attribute will change to `offline` until it is turned back on.
 
-## Advanced mode
+## Self hosted configuration
 
 When connecting with to a self-hosted instance you can connect to the server directly using the following settings:
 - `Username`: Enter the e-mail address configured in your instance or any valid one if auth is disabled
