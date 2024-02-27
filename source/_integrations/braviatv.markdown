@@ -198,7 +198,7 @@ The {% term integration %} supports `button` {% term platform %} and allows you 
 
 ## Limitations and known issues
 
-### TV does not generate new pin
+### TV does not generate new PIN
 
 If you have previously set up your TV with any Home Assistant instances via PIN code, you must remove Home Assistant from your TV in order for your TV to generate a new pin. On your TV, go to: **Settings** > **Network** > **Remote device settings** > **Deregister remote device**. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidance.
 
