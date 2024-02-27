@@ -133,7 +133,7 @@ Finally, if a vacuum becomes unavailable (usually due to being idle and off its 
 
 When connecting to a self-hosted instance, you can connect to the server directly using the following settings:
 - `Username`: Enter the e-mail address configured in your instance. If authentication is disabled, you can enter any valid e-mail address.
-- `Password`: Enter the password configured in your instance or any string if auth is disabled
+- `Password`: Enter the password configured in your instance. If authentication is disabled, you can enter any string (series of characters).
 - `REST URL`: http://`SELF_HOSTED_INSTANCE`:8007
 - `MQTT URL`: mqtts://`SELF_HOSTED_INSTANCE`:8883
 - `Verify MQTT SSL certificate`: disabled
