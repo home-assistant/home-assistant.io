@@ -31,7 +31,7 @@ The `ecovacs` {% term integration %} is the main integration to integrate [Ecova
 
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
 
-With `advanced_mode` enabled, users can use their self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. More information can be found in the [Bumper's documentation](https://bumper.readthedocs.io). See [Advanced Mode](#advanced-mode) for additional details.
+With `advanced_mode` enabled, users can use their self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. See [Advanced Mode](#advanced-mode) for additional details.
 
 ## Provided entities
 
