@@ -138,6 +138,6 @@ When connecting with to a self-hosted instance you can connect to the server dir
 - `MQTT URL`: mqtt://`SELF_HOSTED_INSTANCE`:8883
 - `Verify MQTT SSL certificate`: disabled
 
-Replace `SELF_HOSTED_INSTANCE` with either the ip address or the hostname of your instance.
+Replace `SELF_HOSTED_INSTANCE` with either the IP address or the hostname of your instance.
 
 The above configuration is based on the information from [Bumper's documentation](https://bumper.readthedocs.io). 
