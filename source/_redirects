@@ -478,6 +478,8 @@ layout: null
 /integrations/apns /more-info/removed-integration 301
 /integrations/arlo /more-info/removed-integration 301
 /integrations/arduino /more-info/removed-integration 301
+/integrations/asterisk_cdr /more-info/removed-integration 301
+/integrations/asterisk_mbox /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301
@@ -533,6 +535,7 @@ layout: null
 /integrations/loopenergy /more-info/removed-integration 301
 /integrations/lyft /more-info/removed-integration 301
 /integrations/magicseaweed /more-info/removed-integration 301
+/integrations/mailbox /more-info/removed-integration 301
 /integrations/mazda /more-info/removed-integration 301
 /integrations/mcp23017 /more-info/removed-integration 301
 /integrations/mhz19 /more-info/removed-integration 301
