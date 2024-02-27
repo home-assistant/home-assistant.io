@@ -38,11 +38,11 @@ For more information, see [IP Control Authentication](https://pro-bravia.sony.ne
 
 ## Media browser
 
-Using the media browser, you can view a list of all installed applications and TV channels and launch them. You can access the media browser from the **Media** section in the Home Assistant side menu or by clicking the **Browse media** button on the media player card.
+Using the media browser, you can view a list of all installed applications and TV channels and launch them. You can access the media browser from the **Media** section in the Home Assistant side menu or by selecting the **Browse media** button on the media player card.
 
 ## Using with Google Cast
 
-The Bravia TV {% term integration %} provides information about the power status of the device, current source, volume and gives you the ability to control playback, run applications and send remote control commands. Unfortunately, due to limitations of the Bravia REST API, it does not provide information about the currently playing content in applications (app name, media title, duration, play/pause state, etc.). In turn, [Google Cast](/integrations/cast/) integration does not provide reliable information about the power status of the device (e.g. on Home Screen) and does not allow to control playback in Android apps without [MediaSession](https://developer.android.com/reference/android/media/session/MediaSession) support. However, it can display full information about the content being played in supported apps. If your TV runs on Android or Google TV, you can use the the Google Cast integration together with the Bravia TV integration. For convenience, you can combine two media players into one using [Universal Media Player](/integrations/universal/). Universal Media Player will automatically select the appropriate active media player entity.
+The Bravia TV {% term integration %} provides information about the power status of the device, current source, and volume. It gives you the ability to control playback, run applications, and send remote control commands. Unfortunately, due to limitations of the Bravia REST API, it does not provide information about the currently playing content in applications (app name, media title, duration, play/pause state, etc.). In turn, the [Google Cast](/integrations/cast/) integration does not provide reliable information about the power status of the device (for example on Home Screen) and does not allow you to control playback in Android apps without [MediaSession](https://developer.android.com/reference/android/media/session/MediaSession) support. However, it can display full information about the content being played in supported apps. If your TV runs on Android or Google TV, you can use the Google Cast integration together with the Bravia TV integration. For convenience, you can combine two media players into one using [Universal Media Player](/integrations/universal/). Universal Media Player will automatically select the appropriate active media player entity.
 
 {% details "Example YAML configuration" %}
 
@@ -153,7 +153,7 @@ data:
 
 The {% term integration %} supports `remote` {% term platform %}. It allows you to send remote control commands to your TV with the `remote.send_command` service.
 
-The commands that can be sent to the TV depends on the model of your TV. To display a list of supported commands for your TV, call the {% term service %} `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs).
+The commands that can be sent to the TV depend on the model of your TV. To display a list of supported commands for your TV, call the {% term service %} `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs).
 
 **Example to send `Down` key command:**
 
@@ -202,7 +202,7 @@ The {% term integration %} supports `button` {% term platform %} and allows you 
 
 If you have previously set up your TV with any Home Assistant instances via PIN code, you must remove Home Assistant from your TV in order for your TV to generate a new PIN. On your TV, go to: **Settings** > **Network** > **Remote device settings** > **Deregister remote device**. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidance.
 
-### Sometimes the integration displays an error in the logs and does not respond to commands
+### Sometimes, the integration displays an error in the logs and does not respond to commands
 
 Unfortunately, the system service application (WebApiCore) on the TV that provides Sony Bravia REST API does not work very well and has many problems. The service may begin to reboot spontaneously or freeze, especially when the TV has not been rebooted for a long time or a heavy application is running. Perhaps sometimes the process is killed by Android TV itself due to lack of memory. When the service is being rebooted (about 30 seconds), the API will be unavailable, and any interaction with the {% term integration %} may result in an error in the logs.
 
@@ -214,11 +214,11 @@ If this happens very often, you can try to reset **WebApiCore** service. On your
 
 See [Using with Google Cast](#using-with-google-cast) section for more details.
 
-### Power consumption ~15W when the TV in standby mode while integration is enabled
+### Power consumption ~15 W when the TV in standby mode while integration is enabled
 
 The Bravia TV is [local pulling integration](https://www.home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#polling-the-local-device). Even if the TV is turned off, its status is constantly polled to determine the current state, so the TV's network interface remains enabled. This is normal behavior. If you are concerned about this, you can disable polling for updates in the integration **System options** menu, but the TV status will no longer update automatically and you will have to force the {% term entity %} update by calling `homeassistant.update_entity` {% term service %} manually.
 
-Please note that this behavior can be caused not only by integration, but also by some applications installed on the TV.
+Please note that this behavior can be caused not only by the integration, but also by some applications installed on the TV.
 
 ### For TVs older than 2013
 
