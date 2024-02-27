@@ -44,10 +44,11 @@ For Envoy S Metered / IQ Gateway Metered with installed and configured current t
 - Sensors for net production (grid export) and net consumption (grid import) if the consumption CT is a net-consumption CT.
 - Disabled sensors for:
   
-  - Frequency Net consumption CT.
-  - Voltage Net consumption CT.[^1]
-  - Metering Status for net consumption and production CT (`normal` | `not-metering` | `check-wiring`).
-  - Meter status flags active for net consumption and production CT.[^2]
+  - Phase net production and net consumption.
+  - Frequency Net consumption CT (Aggregate and phase).
+  - Voltage Net consumption CT (Aggregate and phase).[^1]
+  - Metering Status for net consumption and production CT (`normal` | `not-metering` | `check-wiring`) (Aggregate and phase).
+  - Meter status flags active for net consumption and production CT (Aggregate and phase).[^2]
 
 [^1]: For multi-phase system the Envoy sums the voltages of the phases. May be valid for split-phase, but for 3 phase systems use the individual phases rather then the summed value.
 [^2]: If this value is non-zero consult the diagnostic report of the envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`).
