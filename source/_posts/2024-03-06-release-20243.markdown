@@ -278,6 +278,7 @@ The JuiceNet integration has been removed.
 Enel X has migrated from JuiceNet to JuicePass rendering the JuiceNet integration useless. Background and alternative solutions to the juicenet integration can be found in the related [issue](https://github.com/home-assistant/core/issues/86588).
 
 ([@emontnemery] - [#111477])
+
 [#111477]: https://github.com/home-assistant/core/pull/111477
 
 {% enddetails %}
