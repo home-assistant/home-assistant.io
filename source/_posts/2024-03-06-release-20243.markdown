@@ -193,8 +193,8 @@ Marked noteworhy from Core:
 
 Frontend:
 
-- Automated outlier detection for adjust sum dialog #18723 by @karwosts
-- Download energy panel data to CSV #19863 by @karwosts
+- Automated outlier detection for adjust sum dialog [#18723] by [@karwosts]
+- Download energy panel data to CSV [#19863] by [@karwosts]
 
 [@Bre77]: https://github.com/chamberlain2007
 [@marcelveldt]: https://github.com/marcelveldt
@@ -232,7 +232,7 @@ We welcome the following new integrations in this release:
 
 
 [@chamberlain2007]: https://github.com/chamberlain2007
-[@marcolettieri]: [/integrations/](https://github.com/)marcolettieri
+[@marcolettieri]: https://github.com/marcolettieri
 [@Thomas55555]: https://github.com/Thomas55555
 [Aprilaire]: /integrations/aprilaire
 [Husqvarna Automower]: /integrations/husqvarna_automower
