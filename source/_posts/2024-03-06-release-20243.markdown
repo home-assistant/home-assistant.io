@@ -51,8 +51,6 @@ Enjoy the (beta) release!
 - [Dashboard sections view](#dashboard-sections-view)
 - [Dungeons and Dragons](#dungeons-and-dragons)
 - [Running script from your dashboard with user input](#running-script-from-your-dashboard-with-user-input)
-    - [Broadcast message](#broadcast-message)
-    - [Add to to-do list](#add-to-to-do-list)
 - [New sentences for Assist](#new-sentences-for-assist)
 - [Disabling the remotely enabling of Home Assistant Remote UI](#disabling-the-remotely-enabling-of-home-assistant-remote-ui)
 - [Translating states in your templates](#translating-states-in-your-templates)
@@ -88,13 +86,13 @@ Script fields can be defined in the script editor and show up when you call the 
 
 To accompany this new functionality, we've created two blueprints that you can use to add to your dashboard:
 
-#### Broadcast message
+**Broadcast message**
 
 This blueprint allows you to create a script that broadcasts a Text-to-Speech message to specific media players and asks the user for the message to broadcast.
 
 {% my blueprint_import badge blueprint="https://example.com" %}
 
-#### Add to to-do list
+**Add to to-do list**
 
 This blueprint allows you to create a script to quickly add a task to a to-do list.
 
