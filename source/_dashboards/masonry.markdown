@@ -12,7 +12,7 @@ The masonry view is the default view type.
 Screenshot of the masonry view.
 </p>
 
-It sorts cards in columns based on their `card size`. If you want to group some cards you have to use [horizontal stack](/dashboards/horizontal-stack/), [vertical stack](/dashboards/vertical-stack/) or [grid](/dashboards/grid/) cards.
+It sorts cards in columns based on their `card size`. If you want to group some cards you have to use [horizontal stack](/dashboards/horizontal-stack/), [vertical stack](/dashboards/vertical-stack/), or [grid](/dashboards/grid/) cards.
 
 {% configuration %}
 type:
@@ -20,3 +20,8 @@ type:
   description: "`masonry`"
   type: string
 {% endconfiguration %}
+
+## Related topics
+
+- [Panel view](/dashboards/panel/)
+- [Sidebar view](/dashboards/sidebar/)

@@ -22,3 +22,8 @@ type:
   description: "`panel`"
   type: string
 {% endconfiguration %}
+
+## Related topics
+
+- [Masonry view](/dashboards/masonry/)
+- [Sidebar view](/dashboards/sidebar/)

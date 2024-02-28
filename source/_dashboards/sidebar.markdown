@@ -54,3 +54,8 @@ cards:
     view_layout:
       position: sidebar
 ```
+
+## Related topics
+
+- [Panel view](/dashboards/panel/)
+- [Masonry view](/dashboards/masonry/)
