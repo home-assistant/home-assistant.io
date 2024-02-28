@@ -191,6 +191,11 @@ Marked noteworhy from Core:
 - Support Bring! recently list ([@miaucl] - [#109854]) ([bring docs]) (noteworthy)
 - Use new zigpy OTA providers for ZHA ([@puddly] - [#111159]) ([zha docs]) (noteworthy)
 
+Frontend:
+
+- Automated outlier detection for adjust sum dialog [#18723] by [@karwosts]
+- Download energy panel data to CSV [#19863] by [@karwosts]
+
 [@Bre77]: https://github.com/chamberlain2007
 [@marcelveldt]: https://github.com/marcelveldt
 [@astrandb]: https://github.com/astrandb
@@ -222,9 +227,12 @@ We welcome the following new integrations in this release:
   lawn mower straight from Home Assistant.
 - **[microBees]**, added by [@marcolettieri]<br />
   TODO: Description
+- Add webmin integration ([@autinerd] - [#106976]) ([webmin docs]) (new-integration)
+- WeatherFlow Forecast (REST API) ([@jeeftor] - [#106615]) ([weatherflow_cloud docs]) (new-integration)
+
 
 [@chamberlain2007]: https://github.com/chamberlain2007
-[@marcolettieri]: [/integrations/](https://github.com/)marcolettieri
+[@marcolettieri]: https://github.com/marcolettieri
 [@Thomas55555]: https://github.com/Thomas55555
 [Aprilaire]: /integrations/aprilaire
 [Husqvarna Automower]: /integrations/husqvarna_automower
@@ -237,6 +245,10 @@ The following virtual integrations have been added:
 - **[Duquesne Light]**, provided by [Opower]
 - **[SamSam]**, provided by [EnergyZero]
 - **[ZonderGas]**, provided by [EnergyZero]
+- Add Motionblinds vitual integrations __init__.py ([@starkillerOG] - [#110903]) (new-integration)
+- Add Motionblinds virtual integration Acomax ([@starkillerOG] - [#111458]) ([acomax docs]) (new-integration)
+- Add Motionblinds virtual integration Krispol ([@starkillerOG] - [#111456]) ([krispol docs]) (new-integration)
+- Add Motionblinds virtual integration Madeco ([@starkillerOG] - [#111455]) ([madeco docs]) (new-integration)
 
 [Duquesne Light]: /integrations/duquesne_light
 [EnergyZero]: /integrations/energyzero
