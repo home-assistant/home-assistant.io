@@ -17,7 +17,7 @@ og_image: /images/blog/2024-03/social.png
 
 <!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
 
-These are the beta release notes for Home Assistant Core 2024.2 (and is thus a
+These are the beta release notes for Home Assistant Core 2024.3 (and is thus a
 work in progress).
 
 If you encounter any issues with the beta release, please report them on GitHub:
@@ -44,7 +44,7 @@ Thanks for helping out testing the beta! ❤️
 
 Enjoy the (beta) release!
 
-../Frenck
+../Frenck & Bram
 
 <!--more-->
 
@@ -175,10 +175,6 @@ will be in that language.
 
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
-
-- Lorem ipsum, thanks [@frenck]!
-
-[@frenck]: https://github.com/frenck
 
 _Note to remove: Processed possible noteworthy up to PR #111092_
 
