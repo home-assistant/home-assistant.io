@@ -50,6 +50,9 @@ Enjoy the (beta) release!
 
 - [Dashboard sections view](#dashboard-sections-view)
 - [Dungeons and Dragons](#dungeons-and-dragons)
+- [Running script from your dashboard with user input](#running-script-from-your-dashboard-with-user-input)
+    - [Broadcast message](#broadcast-message)
+    - [Add to to-do list](#add-to-to-do-list)
 - [New sentences for Assist](#new-sentences-for-assist)
 - [Disabling the remotely enabling of Home Assistant Remote UI](#disabling-the-remotely-enabling-of-home-assistant-remote-ui)
 - [Translating states in your templates](#translating-states-in-your-templates)
@@ -74,6 +77,28 @@ A brand new, experimental, view has been added this release: Sections!
 ## Dungeons and Dragons
 
 Lorem ipsum
+
+## Running script from your dashboard with user input
+
+Scripts in Home Assistant allow you to capture a sequence of actions and choices in a reusable way. Scripts are extra powerful because they can have input fields, which allow you to send in data for when the script runs.
+
+Script fields can be defined in the script editor and show up when you call the script in your automation. In this release, script fields will be available in the more info dialog when tapping on a script in the dashboard. This allows you to provide the input fields and run the script, unlocking a whole new dimension of possibilities.
+
+<lite-youtube videoid="mTan5y7Ed58" videotitle="Calling scripts from the dashboard"></lite-youtube>
+
+To accompany this new functionality, we've created two blueprints that you can use to add to your dashboard:
+
+#### Broadcast message
+
+This blueprint allows you to create a script that broadcasts a Text-to-Speech message to specific media players and asks the user for the message to broadcast.
+
+{% my blueprint_import badge blueprint="https://example.com" %}
+
+#### Add to to-do list
+
+This blueprint allows you to create a script to quickly add a task to a to-do list.
+
+{% my blueprint_import badge blueprint="https://example.com" %}
 
 ## New sentences for Assist
 
@@ -115,20 +140,24 @@ Are you using templates to send notification in automations? If so,
 He added a new template methods to translate entity states right in your
 templates! Here is an example:
 
+{% raw %}
 ```yaml
 # Untranslated
 {{ states("binary_sensor.movement_backyard") }}  # Shows: on
 {{ states("sun.sun") }}  # Shows: below_horizon
 ```
+{% endraw %}
 
 The above two example, show the raw state of the entities. However, with the
 new `state_translated` method, you can get the state in a human readable form:
 
+{% raw %}
 ```yaml
 # Translated
 {{ state_translated("binary_sensor.movement_backyard") }}  # Shows: Detected
 {{ state_translated("sun.sun") }}  # Shows: Below horizon
 ```
+{% endraw %}
 
 Even better, it uses the default language of your Home Assistant instance. So,
 if you are using Home Assistant in a different language, the translated state
