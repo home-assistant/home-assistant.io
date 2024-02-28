@@ -189,10 +189,7 @@ Marked noteworhy from Core:
 - Add toggle service to climate ([@arturpragacz] - [#100418]) ([climate docs]) (noteworthy)
 - Add new range sensors to Tessie ([@Bre77] - [#110446]) ([tessie docs]) (noteworthy)
 - Support Bring! recently list ([@miaucl] - [#109854]) ([bring docs]) (noteworthy)
-
-Marked noteworthy from Frontend:
-
-- Add devices to energy collection (#19849) @karwosts
+- Use new zigpy OTA providers for ZHA ([@puddly] - [#111159]) ([zha docs]) (noteworthy)
 
 ## New integrations
 
