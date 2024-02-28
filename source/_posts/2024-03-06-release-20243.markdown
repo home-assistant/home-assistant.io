@@ -17,7 +17,7 @@ og_image: /images/blog/2024-03/social.png
 
 <!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
 
-These are the beta release notes for Home Assistant Core 2024.2 (and is thus a
+These are the beta release notes for Home Assistant Core 2024.3 (and is thus a
 work in progress).
 
 If you encounter any issues with the beta release, please report them on GitHub:
@@ -44,7 +44,7 @@ Thanks for helping out testing the beta! ❤️
 
 Enjoy the (beta) release!
 
-../Frenck
+../Frenck & Bram
 
 <!--more-->
 
@@ -176,10 +176,6 @@ will be in that language.
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- Lorem ipsum, thanks [@frenck]!
-
-[@frenck]: https://github.com/frenck
-
 _Note to remove: Processed possible noteworthy up to PR #111092_
 
 Marked noteworhy from Core:
@@ -193,10 +189,27 @@ Marked noteworhy from Core:
 - Add toggle service to climate ([@arturpragacz] - [#100418]) ([climate docs]) (noteworthy)
 - Add new range sensors to Tessie ([@Bre77] - [#110446]) ([tessie docs]) (noteworthy)
 - Support Bring! recently list ([@miaucl] - [#109854]) ([bring docs]) (noteworthy)
+- Use new zigpy OTA providers for ZHA ([@puddly] - [#111159]) ([zha docs]) (noteworthy)
 
-Marked noteworthy from Frontend:
+[@Bre77]: https://github.com/chamberlain2007
+[@marcelveldt]: https://github.com/marcelveldt
+[@astrandb]: https://github.com/astrandb
+[@lellky]: https://github.com/lellky
+[@iliessens]: https://github.com/iliessens
+[@arturpragacz]: https://github.com/arturpragacz
+[@Bre77]: https://github.com/Bre77
+[@miaucl]: https://github.com/miaucl
+[@puddly]: https://github.com/puddly
 
-- Add devices to energy collection (#19849) @karwosts
+[tessie docs]: /integrations/tessie/
+[matter docs]: /integrations/matter/
+[myuplink docs]: /integrations/myuplink/
+[flexit_bacnet docs]: /integrations/flexit_bacnet/
+[dunehd docs]: /integrations/dunehd/
+[climate docs]: /integrations/climate/
+[bring docs]: /integrations/bring/
+[zha docs]: /integrations/zha/
+
 
 ## New integrations
 
@@ -211,7 +224,7 @@ We welcome the following new integrations in this release:
   TODO: Description
 
 [@chamberlain2007]: https://github.com/chamberlain2007
-[@marcolettieri]: /integrations/marcolettieri
+[@marcolettieri]: [/integrations/](https://github.com/)marcolettieri
 [@Thomas55555]: https://github.com/Thomas55555
 [Aprilaire]: /integrations/aprilaire
 [Husqvarna Automower]: /integrations/husqvarna_automower
