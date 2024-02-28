@@ -131,7 +131,7 @@ Finally, if a vacuum becomes unavailable (usually due to being idle and off its 
 
 ## Self-hosted configuration
 
-When connecting to a self-hosted instance, you can connect to the server directly using the following settings:
+Depending on your setup of the self-hosted instance, you can connect to the server using the following settings:
 - `Username`: Enter the e-mail address configured in your instance. If authentication is disabled, you can enter any valid e-mail address.
 - `Password`: Enter the password configured in your instance. If authentication is disabled, you can enter any string (series of characters).
 - `REST URL`: http://`SELF_HOSTED_INSTANCE`:8007
