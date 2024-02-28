@@ -44,4 +44,4 @@ Use the local terminal (HDMI/keyboard) to access the system console. On the Home
 curl https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img | dd of=/dev/mmcblk0
 ```
 
-This way, the device will start in the UMS mode on the next boot with the SD card removed. Follow the Install over USB from PC to install a different operating system.
+This way, the device will start in the UMS mode on the next boot with the SD card removed. Follow the [Install over USB from PC](https://wiki.odroid.com/odroid-m1s/getting_started/os_installation_guide#install_over_usb_from_pc) to install a different operating system.
