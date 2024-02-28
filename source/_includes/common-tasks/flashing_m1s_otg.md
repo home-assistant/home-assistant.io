@@ -4,7 +4,7 @@ Home Assistant can be flashed to an ODROID-M1S by connecting the device directly
 Unlike other ODROID boards, the M1S does not have a socket for an optional  <abbr title="embedded MultiMediaCard">eMMC</abbr> module. It also does not have a separate flash chip that holds a dedicated bootloader.
 Instead, the M1S has a build-in 64GB <abbr title="embedded MultiMediaCard">eMMC</abbr> soldered directly on the board that holds a bootloader by default. This guide will show you how to install the Home Assistant Operating System to the built-in <abbr title="embedded MultiMediaCard">eMMC</abbr>.
 
-<ins>**Warning:</ins> Installing Home Assistant OS replaces the firmware and <abbr title="secondary program loader">SPL</abbr> on the <abbr title="embedded MultiMediaCard">eMMC</abbr> with the mainline version provided by the Home Assistant OS. As a result, it is not possible to use the SD card with the EMMC2UMS image anymore, because the mainline <abbr title="secondary program loader">SPL</abbr> is not compatible with U-Boot in the EMMC2UMS image at this time (February 2024). This does not pose any problem for standard use, just makes it more complicated in case you want to return to the Hardkernel-provided OS (see HK Recovery).**
+<ins>**Warning:</ins> Installing Home Assistant OS replaces the firmware and <abbr title="secondary program loader">SPL</abbr> on the <abbr title="embedded MultiMediaCard">eMMC</abbr> with the mainline version provided by the Home Assistant OS. As a result, it is not possible to use the SD card with the EMMC2UMS image anymore, because the mainline <abbr title="secondary program loader">SPL</abbr> is not compatible with U-Boot in the EMMC2UMS image at this time (February 2024). This does not pose any problem for standard use, just makes it more complicated in case you want to return to the Hardkernel-provided OS (see [HK Recovery](####hk-recovery)).**
 
 ### What you will need
 
@@ -34,7 +34,7 @@ To flash your <abbr title="embedded MultiMediaCard">eMMC</abbr> using <abbr titl
 #### _HK Recovery_
 
 If you want to restore your M1S back into Hardkernel's initial state, you will have to restore the HK's bootloader.
-A reliable way of reflashing the eMMC with an operating system of youur choice is to use Home Assistant OS to flash the EMMC2UMS image which turns the ODROID-M1S into USB Mass Storage device. Once you have flashed the EMMC2UMS image, you can flash any OS again. You will need a micro USB cable to connect ODROID-M1S to PC.
+A reliable way of reflashing the eMMC with an operating system of your choice is to use Home Assistant OS to flash the EMMC2UMS image which turns the ODROID-M1S into USB Mass Storage device. Once you have flashed the EMMC2UMS image, you can flash any OS again. You will need a micro USB cable to connect ODROID-M1S to PC.
 
 Note: This commands will render your current Home Assistant OS installation unbootable!
 
@@ -42,4 +42,6 @@ Use the local terminal (HDMI/keyboard) to access the system console. On the Home
 
 ```sh
 curl https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img | dd of=/dev/mmcblk0
+```
 
+This way, the device will start in the UMS mode on the next boot with the SD card removed. Follow the Install over USB from PC to install a different operating system.
