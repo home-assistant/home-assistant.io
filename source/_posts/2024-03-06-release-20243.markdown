@@ -2,7 +2,7 @@
 layout: post
 title: "2024.3: Beta release notes"
 description: "The beta release notes for Home Assistant 2024.3"
-date: 2024-02-23 00:00:00
+date: 2024-02-28 00:00:00
 date_formatted: "March 6, 2024"
 author: Franck Nijhof
 author_twitter: frenck
@@ -268,6 +268,17 @@ next day forecast will have to be adjusted to use `day[1]` instead.
 
 [@Noltari]: https://github.com/Noltari
 [#107795]: https://github.com/home-assistant/core/pull/107795
+
+{% enddetails %}
+
+{% details "JuiceNet" %}
+
+The JuiceNet integration has been removed.
+
+Enel X has migrated from JuiceNet to JuicePass rendering the JuiceNet integration useless. Background and alternative solutions to the juicenet integration can be found in the related [issue](https://github.com/home-assistant/core/issues/86588).
+
+([@emontnemery] - [#111477])
+[#111477]: https://github.com/home-assistant/core/pull/111477
 
 {% enddetails %}
 
