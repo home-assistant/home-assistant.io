@@ -46,7 +46,7 @@ The procedure below is optional. The idea is to learn some basics on changing th
    - You now see the forecast card on the dashboard.
 
 7. Now let's delete the other weather card.
-   - In the top right corner, select the three-dot menu, then select **Edit dashboard**.
+   - In the top right corner, select the pencil.
    ![Dashboard - edit the dashboard](/images/getting-started/onboarding_edit_dashboard_01.png)
    - On the card, select the three-dot menu and select **Delete**.
    ![Dashboard - delete card](/images/getting-started/onboarding_dashboard_delete_card.png)
