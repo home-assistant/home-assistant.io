@@ -51,6 +51,7 @@ Enjoy the (beta) release!
 - [Dashboard sections view](#dashboard-sections-view)
 - [Dungeons and Dragons](#dungeons-and-dragons)
 - [Running script from your dashboard with user input](#running-script-from-your-dashboard-with-user-input)
+- [New energy graph](#new-energy-graph)
 - [New sentences for Assist](#new-sentences-for-assist)
 - [Disabling the remotely enabling of Home Assistant Remote UI](#disabling-the-remotely-enabling-of-home-assistant-remote-ui)
 - [Translating states in your templates](#translating-states-in-your-templates)
@@ -97,6 +98,13 @@ This blueprint allows you to create a script that broadcasts a Text-to-Speech me
 This blueprint allows you to create a script to quickly add a task to a to-do list.
 
 {% my blueprint_import badge blueprint="https://example.com" %}
+
+## New energy graph
+
+A new graph has been added on the energy dashboard by [@karwosts]. You can now monitor your devices energy consumption through time.
+
+<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/5878303/47c83332-aa7d-424a-bd00-6ed23b11f000' alt='Temporary image that needs replacement.'>
+
 
 ## New sentences for Assist
 
