@@ -1,11 +1,16 @@
 ---
-title: "Multiple Dashboards"
+title: "Multiple dashboards"
 description: "Multiple powerful and configurable dashboards in Home Assistant."
 ---
 
 You can define multiple dashboards in Home Assistant. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
 
-You can manage your dashboards via the user interface. Go to **Settings** -> **Dashboards**. Here you can see all defined dashboards and create new ones.
+You can manage your dashboards via the user interface. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. Here you can see all defined dashboards and create new ones.
+
+<p class='img'>
+<img src='/images/dashboards/dashboard-manage-01.png' alt='Screenshot of the dashboard list'>
+Screenshot of the Dashboard list.
+</p>
 
 ## Using YAML for the default dashboard
 
@@ -18,9 +23,9 @@ lovelace:
 
 A good way to start this file is to copy and paste the "Raw configuration" from the UI so your manual configuration starts the same as your existing UI.
 
-- Click `Overview` in your sidebar.
-- Click the three dots menu (top-right) and click on `Edit Dashboard`.
-- Click the three dots menu again and click on `Raw configuration editor`.
+- In your sidebar, select **Overview**.
+- In the top-right corner, select the pencil icon.
+- Select the three dots menu and select **Raw configuration editor**.
 - There you see the configuration for your current dashboard. Copy that into the `<config>/ui-lovelace.yaml` file.
 
 Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore and new entities will not automatically be added to your UI.
