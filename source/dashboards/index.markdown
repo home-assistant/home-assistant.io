@@ -3,11 +3,11 @@ title: "Dashboards"
 description: "Powerful and configurable dashboards for Home Assistant."
 ---
 
-Home Assistant dashboards allow you to display information about your smart home devices. Dashboards are customizable and provide a powerful way to manage your home from your mobile or desktop.
+Home Assistant dashboards allow you to display information about your smart home. Dashboards are customizable and provide a powerful way to manage your home from your mobile or desktop.
 
 You can customize your dashboard using various options:
 
-- Different cards types to visualize your data and control elements.
+- Different cards types to visualize your data and control your smart home devices.
 - [Themes](/integrations/frontend/#defining-themes) (even at a per card basis).
 - Override names and icons of entities.
 - Use custom cards from our amazing community.
