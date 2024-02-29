@@ -24,6 +24,10 @@ Some examples of its use include:
 
 {% include integrations/config_flow.md %}
 
+<div class="note">
+The tolerance is used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.
+</div>
+
 ## Sensors
 
 The following sensor entities will be created.
