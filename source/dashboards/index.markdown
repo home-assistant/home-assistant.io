@@ -9,8 +9,8 @@ You can customize your dashboard using various options:
 
 - Different cards types to visualize your data and control elements.
 - [Themes](/integrations/frontend/#defining-themes) (even at a per card basis).
-- Ability to override names and icons of entities.
-- Custom cards from our amazing community are fully supported.
+- Override names and icons of entities.
+- Use custom cards from our amazing community.
 
 <p class='img'>
 <img src='/images/dashboards/edit-dashboard.webp' alt='Screencast showing how to edit a dashboard customize a vertical stack card'>
@@ -25,7 +25,7 @@ Try it yourself with [the interactive demo](https://demo.home-assistant.io).
 
 {% include dashboard/edit_dashboard.md %}
 
-For a more details, follow the step by step tutorial on [editing the **Overview** dashboard](/getting-started/onboarding_dashboard/).
+For more detailed instructions, follow the step-by-step tutorial on [editing the **Overview** dashboard](/getting-started/onboarding_dashboard/).
 
 ## Discuss dashboard
 
