@@ -3,11 +3,16 @@ title: "Views"
 description: "A view is a tab inside a dashboard."
 ---
 
-A View is a tab inside a dashboard.
-To display cards on the UI you have to define them in views.
+A view is a tab inside a dashboard. Views control the layout.
 
-You can add a view to your user interface, by clicking the menu (three dots at the top right of the screen) and then **Edit Dashboard**. 
-Click the `+` button in the top menu bar.
+There are four different view types:
+
+- **Masonry (default)**: Arranges cards in columns based on their card size.
+- **Panel**: *Displays one card in full width. For example a map or an image.
+- **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
+- **Sections (experimental)**: Arranges cards in a grid system and lets you group them in sections.
+
+To add a view to your user interface, in the top right corner, select the pencil icon. Then, select the `+` button in the top menu bar.
 
 <p class="img">
   <img src="/images/dashboards/views.png" alt="Views toolbar">
