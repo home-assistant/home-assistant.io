@@ -29,7 +29,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 1. Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.
    - Select the **Connect** button below. If your browser does not support web serial, you will see a warning instead of a button.
 
-      <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
+      <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
    - **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/firmware/blob/main/voice-assistant/m5stack-atom-echo.yaml).
 
@@ -63,7 +63,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 2. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
    - Under **M5Stack ATOM Echo**, select **1 device**.
 3. Disable **Use wake word**.
-   
+
    ![Toggle to enable/disable wake word](/images/assist/wake_word_disable_on_atom_echo.png)
 4. To start using push-to-talk, press the flat button with rounded shape on your ATOM Echo.
    - The rectangular button on the side is the reset button. Do not press that one.

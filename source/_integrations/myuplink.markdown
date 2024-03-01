@@ -2,7 +2,10 @@
 title: myUplink
 description: Instructions on how to set up the myUplink integration within Home Assistant.
 ha_category:
+  - Binary sensor
+  - Number
   - Sensor
+  - Switch
   - Update
 ha_iot_class: Cloud Polling
 ha_release: '2024.2'
@@ -11,15 +14,20 @@ ha_codeowners:
   - '@pajzo'
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - diagnostics
+  - number
   - sensor
+  - switch
   - update
 ha_integration_type: integration
+ha_platforms:
+  - sensor
 ---
 
 The myUplink integration lets you get information about the devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
 
-Depending on the type of devices in your system, one or more sensor entities to Home Assistant. Currently, there is only support for reading sensor states.
+Depending on the type of devices in your system, one or more entities are added to Home Assistant. Currently, there is support for reading sensor states. There is also support for switches and number entities if suitable data points are discovered in the system. Note that you may need a valid subscription with MyUplink to control your equipment with switches and number entities.
 
 ## Prerequisites
 

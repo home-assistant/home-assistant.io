@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdr99'
 ha_platforms:
+  - diagnostics
   - sensor
   - water_heater
 ha_integration_type: integration
@@ -39,7 +40,7 @@ Before using this integration, your water heater must be connected to a Wi-Fi ne
 - HPV10-66H01DV
 - HPV10-80H01DV
 
-Water heaters that can be controlled using the A. O. Smith mobile app should be compatible with this integration. If your water heater is not detected by the integration, but it can be controlled using the mobile app, please [open an issue on GitHub](https://github.com/home-assistant/core/issues/new?template=bug_report.yml&integration_name=A.%20O.%20Smith&integration_link=https%3A%2F%2Fwww.home-assistant.io%2Fintegrations%2Faosmith) so that support can be added. Similarly, if your water heater is working with this integration, but its model number is not listed here, please [open an documentation issue](https://github.com/home-assistant/home-assistant.io/issues/new?template=feedback.yml&url=https%3A%2F%2Fwww.home-assistant.io%2Fintegrations%2Faosmith) so it can be added to the list.
+Water heaters that can be controlled using the A. O. Smith mobile app should be compatible with this integration. If your water heater is not detected by the integration, but it can be controlled using the mobile app, please [open an issue on GitHub](https://github.com/home-assistant/core/issues/new?template=bug_report.yml&integration_name=A.%20O.%20Smith&integration_link=https%3A%2F%2Fwww.home-assistant.io%2Fintegrations%2Faosmith) so that support can be added. Similarly, if your water heater is working with this integration, but its model number is not listed here, please [open a documentation issue](https://github.com/home-assistant/home-assistant.io/issues/new?template=feedback.yml&url=https%3A%2F%2Fwww.home-assistant.io%2Fintegrations%2Faosmith) so it can be added to the list.
 
 {% include integrations/config_flow.md %}
 

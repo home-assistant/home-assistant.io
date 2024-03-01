@@ -8,8 +8,8 @@ ha_config_flow: true
 ha_iot_class: Local Polling
 ha_domain: qbittorrent
 ha_codeowners:
-  - "@geoffreylagaisse"
-  - "@finder39"
+  - '@geoffreylagaisse'
+  - '@finder39'
 ha_platforms:
   - sensor
 ha_integration_type: service
