@@ -24,15 +24,15 @@ Home Assistant ships with 5 predefined dashboards:
 
 Not all of predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. **Map**, **Logbook**, and **History**, are powered by their respective integrations.
 
-### Map panel
+### Map dashboard
 
 The predefined **Map** dashboard is powered by the [Map integration](/integrations/map/). If you see a [person](/integrations/person/) on the map, it means you have connected a device that allows [presence detection](/integrations/#presence-detection). This is the case for example if you have the [Home Assistant Companion App](https://companion.home-assistant.io/) on your phone and allowed location tracking.
 
-### Logbook panel
+### Logbook dashboard
 
 The predefined **Logbook** dashboard is powered by the [Logbook integration](/integrations/logbook/). To control which events to show or filter out, refer to the documentation of the Logbook integration.
 
-### History panel
+### History dashboard
 
 The predefined **History** dashboard is powered by the [History integration](/integrations/logbook/). To learn about the data sources used and how to export data, refer to the documentation of the History integration.
 
