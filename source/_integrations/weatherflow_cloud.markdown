@@ -21,7 +21,6 @@ The **WeatherFlow Cloud** integration provides access to cloud provided Weather 
 
 {% include integrations/config_flow.md %}
 
-
 ## Sensors
 
 Additionally this integration provides access to the following sensors
