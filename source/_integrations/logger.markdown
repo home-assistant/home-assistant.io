@@ -115,7 +115,6 @@ Possible log severity levels, listed in order from most severe to least severe, 
 - warn
 - info
 - debug
-- notset
 
 ### Log filters
 
