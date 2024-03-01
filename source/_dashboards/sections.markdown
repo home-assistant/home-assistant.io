@@ -6,6 +6,7 @@ description: "Lets you organize your cards in sections on a grid."
 ---
 
 The sections view lets you organize your cards in sections on a grid.
+It allows you to group card directly in sections, without having to use horizontal or vertical stack cards.
 
 You can move cards within the section or move them from one section into another. 
 You can also move the entire section.
