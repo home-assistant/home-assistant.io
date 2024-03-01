@@ -62,6 +62,7 @@ _Oh! And don't forget Valentine's Day is coming up!_ 😘
 - [Release 2024.2.2 - February 16](#release-202422---february-16)
 - [Release 2024.2.3 - February 22](#release-202423---february-22)
 - [Release 2024.2.4 - February 25](#release-202424---february-25)
+- [Release 2024.2.5 - February 27](#release-202425---february-27)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -739,6 +740,13 @@ The following integrations are now available via the Home Assistant UI:
 [profiler docs]: /integrations/profiler/
 [roomba docs]: /integrations/roomba/
 [wyoming docs]: /integrations/wyoming/
+
+## Release 2024.2.5 - February 27
+
+- Add title to reauthenticate integration issue ([@timmo001] - [#111275])
+
+[#111275]: https://github.com/home-assistant/core/pull/111275
+[@timmo001]: https://github.com/timmo001
 
 ## Need help? Join the community!
 
