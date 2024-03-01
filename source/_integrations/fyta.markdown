@@ -18,7 +18,7 @@ The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta
 
 For the authentication on the FYTA-server you need your login-credentials (email and password).
 
-The integration provides a device for the controller interface and all plants with a Fyta Beam sensor.
+The integration provides a device for the controller interface and for all plants with a FYTA Beam sensor.
 
 {% include integrations/config_flow.md %}
 
