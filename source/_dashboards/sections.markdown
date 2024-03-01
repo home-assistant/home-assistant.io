@@ -16,6 +16,13 @@ To see how it works, check out the demo:
 
 <lite-youtube videoid="XyBy0ckkiDU" videoStartAt="2047" videotitle="How to use Trigger IDs in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
 
+{% configuration %}
+type:
+  required: false
+  description: "`sections`"
+  type: string
+{% endconfiguration %}
+
 ## Related topics
 
 - [Masonry view](/dashboards/masonry/)
