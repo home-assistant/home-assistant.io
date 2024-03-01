@@ -14,7 +14,7 @@ You can also copy and paste cards.
 
 To see how it works, check out the demo:
 
-<lite-youtube videoid="XyBy0ckkiDU" videoStartAt="2047" videotitle="How to use Trigger IDs in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
+<lite-youtube videoid="XyBy0ckkiDU" videoStartAt="2047" videotitle="A Home-Approved Dashboard - Chapter 1: What about Grace?" posterquality="maxresdefault"></lite-youtube>
 
 {% configuration %}
 type:
