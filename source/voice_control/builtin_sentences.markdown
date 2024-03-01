@@ -12,9 +12,11 @@ These sentences allow you, for example, to:
     - *"turn on the TV"*
     - *"lock all the doors"*
     - *"open the main door"*
-- **Open and close covers**
+- **Open, close covers, or ask about their state**
     - *"Close the garage door"*
     - *"Open kitchen window"*
+    - *"Which curtains are closed"*
+    - *"Set bedroom curtain to 50%"*
 - **Set the brightness and color of lights**
     - *"Change kitchen lights brightness to 50%"*
     - *"Set bed light to green"*
@@ -37,6 +39,22 @@ These sentences allow you, for example, to:
     - *"How many people are in the kitchen"*
     - *"Who is in the garage"*
     - *"Where is Anne"*
+- **Control the media player**
+    - *"next item on TV"*
+    - *"skip song on the TV"*
+    - *"skip track on the TV"*
+    - *"skip to the next song on the TV"*
+    - *"pause TV"*
+    - *"TV pause"*
+    - *"unpause TV"*
+    - *"TV unpause"*
+    - *"resume TV"*
+    - *"set TV volume to 90 percent"*
+    - *"change the TV volume to 90"*
+    - *"turn TV volume down to 90 percent"*
+- **Control the vacuum**
+    - *"return rover to base"*
+    - *"start rover"*
 - **Abort wake word**
     - *"Nevermind"*: If you triggered the wake word by mistake and want to stop Home Assistant from listening
 
