@@ -7,7 +7,7 @@ Home Assistant dashboards allow you to display information about your smart home
 
 You can customize your dashboard using various options:
 
-- Different cards types to visualize your data and control your smart home devices.
+- Different card types to visualize your data and control your smart home devices.
 - [Themes](/integrations/frontend/#defining-themes) (even at a per card basis).
 - Override names and icons of entities.
 - Use custom cards from our amazing community.
