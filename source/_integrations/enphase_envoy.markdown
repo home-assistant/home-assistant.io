@@ -36,7 +36,7 @@ This integration will offer various sensors depending on the configuration of yo
 - Historical energy production & consumption
 - Power production per-inverter
 
-_Consumption sensors require your Envoy to be properly configured with consumption CT sensors installed._
+_Consumption sensors require your Envoy to be properly configured with consumption <abbr title="current transformers">CT</abbr> sensors installed._
 
 For Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (CT), additional features are available:
 
@@ -47,7 +47,7 @@ For Envoy S Metered / IQ Gateway Metered with installed and configured current t
   - Phase net production and net consumption.
   - Frequency net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).
   - Voltage net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).[^1]
-  - Metering status for net consumption and production <abbr title="current transformers">CT</abbr> (`normal` | `not-metering` | `check-wiring`) (Agaregate and phase).
+  - Metering status for net consumption and production <abbr title="current transformers">CT</abbr> (`normal` | `not-metering` | `check-wiring`) (aggregate and phase).
   - Meter status flags active for net consumption and production <abbr title="current transformers">CT</abbr> (aggregate and phase).[^2]
 
 [^1]: For multi-phase systems, the Envoy sums the voltages of the phases. May be valid for split-phase, but for 3-phase systems use the individual phases rather than the summed value.
