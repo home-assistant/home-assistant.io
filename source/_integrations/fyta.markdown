@@ -48,7 +48,3 @@ The following sensors are currently available per plant:
 | salinity              | mS/cm  | Salinity measured by sensor                |
 | battery_level         | %      | Battery level of the sensor                |
 
-
-<div class='note'>
-The fyta integration is using the fyta_cli package to get the data from the Fyta server (over the public API).
-</div>
