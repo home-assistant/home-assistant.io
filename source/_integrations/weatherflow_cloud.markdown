@@ -23,7 +23,7 @@ The **WeatherFlow Cloud** integration provides access to cloud provided Weather 
 
 ## Sensors
 
-Additionally this integration provides access to the following sensors
+Additionally, this integration provides access to the following sensors
 
 | Sensor                        | Description                                                                                   |
 |-----------------------------|-----------------------------------------------------------------------------------------------|
