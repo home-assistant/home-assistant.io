@@ -1,6 +1,6 @@
 ---
 title: Fyta
-description: Instructions on how to integrate Fyta sensors within Home Assistant.
+description: Instructions on how to integrate FYTA sensors within Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.1
