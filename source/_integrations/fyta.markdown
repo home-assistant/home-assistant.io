@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta.de) to obtain the data from your plant sensors and integrate these into Home Assistant.
 
-For the authentication on the FYTA-server you need your login-credentials (email and password).
+For the authentication on the FYTA server, you need your login-credentials (email and password).
 
 The integration provides a device for the controller interface and for all plants with a FYTA Beam sensor.
 
