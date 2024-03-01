@@ -105,7 +105,7 @@ The RFXtrx integration supports Siemens/LightwaveRF and Somfy RTS roller shutter
 
 #### Events
 
-The RFXtrx integration will expose event entities for remotes controlling lights as well security devices.
+The RFXtrx integration will expose event entities for remotes controlling lights as well as security devices.
 
 #### Lights
 
