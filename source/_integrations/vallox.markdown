@@ -26,19 +26,34 @@ ha_integration_type: integration
 
 The **Vallox** {% term integration %} lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
 
-The **fan** platform of this integration allows you to control the entire unit. You can turn the unit on/off using the toggle switch, adjust the fan speed, and select a ventilation profile.
-
-The **sensor** platform allows you to monitor various metrics such as fan speeds, air temperatures, humidity, remaining filter life, cell state, and more.
-
-The **binary_sensor** platform allows you to monitor the status of the post heater.
-
-The **switch** platform allows you to lock the heat recovery bypass.
-
-The **number** platform gives you control over the supply air temperatures.
-
-The **date** platform allows you to set the filter change date.
-
 {% include integrations/config_flow.md %}
+
+## Platforms
+
+### Fan
+
+The fan platform of this integration allows you to control the entire unit. You can turn the unit on/off using the toggle switch, adjust the fan speed, and select a ventilation profile.
+
+### Sensor
+
+The sensor platform allows you to monitor various metrics such as fan speeds, air temperatures, humidity, remaining filter life, cell state, and more.
+
+### Binary Sensor
+
+The binary sensor platform allows you to monitor the status of the post heater.
+
+### Switch
+
+The switch platform allows you to lock the heat recovery bypass.
+
+### Number
+
+The number platform gives you control over the supply air temperatures.
+
+### Date
+
+The date platform allows you to set the filter change date.
+
 
 ## Profile switching
 
