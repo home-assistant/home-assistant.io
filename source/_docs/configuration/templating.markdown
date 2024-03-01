@@ -309,7 +309,7 @@ The same thing can also be expressed as a test:
 - `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
 - `integration_entities(config_entry_title)` if you have multiple entries set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific entry.
 
-If there are more than one entry with the same title, the entities for all the matching entries will be returned, also if the entries are for different integrations. It's not possible to search for entities for an untitled integration. 
+If there is more than one entry with the same title, the entities for all the matching entries will be returned, even if the entries are for different integrations. It's not possible to search for entities of an untitled integration. 
 
 #### Integrations examples
 
