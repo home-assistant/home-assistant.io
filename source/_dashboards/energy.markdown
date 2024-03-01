@@ -204,7 +204,7 @@ max_devices: 5
   Screenshot of the detail devices energy graph card.
 </p>
 
-Similar to the devices energy graph, but shows individual usage on a time scale. 
+The **Detail devices energy graph** card is similar to the **Devices energy graph** card, but shows the individual usage on a time scale. 
 
 ### Examples
 
