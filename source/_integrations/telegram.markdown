@@ -119,6 +119,10 @@ $ python3
 If you want to add new chat IDs then you will need to disable the active configuration to actually see the result with the IDs, otherwise you may only get empty results array.
 </div>
 
+
+**Method 4:** You can also get the chat ID from the Home Assistant logs. If you have set up the bot already you can send a message to your bot from an unauthorized ID and you will see an error entry in the log containing the ID.  
+[![Open your Home Assistant instance and show your Home Assistant logs.](https://my.home-assistant.io/badges/logs.svg)](https://my.home-assistant.io/redirect/logs/?)
+
 ## Configuration
 
 To enable Telegram notifications in your installation, add the following to your `configuration.yaml` file:
