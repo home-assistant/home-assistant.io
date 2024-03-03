@@ -58,4 +58,4 @@ Controller versions 5.1.0 and later are supported.
 - WAN Port Online detection sensors
 - WAN Port Connect/Disconnect switches
 - LAN Port PoE activity sensor
-- Firmware Update entities
+- Firmware Update
