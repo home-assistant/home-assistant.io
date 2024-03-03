@@ -56,6 +56,7 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI pet detection
 - AI animal detection
 - AI face detection
+- AI package detection
 
 These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
@@ -81,11 +82,13 @@ Depending on the supported features of the camera, number entities are added for
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
+- AI package sensitivity
 - AI pet sensitivity
 - AI animal sensitivity
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
+- AI package delay*
 - AI pet delay*
 - AI animal delay*
 - Auto quick reply time
