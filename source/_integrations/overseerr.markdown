@@ -15,9 +15,9 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-This Overseerr integration pulls data from a given [Overseerr](https://overseerr.dev/) instance.
-Your API key can be found in Settings > General > API Key in the Overseerr Web UI.
-Make sure to add /api/v1 to your URL in the configuration.
+This **Overseerr** {% term integration %} pulls data from a given [Overseerr](https://overseerr.dev/) instance.
+Your API key can be found in **Settings** > **General** > **API Key** in the Overseerr Web UI.
+Make sure to add `/api/v1` to your URL in the configuration.
 
 {% include integrations/config_flow.md %}
 
