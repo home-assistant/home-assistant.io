@@ -1,8 +1,9 @@
 ---
 title: Ecovacs
-description: Instructions on how to integrate Ecovacs vacuums within Home Assistant.
+description: Instructions on how to integrate Ecovacs vacuums and mowers within Home Assistant.
 ha_category:
   - Hub
+  - Lawn mower
   - Vacuum
 ha_iot_class: Cloud Push
 ha_release: 0.77
@@ -10,6 +11,7 @@ ha_codeowners:
   - '@OverloadUT'
   - '@mib1185'
   - '@edenhaus'
+  - '@Augar'
 ha_config_flow: true
 ha_domain: ecovacs
 ha_platforms:
@@ -17,6 +19,7 @@ ha_platforms:
   - button
   - diagnostics
   - image
+  - lawn_mower
   - number
   - select
   - sensor
@@ -25,7 +28,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `ecovacs` {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
+The `ecovacs` {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers. You will need your Ecovacs account information (username, password) to discover and control vacuums and mowers in your account.
 
 {% include integrations/config_flow.md %}
 
@@ -70,8 +73,13 @@ Additionally, **depending on your model**, the integration provides the followin
     - `Time`: The total cleaning time
 - **Switch**:
   - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Border switch`: Enable border switch. Disabled by default.
   - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.
+  - `Child lock`: Enable child lock. Disabled by default.
+  - `Move up warning`: Enable device move up warning. Disabled by default.
+  - `Cross map border warning`: Enable warning for crossing the map border. Disabled by default.
   - `Continuous cleaning`: Enable continuous cleaning, which means the bot resumes the cleaning job if he needs to charge in between. Disabled by default.
+  - `Safe protect`: Enable "Safe protect" feature. Disabled by default.
   - `True detect`: Enable "True detect" feature. Disabled by default.
 
 ## Vacuum

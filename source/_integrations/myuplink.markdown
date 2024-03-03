@@ -2,13 +2,24 @@
 title: myUplink
 description: Instructions on how to set up the myUplink integration within Home Assistant.
 ha_category:
+  - Binary sensor
+  - Number
   - Sensor
+  - Switch
+  - Update
 ha_iot_class: Cloud Polling
 ha_release: '2024.2'
 ha_domain: myuplink
 ha_codeowners:
   - '@pajzo'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - diagnostics
+  - number
+  - sensor
+  - switch
+  - update
 ha_integration_type: integration
 ha_platforms:
   - sensor
@@ -16,7 +27,7 @@ ha_platforms:
 
 The myUplink integration lets you get information about the devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
 
-Depending on the type of devices in your system, one or more sensor entities to Home Assistant. Currently, there is only support for reading sensor states.
+Depending on the type of devices in your system, one or more entities are added to Home Assistant. Currently, there is support for reading sensor states. There is also support for switches and number entities if suitable data points are discovered in the system. Note that you may need a valid subscription with MyUplink to control your equipment with switches and number entities.
 
 ## Prerequisites
 
@@ -27,7 +38,6 @@ Depending on the type of devices in your system, one or more sensor entities to 
 - **OAuth Flow**: Authorization Code Grant Flow
 - **Redirect URI**: `https://my.home-assistant.io/redirect/oauth`
 
-
 {% details "I have manually disabled My Home Assistant" %}
 
 If you don't have [My Home Assistant](/integrations/my) on your installation,
@@ -37,7 +47,7 @@ instead.
 The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
 authentication process.
 
-Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`."
 
 {% enddetails %}
 
