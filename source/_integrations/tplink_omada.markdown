@@ -59,7 +59,3 @@ Controller versions 5.1.0 and later are supported.
 - WAN Port Connect/Disconnect switches
 - LAN Port PoE activity sensor
 - Firmware Update entities
-
-## Device trackers
-
-- Not currently supported
