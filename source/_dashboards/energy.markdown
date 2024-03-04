@@ -204,10 +204,19 @@ max_devices: 5
   Screenshot of the detail devices energy graph card.
 </p>
 
-The **Detail devices energy graph** card is similar to the **Devices energy graph** card, but shows the individual usage on a time scale. 
+The **Detail devices energy graph** card is similar to the **Devices energy graph** card, but shows the individual usage on a time scale.
+
+By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
 
 ### Examples
 
 ```yaml
 type: energy-devices-detail-graph
+```
+
+The following example limits the number of shown devices to 5:
+
+```yaml
+type: energy-devices-detail-graph
+max_devices: 5
 ```
