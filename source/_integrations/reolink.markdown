@@ -50,19 +50,20 @@ Dual lens cameras provide additional streams for the second lens.
 Depending on the supported features of the camera, binary sensors are added for:
 
 - Motion detection
-- Doorbell presses
+- Visitor (Doorbell presses)
 - AI person detection
 - AI vehicle detection
 - AI pet detection
 - AI animal detection
 - AI face detection
+- AI package detection
 
 These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
-To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#Reducing_latency_of_motion_events) section.
+To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
 
 ## Asterisk (*) next to entities listed in this documentation
 
@@ -81,11 +82,13 @@ Depending on the supported features of the camera, number entities are added for
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
+- AI package sensitivity
 - AI pet sensitivity
 - AI animal sensitivity
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
+- AI package delay*
 - AI pet delay*
 - AI animal delay*
 - Auto quick reply time
@@ -171,6 +174,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Auto tracking
 - Auto focus
 - Guard return
+- PTZ patrol (start/stop)
 - Doorbell button sound
 - Record
 - Push notifications
@@ -189,6 +193,8 @@ For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and *
 - The Push-notification in the Reolink App of that phone is ON.
 
 The Push-notification in the Reolink app is independent of the Home Assistant setting. It is also independent of the settings on other phones connected to the same camera. Reolink does this so you have an independent way of turning off push notifications per phone.
+
+The **PTZ patrol** positions first need to be configured using the Reolink [app](https://support.reolink.com/hc/en-us/articles/360008746833/)/[windows](https://support.reolink.com/hc/en-us/articles/900003738126/)/web client. When no positions are configured, the PTZ patrol entity will not be added. When adding patrol positions for the first time, you need to restart the Reolink integration.
 
 ## Light entities
 
@@ -245,6 +251,7 @@ The following models have been tested and confirmed to work:
 - [RLC-810A](https://reolink.com/product/rlc-810a/)
 - [RLC-810WA](https://reolink.com/product/rlc-810wa/)
 - [RLC-811A](https://reolink.com/product/rlc-811a/)
+- [RLC-81MA](https://reolink.com/product/rlc-81ma/)
 - [RLC-81PA](https://reolink.com/product/rlc-81pa/)
 - [RLC-820A](https://reolink.com/product/rlc-820a/)
 - [RLC-822A](https://reolink.com/product/rlc-822a/)
@@ -257,6 +264,7 @@ The following models have been tested and confirmed to work:
 - [RLN12W NVR](https://reolink.com/product/rln12w/)
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
+- [Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
 - Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))
 - Reolink Video Doorbell ([PoE](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi](https://reolink.com/product/reolink-video-doorbell-wifi/))

@@ -1,8 +1,9 @@
 ---
 title: Ecovacs
-description: Instructions on how to integrate Ecovacs vacuums within Home Assistant.
+description: Instructions on how to integrate Ecovacs vacuums and mowers within Home Assistant.
 ha_category:
   - Hub
+  - Lawn mower
   - Vacuum
 ha_iot_class: Cloud Push
 ha_release: 0.77
@@ -10,22 +11,30 @@ ha_codeowners:
   - '@OverloadUT'
   - '@mib1185'
   - '@edenhaus'
+  - '@Augar'
+ha_config_flow: true
 ha_domain: ecovacs
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - image
+  - lawn_mower
+  - number
   - select
   - sensor
+  - switch
   - vacuum
 ha_integration_type: integration
 ---
 
-The `ecovacs` {% term integration %} is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
+The `ecovacs` {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers. You will need your Ecovacs account information (username, password) to discover and control vacuums and mowers in your account.
 
 {% include integrations/config_flow.md %}
 
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
+
+With `advanced_mode` enabled, users can use their self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. More information can be found in the [Bumper's documentation](https://bumper.readthedocs.io).
 
 ## Provided entities
 
@@ -35,27 +44,43 @@ Using the vacuum entity, you can monitor and control your Ecovacs Deebot vacuum.
 
 Additionally, **depending on your model**, the integration provides the following entities:
 
-- **Binary sensor**: 
+- **Binary sensor**:
   - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
+- **Button**:
+  - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
+  - `Relocate`: Button entity to trigger manual relocation.
 - **Image**:
   - `Map`: The floorplan/map as an image in SVG format.
+- **Number**:
+  - `Clean count`: Set the number of times to clean the area.
+  - `Volume`: Set the volume.
 - **Select**:
   - `Water amount`: Specify the water amount used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean.
 - **Sensor**:
-  - `Error`: The error code and a description of the error. `0` means no error. Disabled by default
-  - `Lifespan`: For each component an entity with the remaining lifespan will be created
-  - `Network`: The following network related entities will be created. All disabled by default
+  - `Error`: The error code and a description of the error. `0` means no error. Disabled by default.
+  - `Lifespan`: For each supported component, an entity with the remaining lifespan will be created.
+  - `Network`: The following network related entities will be created. All disabled by default.
     - `Ip address`
     - `Wi-Fi RSSI`
     - `Wi-Fi SSID`
   - `Cleaning cycle`:
     - `Area`: The cleaned area
     - `Time`: The cleaned time
-  -  `Total statistics`: Updated after each cleaning cycle:
+  - `Total statistics`: Updated after each cleaning cycle:
     - `Area`: Total cleaned area
     - `Cleanings`: The number of cleanings
     - `Time`: The total cleaning time
+- **Switch**:
+  - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Border switch`: Enable border switch. Disabled by default.
+  - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.
+  - `Child lock`: Enable child lock. Disabled by default.
+  - `Move up warning`: Enable device move up warning. Disabled by default.
+  - `Cross map border warning`: Enable warning for crossing the map border. Disabled by default.
+  - `Continuous cleaning`: Enable continuous cleaning, which means the bot resumes the cleaning job if he needs to charge in between. Disabled by default.
+  - `Safe protect`: Enable "Safe protect" feature. Disabled by default.
+  - `True detect`: Enable "True detect" feature. Disabled by default.
 
 ## Vacuum
 

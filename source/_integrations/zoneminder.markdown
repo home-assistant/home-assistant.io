@@ -11,6 +11,7 @@ ha_release: 0.31
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@rohankapoorcom'
+  - '@nabbi'
 ha_domain: zoneminder
 ha_platforms:
   - binary_sensor

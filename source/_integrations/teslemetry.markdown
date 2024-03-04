@@ -80,3 +80,4 @@ The integration will create sensor entities for a variety of metrics that relate
 - Power
 - State (disabled by default)
 - Vehicle
+

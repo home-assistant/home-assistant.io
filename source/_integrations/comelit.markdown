@@ -16,7 +16,6 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_ssdp: false
 ha_integration_type: integration
 ---
 

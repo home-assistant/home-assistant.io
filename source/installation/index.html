@@ -257,7 +257,7 @@ toc: true
   <h2>Advanced installation methods</h2>
   <p>
     Home Assistant offers four different installation methods. We recommend
-    using Home Assistant Operating System, but other methods are available for
+    using Home Assistant Operating System. Other methods are available for
     experienced users for their specific needs, for example, running Home
     Assistant in a virtualized environment (e.g. Proxmox), or on top of an
     existing operating system (e.g. Windows, macOS, Linux):
@@ -278,10 +278,117 @@ toc: true
   <p>
     Note that while these installation methods may provide some
     features for advanced users, they may also have some major limitations.
-    For example, add-ons and other important Home Assistant features may not be available. Compare
-    installation methods here.
+    For example, add-ons and other important Home Assistant features may not be available.
   </p>
-
+  <div class="compare-installations">
+    <table>
+      <th></th>
+      <th>HA OS<sup>1</sup></th>
+      <th>Container<sup>1</sup></th>
+      <th>Core<sup>1</sup></th>
+      <th>Supervised<sup>1</sup></th>
+      <tr>
+        <td><a href="/docs/automation" target="_blank">Automations</a></td>
+        <td>✅</td>
+        <td>✅</td>
+        <td>✅</td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td><a href="/dashboards" target="_blank">Dashboards</a></td>
+        <td>✅</td>
+        <td>✅</td>
+        <td>✅</td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td><a href="/integrations" target="_blank">Integrations</a></td>
+        <td>✅</td>
+        <td>✅</td>
+        <td>✅</td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td><a href="/docs/blueprint" target="_blank">Blueprints</a></td>
+        <td>✅</td>
+        <td>✅</td>
+        <td>✅</td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td>Uses container</td>
+        <td>✅</td>
+        <td>✅</td>
+        <td>❌</td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/docs/glossary/#home-assistant-supervisor" target="_blank"
+            >Supervisor</a
+          >
+        </td>
+        <td>✅</td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td><a href="/addons" target="_blank">Add-ons</a></td>
+        <td>✅</td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td><a href="/common-tasks/os/#backups" target="_blank">Backups</a></td>
+        <td>✅</td>
+        <td>✅<sup>2</sup></td>
+        <td>✅<sup>2</sup></td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td>Managed Restore</td>
+        <td>✅</td>
+        <td>❌<sup>3</sup></td>
+        <td>❌<sup>3</sup></td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td>Managed OS</td>
+        <td>✅</td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </table>
+  </div>
+  
+  <sub
+    >1: Names are abbreviated. The full names of the installation methods are:
+    <ul>
+      <li style="margin-top: 0.4em">Home Assistant Operating System</li>
+      <li style="margin-top: 15px">Home Assistant Container</li>
+      <li style="margin-top: 15px">Home Assistant Core</li>
+      <li style="margin-top: 15px">Home Assistant Supervised</li>
+    </ul></sub
+  >
+  <p>
+    <sub
+      >2: Backups for Home Assistant Core and Home Assistant Container is provided
+      by the
+      <a href="/integrations/backup" target="_blank"
+        ><code>backup</code> integration</a
+      >.</sub
+    >
+  </p>
+  <p>
+    <sub
+      >3: Backups for Home Assistant Core and Home Assistant Container are either
+      a tool to migrate to HAOS or a completely manual restore of the backup.</sub
+    >
+  </p>
+  <p></p>
   <div class="installations-card">
     <div class="material-card text">
       <div class="content-container">
@@ -424,117 +531,3 @@ toc: true
     </div>
   </div>
 </div>
-
-<h2>Compare installation methods</h2>
-
-<div class="compare-installations">
-  <table>
-    <th></th>
-    <th>HA OS<sup>1</sup></th>
-    <th>Container<sup>1</sup></th>
-    <th>Core<sup>1</sup></th>
-    <th>Supervised<sup>1</sup></th>
-    <tr>
-      <td><a href="/docs/automation" target="_blank">Automations</a></td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><a href="/dashboards" target="_blank">Dashboards</a></td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><a href="/integrations" target="_blank">Integrations</a></td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><a href="/docs/blueprint" target="_blank">Blueprints</a></td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td>Uses container</td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>❌</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td>
-        <a href="/docs/glossary/#home-assistant-supervisor" target="_blank"
-          >Supervisor</a
-        >
-      </td>
-      <td>✅</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><a href="/addons" target="_blank">Add-ons</a></td>
-      <td>✅</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><a href="/common-tasks/os/#backups" target="_blank">Backups</a></td>
-      <td>✅</td>
-      <td>✅<sup>2</sup></td>
-      <td>✅<sup>2</sup></td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td>Managed Restore</td>
-      <td>✅</td>
-      <td>❌<sup>3</sup></td>
-      <td>❌<sup>3</sup></td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td>Managed OS</td>
-      <td>✅</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-    </tr>
-  </table>
-</div>
-
-<sub
-  >1: Names are abbreviated. The full names of the installation methods are:
-  <ul>
-    <li style="margin-top: 0.4em">Home Assistant Operating System</li>
-    <li style="margin-top: 15px">Home Assistant Container</li>
-    <li style="margin-top: 15px">Home Assistant Core</li>
-    <li style="margin-top: 15px">Home Assistant Supervised</li>
-  </ul></sub
->
-<p>
-  <sub
-    >2: Backups for Home Assistant Core and Home Assistant Container is provided
-    by the
-    <a href="/integrations/backup" target="_blank"
-      ><code>backup</code> integration</a
-    >.</sub
-  >
-</p>
-<p>
-  <sub
-    >3: Backups for Home Assistant Core and Home Assistant Container are either
-    a tool to migrate to HAOS or a completely manual restore of the backup.</sub
-  >
-</p>
-<p></p>
-
-<p><i>We get commissions for purchases made through links in this post.</i></p>
