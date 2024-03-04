@@ -179,7 +179,9 @@ This guide describes how to add a new device. This will use the Bluetooth connec
 
 <lite-youtube videoid="Fk0n0r0eKcE" videotitle="Add Matter device via Android app in Home Assistant"></lite-youtube>
 
-### Troubleshooting the installation via Android Companion app
+### Troubleshooting the installation
+
+Check these steps if you are experiencing issues when trying to add a Matter device using the Home Assistant Companion app on your Android phone.
 
 #### Symptom
 
