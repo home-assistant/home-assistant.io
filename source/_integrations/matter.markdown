@@ -80,7 +80,6 @@ One of the great features of Matter is the so-called _Multi Fabric_ feature: you
 
 For devices where Home Assistant provides a native integration (with local API), Matter may not be the best option. Matter, being a universal standard, might not have the nitty-gritty features that come with a product-specific protocol. A good example is Philips Hue: the communication over Matter only provides the basic controls over lights, while the official [Hue integration](/integrations/hue) brings all Hue unique features like (dynamic) scenes, entertainment mode, etc.
 
-
 ## Supported installation types
 
 It is recommended to run the Matter add-on on Home Assistant OS. This is currently the only supported option. Other installation types are without support and at your own risk.
@@ -179,6 +178,20 @@ This guide describes how to add a new device. This will use the Bluetooth connec
 7. Your device is now ready to use.
 
 <lite-youtube videoid="Fk0n0r0eKcE" videotitle="Add Matter device via Android app in Home Assistant"></lite-youtube>
+
+### Troubleshooting the installation via Android Companion app
+
+#### Symptom
+
+While trying to add the Matter device, I get an error stating that *Matter is currently unavailable*. 
+
+#### Remedy
+
+This could mean that not all required Matter modules that are needed by the Home Assistant Companion App have been downloaded yet. Try the following steps:
+
+1. Wait up to 24 hours for the Google Play services to download the necessary Matter modules. For more information, refer to this [Troubleshooting Guide from Google](https://developers.home.google.com/matter/verify-services).
+2. If this did not work, try reinstalling the Home Assistant Companion app.
+
 
 ## Sharing a device from another platform with Home Assistant
 
