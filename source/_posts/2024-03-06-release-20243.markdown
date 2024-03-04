@@ -84,21 +84,17 @@ Scripts in Home Assistant allow you to capture a sequence of actions and choices
 
 Script fields can be defined in the script editor and show up when you call the script in your automation. In this release, script fields will be available in the more info dialog when tapping on a script in the dashboard. This allows you to provide the input fields and run the script, unlocking a whole new dimension of possibilities.
 
-<lite-youtube videoid="mTan5y7Ed58" videotitle="Calling scripts from the dashboard"></lite-youtube>
+<lite-youtube videoid="Ulkl1L8F1L4" videotitle="Calling scripts from the dashboard"></lite-youtube>
 
-To accompany this new functionality, we've created two blueprints that you can use to add to your dashboard:
+To accompany this new functionality, we've created two blueprints as examples of what you could want to add to your dashboard:
 
-**Broadcast message**
-
-This blueprint allows you to create an announce script for your dashboard that is pre-configured to a specific media player and text-to-speech engine. When activated, it will ask the user for the message to play.
+**Announce message**: This blueprint allows you to create an announce script for your dashboard that is pre-configured to a specific media player and text-to-speech engine. When activated, it will ask the user for the message to play.
 
 {% my blueprint_import badge blueprint="https://community.home-assistant.io/t/announce-text-to-speech-on-media-player/699186" %}
 
-**Add to to-do list**
+**Add to to-do list**: This blueprint allows you to create a script to add an item to a to-do list that is pre-configured to a specific to-do list. When activated, it will ask the user for the item to add.
 
-This blueprint allows you to create a script to quickly add a task to a to-do list.
-
-{% my blueprint_import badge blueprint="https://example.com" %}
+{% my blueprint_import badge blueprint="https://community.home-assistant.io/t/add-to-do-item/699193" %}
 
 ## New energy graph
 
