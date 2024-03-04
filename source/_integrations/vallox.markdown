@@ -38,7 +38,7 @@ The fan platform of this integration allows you to control the entire unit. You 
 
 The sensor platform allows you to monitor various metrics such as fan speeds, air temperatures, humidity, remaining filter life, cell state, and more.
 
-### Binary Sensor
+### Binary sensor
 
 The binary sensor platform allows you to monitor the status of the post heater.
 
