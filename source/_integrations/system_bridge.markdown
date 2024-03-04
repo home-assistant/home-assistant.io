@@ -24,7 +24,7 @@ ha_integration_type: device
 [System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to the device such as opening a URL or sending keyboard keypresses.
 ## Prerequisites
 ### Version
-This integration requires System Bridge 3.10.0 and above. Any older version will not work.
+This integration requires System Bridge 4.0.2 and above. Any older version will not work.
 ### API Key
 You will need your API key. This can be found following the documentation [here](https://system-bridge.timmo.dev/docs/running).
 {% include integrations/config_flow.md %}
