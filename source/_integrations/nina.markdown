@@ -2,7 +2,7 @@
 title: NINA
 description: Instructions on how to set up NINA warnings in Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 2022.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true

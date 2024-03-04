@@ -13,9 +13,14 @@ ha_codeowners:
   - '@synesthesiam'
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
+  - number
+  - select
   - stt
+  - switch
   - tts
 ha_iot_class: Local Push
+ha_zeroconf: true
 ---
 
 {% include integrations/supported_brand.md %}

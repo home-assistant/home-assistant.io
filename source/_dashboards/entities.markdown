@@ -2,16 +2,16 @@
 type: card
 title: "Entities Card"
 sidebar_label: Entities
-description: "The Entities card is the most common type of card. It groups items together into lists."
+description: "The entities card is the most common type of card. It groups items together into lists."
 ---
 
-The Entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
+The entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
 
-To add the Entities card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -54,7 +54,7 @@ footer:
   type: map
 {% endconfiguration %}
 
-## Options For Entities
+## Options for entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration.
 
@@ -110,9 +110,9 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Special Row Elements
+## Special row elements
 
-Rather than only displaying an entity's state as a text output, the Entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
+Rather than only displaying an entity's state as a text output, the entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
 
 ### Attribute
 

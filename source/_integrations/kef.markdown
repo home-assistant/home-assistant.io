@@ -2,7 +2,7 @@
 title: KEF
 description: Instructions on how to integrate KEF Speakers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Polling
 ha_release: 0.104
 ha_codeowners:

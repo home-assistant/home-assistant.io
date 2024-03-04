@@ -24,7 +24,7 @@ The Google Mail integration allows you to connect your [Google Mail](https://mai
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
 These credentials are the same as the ones for [Nest](/integrations/nest) and [Google Sheets](/integrations/google_sheets) and [YouTube](/integrations/youtube).
-These are not the same as the one for [Google Calendar](/integrations/google).
+These are not the same as *Device Auth* credentials previously recommended for [Google Calendar](/integrations/google).
 
 {% include integrations/google_client_secret.md %}
 
@@ -57,7 +57,7 @@ You can use the service `google_mail.set_vacation` to set vacation options.
 
 The added `notify` service will be named after the email address you chose on the consent screen. For example, an email address named "example@gmail.com" wil display as `notify.example_gmail_com`.
 
-### Google Mail Notify Service Data
+### Google Mail notify service data
 
 The following attributes can be placed inside the `data` key of the service call for extended functionality:
 
@@ -87,7 +87,8 @@ data:
     from: "example@gmail.com"
 ```
 
-### Video Tutorial
+### Video tutorial
+
 This video tutorial explains how to set up Gmail in Home Assistant and how you can create a dashboard and automations to send e-mail and toggle your out-of-office notice.
 
 <lite-youtube videoid="IHKliqSFZvM" videotitle="How To send e-mail PERFECTLY using Gmail in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>

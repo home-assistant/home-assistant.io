@@ -1,5 +1,5 @@
 ---
-title: "Common Tasks - Container"
+title: "Common tasks - Container"
 description: "Common tasks for Home Assistant Container"
 installation: container
 ---

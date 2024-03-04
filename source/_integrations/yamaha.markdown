@@ -2,7 +2,7 @@
 title: Yamaha Network Receivers
 description: Instructions on how to integrate Yamaha Network Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.16
 ha_iot_class: Local Polling
 ha_domain: yamaha

@@ -1,5 +1,5 @@
 ---
-title: Generic Thermostat
+title: Generic thermostat
 description: Turn Home Assistant into a thermostat
 ha_category:
   - Climate
@@ -87,6 +87,10 @@ away_temp:
   type: float
 comfort_temp:
   description: "Set the temperature used by `preset_mode: comfort`."
+  required: false
+  type: float
+eco_temp:
+  description: "Set the temperature used by `preset_mode: eco`."
   required: false
   type: float
 home_temp:

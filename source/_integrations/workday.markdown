@@ -2,7 +2,7 @@
 title: Workday
 description: Steps to configure the binary workday sensor.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.41
@@ -49,6 +49,32 @@ Add holidays will only take dates formatted with `YYYY-MM-DD` or a date range fo
 Remove holidays will take dates formatted with `YYYY-MM-DD`, a date range formatted with `YYYY-MM-DD,YYYY-MM-DD` or partial of name, for example, `christmas` will exclude `Christmas Day`.
 
 The offset can be used to see if future days are workdays. For example, put `1` to see if tomorrow is a workday.
+
+## Service `workday.check_date`
+
+This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+providing feedback if the date is a workday or not.
+
+| Service data attribute | Required | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `check_date` | yes | Date to test if workday or not. | 2022-03-10
+
+{% raw %}
+```yaml
+service: workday.check_date
+target:
+  entity_id: binary_sensor.workday
+data:
+  check_date: "2023-12-25"
+response_variable: check_date
+```
+{% endraw %}
+
+The response data field `check_date` is providing:
+
+| Response data | Description | Example |
+| ---------------------- | ----------- | -------- |
+| `workday` | Is date a workday. | True
 
 ## Automation example
 
