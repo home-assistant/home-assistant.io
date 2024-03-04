@@ -90,11 +90,11 @@ To accompany this new functionality, we've created two blueprints as examples of
 
 **Announce message**: This blueprint allows you to create an announce script for your dashboard that is pre-configured to a specific media player and text-to-speech engine. When activated, it will ask the user for the message to play.
 
-{% my blueprint_import badge blueprint="https://community.home-assistant.io/t/announce-text-to-speech-on-media-player/699186" %}
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/announce-text-to-speech-on-media-player/699186" %}
 
 **Add to to-do list**: This blueprint allows you to create a script to add an item to a to-do list that is pre-configured to a specific to-do list. When activated, it will ask the user for the item to add.
 
-{% my blueprint_import badge blueprint="https://community.home-assistant.io/t/add-to-do-item/699193" %}
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/add-to-do-item/699193" %}
 
 ## New energy graph
 
