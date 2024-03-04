@@ -154,6 +154,8 @@ This is an object containing the `source` and `volume` (0-100). The source must 
 
 Returns a process by its pid.
 
+{% my developer_call_service service="system_bridge.get_process_by_id" title="Show service in your Home Assistant instance." %}
+
 ```yaml
 service: system_bridge.get_process_by_id
 data:
@@ -161,7 +163,7 @@ data:
   id: 17752
 ```
 
-Example response:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: 17752
@@ -179,6 +181,8 @@ working_directory: null
 
 Returns a count and a list of processes matching the name provided.
 
+{% my developer_call_service service="system_bridge.get_processes_by_name" title="Show service in your Home Assistant instance." %}
+
 ```yaml
 service: system_bridge.get_processes_by_name
 data:
@@ -186,7 +190,7 @@ data:
   name: discord
 ```
 
-Example response:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 count: 1
