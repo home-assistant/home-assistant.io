@@ -35,7 +35,7 @@ On the Reolink device, a user account with admin privileges is needed for the pr
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
 Protocol:
-  description: Switch between RTSP, RTMP or FLV streaming protocol. RTSP supports 4K streams (h265 encoding) while RTMP and FLV do not. FLV is the least demanding on the camera.
+  description: Switch between <abbr title="real-time streaming protocol">RTSP</abbr>, <abbr title="real-time messaging protocol">RTMP</abbr> or <abbr title="flash video">FLV</abbr> streaming protocol. <abbr title="real-time streaming protocol">RTSP</abbr> supports 4K streams (h265 encoding) while <abbr title="real-time messaging protocol">RTMP</abbr> and <abbr title="flash video">FLV</abbr> do not. <abbr title="flash video">FLV</abbr> is the least demanding on the camera.
 {% endconfiguration_basic %}
 
 ## Asterisk (*) next to entities listed in this documentation
