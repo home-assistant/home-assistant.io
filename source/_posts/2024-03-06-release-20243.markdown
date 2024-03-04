@@ -55,6 +55,7 @@ Enjoy the (beta) release!
 - [New sentences for Assist](#new-sentences-for-assist)
 - [Disabling the remotely enabling of Home Assistant Remote UI](#disabling-the-remotely-enabling-of-home-assistant-remote-ui)
 - [Translating states in your templates](#translating-states-in-your-templates)
+- [Home Assistant boots twice as fast](#home-assistant-boots-twice-as-fast)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -89,9 +90,9 @@ To accompany this new functionality, we've created two blueprints that you can u
 
 **Broadcast message**
 
-This blueprint allows you to create a script that broadcasts a Text-to-Speech message to specific media players and asks the user for the message to broadcast.
+This blueprint allows you to create an announce script for your dashboard that is pre-configured to a specific media player and text-to-speech engine. When activated, it will ask the user for the message to play.
 
-{% my blueprint_import badge blueprint="https://example.com" %}
+{% my blueprint_import badge blueprint="https://community.home-assistant.io/t/announce-text-to-speech-on-media-player/699186" %}
 
 **Add to to-do list**
 
@@ -170,6 +171,10 @@ if you are using Home Assistant in a different language, the translated state
 will be in that language.
 
 [@PiotrMachowski]: https://github.com/PiotrMachowski
+
+## Home Assistant boots twice as fast
+
+Every release [@bdraco] improves the performance on some aspect of Home Assistant. It has become so regular that we don't always highlight his enormous efforts there. However, this release is,  it is so noticeable that we wanted to call it out: Home Assistant now boots on average twice as fast! 🚀
 
 ## Other noteworthy changes
 
