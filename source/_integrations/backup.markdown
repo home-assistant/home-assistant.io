@@ -74,12 +74,12 @@ automation:
 
 <div class="note">
 
-If you use Home Assistant Operating System or Home Assistant Supervised, [restore functionality is already built-in](/common-tasks/os/#restoring-a-backup).
+If you use Home Assistant Operating System or Home Assistant Supervised, [the restore functionality is already built-in](/common-tasks/os/#restoring-a-backup).
 
 </div>
 
-Backups created via the integrations are located in you `/config/backups` directory. Home Assistant Container installation will typically mount this directory via `docker-compose.yml` or `docker run` to a directory of they choice.  
-There is currently no builtin way to restore a backup. However, a Home Assistant backup is just a tar file of the `/config` directory, plus some metadata. To manually restore a backup, one can do:
+Backups created via the **Backup** integration are located in your `/config/backups` directory. The Home Assistant Container installation will typically mount this directory via `docker-compose.yml` or `docker run` to a directory of your choice.  
+For Container and Core installations, there is currently no built-in way to restore a backup. However, a Home Assistant backup is just a tar file of the `/config` directory, plus some metadata. To manually restore a backup, you can use the following:
 
 ```shell
 $ tar -xOf <backup_tar_file> "./homeassistant.tar.gz" | tar --strip-components=1 -zxf - -C <restore_directory>
