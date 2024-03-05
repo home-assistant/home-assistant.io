@@ -5,19 +5,27 @@ description: "A view is a tab inside a dashboard."
 
 A view is a tab inside a dashboard. Views control the layout.
 
+<p class='img'>
+    <img src='/images/dashboards/layout-types.png' alt='The three basic view layouts: Panel, sidebar, and masonry'>
+    The three basic view layouts: panel, sidebar, and masonry
+</p>
+
 There are four different view types:
 
-- **Masonry (default)**: Arranges cards in columns based on their card size.
-- **Panel**: *Displays one card in full width. For example a map or an image.
+- **Panel**: Displays one card in full width. For example a map or an image.
 - **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
+- **Masonry (default)**: Arranges cards in columns based on their card size.
 - **Sections (experimental)**: Arranges cards in a grid system and lets you group them in sections.
 
-To add a view to your user interface, in the top right corner, select the pencil icon. Then, select the `+` button in the top menu bar.
+## Adding a view to a dashboard
 
-<p class="img">
-  <img src="/images/dashboards/views.png" alt="Views toolbar">
-  Use titles and icons to describe the content of views.
-</p>
+1. To add a view to your user interface, in the top right corner, select the pencil icon.
+2. Then, select the `+` button in the top menu bar.
+
+    <p class="img">
+      <img src="/images/dashboards/views.png" alt="Views toolbar">
+      Use titles and icons to describe the content of views.
+    </p>
 
 ## Path
 
@@ -240,3 +248,10 @@ Subview configuration:
       entities:
         - sensor.today_avg_price
 ```
+
+## Related topics
+
+- [Masonry view](/dashboards/masonry/)
+- [Panel view](/dashboards/panel/)
+- [Sidebar view](/dashboards/sidebar/)
+- [Sections view](/dashboards/sections/)

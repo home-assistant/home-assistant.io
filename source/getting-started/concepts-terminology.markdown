@@ -37,7 +37,7 @@ Devices and entities are used throughout Home Assistant. To name a few examples:
 A set of repeatable {% term actions %} that can be set up to run automatically. Automations are made of three key components:
 
 1. Triggers - events that start an {% term automation %}. For example, when the sun sets or a motion sensor is activated.
-2. Conditions - optional tests that must be met an {% term action %} can be run. For example, if someone is home.
+2. Conditions - optional tests that must be met before an {% term action %} can be run. For example, if someone is home.
 3. Actions - interact with {% term devices %} such as turn on a light.
 
 To learn the basics about {% term automations %}, refer to the [automation basics](/docs/automation/basics/) page or try [creating an automation](/getting-started/automation) yourself.
