@@ -65,7 +65,7 @@ To solve these problems with our layout, we realized that the Masonry layout, co
 2. [a design grid system](#the-grid-system), and
 3. [a “Z-Grid” auto-rearranging pattern](#drag-and-drop-rearrangement-of-cards-and-sections).
 
-Let's dive in to each solution one-by-one and see how they work together to make your dashboards easier to customize and use!
+Let's dive in each solution and learn how they work together to make your dashboards easier to customize and use!
 
 ## The new Sections view
 
