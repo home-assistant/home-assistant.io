@@ -563,7 +563,7 @@ availability_topic:
   required: false
   type: string
 brightness:
-  description: Flag that defines if light supports brightness when the `rgb`, `rgbw` or `rgbww` color mode is supported.
+  description: Flag that defines if light supports brightness when the `rgb`, `rgbw`, or `rgbww` color mode is supported.
   required: false
   type: boolean
   default: false
