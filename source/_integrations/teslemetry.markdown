@@ -3,6 +3,7 @@ title: Teslemetry
 description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
   - Climate
+  - Sensor
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: teslemetry
 ha_platforms:
   - climate
+  - sensor
 ha_integration_type: integration
 ---
 
