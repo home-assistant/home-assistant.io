@@ -14,9 +14,11 @@ ha_platforms:
 ha_integration_type: entity
 ---
 
-Text-to-speech (TTS) enables Home Assistant to speak to you. This integration is used by [other integrations](https://www.home-assistant.io/integrations/#text-to-speech). If you are using the Home Assistant voice assistant, [Assist](https://www.home-assistant.io/voice_control/), Assist is using TTS when replying to you. Another way to use TTS, is by using [TTS with Home Assistant Cloud](https://www.nabucasa.com/config/tts/).
+Text-to-speech (TTS) enables Home Assistant to speak to you.
 
 {% include integrations/building_block_integration.md %}
+
+See all [TTS integrations](https://www.home-assistant.io/integrations/#text-to-speech) using this building block for ways to use it in your automations. If you are using the Home Assistant voice assistant, [Assist](https://www.home-assistant.io/voice_control/), Assist is using TTS when replying to you. Another way to use TTS is by using [TTS with Home Assistant Cloud](https://www.nabucasa.com/config/tts/). 
 
 ## Services
 
