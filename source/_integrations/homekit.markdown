@@ -154,23 +154,23 @@ homekit:
               required: false
               type: string
             linked_battery_sensor:
-              description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `sensor` entity to use as the battery of the accessory.
               required: false
               type: string
             linked_doorbell_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `binary_sensor` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications.
               required: false
               type: string
             linked_humidity_sensor:
-              description: The `entity_id` of a `sensor` entity to use as the humidity sensor of the humidifier/dehumidifier accessory. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `sensor` entity to use as the humidity sensor of the humidifier/dehumidifier accessory.
               required: false
               type: string
             linked_motion_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications.
               required: false
               type: string
             linked_obstruction_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the obstruction sensor of the garage door (cover) accessory to enable obstruction state tracking. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: The `entity_id` of a `binary_sensor` entity to use as the obstruction sensor of the garage door (cover) accessory to enable obstruction state tracking.
               required: false
               type: string
             low_battery_threshold:
@@ -193,7 +193,7 @@ homekit:
                   required: true
                   type: string
             type:
-              description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`.
               required: false
               type: string
               default: '`switch`'
@@ -423,7 +423,7 @@ The following integrations are currently supported:
 | water_heater | WaterHeater | All `water_heater` devices. |
 | device_automation | DeviceTriggerAccessory | All devices that support triggers. |
 
-# Device Triggers
+# Device triggers
 
 Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Settings > Devices & Services" %}**. To use this feature, Advanced Mode must be enabled in your user profile.
 
@@ -631,7 +631,7 @@ If your camera supports native H.264 streams, Home Assistant can avoid convertin
 
 #### Multiple camera streams
 
-Multiple streams can be configured with the `stream_count` configuration option. If you alter the number of streams, you must [reset the accessory](#resetting-accessories).
+Multiple streams can be configured with the `stream_count` configuration option.
 
 #### Camera audio is not streaming
 

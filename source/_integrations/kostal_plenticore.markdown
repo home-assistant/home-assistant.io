@@ -39,7 +39,7 @@ The following sensors are available in the library:
 | Name                    | Unit | Description   |
 |-------------------------|------|:-------------------------------------------|
 | Inverter State          |      | State of the inverter. |
-| Solar Power             | W    | Sum of all DC strings. |
+| Solar Power             | W    | Sum of all DC strings (including battery). |
 | Grid Power              | W    | Power from (+)/to (-) the grid. |
 | Home Power from Battery | W    | Power from the battery for home consumption. |
 | Home Power from Grid    | W    | Power from the grid for home consumption. |
@@ -100,18 +100,45 @@ The following sensors are available in the library:
 | Energy Yield Month      | kWh  | Energy yield of the current month. |
 | Energy Yield Year       | kWh  | Energy yield of the current year. |
 | Energy Yield Total      | kWh  | Energy yield total. |
-| Energy Discharge to Grid Day    | kWh  | Energy discharged to the Grid of the current day. |
-| Energy Discharge to Grid Month  | kWh  | Energy discharged to the Grid of the current month. |
-| Energy Discharge to Grid Year   | kWh  | Energy discharged to the Grid of the current year. |
-| Energy Discharge to Grid Total  | kWh  | Energy discharged to the Grid total. |
+| Energy Discharge to Grid Day    | kWh  | Energy discharged from battery to the Grid of the current day. |
+| Energy Discharge to Grid Month  | kWh  | Energy discharged from battery to the Grid of the current month. |
+| Energy Discharge to Grid Year   | kWh  | Energy discharged from battery to the Grid of the current year. |
+| Energy Discharge to Grid Total  | kWh  | Energy discharged from battery to the Grid total. |
 | Battery Charge from Grid Day    | kWh  | Energy charged to the battery from the Grid of the current day. |
 | Battery Charge from Grid Month  | kWh  | Energy charged to the battery from the Grid of the current month. |
 | Battery Charge from Grid Year   | kWh  | Energy charged to the battery from the Grid of the current year. |
 | Battery Charge from Grid Total  | kWh  | Energy charged to the battery from the Grid total. |
-| Battery Charge from PV Day    | kWh  | Energy charged to the battery from the PV of the current day. |
-| Battery Charge from PV Month  | kWh  | Energy charged to the battery from the PV of the current month. |
-| Battery Charge from PV Year   | kWh  | Energy charged to the battery from the PV of the current year. |
-| Battery Charge from PV Total  | kWh  | Energy charged to the battery from the PV total. |
+| Battery Charge from PV Day    | kWh  | Energy to the battery on the DC side charged by PV during the current day. |
+| Battery Charge from PV Month  | kWh  | Energy to the battery on the DC side charged by PV during the current month. |
+| Battery Charge from PV Year   | kWh  | Energy to the battery on the DC side charged by PV during the current year. |
+| Battery Charge from PV Total  | kWh  | Energy to the battery on the DC side charged by PV  total. |
+| Battery Discharge Day | kWh | Energy from the battery on the DC side discharged during the current day. |
+| Battery Discharge Month | kWh | Energy from PV on DC-side used to charge the battery of the current month. |
+| Battery Discharge Year | kWh | Energy from PV on DC-side used to charge the battery of the current year. |
+| Battery Discharge Total | kWh | Energy from PV on DC-side used to charge the battery total. |
+| Energy to Grid Day | kWh | Energy fed into the grid for the current day. |
+| Energy to Grid Month | kWh | Energy fed into the grid for the current month. |
+| Energy to Grid Year | kWh | Energy fed into the grid for the current year. |
+| Energy to Grid Total | kWh | Energy fed into the grid in total, since the system was installed. |
+| Sum power of all PV DC inputs | W | Total sum of power provided by all PV inputs together. |
+
+<div class='note'>
+The inverter does not provide any data about the energy that is fed into the grid directly, but the `pykoplenti` library provides it via virtual process data.
+</div>
+
+#### Configuration of the energy dashboard
+
+The following sensors can be used in the [energy dashboard](/docs/energy/):
+
+| Energy dashboard | Sensor |
+|------------------|:-------|
+| Grid consumption | Home Consumption from Grid Total |
+| Solar production | Energy PV1 Total, Energy PV2 Total, Energy PV3 Total |
+| Battery systems  | Battery Discharge Total, Battery Charge from PV Total |
+
+<div class='note'>
+Some of the energy is measured on the DC side and some on the AC side, so the values may differ slightly due to losses between DC and AC.
+</div>
 
 ### Settings Sensors
 

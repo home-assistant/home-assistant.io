@@ -1,20 +1,27 @@
 ---
 type: view
-title: Sidebar View
+title: Sidebar view
 sidebar_label: Sidebar
 description: "The sidebar view has 2 columns, a wide one and a smaller one on the right."
 ---
 
 The sidebar view has 2 columns, a wide one and a smaller one on the right.
 
+<p class='img'>
+<img src='/images/dashboards/sidebar_view.png' alt='Screenshot of the sidebar view'>
+Screenshot of the sidebar view used for the energy dashboard.
+</p>
+
 This view doesn't have support for badges.
 
-To change a view to edit mode, or to change the location of a card, enable edit mode:
-Click the menu (three dots at the top right of the screen) and then **Edit Dashboard**.
+You can set if a card should be placed in the main (left) column of the sidebar column (right), by selecting the arrow right or left arrow in the bar underneath the card.
 
-You can set if a card should be placed in the main (left) column of the sidebar column (right), by pressing the arrow right or left arrow in the bar underneath the card.
+<p class='img'>
+<img src='/images/dashboards/sidebar_view_move_card.png' alt='Screenshot showing how to move a card between sidebar and main view'>
+Screenshot showing how to move a card between sidebar and main view.
+</p>
 
-On mobile all cards are rendered in 1 column and kept in the order of the cards in the config.
+On mobile, all cards are rendered in 1 column and kept in the order of the cards in the config.
 
 ## View config:
 
@@ -47,3 +54,8 @@ cards:
     view_layout:
       position: sidebar
 ```
+
+## Related topics
+
+- [Panel view](/dashboards/panel/)
+- [Masonry view](/dashboards/masonry/)

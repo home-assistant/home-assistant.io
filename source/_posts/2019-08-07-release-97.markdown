@@ -145,7 +145,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Python** - Bump Python support to min Python 3.6.0 ([@balloob] - [#25582])
 - **Z-Wave** - Improve handling of Z-Wave config entry vs yaml config. If a Z-Wave `network_key` is specified in configuration.yaml it will override a `network_key` specified in the Z-Wave config entry. ([@cgarwood] - [#25112]) ([zwave docs])

@@ -6,7 +6,7 @@
     <ul class="divided sidebar-menu">
       <li>{% active_link /dashboards/ Introduction %}</li>
       <li>
-        {% active_link /dashboards/dashboards/ Multiple Dashboards %}
+        {% active_link /dashboards/dashboards/ Multiple dashboards %}
       </li>
       <li>
         {% active_link /dashboards/views/ Views %}
@@ -21,7 +21,7 @@
   </div>
 
   <div class="section">
-    <h1 class="title delta">Views</h1>
+    <h1 class="title delta">View types</h1>
     <ul class="divided sidebar-menu">
       {% for element in elements %}
         {% if element.type == "view" %}
@@ -32,7 +32,7 @@
   </div>
 
   <div class="section">
-    <h1 class="title delta">Cards</h1>
+    <h1 class="title delta">Card types</h1>
     <ul class="divided sidebar-menu">
       {% for element in elements %}
         {% if element.type == "card" %}
@@ -45,6 +45,7 @@
   <div class="section">
     <h1 class="title delta">Advanced</h1>
     <ul class="divided sidebar-menu">
+      <li>{% active_link /dashboards/features/ Features %}</li>
       <li>{% active_link /dashboards/header-footer/ Headers & Footers %}</li>
       <li>{% active_link /dashboards/actions/ Actions %}</li>
       <li>
