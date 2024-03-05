@@ -95,7 +95,7 @@ To get started with the new Sections view, create a new view on your dashboard a
 
 <div class='note info'>
     If you are using the default dashboard, please read about how to <a href="/dashboards/#get-started-with-your-own-dashboard">create a new dashboard</a>.
-</div> ()
+</div>
 
 <p class='img'>
     <img src="/images/blog/2024-03-dashboard-chapter-1/sections-blank-sections-view.png" alt="A new dashboard view laid out in Sections"/>
@@ -120,7 +120,7 @@ You will be greeted by a clean new dashboard view, with one section already crea
 
 There are multiple ways to add cards into a section and populate your dashboard:
 
-{% details "Using the **Add Card** button" %}
+{% details "Using the Add Card button" %}
 
 1. The easiest way to add cards is to select **Add Card** [Button icon] button inside the section.
 
@@ -147,7 +147,7 @@ There are multiple ways to add cards into a section and populate your dashboard:
 
 {% enddetails %}
 
-{% details "Using **Add to Dashboard** on device pages" %}
+{% details "Using the Add to Dashboard button on device pages" %}
 
 <p class='img'>
     <img width="66%" src="/images/blog/2024-03-dashboard-chapter-1/sections-add-from-device-page.jpg" alt="Add to Dashboard feature on the device page"/>Add to Dashboard feature on the device page
@@ -240,7 +240,7 @@ While your dashboard is in Edit Mode:
 
 The new Sections view with drag-and-drop is just the first step of Project Grace, a Home-Approved Dashboard. We have a good idea of where we want to head next in our design and development process, but we want to hear from you first before we proceed so that we can prioritize and build a product that will help you the most.
 
-To get feedback from all of you and your household members, we decided to release this early in its incomplete form as an “experiment” for you to try out the new Sections view. We also want to make sure that the new default dashboard will not only work for you, but also everyone who lives in your home. We would love to hear what they think as well. Please do not hesitate to leave your comments below!
+To get feedback from all of you and your household members, we decided to release this early in its incomplete form as an *experiment* for you to try out the new Sections view. We also want to make sure that the new default dashboard will not only work for you, but also everyone who lives in your home. We would love to hear what they think as well. Please do not hesitate to leave your comments below!
 
 ### Join the Home Assistant User Testing Group!
 
