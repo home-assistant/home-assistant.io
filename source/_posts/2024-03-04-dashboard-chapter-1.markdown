@@ -7,7 +7,7 @@ date_formatted: "March 5, 2024"
 author: Madelena Mak
 comments: true
 categories: Dashboard
-og_image: /images/blog/2024-02-zwave/nabucasa-zwa.png
+og_image: /images/blog/2024-03-dashboard-chapter-1/banner.png
 ---
 
 Wow! At long last!! The stars have aligned, and our experimental drag-and-drop feature for dashboards is finally here! 🥲
