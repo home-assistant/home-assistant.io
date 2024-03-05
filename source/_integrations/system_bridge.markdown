@@ -154,34 +154,78 @@ This is an object containing the `source` and `volume` (0-100). The source must 
 ### Service `system_bridge.open_path`
 
 Open a URL or file on the server using the default application.
+
 {% my developer_call_service service="system_bridge.open_path" title="Show service in your Home Assistant instance." %}
+
 ```yaml
 service: system_bridge.open_path
 data:
   bridge: "deviceid"
   path: "C:\\image.jpg"
 ```
+
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+
+```yaml
+id: abc123
+type: OPENED
+data:
+  path: C:\image.jpg
+message: Path opened
+```
+
 ### Service `system_bridge.open_url`
+
 Open a URL or file on the server using the default application.
+
 {% my developer_call_service service="system_bridge.open_url" title="Show service in your Home Assistant instance." %}
+
 ```yaml
 service: system_bridge.open_url
 data:
   bridge: "deviceid"
   url: "https://home-assistant.io"
 ```
-### Service `system_bridge.send_keypress`
+
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+
+```yaml
+id: abc123
+type: OPENED
+data:
+  url: https://home-assistant.io
+message: URL opened
+```
+
+### Service`system_bridge.send_keypress`
+
 Send a keypress to the server.
+
 {% my developer_call_service service="system_bridge.send_keypress" title="Show service in your Home Assistant instance." %}
+
 ```yaml
 service: system_bridge.send_keypress
 data:
   bridge: "deviceid"
   key: "a"
 ```
+
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+
+```yaml
+id: abc123
+type: KEYBOARD_KEY_PRESSED
+data:
+  key: a
+message: Key pressed
+```
+
 ### Service `system_bridge.send_text`
+
 Sends text for the server to type.
+
 {% my developer_call_service service="system_bridge.send_text" title="Show service in your Home Assistant instance." %}
+
 ```yaml
 service: system_bridge.send_text
 data:
@@ -189,19 +233,19 @@ data:
   text: "Hello"
 ```
 
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+
+```yaml
+id: abc123
+type: KEYBOARD_TEXT_SENT
+data:
+  text: Hello
+message: Text entered
+```
+
 ### Service `system_bridge.power_command`
 
 Sends power command to the system.
-
-{% my developer_call_service service="system_bridge.power_command" title="Show service in your Home Assistant instance." %}
-
-
-```yaml
-service: system_bridge.power_command
-data:
-  bridge: "device"
-  command: "sleep"
-```
 
 Supported commands are:
 
@@ -211,3 +255,21 @@ Supported commands are:
 - `restart`
 - `shutdown`
 - `sleep`
+
+{% my developer_call_service service="system_bridge.power_command" title="Show service in your Home Assistant instance." %}
+
+```yaml
+service: system_bridge.power_command
+data:
+  bridge: "device"
+  command: "sleep"
+```
+
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+
+```yaml
+id: abc123
+type: POWER_SLEEPING
+data: {}
+message: Sleeping
+```
