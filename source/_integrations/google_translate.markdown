@@ -41,11 +41,11 @@ You can also use supported BCP 47 tags like the below or the 2-2 digit format fo
 | es-us   | es       | com    |
 
 
-## Service Speak
+## Service speak
 
 The `tts.speak` service is the modern way to use Google translate TTS action. Add the `speak` action, select the entity for your Google translate TTS (it's named for the language you created it with), select the media player entity or group to send the TTS audio to, and enter the message to speak.
 
-For more options about `speak`, see the Speak section on the main [TTS](https://www.home-assistant.io/integrations/tts/#service-speak) building block page.
+For more options about `speak`, see the Speak section on the main [TTS](/integrations/tts/#service-speak) building block page.
 
 In YAML, your action will look like this:
 ```yaml
@@ -57,7 +57,7 @@ data:
   message: Hello, can you hear me now?
 ```
 
-## Service say (Legacy)
+## Service say (legacy)
 
 <div class='note'>
 
