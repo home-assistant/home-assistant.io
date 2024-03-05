@@ -18,7 +18,7 @@ Therefore, we have been working hard to make customization and organization of d
 
 After months of user research and ideation to ensure that our design is [“home-approved”](https://building.open-home.io/open-home-approval-factor/#home-approval-factor) - to be easy and intuitive to use for you, your family, your guests, your roommates, and more - we are happy to share the first fruit of our success in the upcoming release 2024.3, with the help of [Paul](https://github.com/piitaya) and of course the wonderful frontend team. We hope that these features will help you take the dream dashboard for you and your home from idea to reality much faster and much more easily.
 
-For those of you who are curious about the features and the design thinking behind them, check out our special livestream yesterday, read on, and get involved by [joining the Home Assistant User Testing Group](http://home-assistant.io/join-research)!
+For those of you who are curious about the features and the design thinking behind them, read on and check out our [special livestream](https://www.youtube.com/watch?v=XyBy0ckkiDU) last week. You can also try out our updated [demo](https://demo.home-assistant.io/#/lovelace/home) and get involved by [joining the Home Assistant User Testing Group](http://home-assistant.io/join-research)!
 
 <p class='img'>
     <lite-youtube videoid="XyBy0ckkiDU" videotitle="A Home-Approved Dashboard - Chapter 1: What about Grace?"></lite-youtube>
@@ -246,7 +246,9 @@ While your dashboard is in Edit Mode:
 
 The new Sections view with drag-and-drop is just the first step of Project Grace, a Home-Approved Dashboard. We have a good idea of where we want to head next in our design and development process, but we want to hear from you first before we proceed so that we can prioritize and build a product that will help you the most.
 
-To get feedback from all of you and your household members, we decided to release this early in its incomplete form as an *experiment* for you to try out the new Sections view. We also want to make sure that the new default dashboard will not only work for you, but also everyone who lives in your home. We would love to hear what they think as well. Please do not hesitate to leave your comments below!
+To get feedback from all of you and your household members, we decided to release this early in its incomplete form as an *experiment* for you to try out the new Sections view. For those who are curious, feel free to check out [our updated demo](https://demo.home-assistant.io/#/lovelace/home) to play around and have fun!
+
+We want to make sure that the new default dashboard will not only work for you, but also everyone who lives in your home. We would love to hear what they think as well. Please do not hesitate to leave your comments below!
 
 ### Join the Home Assistant User Testing Group!
 
