@@ -56,6 +56,7 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI pet detection
 - AI animal detection
 - AI face detection
+- AI package detection
 
 These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
@@ -81,11 +82,13 @@ Depending on the supported features of the camera, number entities are added for
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
+- AI package sensitivity
 - AI pet sensitivity
 - AI animal sensitivity
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
+- AI package delay*
 - AI pet delay*
 - AI animal delay*
 - Auto quick reply time
@@ -171,6 +174,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Auto tracking
 - Auto focus
 - Guard return
+- PTZ patrol (start/stop)
 - Doorbell button sound
 - Record
 - Push notifications
@@ -189,6 +193,8 @@ For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and *
 - The Push-notification in the Reolink App of that phone is ON.
 
 The Push-notification in the Reolink app is independent of the Home Assistant setting. It is also independent of the settings on other phones connected to the same camera. Reolink does this so you have an independent way of turning off push notifications per phone.
+
+The **PTZ patrol** positions first need to be configured using the Reolink [app](https://support.reolink.com/hc/en-us/articles/360008746833/)/[windows](https://support.reolink.com/hc/en-us/articles/900003738126/)/web client. When no positions are configured, the PTZ patrol entity will not be added. When adding patrol positions for the first time, you need to restart the Reolink integration.
 
 ## Light entities
 

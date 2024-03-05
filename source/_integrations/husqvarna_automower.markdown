@@ -4,6 +4,7 @@ description: Instructions on how to integrate Husqvarna Automower lawn mowers in
 ha_category:
   - Lawn Mower
   - Sensor
+  - Switch
 ha_release: 2024.3
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_platforms:
   - lawn_mower
   - sensor
+  - switch
 ha_integration_type: integration
 ha_domain: husqvarna_automower
 ---
@@ -101,3 +103,7 @@ The integration will create the following sensors:
 - Total drive distance
 - Total running time
 - Total searching time
+
+### Switch
+
+The integration will create a switch to enable or disable the schedule of the mower. If the switch is on, the mower will mow according to the schedule. If the switch is off the mower will return to the dock and park until further notice.

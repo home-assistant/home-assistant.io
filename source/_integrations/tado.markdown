@@ -142,3 +142,34 @@ automation:
           {{ (-(tado_temp - room_temp) + current_offset)|round(1) }}
 ```
 {% endraw %}
+
+### Service `tado.add_meter_reading`
+
+You can use the service `tado.add_meter_reading` to add your meter readings to Tado Energy IQ. With Energy IQ, you can track your energy consumption and take control of your heating expenses.
+
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `config_entry`         | no       | String, Config entry to add meter readings to.                         |
+| `reading`              | no       | Integer, Reading in m³ or kWh without decimals.                        |
+
+Examples:
+
+{% raw %}
+```yaml
+# Example automation add meter readings on a daily basis.
+automation:
+    # Trigger on specified time.
+    trigger:
+      - platform: time
+        at: "00:00:00"
+
+    # Add meter readings from `sensor.gas_consumption` to Tado.
+    # Retrieve your `config_entry` id by setting this automation up in UI mode.
+    # Notice that you may have to convert the reading to integer.
+    action:
+      - service: tado.add_meter_reading
+        data:
+          config_entry: ef2e84b3dfc0aee85ed44ac8e8038ccf
+          reading: "{{ states('sensor.gas_consumption')|int }}"
+```
+{% endraw %}
