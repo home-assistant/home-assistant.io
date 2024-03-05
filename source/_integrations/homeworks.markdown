@@ -22,4 +22,4 @@ Homeworks keypad buttons are momentary switches.  The button is pressed and rele
 
 {% include integrations/config_flow.md %}
 
-The protocol for automatically extracting device information from the controller isn't documented, so lights and keypads need to be added manually, this is done by configuring the integration after it has been added.
+The protocol for automatically extracting device information from the controller isn't documented. Lights and keypads need to be added manually. This is done by configuring the integration after it has been added.
