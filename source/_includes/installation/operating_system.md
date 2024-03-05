@@ -12,26 +12,26 @@ Follow this guide if you want to get started with Home Assistant easily or if yo
 
 You will need a few things to get started with installing Home Assistant. The links below lead to Ameridroid. If you’re not in the US, you should be able to find these items in web stores in your country.
 
-To get started, we suggest the ODROID N2+, the board that powers our [Home Assistant Blue](/blue/), or the ODROID M1.
+To get started, we suggest the ODROID-N2+, the board that powers our [Home Assistant Blue](/blue/), or the ODROID-M1.
 
-If unavailable, we also recommend the [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e).
+If unavailable, we also recommend the [ODROID-C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e).
 
 Home Assistant bundles (US market):
 
 The bundles come with Home Assistant pre-installed.
 
-- [ODROID N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935?ref=eeb6nfw07e)
-- [ODROID N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399?ref=eeb6nfw07e)
-- ODROID M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831?ref=eeb6nfw07e)
-- ODROID M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367?ref=eeb6nfw07e)
-- [ODROID M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
+- [ODROID-N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935?ref=eeb6nfw07e)
+- [ODROID-N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399?ref=eeb6nfw07e)
+- ODROID-M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831?ref=eeb6nfw07e)
+- ODROID-M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367?ref=eeb6nfw07e)
+- [ODROID-M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
 
 Variants without pre-installed Home Assistant:
 
-- ODROID N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650?ref=eeb6nfw07e) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418?ref=eeb6nfw07e)
-- [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e)
-- [ODROID M1](https://ameridroid.com/products/odroid-M1?ref=eeb6nfw07e)
-
+- ODROID-N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650?ref=eeb6nfw07e) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418?ref=eeb6nfw07e)
+- [ODROID-C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e)
+- [ODROID-M1](https://ameridroid.com/products/odroid-M1?ref=eeb6nfw07e)
+- ODROID-M1S, [4 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396474135?ref=eeb6nfw07e) or [8 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396506903?ref=eeb6nfw07e)
 - [Power Supply](https://ameridroid.com/products/12v-2a-power-supply-plug?ref=eeb6nfw07e)
 - [CR2032 Coin Cell](https://ameridroid.com/products/rtc-bios-battery?ref=eeb6nfw07e)
 - [eMMC Module](https://ameridroid.com/products/emmc-module-n2-linux-red-dot?ref=eeb6nfw07e)
@@ -162,9 +162,11 @@ Use this method only if Method 1 does not work for you.
    - Back up your data before continuing with the next step.
 2. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.
     {% if page.installation_type == 'odroid' %}
-      If you are using ODROID M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
+      If you are using ODROID-M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
 
-      If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
+      If you are using a [Home Assistant Blue](/blue) or ODROID-N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
+
+      If you are using an ODROID-M1S, you need to follow this guide to [boot your device into UMS mode](/common-tasks/os/#flashing-an-odroid-m1s).
     {% endif %}
 3. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
 4. Download the image to your computer.
@@ -182,7 +184,9 @@ Use this method only if Method 1 does not work for you.
     ```
 
     {% if variant.key == "odroid-n2" %}
-    [Guide: Flashing Odroid-N2 using OTG-USB](/hassio/flashing_n2_otg/)
+    [Guide: Flashing ODROID-N2 using OTG-USB](/hassio/flashing_n2_otg/)
+    {% elsif variant.key == "odroid-m1s" %}
+    [Guide: Flashing ODROID-M1S using OTG-USB](/hassio/flashing_m1s_otg/)
     {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
       *(64-bit is recommended)*
     {% endif %}
@@ -212,7 +216,7 @@ Use this method only if Method 1 does not work for you.
 9. Select **Flash!** to start writing the image.
    - If the operation fails, decompress the .xz file and try again.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-1.  When Balena Etcher has finished writing the image, you will see a confirmation.
+   - When Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}

@@ -31,7 +31,7 @@ The `ecovacs` {% term integration %} is the main integration to integrate [Ecova
 
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
 
-With `advanced_mode` enabled, users can use their self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. More information can be found in the [Bumper's documentation](https://bumper.readthedocs.io).
+With `advanced_mode` enabled, users can use their self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. See [Self-hosted configuration](#self-hosted-configuration) for additional details.
 
 ## Provided entities
 
@@ -128,3 +128,16 @@ Alternatively, you can use the `ecovacs_error` event to watch for errors. This e
 ```
 
 Finally, if a vacuum becomes unavailable (usually due to being idle and off its charger long enough for it to completely power off,) the vacuum's `status` attribute will change to `offline` until it is turned back on.
+
+## Self-hosted configuration
+
+Depending on your setup of the self-hosted instance, you can connect to the server using the following settings:
+- `Username`: Enter the e-mail address configured in your instance. If authentication is disabled, you can enter any valid e-mail address.
+- `Password`: Enter the password configured in your instance. If authentication is disabled, you can enter any string (series of characters).
+- `REST URL`: http://`SELF_HOSTED_INSTANCE`:8007
+- `MQTT URL`: mqtts://`SELF_HOSTED_INSTANCE`:8883
+- `Verify MQTT SSL certificate`: disabled
+
+Replace `SELF_HOSTED_INSTANCE` with either the IP address or the hostname of your instance.
+
+The above configuration is based on the information from [Bumper's documentation](https://bumper.readthedocs.io). 
