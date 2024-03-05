@@ -3,7 +3,7 @@ layout: post
 title: "A Home-Approved Dashboard chapter 1: Drag-and-drop, Sections view, and a new grid system design!"
 description: "Wow! At long last!! The stars have aligned, and our experimental drag-and-drop feature for dashboards is finally here!"
 date: 2024-03-04 00:00:01
-date_formatted: "March 5, 2024"
+date_formatted: "March 4, 2024"
 author: Madelena Mak
 comments: true
 categories: Dashboard
