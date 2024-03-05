@@ -12,13 +12,13 @@ og_image: /images/blog/2024-03-dashboard-chapter-1/banner.png
 
 Wow! At long last!! The stars have aligned, and our experimental drag-and-drop feature for dashboards is finally here! 🥲
 
-Here at [Nabu Casa](https://nabucasa.com), we strive to make Home Assistant the best smart home platform, and a smart home allows its residents to automate, control, observe, and anticipate the comfort, security, and various conveniences of their home. Besides voice assistants, dashboards are also a great way to help users do just that!
+Home Assistant strives to be the best smart home platform, and a smart home allows its residents to automate, control, observe, and anticipate the comfort, security, and various conveniences of their home. Besides voice assistants, dashboards are also a great way to help users do just that!
 
 Therefore, we have been working hard to make customization and organization of dashboards as easy and intuitive as possible, and to create a default dashboard that will be more useful, user-friendly, and relevant right out of the box. [Matthias](https://github.com/matthiasdebaat) and [I](https://github.com/madelena) teamed up in April last year to tackle this problem together, and we called this series of improvements over our current dashboard “Project Grace”, named after the influential and brilliant late [Admiral Grace Hopper](https://www.nationalww2museum.org/war/articles/grace-hopper-woman-computer).
 
 After months of user research and ideation to ensure that our design is [“home-approved”](https://building.open-home.io/open-home-approval-factor/#home-approval-factor) - to be easy and intuitive to use for you, your family, your guests, your roommates, and more - we are happy to share the first fruit of our success in the upcoming release 2024.3, with the help of [Paul](https://github.com/piitaya) and of course the wonderful frontend team. We hope that these features will help you take the dream dashboard for you and your home from idea to reality much faster and much more easily.
 
-For those of you who are curious about the features and the design thinking behind them, read on and check out our [special livestream](https://www.youtube.com/watch?v=XyBy0ckkiDU) last week. You can also try out our updated [demo](https://demo.home-assistant.io/#/lovelace/home) and get involved by [joining the Home Assistant User Testing Group](http://home-assistant.io/join-research)!
+For those of you who are curious about the features and the design thinking behind them, read on and check out our [special livestream](https://www.youtube.com/watch?v=XyBy0ckkiDU) last week. You can also try out our updated [demo](https://demo.home-assistant.io/#/lovelace/home) and get involved by [joining the Home Assistant User Testing Group](http://home-assistant.io/join-research)! And last of all, thank you for supporting our efforts by [subscribing to Home Assistant Cloud](https://www.nabucasa.com)!
 
 <p class='img'>
     <lite-youtube videoid="XyBy0ckkiDU" videotitle="A Home-Approved Dashboard - Chapter 1: What about Grace?"></lite-youtube>
@@ -143,7 +143,7 @@ There are multiple ways to add cards into a section and populate your dashboard:
         <p class='img'>
             <img src="/images/blog/2024-03-dashboard-chapter-1/sections-add-card-by-card.png" alt="Add Card by Entity dialog"/>Add Card by Entity dialog
         </p>
-        
+
         If you want to add a bunch of entities in one go, select one or multiple entities on this list.
 
         <p class='img'>
