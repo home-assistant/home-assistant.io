@@ -20,7 +20,7 @@ The **MyPermobil** integration allows you to view various sensors with informati
 
 ## Sensors
 
-A total of 12 sensors are available:
+A total of 13 sensors are available:
 
 - **Battery charge**
   The current battery state of the wheelchair as a percentage.
@@ -46,3 +46,5 @@ A total of 12 sensors are available:
   The highest number of adjustments ever recorded in a single day.
 - **Longest distance traveled**
   The largest distance traveled ever recorded in a single day.
+- **Is charging**
+  Binary sensor that is true when the Permobil wheelchair is charging.
