@@ -16,7 +16,7 @@ We strive to make Home Assistant the best smart home platform, and a smart home 
 
 Therefore, we have been working hard to make customization and organization of dashboards as easy and intuitive as possible, and to create a default dashboard that will be more useful, user-friendly, and relevant right out of the box. Internally, we called this series of improvements over our current dashboard system [Lovelace] “Project Grace”, named after the influential and brilliant late [Admiral Grace Hopper](https://www.nationalww2museum.org/war/articles/grace-hopper-woman-computer).
 
-After months of user research and ideation to ensure that our design is [“home-approved”](https://building.open-home.io/open-home-approval-factor/) - to be easy and intuitive to use for you, your family, your guests, your roommates, and more - we are happy to share the first fruit of our success in the upcoming release 2024.3. We hope that these features will help you take the dream dashboard for you and your home from idea to reality much faster and much more easily.
+After months of user research and ideation to ensure that our design is [“home-approved”](https://building.open-home.io/open-home-approval-factor/#home-approval-factor) - to be easy and intuitive to use for you, your family, your guests, your roommates, and more - we are happy to share the first fruit of our success in the upcoming release 2024.3. We hope that these features will help you take the dream dashboard for you and your home from idea to reality much faster and much more easily.
 
 For those of you who are curious about the features and the design thinking behind them, check out our special livestream yesterday or read on.
 
@@ -43,23 +43,23 @@ Grace was the codename we used for the series of improvements to be built on top
 
 Our dashboard came with 3 default [view layout types](https://www.home-assistant.io/dashboards/views/#type) by default: Panel, which is simply one card covering the entire view; Sidebar, which is a two-column layout for cards; and [Masonry], which is the most robust of them all.
 
-While it is excellent at creating a tightly-packed screen space-saving dashboard, [Masonry] lays out cards in a logic that may not be immediately clear and predictable to many users, which leads to a frustrating user experience to create and customize the layout of the cards. And as the layout logic depends on the height of each card, the varying heights of the cards available for our dashboards become a blessing and a curse: Even a difference in height of 1 pixel would mean a card being displayed on the leftmost column getting shifted all the way to the right.
+While it is excellent at creating a tightly-packed screen space-saving dashboard, Masonry lays out cards in a logic that may not be immediately clear and predictable to many users, which leads to a frustrating user experience to create and customize the layout of the cards. And as the layout logic depends on the height of each card, the varying heights of the cards available for our dashboards become a blessing and a curse: Even a difference in height of 1 pixel would mean a card one would guess to be displayed on the leftmost column getting shifted all the way to the right.
 
 <p class='img'>
     <img src='/images/dashboards/masonry.png' alt='Image showing how masonry arranges cards based on size.'>
     Masonry arranges cards based on size.
 </p>
 
-What’s more, unlike most other smart home apps, Home Assistant prides itself on Choice. In terms of dashboard view layouts, Choice means that dashboards should be able to be displayed on any screens that are the most convenient to our users - whether it’s a phone, a tablet, a large monitor, or other display devices. While the [Masonry] layout is great at making neat walls of cards, as its name also implies, it is a wall of cards which does not care whether the bricks are laid, thus the muscle memory of where users remember the cards will be lost every time the dashboard is displayed on another screen.
+What’s more, unlike most other smart home apps, Home Assistant prides itself on Choice. In terms of dashboard view layouts, Choice means that dashboards should be able to be displayed on any screens that are the most convenient to our users - whether it’s a phone, a tablet, a large monitor, or other display devices. While the Masonry layout is great at making neat walls of cards, as its name also implies, it is a wall of cards which does not care whether the bricks are laid, thus the muscle memory of where users remember the cards will be lost every time the dashboard is displayed on another screen.
 
 <p class='img'>
     <img src='/images/blog/2024-03-dashboard-chapter-1/layout-masonry-problem.png' alt='Masonry does not care about where exactly cards are placed when the screen size changes.'>
     Masonry does not care about where exactly cards are placed when the screen size changes.
 </p>
 
-For the past few years, we tried to create a more intuitive solution to rearrange the cards laid out by [Masonry] but ultimately the solutions did not work well for multiple screen sizes. Meanwhile, our users come up with solutions of their own, with many avoiding our default view layouts so that they can create a more predictable and memorable dashboard. As it turns out, “drag and drop” is not just an engineering problem; it is also a design problem.
+For the past few years, we tried to create a more intuitive solution to rearrange the cards laid out by Masonry but ultimately the solutions did not work well for multiple screen sizes. Meanwhile, our users come up with solutions of their own, with many avoiding our default view layouts so that they can create a more predictable and memorable dashboard. As it turns out, “drag and drop” is not just an engineering problem; it is also a design problem.
 
-To solve these problems with our layout, we realized that the [Masonry] layout, compatibility with multiple screen sizes, and easy “drag and drop” rearrangement of cards cannot co-exist. Over the past year, we ideated and identified a few solutions - 1) [a new Sections view layout](#the-new-sections-view), 2) [a design grid system](#the-grid-system), and 3) [a “Z-Grid” auto-rearranging pattern](#drag-and-drop-rearrangement-of-cards-and-sections) - and we think that they work pretty well together.
+To solve these problems with our layout, we realized that the Masonry layout, compatibility with multiple screen sizes, and easy “drag and drop” rearrangement of cards cannot co-exist. Over the past year, we ideated and identified a few solutions - 1) [a new Sections view layout](#the-new-sections-view), 2) [a design grid system](#the-grid-system), and 3) [a “Z-Grid” auto-rearranging pattern](#drag-and-drop-rearrangement-of-cards-and-sections) - and we think that they work pretty well together.
 
 ## The new Sections view
 
