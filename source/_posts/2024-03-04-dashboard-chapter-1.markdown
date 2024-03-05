@@ -59,7 +59,13 @@ What’s more, unlike most other smart home apps, Home Assistant prides itself o
 
 For the past few years, we tried to create a more intuitive solution to rearrange the cards laid out by Masonry but ultimately the solutions did not work well for multiple screen sizes. Meanwhile, our users come up with solutions of their own, with many avoiding our default view layouts so that they can create a more predictable and memorable dashboard. As it turns out, “drag and drop” is not just an engineering problem; it is also a design problem.
 
-To solve these problems with our layout, we realized that the Masonry layout, compatibility with multiple screen sizes, and easy “drag and drop” rearrangement of cards cannot co-exist. Over the past year, we ideated and identified a few solutions - 1) [a new Sections view layout](#the-new-sections-view), 2) [a design grid system](#the-grid-system), and 3) [a “Z-Grid” auto-rearranging pattern](#drag-and-drop-rearrangement-of-cards-and-sections) - and we think that they work pretty well together.
+To solve these problems with our layout, we realized that the Masonry layout, compatibility with multiple screen sizes, and easy “drag and drop” rearrangement of cards cannot co-exist. Over the past year, we ideated and identified a few solutions, namely:
+
+1. [a new Sections view layout](#the-new-sections-view)
+2. [a design grid system](#the-grid-system), and
+3. [a “Z-Grid” auto-rearranging pattern](#drag-and-drop-rearrangement-of-cards-and-sections).
+
+Let's dive in to each solution one-by-one and see how they work together to make your dashboards easier to customize and use!
 
 ## The new Sections view
 
