@@ -21,8 +21,6 @@ integrations page to find integrations offering calendar entities. For example, 
 
 {% include integrations/building_block_integration.md %}
 
-Calendar {% term triggers %} are the best way to automate based on calendar events.
-A calendar {% term entity %} can also be used to automate, but it has a {% term state %} and attributes only representing the next event.
 
 ## Viewing and managing calendars
 
@@ -42,6 +40,9 @@ Calendar [Triggers](/docs/automation/trigger) enable {% term automation %} based
 event's start or end. Review the [Automating Home Assistant](/getting-started/automation/)
 getting started guide on automations or the [Automation](/docs/automation/)
 documentation for full details.
+
+Calendar {% term triggers %} are the best way to automate based on calendar events.
+A calendar {% term entity %} can also be used to automate based on its state, but these are limited and attributes only represent the next event.
 
 {% my automations badge %}
 
