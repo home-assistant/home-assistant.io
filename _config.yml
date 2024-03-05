@@ -211,6 +211,8 @@ installation:
           key: "odroid-c4"
         - name: "ODROID-M1"
           key: "odroid-m1"
+        - name: "ODROID-M1S"
+          key: "odroid-m1s"
 
     raspberrypi:
       board: Raspberry Pi
