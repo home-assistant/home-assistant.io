@@ -74,7 +74,7 @@ static colors will not).
 
 ## Sensors
 
-A sensor (Visible Priority) provides the effect currently displayed by the Hyperion server for the selected instance. Attributes of this sensor allows to obtain more details on the nature of the effect as described in the [Hyperion API](https://docs.hyperion-project.org/en/json/ServerInfo.html#priorities)
+A sensor (Visible Priority) provides the effect currently displayed by the Hyperion server for the selected instance. Attributes of this sensor provide more details on the nature of the effect. For a detailed description, refer to the [Hyperion API](https://docs.hyperion-project.org/en/json/ServerInfo.html#priorities).
 
 ## Advanced Entities
 
