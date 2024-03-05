@@ -20,7 +20,7 @@ ha_platforms:
   - light
   - sensor
 ha_integration_type: integration
-
+---
 The microbees integration allows you to control your [microBees devices](https://www.microbees.com/) such as plugs and wall switches.
 To use this integration you need OAuth2 Client ID and Client Secret and your user credentials.
 
