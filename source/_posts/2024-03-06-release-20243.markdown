@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Drag 'n Drop it like it's hot! 🎉"
-description: "Drag 'n drop in your dashboards using a brand-new sections view and start up twice as fast! Run scripts with user input from your dashboards, a new energy graph for individual devices, new sentences for Assist, translate states in your templates and more!"
+description: "Drag 'n drop in your dashboards using a brand-new sections view and start up twice as fast! Run scripts with user input from your dashboards, a new energy graph for individual devices, new sentences for Assist, translate states in your templates, and more!"
 date: 2024-03-06 00:00:00
 date_formatted: "March 6, 2024"
 author: Franck Nijhof
@@ -23,7 +23,7 @@ talked about for ages... I promise it is real:
 **Drag 'n drop for dashboards is finally here! 🎉**
 
 A first experimental version of the section dashboard that supports drag 'n drop.
-A tremendous step forward and an even bigger milestone for the Home Assistant!
+A tremendous step forward and an even bigger milestone for Home Assistant!
 
 But don't be blinded by these Dungeons 'n Dragons; there is a lot more!
 
@@ -181,8 +181,8 @@ whole new dimension of possibilities.
 
 <lite-youtube videoid="Ulkl1L8F1L4" videotitle="Calling scripts from the dashboard"></lite-youtube>
 
-To accompany this new functionality, we've created two blueprints as examples
-of what you could want to add to your dashboard:
+To accompany this new functionality, we’ve created two blueprints to help you
+get started with using scripts on your dashboard:
 
 **Announce message**: This blueprint allows you to create an announce script for
 your dashboard pre-configured to a specific media player and text-to-speech
