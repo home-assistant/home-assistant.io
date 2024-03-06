@@ -4,7 +4,7 @@ description: Instructions on how to integrate Aprilaire devices into Home Assist
 ha_category:
   - Climate
 ha_iot_class: Local Push
-ha_release: 2023.8
+ha_release: 2024.3
 ha_domain: aprilaire
 ha_codeowners:
   - '@chamberlain2007'
