@@ -182,11 +182,11 @@ Remote UI feature.
 
 ## Translating states in your templates
 
-Are you using templates to send notification in automations? If so,
-[@PiotrMachowski] might just have added something you need this release!
+Are you using templates to send notifications in automations? If so,
+[@PiotrMachowski] might just have added something new you need!
 
-He added a new template methods to translate entity states right in your
-templates! Here is an example:
+A new template method, `state_translated`, to translate entity states directly
+in your language from your templates! Consider this template example:
 
 {% raw %}
 ```yaml
@@ -196,8 +196,8 @@ templates! Here is an example:
 ```
 {% endraw %}
 
-The above two example, show the raw state of the entities. However, with the
-new `state_translated` method, you can get the state in a human readable form:
+The above example shows the raw state of two entities. However, with the
+new `state_translated` method, you can get the state in a human-readable form:
 
 {% raw %}
 ```yaml
@@ -208,8 +208,8 @@ new `state_translated` method, you can get the state in a human readable form:
 {% endraw %}
 
 Even better, it uses the default language of your Home Assistant instance. So,
-if you are using Home Assistant in a different language, the translated state
-will be in that language.
+if you use Home Assistant in a different language, the translated state will
+be in that language.
 
 [@PiotrMachowski]: https://github.com/PiotrMachowski
 
