@@ -529,6 +529,25 @@ If there is more than one entry with the same title, the entities for all the ma
 
 {% endraw %}
 
+### Issues
+
+- `issues()` returns all open issues as a mapping of (domain, issue_id) tuples to the issue object.
+- `issue(domain, issue_id)` returns a specific issue for the provided domain and issue_id.
+
+#### Issues examples
+
+{% raw %}
+
+```text
+{{ issues() }}  # { ("homeassistant", "deprecated_yaml_ping"): {...}, ("cloud", "legacy_subscription"): {...} }
+```
+
+```text
+{{ issue('homeassistant', 'python_version') }}  # {"breaks_in_ha_version": "2024.4", "domain": "homeassistant", "issue_id": "python_version", "is_persistent": False, ...}
+```
+
+{% endraw %}
+
 ### Immediate if (iif)
 
 A common case is to conditionally return a value based on another value.
