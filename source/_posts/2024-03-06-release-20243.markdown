@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Drag 'n Drop it like it's hot! 🎉"
+title: "2024.3: Drag 'n Drop it like it's hot! 🎉"
 description: "Drag 'n drop in your dashboards using a brand-new sections view and start up twice as fast! Run scripts with user input from your dashboards, a new energy graph for individual devices, new sentences for Assist, translate states in your templates, and more!"
 date: 2024-03-06 00:00:00
 date_formatted: "March 6, 2024"
