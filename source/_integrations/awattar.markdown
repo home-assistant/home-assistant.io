@@ -4,6 +4,7 @@ description: Instructions on how to integrate aWATTar prices within Home Assista
 ha_category:
   - Energy
   - Sensor
+ha_release: 2024.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
