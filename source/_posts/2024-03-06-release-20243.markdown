@@ -100,36 +100,46 @@ To accompany this new functionality, we've created two blueprints as examples of
 
 A new graph has been added on the energy dashboard by [@karwosts]. You can now monitor your devices energy consumption through time.
 
-<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/5878303/47c83332-aa7d-424a-bd00-6ed23b11f000' alt='Temporary image that needs replacement.'>
-
 
 ## New sentences for Assist
 
-[Assist](/voice_control/), our private voice assistant, learned a few tricks during this month.
+[Assist](/voice_control/), our private voice assistant, learned a few tricks this month.
+
+Support for valves has been added. You can now ask Assist to adjust the position
+of a valve, or just open or close a valve completely.
+
+Also, cover support has been extended to support the control of the position of
+your devices. Currently, most languages only support a single use-case as a
+starting point. Setting the position of a single device by targeting its
+name:
+
+> *“Set the curtain position to 80%"*
+
+We are working on extending the use-case coverage to set the position
+of multiple devices or complete areas, similar to what is possible with
+the open and close sentences.
 
 <img class="no-shadow" src='/images/blog/2024-03/new-assist-commands.png' alt='Screenshot showing a few of the new Assist commands.'>
 
-Support for valves has been added. You can now ask Assist to adjust the position of a valve, or just open or close a valve completely.
+The next new trick could be considered a bug fix: Until today it was not
+possible to start or stop a vacuum cleaner by voice; Now it can! Assist knows
+how to start a vacuum and return it to its base. Here are some example
+sentences, in case you have a vacuum cleaner named Dusty:
 
-Covers support has been extended to support the control of the position of your devices.
-As of today, most languages only support a single use-case as a starting point: Setting the position of a single device by targeting its name: *“Set the curtain position to 80%"*.
-Language leaders are working on extending the use-case coverage to be able to set the position of multiple devices, or complete areas, similar to what is possible with the open and close sentences.
+> "Start Dusty"
 
-The next trick Assist learned could be considered as a bug fix, nevertheless, I am pretty excited about this one.
-Until today it was not possible to start or stop a vacuum cleaner by voice.
-Starting this release, Assist knows how to start a vacuum and return it to its base.
-The default English sentences are for now:
+> "Return Dusty to base"
 
-- "Start Dusty"
-- "Return Dusty to base"
+The biggest set of changes is for media players. Assist can now pause playback,
+resume playback, skip to the next media, and set the volume of media players!
 
-*(With Dusty a vacuum entity name)*
+Be aware that currently, these sentences are limited to targeting a single
+device by its name, for example:
 
-The biggest set of changes is for media players. 
-Assist can now pause playback, resume playback, skip to the next media, and set the volume of media players.
-Be aware that for now, these sentences are limited to targeting a single device by its name, for example: "Skip to the next song on the TV". We are actively working on extending the logic of these new intents to allow you to target areas and only affect the desired media player(s).
+> "Skip to the next song on the TV"
 
-
+We are actively working on extending the logic of these new intents to allow
+you to target areas and only affect the desired media player(s).
 
 ## Disabling the remotely enabling of Home Assistant Remote UI
 
