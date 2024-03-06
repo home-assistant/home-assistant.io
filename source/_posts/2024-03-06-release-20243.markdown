@@ -48,8 +48,8 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Dashboard sections view](#dashboard-sections-view)
-- [Dungeons and Dragons](#dungeons-and-dragons)
+- [A new experimental sections view](#a-new-experimental-sections-view)
+- [Drag-and-drop rearrangement of cards and sections!](#drag-and-drop-rearrangement-of-cards-and-sections)
 - [Running script from your dashboard with user input](#running-script-from-your-dashboard-with-user-input)
 - [New energy graph for individual devices](#new-energy-graph-for-individual-devices)
 - [New sentences for Assist](#new-sentences-for-assist)
@@ -68,15 +68,107 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 <lite-youtube videoid="Jxup-fKFpfs" videotitle="Home Assistant 2024.3 Release Party"></lite-youtube>
 
-## Dashboard sections view
+## A new experimental sections view
 
-A brand new, experimental, view has been added this release: Sections!
+Our dashboard currently comes with three view layout types:
+[Panel](/dashboards/panel/), [Sidebar](/dashboards/sidebar/),
+and [Masonry](/dashboards/masonry/). Since the past year, we have been working
+hard to research and ideate on how to make dashboards easier to customize
+and use, and we learned that our current layouts are not the best for such
+purposes. Drag-and-drop rearrangement of cards cannot work well with the
+Masonry layout.
 
-<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/5878303/d1b9f4d8-3d00-42a1-8479-0363e3b740e6' alt='Temporary image that needs replacement.'>
+We came up with a few solutions, and the first thing we would like to share
+with you is a new view layout type called "Sections".
 
-## Dungeons and Dragons
+Home Assistant dashboards are robust and packed with information. Users will
+often place dozens of cards for all sorts of buttons, switches, graphs,
+indicators, and more.
 
-Lorem ipsum
+<p class='img'>
+    <img width="66%" src="/images/blog/2024-03-dashboard-chapter-1/sections-section-example.png" alt="Example of a dashboard section"/>
+    Example of a dashboard section
+</p>
+
+By grouping cards into “sections”, you can reduce the number of items you
+need to scan through when you are looking for a certain card, as you'll be
+able to look for the relevant group title first and then reduce the scope to
+scan that particular group for the information.
+
+By packing cards in a section into a grid with a fixed number of columns,
+the relative positions of the cards within a section are not affected by
+changes in screen sizes, and so the spatial memory of the cards is retained,
+leading to a faster and less cumbersome experience.
+
+<p class='img'>
+    <img src="/images/blog/2024-03-dashboard-chapter-1/sections-example-dashboard.png" alt="A fully populated dashboard in Sections view layout"/>
+    A fully populated dashboard in the Sections view layout
+</p>
+
+Cards in the new sections view type are all aligned in a tidy grid to ensure
+consistency and predictability of their positions when the screen size changes.
+We currently have three cards reworked to fit the grid:
+[Tile](/dashboards/tile/), [Sensor](/dashboards/sensor/),
+and [Button](/dashboards/button/) cards. These cards will occupy the right
+amount of space in the grid, while other cards will occupy the full width
+of a section by default at the moment. Moreover, we have tweaked our
+"Add Cards" dialogs to recommend Tile cards by default when the sections
+view type is in use.
+
+<div class='note warning'>
+    The new Sections view is experimental! Please do not build your daily dashboard on top of it yet! We are releasing this early so that we can collect your feedback.
+</div>
+
+To get started with the new Sections view type, create a new view on your
+dashboard and select **Sections (experimental)** as the view type.
+We currently do not have the option to migrate your current dashboard over yet.
+
+For more information, check out our blog post about our new
+series [A Home-Approved Dashboard: Chapter 1](/blog/2024/03/04/dashboard-chapter-1/).
+
+Amazing work! Thanks [Paul](https://github.com/piitaya),
+[Matthias](https://github.com/matthiasdebaat),
+and [Madelena](https://github.com/madelena)!
+
+## Drag-and-drop rearrangement of cards and sections!
+
+Wow! At long last!! The stars have aligned, and our experimental drag-and-drop
+feature for dashboards is finally here! 🥲
+
+With the new sections view type, we can finally implement a way to arrange
+cards and sections that is intuitive with drag-and-drop gestures and predictable
+with how the cards will rearrange while creating a dashboard that is easy to
+navigate and remember. You will no longer need to pray and guess where the cards
+will land when they change their orders!
+
+### How to drag and drop <!-- omit from toc -->
+
+While your dashboard is in edit mode:
+
+<p class='img'>
+    <img src="/images/blog/2024-03-dashboard-chapter-1/drag-and-drop-sections.gif" alt="Rearranging sections with drag-and-drop"/>
+    Rearranging sections with drag-and-drop
+</p>
+
+- To rearrange sections, tap and hold the
+  <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/>
+  **Move** handle and then move your cursor or finger towards your desired
+  location. Other sections will move out of the way for where the selected
+  section will drop.
+
+<p class='img'>
+    <img src="/images/blog/2024-03-dashboard-chapter-1/drag-and-drop-cards.gif" alt="Rearranging cards with drag-and-drop"/>
+    Rearranging sections with drag-and-drop
+</p>
+
+- To rearrange cards, tap and hold anywhere on the card and then move your
+  cursor or finger towards your desired location.
+
+Don’t you love it when instructions are so short? Simplicity FTW! 🦄
+
+Thanks again [Paul](https://github.com/piitaya),
+[Matthias](https://github.com/matthiasdebaat),
+and [Madelena](https://github.com/madelena)!
 
 ## Running script from your dashboard with user input
 
