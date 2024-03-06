@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Jewish Calendar (`jewish_calendar`) integration displays a variety of information related to the Jewish Calendar as a variety of sensors.
+The Jewish Calendar (`jewish_calendar`) integration displays a variety of information about the current day related to the Jewish Calendar as a variety of sensors, and offers services to return information about other days.
 
 ## Configuration
 
@@ -157,3 +157,56 @@ jewish_calendar:
   diaspora: true
   havdalah_minutes_after_sunset: 50
 ```
+
+## Services
+
+The Jewish Calendar integration also includes four services that return Hebrew calendar and Zmanim information about specific day(s).
+
+### Common Attributes
+
+All of these services return the same fields, based on which of the following `include_*` attributes you pass to the service. If you set multiple attributes to true, it will return all of thise fields.
+
+| Service data attribute     | Description                                                                   |
+| -------------------------- | ----------------------------------------------------------------------------- |
+| `include_hebrew_date_info` | True to return Hebrew year, month, day, and related calendar information.     |
+| `include_holiday_info`     | True to return information about the holiday that falls on this date, if any. |
+| `include_zmanim`           | True to return the day's zmanim timestamps.                                   |
+
+### Service jewish_calendar.for_gregorian_date
+
+Return Jewish Calendar information for the specified Gregorian date.
+
+| Service data attribute | Optional | Description                                                                                                                                                                                                                            |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `date`                 | yes      | Look up the specified date or time.  If you pass a date with a time, it will be evaluated relative to sunset, returning the following day if after sunset (not candle lighting). Defaults to today (relative to midnight, not sunset). |
+
+### Service jewish_calendar.for_hebrew_date
+
+Return Jewish Calendar information for the specified Hebrew date.
+
+| Service data attribute | Optional | Description                                                                                                                                          |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `year`                 | yes      | The year of the date to return.  Omit this to return the specified date in the current Hebrew year (eg, a Yahrzeit).                                 |
+| `month`                | no       | The month of the date to return.  You must specify Adar I or Adar II in case the year is a leap year; in non-leap years, they will both return Adar. |
+| `day`                  | no       | The day of month of the date to return.                                                                                                              |
+
+### Service jewish_calendar.for_next_holiday
+
+Return Jewish Calendar information for the next holiday on or after a given date, optionally filtered to specific type(s) of holiday.
+
+| Service data attribute | Optional | Description                                                                                                                                                                                                                                  |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `date`                 | yes      | Get a holiday the specified date or time.  If you pass a date with a time, it will be evaluated relative to sunset, returning the following day if after sunset (not candle lighting). Defaults to today (relative to midnight, not sunset). |
+| `types`                | yes      | The categories of holidays to return, from the `Type` column [above](#holiday-sensor).  If omitted, returns any holiday.                                                                                                                     |
+
+### Service jewish_calendar.get_holidays
+
+Return Jewish Calendar information for holiday(s) in a given year.  Exactly one of `types` or `holidays` is required to filter holidays to return.
+
+Note: Unlike the other services, this returns results for multiple days, wrapped in an array named `holidays`.
+
+| Service data attribute | Optional | Description                                                                                               |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| `year`                 | yes      | Return holidays in the specified year.  Defaults to the current Hebrew year.                              |
+| `types`                | yes      | The categories of holidays to return, from the `Type` column [above](#holiday-sensor).                    |
+| `holidays`             | yes      | The name(s) of holidays to return, from the `English` or `Hebrew` names columns [above](#holiday-sensor). |
