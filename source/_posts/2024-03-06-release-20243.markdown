@@ -182,11 +182,11 @@ Remote UI feature.
 
 ## Translating states in your templates
 
-Are you using templates to send notifications in automations? If so,
+Are you using {% term templates %} to send notifications in automations? If so,
 [@PiotrMachowski] might just have added something new you need!
 
 A new template method, `state_translated`, to translate entity states directly
-in your language from your templates! Consider this template example:
+from your templates! Consider this template example:
 
 {% raw %}
 ```yaml
