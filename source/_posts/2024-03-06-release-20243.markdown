@@ -100,7 +100,7 @@ To accompany this new functionality, we've created two blueprints as examples of
 
 A new graph has been added on the energy dashboard by [@karwosts]. You can now monitor your devices energy consumption through time.
 
-<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/5878303/47c83332-aa7d-424a-bd00-6ed23b11f000' alt='Temporary image that needs replacement.'>
+<img class="no-shadow" src='/images/blog/2024-03/new-energy-graph.png' alt='Screenshot of the new energy graph on the energy dashboard showing the energy consumption of individual devices over time.'>
 
 
 ## New sentences for Assist
