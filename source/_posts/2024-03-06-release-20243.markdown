@@ -507,7 +507,7 @@ on whether the corresponding conditions were met:
 
 1. If the entity supported the `off` mode and exactly one additional mode,
    `climate.turn_on` would set the mode to the additional mode.
-2. If conditions for 1 were not met and at least one of the following modes is
+2. If conditions for 1 were not met and at least one of the following modes were
    available, the service would set the mode to the first mode it found
    in the specified order: `heat_cool`, `heat`, `cool`.
 3. If conditions for 1 and 2 were not met, the service would silently do nothing.
