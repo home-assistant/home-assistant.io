@@ -51,7 +51,7 @@ Enjoy the (beta) release!
 - [Dashboard sections view](#dashboard-sections-view)
 - [Dungeons and Dragons](#dungeons-and-dragons)
 - [Running script from your dashboard with user input](#running-script-from-your-dashboard-with-user-input)
-- [New energy graph](#new-energy-graph)
+- [New energy graph for individual devices](#new-energy-graph-for-individual-devices)
 - [New sentences for Assist](#new-sentences-for-assist)
 - [Disabling the remotely enabling of Home Assistant Remote UI](#disabling-the-remotely-enabling-of-home-assistant-remote-ui)
 - [Translating states in your templates](#translating-states-in-your-templates)
@@ -108,10 +108,24 @@ it will ask the user for the item to add.
 
 {% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/add-to-do-item/699193" %}
 
-## New energy graph
+## New energy graph for individual devices
 
-A new graph has been added on the energy dashboard by [@karwosts]. You can now monitor your devices energy consumption through time.
+Digging into your energy data is a very interesting way to find ways to reduce
+your household's energy usage and environmental footprint. 🌱
 
+One of the missing bricks was the ability to see the energy consumption
+of individual devices over time. Thanks to [@karwosts], we have a
+brand new graph on the energy dashboard that provides this insight!
+
+Using this new graph, you can now easily spot which devices are responsible
+for which part of your energy usage over time.
+
+<img class="no-shadow" src='/images/blog/2024-03/individual-devices-usage.png' alt='Screenshot showing the new energy stacked bar graph of individual devices over time.'>
+
+For example, in the above picture, it is very easy to see that the dishwasher
+was responsible for the morning spike and the oven for the spike in the evening.
+
+[@karwosts]: https://github.com/karwosts
 
 ## New sentences for Assist
 
