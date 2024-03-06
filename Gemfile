@@ -11,7 +11,7 @@ group :development do
   # > 2.1.0 causes slowdowns https://github.com/sass/sassc-ruby/issues/189
   gem 'sassc', '2.1.0'
   gem 'rubocop', '1.61.0'
-  gem 'ruby-lsp', '0.14.1'
+  gem 'ruby-lsp', '0.14.4'
   gem 'rackup', '2.1.0'
 end
 
