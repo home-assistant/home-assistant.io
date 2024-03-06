@@ -239,44 +239,44 @@ making Home Assistant faster and faster! ❤️
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-_Note to remove: Processed possible noteworthy up to PR #111092_
+- The [climate entity] now has a toggle service (`climate.toggle`).
+  Thanks [@arturpragacz]!
+- [Matter] lights now support transitions, nice! Thanks, [@marcelveldt]!
+- We heard you like downloading CSVs! So, we added the ability to download
+  the energy dashboard data to a CSV file now as well! Thanks [@karwosts]!
+- After feedback and reports on the automatic Zigbee device firmware updates
+  introduced in a previous release, this release brings a stricter and
+  more robust update system to [ZHA]. Thanks [@dmulcahey] & [@puddly]!
+- The [Tessie] integration now provides charging and range sensors.
+  Thanks [@Bre77]!
+- [myUplink] devices can now be updated directly from Home Assistant.
+  Awesome [@astrandb]!
+- [DuneHD] media players now support browsing media files and playing them.
+  Thanks [@iliessens]!
+- The [Bring!] now brings in a new "recently" list. Nice [@miaucl]!
+- [@lellky] added setpoints as number entities for fans to the
+  [Flexit Nordic (BACnet)] integration, thanks!
+- The dialog to adjust long-term statistics now has automated outlier detection!
+  That is a very smart and helpful addition. Thanks [@karwosts]!
 
-Marked noteworhy from Core:
-
-- Add Charging sensor to Tessie ([@Bre77] - [#108205]) ([tessie docs]) (noteworthy)
-- Add Speed Limit to Tessie lock platform ([@Bre77] - [#106527]) ([tessie docs]) (noteworthy)
-- Add transition support to Matter light platform ([@marcelveldt] - [#109803]) ([matter docs]) (noteworthy)
-- Add update platform to myuplink ([@astrandb] - [#109786]) ([myuplink docs]) (new-platform) (noteworthy)
-- Add setpoints for fans to flexit_bacnet ([@lellky] - [#110262]) ([flexit_bacnet docs]) (new-platform) (noteworthy)
-- Add media file playback to DuneHD ([@iliessens] - [#105796]) ([dunehd docs]) (noteworthy)
-- Add toggle service to climate ([@arturpragacz] - [#100418]) ([climate docs]) (noteworthy)
-- Add new range sensors to Tessie ([@Bre77] - [#110446]) ([tessie docs]) (noteworthy)
-- Support Bring! recently list ([@miaucl] - [#109854]) ([bring docs]) (noteworthy)
-- Use new zigpy OTA providers for ZHA ([@puddly] - [#111159]) ([zha docs]) (noteworthy)
-
-Frontend:
-
-- Automated outlier detection for adjust sum dialog [#18723] by [@karwosts]
-- Download energy panel data to CSV [#19863] by [@karwosts]
-
-[@Bre77]: https://github.com/chamberlain2007
-[@marcelveldt]: https://github.com/marcelveldt
-[@astrandb]: https://github.com/astrandb
-[@lellky]: https://github.com/lellky
-[@iliessens]: https://github.com/iliessens
 [@arturpragacz]: https://github.com/arturpragacz
+[@astrandb]: https://github.com/astrandb
 [@Bre77]: https://github.com/Bre77
+[@dmulcahey]: https://github.com/dmulcahey
+[@iliessens]: https://github.com/iliessens
+[@karwosts]: https://github.com/karwosts
+[@lellky]: https://github.com/lellky
+[@marcelveldt]: https://github.com/marcelveldt
 [@miaucl]: https://github.com/miaucl
-[@puddly]: https://github.com/puddly
-
-[tessie docs]: /integrations/tessie/
-[matter docs]: /integrations/matter/
-[myuplink docs]: /integrations/myuplink/
-[flexit_bacnet docs]: /integrations/flexit_bacnet/
-[dunehd docs]: /integrations/dunehd/
-[climate docs]: /integrations/climate/
-[bring docs]: /integrations/bring/
-[zha docs]: /integrations/zha/
+[@puddly]: https:///github.com/puddly
+[Bring!]: /integrations/bring
+[climate entity]: /integrations/climate
+[DuneHD]: /integrations/dunehd
+[Flexit Nordic (BACnet)]: /integrations/flexit_bacnet
+[Matter]: /integrations/matter
+[myUplink]: /integrations/myuplink
+[Tessie]: /integrations/tessie
+[ZHA]: /integrations/zha
 
 ## New integrations
 
