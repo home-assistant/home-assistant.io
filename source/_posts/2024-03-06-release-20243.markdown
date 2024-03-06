@@ -201,7 +201,20 @@ will be in that language.
 
 ## Home Assistant boots twice as fast
 
-Every release [@bdraco] improves the performance on some aspect of Home Assistant. It has become so regular that we don't always highlight his enormous efforts there. However, this release is,  it is so noticeable that we wanted to call it out: Home Assistant now boots on average twice as fast! 🚀
+In case you didn't know, every release [@bdraco] improves the performance
+on some aspect of Home Assistant. He has been on it for a long time and keeps
+pushing to improve it.
+
+As a matter of fact, it has become so regular that we don't always highlight
+his enormous efforts toward this goal in our release notes. _Sorry! 🙏_
+
+However, in this release, his efforts are so noticeable that we wanted to
+call it out: **Home Assistant now boots on average twice as fast!** 🚀
+
+That is a huge improvement [@bdraco]!! Thank you for your continuous work on
+making Home Assistant faster and faster! ❤️
+
+[@bdraco]: https://github.com/bdraco
 
 ## Other noteworthy changes
 
