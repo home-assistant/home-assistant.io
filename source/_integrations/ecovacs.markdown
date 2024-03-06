@@ -19,7 +19,6 @@ ha_platforms:
   - button
   - diagnostics
   - image
-  - lawn_mower
   - number
   - select
   - sensor
@@ -143,4 +142,4 @@ Depending on your setup of the self-hosted instance, you can connect to the serv
 
 Replace `SELF_HOSTED_INSTANCE` with either the IP address or the hostname of your instance.
 
-The above configuration is based on the information from [Bumper's documentation](https://bumper.readthedocs.io). 
+The above configuration is based on the information from [Bumper's documentation](https://bumper.readthedocs.io).
