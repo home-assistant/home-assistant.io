@@ -268,7 +268,7 @@ The following virtual integrations have been added:
 
 ## Integrations now available to set up from the UI
 
-The following integrations are now available via the Home Assistant UI:
+The following integration us now available via the Home Assistant UI:
 
 - **[Velux]**, done by [@DeerMaximum]
 
