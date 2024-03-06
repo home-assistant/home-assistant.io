@@ -53,7 +53,7 @@ Enjoy the (beta) release!
 - [Running script from your dashboard with user input](#running-script-from-your-dashboard-with-user-input)
 - [New energy graph for individual devices](#new-energy-graph-for-individual-devices)
 - [New sentences for Assist](#new-sentences-for-assist)
-- [Disabling the remotely enabling of Home Assistant Remote UI](#disabling-the-remotely-enabling-of-home-assistant-remote-ui)
+- [Disabling the remote activation of the Home Assistant Remote UI](#disabling-the-remote-activation-of-the-home-assistant-remote-ui)
 - [Translating states in your templates](#translating-states-in-your-templates)
 - [Home Assistant boots twice as fast](#home-assistant-boots-twice-as-fast)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -167,18 +167,22 @@ device by its name, for example:
 We are actively working on extending the logic of these new intents to allow
 you to target areas and only affect the desired media player(s).
 
-## Disabling the remotely enabling of Home Assistant Remote UI
+## Disabling the remote activation of the Home Assistant Remote UI
 
 If you are using [Home Assistant Cloud](https://nabucasa.com), you can access
 your Home Assistant instance remotely using the Remote UI feature.
 
-If this feature is for some reason disabled and you are currently not at home,
-you can enable the Remote UI feature remotely, by logging in into your [Nabu Casa
-account](https://account.nabucasa.com/), and request your Home Assistant instance to turn it on.
+Suppose this feature is, for some reason, disabled, and you are currently not
+at home. In that case, you can enable the Remote UI feature remotely by
+logging into your [Nabu Casa account](https://account.nabucasa.com/) and
+request your Home Assistant instance to turn it on.
 
 Feedback from the community has shown that this feature is not always desired,
-and this release adds a new option to disable the remotely enabling of the
-Remote UI feature.
+and this release adds a new option to disable the remote activation of the
+Remote UI feature. Once disabled, the Remote UI feature can only be enabled
+locally from your Home Assistant instance.
+
+<img class="no-shadow" src='/images/blog/2024-03/home-assistant-cloud-disable-remove-activation.png' alt='Screenshot showing the new advanced option that allows disabling remote activation of the Home Assistant remote UI.'>
 
 ## Translating states in your templates
 
