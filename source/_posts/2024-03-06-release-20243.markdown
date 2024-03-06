@@ -295,9 +295,9 @@ other news about building an Open Home; straight into your inbox.
 
 {% details "AEMET" %}
 
-The daily data for the current day wasn't available after midday and
-now it will be. Automations and script relying on `day[0]` for checking
-next day forecast will have to be adjusted to use `day[1]` instead.
+The daily data for the current day wasn't available after midday, and
+now it will be. Automations and scripts relying on `day[0]` for checking
+the next-day forecast will have to be adjusted to use `day[1]` instead.
 
 ([@Noltari] - [#107795]) ([documentation](/integrations/aemet))
 
@@ -310,7 +310,10 @@ next day forecast will have to be adjusted to use `day[1]` instead.
 
 The JuiceNet integration has been removed.
 
-Enel X has migrated from JuiceNet to JuicePass rendering the JuiceNet integration useless. Background and alternative solutions to the juicenet integration can be found in the related [issue](https://github.com/home-assistant/core/issues/86588).
+Enel X has migrated from JuiceNet to JuicePass, rendering the JuiceNet
+integration useless. Background and alternative solutions to the juicenet
+integration can be found in the related
+[issue](https://github.com/home-assistant/core/issues/86588).
 
 ([@emontnemery] - [#111477])
 
@@ -321,10 +324,10 @@ Enel X has migrated from JuiceNet to JuicePass rendering the JuiceNet integratio
 {% details "Met.no" %}
 
 The met.no integration previously created two entities for each configured
-location, one entity which provided daily weather forecasts and one entity
-which provided hourly forecasts.
+location: one provided daily weather forecasts,
+and one provided hourly forecasts.
 
-The met.no integration now only creates a single entity which provides
+The met.no integration now only creates a single entity that provides
 both daily and hourly weather forecasts.
 
 ([@emontnemery] - [#97023]) ([documentation](/integrations/met))
@@ -336,8 +339,8 @@ both daily and hourly weather forecasts.
 
 {% details "MQTT" %}
 
-Aux heat, which was deprecated in Home Assistant Core 2023.9,
-is now removed from MQTT climate.
+Aux heat, deprecated in Home Assistant Core 2023.9, is now removed from
+the MQTT climate.
 
 ([@jbouwh] - [#109513]) ([documentation](/integrations/mqtt))
 
@@ -356,7 +359,7 @@ on whether the corresponding conditions were met:
    `climate.turn_on` would set the mode to the additional mode.
 2. If conditions for 1 were not met and at least one of the following modes is
    available, the service would set the mode to the first mode it found
-   in specified order: `heat_cool`, `heat`, `cool`.
+   in the specified order: `heat_cool`, `heat`, `cool`.
 3. If conditions for 1 and 2 were not met, the service would silently do nothing.
 
 Now, the service follows the following behavior in order:
@@ -371,10 +374,10 @@ Now, the service follows the following behavior in order:
    not know what the previous mode was.
 3. If conditions for 1 and 2 are not met and at least one of the following
    modes is available, the service sets the mode to the first mode it finds
-   in specified order: `heat_cool`, `heat`, `cool`
+   in the specified order: `heat_cool`, `heat`, `cool`
    (no change to condition 2 above).
 4. If conditions for 1, 2, and 3 are not met, the mode will be set to the first
-   supported mode it finds (e.g. `dry` or `fan_only`).
+   supported mode it finds (like `dry` or `fan_only`).
 
 ([@raman325] - [#109187]) ([documentation](/integrations/zwave_js))
 
@@ -388,7 +391,12 @@ changes and new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
 - [Altering config entries](https://developers.home-assistant.io/blog/2024/02/12/async_update_entry/)
+- [Deprecate use of @bind_hass and hass.components](https://developers.home-assistant.io/blog/2024/02/27/deprecate-bind-hass-and-hass-components)
+- [Introducing device name translations](https://developers.home-assistant.io/blog/2024/02/28/device-name-translations)
 - [It is now required for lights to set color mode](https://developers.home-assistant.io/blog/2024/02/12/light-color-mode-mandatory/)
+- [New Climate entity toggle method](https://developers.home-assistant.io/blog/2024/02/25/Climate-toggle-service)
+- [New single instance only manifest option](https://developers.home-assistant.io/blog/2024/02/26/single-instance-only-manifest-option)
+- [Support for platform translations in separate files will be removed](https://developers.home-assistant.io/blog/2024/03/05/platform_entity_translations_deprecation)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
