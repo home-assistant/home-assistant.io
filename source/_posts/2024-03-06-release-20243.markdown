@@ -15,36 +15,32 @@ og_image: /images/blog/2024-03/social.png
 
 <a href='/integrations/#version/2024.3'><img src='/images/blog/2024-03/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-These are the beta release notes for Home Assistant Core 2024.3 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/UI/dashboards:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
-
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
 Home Assistant Core 2024.3! 🎉
 
-Thanks for helping out testing the beta! ❤️
+Yes, you read the title right! I'm super stoked about this one. It has been
+talked about for ages... I promise it is real:
 
-Enjoy the (beta) release!
+**Drag 'n drop for dashboards is finally here! 🎉**
 
-../Frenck & Bram
+A first experimental version of the section dashboard that supports drag 'n drop.
+A tremendous step forward and an even bigger milestone for the Home Assistant!
+
+But don't be blinded by these Dungeons 'n Dragons; there is a lot more!
+
+New intents for Assist (I can finally tell my vacuum to start cleaning!), using
+script inputs/fields from the dashboard, and a new energy graph for individual
+devices. And that is just the tip of the iceberg!
+
+Enjoy the release!
+
+../Frenck
+
+PS: A big thanks and shoutout to [@bramkragten] & [@balloob] for organizing
+and running the beta and everyone who helped out making these release notes
+happen during my absence this beta. 🥰
+
+[@bramkragten]: https://github.com/bramkragten
+[@balloob]: https://github.com/balloob
 
 <!--more-->
 
