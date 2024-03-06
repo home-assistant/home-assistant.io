@@ -225,43 +225,52 @@ Frontend:
 [bring docs]: /integrations/bring/
 [zha docs]: /integrations/zha/
 
-
 ## New integrations
 
 We welcome the following new integrations in this release:
 
 - **[Aprilaire]**, added by [@chamberlain2007]<br />
-  TODO: Description
+  Monitor and control your Aprilaire thermostats.
 - **[Husqvarna Automower]**, added by [@Thomas55555]<br />
   The Husqvarna Automower integration allows you to integrate and control
-  lawn mower straight from Home Assistant.
+  your lawn mower straight from Home Assistant.
 - **[microBees]**, added by [@marcolettieri]<br />
-  TODO: Description
-- Add webmin integration ([@autinerd] - [#106976]) ([webmin docs]) (new-integration)
-- WeatherFlow Forecast (REST API) ([@jeeftor] - [#106615]) ([weatherflow_cloud docs]) (new-integration)
+  Control your microBees devices, such as plugs and wall switches.
+- **[WeatherFlow Cloud]**, added by [@jeeftor]<br />
+  The WeatherFlow Cloud is an alternative to the existing [local WeatherFlow]
+  integration and pulls in data from your Tempest Weather Station.
+- **[Webmin]**, added by [@autinerd]<br />
+  Monitor the CPU and memory usage of your Webmin-managed server.
 
-
+[@autinerd]: https://github.com/autinerd
 [@chamberlain2007]: https://github.com/chamberlain2007
+[@jeeftor]: https://github.com/jeeftor
 [@marcolettieri]: https://github.com/marcolettieri
 [@Thomas55555]: https://github.com/Thomas55555
 [Aprilaire]: /integrations/aprilaire
 [Husqvarna Automower]: /integrations/husqvarna_automower
+[local WeatherFlow]: /integrations/weatherflow
 [microBees]: /integrations/microbees
+[WeatherFlow Cloud]: /integrations/weatherflow_cloud
+[Webmin]: /integrations/webmin
 
 This release also has new virtual integrations. Virtual integrations are stubs
 that are handled by other (existing) integrations to help with findability.
 The following virtual integrations have been added:
 
+- **[Acomax]**, provided by [Motionblinds]
 - **[Duquesne Light]**, provided by [Opower]
+- **[Krispol]**, provided by [Motionblinds]
+- **[Madeco]**, provided by [Motionblinds]
 - **[SamSam]**, provided by [EnergyZero]
 - **[ZonderGas]**, provided by [EnergyZero]
-- Add Motionblinds vitual integrations __init__.py ([@starkillerOG] - [#110903]) (new-integration)
-- Add Motionblinds virtual integration Acomax ([@starkillerOG] - [#111458]) ([acomax docs]) (new-integration)
-- Add Motionblinds virtual integration Krispol ([@starkillerOG] - [#111456]) ([krispol docs]) (new-integration)
-- Add Motionblinds virtual integration Madeco ([@starkillerOG] - [#111455]) ([madeco docs]) (new-integration)
 
+[Acomax]: /integrations/acomax
 [Duquesne Light]: /integrations/duquesne_light
 [EnergyZero]: /integrations/energyzero
+[Krispol]: /integrations/krispol
+[Madeco]: /integrations/madeco
+[Motionblinds]: /integrations/motion_blinds
 [Opower]: /integrations/opower
 [SamSam]: /integrations/samsam
 [ZonderGas]: /integrations/zondergas
