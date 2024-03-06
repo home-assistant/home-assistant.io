@@ -82,6 +82,8 @@ Set the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or
 
 Send a platform-specific command to the vacuum cleaner.
 
+Some platforms may include platform-and-command-specific [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data) from the vacuum.
+
 | Service data attribute | Optional | Description                                                      |
 | ---------------------- | -------- | ---------------------------------------------------------------- |
 | `entity_id`            | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
