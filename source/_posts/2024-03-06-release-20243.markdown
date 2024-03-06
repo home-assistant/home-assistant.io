@@ -135,7 +135,7 @@ With the new sections view type, we can finally implement a way to arrange
 cards and sections that is intuitive with drag-and-drop gestures and predictable
 with how the cards will rearrange while creating a dashboard that is easy to
 navigate and remember. You will no longer need to pray and guess where the cards
-will land when they change their orders!
+will land when they change their order!
 
 ### How to drag and drop <!-- omit from toc -->
 
