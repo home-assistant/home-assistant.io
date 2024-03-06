@@ -1,0 +1,556 @@
+---
+layout: post
+title: "Drag 'n Drop it like it's hot! 🎉"
+description: "Drag 'n drop in your dashboards using a brand-new sections view and start up twice as fast! Run scripts with user input from your dashboards, a new energy graph for individual devices, new sentences for Assist, translate states in your templates, and more!"
+date: 2024-03-06 00:00:00
+date_formatted: "March 6, 2024"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2024-03/social.png
+---
+
+<a href='/integrations/#version/2024.3'><img src='/images/blog/2024-03/social.png' style='border: 0;box-shadow: none;'></a>
+
+Home Assistant Core 2024.3! 🎉
+
+Yes, you read the title right! I'm super stoked about this one. It has been
+talked about for ages... I promise it is real:
+
+**Drag 'n drop for dashboards is finally here! 🎉**
+
+A first experimental version of the section dashboard that supports drag 'n drop.
+A tremendous step forward and an even bigger milestone for Home Assistant!
+
+But don't be blinded by these Dungeons 'n Dragons; there is a lot more!
+
+New intents for Assist (I can finally tell my vacuum to start cleaning!), using
+script inputs/fields from the dashboard, and a new energy graph for individual
+devices. And that is just the tip of the iceberg!
+
+Enjoy the release!
+
+../Frenck
+
+PS: A big thanks and shoutout to [@bramkragten] & [@balloob] for organizing
+and running the beta and everyone who helped out making these release notes
+happen during my absence this beta. 🥰
+
+[@bramkragten]: https://github.com/bramkragten
+[@balloob]: https://github.com/balloob
+
+<!--more-->
+
+- [A new experimental sections view](#a-new-experimental-sections-view)
+- [Drag-and-drop rearrangement of cards and sections!](#drag-and-drop-rearrangement-of-cards-and-sections)
+- [Running script from your dashboard with user input](#running-script-from-your-dashboard-with-user-input)
+- [New energy graph for individual devices](#new-energy-graph-for-individual-devices)
+- [New sentences for Assist](#new-sentences-for-assist)
+- [Disabling the remote activation of the Home Assistant Remote UI](#disabling-the-remote-activation-of-the-home-assistant-remote-ui)
+- [Translating states in your templates](#translating-states-in-your-templates)
+- [Home Assistant boots twice as fast](#home-assistant-boots-twice-as-fast)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=Jxup-fKFpfs)
+6 March 2024, at 20:00 GMT / 12:00 PST / 21:00 CET!
+
+<lite-youtube videoid="Jxup-fKFpfs" videotitle="Home Assistant 2024.3 Release Party"></lite-youtube>
+
+## A new experimental sections view
+
+Our dashboard currently comes with three view layout types:
+[Panel](/dashboards/panel/), [Sidebar](/dashboards/sidebar/),
+and [Masonry](/dashboards/masonry/). Since the past year, we have been working
+hard to research and ideate on how to make dashboards easier to customize
+and use, and we learned that our current layouts are not the best for such
+purposes. Drag-and-drop rearrangement of cards cannot work well with the
+Masonry layout.
+
+We came up with a few solutions, and the first thing we would like to share
+with you is a new view layout type called "Sections".
+
+Home Assistant dashboards are robust and packed with information. Users will
+often place dozens of cards for all sorts of buttons, switches, graphs,
+indicators, and more.
+
+<p class='img'>
+    <img width="66%" src="/images/blog/2024-03-dashboard-chapter-1/sections-section-example.png" alt="Example of a dashboard section"/>
+    Example of a dashboard section
+</p>
+
+By grouping cards into “sections”, you can reduce the number of items you
+need to scan through when you are looking for a certain card, as you'll be
+able to look for the relevant group title first and then reduce the scope to
+scan that particular group for the information.
+
+By packing cards in a section into a grid with a fixed number of columns,
+the relative positions of the cards within a section are not affected by
+changes in screen sizes, and so the spatial memory of the cards is retained,
+leading to a faster and less cumbersome experience.
+
+<p class='img'>
+    <img src="/images/blog/2024-03-dashboard-chapter-1/sections-example-dashboard.png" alt="A fully populated dashboard in Sections view layout"/>
+    A fully populated dashboard in the Sections view layout
+</p>
+
+Cards in the new sections view type are all aligned in a tidy grid to ensure
+consistency and predictability of their positions when the screen size changes.
+We currently have three cards reworked to fit the grid:
+[Tile](/dashboards/tile/), [Sensor](/dashboards/sensor/),
+and [Button](/dashboards/button/) cards. These cards will occupy the right
+amount of space in the grid, while other cards will occupy the full width
+of a section by default at the moment. Moreover, we have tweaked our
+"Add Cards" dialogs to recommend Tile cards by default when the sections
+view type is in use.
+
+<div class='note warning'>
+    The new Sections view is experimental! Please do not build your daily dashboard on top of it yet! We are releasing this early so that we can collect your feedback.
+</div>
+
+To get started with the new Sections view type, create a new view on your
+dashboard and select **Sections (experimental)** as the view type.
+We currently do not have the option to migrate your current dashboard over yet.
+
+For more information, check out our blog post about our new
+series [A Home-Approved Dashboard: Chapter 1](/blog/2024/03/04/dashboard-chapter-1/).
+
+Amazing work! Thanks [Paul](https://github.com/piitaya),
+[Matthias](https://github.com/matthiasdebaat),
+and [Madelena](https://github.com/madelena)!
+
+## Drag-and-drop rearrangement of cards and sections!
+
+Wow! At long last!! The stars have aligned, and our experimental drag-and-drop
+feature for dashboards is finally here! 🥲
+
+With the new sections view type, we can finally implement a way to arrange
+cards and sections that is intuitive with drag-and-drop gestures and predictable
+with how the cards will rearrange while creating a dashboard that is easy to
+navigate and remember. You will no longer need to pray and guess where the cards
+will land when they change their order!
+
+### How to drag and drop <!-- omit from toc -->
+
+While your dashboard is in edit mode:
+
+<p class='img'>
+    <img src="/images/blog/2024-03-dashboard-chapter-1/drag-and-drop-sections.gif" alt="Rearranging sections with drag-and-drop"/>
+    Rearranging sections with drag-and-drop
+</p>
+
+- To rearrange sections, tap and hold the
+  <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/>
+  **Move** handle and then move your cursor or finger towards your desired
+  location. Other sections will move out of the way for where the selected
+  section will drop.
+
+<p class='img'>
+    <img src="/images/blog/2024-03-dashboard-chapter-1/drag-and-drop-cards.gif" alt="Rearranging cards with drag-and-drop"/>
+    Rearranging sections with drag-and-drop
+</p>
+
+- To rearrange cards, tap and hold anywhere on the card and then move your
+  cursor or finger towards your desired location.
+
+Don’t you love it when instructions are so short? Simplicity FTW! 🦄
+
+Thanks again [Paul](https://github.com/piitaya),
+[Matthias](https://github.com/matthiasdebaat),
+and [Madelena](https://github.com/madelena)!
+
+## Running script from your dashboard with user input
+
+{% term Scripts %} in Home Assistant allow you to capture a sequence of actions
+and choices in a reusable way. Scripts are extra powerful because they can
+have input fields, allowing you to send in data for when the script runs.
+
+Script fields can be defined in the script editor and show up when you call the
+script in your automation. In this release, script fields will be available
+in the more info dialog when tapping a script on a dashboard.
+
+This allows you to provide the input fields and run the script, unlocking a
+whole new dimension of possibilities.
+
+<lite-youtube videoid="Ulkl1L8F1L4" videotitle="Calling scripts from the dashboard"></lite-youtube>
+
+To accompany this new functionality, we’ve created two blueprints to help you
+get started with using scripts on your dashboard:
+
+**Announce message**: This blueprint allows you to create an announce script for
+your dashboard pre-configured to a specific media player and text-to-speech
+engine. When activated, it will ask the user for the message to play.
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/announce-text-to-speech-on-media-player/699186" %}
+
+**Add to to-do list**: This blueprint allows you to create a script to add an
+item to a to-do list pre-configured to a specific to-do list. When activated,
+it will ask the user for the item to add.
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/add-to-do-item/699193" %}
+
+## New energy graph for individual devices
+
+Digging into your energy data is a very interesting way to find ways to reduce
+your household's energy usage and environmental footprint. 🌱
+
+One of the missing bricks was the ability to see the energy consumption
+of individual devices over time. Thanks to [@karwosts], we have a
+brand new graph on the energy dashboard that provides this insight!
+
+Using this new graph, you can now easily spot which devices are responsible
+for which part of your energy usage over time.
+
+<img class="no-shadow" src='/images/blog/2024-03/individual-devices-usage.png' alt='Screenshot showing the new energy stacked bar graph of individual devices over time.'>
+
+For example, in the above picture, it is very easy to see that the dishwasher
+was responsible for the morning spike and the oven for the spike in the evening.
+
+[@karwosts]: https://github.com/karwosts
+
+## New sentences for Assist
+
+[Assist](/voice_control/), our private voice assistant, learned a few tricks this month.
+
+Support for valves has been added. You can now ask Assist to adjust the position
+of a valve, or just open or close a valve completely.
+
+Also, cover support has been extended to support the control of the position of
+your devices. Currently, most languages only support a single use-case as a
+starting point. Setting the position of a single device by targeting its
+name:
+
+> Set the curtain position to 80%
+
+We are working on extending the use-case coverage to set the position
+of multiple devices or complete areas, similar to what is possible with
+the open and close sentences.
+
+<img class="no-shadow" src='/images/blog/2024-03/new-assist-commands.png' alt='Screenshot showing a few of the new Assist commands.'>
+
+The next new trick could be considered a bug fix: Until today it was not
+possible to start or stop a vacuum cleaner by voice; Now it can! Assist knows
+how to start a vacuum and return it to its base. Here are some example
+sentences, in case you have a vacuum cleaner named Dusty:
+
+> Start Dusty
+
+> Return Dusty to base
+
+The biggest set of changes is for media players. Assist can now pause playback,
+resume playback, skip to the next media, and set the volume of media players!
+
+Be aware that currently, these sentences are limited to targeting a single
+device by its name, for example:
+
+> Skip to the next song on the TV
+
+We are actively working on extending the logic of these new intents to allow
+you to target areas and only affect the desired media player(s).
+
+## Disabling the remote activation of the Home Assistant Remote UI
+
+If you are using [Home Assistant Cloud](https://nabucasa.com), you can access
+your Home Assistant instance remotely using the Remote UI feature.
+
+Suppose this feature is, for some reason, disabled, and you are currently not
+at home. In that case, you can enable the Remote UI feature remotely by
+logging into your [Nabu Casa account](https://account.nabucasa.com/) and
+request your Home Assistant instance to turn it on.
+
+Feedback from the community has shown that this feature is not always desired,
+and this release adds a new option to disable the remote activation of the
+Remote UI feature. Once disabled, the Remote UI feature can only be enabled
+locally from your Home Assistant instance.
+
+<img class="no-shadow" src='/images/blog/2024-03/home-assistant-cloud-disable-remove-activation.png' alt='Screenshot showing the new advanced option that allows disabling remote activation of the Home Assistant remote UI.'>
+
+## Translating states in your templates
+
+Are you using {% term templates %} to send notifications in automations? If so,
+[@PiotrMachowski] might just have added something new you need!
+
+A new template method, `state_translated`, to translate entity states directly
+from your templates! Consider this template example:
+
+{% raw %}
+```yaml
+# Untranslated
+{{ states("binary_sensor.movement_backyard") }}  # Shows: on
+{{ states("sun.sun") }}  # Shows: below_horizon
+```
+{% endraw %}
+
+The above example shows the raw state of two entities. However, with the
+new `state_translated` method, you can get the state in a human-readable form:
+
+{% raw %}
+```yaml
+# Translated
+{{ state_translated("binary_sensor.movement_backyard") }}  # Shows: Detected
+{{ state_translated("sun.sun") }}  # Shows: Below horizon
+```
+{% endraw %}
+
+Even better, it uses the default language of your Home Assistant instance. So,
+if you use Home Assistant in a different language, the translated state will
+be in that language.
+
+[@PiotrMachowski]: https://github.com/PiotrMachowski
+
+## Home Assistant boots twice as fast
+
+In case you didn't know, every release [@bdraco] improves the performance
+on some aspect of Home Assistant. He has been on it for a long time and keeps
+pushing to improve it.
+
+As a matter of fact, it has become so regular that we don't always highlight
+his enormous efforts toward this goal in our release notes. _Sorry! 🙏_
+
+However, in this release, his efforts are so noticeable that we wanted to
+call it out: **Home Assistant now boots on average twice as fast!** 🚀
+
+That is a huge improvement [@bdraco]!! Thank you for your continuous work on
+making Home Assistant faster and faster! ❤️
+
+[@bdraco]: https://github.com/bdraco
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- The [climate entity] now has a toggle service (`climate.toggle`).
+  Thanks [@arturpragacz]!
+- [Matter] lights now support transitions, nice! Thanks, [@marcelveldt]!
+- We heard you like downloading CSVs! So, we added the ability to download
+  the energy dashboard data to a CSV file now as well! Thanks [@karwosts]!
+- After feedback and reports on the automatic Zigbee device firmware updates
+  introduced in a previous release, this release brings a stricter and
+  more robust update system to [ZHA]. Thanks [@dmulcahey] & [@puddly]!
+- The [Tessie] integration now provides charging and range sensors.
+  Thanks [@Bre77]!
+- [myUplink] devices can now be updated directly from Home Assistant.
+  Awesome [@astrandb]!
+- [DuneHD] media players now support browsing media files and playing them.
+  Thanks [@iliessens]!
+- The [Bring!] now brings in a new "recently" list. Nice [@miaucl]!
+- [@lellky] added setpoints as number entities for fans to the
+  [Flexit Nordic (BACnet)] integration, thanks!
+- The dialog to adjust long-term statistics now has automated outlier detection!
+  That is a very smart and helpful addition. Thanks [@karwosts]!
+
+[@arturpragacz]: https://github.com/arturpragacz
+[@astrandb]: https://github.com/astrandb
+[@Bre77]: https://github.com/Bre77
+[@dmulcahey]: https://github.com/dmulcahey
+[@iliessens]: https://github.com/iliessens
+[@karwosts]: https://github.com/karwosts
+[@lellky]: https://github.com/lellky
+[@marcelveldt]: https://github.com/marcelveldt
+[@miaucl]: https://github.com/miaucl
+[@puddly]: https:///github.com/puddly
+[Bring!]: /integrations/bring
+[climate entity]: /integrations/climate
+[DuneHD]: /integrations/dunehd
+[Flexit Nordic (BACnet)]: /integrations/flexit_bacnet
+[Matter]: /integrations/matter
+[myUplink]: /integrations/myuplink
+[Tessie]: /integrations/tessie
+[ZHA]: /integrations/zha
+
+## New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Aprilaire]**, added by [@chamberlain2007]<br />
+  Monitor and control your Aprilaire thermostats.
+- **[Husqvarna Automower]**, added by [@Thomas55555]<br />
+  The Husqvarna Automower integration allows you to integrate and control
+  your lawn mower straight from Home Assistant.
+- **[microBees]**, added by [@marcolettieri]<br />
+  Control your microBees devices, such as plugs and wall switches.
+- **[WeatherFlow Cloud]**, added by [@jeeftor]<br />
+  The WeatherFlow Cloud is an alternative to the existing [local WeatherFlow]
+  integration and pulls in data from your Tempest Weather Station.
+- **[Webmin]**, added by [@autinerd]<br />
+  Monitor the CPU and memory usage of your Webmin-managed server.
+
+[@autinerd]: https://github.com/autinerd
+[@chamberlain2007]: https://github.com/chamberlain2007
+[@jeeftor]: https://github.com/jeeftor
+[@marcolettieri]: https://github.com/marcolettieri
+[@Thomas55555]: https://github.com/Thomas55555
+[Aprilaire]: /integrations/aprilaire
+[Husqvarna Automower]: /integrations/husqvarna_automower
+[local WeatherFlow]: /integrations/weatherflow
+[microBees]: /integrations/microbees
+[WeatherFlow Cloud]: /integrations/weatherflow_cloud
+[Webmin]: /integrations/webmin
+
+This release also has new virtual integrations. Virtual integrations are stubs
+that are handled by other (existing) integrations to help with findability.
+The following virtual integrations have been added:
+
+- **[Acomax]**, provided by [Motionblinds]
+- **[Duquesne Light]**, provided by [Opower]
+- **[Krispol]**, provided by [Motionblinds]
+- **[Madeco]**, provided by [Motionblinds]
+- **[SamSam]**, provided by [EnergyZero]
+- **[ZonderGas]**, provided by [EnergyZero]
+
+[Acomax]: /integrations/acomax
+[Duquesne Light]: /integrations/duquesne_light
+[EnergyZero]: /integrations/energyzero
+[Krispol]: /integrations/krispol
+[Madeco]: /integrations/madeco
+[Motionblinds]: /integrations/motion_blinds
+[Opower]: /integrations/opower
+[SamSam]: /integrations/samsam
+[ZonderGas]: /integrations/zondergas
+
+## Integrations now available to set up from the UI
+
+The following integration us now available via the Home Assistant UI:
+
+- **[Velux]**, done by [@DeerMaximum]
+
+[@DeerMaximum]: https://github.com/DeerMaximum
+[Velux]: /integrations/velux
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+{% details "AEMET" %}
+
+The daily data for the current day wasn't available after midday, and
+now it will be. Automations and scripts relying on `day[0]` for checking
+the next-day forecast will have to be adjusted to use `day[1]` instead.
+
+([@Noltari] - [#107795]) ([documentation](/integrations/aemet))
+
+[@Noltari]: https://github.com/Noltari
+[#107795]: https://github.com/home-assistant/core/pull/107795
+
+{% enddetails %}
+
+{% details "JuiceNet" %}
+
+The JuiceNet integration has been removed.
+
+Enel X has migrated from JuiceNet to JuicePass, rendering the JuiceNet
+integration useless. Background and alternative solutions to the juicenet
+integration can be found in the related
+[issue](https://github.com/home-assistant/core/issues/86588).
+
+([@emontnemery] - [#111477])
+
+[#111477]: https://github.com/home-assistant/core/pull/111477
+
+{% enddetails %}
+
+{% details "Met.no" %}
+
+The met.no integration previously created two entities for each configured
+location: one provided daily weather forecasts,
+and one provided hourly forecasts.
+
+The met.no integration now only creates a single entity that provides
+both daily and hourly weather forecasts.
+
+([@emontnemery] - [#97023]) ([documentation](/integrations/met))
+
+[@emontnemery]: https://github.com/emontnemery
+[#97023]: https://github.com/home-assistant/core/pull/97023
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+Aux heat, deprecated in Home Assistant Core 2023.9, is now removed from
+the MQTT climate.
+
+([@jbouwh] - [#109513]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#109513]: https://github.com/home-assistant/core/pull/109513
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+For Z-Wave `climate` entities, the behavior of the `climate.turn_on` service
+has changed. Previously, the service would act in the following order depending
+on whether the corresponding conditions were met:
+
+1. If the entity supported the `off` mode and exactly one additional mode,
+   `climate.turn_on` would set the mode to the additional mode.
+2. If conditions for 1 were not met and at least one of the following modes were
+   available, the service would set the mode to the first mode it found
+   in the specified order: `heat_cool`, `heat`, `cool`.
+3. If conditions for 1 and 2 were not met, the service would silently do nothing.
+
+Now, the service follows the following behavior in order:
+
+1. If the entity supports the `resume` thermostat mode, it will be used to
+   restore the last mode you used before the entity was turned off.
+2. If the condition for 1 isn't met and the entity was turned off in
+   Home Assistant, and Home Assistant wasn't restarted, Home Assistant
+   remembers the last "on" mode and will set it to that mode. Home Assistant
+   will be unable to set the entity to the previous mode if Home Assistant
+   starts with the entity already in `off` mode since the integration will
+   not know what the previous mode was.
+3. If conditions for 1 and 2 are not met and at least one of the following
+   modes is available, the service sets the mode to the first mode it finds
+   in the specified order: `heat_cool`, `heat`, `cool`
+   (no change to condition 2 above).
+4. If conditions for 1, 2, and 3 are not met, the mode will be set to the first
+   supported mode it finds (like `dry` or `fan_only`).
+
+([@raman325] - [#109187]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#109187]: https://github.com/home-assistant/core/pull/109187
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Altering config entries](https://developers.home-assistant.io/blog/2024/02/12/async_update_entry/)
+- [Deprecate use of @bind_hass and hass.components](https://developers.home-assistant.io/blog/2024/02/27/deprecate-bind-hass-and-hass-components)
+- [Introducing device name translations](https://developers.home-assistant.io/blog/2024/02/28/device-name-translations)
+- [It is now required for lights to set color mode](https://developers.home-assistant.io/blog/2024/02/12/light-color-mode-mandatory/)
+- [New Climate entity toggle method](https://developers.home-assistant.io/blog/2024/02/25/Climate-toggle-service)
+- [New single instance only manifest option](https://developers.home-assistant.io/blog/2024/02/26/single-instance-only-manifest-option)
+- [Support for platform translations in separate files will be removed](https://developers.home-assistant.io/blog/2024/03/05/platform_entity_translations_deprecation)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2024.3](/changelogs/core-2024.3)

@@ -11,6 +11,10 @@ ha_iot_class: Calculated
 ha_integration_type: integration
 ha_codeowners:
   - '@mib1185'
+ha_platforms:
+  - diagnostics
+  - sensor
+ha_config_flow: true
 ---
 
 The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel.
@@ -73,4 +77,3 @@ This sensor shows the direction of travel of the nearest device or person to the
 This comprehensive video tutorial explains how to utilize the Proximity integration to automatically adjust the heating in your home based on your presence, whether you're leaving or entering an area around your house.
 
 <lite-youtube videoid="0ojMz1s3Y84" videotitle="Mastering Geofencing in Home Assistant with Proximity and Presence Detection: An Ultimate Guide" posterquality="maxresdefault"></lite-youtube>
-
