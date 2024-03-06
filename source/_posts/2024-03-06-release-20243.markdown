@@ -105,22 +105,31 @@ A new graph has been added on the energy dashboard by [@karwosts]. You can now m
 
 ## New sentences for Assist
 
-Assists has been expanded with new intent sentences, allowing you to control
-even more devices and services.
+[Assist](/voice_control/), our private voice assistant, learned a few tricks during this month.
 
-Support for valves has been added. You can now ask it to adjust the position
-of a valve to, for example, 50%, or just open or close a valve completely.
+<img class="no-shadow" src='/images/blog/2024-03/new-assist-commands.png' alt='Screenshot showing a few of the new Assist commands.'>
 
-Covers support has been extended, and it now can control the position of
-covers, for example, "open the blinds 50%".
+Support for valves has been added. You can now ask Assist to adjust the position of a valve, or just open or close a valve completely.
 
-No need to worry if you found a dusty spot in your home, starting the vacuum
-is now also a new capability. Or, in case you are annoyed by the noise of the
-vacuum, you can also ask it to return to base.
+Covers support has been extended to support the control of the position of your devices.
+As of today, most languages only support a single use-case as a starting point: Setting the position of a single device by targeting its name: *“Set the curtain position to 80%"*.
+Language leaders are working on extending the use-case coverage to be able to set the position of multiple devices, or complete areas, similar to what is possible with the open and close sentences.
 
-The biggest set of changes is for media players. You can now ask it to play,
-pause, unpause, and to fast-forward to the next item. But not just that, you
-can also control the volume.
+The next trick Assist learned could be considered as a bug fix, nevertheless, I am pretty excited about this one.
+Until today it was not possible to start or stop a vacuum cleaner by voice.
+Starting this release, Assist knows how to start a vacuum and return it to its base.
+The default English sentences are for now:
+
+- "Start Dusty"
+- "Return Dusty to base"
+
+*(With Dusty a vacuum entity name)*
+
+The biggest set of changes is for media players. 
+Assist can now pause playback, resume playback, skip to the next media, and set the volume of media players.
+Be aware that for now, these sentences are limited to targeting a single device by its name, for example: "Skip to the next song on the TV". We are actively working on extending the logic of these new intents to allow you to target areas and only affect the desired media player(s).
+
+
 
 ## Disabling the remotely enabling of Home Assistant Remote UI
 
