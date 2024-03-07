@@ -3,6 +3,7 @@ title: Teslemetry
 description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
   - Climate
+  - Sensor
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: teslemetry
 ha_platforms:
   - climate
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -31,3 +33,53 @@ The integration will create a climate entity to control the vehicle's climate co
 - Turn on and off
 - Change the set temperature
 - Change to one of the four modes: Off, Keep mode, Dog mode, and Camp mode 
+
+### Sensor
+
+The integration will create sensor entities for a variety of metrics that relate to your vehicles, energy sites, and Wall Connectors:
+
+#### Energy sites
+- Battery power
+- Energy left
+- Generator power (disabled by default)
+- Grid power
+- Grid services power
+- Load power
+- Percentage charged
+- Solar power
+- Total pack energy (disabled by default)
+
+#### Vehicles
+- Battery level
+- Battery range
+- Change energy added
+- Change power
+- Change rate (disabled by default)
+- Charge voltage
+- Charger current
+- Destination
+- Distance to arrival
+- Driver temperature setting (disabled by default)
+- Inside temperature
+- Odometer (disabled by default)
+- Online
+- Outside temperature
+- Passenger temperature setting (disabled by default)
+- Power (disabled by default)
+- Shift State (disabled by default)
+- Speed (disabled by default)
+- State of charge at arrival (disabled by default)
+- Time to arrival
+- Time to full charge
+- Tire pressure front left (disabled by default)
+- Tire pressure front right (disabled by default)
+- Tire pressure rear left (disabled by default)
+- Tire pressure rear right (disabled by default)
+- Traffic delay (disabled by default)
+
+#### Wall connectors
+- Fault state (disabled by default)
+- Power
+- State (disabled by default)
+- Vehicle
+

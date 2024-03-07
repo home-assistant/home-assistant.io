@@ -72,7 +72,7 @@ user_name:
   required: true
   type: string
 password:
-  description: Which password to authenticate with when connecting to the device. This must be the password for connceting directly to the device and not the password for your EyezOn account. EVL3 only works with max. 6 characters.
+  description: Which password to authenticate with when connecting to the device. This must be the password for connecting directly to the device and not the password for your EyezOn account. EVL3 only works with max. 6 characters.
   required: true
   type: string
 code:

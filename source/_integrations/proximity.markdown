@@ -24,6 +24,10 @@ Some examples of its use include:
 
 {% include integrations/config_flow.md %}
 
+<div class="note">
+When adding the **Proximity** integration, you are prompted to define the **Tolerance distance**. The tolerance distance is used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.
+</div>
+
 ## Sensors
 
 The following sensor entities will be created.
@@ -63,3 +67,9 @@ This sensor shows the direction of travel of the nearest device or person to the
 - `stationary`
 - `towards`
 - `unknown`
+
+### Video tutorial
+
+This comprehensive video tutorial explains how to utilize the Proximity integration to automatically adjust the heating in your home based on your presence, whether you're leaving or entering an area around your house.
+
+<lite-youtube videoid="0ojMz1s3Y84" videotitle="Mastering Geofencing in Home Assistant with Proximity and Presence Detection: An Ultimate Guide" posterquality="maxresdefault"></lite-youtube>
