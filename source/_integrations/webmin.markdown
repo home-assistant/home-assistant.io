@@ -33,3 +33,15 @@ Following sensors will be added:
 - Memory free
 - Swap total
 - Swap free
+- Total space for all disks
+- Free space for all disks
+- Used space for all disks
+- For each filesystem mountpoint:
+  - Used space
+  - Free space
+  - Total space
+  - Used inodes
+  - Free inodes
+  - Total inodes
+  - Disk usage in percent
+  - Inode usage in percent
