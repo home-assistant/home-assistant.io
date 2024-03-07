@@ -43,7 +43,7 @@ servers:
   type: list
   keys:
     server:
-      description: Address of the SUPLA-CLOUD server (either IP address or DNS name); can either be the (cloud hosted)[https://cloud.supla.org] instance, or a (self hosted)[https://github.com/SUPLA/supla-cloud] instance.
+      description: Address of the SUPLA-CLOUD server (either IP address or DNS name); can either be the [cloud hosted](https://cloud.supla.org) instance, or a [self hosted](https://github.com/SUPLA/supla-cloud) instance.
       required: true
       type: string
     access_token:
