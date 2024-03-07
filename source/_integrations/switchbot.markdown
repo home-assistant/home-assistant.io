@@ -47,6 +47,10 @@ Please note, device names configured in the SwitchBot app are not transferred in
 
 {% include integrations/config_flow.md %}
 
+SwitchBot devices are added to Home Assistant according to their domain, such as Curtains under the cover domain. For more information how to use these in automations, see the buliding block integration that domain, such as [cover](/integrations/cover/).
+Some SwitchBot devices need to be configured within the app before controlling them from Home Assistant, such as adjusting the cover open/close limits or pairing two covers to move together.
+
+
 ## Supported devices
 
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
