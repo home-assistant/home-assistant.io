@@ -14,6 +14,7 @@ ha_platforms:
   - climate
   - humidifier
   - cover
+  - humidifier
   - light
   - sensor
   - switch
