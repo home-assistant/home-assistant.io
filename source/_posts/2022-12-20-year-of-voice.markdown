@@ -22,7 +22,7 @@ _**TL;DR**: It is our goal for 2023 to let users control Home Assistant in their
  - [Year of the Voice - Chapter 3](/blog/2023/07/20/year-of-the-voice-chapter-3/) (July 20, 2023)
  - [Year of the Voice - Chapter 4](/blog/2023/10/12/year-of-the-voice-chapter-4-wakewords/) (October 12, 2023)
  - [Year of the Voice - Chapter 5](/blog/2023/12/13/year-of-the-voice-chapter-5/) (December 13, 2023)
- - [Year of the Voice - Chapter 6](/blog/2024/02/21/voice-chapter-6/) (February 21, 2024)
+ - [Voice - Chapter 6](/blog/2024/02/21/voice-chapter-6/) (February 21, 2024)
 
 <hr>
 
