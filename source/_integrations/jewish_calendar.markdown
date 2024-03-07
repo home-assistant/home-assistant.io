@@ -164,7 +164,10 @@ The Jewish Calendar integration also includes four services that return Hebrew c
 
 ### Common Attributes
 
-All of these services return the same fields, based on which of the following `include_*` attributes you pass to the service. If you set multiple attributes to true, it will return all of thise fields.
+These services return the same fields, based on the following `include_*` attributes. If you set multiple attributes to true, they will return all these fields.  If you leave all of them false, it will only return the Gregorian `date`.
+
+To see which fields are returned, try it out:
+{% my developer_call_service badge service="jewish_calendar.get_gregorian_date" %}
 
 | Service data attribute     | Description                                                                   |
 | -------------------------- | ----------------------------------------------------------------------------- |
@@ -172,7 +175,7 @@ All of these services return the same fields, based on which of the following `i
 | `include_holiday_info`     | True to return information about the holiday that falls on this date, if any. |
 | `include_zmanim`           | True to return the day's zmanim timestamps.                                   |
 
-### Service jewish_calendar.for_gregorian_date
+### Service {% my developer_call_service service="jewish_calendar.get_gregorian_date" %}
 
 Return Jewish Calendar information for the specified Gregorian date.
 
@@ -180,7 +183,7 @@ Return Jewish Calendar information for the specified Gregorian date.
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `date`                 | yes      | Look up the specified date or time.  If you pass a date with a time, it will be evaluated relative to sunset, returning the following day if after sunset (not candle lighting). Defaults to today (relative to midnight, not sunset). |
 
-### Service jewish_calendar.for_hebrew_date
+### Service {% my developer_call_service service="jewish_calendar.get_hebrew_date" %}
 
 Return Jewish Calendar information for the specified Hebrew date.
 
@@ -190,7 +193,7 @@ Return Jewish Calendar information for the specified Hebrew date.
 | `month`                | no       | The month of the date to return.  You must specify Adar I or Adar II in case the year is a leap year; in non-leap years, they will both return Adar. |
 | `day`                  | no       | The day of month of the date to return.                                                                                                              |
 
-### Service jewish_calendar.for_next_holiday
+### Service {% my developer_call_service service="jewish_calendar.get_next_holiday" %}
 
 Return Jewish Calendar information for the next holiday on or after a given date, optionally filtered to specific type(s) of holiday.
 
@@ -199,7 +202,7 @@ Return Jewish Calendar information for the next holiday on or after a given date
 | `date`                 | yes      | Get a holiday the specified date or time.  If you pass a date with a time, it will be evaluated relative to sunset, returning the following day if after sunset (not candle lighting). Defaults to today (relative to midnight, not sunset). |
 | `types`                | yes      | The categories of holidays to return, from the `Type` column [above](#holiday-sensor).  If omitted, returns any holiday.                                                                                                                     |
 
-### Service jewish_calendar.get_holidays
+### Service {% my developer_call_service service="jewish_calendar.get_holidays" %}
 
 Return Jewish Calendar information for holiday(s) in a given year.  Exactly one of `types` or `holidays` is required to filter holidays to return.
 
@@ -210,3 +213,67 @@ Note: Unlike the other services, this returns results for multiple days, wrapped
 | `year`                 | yes      | Return holidays in the specified year.  Defaults to the current Hebrew year.                              |
 | `types`                | yes      | The categories of holidays to return, from the `Type` column [above](#holiday-sensor).                    |
 | `holidays`             | yes      | The name(s) of holidays to return, from the `English` or `Hebrew` names columns [above](#holiday-sensor). |
+
+## Examples
+
+These services are most useful in [template sensors](/integrations/template/#trigger-based-handling-of-service-response-data).  For example:
+
+{% raw %}
+
+```yaml
+
+template:
+  # Report a Yahrzeit's date in this year:
+  - trigger:
+      - platform: state
+        entity_id:
+          - sensor.jewish_calendar_date
+    action:
+      - service: jewish_calendar.get_hebrew_date
+        data:
+          month: Iyyar
+          day: 21
+        response_variable: date
+    sensor:
+      - name: Sample Yahrzeit
+        unique_id: sample_yahrzeit
+        state: "{{ date.date }}"
+        attributes:
+          device_class: date
+
+  # Report a specific holiday's date in this year:
+  - trigger:
+      - platform: state
+        entity_id:
+          - sensor.jewish_calendar_date
+    action:
+      - service: jewish_calendar.get_holidays
+        data:
+          holidays:
+            - Pesach
+        response_variable: results
+    sensor:
+      - name: First Day of Pesach
+        unique_id: first_day_of_pesach
+        state: "{{ results.holidays[0].date }}"
+        attributes:
+          device_class: date
+
+  # Report which holiday is coming this week, if any:
+  - trigger:
+      - platform: state
+        entity_id:
+          - sensor.jewish_calendar_upcoming_candle_lighting
+    action:
+      - service: jewish_calendar.get_gregorian_date
+        data:
+          date: "{{ states('sensor.jewish_calendar_upcoming_candle_lighting') }}"
+          include_holiday_info: true
+        response_variable: date
+    sensor:
+      - name: Upcoming Holiday Name
+        unique_id: upcoming_holiday_name
+        state: "{{ date.holiday_description }}"
+```
+
+{% endraw %}
