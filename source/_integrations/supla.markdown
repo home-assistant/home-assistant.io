@@ -23,7 +23,7 @@ Currently, only covers (shutters in SUPLA's terminology), gates, garage doors, a
 
 Right now, it's impossible to add a device -- all of them are discovered from SUPLA-CLOUD's servers or yours.
 
-For more complete Home Assistant support based on MQTT autodiscovery, consider switching your Supla devices to MQTT (through the setup interface). Or use the MQTT broker provided by [Supla Cloud] (https://cloud.supla.org/integrations/mqtt-broker).
+For more complete Home Assistant support based on MQTT autodiscovery, consider switching your Supla devices to MQTT (through the setup interface). Or use the MQTT broker provided by [Supla Cloud](https://cloud.supla.org/integrations/mqtt-broker).
 
 ## Configuration
 
@@ -43,7 +43,7 @@ servers:
   type: list
   keys:
     server:
-      description: Address of the SUPLA-CLOUD server (either IP address or DNS name); can either be the (cloud hosted)[https://cloud.supla.org] instance, or a (self hosted)[https://github.com/SUPLA/supla-cloud] instance.
+      description: Address of the SUPLA-CLOUD server (either IP address or DNS name); can either be the [cloud hosted](https://cloud.supla.org) instance, or a [self hosted](https://github.com/SUPLA/supla-cloud) instance.
       required: true
       type: string
     access_token:
