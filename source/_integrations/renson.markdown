@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Fan
   - Number
+  - Switch
   - Time
 ha_release: 2023.7
 ha_iot_class: Local Polling
@@ -19,6 +20,7 @@ ha_platforms:
   - fan
   - number
   - sensor
+  - switch
   - time
 ha_integration_type: integration
 ---

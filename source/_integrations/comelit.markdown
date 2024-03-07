@@ -13,6 +13,7 @@ ha_platforms:
   - alarm_control_panel
   - climate
   - cover
+  - humidifier
   - light
   - sensor
   - switch
