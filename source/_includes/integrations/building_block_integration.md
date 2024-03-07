@@ -5,6 +5,6 @@
 
 **Building block integration**
 
-The {{ name | downcase }} integration cannot be directly used to create entities. This integration is a building block for other integrations to use, enabling them to create {{ domain | replace: "_", " " }} entities for you. See the integration list category in the sidebar to see all {{ name | downcase }} integrations built from it that you can use. The automation triggers, services, and other information here can be used with all of these integrations if their entities support them, and some integrations add additional functionality.
+This {{ name | downcase }} building block integration cannot be directly added to your Home Assistant. It is a generic building block that other integrations use to create {{ domain | replace: "_", " " }} entities for you. See the "category" links in the sidebar to see all {{ name | downcase }} integrations built from it that you can use. The automation triggers, actions, and other information on this page can be used with all of those integrations whose entities support them, and some integrations add extra functionality.
 
 </div>
