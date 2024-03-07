@@ -82,5 +82,5 @@ Backups created via the **Backup** integration are located in your `/config/back
 For Container and Core installations, there is currently no built-in way to restore a backup. However, a Home Assistant backup is just a tar file of the `/config` directory, plus some metadata. To manually restore a backup, you can use the following:
 
 ```shell
-$ tar -xOf <backup_tar_file> "./homeassistant.tar.gz" | tar --strip-components=1 -zxf - -C <restore_directory>
+tar -xOf <backup_tar_file> "./homeassistant.tar.gz" | tar --strip-components=1 -zxf - -C <restore_directory>
 ```
