@@ -17,6 +17,8 @@ dashboard for tracking items and whether or not they have been completed.
 
 {% include integrations/building_block_integration.md %}
 
+For example, [Local To-do](/integrations/local_todo/) is a fully local integration to create to-do lists and tasks within your Home Assistant instance, [Shopping list](/integrations/shopping_list) specifically for shopping that can be added to with Assist, or other integrations work with online services providing to-do list data.
+
 ## Viewing and managing to-do lists
 
 Each to-do list is represented as its own entity in Home Assistant and can be

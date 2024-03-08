@@ -35,12 +35,23 @@ On the Reolink device, a user account with admin privileges is needed for the pr
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
 Protocol:
-  description: Switch between RTSP, RTMP or FLV streaming protocol.
+  description: Switch between <abbr title="real-time streaming protocol">RTSP</abbr>, <abbr title="real-time messaging protocol">RTMP</abbr>, or <abbr title="flash video">FLV</abbr> streaming protocol. <abbr title="real-time streaming protocol">RTSP</abbr> supports 4K streams (h265 encoding) while <abbr title="real-time messaging protocol">RTMP</abbr> and <abbr title="flash video">FLV</abbr> do not. <abbr title="flash video">FLV</abbr> is the least demanding on the camera.
 {% endconfiguration_basic %}
+
+## Asterisk (*) next to entities listed in this documentation
+
+If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#enabling-entities) first.
 
 ## Camera streams
 
-This integration creates a few camera entities, one for each stream type with different resolutions: Clear, Fluent, Balanced, Snapshots Clear, and Snapshots Fluent.
+This integration creates a few camera entities, one for each stream type with different resolutions:
+
+- Fluent (Low resolution)
+- Balanced* (Mid resolution)
+- Clear* (High resolution, resource intensive)
+- Snapshots Fluent* (Low resolution)
+- Snapshots Clear* (High resolution)
+
 The Fluent stream camera entity is enabled by default; the other streams are disabled by default.
 The Snapshots stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
 Dual lens cameras provide additional streams for the second lens.
@@ -56,6 +67,7 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI pet detection
 - AI animal detection
 - AI face detection
+- AI package detection
 
 These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
@@ -63,10 +75,6 @@ For redundancy, these sensors are polled every 60 seconds together with the upda
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
-
-## Asterisk (*) next to entities listed in this documentation
-
-If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/common-tasks/general/#enabling-entities) first.
 
 ## Number entities
 
@@ -81,11 +89,13 @@ Depending on the supported features of the camera, number entities are added for
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
+- AI package sensitivity
 - AI pet sensitivity
 - AI animal sensitivity
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
+- AI package delay*
 - AI pet delay*
 - AI animal delay*
 - Auto quick reply time
@@ -146,13 +156,14 @@ Depending on the supported features of the camera, select entities are added for
 - Floodlight mode (Off, Auto, Schedule)
 - Day night mode (Auto, Color, Black&White)
 - <abbr title="pan, tilt, and zoom">PTZ</abbr> preset
+- Play quick reply message
 - Auto quick reply message
 - Auto track method (Digital, Digital first, Pan/Tilt first)
 - Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
-**Auto quick reply messages** can be recorded in the Reolink app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
+**Play quick reply messages**/**Auto quick reply messages** can be recorded in the Reolink phone app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
 
 ## Siren entities
 
@@ -171,6 +182,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Auto tracking
 - Auto focus
 - Guard return
+- PTZ patrol (start/stop)
 - Doorbell button sound
 - Record
 - Push notifications
@@ -189,6 +201,8 @@ For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and *
 - The Push-notification in the Reolink App of that phone is ON.
 
 The Push-notification in the Reolink app is independent of the Home Assistant setting. It is also independent of the settings on other phones connected to the same camera. Reolink does this so you have an independent way of turning off push notifications per phone.
+
+The **PTZ patrol** positions first need to be configured using the Reolink [app](https://support.reolink.com/hc/en-us/articles/360008746833/)/[windows](https://support.reolink.com/hc/en-us/articles/900003738126/)/web client. When no positions are configured, the PTZ patrol entity will not be added. When adding patrol positions for the first time, you need to restart the Reolink integration.
 
 ## Light entities
 
@@ -325,11 +339,13 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 - Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.
 - Reolink cameras can support a limited amount of simultaneous connections. Therefore using third-party software like Frigate, Blue Iris, or Scrypted, or using the ONVIF integration at the same time can cause the camera to drop connections. This results in short unavailabilities of the Reolink entities in Home Assistant. Especially when the connections are coming from the same device (IP) where Home Assistant is running, the Reolink cameras can get confused, dropping one connection in favor of the other originating from the same host IP. If you experience disconnections/unavailabilities of the entities, please first temporarily shut down the other connections (like Frigate) to diagnose if that is the problem. If that is indeed the problem, you could try moving the third-party software to a different host (IP address) since that is known to solve the problem most of the time. You could also try switching the protocol to FLV on Home Assistant and/or the third-party software, as that is known to be less resource-intensive on the camera.
+- If the Reolink entities go to unavailable for short periods, the camera may be overloaded with requests resulting in short connection drops. To resolve this, first, check if the integration is using `ONVIF push` instead of `ONVIF long polling` (resource intensive) or `Fast polling` (very resource intensive), see the [Reducing latency of motion events](#reducing-latency-of-motion-events) section. Moreover, try switching to the <abbr title="flash video">FLV</abbr> streaming protocol which is the least resource-intensive for the camera, see the [options](#options) section.
 - If the integration and the browser can't connect to the camera even after you enable the HTTP/HTTPS ports, try to create a new user on the camera; that fixes the problem in some cases.
 
 ### Reducing latency of motion events
 
 ONVIF push will result in slightly faster state changes of the binary motion/AI event sensors than ONVIF long polling.
+Moreover, ONVIF push is less demanding for the camera than ONVIF long polling or fast polling, resulting in potentially less connection issues.
 However, ONVIF push has some additional network configuration requirements:
 
 - Reolink products can not push motion events to an HTTPS address (SSL).

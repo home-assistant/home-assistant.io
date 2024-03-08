@@ -11,6 +11,10 @@ ha_iot_class: Calculated
 ha_integration_type: integration
 ha_codeowners:
   - '@mib1185'
+ha_platforms:
+  - diagnostics
+  - sensor
+ha_config_flow: true
 ---
 
 The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel.
@@ -23,6 +27,10 @@ Some examples of its use include:
 - Decrease temperature the further away from home you travel
 
 {% include integrations/config_flow.md %}
+
+<div class="note">
+When adding the **Proximity** integration, you are prompted to define the **Tolerance distance**. The tolerance distance is used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.
+</div>
 
 ## Sensors
 
