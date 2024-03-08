@@ -21,41 +21,42 @@ The **WeatherFlow Cloud** integration provides access to cloud provided Weather 
 
 {% include integrations/config_flow.md %}
 
-<!-- ## Sensors
-
-Additionally, this integration provides access to the following sensors
-
-| Sensor                        | Description                                                                                   |
-|-----------------------------|-----------------------------------------------------------------------------------------------|
-| Air Temperature             | The measure of the hotness or coldness of the air in a particular environment, usually reported in degrees Celsius (°C) or Fahrenheit (°F). |
-| Feels Like                  | A calculated temperature that factors in the humidity and wind to estimate how the air temperature feels to the human body. |
-| Heat Index                  | A measure that combines air temperature and humidity to determine the human-perceived equivalent temperature, indicating how hot it feels. |
-| Wet Bulb Temperature        | The lowest temperature that can be reached by evaporating water into the air at constant pressure, which is a measure of moisture in the air. |
-| Wet Bulb Globe Temperature | A composite temperature used to estimate the effect of temperature, humidity, wind speed, and solar radiation on humans. It's used to assess environmental heat stress in direct sunlight. | -->
-
-
 ### Temperature Sensors
-| Sensor                        | Description                                                                                   |
-|-------------------------------|-----------------------------------------------------------------------------------------------|
-| Air Temperature               | The measure of the hotness or coldness of the air, usually reported in °C or °F.              |
-| Feels Like                    | A calculated temperature factoring in humidity and wind to estimate how the air feels to the body. |
-| Heat Index                    | A measure combining air temperature and humidity to indicate the human-perceived temperature.  |
-| Wet Bulb Temperature          | The lowest temperature achievable by evaporating water into the air, indicating air moisture.  |
-| Wet Bulb Globe Temperature    | A composite measure used to assess environmental heat stress in direct sunlight.               |
-| Wind Chill                    | Estimates how cold the air feels on exposed skin due to wind speed combined with air temperature. |
 
-### Air Sensors
-| Sensor             | Description                                                                                   |
-|--------------------|-----------------------------------------------------------------------------------------------|
-| Air Density | The mass per unit volume of Earth's atmosphere. Air density decreases with higher altitude, warmer temperature, and increasing humidity. It's crucial for various calculations, including aircraft performance and weather prediction. |
-| Barometric Pressure | The pressure exerted by the atmosphere at any given point. It's an essential measure in meteorology, influencing weather patterns and used for forecasting changes in the weather.   |
-
+| Sensor | Description |
+| --- | --- |
+| Dew point | The temperature to which air must be cooled to become saturated with water vapor. |
+| Feels like | An index that combines temperature and humidity to determine the apparent temperature. |
+| Heat index | A measure of how hot it feels when relative humidity is factored in with the actual air temperature. |
+| Temperature | The degree or intensity of heat present in the area. |
+| Wet bulb globe temperature | A composite temperature used to estimate the effect of temperature, humidity, wind speed, and solar radiation on humans. |
+| Wet bulb temperature | The lowest temperature that can be reached under current ambient conditions by the evaporation of water only. |
+| Wind chill | The lowering of body temperature due to the passing-flow of lower-temperature air. |
 
 ### Wind Sensors
-| Sensor          | Description                                                                                         |
-|-----------------|-----------------------------------------------------------------------------------------------------|
-| Wind Speed      | The rate at which air is moving in the atmosphere at a specific location and time.                 |
-| Wind Lull            | The minimum wind speed observed over a specific period, representing periods of minimal wind.      |
-| Wind Gust            | A sudden, brief increase in wind speed, significantly higher than the average wind speed.           |
-| Wind Direction       | The course along which the wind is blowing, typically reported from the direction it originates.   |
-| Wind Cardinal Direction | The most commonly used forms of direction: North, East, South, and West.                             |
+
+| Sensor | Description |
+| --- | --- |
+| Wind direction | The direction from which the wind is coming. |
+| Wind direction (cardinal) | The cardinal direction from which the wind is coming. |
+| Wind gust | A brief increase in the speed of the wind. |
+| Wind lull | The lowest speed during a specified time period. |
+
+### Air Sensors
+
+| Sensor | Description |
+| --- | --- |
+| Air density | The mass per unit volume of Earth's atmosphere. |
+| Pressure barometric | The pressure exerted by the atmosphere at the earth's surface. |
+| Pressure sea level | The atmospheric pressure at mean sea level. |
+| Pressure station | The atmospheric pressure at the station level. |
+
+### Lightning Sensors
+
+| Sensor | Description |
+| --- | --- |
+| Lightning count | The total number of lightning strikes. |
+| Lightning count last 1 hr | The number of lightning strikes in the last hour. |
+| Lightning count last 3 hr | The number of lightning strikes in the last three hours. |
+| Lightning last | The most recent lightning strike. |
+| Lightning last distance | The distance of the most recent lightning strike. |
