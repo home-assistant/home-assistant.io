@@ -50,11 +50,37 @@
     {%- endunless -%}
   {% endif %} 
 
+  {%- if page.ha_platforms.first -%}
+  <section class="aside-module grid__item one-whole lap-one-half">
+    <div class='section'>
+      <h1 class="title delta">Platforms</h1>
+      This integration creates entities from the following platforms.
+      See these general pages for details on using their triggers and actions in automations:
+    </div>
+    <div class='section'>
+      <ul class='unstyled'>
+      {%- for platform in page.ha_platforms -%}
+        <li>
+          <a href='/integrations/{{ platform }}'>{{ platform | capitalize }}</a>
+        </li>
+      {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+  {%- endif -%}
+
   {%- if page.ha_category.first -%}
     <section class="aside-module grid__item one-whole lap-one-half">
       <div class='section'>
         <h1 class="title delta">Categories</h1>
-        <ul class='divided'>
+        {% if page.ha_integration_type == "integration" %}
+          Find other integrations in these categories:
+        {% else %}
+          Search for integrations built from this:
+        {% endif %}
+      </div>
+      <div class='section'>
+        <ul class='unstyled'>
         {%- for category in page.ha_category -%}
           <li>
             <a href='/integrations/#{{ category | slugify }}'>{{ category }}</a>
