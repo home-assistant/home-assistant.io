@@ -203,6 +203,8 @@ action:
 
 ### Images in notification
 
+#### Images from a file
+
 It is possible to send images with notifications. To do so, add a list of paths in the notification `data`.
 
 ```yaml
@@ -229,3 +231,23 @@ homeassistant:
 ```
 
 </div>
+
+#### Images from a URL
+
+Images can also be downloaded from a URL and sent with a notification.
+
+To attach files from outside of Home Assistant, the URLs must be added to the [`allowlist_external_urls`](/docs/configuration/basic/#allowlist_external_urls) list.
+
+Note there is a 50MB size limit for attachments retrieved via URLs. You can also set `verify_ssl` to `false` to ignore SSL errors (default `true`).
+
+```yaml
+...
+action:
+  service: notify.matrix_notify
+  data:
+    message: "Person detected on Front Camera!"
+    data:
+      verify_ssl: false
+      image_urls:
+        - "http://homeassistant.local/api/frigate/notifications/<event-id>/thumbnail.jpg"
+```
