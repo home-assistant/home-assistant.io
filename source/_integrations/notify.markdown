@@ -34,7 +34,7 @@ The different `notify` integrations you have set up will each show up as a diffe
 
 One notification integration is automatically included, the Persistent Notifications which creates a notification in the sidebar of the web interface of Home Assistant. This can be chosen with the action named "Send a persistent notification" which uses the service `notify.persistent_notification`.
 
-Another common notification integration is via the companion app for Android or iPhone. This can be chosen with the action "Send a notification via mobile_app_your_phone_name" which uses the service `notify.mobile_app_your_phone_name`. See the [app docs](https://companion.home-assistant.io/docs/notifications/notifications-basic) for lots of customization options.
+Another common notification integration is via the companion app for Android or iPhone. This can be chosen with the action "Send a notification via mobile_app_your_phone_name" which uses the service `notify.mobile_app_your_phone_name`. See the [companion app documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic) for lots of customization options.
 
 With any of these integrations, the `message` data input in the automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional `data` or `target` information to customize the action, see their integration pages for more details.
 
