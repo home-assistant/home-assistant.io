@@ -11,7 +11,7 @@ ha_domain: notify
 ha_integration_type: entity
 ---
 
-The `notify` integration makes it possible to send notifications to a wide variety of platforms. To use it you have to setup at least one notification target (notifier), check the [integrations list](/integrations/#notifications) for one that fits your use case.
+The `notify` {% term integration %} makes it possible to send notifications to a wide variety of platforms. To use it you have to setup at least one notification target (notifier), check the [integrations list](/integrations/#notifications) for one that fits your use case.
 
 If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/). It is available as an automatically configured notifier. See [its documentation](/integrations/persistent_notification/) for more details.
 
@@ -30,7 +30,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 
 ## Usage
 
-The different `notify` integrations you have set up will each show up as a different automation actions / service calls that you can use.
+The different `notify` integrations you have set up will each show up as a different automation {% term action actions %} / {% term service %} calls that you can use.
 
 One notification integration is automatically included, the Persistent Notifications which creates a notification in the sidebar of the web interface of Home Assistant. This can be chosen with the action named "Send a persistent notification" which uses the service `notify.persistent_notification`.
 
@@ -50,7 +50,7 @@ After you setup a [notifier](/integrations/#notifications), a simple way to test
 
 Select the "Send a persistent notification" action under **Developer Tools** on the **Services** tab. Enter a message and test sending it.
 
-If you switch to view the YAML data under **Developer Tools**, it will appear as below. The same action can be chosen in [automations](/getting-started/automation/). The automation action changed to its YAML view will appear the same:
+If you switch to view the YAML data under **Developer Tools**, it will appear as below. The same {% term action %} can be chosen in {% term automations %}. The automation action changed to its YAML view will appear the same:
 
 {% raw %}
 
