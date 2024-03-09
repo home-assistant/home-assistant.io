@@ -257,7 +257,7 @@ automation:
 
 {% endraw %}
 
-More dynamic and complex calculations can be done with `value_template`.
+More dynamic and complex calculations can be done with `value_template`. When this option is specified an object named `state` will be available which is populated with the state object of the entity specified by `entity_id`. See the [state objects documentation](/docs/configuration/state_object/) for details on how to access the contents of this object. 
 
 {% raw %}
 
