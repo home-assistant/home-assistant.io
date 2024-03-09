@@ -38,7 +38,9 @@ Another common notification integration is via the companion app for Android or 
 
 With any of these integrations, the `message` data input in the automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional `data` or `target` information to customize the action, see their integration pages for more details.
 
-Be aware that the `notify.notify` is shorthand for the first notify service the system can find and might not work as intended. Choose a specific service to make sure your message goes to the right place.
+Be aware that the `notify.notify` service is shorthand for the first notify service the system can find and might not work as intended. Choose a specific service to make sure your message goes to the right place.
+
+Notifications can also be sent using [Notify groups](https://www.home-assistant.io/integrations/group/#notify-groups). These allow you to send notification to multiple devices with a single call, or to update which device is notified by only changing it in a single place.
 
 ### Test if it works
 
@@ -48,30 +50,19 @@ After you setup a [notifier](/integrations/#notifications), a simple way to test
 
 Select the "Send a persistent notification" action under **Developer Tools** on the **Services** tab. Enter a message and test sending it.
 
-If you switch to view the YAML data under **Developer Tools**, it will appear like this:
+If you switch to view the YAML data under **Developer Tools**, it will appear as below. The same action can be chosen in [automations](/getting-started/automation/). The automation action changed to its YAML view will appear the same:
 
 {% raw %}
 
 ```yaml
 service: notify.persistent_notification
 data:
-  message: Can you hear me now?
+  message: "Can you hear me now?"
 ```
 
 {% endraw %}
 
-The same action can be chosen in [automations](/getting-started/automation/). The automation equivalent in its YAML view would be:
 
-{% raw %}
-
-```yaml
-service: notify.persistent_notification
-metadata: {}
-data:
-  message: Can you hear me now?
-```
-
-{% endraw %}
 
 The notify integration supports specifying [templates](/docs/configuration/templating/). This will allow you to use the current state of entities in Home Assistant in your notifications, or use more complex logic to decide the message that is sent.
 
@@ -81,7 +72,7 @@ The notify integration supports specifying [templates](/docs/configuration/templ
 action:
   service: notify.persistent_notification
   data:
-    message: "You have {{ states("todo.shopping_list") }} items on your shopping list."
+    message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
 ```
 
 {% endraw %}
@@ -96,3 +87,5 @@ action:
 ```
 
 {% endraw %}
+
+
