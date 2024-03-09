@@ -259,6 +259,8 @@ automation:
 
 More dynamic and complex calculations can be done with `value_template`. The variable 'state' is the [state object](/docs/configuration/state_object) of the entity specified by `entity_id`.
 
+The state of the entity can be referenced like this:
+
 {% raw %}
 
 ```yaml
@@ -271,6 +273,8 @@ automation:
 ```
 
 {% endraw %}
+
+Attributes of the entity can be referenced like this:
 
 {% raw %}
 
