@@ -19,9 +19,9 @@ You can also trigger an automation manually. This can test the conditions as if 
 
 In the automation editor UI, each {% term condition %} and {% term action %} can be tested individually. Click the 3-dots menu, then the **Test** button.
 
-* Testing a condition will highlight it to show whether the condition passed at the moment it was tested. If all conditions pass, then the automation will run when triggered. Testing building blocks like an **and** condition will report whether the whole block registers as true or false, or you can test individual conditions within the building block.
+- Testing a condition will highlight it to show whether the condition passed at the moment it was tested. If all conditions pass, then the automation will run when triggered. Testing building blocks like an **and** condition will report whether the whole block registers as true or false, or you can test individual conditions within the building block.
 
-* Testing an action block will run that block immediately.
+- Testing an action block will run that block immediately.
 
 Note that complex automations that depend on previous blocks, such as trigger IDs, variables in templates, or service calls that return data to use in subsequent blocks, cannot be tested this way.
 
@@ -39,17 +39,17 @@ The above screenshot shows a previous run of an automation. The automation is di
 
 The right side of the trace screen has tabs with more information:
 
-* Step Details shows data and results of the step that is currently highlighted.
-* Automation Config shows the full YAML configuration at the time the automation was run.
-* Trace Timeline, shown in the screenshot above, lists the steps that were executed and their timing.
-* Related logbook entries, as the name says a logbook for all the entries related to the specific trace.
-* Blueprint Config will only be shown if the automation was created from a {% term blueprint %}.
+- Step Details shows data and results of the step that is currently highlighted.
+- Automation Config shows the full YAML configuration at the time the automation was run.
+- Trace Timeline, shown in the screenshot above, lists the steps that were executed and their timing.
+- Related logbook entries, as the name says a logbook for all the entries related to the specific trace.
+- Blueprint Config will only be shown if the automation was created from a {% term blueprint %}.
 
 The top bar shows the date and time the automation was triggered. Use the left and right arrows to view previous runs of the automation.
 
 Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) assigned in order for debugging traces to be stored.
 
-#### Trace configuration
+### Trace configuration
 
 The last 5 traces are recorded for all automations. It is possible to change this by adding the following code to your automation.
 
