@@ -44,7 +44,7 @@ Notifications can also be sent using [Notify groups](https://www.home-assistant.
 
 ### Test if it works
 
-After you setup a [notifier](/integrations/#notifications), a simple way to test if you have set up your notify platform correctly is to open **Developer Tools** from the sidebar and select the **Services** tab. Choose your service from the **Service** dropdown menu depending on the integration you want to test, such as "Send a persistent notification" or "via mobile_app_your_phone_name". Enter your message into the **message** field, and press the **CALL SERVICE** button.
+After you setup a [notifier](/integrations/#notifications), a simple way to test if you have set up your notify platform correctly is to open **{% my developer_services title="Developer tools -> Services" %}** tab from the sidebar. Choose your service from the **Service** dropdown menu depending on the integration you want to test, such as "Send a persistent notification" or "via mobile_app_your_phone_name". Enter your message into the **message** field, and press the **CALL SERVICE** button.
 
 ### Examples
 
