@@ -31,6 +31,10 @@ The `html5` platform can only function if all of the following requirements are 
 - You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running NGINX in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self-signed).
 - You are willing to accept the notification permission in your browser.
 
+### Add the HTML5 integration to Home Assistant
+
+{% include integrations/config_flow.md %}
+
 ### Setting up your browser
 
 Assuming you have already configured the platform:
