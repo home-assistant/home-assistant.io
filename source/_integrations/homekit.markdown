@@ -269,6 +269,11 @@ homekit:
               type: string
               default: libopus
               available options: copy, libopus
+            threshold:
+              description: Only for `sensor` entities with `device_class` `co`/`co2` or `co2` in `entity_id`. Used as the threshold value once HomeKit will warning/notification the user.
+              required: false
+              type: integer
+              default: 25 for CO / 1000 for CO2
     devices:
       description: Include device triggers for all matching device ids. Configuration in the UI via Options is recommended instead.
       required: false
