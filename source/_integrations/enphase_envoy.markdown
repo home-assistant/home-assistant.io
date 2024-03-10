@@ -132,7 +132,7 @@ The end of a collection cycle is marked by:
 
 The diagnostics file is a JSON file and includes a `data` section with the details for this integration. The file can be viewed with any text editor[^4]. The data section has 5 major subsections which reflects how the integration is setup and data is used. Below the 5 subsections, each collapsed.
 
-[^4]: Use of some viewer that is json aware is not required but makes inspecting the file easier.
+[^4]: Use of some viewer that is JSON aware is not required but makes inspecting the file easier.
 
 ```JSON
   "data": {
