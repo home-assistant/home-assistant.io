@@ -7,6 +7,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Cover
 ha_release: 0.21
 ha_iot_class: Local Push
 ha_codeowners:
@@ -18,6 +19,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - cover
 ha_integration_type: integration
 ---
 
@@ -31,6 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor) - Power meters, temperature sensors, humidity sensors and window handles
 - [Light](#light) - Dimmers
 - [Switch](#switch)
+- [Cover](#cover)
 
 However, due to the wide range of message types, not all devices will work without code changes.
 The following devices have been confirmed to work out of the box:
@@ -365,4 +368,24 @@ switch nodon01_1:
     id: [0x05,0x04,0x03,0x02]
     name: enocean_nodon01_1
     channel: 1
+```
+
+### Cover
+
+An EnOcean cover can take many forms. Currently, only ont ype has been tested: Evology Roller Shutter Module
+
+The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/specifications/) are supported:
+
+- **D2-05-00** - Blind Control for position and Angle
+- **D2-05-01** - Blind Control for position and Angle
+
+
+Add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - name: Living Room
+    platform: enocean
+    id: [0x05,0x0F,0x84,0xB8]
 ```
