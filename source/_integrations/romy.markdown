@@ -52,8 +52,8 @@ The **Romy** {% term integrations %} will add the following sensors.
 Sensors:
 
 - **Battery Level**: The battery level in percent
-- **RSSI***: Wi-Fi signal strength
-- **Dustbin Dirt Level**: raw dustbin dirt sensor value (not every Romy has one)
+- **RSSI**: Wi-Fi signal strength
+- **Dustbin Dirt Level**: The raw dustbin dirt sensor value (not every ROMY has one)
 - **Total cleaning time**: How many hours the robot has spent cleaning in total
 - **Total cleaning runs**: The total number of cleaning runs
 - **Total cleaned area**: The total area in m² the robot has cleaned
