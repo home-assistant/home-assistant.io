@@ -30,7 +30,7 @@ There are also products for water usage monitoring that are based on existing co
 
 Alternatively, the following shops sell ESPHome-based devices, that use a proximity sensor to detect a rotating magnet in your water meter and use that pulse to count each liter of water used.
 
-- [S0tool](https://huizebruin.github.io/s0tool/) ("Made for ESPHome" approved)
+- [S0tool](https://s0tool.nl/) ("Made for ESPHome" approved)
 - [Waterlezer dongle](https://smart-stuff.nl/product/esphome-waterlezer-dongle/) (Dutch)
 - [Slimme Watermeter Gateway](https://smartgateways.nl/product/slimme-watermeter-gateway/) (Dutch)
 - [watermeterkit.nl](https://watermeterkit.nl/) (Dutch)
