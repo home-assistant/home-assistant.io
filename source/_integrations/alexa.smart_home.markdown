@@ -7,6 +7,7 @@ ha_release: "0.54"
 ha_codeowners:
   - '@home-assistant/cloud'
   - '@ochlocracy'
+  - '@jbouwh'
 ha_domain: alexa
 ---
 
@@ -38,18 +39,18 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
   - [Add Code to the Lambda Function](#add-code-to-the-lambda-function)
   - [Test the Lambda Function](#test-the-lambda-function)
 - [Configure the Smart Home Service Endpoint](#configure-the-smart-home-service-endpoint)
-- [Account Linking](#account-linking)
+- [Account linking](#account-linking)
 - [Alexa Smart Home Integration Configuration](#alexa-smart-home-integration-configuration)
-- [Supported Platforms](#supported-platforms)
+- [Supported platforms](#supported-platforms)
   - [Alarm control panel](#alarm-control-panel)
     - [Arming](#arming)
     - [Disarming](#disarming)
   - [Alert, Automation, Group](#alert-automation-group)
-  - [Binary Sensor](#binary-sensor)
+  - [Binary sensor](#binary-sensor)
     - [Routines](#routines)
   - [Button, Input Button](#button-input-button)
     - [Routines](#routines-1)
-    - [Doorbell Announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
+    - [Doorbell announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
     - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
   - [Camera](#camera)
   - [Climate](#climate)
@@ -59,11 +60,11 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Open/Close/Raise/Lower](#opencloseraiselower)
     - [Set Cover Position](#set-cover-position)
     - [Set Cover Tilt](#set-cover-tilt)
-    - [Garage Doors](#garage-doors)
+    - [Garage doors](#garage-doors)
   - [Event entities](#event-entities)
-    - [Doorbell Events](#doorbell-events)
+    - [Doorbell events](#doorbell-events)
   - [Fan](#fan)
-    - [Fan Speed](#fan-speed)
+    - [Fan speed](#fan-speed)
     - [Fan Preset Mode](#fan-preset-mode)
     - [Fan Direction](#fan-direction)
     - [Fan Oscillation](#fan-oscillation)
@@ -92,7 +93,13 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Routines](#routines-2)
   - [Timer](#timer)
   - [Vacuum](#vacuum)
-- [Alexa Web-Based App](#alexa-web-based-app)
+  - [Valve](#valve)
+    - [Open/close](#openclose)
+    - [Set valve position](#set-valve-position)
+    - [Stop the valve](#stop-the-valve)
+  - [Water heater](#water-heater)
+    - [Set target temperature](#set-target-temperature)
+    - [Operation Mode](#operation-mode)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
 
@@ -258,9 +265,8 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
 </p>
 
 - Click `Save` button in the top right corner.
-- Next, you will use the Alexa Mobile App or the [Alexa web-based app](#alexa-web-based-app) to link your account.
+- Next, you will use the Alexa Mobile App to link your account.
   - In the Alexa app, navigate to `More` -> `Skills & Games` -> `Your Skills` -> `Dev`
-  - Or In the Alexa web app, navigate to `Skills` -> `Your Skills` in the top right -> `Dev Skill`
   - Click the Smart Home skill you just created.
   - Click `Enable to use`.
   - A new window will open to direct you to your Home Assistant's login screen.
@@ -456,59 +462,7 @@ See [Alexa Display Categories][alexa-display-categories] for a complete list
 
 Home Assistant supports the following integrations through Alexa using a Smart Home Skill. For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
-The following platforms are currently supported:
-
-- [Alarm control panel](#alarm-control-panel)
-  - [Arming](#arming)
-  - [Disarming](#disarming)
-- [Alert, Automation, Group](#alert-automation-group)
-- [Binary Sensor](#binary-sensor)
-  - [Routines](#routines)
-- [Button, Input Button](#button-input-button)
-  - [Routines](#routines-1)
-  - [Doorbell Announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
-  - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
-- [Camera](#camera)
-- [Climate](#climate)
-  - [Set Thermostat Temperature](#set-thermostat-temperature)
-  - [Thermostat Mode](#thermostat-mode)
-- [Cover](#cover)
-  - [Open/Close/Raise/Lower](#opencloseraiselower)
-  - [Set Cover Position](#set-cover-position)
-  - [Set Cover Tilt](#set-cover-tilt)
-  - [Garage Doors](#garage-doors)
-- [Event entities](#event-entities)
-  - [Doorbell Events](#doorbell-events)
-- [Fan](#fan)
-  - [Fan Speed](#fan-speed)
-  - [Fan Preset Mode](#fan-preset-mode)
-  - [Fan Direction](#fan-direction)
-  - [Fan Oscillation](#fan-oscillation)
-- [Humidifier](#humidifier)
-  - [Humidifier target humidity](#humidifier-target-humidity)
-  - [Humidifier Mode](#humidifier-mode)
-- [Image Processing](#image-processing)
-  - [Presence Detection Notification](#presence-detection-notification)
-- [Input Number and Number](#input-number-and-number)
-- [Light](#light)
-  - [Brightness](#brightness)
-  - [Color Temperature](#color-temperature)
-  - [Color](#color)
-- [Lock](#lock)
-  - [Unlocking](#unlocking)
-- [Media Player](#media-player)
-  - [Change Channel](#change-channel)
-  - [Speaker Volume](#speaker-volume)
-  - [Equalizer Mode](#equalizer-mode)
-  - [Inputs](#inputs)
-  - [Playback State](#playback-state)
-- [Scene](#scene)
-- [Script](#script)
-- [Sensor](#sensor)
-- [Switch, Input Boolean](#switch-input-boolean)
-  - [Routines](#routines-2)
-- [Timer](#timer)
-- [Vacuum](#vacuum)
+The following paragraphs explain the features of the platforms that are currently supported.
 
 ### Alarm control panel
 
@@ -1016,7 +970,6 @@ Only temperature sensors are configured at this time.
 
 - _"Alexa, what's the temperature in the kitchen?"_
 - _"Alexa, what's the upstairs temperature?"_
-- _"Alexa, what's the temperature of my ex-girlfriend's heart?"_
 
 ### Switch, Input Boolean
 
@@ -1055,7 +1008,7 @@ Pause and Restart Timer entities in Home Assistant.
 - _"Alexa, restart the microwave."_
 
 <div class="note">
-To avoid issues with Alexa built in timer functionality. The timer entity can not include the word "timer" in the friendly name.
+To avoid issues with Alexa's built-in timer functionality, the timer entity should not include the word "timer" in its friendly name.
 </div>
 
 ### Vacuum
@@ -1066,20 +1019,62 @@ Support _"turn on"_ and _"turn off"_ utterances. Pause and Resume
 - _"Alexa, pause the vacuum."_
 - _"Alexa, restart the vacuum."_
 
-## Alexa Web-Based App
+### Valve
 
-The following is a list of regions and the corresponding URL for the web-based Alexa app:
+Valves are not supported natively within Alexa. So within Alexa, they are represented as a device of an unknown type. 
 
-- United States: `https://alexa.amazon.com`
-- United Kingdom: `https://alexa.amazon.co.uk`
-- Germany: `https://alexa.amazon.de`
-- Japan: `https://alexa.amazon.co.jp`
-- Canada: `https://alexa.amazon.ca`
-- Australia: `https://alexa.amazon.com.au`
-- India: `https://alexa.amazon.in`
-- Spain: `https://alexa.amazon.es`
-- France: `https://alexa.amazon.fr`
-- Italy: `https://alexa.amazon.it`
+#### Open/close
+
+Home Assistant configures valves with semantics that provide  _"open"_ and _"close"_ utterances.
+
+- _"Alexa, open the water valve."_
+- _"Alexa, close the gas valve."_
+
+#### Set valve position
+
+Valves that support a set position can be controlled using percentages.
+
+- _"Alexa, set the [entity name] position to thirty percent."_
+- _"Alexa, increase [entity name] position by ten percent."_
+- _"Alexa, decrease [entity name] position by twenty percent."_
+
+| Locale  | Friendly Name Synonyms    |
+| ------- | ------------------------- |
+| `en-US` | _"position"_, _"opening"_ |
+
+Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+
+#### Stop the valve
+
+Valves that support `stop` closing or opening will have an extra toggle control that allows to stop the valve closing or opening operation.
+
+### Water heater
+
+Single, double, and triple set-point thermostats are supported. The temperature value from the thermostat will also be exposed at a separate [temperature sensor](#sensor).
+
+#### Set target temperature
+
+- _"Alexa, set the boiler's target temperature to 50."_
+
+You can ask Alexa about the current temperature and current target temperature.
+
+- _"Alexa, what is the boiler's target temperature?"_
+- _"Alexa, what is the boiler's current temperature?"_
+
+#### Operation Mode
+
+The operation mode can be set from the UI. All Home Assistant operation modes can be set (English only).
+
+- _"Alexa, set main boiler to eco."_
+
+To change the water heater's mode, the exact utterance must be used:
+
+- _"Alexa, set [entity name] to [mode utterance]."_
+
+If the water heater entity supports on/off, use _"turn on"_ and _"turn off"_ utterances with the entity name or the mode utterance.
+
+- _"Alexa, turn on the [mode utterance]."_
+- _"Alexa, turn off the [entity name]."_
 
 ## Troubleshooting
 

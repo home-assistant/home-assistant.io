@@ -27,6 +27,7 @@ ha_codeowners:
   - '@vlebourl'
   - '@tetienne'
   - '@nyroDev'
+  - '@tronix117'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
@@ -44,7 +45,7 @@ ha_platforms:
   - siren
   - switch
   - water_heater
-ha_iot_class: Cloud Polling
+ha_iot_class: Local Polling
 ha_dhcp: true
 ha_zeroconf: true
 ---

@@ -12,8 +12,6 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_domain: verisure
-ha_codeowners:
-  - '@frenck'
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
@@ -84,3 +82,12 @@ automation:
 | code | Lock was unlocked by exterior code |
 | auto | Lock was locked/unlocked automatically by Verisure rule |
 | remote | Lock was locked/unlocked automatically by Verisure App |
+
+## Limitations and known issues
+
+Some users have reported that this integration currently doesn't work in the following countries:
+
+- France
+- Ireland
+- Italy 
+- Sweden

@@ -53,45 +53,17 @@ This {% term integration %} supports all UniFi OS Consoles that can run UniFi Pr
 - Any UniFi "Dream" device (**[UDMPRO](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/udm-pro)**, **[UDR](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-router)**, or **[UDMSE](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-machine-se)**), _except the base UniFi Dream Machine/UDM_
 - UniFi Cloud Key Gen2 Plus (**[UCKP](https://store.ui.com/collections/unifi-protect-nvr/products/unifi-cloudkey-plus)**) firmware version v2.0.24+
 
-UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware `[v2.0.24](https://community.ui.com/releases/UniFi-Cloud-Key-Firmware-2-0-24/b6684f1e-8542-4660-bc0b-74e0634448e8)` or newer.
+UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware [`v2.0.24`](https://community.ui.com/releases/UniFi-Cloud-Key-Firmware-2-0-24/b6684f1e-8542-4660-bc0b-74e0634448e8) or newer.
 
 ### Software support
 
-The absolute **minimal** software version is `[v1.20.0](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011)` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
-
-#### About UniFi Early Access
+The absolute **minimal** software version is [`v1.20.0`](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011) for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
 
 <div class='note warning'>
 
-**Early Access releases are not supported by Home Assistant.**
+**Early Access and Release Candidate versions are not supported by Home Assistant.**
 
-Using Early Access versions will likely cause your UniFi Protect {% term integration %} to break unexpectedly.
-
-</div>
-
-#### Downgrading UniFi Protect
-
-In the event you accidentally upgrade to an Early Access version of UniFi Protect, you can downgrade to a stable version by either [restoring a backup](https://help.ui.com/hc/articles/360008976393) or by manually downgrading your UniFi Protect.
-
-##### Manually downgrade
-
-Manually downgrading comes with its own risks and it is not recommended unless you do not have a backup available. Some Protect versions cannot be downgraded from (like `v2.0` to `v1.21`). To downgrade, you can access your [UniFi OS Console via SSH](https://help.ui.com/hc/articles/204909374) and then do the following:
-
-```bash
-# Run this command first _only_ if you are on a 1.x firmware of the UDM Pro.
-# It is not needed for the UDM SE, UNVR, etc.
-unifi-os shell
-
-# Downgrade UniFi Protect.
-apt-get update
-apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0~beta.5 -y
-```
-
-You can replace `2.0.0~beta.5` with whatever version of UniFi Protect you want to downgrade to. Any dashes in the version (`-`), replace with tilde (`~`).
-
-<div class='note'>
-
-If you want to downgrade to another Early Access version, you must have [Remote Access enabled](https://help.ui.com/hc/articles/115012240067) and have the Early Access release channel enabled.
+Using Early Access Release Candidate versions of UniFi Protect or UniFi OS will likely cause your UniFi Protect {% term integration %} to break unexpectedly. If you choose to opt into either the Early Access or the Release Candidate release channel and anything breaks in Home Assistant, you will need to wait until that version goes to the official Stable Release channel before it is expected to work.
 
 </div>
 
@@ -315,7 +287,7 @@ The default settings on the stream integration will give you a 5-15+ second dela
 
 ### Cannot play audio to speakers
 
-Unlike with many other things, playing audio to your speakers requires your Home Assistant to be able to reach your camera directly. Specifically via port `tcp/7004`. You can [enable debug logging](#enabling-debug-logging) and it will output the full FFmpeg command that will be run and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
+Unlike with many other things, playing audio to your speakers requires your Home Assistant to be able to reach your camera directly. Specifically via port `tcp/7004`. You can [enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) and it will output the full FFmpeg command that will be run and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
 
 ### Liveview options for viewer missing options or out of date
 

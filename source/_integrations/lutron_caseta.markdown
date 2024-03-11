@@ -19,6 +19,7 @@ ha_codeowners:
   - '@swails'
   - '@bdraco'
   - '@danaues'
+  - '@eclair4151'
 ha_zeroconf: true
 ha_homekit: true
 ha_platforms:

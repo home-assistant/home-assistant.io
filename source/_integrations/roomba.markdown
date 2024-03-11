@@ -11,6 +11,7 @@ ha_codeowners:
   - '@cyr-ius'
   - '@shenxn'
   - '@Xitee1'
+  - '@Orhideous'
 ha_domain: roomba
 ha_config_flow: true
 ha_dhcp: true
@@ -57,6 +58,7 @@ Sensors:
 - **Total missions**: The total number of all missions
 - **Scrubs**: Total number of times the robot has executed a "scrub"
 - **Total cleaning time**: How many hours the robot has spent cleaning in total
+- **Total cleaned area**: The total area in m² the robot has cleaned
 
 ### Retrieving your credentials
 

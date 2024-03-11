@@ -148,6 +148,12 @@ automation:
       event: start
 ```
 
+<div class='note'>
+
+Automations triggered by the `shutdown` event have 20 seconds to run, after which they are stopped to continue with the shutdown.
+
+</div>
+
 ## MQTT trigger
 
 Fires when a specific message is received on given MQTT topic. Optionally can match on the payload being sent over the topic. The default payload encoding is 'utf-8'. For images and other byte payloads use `encoding: ''` to disable payload decoding completely.
@@ -939,6 +945,10 @@ The sentences matched by this trigger will be:
 - happy birthday
 
 Punctuation and casing are ignored, so "It's PARTY TIME!!!" will also match.
+
+### Related topic
+
+- [Adding a custom sentence to trigger an automation](/voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation)
 
 ### Sentence wildcards
 
