@@ -38,6 +38,16 @@ show_camera:
   description: Changes the area picture to a live feed of the camera set for the area.
   type: boolean
   default: false
+camera_view:
+  required: false
+  description: 'If showing a camera, "live" will show the live view if `stream` is enabled.'
+  default: auto
+  type: string
+aspect_ratio:
+  required: false
+  description: 'Forces the height of the image to be a ratio of the width. Valid formats: Height percentage value (`23%`) or ratio expressed with colon or "x" separator (`16:9` or `16x9`). For a ratio, the second element can be omitted and will default to "1" (`1.78` equals `1.78:1`).'
+  default: "16:9"
+  type: string
 navigation_path:
   required: false
   description: link to view. For more information about views, see the [view documentation](/dashboards/views/)
@@ -46,6 +56,16 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+alert_classes:
+  required: false
+  type: list
+  default: "moisture, motion"
+  description: A list of binary sensor device classes which will populate alert icons in the card when the state is on.
+sensor_classes:
+  required: false
+  type: list
+  default: "temperature, humidity"
+  description: A list of sensor device classes which will display their averaged sensor readings for the area. 
 {% endconfiguration %}
 
 ### Example

@@ -4,7 +4,8 @@ description: Instructions on how to integrate calendars within Home Assistant.
 ha_release: 0.33
 ha_domain: calendar
 ha_quality_scale: internal
-ha_category: []
+ha_category:
+  - Calendar
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
@@ -16,13 +17,10 @@ dashboard and can be used with automations.
 
 This page does not provide instructions on how to create calendar
 entities. Please see the ["Calendar" category](/integrations/#calendar) on the
-integrations page to find integration offering calendar entities.
+integrations page to find integrations offering calendar entities. For example, [Local Calendar](/integrations/local_calendar/) is a fully local integration to create calendars and events within your Home Assistant instance or other integrations work with other services providing calendar data.
 
 {% include integrations/building_block_integration.md %}
 
-A calendar {% term entity %} has a {% term state %} and attributes representing the next event (only).
-A calendar {% term trigger %} is much more flexible, has fewer limitations, and is
-recommended for automations instead of using the entity state.
 
 ## Viewing and managing calendars
 
@@ -42,6 +40,9 @@ Calendar [Triggers](/docs/automation/trigger) enable {% term automation %} based
 event's start or end. Review the [Automating Home Assistant](/getting-started/automation/)
 getting started guide on automations or the [Automation](/docs/automation/)
 documentation for full details.
+
+Calendar {% term triggers %} are the best way to automate based on calendar events.
+A calendar {% term entity %} can also be used to automate based on its state, but these are limited and attributes only represent the next event.
 
 {% my automations badge %}
 
@@ -192,10 +193,10 @@ data:
 {% endraw %}
 
 
-### Service `calendar.list_events`
+### Service `calendar.get_events`
 
 This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
-with calendar events within a date range.
+with calendar events within a date range. It can return events from multiple calendars.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
@@ -209,20 +210,20 @@ Use only one of `end_date_time` or `duration`.
 
 </div>
 
-
-{% raw %}
 ```yaml
-service: calendar.list_events
+service: calendar.get_events
 target:
-  entity_id: calendar.school
+  entity_id:
+    - calendar.school
+    - calendar.work
 data:
   duration:
     hours: 24
 response_variable: agenda
 ```
-{% endraw %}
 
-The response data field `events` is a list of events with these fields:
+The response data contains a field for every calendar entity (e.g. `calendar.school` and `calendar.work` in this case).
+Every calendar entity has a field `events` containing a list of events with these fields:
 
 | Response data | Description | Example |
 | ---------------------- | ----------- | -------- |
@@ -236,16 +237,17 @@ This example uses a template with response data in another service call:
 
 {% raw %}
 ```yaml
-service: notify.gmail_com
+service: notify.nina
 data:
-  target: gduser1@workspacesamples.dev
   title: Daily agenda for {{ now().date() }}
   message: >-
-    Your agenda for today:
-    <p>
-    {% for event in agenda.events %}
+    Your school calendar for today:
+    {% for event in agenda["calendar.school_calendar"]["events"] %}
     {{ event.start}}: {{ event.summary }}<br>
     {% endfor %}
-    </p>
+    Your work calendar for today:
+    {% for event in agenda["calendar.work_calendar"]["events"] %}
+    {{ event.start}}: {{ event.summary }}<br>
+    {% endfor %}
 ```
 {% endraw %}

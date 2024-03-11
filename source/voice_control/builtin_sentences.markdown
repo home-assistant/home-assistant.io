@@ -12,9 +12,11 @@ These sentences allow you, for example, to:
     - *"turn on the TV"*
     - *"lock all the doors"*
     - *"open the main door"*
-- **Open and close covers**
+- **Open, close covers, or ask about their state**
     - *"Close the garage door"*
     - *"Open kitchen window"*
+    - *"Which curtains are closed"*
+    - *"Set bedroom curtain to 50%"*
 - **Set the brightness and color of lights**
     - *"Change kitchen lights brightness to 50%"*
     - *"Set bed light to green"*
@@ -37,6 +39,22 @@ These sentences allow you, for example, to:
     - *"How many people are in the kitchen"*
     - *"Who is in the garage"*
     - *"Where is Anne"*
+- **Control the media player**
+    - *"next item on TV"*
+    - *"skip song on the TV"*
+    - *"skip track on the TV"*
+    - *"skip to the next song on the TV"*
+    - *"pause TV"*
+    - *"TV pause"*
+    - *"unpause TV"*
+    - *"TV unpause"*
+    - *"resume TV"*
+    - *"set TV volume to 90 percent"*
+    - *"change the TV volume to 90"*
+    - *"turn TV volume down to 90 percent"*
+- **Control the vacuum**
+    - *"return rover to base"*
+    - *"start rover"*
 - **Abort wake word**
     - *"Nevermind"*: If you triggered the wake word by mistake and want to stop Home Assistant from listening
 
@@ -60,7 +78,7 @@ The list of supported sentences is constantly being updated for each language. T
 **Note**: If the voice assistant doesn't understand you, you may need to rephrase your sentence a bit. Or check if the {% term entity %} or {% term area %} name is correct for your environment.
 
 1. Take a look at the test sentences:
-    - On GitHub, in the [tests](https://github.com/home-assistant/intents/tree/main/sentences) folder, open the subfolder for your language.
+    - On GitHub, in the [tests](https://github.com/home-assistant/intents/tree/main/tests) folder, open the subfolder for your language.
     - Look through the test files to see the example sentences that have been tested.
     - The second part of the file name shows the {% term intent %}, the first part shows the {% term domain %}. For some {% term domains %}, such as covers, fans, and light, there are specific sentences.
         The other {% term domains %} are covered by the generic *homeassistant_*.
@@ -73,14 +91,14 @@ The list of supported sentences is constantly being updated for each language. T
         ![Example of a set of test sentences](/images/assist/assist-test-file-light-turn-on.png)
 
 2. View the sentence definition for the tests:
-    - On GitHub, in the [tests](https://github.com/home-assistant/intents/tree/main/tests) folder, open the subfolder for your language.
+    - On GitHub, in the [sentences](https://github.com/home-assistant/intents/tree/main/sentences) folder, open the subfolder for your language.
     - Open the file of interest.
 
         ![Sentences definition for turning on the light](/images/assist/assist-sentence-definition-01.png)
 
         - () mean alternative elements.
         - [] mean optional elements.
-        - <> mean an expansion rule. The view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
+        - <> mean an expansion rule. To view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
         - The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/).
 3. View the [sentence definition](https://github.com/home-assistant/intents/tree/main/sentences) for your language.
 4. View the [response definition](https://github.com/home-assistant/intents/tree/main/responses)

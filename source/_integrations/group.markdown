@@ -253,7 +253,7 @@ name:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this group. If two groups have the same unique ID, Home Assistant will raise an error. Giving an group a unique ID allow the group name, icon and area to be customized via the UI.
+  description: An ID that uniquely identifies this group. If two groups have the same unique ID, Home Assistant will raise an error. Giving the group a unique ID allows the group name, icon and area to be customized via the UI.
   required: false
   type: string
 all:

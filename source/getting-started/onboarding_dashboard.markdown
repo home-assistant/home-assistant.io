@@ -5,6 +5,12 @@ description: "Instructions on editing the dashboard for the first time"
 
 ## First contact with the Overview dashboard
 
+The **Overview** [dashboard](/dashboards/) is the first page you see after the [onboarding process](/getting-started/onboarding). Dashboards are customizable pages to display information in Home Assistant.
+
+By default, there are two dashboards: **Overview** and **Energy**. The image below shows a customized example of the **Overview** dashboard. If you just onboarded, your dashboard will be nearly empty.
+
+![Dashboard](/images/getting-started/lovelace.png)
+
 The procedure below is optional. The idea is to learn some basics on changing the dashboard.
 
 ### To change a card on the Overview dashboard
@@ -26,8 +32,10 @@ The procedure below is optional. The idea is to learn some basics on changing th
     - Once you are done, select **Update**.
    ![Weather details](/images/getting-started/onboarding_card_settings_01.png)
 
-4. To change the type of dashboard card, select the three-dots, then **Device info**.
-   - You may be asked to *Take control of your dashboard*. Read and accept this before continuing.
+4. To change the type of dashboard card, in the top right corner, select the pencil icon, then, in the **Edit dashboard** dialog, select the three dots and select **Take control**.
+   ![Take control of the dashboard](/images/getting-started/dashboard-take-control.png)
+   - Read and accept this before continuing.
+   - On the dashboard, select the weather card, select the three dots, then **Device info**.
    - Under **Sensors**, select **Add to dashboard**, then **Pick different card**.
    ![Dashboard - change the card type](/images/getting-started/onboarding_pick_different_card_01.png)
 
@@ -38,7 +46,7 @@ The procedure below is optional. The idea is to learn some basics on changing th
    - You now see the forecast card on the dashboard.
 
 7. Now let's delete the other weather card.
-   - In the top right corner, select the three-dot menu, then select **Edit dashboard**.
+   - In the top right corner, select the pencil.
    ![Dashboard - edit the dashboard](/images/getting-started/onboarding_edit_dashboard_01.png)
    - On the card, select the three-dot menu and select **Delete**.
    ![Dashboard - delete card](/images/getting-started/onboarding_dashboard_delete_card.png)
@@ -48,4 +56,11 @@ The procedure below is optional. The idea is to learn some basics on changing th
    - When you are done, in the top right corner, select **Done**.
 9. Congratulations! You have completed your first dashboard customization.
 
-{% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}
+To continue with this tutorial, select the button below to learn about {% term integrations %}.
+
+{% include getting-started/next_step.html step="Integrations" link="/getting-started/integration/" %}
+
+## Related topics
+
+- [Dashboards](/dashboards/)
+- [Views](/dashboards/views/)

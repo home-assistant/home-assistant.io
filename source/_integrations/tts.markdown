@@ -7,7 +7,6 @@ ha_category:
 ha_release: 0.35
 ha_codeowners:
   - '@home-assistant/core'
-  - '@pvizeli'
 ha_domain: tts
 ha_quality_scale: internal
 ha_platforms:
@@ -18,6 +17,8 @@ ha_integration_type: entity
 Text-to-speech (TTS) enables Home Assistant to speak to you.
 
 {% include integrations/building_block_integration.md %}
+
+See all [TTS integrations](https://www.home-assistant.io/integrations/#text-to-speech) using this building block for ways to use it in your automations. If you are using the Home Assistant voice assistant, [Assist](https://www.home-assistant.io/voice_control/), Assist is using TTS when replying to you. Another way to use TTS is by using [TTS with Home Assistant Cloud](https://www.nabucasa.com/config/tts/). 
 
 ## Services
 
@@ -142,3 +143,11 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 - They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL then setting an internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
 
 - If you are using SSL (e.g., `https://yourhost.example.org/...`) then you _must_ use the hostname in the certificate (e.g., `external_url: https://yourhost.example.org`). You cannot use an IP address since the certificate won't be valid for the IP address, and the cast device will refuse the connection.
+
+### Related topics
+
+- [List of integrations using the TTS integration](https://www.home-assistant.io/integrations/#text-to-speech)
+- [TTS with Home Assistant Cloud](https://www.nabucasa.com/config/tts/)
+- [Google Translate TTS](https://www.home-assistant.io/integrations/google_translate/)
+- [Microsoft TTS](https://www.home-assistant.io/integrations/microsoft/)
+- [Home Assistant Assist](https://www.home-assistant.io/voice_control/)

@@ -4,21 +4,15 @@ description: "Explaining some Home Assistant basics"
 ---
 Now you're in Home Assistant, let's look at the most important concepts.
 
-## Dashboards
-
-The **Overview** dashboard is the first page you see after the [onboarding process](/getting-started/onboarding). Dashboards are customizable pages to display information in Home Assistant. By default, there are two dashboards: **Overview** and **Energy**. The image below shows a customized example of the **Overview** dashboard. If you just onboarded, your dashboard will be nearly empty. To learn how to customize your dashboards, refer to the [dashboard](/dashboards) documentation.
-
-![Dashboard](/images/getting-started/lovelace.png)
-
 ## Integrations
 
-Integrations are pieces of software that allow Home Assistant to connect to other software and platforms. For example, a product by Philips called Hue would use the Philips Hue {% term integration %} and allow Home Assistant to talk to the hardware controller Hue Bridge. Any Home Assistant compatible {% term devices %} connected to the Hue Bridge would appear in Home Assistant as [devices](#devices--entities).
+Integrations are pieces of software that allow Home Assistant to connect to other software and platforms. For example, a product by Philips called Hue would use the Philips Hue {% term integration %} and allow Home Assistant to talk to the hardware controller Hue Bridge. Any Home Assistant compatible {% term devices %} connected to the Hue Bridge would appear in Home Assistant as [devices](#devices).
 
 ![Integrations](/images/getting-started/integrations-new.png)
 
 For a full list of compatible {% term integrations %}, refer to the [integrations](/integrations) documentation.
 
-Once an {% term integration %} has been added, the hardware and/or data are represented in Home Assistant as [devices and entities](#devices--entities).
+Once an {% term integration %} has been added, the hardware and/or data are represented in Home Assistant as [devices and entities](#devices).
 
 ## Entities
 
@@ -32,7 +26,7 @@ Devices are a logical grouping for one or more {% term entities %}. A {% term de
 
 Devices and entities are used throughout Home Assistant. To name a few examples:
 
-- [Dashboards](#dashboards) can show a state of an {% term entity %}. For example, if a light is on or off.
+- [Dashboards](/getting-started/onboarding_dashboard/) can show a state of an {% term entity %}. For example, if a light is on or off.
 - An [automation](#automations) can be triggered from a state change on an {% term entity %}. For example, a motion sensor entity detects motion and triggers a light to turn on.
 - A predefined color and brightness setting for a light saved as a [scene](#scenes).
 
@@ -43,7 +37,7 @@ Devices and entities are used throughout Home Assistant. To name a few examples:
 A set of repeatable {% term actions %} that can be set up to run automatically. Automations are made of three key components:
 
 1. Triggers - events that start an {% term automation %}. For example, when the sun sets or a motion sensor is activated.
-2. Conditions - optional tests that must be met an {% term action %} can be run. For example, if someone is home.
+2. Conditions - optional tests that must be met before an {% term action %} can be run. For example, if someone is home.
 3. Actions - interact with {% term devices %} such as turn on a light.
 
 To learn the basics about {% term automations %}, refer to the [automation basics](/docs/automation/basics/) page or try [creating an automation](/getting-started/automation) yourself.
@@ -70,4 +64,4 @@ Depending on your [installation type](/installation), you can install third part
 
 ![Add-ons](/images/getting-started/add-ons.png)
 
-{% include getting-started/next_step.html step="Adding Integrations In Home Assistant" link="/getting-started/integration/" %}
+{% include getting-started/next_step.html step="Edit the dashboard" link="/getting-started/onboarding_dashboard/" %}

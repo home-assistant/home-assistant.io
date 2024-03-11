@@ -4,6 +4,7 @@ description: How to integrate the System Bridge integration into Home Assistant.
 ha_category:
   - Sensor
   - System monitor
+  - Update
 ha_release: 2021.6
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -16,6 +17,7 @@ ha_platforms:
   - media_player
   - notify
   - sensor
+  - update
 ha_zeroconf: true
 ha_integration_type: device
 ---
@@ -56,6 +58,7 @@ This integration provides the following sensors:
 | Memory Used          | Memory (RAM) used in GB                             |
 | Memory Used %        | Memory (RAM) % used                                 |
 | Operating System     | Version information of the Operating System         |
+| Processes            | Shows count of processes on the system              |
 | Version              | System Bridge Version                               |
 
 These sensors are also available, but are not enabled by default:
@@ -81,6 +84,10 @@ The integration also provides a media player. This allows you control the curren
 ## Media source
 
 This integration is available as a media source to use with the media browser integration. You can browse and view media from your system to media players such as your web browser and other supported media players.
+
+## Update
+
+The integration provides an update component, which will notify you when a new version of the app is available.
 
 ## Services
 
