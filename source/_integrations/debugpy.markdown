@@ -1,5 +1,5 @@
 ---
-title: Remote Python debugger
+title: Remote Python Debugger
 description: Remote Python debugger (debugpy) for Visual Studio Code
 ha_category:
   - Utility

@@ -2,6 +2,7 @@
 title: Freebox
 description: Instructions on how to integrate Freebox routers into Home Assistant.
 ha_category:
+  - Alarm Control Panel
   - Camera
   - Network
   - Presence detection
@@ -15,6 +16,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: freebox
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - camera
@@ -35,43 +37,13 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch) to control Wi-Fi
 - [Camera](#camera)
 - [Binary sensors](#binary)
-
+- [Alarm_control_panel](#alarm-control-panel)
+  
 {% include integrations/config_flow.md %}
 
 You can find out your Freebox host and port by opening this address <http://mafreebox.freebox.fr/api_version> in your browser.
 The returned JSON should contain an `api_domain` (`host`) and a `https_port` (`port`).
 Please consult the [API documentation](https://dev.freebox.fr/sdk/os/) for more information.
-
-### Via the frontend
-
-Menu: **Settings** -> **Devices & Services**. Search for "Freebox", add your host and port, click submit.
-
-If you add the integration for the first time, follow the instructions in the [Initial setup](#initial-setup) section.
-
-### Via the configuration file
-
-```yaml
-freebox:
-  host: foobar.fbxos.fr
-  port: 1234
-```
-
-{% configuration %}
-host:
-  description: The URL of the Freebox.
-  required: true
-  type: string
-port:
-  description: The HTTPS port the Freebox is listening on.
-  required: true
-  type: string
-{% endconfiguration %}
-
-<div class='note warning'>
-  
-  If you change your Freebox router for a new one, go into your Home Assistant configuration `.storage` folder and delete the "freebox" folder, then add the integration again.
-
-</div>
 
 ### Initial setup
 
@@ -132,7 +104,13 @@ Cameras are only available in Freebox V7 (also known as Freebox Delta).
 This platform offers you sensors to monitor:
 - motion sensor
 - door opener 
-- plastic cover 
+- plastic cover
+
+## Alarm control panel
+
+This integration allows you to view and control the Freebox alarm control panel.
+
+
 
 ## Service
 

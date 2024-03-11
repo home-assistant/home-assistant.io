@@ -41,6 +41,12 @@ Consider setting up your iBeacons with a schema similar to the following:
 
 iBeacon devices that do not have stable Major and Minor values are not supported. The system automatically removes iBeacon devices with unstable Major and Minor values once ten (10) or more Major and Minor values have been seen with the same UUID from an iBeacon device with a fixed MAC address.
 
+The system will not automatically create iBeacon devices for beacons that do not broadcast their name to avoid inundating your system with transient devices.
+
+To explicitly allow a list of UUIDs to be added even with an empty device name, add them via the integration options.
+
+{% include integrations/option_flow.md %}
+
 ## Considering an iBeacon Away
 
 Due to various factors such as individual system settings and iBeacon firmware, iBeacons will not be marked as "Away" immediately. This could take several minutes.
