@@ -19,10 +19,12 @@ The SMA Solar integration will poll a [SMA](http://www.sma-solar.com/) [(US)](ht
 
 
 {% include integrations/config_flow.md %}
+
 ## Supported Devices
+
 Not all inverters, energy meters and batteries from SMA are supported.
 
-The integration uses the web interface (called webconnect) of the device. Before you start, make sure you are able to connect to the solar inverter from your favorite web browser. Devices with the ennexos operating system (e.g. Tripower X series) and all Energy Meters (SMA Energy Meter and SMA Sunny Home Manager)  are not supported.
+The integration uses the device's web interface (called webconnect). Before you start, make sure you are able to connect to the solar inverter from your favorite web browser. Devices with the ennexos operating system (like the Tripower X series) and all Energy Meters (SMA Energy Meter and SMA Sunny Home Manager) are not supported.
 
 ## Sensors
 
