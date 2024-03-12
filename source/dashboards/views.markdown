@@ -36,6 +36,7 @@ It is currently not possible to migrate your dashboard from one view type into a
    ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_01.png)
 
 4. On the **Badges** tab, add badges, if any.
+    - Note that the sidebar and panel views do not support badges.
 5. If this view should not be visible for some users, on the **Visibility** tab, disable the view for those users.
 
 ## Path
