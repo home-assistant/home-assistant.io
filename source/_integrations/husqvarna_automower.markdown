@@ -94,6 +94,7 @@ The integration will create the following sensors:
 
 - Battery level
 - Cutting blade usage time (if available)
+- Error
 - Mode
 - Next start
 - Number of charging cycles
