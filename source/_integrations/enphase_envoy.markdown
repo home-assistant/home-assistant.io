@@ -106,16 +106,16 @@ This integration provides debug log and diagnostics report as described in the [
 
 ### Debug log
 
-When this integration is loaded it will scan the Envoy / IQ Gateway for available features and configure these as needed. Following this initial scan, only data for the found features is collected. If you expect features to show and these are not shown, reload the integration while debug logging is enabled (Mind that some are disabled by default and should be enabled by you first for them to show). In this way the debug log includes the initial full scan to assist with analyzing any missing features. If you experience intermitting issues during use of the integration this reload is not needed.
+When this integration is loaded, it will scan the Envoy / IQ Gateway for available features and configure these as needed. Following this initial scan, only data for the found features is collected. If you're expecting features to show but they are not shown, reload the integration while debug logging is enabled. Some features are disabled by default, and you need to enable them if you want them to show. In this way, the debug log includes the initial full scan to assist with analyzing any missing features. If you experience intermittent issues during use of the integration this reload is not needed.
 
-The debug log will show all communication with the Envoy / IQ Gateway. Lines starting with:
+The debug log will show all communication with the Envoy / IQ Gateway. Lines starting with entities are log entries for the integration:
 
 ```txt
 2024-03-07 11:20:11.897 DEBUG (MainThread) [homeassistant.components.enphase_envoy
 2024-03-07 11:20:11.898 DEBUG (MainThread) [pyenphase.envoy
 ```
 
-are log entries for the integration. Below a typical data request / reply sequence in the log file. These lines will contain the data details received from the Envoy / IQ Gateway.
+Below a typical data request / reply sequence in the log file. These lines will contain the data details received from the Envoy / IQ Gateway.
 
 ```txt
 ... [pyenphase.envoy] Requesting https://192.168.1.2/ivp/meters with timeout ...
@@ -132,7 +132,7 @@ The end of a collection cycle is marked by:
 
 The diagnostics file is a JSON file and includes a `data` section with the details for this integration. The file can be viewed with any text editor[^4]. The data section has 5 major subsections which reflects how the integration is setup and data is used. Below the 5 subsections, each collapsed.
 
-[^4]: Use of some viewer that is JSON aware is not required but makes inspecting the file easier.
+[^4]: Use of a JSON-aware viewer is not required but makes inspecting the file easier.
 
 ```JSON
   "data": {
@@ -156,16 +156,16 @@ Shows the integration configuration created when the integration was added.
 
 #### Envoy properties
 
-Shows the conclusions of the initial data scan and what features where identified, including the detected firmware version in the Envoy.
+Shows the conclusions of the initial data scan and what features were identified, including the detected firmware version in the Envoy.
 
 #### Raw data
 
-Shows the data collected from the Envoy during the last data scan when the diagnostic report was created. When in doubt about data shown in the dashboards consult this section to find the raw data send by the Envoy. The integration is not modifying this data, it's just providing the data to the entities.
+Shows the data collected from the Envoy during the last data scan when the diagnostic report was created. If in doubt about data shown in the dashboards, consult this section to find the raw data sent by the Envoy. The integration is not modifying this data, it's just providing the data to the entities.
 
 #### Envoy model data
 
-Shows the data of the Envoy extracted from the raw_data into Envoy class data used by the HA Integration. This is a subset of the full raw dataset.
+Shows the data of the Envoy extracted from the raw_data into Envoy class data used by the Home Assistant integration. This is a subset of the full raw dataset.
 
-#### Envoy Entities by device
+#### Envoy entities by device
 
 Shows all entities created by the integration based on the findings of the initial scan, grouped by device. Entity state based on the last data collection cycle is included. State values here come from the Envoy model data and are the values visible in the dashboards.
