@@ -10,9 +10,51 @@ Each dashboard is made up of cards.
 Screenshot of the masonry view with different types of cards.
 </p>
 
-There are several built-in card types, each with their own configuration options. Select a card from the menu to view additional details and the options for that card.
+There are several built-in card types, each with their own configuration options.
 
-<p class='img'>
-<img src='/images/dashboards/card_menu.png' alt='Screenshot of the card menu'>
-Screenshot of the card menu.
-</p>
+## Adding cards to your dashboard
+
+1. If this is your first time editing a dashboard, [take control of the default dashboard](/dashboards/#get-started-with-your-own-dashboard).
+
+2. Choose one of the two methods to add cards to a dashboard:
+
+{% details "Using the Add Card button" %}
+
+1. In the bottom right, select **Add card**.
+
+2. There are two methods to add a card: **By card** type and **By entity**:
+   - **By card** type:
+        ![Add card by Card type dialog](/images/blog/2024-03-dashboard-chapter-1/sections-add-card-by-card.png)
+
+        - If you have an idea of what card tpye you want to use for an entity, browse the list of available cards.
+        - If you are using the **Sections** view, try the **Tile** card in the **Suggested cards** section.
+
+   - **By entity**:
+        - If you want to add multiple entities at once, select them from the list.
+        ![Screenshot add cards by entity](/images/dashboards/dashboard_add-by-entity_02.png)
+
+        - Then, select **Continue**.
+
+        ![Screenshot card suggestions](/images/dashboards/dashboard_add-by-entity_04.png)
+3. Select **Add to dashboard**.
+
+{% enddetails %}
+
+{% details "Using the Add to dashboard button on device page" %}
+
+Another way to add entities to a dashboard is to use the **Device** page.
+
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
+2. On the integration card of interest, select **Devices**. 
+   - If there are multiple devices, from the list, select the device.
+
+3. In the **Controls** section, select **Add to Dashboard**.
+  ![Add to Dashboard button on the device page](/images/blog/2024-03-dashboard-chapter-1/sections-add-from-device-page.jpg)
+{% enddetails %}
+
+## Related topics
+
+- For a list of available card types and more detailed documentation, refer to the **Card types** section in the side navigation.
+- [Views](/dashboards/views/)
+- [Introduction to dashboards](/dashboards/)
+- [Take control of the default dashboard](/dashboards/#get-started-with-your-own-dashboard)
