@@ -17,15 +17,26 @@ There are four different view types:
 - **Masonry (default)**: Arranges cards in columns based on their card size.
 - **Sections (experimental)**: Arranges cards in a grid system and lets you group them in sections.
 
+It is currently not possible to migrate your dashboard from one view type into another. For example, if you have a dashboard in masonry view, and want it in sections view, you need to create a new view.
+
 ## Adding a view to a dashboard
 
 1. To add a view to your user interface, in the top right corner, select the pencil icon.
-2. Then, select the `+` button in the top menu bar.
+2. Select the `+` button in the top menu bar.
 
-    <p class="img">
-      <img src="/images/dashboards/views.png" alt="Views toolbar">
-      Use titles and icons to describe the content of views.
-    </p>
+    ![Views toolbar](/images/dashboards/views.png)
+
+3. Define the view settings:
+   - If you want a view title, enter the **Title**.
+   - If you want to see an icon, select the icon.
+     - Note: If an icon is defined, the title text only shows as a tooltip.
+     - We use [Material icons](https://pictogrammers.com/library/mdi/).
+   - Select the view type.
+
+   ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_01.png)
+
+4. On the **Badges** tab, add badges, if any.
+5. If this view should not be visible for some users, on the **Visibility** tab, disable the view for those users.
 
 ## Path
 
