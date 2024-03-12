@@ -87,8 +87,8 @@ For electricity:
 - Current bill electric cost to date
 - Current bill electric forecasted usage (for the first few days of the bill this is 0)
 - Current bill electric forecasted cost (for the first few days of the bill this is 0)
-- Typical monthly electric usage
-- Typical monthly electric cost
+- Typical monthly electric usage (based on the same month for previous years, not populated for accounts younger than a year)
+- Typical monthly electric cost (based on the same month for previous years, not populated for accounts younger than a year)
 
 For gas:
 
@@ -96,8 +96,8 @@ For gas:
 - Current bill gas cost to date
 - Current bill gas forecasted usage (for the first few days of the bill this is 0)
 - Current bill gas forecasted cost (for the first few days of the bill this is 0)
-- Typical monthly gas usage
-- Typical monthly gas cost
+- Typical monthly gas usage (based on the same month for previous years, not populated for accounts younger than a year)
+- Typical monthly gas cost (based on the same month for previous years, not populated for accounts younger than a year)
 
 Note the unit for gas is CCF (centum cubic feet). 1 CCF is one hundred cubic feet which is equivalent to 1 therm.
 
