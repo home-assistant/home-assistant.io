@@ -26,7 +26,7 @@ There are several built-in card types, each with their own configuration options
    - **By card** type:
         ![Add card by Card type dialog](/images/blog/2024-03-dashboard-chapter-1/sections-add-card-by-card.png)
 
-        - If you have an idea of what card tpye you want to use for an entity, browse the list of available cards.
+        - If you have an idea of what card type you want to use for an entity, browse the list of available cards.
         - If you are using the **Sections** view, try the **Tile** card in the **Suggested cards** section.
 
    - **By entity**:
@@ -46,7 +46,7 @@ Another way to add entities to a dashboard is to use the **Device** page.
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. On the integration card of interest, select **Devices**. 
-   - If there are multiple devices, from the list, select the device.
+   - If there are multiple devices, select the device from the list.
 
 3. In the **Controls** section, select **Add to Dashboard**.
   ![Add to Dashboard button on the device page](/images/blog/2024-03-dashboard-chapter-1/sections-add-from-device-page.jpg)
