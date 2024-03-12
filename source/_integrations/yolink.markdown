@@ -102,3 +102,4 @@ The integration is tested and verified for the following devices from YoLink:
 - YS8006-UC (X3 Temperature & Humidity Sensor)
 - YS8014-UC (X3 Outdoor Temperature Sensor)
 - YS8015-UC (X3 Outdoor Temperature & Humidity Sensor)
+- YS7905-UC (WaterDepthSensor)
