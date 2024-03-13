@@ -33,21 +33,21 @@ You can group cards without using horizontal or vertical stack cards.
 
 ## Rearranging sections and cards
 
-In the sections view, you can rearrange sections and cards using drag and drop. This is not yet possible in other views.
+In the sections view, you can rearrange sections and cards by dragging them to a new location. This is not yet possible in other views.
 
 1. To edit your dashboard, in the top right corner, select the pencil icon.
 2. To rearrange sections, hold the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-move.png" alt="Move icon"/> button and move the card.
 
     <p class='img'>
-        <img src="/images/blog/2024-03-dashboard-chapter-1/drag-and-drop-sections.gif" alt="Rearranging sections with drag-and-drop"/>
-        Rearranging sections with drag-and-drop
+        <img src="/images/blog/2024-03-dashboard-chapter-1/drag-and-drop-sections.gif" alt="Rearranging sections by dragging"/>
+        Rearranging sections by dragging
     </p>
 
 3. To rearrange cards, tap and hold the card and move it to your desired location.
 
    <p class='img'>
-        <img src="/images/blog/2024-03-dashboard-chapter-1/drag-and-drop-cards.gif" alt="Rearranging cards with drag-and-drop"/>
-        Rearranging sections with drag-and-drop
+        <img src="/images/blog/2024-03-dashboard-chapter-1/drag-and-drop-cards.gif" alt="Rearranging cards by dragging"/>
+        Rearranging cards by dragging
     </p>
 
 ## Check out the demo
