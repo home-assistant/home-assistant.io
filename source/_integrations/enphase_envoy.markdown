@@ -106,7 +106,10 @@ This integration provides debug log and diagnostics report as described in the [
 
 ### Debug log
 
-When this integration is loaded, it will scan the Envoy / IQ Gateway for available features and configure these as needed. Following this initial scan, only data for the found features is collected. If you're expecting features to show but they are not shown, reload the integration while debug logging is enabled. Some features are disabled by default, and you need to enable them if you want them to show. In this way, the debug log includes the initial full scan to assist with analyzing any missing features. If you experience intermittent issues during use of the integration this reload is not needed.
+When experiencing issues during use of the integration, enable the debug log for the Envoy / IQ Gateway. This will add details on the data collections to the Home Assistant log file. Leave the debug log enabled long enough to capture occurrence of the issue. If the issue is intermittent this may take a while and it may grow the log file quite a bit.
+
+If you're expecting features to show but they are not shown, reload the integration while debug logging is enabled.
+When this integration is loaded, it will scan the Envoy / IQ Gateway for available features and configure these as needed. Following this initial scan, only data for the found features is collected.  Performing a reload with debug enabled results in the debug log containing the initial full scan to assist with analyzing any missing features. Some features are disabled by default, and you need to enable them if you want them to show. Verify this before starting a debug session.
 
 The debug log will show all communication with the Envoy / IQ Gateway. Lines starting with entities are log entries for the integration:
 
