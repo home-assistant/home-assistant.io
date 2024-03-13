@@ -5,13 +5,14 @@ ha_release: 2024.2
 ha_category:
   - Car
   - Presence detection
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@ludeeus'
 ha_domain: traccar_server
 ha_platforms:
   - device_tracker
+  - diagnostics
 ha_integration_type: integration
 ---
 

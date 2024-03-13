@@ -7,6 +7,7 @@ ha_release: 0.25
 ha_iot_class: Cloud Push
 ha_domain: imap
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ha_codeowners:
