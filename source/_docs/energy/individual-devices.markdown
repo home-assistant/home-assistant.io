@@ -19,6 +19,6 @@ Smart relays sit behind your "normal" switches and make them smart. It allows yo
 
 ## Devices with power (W) sensors
 
-Some smart devices, such as air conditioning, boilers, and others, may provide a power sensor, measured in Watts. You can use the [Integration (Riemann sum integral) integration](/integrations/integration/#energy) to calculate the energy your device is using. You can then use the energy sensor in the Energy Dashboard, as individual devices.
+Some smart devices, such as air conditioning, boilers, and others, may provide a power sensor, measured in Watts. You can use the [Integration (Riemann sum integral) integration](/integrations/integration/#energy) to calculate the energy your device is using. You can then use the energy sensor in the Energy Dashboard, as individual devices. For information on setting up an entity for use in the **Energy** dashboard, refer to the [energy FAQ](/docs/energy/faq/#troubleshooting-missing-entities).
 
 <img src='/images/docs/energy/devices.png' alt='Graphic showing energy flowing from the home to individual devices.' style='border: 0;box-shadow: none; display: block; max-height: 400px; margin: 0 auto;'>
