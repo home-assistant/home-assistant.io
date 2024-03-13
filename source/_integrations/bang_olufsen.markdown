@@ -150,6 +150,40 @@ data:
   media_content_id: 1234567890
 ```
 
+### Custom services
+
+#### Service `bang_olufsen.beolink_join`
+
+Join a Beolink experience.
+
+| Service data attribute | Optional | Description                           |
+| ---------------------- | -------- | ------------------------------------- |
+| `beolink_jid`          | yes      | Manually specify Beolink JID to join. |
+
+#### Service `bang_olufsen.beolink_expand`
+
+Expand current Beolink experience.
+
+| Service data attribute | Optional | Description                                                      |
+| ---------------------- | -------- | ---------------------------------------------------------------- |
+| `beolink_jids`         | no       | Specify which Beolink JIDs will join current Beolink experience. |
+
+#### Service `bang_olufsen.beolink_unexpand`
+
+Unexpand from current Beolink experience.
+
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `beolink_jids`         | no       | Specify which Beolink JIDs will leave from current Beolink experience. |
+
+#### Service `bang_olufsen.beolink_leave`
+
+Leave a Beolink experience.
+
+#### Service `bang_olufsen.beolink_allstandby`
+
+Set all connected Beolink devices to standby.
+
 ## Automations
 
 WebSocket notifications received from the device are fired as events in Home Assistant. These can be received by listening to `bang_olufsen_websocket_event` event types, where `device_id` or `serial_number` can be used to differentiate devices.
@@ -159,3 +193,19 @@ WebSocket notifications received from the device are fired as events in Home Ass
 To find Deezer playlist, album URIs, and user IDs for Deezer flows, the Deezer website has to be accessed. When navigating to an album, the URL will look something like: <https://www.deezer.com/en/album/ALBUM_ID>, and this needs to be converted to: `album:ALBUM_ID` and the same applies to playlists, which have the format: `playlist:PLAYLIST_ID`.
 
 Additionally a Deezer user ID can be found at <https://www.deezer.com/en/profile/USER_ID> by selecting the active user in a web browser.
+
+### Beolink
+
+Discovered devices and devices in an active Beolink experience are available in the properties of the media_player entity. A device is represented by its friendly name and JID, used for connecting devices.
+
+```yaml
+beolink:
+  self: The current device
+  leader: Beolink leader (if available)
+  listeners: Beolink listeners (if available)
+  peers: Beolink peers (if available)
+```
+- self: The current device
+- leader: Beolink leader (if available)
+- listeners: Beolink listeners (if available)
+- peers: Beolink peers (if available)
