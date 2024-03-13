@@ -52,7 +52,7 @@ target:
 ```
 ### Get map ids and areas
 
-Visit Robeye (http site from robot under port 8080) and click left on "Maps from Robot"
+Visit Robeye (HTTP site from robot under port 8080) and click left on "Maps from Robot"
 
 Or fetch it with /get/maps and fetch areas from for example map 4 with /get/areas?map_id=4
 
