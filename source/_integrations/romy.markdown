@@ -37,14 +37,14 @@ Currently supported services are:
 
 ## Integration entities
 
-The **Romy** {% term integrations %} will add the following binary sensors.
+The Romy will add the following binary sensors.
 
 Binary Sensors:
 
-- **Dustbin present**: True if dustbin is inserted
-- **Robot docked**: True if robot is docked
-- **Watertank present**: True if watertank is mounted (only present for ROMY's with wet cleaning function)
-- **Watertank empty**: True if watertank is empty and water infill is required (only present for ROMY's with wet cleaning function)
+- **Dustbin present**: True if dustbin is inserted.
+- **Robot docked**: True if robot is docked.
+- **Watertank present**: True if watertank is mounted (only present for ROMY's with wet cleaning function).
+- **Watertank empty**: True if watertank is empty and water infill is required (only present for ROMY's with wet cleaning function).
 
 ## Troubleshooting
 
