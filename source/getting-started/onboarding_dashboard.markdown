@@ -3,11 +3,21 @@ title: "Edit the dashboard"
 description: "Instructions on editing the dashboard for the first time"
 ---
 
+By default, Home Assistant comes with [multiple dashboards](/dashboards/dashboards/):
+
+- Overview
+- Energy
+- Map
+- Logbook
+- History
+
+In this tutorial, we are going to edit the **Overview** dashboard to get familiar with some basic dashboard concepts.
+
 ## First contact with the Overview dashboard
 
 The **Overview** [dashboard](/dashboards/) is the first page you see after the [onboarding process](/getting-started/onboarding). Dashboards are customizable pages to display information in Home Assistant.
 
-By default, there are two dashboards: **Overview** and **Energy**. The image below shows a customized example of the **Overview** dashboard. If you just onboarded, your dashboard will be nearly empty.
+The image below shows a customized example of the **Overview** dashboard. If you just onboarded, your dashboard will be nearly empty.
 
 ![Dashboard](/images/getting-started/lovelace.png)
 
@@ -56,6 +66,16 @@ The procedure below is optional. The idea is to learn some basics on changing th
    - When you are done, in the top right corner, select **Done**.
 9. Congratulations! You have completed your first dashboard customization.
 
+## Learning more about dashboards
+
+Now that you have played around a bit on the **Overview** dashboard, you may want to take a closer look at dashboards, views, and cards.
+
+1. Take a look at the [introduction to dashboards](/dashboards/) and learn about [multiple dashboards](/dashboards/dashboards).
+2. Learn about the different [view types](/dashboards/views/).
+3. Learn how to [add cards](/dashboards/cards/#adding-cards-to-your-dashboard) to a view.
+
+## Next step: integrations
+
 To continue with this tutorial, select the button below to learn about {% term integrations %}.
 
 {% include getting-started/next_step.html step="Integrations" link="/getting-started/integration/" %}
@@ -64,3 +84,4 @@ To continue with this tutorial, select the button below to learn about {% term i
 
 - [Dashboards](/dashboards/)
 - [Views](/dashboards/views/)
+- [Add cards to views](/dashboards/cards/#adding-cards-to-your-dashboard)
