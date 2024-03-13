@@ -3,7 +3,14 @@ title: "Views"
 description: "A view is a tab inside a dashboard."
 ---
 
-A view is a tab inside a dashboard. Views control the layout.
+A view is a tab inside a dashboard. For example, the screenshot below shows a separate view for lights on the Overview dashboard.
+
+<p class='img'>
+    <img src='/images/dashboards/dashboard_view-tab.png' alt='Screenshot of a light view tab on the Overview dashboard'>
+    A lights view tab on the Overview dashboard
+</p>
+
+Views control the layout.
 
 <p class='img'>
     <img src='/images/dashboards/layout-types.png' alt='The three basic view layouts: Panel, sidebar, and masonry'>
@@ -267,3 +274,5 @@ Subview configuration:
 - [Panel view](/dashboards/panel/)
 - [Sidebar view](/dashboards/sidebar/)
 - [Sections view](/dashboards/sections/)
+- [About dashboards](/dashboards/)
+- [Adding cards to a view](/dashboards/cards/#adding-cards-to-your-dashboard)
