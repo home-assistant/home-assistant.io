@@ -23,9 +23,7 @@ Try it yourself with [the interactive demo](https://demo.home-assistant.io).
 
 ## Get started with your own dashboard
 
-{% include dashboard/edit_dashboard.md %}
-
-For more detailed instructions, follow the step-by-step tutorial on [editing the **Overview** dashboard](/getting-started/onboarding_dashboard/).
+To create your own dashboard, follow the steps on [creating a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard).
 
 ## Discuss dashboard
 
