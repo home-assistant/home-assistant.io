@@ -64,11 +64,9 @@ The temperature sensors are shown because the Home Assistant device used here (R
 
 If your Home Assistant has other controllers, such as a [Zigbee](/integrations/zha/) or a [Z-Wave](/integrations/zwave_js/) controller, and you have Zigbee or Z-Wave devices, these could be detected and shown here. However, these devices usually need to be paired first.
 
-The procedure below is optional. The idea is to learn some basics on dashboards.
-
 ## Creating a new dashboard and edit cards
 
-The default **Overview** dashboard updates automatically when you add new devices. However, once you start editing the default dashboard, it no longer updates automatically. For this reason, we start here by adding a new dashboard. This lets us keep the default **Overview** dashboard and it will grow automatically together with your home.
+The default **Overview** dashboard updates automatically when you add new devices. However, once you start editing the default dashboard, it no longer updates automatically. For this reason, we start here by adding a new dashboard. This lets us keep the default **Overview** dashboard.
 
 In the following steps, we will create a new dashboard and edit some card settings.
 
