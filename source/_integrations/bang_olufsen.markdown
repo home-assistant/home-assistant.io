@@ -152,6 +152,8 @@ data:
 
 ### Custom services
 
+The Bang & Olufsen integration additionally supports different custom services
+
 #### Service `bang_olufsen.beolink_join`
 
 Join a Beolink experience.
