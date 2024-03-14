@@ -37,4 +37,4 @@ To create your own dashboard, follow the steps on [creating a new dashboard](/da
 - [Material Design Icons](https://pictogrammers.com/library/mdi/)
 - [Dashboard themes](/integrations/frontend/#defining-themes)
 - [Interactive dashboard demo](https://demo.home-assistant.io)
-- [Editing the **Overview** dashboard](/getting-started/onboarding_dashboard/)
+- [Creating a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard)
