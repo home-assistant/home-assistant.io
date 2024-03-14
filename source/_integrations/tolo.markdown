@@ -32,6 +32,7 @@ The integration allows for:
 - Turning the sauna on and off
 - Setting the target temperature and target humidity
 - Enabling/disabling aroma therapy and salt bath
+- Select which aroma therapy slot to use
 - Controlling the fan (used for drying and cooling down the sauna)
 - Controlling the sauna lights (on/off, mode selection)
 - Configuring timers for automatic power shutdown, automatic fan shutdown and salt spray activation interval
