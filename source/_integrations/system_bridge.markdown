@@ -32,7 +32,7 @@ This integration requires System Bridge 4.0.2 and above. Any older version will 
 
 ### Token
 
-You will need your token. This can be found following the documentation [here](https://system-bridge.timmo.dev/docs/running).
+You will need your token. For instructions on finding your token, follow the steps in the [System Bridge documentation](https://system-bridge.timmo.dev/docs/running).
 
 {% include integrations/config_flow.md %}
 
