@@ -129,7 +129,7 @@ Music services which require an account (e.g., Spotify) must first be configured
 
 Playing TTS (text-to-speech) or audio files as alerts (e.g., a doorbell or alarm) is possible by setting the `announce` argument to `true`. Using `announce` will play the provided media URL as an overlay, gently lowering the current music volume and automatically restoring to the original level when finished. An optional `volume` argument can also be provided in the `extra` dictionary to play the alert at a specific volume level. Note that older Sonos hardware or legacy firmware versions ("S1") may not fully support these features. Additionally, see [Network Requirements](#network-requirements) for use in restricted networking environments.
 
-An optional `enqueue` argument can be added to the service call. If `true`, the media will be appended to the end of the playback queue. If not provided or `false` then the queue will be replaced.
+An optional `enqueue` argument can be added to the service call. If `replace` or not provided then the queue will be replaced and the item will be replaced. If `add` the item will be appended to the queue. If `next` the item will be added into the queue to play next. If `play`, the item will be added into the queue and played immediately.
 
 ### Examples:
 
@@ -198,12 +198,14 @@ data:
 
 #### Sonos Music Library
 
-Use a Sonos music library? The integration can work with that as well. Play all albums by the Beatles.
+If you have configured a Sonos music library; you can play music from it.
+
+Play all albums by the Beatles.
 
 ```yaml
 service: media_player.play_media
 target:
-  entity_id: media_player.sonos      
+  entity_id: media_player.sonos
 data:
   media_content_type: album
   media_content_id: A:ALBUMARTIST/Beatles
@@ -214,22 +216,36 @@ Play a specific album:
 ```yaml
 service: media_player.play_media
 target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: album
+  media_content_id: A:ALBUM/The Wall
+  enqueue: replace
+```
+
+Or add a specific album by a specific artist to the queue.  This is useful in case you have multiple albums with the same name.
+
+```yaml
+service: media_player.play_media
+target:
   entity_id: media_player.sonos      
 data:
   media_content_type: album
-  media_content_id: A:ALBUM/Burning Sky
+  media_content_id: A:ALBUMARTIST/Neil Young/Greatest Hits
+  enqueue: add
 ```
 
-List of content_ids
+Play all albums by a composer.
 
-| Content Id Prefixes | Description |
-| -------------------- | -------- |
-|  A:ALBUM             | Album |
-|  A:ALBUMARTIST       | Album Artist |
-|  A:ARTIST            | Contributing Artist |
-|  A:COMPOSER          | Composer |
-|  A:PLAYLIST          | Imported Playlist |
-|  A:TRACKS            | Track |
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.porch
+data:
+  media_content_type: composer
+  media_content_id: A:COMPOSER/Carlos Santana
+  enqueue: play
+```
 
 ## Services
 
