@@ -43,7 +43,7 @@ The default **Overview** dashboard updates itself when you add new devices, as l
 This will leave the default dashboard intact.
 
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
-2. Select **New dashboard**.
+2. Select **Add dashboard**.
    ![Screenshot of the dashboard list](/images/dashboards/dashboard-manage-02.png)
 3. In the dialog, choose one of the options:
    - If you want to start with a pre-populated dashboard, choose **Default dashboard**.
@@ -53,7 +53,7 @@ This will leave the default dashboard intact.
    - Define if you want the dashboard to be listed in the sidebar.
    - Select **Create**.
    - **Result**: The dashboard is added.
-5. Open your new dashboard and in the top right of the screen, select the pencil icon.
+5. Open your new dashboard and in the top right of the screen, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button.
 6. If you chose **Default dashboard**, you need to take control before you can edit it:
    - The **Edit dashboard** dialog appears.
      - By editing the dashboard, you are taking over control of this dashboard.
