@@ -11,7 +11,7 @@ ha_domain: notify
 ha_integration_type: entity
 ---
 
-The `notify` {% term integration %} makes it possible to send notifications to a wide variety of platforms. To use it you have to setup at least one notification target (notifier), check the [integrations list](/integrations/#notifications) for one that fits your use case.
+The **Notify** {% term integration %} makes it possible to send notifications to a wide variety of platforms. To use it, you have to set up at least one notification target (notifier). Check the [integrations list](/integrations/#notifications) for one that fits your use case.
 
 If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/). It is available as an automatically configured notifier. See [its documentation](/integrations/persistent_notification/) for more details.
 
@@ -30,25 +30,25 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 
 ## Usage
 
-The different `notify` integrations you have set up will each show up as a different automation {% term action actions %} / {% term service %} calls that you can use.
+The different **Notify** integrations you have set up will each show up as a different automation {% term action %} or {% term service %} call that you can use.
 
 One notification integration is automatically included, the Persistent Notifications which creates a notification in the sidebar of the web interface of Home Assistant. This can be chosen with the action named "Notifications: Send a persistent notification" which uses the service `notify.persistent_notification`.
 
 Another common notification integration is via the companion app for Android or iPhone. This can be chosen with the action "Send a notification via mobile_app_your_phone_name" which uses the service `notify.mobile_app_your_phone_name`. See the [companion app documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic) for lots of customization options.
 
-With any of these integrations, the `message` data input in the automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional `data` or `target` information to customize the action, see their integration pages for more details.
+With any of these integrations, the `message` data input in the automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional `data` or `target` information to customize the action. For more details, refer to their integration documentation.
 
-Be aware that the `notify.notify` service is shorthand for the first notify service the system can find and might not work as intended. Choose a specific service to make sure your message goes to the right place.
+Be aware that the `notify.notify` service is shorthand for the first notify service the system can find. It might not work as intended. Choose a specific service to make sure your message goes to the right place.
 
 Notifications can also be sent using [Notify groups](https://www.home-assistant.io/integrations/group/#notify-groups). These allow you to send notification to multiple devices with a single call, or to update which device is notified by only changing it in a single place.
 
 ### Test if it works
 
-After you setup a [notifier](/integrations/#notifications), a simple way to test if you have set up your notify platform correctly is to open **{% my developer_services title="Developer tools -> Services" %}** tab from the sidebar. Choose your service from the **Service** dropdown menu depending on the integration you want to test, such as "Notifications: Send a persistent notification" or "Notifications: Send a notification via mobile_app_your_phone_name". Enter your message into the **message** field, and press the **CALL SERVICE** button.
+After you setup a [notifier](/integrations/#notifications), a simple way to test if you have set up your notify platform correctly is to open {% my developer_services title="**Developer tools** > **Services**" %}** tab from the sidebar. Choose your service from the **Service** dropdown menu depending on the integration you want to test, such as **Notifications: Send a persistent notification** or **Notifications: Send a notification via mobile_app_your_phone_name**. Enter your message into the **message** field, and select the **CALL SERVICE** button.
 
 ### Examples
 
-Select the "Notifications: Send a persistent notification" action under **Developer Tools** on the **Services** tab. Enter a message and test sending it.
+In the **Developer Tools**, on the **Services** tab, select the **Notifications: Send a persistent notification** action. Enter a message and test sending it.
 
 If you switch to view the YAML data under **Developer Tools**, it will appear as below. The same {% term action %} can be chosen in {% term automation %} actions %, whose YAML will appear the same:
 
