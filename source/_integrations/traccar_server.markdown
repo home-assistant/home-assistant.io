@@ -149,14 +149,14 @@ Entity ID:
 Unique ID:
   description: This will be the unique ID of the device tracker in Traccar Server followed by `position_altitude`.
 State:
-  description: This will be the altitude in meters (you can select a different unit in the entity options if you want).
+  description: This will be the altitude in meters. You can select a different unit in the entity options if you want.
 {% endconfiguration_basic %}
 
 This entity does not have any attributes.
 
 ### Sensor - Battery
 
-The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the battery percentage reported by the Traccar Server.
+The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the remaining battery percentage reported by the Traccar Server.
 
 This entity is disabled by default.
 
@@ -206,7 +206,7 @@ Entity ID:
 Unique ID:
   description: This will be the unique ID of the device tracker in Traccar Server followed by `position_speed`.
 State:
-  description: This will be the speed of the device in knots (you can select a different unit in the entity options if you want).
+  description: This will be the speed of the device in knots. You can select a different unit in the entity options if you want.
 {% endconfiguration_basic %}
 
 This entity does not have any attributes.
@@ -225,7 +225,7 @@ Entity ID:
 Unique ID:
   description: This will be the unique ID of the device tracker in Traccar Server followed by `devcie_status`.
 State:
-  description: This will be one of the following; `offline`, `unknown`, `online`.
+  description: This will be one of the following: `offline`, `unknown`, `online`.
 {% endconfiguration_basic %}
 
 This entity does not have any attributes.
