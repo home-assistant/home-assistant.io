@@ -339,9 +339,15 @@ modbus:
 
 modbus entities are grouped below each modbus communication entry.
 
-All modbus entities have the following parameters:
+**REMARK** Each modbus device must have at least 1 entity defined.
+
+Experience has shown that a modbus configuration without entities leads to instability issues.
+
+The normal use case for the integration is to have entities, however there are some special cases and custom components that used the modbus integration without entities. The solution to these special cases is to add a dummy entity.
 
 Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+
+All modbus entities have the following parameters:
 
 {% configuration %}
 address:
