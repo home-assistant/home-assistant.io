@@ -194,6 +194,6 @@ Logs statistics from [lru_cache](https://docs.python.org/3/library/functools.htm
 
 | Service data attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
-| `enable`               | yes      | Boolean to enable asyncio debug.       |
+| `enabled`              | yes      | Boolean to enable asyncio debug.       |
 
 When `set_asyncio_debug` is enabled, `asyncio` will run in [debug mode](https://docs.python.org/3/library/asyncio-dev.html#debug-mode). Use this service to help identify an integration that is blocking the event loop.
