@@ -225,7 +225,7 @@ Entity ID:
 Unique ID:
   description: This will be the unique ID of the device tracker in Traccar Server followed by `devcie_status`.
 State:
-  description: This will be one of the following: `offline`, `unknown`, `online`.
+  description: This will be one of the following; `offline`, `unknown`, `online`.
 {% endconfiguration_basic %}
 
 This entity does not have any attributes.
