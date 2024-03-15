@@ -9,7 +9,7 @@ Automations and {% term scripts %} can be debugged in a few different ways. You 
 
 Many automations can be tested directly in the automation editor UI.
 
-### Running the whole automation
+### Running the entire automation
 
 In the 3-dots menu in the automation list or automation editor UI, click the **Run** button. This will execute all of the {% term actions %}, skipping all {% term triggers %} and {% term conditions %}. This lets you test the full sequence of actions, as if the automation was triggered and all conditions were true. Note that any [trigger ID](/automation/trigger/#trigger-id) used in your triggers will not be active when you test this way. The Trigger ID or any data passed by in the `trigger` data in conditions or actions can't be tested directly this way.
 
@@ -19,7 +19,7 @@ Testing with complex triggers, conditions, and variables can be difficult. Note 
 
 ### Running individual actions or conditions
 
-In the automation editor UI, each {% term condition %} and {% term action %} can be tested individually. Click the 3-dots menu, then the **Test** button.
+In the automation editor UI, each {% term condition %} and {% term action %} can be tested individually. Select the three dots menu, then the **Test** button.
 
 - Testing a condition will highlight it to show whether the condition passed at the moment it was tested. If all conditions pass, then the automation will run when triggered. Testing building blocks like an **and** condition will report whether the whole block registers as true or false, or you can test individual conditions within the building block.
 
@@ -27,13 +27,13 @@ In the automation editor UI, each {% term condition %} and {% term action %} can
 
 Note that complex automations that depend on previous blocks, such as trigger IDs, variables in templates, or service calls that return data to use in subsequent blocks, cannot be tested this way.
 
-If you are writing automations in YAML, it is also useful to go to **{% my server_controls title="Developer Tools -> YAML" %}** and click on **Check Configuration** button in Configuration validation section to make sure there are no syntax errors before restarting Home Assistant. In order for **Check configuration** to be visible, you must enable **Advanced Mode** on {% my profile title="your user profile" %}.
+If you are writing automations in YAML, it is also useful to go to {% my server_controls title="**Developer tools** > **YAML**" %}** and in the Configuration validation section, select the **Check configuration** button. This is to make sure there are no syntax errors before restarting Home Assistant. In order for **Check configuration** to be visible, you must enable **Advanced Mode** on {% my profile title="your user profile" %}.
 
 ## Traces
 
 When an {% term automation %} is run, all steps are recorded and a trace is made. From the UI, open **Settings**, which is located in the sidebar, then select **Automations & Scenes** to go to the automation editor or click this button directly: {% my automations badge %}
 
-From the automation editor UI, or in the automations list in the 3-dots menu, click **Traces**. Alternatively, click on an automation entry shown in the Logbook.
+From the automation editor UI, or in the automations list in the three dots menu, select **Traces**. Alternatively, select an automation entry shown in the Logbook.
 
 ![Automation tracing example](/images/integrations/automation/automation-tracing.png)
 
@@ -41,11 +41,11 @@ The above screenshot shows a previous run of an automation. The automation is di
 
 The right side of the trace screen has tabs with more information:
 
-- Step Details shows data and results of the step that is currently highlighted.
-- Automation Config shows the full YAML configuration at the time the automation was run.
-- Trace Timeline, shown in the screenshot above, lists the steps that were executed and their timing.
-- Related logbook entries, as the name says a logbook for all the entries related to the specific trace.
-- Blueprint Config will only be shown if the automation was created from a {% term blueprint %}.
+- **Step Details** shows data and results of the step that is currently highlighted.
+- **Automation Config** shows the full YAML configuration at the time the automation was run.
+- **Trace Timeline**, shown in the screenshot above, lists the steps that were executed and their timing.
+- **Related logbook entries**, shows a logbook for all the entries related to the specific trace.
+- **Blueprint Config** will only be shown if the automation was created from a {% term blueprint %}.
 
 The top bar shows the date and time the automation was triggered. Use the left and right arrows to view previous runs of the automation.
 
