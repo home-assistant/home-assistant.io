@@ -11,11 +11,11 @@ Many automations can be tested directly in the automation editor UI.
 
 ### Running the whole automation
 
-In the 3-dots menu in the automation list or automation editor UI, click the **Run** button. This will execute all of the {% term actions %}, skipping all {% term triggers %} and {% term conditions %}. This lets you test the full sequence of actions, as if the automation was triggered and all conditions were true. 
+In the 3-dots menu in the automation list or automation editor UI, click the **Run** button. This will execute all of the {% term actions %}, skipping all {% term triggers %} and {% term conditions %}. This lets you test the full sequence of actions, as if the automation was triggered and all conditions were true. Note that any [trigger ID](/automation/trigger/#trigger-id) used in your triggers will not be active when you test this way. The Trigger ID or any data passed by in the `trigger` data in conditions or actions can't be tested directly this way.
 
-Note that any [trigger ID](/automation/trigger/#trigger-id) used in your triggers will not be active when you test this way. The Trigger ID or any data passed by in the `trigger` data in conditions or actions can't be tested directly this way.
+You can also trigger an automation manually. This can test the conditions as if the automation was triggered by an event. Navigate to **{% my developer_services title="Developer tools -> Services" %}**. In the service selection drop-down, select "Automation: Trigger", then "Choose entity" to select the automation you are testing. Toggle whether to skip the conditions, then **CALL SERVICE**. If needed, additional `trigger` or other data can be added in the YAML view for testing. The [trigger](docs/automation/trigger/) page has more information about data within the trigger.
 
-You can also trigger an automation manually. This can test the conditions as if the automation was triggered by an event. Navigate to **{% my developer_services title="Developer tools -> Services" %}**. In the service selection drop-down, select "Automation: Trigger", then "Choose entity" to select the automation you are testing. Toggle whether to skip the conditions, then **CALL SERVICE**. If needed, additional `trigger` or other data can be added in the YAML view for testing.
+Testing with complex triggers, conditions, and variables can be difficult. Note that using the **Run** button will skip all triggers and conditions, while **Developer Tools** can be used with or without checking conditions.
 
 ### Running individual actions or conditions
 
