@@ -5,6 +5,11 @@
 
 **Building block integration**
 
-This {{ name | downcase }} building block integration cannot be directly added to your Home Assistant. It is a generic building block that other integrations use to create {{ domain | replace: "_", " " }} entities for you. See the "Categories" links in the sidebar to see all {{ name | downcase }} integrations built from it that you can use. The automation triggers, actions, and other information on this page can be used with all of those integrations whose entities support them, and some integrations add extra functionality.
+This {{ name | downcase }} is a building block integration that cannot be added to your Home Assistant directly but is used and provided by other integrations.
+
+A building block integration differs from the typical integration that connects to a device or service. Instead, other integrations that do integrate a device or service into Home Assistant use this {{ name | downcase }} building block to provide entities, services, and other functionality that you can use in your automations or dashboards.
+
+If one of your integrations features this building block, this page documents the functionality the {{ name | downcase }} building block offers.
 
 </div>
+
