@@ -122,8 +122,8 @@ Make sure you have all these components ready before trying to add a Matter devi
 
 - Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](#bluetooth-used-during-commissioning):
   - Android:
-    - Have an Android phone (a full Android, not F-Droid).
-    - Have the latest version of the Home Assistant Companion app installed.
+    - Have the Android version 8.1 or higher.
+    - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro) present in your home network.
   - iPhone
     - Have the iOS version 16 or higher
