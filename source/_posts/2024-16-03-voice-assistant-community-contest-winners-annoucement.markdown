@@ -12,16 +12,12 @@ og_image: /images/blog/2024-01-11-voice-assistant-contest/banner.png
 
 <p><img src='/images/blog/2024-01-11-voice-assistant-contest/banner.png' class='no-shadow' /></p>
 
-2023 was the [Year of the Voice](/blog/2022/12/20/year-of-voice/). It was a yearly goal to let users control Home Assistant in their own language.
-
-Beginning of 2024, we organized a contest to celebrate what our voice assistants could enable with the community. Today is the day we announce the winners!
+2023 was the [Year of the Voice](/blog/2022/12/20/year-of-voice/). It was a yearly goal to let users control Home Assistant in their own language. We organized a contest to celebrate what our voice assistants could enable with the community. The contest entries have been all amazing, the work produced outstanding. Personally, I learnt so much just reviewing all the entries, I learnt that our community is so creative and relentless.  My personal project list grew quite a lot as I want to implement half of the entries at home!  Today is the day we announce the winners!
 
 <!--more-->
 
-It is important to note that while Year of the Voice is over, voice is now part of Home Assistant just like automations or dashboards. 
+It is important to note that while Year of the Voice is over, voice is now part of Home Assistant just like automations or dashboards.
 The sharp focus is over, but voice will get updates forever, just like every other part of Home Assistant.
-
-## Contest specifics
 
 The contest was split into 4 categories:
 
@@ -106,6 +102,8 @@ We also have a lot of runners-up in this category, **they all win a Home Assista
 - [DonNL](https://community.home-assistant.io/u/DonNL) and their [simple Assist goodnight routine](https://community.home-assistant.io/t/voice-assistent-contest-assist-goodnight-routine-for-everyone/676224).
 - [Richard_Albritton](https://community.home-assistant.io/u/Richard_Albritton) and their [cute Executive Dysfunction Automated Audio Medication Reminder monster](https://community.home-assistant.io/t/executive-dysfunction-automated-audio-medication-reminder-proof-of-concept/700668).
 - [Wishy](https://community.home-assistant.io/u/wishy) and their [food label printing solution](https://community.home-assistant.io/t/food-labels-via-a-dymo-label-printer/701986).
+
+I want to give a small shout-out to one of the runner-up: [Lajos](https://community.home-assistant.io/u/Lajos) and their [improvement of the S3 Box firmware to display text](https://community.home-assistant.io/t/a-jrpg-style-conversation-with-the-voice-assistant-on-the-s3-box-3/697172), you did something I personally considered impossible in the S3 box, and never tried to implement it because of this false assumption. Seeing your entry pushed me to give it a try and I am happy to announce that [very soon](https://github.com/esphome/firmware/pull/177), the official voice assistant firmware for the S3 boxes will allow everyone to display the spoken text of the request and the response on the screen.
 
 ## Community choice
 
