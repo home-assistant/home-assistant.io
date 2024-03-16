@@ -7,6 +7,7 @@ ha_release: 0.25
 ha_iot_class: Cloud Push
 ha_domain: imap
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ha_codeowners:
@@ -54,11 +55,12 @@ By default, this integration will count unread emails. By configuring the search
 ### Selecting a charset supported by the imap server
 
 Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US-ASCII` as charset:
-  - Server: `outlook.office365.com`
-  - Port: `993`
-  - Username: Your full email address
-  - Password: Your password
-  - Charset: `US-ASCII`
+
+- Server: `outlook.office365.com`
+- Port: `993`
+- Username: Your full email address
+- Password: Your password
+- Charset: `US-ASCII`
 
 <div class="note">
 
@@ -66,12 +68,12 @@ Yahoo also requires the character set `US-ASCII`.
 
 </div>
 
-### Selecting an alternate SSL cipher list or disable SSL verification (advanced mode)
+### Selecting an alternate SSL cipher list or disabling SSL verification (advanced mode)
 
-If the default IMAP server settings do not work, you might try to set an alternate SLL cipher list.
-The SSL cipher list option allows to select the list of SSL ciphers to be accepted from this endpoint. `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_)
+If the default IMAP server settings do not work, you might try to set an alternate SSL cipher list.
+The SSL cipher list option allows you to select the list of SSL ciphers to be accepted from this endpoint: `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
 
-If you are using self signed certificates can can turn of SSL verification.
+If you are using self signed certificates, you can turn off SSL verification.
 
 <div class='note info'>
 
@@ -92,7 +94,6 @@ The enforce polling option is an advanced setting. The option is available only 
 ### Troubleshooting
 
 Email providers may limit the number of reported emails. The number may be less than the limit (10,000 at least for Yahoo) even if you set the `IMAP search` to reduce the number of results. If you are not getting expected events and cleaning your Inbox or the configured folder is not desired, set up an email filter for the specific sender to go into a new folder. Then create a new config entry or modify the existing one with the desired folder.
-
 
 ### Using events
 
@@ -119,7 +120,7 @@ search:
 folder:
   description: The IMAP folder configuration
 text:
-  description: The email body `text` of the message (by default, only the first 2048 bytes will be available.)
+  description: The email body `text` of the message. By default, only the first 2048 bytes of the body text will be available, the rest will be clipped off. You can increase the maximum text size of the body, but this is not advised and will never guarantee that the whole message text is available. A better practice is using a custom event data template (advanced settings) that can be used to parse the whole message, not limited by size. The rendered result will then be added as attribute `custom` to the event data to be used for automations.
 sender:
   description: The `sender` of the message
 subject:
@@ -226,22 +227,22 @@ template:
         id: "custom_event"
         event_data:
           sender: "no-reply@smartconnect.apc.com"
-  - sensor:
-    - name: "Previous Day Energy Use"
-      unit_of_measurement: "kWh"
-      state: >
-       {{ trigger.event.data["text"]
-         | regex_findall_index("\*Yesterday's Energy Use:\* ([0-9]+) kWh") }}
-    - name: "Previous Day Cost"
-      unit_of_measurement: "$"
-      state: >
+    sensor:
+      - name: "Previous Day Energy Use"
+        unit_of_measurement: "kWh"
+        state: >
         {{ trigger.event.data["text"]
-          | regex_findall_index("\*Yesterday's estimated energy cost:\* \$([0-9.]+)") }}
-    - name: "Billing Cycle Total"
-      unit_of_measurement: "$"
-      state: >
-        {{ trigger.event.data["text"]
-          | regex_findall_index("\ days:\* \$([0-9.]+)") }}
+          | regex_findall_index("\*Yesterday's Energy Use:\* ([0-9]+) kWh") }}
+      - name: "Previous Day Cost"
+        unit_of_measurement: "$"
+        state: >
+          {{ trigger.event.data["text"]
+            | regex_findall_index("\*Yesterday's estimated energy cost:\* \$([0-9.]+)") }}
+      - name: "Billing Cycle Total"
+        unit_of_measurement: "$"
+        state: >
+          {{ trigger.event.data["text"]
+            | regex_findall_index("\ days:\* \$([0-9.]+)") }}
 ```
 
 {% endraw %}

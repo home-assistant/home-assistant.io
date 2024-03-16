@@ -1,8 +1,8 @@
 ---
-title: "MQTT Device Trigger"
+title: "MQTT Device trigger"
 description: "Instructions on how to integrate MQTT device triggers within Home Assistant."
 ha_category:
-  - Device Automation
+  - Device automation
 ha_release: 0.106
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -53,9 +53,9 @@ device:
       required: false
       type: string
     connections:
-      description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
-      type: [list, map]
+      type: list
     identifiers:
       description: A list of IDs that uniquely identify the device. For example a serial number.
       required: false
@@ -70,6 +70,10 @@ device:
       type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:

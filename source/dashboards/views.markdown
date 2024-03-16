@@ -3,16 +3,48 @@ title: "Views"
 description: "A view is a tab inside a dashboard."
 ---
 
-A View is a tab inside a dashboard.
-To display cards on the UI you have to define them in views.
+A view is a tab inside a dashboard. For example, the screenshot below shows a separate view for lights on the Overview dashboard.
 
-You can add a view to your user interface, by clicking the menu (three dots at the top right of the screen) and then **Edit Dashboard**. 
-Click the `+` button in the top menu bar.
-
-<p class="img">
-  <img src="/images/dashboards/views.png" alt="Views toolbar">
-  Use titles and icons to describe the content of views.
+<p class='img'>
+    <img src='/images/dashboards/dashboard_view-tab.png' alt='Screenshot of a light view tab on the Overview dashboard'>
+    A lights view tab on the Overview dashboard
 </p>
+
+Views control the layout.
+
+<p class='img'>
+    <img src='/images/dashboards/layout-types.png' alt='The three basic view layouts: Panel, sidebar, and masonry'>
+    The three basic view layouts: panel, sidebar, and masonry
+</p>
+
+There are four different view types:
+
+- **Panel**: Displays one card in full width. For example a map or an image.
+- **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
+- **Masonry (default)**: Arranges cards in columns based on their card size.
+- **Sections (experimental)**: Arranges cards in a grid system and lets you group them in sections.
+
+It is currently not possible to migrate your dashboard from one view type into another. For example, if you have a dashboard in masonry view, and want it in sections view, you need to create a new view.
+
+## Adding a view to a dashboard
+
+1. To add a view to your user interface, in the top right corner, select the pencil icon.
+2. Select the `+` button in the top menu bar.
+
+    ![Views toolbar](/images/dashboards/views.png)
+
+3. Define the view settings:
+   - If you want a view title, enter the **Title**.
+   - If you want to see an icon, select the icon.
+     - Note: If an icon is defined, the title text only shows as a tooltip.
+     - We use [Material icons](https://pictogrammers.com/library/mdi/).
+   - Select the view type.
+
+   ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_01.png)
+
+4. On the **Badges** tab, add badges, if any.
+    - Note that the sidebar and panel views do not support badges.
+5. If this view should not be visible for some users, on the **Visibility** tab, disable the view for those users.
 
 ## Path
 
@@ -73,7 +105,7 @@ views:
       ...
 ```
 
-### Options For Visible
+### Options for visible objects
 
 If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
 
@@ -235,3 +267,12 @@ Subview configuration:
       entities:
         - sensor.today_avg_price
 ```
+
+## Related topics
+
+- [Masonry view](/dashboards/masonry/)
+- [Panel view](/dashboards/panel/)
+- [Sidebar view](/dashboards/sidebar/)
+- [Sections view](/dashboards/sections/)
+- [About dashboards](/dashboards/)
+- [Adding cards to a view](/dashboards/cards/#adding-cards-to-your-dashboard)

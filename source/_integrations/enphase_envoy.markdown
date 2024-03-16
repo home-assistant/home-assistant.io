@@ -13,6 +13,7 @@ ha_codeowners:
   - '@cgarwood'
   - '@dgomes'
   - '@joostlek'
+  - '@catsmanac'
 ha_platforms:
   - binary_sensor
   - diagnostics
@@ -35,7 +36,22 @@ This integration will offer various sensors depending on the configuration of yo
 - Historical energy production & consumption
 - Power production per-inverter
 
-_Consumption sensors require your Envoy to be properly configured with consumption CT sensors installed._
+_Consumption sensors require your Envoy to be properly configured with consumption <abbr title="current transformers">CT</abbr> sensors installed._
+
+For Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (CT), additional features are available:
+
+- Production and consumption sensors for each phase, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
+- Sensors for net production (grid export) and net consumption (grid import) if the consumption <abbr title="current transformers">CT</abbr> is a net-consumption <abbr title="current transformers">CT</abbr>.
+- Disabled sensors for:
+  
+  - Phase net production and net consumption.
+  - Frequency net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).
+  - Voltage net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).[^1]
+  - Metering status for net consumption and production <abbr title="current transformers">CT</abbr> (`normal` | `not-metering` | `check-wiring`) (aggregate and phase).
+  - Meter status flags active for net consumption and production <abbr title="current transformers">CT</abbr> (aggregate and phase).[^2]
+
+[^1]: For multi-phase systems, the Envoy sums the voltages of the phases. May be valid for split-phase, but for 3-phase systems use the individual phases rather than the summed value.
+[^2]: If this value is non-zero, consult the diagnostic report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`).
 
 For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/IQ Batteries installed, additional features are available:
 
@@ -43,6 +59,8 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
 - Sensors for grid status
 - Sensors for the state of the Enpower's 4 load-shedding relays
 - A switch allowing you to take your system on-grid and off-grid. Note that the Enpower has a slight delay built-in between receiving these commands and actually switching the system on or off grid.
+- A switch allowing you to enable or disable charging the Encharge/IQ Batteries from the power grid.
+- Support for changing the battery storage mode between full backup, self-consumption, and savings mode and setting the reserve battery level for outages.
 
 ## Envoy authentication requirements
 
@@ -50,15 +68,107 @@ For newer models running firmware 7 and greater, you will need your Enlighten cl
 
 For models running firmware 5 and older, use `installer` for the username. No password is required. The integration will automatically detect the `installer` password.
 
-## Enpower Load Shedding Relays
+## Enpower load shedding relays
 
 The Enphase Enpower has 4 load shedding relays that can be used to control non-essential loads in your home. These have two main modes of operation:
 
 ### Standard
+
 When the mode entity is set to standard, you can simply set the state of the relay to be powered or not powered for each mode of operation: on grid, off grid, and on generator.
 
-### Battery Level
+### Battery level
+
 When the relay mode is set to battery level, the relays will turn on and off based on the remaining battery level of your Encharge batteries. Two number entities are available to control the cutoff and restore levels for the relays. When the battery level drops below the cutoff level, the relays will turn off. When the battery level rises above the restore level, the relays will turn back on.
 
-## Polling Interval
-The default polling interval is 60 seconds. To customize the polling interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify the envoy device as a target of the service using the `+ choose device` button. Updating the envoy will also update the related devices like the inverters; there is no need to split them into separate entities or add all inverter devices. When using multiple Envoys, add them as targets or create separate custom polling intervals as needed. 
+## Polling interval
+
+The default polling interval is 60 seconds. To customize the polling interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the service using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
+
+## Credentials update
+
+This integration supports updating configuration by re-adding the integration and specifying the same or new IP address, username, and password. Use this method if your Enlighten credentials or the device's IP address has changed and needs to be updated.
+
+## Energy dashboard
+
+This integration provides several values suitable for the energy dashboard:
+
+- For `Solar production`, use the `Envoy Lifetime energy production` entity.
+- For `Grid consumption`, use the `Envoy Lifetime net energy consumption` entity.[^3]
+- For `Return to grid`, use the `Envoy Lifetime net energy production` entity.[^3]
+
+[^3]: Only applies when using  Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (<abbr title="current transformers">CT</abbr>).
+
+There are no readily available battery energy sensors for use with the `Home Battery storage`. You can consider using the Encharge  `real_power_mw` entity as an input to Riemann integrators for charge (negative) or discharge (positive) values. As the [polling interval](#polling-interval) is 1 minute, these may be off though.
+
+## Debug logs and diagnostics
+
+This integration provides debug log and diagnostics report as described in the [Home Assistant troubleshooting pages](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+
+### Debug log
+
+When experiencing issues during the use of the integration, enable the debug log for the Envoy / IQ Gateway. This will add details on the data collection to the Home Assistant log file. Leave the debug log enabled long enough to capture the occurrence of the issue. If the issue is intermittent, this may take a while and it may grow the log file quite a bit.
+
+If you're expecting features to show but they are not shown, reload the integration while debug logging is enabled.
+When this integration is loaded, it will scan the Envoy / IQ Gateway for available features and configure these as needed. Following this initial scan, only data for the found features is collected.  Performing a reload with debug enabled results in the debug log containing the initial full scan to assist with analyzing any missing features. Some features are disabled by default, and you need to enable them if you want them to show. Verify this before starting a debug session.
+
+The debug log will show all communication with the Envoy / IQ Gateway. Lines starting with entities are log entries for the integration:
+
+```txt
+2024-03-07 11:20:11.897 DEBUG (MainThread) [homeassistant.components.enphase_envoy
+2024-03-07 11:20:11.898 DEBUG (MainThread) [pyenphase.envoy
+```
+
+Below a typical data request / reply sequence in the log file. These lines will contain the data details received from the Envoy / IQ Gateway.
+
+```txt
+... [pyenphase.envoy] Requesting https://192.168.1.2/ivp/meters with timeout ...
+... [pyenphase.envoy] Request reply from https://192.168.1.2/ivp/meters status 200:...
+```
+
+The end of a collection cycle is marked by:
+
+```txt
+... [homeassistant.components.enphase_envoy.coordinator] Finished fetching Envoy 123456 data in 1.234 seconds (success: True)
+```
+
+### Diagnostics
+
+The diagnostics file is a JSON file and includes a `data` section with the details for this integration. The file can be viewed with any text editor[^4]. The data section has 5 major subsections which reflects how the integration is setup and data is used. Below the 5 subsections, each collapsed.
+
+[^4]: Use of a JSON-aware viewer is not required but makes inspecting the file easier.
+
+```JSON
+  "data": {
+    "config_entry": { ...
+    },
+    "envoy_properties": { ...
+    },
+    "raw_data": { ...
+    },
+    "envoy_model_data": { ...
+    },
+    "envoy_entities_by_device": [ ...
+    ]
+  }
+}    
+```
+
+#### Config entry
+
+Shows the integration configuration created when the integration was added.
+
+#### Envoy properties
+
+Shows the conclusions of the initial data scan and what features were identified, including the detected firmware version in the Envoy.
+
+#### Raw data
+
+Shows the data collected from the Envoy during the last data scan when the diagnostic report was created. If in doubt about data shown in the dashboards, consult this section to find the raw data sent by the Envoy. The integration is not modifying this data, it's just providing the data to the entities.
+
+#### Envoy model data
+
+Shows the data of the Envoy extracted from the raw_data into Envoy class data used by the Home Assistant integration. This is a subset of the full raw dataset.
+
+#### Envoy entities by device
+
+Shows all entities created by the integration based on the findings of the initial scan, grouped by device. Entity state based on the last data collection cycle is included. State values here come from the Envoy model data and are the values visible in the dashboards.

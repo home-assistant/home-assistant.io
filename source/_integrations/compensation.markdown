@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Compensation {% term integration %} consumes the {% term state %} from other {% term sensors %}. It exports the compensated value as state in a separate {% term entity %} and the following values as attributes: `entity_id` and `coefficients`.  A single polynomial, linear by default, is fit to all data points provided.
+The **Compensation** {% term integration %} consumes the {% term state %} from other {% term sensors %}. It exports the compensated value as state in a separate {% term entity %} and the following values as attributes: `entity_id` and `coefficients`. A single polynomial, linear by default, is fit to all data points provided.
 
 ## Configuration
 
@@ -31,7 +31,7 @@ compensation:
       - [0.2, -80.0]
       - [1.0, 0.0]
 
-  media_player_db_volume:
+  media_player_zone_2_db_volume:
     source: media_player.yamaha_receiver_zone_2
     attribute: volume_level
     unit_of_measurement: dB
