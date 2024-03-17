@@ -36,7 +36,22 @@ This integration will offer various sensors depending on the configuration of yo
 - Historical energy production & consumption
 - Power production per-inverter
 
-_Consumption sensors require your Envoy to be properly configured with consumption CT sensors installed._
+_Consumption sensors require your Envoy to be properly configured with consumption <abbr title="current transformers">CT</abbr> sensors installed._
+
+For Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (CT), additional features are available:
+
+- Production and consumption sensors for each phase, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
+- Sensors for net production (grid export) and net consumption (grid import) if the consumption <abbr title="current transformers">CT</abbr> is a net-consumption <abbr title="current transformers">CT</abbr>.
+- Disabled sensors for:
+  
+  - Phase net production and net consumption.
+  - Frequency net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).
+  - Voltage net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).[^1]
+  - Metering status for net consumption and production <abbr title="current transformers">CT</abbr> (`normal` | `not-metering` | `check-wiring`) (aggregate and phase).
+  - Meter status flags active for net consumption and production <abbr title="current transformers">CT</abbr> (aggregate and phase).[^2]
+
+[^1]: For multi-phase systems, the Envoy sums the voltages of the phases. May be valid for split-phase, but for 3-phase systems use the individual phases rather than the summed value.
+[^2]: If this value is non-zero, consult the diagnostic report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`).
 
 For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/IQ Batteries installed, additional features are available:
 
@@ -58,10 +73,29 @@ For models running firmware 5 and older, use `installer` for the username. No pa
 The Enphase Enpower has 4 load shedding relays that can be used to control non-essential loads in your home. These have two main modes of operation:
 
 ### Standard
+
 When the mode entity is set to standard, you can simply set the state of the relay to be powered or not powered for each mode of operation: on grid, off grid, and on generator.
 
 ### Battery level
+
 When the relay mode is set to battery level, the relays will turn on and off based on the remaining battery level of your Encharge batteries. Two number entities are available to control the cutoff and restore levels for the relays. When the battery level drops below the cutoff level, the relays will turn off. When the battery level rises above the restore level, the relays will turn back on.
 
 ## Polling interval
-The default polling interval is 60 seconds. To customize the polling interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify the envoy device as a target of the service using the `+ choose device` button. Updating the envoy will also update the related devices like the inverters; there is no need to split them into separate entities or add all inverter devices. When using multiple Envoys, add them as targets or create separate custom polling intervals as needed.
+
+The default polling interval is 60 seconds. To customize the polling interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the service using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
+
+## Credentials update
+
+This integration supports updating configuration by re-adding the integration and specifying the same or new IP address, username, and password. Use this method if your Enlighten credentials or the device's IP address has changed and needs to be updated.
+
+## Energy dashboard
+
+This integration provides several values suitable for the energy dashboard:
+
+- For `Solar production`, use the `Envoy Lifetime energy production` entity.
+- For `Grid consumption`, use the `Envoy Lifetime net energy consumption` entity.[^3]
+- For `Return to grid`, use the `Envoy Lifetime net energy production` entity.[^3]
+
+[^3]: Only applies when using  Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (<abbr title="current transformers">CT</abbr>).
+
+There are no readily available battery energy sensors for use with the `Home Battery storage`. You can consider using the Encharge  `real_power_mw` entity as an input to Riemann integrators for charge (negative) or discharge (positive) values. As the [polling interval](#polling-interval) is 1 minute, these may be off though.

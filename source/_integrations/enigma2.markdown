@@ -6,7 +6,7 @@ ha_category:
 ha_release: '0.90'
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@fbradyirl'
+  - '@autinerd'
 ha_domain: enigma2
 ha_platforms:
   - media_player

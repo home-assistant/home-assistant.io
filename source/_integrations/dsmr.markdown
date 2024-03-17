@@ -92,7 +92,7 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 - [ser2net](https://ser2net.sourceforge.net)
 - [Smart Meter bridge](https://github.com/legolasbo/smartmeterBridge)
 - [WIZnet WIZ110SR](https://www.wiznet.io/product-item/wiz110sr/)
-- [esp8266 espeasy (Poluket)](https://www.domohab.be/produit/kit-complet-passerelle-compteur/) (create for Sagemcom T211 model in Belgium)
+- [esp8266 SmartMeter (Poluket)](https://www.domohab.be/categorie-produit/passerelle/) (create for DSMR5 / ESMR5 Meter)
 
 DIY solutions (ESP8266 based):
 

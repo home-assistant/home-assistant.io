@@ -12,6 +12,7 @@ ha_domain: bthome
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - event
   - sensor
 ha_integration_type: integration
 ---

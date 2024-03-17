@@ -8,7 +8,7 @@ Assist allows you to control Home Assistant using natural language. It is built 
 
 Assist is available to use on most platforms that can interface with Home Assistant. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>:
 
-<lite-youtube videoid="qkgdHTHM7Uw" videotitle="Home Assistant Year of the Voice, Part 3"></lite-youtube>
+<lite-youtube videoid="XF53wUbeLxA" videotitle="Voice at Home Assistant"></lite-youtube>
 
 _Want to use Home Assistant with Google Assistant or Amazon Alexa? Get started with [Home Assistant Cloud](https://www.nabucasa.com/config/)._
 
