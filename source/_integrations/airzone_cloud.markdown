@@ -5,7 +5,7 @@ ha_release: 2023.6
 ha_category:
   - Binary sensor
   - Sensor
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: airzone_cloud
 ha_platforms:

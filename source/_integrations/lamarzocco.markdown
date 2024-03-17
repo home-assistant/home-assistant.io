@@ -4,11 +4,20 @@ description: Instructions on how to integrate your La Marzocco coffee machine wi
 ha_release: 2024.2
 ha_category:
   - Switch
+  - Update
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: lamarzocco
 ha_platforms:
+  - binary_sensor
+  - button
+  - calendar
+  - diagnostics
+  - number
+  - select
+  - sensor
   - switch
+  - update
 ha_codeowners:
   - '@zweckj'
 ha_integration_type: device
@@ -51,6 +60,10 @@ Host:
 | Coffee target temperature | Temperature the coffee boiler is set to | GS3 AV, GS3 MP | - |
 | Steam target temperature | Temperature the steam boiler is set to | GS3 AV, GS3 MP | - |
 | Tea water duration | Dose hot water (in seconds) | GS3 AV, GS3 MP | - |
+| Dose | Doseage (in ticks) for each key | GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Prebrew on time | Time prebrew wets the puck | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Prebrew off time | Time prebrew waits before turning on the pump | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Preinfusion time | Duration of preinfusion | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 
 
 ## Switches
@@ -92,3 +105,6 @@ Host:
 | Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
 | Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
 
+## Calendar
+
+The integration exposes a calendar for the auto on/off schedule set for the machine. The schedule will be displayed recurringly: If you set the machine to start up on Mondays at 8:00, and shut down at 9:00, you will get events for all Mondays in your calendar. On days when you have the auto on/off feature disabled, you won't get an event in the calendar. Also, if you have the auto on/off feature disabled globally (for example, through the switch "Auto on/off"), there will be no events in the calendar.

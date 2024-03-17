@@ -34,7 +34,7 @@ regenerate: false
       <a href='#all' class="btn">All ({{tot}})</a>
       <div class="featured">
         <a href='#featured' class="btn">Featured</a>
-        <a href='#works-with-home-assistant' class="btn">Partners</a>
+        <a href='#works-with-home-assistant' class="btn">Partner brands</a>
       </div>
       <div class="version_select">Added in: <select name="versions">
           <option value="#"></option>
@@ -213,7 +213,7 @@ allComponents.pop(); // remove placeholder element at the end
             return comp.featured;
           };
 
-        } else if (hash === '#works-with-home-assistant' || hash === '') {
+        } else if (hash === '#works-with-home-assistant') {
           // only show those partners of the Works with Home Assistant program
           filter = function (comp) {
             return comp.wwha;

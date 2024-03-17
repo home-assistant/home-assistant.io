@@ -339,9 +339,11 @@ modbus:
 
 modbus entities are grouped below each modbus communication entry.
 
-All modbus entities have the following parameters:
+**REMARK** Each modbus device must have at least 1 entity defined, otherwise the integration will not be loaded.
 
 Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+
+All modbus entities have the following parameters:
 
 {% configuration %}
 address:

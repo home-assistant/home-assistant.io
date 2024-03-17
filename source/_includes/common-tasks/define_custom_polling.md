@@ -1,6 +1,8 @@
 
 
-If you want to define a specific interval at which your device is being polled for data, you can disable the default polling interval and create your own polling service.
+If you want to define a specific interval at which your device is being polled for data, you can disable the default polling interval and create your own polling automation.
+
+To add the automation:
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}, and select your integration.
 2. On the integration entry, select the three dots.
