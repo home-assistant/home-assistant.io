@@ -339,7 +339,7 @@ modbus:
 
 modbus entities are grouped below each modbus communication entry.
 
-**REMARK** Each modbus device must have at least 1 entity defined.
+**REMARK** Each modbus device must have at least 1 entity defined, otherwise the integration will not be loaded.
 
 Experience has shown that a modbus configuration without entities leads to instability issues.
 
