@@ -14,9 +14,9 @@ Newer water meters are equipped with a rotary disk that can be read using two me
 
 For most water meters, the rotary encoder disk suffices the light sensor version. However, some older or specialized meters may necessitate the use of a proximity meter instead.
 
-Home assistant also has integrations build into the platform that connect with existing products
+Home Assistant also has integrations build into the platform that connect with existing products
 
-## Home assistant integrations
+## Home Assistant integrations
 Home Assistant will need to know the amount of water that is being consumed to be able to track usage. Several [water metering (fluid flow rate sensor device)](https://en.wikipedia.org/wiki/Water_metering) hardware options are available to do this. Depending on your setup, the required hardware is provided by your public water utility company, or you may need to buy your own. 
 
 Some hardware with water meters may also provide additional practical functions or sensors, such as [valve](/integrations/valve), for example, for controlling water shutoff, or temperature and pressure (to enable freeze alarms).
@@ -34,7 +34,7 @@ If your water meter lacks a rotary disk, magnetic disk, or coil. There are alter
 - [AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) is a project running on an ESP32-CAM and can be fully integrated into Home Assistant using the Home Assistant Discovery Functionality of MQTT. It digitalizes your gas/water/electricity meter display and provides its data in various ways.![Photo of the AI-on-the-edge-device Workflow](/images/docs/energy/
 
 Alternatively, the following shops sell ESPHome-based devices that use a 3-phase light sensor to detect a rotating disk in your water meter and convert this to the amount of water used in milliliters (ml):
-- [Muino water meter reader](https://watermeter.muino.nl/) (ESPhome)
+- [Muino water meter reader](https://watermeter.muino.nl/) (ESPHome)
 
 Alternatively, the following shops sell ESPHome-based devices, that use a proximity sensor to detect a rotating magnet in your water meter and use that pulse to count each liter of water used:
 - [S0tool](https://s0tool.nl/) ("Made for ESPHome" approved)
