@@ -11,7 +11,7 @@ ha_domain: history
 ha_integration_type: system
 ---
 
-The `history` integration will track everything that is going on within Home
+The **History** integration tracks everything that is going on within Home
 Assistant and allows the user to browse through it. It depends on the [`recorder`](/integrations/recorder/)
 integration for storing the data and uses the same database setting.
 If any entities are excluded from being recorded,
@@ -24,148 +24,33 @@ This integration is by default enabled, unless you've disabled or removed the [`
 history:
 ```
 
-<p class='img'>
-  <a href='/images/screenshots/component_history_24h.png'>
-    <img src='/images/screenshots/component_history_24h.png' />
-  </a>
-</p>
+## Exporting data from the History panel
 
-<div class='note'>
-Events are saved in a local database. Google Graphs is used to draw the graph.
-Drawing is happening 100% in your browser. No data is transferred to anyone at any time.
-</div>
+You can access the **History** panel from the side bar. To export the data, follow these steps:
 
-{% configuration %}
-exclude:
-  description: Configure which integrations should **not** be displayed.
-  required: false
-  type: map
-  keys:
-    entities:
-      description: The list of entity ids to be excluded from the history.
-      required: false
-      type: list
-    entity_globs:
-      description: Include all entities matching a listed pattern when creating logbook entries (e.g., `sensor.weather_*`).
-      required: false
-      type: list
-    domains:
-      description: The list of domains to be excluded from the history.
-      required: false
-      type: list
-include:
-  description: Configure which integrations should be displayed.
-  required: false
-  type: map
-  keys:
-    entities:
-      description: The list of entity ids to be included in the history.
-      required: false
-      type: list
-    entity_globs:
-      description: Include all entities matching a listed pattern when creating logbook entries (e.g., `sensor.weather_*`).
-      required: false
-      type: list
-    domains:
-      description: The list of domains to be included in the history.
-      required: false
-      type: list
-{% endconfiguration %}
+1. Select the areas, devices, or entities of interest.
+2. Set the time frame.
+3. In the top right corner, select the **Download data** button.
+   **Result**: Your data is exported in CSV format.
 
-Without any `include` or `exclude` configuration the history displays graphs for
- every entity (well that's not exactly true -
- `scenes` are never shown) on a given date. If you are only interested in some
- of the entities you have several options:
+<img class="no-shadow" src='/images/integrations/history/history-panel_export-data.png' alt='History panel can be accessed via sidebar.'>
 
-Define domains and entities to `exclude` (aka. blocklist). This is convenient
-when you are basically happy with the information displayed, but just want to
-remove some entities or domains. Usually these are entities/domains which do not
-change or rarely change (like `updater` or `automation`).
+## About the data sources
 
-```yaml
-# Example configuration.yaml entry with exclude
-history:
-  exclude:
-    domains:
-      - automation
-      - updater
-    entities:
-      - sensor.last_boot
-      - sensor.date
-    entity_globs:
-      - binary_sensor.*_occupancy
-```
+By default, the recorder stores the sensor data for 10 days. Older data is purged automatically. The data for the last 10 days is taken from the recorder.
 
-Define domains and entities to display by using the `include` configuration
-(aka. allowlist). If you have a lot of entities in your system and your
-`exclude` list is getting too large, it might be better just to define the
-entities or domains to `include`.
+If you select a time frame that exceeds 10 days, the data is taken from the long term statistics table. The long term statistics data is sampled and averaged once per hour, to save storage. Therefore, the values might look different from what you see from the recorder data, which shows the measured values at the sample rate defined for that sensor.
 
-```yaml
-# Example configuration.yaml entry with include
-history:
-  include:
-    domains:
-      - sensor
-      - switch
-      - media_player
-```
+<img class="no-shadow" src='/images/integrations/history/history-panel_including-long-term-storage.png' alt='If the chosen time frame exceeds the retention period defined in the recorder, the long term statistics table is used as a data source.'>
 
-Use the `include` list to define the domains/entities to display, and exclude
-some of them within the `exclude` list. This makes sense if you, for instance,
-include the `sensor` domain, but want to exclude some specific sensors. Instead
-of adding every sensor entity to the `include` `entities` list just include the
-`sensor` domain and exclude the sensor entities you are not interested in.
-Note that the order of any `include` `entities` will be displayed as listed in
-the configuration, otherwise, the display order is arbitrary.
+ If you want to see the data in full resolution for a longer period of time, you could change the retention period for that sensor in the recorder. If you do this, you may need to increase the storage capacity of your device.
 
-```yaml
-# Example configuration.yaml entry with include and exclude
-history:
-  include:
-    domains:
-      - sensor
-      - switch
-      - media_player
-  exclude:
-    entities:
-     - sensor.last_boot
-     - sensor.date
-```
-
-{% include common-tasks/filters.md %}
-
-#### Implementation details
-
-The history is stored in a SQLite database `home-assistant_v2.db` within your
-configuration directory unless the `recorder` integration is set up differently.
-
-- events table is all that happened while recorder integration was running.
-- states table contains all the `new_state` values of `state_changed` events.
-- Inside the states table you have:
-  - `entity_id`: the entity_id of the entity
-  - `state`: the state of the entity
-  - `attributes`: JSON of the state attributes
-  - `last_changed`: timestamp last time the state has changed.
-  - `last_updated`: timestamp anything has changed (state, attributes)
-  - `created`: timestamp this entry was inserted into the database
-
-When the `history` integration queries the states table it only selects states
-where the state has changed: `WHERE last_changed=last_updated`
-
-#### On dates
-
-SQLite databases do not support native dates. That's why all the dates are saved
-in seconds since the UNIX epoch. Convert them manually using
-[this site](https://www.epochconverter.com/) or in Python:
-
-```python
-from datetime import datetime
-
-datetime.fromtimestamp(1422830502)
-```
-
-#### API
+## API
 
 The history information is also available through the
 [RESTful API](/developers/rest_api/#get-apihistory).
+
+## Related topics
+
+- [Recorder integration](/integrations/recorder/)
+- [Home Assistant Data Science Portal](https://data.home-assistant.io)

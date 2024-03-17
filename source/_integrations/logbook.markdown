@@ -65,7 +65,7 @@ include:
       type: list
 {% endconfiguration %}
 
-## Configure Filter
+## Configure filter
 
 By default, the logbook will use the same filter as the recorder. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
 
@@ -136,7 +136,7 @@ logbook:
       - sensor.weather_*
 ```
 
-### Exclude Events
+### Exclude events
 
 If you have `sensor.date` to show the current date in the UI,
 but you do not want a logbook entry for that sensor every day it can be excluded.
@@ -151,10 +151,10 @@ for sun rise and sun set.
 Excluded entities still take up space in the database. It may be advisable to
 exclude them in `recorder` instead.
 
-### Custom Entries
+### Custom entries
 
 It is possible to add custom entries to the logbook by using the script
-component to fire an event.
+integration to fire an event.
 
 ```yaml
 # Example configuration.yaml entry

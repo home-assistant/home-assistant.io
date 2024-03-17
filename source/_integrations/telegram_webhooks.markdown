@@ -41,7 +41,7 @@ api_key:
 parse_mode:
   description: Default parser for messages if not explicit in message data, either `html` or `markdown`.
   required: false
-  default: markdown
+  default: "`markdown`"
   type: string
 proxy_url:
   description: Proxy URL if working behind one (`socks5://proxy_ip:proxy_port`).

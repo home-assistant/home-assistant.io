@@ -17,7 +17,7 @@ ha_integration_type: system
 
 Home Assistant allows users to share their usage data via the analytics integration. The aggregated data is available at <https://analytics.home-assistant.io>. It is used to influence Home Assistant development priorities and to convince manufacturers to add local control and privacy-focused features.
 
-## Data Collection
+## Data collection
 
 The information sent depends on what options you opt-in to. You can opt-in during onboarding and by going to **{% my analytics title="Settings > System > Analytics" %}** .
 
@@ -75,6 +75,7 @@ This includes:
 
 - The names of all your core integrations
 - The names and versions of all your custom integrations if you have any
+- The name and version of the engine used in the [recorder integration](/integrations/recorder)
 - Boolean to indicate that the [energy integration](/integrations/energy) is configured
 - Boolean to indicate that [HTTP certificate](https://www.home-assistant.io/integrations/http/#ssl_certificate) is configured
 
@@ -113,6 +114,10 @@ If your system includes the Supervisor, this will also contain:
   ],
   "energy": {
     "configured": true
+  },
+  "recorder": {
+    "engine": "sqlite",
+    "version": "123"
   },
   "certificate": false
 }
@@ -173,7 +178,7 @@ All data is received and processed by the Home Assistant Analytics Receiver ([so
 
 When your installation sends a payload, that payload includes a unique identifier. This identifier is used to make sure that your installation is only counted once.
 
-Your data is securely stored in [CloudFlare's Key-Value store](https://www.cloudflare.com/products/workers-kv/). It will be stored for a maximum of 60 days since the last update. Only aggregated data is made publicly available.
+Your data is securely stored in [Cloudflare's Key-Value store](https://www.cloudflare.com/products/workers-kv/). It will be stored for a maximum of 60 days since the last update. Only aggregated data is made publicly available.
 
 This is an example of how the information is stored:
 {% configuration_basic %}

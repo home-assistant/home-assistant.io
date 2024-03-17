@@ -1,9 +1,9 @@
 ---
-title: "Service Calls"
+title: "Service calls"
 description: "Instructions on how to call services in Home Assistant."
 ---
 
-Various integrations allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script, a dashboard or via voice command devices such as Amazon Echo.
+Various integrations allow calling {% term services %} when a certain event occurs. The most common one is calling a service when an automation {% term trigger %} happens. But a service can also be called from a {% term script %}, a dashboard or via voice command devices such as Amazon Echo.
 
 The configuration options to call a configuration are the same between all integrations and are described on this page.
 
@@ -15,7 +15,7 @@ Use the "Services" tab under Developer Tools to discover available services.
 
 ### The basics
 
-Call the service `homeassistant.turn_on` on the entity `group.living_room`. This will turn all members of `group.living_room` on. You can also use `entity_id: all` and it will turn on all possible entities.
+Call the service `homeassistant.turn_on` on the {% term entity %} `group.living_room`. This will turn all members of `group.living_room` on. You can also use `entity_id: all` and it will turn on all possible entities.
 
 ```yaml
 service: homeassistant.turn_on
@@ -24,7 +24,7 @@ entity_id: group.living_room
 
 ### Targeting areas and devices
 
-Instead of targeting an entity, you can also target an area or device. Or a combination of these.
+Instead of targeting an entity, you can also target an {% term area %} or {% term device %}. Or a combination of these.
 This is done with the `target` key.
 
 A `target` is a map that contains at least one of the following: `area_id`, `device_id`, `entity_id`.
@@ -57,7 +57,7 @@ data:
   rgb_color: [255, 0, 0]
 ```
 
-A full list of the parameters for a service can be found on the documentation page of each component, in the same way as it's done for the `light.turn_on` [service](/integrations/light/#service-lightturn_on).
+A full list of the parameters for a service can be found on the documentation page of each integration, in the same way as it's done for the `light.turn_on` [service](/integrations/light/#service-lightturn_on).
 
 ### Use templates to decide which service to call
 
@@ -125,6 +125,56 @@ data: >
 
 {% endraw %}
 
+### Use templates to handle response data
+
+Some services may respond with data that can be used in automation. This data is called _service response data_. Service response data
+is typically used for data that is dynamic or large and which may not be suited for use in entity state.
+Examples of service response data are upcoming calendar events for the next week or detailed driving directions.
+
+Templates can also be used for handling response data. The service call can specify
+a `response_variable`. This is the [variable](/docs/scripts/#variables)
+that contains the response data. You can define any name for your `response_variable`. This example calls a service and stores the response in the variable called `agenda`.
+
+{% raw %}
+
+```yaml
+service: calendar.get_events
+target:
+  entity_id: calendar.school
+data:
+  duration:
+    hours: 24
+response_variable: agenda
+```
+
+{% endraw %}
+
+You may then use the response data in the variable `agenda` in another action
+in the same script. The example below sends a notification using the response
+data.
+
+<div class='note'>
+Which data fields can be used in a service call depends on the type of notification service that is used.
+</div>
+
+{% raw %}
+
+```yaml
+service: notify.gmail_com
+data:
+  target: "gduser1@workspacesamples.dev"
+  title: "Daily agenda for {{ now().date() }}"
+  message: >-
+    Your agenda for today:
+    <p>
+    {% for event in agenda['calendar.school'].events %}
+    {{ event.start}}: {{ event.summary }}<br>
+    {% endfor %}
+    </p>
+```
+
+{% endraw %}
+
 ### `homeassistant` services
 
 There are four `homeassistant` services that aren't tied to any single domain, these are:
@@ -136,7 +186,7 @@ There are four `homeassistant` services that aren't tied to any single domain, t
 
 Complete service details and examples can be found on the [Home Assistant integration][homeassistant-integration-services] page.
 
-[templating]: /topics/templating/
+[templating]: /docs/configuration/templating/
 [google travel time]: /integrations/google_travel_time/
 [template sensor]: /integrations/template/
 [light]: /integrations/light/

@@ -110,7 +110,7 @@ notify_sms_user1:
 
 {% endraw %}
 
-## Required Hardware
+## Required hardware
 
 You will need a USB GSM stick modem or device like SIM800L v2 connected via USB UART.
 
@@ -122,6 +122,7 @@ Note: E3372h-153 and E3372h-510 need to be unlocked [this guide](http://blog.asi
 - [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1) (note: Devices with firmware versions 22.XX need to be unlocked using [this guide](https://community.home-assistant.io/t/trouble-setting-up-huawei-e3531s-2-with-sms-notifications-via-gsm-modem-integration/462737/9?u=alexschmitz222))
 - [Huawei E3272](https://www.amazon.com/Huawei-E3272s-506-Unlocked-Americas-Europe/dp/B00HBL51OQ)
 - ZTE K3565-Z
+- Lenovo F5521gw (mPCI-E)
 
 ### List of modems known to NOT work
 
@@ -183,6 +184,8 @@ ACTION=="add" \
 Re-plug the USB stick, reboot the device, run `lsusb` again.
 The resulting product id now should be different and the brand id should be the same.
 And `ls -l /dev/*USB*` should now report your device.
+
+Note: if you have multiple USB devices, USB number order can change on boot. For this reason, it's preferable to use your device ID and look in `/dev/serial/by-id/*`. For example,  `/dev/serial/by-id/usb-HUAWEI_MOBILE_HUAWEI_MOBILE-if00-port0`.
 
 If the device is still not recognized, remove the parameter -X from the usb_modeswitch command and reboot again.
 

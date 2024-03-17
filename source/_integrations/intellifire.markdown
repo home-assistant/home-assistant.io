@@ -2,7 +2,7 @@
 title: IntelliFire
 description: Instructions on the IntelliFire Fireplace integration for Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Fan
   - Light
@@ -18,8 +18,8 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - climate
-  - light
   - fan
+  - light
   - number
   - sensor
   - switch
@@ -70,9 +70,9 @@ The integration uses a Number entity to control flame height. Valid flame height
 
 ### Sensor Types
 
-The following sensors are available as either a **Binary Sensor** when dealing with on/off.
+The following sensors are available as a **binary sensor** when dealing with on/off.
 
-### Binary Sensors
+### Binary sensors
 
 - **Flame Sensor**: Whether the fire is on.
 - **Pilot Light Sensor**: Whether the pilot light is turned on.

@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Control4 integration allows you to control and monitor lights and Room Audio from your local Control4 system. Your Control4 controller must be running OS 3.0+.
+The **Control4** {% term integration %} allows you to control and monitor lights and Room Media from your local Control4 system. Your Control4 controller must be running OS 3.0+.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Before setting up, you should assign a static IP address/DHCP reservation on you
 
 ## Options
 
-The Control4 integration offers additional options in **Settings** -> **Devices & Services** -> **Control4** -> **Options**:
+The Control4 {% term integration %} offers additional options in {% my integrations title="**Settings** > **Devices & Services**" %} > **Control4** > **Options**:
 
 {% configuration %}
 Seconds between updates:

@@ -2,7 +2,7 @@
 title: Cisco IOS
 description: Instructions on how to integrate Cisco IOS routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.33
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -45,7 +45,7 @@ copy running-config startup-config
 
 <div class='note warning'>
 
-If you have a very large number of devices on your VLan (+1000), then you may want to adjust the ARP cache timeout to suit your needs. See [this discussion](https://supportforums.cisco.com/discussion/10169296/arp-timeout) to learn more.
+If you have a very large number of devices on your VLan (+1000), then you may want to adjust the ARP cache timeout to suit your needs. See [this discussion](https://community.cisco.com/t5/switching/arp-timeout/td-p/839027) to learn more.
 
 </div>
 

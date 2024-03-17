@@ -2,7 +2,7 @@
 title: Universal Devices ISY/IoX
 description: Instructions on how to setup an ISY controller within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
@@ -44,7 +44,7 @@ This integration supports the legacy ISY994 hardware family, as well as current 
 
 There is currently support for the following platforms within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Button
 - Climate
 - Cover
@@ -75,9 +75,9 @@ There are several options available to further customize what is imported from t
 
 ### Sensors
 
-An Insteon door/window sensor will show up as a single Binary Sensor rather than two discrete devices like it does in the ISY Admin Console. Note that when in "Two Nodes" mode, the sensor will have an UNKNOWN state until the sensor changes for the first time since the last Home Assistant reboot. If you do not use Insteon scenes that are controlled directly from the door sensor, you may prefer to set the sensor to "One Node" mode using the ISY Admin Panel.
+An Insteon door/window sensor will show up as a single binary sensor rather than two discrete devices like it does in the ISY Admin Console. Note that when in "Two Nodes" mode, the sensor will have an UNKNOWN state until the sensor changes for the first time since the last Home Assistant reboot. If you do not use Insteon scenes that are controlled directly from the door sensor, you may prefer to set the sensor to "One Node" mode using the ISY Admin Panel.
 
-Each Insteon leak sensor will also show up as a single Binary Sensor as opposed to the two nodes seen in the ISY Admin Console. The name of the device will be based on what the parent node is named in the ISY, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node in Home Assistant to be more clear, see the [Customization section](/docs/configuration/customizing-devices/) of your configuration.
+Each Insteon leak sensor will also show up as a single binary sensor as opposed to the two nodes seen in the ISY Admin Console. The name of the device will be based on what the parent node is named in the ISY, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node in Home Assistant to be more clear, see the [Customization section](/docs/configuration/customizing-devices/) of your configuration.
 
 If your leak or door/window sensor supports heartbeats, a new binary_sensor device will be added to Home Assistant to represent the battery state. The sensor will stay "Off" so long as the daily heartbeats occur. If a heartbeat is missed, the sensor will flip to "On". The name of this device will be based on the heartbeat node in the ISY.
 
@@ -122,7 +122,7 @@ All `isy994_control` events will have an `entity_id` and `control` parameter in 
 
 ### Insteon Scenes & Keypad/Remote Buttons
 
-All Insteon scenes configured in the ISY Admin Console will show up as a `switch` in Home Assistant, as they do not support dimming or setting specific brightness settings as Home Assistant's `light` component.
+All Insteon scenes configured in the ISY Admin Console will show up as a `switch` in Home Assistant, as they do not support dimming or setting specific brightness settings as Home Assistant's `light` integration.
 
 Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant to allow support for using Control Events in Automations. These devices are added as `sensors` since they cannot be directly controlled (turned on/off); their state is the last ON level command they sent, in a range from `0` (Off) to `255` (On 100%).  Note: these devices may report incorrect states before being used after a reboot of the ISY. Secondary Keypad buttons may be turned on or off using ISY Scenes (refer to ISY Documentation for more details).
 
@@ -134,7 +134,8 @@ Insteon devices will include entities for setting the device On Level, Ramp Rate
 
 Once loaded, the following services will be exposed with the `isy994.` prefix, to allow advanced control over the ISY and its connected devices:
 
- - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, and `set_ramp_rate`.
+ - Entity services for all Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`.
+ - ISY Z-Wave Node services: `get_zwave_parameter`, `set_zwave_parameter`, `set_zwave_lock_user_code`, `delete_zwave_lock_user_code`
  - Generic ISY services: `send_program_command`
 
 #### Service `isy994.send_node_command`
@@ -178,9 +179,29 @@ Update a Z-Wave Device parameter via the ISY. The parameter value will also be r
 | `value`                | no       | The value to set for the parameter. May be an integer or byte string (e.g. "0xFFFF").           |
 | `size`                 | no       | The size of the parameter, either 1, 2, or 4 bytes.                                             |
 
+#### Service `isy994.set_zwave_lock_user_code`
+
+Set a Z-Wave Lock User Code via the ISY. 
+
+| Service data attribute | Optional | Description                                                                                     |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of target entity for the command, e.g., `lock.front_door`. The entity must be an ISY Z-Wave Lock entity. |
+| `user_num`             | no       | The user slot number to set on the end device.                                                  |
+| `code`                 | no       | The lock code to set for the user slot.                                                         |
+
+
+#### Service `isy994.delete_zwave_lock_user_code`
+
+Delete a Z-Wave Lock User Code via the ISY. 
+
+| Service data attribute | Optional | Description                                                                                     |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of target entity for the command, e.g., `lock.front_door`. The entity must be an ISY Z-Wave Lock entity. |
+| `user_num`             | no       | The user slot number to delete the code on the end device.                            |
+
 #### Service `isy994.rename_node`
 
-Rename a node or group (scene) on the ISY994. Note: this will not automatically change the Home Assistant Entity Name or Entity ID to match. The entity name and ID will only be updated after calling `isy994.reload` or restarting Home Assistant, and ONLY IF you have not already customized the name within Home Assistant.
+Rename a node or group (scene) on the ISY994. Note: this will not automatically change the Home Assistant Entity Name or Entity ID to match. The entity name and ID will only be updated after reloading the integration or restarting Home Assistant, and ONLY IF you have not already customized the name within Home Assistant.
 
 | Service data attribute | Optional | Description                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------- |

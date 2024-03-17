@@ -9,10 +9,21 @@ author_twitter: balloob
 comments: true
 categories:
 - Announcements
+- Assist
 og_image: /images/blog/2022-12-20-year-of-voice/conversation.png
 ---
 
 _**TL;DR**: It is our goal for 2023 to let users control Home Assistant in their own language. Mike Hansen, creator of Rhasspy, has joined Nabu Casa to lead this effort. We’re starting off by building a [collection of intent matching sentences in every language](https://github.com/home-assistant/intents)._
+
+**Updates:**
+
+ - [Year of the Voice - Chapter 1](https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/) (January 26, 2023)
+ - [Year of the Voice - Chapter 2](/blog/2023/04/27/year-of-the-voice-chapter-2/) (April 27, 2023)
+ - [Year of the Voice - Chapter 3](/blog/2023/07/20/year-of-the-voice-chapter-3/) (July 20, 2023)
+ - [Year of the Voice - Chapter 4](/blog/2023/10/12/year-of-the-voice-chapter-4-wakewords/) (October 12, 2023)
+ - [Year of the Voice - Chapter 5](/blog/2023/12/13/year-of-the-voice-chapter-5/) (December 13, 2023)
+
+<hr>
 
 Usually, the month of December is meant to reflect back. However, we already did that last month when we hosted the [State of the Open Home 2022](https://www.youtube.com/watch?v=D936T1Ze8-4). We didn’t only reflect, we also announced our focus for next year: 2023 is going to be the year of voice.
 
@@ -44,7 +55,7 @@ With Home Assistant we want to make a privacy and locally focused smart home ava
 
 With Home Assistant we prefer to get the things we’re building in the user's hands as early as possible. Even basic functionality allows users to find things that work and don’t work, allowing us to address the direction if needed.
 
-A voice assistant has a lot of different parts: hot word detection, speech to text, intent recognition, intent execution, text to speech. Making each work in every language is a lot of work. The most important part is the intent recognition and intent execution. We need to be able to understand your commands and execute them.
+A voice assistant has a lot of different parts: hot word detection, speech-to-text, intent recognition, intent execution, text-to-speech. Making each work in every language is a lot of work. The most important part is the intent recognition and intent execution. We need to be able to understand your commands and execute them.
 
 We started gathering these command sentences in our new [intents repository](https://github.com/home-assistant/intents). It will soon power the existing [conversation integration](/integrations/conversation) in Home Assistant, allowing you to use our app to write and say commands.
 

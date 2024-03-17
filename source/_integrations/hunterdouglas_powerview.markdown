@@ -4,6 +4,7 @@ description: Instructions on how to setup Hunter Douglas PowerView scenes within
 ha_category:
   - Button
   - Cover
+  - Number
   - Scene
   - Select
   - Sensor
@@ -20,6 +21,7 @@ ha_platforms:
   - button
   - cover
   - diagnostics
+  - number
   - scene
   - select
   - sensor
@@ -34,36 +36,54 @@ There is currently support for the following device types within Home Assistant:
 
 - Button
 - Cover
+- Number
 - Scene
 - Select
 - Sensor
 
-<div class="note">
-The Powerview Hub does not automatically wake shades or report position changes made via pebble remotes.
+{% include integrations/config_flow.md %}
 
-Calling the update entity service (`homeassistant.update_entity`) on a shade entity will trigger the hub to awaken a shade and report its current position. [An example automation is available](#force-update-shade-position) below for mains powered shades. While the automation will work for battery-powered shades, it will quickly drain their batteries for these devices.
+## Hub capabilities
+
+### Generation 1 + 2
+
+Generation 1 and 2 hubs work better with Home Assistant when all calls are made directly via the Powerview application or Home Assistant itself.
+
+Generation 1 and 2 Pebble remotes use proprietary Bluetooth Low Energy (PLE) and do not report shade position changes back to the hub.
+
+This will result in the shade positioning displayed within Home Assistant being incorrect.
+
+<div class="note">
+Calling the update entity service (`homeassistant.update_entity`) on a shade entity will trigger the hub to awaken a shade and report its current position.
+
+[An example automation is available](#force-update-shade-position) below for mains powered shades. While the automation will work for battery-powered shades, it will quickly drain the batteries for these devices.
 </div>
 
-{% include integrations/config_flow.md %}
+### Generation 3
+
+Generation 3 introduced RF Radio Pebble Remotes.
+
+Generation 3 shades report position changes back to the hub automatically. They should appear correctly in Home Assistant without requiring any additional automations or considerations for positioning.
 
 ## Shades
 
-### Known working devices
-
 <div class="note">
-If your shade is not listed please raise a feature request on the community forum.
+Your shades may still make work even if not listed. If you encounter issues, please raise a feature request on the community forum.
 </div>
 
 | Name (Type)                               | Capabilities                    |
 | :---------------------------------------- | :------------------------------ |
 | AC Roller  (49)                           | Bottom Up                       |
+| Banded Shades (52)                        | Bottom Up                       |
 | Bottom Up (5)                             | Bottom Up                       |
 | Curtain, Left Stack (69)                  | Vertical                        |
 | Curtain, Right Stack (70)                 | Vertical                        |
 | Curtain, Split Stack (71)                 | Vertical                        |
 | Facette (43)                              | Bottom Up TiltOnClosed 90°      |
+| Designer Roller (1)                       | Bottom Up                       |
 | Duette (6)                                | Bottom Up                       |
 | Duette, Top Down Bottom Up (8)            | Top Down Bottom Up              |
+| Duette and Applause SkyLift (10)          | Bottom Up                       |
 | Duette Architella, Top Down Bottom Up (9) | Top Down Bottom Up              |
 | Duette DuoLite, Top Down Bottom Up (9)    | Top Down Bottom Up              |
 | Duolite Lift (79)                         | Dual Shade Overlapped           |
@@ -71,6 +91,7 @@ If your shade is not listed please raise a feature request on the community foru
 | Palm Beach Shutters (66)                  | Tilt Only 180°                  |
 | Pirouette (18)                            | Bottom Up TiltOnClosed 90°      |
 | Pleated, Top Down Bottom Up (47)          | Top Down Bottom Up              |
+| Provenance Woven Wood (19)                | Bottom Up                       |
 | Roman (4)                                 | Bottom Up                       |
 | Silhouette (23)                           | Bottom Up TiltOnClosed 90°      |
 | Silhouette Duolite (38)                   | Dual Shade Overlapped Tilt 90°  |
@@ -84,6 +105,9 @@ If your shade is not listed please raise a feature request on the community foru
 | Vertical Slats, Left Stack (54)           | Vertical TiltAnywhere 180°      |
 | Vertical Slats, Right Stack (55)          | Vertical TiltAnywhere 180°      |
 | Vertical Slats, Split Stack (56)          | Vertical TiltAnywhere 180°      |
+| Vignette (31)                             | Bottom Up                       |
+| Vignette (32)                             | Bottom Up                       |
+| Vignette (84)                             | Bottom Up                       |
 | Vignette Duolite (65)                     | Dual Shade Overlapped           |
 
 ## Capabilities Information
@@ -157,6 +181,9 @@ Three different entities that will be created for each blind: Front, Rear and Co
 
 ### Calibrate
 
+<div class="note">
+Gen 1 and Gen 2 Only.
+</div>
 Initiate a calibration of the shade position. Calibration is a common requirement with Duette-type shades with a string drop that lowers and raises the blind and less so with roller types.
 
 ### Identify
@@ -165,20 +192,35 @@ Identify will 'jog' the shade position as a diagnostic tool to ensure the shade 
 
 ### Favorite
 
+<div class="note">
+Gen 1 and Gen 2 Only.
+</div>
 Move the shade to the favorite position as programmed physically on the device. This will perform the same move as the heart on the pebble remote.
 
 ## Selection Entities
 
 ### Power Source
 
+<div class="note">
+Gen 1 and Gen 2 Only.
+</div>
 Set the type for connected power source. Available options are Hardwired Power Supply, Battery Wand and Rechargeable Battery
+
+## Number entities
+
+### Velocity
+
+<div class="note">
+Gen 3 Only.
+</div>
+Velocity controls the speed of the shade. The default speed from Hunter Douglas is 0; setting this higher will increase the speed of the shade.
 
 ## Example Automations
 
 ### Calling a Powerview Scene
 
 ``` yaml
-alias: "blinds closed at night"
+alias: "Blinds closed at night"
 trigger:
   platform: time
   at: "18:00:00"

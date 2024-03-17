@@ -15,9 +15,15 @@ ha_platforms:
   - diagnostics
 ---
 
-The Bluetooth integration will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
+The **Bluetooth** {% term integration %} will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
 
 {% include integrations/config_flow.md %}
+
+## Before you begin
+
+In many cases, a better approach than a directly connected adapter or card is to use a Bluetooth proxy using an ESP32 since Linux kernel updates have previously broken Bluetooth functionality and Bluetooth driver support Linux generally falls behind other operating systems for newer adapters. A Bluetooth proxy is particularly interesting to users who virtualize their instance, where the USB pass-through may cause additional problems. More information is available in the Remote Adapters section below or by visiting ESPhome's [Bluetooth proxy page](https://esphome.io/projects/?type=bluetooth).
+
+Suppose a Bluetooth proxy is not a good fit for your use case. Consider using the Home Assistant Operating System when using a local adapter because it includes Bluetooth patches for issues unsolved in other operating systems.
 
 ## Configuration
 
@@ -71,7 +77,7 @@ On Debian based host systems, the `sudo apt-get -y install bluez` command will i
 
 {% enddetails %}
 
-## Installing a USB Bluetooth Adapter
+## Installing a USB Bluetooth adapter
 
 Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
 
@@ -79,22 +85,28 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 ### Known working high-performance adapters
 
-#### Cambridge Silicon Radio (CSR) Based adapters
+#### Cambridge Silicon Radio (CSR) -based adapters
 
+- ANNE PRO CSR 4.0 (CSR8510A10)
 - Avantree BTDG-40S (CSR8510A10)
+- DIGITUS DN-30210-1 (CSR8510A10)
 - Enbiawit BT403 (CSR8510A10)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
+- Gold Touch E-USB-BT4 (CSR8510A10)
 - HIDEEZ BT0015-01 (CSR8510A10)
+- Maxesla CSR 4.0 (CSR8510A10)
 - Nuu You BT40 (CSR8510A10)
 - ORICO BTA-403 (CSR8510A10)
 - ORICO BTA-409 (CSR8510A10)
 - Panda Wireless PBU40 (CSR8510A10)
+- PlanexCOMM BT-Micro4 (CSR8510A10)
 - QGOO BT-06A (CSR8510A10)
 - ROCKETEK BT4Y (CSR8510A10)
 - SABRENT BT-UB40 (CSR8510A10)
 - Sena UD100-G03 (CSR8510A10) 📶
 - StarTech USBBT1EDR4 (CSR8510A10)
 - Techkey PBT06H (CSR8510A10)
+- TRENDnet TBW-106UB (CSR8510A10)
 - TRENDnet TBW-107UB (CSR8510A10)
 - UGREEN CM109 (CSR8510A10)
 - Warmstor WBT-AD01 (CSR8510A10)
@@ -158,6 +170,10 @@ Performance testing used the following hardware:
 
 ### Known working adapters
 
+<div class='note'>
+Known working adapters list adapters that do not meet high-performance requirements but will generally work. These adapters vary widely in performance and may take as long as thirty seconds or more to establish a connection. These adapters may also miss advertisements such as button presses or temperature updates.
+</div>
+
 #### Realtek RTL8761BU adapters
 
 <div class='note warning'>
@@ -179,6 +195,7 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - XDO BT802 (RTL8761BU) 📶
 - ZEXMTE BT-505 (RTL8761BU) 📶
 - ZEXMTE BT-DG54 (RTL8761BU) 📶
+- ZEXMTE Z01 (RTL8761BU) 📶
 - ZETSAGE BH451A (RTL8761BU) 📶
 
 📶 Denotes external antenna
@@ -188,9 +205,13 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
 - BASEUS BR8651A01 BA04 - Advertisement drops out
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
+- Bluegiga BLED112 - No driver available yet for USB id 2458:0001
 - EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
 - EDUP EP-AC1661 (RTL8821CU) - Frequent connection failures and drop outs
 - eppfun AK3040G (ATS2851) - No driver available yet for USB id 10d7:b012
+- eppfun AK3040A (ATS2851) - No driver available yet for USB id 10d7:b012
+- KOAMTAC KBD 401G (CSR8510A10) - Adapter is unstable and drops out
+- TRIPP-LITE CU885A/U261-001-BT4 (CSR8510A10) - Adapter is unstable and drops out
 - QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
 - UGREEEN CM591 (ATS2851) - No driver available yet for USB id 10d7:b012
 - tp-link UB400 (CSR4) - Frequent connection failures with active connections
@@ -214,7 +235,7 @@ The following methods are known to work to add multiple adapters:
 
 Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/bluetooth/?_highlight=Best+practices#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
-## Passive Scanning
+## Passive scanning
 
 Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 5.63 or later with experimental features enabled. This functionality is available with Home Assistant Operating System 9.4 and later.
 
@@ -230,16 +251,35 @@ When adding multiple remote adapters to increase range or available connection s
 
 The following remote adapters are supported:
 
-- [ESPHome](https://esphome.github.io/bluetooth-proxies/)
+- [ESPHome](https://esphome.io/projects/?type=bluetooth)
   - Bluetooth advertisement listening: ESPHome ESP32 device with firmware 2022.8.2 or later
+  - Bluetooth advertisement bundling: ESPHome ESP32 device with firmware 2023.6.0 or later
   - Single active connection: ESPHome ESP32 device with firmware 2022.9.3 or later
   - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
 - [Shelly](/integrations/shelly/)
   - Bluetooth advertisement listening: Shelly v2 device with firmware 12.0 or later
+  - Bluetooth advertisement bundling: Shelly v2 device with firmware 12.0 or later
   - Single active connection: not supported
   - Multiple active connections: not supported
 
+Bluetooth advertisement bundling reduces traffic between Home Assistant and the proxy, significantly improving performance and reducing the time that Bluetooth and WiFi compete for air time for devices that share a radio.
+
 ## Troubleshooting
+
+### Improving connection times
+
+The connection time and performance vary greatly based on the Bluetooth adapter and interference. The below adapters are listed from best-performing to worst-performing:
+
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#passive-scanning)
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [USB High performance adapter](#known-working-high-performance-adapters) with active scanning
+- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
+- [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#passive-scanning)
+- [Onboard high performance adapter](#cypress-based-adapters) with active scanning
+- [Known working adapters](#known-working-adapters) with [passive scanning](#passive-scanning)
+- [Known working adapters](#known-working-adapters) with active scanning
 
 ### Integrations that require exclusive use of the Bluetooth Adapter
 

@@ -34,7 +34,7 @@ Fireplace on / off, fan settings, and desired temperature settings are supported
 
 ## Debugging
 
-If you're trying to track down issues with the component, set up logging for it:
+If you're trying to track down issues with this integration, set up logging for it:
 
 ```yaml
 # Example configuration.yaml with logging for Escea

@@ -5,9 +5,9 @@ toc: true
 no_toc: true
 ---
 
-Conditions can be used within a script or automation to prevent further execution. When a condition evaluates true, the script or automation will be executed. If any other value is returned, the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.
+Conditions can be used within a {% term script %} or {% term automation %} to prevent further execution. When a condition evaluates true, the script or automation will be executed. If any other value is returned, the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.
 
-Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
+Unlike a {% term trigger %}, which is always `or`, conditions are `and` by default - all conditions have to be true.
 
 All conditions support an optional `alias`.
 
@@ -321,6 +321,24 @@ condition:
   state: input_select.guest_mode
 ```
 
+You can also use templates in the `for` option.
+
+{% raw %}
+
+```yaml
+condition:
+  condition: state
+  entity_id: device_tracker.paulus
+  state: "home"
+  for:
+    minutes: "{{ states('input_number.lock_min')|int }}"
+    seconds: "{{ states('input_number.lock_sec')|int }}"
+```
+
+{% endraw %}
+
+The `for` template(s) will be evaluated when the condition is tested.
+
 ### Sun condition
 
 #### Sun state condition
@@ -514,7 +532,7 @@ It's also supported in script or automation `condition` actions:
 
 {% endraw %}
 
-[template]: /topics/templating/
+[template]: /docs/configuration/templating/
 [automation-templating]: /getting-started/automation-templating/
 
 ## Time condition
