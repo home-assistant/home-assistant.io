@@ -34,9 +34,12 @@ For more detailed instructions, follow the step-by-step tutorial on [editing the
 
 ## Related topics
 
-- [Community custom cards](https://github.com/custom-cards)
-- [Home Assistant cards](https://home-assistant-cards.bessarabov.com/)
-- [Material Design Icons](https://pictogrammers.com/library/mdi/)
 - [Dashboard themes](/integrations/frontend/#defining-themes)
 - [Interactive dashboard demo](https://demo.home-assistant.io)
 - [Editing the **Overview** dashboard](/getting-started/onboarding_dashboard/)
+
+### Cards
+
+- [About cards](/dashboards/cards/)
+- [Community custom cards](https://github.com/custom-cards)
+- [Home Assistant cards](https://home-assistant-cards.bessarabov.com/)
