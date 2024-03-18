@@ -35,8 +35,8 @@ The following sensors are currently available per plant:
 | moisture_status       |        | FYTA-Status (number 1 to 5)                |
 | salinity_status       |        | FYTA-Status (number 1 to 5)                |
 | temperature           | °C     | Temperature measured by sensor             |
-| light                 | μmol/h | Light measured by sensor                   |
+| light                 | μmol/h | Light measured by sensor (hourly photosynthetically active radiation PAR)|
 | moisture              | %      | Moisture measured by sensor                |
-| salinity              | mS/cm  | Salinity measured by sensor                |
+| salinity              | mS/cm  | Salinity measured by sensor (measured as conductivity)|
 | battery_level         | %      | Battery level of the sensor                |
 
