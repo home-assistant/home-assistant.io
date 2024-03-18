@@ -18,24 +18,16 @@ The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta
 
 For the authentication on the FYTA server, you need your login-credentials (email and password).
 
-The integration provides a device for the controller interface and for all plants with a FYTA Beam sensor.
+The integration provides a device for all plants with a FYTA Beam sensor.
 
 {% include integrations/config_flow.md %}
 
 ## Sensors
 
-The following sensors are currently available for the controller:
-
-| name                  | Unit   | Description   |
-|-----------------------|--------|:-------------------------------------------|
-| plant_number          |        | Number of plants                           |
-
 The following sensors are currently available per plant:
 
 | name                  | Unit   | Description   |
 |-----------------------|--------|:-------------------------------------------|
-| last_update           |        | Time of latest data update.                |
-| plant_name            |        | Name of the plant (as set by user)         |
 | scientific_name       |        | Scientific name of the plant               |
 | plant_status          |        | FYTA-Status (number 1 to 5)                |
 | temperature_status    |        | FYTA-Status (number 1 to 5)                |
@@ -43,7 +35,7 @@ The following sensors are currently available per plant:
 | moisture_status       |        | FYTA-Status (number 1 to 5)                |
 | salinity_status       |        | FYTA-Status (number 1 to 5)                |
 | temperature           | °C     | Temperature measured by sensor             |
-| light                 | mol/d  | Light measured by sensor                   |
+| light                 | μmol/h | Light measured by sensor                   |
 | moisture              | %      | Moisture measured by sensor                |
 | salinity              | mS/cm  | Salinity measured by sensor                |
 | battery_level         | %      | Battery level of the sensor                |
