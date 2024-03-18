@@ -9,7 +9,7 @@ or need to recover your data.
 ## Forgot user name
 
 If you’ve forgotten your username, ask the owner to help you.
-If you are the owner and have forgotten your user name, then you need to [prepare the system to start a new onboarding process](/docs/locked_out/#to-prepare-the-system-to-start-a-new-onboarding-process).
+If you are the owner and have access to the Home Assistant server, you can connect a terminal and [use the command line to list all user names](/common-tasks/os/#listing-all-users-from-the-command-line).
 
 ## Forgot password
 
