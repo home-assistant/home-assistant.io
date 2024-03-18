@@ -115,4 +115,10 @@ The `ha os datadisk wipe` command can only be run from the local terminal. Conne
 
 Note, if you have a Home Assistant Yellow, there is a red hardware button to wipe the data disk. Follow the procedure on [resetting the device](https://yellow.home-assistant.io/guides/factory-reset/).
 
+#### Listing all users from the command line
+
+In Home Assistant Operating System, the `ha auth list` command lists all users that are registered on your Home Assistant.
+
+The `ha auth list` command can only be run from the local terminal. Connect a display and keyboard and use the terminal.
+
 {% endif %}
