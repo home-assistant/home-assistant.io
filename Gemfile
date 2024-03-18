@@ -11,7 +11,7 @@ group :development do
   # > 2.1.0 causes slowdowns https://github.com/sass/sassc-ruby/issues/189
   gem 'sassc', '2.1.0'
   gem 'rubocop', '1.62.1'
-  gem 'ruby-lsp', '0.14.5'
+  gem 'ruby-lsp', '0.14.6'
   gem 'rackup', '2.1.0'
 end
 
@@ -23,7 +23,7 @@ group :jekyll_plugins do
 end
 
 gem 'sinatra', '4.0.0'
-gem 'nokogiri', '1.16.2'
+gem 'nokogiri', '1.16.3'
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library
