@@ -107,12 +107,12 @@ You can also access the Home Assistant Operating System via a directly connected
 
 #### Wiping the data disk wipe from the command line
 
-In Home Assistant Operating System, there is a dedicated command to delete all user data as well as Home Assistant Core, Supervisor, and any installed add-ons: this command is `ha os datadisk wipe`.
+In Home Assistant Operating System, the dedicated command `ha os datadisk wipe` deletes all user data as well as Home Assistant Core, Supervisor, and any installed add-ons.
 
 The command `ha os datadisk wipe` marks the data partition (either internal on the eMMC or the SD card, or on an external attached data disk) as to be cleared on the next reboot. The command automatically reboots the system. Upon reboot, the data is cleared. Then the system continues to boot and reinstalls the latest version of all Home Assistant components.
 
-The `ha os datadisk wipe` command can be run from the local terminal. Connect a display and keyboard and use the terminal.
+The `ha os datadisk wipe` command can only be run from the local terminal. Connect a display and keyboard and use the terminal.
 
-Note, if you have a Home Assistant Yellow, there is a the red button to wiipe the data disk. Follow the procedure on [resetting the device](https://yellow.home-assistant.io/guides/factory-reset/).
+Note, if you have a Home Assistant Yellow, there is a the red button to wipe the data disk. Follow the procedure on [resetting the device](https://yellow.home-assistant.io/guides/factory-reset/).
 
 {% endif %}
