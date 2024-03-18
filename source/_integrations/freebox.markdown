@@ -2,7 +2,7 @@
 title: Freebox
 description: Instructions on how to integrate Freebox routers into Home Assistant.
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Camera
   - Network
   - Presence detection
