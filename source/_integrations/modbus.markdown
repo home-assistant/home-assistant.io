@@ -688,7 +688,7 @@ climates:
       type: map
       keys:
         address:
-          description: "Address of Swing mode register. (int to call write_register, list of 1 int to call write_registers)"
+          description: "Address of Swing mode register. (int to call write_register, list of 1 int to call write_registers). - Reading done through holding register"
           required: true
           type: [integer, list]
         values:
