@@ -131,3 +131,9 @@ For Windows or macOS you will need third party software. Below are some options.
 
 - Windows: <https://www.diskinternals.com/linux-reader/> (read-only access to the SD)
 - macOS: <https://osxfuse.github.io/>
+
+## Related topics
+
+- [Reset the Green](https://green.home-assistant.io/guides/reset/)
+- [Reset the Yellow](https://yellow.home-assistant.io/guides/factory-reset/)
+- [Listing all user names via command line](/common-tasks/os/#listing-all-users-from-the-command-line)
