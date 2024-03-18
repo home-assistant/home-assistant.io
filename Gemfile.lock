@@ -101,7 +101,7 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.9.0)
     rexml (3.2.6)
-    rouge (4.2.0)
+    rouge (4.2.1)
     rubocop (1.62.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
