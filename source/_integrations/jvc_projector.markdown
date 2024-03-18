@@ -78,7 +78,7 @@ Detailed Power Status values:
 - `cooling`
 - `error`
 
-Please note that if the projector is off it will not respond to remote polling and will result as unavailable
+Please note that if the projector is off, it will not respond to remote polling and will show as *unavailable*.
 
 Detailed HDMI Input values:
 
