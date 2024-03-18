@@ -113,6 +113,6 @@ The command `ha os datadisk wipe` marks the data partition (either internal on t
 
 The `ha os datadisk wipe` command can only be run from the local terminal. Connect a display and keyboard and use the terminal.
 
-Note, if you have a Home Assistant Yellow, there is a the red button to wipe the data disk. Follow the procedure on [resetting the device](https://yellow.home-assistant.io/guides/factory-reset/).
+Note, if you have a Home Assistant Yellow, there is a red hardware button to wipe the data disk. Follow the procedure on [resetting the device](https://yellow.home-assistant.io/guides/factory-reset/).
 
 {% endif %}
