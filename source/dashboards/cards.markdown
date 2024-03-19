@@ -24,19 +24,17 @@ There are several built-in card types, each with their own configuration options
 
 2. There are two methods to add a card: **By card** type and **By entity**:
    - **By card** type:
-        ![Add card by Card type dialog](/images/blog/2024-03-dashboard-chapter-1/sections-add-card-by-card.png)
-
         - If you have an idea of what card type you want to use for an entity, browse the list of available cards.
         - If you are using the **Sections** view, try the **Tile** card in the **Suggested cards** section.
+        ![Add card by Card type dialog](/images/blog/2024-03-dashboard-chapter-1/sections-add-card-by-card.png)
 
    - **By entity**:
         - If you want to add multiple entities at once, select them from the list.
+        - Then, select **Continue**.
         ![Screenshot add cards by entity](/images/dashboards/dashboard_add-by-entity_02.png)
 
-        - Then, select **Continue**.
-
-        ![Screenshot card suggestions](/images/dashboards/dashboard_add-by-entity_04.png)
 3. Select **Add to dashboard**.
+   ![Screenshot card suggestions](/images/dashboards/dashboard_add-by-entity_04.png)
 
 {% enddetails %}
 
@@ -50,6 +48,7 @@ Another way to add entities to a dashboard is to use the **Device** page.
 
 3. In the **Controls** section, select **Add to Dashboard**.
   ![Add to Dashboard button on the device page](/images/blog/2024-03-dashboard-chapter-1/sections-add-from-device-page.jpg)
+
 {% enddetails %}
 
 ## Related topics
