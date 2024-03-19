@@ -2,6 +2,7 @@
 title: Husqvarna Automower
 description: Instructions on how to integrate Husqvarna Automower lawn mowers into Home Assistant.
 ha_category:
+  - Binary Sensor
   - Lawn Mower
   - Sensor
   - Switch
@@ -11,6 +12,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@Thomas55555'
 ha_platforms:
+  - binary_sensor
   - lawn_mower
   - sensor
   - switch
@@ -79,6 +81,17 @@ The My Home Assistant redirect feature needs to be setup to redirect to your Hom
 ## Entities
 
 Once you have enabled the Husqvarna Automower integration, you should see the following entities:
+
+### Binary Sensor
+
+The integration will create the following sensors:
+
+- Battery charging  
+  *The mower is currently charging. Note that the mower will only report the activity of charging if it was its own decision to go home and charge. For example, if it wants to mow but is charging because the battery is low. If the mower is restricted (for example, due to the weekly schedule), it may charge when in the charging station, but the binary sensor will not show.*
+- Leaving dock  
+  *The mower is currently leaving the charging station and heading out to a starting point.*
+- Returning to dock  
+  *The mower is on its way home to the charging station.*
 
 ### Lawn Mower
 
