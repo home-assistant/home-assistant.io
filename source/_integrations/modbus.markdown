@@ -692,7 +692,7 @@ climates:
           required: true
           type: [integer, list]
         values:
-          description: "Mapping between the register values and Swing modes
+          description: "Mapping between the register values and Swing modes"
           required: true
           type: map
           keys:
