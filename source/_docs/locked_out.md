@@ -9,7 +9,7 @@ or need to recover your data.
 ## Forgot user name
 
 If you’ve forgotten your username, ask the owner to help you.
-If you are the owner and have forgotten your user name, then you need to [prepare the system to start a new onboarding process](/docs/locked_out/#to-prepare-the-system-to-start-a-new-onboarding-process).
+If you are using the Home Assistant Operating System and have access to the Home Assistant server, you can connect a terminal and enter the `auth list` command. This command lists all users that are registered on your Home Assistant.
 
 ## Forgot password
 
@@ -131,3 +131,9 @@ For Windows or macOS you will need third party software. Below are some options.
 
 - Windows: <https://www.diskinternals.com/linux-reader/> (read-only access to the SD)
 - macOS: <https://osxfuse.github.io/>
+
+## Related topics
+
+- [Reset the Green](https://green.home-assistant.io/guides/reset/)
+- [Reset the Yellow](https://yellow.home-assistant.io/guides/factory-reset/)
+- [Listing all user names via command line](/common-tasks/os/#listing-all-users-from-the-command-line)
