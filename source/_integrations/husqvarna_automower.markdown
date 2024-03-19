@@ -82,7 +82,7 @@ The My Home Assistant redirect feature needs to be setup to redirect to your Hom
 
 Once you have enabled the Husqvarna Automower integration, you should see the following entities:
 
-### Binary Sensor
+### Binary sensor
 
 The integration will create the following binary sensors:
 
@@ -93,7 +93,7 @@ The integration will create the following binary sensors:
 - Returning to dock  
   *The mower is on its way home to the charging station.*
 
-### Lawn Mower
+### Lawn mower
 
 The integration will create a lawn mower entity to control the mower. This entity can:
 
