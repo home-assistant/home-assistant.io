@@ -43,7 +43,7 @@ Screenshot of an entities card with a picture header and buttons footer.
 
 2. Choose one of the two methods to add cards to a dashboard:
 
-{% details "Using the Add Card button" %}
+{% details "Using the Add card button" %}
 
 1. In the bottom right, select **Add card**.
 
