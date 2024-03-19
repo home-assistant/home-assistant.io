@@ -17,7 +17,7 @@ There are several different card types, each with their own configuration option
 - **Logic function**: conditional and entity filter card
 - **Display generic data**: sensor, history graph, statistic, statistics graph, energy, gauge, and webpage card
 - **Control devices and entities**: button and entity card
-- **Some are a combination of display and control elements**: area, picture elements, and picture glance card
+- **Display data and control entities**: area, picture elements, and picture glance card
 
 ## Adding cards to your dashboard
 
