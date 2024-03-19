@@ -21,14 +21,20 @@ There are several different card types, each with their own configuration option
 - **Control devices and entities**: button and entity card
 - **Display data and control entities**: area, picture elements, and picture glance card
 
-## Card actions and features
+## Card actions, features, header and footer widgets
 
 Some cards have support for [tap actions](/dashboards/actions/). These actions define what will happen when you tap or hold on an object within a card.
 
-Some dashboard cards have support for [features](/dashboards/actions/). These widgets add quick controls to the card. Supported features depend on the card and entity capabilities. Multiple features can be added to a single card.
+Some cards have support for [features](/dashboards/actions/). These widgets add quick controls to the card. Supported features depend on the card and entity capabilities. Multiple features can be added to a single card.
 
 <p class='img'><img src='/images/dashboards/features/screenshot-tile-feature-grid.png' alt="Screenshot of tile cards with features.">
 Screenshot of tile cards with features.
+</p>
+
+Some cards have support for [header and footer widgets](/dashboards/header-footer/). These widgets fill up the entire available space in a card.
+
+<p class='img'><img src='/images/dashboards/header-footer/screenshot-picture-buttons.png' alt="Screenshot of an entities card with a picture header.">
+Screenshot of an entities card with a picture header and buttons footer.
 </p>
 
 ## Adding cards to your dashboard
@@ -72,9 +78,13 @@ Another way to add entities to a dashboard is to use the **Device** page.
 
 ## Related topics
 
-- For a list of available card types and more detailed documentation, refer to the **Card types** section in the side navigation.
 - [Views](/dashboards/views/)
 - [Introduction to dashboards](/dashboards/)
 - [Take control of the default dashboard](/dashboards/#get-started-with-your-own-dashboard)
+
+### Cards
+
+- For a list of available card types and more detailed documentation, refer to the **Card types** section in the side navigation.
 - [Card tap actions](/dashboards/actions/)
 - [Card features](/dashboards/actions/)
+- [Card header and footer widgets](/dashboards/header-footer/)
