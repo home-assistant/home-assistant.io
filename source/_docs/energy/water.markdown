@@ -29,6 +29,12 @@ We have the following integrations available for existing products that can prov
 - [StreamLabs](/integrations/streamlabswater)
 - [Suez Water](/integrations/suez_water)
 
+There are also products for water usage monitoring that are based on existing common IoT protocol standards:
+- [Z-Wave](/integrations/zwave_js)
+- [Zigbee](/integrations/zha)
+- [Matter (BETA)](/integrations/matter)
+
+
 ## Community Made Sensors
 If your water meter lacks a rotary disk, magnetic disk, or coil. There are alternative solutions available to seamlessly integrate water monitoring into your smart home setup:
 - [AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) is a project running on an ESP32-CAM and can be fully integrated into Home Assistant using the Home Assistant Discovery Functionality of MQTT. It digitalizes your gas/water/electricity meter display and provides its data in various ways.![Photo of the AI-on-the-edge-device Workflow](/images/docs/energy/
