@@ -10,6 +10,8 @@ Each dashboard is made up of cards.
 Screenshot of the masonry view with different types of cards.
 </p>
 
+## Card categories
+
 There are several different card types, each with their own configuration options. They can be categorized in terms of their function:
 
 - **Specific to a device type or {% term service %}**: alarm, light, humidifier, thermostat, plant status, media control, map, weather forecast, shopping list, map, logbook, and calendar card
@@ -18,6 +20,16 @@ There are several different card types, each with their own configuration option
 - **Display generic data**: sensor, history graph, statistic, statistics graph, energy, gauge, and webpage card
 - **Control devices and entities**: button and entity card
 - **Display data and control entities**: area, picture elements, and picture glance card
+
+## Card actions and features
+
+Some cards have support for [tap actions](/dashboards/actions/). These actions define what will happen when you tap or hold on an object within a card.
+
+Some dashboard cards have support for [features](/dashboards/actions/). These widgets add quick controls to the card. Supported features depend on the card and entity capabilities. Multiple features can be added to a single card.
+
+<p class='img'><img src='/images/dashboards/features/screenshot-tile-feature-grid.png' alt="Screenshot of tile cards with features.">
+Screenshot of tile cards with features.
+</p>
 
 ## Adding cards to your dashboard
 
@@ -64,3 +76,5 @@ Another way to add entities to a dashboard is to use the **Device** page.
 - [Views](/dashboards/views/)
 - [Introduction to dashboards](/dashboards/)
 - [Take control of the default dashboard](/dashboards/#get-started-with-your-own-dashboard)
+- [Card tap actions](/dashboards/actions/)
+- [Card features](/dashboards/actions/)
