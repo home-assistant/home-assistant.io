@@ -11,11 +11,11 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `downloader` integration provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
+The **Downloader** {% term integration %} provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (eg. .homeassistant/downloads).
+If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (for example, .homeassistant/downloads).
 
 ### Use the service
 
