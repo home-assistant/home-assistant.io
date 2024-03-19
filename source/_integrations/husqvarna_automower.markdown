@@ -84,7 +84,7 @@ Once you have enabled the Husqvarna Automower integration, you should see the fo
 
 ### Binary Sensor
 
-The integration will create the following sensors:
+The integration will create the following binary sensors:
 
 - Battery charging  
   *The mower is currently charging. Note that the mower will only report the activity of charging if it was its own decision to go home and charge. For example, if it wants to mow but is charging because the battery is low. If the mower is restricted (for example, due to the weekly schedule), it may charge when in the charging station, but the binary sensor will not show.*
