@@ -1,5 +1,5 @@
 ---
-title: Local To-do
+title: Local to-do
 description: Instructions on how to use local to-do lists in Home Assistant.
 ha_category:
   - To-do list
@@ -22,3 +22,8 @@ See the [**To-do list** integration](/integrations/todo) for additional details
 about to-do list entities.
 
 {% include integrations/config_flow.md %}
+
+## Related topics
+
+- [**To-do list** integration](/integrations/todo)
+- [Shopping list card](/dashboards/shopping-list/)

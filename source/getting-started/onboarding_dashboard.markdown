@@ -27,6 +27,7 @@ In the sidebar on the left, you see the names of different dashboards. Home Assi
 - Map
 - Logbook
 - History
+- To-do lists
 
 ## First contact with the Overview dashboard
 
