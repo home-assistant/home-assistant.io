@@ -51,22 +51,28 @@ The integration will create sensor entities for a variety of metrics that relate
 
 #### Vehicles
 - Battery level
+- Battery power
 - Battery range
-- Change energy added
-- Change power
-- Change rate (disabled by default)
-- Charge voltage
+- Charge cable
+- Charge energy added
+- Charge rate (disabled by default)
+- Charging
+- Charger power
+- Charger voltage
 - Charger current
 - Destination
 - Distance to arrival
 - Driver temperature setting (disabled by default)
+- Estimate battery range (disabled by default)
+- Fast charger type
+- Ideal battery range (disabled by default)
 - Inside temperature
 - Odometer (disabled by default)
 - Online
 - Outside temperature
 - Passenger temperature setting (disabled by default)
 - Power (disabled by default)
-- Shift State (disabled by default)
+- Shift state (disabled by default)
 - Speed (disabled by default)
 - State of charge at arrival (disabled by default)
 - Time to arrival
@@ -76,10 +82,11 @@ The integration will create sensor entities for a variety of metrics that relate
 - Tire pressure rear left (disabled by default)
 - Tire pressure rear right (disabled by default)
 - Traffic delay (disabled by default)
+- Usable battery level (disabled by default)
 
 #### Wall connectors
-- Fault state (disabled by default)
+- Fault state code (disabled by default)
 - Power
-- State (disabled by default)
+- State code (disabled by default)
 - Vehicle
 

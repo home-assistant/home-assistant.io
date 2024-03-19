@@ -23,6 +23,7 @@ ha_platforms:
   - camera
   - climate
   - cover
+  - date
   - diagnostics
   - fan
   - light
