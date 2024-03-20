@@ -2,6 +2,7 @@
 title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
+  - Binary sensor
   - Hub
   - Plug
   - Remote
@@ -12,6 +13,7 @@ ha_codeowners:
   - '@SeraphicRav'
 ha_domain: switchbot_cloud
 ha_platforms:
+  - binary_sensor
   - climate
   - switch
 ha_config_flow: true
@@ -30,6 +32,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 ## Supported devices
 
+- Contact sensor
 - Plug (Wi-Fi only, only available in Japan)
 - Plug Mini, both the original and HomeKit-enabled
 
