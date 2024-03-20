@@ -141,3 +141,5 @@ Screenshot of the button card with script service.
 
 - [Card actions](/dashboards/actions/)
 - [Scripts](/docs/scripts/)
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

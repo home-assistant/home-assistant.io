@@ -134,3 +134,4 @@ You want to colorize the tile card? Choose one of the following colors: `primary
 
 - [Card actions](/dashboards/actions/)
 - [Card features](/dashboards/features)
+- [Dashboard cards](/dashboards/cards/)

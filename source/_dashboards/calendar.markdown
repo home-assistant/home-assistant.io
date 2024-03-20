@@ -5,7 +5,7 @@ sidebar_label: Calendar
 description: "The calendar card displays your calendar entities in a month, day and list view"
 ---
 
-The calendar card displays your [calendar](/integrations/#calendar) entities in a month, day and list view (7 days).
+The calendar card displays your [calendar](/integrations/#calendar) {% term entities %} in a month, day, and list view (7 days).
 
 <p class='img'>
   <img src='/images/dashboards/calendar_card.png' alt='Screenshot of the 
@@ -52,3 +52,8 @@ entities:
   - calendar.calendar_1
   - calendar.calendar_2
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

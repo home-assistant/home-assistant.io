@@ -161,3 +161,5 @@ entities:
 ## Related topics
 
 - [Card actions](/dashboards/actions/)
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

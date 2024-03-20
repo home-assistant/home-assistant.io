@@ -36,6 +36,7 @@ card:
 ## Examples
 
 Only show when all the conditions are met:
+
 ```yaml
 type: conditional
 conditions:
@@ -59,6 +60,7 @@ card:
 ```
 
 Example condition where only one of the conditions needs to be met:
+
 ```yaml
 type: conditional
 conditions:
@@ -188,3 +190,7 @@ users:
   description: User ID that can see the card (unique hex value found on the Users configuration page).
   type: list
 {% endconfiguration %}
+
+## Related topics
+
+- [Dashboard cards](/dashboards/cards/)
