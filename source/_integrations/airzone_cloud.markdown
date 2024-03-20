@@ -57,6 +57,7 @@ For each Airzone zone (thermostat), the following *binary sensors* are created:
 
 | Condition           | Description                                             |
 | :------------------ | :------------------------------------------------------ |
+| air_quality_active  | Indicates that the air quality control is running.      |
 | problems            | Indicates that the current zone has errors or warnings. |
 
 ## Climate
