@@ -1,0 +1,31 @@
+---
+title: Epic Games Store
+description: Instructions on how to integrate Epic Games Store service into Home Assistant.
+ha_category:
+  - Calendar
+ha_release: 2022.12
+ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@Quentame'
+ha_domain: epic_games_store
+ha_config_flow: true
+ha_platforms:
+  - calendar
+ha_integration_type: service
+---
+
+Integrates [Epic Games Store](https://store.epicgames.com/) service into Home Assistant.
+
+The integration adds calendars to follow [discounts & free games](https://store.epicgames.com/free-games).
+
+{% include integrations/config_flow.md %}
+
+
+## Calendars
+
+The following calendars will be created :
+
+|Entity|Description|
+|------|-----------|
+|`epic_games_store_discount_games`|Current and upcoming discounts on games, one calendar event per game|
+|`epic_games_store_free_games`|Free games for the current and upcoming week, one calendar event per game|
