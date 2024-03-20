@@ -151,3 +151,45 @@ Creating a dedicated user for Home Assistant, limited to only to the access just
 9. Click `Add`
 
 In your Home Assistant configuration, use `hass@pve` for the username and your chosen password for the password.
+
+## Services
+
+### VM Operation Services
+
+#### Service `proxmoxve.set_vm_status`
+
+After your VM entities are configured successfully and shown on your `Entities` page, you can call this service to control the power of your VMs and containers, like start, stop, reboot, etc.
+
+<div class='note'>
+
+To be able to call this service, the user must have at least `VM.PowerMgmt` permission.
+You can follow the step *Add Group Permissions to all Assets* above to add a new group permission with the `PVEVMUser` role, and then you can remove the old one.
+
+</div>
+
+Example to stop a VM:
+
+```yaml
+service: proxmoxve.set_vm_status
+  target:
+    entity_id: binary_sensor.home_kodi
+  data:
+    status_command: stop
+```
+
+| Service data attribute | Optional | Description                                            |
+|------------------------|----------|--------------------------------------------------------|
+| `entity_id`            |       no | Target a specific binary sensor of corresponding VM or container. |
+| `status_command`       |       no | Status command to set for the VM. See available commands below. |
+
+##### Available `status_command` values
+
+| Value      | Description                                            |
+|------------|--------------------------------------------------------|
+| `reboot`   | Reboot the VM by shutting it down, and starting it again. |
+| `reset`    | Reset virtual machine. |
+| `resume`   | Resume virtual machine. |
+| `shutdown` | Shutdown virtual machine. This is similar to pressing the power button on a physical machine. |
+| `start`    | Start virtual machine. |
+| `stop`     | Stop virtual machine. The qemu process will exit immediately. |
+| `suspend`  | Suspend virtual machine. |
