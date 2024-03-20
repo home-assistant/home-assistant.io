@@ -151,6 +151,7 @@ The integration will create sensor entities for a variety of metrics related to 
 
 #### Charge state
 
+- Battery charging
 - Battery level
 - Battery range
 - Battery range estimate (disabled)
