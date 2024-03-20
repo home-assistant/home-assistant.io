@@ -146,3 +146,10 @@ hours_to_show:
   type: integer
   default: 24
 {% endconfiguration %}
+
+## Related topics
+
+- [Entity](/dashboards/entity/)
+- [Entities](/dashboards/entities/)
+- [Statictis](/dashboards/statistics/)
+- [Card actions](/dashboards/actions/)
