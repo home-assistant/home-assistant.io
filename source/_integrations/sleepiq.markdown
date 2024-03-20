@@ -41,6 +41,7 @@ There is currently support available for the following platforms within Home Ass
 - Number - View/Set firmness for each side
 - Select - Choose a foundation preset position
 - Select/Number - Set a foot warmer mode and timeout
+- Select/Number - Set a core climate mode and timeout
 - Sensor - View pressure of each side
 - Switch - Toggle Privacy mode
 
