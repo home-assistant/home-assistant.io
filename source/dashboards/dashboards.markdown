@@ -14,13 +14,14 @@ Screenshot of the Dashboard list.
 
 ## Home Assistant default dashboards
 
-Home Assistant ships with 5 predefined dashboards:
+Home Assistant ships with some dashboards out of the box:
 
 - Overview
 - Energy
 - Map
 - Logbook
 - History
+- To-do lists
 
 Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. **Map**, **Logbook**, and **History**, are powered by their respective integrations.
 
@@ -35,6 +36,10 @@ The predefined **Logbook** dashboard is powered by the [Logbook integration](/in
 ### History dashboard
 
 The predefined **History** dashboard is powered by the [History integration](/integrations/history/). To learn about the data sources used and how to export data, refer to the documentation of the History integration.
+
+### To-do lists dashboard
+
+The predefined **To-do lists** dashboard is powered by the [To-do integration](/integrations/todo/). To learn how to use to-do and shopping lists, refer to the documentation of the to-do list integration.
 
 ## Creating a new dashboard
 
@@ -252,3 +257,4 @@ views:
 - [Logbook integration](/integrations/logbook/)
 - [Map integration](/integrations/map/)
 - [History integration](/integrations/history/)
+- [To-do list integration](/integrations/todo/)
