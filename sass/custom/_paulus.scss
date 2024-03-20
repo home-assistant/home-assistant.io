@@ -490,6 +490,10 @@ article.listing {
     box-shadow: none;
   }
 
+  video {
+    max-width: 100%;
+  }
+
   &>table,
   &>.entry-content>table {
     background-color: #f3fcf5;
