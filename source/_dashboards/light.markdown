@@ -80,3 +80,7 @@ name: My Office
 <img src='/images/dashboards/light_complex_card.png' alt='Screenshot of the Light card'>
 Screenshot of the Light card names.
 </p>
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)

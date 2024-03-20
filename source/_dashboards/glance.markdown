@@ -157,3 +157,7 @@ entities:
     tap_action:
       action: toggle
 ```
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)

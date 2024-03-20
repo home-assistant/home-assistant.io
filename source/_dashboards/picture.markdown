@@ -74,3 +74,7 @@ tap_action:
   data:
     entity_id: light.ceiling_lights
 ```
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)
