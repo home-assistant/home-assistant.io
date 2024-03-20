@@ -41,6 +41,7 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 ### Bulbs
 - Etekcity WiFi Dimmable LED Bulb (ESL100)
 - Etekcity WiFi Dimmable and Tunable White LED Bulb (ESL100CW)
+- Valceno A19 Multicolor Bulb (XYD0001)
 
 ### Wall switches
 
