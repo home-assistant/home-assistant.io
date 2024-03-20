@@ -18,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - event
   - image
   - number
   - select
@@ -48,6 +49,8 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Button**:
   - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
   - `Relocate`: Button entity to trigger manual relocation.
+- **Event**:
+  - `Last job`: Provides the stop reason as event_type and additional the room ids, which should be cleaned with the following job.
 - **Image**:
   - `Map`: The floorplan/map as an image in SVG format.
 - **Number**:
