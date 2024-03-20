@@ -11,6 +11,7 @@ ha_platforms:
   - calendar
 ha_codeowners:
   - '@jrieger'
+  - '@gjohansson-ST'
 ha_integration_type: integration
 ---
 

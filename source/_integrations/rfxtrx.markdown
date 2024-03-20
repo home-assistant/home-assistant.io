@@ -4,6 +4,7 @@ description: Instructions on how to integrate RFXtrx into Home Assistant.
 ha_category:
   - Binary sensor
   - Cover
+  - Event
   - Hub
   - Light
   - Sensor
@@ -21,6 +22,7 @@ ha_platforms:
   - binary_sensor
   - cover
   - diagnostics
+  - event
   - light
   - sensor
   - siren
@@ -33,6 +35,7 @@ The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com
 There is currently support for the following device types within Home Assistant:
 
 - [Cover](#covers)
+- [Event](#events)
 - [Light](#lights)
 - [Switch](#switches)
 - [Sensor](#sensors)
@@ -99,6 +102,10 @@ In the options menu, select *Enable automatic add* to enable automatic addition 
 #### Covers
 
 The RFXtrx integration supports Siemens/LightwaveRF and Somfy RTS roller shutters that communicate in the frequency range of 433.92 MHz.
+
+#### Events
+
+The RFXtrx integration will expose event entities for remotes controlling lights as well as security devices.
 
 #### Lights
 

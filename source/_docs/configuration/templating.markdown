@@ -325,6 +325,32 @@ List of lights that are on with a brightness of 255:
 
 {% endraw %}
 
+
+### State translated
+
+Not supported in [limited templates](#limited-templates).
+
+The `state_translated` function returns a translated state of an entity using a language that is currently configured in the [general settings](https://my.home-assistant.io/redirect/general/).
+
+#### State translated examples
+
+{% raw %}
+
+```text
+{{ states("sun.sun") }}             # below_horizon
+{{ state_translated("sun.sun") }}   # Below horizon
+{{ "sun.sun" | state_translated }}  # Below horizon
+```
+
+```text
+{{ states("binary_sensor.movement_backyard") }}             # on
+{{ state_translated("binary_sensor.movement_backyard") }}   # Detected
+{{ "binary_sensor.movement_backyard" | state_translated }}  # Detected
+```
+
+{% endraw %}
+
+
 ### Working with groups
 
 Not supported in [limited templates](#limited-templates).
@@ -482,10 +508,12 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
-### Integrations
+### Entities for an integration
 
 - `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
-- `integration_entities(title)` if you have multiple instances set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific device bridge.
+- `integration_entities(config_entry_title)` if you have multiple entries set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific entry.
+
+If there is more than one entry with the same title, the entities for all the matching entries will be returned, even if the entries are for different integrations. It's not possible to search for entities of an untitled integration. 
 
 #### Integrations examples
 
@@ -497,6 +525,25 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ integration_entities('Hue bridge downstairs') }}  # ['light.hue_light_downstairs']
+```
+
+{% endraw %}
+
+### Issues
+
+- `issues()` returns all open issues as a mapping of (domain, issue_id) tuples to the issue object.
+- `issue(domain, issue_id)` returns a specific issue for the provided domain and issue_id.
+
+#### Issues examples
+
+{% raw %}
+
+```text
+{{ issues() }}  # { ("homeassistant", "deprecated_yaml_ping"): {...}, ("cloud", "legacy_subscription"): {...} }
+```
+
+```text
+{{ issue('homeassistant', 'python_version') }}  # {"breaks_in_ha_version": "2024.4", "domain": "homeassistant", "issue_id": "python_version", "is_persistent": False, ...}
 ```
 
 {% endraw %}
@@ -587,7 +634,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
   {% endraw %}
 
-- `as_datetime()` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object.
+- `as_datetime(value, default)` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts datetime object to local time. This function can also be used as a filter.
 - `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3.10/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.

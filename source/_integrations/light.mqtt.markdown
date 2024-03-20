@@ -40,7 +40,7 @@ When a state topic is not available, the light will work in optimistic mode. In 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect light operation.
 
 Home Assistant internally assumes that a light's state corresponds to a defined `color_mode`.
-The state of MQTT lights with default schema and support for both color and color temperature will set the `color_mode` according to the last received valid color or color temperature. Optionally, a `color_mode_state_topic` can be configured for explicit control of the `color_mode`
+The state of MQTT lights with default schema and support for both color and color temperature will set the `color_mode` according to the last received valid color or color temperature. Optionally, a `color_mode_state_topic` can be configured for explicit control of the `color_mode`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -198,7 +198,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 effect_command_topic:
   description: "The MQTT topic to publish commands to change the light's effect state."
   required: false
@@ -564,7 +563,7 @@ availability_topic:
   required: false
   type: string
 brightness:
-  description: Flag that defines if the light supports brightness.
+  description: Flag that defines if light supports brightness when the `rgb`, `rgbw`, or `rgbww` color mode is supported.
   required: false
   type: boolean
   default: false
@@ -573,11 +572,6 @@ brightness_scale:
   required: false
   type: integer
   default: 255
-color_mode:
-  description: Flag that defines if the light supports color modes.
-  required: false
-  type: boolean
-  default: false
 command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true
@@ -633,7 +627,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 effect:
   description: Flag that defines if the light supports effects.
   required: false
@@ -717,7 +710,7 @@ state_topic:
   required: false
   type: string
 supported_color_modes:
-  description: A list of color modes supported by the list. This is required if `color_mode` is `True`. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
+  description: A list of color modes supported by the list. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
   required: false
   type: list
 unique_id:
@@ -760,7 +753,6 @@ mqtt:
       state_topic: "home/rgb1"
       command_topic: "home/rgb1/set"
       brightness: true
-      color_mode: true
       supported_color_modes: ["rgb"]
 ```
 
@@ -777,7 +769,6 @@ mqtt:
       state_topic: "home/rgb1"
       command_topic: "home/rgb1/set"
       brightness: true
-      color_mode: true
       supported_color_modes: ["brightness"]
 ```
 
@@ -795,7 +786,6 @@ mqtt:
       command_topic: "home/light/set"
       brightness: true
       brightness_scale: 4095
-      color_mode: true
       supported_color_modes: ["brightness"]
 ```
 
@@ -819,7 +809,6 @@ mqtt:
       name: mqtt_json_hs_light
       state_topic: "home/light"
       command_topic: "home/light/set"
-      color_mode: true
       supported_color_modes: ["hs"]
 ```
 
@@ -849,7 +838,6 @@ mqtt:
       state_topic: "home/rgbw1"
       command_topic: "home/rgbw1/set"
       brightness: true
-      color_mode: true
       supported_color_modes: ["rgbw"]
 ```
 
@@ -1006,7 +994,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 effect_list:
   description: List of possible effects.
   required: false

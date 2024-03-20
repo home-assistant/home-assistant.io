@@ -40,6 +40,12 @@ You can:
 - Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) so scripts can securely interact with Home Assistant.
 - Log out of Home Assistant.
 
+<div class="note">
+
+Unused refresh tokens will be automatically removed. A refresh token is considered unused if it has not been used for a login within 90 days. If you need a permanent token, then we recommend using [Long Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token).
+
+</div>
+
 ### Securing your login
 
 _Make sure to choose a secure password!_ At some time in the future, you will probably want to access Home Assistant from outside your local network. This means you are also exposed to random black-hats trying to do the same. Treat the password like the key to your house.
@@ -100,7 +106,3 @@ This will allow you to open Home Assistant at `http://homeassistant.home:8123/`
 ### Stuck on loading data
 
 Some ad blocking software, such as Wipr, also blocks WebSockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
-
-### Migrating from pre 0.77
-
-If you were using the authentication system before 0.77, you'd likely have `auth:` and `auth_providers:` defined. You'll need to remove these and let Home Assistant [handle it automatically](/docs/authentication/providers/#configuring-auth-providers).

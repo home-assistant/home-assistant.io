@@ -8,6 +8,8 @@ ha_iot_class: Local Push
 ha_domain: systemmonitor
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ha_codeowners:
@@ -55,9 +57,9 @@ memory usage, CPU usage, and running processes.
 - Swap use
 - Swap usage (percent)
 
-### Add `process` sensor
+## Add `process` binary sensor
 
-The `process` sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & Services" %}**, select the **System Monitor** integration and click **Configure** to select which `process` sensors should be created.
+The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & Services" %}**, select the **System Monitor** integration and click **Configure** to select which `process` binary sensors should be created.
 
 ## Disk usage
 
@@ -76,4 +78,4 @@ tmpfs           934M     0  934M   0% /dev/shm
 
 - If no hardware sensor data is available (e.g., because the integration runs in a virtualized environment), the sensor entity will not be created.
 - The unit of measurement (Celsius vs. Fahrenheit) will be chosen based on the system configuration.
-- Only the very first processor related hardware sensor is read, i.e., no individual core temperatures (even if the hardware sensor could provide that level of detail).
+- Only the very first processor related hardware sensor is read, i.e. no individual core temperatures are available (even if the hardware sensor provides that level of detail).
