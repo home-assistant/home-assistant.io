@@ -5,7 +5,7 @@ description: "Define what an object does when interacted with."
 
 Some cards have support for tap actions. These actions define what will happen when you tap or hold on an object within a card.
 
-Actions can be enabled on:
+Actions can be enabled on the following cards:
 
 - [Button](/dashboards/button/)
 - [Entities](/dashboards/entities/)
@@ -266,8 +266,6 @@ hold_action:
 It is not possible to use templates for actions. But calling a [script](/docs/scripts/) is a good alternative.
 
 ## Related topics
-
-Actions can be enabled on:
 
 - [Button card](/dashboards/button/)
 - [Entities card](/dashboards/entities/)
