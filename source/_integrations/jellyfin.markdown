@@ -38,3 +38,11 @@ Username:
 Password:
   description: The password of the supplied user.
 {% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Audio Codec:
+  description: Sets the audio encoding codec to a Jellyfin API supported codec (aac, mp3, vorbis, wma)
+  required: false
+{% endconfiguration_basic %}
