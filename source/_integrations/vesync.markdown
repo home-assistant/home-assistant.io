@@ -65,6 +65,7 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 - Vital 100S Smart True HEPA Air Purifier (LAP-V102S-WUS) 
 - Vital 200S Smart True HEPA Air Purifier (LAP-V201S-WUS)
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
+- LEVOIT Vital 200S Smart True HEPA Air Purifier (LAP-V201S-WUS)
 
 ## Prerequisite
 
@@ -99,9 +100,9 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 
 | Sensor                                  | Description                                                        | Example |
 | --------------------------------------- | ------------------------------------------------------------------ | ------- |
-| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s)         | 142       |
-| `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
-| `pm2_5`                 | The current air quality reading. (Core300s/400s/600s)                                  | 8         |
+| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s/Vital200s) | 142       |
+| `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s/Vital200s)         | excellent |
+| `pm2_5`                 | The current air quality reading. (Core300s/400s/600s/Vital200s)                     | 8         |
 
 ## Fan exposed attributes
 
