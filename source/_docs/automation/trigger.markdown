@@ -666,6 +666,23 @@ automation:
 
 The `for` template(s) will be evaluated when the `value_template` becomes 'true'.
 
+If `on_change: true` is set, the template will instead trigger on any change to the template value:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: template
+      # Trigger whenever the value of sensor.temperature, rounded to the nearest whole number, changes
+      on_change: true
+      value_template: "{{ states('sensor.temperature') | round }}"
+```
+
+{% endraw %}
+
+The value returned by the template is available as `trigger.value` in the [trigger data](/docs/automation/templating#template).
+
 Templates that do not contain an entity will be rendered once per minute.
 
 <div class='note warning'>
