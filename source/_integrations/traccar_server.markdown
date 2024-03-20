@@ -124,7 +124,7 @@ This entity is disabled by default.
 
 {% configuration_basic %}
 Name:
-  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Address.
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Address. If your device is named "Millennium Falcon", this will be "Millennium Falcon Address".
 Entity ID:
   description: This will be a slugified version of the name.
 Unique ID:
@@ -143,7 +143,7 @@ This entity is disabled by default.
 
 {% configuration_basic %}
 Name:
-  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Altitude.
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Altitude. If your device is named "Millennium Falcon", this will be "Millennium Falcon Altitude".
 Entity ID:
   description: This will be a slugified version of the name.
 Unique ID:
@@ -162,7 +162,7 @@ This entity is disabled by default.
 
 {% configuration_basic %}
 Name:
-  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Battery.
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Battery. If your device is named "Millennium Falcon", this will be "Millennium Falcon Battery".
 Entity ID:
   description: This will be a slugified version of the name.
 Unique ID:
@@ -181,7 +181,7 @@ This entity is disabled by default.
 
 {% configuration_basic %}
 Name:
-  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Geofence.
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Geofence. If your device is named "Millennium Falcon", this will be "Millennium Falcon Geofence".
 Entity ID:
   description: This will be a slugified version of the name.
 Unique ID:
@@ -200,7 +200,7 @@ This entity is disabled by default.
 
 {% configuration_basic %}
 Name:
-  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Speed.
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Speed. If your device is named "Millennium Falcon", this will be "Millennium Falcon Speed".
 Entity ID:
   description: This will be a slugified version of the name.
 Unique ID:
@@ -219,7 +219,7 @@ This entity is disabled by default.
 
 {% configuration_basic %}
 Name:
-  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Status.
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Status. If your device is named "Millennium Falcon", this will be "Millennium Falcon Status".
 Entity ID:
   description: This will be a slugified version of the name.
 Unique ID:
