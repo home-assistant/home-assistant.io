@@ -47,7 +47,7 @@ Binary Sensors:
 - **Watertank empty**: True if watertank is empty and water infill is required (only present for ROMY's with wet cleaning function).
 
 
-The Romy will add the following sensors.
+The ROMY will add the following sensors.
 
 Sensors:
 
