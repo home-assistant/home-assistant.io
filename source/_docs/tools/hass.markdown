@@ -10,7 +10,8 @@ The command-line part of Home Assistant is `hass`.
 $ hass -h
 usage: hass [-h] [--version] [-c path_to_config_dir] [--safe-mode]
             [--debug] [--open-ui] [--skip-pip] [-v] [--log-rotate-days LOG_ROTATE_DAYS] 
-            [--log-file LOG_FILE] [--log-no-color] [--script ...] [--ignore-os-check]
+            [--log-file LOG_FILE] [--log-json-format] [--log-no-color]
+            [--script ...] [--ignore-os-check]
 
 Home Assistant: Observe, Control, Automate.
 
@@ -27,6 +28,7 @@ optional arguments:
   --log-rotate-days LOG_ROTATE_DAYS
                         Enables daily log rotation and keeps up to the specified days
   --log-file LOG_FILE   Log file to write to. If not set, CONFIG/home-assistant.log is used
+  --log-json-format     Format logs as json. Automatically disable color logs
   --log-no-color        Disable color logs
   --script ...          Run one of the embedded scripts
   --ignore-os-check     Skips validation of operating system
