@@ -92,3 +92,7 @@ The sensors are also available as attributes on the `sun.sun` entity for backwar
 | Elevation |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.
 | Azimuth | Solar azimuth. The angle is shown clockwise from north.
 | `rising` | True if the Sun is currently rising, after solar midnight and before solar noon.
+| Daylight duration | The time between sunrise and sunset of the current day.
+| Night duration | The time between dusk of the current day and dawn of the next day.
+| Twilight sunrise duration | The time between dawn and sunrise of the current day.
+| Twilight sunset duration | The time between sunset and dusk of the current day.
