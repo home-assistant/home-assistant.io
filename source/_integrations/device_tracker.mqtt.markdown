@@ -166,7 +166,7 @@ qos:
   type: integer
   default: 0
 source_type:
-  description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
+  description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `wifi`, `bluetooth`, or `bluetooth_le`.
   required: false
   type: string
 state_topic:
