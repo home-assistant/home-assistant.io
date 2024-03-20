@@ -12,106 +12,20 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `flux` switch platform will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night. The `flux` switch restores its last state after startup.
+The `flux` switch platform enables you to control the temperature of your lights, adapting to natural day-night cycles. Your lights will be bright during the day, and gradually fade to a warmer hue at night. The `flux` switch restores its last state after startup.
 
-The integration will update your lights based on the time of day. It will only affect lights that are turned on and listed in the flux configuration.
+This integration changes your lights based on the time of day. It only affects lights that are turned on and configured in the Flux integration.
 
-During the day (in between `start_time` and `sunset_time`), it will fade the lights from the `start_colortemp` to the `sunset_colortemp`. After sunset (between `sunset_time` and `stop_time`), the lights will fade from the `sunset_colortemp` to the `stop_colortemp`. If the lights are still on after the `stop_time` it will continue to change the light to the `stop_colortemp` until the light is turned off. The fade effect is created by updating the lights periodically.
+## Installation
 
-The value of `sunset_time` is automatically calculated based on the location specified in your [Home Assistant configuration](/docs/configuration/basic).
+The Flux integration can now be installed directly from the Home Assistant user interface.
 
-The color temperature is specified in kelvin, and accepted values are between 1000 and 40000 kelvin. Lower values will seem more red, while higher will look more white.
+To use the Flux integration in your installation, navigate to the "Integrations" page in the configuration panel. Click on the "+" button, search for "Flux", and fill in the form to set up the integration.
 
-If you want to update at variable intervals, you can leave the switch turned off and use automation rules that call the service `switch.<name>_update` whenever you want the lights updated, where `<name>` equals the `name:` property in the switch configuration.
+## Configuration
 
-To use the Flux switch in your installation, add the following to your `configuration.yaml` file:
+Flux allows you to configure how your lights behave throughout the day. By default, Flux sets the timings (such as `start_time`, `sunset_time` and `stop_time`) based on your geographical location. However, these (except `sunset_time`) can be manually adjusted in the configuration panel for finer control.
 
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: flux
-    lights:
-      - light.desk
-      - light.lamp
-```
+During the day (in between `start_time` and `sunset_time`), the lights transition from a cool, daylight temperature to a warm, sunset color. After sunset (between `sunset_time` and `stop_time`), the lights continue to warm, mimicking the natural transition from daylight to nighttime.
 
-{% configuration %}
-lights:
-  description: array list of light entities.
-  required: true
-  type: list
-name:
-  description: The name to use when displaying this switch.
-  required: false
-  default: Flux
-  type: string
-start_time:
-  description: The start time.
-  required: false
-  type: time
-stop_time:
-  description: The stop time.
-  required: false
-  type: time
-start_colortemp:
-  description: The color temperature at the start.
-  required: false
-  default: 4000
-  type: integer
-sunset_colortemp:
-  description: The sun set color temperature.
-  required: false
-  default: 3000
-  type: integer
-stop_colortemp:
-  description: The color temperature at the end.
-  required: false
-  default: 1900
-  type: integer
-brightness:
-  description: Constant brightness of the lights. Besides color temperature, brightness is also adjusted unless a value is specified here.
-  required: false
-  type: integer
-disable_brightness_adjust:
-  description: If true, brightness will not be adjusted, only color temperature.
-  required: false
-  type: boolean
-  default: false
-mode:
-  description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`.
-  required: false
-  default: xy
-  type: string
-transition:
-  description: Transition time in seconds for the light changes (high values may not be supported by all light models).
-  required: false
-  default: 30
-  type: integer
-interval:
-  description: Frequency in seconds at which the lights should be updated.
-  required: false
-  default: 30
-  type: integer
-{% endconfiguration %}
-
-Full example:
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: flux
-    lights:
-      - light.desk
-      - light.lamp
-    name: Fluxer
-    start_time: "7:00"
-    stop_time: "23:00"
-    start_colortemp: 4000
-    sunset_colortemp: 3000
-    stop_colortemp: 1900
-    brightness: 200
-    disable_brightness_adjust: true
-    mode: xy
-    transition: 30
-    interval: 60
-```
+The color temperature can be adjusted to your liking, with lower values giving a warmer, redder hue and higher values creating a cooler, whiter light.
