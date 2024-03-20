@@ -181,3 +181,9 @@ segments:
   - from: 65
     color: var(--error-color)
 ```
+
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

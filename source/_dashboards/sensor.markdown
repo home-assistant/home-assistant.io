@@ -83,3 +83,8 @@ type: sensor
 entity: sensor.illumination
 name: Illumination
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

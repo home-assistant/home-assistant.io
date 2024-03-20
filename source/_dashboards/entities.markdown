@@ -461,3 +461,4 @@ entities:
 
 - [Card actions](/dashboards/actions/)
 - [Card header and footer](/dashboards/header-footer/)
+- [Dashboard cards](/dashboards/cards/)

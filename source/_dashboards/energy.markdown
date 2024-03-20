@@ -229,3 +229,8 @@ The following example limits the number of shown devices to 5:
 type: energy-devices-detail-graph
 max_devices: 5
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

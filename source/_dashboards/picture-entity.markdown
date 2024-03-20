@@ -142,3 +142,5 @@ The filename needs to be a path that is writable by Home Assistant in your syste
 ## Related topics
 
 - [Card actions](/dashboards/actions/)
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

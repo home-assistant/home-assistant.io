@@ -107,3 +107,8 @@ entities:
   - entity: sensor.attic_temperature
     name: "Attic"
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

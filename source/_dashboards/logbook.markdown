@@ -65,3 +65,8 @@ entities:
   - light.ceiling_lights
 hours_to_show: 24
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)
