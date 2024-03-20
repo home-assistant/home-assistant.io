@@ -141,3 +141,33 @@ target:
 data:
   cycle: false
 ```
+
+### Service `select.select_random`
+
+The {% my developer_call_service service="select.select_random" %} service
+changes the selected option of the select entity to a random choice from the
+list of options available.
+
+The default behavior is to exclude the current selection from the list of options
+that will be chosen at random. This behavior can be disabled by setting the
+`avoid_repeat` option to `false` in the service call data. If there is only
+one option in the list a repeat selection cannot be avoided.
+
+{% my developer_call_service badge service="select.select_random" %}
+
+Examples in YAML:
+
+```yaml
+service: select.select_random
+target:
+  entity_id: select.my_entity
+```
+
+```yaml
+# Allow the current option to be a candidate for the random selection
+service: select.select_random
+target:
+  entity_id: select.my_entity
+data:
+  avoid_repeat: false
+```
