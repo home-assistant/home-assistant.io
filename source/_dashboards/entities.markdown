@@ -456,3 +456,8 @@ entities:
         text: Are you sure you want to restart?
       service: script.libreelec_power_cycle
 ```
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)
+- [Card header and footer](/dashboards/header-footer/)
