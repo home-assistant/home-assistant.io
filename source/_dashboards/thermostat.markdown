@@ -59,3 +59,4 @@ entity: climate.nest
 ## Related topics
 
 - [Card features](/dashboards/features)
+- [Themes](/integrations/frontend/)
