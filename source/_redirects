@@ -529,7 +529,6 @@ layout: null
 /integrations/hydroquebec /more-info/removed-integration 301
 /integrations/ialarm_xr /more-info/removed-integration 301
 /integrations/iota /more-info/removed-integration 301
-/integrations/juicenet /more-info/removed-integration 301
 /integrations/life360 /more-info/removed-integration 301
 /integrations/lifx_legacy /more-info/removed-integration 301
 /integrations/linksys_ap /more-info/removed-integration 301
@@ -557,6 +556,7 @@ layout: null
 /integrations/nuimo_controller /more-info/removed-integration 301
 /integrations/openalpr /more-info/removed-integration 301
 /integrations/openalpr_local /more-info/removed-integration 301
+/integrations/opencv /more-info/removed-integration 301
 /integrations/orangepi_gpio /more-info/removed-integration 301
 /integrations/ozw /more-info/removed-integration 301
 /integrations/pcal9535a /more-info/removed-integration 301

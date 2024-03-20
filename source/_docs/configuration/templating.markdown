@@ -508,10 +508,12 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
-### Integrations
+### Entities for an integration
 
 - `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
-- `integration_entities(title)` if you have multiple instances set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific device bridge.
+- `integration_entities(config_entry_title)` if you have multiple entries set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific entry.
+
+If there is more than one entry with the same title, the entities for all the matching entries will be returned, even if the entries are for different integrations. It's not possible to search for entities of an untitled integration. 
 
 #### Integrations examples
 
@@ -523,6 +525,25 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ integration_entities('Hue bridge downstairs') }}  # ['light.hue_light_downstairs']
+```
+
+{% endraw %}
+
+### Issues
+
+- `issues()` returns all open issues as a mapping of (domain, issue_id) tuples to the issue object.
+- `issue(domain, issue_id)` returns a specific issue for the provided domain and issue_id.
+
+#### Issues examples
+
+{% raw %}
+
+```text
+{{ issues() }}  # { ("homeassistant", "deprecated_yaml_ping"): {...}, ("cloud", "legacy_subscription"): {...} }
+```
+
+```text
+{{ issue('homeassistant', 'python_version') }}  # {"breaks_in_ha_version": "2024.4", "domain": "homeassistant", "issue_id": "python_version", "is_persistent": False, ...}
 ```
 
 {% endraw %}

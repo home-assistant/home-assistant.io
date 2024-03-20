@@ -262,6 +262,15 @@ Use to set the paired doorbell(s) with a smart chime.
 | `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                     |
 | `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all. |
 
+### Service unifiprotect.remove_privacy_zone
+
+Use to remove a privacy zone from a camera.
+
+| Service data attribute | Optional | Description                                                                                             |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| `device_id`            | No       | Camera you want to remove privacy zone from.                                                            |
+| `name`                 | No       | The name of the zone to remove.                                                                         |
+
 ## Views
 
 The {% term integrations %} provides two proxy views to proxy media content from your Home Assistant instance so you can access thumbnails and video clips from within the context of Home Assistant without having to expose your UniFi Protect NVR Console. As with the media identifiers, all IDs are UniFi Protect IDs as they may not map to specific Home Assistant entities depending on how you have configured your {% term integrations %}.
