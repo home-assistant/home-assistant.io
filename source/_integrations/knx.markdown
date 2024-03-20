@@ -152,7 +152,143 @@ The user password can be obtained almost the same way as seen in the below scree
 
 ![Obtain the user password in ETS](/images/integrations/knx/user_password.png)
 
+## Triggers
+
+The KNX integration provides its own trigger platform which can be used in automations.
+
+### Telegram trigger
+
+The `knx.telegram` trigger can be used to trigger automations on incoming or outgoing KNX telegrams.
+
+<div class='note'>
+
+This trigger is also provided as a device trigger by the `KNX Interface` device. It supports setting the options in the automation builder UI.
+
+</div>
+
+{% configuration %}
+destination:
+  description: A group address or a list of group addresses the trigger should listen on. If not set, or an empty list, the trigger will listen on all group addresses.
+  type: [string, list]
+  required: false
+group_value_write:
+  description: If set to `false`, the trigger will not fire on GroupValueWrite telegrams.
+  type: boolean
+  default: true
+  required: false
+group_value_response:
+  description: If set to `false`, the trigger will not fire on GroupValueResponse telegrams.
+  type: boolean
+  default: true
+  required: false
+group_value_read:
+  description: If set to `false`, the trigger will not fire on GroupValueRead telegrams.
+  type: boolean
+  default: true
+  required: false
+incoming:
+  description: If set to `false`, the trigger will not fire on incoming telegrams.
+  type: boolean
+  default: true
+  required: false
+outgoing:
+  description: If set to `false`, the trigger will not fire on outgoing telegrams.
+  type: boolean
+  default: true
+  required: false
+{% endconfiguration %}
+
+<div class='note'>
+
+If `destination` is explicitly set to `null` / `None`, the trigger is a no-op. It will never fire. This can be used in blueprints to provide inputs for addresses that are optional.
+
+</div>
+
+#### Available trigger data
+
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `knx.telegram` trigger platform has additional trigger data available for use.
+
+- `trigger.destination` Destination group address
+- `trigger.destination_name` Destination group address name
+- `trigger.direction` Telegram direction
+- `trigger.dpt_main` Destination group address main datapoint type number
+- `trigger.dpt_sub` Destination group address sub datapoint type number
+- `trigger.dpt_name` DPT value type name - see Sensor value types
+- `trigger.payload` Raw telegram payload. DPT 1, 2, and 3 yield integers 0..255; other DPT yield lists of integers 0..255
+- `telegram.source` Source individual address
+- `telegram.source_name` Source name
+- `telegram.telegramtype` APCI type of telegram
+- `telegram.timestamp` Timestamp
+- `telegram.unit` Unit according to group address DPT
+- `telegram.value` Decoded telegram payload according to DPT
+
+| Template variable          | Type                        | Project data required |
+|----------------------------|-----------------------------|-----------------------|
+| `trigger.destination`      | string                      | no                    |
+| `trigger.destination_name` | string                      | yes                   |
+| `trigger.direction`        | string                      | no                    |
+| `trigger.dpt_main`         | integer                     | yes                   |
+| `trigger.dpt_sub`          | integer                     | yes                   |
+| `trigger.dpt_name`         | string                      | yes                   |
+| `trigger.payload`          | integer or list of integers | no                    |
+| `telegram.source`          | string                      | no                    |
+| `telegram.source_name`     | string                      | yes                   |
+| `telegram.telegramtype`    | string                      | no                    |
+| `telegram.timestamp`       | timestamp                   | no                    |
+| `telegram.unit`            | string                      | yes                   |
+| `telegram.value`           | any                         | yes                   |
+
+For values that require project data: if the information was not found, or if no project file was provided, data will be set to `null`.
+
+#### Examples
+
+Example automation configuration
+
+```yaml
+- alias: Single group address trigger
+  description: ''
+  trigger:
+  - platform: knx.telegram
+    destination: 1/2/3
+    group_value_read: false
+    outgoing: false
+  condition: []
+  action: []
+  mode: single
+```
+
+Example trigger data
+
+```yaml
+variables:
+  trigger:
+    id: "0"
+    idx: "0"
+    alias: null
+    destination: 1/2/3
+    destination_name: Light office brightness
+    direction: Incoming
+    dpt_main: 5
+    dpt_sub: 1
+    dpt_name: percent
+    payload:
+      - 255
+    source: 1.0.51
+    source_name: Dimming actuator 1
+    telegramtype: GroupValueWrite
+    timestamp: "2024-01-09T10:38:28.447487+01:00"
+    unit: "%"
+    value: 100
+context: null
+```
+
 ## Events
+
+<div class='note'>
+
+For automation triggers, it is recommended to use the [knx.telegram](#telegram-trigger) trigger instead of `knx_event`.
+
+</div>
 
 ```yaml
 knx:
@@ -219,7 +355,7 @@ response:
 ### Read
 
 You can use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of an entity.
-To manually send GroupValueRead requests use the `knx.read` service. The response can be used from `knx_event` and will be processed in KNX entities.
+To manually send GroupValueRead requests, use the `knx.read` service. The response can be used in automations by the `knx.telegram` trigger and it will be processed in KNX entities.
 
 ```txt
 Domain: knx
@@ -237,11 +373,9 @@ address:
 # Example automation to update a cover position after 10 seconds of movement initiation
 automation:
   - trigger:
-      - platform: event
-        event_type: knx_event
-        event_data:
-          # Cover move trigger
-          destination: "0/4/20"
+      - platform: knx.telegram
+        # Cover move trigger
+        destination: "0/4/20"
     action:
       - delay: 0:0:10
       - service: knx.read
@@ -258,10 +392,6 @@ automation:
         data:
           # Cover move trigger
           address: "0/4/20"
-      - service: knx.read
-        data:
-          # Cover position address
-          address: "0/4/21"
 ```
 
 ### Register event
@@ -509,7 +639,7 @@ The KNX button platform allows to send concurrent predefined values via the fron
 
 <div class='note'>
 
-Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use `knx_event` if you want to automate on a specific payload received on a group address.
+Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use the `knx.telegram` trigger if you want to automate on a specific payload received on a group address.
 
 </div>
 
