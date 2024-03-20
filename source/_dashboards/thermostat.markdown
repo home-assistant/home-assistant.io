@@ -5,7 +5,7 @@ sidebar_label: Thermostat
 description: "The thermostat card gives control of your climate entity, allowing you to change the temperature and mode of the entity."
 ---
 
-The thermostat card gives control of your [climate](/integrations/#climate) entity, allowing you to change the temperature and mode of the entity.
+The thermostat card gives control of your [climate](/integrations/#climate) {% term entity %}, allowing you to change the temperature and mode of the {% term entity %}.
 
 <p class='img'>
   <img src='/images/dashboards/thermostat_card.png' alt='Screenshot of the thermostat card'>
@@ -55,3 +55,7 @@ features:
 type: thermostat
 entity: climate.nest
 ```
+
+## Related topics
+
+- [Card features](/dashboards/features)
