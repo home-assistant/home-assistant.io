@@ -113,7 +113,7 @@ Use a DHCP reservation on your router to reserve the address or in the PRO model
 
 </div>
 
-To get Lutron Caseta roller, honeycomb shades, lights, scene and switch working with Home Assistant. First follow the instructions for the general Lutron Caseta integration above.
+To get Lutron Caseta roller, honeycomb shades, wood blinds, lights, scene and switch working with Home Assistant, first follow the instructions for the general Lutron Caseta integration above.
 
 ## Cover
 
@@ -122,6 +122,8 @@ After setup, shades will appear in Home Assistant using an `entity_id` based on 
 For more information on working with shades in Home Assistant, see the [Covers integration](/integrations/cover/).
 
 Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover` and `cover.set_cover_position`. Cover `position` ranges from `0` for fully closed to `100` for fully open.
+
+Availble services for tilt only wood blinds: `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`, `cover.toggle_tilt`. Cover `position` is `0` or `100` for fully closed and `50` for fully open.
 
 ## Light
 
