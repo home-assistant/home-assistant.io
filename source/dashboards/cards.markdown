@@ -14,7 +14,7 @@ Screenshot of the masonry view with different types of cards.
 
 There are several different card types, each with their own configuration options. They can be categorized in terms of their function:
 
-- **Specific to a device type or {% term service %}**: alarm, light, humidifier, thermostat, plant status, media control, weather forecast, shopping list, map, logbook, and calendar card
+- **Specific to a device type or service**: alarm, light, humidifier, thermostat, plant status, media control, weather forecast, shopping list, map, logbook, and calendar card
 - **Grouping other cards**: vertical stack, horizontal stack, and grid card
 - **Logic function**: conditional and entity filter card
 - **Display generic data**: sensor, history graph, statistic, statistics graph, energy, gauge, and webpage card
