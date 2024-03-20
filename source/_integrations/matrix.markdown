@@ -89,6 +89,49 @@ In order to prevent infinite loops when reacting to commands, you have to use a 
 
 </div>
 
+### End to End Encryption
+
+End to end encryption is automatically enabled in supported rooms. Devices in the room must be trusted before messages can be sent to them. If you are having issues receiving a message and an unverified device error, you will need to trust the device using the `trust_blacklist_device` service.
+
+There are three different ways you can trust or blacklist devices.
+
+#### Trust or blacklist by user id and device id
+
+```yaml
+service: matrix.trust_blacklist_device
+data:
+  user_id: "@test_user:matrix.org"
+  device_id: "@test_user:matrix.org"
+  # If set to true, this will blacklist the device of
+  # trusting it. By default, this is true if unspecified
+  blacklist: false
+```
+
+#### Trust or blacklist all known devices for a user id
+
+```yaml
+service: matrix.trust_blacklist_device
+data:
+  user_id: "@test_user:matrix.org"
+  apply_all_user_devices: true
+  # If set to true, this will blacklist the device of
+  # trusting it. By default, this is true if unspecified
+  blacklist: false
+```
+
+#### Trust or blacklist all known devices
+
+This will trust all devices known regardless of user id.
+
+```yaml
+service: matrix.trust_blacklist_device
+data:
+  apply_all_devices: true
+  # If set to true, this will blacklist the device of
+  # trusting it. By default, this is true if unspecified
+  blacklist: false
+```
+
 ### Event data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
