@@ -8,6 +8,7 @@ ha_category:
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
+  - 'lawtancool'
   - '@nalin29'
 ha_domain: control4
 ha_ssdp: true
