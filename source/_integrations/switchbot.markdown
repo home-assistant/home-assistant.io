@@ -49,9 +49,6 @@ Some SwitchBot devices need to be configured within the app before being control
 
 {% include integrations/config_flow.md %}
 
-
-
-
 ## Supported devices
 
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
