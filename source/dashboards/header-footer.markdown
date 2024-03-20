@@ -9,6 +9,12 @@ Some dashboard cards have support for header and footer widgets. These widgets f
 Screenshot of an entities card with a picture header and buttons footer.
 </p>
 
+Header and footer can be used on the following cards:
+
+- [Entity](/dashboards/entity/)
+- [Entities](/dashboards/entities/)
+- [Statictis](/dashboards/statistics/)
+
 ## Picture header & footer
 
 Widget to show a picture as a header or a footer. A picture can have touch actions associated with it.
