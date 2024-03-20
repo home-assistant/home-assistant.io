@@ -4,6 +4,7 @@ description: Instructions on how to integrate Husqvarna Automower lawn mowers in
 ha_category:
   - Device Tracker
   - Lawn Mower
+  - Select
   - Sensor
   - Switch
 ha_release: 2024.3
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_platforms:
   - device_tracker
   - lawn_mower
+  - select
   - sensor
   - switch
 ha_integration_type: integration
@@ -92,6 +94,10 @@ The integration will create a lawn mower entity to control the mower. This entit
 - Resume the schedule
 - Pause mowing
 - Park until next schedule
+
+### Select (if available)
+
+The integration will create a select entity for selecting the headlight mode of the mower.
 
 ### Sensor
 
