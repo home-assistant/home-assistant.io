@@ -18,7 +18,7 @@ Screenshot of the to-do list card.
    - In the **By card** dialog, select the **To-do list** card.
 2. In the **Entity** dropdown menu, select your list type.
    - If it is your first time working with to-do lists, there is only **Shopping list** in the menu.
-   - This comes from the **Shopping list** integration, which is installed by default.
+   - This comes from the [shopping list integration](/integrations/shopping_list/), which is installed by default.
    - This is the same **Shopping list** as the one on the **To-do list** dashboard (accessible via sidebar).
    ![To-do card, list entities](/images/dashboards/cards-todo.png).
 3. The to-do list card can display lists from different [to-do list](/integrations/#to-do-list) integrations, such as **Bring!** or **Todoist**.
