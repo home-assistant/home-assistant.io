@@ -50,7 +50,7 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
   - `Relocate`: Button entity to trigger manual relocation.
 - **Event**:
-  - `Last job`: Provides the stop reason as event_type and additional the room ids, which should be cleaned with the following job.
+  - `Last job`: Provides the stop reason as event_type as well as the IDs of the rooms scheduled to be cleaned in the next job.
 - **Image**:
   - `Map`: The floorplan/map as an image in SVG format.
 - **Number**:
