@@ -210,7 +210,6 @@ password.
 
 ### To-do list
 
-- [Bring!](https://www.getbring.com/)
 - [To-do list integration documentation](/integrations/todo)
 - [List of to-do list integrations](/integrations/#to-do-list)
 - [To-do list card](/dashboards/todo-list/)
