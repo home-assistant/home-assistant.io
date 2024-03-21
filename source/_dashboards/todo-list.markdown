@@ -8,7 +8,7 @@ description: "The to-do list card allows you to add, edit, check-off, and clear 
 The to-do list card allows you to add, edit, check-off, and clear items from your to-do list.
 
 <p class='img'>
-<img src='/images/dashboards/shopping_list_card.gif' alt='Screenshot of the shopping list card'>
+<img src='/images/dashboards/todo-list_card_shopping-list.png' alt='Screenshot of the to-do list card'>
 Screenshot of the to-do list card.
 </p>
 
