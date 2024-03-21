@@ -21,7 +21,7 @@ Screenshot of the to-do list card.
    - This comes from the **Shopping list** integration, which is installed by default.
    - This is the same **Shopping list** as the one on the **To-do list** dashboard (accessible via sidebar).
    ![To-do card, list entities](/images/dashboards/cards-todo.png).
-3. The to-do list card can display lists from different [to-do list](/integrations/#to-do-list) integrations, such as **Bring!** or **todoist**.
+3. The to-do list card can display lists from different [to-do list](/integrations/#to-do-list) integrations, such as **Bring!** or **Todoist**.
    - If you don't see your desired to-do list entity, you need to add its integration first.
    - Once you've added a to-do list integration, the lists are also available on the to-do list dashboard.
 
