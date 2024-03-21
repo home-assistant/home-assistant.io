@@ -219,6 +219,7 @@ Depending on the supported features of the camera, the following sensor entities
 
 - PTZ pan position
 - Wi-Fi signal*
+- HDD/SD storage*
 
 ## Update entity
 
