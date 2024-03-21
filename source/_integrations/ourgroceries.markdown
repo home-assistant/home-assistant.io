@@ -18,3 +18,10 @@ This integration connects with an [OurGroceries](https://www.ourgroceries.com/) 
 It adds a [to-do list entity](/integrations/todo) for each shopping list, allowing you to create, update, or delete items on the list from the **To-do list** dashboard.
 
 {% include integrations/config_flow.md %}
+
+## Related topics
+
+- [OurGroceries](https://www.ourgroceries.com/)
+- [To-do list integration documentation](/integrations/todo)
+- [List of to-do list integrations](/integrations/#to-do-list)
+- [To-do list card](/dashboards/todo-list/)

@@ -26,4 +26,4 @@ about to-do list entities.
 ## Related topics
 
 - [**To-do list** integration](/integrations/todo)
-- [Shopping list card](/dashboards/shopping-list/)
+- [To-do list card](/dashboards/todo-list/)

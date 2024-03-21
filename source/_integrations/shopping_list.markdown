@@ -16,7 +16,7 @@ ha_platforms:
 
 The `shopping_list` integration allows you to keep track of shopping list items. 
 
-Your shopping list will be accessible from the sidebar, and you can optionally add the [shopping list card](/dashboards/shopping-list/) to your dashboard. With the [conversation integration](/integrations/conversation/) you can add items to your shopping list using voice commands like "Add eggs to my shopping list." 
+Your shopping list will be accessible from the sidebar, and you can optionally add the [Todo list card](/dashboards/todo-list/) to your dashboard. With the [conversation integration](/integrations/conversation/) you can add items to your shopping list using voice commands like "Add eggs to my shopping list." 
 
 {% include integrations/config_flow.md %}
 

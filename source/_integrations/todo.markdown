@@ -144,4 +144,4 @@ target:
 ## Related topics
 
 - [Local to-do integration](/integrations/local_todo/)
-- [Shopping list card](/dashboards/shopping-list/)
+- [Todo list card](/dashboards/todo-list/)
