@@ -37,7 +37,7 @@ type:
   description: "`todo-list`"
   type: string
 entity:
-  required: false
+  required: true
   description: The to-do entity to show
   type: string
 title:
@@ -56,6 +56,7 @@ Title example:
 
 ```yaml
 type: todo-list
+entity: todo-list
 title: todo list
 ```
 
