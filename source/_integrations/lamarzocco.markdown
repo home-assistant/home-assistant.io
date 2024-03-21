@@ -18,6 +18,7 @@ ha_platforms:
   - sensor
   - switch
   - update
+ha_bluetooth: true
 ha_codeowners:
   - '@zweckj'
 ha_integration_type: device
