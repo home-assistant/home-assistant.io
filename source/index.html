@@ -105,6 +105,17 @@ feedback: false
       </a>
     </div>
     <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
+      <!-- State of the Open Home -->
+      <a
+        href="https://www.youtube.com/live/oa__fLArsFk"
+        class="material-card picture-promo"
+        style="
+          background-image: url(/images/frontpage/state-of-the-open-home-2024.png);
+          background-size: cover;
+          padding-top: 55%;
+        "
+      ></a>
+
       <a
         class="material-card picture-promo"
         href="/voice_control/"
@@ -130,16 +141,6 @@ feedback: false
         </div>
       </a>
 
-      <!-- 10 YEAR HA -->
-      <a
-        href="https://www.youtube.com/watch?v=EmLV6lJLzSU"
-        class="material-card picture-promo"
-        style="
-          background-image: url(/images/frontpage/HA10_-_Website_banner.png);
-          background-size: cover;
-          padding-top: 55%;
-        "
-      ></a>
       {% assign pages_by_date = site.pages | sort: "date" | reverse %} {% for
       page in pages_by_date %} {% if page.layout == "landingpage" and
       page.frontpage != false %}
