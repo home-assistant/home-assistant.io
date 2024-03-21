@@ -61,7 +61,7 @@
       <ul class='unstyled'>
       {%- for platform in page.ha_platforms -%}
         <li>
-          <a href='/integrations/{{ platform }}'>{{ platform | capitalize }}</a>
+          <a href='/integrations/{{ platform }}'>{{ platform | capitalize | replace: "_", " " }}</a>
         </li>
       {%- endfor -%}
       </ul>
