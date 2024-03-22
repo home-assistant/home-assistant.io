@@ -1280,6 +1280,13 @@ For a summary in a more readable format:
 [@thecode]: https://github.com/thecode
 [@zweckj]: https://github.com/zweckj
 
+## Release 2024.3.3 - March 22
+
+- Update cosign to 2.2.3 ([@frenck] - [#113996])
+
+[#113996]: https://github.com/home-assistant/core/pull/113996
+[@frenck]: https://github.com/frenck
+
 [#100418]: https://github.com/home-assistant/core/pull/100418
 [#101012]: https://github.com/home-assistant/core/pull/101012
 [#101641]: https://github.com/home-assistant/core/pull/101641

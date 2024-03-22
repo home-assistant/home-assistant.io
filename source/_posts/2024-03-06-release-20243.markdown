@@ -57,6 +57,7 @@ happen during my absence this beta. 🥰
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2024.3.1 - March 14](#release-202431---march-14)
 - [Release 2024.3.2 - March 22](#release-202432---march-22)
+- [Release 2024.3.3 - March 22](#release-202433---march-22)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -690,6 +691,13 @@ The following integration us now available via the Home Assistant UI:
 [@ludeeus]: https://github.com/ludeeus
 [@thecode]: https://github.com/thecode
 [@zweckj]: https://github.com/zweckj
+
+## Release 2024.3.3 - March 22
+
+- Update cosign to 2.2.3 ([@frenck] - [#113996])
+
+[#113996]: https://github.com/home-assistant/core/pull/113996
+[@frenck]: https://github.com/frenck
 
 ## Need help? Join the community!
 
