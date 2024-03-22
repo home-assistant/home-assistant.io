@@ -71,6 +71,7 @@ The following sensors are created as well, but disabled by default:
 The Blue Current integration provides the following buttons:
 
 ### Charge point buttons
+
 - Reset
 - Reboot
 - Stop charge session
