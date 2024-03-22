@@ -1283,9 +1283,12 @@ For a summary in a more readable format:
 ## Release 2024.3.3 - March 22
 
 - Update cosign to 2.2.3 ([@frenck] - [#113996])
+- Bump axis to v58 ([@Kane610] - [#114008])
 
 [#113996]: https://github.com/home-assistant/core/pull/113996
+[#114008]: https://github.com/home-assistant/core/pull/114008
 [@frenck]: https://github.com/frenck
+[@Kane610]: https://github.com/Kane610
 
 [#100418]: https://github.com/home-assistant/core/pull/100418
 [#101012]: https://github.com/home-assistant/core/pull/101012
