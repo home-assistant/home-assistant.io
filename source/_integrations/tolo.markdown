@@ -51,7 +51,7 @@ This can either be *Off*, *Heat* or *Dry*.
 
   - *Off*: Energy is shut down, the water boiler is empty (or will be emptied soon, see [Sweeping and Descaling](#sweeping-and-descaling)).
   - *Heat*: This is the normal operating mode for enjoying your sauna or steam bath.
-    If *Power timer* is set to a value greater than zero, the TOLO system will automaticly turn off after the amount of minutes configured in the *Power timer* setting.
+    If *Power timer* is set to a value greater than zero, the TOLO system will automatically turn off after the amount of minutes configured in the *Power timer* setting.
     If *Power timer* is set to zero, the TOLO system will run indefinitely, until it is turned of manually.
   - *Dry*: In this mode, everything is turned off except the fan.
     This mode can be used when shutting down the TOLO system to reduce humidity in the room.
