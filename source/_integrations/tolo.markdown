@@ -49,11 +49,11 @@ However, the TOLO system does not report back which optional accessoires are att
 The TOLO integration offers a climate entity to control the general operating mode of your TOLO system.
 This can either be *Off*, *Heat* or *Dry*.
 
-  * *Off*: Energy is shut down, the water boiler is empty (or will be emptied soon, see [Sweeping and Descaling](#sweeping-and-descaling)).
-  * *Heat*: This is the normal operating mode for enjoying your sauna or steam bath.
+  - *Off*: Energy is shut down, the water boiler is empty (or will be emptied soon, see [Sweeping and Descaling](#sweeping-and-descaling)).
+  - *Heat*: This is the normal operating mode for enjoying your sauna or steam bath.
     If *Power timer* is set to a value greater than zero, the TOLO system will automaticly turn off after the amount of minutes configured in the *Power timer* setting.
     If *Power timer* is set to zero, the TOLO system will run indefinitely, until it is turned of manually.
-  * *Dry*: In this mode, everything is turned off except the fan.
+  - *Dry*: In this mode, everything is turned off except the fan.
     This mode can be used when shutting down the TOLO system to reduce humidity in the room.
     After the time configured in *Fan timer* (see [Fan Control](#fan-control)) has passed, the fan and the TOLO system will automatically turn to *Off*.
 
@@ -75,8 +75,8 @@ If no humidity sensor is present, steam production will only depend on the tempe
 The TOLO system allows to connect RGB LEDs, which can be controlled by the TOLO integration.
 The TOLO system provides two modes for LED operation, *manual* and *automatic*.
 
-  * *Manual*: When turned on, the RGB LEDs will stick to the same color until it is manually changed by pressing the *Next color* button.
-  * *Automatic*: When turned on, the RGB LEDs will slowly fade from one color to another.
+  - *Manual*: When turned on, the RGB LEDs will stick to the same color until it is manually changed by pressing the *Next color* button.
+  - *Automatic*: When turned on, the RGB LEDs will slowly fade from one color to another.
 
 
 ### Fan Control
@@ -108,19 +108,19 @@ This feature is currently not supported by the TOLO integration and will be adde
 ### Diagnostic Information
 
 Beside the controls described above, the TOLO integration provides following diagnostic information:
-  * *Power timer*:
+  - *Power timer*:
     The remaining time the TOLO system will produce steam after it has been turned on.
-  * *Fan timer*:
+  - *Fan timer*:
     The remaining time the fan will be on after then fan has been turned on.
-  * *Salt bath timer*:
+  - *Salt bath timer*:
     The remaining time the salt bath will be active after it has been turned on.
-  * *Tank temperature*:
+  - *Tank temperature*:
     Current temperature of the water in the water tank.
     Should be close to 100°C when in *Heat* mode.
-  * *Water level*:
+  - *Water level*:
     The current water level in the water tank.
     This should be 0% when off and 100% when in *Heat* mode.
-  * *Water in/out valves*:
+  - *Water in/out valves*:
     Indicates if the TOLO system currently lets water run in or out.
     When starting up, *Water in valve* should be open while *Water out valve* should be closed.
     During *Heat* operation, both valves should be normally closed except short moments where consumed water needs to be refilled.
