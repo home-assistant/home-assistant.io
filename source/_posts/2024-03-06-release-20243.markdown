@@ -56,7 +56,7 @@ happen during my absence this beta. 🥰
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2024.3.1 - March 14](#release-202431---march-14)
-- [Release 2024.3.2 - March 21](#release-202432---march-21)
+- [Release 2024.3.2 - March 22](#release-202432---march-22)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -603,37 +603,37 @@ The following integration us now available via the Home Assistant UI:
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@zweckj]: https://github.com/zweckj
 
-## Release 2024.3.2 - March 21
+## Release 2024.3.2 - March 22
 
-- Streamline Notion config entry updates (refresh token and user ID) ([@bachya] - [#112832]) ([notion docs])
-- Bump aioautomower to 2024.3.2 ([@Thomas55555] - [#113162]) ([husqvarna_automower docs])
-- Bump aioautomower to 2024.3.3 ([@Thomas55555] - [#113430]) ([husqvarna_automower docs])
-- Check for EA release channel for UniFi Protect ([@AngellusMortis] - [#113432]) ([unifiprotect docs])
-- Bump `pysnmp-lextudio` to version `6.0.11` ([@lextm] - [#113463]) ([snmp docs])
-- Tado fix water heater ([@erwindouna] - [#113464]) ([tado docs])
-- Bump aiodhcpwatcher to 0.8.2 ([@bdraco] - [#113466]) ([dhcp docs])
-- Bump axis to v55 ([@Kane610] - [#113479]) ([axis docs])
-- Bump croniter to 2.0.2 ([@dgomes] - [#113494]) ([utility_meter docs])
-- Revert setting communication delay in Risco init ([@OnFreund] - [#113497]) ([risco docs])
-- Bump pyrisco to 0.5.10 ([@OnFreund] - [#113505]) ([risco docs])
-- Fix missing context when running script from template entity ([@emontnemery] - [#113523]) ([template docs])
-- Bump ical to 7.0.3 to fix local-todo persisted with invalid DTSTART values ([@allenporter] - [#113526]) ([google docs]) ([local_calendar docs]) ([local_todo docs])
-- Fix Airthings BLE illuminance sensor name ([@joostlek] - [#113560]) ([airthings_ble docs])
-- Ignore Shelly block update with cfgChanged None ([@thecode] - [#113587]) ([shelly docs])
-- Catch `TimeoutError` in `Brother` config flow ([@bieniu] - [#113593]) ([brother docs])
-- Bump axis to v56 ([@Kane610] - [#113608]) ([axis docs])
-- Bump pyunifiprotect to 5.0.1 ([@AngellusMortis] - [#113630]) ([unifiprotect docs])
-- Bump pyunifiprotect to 5.0.2 ([@AngellusMortis] - [#113651]) ([unifiprotect docs])
-- Add removal condition to Shelly battery sensor ([@bieniu] - [#113703]) ([shelly docs])
-- Bump aioraven to 0.5.2 ([@cottsay] - [#113714]) ([rainforest_raven docs])
-- Fix unknown values in onewire ([@epenet] - [#113731]) ([onewire docs])
-- Bump pymodbus v3.6.6 ([@janiversen] - [#113796]) ([modbus docs])
-- Catch API errors in cast media_player service handlers ([@emontnemery] - [#113839]) ([cast docs])
-- Bump pychromecast to 14.0.1 ([@emontnemery] - [#113841]) ([cast docs])
-- Fix startup race in cast ([@emontnemery] - [#113843]) ([cast docs])
-- Redact the area of traccar server geofences ([@ludeeus] - [#113861]) ([traccar_server docs])
-- Bump pytedee_async to 0.2.17 ([@zweckj] - [#113933]) ([tedee docs])
-- Bump axis to v57 ([@Kane610] - [#113952]) ([axis docs])
+- Streamline Notion config entry updates (refresh token and user ID) ([@bachya] - [#112832])
+- Bump aioautomower to 2024.3.2 ([@Thomas55555] - [#113162])
+- Bump aioautomower to 2024.3.3 ([@Thomas55555] - [#113430])
+- Check for EA release channel for UniFi Protect ([@AngellusMortis] - [#113432])
+- Bump `pysnmp-lextudio` to version `6.0.11` ([@lextm] - [#113463])
+- Tado fix water heater ([@erwindouna] - [#113464])
+- Bump aiodhcpwatcher to 0.8.2 ([@bdraco] - [#113466])
+- Bump axis to v55 ([@Kane610] - [#113479])
+- Bump croniter to 2.0.2 ([@dgomes] - [#113494])
+- Revert setting communication delay in Risco init ([@OnFreund] - [#113497])
+- Bump pyrisco to 0.5.10 ([@OnFreund] - [#113505])
+- Fix missing context when running script from template entity ([@emontnemery] - [#113523])
+- Bump ical to 7.0.3 to fix local-todo persisted with invalid DTSTART values ([@allenporter] - [#113526])
+- Fix Airthings BLE illuminance sensor name ([@joostlek] - [#113560])
+- Ignore Shelly block update with cfgChanged None ([@thecode] - [#113587])
+- Catch `TimeoutError` in `Brother` config flow ([@bieniu] - [#113593])
+- Bump axis to v56 ([@Kane610] - [#113608])
+- Bump pyunifiprotect to 5.0.1 ([@AngellusMortis] - [#113630])
+- Bump pyunifiprotect to 5.0.2 ([@AngellusMortis] - [#113651])
+- Add removal condition to Shelly battery sensor ([@bieniu] - [#113703])
+- Bump aioraven to 0.5.2 ([@cottsay] - [#113714])
+- Fix unknown values in onewire ([@epenet] - [#113731])
+- Bump pymodbus v3.6.6 ([@janiversen] - [#113796])
+- Catch API errors in cast media_player service handlers ([@emontnemery] - [#113839])
+- Bump pychromecast to 14.0.1 ([@emontnemery] - [#113841])
+- Fix startup race in cast ([@emontnemery] - [#113843])
+- Redact the area of traccar server geofences ([@ludeeus] - [#113861])
+- Bump pytedee_async to 0.2.17 ([@zweckj] - [#113933])
+- Bump axis to v57 ([@Kane610] - [#113952])
 
 [#111133]: https://github.com/home-assistant/core/pull/111133
 [#111441]: https://github.com/home-assistant/core/pull/111441
@@ -690,30 +690,6 @@ The following integration us now available via the Home Assistant UI:
 [@ludeeus]: https://github.com/ludeeus
 [@thecode]: https://github.com/thecode
 [@zweckj]: https://github.com/zweckj
-[airthings_ble docs]: /integrations/airthings_ble/
-[axis docs]: /integrations/axis/
-[brother docs]: /integrations/brother/
-[cast docs]: /integrations/cast/
-[dhcp docs]: /integrations/dhcp/
-[google docs]: /integrations/google/
-[husqvarna_automower docs]: /integrations/husqvarna_automower/
-[kitchen_sink docs]: /integrations/kitchen_sink/
-[local_calendar docs]: /integrations/local_calendar/
-[local_todo docs]: /integrations/local_todo/
-[modbus docs]: /integrations/modbus/
-[notion docs]: /integrations/notion/
-[onewire docs]: /integrations/onewire/
-[rainforest_raven docs]: /integrations/rainforest_raven/
-[risco docs]: /integrations/risco/
-[shelly docs]: /integrations/shelly/
-[snmp docs]: /integrations/snmp/
-[tado docs]: /integrations/tado/
-[tedee docs]: /integrations/tedee/
-[template docs]: /integrations/template/
-[traccar_server docs]: /integrations/traccar_server/
-[unifiprotect docs]: /integrations/unifiprotect/
-[utility_meter docs]: /integrations/utility_meter/
-
 
 ## Need help? Join the community!
 
