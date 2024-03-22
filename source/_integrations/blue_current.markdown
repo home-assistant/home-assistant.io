@@ -65,3 +65,12 @@ The following sensors are created as well, but disabled by default:
 The following sensors are created as well, but disabled by default:
 
 - Grid current phase 1-3
+
+## Button
+
+The Blue Current integration provides the following buttons:
+
+### Charge point buttons
+- Reset
+- Reboot
+- Stop charge session
