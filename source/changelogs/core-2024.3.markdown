@@ -1192,6 +1192,94 @@ For a summary in a more readable format:
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@zweckj]: https://github.com/zweckj
 
+## Release 2024.3.2 - March 22
+
+- Streamline Notion config entry updates (refresh token and user ID) ([@bachya] - [#112832])
+- Bump aioautomower to 2024.3.2 ([@Thomas55555] - [#113162])
+- Bump aioautomower to 2024.3.3 ([@Thomas55555] - [#113430])
+- Check for EA release channel for UniFi Protect ([@AngellusMortis] - [#113432])
+- Bump `pysnmp-lextudio` to version `6.0.11` ([@lextm] - [#113463])
+- Tado fix water heater ([@erwindouna] - [#113464])
+- Bump aiodhcpwatcher to 0.8.2 ([@bdraco] - [#113466])
+- Bump axis to v55 ([@Kane610] - [#113479])
+- Bump croniter to 2.0.2 ([@dgomes] - [#113494])
+- Revert setting communication delay in Risco init ([@OnFreund] - [#113497])
+- Bump pyrisco to 0.5.10 ([@OnFreund] - [#113505])
+- Fix missing context when running script from template entity ([@emontnemery] - [#113523])
+- Bump ical to 7.0.3 to fix local-todo persisted with invalid DTSTART values ([@allenporter] - [#113526])
+- Fix Airthings BLE illuminance sensor name ([@joostlek] - [#113560])
+- Ignore Shelly block update with cfgChanged None ([@thecode] - [#113587])
+- Catch `TimeoutError` in `Brother` config flow ([@bieniu] - [#113593])
+- Bump axis to v56 ([@Kane610] - [#113608])
+- Bump pyunifiprotect to 5.0.1 ([@AngellusMortis] - [#113630])
+- Bump pyunifiprotect to 5.0.2 ([@AngellusMortis] - [#113651])
+- Add removal condition to Shelly battery sensor ([@bieniu] - [#113703])
+- Bump aioraven to 0.5.2 ([@cottsay] - [#113714])
+- Fix unknown values in onewire ([@epenet] - [#113731])
+- Bump pymodbus v3.6.6 ([@janiversen] - [#113796])
+- Catch API errors in cast media_player service handlers ([@emontnemery] - [#113839])
+- Bump pychromecast to 14.0.1 ([@emontnemery] - [#113841])
+- Fix startup race in cast ([@emontnemery] - [#113843])
+- Redact the area of traccar server geofences ([@ludeeus] - [#113861])
+- Bump pytedee_async to 0.2.17 ([@zweckj] - [#113933])
+- Bump axis to v57 ([@Kane610] - [#113952])
+
+[#111133]: https://github.com/home-assistant/core/pull/111133
+[#111441]: https://github.com/home-assistant/core/pull/111441
+[#111648]: https://github.com/home-assistant/core/pull/111648
+[#112516]: https://github.com/home-assistant/core/pull/112516
+[#112832]: https://github.com/home-assistant/core/pull/112832
+[#113162]: https://github.com/home-assistant/core/pull/113162
+[#113249]: https://github.com/home-assistant/core/pull/113249
+[#113430]: https://github.com/home-assistant/core/pull/113430
+[#113432]: https://github.com/home-assistant/core/pull/113432
+[#113463]: https://github.com/home-assistant/core/pull/113463
+[#113464]: https://github.com/home-assistant/core/pull/113464
+[#113466]: https://github.com/home-assistant/core/pull/113466
+[#113479]: https://github.com/home-assistant/core/pull/113479
+[#113494]: https://github.com/home-assistant/core/pull/113494
+[#113497]: https://github.com/home-assistant/core/pull/113497
+[#113505]: https://github.com/home-assistant/core/pull/113505
+[#113523]: https://github.com/home-assistant/core/pull/113523
+[#113526]: https://github.com/home-assistant/core/pull/113526
+[#113560]: https://github.com/home-assistant/core/pull/113560
+[#113587]: https://github.com/home-assistant/core/pull/113587
+[#113593]: https://github.com/home-assistant/core/pull/113593
+[#113608]: https://github.com/home-assistant/core/pull/113608
+[#113630]: https://github.com/home-assistant/core/pull/113630
+[#113651]: https://github.com/home-assistant/core/pull/113651
+[#113703]: https://github.com/home-assistant/core/pull/113703
+[#113714]: https://github.com/home-assistant/core/pull/113714
+[#113731]: https://github.com/home-assistant/core/pull/113731
+[#113796]: https://github.com/home-assistant/core/pull/113796
+[#113839]: https://github.com/home-assistant/core/pull/113839
+[#113841]: https://github.com/home-assistant/core/pull/113841
+[#113843]: https://github.com/home-assistant/core/pull/113843
+[#113861]: https://github.com/home-assistant/core/pull/113861
+[#113933]: https://github.com/home-assistant/core/pull/113933
+[#113952]: https://github.com/home-assistant/core/pull/113952
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@Kane610]: https://github.com/Kane610
+[@OnFreund]: https://github.com/OnFreund
+[@Thomas55555]: https://github.com/Thomas55555
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@cottsay]: https://github.com/cottsay
+[@dgomes]: https://github.com/dgomes
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@joostlek]: https://github.com/joostlek
+[@lextm]: https://github.com/lextm
+[@ludeeus]: https://github.com/ludeeus
+[@thecode]: https://github.com/thecode
+[@zweckj]: https://github.com/zweckj
+
 [#100418]: https://github.com/home-assistant/core/pull/100418
 [#101012]: https://github.com/home-assistant/core/pull/101012
 [#101641]: https://github.com/home-assistant/core/pull/101641
