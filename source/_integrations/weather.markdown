@@ -193,3 +193,99 @@ weather.toronto_forecast:
 ```
 
 {% enddetails %}
+
+## Service `weather.get_forecast_attribute`
+
+This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+with a mapping of weather services and their associated forecasts.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `type` | no | The type of forecast, must be one of `daily`, `twice_daily`, or `hourly`. The default is `daily`. | daily
+| `attribute` | no | The forecast attribute to get in the response | temperature
+| `limit` | yes | Limit the amount of return values | 3
+
+```yaml
+service: weather.get_forecast_attribute
+target:
+  entity_id:
+    - weather.tomorrow_io_home_nowcast
+    - weather.toronto_forecast
+data:
+  type: hourly
+  attribute: temperature
+response_variable: weather_forecast
+```
+
+The response data field is a mapping of called target entities, each containing the `forecast` field.
+`forecast` is a list of forecasted conditions at a given point in time:
+
+| Response data | Description | Example |
+| ---------------------- | ----------- | -------- |
+| `datetime` | The time of the forecasted conditions. | 2023-02-17T14:00:00+00:00
+| `is_daytime` | Only set for `twice_daily` forecasts. | False
+| `apparent_temperature` | The apparent (feels-like) temperature in the unit indicated by the `temperature_unit` state attribute. | 10.2
+| `cloud_coverage` | The cloud coverage in %. | 15
+| `condition` | The weather condition. | Sunny
+| `dew_point` | The dew point temperature in the unit indicated by the `temperature_unit` state attribute. | 6.0
+| `humidity` | The relative humidity in %. | 82
+| `precipitation_probability` | The probability of precipitation in %. | 0
+| `precipitation` | The precipitation amount in the unit indicated by the `precipitation_unit` state attribute. | 0
+| `pressure` | The air pressure in the unit indicated by the `pressure_unit` state attribute. | 1019
+| `temperature` | The temperature in the unit indicated by the `temperature_unit` state attribute. If `templow` is also provided, this is the higher temperature. | 14.2
+| `templow` | The lower temperature in the unit indicated by the `temperature_unit` state attribute. | 5.0
+| `uv_index` | The UV index. | 3
+| `wind_bearing` | The wind bearing in azimuth angle (degrees) or 1-3 letter cardinal direction. | 268
+| `wind_gust_speed` | The wind gust speed in the unit indicated by the `wind_speed_unit` state attribute. | 34.41
+| `wind_speed` | The wind speed in the unit indicated by the `wind_speed_unit` state attribute. | 24.41
+
+
+## Examples
+
+{% details "Example template sensor using get_forecast_attribute" %}
+
+Example template sensor that contains the hourly forecast
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: /1
+    action:
+      - service: weather.get_forecasts
+        data:
+          type: hourly
+        target:
+          entity_id: weather.home
+        response_variable: hourly
+    sensor:
+      - name: Temperature difference next four hours
+        unique_id: temperature_forecast_next_hours
+        state: "{{ hourly['weather.home'].forecast_attribute.temperature[3] - hourly['weather.home'].forecast_attribute.temperature[0] }}"
+        unit_of_measurement: °C
+
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+
+{% details "Example service response for temperature attribute" %}
+
+```yaml
+weather.tomorrow_io_home_nowcast:
+  forecast_attribute:
+    - 10.0
+    - 11.0
+    - 12.0
+weather.toronto_forecast:
+  forecast_attribute:
+    - 15.0
+    - 16.5
+    - 17.0
+```
+
+{% enddetails %}
