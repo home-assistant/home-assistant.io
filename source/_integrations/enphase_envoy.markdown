@@ -61,6 +61,13 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
 - A switch allowing you to take your system on-grid and off-grid. Note that the Enpower has a slight delay built-in between receiving these commands and actually switching the system on or off grid.
 - A switch allowing you to enable or disable charging the Encharge/IQ Batteries from the power grid.
 - Support for changing the battery storage mode between full backup, self-consumption, and savings mode and setting the reserve battery level for outages.
+- If a storage <abbr title="current transformers">CT</abbr> is installed:
+  - Sensors for battery storage energy charged and discharged and current active power discharge/charge 
+  - Disabled sensors for:
+    - Phase battery storage energy charged and discharged and current power discharge/charge
+    - Voltage net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase)
+    - Metering status for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
+    - Meter status flags active storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
 
 ## Envoy authentication requirements
 
@@ -95,7 +102,82 @@ This integration provides several values suitable for the energy dashboard:
 - For `Solar production`, use the `Envoy Lifetime energy production` entity.
 - For `Grid consumption`, use the `Envoy Lifetime net energy consumption` entity.[^3]
 - For `Return to grid`, use the `Envoy Lifetime net energy production` entity.[^3]
+- For `Energy going into the battery`, use the the `Envoy Lifetime battery energy charged` entity.[^5]
+- For `Energy coming out off the battery`, use the the `Envoy Lifetime battery energy discharged` entity.[^5]
 
-[^3]: Only applies when using  Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (<abbr title="current transformers">CT</abbr>).
+[^3]: Only applies when using  Envoy S Metered / IQ Gateway Metered with installed and configured <abbr title="current transformers">CT</abbr>.
 
-There are no readily available battery energy sensors for use with the `Home Battery storage`. You can consider using the Encharge  `real_power_mw` entity as an input to Riemann integrators for charge (negative) or discharge (positive) values. As the [polling interval](#polling-interval) is 1 minute, these may be off though.
+[^5]: Only applies when using  Envoy S Metered / IQ Gateway Metered / IQ Combiner with installed and configured storage / battery <abbr title="current transformers">CT</abbr>.
+
+## Debug logs and diagnostics
+
+This integration provides debug log and diagnostics report as described in the [Home Assistant troubleshooting pages](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+
+### Debug log
+
+When experiencing issues during the use of the integration, enable the debug log for the Envoy / IQ Gateway. This will add details on the data collection to the Home Assistant log file. Leave the debug log enabled long enough to capture the occurrence of the issue. If the issue is intermittent, this may take a while and it may grow the log file quite a bit.
+
+If you're expecting features to show but they are not shown, reload the integration while debug logging is enabled.
+When this integration is loaded, it will scan the Envoy / IQ Gateway for available features and configure these as needed. Following this initial scan, only data for the found features is collected.  Performing a reload with debug enabled results in the debug log containing the initial full scan to assist with analyzing any missing features. Some features are disabled by default, and you need to enable them if you want them to show. Verify this before starting a debug session.
+
+The debug log will show all communication with the Envoy / IQ Gateway. Lines starting with entities are log entries for the integration:
+
+```txt
+2024-03-07 11:20:11.897 DEBUG (MainThread) [homeassistant.components.enphase_envoy
+2024-03-07 11:20:11.898 DEBUG (MainThread) [pyenphase.envoy
+```
+
+Below a typical data request / reply sequence in the log file. These lines will contain the data details received from the Envoy / IQ Gateway.
+
+```txt
+... [pyenphase.envoy] Requesting https://192.168.1.2/ivp/meters with timeout ...
+... [pyenphase.envoy] Request reply from https://192.168.1.2/ivp/meters status 200:...
+```
+
+The end of a collection cycle is marked by:
+
+```txt
+... [homeassistant.components.enphase_envoy.coordinator] Finished fetching Envoy 123456 data in 1.234 seconds (success: True)
+```
+
+### Diagnostics
+
+The diagnostics file is a JSON file and includes a `data` section with the details for this integration. The file can be viewed with any text editor[^4]. The data section has 5 major subsections which reflects how the integration is setup and data is used. Below the 5 subsections, each collapsed.
+
+[^4]: Use of a JSON-aware viewer is not required but makes inspecting the file easier.
+
+```JSON
+  "data": {
+    "config_entry": { ...
+    },
+    "envoy_properties": { ...
+    },
+    "raw_data": { ...
+    },
+    "envoy_model_data": { ...
+    },
+    "envoy_entities_by_device": [ ...
+    ]
+  }
+}    
+```
+
+#### Config entry
+
+Shows the integration configuration created when the integration was added.
+
+#### Envoy properties
+
+Shows the conclusions of the initial data scan and what features were identified, including the detected firmware version in the Envoy.
+
+#### Raw data
+
+Shows the data collected from the Envoy during the last data scan when the diagnostic report was created. If in doubt about data shown in the dashboards, consult this section to find the raw data sent by the Envoy. The integration is not modifying this data, it's just providing the data to the entities.
+
+#### Envoy model data
+
+Shows the data of the Envoy extracted from the raw_data into Envoy class data used by the Home Assistant integration. This is a subset of the full raw dataset.
+
+#### Envoy entities by device
+
+Shows all entities created by the integration based on the findings of the initial scan, grouped by device. Entity state based on the last data collection cycle is included. State values here come from the Envoy model data and are the values visible in the dashboards.
