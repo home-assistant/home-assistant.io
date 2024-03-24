@@ -124,6 +124,12 @@ The following is an example implementation of an automation:
       entity_id: media_player.amplifier
 ```
 
+### Video tutorial
+
+This comprehensive video tutorial explains how events work in Home Assistant and how you can set up Emulated Roku to control a media player using a physical remote control.
+
+<lite-youtube videoid="nDHh1OjyuMA" videotitle="Event Triggers Unveiled: Control the Home Assistant Media Player with Your Remote Control!" posterquality="maxresdefault"></lite-youtube>
+
 ## Troubleshooting
 
 If you change your advertised IP or ports, you will have to re-add the emulated Roku in your app.
