@@ -23,9 +23,7 @@ Try it yourself with [the interactive demo](https://demo.home-assistant.io).
 
 ## Get started with your own dashboard
 
-{% include dashboard/edit_dashboard.md %}
-
-For more detailed instructions, follow the step-by-step tutorial on [editing the **Overview** dashboard](/getting-started/onboarding_dashboard/).
+To create your own dashboard, follow the steps on [creating a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard).
 
 ## Discuss dashboard
 
@@ -34,9 +32,13 @@ For more detailed instructions, follow the step-by-step tutorial on [editing the
 
 ## Related topics
 
-- [Community custom cards](https://github.com/custom-cards)
-- [Home Assistant cards](https://home-assistant-cards.bessarabov.com/)
-- [Material Design Icons](https://pictogrammers.com/library/mdi/)
 - [Dashboard themes](/integrations/frontend/#defining-themes)
 - [Interactive dashboard demo](https://demo.home-assistant.io)
-- [Editing the **Overview** dashboard](/getting-started/onboarding_dashboard/)
+- [Creating a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard)
+
+### Cards
+
+- [About cards](/dashboards/cards/)
+- [Community custom cards](https://github.com/custom-cards)
+- [Home Assistant cards](https://home-assistant-cards.bessarabov.com/)
+

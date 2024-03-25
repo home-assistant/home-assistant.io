@@ -39,9 +39,14 @@ theme:
 
 ### Examples
 
-Title Example:
+Title example:
 
 ```yaml
 type: shopping-list
 title: shopping list
 ```
+
+## Related topics
+
+- [To-do list integration](/integrations/todo)
+- [Local to-do integration](/integrations/local_todo/)

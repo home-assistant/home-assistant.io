@@ -1,6 +1,6 @@
 ---
 title: SMTP
-description: Instructions on how to add e-mail notifications to Home Assistant.
+description: Instructions on how to add email notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_iot_class: Cloud Push
@@ -11,9 +11,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The SMTP platform allows you to deliver notifications from Home Assistant to an e-mail recipient.
+The SMTP platform allows you to deliver notifications from Home Assistant to an email recipient.
 
-To enable notification by e-mail in your installation, add the following to your `configuration.yaml` file:
+To enable notification by email in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -24,7 +24,7 @@ notify:
     recipient: "YOUR_RECIPIENT"
 ```
 
-Check your e-mail provider configuration or help pages to get the correct SMTP settings.
+Check your email provider configuration or help pages to get the correct SMTP settings.
 
 {% configuration %}
 name:
@@ -33,11 +33,11 @@ name:
   type: string
   default: notify
 sender:
-  description: E-mail address of the sender.
+  description: email address of the sender.
   required: true
   type: string
 recipient:
-  description: Default E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your E-mail notifications by default (when not specifying `target` in the service call). Any E-mail address(es) specified in the service call's `target` field will override this recipient content.
+  description: Default email address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your email notifications by default (when not specifying `target` in the service call). Any email address(es) specified in the service call's `target` field will override this recipient content.
   required: true
   type: [list, string]
 server:
@@ -184,10 +184,10 @@ burglar:
 
 To learn more about how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
 
-## Specific E-Mail Provider Configuration
+## Specific email provider configuration
 
-Check below some configurations examples for specific e-mail providers.
-If you are in doubt about the SMTP settings required, check your e-mail provider configuration or help pages for more information about its specific SMTP configuration.
+Check below some configurations examples for specific email providers.
+If you are in doubt about the SMTP settings required, check your email provider configuration or help pages for more information about its specific SMTP configuration.
 
 ### Google Mail
 

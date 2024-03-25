@@ -45,6 +45,8 @@ If you have multiple devices of the same type, you need to get the BTLE MAC addr
 
 Please note, device names configured in the SwitchBot app are not transferred into Home Assistant.
 
+Some SwitchBot devices need to be configured within the app before being controlled by Home Assistant, such as calibrating the cover open/close limits or pairing two covers to move together.
+
 {% include integrations/config_flow.md %}
 
 ## Supported devices

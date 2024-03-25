@@ -153,3 +153,8 @@ Example theme configuration:
 ```yaml
 --weather-icon-sunny: url("/local/sunny.png")
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

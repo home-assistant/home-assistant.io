@@ -78,3 +78,9 @@ footer:
   attribute: battery_level
   unit: "%"
 ```
+
+## Related topics
+
+- [Card header and footer](/dashboards/header-footer/)
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

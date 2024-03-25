@@ -83,3 +83,9 @@ The following device classes are supported by event entities:
 - **button**: For remote control buttons.
 - **doorbell**: Specifically for buttons that are used as a doorbell.
 - **motion**: For motion events detected by a motion sensor.
+
+### Video tutorial
+
+This comprehensive video tutorial explains how events work in Home Assistant and how you can set up Emulated Roku to control a media player using a physical remote control.
+
+<lite-youtube videoid="nDHh1OjyuMA" videotitle="Event Triggers Unveiled: Control the Home Assistant Media Player with Your Remote Control!" posterquality="maxresdefault"></lite-youtube>

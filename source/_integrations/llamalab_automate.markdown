@@ -41,7 +41,7 @@ api_key:
   required: true
   type: string
 to:
-  description: E-Mail address the Automate-Fiber is configured for.
+  description: Email address the Automate-Fiber is configured for.
   required: true
   type: string
 device:
@@ -71,7 +71,7 @@ Receiving cloud messages in Automate:
 4. Connect OK from Flow beginning to IN of Cloud receive
 5. Connect OK from Cloud receive to Toast show
 6. Connect OK form Toast show to IN of Cloud receive
-7. Tap Cloud receive and select the E-Mail account as setup in your configuration
+7. Tap Cloud receive and select the email account as setup in your configuration
 8. Assign a variable name for the Payload
 9. Tap Toast show and set the message value to the variable you've specified
 
