@@ -1,7 +1,7 @@
 ---
 title: microBees
 description: Instructions on how to integrate microBees devices into Home Assistant.
-ha_category:  - Switch
+ha_category:  
   - Cover
   - Button
   - Light
