@@ -96,3 +96,8 @@ entities:
   - entity: sensor.inside_temperature
     name: Inside
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)
