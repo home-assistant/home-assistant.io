@@ -1,9 +1,9 @@
 ---
-type: card
 title: "Shopping list card"
-sidebar_label: Shopping list
 description: "The shopping list card allows you to add, edit, check-off, and clear items from your shopping list."
 ---
+
+Note: the shopping list card is no longer available as a card to add from the user interface. Use the [to-do list card](/dashboards/todo-list/) instead.
 
 The shopping list card allows you to add, edit, check-off, and clear items from your shopping list.
 
