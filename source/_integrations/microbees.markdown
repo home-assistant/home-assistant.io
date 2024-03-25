@@ -13,6 +13,8 @@ ha_config_flow: true
 ha_domain: microbees
 ha_iot_class: Cloud Polling
 ha_platforms:
+  - switch
+  - binary_sensor
   - button
   - light
   - sensor
@@ -27,6 +29,7 @@ To retrieve the OAuth2 Client ID and Client Secret go to [microBees Developer Da
 
 There is currently support for the following device types within Home Assistant:
 - **Switch**
+- **Binary sensors**
 - **Button**
 - **Light**
 - **Sensor**
