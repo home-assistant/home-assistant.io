@@ -111,7 +111,7 @@ This integration provides several values suitable for the energy dashboard:
 
 ## Debug logs and diagnostics
 
-This integration provides debug log and diagnostics report as described in the [Home Assistant troubleshooting pages](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+This integration provides debug logs and diagnostics reports as described in the [Home Assistant troubleshooting pages](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
 ### Debug log
 
