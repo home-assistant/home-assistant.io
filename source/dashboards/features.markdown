@@ -233,6 +233,42 @@ type:
   type: string
 {% endconfiguration %}
 
+## Fan preset modes
+
+Widget that displays buttons or icons to control the preset mode for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_preset_modes.png' alt='Screenshot of the tile card with the fan preset modes feature'>
+  Screenshot of the tile card with the fan preset modes feature
+</p>
+
+```yaml
+features:
+  - type: "fan-preset-modes"
+    style: "icons"
+    preset_modes:
+      - auto
+      - smart
+      - sleep
+      - 'on'
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-preset-modes`"
+  type: string
+style:
+  required: false
+  description: "How the preset modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+preset_modes:
+  required: true
+  description: List of preset modes to show on the card. The list can contain any supported preset modes.
+  type: list
+{% endconfiguration %}
+
 ## Fan speed
 
 Widget that displays speed controls for a [fan](/integrations/fan).

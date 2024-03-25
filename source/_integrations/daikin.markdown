@@ -9,7 +9,6 @@ ha_category:
 ha_release: 0.59
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@fredrike'
 ha_domain: daikin
@@ -21,9 +20,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-<p class='note warning'>
-  Daikin has removed their local API in newer products. They offer a cloud API accessible only under NDA, which is incompatible with open source. This affects units fitted with the BRP069C4x wifi adapter. Units listed under Supported Hardware below continue to have access to local control. Additionally the older but commonly available BRP072A42 adapter can be fitted to most if not all newer units for access to local control.
-</p>
+<div class='note warning'>
+
+Daikin has removed their local API in newer products. They offer a Onecta cloud API for controlling Daikin devices through the cloud, see the [Daikin Europe Developer Portal](https://developer.cloud.daikineurope.com) for more details. This affects units fitted with the BRP069C4x wifi adapter. Units listed under Supported Hardware below continue to have access to local control. Additionally the older but commonly available BRP072A42 adapter can be fitted to most if not all newer units for access to local control.
+
+</div>
 
 The **Daikin** {% term integration %} integrates Daikin air conditioning systems into Home Assistant.
 
