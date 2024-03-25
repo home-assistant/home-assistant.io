@@ -36,5 +36,5 @@ Send a custom command to the Lutron Homeworks controller.
 
 | Service data attribute | Optional | Example                 | Description                                         |
 | ---------------------- | -------- | ----------------------- | --------------------------------------------------- |
-| `controller_id`        | No       | `homeworks`             | The controller which the command should be sent to. |
+| `controller_id`        | No       | `homeworks`             | The controller to which the command should be sent to. |
 | `command`              | No       | `KBP, [02:08:02:01], 1` | The command you want to send. This can either be a single command or a list of commands. |
