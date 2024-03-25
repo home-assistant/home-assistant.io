@@ -45,8 +45,8 @@ The **Application ID** is used to identify the scope of your data.
 
 ![Payload Formatters](/images/integrations/thethingsnetwork/payload_formatters.png)
 
-1. You need an API key to be able to read the data from your application. 
-  - The minimum rights is `Read Application Traffic (uplink and downlink)`.
+3. You need an API key to be able to read the data from your application. 
+  - The minimal required right is `Read Application Traffic (uplink and downlink)`.
 
 ![API keys](/images/integrations/thethingsnetwork/apis_key.png)
 
