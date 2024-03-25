@@ -1,12 +1,12 @@
 ---
 title: microBees
 description: Instructions on how to integrate microBees devices into Home Assistant.
-ha_category:
-  - Switch
+ha_category:  - Switch
   - Cover
   - Button
   - Light
   - Sensor
+  - Switch
 ha_release: 2024.3
 ha_codeowners:
   - '@microBeesTech'
@@ -19,8 +19,10 @@ ha_platforms:
   - button
   - light
   - sensor
+  - switch
 ha_integration_type: integration
 ---
+
 The microbees integration allows you to control your [microBees devices](https://www.microbees.com/) such as plugs and wall switches.
 To use this integration you need OAuth2 Client ID and Client Secret and your user credentials.
 

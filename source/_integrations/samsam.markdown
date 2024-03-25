@@ -3,16 +3,16 @@ title: SamSam
 description: Get the energy market prices from SamSam using the EnergyZero integration.
 ha_category:
   - Energy
-  - Sensor
 ha_domain: samsam
-ha_release: 2024.3
+ha_release: 2023.2
 ha_integration_type: virtual
 ha_supporting_domain: energyzero
-ha_supporting_integration: energyzero
+ha_supporting_integration: EnergyZero
 ha_codeowners:
   - '@klaasnicolaas'
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_iot_class: Cloud Polling
 ---
