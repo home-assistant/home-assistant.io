@@ -36,5 +36,7 @@ There is currently support for the following device types within Home Assistant:
 - **Button**
 - **Light**
 - **Sensor**
-  
+
+Note: The cover status will be unknown 
+
 {% include integrations/config_flow.md %}
