@@ -257,7 +257,24 @@ automation:
 
 {% endraw %}
 
-More dynamic and complex calculations can be done with `value_template`.
+More dynamic and complex calculations can be done with `value_template`. The variable 'state' is the [state object](/docs/configuration/state_object) of the entity specified by `entity_id`.
+
+The state of the entity can be referenced like this:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.temperature
+      value_template: "{{ state.state | float * 9 / 5 + 32 }}"
+      above: 70
+```
+
+{% endraw %}
+
+Attributes of the entity can be referenced like this:
 
 {% raw %}
 

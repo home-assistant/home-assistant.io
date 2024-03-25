@@ -88,7 +88,6 @@ alexa:
         service: notify.notify
         data:
           message: "The location of {{ User }} has been queried via Alexa."
-        data:
           title: "Home Assistant"
           target: pixel
           data:

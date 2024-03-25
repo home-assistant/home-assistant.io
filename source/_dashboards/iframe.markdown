@@ -56,3 +56,7 @@ type: iframe
 url: https://www.home-assistant.io
 aspect_ratio: 75%
 ```
+
+## Related topics
+
+- [Dashboard cards](/dashboards/cards/)
