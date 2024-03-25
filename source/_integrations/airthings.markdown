@@ -9,6 +9,7 @@ ha_release: '2021.10'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@danielhiversen'
+  - '@LaStrada'
 ha_domain: airthings
 ha_config_flow: true
 ha_platforms:

@@ -1,15 +1,44 @@
 ---
-title: "Multiple Dashboards"
+title: "Multiple dashboards"
 description: "Multiple powerful and configurable dashboards in Home Assistant."
 ---
 
 You can define multiple dashboards in Home Assistant. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
 
-You can manage your dashboards via the user interface. Go to **Settings** -> **Dashboards**. Here you can see all defined dashboards and create new ones.
+You can manage your dashboards via the user interface. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. Here you can see some of the defined dashboards and create new ones.
 
-## Using YAML for the default dashboard
+<p class='img'>
+<img src='/images/dashboards/dashboard-manage-01.png' alt='Screenshot of the dashboard list'>
+Screenshot of the Dashboard list.
+</p>
 
-To change the default dashboard, create a new file `ui-lovelace.yaml` in your configuration directory and add the following section to your `configuration.yaml` and restart Home Assistant:
+## Home Assistant default dashboards
+
+Home Assistant ships with 5 predefined dashboards:
+
+- Overview
+- Energy
+- Map
+- Logbook
+- History
+
+Not all of predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. **Map**, **Logbook**, and **History**, are powered by their respective integrations.
+
+### Map dashboard
+
+The predefined **Map** dashboard is powered by the [Map integration](/integrations/map/). If you see a [person](/integrations/person/) on the map, it means you have connected a device that allows [presence detection](/integrations/#presence-detection). This is the case for example if you have the [Home Assistant Companion App](https://companion.home-assistant.io/) on your phone and allowed location tracking.
+
+### Logbook dashboard
+
+The predefined **Logbook** dashboard is powered by the [Logbook integration](/integrations/logbook/). To control which events to show or filter out, refer to the documentation of the Logbook integration.
+
+### History dashboard
+
+The predefined **History** dashboard is powered by the [History integration](/integrations/logbook/). To learn about the data sources used and how to export data, refer to the documentation of the History integration.
+
+## Using YAML for the Overview dashboard
+
+To change the **Overview** dashboard, create a new file `ui-lovelace.yaml` in your configuration directory and add the following section to your `configuration.yaml` and restart Home Assistant:
 
 ```yaml
 lovelace:
@@ -18,9 +47,9 @@ lovelace:
 
 A good way to start this file is to copy and paste the "Raw configuration" from the UI so your manual configuration starts the same as your existing UI.
 
-- Click `Overview` in your sidebar.
-- Click the three dots menu (top-right) and click on `Edit Dashboard`.
-- Click the three dots menu again and click on `Raw configuration editor`.
+- In your sidebar, select **Overview**.
+- In the top-right corner, select the pencil icon.
+- Select the three dots menu and select **Raw configuration editor**.
 - There you see the configuration for your current dashboard. Copy that into the `<config>/ui-lovelace.yaml` file.
 
 Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore and new entities will not automatically be added to your UI.
@@ -192,3 +221,9 @@ views:
         content: >
           Welcome to your **dashboard**.
 ```
+
+## Related topics
+
+- [Logbook integration](/integrations/logbook/)
+- [Map integration](/integrations/map/)
+- [History integration](/integrations/history/)

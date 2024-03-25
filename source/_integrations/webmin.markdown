@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@autinerd'
 ha_domain: webmin
-ha_integration_type: integration
+ha_integration_type: device
 ha_platforms:
   - sensor
 ---
