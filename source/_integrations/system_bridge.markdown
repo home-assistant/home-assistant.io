@@ -39,6 +39,7 @@ You will need your token. For instructions on finding your token, follow the ste
 ## Binary sensors
 
 This integration provides the following binary sensors:
+
 | Name                  | Description                         |
 | --------------------- | ----------------------------------- |
 | Battery Is Charging   | Whether the battery is charging     |
