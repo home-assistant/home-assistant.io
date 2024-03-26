@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This integration adds support for [Motionblinds](https://motionblinds.com/) Bluetooth motors. Beware that this integration does not work with *Eve Motionblinds* motors. *Eve Motionblinds* can be added to Home Assistant using the [HomeKit Device](https://www.home-assistant.io/integrations/homekit_controller/) integration.
+The Motionblinds BLE {% term integration %} adds support for [Motionblinds](https://motionblinds.com/) Bluetooth motors. Beware that this integration does not work with *Eve Motionblinds* motors. *Eve Motionblinds* can be added to Home Assistant using the [HomeKit Device](https://www.home-assistant.io/integrations/homekit_controller/) integration.
 
 {% include integrations/config_flow.md %}
 
@@ -26,9 +26,9 @@ During the setup of a Motionblinds BLE device, you will be asked what kind of bl
 - **Roller blind**: has the ability to change position and speed.
 - **Honeycomb blind**: has the ability to change position and speed.
 - **Roman blind**: has the ability to change position and speed.
-- **Venetian blind**: has the ability to change position, tilt and speed.
+- **Venetian blind**: has the ability to change position, tilt, and speed.
 - **Venetian blind (tilt-only)**: has the ability to change tilt and speed.
-- **Double Roller blind**: has the ability to change position, tilt and speed.
+- **Double Roller blind**: has the ability to change position, tilt, and speed.
 - **Curtain blind**: has the ability to change position. May need to be calibrated if the end positions are lost, which can be done by using the open/close cover button or the set cover position slider. This will trigger a calibration which will first make the curtain find the end positions after which it will run to the position as indicated by the command that was given.
 - **Vertical blind**: has the ability to change position and tilt. May need to be calibrated if the end positions are lost, which has to be done using the Motionblinds BLE mobile app.
 
