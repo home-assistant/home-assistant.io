@@ -11,7 +11,6 @@ ha_release: 0.56
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: toon
-ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - climate
@@ -56,25 +55,7 @@ In order to be able to use this integration, you'll need to sign up for a free T
 4. Click on "Create App" to complete the creation process.
 5. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page again and click on the app that you've just created.
 6. You need the codes now shown: "Consumer Key" and "Consumer Secret".
-7. Add the following Toon configuration to your `configuration.yaml` and restart Home Assistant.
-
-```yaml
-# Example configuration.yaml entry
-toon:
-  client_id: YOUR_CONSUMER_KEY
-  client_secret: YOUR_CONSUMER_SECRET
-```
-
-{% configuration %}
-client_id:
-  description: Toon API Consumer Key.
-  required: true
-  type: string
-client_secret:
-  description: Toon API Consumer Secret.
-  required: true
-  type: string
-{% endconfiguration %}
+7. When setting up the integration via the UI, the "Consumer Key" is the "Client ID" and the "Consumer Secret" is the "Client Secret".
 
 {% include integrations/config_flow.md %}
 
