@@ -14,6 +14,7 @@ ha_platforms:
   - button
   - cover
   - select
+  - sensor
 ha_integration_type: integration
 ---
 
