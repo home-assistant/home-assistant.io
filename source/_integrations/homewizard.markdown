@@ -66,7 +66,7 @@ Sensors for P1 meter, only available when smart meter exposes these values:
 - **Power failures**: Two sensors that indicate the number of power failures that have been detected by the smart meter. One for all power failures and another for 'long' power failures.
 - **Peak demand**: Belgium users are starting to get charged for the peak usage per month (see [capaciteitstarief](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief)). Two sensors are available: One that shows the current quarterly average and another that shows the peak measured this month. Both these sensors are provided directly from the smart meter and can be used to keep the peak as low as possible.
 
-Sensors for kWh meter:
+Sensors for Energy Socket and kWh meter:
 - **Voltage (V)**: Active voltage that is measured on each phase.
 - **Current (A)**: Active current that is measured on each phase.
 - **Frequency (Hz)**: Net frequency.
