@@ -222,7 +222,7 @@ sensor:
 
 {% endraw %}
 
-### Accessing an HTTP authentication protected endpoint
+### Accessing a HTTP authentication protected endpoint
 
 The REST sensor supports HTTP authentication and customized headers.
 
