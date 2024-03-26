@@ -110,7 +110,7 @@ notify_sms_user1:
 
 {% endraw %}
 
-## Required Hardware
+## Required hardware
 
 You will need a USB GSM stick modem or device like SIM800L v2 connected via USB UART.
 
@@ -184,6 +184,8 @@ ACTION=="add" \
 Re-plug the USB stick, reboot the device, run `lsusb` again.
 The resulting product id now should be different and the brand id should be the same.
 And `ls -l /dev/*USB*` should now report your device.
+
+Note: if you have multiple USB devices, USB number order can change on boot. For this reason, it's preferable to use your device ID and look in `/dev/serial/by-id/*`. For example,  `/dev/serial/by-id/usb-HUAWEI_MOBILE_HUAWEI_MOBILE-if00-port0`.
 
 If the device is still not recognized, remove the parameter -X from the usb_modeswitch command and reboot again.
 

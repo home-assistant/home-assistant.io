@@ -3,16 +3,29 @@ title: "Views"
 description: "A view is a tab inside a dashboard."
 ---
 
-A View is a tab inside a dashboard.
-To display cards on the UI you have to define them in views.
+A view is a tab inside a dashboard. Views control the layout.
 
-You can add a view to your user interface, by clicking the menu (three dots at the top right of the screen) and then **Edit Dashboard**. 
-Click the `+` button in the top menu bar.
-
-<p class="img">
-  <img src="/images/dashboards/views.png" alt="Views toolbar">
-  Use titles and icons to describe the content of views.
+<p class='img'>
+    <img src='/images/dashboards/layout-types.png' alt='The three basic view layouts: Panel, sidebar, and masonry'>
+    The three basic view layouts: panel, sidebar, and masonry
 </p>
+
+There are four different view types:
+
+- **Panel**: Displays one card in full width. For example a map or an image.
+- **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
+- **Masonry (default)**: Arranges cards in columns based on their card size.
+- **Sections (experimental)**: Arranges cards in a grid system and lets you group them in sections.
+
+## Adding a view to a dashboard
+
+1. To add a view to your user interface, in the top right corner, select the pencil icon.
+2. Then, select the `+` button in the top menu bar.
+
+    <p class="img">
+      <img src="/images/dashboards/views.png" alt="Views toolbar">
+      Use titles and icons to describe the content of views.
+    </p>
 
 ## Path
 
@@ -73,7 +86,7 @@ views:
       ...
 ```
 
-### Options For Visible
+### Options for visible objects
 
 If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
 
@@ -235,3 +248,10 @@ Subview configuration:
       entities:
         - sensor.today_avg_price
 ```
+
+## Related topics
+
+- [Masonry view](/dashboards/masonry/)
+- [Panel view](/dashboards/panel/)
+- [Sidebar view](/dashboards/sidebar/)
+- [Sections view](/dashboards/sections/)

@@ -9,7 +9,6 @@ ha_category:
 ha_release: 0.59
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@fredrike'
 ha_domain: daikin
@@ -21,11 +20,13 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-<p class='note warning'>
-  Daikin has removed their local API in newer products. They offer a cloud API accessible only under NDA, which is incompatible with open source. This affects units fitted with the BRP069C4x wifi adapter. Units listed under Supported Hardware below continue to have access to local control. Additionally the older but commonly available BRP072A42 adapter can be fitted to most if not all newer units for access to local control.
-</p>
+<div class='note warning'>
 
-The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.
+Daikin has removed their local API in newer products. They offer a Onecta cloud API for controlling Daikin devices through the cloud, see the [Daikin Europe Developer Portal](https://developer.cloud.daikineurope.com) for more details. This affects units fitted with the BRP069C4x wifi adapter. Units listed under Supported Hardware below continue to have access to local control. Additionally the older but commonly available BRP072A42 adapter can be fitted to most if not all newer units for access to local control.
+
+</div>
+
+The **Daikin** {% term integration %} integrates Daikin air conditioning systems into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -141,9 +142,11 @@ Zones with the name `-` will be ignored, just as the AirBase application is work
 
 </div>
 
+A switch is created for each device that will toggle the unit on/off. This will turn the unit on to its previous state, or toggle it off. This switch works in conjunction with the climate entity.
+
 Additionally the Daikin Streamer (air purifier) function can be toggled on supported devices using a switch. Note that it isn't currently possible to reliably detect whether a specific device has streamer support, so the switch may appear in the UI even if the functionality isn't actually supported.
 
-## Region Changing
+## Region changing
 
 The European and United States controllers (Most likely the Australian controllers too) have an HTTP API endpoint that allows you to change the controllers region so that other regional apps can be used. (Sometimes these controllers get exported to regions that can not download the app for the controllers region.)
 

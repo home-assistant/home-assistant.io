@@ -4,7 +4,7 @@
     {% assign categories = site.categories | sort %}
     {% for category in categories %}
       {% assign category_name = category | first | downcase %}
-      {% if category_name != "core" %}
+      {% if category_name != "core"%}
         <li><a href="/blog/categories/{{ category_name }}/">{{ category | first | replace: '-', ' '}}</a></li>
       {% endif %}
     {% endfor %}

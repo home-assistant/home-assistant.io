@@ -1,33 +1,33 @@
 ---
 type: card
-title: "Statistics Graph Card"
-sidebar_label: Statistics Graph
-description: "The Statistics Graph card allows you to display a graph with statistics data for each of the entities listed."
+title: "Statistics graph card"
+sidebar_label: Statistics graph
+description: "The statistics graph card allows you to display a graph with statistics data for each of the entities listed."
 ---
 
-The Statistics Graph card allows you to display a graph of statistics data for each of the entities listed.
+The statistics graph card allows you to display a graph of statistics data for each of the entities listed.
 
 <p class='img'>
 <img src='/images/dashboards/statistics_graph_line.png' alt='Screenshot of the statistics graph card for power entities'>
-Screenshot of the Statistics Graph card with none metered entities and `chart_type` `line`.
+Screenshot of the statistics graph card with none metered entities and `chart_type` `line`.
 </p>
 
 <p class='img'>
 <img src='/images/dashboards/statistics_graph_bar.png' alt='Screenshot of the statistics graph card for energy entities'>
-Screenshot of the Statistics Graph card with a metered entity and `chart_type` `bar`.
+Screenshot of the statistics graph card with a metered entity and `chart_type` `bar`.
 </p>
 
-Statistics are gathered every 5 minutes for sensors that support it. It will either keep the `min`, `max`, and `mean` of a sensor's value for a specific hour or the `sum` for a metered entity.
+Statistics are gathered every 5 minutes and also hourly for sensors that support it. The 5-minute statistics will be retained for the duration set in the [recorder configuration](/integrations/recorder/#purge_keep_days), and hourly statistics will be retained indefinitely. It will either keep the <abbr title="Minimum">`min`</abbr>, <abbr title="Maximum">`max`</abbr>, and <abbr title="Average">`mean`</abbr> of a sensor's value for a specific hour or the <abbr title="Total">`sum`</abbr> for a metered entity.
 
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
-To add the Statistics Graph card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -64,9 +64,14 @@ hide_legend:
   description:  If true, the legend will be hidden.
   type: boolean  
   default: false
+logarithmic_scale:
+  required: false
+  description: If true, numerical values on the Y-axis will be displayed with a logarithmic scale.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
-### Options For Entities
+### Options for entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 

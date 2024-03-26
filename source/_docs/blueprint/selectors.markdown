@@ -43,6 +43,7 @@ The following selectors are currently available:
 - [Number selector](#number-selector)
   - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
+- [QR code selector](#qr-code-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
@@ -76,7 +77,7 @@ action:
 The output of this selector is a list of actions. For example:
 
 ```yaml
-# Example Action selector output result
+# Example action selector output result
 - service: scene.turn_on
   target:
     entity_id: scene.watching_movies
@@ -97,7 +98,7 @@ selected add-on.
 This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
-# Example Add-on selector
+# Example add-on selector
 addon:
 ```
 
@@ -202,10 +203,10 @@ The output of this selector is the area ID, or (in case `multiple` is set to
 `true`) a list of area IDs.
 
 ```yaml
-# Example Area selector output result, when multiple is set to false
+# Example area selector output result, when multiple is set to false
 living_room
 
-# Example Area selector output result, when multiple is set to true
+# Example area selector output result, when multiple is set to true
 - living_room
 - kitchen
 ```
@@ -305,9 +306,7 @@ The output of this selector is `true` when the toggle is on, `false` otherwise.
 
 ## Color temperature selector
 
-The color temperature selector provides a select that allows for selecting
-a color temperature. The selector returns the number of mireds selected and
-allows limiting the range of selectable mireds.
+The color temperature selector allows you to select a color temperature from a gradient using a slider.
 
 ![Screenshot of the Color temperature selector](/images/blueprints/selector-color-temp.png)
 
@@ -316,19 +315,24 @@ color_temp:
 ```
 
 {% configuration color_temp %}
-min_mireds:
-  description: The minimum color temperature in mireds.
-  type: integer
-  default: 153
+unit:
+  description: The chosen unit for the color temperature. This can be either `kelvin` or `mired`. `mired` is the default for historical reasons.
+  type: string
   required: false
-max_mireds:
-  description: The maximum color temperature in mireds.
+  default: mired
+min:
+  description: The minimum color temperature in the chosen unit.
   type: integer
-  default: 500
+  default: 2700 for kelvin 153 for mired
+  required: false
+max:
+  description: The maximum color temperature in the chosen unit.
+  type: integer
+  default: 6500 for kelvin 500 for mired
   required: false
 {% endconfiguration %}
 
-The output of this selector is the number of mired selected, for example, `243`.
+The output of this selector is the number representing the chosen color temperature for the unit used.
 
 ## Condition selector
 
@@ -347,7 +351,7 @@ condition:
 The output of this selector is a list of conditions. For example:
 
 ```yaml
-# Example Condition selector output result
+# Example condition selector output result
 - condition: numeric_state
   entity_id: "sensor.outside_temperature"
   below: 20
@@ -414,20 +418,6 @@ language:
 
 The output of this selector is the ID of the conversation agent.
 
-## Date selector
-
-The date selector shows a date input that allows the user to specify a date.
-
-![Screenshot of the Date selector](/images/blueprints/selector-date.png)
-
-This selector does not have any other options; therefore, it only has its key.
-
-```yaml
-date:
-```
-
-The output of this selector will contain the date in Year-Month-Day
-(`YYYY-MM-DD`) format, for example, `2022-02-22`.
 
 ## Country selector
 
@@ -454,6 +444,21 @@ no_sort:
 {% endconfiguration %}
 
 The output of this selector is an ISO 3166 country code.
+
+## Date selector
+
+The date selector shows a date input that allows the user to specify a date.
+
+![Screenshot of the Date selector](/images/blueprints/selector-date.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+date:
+```
+
+The output of this selector will contain the date in Year-Month-Day
+(`YYYY-MM-DD`) format, for example, `2022-02-22`.
 
 ## Date & time selector
 
@@ -568,10 +573,10 @@ The output of this selector is the device ID, or (in case `multiple` is set to
 `true`) a list of devices IDs.
 
 ```yaml
-# Example Device selector output result, when multiple is set to false
+# Example device selector output result, when multiple is set to false
 faadde5365842003e8ca55267fe9d1f4
 
-# Example Device selector output result, when multiple is set to true
+# Example device selector output result, when multiple is set to true
 - faadde5365842003e8ca55267fe9d1f4
 - 3da77cb054352848b9544d40e19de562
 ```
@@ -717,7 +722,7 @@ light.living_room
 An example entity selector that, will only show entities that are:
 
 - Provided by the [ZHA](/integrations/zha) integration.
-- From the [Binary Sensor](/integrations/binary_sensor) domain.
+- From the [Binary sensor](/integrations/binary_sensor) domain.
 - Have presented themselves as devices of a motion device class.
 - Allows selecting one or more entities.
 
@@ -944,6 +949,39 @@ object:
 ```
 
 The output of this selector is a YAML object.
+
+## QR code selector
+
+The QR code selector shows a QR code. It has no return value.
+
+![Screenshot of a QR code selector](/images/blueprints/selector-qr-code.png)
+
+The QR code's data must be configured, and optionally, the scale, and error correction level can be set.
+The scale makes the QR code bigger or smaller.
+
+{% configuration qr_code %}
+data:
+  description: The data that should be represented in the QR code.
+  type: any
+  required: true
+scale:
+  description: The scale factor to use, this will make the QR code bigger or smaller.
+  type: integer
+  required: false
+  default: 4
+error_correction_level:
+  description: The error correction level of the QR code, with a higher error correction level the QR code can be scanned even when some pieces are missing. Can be "low", "medium", "quartile" or "high".
+  type: string
+  required: false
+  default: medium
+{% endconfiguration %}
+
+```yaml
+qr_code:
+  data: "https://home-assistant.io"
+  scale: 5
+  error_correction_level: quartile
+```
 
 ## RGB color selector
 
@@ -1212,7 +1250,7 @@ The output of this selector is a template string.
 
 ## Text selector
 
-The text selector can be used to input a text string. The value of the input will contain the selected text.
+The text selector can be used to enter a text string. It can also be used to enter a list of text strings; if `multiple` is set to `true`. The value of the input will contain the selected text. This can be used in shopping lists, for example.
 
 ![Screenshot of text selectors](/images/blueprints/selector-text.png)
 
@@ -1251,6 +1289,12 @@ autocomplete:
     This supplies the [HTML `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete).
     Any value supported by the HTML attribute is valid.
   type: string
+  required: false
+multiple:
+  description: >
+    Allows adding list of text strings. If set to `true`, the resulting value of this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
   required: false
 {% endconfiguration %}
 
@@ -1315,4 +1359,4 @@ The output of this selector is a list of triggers. For example:
 - platform: numeric_state
   entity_id: "sensor.outside_temperature"
   below: 20
-```∏
+```

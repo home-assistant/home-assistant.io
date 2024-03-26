@@ -2,7 +2,7 @@
 title: Folder Watcher
 description: Integration for monitoring changes within the filesystem.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_iot_class: Local Polling
 ha_release: 0.67
 ha_quality_scale: internal

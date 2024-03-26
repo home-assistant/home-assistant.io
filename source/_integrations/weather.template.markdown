@@ -11,11 +11,11 @@ ha_domain: template
 
 The `template` integrations creates weather provider that combines integrations and an existing weather provider into a fused weather provider.
 
-There are several powerful ways to use this integration, including localizing your weather provider information with local information from temperature, humidity, pressure sensors that you own.
+There are several powerful ways to use this {% term integration %}, including localizing your weather provider information with local information from temperature, humidity, pressure sensors that you own.
 
 Another use case could be using temperature and humidity from one weather platform, with forecasts from a different one.
 
-Output will be converted according to the user's unit system or entity override, see [documentation](https://developers.home-assistant.io/docs/core/entity/weather/#unit-conversion).
+Output will be converted according to the user's unit system or {% term entity %} override, see [documentation](https://developers.home-assistant.io/docs/core/entity/weather/#unit-conversion).
 
 ## Configuration
 
@@ -116,6 +116,10 @@ visibility_unit:
   description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
   required: false
   type: string
+forecast_template:
+  description: Forecast data.
+  required: false
+  type: template
 forecast_daily_template:
   description: Daily forecast data.
   required: false
@@ -136,4 +140,4 @@ precipitation_unit:
 
 ### Template variables
 
-State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates.
+State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an {% term entity %}'s state and attribute in templates.

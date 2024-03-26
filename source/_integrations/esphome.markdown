@@ -23,6 +23,7 @@ ha_platforms:
   - camera
   - climate
   - cover
+  - date
   - diagnostics
   - fan
   - light
@@ -33,6 +34,7 @@ ha_platforms:
   - sensor
   - switch
   - text
+  - time
   - update
 ha_integration_type: device
 ha_dhcp: true
@@ -57,8 +59,7 @@ ESPHome uses different naming and entity ID rules based on the configuration of 
 ### Friendly naming
 
 - Entity name is a combination of the friendly name and component name
-- Device name is prepended to the entity ID
-- Entity ID uses the ESPHome ID
+- Entity ID is derived from the entity name with the device name prepended
 
 Example:
 
@@ -69,7 +70,6 @@ esphome:
 
 sensor:
    name: "Temperature"
-   id: "temperature"
 ```
 
 The entity will be named `Living room desk Temperature` and will default to having an entity ID of `sensor.livingroomdesk_temperature`.
@@ -88,7 +88,6 @@ esphome:
 
 sensor:
    name: "Temperature"
-   id: "temperature"
 ```
 
 The entity will be named `Temperature` and will default to having an entity_id of `sensor.temperature`.

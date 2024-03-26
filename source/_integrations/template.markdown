@@ -2,7 +2,7 @@
 title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Helper
   - Image
@@ -40,7 +40,7 @@ The `template` integration allows creating entities which derive their values fr
 
 Sensors, binary (on/off) sensors, buttons, images, numbers and selects are covered on this page. For other types, please see the specific pages:
 
-- [Alarm Control Panel](/integrations/alarm_control_panel.template/)
+- [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
 - [Light](/integrations/light.template/)
@@ -55,15 +55,15 @@ Button, image, number, and select template entities are defined in your YAML con
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-# UI configuration
+## UI configuration
 
 Sensor template and binary sensor template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
 
 To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your `configuration.yaml`. It should already be there by default unless you removed it.
 
-# YAML configuration
+## YAML configuration
 
-## State-based template binary sensors, buttons, images, numbers, selects and sensors
+### State-based template binary sensors, buttons, images, numbers, selects and sensors
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -86,7 +86,7 @@ template:
 {% endraw %}
 
 
-## Trigger-based template binary sensors, buttons, images, numbers, selects and sensors
+### Trigger-based template binary sensors, buttons, images, numbers, selects and sensors
 
 If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
@@ -146,6 +146,11 @@ sensor:
       description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
+      default: None
+    last_reset:
+      description: "Defines a template that describes when the state of the sensor was last reset. Must render to a valid `datetime`. Only available when `state_class` is set to `total`"
+      required: false
+      type: template
       default: None
 binary_sensor:
   description: List of binary sensors
@@ -400,16 +405,16 @@ template:
 
 [trigger-doc]: /docs/automation/trigger
 
-### Video Tutorial
+#### Video tutorial
 This video tutorial explains how to set up a Trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
-## Template and action variables
+### Template and action variables
 
 State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attribute in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/). 
 
-## Rate limiting updates
+### Rate limiting updates
 
 When there are entities present in the template and no triggers are defined, the template will be re-rendered when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, rate limiting will be automatically applied if too many states are observed.
 
@@ -450,9 +455,9 @@ template:
 
 If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` service is used, no rate limit is applied.
 
-## Considerations
+### Considerations
 
-### Startup
+#### Startup
 
 If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use the `states()` function in your template. For example, you should replace {% raw %}`{{ states.sensor.moon.state }}`{% endraw %} with this equivalent that returns the state and never results in `unknown`: {% raw %}`{{ states('sensor.moon') }}` {% endraw %}. 
 
@@ -648,7 +653,7 @@ template:
 
 {% endraw %}
 
-### State based binary sensor - Device Tracker sensor with Latitude and Longitude Attributes
+### State based binary sensor - device tracker sensor with latitude and longitude attributes
 
 This example shows how to combine a non-GPS (e.g., NMAP) and GPS device tracker while still including latitude and longitude attributes
 
@@ -779,7 +784,7 @@ template:
       - platform: time_pattern
         hours: /1
     action:
-      - service: weather.get_forecast
+      - service: weather.get_forecasts
         data:
           type: hourly
         target:
@@ -790,7 +795,7 @@ template:
         unique_id: weather_forecast_hourly
         state: "{{ now().isoformat() }}"
         attributes:
-          forecast: "{{ hourly.forecast }}"
+          forecast: "{{ hourly['weather.home'].forecast }}"
 ```
 
 {% endraw %}

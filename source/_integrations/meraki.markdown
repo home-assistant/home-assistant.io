@@ -2,7 +2,7 @@
 title: Meraki
 description: Instructions on how to integrate Meraki-based presence detection into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_domain: meraki

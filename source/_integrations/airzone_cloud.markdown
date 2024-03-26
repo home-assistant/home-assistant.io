@@ -3,9 +3,9 @@ title: Airzone Cloud
 description: Instructions on how to integrate Airzone Cloud within Home Assistant.
 ha_release: 2023.6
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: airzone_cloud
 ha_platforms:
@@ -45,7 +45,7 @@ Password:
   description: "Cloud API password"
 {% endconfiguration_basic %}
 
-## Binary Sensors
+## Binary sensors
 
 For each Airzone system (HVAC machine), the following *binary sensors* are created:
 
@@ -57,6 +57,7 @@ For each Airzone zone (thermostat), the following *binary sensors* are created:
 
 | Condition           | Description                                             |
 | :------------------ | :------------------------------------------------------ |
+| air_quality_active  | Indicates that the air quality control is running.      |
 | problems            | Indicates that the current zone has errors or warnings. |
 
 ## Climate
@@ -79,10 +80,14 @@ For each Airzone Aidoo (HVAC Wi-Fi controller), the following *sensors* are crea
 
 For each Airzone zone (thermostat), the following *sensors* are created:
 
-| Condition           | Description                                         |
-| :------------------ | :-------------------------------------------------- |
-| humidity            | Measures the relative humidity in the current zone. |
-| temperature         | Measures the temperature in the current zone.       |
+| Condition           | Description                                               |
+| :------------------ | :-------------------------------------------------------- |
+| air_quality_index   | Indicates the Air Quality Index in the current zone.      |
+| humidity            | Measures the relative humidity in the current zone.       |
+| pm1                 | Concentration of particles with a diameter of less than 1&nbsp;µm.   |
+| pm2_5               | Concentration of particles with a diameter of less than 2.5&nbsp;µm. |
+| pm10                | Concentration of particles with a diameter of less than 10&nbsp;µm.  |
+| temperature         | Measures the temperature in the current zone.             |
 
 For each Airzone WebServer (HVAC Wi-Fi controller), the following *sensors* are created:
 

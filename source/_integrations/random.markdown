@@ -2,7 +2,7 @@
 title: Random
 description: Instructions on how to integrate random numbers into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Helper
   - Sensor
   - Utility
