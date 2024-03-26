@@ -12,6 +12,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - cover
+  - select
 ha_integration_type: integration
 ---
 
