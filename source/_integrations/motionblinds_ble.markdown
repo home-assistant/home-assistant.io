@@ -4,7 +4,7 @@ description: Instructions on how to integrate Motionblinds Bluetooth motors into
 ha_category:
   - Cover
 ha_iot_class: Assumed State
-ha_release: 2024.04
+ha_release: 2024.4
 ha_domain: motionblinds_ble
 ha_codeowners:
   - '@LennP'
