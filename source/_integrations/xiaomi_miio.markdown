@@ -2042,7 +2042,7 @@ pip3 install pycryptodome pybase64 requests
 python3 token_extractor.py
 ```
 
-3. Provide e-mail address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
+3. Provide email address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
 4. Script will print out all devices connected to the account with their IP address and tokens for use in Home Assistant.
 
 ### Xiaomi Home app (Xiaomi Aqara Gateway, Android & iOS)

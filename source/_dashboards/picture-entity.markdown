@@ -138,3 +138,9 @@ tap_action:
 {% endraw %}
 
 The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `allowlist_external_dirs` ([documentation](/docs/configuration/basic/)).
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

@@ -1,6 +1,6 @@
 ---
 type: card
-title: "Entities Card"
+title: "Entities card"
 sidebar_label: Entities
 description: "The entities card is the most common type of card. It groups items together into lists."
 ---
@@ -456,3 +456,9 @@ entities:
         text: Are you sure you want to restart?
       service: script.libreelec_power_cycle
 ```
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)
+- [Card header and footer](/dashboards/header-footer/)
+- [Dashboard cards](/dashboards/cards/)
