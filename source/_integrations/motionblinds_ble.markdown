@@ -46,6 +46,11 @@ The following entities are available for a Motionblinds BLE device:
   -  Favorite button: allows you to move the blind to the favorite position.
 - [Select](https://www.home-assistant.io/integrations/select/) entities:
   -  Speed select: allows you to change the speed of the motor to low, medium, or high. Available for all blinds except a curtain blind and a vertical blind.
+- [Sensor](https://www.home-assistant.io/integrations/sensor/) entities:
+  -  Battery sensor: shows the battery percentage. The icon also reflects whether the motor is currently charging and/or whether the motor is wired and therefore does not have a battery.
+  -  Calibration sensor: shows whether or not the blind is still calibrated. The motor can move to an uncalibrated state when the motor has been moved to a different position while not powered. Available for a curtain blind and vertical blind as these can be moved while not powered.
+  -  Connection sensor: shows whether the blind is connected, disconnected, connecting, or disconnecting.
+  -  Signal strength sensor: shows the signal strength in dBm.
 
 ## Services
 
