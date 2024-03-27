@@ -3,7 +3,7 @@ title: FYTA
 description: Instructions on how to integrate FYTA sensors within Home Assistant.
 ha_category:
   - Sensor
-ha_release: 0.1
+ha_release: 2024.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:

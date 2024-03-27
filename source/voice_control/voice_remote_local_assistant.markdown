@@ -53,7 +53,7 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Depending on your language, you may be able to select different language variants.
    - If you like, pick one of the predefined wake words.
      ![Select wake word](/images/assist/assist_predefined_wakeword.png)
-     - You can even [define your own a wake word](/voice_control/create_wake_word/). This is not difficult to do, but you will need to set aside a bit of time for this.
+     - You can even [define your own wake word](/voice_control/create_wake_word/). This is not difficult to do, but you will need to set aside a bit of time for this.
      - Once you defined your own wake word, it will show in this pick list.
 
 3. That's it. You ensured your voice commands can be processed locally on your device.

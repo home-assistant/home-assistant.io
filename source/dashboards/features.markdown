@@ -9,6 +9,12 @@ Some dashboard cards have support for features. These widgets add quick controls
 Screenshot of tile cards with features.
 </p>
 
+Features can be enabled on the following cards:
+
+- [Humidifier](/dashboards/humidifier/)
+- [Thermostat](/dashboards/thermostat/)
+- [Tile](/dashboards/tile/)
+
 ## Alarm modes
 
 Widget that displays buttons to arm and disarm an [alarm](/integrations/alarm_control_panel).
@@ -574,3 +580,9 @@ operation_modes:
   description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand`, and `off`.
   type: list
 {% endconfiguration %}
+
+## Related topics
+
+- [Humidifier card](/dashboards/humidifier/)
+- [Thermostat card](/dashboards/thermostat/)
+- [Tile card](/dashboards/tile/)
