@@ -63,9 +63,10 @@ This integration will add Home Assistant sensors for the following:
 |Indoor humidity | Current humidity as measured at the specific thermostat|
 
 ## Switch
-The switch platform integrates the emergency heat option as a switch for each device.  If the thermostat supports emergency heat, the switch entity will be created.
 
-This integration will add Home Assistant switch for the following:
-|Sensor|Value|
+The switch entity integrates the emergency heat option for each device.  If the thermostat supports emergency heat, the switch entity will be created.
+
+This integration will add a switch for the following:
+|Switch|Value|
 --- | ---
 |Emergency Heat | Activates second stage heat source as primary heat|
