@@ -1,0 +1,588 @@
+---
+layout: post
+title: "2024.4 Beta: Organize all the things!"
+description: "The beta release notes for Home Assistant 2024.4"
+date: 2024-03-27 00:00:00
+date_formatted: "April 3, 2024"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2024-04/social.png
+---
+
+<a href='/integrations/#version/2024.4'><img src='/images/blog/2024-04/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+These are the beta release notes for Home Assistant Core 2024.4 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/UI/dashboards:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2024.4! 🎉
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Organizing your Home Assistant](#organizing-your-home-assistant)
+- [Improved user interface for tables](#improved-user-interface-for-tables)
+- [Floors of your home](#floors-of-your-home)
+- [Label anything](#label-anything)
+- [Organize using categories](#organize-using-categories)
+- [Map dashboard](#map-dashboard)
+- [Webpage dashboard](#webpage-dashboard)
+- [Define the columns in the section view](#define-the-columns-in-the-section-view)
+- [Adding matter devices from other controllers](#adding-matter-devices-from-other-controllers)
+- [Lock behavior improvements](#lock-behavior-improvements)
+- [Even more performance!](#even-more-performance)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=Q1yHfqsVidw)
+3 April 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
+
+<lite-youtube videoid="Q1yHfqsVidw" videotitle="Home Assistant 2024.4 Release Party"></lite-youtube>
+
+## Organizing your Home Assistant
+
+By far, the most requested feature in Home Assistant history would be:
+[_"Grouping Automations on frontend for organization"_](https://community.home-assistant.io/t/grouping-automations-on-frontend-for-organization/102771).
+
+We hear you! And today, in this release, we are going to give you tools to
+organize your Home Assistant setup. We want to make it easier for everyone, not
+just to organize, but also to view and find the things you need.
+
+However, we took it a few (well many) steps further than just grouping
+automations. We are introducing 3 new organization structures to Home Assistant:
+
+**[Floors](#floors)**, **[Labels](#labels)**, and **[Categories](#categories)**.
+
+We'll dive into each of these in a moment. First, let's talk about the brand
+new user interface for tables.
+
+## Improved user interface for tables
+
+Adding more ways to organize your Home Assistant is great! But being able to
+easily view, filter and navigate information is just as important. To achieve
+this, we have re-designed ALL the tables in Home Assistant.
+
+Each table has a search bar, allowing you to quickly find what you are
+looking for, can be sorted by any column, and has a new look and feel.
+
+Tables now have the possibility to group rows, by for example, their entity
+state, and can be filtered! The filters are very powerful and allow you to
+only show the rows you are interested in, you could for example filter on
+areas, but also on the new organization structures we are introducing today:
+floors, labels, and categories.
+
+![CleanShot 2024-03-27 at 16 01 20](https://github.com/home-assistant/frontend/assets/5662298/3aed32c6-dcad-4474-9bbd-97e75e4f98cf)
+
+## Floors of your home
+
+Let's talk about the new organization structures, starting with **floors**.
+
+Currently, Home Assistant has {% term areas %}. Areas can be used to group your
+devices per living space in your home (like the living room or kitchen). But
+if you look at your home, you might have multiple floors with its own areas.
+
+This is where **floors** come in. Floors are a new way to organize your areas
+per level of floors in your home. The better Home Assistant known your home,
+and how it is structured, the better it can help you.
+
+<!-- Insert screenshot -->
+
+You can use floors in your automations and script as a target for your
+actions. For example, you can turn off all the lights on the downstairs floor
+when you go to bed. For our power users, you can even use floors in your
+templates to create more advanced automations.
+
+## Label anything
+
+Floors and areas are great to represent your actual home, but what if you
+have different needs? This is where **labels** 🏷️ come in!
+
+Labels is an organization structure that is completely up to you. You can
+make as many labels with any naming structure your want and assign them to
+basically anything in Home Assistant. You assign labels to area, devices,
+entities, automations, scripts, helpers, you name it! You can even assign
+multiple labels to the same thing.
+
+![CleanShot 2024-03-27 at 08 46 10@2x](https://github.com/home-assistant/frontend/assets/5662298/582b75af-7352-4241-8bad-3a39873c99c6)
+
+Just like with floors, you can use labels in your automations and scripts as
+a target for your actions. This gives you a lot of flexibility, not just in
+organizing your Home Assistant, but also in automating your home! 🤯
+
+For example, you could create a label "🎄 Christmas" to label all your
+Christmas decorations during the holiday season. You can then use this label
+automate all of those decorations at once or to filter them in the new tables.
+
+More examples? You could create a label "🔒 Security" to label and control all
+your security-related devices and automations. Or, "🛌 Bedrooms" to label
+all your bedroom areas and control all the devices in those areas at once.
+
+Do you have solar panels or home battery? Create a label "⚡️ Heavy Energy Usage"
+to label devices that consume a lot of energy, you could maybe switch them
+off when there is not enough battery or solar energy available.
+
+You decide how to use labels, and the possibilities are endless! And for our
+power users, you guessed it, you can use labels in your templates.
+
+## Organize using categories
+
+Last but not least, we are introducing **categories**. Categories can be used
+to group things in for organization purposes and are specific for a certain
+dashboard in Home Assistant.
+
+For example, you can create as many categories as you want on the automations
+dashboards, and group your automations in those categories. You can then view
+your automations grouped by those categories, or filter them by those categories.
+
+<!-- insert screenshot -->
+
+As these categories are unique for each dashboard, you can have different
+sets of categories depending on the place you are organizing. This means
+you can have different categories on the automations dashboard than on the
+scene, scripts, or helpers dashboard.
+
+## Map dashboard
+
+Introducing a new dashboard type this release: The **map**! 🗺️
+
+Now, you might think, "Hey, we already have a map in Home Assistant!" and you
+are right. However, the map was an integration that was always there, and wasn't
+providing the flexibility and features we wanted.
+
+With the introduction of the map dashboard, it mean you could add multiple map
+dashboards with different entities and settings, but you can also just remove
+the map if you don't want it.
+
+<!-- insert screenshot -->
+
+On upgrade Home Assistant will automatically migrate your existing map
+integration to a map dashboard.
+
+## Webpage dashboard
+
+Another new dashboard type this release: The **webpage**! 🌐
+
+The webpage dashboard allows you to add and embed a webpage to your dashboard.
+This could be a webpage from the internet, but also a local webpage or a
+webpage from a local server.
+
+<!-- insert screenshot -->
+
+This dashboard replaces the old iFrame panel (`iframe_panel`). If you have
+existing panels configured in your YAML configuration, Home Assistant will
+automatically migrate them to the new webpage dashboard on upgrade.
+
+## Define the columns in the section view
+
+Last release, we [introduced the section view](/blog/2024/03/06/release-20243/#a-new-experimental-sections-view)
+with drag and drop support. We are absolutely thrilled to see how many of you
+loved it! 🥰
+
+Many thanks for all the feedback and suggestions! We are prioritizing them and
+are working on making the section view even better in the upcoming releases.
+
+This release, based on your feedback, we have added the ability for you to
+define the number of columns in the section view is using.
+
+![CleanShot 2024-03-20 at 12 47 17](https://github.com/home-assistant/frontend/assets/5878303/eb35c689-ce64-4a28-bfb0-8f4410677397)
+
+## Adding matter devices from other controllers
+
+We have improved the way you can add Matter devices from other controllers to
+Home Assistant. When you add a Matter device to Home Assistant, it will now
+ask you if you want to add a new Matter device, or if you want to add an
+device that is already added to another controller (like Google or Apple Home).
+
+![CleanShot 2024-03-26 at 10 35 18](https://github.com/home-assistant/frontend/assets/5878303/16ff6c5f-e779-46b1-aafc-cfc9089a25b8)
+
+If you choose to add a device that is already added to another controller,
+Home Assistant will guide you through the process of doing that!
+
+![CleanShot 2024-03-26 at 10 35 35](https://github.com/home-assistant/frontend/assets/5878303/cef33fde-7129-4431-aa5a-7ea0aa929976)
+
+## Lock behavior improvements
+
+Unlatching a lock? We want to make sure you don't accidentally open the door
+when you miss-clicked the button while not at home. We have improved the
+behavior of locks in our user interface to require you to confirm the action.
+
+<video controls>
+  <source src="https://github.com/home-assistant/frontend/assets/5878303/6df9c5be-fbfc-4ee3-a84e-7fcfb662b1fc" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+## Even more performance!
+
+Remember how we wrote last release that [Home Assistant now boots twice as fast](/blog/2024/03/06/release-20243/#home-assistant-boots-twice-as-fast)?
+Well, [@bdraco] wasn't done yet. If you thought that was fast, you are in for
+a treat! 🚀 The difference is, yet again, very noticable.
+
+Besides streamlining what is loaded when at startup (and doing less loading),
+we have also adjusted the startup time tracking. It used to be that 1 buggy
+integration could push other integrations to be slow too, that should no
+longer be the case, making this a more accurate representation of the actual
+startup time.
+
+[@bdraco]: https://github.com/bdraco
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- [@karwosts] has made some improvements to your Home Assistant user profile
+  page, making it easier to navigate and find the settings you are looking for.
+  Nice work!
+- The [HomeWizard Energy] integration now support the newest generation of
+  HomeWizard Energy Sockets! Thanks, [@DCSBL]!
+- The information shown in the related items of the entity dialogs, but also
+  related information on device pages (like automations, scenes, scripts, etc.)
+  has been improved. It should now provide you with more relevant information.
+- We are now able to ship new releases of Home Assistant in waaay less time.
+  Building and shipping Home Assistant for you, when down from 1.5-2 hours to
+  just 20 minutes! 🚀 Thanks [@edenhaus]!
+- [Reolink] now supports PTZ patrol start/stop, package detection and controls
+  to play quick reply messages. Thanks, [@starkillerOG]!
+- We have brand new template functions available to list all the issues in
+  your repairs dashboard. Thanks, [@RoboMagus]!
+
+[@RoboMagus]: https://github.com/RoboMagus
+[@karwosts]: https://github.com/karwosts
+[Reolink]: /integrations/reolink
+[@starkillerOG]: https://github.com/starkillerOG
+[HomeWizard Energy]: /integrations/homewizard
+[@edenhaus]: https://github.com/edenhaus
+[@DCSBL]: https://github.com/DCSBL
+
+_Note to remove: Processed possible noteworthy up to PR #114278_
+
+Possible candites for noteworthy from Core:
+
+- Add new fields from UniFi Protect v3 ([@AngellusMortis] - [#113631])
+- Add person tracking for UniFi Protect ([@AngellusMortis] - [#111289])
+- Add UniFi Protect service to remove privacy zones ([@AngellusMortis] - [#111292])
+- Add reconfigure step to config flow ([@gjohansson-ST] - [#108794])
+- Add reconfigure step to holiday ([@gjohansson-ST] - [#114057])
+- Add reconfigure flow to Axis integration ([@Kane610] - [#114067])
+- Add Locks to Xiaomi-BLE ([@Ernst79] - [#111156])
+- Move Ping binary sensor attributes to sensor entities ([@jpbede] - [#112004])
+- Add support for System Bridge service responses ([@timmo001] - [#100055])
+- Add Beaufort to wind_speed ([@fwestenberg] - [#105795])
+- Add button to homeworks ([@emontnemery] - [#112269])
+- Add device_id to sentence trigger and external conversation APIs ([@synesthesiam] - [#113094])
+- Add Ring Intercom support ([@cosimomeli] - [#109819])
+- Add binary sensor platform for Husqvarna Automower ([@Thomas55555] - [#113248])
+- Add device_tracker platform for husqvarna_automower ([@Thomas55555] - [#111403])
+- Add select platform to Husqvarna Automower ([@Thomas55555] - [#113816])
+- Add additional sensors to Teslemetry ([@Bre77] - [#112555])
+- Add JVC Projector Sensors ([@msavazzi] - [#108949])
+- Add additional buttons to OctoPrint ([@Xitee1] - [#103139])
+- Add Shelly RGB/RGBW profiles support ([@thecode] - [#113808])
+- Add home battery storage entities for enphase_envoy ([@catsmanac] - [#114015])
+
+Possible candites for noteworthy from Frontend:
+
+* `conditional` & `entity-filter`: add ability to filter through `entity_id` & add `entity-filter` `conditional`'s conditions (#19182) @Quentame
+
+## New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Fyta]**, added by [@dontinelli]<br />
+  Monitor your plants with Fyta, a smart plant sensor that measures light, temperature, humidity, and soil moisture.
+- **[Motionblinds BLE]**, added by [@LennP]<br />
+  Control your Bluetooth Low Energy Motionblinds motorized window coverings.
+- **[Ollama]**, added by [@synesthesiam]<br />
+  Ollama a fully local AI conversation platform that can be used to create custom voice assistants.
+
+[@dontinelli]: https://github.com/dontinelli
+[@LennP]: https://github.com/LennP
+[@synesthesiam]: https://github.com/synesthesiam
+[Fyta]: /integrations/fyta
+[Motionblinds BLE]: /integrations/motionblinds_ble
+[Ollama]: /integrations/ollama_conversation
+
+This release also has new virtual integration. Virtual integrations are stubs
+that are handled by other (existing) integrations to help with findability.
+The following virtual integration have been added:
+
+- **[Sacramento Municipal Utility District (SMUD)]**, provided by [Opower]
+
+[Sacramento Municipal Utility District (SMUD)]: /integrations/smud
+[Opower]: /integrations/opower
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[Lutron Homeworks]**, done by [@emontnemery]
+- **[17TRACK]**, done by [@shaiu]
+- **[Downloader]**, done by [@erwindouna]
+- **[ROVA]**, done by [@GidoHakvoort]
+
+[@emontnemery]: https://github.com/emontnemery
+[@erwindouna]: https://github.com/erwindouna
+[@GidoHakvoort]: https://github.com/GidoHakvoort
+[@shaiu]: https://github.com/shaiu
+[17TRACK]: /integrations/seventeentrack
+[Downloader]: /integrations/downloader
+[Lutron Homeworks]: /integrations/homeworks
+[ROVA]: /integrations/rova
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+{% details "Python 3.11 support has been removed" %}
+
+Python 3.11 support has previously been deprecated and has now been removed.
+Home Assistant now requires Python 3.12 to run.
+
+You don’t have to do anything if you are using the Home Assistant Operating
+System, Home Assistant Container, or Home Assistant Supervised installation
+method. In those cases, we handle this all for you. Your system has been
+using Python 3.12 for quite some time already.
+
+([@frenck] - [#114220])
+
+[@frenck]: https://github.com/frenck
+[#114220]: https://github.com/home-assistant/core/pull/114220
+
+{% enddetails %}
+
+{% details "AEMET OpenData" %}
+
+The AEMET OpenData integration previously created two entities for each
+configured location, one entity which provided daily weather forecasts
+and one entity which provided hourly forecasts.
+
+The AEMET OpenData integration now only creates a single entity which
+provides both daily and hourly weather forecasts.
+
+([@gjohansson-ST] - [#110764]) ([documentation](/integrations/aemet))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#110764]: https://github.com/home-assistant/core/pull/110764
+
+{% enddetails %}
+
+{% details "Dexcom" %}
+
+The trend sensor now uses values that are using snake_case instead of a space
+in the middle:
+
+- `rising quickly` -> `rising_quickly`
+- `rising slightly` -> `rising_slightly`
+- `falling slightly` -> `falling_slightly`
+- `falling quickly` -> `falling_quickly`
+
+Please update your automations and scripts accordingly.
+
+([@joostlek] - [#112423]) ([documentation](/integrations/dexcom))
+
+[@joostlek]: https://github.com/joostlek
+[#112423]: https://github.com/home-assistant/core/pull/112423
+
+{% enddetails %}
+
+{% details "ecobee" %}
+
+The non-functional `away` preset mode has been replaced with the correct
+`away_indefinitely` preset mode.
+
+If any automation or script was depending on the `away` preset mode,
+it needs to be updated.
+
+([@alexsydell] - [#108636]) ([documentation](/integrations/ecobee))
+
+[@alexsydell]: https://github.com/alexsydell
+[#108636]: https://github.com/home-assistant/core/pull/108636
+
+{% enddetails %}
+
+{% details "Environment Canada" %}
+
+The Environment Canada integration previously created two entities for each
+configured location, one entity which provided daily weather forecasts and
+one entity which provided hourly forecasts.
+
+The Environment Canada integration now only creates a single entity which
+provides both daily and hourly weather forecasts.
+
+([@gjohansson-ST] - [#112447]) ([documentation](/integrations/environment_canada))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#112447]: https://github.com/home-assistant/core/pull/112447
+
+{% enddetails %}
+
+{% details "National Weather Service (NWS)" %}
+
+The National Weather Service integration previously created two entities
+for each configured location, one entity which provided daily weather forecasts
+and one entity which provided hourly forecasts.
+
+The National Weather Service integration now only creates a single entity which
+provides both daily and hourly weather forecasts.
+
+([@gjohansson-ST] - [#112503]) ([documentation](/integrations/nws))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#112503]: https://github.com/home-assistant/core/pull/112503
+
+{% enddetails %}
+
+{% details "Met Éireann" %}
+
+The Met Éireann integration previously created two entities for each configured
+location, one entity which provided daily weather forecasts and one entity which
+provided hourly forecasts.
+
+The Met Éireann integration now only creates a single entity which provides
+both daily and hourly weather forecasts.
+
+([@gjohansson-ST] - [#112449]) ([documentation](/integrations/met_eireann))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#112449]: https://github.com/home-assistant/core/pull/112449
+
+{% enddetails %}
+
+{% details "Modbus" %}
+
+The Modbus integration do not allow a configuration with the device only
+(no entities), this will create an issue, and the entry will not be loaded.
+
+For the special cases (like some custom_components) where it is wanted,
+please add a dummy entity.
+
+([@janiversen] - [#113516]) ([documentation](/integrations/modbus))
+
+[@janiversen]: https://github.com/janiversen
+[#113516]: https://github.com/home-assistant/core/pull/113516
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+Support for `brightness` is now assumed for `mqtt` lights with the `json` schema
+unless only color modes `rgb`, `rgbw` or `rgbww` are supported.
+
+For light which only support  color modes `rgb`, `rgbw` or `rgbww`, 
+the `brightness` option flag can still be set to `false` if brightness is not
+supported, in this case brightness support is emulated in Home Assistant by
+scaling the RGBx-values.
+
+For all other color modes except `ColorMode.ONOFF`, it is assumed brightness is
+supported and the `brightness` attribute will be included in the MQTT payload
+when the `brightness` attribute is supplied to the `light.turn_on` service.
+
+([@jbouwh] - [#111676]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#111676]: https://github.com/home-assistant/core/pull/111676
+
+{% enddetails %}
+
+{% details "myUplink" %}
+
+If you have a Nibe SMO 20 in your account, you will notice that some 550
+entities are not provided by the integration.
+
+You can safely remove these entities as they are not used by the integration.
+
+([@astrandb] - [#113493]) ([documentation](/integrations/myuplink))
+
+[@astrandb]: https://github.com/astrandb
+[#113493]: https://github.com/home-assistant/core/pull/113493
+
+{% enddetails %}
+
+{% details "Waze Travel Time" %}
+
+The options `excl_filter` and `incl_filter` now filter for exact matches to
+streetnames in the route. Previously only they only filtered on the short
+description for the route.
+
+([@eifinger] - [#108613]) ([documentation](/integrations/waze_travel_time))
+
+[@eifinger]: https://github.com/eifinger
+[#108613]: https://github.com/home-assistant/core/pull/108613
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Climate entity auxiliary heater is deprecated](https://developers.home-assistant.io/blog/2024/03/10/climate-aux-heater-deprecated)
+- [Config Entries can now provide a reconfigure step](https://developers.home-assistant.io/blog/2024/03/21/config-entry-reconfigure-step)
+- [Deprecating `async_run_job` and `async_add_job`](https://developers.home-assistant.io/blog/2024/03/13/deprecate_add_run_job)
+- [Integrations import in the executor to avoid blocking the event loop](https://developers.home-assistant.io/blog/2024/03/09/import_executor_default)
+- [New state timestamp State.last_reported](https://developers.home-assistant.io/blog/2024/03/20/state_reported_timestamp)
+- [Raising exceptions with translations](https://developers.home-assistant.io/blog/2024/03/15/exception-translations)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **OpenCV** has been removed. The integration has been in a broken state
+  for over an year, and could not be build.
+  ([@thecode] - [#113455])
+
+[@thecode]: https://github.com/thecode
+[#113455]: https://github.com/home-assistant/core/pull/113455
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2024.4](/changelogs/core-2024.4)
