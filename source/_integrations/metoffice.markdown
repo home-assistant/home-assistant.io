@@ -26,7 +26,7 @@ Their website is not as straightforward so check the [getting started](https://w
 
 ## Entities
 
-This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast, and twelve sensor entities for individual reporting on each of the individual measurements, for both 3-hourly and daily updates (to a grand total of 26 entities available). Note that only one of the two summary entities and the 3-hourly sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration. The time supplied for each forecast is the start time for the forecast.
+This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast, and twelve sensor entities for individual reporting on each of the individual measurements, for 3-hourly, daily and twice-daily updates (to a grand total of 37 entities available). Note that only the summary entity and the 3-hourly sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration. The time supplied for each forecast is the start time for the forecast.
 
 The available sensor entities:
 
@@ -43,6 +43,6 @@ The available sensor entities:
 - wind gust
 - wind speed
 
-Only probability of precipitation, temperature, weather and wind speed are enabled by default.
+Only probability of precipitation, temperature, UV index, weather and wind speed are enabled by default.
 
 Details about the API are available in the [DataPoint API documentation](https://www.metoffice.gov.uk/services/data/datapoint/api-reference). The [DataPoint](https://github.com/EJEP/datapoint-python) library is used to retrieve data.
