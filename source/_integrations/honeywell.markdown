@@ -28,6 +28,8 @@ If your system is compatible with this integration, then you will be able access
 - [Sensor](#sensor)
 - [Switch](#switch)
 
+{% include integrations/config_flow.md %}
+
 ## Supported hardware
 
 Home Assistant is integrated with the following devices through [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/):
