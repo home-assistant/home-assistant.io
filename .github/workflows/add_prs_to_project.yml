@@ -18,7 +18,7 @@ jobs:
           app_id: ${{ secrets.PROJECTS_APP_ID }}
           private_key: ${{ secrets.PROJECTS_APP_PEM }}
       - name: Add to Project
-        uses: actions/add-to-project@v0.6.1
+        uses: actions/add-to-project@v1.0.0
         with:
           project-url: https://github.com/orgs/home-assistant/projects/10
           github-token: ${{ steps.token.outputs.token }}
