@@ -5,7 +5,7 @@ description: "Instructions to get Home Assistant configured."
 
 After your Home Assistant server is up and running, there are 6 simple steps to log into the device and see your devices.
 
-**Step 1**: type  http://homeassistant.local:8123/ into your browser.
+**Step 1**: type  http://homeassistant.local:8123/ into your browser.jjj
 ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01_.png)
 
 {% details If that didn’t work %}
