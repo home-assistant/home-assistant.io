@@ -18,7 +18,7 @@ ha_integration_type: integration
 ---
 
 This {% term integration %} adds support for [Motionblinds](https://motionblinds.com/) Bluetooth motors. Want to motorize your existing blinds? This can be done with Motionblinds motor CMD-03 which is available through the following stores: [Hornbach](https://www.hornbach.com/), [Coolblue](https://www.coolblue.nl/),[Proshop](https://www.proshop.com/),[Raamdecoratie.com](https://www.raamdecoratie.com/),[Robbshop.com](https://www.robbshop.nl/). Made-to-measure window coverings with Motionblinds are available through a worldwide reseller network which can be found [here](https://motionblinds.com/stores/)
-Beware that this integration does not work with Eve Motionblinds motors. Eve Motionblinds can be added to Home Assistant using the [HomeKit Device](https://www.home-assistant.io/integrations/homekit_controller/) integration or the [Matter] (https://www.home-assistant.io/integrations/matter/) integration.
+Beware that this integration does not work with Eve Motionblinds motors. Eve Motionblinds can be added to Home Assistant using the [HomeKit Device](https://www.home-assistant.io/integrations/homekit_controller/) integration or the [Matter](https://www.home-assistant.io/integrations/matter/) integration.
 
 {% include integrations/config_flow.md %}
 
