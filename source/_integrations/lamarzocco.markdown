@@ -11,7 +11,6 @@ ha_domain: lamarzocco
 ha_platforms:
   - binary_sensor
   - button
-  - calendar
   - diagnostics
   - number
   - select
@@ -74,7 +73,6 @@ Host:
 | Switch name | Description | Available for machines |
 |-------------|-------------| ---------------------- |
 | Main        | Allows to turn machines on-/off | all |
-| Auto on/off | Allows to enable/disable the auto on/off schedule | all |
 | Steam boiler | Allows to enable/disable the steam boiler | all |
 
 ## Binary sensors
@@ -107,7 +105,3 @@ Host:
 |-------------|-------------| ------------------------| ---------------------- |
 | Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
 | Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
-
-## Calendar
-
-The integration exposes a calendar for the auto on/off schedule set for the machine. The schedule will be displayed recurringly: If you set the machine to start up on Mondays at 8:00, and shut down at 9:00, you will get events for all Mondays in your calendar. On days when you have the auto on/off feature disabled, you won't get an event in the calendar. Also, if you have the auto on/off feature disabled globally (for example, through the switch "Auto on/off"), there will be no events in the calendar.
