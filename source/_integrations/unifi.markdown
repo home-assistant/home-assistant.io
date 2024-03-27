@@ -34,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Button](#button)
 - [Image](#image)
 - [Presence detection](#presence-detection)
+- [Services](#services)
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
@@ -103,6 +104,25 @@ Try to get a wireless client to reconnect to the network.
 ### Service unifi.remove_clients
 
 Clean up clients on the UniFi Network application that has only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
+
+### Service unifi.change_wlan_password
+
+Change the password for a specific WLAN on the UniFi Network.
+
+| Service data attribute | Optional | Description                                                                 |
+| ---------------------- | -------- | --------------------------------------------------------------------------- |
+| `hub_name`             | No       | The name of the UniFi hub to target for changing the WLAN password.         |
+| `wlan_name`            | No       | The name of the WLAN whose password needs to be changed.                    |
+| `new_password`         | No       | The new password to set for the specified WLAN.                             |
+
+### Service unifi.get_wlan_password
+
+Retrieve the password for a specific WLAN on the UniFi Network.
+
+| Service data attribute | Optional | Description                                                                 |
+| ---------------------- | -------- | --------------------------------------------------------------------------- |
+| `hub_name`             | No       | The name of the UniFi hub to target for retrieving the WLAN password.       |
+| `wlan_name`            | No       | The name of the WLAN whose password needs to be retrieved.                  |
 
 ## Switch
 
