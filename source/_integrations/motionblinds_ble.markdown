@@ -17,13 +17,14 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Motionblinds BLE {% term integration %} adds support for [Motionblinds](https://motionblinds.com/) Bluetooth motors. Beware that this integration does not work with *Eve Motionblinds* motors. *Eve Motionblinds* can be added to Home Assistant using the [HomeKit Device](https://www.home-assistant.io/integrations/homekit_controller/) integration.
+This {% term integration %} adds support for [Motionblinds](https://motionblinds.com/) Bluetooth motors. Want to motorize your existing blinds? This can be done with Motionblinds motor CMD-03 which is available through the following stores: [Hornbach](https://www.hornbach.com/), [Coolblue](https://www.coolblue.nl/),[Proshop](https://www.proshop.com/),[Raamdecoratie.com](https://www.raamdecoratie.com/),[Robbshop.com](https://www.robbshop.nl/). Made-to-measure window coverings with Motionblinds are available through a worldwide reseller network which can be found [here](https://motionblinds.com/stores/)
+Beware that this integration does not work with Eve Motionblinds motors. Eve Motionblinds can be added to Home Assistant using the [HomeKit Device](https://www.home-assistant.io/integrations/homekit_controller/) integration or the [Matter] (https://www.home-assistant.io/integrations/matter/) integration.
 
 {% include integrations/config_flow.md %}
 
 ## Setup
 
-During the setup of a Motionblinds BLE device, you will be asked what kind of blind your Motionblind is. There are 8 different blind types:
+During the setup of a Motionblinds Bluetooth motor, you will be asked what kind of blind you have. There are 8 different blind types:
 
 - **Roller blind**: has the ability to change position and speed.
 - **Honeycomb blind**: has the ability to change position and speed.
@@ -32,7 +33,7 @@ During the setup of a Motionblinds BLE device, you will be asked what kind of bl
 - **Venetian blind (tilt-only)**: has the ability to change tilt and speed.
 - **Double Roller blind**: has the ability to change position, tilt, and speed.
 - **Curtain blind**: has the ability to change position. May need to be calibrated if the end positions are lost, which can be done by using the open/close cover button or the set cover position slider. This will trigger a calibration which will first make the curtain find the end positions after which it will run to the position as indicated by the command that was given.
-- **Vertical blind**: has the ability to change position and tilt. May need to be calibrated if the end positions are lost, which has to be done using the Motionblinds BLE mobile app.
+- **Vertical blind**: has the ability to change position and tilt. May need to be calibrated if the end positions are lost, which must be done using the Motionblinds Bluetooth app.
 
 ## Entities
 
@@ -44,11 +45,11 @@ The following entities are available for a Motionblinds BLE device:
   -  Disconnect button: allows you to disconnect the blind.
   -  Favorite button: allows you to move the blind to the favorite position.
 - [Select](https://www.home-assistant.io/integrations/select/) entities:
-  -  Speed select: allows you to change the speed of the motor to low, medium, or high. Available for all blinds except a curtain blind and a vertical blind.
+  -  Speed select: allows you to change the speed of the motor to low, medium, or high. Available for all blinds except curtain blinds and vertical blinds.
 
 ## Services
 
-Since Motionblinds BLE motors require a Bluetooth connection to control them, Home Assistant does not get automatic updates of the motor's state by default. Therefore, you can use the [homeassistant.update_entity](https://www.home-assistant.io/docs/scripts/service-calls/#homeassistant-services) service on a Motionblinds BLE entity which will connect to your Motionblind and update the state of all entities belonging to the device. **However, be aware that doing so may impact battery life.**
+Since Motionblinds Bluetooth motors require a Bluetooth connection to control them, Home Assistant does not get automatic updates of the motor's state by default. Therefore, you can use the [homeassistant.update_entity](https://www.home-assistant.io/docs/scripts/service-calls/#homeassistant-services) service on any entity belonging to a Motionblinds Bluetooth device, which will connect to your Motionblinds Bluetooth motor and update the state of all entities belong to that device. However, be aware that doing so may impact battery life.
 
 This can also be automated using a YAML automation. For instance, the following automation connects to your Motionblind every 24 hours to update it's state in Home Assistant:
 
