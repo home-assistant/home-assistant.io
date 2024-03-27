@@ -44,6 +44,10 @@ If your water meter lacks a rotary disk, magnetic disk, or coil. There are alter
 
 - [AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) is a project running on an ESP32-CAM and can be fully integrated into Home Assistant using the Home Assistant Discovery Functionality of MQTT. It digitalizes your gas/water/electricity meter display and provides its data in various ways.![Photo of the AI-on-the-edge-device Workflow](/images/docs/energy/
 
+If you have a Culligan Water Softener, you may be able to interface with the inbuilt `DEBUG PORT` and receive water usage stats including `Gallons` (gal), `Gallons Per Minute` (gal/min), and `Gallons to Recharge` (gal):
+
+- [cullAssistant](https://github.com/LelandSindt/cullAssistant) (ESPHome)
+
 Alternatively, the following shops sell ESPHome-based devices that use a 3-phase light sensor to detect a rotating disk in your water meter and convert this to the amount of water used in milliliters (ml):
 - [Muino water meter reader](https://watermeter.muino.nl/) (ESPHome)
 
