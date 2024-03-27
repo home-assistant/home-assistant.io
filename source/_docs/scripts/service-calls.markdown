@@ -175,6 +175,87 @@ data:
 
 {% endraw %}
 
+### Use response data in templates: convert YAML to JSON
+
+The response data is returned in YAML and can not be used as is in the template editor.
+The response needs to be converted to JSON to be able to do so.
+
+Please follow this approach to be able to test run your templates based on the response:
+
+1. Enter service in <a href="https://my.home-assistant.io/redirect/developer_services/" target="_blank" rel="noreferrer noopener"><img src="https://my.home-assistant.io/badges/developer_services.svg" alt="Open your Home Assistant instance and show your service developer tools." /></a>:
+
+{% raw %}
+```yaml
+service: weather.get_forecasts
+target:
+  entity_id: weather.buienradar
+data:
+  type: daily
+response_variable: buienradar_forecast
+```
+{% endraw %}
+
+2. Copy the exact and complete response
+
+3. Paste that in an (online) Yaml-JSON converter and copy result. (eg [Onlineyamltools](https://onlineyamltools.com/convert-yaml-to-json) )
+
+4. Paste that result in the template editor <a href="https://my.home-assistant.io/redirect/developer_template/" target="_blank" rel="noreferrer noopener"><img src="https://my.home-assistant.io/badges/developer_template.svg" alt="Open your Home Assistant instance and show your template developer tools." /></a>
+inside a setter:
+
+{% raw %}
+
+```yaml
+{% set response = { <converted response> } %}
+```
+
+{% endraw %}
+
+5. Template to your liking, eg:
+
+{% raw %}
+
+```yaml
+{{response['weather.buienradar'].forecast[0]}}
+```
+
+{% endraw %}
+
+**Note** that the above procedure is for testing the template in the template editor.
+The actual template entity itself would need the `response_variable` id as set in the service:
+
+{% raw %}
+
+```yaml
+{{buienradar_forecast['weather.buienradar'].forecast[0]}}
+```
+
+{% endraw %}
+
+Which would then result in a trigger based template entity like:
+
+{% raw %}
+
+```yaml
+template:
+
+  - trigger:
+      - platform: state
+        entity_id: sensor.date
+    action:
+      - service: weather.get_forecasts
+        target:
+          entity_id: weather.buienradar
+        data:
+          type: daily
+        response_variable: buienradar_forecast
+    sensor:
+      - unique_id: buienradar_temperature_forecast
+        state: >
+          {{buienradar_forecast['weather.buienradar'].forecast[0].temperature}}
+```
+
+{% endraw %}
+
 ### `homeassistant` services
 
 There are four `homeassistant` services that aren't tied to any single domain, these are:
