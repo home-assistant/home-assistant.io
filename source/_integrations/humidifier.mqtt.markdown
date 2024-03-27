@@ -174,12 +174,12 @@ json_attributes_topic:
 max_humidity:
   description: The minimum target humidity percentage that can be set.
   required: false
-  type: integer
+  type: float
   default: 100
 min_humidity:
   description: The maximum target humidity percentage that can be set.
   required: false
-  type: integer
+  type: float
   default: 0
 name:
   description: The name of the humidifier. Can be set to `null` if only the device name is relevant.
