@@ -33,6 +33,14 @@ During the setup of a Motionblinds BLE device, you will be asked what kind of bl
 - **Curtain blind**: has the ability to change position. May need to be calibrated if the end positions are lost, which can be done by using the open/close cover button or the set cover position slider. This will trigger a calibration which will first make the curtain find the end positions after which it will run to the position as indicated by the command that was given.
 - **Vertical blind**: has the ability to change position and tilt. May need to be calibrated if the end positions are lost, which has to be done using the Motionblinds BLE mobile app.
 
+## Entities
+
+The following entities are available for a Motionblinds BLE device:
+
+- [Cover](https://www.home-assistant.io/integrations/cover/) entity: depending on the blind that was chosen during the setup, this entity has a slider that makes it possible to change position and tilt, and buttons that allow you to open the blind, close the blind, tilt it open, tilt it closed and stop it.
+- [Select](https://www.home-assistant.io/integrations/select/) entities:
+  -  Speed select: allows you to change the speed of the motor to low, medium, or high. Available for all blinds except a curtain blind and a vertical blind.
+
 ## Services
 
 Since Motionblinds BLE motors require a Bluetooth connection to control them, Home Assistant does not get automatic updates of the motor's state by default. Therefore, you can use the [homeassistant.update_entity](https://www.home-assistant.io/docs/scripts/service-calls/#homeassistant-services) service on a Motionblinds BLE entity which will connect to your Motionblind and update the state of all entities belonging to the device. **However, be aware that doing so may impact battery life.**
