@@ -172,3 +172,8 @@ period:
       seconds: -10
 stat_type: change
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

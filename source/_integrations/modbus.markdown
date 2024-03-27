@@ -339,9 +339,11 @@ modbus:
 
 modbus entities are grouped below each modbus communication entry.
 
-All modbus entities have the following parameters:
+**REMARK** Each modbus device must have at least 1 entity defined, otherwise the integration will not be loaded.
 
 Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+
+All modbus entities have the following parameters:
 
 {% configuration %}
 address:
@@ -355,8 +357,8 @@ name:
 scan_interval:
   description: "Update interval in seconds.
   scan_interval = 0 for no polling.
-  Entities are unavailable until the first scan interval is passed,
-  except for entities with scan_interval = 0, which are read at startup and not updated."
+  Entities are read shortly after startup and then according to scan_interval.
+  Remark, when restarting HA the last known value is restored."
   required: false
   type: integer
   default: 15
@@ -735,9 +737,9 @@ climates:
         word_byte:
           description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
     target_temp_register:
-      description: "Register address for target temperature (Setpoint)."
+      description: "Register address for target temperature (Setpoint). Using a list, it is possible to define one register for each of the available HVAC Modes. The list has to have a fixed size of 7 registers corresponding to the 7 available HVAC Modes, as follows: Register **1: HVAC AUTO mode**; Register **2: HVAC Cool mode**; Register **3: HVAC Dry mode**; Register **4: HVAC Fan only mode**; Register **5: HVAC Heat mode**; Register **6: HVAC Heat Cool mode**; Register **7: HVAC OFF mode**. It is possible to set duplicated values for the modes where the devices has not a related register." 
       required: true
-      type: integer
+      type: [integer, list]
     target_temp_write_registers:
       description: "If `true` use `write_registers` for target temperature."
       required: false

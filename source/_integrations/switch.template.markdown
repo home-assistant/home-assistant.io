@@ -203,7 +203,7 @@ switch:
 
 ### Change The Icon
 
-This example shows how to change the icon based on the day/night cycle.
+This example shows how to change the icon based on the state of the garage door.
 
 {% raw %}
 

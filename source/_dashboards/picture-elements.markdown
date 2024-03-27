@@ -401,7 +401,7 @@ user:
   type: string
 {% endconfiguration %}
 
-## Notes on Element Attributes
+## Notes on element attributes
 
 ### How to use the style object
 
@@ -573,3 +573,9 @@ elements:
           top: 47%
           left: 42%
 ```
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

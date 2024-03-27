@@ -14,21 +14,27 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The CalDAV integration allows you to connect your WebDAV calendar to Home Assistant
+The **CalDAV** integration allows you to connect your WebDAV calendar to Home Assistant
 as one of these entity types:
 
--  A [calendar](/integrations/calendar) entity which can be used to trigger automations based on the the start or end of an event using criteria such as the event name or description.
+- A [calendar](/integrations/calendar) entity which can be used to trigger automations based on the start or end of an event using criteria such as the event name or description.
 - A [todo](/integrations/todo) entity which tracks the number of active items
 on the to-do list.
 
-The WebDAV entities are updated roughly every 15 minutes. 
+The WebDAV entities are updated roughly every 15 minutes.
 
 {% include integrations/config_flow.md %}
 
-During the configuraiton flow you will be asked for the CalDAV server and credentials
+During the configuration flow you will be asked for the CalDAV server and credentials
 for it. An example CalDAV URL is `https://caldav.icloud.com/`.
 
-This integration was tested against [iCloud Calendar](https://www.icloud.com/calendar/), [Nextcloud](https://nextcloud.com/), [Owncloud](https://owncloud.org/), [Baikal](https://sabre.io/baikal/). Any integration complying with the RFC4791 should work.
+This integration was tested against the following systems, but any other complying with the RFC4791 should work:
+
+- [Baikal](https://sabre.io/baikal/)
+- [iCloud Calendar](https://www.icloud.com/calendar/)
+- [Nextcloud](https://nextcloud.com/)
+- [Owncloud](https://owncloud.org/)
+- [Synology Calendar](https://www.synology.com/en-us/dsm/feature/calendar)
 
 ## Manual configuration
 
@@ -144,7 +150,6 @@ verify_ssl:
 
 {% enddetails %}
 
-
 ## Calendar Event Automations
 
 Individual Calendar *Events* can power automations such as:
@@ -198,3 +203,13 @@ to generate a new password for use by Home Assistant to avoid sharing your iClou
 password.
 
 {% enddetails %}
+
+## Related topics
+
+- [Calendar](/integrations/calendar)
+
+### To-do list
+
+- [To-do list integration documentation](/integrations/todo)
+- [List of to-do list integrations](/integrations/#to-do-list)
+- [To-do list card](/dashboards/todo-list/)

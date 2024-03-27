@@ -9,6 +9,12 @@ Some dashboard cards have support for features. These widgets add quick controls
 Screenshot of tile cards with features.
 </p>
 
+Features can be enabled on the following cards:
+
+- [Humidifier](/dashboards/humidifier/)
+- [Thermostat](/dashboards/thermostat/)
+- [Tile](/dashboards/tile/)
+
 ## Alarm modes
 
 Widget that displays buttons to arm and disarm an [alarm](/integrations/alarm_control_panel).
@@ -233,6 +239,42 @@ type:
   type: string
 {% endconfiguration %}
 
+## Fan preset modes
+
+Widget that displays buttons or icons to control the preset mode for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_preset_modes.png' alt='Screenshot of the tile card with the fan preset modes feature'>
+  Screenshot of the tile card with the fan preset modes feature
+</p>
+
+```yaml
+features:
+  - type: "fan-preset-modes"
+    style: "icons"
+    preset_modes:
+      - auto
+      - smart
+      - sleep
+      - 'on'
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-preset-modes`"
+  type: string
+style:
+  required: false
+  description: "How the preset modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+preset_modes:
+  required: true
+  description: List of preset modes to show on the card. The list can contain any supported preset modes.
+  type: list
+{% endconfiguration %}
+
 ## Fan speed
 
 Widget that displays speed controls for a [fan](/integrations/fan).
@@ -448,6 +490,33 @@ type:
   type: string
 {% endconfiguration %}
 
+## Update actions
+
+Widget that displays actions to install or skip an [update](/integrations/update).
+
+<p class='img'>
+  <img src='/images/dashboards/features/update_actions.png' alt='Screenshot of the tile card with update actions feature'>
+  Screenshot of the tile card with update actions feature
+</p>
+
+```yaml
+features:
+  - type: "update-actions"
+    backup: "ask"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`update-actions`"
+  type: string
+backup:
+  required: false
+  description: Whether a backup should be done before updating. The value can be `ask`, `yes`, or `no`. `ask` will open a dialog to ask if a backup should be done.
+  type: list
+  default: ask
+{% endconfiguration %}
+
 ## Vacuum commands
 
 Widget that displays buttons to control a [vacuum](/integrations/vacuum).
@@ -511,3 +580,9 @@ operation_modes:
   description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand`, and `off`.
   type: list
 {% endconfiguration %}
+
+## Related topics
+
+- [Humidifier card](/dashboards/humidifier/)
+- [Thermostat card](/dashboards/thermostat/)
+- [Tile card](/dashboards/tile/)

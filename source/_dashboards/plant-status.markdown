@@ -48,3 +48,8 @@ Basic example:
 type: plant-status
 entity: plant.bonsai
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

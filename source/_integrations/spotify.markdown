@@ -107,7 +107,7 @@ This integration supports multiple Spotify accounts at once. You don't need to
 create another Spotify application in the Spotify Developer Portal.
 Multiple Spotify accounts can be linked to a _single_ Spotify application.
 
-You will have to add those accounts into the **Users and Access** section of
+You will have to add those accounts into the **User Management** section of
 your application in the Spotify Developer Portal.
 
 To add an additional Spotify account to Home Assistant, go to the Spotify
@@ -121,7 +121,8 @@ To play media Spotify first needs a device selected for audio output known as th
 ```yaml
 # Example code to select an AV receiver as the output device
 service: media_player.select_source
-entity_id: media_player.spotify
+target:
+  entity_id: media_player.spotify
 data:
   source: "Denon AVR-X2000"
 ```

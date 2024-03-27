@@ -9,6 +9,8 @@
   }
 
   .terminology-tooltip {
+    --horizontal-move: 0px;
+
     visibility: hidden;
     width: 250px;
     background-color: $primary-color;
@@ -24,7 +26,7 @@
     z-index: 1;
   
     bottom: 100%;
-    left: 50%;
+    left: calc(50% + var(--horizontal-move));
     margin-left: -125px;
 
     a {
@@ -32,15 +34,36 @@
       font-weight: 500;
     }
 
-    &:after {
+    @mixin arrow {
       content: " ";
       position: absolute;
-      top: 100%;
-      left: 50%;
+      left: calc(50% - var(--horizontal-move));
       margin-left: -5px;
       border-width: 5px;
       border-style: solid;
+    }
+
+    &:after {
+      @include arrow;
+
+      top: 100%;
       border-color: $primary-color transparent transparent transparent;
+    }
+
+    &.below {
+      bottom: auto;
+      top: 1lh;
+
+      &:before {
+        @include arrow;
+
+        top: -10px;
+        border-color: transparent transparent $primary-color transparent;
+      }
+
+      &:after {
+        display: none;
+      }
     }
   }
 }

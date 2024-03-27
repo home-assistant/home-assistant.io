@@ -53,6 +53,19 @@ logarithmic_scale:
   description: If true, numerical values on the Y-axis will be displayed with a logarithmic scale.
   type: boolean
   default: false
+min_y_axis:
+  required: false
+  description: Lower bound for the Y-axis range.
+  type: float
+max_y_axis:
+  required: false
+  description: Upper bound for the Y-axis range.
+  type: float
+fit_y_data:
+  required: false
+  description: If true, configured Y-axis bounds would automatically extend (but not shrink) to fit the data.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Options for entities
@@ -94,3 +107,8 @@ entities:
   - entity: sensor.attic_temperature
     name: "Attic"
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

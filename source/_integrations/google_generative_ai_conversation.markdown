@@ -43,6 +43,9 @@ Top P:
 Top K:
   description: Number of top-scored tokens to consider during generation.
 
+Maximum Tokens to Return in Response:
+  description: The maximum number of words or "tokens" that the AI model should generate.
+
 {% endconfiguration_basic %}
 
 ## Services
