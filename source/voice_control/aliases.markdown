@@ -18,7 +18,7 @@ There are multliple ways to add an alias of an entity:
 
 ## Adding an alias of an area
 
-1. To add an alias for an area, go to **Settings** > **Areas & zones**.
+1. To add an alias for an area, go to {% my zones title="**Settings** > **Areas, labels & zones**" %}.
 2. Select the area of interest.
 3. In the three-dot menu, select **Area settings**.
 4. Select **Add alias** and enter the alias you want to use for that area.
