@@ -162,6 +162,10 @@ options:
   description: List of options that can be selected. An empty list or a list with a single item is allowed.
   required: true
   type: list
+platform:
+  description: Must be `select`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false

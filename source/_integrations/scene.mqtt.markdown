@@ -161,6 +161,10 @@ payload_on:
   required: false
   type: string
   default: "ON"
+platform:
+  description: Must be `scene`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false

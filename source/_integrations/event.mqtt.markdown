@@ -160,6 +160,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+platform:
+  description: Must be `event`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false

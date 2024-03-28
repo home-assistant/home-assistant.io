@@ -167,6 +167,10 @@ payload_press:
   required: false
   type: string
   default: "PRESS"
+platform:
+  description: Must be `button`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false

@@ -297,7 +297,7 @@ The discovery topic needs to follow a specific format:
 ```
 
 - `<discovery_prefix>`: The Discovery Prefix defaults to `homeassistant`. This prefix can be [changed](#discovery-options).
-- `<component>`: One of the supported MQTT integrations, eg. `binary_sensor`.
+- `<component>`: One of the supported MQTT integrations, eg. `binary_sensor`, or `device` in case of a device discovery.
 - `<node_id>` (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 - `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 
@@ -305,9 +305,178 @@ The `<node_id>` level can be used by clients to only subscribe to their own (com
 
 Best practice for entities with a `unique_id` is to set `<object_id>` to `unique_id` and omit the `<node_id>`.
 
+#### Device discovery payload
+
+A device should send a discovery payload to expose all components for a device.
+The `<component>` part in the discovery topic must be set to `device`.
+
+The shared options are at root level of the JSON message and must include the `device` mapping (abbreviated as `dev`) and `origin` mapping (abbreviated as `o`). The `device` and `origin` mappings are required options and cannot be overridden at entity/component level.
+
+Supported shared options are:
+
+- The `availability` [options](/integrations/mqtt/#using-availability-topics).
+- The `origin` (required) [options](/integrations/mqtt/#adding-information-about-the-origin-af-a-discovery-message)
+- `command_topic`
+- `state_topic`
+- `qos`
+- `encoding`
+
+The component specific options are placed as mappings under the `components` key (abbreviated as `cmp`) like:
+
+```json
+{
+  "dev": {
+    "ids": "ea334450945afc",
+    "name": "Kitchen",
+    "mf": "Bla electronics",
+    "mdl": "xya",
+    "sw": "1.0",
+    "sn": "ea334450945afc",
+    "hw": "1.0rev2",
+  },
+  "o": {
+    "name":"bla2mqtt",
+    "sw": "2.1",
+    "url": "https://bla2mqtt.example.com/support",
+  },
+  "cmp": {
+    "some_unique_component_id1": {
+      "platform": "sensor",
+      "device_class":"temperature",
+      "unit_of_measurement":"°C",
+      "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+      "unique_id":"temp01ae_t",
+    },
+    "some_unique_id2": {
+      "platform": "sensor",
+      "device_class":"humidity",
+      "unit_of_measurement":"%",
+      "value_template":"{% raw %}{{ value_json.humidity}}{% endraw %}",
+      "unique_id":"temp01ae_h",
+    }
+  },
+  "state_topic":"sensorBedroom/state",
+  "qos": 2,
+}
+```
+
+The components id's under the `components` (`cmp`) key should are used as part of the discovery identification. A `platform` config option is required for each component config that is added to identify the component platform.
+
+To remove the components publish an empty string to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
+
+To remove a single component from the device discovery an empty config can be published as an update. Note that it is still required to add the platform option.
+
+```json
+{
+  "dev": {
+    "ids": "ea334450945afc",
+    "name": "Kitchen",
+    "mf": "Bla electronics",
+    "mdl": "xya",
+    "sw": "1.0",
+    "sn": "ea334450945afc",
+    "hw": "1.0rev2",
+  },
+  "o": {
+    "name":"bla2mqtt",
+    "sw": "2.1",
+    "url": "https://bla2mqtt.example.com/support",
+  },
+  "cmp": {
+    "some_unique_component_id1": {
+      "platform": "sensor",
+      "device_class":"temperature",
+      "unit_of_measurement":"°C",
+      "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+      "unique_id":"temp01ae_t",
+    },
+    "some_unique_id2": {
+      "platform": "sensor",
+    }
+  },
+  "state_topic":"sensorBedroom/state",
+  "qos": 2,
+}
+```
+
+This will explicitly cleanup the humidity sensor and its entry.
+
+After the component has been removed an other update should be send where the part for the humidity sensor is left away:
+
+```json
+{
+  "dev": {
+    "ids": "ea334450945afc",
+    "name": "Kitchen",
+    "mf": "Bla electronics",
+    "mdl": "xya",
+    "sw": "1.0",
+    "sn": "ea334450945afc",
+    "hw": "1.0rev2",
+  },
+  "o": {
+    "name":"bla2mqtt",
+    "sw": "2.1",
+    "url": "https://bla2mqtt.example.com/support",
+  },
+  "cmp": {
+    "some_unique_component_id1": {
+      "platform": "sensor",
+      "device_class":"temperature",
+      "unit_of_measurement":"°C",
+      "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+      "unique_id":"temp01ae_t",
+    }
+  },
+  "state_topic":"sensorBedroom/state",
+  "qos": 2,
+}
+```
+
+<div class='note warning'>
+
+A component config part in a device discovery payload must have the `platform` option set with the name of the `component` and also must have at least one component specific config option.
+
+</div>
+
+#### Single component discovery payload (legacy)
+
+The `<component>` part in the discovery topic must be one of the supported MQTT platforms.
+The options in the payload are only used to set up one specific component. If there are more components, more discovery payloads need to be send for the other components. It is highly recommend to use the device based discovery instead.
+
+Example discovery payload:
+
+```json
+{
+  "dev": {
+    "ids": "ea334450945afc",
+    "name": "Kitchen",
+    "mf": "Bla electronics",
+    "mdl": "xya",
+    "sw": "1.0",
+    "sn": "ea334450945afc",
+    "hw": "1.0rev2",
+  },
+  "o": {
+    "name":"bla2mqtt",
+    "sw": "2.1",
+    "url": "https://bla2mqtt.example.com/support",
+  },
+  "device_class":"temperature",
+  "unit_of_measurement":"°C",
+  "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+  "unique_id":"temp01ae_t",
+  "state_topic":"sensorBedroom/state",
+  "qos": 2,
+}
+
+To remove the component publish an empty string to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
+
+For more examples [see](/integrations/mqtt/#discovery-examples-with-component-discovery).
+
 #### Discovery payload
 
-The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
+The payload must be a serialized JSON dictionary and will be checked much like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
 
 Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
@@ -316,17 +485,7 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
-It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can be abbreviated to `o`) to the discovery payload. Note that these options also support abbreviations. Information of the origin will be logged to the core event log when an item is discovered or updated.
-
-{% configuration_basic %}
-name:
-  description: The name of the application that is the origin the discovered MQTT item. This option is required.
-sw_version:
-  description: Software version of the application that supplies the discovered MQTT item.
-support_url:
-  description: Support URL of the application that supplies the discovered MQTT item.
-{% endconfiguration_basic %}
-
+#### Supported abbreviations in MQTT discovery messages
 
 {% details "Supported abbreviations" %}
 
@@ -364,6 +523,7 @@ support_url:
     'cmd_on_tpl':          'command_on_template',
     'cmd_t':               'command_topic',
     'cmd_tpl':             'command_template',
+    'cmp':                 'components',
     'cod_arm_req':         'code_arm_required',
     'cod_dis_req':         'code_disarm_required',
     'cod_trig_req':        'code_trigger_required',
@@ -600,6 +760,20 @@ support_url:
     'sn':                  'serial_number',
 ```
 {% enddetails %}
+
+#### Adding information about the origin af a discovery message
+
+It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can be abbreviated to `o`) to the discovery payload. For device based discovery adding shared `origin` info is required. Note that these options also support abbreviations. Information of the origin will be logged to the core event log when an item is discovered or updated.
+
+{% configuration_basic %}
+name:
+  description: The name of the application that is the origin the discovered MQTT item. This option is required.
+sw_version:
+  description: Software version of the application that supplies the discovered MQTT item.
+support_url:
+  description: Support URL of the application that supplies the discovered MQTT item.
+{% endconfiguration_basic %}
+
 {% details "Supported abbreviations for origin info" %}
 
 ```txt
@@ -609,7 +783,7 @@ support_url:
 ```
 {% enddetails %}
 
-### How to use discovery messages
+### Discovery messages en availability
 
 When MQTT discovery is set up, and a device or service sends a discovery message,
 an MQTT entity, tag, or device automation will be set up directly after receiving the message.
@@ -701,46 +875,21 @@ availability_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
 {% endconfiguration %}  
 
 {% enddetails %}
 
-### Support by third-party tools
-
-The following software has built-in support for MQTT discovery:
-
-- [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
-- [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
-- [ble2mqtt](https://github.com/devbis/ble2mqtt)
-- [digitalstrom-mqtt](https://github.com/gaetancollaud/digitalstrom-mqtt)
-- [ebusd](https://github.com/john30/ebusd)
-- [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
-- [EMS-ESP32 (and EMS-ESP)](https://github.com/emsesp/EMS-ESP32)
-- [ESPHome](https://esphome.io)
-- [ESPurna](https://github.com/xoseperez/espurna)
-- [go-iotdevice](https://github.com/koestler/go-iotdevice)
-- [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
-- [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
-- [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
-- [MyElectricalData](https://github.com/MyElectricalData/myelectricaldata_import#english)
-- [Nuki Hub](https://github.com/technyon/nuki_hub)
-- [Nuki Smart Lock 3.0 Pro](https://support.nuki.io/hc/articles/12947926779409-MQTT-support), [more info](https://developer.nuki.io/t/mqtt-api-specification-v1-3/17626)
-- [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
-- [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
-- [SmartHome](https://github.com/roncoa/SmartHome)
-- [SpeedTest-CLI MQTT](https://github.com/adorobis/speedtest-CLI2mqtt)
-- [SwitchBot-MQTT-BLE-ESP32](https://github.com/devWaves/SwitchBot-MQTT-BLE-ESP32)
-- [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
-- [TeddyCloud](https://github.com/toniebox-reverse-engineering/teddycloud)
-- [Teleinfo MQTT](https://fmartinou.github.io/teleinfo2mqtt) (starting with 3.0.0)
-- [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
-- [What's up Docker?](https://fmartinou.github.io/whats-up-docker/) (starting with 3.5.0)
-- [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
-- [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
-- [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
-- [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
-
-### Discovery examples
+### Discovery examples with component discovery
 
 #### Motion detection (binary sensor)
 
@@ -991,6 +1140,41 @@ The entity id is automatically generated from the entity's name. All MQTT integr
 ```
 
 In the example above, the entity_id will be `sensor.my_super_device` instead of `sensor.device1`.
+
+### Support by third-party tools
+
+The following software has built-in support for MQTT discovery:
+
+- [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
+- [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
+- [ble2mqtt](https://github.com/devbis/ble2mqtt)
+- [digitalstrom-mqtt](https://github.com/gaetancollaud/digitalstrom-mqtt)
+- [ebusd](https://github.com/john30/ebusd)
+- [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
+- [EMS-ESP32 (and EMS-ESP)](https://github.com/emsesp/EMS-ESP32)
+- [ESPHome](https://esphome.io)
+- [ESPurna](https://github.com/xoseperez/espurna)
+- [go-iotdevice](https://github.com/koestler/go-iotdevice)
+- [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
+- [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
+- [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
+- [MyElectricalData](https://github.com/MyElectricalData/myelectricaldata_import#english)
+- [Nuki Hub](https://github.com/technyon/nuki_hub)
+- [Nuki Smart Lock 3.0 Pro](https://support.nuki.io/hc/articles/12947926779409-MQTT-support), [more info](https://developer.nuki.io/t/mqtt-api-specification-v1-3/17626)
+- [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
+- [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
+- [SmartHome](https://github.com/roncoa/SmartHome)
+- [SpeedTest-CLI MQTT](https://github.com/adorobis/speedtest-CLI2mqtt)
+- [SwitchBot-MQTT-BLE-ESP32](https://github.com/devWaves/SwitchBot-MQTT-BLE-ESP32)
+- [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
+- [TeddyCloud](https://github.com/toniebox-reverse-engineering/teddycloud)
+- [Teleinfo MQTT](https://fmartinou.github.io/teleinfo2mqtt) (starting with 3.0.0)
+- [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
+- [What's up Docker?](https://fmartinou.github.io/whats-up-docker/) (starting with 3.5.0)
+- [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
+- [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
+- [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
+- [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
 
 ## Manual configured MQTT items
 
