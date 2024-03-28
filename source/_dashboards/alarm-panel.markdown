@@ -5,7 +5,7 @@ sidebar_label: Alarm panel
 description: "The alarm panel card allows you to arm and disarm your alarm control panel integrations."
 ---
 
-The alarm panel card allows you to arm and disarm your [alarm control panel](/integrations/#alarm) integrations.
+The alarm panel card allows you to arm and disarm your [alarm control panel](/integrations/#alarm) {% term integrations %}.
 
 <p class='img'>
 <img src='/images/dashboards/alarm_panel_card.gif' alt='Screenshot of the alarm panel card'>
@@ -81,3 +81,8 @@ states:
   - arm_night
   - armed_custom_bypass
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

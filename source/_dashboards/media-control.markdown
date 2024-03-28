@@ -46,3 +46,8 @@ Basic example:
 type: media-control
 entity: media_player.lounge_room
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

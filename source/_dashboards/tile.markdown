@@ -5,7 +5,7 @@ sidebar_label: Tile
 description: "The tile card gives you a quick overview of your entity. The card allows you to toggle the entity, show the more-info dialog, or custom actions."
 ---
 
-The tile card gives you a quick overview of your entity. The card allows you to toggle the entity and show the more info dialog. A badge is shown for some entities like the [climate](/integrations/climate) or [person](/integrations/person) entities.
+The tile card gives you a quick overview of your {% term entity %}. The card allows you to toggle the {% term entity %} and show the more info dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
 
 <p class='img'>
   <img src='/images/dashboards/tile_card.png' alt='Screenshot of tile cards'>
@@ -126,6 +126,12 @@ features:
       - return_home
 ```
 
-## Available color tokens
+## Available colors
 
-Some color tokens are available to colorize the tile card : `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
+You want to colorize the tile card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)
+- [Card features](/dashboards/features)
+- [Dashboard cards](/dashboards/cards/)

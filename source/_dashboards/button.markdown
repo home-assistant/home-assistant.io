@@ -136,3 +136,10 @@ tap_action:
 <img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script service'>
 Screenshot of the button card with script service.
 </p>
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)
+- [Scripts](/docs/scripts/)
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

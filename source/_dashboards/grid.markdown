@@ -80,3 +80,8 @@ cards:
         entity: light.bed_light
         image: /local/bed_2.png
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

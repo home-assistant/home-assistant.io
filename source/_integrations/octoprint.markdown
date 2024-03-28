@@ -90,6 +90,9 @@ The OctoPrint integration provides the following buttons:
 - Pause Job
 - Resume Job
 - Stop Job
+- Shutdown System
+- Reboot System
+- Restart Octoprint
 
 ## Troubleshooting
 

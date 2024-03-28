@@ -3,13 +3,16 @@ title: Shelly
 description: Integrate Shelly devices
 ha_category:
   - Binary sensor
+  - Climate
   - Cover
+  - Event
   - Energy
   - Light
   - Number
   - Sensor
   - Switch
   - Update
+  - Valve
 ha_release: 0.115
 ha_codeowners:
   - '@balloob'
@@ -80,6 +83,12 @@ Integration is communicating directly with the device; cloud connection is not n
 Shelly generation 2 and 3 devices not battery-powered can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
 
 {% include integrations/option_flow.md %}
+
+## Range Extender Support
+
+Shelly generation 2 and 3 devices that are not battery-powered can act as a Range Extender.
+Devices of the same generations can be configured via those Range Extenders specifying a custom TCP port during the configuration flow.
+Currently, only static IP or DHCP reserved IP are supported for the main device.
 
 ## Entity naming (generation 1)
 

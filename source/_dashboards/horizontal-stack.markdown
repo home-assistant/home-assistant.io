@@ -46,3 +46,7 @@ cards:
   <img src='/images/dashboards/horizontal_stack.png' alt='Two picture cards in a horizontal stack card'>
   Two picture cards in a horizontal stack card.
 </p>
+
+## Related topics
+
+- [Dashboard cards](/dashboards/cards/)

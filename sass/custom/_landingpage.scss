@@ -831,6 +831,18 @@ $ha__primary_color: #03a9f4;
       }
 
       .distributors {
+        details {
+          width: 100%;
+          justify-content: space-between;
+          padding: 16px 24px;
+          color: #222222;
+          margin: auto;
+
+          summary.region {
+            display: list-item;
+          }
+        }
+
         a {
           text-decoration: none;
 

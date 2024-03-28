@@ -18,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - event
   - image
   - number
   - select
@@ -48,6 +49,8 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Button**:
   - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
   - `Relocate`: Button entity to trigger manual relocation.
+- **Event**:
+  - `Last job`: Provides the stop reason as event_type
 - **Image**:
   - `Map`: The floorplan/map as an image in SVG format.
 - **Number**:
@@ -139,7 +142,7 @@ Finally, if a vacuum becomes unavailable (usually due to being idle and off its 
 ## Self-hosted configuration
 
 Depending on your setup of the self-hosted instance, you can connect to the server using the following settings:
-- `Username`: Enter the e-mail address configured in your instance. If authentication is disabled, you can enter any valid e-mail address.
+- `Username`: Enter the email address configured in your instance. If authentication is disabled, you can enter any valid email address.
 - `Password`: Enter the password configured in your instance. If authentication is disabled, you can enter any string (series of characters).
 - `REST URL`: http://`SELF_HOSTED_INSTANCE`:8007
 - `MQTT URL`: mqtts://`SELF_HOSTED_INSTANCE`:8883

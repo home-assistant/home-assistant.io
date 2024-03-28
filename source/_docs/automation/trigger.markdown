@@ -257,7 +257,24 @@ automation:
 
 {% endraw %}
 
-More dynamic and complex calculations can be done with `value_template`.
+More dynamic and complex calculations can be done with `value_template`. The variable 'state' is the [state object](/docs/configuration/state_object) of the entity specified by `entity_id`.
+
+The state of the entity can be referenced like this:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.temperature
+      value_template: "{{ state.state | float * 9 / 5 + 32 }}"
+      above: 70
+```
+
+{% endraw %}
+
+Attributes of the entity can be referenced like this:
 
 {% raw %}
 
@@ -277,8 +294,8 @@ Listing above and below together means the numeric_state has to be between the t
 In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (above 17 and below 25). It will only fire again, once it has left the defined range and enters it again.
 </div>
 
-Number helpers (`input_number` entities), `number` and `sensor` entities that
-contain a numeric value, can be used in the `above` and `below` thresholds,
+Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
+that contain a numeric value, can be used in the `above` and `below` thresholds,
 making the trigger more dynamic, like:
 
 ```yaml

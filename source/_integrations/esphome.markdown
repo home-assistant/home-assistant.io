@@ -34,6 +34,7 @@ ha_platforms:
   - sensor
   - switch
   - text
+  - time
   - update
 ha_integration_type: device
 ha_dhcp: true
