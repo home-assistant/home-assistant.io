@@ -5,7 +5,7 @@ description: "Instructions to get Home Assistant configured."
 
 After your Home Assistant server is up and running, there are 5 simple steps to log in and see your devices.
 
-**Step 1**: type  http://homeassistant.local:8123/ into your browser.
+**Step 1**: type  <http://homeassistant.local:8123/> into your browser.
 ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01_.png)
 
 {% details If that didn’t work %}
@@ -14,7 +14,7 @@ If you are running an older Windows version or have a stricter network configura
 
 **Step 2:** Click on “Create my Smart Home”.
 
-This will create an administrator account. It will always be able to change everything in Home Assistant. Enter your name, username, and password and click “Create Account”. 
+This will create an administrator account. It will always be able to change everything in Home Assistant. Enter your name, username, and password and click “Create Account”.
 
 **Be sure to save this information safely as there is no way to recover it!**
 ![Set your username and password.](/images/getting-started/username.png)
@@ -50,6 +50,6 @@ Home Assistant will then try to find any devices it has discovered on your netwo
 Select Finish.
 ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
 
-You’ve now got your basic Home Assistant server up and running. 
+You’ve now got your basic Home Assistant server up and running.
 
 {% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}
