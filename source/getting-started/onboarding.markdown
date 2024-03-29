@@ -22,7 +22,7 @@ This will create an administrator account. It will always be able to change ever
 
 {% details "If you want to restore from backup instead" %}
 
-If you want to restore from a backup of a previous installation, select Restore from backup.
+If you want to restore from a backup of a previous installation, select **Restore from backup**.
 
 Continue with the procedure on restoring from backup.
 You can ignore the remaining steps listed on this page
