@@ -255,7 +255,7 @@ users:
 
 ### And
 
-Specify that both conditions should be met.
+Specify that both conditions must be met.
 
 ```yaml
 type: entity-filter
@@ -286,7 +286,7 @@ conditions:
 
 ### Or
 
-Specify that at least one of conditions should be met.
+Specify that at least one of the conditions must be met.
 
 ```yaml
 type: entity-filter
