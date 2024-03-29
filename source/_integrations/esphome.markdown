@@ -42,6 +42,9 @@ works_with:
 
 This integration allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).
 
+
+`Note: This system uses MDNS for ease of use on Home networks. Multiple subnets and vlans will require the use of additional options for devices to show online. Please see the forums for needed additions to configurations to allow devices to be detected.`
+
 {% include integrations/config_flow.md %}
 
 ## Home Assistant service calls
