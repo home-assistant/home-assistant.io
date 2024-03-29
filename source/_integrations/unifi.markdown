@@ -34,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Button](#button)
 - [Image](#image)
 - [Presence detection](#presence-detection)
+- [Services](#services)
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
