@@ -10,6 +10,7 @@ After your Home Assistant server is up and running, there are 5 simple steps to 
 
 {% details If that didn’t work %}
 If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at homeassistant:8123 or http://X.X.X.X:8123 (replace X.X.X.X with your device’s IP address).
+
 {% enddetails %}
 
 **Step 2:** Click on “Create my Smart Home”.
