@@ -89,6 +89,10 @@ comfort_temp:
   description: "Set the temperature used by `preset_mode: comfort`."
   required: false
   type: float
+eco_temp:
+  description: "Set the temperature used by `preset_mode: eco`."
+  required: false
+  type: float
 home_temp:
   description: "Set the temperature used by `preset_mode: home`."
   required: false

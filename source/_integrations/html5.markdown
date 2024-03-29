@@ -42,7 +42,7 @@ vapid_prv_key:
   required: true
   type: string
 vapid_email:
-  description: The e-mail account of your Google account associated with your Firebase project, [see configuring the platform](#configuring-the-platform).
+  description: The email account of your Google account associated with your Firebase project, [see configuring the platform](#configuring-the-platform).
   required: true
   type: string
 {% endconfiguration %}

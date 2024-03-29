@@ -109,9 +109,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2024
-current_minor_version: 1
-current_patch_version: 0
-date_released: 2024-01-03
+current_minor_version: 3
+current_patch_version: 3
+date_released: 2024-03-22
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -211,11 +211,15 @@ installation:
           key: "odroid-c4"
         - name: "ODROID-M1"
           key: "odroid-m1"
+        - name: "ODROID-M1S"
+          key: "odroid-m1s"
 
     raspberrypi:
       board: Raspberry Pi
       installation_media: "SD card"
       variants:
+        - name: "Raspberry Pi 5"
+          key: "rpi5-64"
         - name: "Raspberry Pi 4"
           key: "rpi4-64"
         - name: "Raspberry Pi 3"

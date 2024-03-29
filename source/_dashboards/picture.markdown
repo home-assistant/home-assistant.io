@@ -1,6 +1,6 @@
 ---
 type: card
-title: "Picture Card"
+title: "Picture card"
 sidebar_label: Picture
 description: "The picture card allows you to set an image to use for navigation to various paths in your interface or to call a service."
 ---
@@ -74,3 +74,9 @@ tap_action:
   data:
     entity_id: light.ceiling_lights
 ```
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

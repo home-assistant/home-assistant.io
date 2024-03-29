@@ -1,6 +1,6 @@
 ---
 type: card
-title: Conditional Card
+title: Conditional card
 sidebar_label: Conditional
 description: The Conditional card displays another card based on conditions.
 ---
@@ -240,3 +240,8 @@ conditions:
   description: List of conditions to check. See [available conditions](#conditions-options).
   type: list
 {% endconfiguration %}
+
+
+## Related topics
+
+- [Dashboard cards](/dashboards/cards/)

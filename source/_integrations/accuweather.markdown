@@ -1,6 +1,6 @@
 ---
 title: AccuWeather
-description: Instructions on how to integrate Accuweather within Home Assistant.
+description: Instructions on how to integrate AccuWeather within Home Assistant.
 ha_category:
   - Weather
 ha_release: 0.114
