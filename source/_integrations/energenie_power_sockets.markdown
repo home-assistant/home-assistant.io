@@ -1,5 +1,5 @@
 ---
-title: Energenie Power-Strips (EGPS)
+title: Energenie Power-Sockets
 description: Instructions on how to integrate Energenie Power-Strip switches into Home Assistant.
 ha_category:
   - Switch
@@ -7,7 +7,7 @@ ha_iot_class: Local Polling
 ha_release: '2024.4'
 ha_codeowners:
   - '@gnumpi'
-ha_domain: egps
+ha_domain: energenie_power_sockets
 ha_platforms:
   - switch
 ha_integration_type: integration
