@@ -64,6 +64,19 @@ It is recommended that you run the UniFi Network application in a dedicated virt
 
 The Button entities will only be available and usable if the integration has a UniFi Network account with administrator privileges.
 
+### Device Restart
+- **Function**: Initiates a restart command for UniFi devices.
+- **Usage**: Useful for remotely rebooting UniFi devices such as access points or switches.
+
+### PoE Power Cycle
+- **Function**: Power cycles a specific PoE port on UniFi devices.
+- **Usage**: Helpful for troubleshooting or resetting devices connected to PoE ports.
+
+### WLAN Change Password
+- **Function**: Generates a new password for a WLAN. **Unfortunately, the user cannot specify the new password; it will be randomly generated with 18 characters, consisting of lowercase letters, uppercase letters, digits, and special characters.**
+- **Usage**: Allows for easy rotation of WLAN passwords for improved security.
+
+
 ### Power cycle PoE
 
 Use the **Power cycle PoE** button entity to power cycle one specific PoE port to cause the connected device to restart.
