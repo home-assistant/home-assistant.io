@@ -20,7 +20,8 @@ This will create an administrator account. It will always be able to change ever
 **Be sure to save this information safely as there is no way to recover it!**
 ![Set your username and password.](/images/getting-started/username.png)
 
-{% details If you want to restore from backup instead%}
+{% details "If you want to restore from backup instead" %}
+
 If you want to restore from a backup of a previous installation, select Restore from backup.
 
 Continue with the procedure on restoring from backup.
