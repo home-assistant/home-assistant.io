@@ -13,7 +13,7 @@ If you are running an older Windows version or have a stricter network configura
 
 {% enddetails %}
 
-**Step 2:** Click on “Create my Smart Home”.
+**Step 2:** Select **Create my Smart Home**.
 
 This will create an administrator account. It will always be able to change everything in Home Assistant. Enter your name, username, and password and click “Create Account”.
 
