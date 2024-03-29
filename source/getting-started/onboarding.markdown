@@ -27,6 +27,7 @@ If you want to restore from a backup of a previous installation, select **Restor
 Continue with the procedure on restoring from backup.
 You can ignore the remaining steps listed on this page
 
+
 {% enddetails %}
 
 **Step 3:** Enter the location of your home.
