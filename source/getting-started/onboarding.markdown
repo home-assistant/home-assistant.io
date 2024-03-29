@@ -3,9 +3,9 @@ title: "Onboarding Home Assistant"
 description: "Instructions to get Home Assistant configured."
 ---
 
-After your Home Assistant server is up and running, there are 6 simple steps to log into the device and see your devices.
+After your Home Assistant server is up and running, there are 5 simple steps to log in and see your devices.
 
-**Step 1**: type  http://homeassistant.local:8123/ into your browser.jjj
+**Step 1**: type  http://homeassistant.local:8123/ into your browser.
 ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01_.png)
 
 {% details If that didn’t work %}
@@ -34,10 +34,7 @@ The location is used to configure the time zone, unit system, and currency. It i
 You can always change this information later in settings.
 ![Define your location.](/images/getting-started/onboarding_location.png)
 
-**Step 4:** Choose a country.
-![Select Country.](/images/getting-started/onboarding_select_country.png)
-
-**Step 5:** Improving Home Assistant.
+**Step 4:** Improving Home Assistant.
 
 Home Assistant can use anonymous information about your system to improve the product. This is disabled by default. However, we would like to encourage you to share some of this data as it helps us to find out which platforms we need to support and where to focus our efforts.
 
@@ -46,7 +43,7 @@ The data is anonymized and aggregated. To see the charts we generate out of this
 Once you are done, select Next.
 ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png)
 
-**Step 6: Show found devices.**
+**Step 5: Show found devices.**
 
 Home Assistant will then try to find any devices it has discovered on your network. What shows up depends on the devices in your home. Don’t worry if you don’t see anything but your name at the top. You can add more devices later.
 
