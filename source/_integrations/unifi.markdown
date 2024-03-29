@@ -73,7 +73,7 @@ Use the **Power cycle PoE** button entity to power cycle one specific PoE port t
 Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch, the PoE supply is not affected.
 
 ### WLAN Change Password
-Use the **WLAN Change Password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **Unfortunately, the user cannot specify the new password; it will be randomly generated with 18 characters, consisting of lowercase letters, uppercase letters, digits, and special characters.**
+Use the **WLAN Change Password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **Unfortunately, the user cannot specify the new password; it will be randomly generated with 18 characters, consisting of lowercase letters, uppercase letters, and digits.**
 
 ## Image
 
