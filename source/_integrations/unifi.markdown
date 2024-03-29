@@ -152,6 +152,13 @@ Get entities reporting the general temperature of a UniFi Network device.
 
 Get entities reporting the current state of a UniFi Network device.
 
+### WLAN Password sensor
+
+Provides the current password for a specific WLAN configured in a UniFi Network device. This sensor allows users to retrieve the WLAN password for various purposes, such as sharing with guests or configuring devices manually.
+
+- Entity is disabled by default.
+- This feature requires admin privileges.
+
 ## Firmware updates
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
