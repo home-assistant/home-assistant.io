@@ -5,7 +5,7 @@ ha_release: 0.83
 ha_category:
   - Car
   - Presence detection
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@ludeeus'
@@ -24,3 +24,5 @@ ha_integration_type: integration
 </div>
 
 To configure Traccar Client, you must set it up via the integrations panel in the configuration screen. This will give you the webhook URL to use during mobile device configuration. This URL has to be set in the Traccar app.
+
+{% include integrations/config_flow.md %}

@@ -71,3 +71,7 @@ cards:
   <img src="/images/dashboards/vertical-horizontal-stack.png" alt="Create a grid layout using vertical and horizontal stack">
   Create a grid layout using vertical and horizontal stack.
 </p>
+
+## Related topics
+
+- [Dashboard cards](/dashboards/cards/)

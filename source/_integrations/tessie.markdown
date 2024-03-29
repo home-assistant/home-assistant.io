@@ -116,7 +116,10 @@ The integration will create device tracker entities for the vehicle's current lo
 
 ### Lock
 
-The integration will create a lock entity for each vehicle and for the charge cable lock.
+The integration will create lock entities to lock and unlock the vehicle, and to control:
+
+- Charge cable
+- Speed limit
 
 ### Media Player
 
@@ -148,8 +151,11 @@ The integration will create sensor entities for a variety of metrics related to 
 
 #### Charge state
 
+- Battery charging
 - Battery level
 - Battery range
+- Battery range estimate (disabled)
+- Battery range ideal (disabled)
 - Charge energy added
 - Charge rate
 - Charger current
@@ -195,4 +201,4 @@ The integration will create switch entities to control various aspects of your v
 
 ### Update
 
-The integration will show vehicle software updates and their installation progress.
+The integration will show vehicle software updates and their installation progress. Updates can only be installed from Home Assistant after they have finished downloading.

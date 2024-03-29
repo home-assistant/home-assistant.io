@@ -13,7 +13,8 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+  - switch
+ha_integration_type: device
 ---
 
 The TechnoVE integration provides connectivity with TechnoVE Smart Charging Station through the station local API.
@@ -44,3 +45,9 @@ The {% term integration %} adds the following sensors:
 - Wi-Fi signal strength
 - Wi-Fi network name
 - Status
+
+## Switch
+
+The {% term integration %} adds the following switch:
+
+- Auto-charge mode

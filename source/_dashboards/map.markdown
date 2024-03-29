@@ -134,3 +134,8 @@ entities:
     focus: false
 hours_to_show: 48
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)
