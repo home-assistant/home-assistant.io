@@ -18,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - event
   - image
   - number
   - select
@@ -48,6 +49,8 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Button**:
   - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
   - `Relocate`: Button entity to trigger manual relocation.
+- **Event**:
+  - `Last job`: Provides the stop reason as event_type
 - **Image**:
   - `Map`: The floorplan/map as an image in SVG format.
 - **Number**:
@@ -72,8 +75,13 @@ Additionally, **depending on your model**, the integration provides the followin
     - `Time`: The total cleaning time
 - **Switch**:
   - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Border switch`: Enable border switch. Disabled by default.
   - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.
+  - `Child lock`: Enable child lock. Disabled by default.
+  - `Move up warning`: Enable device move up warning. Disabled by default.
+  - `Cross map border warning`: Enable warning for crossing the map border. Disabled by default.
   - `Continuous cleaning`: Enable continuous cleaning, which means the bot resumes the cleaning job if he needs to charge in between. Disabled by default.
+  - `Safe protect`: Enable "Safe protect" feature. Disabled by default.
   - `True detect`: Enable "True detect" feature. Disabled by default.
 
 ## Vacuum

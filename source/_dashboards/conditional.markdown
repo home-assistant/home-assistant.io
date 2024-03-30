@@ -25,7 +25,7 @@ type:
   type: string
 conditions:
   required: true
-  description: List of conditions to check. See [available conditions](/dashboards/conditional/#card-conditions).
+  description: List of conditions to check. See [available conditions](#conditions-options).
   type: list
 card:
   required: true
@@ -79,23 +79,23 @@ card:
     - binary_sensor.rookmelder
 ```
 
-## Card conditions
+## Conditions options
 
 ### State
 
+Tests if an entity has a specified state.
+
 ```yaml
-condition: "state"
+condition: state
 entity: climate.thermostat
 state: heat
 ```
 
 ```yaml
-condition: "state"
+condition: state
 entity: climate.thermostat
 state_not: "off"
 ```
-
-Tests if an entity has a specified state.
 
 {% configuration %}
 condition:
@@ -108,11 +108,11 @@ entity:
   type: string
 state:
   required: false
-  description: Entity state is equal to this value. Can contain an array of states.*
+  description: Entity state or ID to be equal to this value. Can contain an array of states.*
   type: [list, string]
 state_not:
   required: false
-  description: Entity state is unequal to this value. Can contain an array of states.*
+  description: Entity state or ID to not be equal to this value. Can contain an array of states.*
   type: [list, string]
 {% endconfiguration %}
 
@@ -123,7 +123,7 @@ state_not:
 Tests if an entity state matches the thresholds.
 
 ```yaml
-condition: "numeric_state"
+condition: numeric_state
 entity: sensor.outside_temperature
 above: 10
 below: 20
@@ -140,15 +140,15 @@ entity:
   type: string
 above:
   required: false
-  description: Entity state is above this value.*
+  description: Entity state or ID to be above this value.*
   type: string
 below:
   required: false
-  description: Entity state is below to this value.*
+  description: Entity state or ID to be below this value.*
   type: string
 {% endconfiguration %}
 
-*at least one is required (`above` or `below`)
+*at least one is required (`above` or `below`), both are also possible for values between.
 
 ### Screen
 
@@ -175,7 +175,7 @@ media_query:
 Specify the visibility of the card per user.
 
 ```yaml
-condition: "user"
+condition: user
 users:
   - 581fca7fdc014b8b894519cc531f9a04
 ```
@@ -190,6 +190,57 @@ users:
   description: User ID that can see the card (unique hex value found on the Users configuration page).
   type: list
 {% endconfiguration %}
+
+### And
+
+Specify that both conditions must be met.
+
+```yaml
+condition: and
+conditions:
+  - condition: numeric_state
+    above: 0
+  - condition: user
+    users:
+      - 581fca7fdc014b8b894519cc531f9a04
+```
+
+{% configuration %}
+condition:
+  required: true
+  description: "`and`"
+  type: string
+conditions:
+  required: false
+  description: List of conditions to check. See [available conditions](#conditions-options).
+  type: list
+{% endconfiguration %}
+
+### Or
+
+Specify that at least one of the conditions must be met.
+
+```yaml
+condition: or
+conditions:
+  - condition: numeric_state
+    above: 0
+  - condition: user
+    users:
+      - 581fca7fdc014b8b894519cc531f9a04
+```
+
+{% configuration %}
+condition:
+  required: true
+  description: "`or`"
+  type: string
+conditions:
+  required: false
+  description: List of conditions to check. See [available conditions](#conditions-options).
+  type: list
+{% endconfiguration %}
+
 
 ## Related topics
 

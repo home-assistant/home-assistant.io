@@ -61,6 +61,13 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
 - A switch allowing you to take your system on-grid and off-grid. Note that the Enpower has a slight delay built-in between receiving these commands and actually switching the system on or off grid.
 - A switch allowing you to enable or disable charging the Encharge/IQ Batteries from the power grid.
 - Support for changing the battery storage mode between full backup, self-consumption, and savings mode and setting the reserve battery level for outages.
+- If a storage <abbr title="current transformers">CT</abbr> is installed:
+  - Sensors for battery storage energy charged and discharged and current active power discharge/charge 
+  - Disabled sensors for:
+    - Phase battery storage energy charged and discharged and current power discharge/charge
+    - Voltage net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase)
+    - Metering status for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
+    - Meter status flags active storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
 
 ## Envoy authentication requirements
 
@@ -95,14 +102,16 @@ This integration provides several values suitable for the energy dashboard:
 - For `Solar production`, use the `Envoy Lifetime energy production` entity.
 - For `Grid consumption`, use the `Envoy Lifetime net energy consumption` entity.[^3]
 - For `Return to grid`, use the `Envoy Lifetime net energy production` entity.[^3]
+- For `Energy going into the battery`, use the the `Envoy Lifetime battery energy charged` entity.[^5]
+- For `Energy coming out off the battery`, use the the `Envoy Lifetime battery energy discharged` entity.[^5]
 
-[^3]: Only applies when using  Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (<abbr title="current transformers">CT</abbr>).
+[^3]: Only applies when using  Envoy S Metered / IQ Gateway Metered with installed and configured <abbr title="current transformers">CT</abbr>.
 
-There are no readily available battery energy sensors for use with the `Home Battery storage`. You can consider using the Encharge  `real_power_mw` entity as an input to Riemann integrators for charge (negative) or discharge (positive) values. As the [polling interval](#polling-interval) is 1 minute, these may be off though.
+[^5]: Only applies when using  Envoy S Metered / IQ Gateway Metered / IQ Combiner with installed and configured storage / battery <abbr title="current transformers">CT</abbr>.
 
 ## Debug logs and diagnostics
 
-This integration provides debug log and diagnostics report as described in the [Home Assistant troubleshooting pages](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+This integration provides debug logs and diagnostics reports as described in the [Home Assistant troubleshooting pages](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
 ### Debug log
 

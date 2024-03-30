@@ -393,6 +393,7 @@ source/_integrations/isy994.markdown @bdraco @shbatm
 source/_integrations/izone.markdown @Swamp-Ig
 source/_integrations/jellyfin.markdown @j-stienstra @ctalkington
 source/_integrations/jewish_calendar.markdown @tsvi
+source/_integrations/juicenet.markdown @jesserockz
 source/_integrations/justnimbus.markdown @kvanzuijlen
 source/_integrations/jvc_projector.markdown @SteveEasley @msavazzi
 source/_integrations/kaiterra.markdown @Michsior14
@@ -489,6 +490,7 @@ source/_integrations/monoprice.markdown @etsinko @OnFreund
 source/_integrations/moon.markdown @fabaff @frenck
 source/_integrations/mopeka.markdown @bdraco
 source/_integrations/motion_blinds.markdown @starkillerOG
+source/_integrations/motionblinds_ble.markdown @LennP @jerrybboy
 source/_integrations/motioneye.markdown @dermotduffy
 source/_integrations/mqtt.markdown @emontnemery @jbouwh
 source/_integrations/msteams.markdown @peroyvind
