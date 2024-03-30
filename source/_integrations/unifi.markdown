@@ -73,7 +73,7 @@ Use the **Power cycle PoE** button entity to power cycle one specific PoE port t
 Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch, the PoE supply is not affected.
 
 ### WLAN Regenerate Password
-Use the **WLAN Regenerate Password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **Unfortunately, the user cannot specify the new password; it will be randomly generated using the python function `secrets.token_urlsafe(15)`. This function generates a 20-character password comprised of lowercase letters, uppercase letters, and digits. The number '15' in the function represents the number of bytes, with each byte equivalent to approximately 1.3 characters when base64 encoded.**
+Use the **WLAN Regenerate Password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **Unfortunately, the user cannot specify the new password; it will be randomly generated with 20 characters, consisting of lowercase letters, uppercase letters, and digits.**
 
 ## Image
 
