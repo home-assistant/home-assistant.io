@@ -154,7 +154,7 @@ Get entities reporting the current state of a UniFi Network device.
 
 ### WLAN Password sensor
 
-Provides the current password for a specific WLAN. This sensor allows users to retrieve the WLAN password for various purposes, such as sharing with guests or configuring devices manually.
+Provides the current password for a specific WLAN. This sensor serves as a fallback option for retrieving the WLAN password when the QR code is not applicable. It allows users to access the password for various purposes, such as sharing with guests or configuring devices manually.
 
 - Entity is disabled by default.
 - This feature requires admin privileges.
