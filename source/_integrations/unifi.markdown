@@ -152,7 +152,7 @@ Get entities reporting the general temperature of a UniFi Network device.
 
 Get entities reporting the current state of a UniFi Network device.
 
-### WLAN Password sensor
+### WLAN password sensor
 
 Provides the current password for a specific WLAN. It allows users to access the password for various purposes, such as sharing with guests or configuring devices manually. As this exposes the password in clear text it is only recommended to utilize this in scenarios where the QR Code is not sufficient. 
 
