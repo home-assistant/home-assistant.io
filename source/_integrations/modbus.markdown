@@ -274,7 +274,7 @@ modbus:
     baudrate: 9600
     bytesize: 8
     method: rtu
-    parity: E
+    parity: N
     stopbits: 1
 ```
 
@@ -289,7 +289,7 @@ modbus:
     baudrate: 9600
     bytesize: 8
     method: rtu
-    parity: E
+    parity: N
     stopbits: 1
 
     delay: 0
@@ -331,7 +331,7 @@ modbus:
     baudrate: 9600
     bytesize: 8
     method: rtu
-    parity: E
+    parity: N
     stopbits: 1
 ```
 
