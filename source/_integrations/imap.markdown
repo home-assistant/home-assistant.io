@@ -181,7 +181,7 @@ template:
 
 ### Services for post-processing
 
-The IMAP integration has some services for post-pressing email messages. The services are intended to be used in automations as action after a "imap_content" event. The services take the IMAP `entry_id` and the `uid` of the message's event data. You can use a template for the `entry_id` and the `uid`. When the service is set up as a trigger actions you can easily select the correct entry from the UI. You will find the `entry_id` in YAML mode. It is highly recommended you filter the events by the `entry_id`.
+The IMAP integration has some services for post-pressing email messages. The services are intended to be used in automations as actions after an "imap_content" event. The services take the IMAP `entry_id` and the `uid` of the message's event data. You can use a template for the `entry_id` and the `uid`. When the service is set up as a trigger actions you can easily select the correct entry from the UI. You will find the `entry_id` in YAML mode. It is highly recommended you filter the events by the `entry_id`.
 
 Available services are:
 
@@ -216,7 +216,7 @@ action:
   - service: imap.seen
     metadata: {}
     data:
-      entry: "{{ trigger.event.data['event_id'] }}"
+      entry: "{{ trigger.event.data['entry_id'] }}"
       uid: "{{ trigger.event.data['uid'] }}"
 mode: single
 ```
