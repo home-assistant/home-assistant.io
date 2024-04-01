@@ -22,7 +22,7 @@ The **WeatherFlow Cloud** integration provides access to cloud provided Weather 
 
 ## Weather Icons
 
-There is not a straight 1-1 mapping between the home assistant supported weather conditions and what tempest provides - as such you may see a difference between what is displayed in the tempest app and what is displayed in home assistant.
+There is not a straight 1-1 mapping between the Home Assistant supported weather conditions and what tempest provides - as such you may see a difference between what is displayed in the tempest app and what is displayed in Home Assistant.
 
 | Weather Flow Icon | Home Assistant Icon |
 |-------------------|----------------------|
