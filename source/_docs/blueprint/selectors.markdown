@@ -35,6 +35,7 @@ The following selectors are currently available:
 - [Entity selector](#entity-selector)
 - [Floor selector](#floor-selector)
 - [Icon selector](#icon-selector)
+- [Label selector](#label-selector)
 - [Language selector](#language-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
@@ -885,6 +886,43 @@ placeholder:
 
 The output of this selector is a string containing the selected icon,
 for example: `mdi:bell`.
+
+## Label selector
+
+The label selector shows a label finder that can pick labels. The value of the
+input is the label ID. If `multiple` is set to `true`, the value is a list
+of label IDs.
+
+![Screenshot of the label selector](/images/blueprints/selector-label.png)
+
+In its most basic form, this selector doesn't require any options.
+It will show all labels.
+
+```yaml
+label:
+```
+
+{% configuration text %}
+multiple:
+  description: >
+    Allows selecting multiple labels. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the label ID, or (in case `multiple` is set to
+`true`) a list of label IDs.
+
+```yaml
+# Example label selector output result, when multiple is set to false
+energy_saving
+
+# Example label selector output result, when multiple is set to true
+- energy_saving
+- christmas_decorations
+```
 
 ## Language selector
 
