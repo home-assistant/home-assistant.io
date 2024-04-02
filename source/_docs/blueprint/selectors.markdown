@@ -757,9 +757,9 @@ floor:
 {% configuration floor %}
 device:
   description: >
-    When device options are provided, the list of floors is filtered by floor
-    that at least have one device that matches the given conditions. Can be
-    either a object or a list of object.
+    When device options are provided, the list of floors is filtered by floors
+    that have at least one device matching the given conditions. Can be
+    either an object or a list of objects.
   type: list
   required: false
   keys:
