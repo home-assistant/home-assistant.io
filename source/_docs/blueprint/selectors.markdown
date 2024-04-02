@@ -778,7 +778,7 @@ device:
       required: false
     model:
       description: >
-        When set, it limits the list of floors that have devices which have
+        When set, the list only includes floors that have devices which have
         the set model.
       type: string
       required: false
