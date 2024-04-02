@@ -33,13 +33,13 @@ with route alternatives and travel times between two locations.
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `origin` | no | The origin of the route | "51.330436, 3.802043" |
-| `destination` | no | he destination of the route | "51.330436, 3.802043" |
+| `destination` | no | The destination of the route | "51.330436, 3.802043" |
 | `region` | no | The region. Controls which waze server is used. | "us" |
 | `units` | yes | Which unit system to use | metric |
 | `vehicle_type` | yes | Which vehicle to use | "car" |
-| `incl_filter` | yes | Which streetnames must be part of the route | "A321" |
-| `excl_filter` | yes | Which streetnames must not be part of the route | "A321" |
-| `realtime` | yes | Use realtime or statistical data | True |
+| `incl_filter` | yes | Which street names must be part of the route | "A321" |
+| `excl_filter` | yes | Which street names must not be part of the route | "A321" |
+| `realtime` | yes | Use real-time or statistical data | True |
 | `avoid_toll_roads` | yes | Whether to avoid toll roads | True |
 | `avoid_ferries` | yes | Whether to avoid ferries | True |
 | `avoid_subscription_roads` | yes | Whether to avoid subscription roads | True |
