@@ -735,9 +735,9 @@ entity:
 
 ## Floor selector
 
-The floor selector shows a floor finder that can pick a single or multiple
+The floor selector shows a floor finder that can pick 
 floors based on the selector configuration. The value of the input will be the
-floor ID, or a list of floor IDs, based on if `multiple` is set to `true`.
+floor ID. If `multiple` is set to `true`, the value is a list of floor IDs.
 
 A floor selector can filter the list of floors, based on properties of the
 devices and entities that are assigned to the areas on those floors.
