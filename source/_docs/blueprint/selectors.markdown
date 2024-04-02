@@ -765,8 +765,8 @@ device:
   keys:
     integration:
       description: >
-        Can be set to an integration domain. Limits the list of floor that
-        have devices by the set integration domain, for example,
+        Can be set to an integration domain. Limits the list of floors that
+        have devices by this integration domain. For example,
         [`zha`](/integrations/zha).
       type: string
       required: false
