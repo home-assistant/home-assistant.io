@@ -181,7 +181,7 @@ template:
 
 ### Services for post-processing
 
-The IMAP integration has some services for post-pressing email messages. The services are intended to be used in automations as actions after an "imap_content" event. The services take the IMAP `entry_id` and the `uid` of the message's event data. You can use a template for the `entry_id` and the `uid`. When the service is set up as a trigger actions you can easily select the correct entry from the UI. You will find the `entry_id` in YAML mode. It is highly recommended you filter the events by the `entry_id`.
+The IMAP integration has some services for post-pressing email messages. The services are intended to be used in automations as actions after an "imap_content" event. The services take the IMAP `entry_id` and the `uid` of the message's event data. You can use a template for the `entry_id` and the `uid`. When the service is set up as a trigger action, you can easily select the correct entry from the UI. You will find the `entry_id` in YAML mode. It is highly recommended you filter the events by the `entry_id`.
 
 Available services are:
 
@@ -191,7 +191,7 @@ Available services are:
 
 <div class='note warning'>
 
-When these services are used in an automation, make sure the right triggers and filtering is set up. When messages are deleted, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these services unless you know what you are doing.
+When these services are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these services unless you know what you are doing.
 
 </div>
 
