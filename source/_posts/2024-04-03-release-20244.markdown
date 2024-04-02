@@ -266,56 +266,46 @@ noteworthy changes this release:
 - [@karwosts] has made some improvements to your Home Assistant user profile
   page, making it easier to navigate and find the settings you are looking for.
   Nice work!
+- If you use a [sentence trigger] in your automation to trigger it using
+  [Assist]. The trigger will now include the `device_id` in its trigger data
+  allowing you to automate with. Thanks, [@synesthesiam]!
 - The [HomeWizard Energy] integration now support the newest generation of
   HomeWizard Energy Sockets! Thanks, [@DCSBL]!
-- The information shown in the related items of the entity dialogs, but also
-  related information on device pages (like automations, scenes, scripts, etc.)
-  has been improved. It should now provide you with more relevant information.
 - We are now able to ship new releases of Home Assistant in waaay less time.
   Building and shipping Home Assistant for you, when down from 1.5-2 hours to
   just 20 minutes! 🚀 Thanks [@edenhaus]!
 - [Reolink] now supports PTZ patrol start/stop, package detection and controls
   to play quick reply messages. Thanks, [@starkillerOG]!
-- We have brand new template functions available to list all the issues in
+- We have brand new template functions available to list [all the issues] in
   your repairs dashboard. Thanks, [@RoboMagus]!
+- If you prefer your wind speed sensors to be in Beaufort, you are in luck!
+  You can now change the unit of measurement to Beaufort. Thanks, [@fwestenberg]!
+- The [Husqvarna Automower] integration development continues and now has
+  additional new entities; including sensors, select entities and a device
+  tracker Thanks, [@Thomas55555]!
+- [@catsmanac] has added added sensor to monitor the battery storage attached
+  to your [Enphase Envoy]; it works with the energy dashboard! Nice!
+- The [Xiaomi BLE] integration now supports locks and fingeprints readers!
+  Awesome, [@Ernst79]!
 
-[@RoboMagus]: https://github.com/RoboMagus
-[@karwosts]: https://github.com/karwosts
-[Reolink]: /integrations/reolink
-[@starkillerOG]: https://github.com/starkillerOG
-[HomeWizard Energy]: /integrations/homewizard
-[@edenhaus]: https://github.com/edenhaus
+[@catsmanac]: https://github.com/catsmanac
 [@DCSBL]: https://github.com/DCSBL
-
-_Note to remove: Processed possible noteworthy up to PR #114278_
-
-Possible candites for noteworthy from Core:
-
-- Add new fields from UniFi Protect v3 ([@AngellusMortis] - [#113631])
-- Add person tracking for UniFi Protect ([@AngellusMortis] - [#111289])
-- Add UniFi Protect service to remove privacy zones ([@AngellusMortis] - [#111292])
-- Add reconfigure step to config flow ([@gjohansson-ST] - [#108794])
-- Add reconfigure step to holiday ([@gjohansson-ST] - [#114057])
-- Add reconfigure flow to Axis integration ([@Kane610] - [#114067])
-- Add Locks to Xiaomi-BLE ([@Ernst79] - [#111156])
-- Move Ping binary sensor attributes to sensor entities ([@jpbede] - [#112004])
-- Add support for System Bridge service responses ([@timmo001] - [#100055])
-- Add Beaufort to wind_speed ([@fwestenberg] - [#105795])
-- Add button to homeworks ([@emontnemery] - [#112269])
-- Add device_id to sentence trigger and external conversation APIs ([@synesthesiam] - [#113094])
-- Add Ring Intercom support ([@cosimomeli] - [#109819])
-- Add binary sensor platform for Husqvarna Automower ([@Thomas55555] - [#113248])
-- Add device_tracker platform for husqvarna_automower ([@Thomas55555] - [#111403])
-- Add select platform to Husqvarna Automower ([@Thomas55555] - [#113816])
-- Add additional sensors to Teslemetry ([@Bre77] - [#112555])
-- Add JVC Projector Sensors ([@msavazzi] - [#108949])
-- Add additional buttons to OctoPrint ([@Xitee1] - [#103139])
-- Add Shelly RGB/RGBW profiles support ([@thecode] - [#113808])
-- Add home battery storage entities for enphase_envoy ([@catsmanac] - [#114015])
-
-Possible candites for noteworthy from Frontend:
-
-* `conditional` & `entity-filter`: add ability to filter through `entity_id` & add `entity-filter` `conditional`'s conditions (#19182) @Quentame
+[@edenhaus]: https://github.com/edenhaus
+[@Ernst79]: https://github.com/Ernst79
+[@fwestenberg]: https://github.com/fwestenberg
+[@karwosts]: https://github.com/karwosts
+[@RoboMagus]: https://github.com/RoboMagus
+[@starkillerOG]: https://github.com/starkillerOG
+[@synesthesiam]: https://github.com/synesthesiam
+[@Thomas55555]: https://github.com/Thomas55555
+[all the issues]: /docs/configuration/templating/#issues
+[Assist]: /voice_control/
+[Enphase Envoy]: /integrations/enphase_envoy
+[HomeWizard Energy]: /integrations/homewizard
+[Husqvarna Automower]: /integrations/husqvarna_automower
+[Reolink]: /integrations/reolink
+[sentence trigger]: /docs/automation/trigger/#sentence-trigger
+[Xiaomi BLE]: /integrations/xiaomi_ble
 
 ## New integrations
 
