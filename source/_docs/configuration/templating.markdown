@@ -576,14 +576,14 @@ If there is more than one entry with the same title, the entities for all the ma
 
 ### Labels
 
-- `labels()` returns the full list of labels IDs, or those for a given area ID, device ID, or entity ID.
+- `labels()` returns the full list of label IDs, or those for a given area ID, device ID, or entity ID.
 - `label_id(lookup_value)` returns the label ID for a given label name.
 - `label_name(lookup_value)` returns the label name for a given label ID.
-- `label_areas(label_name_or_id)` returns the list of areas IDs tied to a given label ID or name.
+- `label_areas(label_name_or_id)` returns the list of area IDs tied to a given label ID or name.
 - `label_devices(label_name_or_id)` returns the list of device IDs tied to a given label ID or name.
 - `label_entities(label_name_or_id)` returns the list of entity IDs tied to a given label ID or name.
 
-Each of the label template functions, can also be used as a filter.
+Each of the label template functions can also be used as a filter.
 
 #### Labels examples
 
