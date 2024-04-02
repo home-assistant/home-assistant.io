@@ -25,8 +25,7 @@ During the setup of Home Assistant Companion on your mobile device, the app will
 {% term Zones %} allow you to name areas on a map. These areas can then be used to name the location a tracked user is, or use entering/leaving a zone as an automation {% term trigger %} or {% term condition %}. See [Zones integration](/integrations/zone/) page for more details like creating zones.
 
 <div class='note'>
-The <a href="/dashboards/map/">map dashboard
-        </a>[map dashboard](/dashboards/map/) will hide all devices that are home.
+The <a href="/dashboards/map/">map dashboard</a> will hide all devices that are home.
 </div>
 
 [routers]: /integrations/#presence-detection
