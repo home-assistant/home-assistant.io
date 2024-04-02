@@ -5,7 +5,7 @@ sidebar_label: Map
 description: "The map card that allows you to display entities on a map"
 ---
 
-The map card that allows you to display entities on a map
+The map card that allows you to display entities on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
 <p class='img'>
 <img src='/images/dashboards/map_card.png' alt='Screenshot of the map card'>
@@ -139,3 +139,4 @@ hours_to_show: 48
 
 - [Themes](/integrations/frontend/)
 - [Dashboard cards](/dashboards/cards/)
+- [Map dashboard](/dashboards/dashboards/#map-dashboard)
