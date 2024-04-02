@@ -253,6 +253,13 @@
   link: https://developers.home-assistant.io/docs/intent_builtin
   aliases:
     - Intents
+- term: Label
+  definition: >-
+    Labels in Home Assistant allow you to group elements in Home Assistant irrespective of their physical location or type of element. You can assign a label to areas, devices, entities, automations, scripts, and helpers. Labels can be used in automations and scripts as a target for actions. Labels can also be used to filter tables. For example, you can filter the list of devices to show only devices with the label `heavy energy usage` or turn these devices off when there is not a lot of solar energy available. 
+  excerpt: >-
+    Labels in Home Assistant allow you to group elements in Home Assistant irrespective of their physical location or type of element. You can assign a label to areas, devices, entities, automations, scripts, and helpers. Labels can be used in automations and scripts as a target for actions. Labels can also be used to filter tables.
+  aliases:
+    - labels
 - term: Lovelace
   definition: >-
     Lovelace is the original code name of the UI that is now known as
