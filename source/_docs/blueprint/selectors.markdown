@@ -815,7 +815,7 @@ entity:
       required: false
     supported_features:
       description: >
-        Limits the list of floors to floors that have entities with a certain
+        When set, the list only includes floors that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION`
         or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list
         of features.
