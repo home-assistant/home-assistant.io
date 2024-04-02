@@ -98,7 +98,7 @@ The Total Connect API has limited zone type information. Home Assistant device c
 
 ## Buttons
 
-The integration provides a bypass button for each zone that can be bypassed. The "Bypass All" button for the alarm panel will bypass all faulted or troubled zones. The "Clear Bypass" button for the alarm panel will clear all bypassed zones.
+The integration provides a bypass button for each zone that can be bypassed. The **Bypass All** button for the alarm panel will bypass all faulted or troubled zones. The **Clear Bypass** button for the alarm panel will clear all bypassed zones.
 
 ## Diagnostic Sensors
 
