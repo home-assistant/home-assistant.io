@@ -856,7 +856,7 @@ floor:
       - switch
 ```
 
-Another example uses the are floor selector, which only shows floors that
+Another example using the floor selector, which only shows floors that
 have one or more remote controls provided by the [deCONZ](/integrations/deconz)
 integration. Multiple floors can be selected.
 
