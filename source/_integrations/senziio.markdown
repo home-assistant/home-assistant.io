@@ -86,8 +86,9 @@ you have the option to add it manually following these steps:
 
 1. **Initiate the setup**: After powering on and configuring the device, go to the
    Settings > Devices & Integrations page, press the *Add Integration* button, and select the
-   Senziio integration. Follow the prompts to input the model and the serial number as found
-   in the device's manual. This information is essential for Home Assistant to communicate correctly with your Senziio device. Here you can also change the default name assigned to this device.
+   Senziio integration. Follow the prompts to input the model and the serial number provided
+   with the device. This information is essential for Home Assistant to communicate
+   correctly with your Senziio device. Here you can also change the default name assigned.
 
     ![image](/images/integrations/senziio/senziio-manual-setup.png)
 
