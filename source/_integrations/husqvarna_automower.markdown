@@ -94,7 +94,8 @@ The integration will create the following sensors:
 
 - Battery level
 - Cutting blade usage time (if available)
-- Error
+- Error. For example: *Mower tilted*, *outside geofence*.
+- Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
 - Mode
 - Next start
 - Number of charging cycles
