@@ -739,11 +739,10 @@ The floor selector shows a floor finder that can pick
 floors based on the selector configuration. The value of the input will be the
 floor ID. If `multiple` is set to `true`, the value is a list of floor IDs.
 
-A floor selector can filter the list of floors, based on properties of the
-devices and entities that are assigned to the areas on those floors.
+A floor selector can filter the list of floors based on the properties of the
+devices and entities assigned to the areas on those floors.
 For example, the floor list could be limited to floors with entities
-provided by the [ZHA](/integrations/zha) integration that are on the floor
-based on the area they are in.
+provided by the [ZHA](/integrations/zha) integration, based on the areas they are in.
 
 In its most basic form, this selector doesn't require any options.
 It will show all floors.
