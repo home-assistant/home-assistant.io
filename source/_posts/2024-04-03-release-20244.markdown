@@ -387,7 +387,7 @@ Home Assistant now requires Python 3.12 to run.
 
 You don’t have to do anything if you are using the Home Assistant Operating
 System, Home Assistant Container, or Home Assistant Supervised installation
-method. In those cases, we handle this all for you. Your system has been
+method. In those cases, we handle all of this for you. Your system has been
 using Python 3.12 for quite some time already.
 
 ([@frenck] - [#114220])
@@ -400,11 +400,11 @@ using Python 3.12 for quite some time already.
 {% details "AEMET OpenData" %}
 
 The AEMET OpenData integration previously created two entities for each
-configured location, one entity which provided daily weather forecasts
-and one entity which provided hourly forecasts.
+configured location: one provided daily weather forecasts and the other hourly
+forecasts.
 
-The AEMET OpenData integration now only creates a single entity which
-provides both daily and hourly weather forecasts.
+The AEMET OpenData integration now only creates a single entity that provides
+both daily and hourly weather forecasts.
 
 ([@gjohansson-ST] - [#110764]) ([documentation](/integrations/aemet))
 
@@ -437,7 +437,7 @@ Please update your automations and scripts accordingly.
 The non-functional `away` preset mode has been replaced with the correct
 `away_indefinitely` preset mode.
 
-If any automation or script was depending on the `away` preset mode,
+If any automation or script depends on the `away` preset mode,
 it needs to be updated.
 
 ([@alexsydell] - [#108636]) ([documentation](/integrations/ecobee))
@@ -450,10 +450,10 @@ it needs to be updated.
 {% details "Environment Canada" %}
 
 The Environment Canada integration previously created two entities for each
-configured location, one entity which provided daily weather forecasts and
-one entity which provided hourly forecasts.
+configured location: one provided daily weather forecasts and the other hourly
+forecasts.
 
-The Environment Canada integration now only creates a single entity which
+The Environment Canada integration now only creates a single entity that
 provides both daily and hourly weather forecasts.
 
 ([@gjohansson-ST] - [#112447]) ([documentation](/integrations/environment_canada))
@@ -465,11 +465,11 @@ provides both daily and hourly weather forecasts.
 
 {% details "National Weather Service (NWS)" %}
 
-The National Weather Service integration previously created two entities
-for each configured location, one entity which provided daily weather forecasts
-and one entity which provided hourly forecasts.
+The National Weather Service integration previously created two entities for each
+configured location: one provided daily weather forecasts and the other hourly
+forecasts.
 
-The National Weather Service integration now only creates a single entity which
+The National Weather Service integration now only creates a single entity that
 provides both daily and hourly weather forecasts.
 
 ([@gjohansson-ST] - [#112503]) ([documentation](/integrations/nws))
@@ -482,11 +482,10 @@ provides both daily and hourly weather forecasts.
 {% details "Met Éireann" %}
 
 The Met Éireann integration previously created two entities for each configured
-location, one entity which provided daily weather forecasts and one entity which
-provided hourly forecasts.
+location: one provided daily weather forecasts and the other hourly forecasts.
 
-The Met Éireann integration now only creates a single entity which provides
-both daily and hourly weather forecasts.
+The Met Éireann integration now only creates a single entity that provides both
+daily and hourly weather forecasts.
 
 ([@gjohansson-ST] - [#112449]) ([documentation](/integrations/met_eireann))
 
@@ -495,10 +494,25 @@ both daily and hourly weather forecasts.
 
 {% enddetails %}
 
+{% details "Met Office" %}
+
+The Met Office integration previously created two entities for each configured
+location: one provided daily weather forecasts and the other hourly forecasts.
+
+The Met Office integration now only creates a single entity that provides both
+daily and hourly weather forecasts.
+
+([@gjohansson-ST] - [#112452]) ([documentation](/integrations/metoffice))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#112452]: https://github.com/home-assistant/core/pull/112452
+
+{% enddetails %}
+
 {% details "Modbus" %}
 
-The Modbus integration do not allow a configuration with the device only
-(no entities), this will create an issue, and the entry will not be loaded.
+The Modbus integration does not allow a configuration with the device only
+(no entities); this will create an issue, and the entry will not be loaded.
 
 For the special cases (like some custom_components) where it is wanted,
 please add a dummy entity.
@@ -513,15 +527,15 @@ please add a dummy entity.
 {% details "MQTT" %}
 
 Support for `brightness` is now assumed for `mqtt` lights with the `json` schema
-unless only color modes `rgb`, `rgbw` or `rgbww` are supported.
+unless only coelo modes `rgb`, `rgbw`, or `rgbww` are supported.
 
-For light which only support  color modes `rgb`, `rgbw` or `rgbww`, 
+For light which only support  color modes `rgb`, `rgbw`, or `rgbww`, 
 the `brightness` option flag can still be set to `false` if brightness is not
 supported, in this case brightness support is emulated in Home Assistant by
 scaling the RGBx-values.
 
 For all other color modes except `ColorMode.ONOFF`, it is assumed brightness is
-supported and the `brightness` attribute will be included in the MQTT payload
+supported, and the `brightness` attribute will be included in the MQTT payload
 when the `brightness` attribute is supplied to the `light.turn_on` service.
 
 ([@jbouwh] - [#111676]) ([documentation](/integrations/mqtt))
@@ -536,7 +550,7 @@ when the `brightness` attribute is supplied to the `light.turn_on` service.
 If you have a Nibe SMO 20 in your account, you will notice that some 550
 entities are not provided by the integration.
 
-You can safely remove these entities as they are not used by the integration.
+You can safely remove these entities as the integration does not use them.
 
 ([@astrandb] - [#113493]) ([documentation](/integrations/myuplink))
 
@@ -548,13 +562,26 @@ You can safely remove these entities as they are not used by the integration.
 {% details "Waze Travel Time" %}
 
 The options `excl_filter` and `incl_filter` now filter for exact matches to
-streetnames in the route. Previously only they only filtered on the short
-description for the route.
+street names in the route. Previously, they only filtered on the short
+description of the route.
 
 ([@eifinger] - [#108613]) ([documentation](/integrations/waze_travel_time))
 
 [@eifinger]: https://github.com/eifinger
 [#108613]: https://github.com/home-assistant/core/pull/108613
+
+{% enddetails %}
+
+{% details "Weather" %}
+
+The previously deprecated `forecast` attribute of weather entities, has now been
+removed. Use the [`weather.get_forecasts`](/integrations/weather#service-weatherget_forecasts)
+service to get the forecast data instead.
+
+([@gjohansson-ST] - [#110761]) ([documentation](/integrations/metoffice))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#110761]: https://github.com/home-assistant/core/pull/110761
 
 {% enddetails %}
 
