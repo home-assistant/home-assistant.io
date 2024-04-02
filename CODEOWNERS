@@ -188,10 +188,11 @@ source/_integrations/dnsip.markdown @gjohansson-ST
 source/_integrations/doorbird.markdown @oblogic7 @bdraco @flacjacket
 source/_integrations/dooya.markdown @starkillerOG
 source/_integrations/dormakaba_dkey.markdown @emontnemery
+source/_integrations/downloader.markdown @erwindouna
 source/_integrations/dremel_3d_printer.markdown @tkdrob
 source/_integrations/drop_connect.markdown @ChandlerSystems @pfrazer
 source/_integrations/dsmr.markdown @Robbie1221 @frenck
-source/_integrations/dsmr_reader.markdown @depl0y @glodenox
+source/_integrations/dsmr_reader.markdown @sorted-bits @glodenox
 source/_integrations/duotecno.markdown @cereal2nd
 source/_integrations/duquesne_light.markdown @tronikos
 source/_integrations/dwd_weather_warnings.markdown @runningman84 @stephan192 @andarotajo
@@ -273,6 +274,7 @@ source/_integrations/frontend.markdown @home-assistant/frontend
 source/_integrations/frontier_silicon.markdown @wlcrs
 source/_integrations/fujitsu_anywair.markdown @Bre77
 source/_integrations/fully_kiosk.markdown @cgarwood
+source/_integrations/fyta.markdown @dontinelli
 source/_integrations/garages_amsterdam.markdown @klaasnicolaas
 source/_integrations/gardena_bluetooth.markdown @elupus
 source/_integrations/gaviota.markdown @starkillerOG
@@ -338,7 +340,7 @@ source/_integrations/homeassistant_sky_connect.markdown @home-assistant/core
 source/_integrations/homeassistant_yellow.markdown @home-assistant/core
 source/_integrations/homekit.markdown @bdraco
 source/_integrations/homekit_controller.markdown @Jc2k @bdraco
-source/_integrations/homematic.markdown @pvizeli @danielperna84
+source/_integrations/homematic.markdown @pvizeli
 source/_integrations/homewizard.markdown @DCSBL
 source/_integrations/honeywell.markdown @rdfurman @mkmer
 source/_integrations/http.markdown @home-assistant/core
@@ -502,7 +504,7 @@ source/_integrations/mystrom.markdown @fabaff
 source/_integrations/myuplink.markdown @pajzo @astrandb
 source/_integrations/nam.markdown @bieniu
 source/_integrations/nanoleaf.markdown @milanmeu
-source/_integrations/neato.markdown @dshokouhi @Santobert
+source/_integrations/neato.markdown @Santobert
 source/_integrations/nederlandse_spoorwegen.markdown @YarmoM
 source/_integrations/ness_alarm.markdown @nickw444
 source/_integrations/nest.markdown @allenporter
@@ -541,6 +543,7 @@ source/_integrations/nzbget.markdown @chriscla
 source/_integrations/obihai.markdown @dshokouhi @ejpenney
 source/_integrations/octoprint.markdown @rfleming71
 source/_integrations/ohmconnect.markdown @robbiet480
+source/_integrations/ollama.markdown @synesthesiam
 source/_integrations/ombi.markdown @larssont
 source/_integrations/omnilogic.markdown @oliver84 @djtimca @gentoosu
 source/_integrations/onboarding.markdown @home-assistant/core
@@ -638,7 +641,6 @@ source/_integrations/recollect_waste.markdown @bachya
 source/_integrations/recorder.markdown @home-assistant/core
 source/_integrations/recovery_mode.markdown @home-assistant/core
 source/_integrations/refoss.markdown @ashionky
-source/_integrations/rejseplanen.markdown @DarkFox
 source/_integrations/remote.markdown @home-assistant/core
 source/_integrations/renault.markdown @epenet
 source/_integrations/renson.markdown @jimmyd-be
@@ -694,6 +696,7 @@ source/_integrations/sentry.markdown @dcramer @frenck
 source/_integrations/senz.markdown @milanmeu
 source/_integrations/serial.markdown @fabaff
 source/_integrations/seven_segments.markdown @fabaff
+source/_integrations/seventeentrack.markdown @shaiu
 source/_integrations/sfr_box.markdown @epenet
 source/_integrations/sharkiq.markdown @JeffResc @funkybunch
 source/_integrations/shell_command.markdown @home-assistant/core
@@ -726,6 +729,7 @@ source/_integrations/smarttub.markdown @mdz
 source/_integrations/smarty.markdown @z0mbieprocess
 source/_integrations/smhi.markdown @gjohansson-ST
 source/_integrations/sms.markdown @ocalvo
+source/_integrations/smud.markdown @tronikos
 source/_integrations/snapcast.markdown @luar123
 source/_integrations/snooz.markdown @AustinBrunkhorst
 source/_integrations/solaredge.markdown @frenck

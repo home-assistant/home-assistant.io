@@ -16,7 +16,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_quality_scale: gold
+ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 

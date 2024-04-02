@@ -27,6 +27,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - valve
 ha_integration_type: integration
 ---
 

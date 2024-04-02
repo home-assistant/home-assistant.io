@@ -15,6 +15,7 @@ ha_platforms:
   - cover
   - switch
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 The Elmax integration enables Home Assistant integration with 

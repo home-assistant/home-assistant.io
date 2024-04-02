@@ -14,7 +14,7 @@ ha_platforms:
   - button
   - cover
   - select
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The Motionblinds BLE {% term integration %} adds support for [Motionblinds](https://motionblinds.com/) Bluetooth motors. Beware that this integration does not work with *Eve Motionblinds* motors. *Eve Motionblinds* can be added to Home Assistant using the [HomeKit Device](https://www.home-assistant.io/integrations/homekit_controller/) integration.
