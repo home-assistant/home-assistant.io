@@ -564,6 +564,7 @@ changes and new features available for your integration: Be sure to follow our
 
 - [Climate entity auxiliary heater is deprecated](https://developers.home-assistant.io/blog/2024/03/10/climate-aux-heater-deprecated)
 - [Config Entries can now provide a reconfigure step](https://developers.home-assistant.io/blog/2024/03/21/config-entry-reconfigure-step)
+- [Deprecate hass.helpers usage](https://developers.home-assistant.io/blog/2024/03/30/deprecate-hass-helpers/)
 - [Deprecating `async_run_job` and `async_add_job`](https://developers.home-assistant.io/blog/2024/03/13/deprecate_add_run_job)
 - [Integrations import in the executor to avoid blocking the event loop](https://developers.home-assistant.io/blog/2024/03/09/import_executor_default)
 - [New state timestamp State.last_reported](https://developers.home-assistant.io/blog/2024/03/20/state_reported_timestamp)
