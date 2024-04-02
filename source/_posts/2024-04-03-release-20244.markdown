@@ -322,18 +322,20 @@ Possible candites for noteworthy from Frontend:
 We welcome the following new integrations in this release:
 
 - **[Fyta]**, added by [@dontinelli]<br />
-  Monitor your plants with Fyta, a smart plant sensor that measures light, temperature, humidity, and soil moisture.
+  Monitor your plants with Fyta, a smart plant sensor that measures light,
+  temperature, humidity, and soil moisture.
 - **[Motionblinds BLE]**, added by [@LennP]<br />
   Control your Bluetooth Low Energy Motionblinds motorized window coverings.
 - **[Ollama]**, added by [@synesthesiam]<br />
-  Ollama a fully local AI conversation platform that can be used to create custom voice assistants.
+  Ollama a fully local AI conversation platform that can be used to create
+  custom voice assistants.
 
 [@dontinelli]: https://github.com/dontinelli
 [@LennP]: https://github.com/LennP
 [@synesthesiam]: https://github.com/synesthesiam
 [Fyta]: /integrations/fyta
 [Motionblinds BLE]: /integrations/motionblinds_ble
-[Ollama]: /integrations/ollama_conversation
+[Ollama]: /integrations/ollama
 
 This release also has new virtual integration. Virtual integrations are stubs
 that are handled by other (existing) integrations to help with findability.
