@@ -889,8 +889,8 @@ for example: `mdi:bell`.
 
 ## Label selector
 
-The label selector shows a label finder the can pick labels. The value of the
-input will be the label ID. If `multiple` is set to `true`, the value is a list
+The label selector shows a label finder that can pick labels. The value of the
+input is the label ID. If `multiple` is set to `true`, the value is a list
 of label IDs.
 
 ![Screenshot of the label selector](/images/blueprints/selector-label.png)
