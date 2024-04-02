@@ -745,8 +745,8 @@ For example, the floor list could be limited to floors with entities
 provided by the [ZHA](/integrations/zha) integration that are on the floor
 based on the area they are in.
 
-In its most basic form, this selector doesn't require any options,
-which will show all floors.
+In its most basic form, this selector doesn't require any options.
+It will show all floors.
 
 ![Screenshot of a floor selector](/images/blueprints/selector-floor.png)
 
