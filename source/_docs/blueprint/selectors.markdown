@@ -772,7 +772,7 @@ device:
       required: false
     manufacturer:
       description: >
-        When set, it limits the list of floor that have devices by the set
+        When set, the list only includes floors that have devices by the set
         manufacturer name.
       type: string
       required: false
