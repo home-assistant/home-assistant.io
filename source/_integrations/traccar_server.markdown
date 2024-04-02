@@ -109,6 +109,8 @@ Category:
   description: The category of the device in Traccar if defined.
 Motion:
   description: If the device is moving or not.
+Status:
+  description: The status of the device in Traccar.
 Traccar ID:
   description: The ID of the device in Traccar.
 Tracker:
@@ -208,25 +210,6 @@ Unique ID:
   description: This will be the unique ID of the device tracker in Traccar Server followed by `position_speed`.
 State:
   description: This will be the speed of the device in knots. You can select a different unit in the entity options if you want.
-{% endconfiguration_basic %}
-
-This entity does not have any attributes.
-
-### Sensor - Status
-
-The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the status reported by the Traccar Server.
-
-This entity is disabled by default.
-
-{% configuration_basic %}
-Name:
-  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Status. If your device is named "Millennium Falcon", this will be "Millennium Falcon Status".
-Entity ID:
-  description: This will be a slugified version of the name.
-Unique ID:
-  description: This will be the unique ID of the device tracker in Traccar Server followed by `devcie_status`.
-State:
-  description: This will be one of the following; `offline`, `unknown`, `online`.
 {% endconfiguration_basic %}
 
 This entity does not have any attributes.
