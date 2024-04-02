@@ -21,7 +21,7 @@ The `filesize` sensor is for displaying the size in MB of a file.
 
 File paths must also be added to [allowlist_external_dirs](/docs/configuration/basic/) in your `configuration.yaml`.
 
-File paths should be absolute paths, example `/config/home-assistant_v2.db` to monitor the size of the default database.
+File paths should be absolute paths. For example: `/config/home-assistant_v2.db` to monitor the size of the default database.
 
 </div>
 
