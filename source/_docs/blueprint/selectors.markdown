@@ -35,6 +35,7 @@ The following selectors are currently available:
 - [Entity selector](#entity-selector)
 - [Floor selector](#floor-selector)
 - [Icon selector](#icon-selector)
+- [Label selector](#label-selector)
 - [Language selector](#language-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
