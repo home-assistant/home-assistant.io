@@ -784,9 +784,9 @@ device:
       required: false
 entity:
   description: >
-    When entity options are provided, the list of floors is filtered by floors
+    When entity options are provided, the list only includes floors
     that at least have one entity that matches the given conditions. Can be
-    either a object or a list of object.
+    either an object or a list of objects.
   type: list
   required: false
   keys:
