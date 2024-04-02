@@ -18,16 +18,20 @@ Home Assistant ships with some dashboards out of the box:
 
 - Overview
 - Energy
-- Map
+- [Map](#map-dashboard)
 - Logbook
 - History
 - To-do lists
 
-Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. **Map**, **Logbook**, and **History**, are powered by their respective integrations.
+Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Logbook** and **History** dashboards are powered by their respective integrations.
 
 ### Map dashboard
 
-The predefined **Map** dashboard is powered by the [Map integration](/integrations/map/). If you see a [person](/integrations/person/) on the map, it means you have connected a device that allows [presence detection](/integrations/#presence-detection). This is the case for example if you have the [Home Assistant Companion App](https://companion.home-assistant.io/) on your phone and allowed location tracking.
+The predefined **Map** dashboard is populated by the [Map card](/dashboards/map/). You can edit this dashboard like any other dashboard. For example, you can edit the [view](/dashboards/views/) to use the **Sidebar** instead of the default **Panel** view type if you like.
+
+#### Maps and presence detection
+
+If you see a [person](/integrations/person/) on the map, it means you have connected a device that allows [presence detection](/integrations/#presence-detection). This is the case for example if you have the [Home Assistant Companion App](https://companion.home-assistant.io/) on your phone and allowed location tracking.
 
 ### Logbook dashboard
 
@@ -255,6 +259,6 @@ views:
 ## Related topics
 
 - [Logbook integration](/integrations/logbook/)
-- [Map integration](/integrations/map/)
 - [History integration](/integrations/history/)
 - [To-do list integration](/integrations/todo/)
+- [Views](/dashboards/views/)
