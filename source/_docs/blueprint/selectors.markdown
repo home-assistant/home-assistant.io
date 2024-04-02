@@ -799,7 +799,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of floors that have entities of a certain domain(s),
+        When set, the list only includes floors that have entities of certain domains,
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection to.
