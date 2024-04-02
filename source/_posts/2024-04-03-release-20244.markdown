@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2024.4 Beta: Organize all the things!"
+title: "2024.4: Organize all the things!"
 description: "The beta release notes for Home Assistant 2024.4"
 date: 2024-03-27 00:00:00
 date_formatted: "April 3, 2024"
@@ -48,11 +48,17 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Organizing your Home Assistant](#organizing-your-home-assistant)
-- [Improved user interface for tables](#improved-user-interface-for-tables)
-- [Floors of your home](#floors-of-your-home)
-- [Label anything](#label-anything)
-- [Organize using categories](#organize-using-categories)
+- [Home Assistant spring cleaning! 🧹 New ways to get your automations (and more) organized](#home-assistant-spring-cleaning--new-ways-to-get-your-automations-and-more-organized)
+- [Upgraded tables!](#upgraded-tables)
+  - [A new toolbar](#a-new-toolbar)
+  - [Filter panel](#filter-panel)
+  - [Item grouping](#item-grouping)
+  - [Selection mode and batch actions](#selection-mode-and-batch-actions)
+- [Three new ways to organize](#three-new-ways-to-organize)
+  - [Floors: Help Home Assistant understand your house](#floors-help-home-assistant-understand-your-house)
+  - [Labels: Tag everything any way you want](#labels-tag-everything-any-way-you-want)
+  - [Categories: Make each settings page easier to browse](#categories-make-each-settings-page-easier-to-browse)
+  - [Time to clean up your Home Assistant!](#time-to-clean-up-your-home-assistant)
 - [Map dashboard](#map-dashboard)
 - [Webpage dashboard](#webpage-dashboard)
 - [Define the columns in the section view](#define-the-columns-in-the-section-view)
@@ -72,69 +78,167 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 <lite-youtube videoid="Q1yHfqsVidw" videotitle="Home Assistant 2024.4 Release Party"></lite-youtube>
 
-## Organizing your Home Assistant
+## Home Assistant spring cleaning! 🧹 New ways to get your automations (and more) organized
 
 By far, the most requested feature in Home Assistant history would be:
+
 [_"Grouping Automations on frontend for organization"_](https://community.home-assistant.io/t/grouping-automations-on-frontend-for-organization/102771).
 
 We hear you! And today, in this release, we are going to give you tools to
-organize your Home Assistant setup. We want to make it easier for everyone, not
-just to organize, but also to view and find the things you need.
+organize your Home Assistant setup, and we took it a few (well many) steps
+further than just grouping automations!
 
-However, we took it a few (well many) steps further than just grouping
-automations. We are introducing 3 new organization structures to Home Assistant:
+We are introducing 3 (yes, you’ve read it correctly. It’s three) organization
+taxonomies, and we also revamped our entire table user interface plus a few
+goodies along the way.
 
-**[Floors](#floors)**, **[Labels](#labels)**, and **[Categories](#categories)**.
-
-We'll dive into each of these in a moment. First, let's talk about the brand
-new user interface for tables.
-
-## Improved user interface for tables
+## Upgraded tables!
 
 Adding more ways to organize your Home Assistant is great! But being able to
 easily view, filter and navigate information is just as important. To achieve
 this, we have re-designed ALL the tables in Home Assistant.
 
-Each table has a search bar, allowing you to quickly find what you are
-looking for, can be sorted by any column, and has a new look and feel.
+For an admin interface, tables are essential for visualizing and managing
+large datasets, and Home Assistant has many tables in its settings pages.
+Previously, our UI provided the ability to search, sort, as well as filter
+for a few aspects, but it was relatively barebones.
 
-Tables now have the possibility to group rows, by for example, their entity
-state, and can be filtered! The filters are very powerful and allow you to
-only show the rows you are interested in, you could for example filter on
-areas, but also on the new organization structures we are introducing today:
-floors, labels, and categories.
+Today, we are rolling out a revamped table UI that will be standardized across
+all tables in the settings pages with new and improved features.
 
-![CleanShot 2024-03-27 at 16 01 20](https://github.com/home-assistant/frontend/assets/5662298/3aed32c6-dcad-4474-9bbd-97e75e4f98cf)
+### A new toolbar
 
-## Floors of your home
+As we are adding more features to the tables, we need to still keep the UI clean 
+and its features easy to find. Therefore, we added descriptive text to the
+dropdown menus, and we standardized the look and feel of the toolbar buttons
+and textboxes. Shiny!
+
+__TODO: Insert screenshot hightlighting the new top bar of our data tables__
+
+### Filter panel
+
+Previously, our automations page allowed you to filter by areas, entities,
+or devices, but only one at a time, and the filters were tucked away in
+a dropdown menu, which meant you needed to click on a dropdown menu inside
+a dropdown menu to filter by area.
+
+A new filter panel fixes these issues by providing a new dual pane user
+interface that can let you check multiple filters across multiple filter
+types on the left that stays put, and view the filtered results on the right.
+
+__TODO: Insert screenshot showing the filters active on the device automation
+page.__
+
+We also introduced multiple new filter types for each table. For example,
+automations can now be filtered not only by areas, entities, or devices, they
+can now also be filtered by used blueprints, labels, and categories
+(more on these later!).
+
+We didn’t stop at just that page! The devices and entities pages now
+also has a way to filter by not only state, but also by integrations
+and by areas. Almost all tables now have useful new filters to help you
+find what you are looking for.
+
+### Item grouping
+
+Browsing a list of hundreds of automations or thousands of entities can be
+overwhelming. While filters can help narrow down the list, visually grouping
+the items into smaller chunks make them much easier to browse.
+
+With the item grouping feature, we introduced a new dropdown menu to pick
+how you’d like the items on the table to be grouped by. On the automations page,
+you can group automations by its state - whether it is enabled or not - and
+custom categories (more on that later!). On the Devices page, you can even group
+them by manufacturers, areas, or integrations, which is really cool because
+it makes the page much easier to browse and it gives you a new perspective
+on how to organize your vast network of devices.
+
+__TODO: Insert screenshot showing grouping.__
+
+### Selection mode and batch actions
+
+We removed the clutter of displaying a column of checkboxes by introducing
+a new selection mode. When it is toggled on, checkboxes will appear, and you
+can apply actions to all your selections with one click on the toolbar.
+
+__TODO: Screenshot pointing out the new "enter selection mode" button.__
+
+It allows you to, for example, enable or disable multiple selected entities on
+the entities page at once. This new paradigm us to introduce more batch
+management actions in future.
+
+__TODO: Screenshot showing multiple selected items with bulk actions.__
+
+## Three new ways to organize
+
+Upon reading through and ideating on the feature request thread on
+[“Automation Grouping”](https://community.home-assistant.io/t/grouping-automations-on-frontend-for-organization/102771),
+we realize that organization can be done in multiple ways for different purposes.
+
+We learned that users who are proficient in making automations have hundreds
+of them, which makes locating a particular automation hard. They often had to
+resort to using "hacks" such as emojis, bracketed “tags”, or numbering each
+automation to get the sort order they wanted. They needed a way to easily
+filter down and break down the giant list into more manageable chunks.
+
+We also noticed that users are stretching our areas feature beyond its
+intended purpose. For example, some users would create “areas” such as
+“3D printer”, “Christmas decorations” or even “Left side of my office desk”,
+in order to group different devices and entities together under one
+umbrella for dashboards or automations.
+
+As we are developing our new dashboards and voice commands, this poses a
+big problem: We would be unable to provide specialized solutions if a dashboard
+blueprint or automation blueprint cannot confidently assume the context of how
+it would be used. We need something more specialized.
+
+Therefore, to balance the basic goal of providing a more digestible UI for
+all users, the need for flexibility for our power users, and the future vision
+of Home Assistant, we are introducing 3 new organization structures to
+Home Assistant:
+
+**[Floors](#floors-help-home-assistant-understand-your-house)**,
+**[Labels](#labels-tag-everything-any-way-you-want)**,
+and **[Categories](#categories-make-each-settings-page-easier-to-browse)**
+
+### Floors: Help Home Assistant understand your house
 
 Let's talk about the new organization structures, starting with **floors**.
 
-Currently, Home Assistant has {% term areas %}. Areas can be used to group your
-devices per living space in your home (like the living room or kitchen). But
-if you look at your home, you might have multiple floors with its own areas.
+For Home Assistant to become a truly intelligent home automation platform,
+it needs to understand context: Where exactly is a device? How does one area
+relate to another? What is the space used for?
 
-This is where **floors** come in. Floors are a new way to organize your areas
-per level of floors in your home. The better Home Assistant known your home,
-and how it is structured, the better it can help you.
+Currently, Home Assistant has {% term areas %}. Areas are used to specify th
+physical location or vicinity of your devices per living space in your home
+(like the living room or kitchen). However, for some users living in standalone
+houses, there might be multiple floors with their own areas.
 
-<!-- Insert screenshot -->
+Floors are a new way to organize your areas per level of floors in your home.
+The better Home Assistant knows your home, and how it is spatially structured,
+the better it can help you.
 
-You can use floors in your automations and script as a target for your
-actions. For example, you can turn off all the lights on the downstairs floor
-when you go to bed. For our power users, you can even use floors in your
-templates to create more advanced automations.
+__TODO: Screenshot show areas page with floors.__
 
-## Label anything
+You can use floors in your {% term automations %} and {% term scripts %} as a
+target for your actions or control them with your voice. For example, you can
+turn off all the lights on the downstairs floor when you go to bed, or ask
+[Assist](/voice_control/) to turn on the lights upstairs.
 
-Floors and areas are great to represent your actual home, but what if you
-have different needs? This is where **labels** 🏷️ come in!
+For our power users, you can even use [floors in your templates](/docs/configuration/templating/#floors)
+to create the most advanced and creative automations.
+
+### Labels: Tag everything any way you want
+
+Floors and areas are great to represent your actual home, but as everyone
+has their own ways of organizing their home, everyone has their own ways
+of organizing the Home Assistant, too! This is where **labels** 🏷️ come in!
 
 Labels is an organization structure that is completely up to you. You can
-make as many labels with any naming structure your want and assign them to
-basically anything in Home Assistant. You assign labels to area, devices,
-entities, automations, scripts, helpers, you name it! You can even assign
-multiple labels to the same thing.
+make as many labels with any naming structure, in any color 🌈 you want and
+assign them to basically anything in Home Assistant. You assign labels to
+anything: areas, devices, entities, automations, scripts, helpers, you name it!
+You can even assign multiple labels to the same thing.
 
 ![CleanShot 2024-03-27 at 08 46 10@2x](https://github.com/home-assistant/frontend/assets/5662298/582b75af-7352-4241-8bad-3a39873c99c6)
 
@@ -150,29 +254,63 @@ More examples? You could create a label "🔒 Security" to label and control all
 your security-related devices and automations. Or, "🛌 Bedrooms" to label
 all your bedroom areas and control all the devices in those areas at once.
 
-Do you have solar panels or home battery? Create a label "⚡️ Heavy Energy Usage"
+Do you have solar panels or home batteries? Create a label "⚡️ Heavy Energy Usage"
 to label devices that consume a lot of energy, you could maybe switch them
 off when there is not enough battery or solar energy available.
 
 You decide how to use labels, and the possibilities are endless! And for our
-power users, you guessed it, you can use labels in your templates.
+power users, you guessed it, you can use [labels in your templates](/docs/configuration/templating/#labels).
 
-## Organize using categories
+### Categories: Make each settings page easier to browse
 
-Last but not least, we are introducing **categories**. Categories can be used
-to group things in for organization purposes and are specific for a certain
-dashboard in Home Assistant.
+Last but not least, we are introducing **categories**. Categories are designed
+to be paired with the aforementioned [item grouping feature](#item-grouping),
+and it can be used to group things visually that are specific for a certain
+table in Home Assistant.
 
-For example, you can create as many categories as you want on the automations
-dashboards, and group your automations in those categories. You can then view
-your automations grouped by those categories, or filter them by those categories.
+This is great for those who have a particular way to display their entities by
+separating them into multiple sections on a specific page. For example, on the
+automations page, you can create categories that are only used for visually
+grouping automations but nowhere else, like "Notifications" or “NFC tags”. You
+can then view your automations grouped or filtered by those categories.
 
-<!-- insert screenshot -->
+__TODO: Show screenshot with automations grouped by categories__
 
 As these categories are unique for each dashboard, you can have different
 sets of categories depending on the place you are organizing. This means
-you can have different categories on the automations dashboard than on the
-scene, scripts, or helpers dashboard.
+you can have different categories on the automations page than on the
+scene, scripts, or helpers settings page.
+
+### Time to clean up your Home Assistant!
+
+In summary, there are a total of 4 taxonomies for organizing your entities.
+It sounds like a lot, but they all serve a distinct purpose. We are extending
+and clarifying areas with floors, and we are introducing labels and categories
+to make your automations and many other tables to look more organized
+and to be more manageable.
+
+What’s next? Time to dig in! Here are a few steps we recommend you to take
+action on in order to organize your Home Assistant better:
+
+- **Migrate to labels**:  
+  - If you have been grouping automations with emojis and bracketed text,
+    you can now create labels for each of them. Labels can have icons to replace
+    the emojis you had before.
+  - For areas that aren’t really physical spaces, switching them to labels will
+    provide you more flexibility in organizing your entities.
+- **Start using categories**:
+  If you have a favorite way of organizing a particular page, create those
+  categories and group the table by them. For example, you could create a
+  notification category for all your notification automations and put all
+  notification automations in that category.
+- **Group your areas into floors**:  
+  If you live in a multi-storey home, grouping areas into floors helps with
+  organizing the areas as well as making them more compatible with future
+  features.
+
+Last of all, to help us to help you to perfect the design of these new features,
+we would love to hear your feedback and see how you use them! Please feel free
+to share them in the comments below and discuss them in our community.
 
 ## Map dashboard
 
@@ -186,7 +324,7 @@ With the introduction of the map dashboard, it mean you could add multiple map
 dashboards with different entities and settings, but you can also just remove
 the map if you don't want it.
 
-<!-- insert screenshot -->
+__TODO: Insert screenshot__
 
 On upgrade Home Assistant will automatically migrate your existing map
 integration to a map dashboard.
@@ -199,7 +337,7 @@ The webpage dashboard allows you to add and embed a webpage to your dashboard.
 This could be a webpage from the internet, but also a local webpage or a
 webpage from a local server.
 
-<!-- insert screenshot -->
+__TODO: Insert webpage dashboard screenshot__
 
 This dashboard replaces the old iFrame panel (`iframe_panel`). If you have
 existing panels configured in your YAML configuration, Home Assistant will
@@ -247,8 +385,9 @@ behavior of locks in our user interface to require you to confirm the action.
 ## Even more performance!
 
 Remember how we wrote last release that [Home Assistant now boots twice as fast](/blog/2024/03/06/release-20243/#home-assistant-boots-twice-as-fast)?
-Well, [@bdraco] wasn't done yet. If you thought that was fast, you are in for
-a treat! 🚀 The difference is, yet again, very noticable.
+Well, [@bdraco] wasn't done yet and teamed up with [@balloob]. If you thought
+previous release was fast, you are in for a treat! 🚀 The difference is,
+yet again, very noticable.
 
 Besides streamlining what is loaded when at startup (and doing less loading),
 we have also adjusted the startup time tracking. It used to be that 1 buggy
@@ -257,6 +396,7 @@ longer be the case, making this a more accurate representation of the actual
 startup time.
 
 [@bdraco]: https://github.com/bdraco
+[@balloob]: https://github.com/balloob
 
 ## Other noteworthy changes
 
