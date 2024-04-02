@@ -47,7 +47,7 @@ Please consult the [API documentation](https://dev.freebox.fr/sdk/os/) for more 
 
 <div class='note warning'>
 
-The `host` (ex: xxxxxxxx.fbxos.fr) and `port` given by <http://mafreebox.freebox.fr/api_version> refers to your Freebox public IP address and may not work if your Home Assistant server is located inside your local LAN. For local API access, you can use alternatively `host` = *mafreebox.freebox.fr* and `port` = *443*.
+The `host` (ex: xxxxxxxx.fbxos.fr) and `port` given by <http://mafreebox.freebox.fr/api_version> refers to your Freebox public IP address and may not work if your Home Assistant server is located inside your local LAN. For local API access, you can alternatively use `host` = *mafreebox.freebox.fr* and `port` = *443*.
 
 </div>
 
