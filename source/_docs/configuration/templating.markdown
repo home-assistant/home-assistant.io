@@ -574,6 +574,59 @@ If there is more than one entry with the same title, the entities for all the ma
 
 {% endraw %}
 
+### Labels
+
+- `labels()` returns the full list of labels IDs, or those for a given area ID, device ID, or entity ID.
+- `label_id(lookup_value)` returns the label ID for a given label name.
+- `label_name(lookup_value)` returns the label name for a given label ID.
+- `label_areas(label_name_or_id)` returns the list of areas IDs tied to a given label ID or name.
+- `label_devices(label_name_or_id)` returns the list of device IDs tied to a given label ID or name.
+- `label_entities(label_name_or_id)` returns the list of entity IDs tied to a given label ID or name.
+
+Each of the label template functions, can also be used as a filter.
+
+#### Labels examples
+
+{% raw %}
+
+```text
+{{ labels() }}  # ['christmas_decorations', 'energy_saver', 'security']
+```
+
+```text
+{{ labels("living_room") }}  # ['christmas_decorations', 'energy_saver']
+```
+
+```text
+{{ labels("my_device_id") }}  # ['security']
+```
+
+```text
+{{ labels("light.christmas_tree") }}  # ['christmas_decorations']
+```
+
+```text
+{{ label_id('Energy saver') }}  # 'energy_saver'
+```
+
+```text
+{{ label_name('energy_saver') }}  # 'Energy saver'
+```
+
+```text
+{{ label_areas('security') }}  # ['driveway', 'garden', 'porch']
+```
+
+```text
+{{ label_devices('energy_saver') }}  # ['deadbeefdeadbeefdeadbeefdeadbeef']
+```
+
+```text
+{{ label_entities('security') }}  # ['camera.driveway', 'binary_sensor.motion_garden', 'camera.porch']
+```
+
+{% endraw %}
+
 ### Issues
 
 - `issues()` returns all open issues as a mapping of (domain, issue_id) tuples to the issue object.
