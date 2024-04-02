@@ -807,10 +807,10 @@ entity:
       required: false
     device_class:
       description: >
-        Limits the list of floors to floors that have entities with a certain
-        device class(es), for example, `motion` or `window`. Can be either a string
+        When set, the list only includes floors that have entities with a certain
+        device class, for example, `motion` or `window`. Can be either a string
         with a single device_class, or a list of string device_class to limit
-        the selection to.
+        the selection.
       type: [device_class, list]
       required: false
     supported_features:
