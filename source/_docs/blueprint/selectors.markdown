@@ -793,7 +793,7 @@ entity:
     integration:
       description: >
         Can be set to an integration domain. Limits the list of floors that
-        have entities by the set integration domain, for example,
+        have entities by the set integration domain. For example,
         [`zha`](/integrations/zha).
       type: string
       required: false
