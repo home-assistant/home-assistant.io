@@ -458,6 +458,51 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
+### Floors
+
+- `floors()` returns the full list of floor IDs
+- `floor_id(lookup_value)` returns the floor ID for a given device ID, entity ID, area ID, or area name. Can also be used as a filter.
+- `floor_name(lookup_value)` returns the floor name for a given device ID, entity ID, area ID, or floor ID. Can also be used as a filter.
+- `floor_areas(floor_name_or_id)` returns the list of area IDs tied to a given floor ID or name. Can also be used as a filter.
+
+#### Floors examples
+
+{% raw %}
+
+```text
+{{ floor() }}  # ['floor_id']
+```
+
+```text
+{{ floor_id('First floor') }}  # 'first_floor'
+```
+
+```text
+{{ floor_id('my_device_id') }}  # 'second_floor'
+```
+
+```text
+{{ floor_id('sensor.sony') }}  # 'first_floor'
+```
+
+```text
+{{ floor_name('first_floor') }}  # 'First floor'
+```
+
+```text
+{{ floor_name('my_device_id') }}  # 'Second floor'
+```
+
+```text
+{{ floor_name('sensor.sony') }}  # 'First floor'
+```
+
+```text
+{{ floor_areas('first_floor') }}  # ['living_room', 'kitchen']
+```
+
+{% endraw %}
+
 ### Areas
 
 - `areas()` returns the full list of area IDs
