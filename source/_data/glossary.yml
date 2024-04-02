@@ -161,6 +161,14 @@
   link: /docs/configuration/events/
   aliases:
     - events
+- term: Floor
+  definition: >-
+    A floor in Home Assistant is a logical grouping of areas that are meant to match the physical floors in your home. Devices & entities are not assigned to floors but to areas. A floor has properties such as: Floor ID, name, aliases (for use in assistants), an icon, and a floor level. Some of these properties are optional. The level number can be negative to reflect floors below the basement.
+    Floors can be used in automations and scripts as a target for actions. For example, to turn off all the lights on the downstairs floor when you go to bed.
+  excerpt: >-
+    A floor in Home Assistant is a logical grouping of areas that are meant to match the physical floors in your home. Devices & entities are not assigned to floors but to areas. Floors can be used in automations and scripts as a target for actions. For example, to turn off all the lights on the downstairs floor when you go to bed.
+  aliases:
+    - floors
 - term: Frontend
   definition: >-
     The frontend is a necessary component for the UI, it is also where you
