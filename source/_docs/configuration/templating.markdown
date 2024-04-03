@@ -461,8 +461,8 @@ The same thing can also be expressed as a test:
 ### Floors
 
 - `floors()` returns the full list of floor IDs.
-- `floor_id(lookup_value)` returns the floor ID for a given floor name. Can also be used as a filter.
-- `floor_name(lookup_value)` returns the floor name for a given floor ID. Can also be used as a filter.
+- `floor_id(lookup_value)` returns the floor ID for a given device ID, entity ID, area ID, or area name. Can also be used as a filter.
+- `floor_name(lookup_value)` returns the floor name for a given device ID, entity ID, area ID, or floor ID. Can also be used as a filter.
 - `floor_areas(floor_name_or_id)` returns the list of area IDs tied to a given floor ID or name. Can also be used as a filter.
 
 #### Floors examples
