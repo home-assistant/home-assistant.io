@@ -753,6 +753,7 @@ changes and new features available for your integration: Be sure to follow our
 - [Deprecate hass.helpers usage](https://developers.home-assistant.io/blog/2024/03/30/deprecate-hass-helpers/)
 - [Deprecating `async_run_job` and `async_add_job`](https://developers.home-assistant.io/blog/2024/03/13/deprecate_add_run_job)
 - [Integrations import in the executor to avoid blocking the event loop](https://developers.home-assistant.io/blog/2024/03/09/import_executor_default)
+- [How uv saves Home Assistant 215 compute hours per month](https://developers.home-assistant.io/blog/2024/04/03/build-images-with-uv/)
 - [New state timestamp State.last_reported](https://developers.home-assistant.io/blog/2024/03/20/state_reported_timestamp)
 - [Raising exceptions with translations](https://developers.home-assistant.io/blog/2024/03/15/exception-translations)
 
