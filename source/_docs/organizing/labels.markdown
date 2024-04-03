@@ -35,7 +35,7 @@ Follow these steps to apply a label
    - From the list, select all the items to which you want to apply a label.
    - In the top right corner, select **Add label**. Then, select the labels from the list.
 
-    ![Create label dialog](/images/organizing/labels_add_05.png)
+    ![Apply label](/images/organizing/labels_add_05.png)
 3. To apply a label to an automation, scene, or script:
    - Go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
    - Select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
