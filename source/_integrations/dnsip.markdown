@@ -25,5 +25,5 @@ The **DNS IP** {% term integration %} will expose an IP address, fetched via DNS
 
 {% configuration_basic %}
 Resolver:
-  description: "You may override the default nameservers that are being used by setting any nameserver you like."
+  description: "You may override the default nameservers that are being used by setting any nameserver IP address you like, for example `1.1.1.1`. Optionally, a port other than the default `:53` may be specified, for example `208.67.222.222:5353`"
 {% endconfiguration_basic %}
