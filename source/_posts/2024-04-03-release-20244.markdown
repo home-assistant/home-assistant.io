@@ -334,11 +334,13 @@ The webpage dashboard allows you to add and embed a webpage to your dashboard.
 This could be a web page from the internet or a local web page from a local
 machine or device like your router or NAS.
 
-__TODO: Insert webpage dashboard screenshot__
+<img class="no-shadow" src='/images/blog/2024-04/dashboard-webpage.png' alt='Screenshots adding a new webpage dashboard to Home Assistant, embeding the Home Assistant website.'>
 
 This dashboard replaces the old iFrame panel (`iframe_panel`). If you have
 existing panels configured in your YAML configuration, Home Assistant will
 automatically migrate them to the new webpage dashboard on upgrade.
+
+<img class="no-shadow" src='/images/blog/2024-04/embeded-home-assistant-website.png' alt='Screenshot showing the Home Assistant website embeded into the Home Assistant frontend using a webpage dashboard.'>
 
 Note that not every webpage can be embedded due to security restrictions that
 some sites or pages have in place, enforced by your browser, that prevent
