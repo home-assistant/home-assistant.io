@@ -440,7 +440,8 @@ noteworthy changes this release:
   HomeWizard Energy Sockets! Thanks, [@DCSBL]!
 - We can now ship new releases of Home Assistant in waaay less time.
   Building and shipping Home Assistant for you, when down from 1.5-2 hours to
-  just 20 minutes! 🚀 Thanks [@edenhaus]!
+  just 20 minutes! 🚀 Thanks [@edenhaus]!  
+  [Learn more about it in our developer blog](https://developers.home-assistant.io/blog/2024/04/03/build-images-with-uv/).
 - [Reolink] now supports PTZ patrol start/stop, package detection and controls
   for playing quick reply messages. Thanks, [@starkillerOG]!
 - We have brand new template functions available to list [all the issues] in
@@ -752,8 +753,8 @@ changes and new features available for your integration: Be sure to follow our
 - [Config Entries can now provide a reconfigure step](https://developers.home-assistant.io/blog/2024/03/21/config-entry-reconfigure-step)
 - [Deprecate hass.helpers usage](https://developers.home-assistant.io/blog/2024/03/30/deprecate-hass-helpers/)
 - [Deprecating `async_run_job` and `async_add_job`](https://developers.home-assistant.io/blog/2024/03/13/deprecate_add_run_job)
-- [Integrations import in the executor to avoid blocking the event loop](https://developers.home-assistant.io/blog/2024/03/09/import_executor_default)
 - [How uv saves Home Assistant 215 compute hours per month](https://developers.home-assistant.io/blog/2024/04/03/build-images-with-uv/)
+- [Integrations import in the executor to avoid blocking the event loop](https://developers.home-assistant.io/blog/2024/03/09/import_executor_default)
 - [New state timestamp State.last_reported](https://developers.home-assistant.io/blog/2024/03/20/state_reported_timestamp)
 - [Raising exceptions with translations](https://developers.home-assistant.io/blog/2024/03/15/exception-translations)
 
