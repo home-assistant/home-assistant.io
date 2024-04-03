@@ -26,3 +26,4 @@ Categories allow grouping items in a table. Like labels, categories allow groupi
 
 - [Areas](/docs/organzing/areas/)
 - [Floors](/docs/organzing/floors/)
+- [Labels](/docs/organzing/labels/)
