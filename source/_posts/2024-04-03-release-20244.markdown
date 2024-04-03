@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "2024.4: Organize all the things!"
-description: "The beta release notes for Home Assistant 2024.4"
-date: 2024-03-27 00:00:00
+description: "Time for spring cleaning 🧹 Introducing new ways to organize your automation (and more) with floors, labels, and categories. Easily add Matter devices from other controllers, and two brand new map and webpage dashboards."
+date: 2024-04-03 00:00:00
 date_formatted: "April 3, 2024"
 author: Franck Nijhof
 author_twitter: frenck
