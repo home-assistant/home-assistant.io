@@ -94,7 +94,7 @@ This entity is disabled by default.
 
 {% configuration_basic %}
 Name:
-  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Motion. If your device is named "Millennium Falcon", this will be "Millennium Falcon Motion".
+  description: The name of the sensor will be set to what you have named it in Traccar Server, followed by the term "Motion". If your device is named "Millennium Falcon", this will be "Millennium Falcon Motion".
 Entity ID:
   description: This will be a slugified version of the name.
 Unique ID:
@@ -113,13 +113,13 @@ This entity is disabled by default.
 
 {% configuration_basic %}
 Name:
-  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Status. If your device is named "Millennium Falcon", this will be "Millennium Falcon Status".
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by the term "Status". If your device is named "Millennium Falcon", this will be "Millennium Falcon Status".
 Entity ID:
   description: This will be a slugified version of the name.
 Unique ID:
   description: This will be the unique ID of the device tracker in Traccar Server followed by `device_status`.
 State:
-  description: This will be `Online` if the Traccar Server reports that the device is online, this will be `Offline` if it reports it being offline, or `Unknown` if it is not sure.
+  description: This will be `Online` if the Traccar Server reports that the device is online. This will be `Offline` if it reports it being offline, or `Unknown` if it is not sure.
 {% endconfiguration_basic %}
 
 This entity does not have any attributes.
