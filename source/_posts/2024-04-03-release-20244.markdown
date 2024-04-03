@@ -212,7 +212,7 @@ structured, the better it can help you. Especially when it comes to future
 features like generating dashboards, voice commands, and maybe even
 AI-related features.
 
-__TODO: Screenshot show areas page with floors.__
+<img class="no-shadow" src='/images/blog/2024-04/floors.png' alt='Screenshots showing areas settings page, which now also shows the areas grouped by floor.'>
 
 You can use floors in your {% term automations %} and {% term scripts %} as a
 target for your actions or control them with your voice. For example, you can
@@ -221,6 +221,8 @@ turn off all the lights on the downstairs floor when you go to bed or ask
 
 For our power users, you can even use [floors in your templates](/docs/configuration/templating/#floors)
 to create the most advanced and creative automations.
+
+{% my areas badge %}
 
 ### Labels: Tag everything any way you want
 
