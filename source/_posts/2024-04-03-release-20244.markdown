@@ -238,7 +238,7 @@ anything: {% term areas %}, {% term devices %}, {% term entities %},
 {% term automations %}, {% term scripts %}, helpers, you name it!
 You can even assign multiple labels to the same thing.
 
-![CleanShot 2024-03-27 at 08 46 10@2x](https://github.com/home-assistant/frontend/assets/5662298/582b75af-7352-4241-8bad-3a39873c99c6)
+<img class="no-shadow" src='/images/blog/2024-04/labels.png' alt='Screenshots showing the new map dashboard you can add when you add a new dashboard to your Home Assistant.'>
 
 Just like with floors, you can use labels in your automations and scripts as
 a target for your {% term actions %}. This gives you a lot of flexibility,
@@ -258,6 +258,8 @@ there is not enough battery or solar energy available.
 
 You decide how to use labels, and the possibilities are endless! And for our
 power users, you guessed it, you can use [labels in your templates](/docs/configuration/templating/#labels).
+
+{% my labels badge %}
 
 ### Categories: Make each settings page easier to browse
 
