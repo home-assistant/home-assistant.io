@@ -121,7 +121,7 @@ types on the left that stay put and view the filtered results on the right.
 We also introduced multiple new filter types for each table. For example,
 {% term automations %} can now be filtered not only by {% term areas %},
 {% term entities %} , or {% term devices %}, but also by used
-{% term blueprints "blueprints," %} labels, and categories (more on these later!).
+{% term blueprints %}, labels, and categories (more on these later!).
 
 We didn’t stop at just that page! The devices and entities pages now also have
 a way to filter not only by state but also by integrations and areas. Almost all
