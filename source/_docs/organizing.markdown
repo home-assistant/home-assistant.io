@@ -1,13 +1,13 @@
 ---
 title: "Organizing your assets"
-description: "Organizing and grouping your assets makes it easier to find them and allows you target groups in automations."
+description: "Organizing and grouping your assets makes it easier to find them and allows you to target groups in automations."
 ---
 
-Once you have more devices, you may want to target entire groups of devices in automations. It also becomes more challenging to find items in lists. There are a few tools to organize your assets: [Areas](/docs/organzing/#areas/), [floors](/docs/organzing/#floors/), [labels](/docs/organzing/#labels/), and [categories](/docs/organzing/#categories/).
+Once you have more devices, you may want to target entire groups of devices in automations. It also becomes more challenging to find items in lists. There are a few tools to organize your assets: [Areas](#areas), [floors](#floors), [labels](#labels), and [categories](#categories).
 
 ## Areas
 
-An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world of your home. For example, the `living room` area groups devices and entities in your living room. Areas allow you to target an entire group of devices with a service call. For example, turning off all the lights in the living room.
+An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world of your home. For example, the "Living room" area groups devices and entities in your living room. Areas allow you to target an entire group of devices with a service call. For example, turning off all the lights in the living room.
 Areas can be assigned to floors. Areas can also be used to automatically generate cards, such as the [Area card](/dashboards/area/).
 
 ## Floors
