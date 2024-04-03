@@ -15,7 +15,7 @@ Follow these steps to create a new area from the **Areas** view.
    - Give the area a **Name** (required).
    - Add an icon (We use [Material icons](https://pictogrammers.com/library/mdi/)).
    - Assign the area to a floor.
-     - If you have not created floors yet, you can create a new one.
+     - If you have not created floors yet, you can [create a new one](/docs/organizing/floors/#creating-a-floor).
      - The number can be negative. For example for underground floors.
      - This number can later be used for sorting.
    - Add an image representing that area.
