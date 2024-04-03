@@ -317,7 +317,7 @@ with different entities and configuration settings. For example, create a
 dashboard to show the location of your family members, another to track your
 car, and another to show the location of your pets. 🐶
 
-__TODO: Insert screenshot__
+<img class="no-shadow" src='/images/blog/2024-04/dashboard-map.png' alt='Screenshots showing the new map dashboard you can add when you add a new dashboard to your Home Assistant.'>
 
 On upgrade, Home Assistant will automatically migrate your existing map
 integration to a map dashboard.
