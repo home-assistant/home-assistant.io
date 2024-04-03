@@ -83,7 +83,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     prism (0.24.0)
-    public_suffix (5.0.4)
+    public_suffix (5.0.5)
     racc (1.7.3)
     rack (3.0.10)
     rack-protection (4.0.0)
