@@ -12,7 +12,7 @@ Follow these steps to create a new label from the **Labels** view.
 1. Go to {% my labels title="**Settings** > **Areas, labels & zones**" %} and on top, select the **Labels** tab.
 2. Select the **Create label** button.
 3. In the dialog, enter the label details:
-   - Give the floor a **Name** (required).
+   - Give the label a **Name** (required).
    - Add an icon (We use [Material icons](https://pictogrammers.com/library/mdi/)).
    - Add a **Color**.
 
