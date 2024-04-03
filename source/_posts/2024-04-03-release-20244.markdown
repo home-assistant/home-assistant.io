@@ -100,7 +100,10 @@ features easy to find. Therefore, we added descriptive text to the dropdown
 menus and standardized the look and feel of the toolbar buttons and text boxes.
 Shiny!
 
-__TODO: Insert screenshot hightlighting the new top bar of our data tables__
+<p class='img'>
+    <img src="/images/blog/2024-04/new-toolbar.png" alt="Screenshots showing the new toolbar that is now on every table in Home Assistant."/>
+    The new toolbar that is now on every table in Home Assistant.
+</p>
 
 ### Filter panel
 
@@ -140,7 +143,7 @@ or {% term integrations %}, which is really cool because it makes the page much
 easier to browse. It gives you a new perspective on organizing your vast
 network of devices.
 
-__TODO: Insert screenshot showing grouping.__
+<img class="no-shadow" src='/images/blog/2024-04/item-grouping.png' alt='Screenshots showing data automations in a tables groups by their on/off state.'>
 
 ### Selection mode and batch actions
 
@@ -148,13 +151,16 @@ We removed the clutter of displaying a column of checkboxes by introducing
 a new selection mode. When it is toggled on, checkboxes will appear, and you
 can apply actions to all your selections with one click on the toolbar.
 
-__TODO: Screenshot pointing out the new "enter selection mode" button.__
+<p class='img'>
+    <img src="/images/blog/2024-04/enable-selection-mode.png" alt="Screenshots point out the enable selection mode button in the toolbar of the tables in Home Assistant."/>
+    This button enables selection mode in the new tables.
+</p>
 
 It allows you to, for example, enable or disable multiple selected
 {% term entities %} on the entities page at once. This new paradigm will allow
 us to introduce more batch management actions in the future.
 
-__TODO: Screenshot showing multiple selected items with bulk actions.__
+<img class="no-shadow" src='/images/blog/2024-04/bulk-actions.png' alt='Screenshots showing selection mode active in a table, with some items selected, highlighting the bulk actions you can perform on those selected items.'>
 
 ## Three new ways to organize
 
