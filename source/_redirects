@@ -467,6 +467,7 @@ layout: null
 /docs/tools/credstash/ /docs/configuration/secrets
 /docs/scripts/editor/ /docs/scripts
 /getting-started/devices /integrations
+/integrations/map /dashboards/map/
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
