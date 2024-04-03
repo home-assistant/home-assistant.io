@@ -39,3 +39,4 @@ If an area has not yet been assigned to a floor, it is shown in the **Unassigned
 
 - [Floors](/docs/organzing/floors/)
 - [Labels](/docs/organzing/labels/)
+- [Using areas in templates](/docs/configuration/templating/#areas)

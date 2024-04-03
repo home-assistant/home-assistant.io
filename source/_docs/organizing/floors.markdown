@@ -32,3 +32,4 @@ Follow these steps to create a new floor.
 
 - [Alias for voice assistants](/voice_control/aliases/)
 - [Areas](/docs/organizing/areas/)
+- [Using floors in templates](/docs/configuration/templating/#floors)
