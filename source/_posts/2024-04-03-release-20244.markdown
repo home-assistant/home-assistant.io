@@ -116,8 +116,7 @@ A new filter panel fixes these issues by providing a new dual pane user
 interface that can let you check multiple filters across multiple filter
 types on the left that stay put and view the filtered results on the right.
 
-__TODO: Insert screenshot showing the filters active on the device automation
-page.__
+<img class="no-shadow" src='/images/blog/2024-04/filter-panel.png' alt='Screenshots showing the filter panel that tables can have, allowing you to easily find what you are looking for.'>
 
 We also introduced multiple new filter types for each table. For example,
 {% term automations %} can now be filtered not only by {% term areas %},
