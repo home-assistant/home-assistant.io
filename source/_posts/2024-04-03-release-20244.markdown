@@ -371,13 +371,13 @@ Home Assistant. When you add a Matter device to Home Assistant, it will now
 ask you if you want to add a new Matter device or if you want to add a device
 that is already added to another controller (like Google Home or Apple Home).
 
-![CleanShot 2024-03-26 at 10 35 18](https://github.com/home-assistant/frontend/assets/5878303/16ff6c5f-e779-46b1-aafc-cfc9089a25b8)
+<img class="no-shadow" src='/images/blog/2024-04/add-matter-device.png' alt='Screenshot showing the dialog to add a Matter device, asking if this is a new or existing matter device connected to another controller.'>
 
 Suppose you choose to add a device that has already been added to another
 controller. In that case, Home Assistant will guide you through how to
 achieve this step by step.
 
-![CleanShot 2024-03-26 at 10 35 35](https://github.com/home-assistant/frontend/assets/5878303/cef33fde-7129-4431-aa5a-7ea0aa929976)
+<img class="no-shadow" src='/images/blog/2024-04/add-matter-device-from-another-controller.png' alt='Screenshot showing the dialog to add a existing Matter device that is connected to another Matter controller.'>
 
 ## Lock behavior improvements
 
