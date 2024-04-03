@@ -84,9 +84,9 @@ By far, the most requested feature in Home Assistant history would be:
 
 [_"Grouping Automations on frontend for organization"_](https://community.home-assistant.io/t/grouping-automations-on-frontend-for-organization/102771).
 
-We hear you! And today, in this release, we are going to give you tools to
-organize your Home Assistant setup, and we took it a few (well many) steps
-further than just grouping automations!
+We hear you! Today, in this release, we are going to give you tools to organize
+your Home Assistant setup, and we took it a few (well, many) steps further than
+just grouping {% term automations %}!
 
 We are introducing 3 (yes, you’ve read it correctly. It’s three) organization
 taxonomies, and we also revamped our entire table user interface plus a few
@@ -95,63 +95,63 @@ goodies along the way.
 ## Upgraded tables!
 
 Adding more ways to organize your Home Assistant is great! But being able to
-easily view, filter and navigate information is just as important. To achieve
+easily view, filter, and navigate information is just as important. To achieve
 this, we have re-designed ALL the tables in Home Assistant.
 
 For an admin interface, tables are essential for visualizing and managing
-large datasets, and Home Assistant has many tables in its settings pages.
-Previously, our UI provided the ability to search, sort, as well as filter
-for a few aspects, but it was relatively barebones.
+large datasets. Home Assistant has many tables in its settings pages.
+Previously, our UI provided the ability to search, sort, and filter for a few
+aspects, but it was relatively barebones.
 
 Today, we are rolling out a revamped table UI that will be standardized across
 all tables in the settings pages with new and improved features.
 
 ### A new toolbar
 
-As we are adding more features to the tables, we need to still keep the UI clean 
-and its features easy to find. Therefore, we added descriptive text to the
-dropdown menus, and we standardized the look and feel of the toolbar buttons
-and textboxes. Shiny!
+As we add more features to the tables, we need to keep the UI clean and its
+features easy to find. Therefore, we added descriptive text to the dropdown
+menus and standardized the look and feel of the toolbar buttons and text boxes.
+Shiny!
 
 __TODO: Insert screenshot hightlighting the new top bar of our data tables__
 
 ### Filter panel
 
-Previously, our automations page allowed you to filter by areas, entities,
-or devices, but only one at a time, and the filters were tucked away in
-a dropdown menu, which meant you needed to click on a dropdown menu inside
-a dropdown menu to filter by area.
+Previously, our automations page allowed you to filter by {% term areas %},
+{% term entities %}, or {% term devices %}, but only one at a time, and the
+filters were tucked away in a dropdown menu, which meant you needed to select
+a dropdown menu inside a dropdown menu to filter by area.
 
 A new filter panel fixes these issues by providing a new dual pane user
 interface that can let you check multiple filters across multiple filter
-types on the left that stays put, and view the filtered results on the right.
+types on the left that stay put and view the filtered results on the right.
 
 __TODO: Insert screenshot showing the filters active on the device automation
 page.__
 
 We also introduced multiple new filter types for each table. For example,
-automations can now be filtered not only by areas, entities, or devices, they
-can now also be filtered by used blueprints, labels, and categories
-(more on these later!).
+{% term automations %} can now be filtered not only by {% term areas %},
+{% term entities %} , or {% term devices %}, but also by used
+{% term blueprints %}, labels, and categories (more on these later!).
 
-We didn’t stop at just that page! The devices and entities pages now
-also has a way to filter by not only state, but also by integrations
-and by areas. Almost all tables now have useful new filters to help you
-find what you are looking for.
+We didn’t stop at just that page! The devices and entities pages now also have
+a way to filter not only by state but also by integrations and areas. Almost all
+tables now have useful new filters to help you find what you are looking for.
 
 ### Item grouping
 
-Browsing a list of hundreds of automations or thousands of entities can be
-overwhelming. While filters can help narrow down the list, visually grouping
-the items into smaller chunks make them much easier to browse.
+Browsing a list of hundreds of {% term automations %}  or thousands of 
+{% term entities %} can be overwhelming. While filters can help narrow the list,
+visually grouping the items into smaller chunks makes browsing easier.
 
 With the item grouping feature, we introduced a new dropdown menu to pick
-how you’d like the items on the table to be grouped by. On the automations page,
-you can group automations by its state - whether it is enabled or not - and
-custom categories (more on that later!). On the Devices page, you can even group
-them by manufacturers, areas, or integrations, which is really cool because
-it makes the page much easier to browse and it gives you a new perspective
-on how to organize your vast network of devices.
+how you’d like the items on the table to be grouped. On the automations page,
+you can group automations by their {% term state %} - whether enabled
+or not - and custom categories (more on that later!). On the {% term devices %}
+page, you can even group them by manufacturers, {% term areas %},
+or {% term integrations %}, which is really cool because it makes the page much
+easier to browse. It gives you a new perspective on organizing your vast
+network of devices.
 
 __TODO: Insert screenshot showing grouping.__
 
@@ -163,9 +163,9 @@ can apply actions to all your selections with one click on the toolbar.
 
 __TODO: Screenshot pointing out the new "enter selection mode" button.__
 
-It allows you to, for example, enable or disable multiple selected entities on
-the entities page at once. This new paradigm us to introduce more batch
-management actions in future.
+It allows you to, for example, enable or disable multiple selected
+{% term entities %} on the entities page at once. This new paradigm will allow
+us to introduce more batch management actions in the future.
 
 __TODO: Screenshot showing multiple selected items with bulk actions.__
 
@@ -175,22 +175,22 @@ Upon reading through and ideating on the feature request thread on
 [“Automation Grouping”](https://community.home-assistant.io/t/grouping-automations-on-frontend-for-organization/102771),
 we realize that organization can be done in multiple ways for different purposes.
 
-We learned that users who are proficient in making automations have hundreds
-of them, which makes locating a particular automation hard. They often had to
-resort to using "hacks" such as emojis, bracketed “tags”, or numbering each
-automation to get the sort order they wanted. They needed a way to easily
+We learned that users who are proficient in making {% term automations %} have
+hundreds of them, which makes locating a particular automation hard. They often
+had to resort to using "hacks" such as emojis, bracketed “tags”, or numbering
+each automation to get the sort order they wanted. They needed a way to easily
 filter down and break down the giant list into more manageable chunks.
 
 We also noticed that users are stretching our areas feature beyond its
-intended purpose. For example, some users would create “areas” such as
-“3D printer”, “Christmas decorations” or even “Left side of my office desk”,
-in order to group different devices and entities together under one
-umbrella for dashboards or automations.
+intended purpose. For example, some users would create “{% term areas %}” such
+as “3D printer”, “Christmas decorations”, or even “Left side of my office desk”,
+to group different {% term devices %} and {% term entities %} together under
+one umbrella for dashboards or {% term automations %}.
 
 As we are developing our new dashboards and voice commands, this poses a
 big problem: We would be unable to provide specialized solutions if a dashboard
-blueprint or automation blueprint cannot confidently assume the context of how
-it would be used. We need something more specialized.
+{% term blueprint %} or automation blueprint cannot confidently assume the context of
+how it would be used. We need something more specialized.
 
 Therefore, to balance the basic goal of providing a more digestible UI for
 all users, the need for flexibility for our power users, and the future vision
@@ -203,26 +203,28 @@ and **[Categories](#categories-make-each-settings-page-easier-to-browse)**
 
 ### Floors: Help Home Assistant understand your house
 
-Let's talk about the new organization structures, starting with **floors**.
+Let's talk about the new organizational structures, starting with **floors**.
 
-For Home Assistant to become a truly intelligent home automation platform,
-it needs to understand context: Where exactly is a device? How does one area
-relate to another? What is the space used for?
+To become a truly intelligent home automation platform, Home Assistant needs
+to understand the context: Where exactly is a {% term device%}? How does one
+{%term area %} relate to another? What is the space used for?
 
-Currently, Home Assistant has {% term areas %}. Areas are used to specify th
-physical location or vicinity of your devices per living space in your home
-(like the living room or kitchen). However, for some users living in standalone
-houses, there might be multiple floors with their own areas.
+Currently, Home Assistant has {% term areas %}. Areas specify the physical
+location or vicinity of your devices per living space in your home
+(like the living room or kitchen). However, some users living in standalone
+houses might have multiple floors with their own areas.
 
-Floors are a new way to organize your areas per level of floors in your home.
-The better Home Assistant knows your home, and how it is spatially structured,
-the better it can help you.
+{% term Floors %} are a new way to organize your areas per level of floors in
+your home. The better Home Assistant knows your home and how it is spatially
+structured, the better it can help you. Especially when it comes to future
+features like generating dashboards, voice commands, and maybe even
+AI-related features.
 
 __TODO: Screenshot show areas page with floors.__
 
 You can use floors in your {% term automations %} and {% term scripts %} as a
 target for your actions or control them with your voice. For example, you can
-turn off all the lights on the downstairs floor when you go to bed, or ask
+turn off all the lights on the downstairs floor when you go to bed or ask
 [Assist](/voice_control/) to turn on the lights upstairs.
 
 For our power users, you can even use [floors in your templates](/docs/configuration/templating/#floors)
@@ -230,33 +232,35 @@ to create the most advanced and creative automations.
 
 ### Labels: Tag everything any way you want
 
-Floors and areas are great to represent your actual home, but as everyone
-has their own ways of organizing their home, everyone has their own ways
-of organizing the Home Assistant, too! This is where **labels** 🏷️ come in!
+{% term Floors %} and {% term areas %} are great for representing your actual
+home, but as everyone has their own ways of organizing their home, everyone
+has their own ways of organizing the Home Assistant, too!
+This is where **labels** 🏷️ come in!
 
-Labels is an organization structure that is completely up to you. You can
-make as many labels with any naming structure, in any color 🌈 you want and
+Labels is an organizational structure that is completely up to you. You can
+make as many labels with any naming structure, in any color 🌈 you want, and
 assign them to basically anything in Home Assistant. You assign labels to
-anything: areas, devices, entities, automations, scripts, helpers, you name it!
+anything: {% term areas %}, {% term devices %}, {% term entities %},
+{% term automations %}, {% term scripts %}, helpers, you name it!
 You can even assign multiple labels to the same thing.
 
 ![CleanShot 2024-03-27 at 08 46 10@2x](https://github.com/home-assistant/frontend/assets/5662298/582b75af-7352-4241-8bad-3a39873c99c6)
 
 Just like with floors, you can use labels in your automations and scripts as
-a target for your actions. This gives you a lot of flexibility, not just in
-organizing your Home Assistant, but also in automating your home! 🤯
+a target for your {% term actions %}. This gives you a lot of flexibility,
+not just in organizing your Home Assistant, but also in automating your home! 🤯
 
 For example, you could create a label "🎄 Christmas" to label all your
-Christmas decorations during the holiday season. You can then use this label
+Christmas decorations during the holiday season. You can then use this label to
 automate all of those decorations at once or to filter them in the new tables.
 
 More examples? You could create a label "🔒 Security" to label and control all
-your security-related devices and automations. Or, "🛌 Bedrooms" to label
-all your bedroom areas and control all the devices in those areas at once.
+your security-related devices and automations. Or, "🛌 Bedrooms" to label all
+your bedroom areas and simultaneously control all the devices in those areas.
 
-Do you have solar panels or home batteries? Create a label "⚡️ Heavy Energy Usage"
-to label devices that consume a lot of energy, you could maybe switch them
-off when there is not enough battery or solar energy available.
+Do you have solar panels or home batteries? Create a label "⚡️ Heavy energy usage"
+to label devices that consume a lot of energy. You could switch them off when
+there is not enough battery or solar energy available.
 
 You decide how to use labels, and the possibilities are endless! And for our
 power users, you guessed it, you can use [labels in your templates](/docs/configuration/templating/#labels).
@@ -265,46 +269,47 @@ power users, you guessed it, you can use [labels in your templates](/docs/config
 
 Last but not least, we are introducing **categories**. Categories are designed
 to be paired with the aforementioned [item grouping feature](#item-grouping),
-and it can be used to group things visually that are specific for a certain
-table in Home Assistant.
+and it can be used to group things visually specific to a certain table
+in Home Assistant.
 
-This is great for those who have a particular way to display their entities by
-separating them into multiple sections on a specific page. For example, on the
-automations page, you can create categories that are only used for visually
-grouping automations but nowhere else, like "Notifications" or “NFC tags”. You
-can then view your automations grouped or filtered by those categories.
+This is great for those who have a particular way of displaying their
+{% term entities %} by separating them into multiple sections on a specific page.
+For example, on the {% term automations %} page, you can create categories only
+used for visually grouping automations but nowhere else, like "Notifications"
+or “NFC tags”. You can then view your automations grouped or filtered by
+those categories.
 
 __TODO: Show screenshot with automations grouped by categories__
 
 As these categories are unique for each dashboard, you can have different
 sets of categories depending on the place you are organizing. This means
-you can have different categories on the automations page than on the
-scene, scripts, or helpers settings page.
+you can have different categories on the automations page than the
+{% term scene %}, {% term scripts %}, or helpers settings page.
 
 ### Time to clean up your Home Assistant!
 
 In summary, there are a total of 4 taxonomies for organizing your entities.
 It sounds like a lot, but they all serve a distinct purpose. We are extending
-and clarifying areas with floors, and we are introducing labels and categories
-to make your automations and many other tables to look more organized
-and to be more manageable.
+and clarifying {% term areas %} with {% term floors %}, and we are introducing
+{% term labels %} and categories to make your {% term automations %} and many
+other tables to look more organized and to be more manageable.
 
-What’s next? Time to dig in! Here are a few steps we recommend you to take
-action on in order to organize your Home Assistant better:
+What’s next? Time to dig in! Here are a few steps we recommend you take
+action on to organize your Home Assistant better:
 
 - **Migrate to labels**:  
   - If you have been grouping automations with emojis and bracketed text,
-    you can now create labels for each of them. Labels can have icons to replace
-    the emojis you had before.
+    you can now create labels for each. Labels can have icons to replace the
+    emojis you had before.
   - For areas that aren’t really physical spaces, switching them to labels will
     provide you more flexibility in organizing your entities.
-- **Start using categories**:
+- **Start using categories**:  
   If you have a favorite way of organizing a particular page, create those
   categories and group the table by them. For example, you could create a
   notification category for all your notification automations and put all
   notification automations in that category.
 - **Group your areas into floors**:  
-  If you live in a multi-storey home, grouping areas into floors helps with
+  If you live in a multi-story home, grouping areas into floors help with
   organizing the areas as well as making them more compatible with future
   features.
 
@@ -314,28 +319,33 @@ to share them in the comments below and discuss them in our community.
 
 ## Map dashboard
 
-Introducing a new dashboard type this release: The **map**! 🗺️
+Introducing a new dashboard this release: The **map**! 🗺️
 
-Now, you might think, "Hey, we already have a map in Home Assistant!" and you
-are right. However, the map was an integration that was always there, and wasn't
-providing the flexibility and features we wanted.
+You might think, "Hey, we already have a map dashboard in Home Assistant!"
+and you are right! However, the map was an integration that was always there
+and didn't provide the flexibility and features that were wanted.
 
-With the introduction of the map dashboard, it mean you could add multiple map
-dashboards with different entities and settings, but you can also just remove
-the map if you don't want it.
+With the map dashboard's introduction, you could add multiple map dashboards
+with different entities and configuration settings. For example, create a
+dashboard to show the location of your family members, another to track your
+car, and another to show the location of your pets. 🐶
 
 __TODO: Insert screenshot__
 
-On upgrade Home Assistant will automatically migrate your existing map
+On upgrade, Home Assistant will automatically migrate your existing map
 integration to a map dashboard.
+
+You don't like having the map in your sidebar? Well, that is no longer a
+problem. Since it is now a dashboard it means you can remove in the dashboard
+settings.
 
 ## Webpage dashboard
 
-Another new dashboard type this release: The **webpage**! 🌐
+Another new dashboard for this release is the **webpage**! 🌐
 
 The webpage dashboard allows you to add and embed a webpage to your dashboard.
-This could be a webpage from the internet, but also a local webpage or a
-webpage from a local server.
+This could be a web page from the internet or a local web page from a local
+machine or device like your router or NAS.
 
 __TODO: Insert webpage dashboard screenshot__
 
@@ -343,39 +353,55 @@ This dashboard replaces the old iFrame panel (`iframe_panel`). If you have
 existing panels configured in your YAML configuration, Home Assistant will
 automatically migrate them to the new webpage dashboard on upgrade.
 
+Note that not every webpage can be embedded due to security restrictions that
+some sites or pages have in place, enforced by your browser, that prevent
+embedding them into a Home Assistant dashboard.
+
 ## Define the columns in the section view
 
-Last release, we [introduced the section view](/blog/2024/03/06/release-20243/#a-new-experimental-sections-view)
+In the last release, we [introduced the section view](/blog/2024/03/06/release-20243/#a-new-experimental-sections-view)
 with drag and drop support. We are absolutely thrilled to see how many of you
 loved it! 🥰
 
 Many thanks for all the feedback and suggestions! We are prioritizing them and
 are working on making the section view even better in the upcoming releases.
 
-This release, based on your feedback, we have added the ability for you to
-define the number of columns in the section view is using.
+In this release, based on your feedback, we have added the ability for you to
+define the maximum number of columns in the section view uses. This allows you
+to limit the number of columns, regardless of the screen width on which you
+are viewing your dashboard.
 
 ![CleanShot 2024-03-20 at 12 47 17](https://github.com/home-assistant/frontend/assets/5878303/eb35c689-ce64-4a28-bfb0-8f4410677397)
 
 ## Adding matter devices from other controllers
 
-We have improved the way you can add Matter devices from other controllers to
+In the [February release](/blog/2024/02/07/release-20242/#matter-diagnostics-and-actions),
+we added support for sharing Matter devices tied to Home Assistant with other
+Matter controllers. This release, we are making the other way around easier.
+
+We have improved how you can add Matter devices from other controllers to
 Home Assistant. When you add a Matter device to Home Assistant, it will now
-ask you if you want to add a new Matter device, or if you want to add an
-device that is already added to another controller (like Google or Apple Home).
+ask you if you want to add a new Matter device or if you want to add a device
+that is already added to another controller (like Google Home or Apple Home).
 
 ![CleanShot 2024-03-26 at 10 35 18](https://github.com/home-assistant/frontend/assets/5878303/16ff6c5f-e779-46b1-aafc-cfc9089a25b8)
 
-If you choose to add a device that is already added to another controller,
-Home Assistant will guide you through the process of doing that!
+Suppose you choose to add a device that has already been added to another
+controller. In that case, Home Assistant will guide you through how to
+achieve this step by step.
 
 ![CleanShot 2024-03-26 at 10 35 35](https://github.com/home-assistant/frontend/assets/5878303/cef33fde-7129-4431-aa5a-7ea0aa929976)
 
 ## Lock behavior improvements
 
-Unlatching a lock? We want to make sure you don't accidentally open the door
-when you miss-clicked the button while not at home. We have improved the
-behavior of locks in our user interface to require you to confirm the action.
+Some smart locks have an open (or unlatching) mechanism that can be triggered
+remotely. The door either pops out of the lock or can be opened by pushing
+against the door.
+
+We want to ensure you don't accidentally open the door when you miss-clicked
+the button (for example, while not at home 😬). Therefore, we have improved
+the behavior of locks in our user interface by requiring you to confirm the
+action.
 
 <video controls>
   <source src="https://github.com/home-assistant/frontend/assets/5878303/6df9c5be-fbfc-4ee3-a84e-7fcfb662b1fc" type="video/mp4">
@@ -386,14 +412,20 @@ behavior of locks in our user interface to require you to confirm the action.
 
 Remember how we wrote last release that [Home Assistant now boots twice as fast](/blog/2024/03/06/release-20243/#home-assistant-boots-twice-as-fast)?
 Well, [@bdraco] wasn't done yet and teamed up with [@balloob]. If you thought
-previous release was fast, you are in for a treat! 🚀 The difference is,
-yet again, very noticable.
+the previous release was fast, you are in for a treat! 🚀 The difference is,
+yet again, very noticeable.
 
-Besides streamlining what is loaded when at startup (and doing less loading),
-we have also adjusted the startup time tracking. It used to be that 1 buggy
-integration could push other integrations to be slow too, that should no
-longer be the case, making this a more accurate representation of the actual
-startup time.
+Besides streamlining what is loaded at startup (and doing less loading), we
+have adjusted the startup time tracking. It used to be that one integration
+could push other integrations to be slow too; that should no longer be the case,
+making this a more accurate representation of the actual startup time.
+
+Want to learn about the individual startup times of your integrations? You can
+find them in the {% my repairs title="**Settings** -> **System** -> **Repairs**" %}
+page by selecting the tree-dotted menu in the top right and selecting the
+**Integration startup time** item.
+
+{% my repairs badge %}
 
 [@bdraco]: https://github.com/bdraco
 [@balloob]: https://github.com/balloob
@@ -403,29 +435,29 @@ startup time.
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- [@karwosts] has made some improvements to your Home Assistant user profile
-  page, making it easier to navigate and find the settings you are looking for.
+- [@karwosts] has improved your Home Assistant {% my profile title="user profile" %}
+  page, making navigating and finding the settings you are looking for easier.
   Nice work!
 - If you use a [sentence trigger] in your automation to trigger it using
   [Assist]. The trigger will now include the `device_id` in its trigger data
-  allowing you to automate with. Thanks, [@synesthesiam]!
-- The [HomeWizard Energy] integration now support the newest generation of
+  you can automate with. Thanks, [@synesthesiam]!
+- The [HomeWizard Energy] integration now supports the newest generation of
   HomeWizard Energy Sockets! Thanks, [@DCSBL]!
-- We are now able to ship new releases of Home Assistant in waaay less time.
+- We can now ship new releases of Home Assistant in waaay less time.
   Building and shipping Home Assistant for you, when down from 1.5-2 hours to
   just 20 minutes! 🚀 Thanks [@edenhaus]!
 - [Reolink] now supports PTZ patrol start/stop, package detection and controls
-  to play quick reply messages. Thanks, [@starkillerOG]!
+  for playing quick reply messages. Thanks, [@starkillerOG]!
 - We have brand new template functions available to list [all the issues] in
   your repairs dashboard. Thanks, [@RoboMagus]!
 - If you prefer your wind speed sensors to be in Beaufort, you are in luck!
   You can now change the unit of measurement to Beaufort. Thanks, [@fwestenberg]!
-- The [Husqvarna Automower] integration development continues and now has
-  additional new entities; including sensors, select entities and a device
-  tracker Thanks, [@Thomas55555]!
-- [@catsmanac] has added added sensor to monitor the battery storage attached
+- The [Husqvarna Automower] integration development continues and has additional
+  new entities, including sensors, select entities, and a device tracker.
+  Thanks, [@Thomas55555]!
+- [@catsmanac] has added a sensor to monitor the battery storage attached
   to your [Enphase Envoy]; it works with the energy dashboard! Nice!
-- The [Xiaomi BLE] integration now supports locks and fingeprints readers!
+- The [Xiaomi BLE] integration now supports locks and fingerprint readers!
   Awesome, [@Ernst79]!
 
 [@catsmanac]: https://github.com/catsmanac
@@ -454,7 +486,7 @@ We welcome the following new integrations in this release:
 - **[Fyta]**, added by [@dontinelli]<br />
   Monitor your plants with Fyta, a smart plant sensor that measures light,
   temperature, humidity, and soil moisture.
-- **[Motionblinds BLE]**, added by [@LennP]<br />
+- **[Motionblinds Bluetooth]**, added by [@LennP]<br />
   Control your Bluetooth Low Energy Motionblinds motorized window coverings.
 - **[Ollama]**, added by [@synesthesiam]<br />
   Ollama a fully local AI conversation platform that can be used to create
@@ -464,7 +496,7 @@ We welcome the following new integrations in this release:
 [@LennP]: https://github.com/LennP
 [@synesthesiam]: https://github.com/synesthesiam
 [Fyta]: /integrations/fyta
-[Motionblinds BLE]: /integrations/motionblinds_ble
+[Motionblinds Bluetooth]: /integrations/motionblinds_ble
 [Ollama]: /integrations/ollama
 
 This release also has new virtual integration. Virtual integrations are stubs
@@ -736,7 +768,7 @@ changes and new features available for your integration: Be sure to follow our
 The following integrations are also no longer available as of this release:
 
 - **OpenCV** has been removed. The integration has been in a broken state
-  for over an year, and could not be build.
+  for over an year and currently has no path forward.
   ([@thecode] - [#113455])
 
 [@thecode]: https://github.com/thecode
