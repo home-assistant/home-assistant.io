@@ -358,7 +358,7 @@ define the maximum number of columns in the section view uses. This allows you
 to limit the number of columns, regardless of the screen width on which you
 are viewing your dashboard.
 
-![CleanShot 2024-03-20 at 12 47 17](https://github.com/home-assistant/frontend/assets/5878303/eb35c689-ce64-4a28-bfb0-8f4410677397)
+<img class="no-shadow" src='/images/blog/2024-04/sections-dashboard-limit-columns.png' alt='Screenshot showing the new option available to limit the number of columns the section view uses.'>
 
 ## Adding matter devices from other controllers
 
