@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2024.4: Organize all the things!"
-description: "Time for spring cleaning 🧹 Introducing new ways to organize your automation (and more) with floors, labels, and categories. Easily add Matter devices from other controllers, and two brand new map and webpage dashboards."
+description: "Time for spring cleaning 🧹 Introducing new ways to organize your automations (and more) with floors, labels, and categories. Easily add Matter devices from other controllers, and two brand new map and webpage dashboards."
 date: 2024-04-03 00:00:00
 date_formatted: "April 3, 2024"
 author: Franck Nijhof
@@ -49,7 +49,7 @@ Enjoy the release! 🌞
 - [Map dashboard](#map-dashboard)
 - [Webpage dashboard](#webpage-dashboard)
 - [Define the columns in the section view](#define-the-columns-in-the-section-view)
-- [Adding matter devices from other controllers](#adding-matter-devices-from-other-controllers)
+- [Adding Matter devices from other controllers](#adding-matter-devices-from-other-controllers)
 - [Lock behavior improvements](#lock-behavior-improvements)
 - [Even more performance!](#even-more-performance)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -75,9 +75,9 @@ We hear you! Today, in this release, we are going to give you tools to organize
 your Home Assistant setup, and we took it a few (well, many) steps further than
 just grouping {% term automations %}!
 
-We are introducing 3 (yes, you’ve read it correctly. It’s three) organization
-taxonomies, and we also revamped our entire table user interface plus a few
-goodies along the way.
+We are introducing 3 (yes, you’ve read it correctly. It’s _three_) organization
+taxonomies, and we revamped our entire table user interface plus a few goodies
+along the way.
 
 ## Upgraded tables!
 
@@ -91,7 +91,7 @@ Previously, our UI provided the ability to search, sort, and filter for a few
 aspects, but it was relatively barebones.
 
 Today, we are rolling out a revamped table UI that will be standardized across
-all tables in the settings pages with new and improved features.
+**all** tables in the settings pages with new and improved features.
 
 ### A new toolbar
 
@@ -121,7 +121,7 @@ types on the left that stay put and view the filtered results on the right.
 We also introduced multiple new filter types for each table. For example,
 {% term automations %} can now be filtered not only by {% term areas %},
 {% term entities %} , or {% term devices %}, but also by used
-{% term blueprints %}, labels, and categories (more on these later!).
+{% term blueprints "blueprints," %} labels, and categories (more on these later!).
 
 We didn’t stop at just that page! The devices and entities pages now also have
 a way to filter not only by state but also by integrations and areas. Almost all
@@ -142,7 +142,7 @@ or {% term integrations %}, which is really cool because it makes the page much
 easier to browse. It gives you a new perspective on organizing your vast
 network of devices.
 
-<img class="no-shadow" src='/images/blog/2024-04/group-items-by-manufacturer.png' alt='Screenshots showing the devices pages, grouped by manufacturer.'>
+<img class="no-shadow" src='/images/blog/2024-04/group-items-by-manufacturer.png' alt='Screenshots showing the devices page, grouped by manufacturer.'>
 
 ### Selection mode and batch actions
 
@@ -228,7 +228,7 @@ to create the most advanced and creative automations.
 
 {% term Floors %} and {% term areas %} are great for representing your actual
 home, but as everyone has their own ways of organizing their home, everyone
-has their own ways of organizing the Home Assistant, too!
+has their own ways of organizing their Home Assistant, too!
 This is where **labels** 🏷️ come in!
 
 Labels is an organizational structure that is completely up to you. You can
@@ -288,7 +288,7 @@ In summary, there are a total of 4 taxonomies for organizing your entities.
 It sounds like a lot, but they all serve a distinct purpose. We are extending
 and clarifying {% term areas %} with {% term floors %}, and we are introducing
 {% term labels %} and {% term categories %} to make your {% term automations %}
-and many other tables to look more organized and to be more manageable.
+and many other tables look more organized and be more manageable.
 
 What’s next? Time to dig in! Here are a few steps we recommend you take
 action on to organize your Home Assistant better:
@@ -321,7 +321,7 @@ You might think, "Hey, we already have a map dashboard in Home Assistant!"
 and you are right! However, the map was an integration that was always there
 and didn't provide the flexibility and features that were wanted.
 
-With the map dashboard's introduction, you could add multiple map dashboards
+With the map dashboard's introduction, you can now add multiple map dashboards
 with different entities and configuration settings. For example, create a
 dashboard to show the location of your family members, another to track your
 car, and another to show the location of your pets. 🐶
@@ -332,7 +332,7 @@ On upgrade, Home Assistant will automatically migrate your existing map
 integration to a map dashboard.
 
 You don't like having the map in your sidebar? Well, that is no longer a
-problem. Since it is now a dashboard it means you can remove in the dashboard
+problem. Since it is now a dashboard it means you can remove it in the dashboard
 settings.
 
 ## Webpage dashboard
@@ -343,7 +343,7 @@ The webpage dashboard allows you to add and embed a webpage to your dashboard.
 This could be a web page from the internet or a local web page from a local
 machine or device like your router or NAS.
 
-<img class="no-shadow" src='/images/blog/2024-04/dashboard-webpage.png' alt='Screenshots adding a new webpage dashboard to Home Assistant, embeding the Home Assistant website.'>
+<img class="no-shadow" src='/images/blog/2024-04/dashboard-webpage.png' alt='Screenshots showing addition of a new webpage dashboard to Home Assistant, embedding the Home Assistant website.'>
 
 This dashboard replaces the old iFrame panel (`iframe_panel`). If you have
 existing panels configured in your YAML configuration, Home Assistant will
@@ -365,13 +365,13 @@ Many thanks for all the feedback and suggestions! We are prioritizing them and
 are working on making the section view even better in the upcoming releases.
 
 In this release, based on your feedback, we have added the ability for you to
-define the maximum number of columns in the section view uses. This allows you
+define the maximum number of columns that the section view uses. This allows you
 to limit the number of columns, regardless of the screen width on which you
 are viewing your dashboard.
 
 <img class="no-shadow" src='/images/blog/2024-04/sections-dashboard-limit-columns.png' alt='Screenshot showing the new option available to limit the number of columns the section view uses.'>
 
-## Adding matter devices from other controllers
+## Adding Matter devices from other controllers
 
 In the [February release](/blog/2024/02/07/release-20242/#matter-diagnostics-and-actions),
 we added support for sharing Matter devices tied to Home Assistant with other
@@ -417,7 +417,7 @@ making this a more accurate representation of the actual startup time.
 
 Want to learn about the individual startup times of your integrations? You can
 find them in the {% my repairs title="**Settings** -> **System** -> **Repairs**" %}
-page by selecting the tree-dotted menu in the top right and selecting the
+page by selecting the three-dotted menu in the top right and selecting the
 **Integration startup time** item.
 
 {% my repairs badge %}
@@ -439,7 +439,7 @@ noteworthy changes this release:
 - The [HomeWizard Energy] integration now supports the newest generation of
   HomeWizard Energy Sockets! Thanks, [@DCSBL]!
 - We can now ship new releases of Home Assistant in waaay less time.
-  Building and shipping Home Assistant for you, when down from 1.5-2 hours to
+  Building and shipping Home Assistant for you, went down from 1.5-2 hours to
   just 20 minutes! 🚀 Thanks [@edenhaus]!  
   [Learn more about it in our developer blog](https://developers.home-assistant.io/blog/2024/04/03/build-images-with-uv/).
 - [Reolink] now supports PTZ patrol start/stop, package detection and controls
@@ -687,11 +687,11 @@ please add a dummy entity.
 {% details "MQTT" %}
 
 Support for `brightness` is now assumed for `mqtt` lights with the `json` schema
-unless only coelo modes `rgb`, `rgbw`, or `rgbww` are supported.
+unless only color modes `rgb`, `rgbw`, or `rgbww` are supported.
 
-For light which only support  color modes `rgb`, `rgbw`, or `rgbww`, 
+For lights which only support  color modes `rgb`, `rgbw`, or `rgbww`, 
 the `brightness` option flag can still be set to `false` if brightness is not
-supported, in this case brightness support is emulated in Home Assistant by
+supported. In this case brightness support is emulated in Home Assistant by
 scaling the RGBx-values.
 
 For all other color modes except `ColorMode.ONOFF`, it is assumed brightness is
@@ -708,7 +708,7 @@ when the `brightness` attribute is supplied to the `light.turn_on` service.
 {% details "myUplink" %}
 
 If you have a Nibe SMO 20 in your account, you will notice that some 550
-entities are not provided by the integration.
+entities are no longer provided by the integration.
 
 You can safely remove these entities as the integration does not use them.
 
@@ -765,7 +765,7 @@ changes and new features available for your integration: Be sure to follow our
 The following integrations are also no longer available as of this release:
 
 - **OpenCV** has been removed. The integration has been in a broken state
-  for over an year and currently has no path forward.
+  for over a year and currently has no path forward.
   ([@thecode] - [#113455])
 
 [@thecode]: https://github.com/thecode
