@@ -1296,3 +1296,31 @@ The default priority of operators is that the filter (`|`) has priority over eve
 {% endraw %}
 
 Would round `10` to 2 decimal places, then divide `states('sensor.temperature')` by `10` (rounded to 2 decimal places so 10.00). This behavior is maybe not the one expected, but priority rules imply that.
+
+### Rate limits for template updates
+
+Templates will update _once a minute_ if you use the following functions in a template:
+
+```
+now()
+utcnow()
+today_at()
+relative_time()
+```
+
+It will update _when a state changes_ if you use:
+
+```
+closest()
+distance()
+expand()
+has_value()
+is_state()
+is_state_attr()
+states.xxx.xxx
+states()
+state_translated()
+states_attr()
+```
+
+See also [rate limiting updates](https://www.home-assistant.io/integrations/template/#rate-limiting-updates) for the template integration.
