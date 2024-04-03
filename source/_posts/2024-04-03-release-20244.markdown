@@ -278,8 +278,8 @@ you can have different categories on the automations page than the
 In summary, there are a total of 4 taxonomies for organizing your entities.
 It sounds like a lot, but they all serve a distinct purpose. We are extending
 and clarifying {% term areas %} with {% term floors %}, and we are introducing
-{% term labels %} and categories to make your {% term automations %} and many
-other tables to look more organized and to be more manageable.
+{% term labels %} and {% term categories %} to make your {% term automations %}
+and many other tables to look more organized and to be more manageable.
 
 What’s next? Time to dig in! Here are a few steps we recommend you take
 action on to organize your Home Assistant better:
