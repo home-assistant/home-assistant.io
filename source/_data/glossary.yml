@@ -78,7 +78,7 @@
     - blueprints
 - term: Category
   definition: >-
-    A category is an organization tool that allows grouping items in a table. Like labels, categories allow grouping irrespective of the items physical location. For example, on the automations page, you can create the categories “Notifications” or “NFC tags” to view your automations grouped or filtered. Categories are unique for each table. The automations page can have different categories that the scene, scripts, or helpers settings page.
+    A category is an organization tool that allows grouping items in a table. Like labels, categories allow grouping irrespective of the items' physical location. For example, on the automations page, you can create the categories “Notifications” or “NFC tags” to view your automations grouped or filtered. Categories are unique for each table. The automations page can have different categories than the scene, scripts, or helpers settings page.
   aliases:
     - categories
 - term: Commissioning
