@@ -43,7 +43,7 @@ command_line:
         command:
           description: The action to take to get the value.
           required: true
-          type: string
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout.
           required: false
@@ -168,7 +168,7 @@ command_line:
         command:
           description: The action to take to get the value.
           required: true
-          type: string
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout
           required: false
