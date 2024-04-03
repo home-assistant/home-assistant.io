@@ -129,7 +129,7 @@ tables now have useful new filters to help you find what you are looking for.
 
 ### Item grouping
 
-Browsing a list of hundreds of {% term automations %}  or thousands of 
+Browsing a list of hundreds of {% term automations %} or thousands of 
 {% term entities %} can be overwhelming. While filters can help narrow the list,
 visually grouping the items into smaller chunks makes browsing easier.
 
@@ -165,7 +165,7 @@ us to introduce more batch management actions in the future.
 
 Upon reading through and ideating on the feature request thread on
 [“Automation Grouping”](https://community.home-assistant.io/t/grouping-automations-on-frontend-for-organization/102771),
-we realize that organization can be done in multiple ways for different purposes.
+we realized that organization can be done in multiple ways for different purposes.
 
 We learned that users who are proficient in making {% term automations %} have
 hundreds of them, which makes locating a particular automation hard. They often
@@ -349,7 +349,7 @@ This dashboard replaces the old iFrame panel (`iframe_panel`). If you have
 existing panels configured in your YAML configuration, Home Assistant will
 automatically migrate them to the new webpage dashboard on upgrade.
 
-<img class="no-shadow" src='/images/blog/2024-04/embeded-home-assistant-website.png' alt='Screenshot showing the Home Assistant website embeded into the Home Assistant frontend using a webpage dashboard.'>
+<img class="no-shadow" src='/images/blog/2024-04/embedded-home-assistant-website.png' alt='Screenshot showing the Home Assistant website embedded into the Home Assistant frontend using a webpage dashboard.'>
 
 Note that not every webpage can be embedded due to security restrictions that
 some sites or pages have in place, enforced by your browser, that prevent
