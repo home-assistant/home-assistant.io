@@ -76,6 +76,11 @@
     A blueprint is a script or automation configuration with certain parts marked as configurable. This allows users to create multiple scripts or automations based on the same blueprint, with each having its own configuration-specific settings.
   aliases:
     - blueprints
+- term: Category
+  definition: >-
+    A category is an organization tool that allows grouping items in a table. Like labels, categories allow grouping irrespective of the items' physical location. For example, on the automations page, you can create the categories “Notifications” or “NFC tags” to view your automations grouped or filtered. Categories are unique for each table. The automations page can have different categories than the scene, scripts, or helpers settings page.
+  aliases:
+    - categories
 - term: Commissioning
   definition: >-
     In the context of Matter devices, *commissioning* is the process of adding a device to a Matter controller. It is the equivalent of pairing a device in Zigbee or Z-Wave. Commissioning is done by scanning a QR code or entering a code manually. The code is printed on the device or its packaging. The code contains information about the device, such as its type, manufacturer, and serial number. The controller uses this information to identify the device and to download the required information to control the device. For example, the controller downloads the device's capabilities, such as the supported commands and the available attributes. The controller also downloads the device's configuration, such as the device's name and location.
