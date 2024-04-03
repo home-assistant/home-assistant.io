@@ -142,7 +142,7 @@ or {% term integrations %}, which is really cool because it makes the page much
 easier to browse. It gives you a new perspective on organizing your vast
 network of devices.
 
-<img class="no-shadow" src='/images/blog/2024-04/item-grouping.png' alt='Screenshots showing data automations in a tables groups by their on/off state.'>
+<img class="no-shadow" src='/images/blog/2024-04/group-items-by-manufacturer.png' alt='Screenshots showing the devices pages, grouped by manufacturer.'>
 
 ### Selection mode and batch actions
 
