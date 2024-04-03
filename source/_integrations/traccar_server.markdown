@@ -11,6 +11,7 @@ ha_codeowners:
   - '@ludeeus'
 ha_domain: traccar_server
 ha_platforms:
+  - binary_sensor
   - device_tracker
   - diagnostics
 ha_integration_type: integration
@@ -80,9 +81,48 @@ These device representations in Home Assistant will have [entities](#entities) a
 
 The traccar server integration will create entities in with the following domains:
 
+- [Binary Sensor](/integrations/binary_sensor)
 - [Device Tracker](/integrations/device_tracker)
 
 For more details about each of these, see the sections below.
+
+### Binary Sensor - Motion
+
+The Traccar Server integration will create a [binary_sensor](/integrations/binary_sensor) entity for each device registered in Traccar Server to show the motion reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Motion. If your device is named "Millennium Falcon", this will be "Millennium Falcon Motion".
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `position_attributes_motion`.
+State:
+  description: This will be `Moving` if the Traccar Server reports that the device is moving, if not this will be `Stopped`.
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
+
+### Binary Sensor - Status
+
+The Traccar Server integration will create a [binary_sensor](/integrations/binary_sensor) entity for each device registered in Traccar Server to show the status reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Status. If your device is named "Millennium Falcon", this will be "Millennium Falcon Status".
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `device_status`.
+State:
+  description: This will be `Online` if the Traccar Server reports that the device is online, this will be `Offline` if it reports it being offline, or `Unknown` if it is not sure.
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
 
 ### Device Tracker
 
@@ -114,12 +154,8 @@ Category:
   description: The category of the device in Traccar if defined.
 Geofence:
   description: The name of the geofence the device is located in.
-Motion:
-  description: If the device is moving or not.
 Speed:
   description: The speed of the device.
-Status:
-  description: The status of the device in Traccar.
 Traccar ID:
   description: The ID of the device in Traccar.
 Tracker:
