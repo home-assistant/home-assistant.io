@@ -238,7 +238,7 @@ anything: {% term areas %}, {% term devices %}, {% term entities %},
 {% term automations %}, {% term scripts %}, helpers, you name it!
 You can even assign multiple labels to the same thing.
 
-<img class="no-shadow" src='/images/blog/2024-04/labels.png' alt='Screenshots showing the new map dashboard you can add when you add a new dashboard to your Home Assistant.'>
+<img class="no-shadow" src='/images/blog/2024-04/labels.png' alt='Screenshots showing the new labels assigned to automations.'>
 
 Just like with floors, you can use labels in your automations and scripts as
 a target for your {% term actions %}. This gives you a lot of flexibility,
@@ -275,7 +275,7 @@ used for visually grouping automations but nowhere else, like "Notifications"
 or “NFC tags”. You can then view your automations grouped or filtered by
 those categories.
 
-__TODO: Show screenshot with automations grouped by categories__
+<img class="no-shadow" src='/images/blog/2024-04/categories.png' alt='Screenshots the new categories. Automations are grouped into their categories, making it easier to get an overview or to filter them.'>
 
 As these categories are unique for each dashboard, you can have different
 sets of categories depending on the place you are organizing. This means
