@@ -390,10 +390,7 @@ the button (for example, while not at home 😬). Therefore, we have improved
 the behavior of locks in our user interface by requiring you to confirm the
 action.
 
-<video controls>
-  <source src="https://github.com/home-assistant/frontend/assets/5878303/6df9c5be-fbfc-4ee3-a84e-7fcfb662b1fc" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img class="no-shadow" src='/images/blog/2024-04/lock-unlatch-confirmation.gif' alt='Screen recording showing the confirmation in the UI when unlatching/opening a door.'>
 
 ## Even more performance!
 
