@@ -24,6 +24,7 @@ Follow these steps to create a new area from the **Areas** view.
 
     ![Create area dialog](/images/organizing/create_area_01.png)
 3. Select **Add**.
+
    **Result**: A new area is created.
 
 ## Assigning areas to floors and add labels
