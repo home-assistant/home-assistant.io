@@ -1301,7 +1301,7 @@ Would round `10` to 2 decimal places, then divide `states('sensor.temperature')`
 
 Templates will update _once a minute_ if you use the following functions in a template:
 
-```
+```text
 now()
 utcnow()
 today_at()
@@ -1310,7 +1310,7 @@ relative_time()
 
 It will update _when a state changes_ if you use:
 
-```
+```text
 closest()
 distance()
 expand()
