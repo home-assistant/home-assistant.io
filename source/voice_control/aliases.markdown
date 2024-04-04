@@ -34,3 +34,4 @@ There are multliple ways to add an alias of an entity:
 
 - [Areas](/docs/organizing/areas/)
 - [Floors](/docs/organizing/floors/)
+- [Assist - custom sentences](/voice_control/custom_sentences/)
