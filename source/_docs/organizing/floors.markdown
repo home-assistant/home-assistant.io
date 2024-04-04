@@ -18,7 +18,7 @@ Follow these steps to create a new floor.
      - This number can later be used for sorting.
    - Add an icon (We use [Material icons](https://pictogrammers.com/library/mdi/)).
    - Add an **Alias**.
-     - Aliases are alternative names used in [voice assistants](/voice_control/aliases/) to refer to this floor.
+     - Aliases are alternative names used in [voice assistants](/voice_control/aliases/) to refer to an entity, area, or floor.
 
     ![Create floor dialog](/images/organizing/create_floor_01.png)
 3. Select **Add**.
