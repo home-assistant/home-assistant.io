@@ -21,7 +21,7 @@ Output will be converted according to the user's unit system or {% term entity %
 
 To enable a Template Weather provider in your installation, add the following to your `configuration.yaml` file:
 
-(Note, be sure to update my_region in the condition and forecast templates to an appropriate value for your setup).
+(Note, be sure to update my_region in the condition of the template weather configuration and in the template sensor configuration to an appropriate value for your setup).
 
 {% raw %}
 
