@@ -47,7 +47,7 @@ Once you have more devices, you may want to target entire groups of devices in a
 
 ## Related topics
 
-- [Areas](/docs/organzing/areas/)
-- [Floors](/docs/organzing/floors/)
-- [Labels](/docs/organzing/labels/)
-- [Categories](/docs/organzing/categories/)
+- [Areas](/docs/organizing/areas/)
+- [Floors](/docs/organizing/floors/)
+- [Labels](/docs/organizing/labels/)
+- [Categories](/docs/organizing/categories/)
