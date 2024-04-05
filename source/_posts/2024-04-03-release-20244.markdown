@@ -55,6 +55,7 @@ Enjoy the release! 🌞
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2024.4.1 - April 5](#release-202441---april-5)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -521,6 +522,74 @@ The following integrations are now available via the Home Assistant UI:
 [Downloader]: /integrations/downloader
 [Lutron Homeworks]: /integrations/homeworks
 [ROVA]: /integrations/rova
+
+## Release 2024.4.1 - April 5
+
+- Update aioairzone-cloud to v0.4.7 ([@Noltari] - [#114761])
+- Bump myuplink dependency to 0.6.0 ([@astrandb] - [#114767])
+- Update romy to 0.0.9 ([@cdce8p] - [#114360])
+- Update romy to 0.0.10 ([@xeniter] - [#114785])
+- Fix unhandled `KeyError` during Notion setup ([@bachya] - [#114787])
+- Fix Lutron light brightness values ([@cdheiser] - [#114794])
+- Fix type cast in snmp ([@lextm] - [#114795])
+- Handle ambiguous script actions by using action map order ([@bdraco] - [#114825])
+- Bump opower to 0.4.3 ([@tronikos] - [#114826])
+- Refactor ConfigStore to avoid needing to pass config_dir ([@bdraco] - [#114827])
+- Avoid blocking IO in downloader initialization ([@joostlek] - [#114841])
+- Fix Downloader YAML import ([@joostlek] - [#114844])
+- Update frontend to 20240404.0 ([@bramkragten] - [#114859])
+- Fix Axis camera platform support HTTPS ([@Kane610] - [#114886])
+- Bump weatherflow4py to 0.2.20 ([@jeeftor] - [#114888])
+- Fix Axis reconfigure step not providing protocols as alternatives but as string ([@Kane610] - [#114889])
+- Update frontend to 20240404.1 ([@bramkragten] - [#114890])
+- Ensure all tables have the default table args in the db_schema ([@bdraco] - [#114895])
+- Reduce august polling frequency ([@bdraco] - [#114904])
+- Show correct model string in myuplink ([@astrandb] - [#114921])
+- Create right import issues in Downloader ([@joostlek] - [#114922])
+- Fix cast dashboard in media browser ([@joostlek] - [#114924])
+- Pin systembridgemodels to 4.0.4 ([@timmo001] - [#114842])
+- Fix ROVA validation ([@joostlek] - [#114938])
+
+[#114360]: https://github.com/home-assistant/core/pull/114360
+[#114761]: https://github.com/home-assistant/core/pull/114761
+[#114764]: https://github.com/home-assistant/core/pull/114764
+[#114767]: https://github.com/home-assistant/core/pull/114767
+[#114785]: https://github.com/home-assistant/core/pull/114785
+[#114787]: https://github.com/home-assistant/core/pull/114787
+[#114794]: https://github.com/home-assistant/core/pull/114794
+[#114795]: https://github.com/home-assistant/core/pull/114795
+[#114825]: https://github.com/home-assistant/core/pull/114825
+[#114826]: https://github.com/home-assistant/core/pull/114826
+[#114827]: https://github.com/home-assistant/core/pull/114827
+[#114841]: https://github.com/home-assistant/core/pull/114841
+[#114842]: https://github.com/home-assistant/core/pull/114842
+[#114844]: https://github.com/home-assistant/core/pull/114844
+[#114859]: https://github.com/home-assistant/core/pull/114859
+[#114886]: https://github.com/home-assistant/core/pull/114886
+[#114888]: https://github.com/home-assistant/core/pull/114888
+[#114889]: https://github.com/home-assistant/core/pull/114889
+[#114890]: https://github.com/home-assistant/core/pull/114890
+[#114895]: https://github.com/home-assistant/core/pull/114895
+[#114904]: https://github.com/home-assistant/core/pull/114904
+[#114921]: https://github.com/home-assistant/core/pull/114921
+[#114922]: https://github.com/home-assistant/core/pull/114922
+[#114924]: https://github.com/home-assistant/core/pull/114924
+[#114938]: https://github.com/home-assistant/core/pull/114938
+[@Kane610]: https://github.com/Kane610
+[@Noltari]: https://github.com/Noltari
+[@astrandb]: https://github.com/astrandb
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@cdheiser]: https://github.com/cdheiser
+[@frenck]: https://github.com/frenck
+[@jeeftor]: https://github.com/jeeftor
+[@joostlek]: https://github.com/joostlek
+[@lextm]: https://github.com/lextm
+[@timmo001]: https://github.com/timmo001
+[@tronikos]: https://github.com/tronikos
+[@xeniter]: https://github.com/xeniter
 
 ## Need help? Join the community!
 

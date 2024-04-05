@@ -1207,10 +1207,10 @@ For a summary in a more readable format:
 - Return default repairs flow for cloud TTS issues ([@ludeeus] - [#113981])
 - Correct HomeAssistantError __str__ implementation and test ([@jbouwh] - [#113991])
 - Update JVC Projector polling time to be more responsive for automations ([@msavazzi] - [#113765])
-- Add binary sensor platform to microBees ([@FedDam] - [#111190]) ([microBees docs])
+- Add binary sensor platform to microBees ([@FedDam] - [#111190])
 - Add icon translations to Wiz ([@joostlek] - [#112358])
 - Add reformatting commits to .git-blame-ignore-revs ([@akx] - [#110481])
-- Add cover platform to microBees ([@FedDam] - [#111135]) ([microBees docs])
+- Add cover platform to microBees ([@FedDam] - [#111135])
 - Axis use entity descripton binary sensor platform ([@Kane610] - [#113705])
 - Remember entered IP when error happend while setting up HomeWizard ([@DCSBL] - [#113815])
 - Remove hourly weather entity from Aemet ([@gjohansson-ST] - [#110764])
@@ -1489,6 +1489,97 @@ For a summary in a more readable format:
 - Add floor selector ([@frenck] - [#114614])
 - Fix Starlink integration startup issue ([@Fexiven] - [#114615])
 - Update frontend to 20240402.0 ([@bramkragten] - [#114627])
+- Reduce ZHA OTA logbook entries and extraneous updates ([@puddly] - [#114591])
+- Fix Overkiz Hitachi OVP air-to-air heat pump ([@dotvav] - [#114611])
+- Bump ring_doorbell integration to 0.8.9 ([@sdb9696] - [#114631])
+- Update frontend to 20240402.1 ([@bramkragten] - [#114646])
+- Fix Sonos play imported playlists ([@PeteRager] - [#113934])
+- Bump aiounifi to v74 ([@Kane610] - [#114649])
+- Add missing state to the Tractive tracker state sensor ([@bieniu] - [#114654])
+- Bump holidays to 0.46 ([@gjohansson-ST] - [#114657])
+- Avoid trying to load platform that are known to not exist in async_prepare_setup_platform ([@bdraco] - [#114659])
+- Update frontend to 20240402.2 ([@bramkragten] - [#114683])
+- Rename Motionblinds BLE integration to Motionblinds Bluetooth ([@LennP] - [#114584])
+- Bump flexit_bacnet to 2.2.1 ([@lellky] - [#114641])
+- Import zha quirks in the executor ([@dmulcahey] - [#114685])
+- Fix Downloader config flow ([@joostlek] - [#114718])
+- Avoid blocking IO in downloader config flow ([@joostlek] - [#114741])
+- Update frontend to 20240403.0 ([@bramkragten] - [#114747])
+- Allow passing area/device/entity IDs to floor_id and floor_name ([@edenhaus] - [#114748])
+- Bump intents ([@synesthesiam] - [#114755])
+- Update frontend to 20240403.1 ([@bramkragten] - [#114756])
+- Fix Synology DSM setup in case no Surveillance Station permission ([@mib1185] - [#114757])
+- Fix for Sonos URL encoding problem #102557 ([@IngoK1] - [#109518])
+- Use `setup_test_component_platform` helper for sensor entity component tests instead of `hass.components` ([@jpbede] - [#114316])
+
+
+## Release 2024.4.1 - April 5
+
+- Update aioairzone-cloud to v0.4.7 ([@Noltari] - [#114761])
+- Bump myuplink dependency to 0.6.0 ([@astrandb] - [#114767])
+- Update romy to 0.0.9 ([@cdce8p] - [#114360])
+- Update romy to 0.0.10 ([@xeniter] - [#114785])
+- Fix unhandled `KeyError` during Notion setup ([@bachya] - [#114787])
+- Fix Lutron light brightness values ([@cdheiser] - [#114794])
+- Fix type cast in snmp ([@lextm] - [#114795])
+- Handle ambiguous script actions by using action map order ([@bdraco] - [#114825])
+- Bump opower to 0.4.3 ([@tronikos] - [#114826])
+- Refactor ConfigStore to avoid needing to pass config_dir ([@bdraco] - [#114827])
+- Avoid blocking IO in downloader initialization ([@joostlek] - [#114841])
+- Fix Downloader YAML import ([@joostlek] - [#114844])
+- Update frontend to 20240404.0 ([@bramkragten] - [#114859])
+- Fix Axis camera platform support HTTPS ([@Kane610] - [#114886])
+- Bump weatherflow4py to 0.2.20 ([@jeeftor] - [#114888])
+- Fix Axis reconfigure step not providing protocols as alternatives but as string ([@Kane610] - [#114889])
+- Update frontend to 20240404.1 ([@bramkragten] - [#114890])
+- Ensure all tables have the default table args in the db_schema ([@bdraco] - [#114895])
+- Reduce august polling frequency ([@bdraco] - [#114904])
+- Show correct model string in myuplink ([@astrandb] - [#114921])
+- Create right import issues in Downloader ([@joostlek] - [#114922])
+- Fix cast dashboard in media browser ([@joostlek] - [#114924])
+- Pin systembridgemodels to 4.0.4 ([@timmo001] - [#114842])
+- Fix ROVA validation ([@joostlek] - [#114938])
+
+[#114360]: https://github.com/home-assistant/core/pull/114360
+[#114761]: https://github.com/home-assistant/core/pull/114761
+[#114764]: https://github.com/home-assistant/core/pull/114764
+[#114767]: https://github.com/home-assistant/core/pull/114767
+[#114785]: https://github.com/home-assistant/core/pull/114785
+[#114787]: https://github.com/home-assistant/core/pull/114787
+[#114794]: https://github.com/home-assistant/core/pull/114794
+[#114795]: https://github.com/home-assistant/core/pull/114795
+[#114825]: https://github.com/home-assistant/core/pull/114825
+[#114826]: https://github.com/home-assistant/core/pull/114826
+[#114827]: https://github.com/home-assistant/core/pull/114827
+[#114841]: https://github.com/home-assistant/core/pull/114841
+[#114842]: https://github.com/home-assistant/core/pull/114842
+[#114844]: https://github.com/home-assistant/core/pull/114844
+[#114859]: https://github.com/home-assistant/core/pull/114859
+[#114886]: https://github.com/home-assistant/core/pull/114886
+[#114888]: https://github.com/home-assistant/core/pull/114888
+[#114889]: https://github.com/home-assistant/core/pull/114889
+[#114890]: https://github.com/home-assistant/core/pull/114890
+[#114895]: https://github.com/home-assistant/core/pull/114895
+[#114904]: https://github.com/home-assistant/core/pull/114904
+[#114921]: https://github.com/home-assistant/core/pull/114921
+[#114922]: https://github.com/home-assistant/core/pull/114922
+[#114924]: https://github.com/home-assistant/core/pull/114924
+[#114938]: https://github.com/home-assistant/core/pull/114938
+[@Kane610]: https://github.com/Kane610
+[@Noltari]: https://github.com/Noltari
+[@astrandb]: https://github.com/astrandb
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@cdheiser]: https://github.com/cdheiser
+[@frenck]: https://github.com/frenck
+[@jeeftor]: https://github.com/jeeftor
+[@joostlek]: https://github.com/joostlek
+[@lextm]: https://github.com/lextm
+[@timmo001]: https://github.com/timmo001
+[@tronikos]: https://github.com/tronikos
+[@xeniter]: https://github.com/xeniter
 
 [#100055]: https://github.com/home-assistant/core/pull/100055
 [#102333]: https://github.com/home-assistant/core/pull/102333
@@ -1529,6 +1620,7 @@ For a summary in a more readable format:
 [#109088]: https://github.com/home-assistant/core/pull/109088
 [#109185]: https://github.com/home-assistant/core/pull/109185
 [#109497]: https://github.com/home-assistant/core/pull/109497
+[#109518]: https://github.com/home-assistant/core/pull/109518
 [#109662]: https://github.com/home-assistant/core/pull/109662
 [#109819]: https://github.com/home-assistant/core/pull/109819
 [#109821]: https://github.com/home-assistant/core/pull/109821
@@ -2718,6 +2810,7 @@ For a summary in a more readable format:
 [#113928]: https://github.com/home-assistant/core/pull/113928
 [#113929]: https://github.com/home-assistant/core/pull/113929
 [#113932]: https://github.com/home-assistant/core/pull/113932
+[#113934]: https://github.com/home-assistant/core/pull/113934
 [#113948]: https://github.com/home-assistant/core/pull/113948
 [#113951]: https://github.com/home-assistant/core/pull/113951
 [#113959]: https://github.com/home-assistant/core/pull/113959
@@ -2897,6 +2990,7 @@ For a summary in a more readable format:
 [#114311]: https://github.com/home-assistant/core/pull/114311
 [#114312]: https://github.com/home-assistant/core/pull/114312
 [#114315]: https://github.com/home-assistant/core/pull/114315
+[#114316]: https://github.com/home-assistant/core/pull/114316
 [#114317]: https://github.com/home-assistant/core/pull/114317
 [#114320]: https://github.com/home-assistant/core/pull/114320
 [#114321]: https://github.com/home-assistant/core/pull/114321
@@ -2952,6 +3046,8 @@ For a summary in a more readable format:
 [#114574]: https://github.com/home-assistant/core/pull/114574
 [#114578]: https://github.com/home-assistant/core/pull/114578
 [#114581]: https://github.com/home-assistant/core/pull/114581
+[#114584]: https://github.com/home-assistant/core/pull/114584
+[#114591]: https://github.com/home-assistant/core/pull/114591
 [#114593]: https://github.com/home-assistant/core/pull/114593
 [#114596]: https://github.com/home-assistant/core/pull/114596
 [#114600]: https://github.com/home-assistant/core/pull/114600
@@ -2960,9 +3056,26 @@ For a summary in a more readable format:
 [#114606]: https://github.com/home-assistant/core/pull/114606
 [#114607]: https://github.com/home-assistant/core/pull/114607
 [#114608]: https://github.com/home-assistant/core/pull/114608
+[#114611]: https://github.com/home-assistant/core/pull/114611
 [#114614]: https://github.com/home-assistant/core/pull/114614
 [#114615]: https://github.com/home-assistant/core/pull/114615
 [#114627]: https://github.com/home-assistant/core/pull/114627
+[#114631]: https://github.com/home-assistant/core/pull/114631
+[#114641]: https://github.com/home-assistant/core/pull/114641
+[#114646]: https://github.com/home-assistant/core/pull/114646
+[#114649]: https://github.com/home-assistant/core/pull/114649
+[#114654]: https://github.com/home-assistant/core/pull/114654
+[#114657]: https://github.com/home-assistant/core/pull/114657
+[#114659]: https://github.com/home-assistant/core/pull/114659
+[#114683]: https://github.com/home-assistant/core/pull/114683
+[#114685]: https://github.com/home-assistant/core/pull/114685
+[#114718]: https://github.com/home-assistant/core/pull/114718
+[#114741]: https://github.com/home-assistant/core/pull/114741
+[#114747]: https://github.com/home-assistant/core/pull/114747
+[#114748]: https://github.com/home-assistant/core/pull/114748
+[#114755]: https://github.com/home-assistant/core/pull/114755
+[#114756]: https://github.com/home-assistant/core/pull/114756
+[#114757]: https://github.com/home-assistant/core/pull/114757
 [#87821]: https://github.com/home-assistant/core/pull/87821
 [#94392]: https://github.com/home-assistant/core/pull/94392
 [#95206]: https://github.com/home-assistant/core/pull/95206
@@ -2982,6 +3095,7 @@ For a summary in a more readable format:
 [@Fexiven]: https://github.com/Fexiven
 [@Floris272]: https://github.com/Floris272
 [@GidoHakvoort]: https://github.com/GidoHakvoort
+[@IngoK1]: https://github.com/IngoK1
 [@IsakNyberg]: https://github.com/IsakNyberg
 [@JeromeHXP]: https://github.com/JeromeHXP
 [@Kane610]: https://github.com/Kane610
@@ -3069,6 +3183,7 @@ For a summary in a more readable format:
 [@jpbede]: https://github.com/jpbede
 [@jwillemsen]: https://github.com/jwillemsen
 [@kingy444]: https://github.com/kingy444
+[@lellky]: https://github.com/lellky
 [@lextm]: https://github.com/lextm
 [@luar123]: https://github.com/luar123
 [@ludeeus]: https://github.com/ludeeus
@@ -3113,588 +3228,3 @@ For a summary in a more readable format:
 [@yozik04]: https://github.com/yozik04
 [@yuxincs]: https://github.com/yuxincs
 [@zweckj]: https://github.com/zweckj
-[abode docs]: /integrations/abode/
-[accuweather docs]: /integrations/accuweather/
-[acer_projector docs]: /integrations/acer_projector/
-[acmeda docs]: /integrations/acmeda/
-[actiontec docs]: /integrations/actiontec/
-[adax docs]: /integrations/adax/
-[ads docs]: /integrations/ads/
-[advantage_air docs]: /integrations/advantage_air/
-[aemet docs]: /integrations/aemet/
-[aftership docs]: /integrations/aftership/
-[agent_dvr docs]: /integrations/agent_dvr/
-[airnow docs]: /integrations/airnow/
-[airq docs]: /integrations/airq/
-[airthings docs]: /integrations/airthings/
-[airthings_ble docs]: /integrations/airthings_ble/
-[airzone docs]: /integrations/airzone/
-[airzone_cloud docs]: /integrations/airzone_cloud/
-[aladdin_connect docs]: /integrations/aladdin_connect/
-[alarm_control_panel docs]: /integrations/alarm_control_panel/
-[alert docs]: /integrations/alert/
-[ambient_station docs]: /integrations/ambient_station/
-[amcrest docs]: /integrations/amcrest/
-[android_ip_webcam docs]: /integrations/android_ip_webcam/
-[apache_kafka docs]: /integrations/apache_kafka/
-[apcupsd docs]: /integrations/apcupsd/
-[api docs]: /integrations/api/
-[apple_tv docs]: /integrations/apple_tv/
-[application_credentials docs]: /integrations/application_credentials/
-[apprise docs]: /integrations/apprise/
-[aseko_pool_live docs]: /integrations/aseko_pool_live/
-[assist_pipeline docs]: /integrations/assist_pipeline/
-[august docs]: /integrations/august/
-[aurora_abb_powerone docs]: /integrations/aurora_abb_powerone/
-[auth docs]: /integrations/auth/
-[automation docs]: /integrations/automation/
-[awair docs]: /integrations/awair/
-[axis docs]: /integrations/axis/
-[azure_devops docs]: /integrations/azure_devops/
-[backup docs]: /integrations/backup/
-[baf docs]: /integrations/baf/
-[balboa docs]: /integrations/balboa/
-[bang_olufsen docs]: /integrations/bang_olufsen/
-[bayesian docs]: /integrations/bayesian/
-[binary_sensor docs]: /integrations/binary_sensor/
-[blackbird docs]: /integrations/blackbird/
-[blue_current docs]: /integrations/blue_current/
-[bluesound docs]: /integrations/bluesound/
-[bluetooth docs]: /integrations/bluetooth/
-[bluetooth_tracker docs]: /integrations/bluetooth_tracker/
-[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
-[bond docs]: /integrations/bond/
-[bosch_shc docs]: /integrations/bosch_shc/
-[braviatv docs]: /integrations/braviatv/
-[bring docs]: /integrations/bring/
-[brother docs]: /integrations/brother/
-[browser docs]: /integrations/browser/
-[bthome docs]: /integrations/bthome/
-[button docs]: /integrations/button/
-[caldav docs]: /integrations/caldav/
-[camera docs]: /integrations/camera/
-[cast docs]: /integrations/cast/
-[cert_expiry docs]: /integrations/cert_expiry/
-[channels docs]: /integrations/channels/
-[climate docs]: /integrations/climate/
-[cloud docs]: /integrations/cloud/
-[co2signal docs]: /integrations/co2signal/
-[comelit docs]: /integrations/comelit/
-[comfoconnect docs]: /integrations/comfoconnect/
-[command_line docs]: /integrations/command_line/
-[config docs]: /integrations/config/
-[configurator docs]: /integrations/configurator/
-[control4 docs]: /integrations/control4/
-[conversation docs]: /integrations/conversation/
-[counter docs]: /integrations/counter/
-[cover docs]: /integrations/cover/
-[daikin docs]: /integrations/daikin/
-[debugpy docs]: /integrations/debugpy/
-[deconz docs]: /integrations/deconz/
-[demo docs]: /integrations/demo/
-[devialet docs]: /integrations/devialet/
-[device_automation docs]: /integrations/device_automation/
-[device_sun_light_trigger docs]: /integrations/device_sun_light_trigger/
-[device_tracker docs]: /integrations/device_tracker/
-[devolo_home_network docs]: /integrations/devolo_home_network/
-[dexcom docs]: /integrations/dexcom/
-[dhcp docs]: /integrations/dhcp/
-[discovergy docs]: /integrations/discovergy/
-[dlna_dmr docs]: /integrations/dlna_dmr/
-[dlna_dms docs]: /integrations/dlna_dms/
-[dnsip docs]: /integrations/dnsip/
-[dominos docs]: /integrations/dominos/
-[doorbird docs]: /integrations/doorbird/
-[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
-[dovado docs]: /integrations/dovado/
-[downloader docs]: /integrations/downloader/
-[dremel_3d_printer docs]: /integrations/dremel_3d_printer/
-[drop_connect docs]: /integrations/drop_connect/
-[dsmr_reader docs]: /integrations/dsmr_reader/
-[duckdns docs]: /integrations/duckdns/
-[duotecno docs]: /integrations/duotecno/
-[easyenergy docs]: /integrations/easyenergy/
-[ebusd docs]: /integrations/ebusd/
-[ecobee docs]: /integrations/ecobee/
-[ecoforest docs]: /integrations/ecoforest/
-[econet docs]: /integrations/econet/
-[ecovacs docs]: /integrations/ecovacs/
-[efergy docs]: /integrations/efergy/
-[electric_kiwi docs]: /integrations/electric_kiwi/
-[elgato docs]: /integrations/elgato/
-[elkm1 docs]: /integrations/elkm1/
-[elmax docs]: /integrations/elmax/
-[emulated_hue docs]: /integrations/emulated_hue/
-[emulated_kasa docs]: /integrations/emulated_kasa/
-[energy docs]: /integrations/energy/
-[energyzero docs]: /integrations/energyzero/
-[enocean docs]: /integrations/enocean/
-[enphase_envoy docs]: /integrations/enphase_envoy/
-[environment_canada docs]: /integrations/environment_canada/
-[envisalink docs]: /integrations/envisalink/
-[esphome docs]: /integrations/esphome/
-[event docs]: /integrations/event/
-[evohome docs]: /integrations/evohome/
-[ezviz docs]: /integrations/ezviz/
-[fan docs]: /integrations/fan/
-[fastdotcom docs]: /integrations/fastdotcom/
-[feedreader docs]: /integrations/feedreader/
-[ffmpeg docs]: /integrations/ffmpeg/
-[file_upload docs]: /integrations/file_upload/
-[filesize docs]: /integrations/filesize/
-[filter docs]: /integrations/filter/
-[fjaraskupan docs]: /integrations/fjaraskupan/
-[flipr docs]: /integrations/flipr/
-[flume docs]: /integrations/flume/
-[flux docs]: /integrations/flux/
-[flux_led docs]: /integrations/flux_led/
-[foursquare docs]: /integrations/foursquare/
-[freebox docs]: /integrations/freebox/
-[freedompro docs]: /integrations/freedompro/
-[fritz docs]: /integrations/fritz/
-[fritzbox docs]: /integrations/fritzbox/
-[frontend docs]: /integrations/frontend/
-[fully_kiosk docs]: /integrations/fully_kiosk/
-[fyta docs]: /integrations/fyta/
-[garadget docs]: /integrations/garadget/
-[garages_amsterdam docs]: /integrations/garages_amsterdam/
-[gardena_bluetooth docs]: /integrations/gardena_bluetooth/
-[gc100 docs]: /integrations/gc100/
-[gdacs docs]: /integrations/gdacs/
-[generic docs]: /integrations/generic/
-[generic_hygrostat docs]: /integrations/generic_hygrostat/
-[generic_thermostat docs]: /integrations/generic_thermostat/
-[geniushub docs]: /integrations/geniushub/
-[geocaching docs]: /integrations/geocaching/
-[github docs]: /integrations/github/
-[glances docs]: /integrations/glances/
-[goodwe docs]: /integrations/goodwe/
-[google docs]: /integrations/google/
-[google_assistant docs]: /integrations/google_assistant/
-[google_assistant_sdk docs]: /integrations/google_assistant_sdk/
-[google_wifi docs]: /integrations/google_wifi/
-[govee_light_local docs]: /integrations/govee_light_local/
-[group docs]: /integrations/group/
-[habitica docs]: /integrations/habitica/
-[harmony docs]: /integrations/harmony/
-[hassio docs]: /integrations/hassio/
-[hdmi_cec docs]: /integrations/hdmi_cec/
-[here_travel_time docs]: /integrations/here_travel_time/
-[history docs]: /integrations/history/
-[history_stats docs]: /integrations/history_stats/
-[holiday docs]: /integrations/holiday/
-[homeassistant docs]: /integrations/homeassistant/
-[homeassistant_alerts docs]: /integrations/homeassistant_alerts/
-[homekit docs]: /integrations/homekit/
-[homekit_controller docs]: /integrations/homekit_controller/
-[homematic docs]: /integrations/homematic/
-[homematicip_cloud docs]: /integrations/homematicip_cloud/
-[homewizard docs]: /integrations/homewizard/
-[homeworks docs]: /integrations/homeworks/
-[honeywell docs]: /integrations/honeywell/
-[html5 docs]: /integrations/html5/
-[http docs]: /integrations/http/
-[huawei_lte docs]: /integrations/huawei_lte/
-[hue docs]: /integrations/hue/
-[humidifier docs]: /integrations/humidifier/
-[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
-[husqvarna_automower docs]: /integrations/husqvarna_automower/
-[hydrawise docs]: /integrations/hydrawise/
-[hyperion docs]: /integrations/hyperion/
-[ibeacon docs]: /integrations/ibeacon/
-[icloud docs]: /integrations/icloud/
-[idasen_desk docs]: /integrations/idasen_desk/
-[ifttt docs]: /integrations/ifttt/
-[ihc docs]: /integrations/ihc/
-[image docs]: /integrations/image/
-[image_processing docs]: /integrations/image_processing/
-[influxdb docs]: /integrations/influxdb/
-[input_button docs]: /integrations/input_button/
-[input_datetime docs]: /integrations/input_datetime/
-[input_number docs]: /integrations/input_number/
-[input_select docs]: /integrations/input_select/
-[input_text docs]: /integrations/input_text/
-[insteon docs]: /integrations/insteon/
-[integration docs]: /integrations/integration/
-[intellifire docs]: /integrations/intellifire/
-[intent_script docs]: /integrations/intent_script/
-[iperf3 docs]: /integrations/iperf3/
-[ipma docs]: /integrations/ipma/
-[ipp docs]: /integrations/ipp/
-[islamic_prayer_times docs]: /integrations/islamic_prayer_times/
-[isy994 docs]: /integrations/isy994/
-[izone docs]: /integrations/izone/
-[jellyfin docs]: /integrations/jellyfin/
-[jewish_calendar docs]: /integrations/jewish_calendar/
-[joaoapps_join docs]: /integrations/joaoapps_join/
-[juicenet docs]: /integrations/juicenet/
-[justnimbus docs]: /integrations/justnimbus/
-[jvc_projector docs]: /integrations/jvc_projector/
-[kaiterra docs]: /integrations/kaiterra/
-[kaleidescape docs]: /integrations/kaleidescape/
-[kankun docs]: /integrations/kankun/
-[keba docs]: /integrations/keba/
-[kef docs]: /integrations/kef/
-[keyboard docs]: /integrations/keyboard/
-[keymitt_ble docs]: /integrations/keymitt_ble/
-[knx docs]: /integrations/knx/
-[kodi docs]: /integrations/kodi/
-[kostal_plenticore docs]: /integrations/kostal_plenticore/
-[kraken docs]: /integrations/kraken/
-[lacrosse_view docs]: /integrations/lacrosse_view/
-[lamarzocco docs]: /integrations/lamarzocco/
-[lametric docs]: /integrations/lametric/
-[landisgyr_heat_meter docs]: /integrations/landisgyr_heat_meter/
-[lastfm docs]: /integrations/lastfm/
-[launch_library docs]: /integrations/launch_library/
-[laundrify docs]: /integrations/laundrify/
-[lawn_mower docs]: /integrations/lawn_mower/
-[lcn docs]: /integrations/lcn/
-[lidarr docs]: /integrations/lidarr/
-[lifx docs]: /integrations/lifx/
-[light docs]: /integrations/light/
-[litterrobot docs]: /integrations/litterrobot/
-[local_file docs]: /integrations/local_file/
-[local_ip docs]: /integrations/local_ip/
-[logbook docs]: /integrations/logbook/
-[logger docs]: /integrations/logger/
-[logi_circle docs]: /integrations/logi_circle/
-[london_air docs]: /integrations/london_air/
-[lovelace docs]: /integrations/lovelace/
-[lupusec docs]: /integrations/lupusec/
-[lutron docs]: /integrations/lutron/
-[lutron_caseta docs]: /integrations/lutron_caseta/
-[lyric docs]: /integrations/lyric/
-[map docs]: /integrations/map/
-[mastodon docs]: /integrations/mastodon/
-[matrix docs]: /integrations/matrix/
-[matter docs]: /integrations/matter/
-[meater docs]: /integrations/meater/
-[medcom_ble docs]: /integrations/medcom_ble/
-[media_extractor docs]: /integrations/media_extractor/
-[media_player docs]: /integrations/media_player/
-[melcloud docs]: /integrations/melcloud/
-[melissa docs]: /integrations/melissa/
-[melnor docs]: /integrations/melnor/
-[met docs]: /integrations/met/
-[met_eireann docs]: /integrations/met_eireann/
-[meteo_france docs]: /integrations/meteo_france/
-[metoffice docs]: /integrations/metoffice/
-[microBees docs]: /integrations/microBees/
-[microsoft_face docs]: /integrations/microsoft_face/
-[microsoft_face_detect docs]: /integrations/microsoft_face_detect/
-[microsoft_face_identify docs]: /integrations/microsoft_face_identify/
-[mill docs]: /integrations/mill/
-[min_max docs]: /integrations/min_max/
-[minecraft_server docs]: /integrations/minecraft_server/
-[minio docs]: /integrations/minio/
-[mobile_app docs]: /integrations/mobile_app/
-[modbus docs]: /integrations/modbus/
-[modem_callerid docs]: /integrations/modem_callerid/
-[modern_forms docs]: /integrations/modern_forms/
-[monoprice docs]: /integrations/monoprice/
-[moon docs]: /integrations/moon/
-[motion_blinds docs]: /integrations/motion_blinds/
-[motionblinds_ble docs]: /integrations/motionblinds_ble/
-[motioneye docs]: /integrations/motioneye/
-[mqtt docs]: /integrations/mqtt/
-[mqtt_statestream docs]: /integrations/mqtt_statestream/
-[mysensors docs]: /integrations/mysensors/
-[mystrom docs]: /integrations/mystrom/
-[myuplink docs]: /integrations/myuplink/
-[nad docs]: /integrations/nad/
-[nam docs]: /integrations/nam/
-[namecheapdns docs]: /integrations/namecheapdns/
-[nanoleaf docs]: /integrations/nanoleaf/
-[neato docs]: /integrations/neato/
-[nederlandse_spoorwegen docs]: /integrations/nederlandse_spoorwegen/
-[ness_alarm docs]: /integrations/ness_alarm/
-[nest docs]: /integrations/nest/
-[netatmo docs]: /integrations/netatmo/
-[netgear docs]: /integrations/netgear/
-[netgear_lte docs]: /integrations/netgear_lte/
-[network docs]: /integrations/network/
-[nexia docs]: /integrations/nexia/
-[nextbus docs]: /integrations/nextbus/
-[nextcloud docs]: /integrations/nextcloud/
-[nissan_leaf docs]: /integrations/nissan_leaf/
-[nmap_tracker docs]: /integrations/nmap_tracker/
-[nobo_hub docs]: /integrations/nobo_hub/
-[norway_air docs]: /integrations/norway_air/
-[notify docs]: /integrations/notify/
-[notion docs]: /integrations/notion/
-[nuki docs]: /integrations/nuki/
-[numato docs]: /integrations/numato/
-[number docs]: /integrations/number/
-[nut docs]: /integrations/nut/
-[nws docs]: /integrations/nws/
-[nx584 docs]: /integrations/nx584/
-[nzbget docs]: /integrations/nzbget/
-[octoprint docs]: /integrations/octoprint/
-[ollama docs]: /integrations/ollama/
-[ollama_conversation docs]: /integrations/ollama_conversation/
-[ombi docs]: /integrations/ombi/
-[omnilogic docs]: /integrations/omnilogic/
-[onboarding docs]: /integrations/onboarding/
-[oncue docs]: /integrations/oncue/
-[ondilo_ico docs]: /integrations/ondilo_ico/
-[onewire docs]: /integrations/onewire/
-[onvif docs]: /integrations/onvif/
-[openai_conversation docs]: /integrations/openai_conversation/
-[openalpr_cloud docs]: /integrations/openalpr_cloud/
-[opencv docs]: /integrations/opencv/
-[opengarage docs]: /integrations/opengarage/
-[openhardwaremonitor docs]: /integrations/openhardwaremonitor/
-[openhome docs]: /integrations/openhome/
-[opensky docs]: /integrations/opensky/
-[opentherm_gw docs]: /integrations/opentherm_gw/
-[openuv docs]: /integrations/openuv/
-[opower docs]: /integrations/opower/
-[otbr docs]: /integrations/otbr/
-[overkiz docs]: /integrations/overkiz/
-[ovo_energy docs]: /integrations/ovo_energy/
-[p1_monitor docs]: /integrations/p1_monitor/
-[panel_iframe docs]: /integrations/panel_iframe/
-[peco docs]: /integrations/peco/
-[pegel_online docs]: /integrations/pegel_online/
-[permobil docs]: /integrations/permobil/
-[persistent_notification docs]: /integrations/persistent_notification/
-[person docs]: /integrations/person/
-[philips_js docs]: /integrations/philips_js/
-[pi_hole docs]: /integrations/pi_hole/
-[picnic docs]: /integrations/picnic/
-[pilight docs]: /integrations/pilight/
-[ping docs]: /integrations/ping/
-[plex docs]: /integrations/plex/
-[plugwise docs]: /integrations/plugwise/
-[plum_lightpad docs]: /integrations/plum_lightpad/
-[point docs]: /integrations/point/
-[poolsense docs]: /integrations/poolsense/
-[private_ble_device docs]: /integrations/private_ble_device/
-[profiler docs]: /integrations/profiler/
-[progettihwsw docs]: /integrations/progettihwsw/
-[prometheus docs]: /integrations/prometheus/
-[prosegur docs]: /integrations/prosegur/
-[prusalink docs]: /integrations/prusalink/
-[ps4 docs]: /integrations/ps4/
-[pure_energie docs]: /integrations/pure_energie/
-[purpleair docs]: /integrations/purpleair/
-[pvpc_hourly_pricing docs]: /integrations/pvpc_hourly_pricing/
-[pytest docs]: /integrations/pytest/
-[python_script docs]: /integrations/python_script/
-[qbittorrent docs]: /integrations/qbittorrent/
-[qnap_qsw docs]: /integrations/qnap_qsw/
-[qvr_pro docs]: /integrations/qvr_pro/
-[qwikswitch docs]: /integrations/qwikswitch/
-[rabbitair docs]: /integrations/rabbitair/
-[rachio docs]: /integrations/rachio/
-[radarr docs]: /integrations/radarr/
-[radio_browser docs]: /integrations/radio_browser/
-[radiotherm docs]: /integrations/radiotherm/
-[rainbird docs]: /integrations/rainbird/
-[rainforest_raven docs]: /integrations/rainforest_raven/
-[rainmachine docs]: /integrations/rainmachine/
-[rdw docs]: /integrations/rdw/
-[recollect_waste docs]: /integrations/recollect_waste/
-[recorder docs]: /integrations/recorder/
-[rejseplanen docs]: /integrations/rejseplanen/
-[remember_the_milk docs]: /integrations/remember_the_milk/
-[renault docs]: /integrations/renault/
-[renson docs]: /integrations/renson/
-[reolink docs]: /integrations/reolink/
-[repairs docs]: /integrations/repairs/
-[rest docs]: /integrations/rest/
-[rest_command docs]: /integrations/rest_command/
-[rflink docs]: /integrations/rflink/
-[rfxtrx docs]: /integrations/rfxtrx/
-[ridwell docs]: /integrations/ridwell/
-[ring docs]: /integrations/ring/
-[risco docs]: /integrations/risco/
-[rituals_perfume_genie docs]: /integrations/rituals_perfume_genie/
-[roborock docs]: /integrations/roborock/
-[roku docs]: /integrations/roku/
-[romy docs]: /integrations/romy/
-[roomba docs]: /integrations/roomba/
-[roon docs]: /integrations/roon/
-[route53 docs]: /integrations/route53/
-[rova docs]: /integrations/rova/
-[sabnzbd docs]: /integrations/sabnzbd/
-[samsungtv docs]: /integrations/samsungtv/
-[scene docs]: /integrations/scene/
-[schedule docs]: /integrations/schedule/
-[schlage docs]: /integrations/schlage/
-[scrape docs]: /integrations/scrape/
-[screenlogic docs]: /integrations/screenlogic/
-[script docs]: /integrations/script/
-[search docs]: /integrations/search/
-[season docs]: /integrations/season/
-[sense docs]: /integrations/sense/
-[sensibo docs]: /integrations/sensibo/
-[sensor docs]: /integrations/sensor/
-[seventeentrack docs]: /integrations/seventeentrack/
-[sfr_box docs]: /integrations/sfr_box/
-[shelly docs]: /integrations/shelly/
-[shopping_list docs]: /integrations/shopping_list/
-[simplisafe docs]: /integrations/simplisafe/
-[siren docs]: /integrations/siren/
-[skybell docs]: /integrations/skybell/
-[slack docs]: /integrations/slack/
-[sleepiq docs]: /integrations/sleepiq/
-[slimproto docs]: /integrations/slimproto/
-[smappee docs]: /integrations/smappee/
-[smartthings docs]: /integrations/smartthings/
-[smarttub docs]: /integrations/smarttub/
-[smhi docs]: /integrations/smhi/
-[sms docs]: /integrations/sms/
-[smtp docs]: /integrations/smtp/
-[smud docs]: /integrations/smud/
-[snapcast docs]: /integrations/snapcast/
-[snips docs]: /integrations/snips/
-[snmp docs]: /integrations/snmp/
-[snooz docs]: /integrations/snooz/
-[solaredge docs]: /integrations/solaredge/
-[solarlog docs]: /integrations/solarlog/
-[solax docs]: /integrations/solax/
-[sonarr docs]: /integrations/sonarr/
-[songpal docs]: /integrations/songpal/
-[sonos docs]: /integrations/sonos/
-[soundtouch docs]: /integrations/soundtouch/
-[spaceapi docs]: /integrations/spaceapi/
-[speedtestdotnet docs]: /integrations/speedtestdotnet/
-[spotify docs]: /integrations/spotify/
-[sql docs]: /integrations/sql/
-[squeezebox docs]: /integrations/squeezebox/
-[srp_energy docs]: /integrations/srp_energy/
-[ssdp docs]: /integrations/ssdp/
-[starline docs]: /integrations/starline/
-[starlink docs]: /integrations/starlink/
-[statistics docs]: /integrations/statistics/
-[steamist docs]: /integrations/steamist/
-[stream docs]: /integrations/stream/
-[streamlabswater docs]: /integrations/streamlabswater/
-[stt docs]: /integrations/stt/
-[subaru docs]: /integrations/subaru/
-[suez_water docs]: /integrations/suez_water/
-[sun docs]: /integrations/sun/
-[sunweg docs]: /integrations/sunweg/
-[surepetcare docs]: /integrations/surepetcare/
-[swiss_public_transport docs]: /integrations/swiss_public_transport/
-[switchbot docs]: /integrations/switchbot/
-[switcher_kis docs]: /integrations/switcher_kis/
-[syncthing docs]: /integrations/syncthing/
-[synology_dsm docs]: /integrations/synology_dsm/
-[system_bridge docs]: /integrations/system_bridge/
-[system_health docs]: /integrations/system_health/
-[system_log docs]: /integrations/system_log/
-[systemmonitor docs]: /integrations/systemmonitor/
-[tado docs]: /integrations/tado/
-[tag docs]: /integrations/tag/
-[tailscale docs]: /integrations/tailscale/
-[tailwind docs]: /integrations/tailwind/
-[tami4 docs]: /integrations/tami4/
-[tankerkoenig docs]: /integrations/tankerkoenig/
-[tasmota docs]: /integrations/tasmota/
-[tautulli docs]: /integrations/tautulli/
-[technove docs]: /integrations/technove/
-[tedee docs]: /integrations/tedee/
-[telegram docs]: /integrations/telegram/
-[telegram_bot docs]: /integrations/telegram_bot/
-[template docs]: /integrations/template/
-[tesla_wall_connector docs]: /integrations/tesla_wall_connector/
-[teslemetry docs]: /integrations/teslemetry/
-[tessie docs]: /integrations/tessie/
-[tile docs]: /integrations/tile/
-[timer docs]: /integrations/timer/
-[todoist docs]: /integrations/todoist/
-[tolo docs]: /integrations/tolo/
-[tomorrowio docs]: /integrations/tomorrowio/
-[toon docs]: /integrations/toon/
-[torque docs]: /integrations/torque/
-[totalconnect docs]: /integrations/totalconnect/
-[tplink docs]: /integrations/tplink/
-[tplink_omada docs]: /integrations/tplink_omada/
-[traccar_server docs]: /integrations/traccar_server/
-[trace docs]: /integrations/trace/
-[tractive docs]: /integrations/tractive/
-[tradfri docs]: /integrations/tradfri/
-[trafikverket_camera docs]: /integrations/trafikverket_camera/
-[trafikverket_ferry docs]: /integrations/trafikverket_ferry/
-[trafikverket_train docs]: /integrations/trafikverket_train/
-[trafikverket_weatherstation docs]: /integrations/trafikverket_weatherstation/
-[transmission docs]: /integrations/transmission/
-[trend docs]: /integrations/trend/
-[tts docs]: /integrations/tts/
-[tuya docs]: /integrations/tuya/
-[twentemilieu docs]: /integrations/twentemilieu/
-[twinkly docs]: /integrations/twinkly/
-[twitch docs]: /integrations/twitch/
-[uk_transport docs]: /integrations/uk_transport/
-[ukraine_alarm docs]: /integrations/ukraine_alarm/
-[unifi docs]: /integrations/unifi/
-[unifiprotect docs]: /integrations/unifiprotect/
-[universal docs]: /integrations/universal/
-[upb docs]: /integrations/upb/
-[update docs]: /integrations/update/
-[upnp docs]: /integrations/upnp/
-[uptimerobot docs]: /integrations/uptimerobot/
-[usb docs]: /integrations/usb/
-[utility_meter docs]: /integrations/utility_meter/
-[v2c docs]: /integrations/v2c/
-[vacuum docs]: /integrations/vacuum/
-[vallox docs]: /integrations/vallox/
-[velbus docs]: /integrations/velbus/
-[velux docs]: /integrations/velux/
-[venstar docs]: /integrations/venstar/
-[verisure docs]: /integrations/verisure/
-[version docs]: /integrations/version/
-[vesync docs]: /integrations/vesync/
-[vicare docs]: /integrations/vicare/
-[vilfo docs]: /integrations/vilfo/
-[vizio docs]: /integrations/vizio/
-[vodafone_station docs]: /integrations/vodafone_station/
-[voip docs]: /integrations/voip/
-[vulcan docs]: /integrations/vulcan/
-[wake_on_lan docs]: /integrations/wake_on_lan/
-[wallbox docs]: /integrations/wallbox/
-[waqi docs]: /integrations/waqi/
-[water_heater docs]: /integrations/water_heater/
-[watttime docs]: /integrations/watttime/
-[waze_travel_time docs]: /integrations/waze_travel_time/
-[weather docs]: /integrations/weather/
-[weatherflow docs]: /integrations/weatherflow/
-[weatherflow_cloud docs]: /integrations/weatherflow_cloud/
-[weatherkit docs]: /integrations/weatherkit/
-[webmin docs]: /integrations/webmin/
-[webostv docs]: /integrations/webostv/
-[websocket_api docs]: /integrations/websocket_api/
-[wemo docs]: /integrations/wemo/
-[whirlpool docs]: /integrations/whirlpool/
-[whois docs]: /integrations/whois/
-[wilight docs]: /integrations/wilight/
-[withings docs]: /integrations/withings/
-[wiz docs]: /integrations/wiz/
-[wled docs]: /integrations/wled/
-[workday docs]: /integrations/workday/
-[wsdot docs]: /integrations/wsdot/
-[wyoming docs]: /integrations/wyoming/
-[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
-[xiaomi_ble docs]: /integrations/xiaomi_ble/
-[xiaomi_miio docs]: /integrations/xiaomi_miio/
-[yale_smart_alarm docs]: /integrations/yale_smart_alarm/
-[yalexs_ble docs]: /integrations/yalexs_ble/
-[yamaha docs]: /integrations/yamaha/
-[yamaha_musiccast docs]: /integrations/yamaha_musiccast/
-[yandex_transport docs]: /integrations/yandex_transport/
-[yardian docs]: /integrations/yardian/
-[yeelight docs]: /integrations/yeelight/
-[yolink docs]: /integrations/yolink/
-[youtube docs]: /integrations/youtube/
-[zamg docs]: /integrations/zamg/
-[zeroconf docs]: /integrations/zeroconf/
-[zerproc docs]: /integrations/zerproc/
-[zeversolar docs]: /integrations/zeversolar/
-[zha docs]: /integrations/zha/
-[zodiac docs]: /integrations/zodiac/
-[zone docs]: /integrations/zone/
-[zoneminder docs]: /integrations/zoneminder/
-[zwave_js docs]: /integrations/zwave_js/
