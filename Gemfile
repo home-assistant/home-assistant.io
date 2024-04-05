@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '> 2.5.0'
 
 group :development do
-  gem 'rake', '13.1.0'
+  gem 'rake', '13.2.1'
   gem 'jekyll', '4.3.3'
   gem 'compass', '1.0.3'
   gem 'sass-globbing', '1.1.5'
@@ -11,7 +11,7 @@ group :development do
   # > 2.1.0 causes slowdowns https://github.com/sass/sassc-ruby/issues/189
   gem 'sassc', '2.1.0'
   gem 'rubocop', '1.62.1'
-  gem 'ruby-lsp', '0.14.6'
+  gem 'ruby-lsp', '0.16.1'
   gem 'rackup', '2.1.0'
 end
 

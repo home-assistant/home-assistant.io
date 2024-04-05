@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: whirlpool
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
 ha_integration_type: hub
 ---

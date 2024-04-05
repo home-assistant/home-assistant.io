@@ -18,7 +18,6 @@ ha_iot_class: Local Polling
 ha_platforms:
   - alarm_control_panel
   - climate
-  - humidifier
   - cover
   - humidifier
   - light
