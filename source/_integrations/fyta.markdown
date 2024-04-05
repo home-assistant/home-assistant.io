@@ -18,7 +18,7 @@ The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta
 
 For the authentication on the FYTA server, you need your login-credentials (email and password).
 
-The integration provides a device for all plants with a [FYTA Beam](https://fyta.de/collections/all/products/single-beam) sensor. In order to be able to access your plant data over the API, you need a [FYTA hub](https://fyta.de/collections/all/products/single-hub), that uploads the data from the Beam sensor to the FYTA server. No direct connection to the FYTA Beam is supported.
+The integration provides a device for all plants with a [FYTA Beam](https://fyta.de/collections/all/products/single-beam) sensor. In order to be able to access your plant data over the API, you need a [FYTA hub](https://fyta.de/collections/all/products/single-hub), that uploads the data from the Beam sensor to the FYTA server. Alternatively, the mobile app can serve as gateaway to upload the data from the Beam to the server. No direct connection to the FYTA Beam is supported.
 
 {% include integrations/config_flow.md %}
 
