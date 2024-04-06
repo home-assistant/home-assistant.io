@@ -3,7 +3,7 @@ title: Ollama
 description: Instructions on how to integrate Ollama
 ha_category:
   - Voice
-ha_release: 2023.4
+ha_release: 2024.4
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
