@@ -458,6 +458,51 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
+### Floors
+
+- `floors()` returns the full list of floor IDs.
+- `floor_id(lookup_value)` returns the floor ID for a given device ID, entity ID, area ID, or area name. Can also be used as a filter.
+- `floor_name(lookup_value)` returns the floor name for a given device ID, entity ID, area ID, or floor ID. Can also be used as a filter.
+- `floor_areas(floor_name_or_id)` returns the list of area IDs tied to a given floor ID or name. Can also be used as a filter.
+
+#### Floors examples
+
+{% raw %}
+
+```text
+{{ floor() }}  # ['floor_id']
+```
+
+```text
+{{ floor_id('First floor') }}  # 'first_floor'
+```
+
+```text
+{{ floor_id('my_device_id') }}  # 'second_floor'
+```
+
+```text
+{{ floor_id('sensor.sony') }}  # 'first_floor'
+```
+
+```text
+{{ floor_name('first_floor') }}  # 'First floor'
+```
+
+```text
+{{ floor_name('my_device_id') }}  # 'Second floor'
+```
+
+```text
+{{ floor_name('sensor.sony') }}  # 'First floor'
+```
+
+```text
+{{ floor_areas('first_floor') }}  # ['living_room', 'kitchen']
+```
+
+{% endraw %}
+
 ### Areas
 
 - `areas()` returns the full list of area IDs
@@ -525,6 +570,59 @@ If there is more than one entry with the same title, the entities for all the ma
 
 ```text
 {{ integration_entities('Hue bridge downstairs') }}  # ['light.hue_light_downstairs']
+```
+
+{% endraw %}
+
+### Labels
+
+- `labels()` returns the full list of label IDs, or those for a given area ID, device ID, or entity ID.
+- `label_id(lookup_value)` returns the label ID for a given label name.
+- `label_name(lookup_value)` returns the label name for a given label ID.
+- `label_areas(label_name_or_id)` returns the list of area IDs tied to a given label ID or name.
+- `label_devices(label_name_or_id)` returns the list of device IDs tied to a given label ID or name.
+- `label_entities(label_name_or_id)` returns the list of entity IDs tied to a given label ID or name.
+
+Each of the label template functions can also be used as a filter.
+
+#### Labels examples
+
+{% raw %}
+
+```text
+{{ labels() }}  # ['christmas_decorations', 'energy_saver', 'security']
+```
+
+```text
+{{ labels("living_room") }}  # ['christmas_decorations', 'energy_saver']
+```
+
+```text
+{{ labels("my_device_id") }}  # ['security']
+```
+
+```text
+{{ labels("light.christmas_tree") }}  # ['christmas_decorations']
+```
+
+```text
+{{ label_id('Energy saver') }}  # 'energy_saver'
+```
+
+```text
+{{ label_name('energy_saver') }}  # 'Energy saver'
+```
+
+```text
+{{ label_areas('security') }}  # ['driveway', 'garden', 'porch']
+```
+
+```text
+{{ label_devices('energy_saver') }}  # ['deadbeefdeadbeefdeadbeefdeadbeef']
+```
+
+```text
+{{ label_entities('security') }}  # ['camera.driveway', 'binary_sensor.motion_garden', 'camera.porch']
 ```
 
 {% endraw %}
