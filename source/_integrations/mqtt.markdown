@@ -175,14 +175,14 @@ If the server certificate does not match the hostname then validation will fail.
 
 The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker supports MQTT version 5 you can set the protocol setting to `5`.
 
-#### Securing the the connection
+#### Securing the connection
 
 With a secure broker connection it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to show the controls to upload the files. Only a PEM encoded client certificates together with a PEM encoded private key can be uploaded. Make sure the private key has no password set.
 
 #### Using WebSockets as transport
 
 You can select `websockets` as transport method if your MQTT broker supports it. When you select `websockets` and click `NEXT`, you will be able to add a WebSockets path (default = `/`) and WebSockets headers (optional). The target WebSockets URI: `ws://{broker}:{port}{WebSockets path}` is built with `broker`, `port` and `ws_path` (WebSocket path) settings.
-To configure the WebSocketS headers supply a valid JSON dictionary string. E.g. `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
+To configure the WebSocket's headers supply a valid JSON dictionary string. E.g. `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
 
 <div class='note'>
 
