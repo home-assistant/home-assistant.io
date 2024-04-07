@@ -61,7 +61,7 @@ To edit an existing area, enter its name and follow the dialog.
 
 ## Binary sensor
 
-The`netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
+The `netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
 
 ## Camera
 
