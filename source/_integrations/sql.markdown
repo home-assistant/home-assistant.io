@@ -221,7 +221,7 @@ Replace `-1 day` with the target offset, for example, `-1 hour`.
 Use `state` as column for value.
 
 #### for MariaDB
-Since the ```strftime``` function doesnt exist in MariaDB you need to use the following query
+Since the ```strftime``` function doesn't exist in MariaDB you need to use the following query
 ```sql
 SELECT
   states.state
