@@ -226,7 +226,7 @@ action:
   - service: persistent_notification.create
     metadata: {}
     data:
-      message: "{{ message_text['subject'] }}"  - service: imap.seen
+      message: "{{ message_text['subject'] }}"
 mode: single
 ```
 
