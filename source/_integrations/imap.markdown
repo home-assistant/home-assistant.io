@@ -188,6 +188,7 @@ Available services are:
 - `seen`: Mark the message as seen.
 - `move`: Move the message to a `target_folder` and optionally mark the message `seen`.
 - `delete`: Delete the message.
+- `fetch`: Fetch the content of a message. Returns a dictionary containing `"text"`, `"subject"`, `"sender"` and `"uid""`. This allows to fetch and process the complete message text, not limited by size.
 
 <div class='note warning'>
 
@@ -197,13 +198,13 @@ When these services are used in an automation, make sure the right triggers and 
 
 ## Example - post-processing
 
-The example below filters the event trigger by `entry_id` and marks the message in the event as seen. The `seen` service `entry_id` can be a template or literal string. In UI mode you can select the desired entry from a list as well.
+The example below filters the event trigger by `entry_id`, fetches the message and stores it in `message_text` and then and marks the message in the event as seen, finally it adds a notification with the subject of the message. The `seen` service `entry_id` can be a template or literal string. In UI mode you can select the desired entry from a list as well.
 
 {% raw %}
 
 ```yaml
-alias: imap seen example
-description: Mark in incoming message as seen
+alias: imap fetch and seen example
+description: Fetch and mark an incoming message as seen
 trigger:
   - platform: event
     event_type: imap_content
@@ -213,11 +214,19 @@ condition:
   - condition: template
     value_template: "{{ trigger.event.data['sender'] == 'info@example.com' }}"
 action:
+  - service: imap.fetch
+    data:
+      entry: 91fadb3617c5a3ea692aeb62d92aa869
+      uid: "{{ trigger.event.data['uid'] }}"
+    response_variable: message_text
   - service: imap.seen
+    data:
+      entry: 91fadb3617c5a3ea692aeb62d92aa869
+      uid: "{{ trigger.event.data['uid'] }}"
+  - service: persistent_notification.create
     metadata: {}
     data:
-      entry: "{{ trigger.event.data['entry_id'] }}"
-      uid: "{{ trigger.event.data['uid'] }}"
+      message: "{{ message_text['subject'] }}"  - service: imap.seen
 mode: single
 ```
 
