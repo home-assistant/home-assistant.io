@@ -183,6 +183,15 @@ Return Jewish Calendar information for the specified Gregorian date.
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `date`                 | yes      | Look up the specified date or time.  If you pass a date with a time, it will be evaluated relative to sunset, returning the following day if after sunset (not candle lighting). Defaults to today (relative to midnight, not sunset). |
 
+### Service {% my developer_call_service service="jewish_calendar.get_gregorian_date_range" %}
+
+Return Jewish Calendar information for a range of Gregorian dates.
+
+| Service data attribute | Optional | Description                                                                                                                                                                                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `date`                 | yes      | The first day to return.  If you pass a date with a time, it will be evaluated relative to sunset, returning the following day if after sunset (not candle lighting). Defaults to today (relative to midnight, not sunset). |
+| `number_of_days`       | no       | The number of days to return, including `date`.                                                                                                                                                                             |
+
 ### Service {% my developer_call_service service="jewish_calendar.get_hebrew_date" %}
 
 Return Jewish Calendar information for the specified Hebrew date.
