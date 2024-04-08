@@ -18,7 +18,6 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
-  - [Example area selectors](#example-area-selectors)
 - [Attribute selector](#attribute-selector)
 - [Assist pipeline selector](#assist-pipeline-selector)
 - [Backup location selector](#backup-location-selector)
@@ -32,22 +31,21 @@ The following selectors are currently available:
 - [Date selector](#date-selector)
 - [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
-  - [Example device selector](#example-device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
-  - [Example entity selector](#example-entity-selector)
+- [Floor selector](#floor-selector)
 - [Icon selector](#icon-selector)
+- [Label selector](#label-selector)
 - [Language selector](#language-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
-  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
+- [QR code selector](#qr-code-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
 - [Target selector](#target-selector)
-  - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
@@ -210,7 +208,7 @@ living_room
 - kitchen
 ```
 
-### Example area selectors
+### Example area selectors <!-- omit from toc -->
 
 An example area selector only shows areas that provide one or more lights or
 switches provided by the [ZHA](/integrations/zha) integration.
@@ -417,20 +415,6 @@ language:
 
 The output of this selector is the ID of the conversation agent.
 
-## Date selector
-
-The date selector shows a date input that allows the user to specify a date.
-
-![Screenshot of the Date selector](/images/blueprints/selector-date.png)
-
-This selector does not have any other options; therefore, it only has its key.
-
-```yaml
-date:
-```
-
-The output of this selector will contain the date in Year-Month-Day
-(`YYYY-MM-DD`) format, for example, `2022-02-22`.
 
 ## Country selector
 
@@ -457,6 +441,21 @@ no_sort:
 {% endconfiguration %}
 
 The output of this selector is an ISO 3166 country code.
+
+## Date selector
+
+The date selector shows a date input that allows the user to specify a date.
+
+![Screenshot of the Date selector](/images/blueprints/selector-date.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+date:
+```
+
+The output of this selector will contain the date in Year-Month-Day
+(`YYYY-MM-DD`) format, for example, `2022-02-22`.
 
 ## Date & time selector
 
@@ -579,7 +578,7 @@ faadde5365842003e8ca55267fe9d1f4
 - 3da77cb054352848b9544d40e19de562
 ```
 
-### Example device selector
+### Example device selector <!-- omit from toc -->
 
 An example entity selector that, will only show devices that are:
 
@@ -715,7 +714,7 @@ light.living_room
 - light.kitchen
 ```
 
-### Example entity selector
+### Example entity selector <!-- omit from toc -->
 
 An example entity selector that, will only show entities that are:
 
@@ -735,6 +734,141 @@ entity:
       device_class: motion
 ```
 
+## Floor selector
+
+The floor selector shows a floor finder that can pick 
+floors based on the selector configuration. The value of the input will be the
+floor ID. If `multiple` is set to `true`, the value is a list of floor IDs.
+
+A floor selector can filter the list of floors based on the properties of the
+devices and entities assigned to the areas on those floors.
+For example, the floor list could be limited to floors with entities
+provided by the [ZHA](/integrations/zha) integration, based on the areas they are in.
+
+In its most basic form, this selector doesn't require any options.
+It will show all floors.
+
+![Screenshot of a floor selector](/images/blueprints/selector-floor.png)
+
+```yaml
+floor:
+```
+
+{% configuration floor %}
+device:
+  description: >
+    When device options are provided, the list of floors is filtered by floors
+    that have at least one device matching the given conditions. Can be
+    either an object or a list of objects.
+  type: list
+  required: false
+  keys:
+    integration:
+      description: >
+        Can be set to an integration domain. Limits the list of floors that
+        have devices by this integration domain. For example,
+        [`zha`](/integrations/zha).
+      type: string
+      required: false
+    manufacturer:
+      description: >
+        When set, the list only includes floors that have devices by the set
+        manufacturer name.
+      type: string
+      required: false
+    model:
+      description: >
+        When set, the list only includes floors that have devices which have
+        the set model.
+      type: string
+      required: false
+entity:
+  description: >
+    When entity options are provided, the list only includes floors
+    that at least have one entity that matches the given conditions. Can be
+    either an object or a list of objects.
+  type: list
+  required: false
+  keys:
+    integration:
+      description: >
+        Can be set to an integration domain. Limits the list of floors that
+        have entities by the set integration domain. For example,
+        [`zha`](/integrations/zha).
+      type: string
+      required: false
+    domain:
+      description: >
+        When set, the list only includes floors that have entities of certain domains,
+        for example, [`light`](/integrations/light) or
+        [`binary_sensor`](/integrations/binary_sensor). Can be either a string
+        with a single domain, or a list of string domains to limit the selection to.
+      type: [string, list]
+      required: false
+    device_class:
+      description: >
+        When set, the list only includes floors that have entities with a certain
+        device class, for example, `motion` or `window`. Can be either a string
+        with a single device_class, or a list of string device_class to limit
+        the selection.
+      type: [device_class, list]
+      required: false
+    supported_features:
+      description: >
+        When set, the list only includes floors that have entities with a certain
+        supported feature, for example, `light.LightEntityFeature.TRANSITION`
+        or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list
+        of features.
+      type: list
+      required: false
+multiple:
+  description: >
+    Allows selecting multiple floors. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the floor ID, or (in case `multiple` is set to
+`true`) a list of floor IDs.
+
+```yaml
+# Example floor selector output result, when multiple is set to false
+first_floor
+
+# Example floor selector output result, when multiple is set to true
+- first_floor
+- second_floor
+```
+
+### Example floor selectors <!-- omit from toc -->
+
+An example floor selector only shows floors that have one or more lights or
+switches provided by the [ZHA](/integrations/zha) integration.
+
+```yaml
+floor:
+  entity:
+    integration: zha
+    domain:
+      - light
+      - switch
+```
+
+Another example using the floor selector, which only shows floors that
+have one or more remote controls provided by the [deCONZ](/integrations/deconz)
+integration. Multiple floors can be selected.
+
+```yaml
+floor:
+  multiple: true
+  device:
+    - integration: deconz
+      manufacturer: IKEA of Sweden
+      model: TRADFRI remote control
+```
+
 ## Icon selector
 
 The icon selector shows an icon picker that allows the user to select an icon.
@@ -752,6 +886,43 @@ placeholder:
 
 The output of this selector is a string containing the selected icon,
 for example: `mdi:bell`.
+
+## Label selector
+
+The label selector shows a label finder that can pick labels. The value of the
+input is the label ID. If `multiple` is set to `true`, the value is a list
+of label IDs.
+
+![Screenshot of the label selector](/images/blueprints/selector-label.png)
+
+In its most basic form, this selector doesn't require any options.
+It will show all labels.
+
+```yaml
+label:
+```
+
+{% configuration text %}
+multiple:
+  description: >
+    Allows selecting multiple labels. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the label ID, or (in case `multiple` is set to
+`true`) a list of label IDs.
+
+```yaml
+# Example label selector output result, when multiple is set to false
+energy_saving
+
+# Example label selector output result, when multiple is set to true
+- energy_saving
+- christmas_decorations
+```
 
 ## Language selector
 
@@ -908,7 +1079,7 @@ mode:
 
 The output of this selector is a number, for example: `42`
 
-### Example number selectors
+### Example number selectors <!-- omit from toc -->
 
 An example number selector that allows a user a percentage, directly in a
 regular number input box.
@@ -947,6 +1118,39 @@ object:
 ```
 
 The output of this selector is a YAML object.
+
+## QR code selector
+
+The QR code selector shows a QR code. It has no return value.
+
+![Screenshot of a QR code selector](/images/blueprints/selector-qr-code.png)
+
+The QR code's data must be configured, and optionally, the scale, and error correction level can be set.
+The scale makes the QR code bigger or smaller.
+
+{% configuration qr_code %}
+data:
+  description: The data that should be represented in the QR code.
+  type: any
+  required: true
+scale:
+  description: The scale factor to use, this will make the QR code bigger or smaller.
+  type: integer
+  required: false
+  default: 4
+error_correction_level:
+  description: The error correction level of the QR code, with a higher error correction level the QR code can be scanned even when some pieces are missing. Can be "low", "medium", "quartile" or "high".
+  type: string
+  required: false
+  default: medium
+{% endconfiguration %}
+
+```yaml
+qr_code:
+  data: "https://home-assistant.io"
+  scale: 5
+  error_correction_level: quartile
+```
 
 ## RGB color selector
 
@@ -1174,7 +1378,7 @@ action:
 
 </div>
 
-### Example target selectors
+### Example target selectors <!-- omit from toc -->
 
 An example target selector that only shows targets that at least provide one
 or more lights, provided by the [ZHA](/integrations/zha) integration.

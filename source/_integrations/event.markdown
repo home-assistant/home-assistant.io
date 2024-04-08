@@ -13,7 +13,7 @@ ha_integration_type: entity
 
 Events are signals that are emitted when something happens, for example, when a user presses a physical button like a doorbell or when a button on a remote control is pressed.
 
-These events are stateless. For example, a doorbell does not have a state like being "on" or "off" but instead is momentarily pressed. Some events can have variations in the type of event that is emitted. For example, maybe your remote control is capable of emitting a single press, a double press, or a long press.
+These events do not capture a state in the traditional sense. For example, a doorbell does not have a state such as "on" or "off" but instead is momentarily pressed. Some events can have variations in the type of event that is emitted. For example, maybe your remote control is capable of emitting a single press, a double press, or a long press.
 
 The event entity can capture these events in the physical world and makes them available in Home Assistant as an entity.
 
@@ -21,9 +21,12 @@ The event entity can capture these events in the physical world and makes them a
 
 ## The state of an event entity
 
-The event entity is stateless, as in, it cannot have a state like the `on` or `off` state that, for example, a normal switch or light entity has.
+The event entity does not capture a state such as `on` or `off`. Instead, an event entity keeps track of the timestamp when the emitted event has last been detected.
 
-Therefore, every event entity keeps track of the timestamp when the emitted event has last been detected.
+<p class='img'>
+  <img src='/images/integrations/event/event_timestamp.png' alt='Event entity with timestamp value in state and event type "pressed"'>
+  Event entity with a timestamp value in state and event type "pressed".
+</p>
 
 Because the state of an event entity in Home Assistant is a timestamp, it means we can use it in our automations. For example:
 
@@ -80,3 +83,9 @@ The following device classes are supported by event entities:
 - **button**: For remote control buttons.
 - **doorbell**: Specifically for buttons that are used as a doorbell.
 - **motion**: For motion events detected by a motion sensor.
+
+### Video tutorial
+
+This comprehensive video tutorial explains how events work in Home Assistant and how you can set up Emulated Roku to control a media player using a physical remote control.
+
+<lite-youtube videoid="nDHh1OjyuMA" videotitle="Event Triggers Unveiled: Control the Home Assistant Media Player with Your Remote Control!" posterquality="maxresdefault"></lite-youtube>

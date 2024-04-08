@@ -64,14 +64,14 @@ Sensors for P1 meter, only available when smart meter exposes these values:
 - **Frequency (Hz)**: Net frequency.
 - **Voltage sags and swells**: Number of times a voltage sag or well has been detected.
 - **Power failures**: Two sensors that indicate the number of power failures that have been detected by the smart meter. One for all power failures and another for 'long' power failures.
-- **Peak demand**: Belgium users are started to get charged for the peak usage per month (see [capaciteitstarief](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief)). Two sensors are available: One that shows the current quarterly average and another that shows the peak measured this month. Both these sensors are provided directly from the smart meter and can be used to keep the peak as low as possible.
+- **Peak demand**: Belgium users are starting to get charged for the peak usage per month (see [capaciteitstarief](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief)). Two sensors are available: One that shows the current quarterly average and another that shows the peak measured this month. Both these sensors are provided directly from the smart meter and can be used to keep the peak as low as possible.
 
-Sensors for kWh meter:
+Sensors for Energy Socket and kWh meter:
 - **Voltage (V)**: Active voltage that is measured on each phase.
 - **Current (A)**: Active current that is measured on each phase.
 - **Frequency (Hz)**: Net frequency.
-- **Reactive power (VAR)**: Active reactive power measurent on each phase.
-- **Apparent power (VA)**: Active reactie power measurent on each phase.
+- **Reactive power (VAR)**: Active reactive power measurement on each phase.
+- **Apparent power (VA)**: Active apparent power measurement on each phase.
 
 Sensors for Water meter:
 
@@ -90,10 +90,10 @@ You can also control the green status light brightness with **Status light brigh
 ## Identify
 
 The identify button can be pressed to let the status light blink for a few seconds.
-This feature is currently only available for the P1 meter and the Energy Socket.
+_This feature not available for the kWh Meter._
 
 ## Cloud communication
 
-The HomeWizard Energy devices are designed to work with the HomeWizard Energy app and require communication with the HomeWizard cloud to make them function with the app. The "Cloud connection" configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won't receive any future firmware updates. This feature is currently not available for the Water meter.
+The HomeWizard Energy devices are designed to work with the HomeWizard Energy app and require communication with the HomeWizard cloud to make them function with the app. The "Cloud connection" configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won't receive any future firmware updates.
 
 Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.

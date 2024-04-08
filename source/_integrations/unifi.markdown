@@ -34,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Button](#button)
 - [Image](#image)
 - [Presence detection](#presence-detection)
+- [Services](#services)
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
@@ -71,6 +72,9 @@ Use the **Power cycle PoE** button entity to power cycle one specific PoE port t
 ### Restart UniFi device
 
 Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch, the PoE supply is not affected.
+
+### WLAN regenerate password
+Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **It will be randomly generated with 20 characters, consisting of lowercase letters, uppercase letters, and digits.**
 
 ## Image
 
@@ -151,6 +155,13 @@ Get entities reporting the general temperature of a UniFi Network device.
 ### Device state
 
 Get entities reporting the current state of a UniFi Network device.
+
+### WLAN password sensor
+
+Provides the current password for a specific WLAN. It allows users to access the password for various purposes, such as sharing with guests or configuring devices manually. As this exposes the password in clear text it is only recommended to utilize this in scenarios where the QR Code is not sufficient. 
+
+- Entity is disabled by default.
+- This feature requires admin privileges.
 
 ## Firmware updates
 

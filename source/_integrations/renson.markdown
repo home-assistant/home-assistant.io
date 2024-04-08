@@ -5,9 +5,9 @@ ha_category:
   - Binary sensor
   - Button
   - Fan
+  - Number
   - Switch
   - Time
-  - Number
 ha_release: 2023.7
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -18,9 +18,9 @@ ha_platforms:
   - binary_sensor
   - button
   - fan
-  - switch
   - number
   - sensor
+  - switch
   - time
 ha_integration_type: integration
 ---

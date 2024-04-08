@@ -2,14 +2,25 @@
 title: Husqvarna Automower
 description: Instructions on how to integrate Husqvarna Automower lawn mowers into Home Assistant.
 ha_category:
+  - Binary sensor
+  - Device tracker
   - Lawn Mower
+  - Select
+  - Sensor
+  - Switch
 ha_release: 2024.3
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@Thomas55555'
 ha_platforms:
+  - binary_sensor
+  - device_tracker
+  - diagnostics
   - lawn_mower
+  - select
+  - sensor
+  - switch
 ha_integration_type: integration
 ha_domain: husqvarna_automower
 ---
@@ -71,15 +82,55 @@ The My Home Assistant redirect feature needs to be setup to redirect to your Hom
 
 {% include integrations/config_flow.md %}
 
-
 ## Entities
 
 Once you have enabled the Husqvarna Automower integration, you should see the following entities:
 
-### Lawn Mower
+### Binary sensor
+
+The integration will create the following binary sensors:
+
+- Battery charging  
+  *The mower is currently charging. It reports this state if it autonomously returned to the dock due to low battery and if it leaves the dock for mowing after being fully charged.*
+- Leaving dock  
+  *The mower is currently leaving the charging station and heading out to a starting point.*
+- Returning to dock  
+  *The mower is on its way home to the charging station.*
+
+### Device tracker (if available)
+
+The integration will create a device tracker entity to show the position of the mower.
+
+### Lawn mower
 
 The integration will create a lawn mower entity to control the mower. This entity can:
 
 - Resume the schedule
 - Pause mowing
 - Park until next schedule
+
+### Select (if available)
+
+The integration will create a select entity for selecting the headlight mode of the mower.
+
+### Sensor
+
+The integration will create the following sensors:
+
+- Battery level
+- Cutting blade usage time (if available)
+- Error. For example: *Mower tilted*, *outside geofence*.
+- Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
+- Mode
+- Next start
+- Number of charging cycles
+- Number of collisions
+- Total charging time
+- Total cutting time
+- Total drive distance
+- Total running time
+- Total searching time
+
+### Switch
+
+The integration will create a switch to enable or disable the schedule of the mower. If the switch is on, the mower will mow according to the schedule. If the switch is off the mower will return to the dock and park until further notice.

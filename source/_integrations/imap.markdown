@@ -7,6 +7,7 @@ ha_release: 0.25
 ha_iot_class: Cloud Push
 ha_domain: imap
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ha_codeowners:
@@ -132,6 +133,8 @@ custom:
   description: Holds the result of the custom event data [template](/docs/configuration/templating). All attributes are available as a variable in the template.
 initial:
   description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message received has not been changed, then an `imap_content` event is generated and the `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email, the `initial` property will always be set to `True`.
+uid:
+  description: Latest `uid` of the message.
 
 {% endconfiguration_basic %}
 
@@ -157,6 +160,8 @@ template:
       - name: imap_content
         state: "{{ trigger.event.data['subject'] }}"
         attributes:
+          Entry: "{{ trigger.event.data['entry_id'] }}"
+          UID: "{{ trigger.event.data['uid'] }}"
           Message: "{{ trigger.event.data['text'] }}"
           Server: "{{ trigger.event.data['server'] }}"
           Username: "{{ trigger.event.data['username'] }}"
@@ -170,6 +175,50 @@ template:
           Return-Path: "{{ trigger.event.data['headers'].get('Return-Path',['n/a'])[0] }}"
           Received-first: "{{ trigger.event.data['headers'].get('Received',['n/a'])[0] }}"
           Received-last: "{{ trigger.event.data['headers'].get('Received',['n/a'])[-1] }}"
+```
+
+{% endraw %}
+
+### Services for post-processing
+
+The IMAP integration has some services for post-pressing email messages. The services are intended to be used in automations as actions after an "imap_content" event. The services take the IMAP `entry_id` and the `uid` of the message's event data. You can use a template for the `entry_id` and the `uid`. When the service is set up as a trigger action, you can easily select the correct entry from the UI. You will find the `entry_id` in YAML mode. It is highly recommended you filter the events by the `entry_id`.
+
+Available services are:
+
+- `seen`: Mark the message as seen.
+- `move`: Move the message to a `target_folder` and optionally mark the message `seen`.
+- `delete`: Delete the message.
+
+<div class='note warning'>
+
+When these services are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these services unless you know what you are doing.
+
+</div>
+
+## Example - post-processing
+
+The example below filters the event trigger by `entry_id` and marks the message in the event as seen. The `seen` service `entry_id` can be a template or literal string. In UI mode you can select the desired entry from a list as well.
+
+{% raw %}
+
+```yaml
+alias: imap seen example
+description: Mark in incoming message as seen
+trigger:
+  - platform: event
+    event_type: imap_content
+    event_data:
+      entry_id: 91fadb3617c5a3ea692aeb62d92aa869
+condition:
+  - condition: template
+    value_template: "{{ trigger.event.data['sender'] == 'info@example.com' }}"
+action:
+  - service: imap.seen
+    metadata: {}
+    data:
+      entry: "{{ trigger.event.data['entry_id'] }}"
+      uid: "{{ trigger.event.data['uid'] }}"
+mode: single
 ```
 
 {% endraw %}

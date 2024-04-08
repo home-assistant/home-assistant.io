@@ -22,3 +22,8 @@ See the [**To-do list** integration](/integrations/todo) for additional details
 about to-do list entities.
 
 {% include integrations/config_flow.md %}
+
+## Related topics
+
+- [**To-do list** integration](/integrations/todo)
+- [To-do list card](/dashboards/todo-list/)

@@ -151,8 +151,11 @@ The integration will create sensor entities for a variety of metrics related to 
 
 #### Charge state
 
+- Battery charging
 - Battery level
 - Battery range
+- Battery range estimate (disabled)
+- Battery range ideal (disabled)
 - Charge energy added
 - Charge rate
 - Charger current
@@ -198,4 +201,4 @@ The integration will create switch entities to control various aspects of your v
 
 ### Update
 
-The integration will show vehicle software updates and their installation progress.
+The integration will show vehicle software updates and their installation progress. Updates can only be installed from Home Assistant after they have finished downloading.

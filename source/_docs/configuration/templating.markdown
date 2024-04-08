@@ -458,6 +458,51 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
+### Floors
+
+- `floors()` returns the full list of floor IDs.
+- `floor_id(lookup_value)` returns the floor ID for a given device ID, entity ID, area ID, or area name. Can also be used as a filter.
+- `floor_name(lookup_value)` returns the floor name for a given device ID, entity ID, area ID, or floor ID. Can also be used as a filter.
+- `floor_areas(floor_name_or_id)` returns the list of area IDs tied to a given floor ID or name. Can also be used as a filter.
+
+#### Floors examples
+
+{% raw %}
+
+```text
+{{ floor() }}  # ['floor_id']
+```
+
+```text
+{{ floor_id('First floor') }}  # 'first_floor'
+```
+
+```text
+{{ floor_id('my_device_id') }}  # 'second_floor'
+```
+
+```text
+{{ floor_id('sensor.sony') }}  # 'first_floor'
+```
+
+```text
+{{ floor_name('first_floor') }}  # 'First floor'
+```
+
+```text
+{{ floor_name('my_device_id') }}  # 'Second floor'
+```
+
+```text
+{{ floor_name('sensor.sony') }}  # 'First floor'
+```
+
+```text
+{{ floor_areas('first_floor') }}  # ['living_room', 'kitchen']
+```
+
+{% endraw %}
+
 ### Areas
 
 - `areas()` returns the full list of area IDs
@@ -508,10 +553,12 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
-### Integrations
+### Entities for an integration
 
 - `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
-- `integration_entities(title)` if you have multiple instances set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific device bridge.
+- `integration_entities(config_entry_title)` if you have multiple entries set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific entry.
+
+If there is more than one entry with the same title, the entities for all the matching entries will be returned, even if the entries are for different integrations. It's not possible to search for entities of an untitled integration. 
 
 #### Integrations examples
 
@@ -523,6 +570,78 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ integration_entities('Hue bridge downstairs') }}  # ['light.hue_light_downstairs']
+```
+
+{% endraw %}
+
+### Labels
+
+- `labels()` returns the full list of label IDs, or those for a given area ID, device ID, or entity ID.
+- `label_id(lookup_value)` returns the label ID for a given label name.
+- `label_name(lookup_value)` returns the label name for a given label ID.
+- `label_areas(label_name_or_id)` returns the list of area IDs tied to a given label ID or name.
+- `label_devices(label_name_or_id)` returns the list of device IDs tied to a given label ID or name.
+- `label_entities(label_name_or_id)` returns the list of entity IDs tied to a given label ID or name.
+
+Each of the label template functions can also be used as a filter.
+
+#### Labels examples
+
+{% raw %}
+
+```text
+{{ labels() }}  # ['christmas_decorations', 'energy_saver', 'security']
+```
+
+```text
+{{ labels("living_room") }}  # ['christmas_decorations', 'energy_saver']
+```
+
+```text
+{{ labels("my_device_id") }}  # ['security']
+```
+
+```text
+{{ labels("light.christmas_tree") }}  # ['christmas_decorations']
+```
+
+```text
+{{ label_id('Energy saver') }}  # 'energy_saver'
+```
+
+```text
+{{ label_name('energy_saver') }}  # 'Energy saver'
+```
+
+```text
+{{ label_areas('security') }}  # ['driveway', 'garden', 'porch']
+```
+
+```text
+{{ label_devices('energy_saver') }}  # ['deadbeefdeadbeefdeadbeefdeadbeef']
+```
+
+```text
+{{ label_entities('security') }}  # ['camera.driveway', 'binary_sensor.motion_garden', 'camera.porch']
+```
+
+{% endraw %}
+
+### Issues
+
+- `issues()` returns all open issues as a mapping of (domain, issue_id) tuples to the issue object.
+- `issue(domain, issue_id)` returns a specific issue for the provided domain and issue_id.
+
+#### Issues examples
+
+{% raw %}
+
+```text
+{{ issues() }}  # { ("homeassistant", "deprecated_yaml_ping"): {...}, ("cloud", "legacy_subscription"): {...} }
+```
+
+```text
+{{ issue('homeassistant', 'python_version') }}  # {"breaks_in_ha_version": "2024.4", "domain": "homeassistant", "issue_id": "python_version", "is_persistent": False, ...}
 ```
 
 {% endraw %}

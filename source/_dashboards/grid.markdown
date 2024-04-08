@@ -70,7 +70,7 @@ square: false
 cards:
   - type: picture-entity
     entity: group.all_lights
-    image:  /local/house.png
+    image: /local/house.png
   - type: horizontal-stack
     cards:
       - type: picture-entity
@@ -80,3 +80,8 @@ cards:
         entity: light.bed_light
         image: /local/bed_2.png
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

@@ -30,6 +30,7 @@
   definition: >-
     An area in Home Assistant is a logical grouping of devices and entities that are meant to match areas (or rooms) in the physical world: your home. For example, the `living room` area groups devices and entities in your living room. Areas allow you to target service calls at an entire group of devices. For example, turning off all the lights in the living room.
     Locations within your home such as living room, dance floor, etc.
+    Areas can be assigned to floors.
     Areas can also be used for automatically
     generated cards, such as the [Area card](/dashboards/area/).
   excerpt: >-
@@ -75,6 +76,11 @@
     A blueprint is a script or automation configuration with certain parts marked as configurable. This allows users to create multiple scripts or automations based on the same blueprint, with each having its own configuration-specific settings.
   aliases:
     - blueprints
+- term: Category
+  definition: >-
+    A category is an organization tool that allows grouping items in a table. Like labels, categories allow grouping irrespective of the items' physical location. For example, on the automations page, you can create the categories “Notifications” or “NFC tags” to view your automations grouped or filtered. Categories are unique for each table. The automations page can have different categories than the scene, scripts, or helpers settings page.
+  aliases:
+    - categories
 - term: Commissioning
   definition: >-
     In the context of Matter devices, *commissioning* is the process of adding a device to a Matter controller. It is the equivalent of pairing a device in Zigbee or Z-Wave. Commissioning is done by scanning a QR code or entering a code manually. The code is printed on the device or its packaging. The code contains information about the device, such as its type, manufacturer, and serial number. The controller uses this information to identify the device and to download the required information to control the device. For example, the controller downloads the device's capabilities, such as the supported commands and the available attributes. The controller also downloads the device's configuration, such as the device's name and location.
@@ -161,6 +167,14 @@
   link: /docs/configuration/events/
   aliases:
     - events
+- term: Floor
+  definition: >-
+    A floor in Home Assistant is a logical grouping of areas that are meant to match the physical floors in your home. Devices & entities are not assigned to floors but to areas. A floor has properties such as: Floor ID, name, aliases (for use in assistants), an icon, and a floor level. Some of these properties are optional. The level number can be negative to reflect floors below the basement.
+    Floors can be used in automations and scripts as a target for actions. For example, to turn off all the lights on the downstairs floor when you go to bed.
+  excerpt: >-
+    A floor in Home Assistant is a logical grouping of areas that are meant to match the physical floors in your home. Devices & entities are not assigned to floors but to areas. Floors can be used in automations and scripts as a target for actions. For example, to turn off all the lights on the downstairs floor when you go to bed.
+  aliases:
+    - floors
 - term: Frontend
   definition: >-
     The frontend is a necessary component for the UI, it is also where you
@@ -253,6 +267,13 @@
   link: https://developers.home-assistant.io/docs/intent_builtin
   aliases:
     - Intents
+- term: Label
+  definition: >-
+    Labels in Home Assistant allow grouping elements irrespective of their physical location or type. Labels can be assigned to areas, devices, entities, automations, scenes, scripts, and helpers. Labels can be used in automations and scripts as a target for actions and services. Labels can also be used to filter data. For example, you can filter the list of devices to show only devices with the label `heavy energy usage` or turn these devices off when there is not a lot of solar energy available. 
+  excerpt: >-
+    Labels in Home Assistant allow grouping elements irrespective of their physical location or type. Labels can be assigned to areas, devices, entities, automations, scenes, scripts, and helpers. Labels can be used in automations and scripts as a target for actions and services. Labels can also be used to filter data.
+  aliases:
+    - labels
 - term: Lovelace
   definition: >-
     Lovelace is the original code name of the UI that is now known as

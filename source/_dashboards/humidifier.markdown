@@ -56,3 +56,8 @@ type: humidifier
 entity: humidifier.bedroom
 name: Bedroom Humidifier
 ```
+
+## Related topics
+
+- [Card features](/dashboards/features)
+- [Themes](/integrations/frontend/)
