@@ -9,14 +9,27 @@ When working with tables, you can select multiple elements to apply an action on
 
 1. In your table, select the select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
 
-  ![Screenshots point out the enable selection mode button in the toolbar of the tables in Home Assistant](/images/blog/2024-04/enable-selection-mode.png)
+   ![Screenshots point out the enable selection mode button in the toolbar of the tables in Home Assistant](/images/blog/2024-04/enable-selection-mode.png)
+
 2. In the list, select the items of interest.
 
    ![Selecting multiple elements in a list](/images/organizing/multiselect_01.png)
+
+## Filtering items in a table
+
+1. In the top left corner above the table, select the **Filters** button.
+
+    ![Select the filter button](/images/organizing/filters_01.png)
+
+2. In the filters panel, select your filter criteria.
+   - You can filter for [floors](/docs/organzing/floors/), [areas](/docs/organzing/areas/), [labels](/docs/organzing/labels/) and [categories](/docs/organzing/categories/) if you have previously defined them.
+
+  ![Screenshots showing the filter panel that tables can have, allowing you to easily find what you are looking for](/images/blog/2024-04/filter-panel.png)
 
 ## Related topics
 
 - [Floors](/docs/organzing/floors/)
 - [Labels](/docs/organzing/labels/)
 - [Areas](/docs/organzing/areas/)
-- [Directories](/docs/organzing/directories/)
+- [Categories](/docs/organzing/categories/)
+- [Grouping your assets](/docs/organizing/)
