@@ -5,10 +5,12 @@ description: "More information on why virtualized image marks the installation a
 
 ## The issue
 
+Your Home Assistant OS installation appears to run in a virtualized environment using
+a disk image which is not meant to run in a virtualized environment.
+ 
 Home Assistant OS publishes specific images which support being run on a virtualized
-system. These come with guest tools and other changes to make this easier. The 
-image of Home Assistant OS you are running on your virtualized system is not one
-of these.
+system. These are optimized to run in virtual environments, e.g. have guest tools installed
+and para-virtualization drivers enabled.
 
 ## The solution
 
