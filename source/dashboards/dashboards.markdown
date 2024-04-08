@@ -45,7 +45,7 @@ The predefined **History** dashboard is powered by the [History integration](/in
 
 The predefined **To-do lists** dashboard is powered by the [To-do integration](/integrations/todo/). To learn how to use to-do and shopping lists, refer to the documentation of the to-do list integration.
 
-## Webpage dashboards
+## Webpage dashboard
 
 Another available (but not default) dashboard is the webpage dashboard. The webpage dashboard allows you to add and embed a webpage to your dashboard.
 This could be a web page from the internet or a local web page from a local
