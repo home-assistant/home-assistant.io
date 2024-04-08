@@ -15,49 +15,7 @@ ha_integration_type: integration
 
 The `bluesound` platform allows you to control your [Bluesound](https://www.bluesound.com/) HiFi wireless speakers and audio integrations from Home Assistant.
 
-To manually add a Bluesound device to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml
-media_player:
-  - platform: bluesound
-    hosts:
-      - host: 192.168.1.100
-```
-
-{% configuration %}
-hosts:
-  description: List with your Bluesound devices.
-  required: false
-  type: list
-  keys:
-    host:
-      description: The IP address or hostname of the player.
-      required: true
-      type: string
-    name:
-      description: The name of the device used in the frontend.
-      required: false
-      type: string
-    port:
-      description: The port to communicate with the device.
-      required: false
-      default: 11000
-      type: integer
-{% endconfiguration %}
-
-## Advanced configuration example
-
-```yaml
-# Example configuration.yaml entry with manually specified addresses
-media_player:
-  - platform: bluesound
-    hosts:
-      - host: 192.168.1.100
-        name: bluesound_kitchen
-        port: 11000
-      - host: 192.168.1.131
-```
+{% include integrations/config_flow.md %}
 
 ### Service `bluesound.join`
 
