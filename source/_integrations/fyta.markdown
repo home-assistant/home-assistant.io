@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: fyta
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta.de) to obtain the data from your plant sensors and integrate these into Home Assistant.
@@ -39,4 +39,3 @@ The following sensors are currently available per plant:
 | moisture              | %      | Moisture measured by sensor                |
 | salinity              | mS/cm  | Salinity measured by sensor (measured as conductivity)|
 | battery_level         | %      | Battery level of the sensor                |
-

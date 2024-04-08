@@ -25,7 +25,7 @@ There are several different card types, each with their own configuration option
 
 Some cards have support for [tap actions](/dashboards/actions/). These actions define what will happen when you tap or hold on an object within a card.
 
-Some cards have support for [features](/dashboards/actions/). These widgets add quick controls to the card. Supported features depend on the card and entity capabilities. Multiple features can be added to a single card.
+Some cards have support for [features](/dashboards/features/). These widgets add quick controls to the card. Supported features depend on the card and entity capabilities. Multiple features can be added to a single card.
 
 <p class='img'><img src='/images/dashboards/features/screenshot-tile-feature-grid.png' alt="Screenshot of tile cards with features.">
 Screenshot of tile cards with features.
