@@ -113,7 +113,7 @@ The integration will create a lawn mower entity to control the mower. This entit
 
 ### Number (if available)
 
-The integration will create a number entity for changing the cutting height of the mower. This entity is disabled by the default. You have to enable it manually, because it can't be detected with the API if the mower has the capabilities to change the cutting height remotely. Consult the handbook of the mower before you enable this function. Also it's possible, that you can use this entity only as sensor and not actively change the cutting height.
+The integration will create a number entity for changing the cutting height of the mower. This entity is disabled by default. You have to enable it manually because it can't be detected with the API if the mower has the capability to change the cutting height remotely. Before enabling this function, consult the handbook of the mower. It's possible that you can use this entity only as sensor but cannot actively change the cutting height.
 
 ### Select (if available)
 
