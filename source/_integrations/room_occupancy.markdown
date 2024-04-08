@@ -26,7 +26,7 @@ name:
   required: true
   type: string
 timeout:
-  description: Number of minutes it takes to set the sensor to off.
+  description: Number of seconds it takes to set the sensor to off.
   required: true
   type: integer
 entities_toggle:
