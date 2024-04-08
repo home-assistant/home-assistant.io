@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out files from GitHub
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.1.2
       - name: Setting up Node.js
-        uses: actions/setup-node@v4.0.1
+        uses: actions/setup-node@v4.0.2
         with:
           node-version: 20
           cache: "npm"
@@ -25,9 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out files from GitHub
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.1.2
       - name: Setting up Node.js
-        uses: actions/setup-node@v4.0.1
+        uses: actions/setup-node@v4.0.2
         with:
           node-version: 20
           cache: "npm"

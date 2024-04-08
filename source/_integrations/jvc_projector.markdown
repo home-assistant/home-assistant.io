@@ -8,9 +8,12 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@SteveEasley'
+  - '@msavazzi'
 ha_domain: jvc_projector
 ha_platforms:
+  - binary_sensor
   - remote
+  - sensor
 ha_integration_type: device
 ---
 
@@ -44,3 +47,40 @@ The JVC Projector remote platform will create a [Remote](/integrations/remote/) 
 - `lens_control`
 - `setting_memory`
 - `gamma_settings`
+- `hdmi_1`
+- `hdmi_2`
+- `mode_1`
+- `mode_2`
+- `mode_3`
+- `lens_ap`
+- `gamma`
+- `color_temp`
+- `natural`
+- `cinema`
+- `anamo`
+- `3d_format`
+
+### Binary sensor
+
+The following sensor types are supported:
+
+- Power on is True when projector is in status "on", "warming"
+
+### Sensor
+
+Introduces two sensors to detect Power Status and HDMI Input.
+
+Detailed Power Status values:
+
+- `standby`
+- `on`
+- `warming`
+- `cooling`
+- `error`
+
+Please note that if the projector is off, it will not respond to remote polling and will show as *unavailable*.
+
+Detailed HDMI Input values:
+
+- `hdmi1`
+- `hdmi2`

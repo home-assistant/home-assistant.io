@@ -1,140 +1,92 @@
 ---
 title: Ecovacs
-description: Instructions on how to integrate Ecovacs vacuums within Home Assistant.
+description: Instructions on how to integrate Ecovacs vacuums and mowers within Home Assistant.
 ha_category:
   - Hub
+  - Lawn mower
   - Vacuum
 ha_iot_class: Cloud Push
 ha_release: 0.77
 ha_codeowners:
   - '@OverloadUT'
   - '@mib1185'
+  - '@edenhaus'
+  - '@Augar'
+ha_config_flow: true
 ha_domain: ecovacs
 ha_platforms:
+  - binary_sensor
+  - button
+  - diagnostics
+  - event
+  - image
+  - number
+  - select
+  - sensor
+  - switch
   - vacuum
 ha_integration_type: integration
 ---
 
-The `ecovacs` integration is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
+The `ecovacs` {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers. You will need your Ecovacs account information (username, password) to discover and control vacuums and mowers in your account.
 
-There is currently support for the following device types within Home Assistant:
-
-- [Vacuum](#vacuum)
-
-## Configuration
-
-To add your Ecovacs devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
-
-```yaml
-ecovacs:
-  username: YOUR_ECOVACS_USERNAME
-  password: YOUR_ECOVACS_PASSWORD
-  country: YOUR_TWO_LETTER_COUNTRY_CODE
-  continent: YOUR_TWO_LETTER_CONTINENT_CODE
-```
-
-{% configuration %}
-username:
-  description: Your username to login to your Ecovacs account.
-  required: true
-  type: string
-password:
-  description: Your password to login to your Ecovacs account.
-  required: true
-  type: string
-country:
-  description: Your two-letter country code (us, uk, etc).
-  required: true
-  type: string
-continent:
-  description: Your two-letter continent code (na, eu, etc).
-  required: true
-  type: string
-{% endconfiguration %}
-
-Note: For some countries, you will need to set `continent` to `ww` (meaning worldwide.) There is unfortunately no way to know the correct settings other than guessing and checking. See the [py-sucks library protocol documentation](https://github.com/mib1185/py-sucks/blob/master/protocol.md) for more information about what has been figured out about the Ecovacs servers.
+{% include integrations/config_flow.md %}
 
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
 
-### Stability and Reporting Bugs
+With `advanced_mode` enabled, users can use their self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. See [Self-hosted configuration](#self-hosted-configuration) for additional details.
 
-The library that talks to the Ecovacs servers is in a very early state and still under development. As such, it is likely that not all regions and devices will work at the current time.
+## Provided entities
 
-Please see the [py-sucks library documentation](https://github.com/mib1185/py-sucks) for some more information about what has been tested, and check out the GitHub issues to see if the issue you're having is known or being worked on.
+The Ecovacs integration provides a vacuum {% term entity %} for each device that is connected to your Ecovacs account.
 
-If you have an issue with the Ecovacs integration, please file a [GitHub Issue](https://github.com/home-assistant/home-assistant/issues) and include your Home Assistant logs in the report. To get full debug output from both the Ecovacs integration and the underlying `sucks` library, place this in your `configuration.yaml` file:
+Using the vacuum entity, you can monitor and control your Ecovacs Deebot vacuum.
 
-```yaml
-logger:
-  logs:
-    homeassistant.components.ecovacs: debug
-    homeassistant.components.vacuum.ecovacs: debug
-    sucks: debug
-```
+Additionally, **depending on your model**, the integration provides the following entities:
 
-**Warning**: doing this will cause your authentication token to be visible in your log files. Be sure to remove any tokens and other authentication details from your log before posting them in an issue.
-
+- **Binary sensor**:
+  - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
+- **Button**:
+  - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
+  - `Relocate`: Button entity to trigger manual relocation.
+- **Event**:
+  - `Last job`: Provides the stop reason as event_type
+- **Image**:
+  - `Map`: The floorplan/map as an image in SVG format.
+- **Number**:
+  - `Clean count`: Set the number of times to clean the area.
+  - `Volume`: Set the volume.
+- **Select**:
+  - `Water amount`: Specify the water amount used during cleaning with the mop.
+  - `Work mode`: Specify the mode, how the bot should clean.
+- **Sensor**:
+  - `Error`: The error code and a description of the error. `0` means no error. Disabled by default.
+  - `Lifespan`: For each supported component, an entity with the remaining lifespan will be created.
+  - `Network`: The following network related entities will be created. All disabled by default.
+    - `Ip address`
+    - `Wi-Fi RSSI`
+    - `Wi-Fi SSID`
+  - `Cleaning cycle`:
+    - `Area`: The cleaned area
+    - `Time`: The cleaned time
+  - `Total statistics`: Updated after each cleaning cycle:
+    - `Area`: Total cleaned area
+    - `Cleanings`: The number of cleanings
+    - `Time`: The total cleaning time
+- **Switch**:
+  - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Border switch`: Enable border switch. Disabled by default.
+  - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.
+  - `Child lock`: Enable child lock. Disabled by default.
+  - `Move up warning`: Enable device move up warning. Disabled by default.
+  - `Cross map border warning`: Enable warning for crossing the map border. Disabled by default.
+  - `Continuous cleaning`: Enable continuous cleaning, which means the bot resumes the cleaning job if he needs to charge in between. Disabled by default.
+  - `Safe protect`: Enable "Safe protect" feature. Disabled by default.
+  - `True detect`: Enable "True detect" feature. Disabled by default.
 
 ## Vacuum
 
 The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Deebot vacuums.
-
-### Service `vacuum.start`
-
-Start a new cleaning task.
-
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
-
-### Service `vacuum.stop`
-
-Stop the current cleaning task and return to the dock.
-
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
-
-### Service `vacuum.pause`
-
-Pause a cleaning task.
-
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
-
-### Service `vacuum.clean_spot`
-
-Begin a spot cleaning operation.
-
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
-
-### Service `vacuum.locate`
-
-Locate the vacuum.
-
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
-
-### Service `vacuum.set_fan_speed`
-
-Pause a cleaning task.
-
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
-| `fan_speed`               |      no  | Fan speed. Values are `normal` or `high`.                               |
-
-### Service `vacuum.return_to_base`
-
-Return to charging base/dock immediately.
-
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
 ### Integration lifespan
 
@@ -186,3 +138,16 @@ Alternatively, you can use the `ecovacs_error` event to watch for errors. This e
 ```
 
 Finally, if a vacuum becomes unavailable (usually due to being idle and off its charger long enough for it to completely power off,) the vacuum's `status` attribute will change to `offline` until it is turned back on.
+
+## Self-hosted configuration
+
+Depending on your setup of the self-hosted instance, you can connect to the server using the following settings:
+- `Username`: Enter the email address configured in your instance. If authentication is disabled, you can enter any valid email address.
+- `Password`: Enter the password configured in your instance. If authentication is disabled, you can enter any string (series of characters).
+- `REST URL`: http://`SELF_HOSTED_INSTANCE`:8007
+- `MQTT URL`: mqtts://`SELF_HOSTED_INSTANCE`:8883
+- `Verify MQTT SSL certificate`: disabled
+
+Replace `SELF_HOSTED_INSTANCE` with either the IP address or the hostname of your instance.
+
+The above configuration is based on the information from [Bumper's documentation](https://bumper.readthedocs.io).

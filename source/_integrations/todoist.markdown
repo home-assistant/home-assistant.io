@@ -19,7 +19,7 @@ ha_config_flow: true
 This platform allows you to connect to your [Todoist projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every 15 minutes.
 
 
-A calendar entity will be `on` if you have a task due in that project. It will be `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. 
+A calendar entity will be `on` if you have a task due in that project. It will be `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all.
 
 ## Prerequisites
 
@@ -194,3 +194,15 @@ Here are two example JSON payloads resulting in the same task:
   Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
 
 - **reminder_date** (*Optional*): When should the user be reminded of this task, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format (in UTC timezone). Mutually exclusive with `reminder_date_string`.
+
+## Related topics
+
+- [Todoist projects](https://todoist.com)
+- [Calendar](/integrations/calendar/)
+
+## To-do list
+
+- [To-do list integration documentation](/integrations/todo)
+- [List of to-do list integrations](/integrations/#to-do-list)
+- [To-do list card](/dashboards/todo-list/)- 
+- [Dashboards](/dashboards/dashboards/)

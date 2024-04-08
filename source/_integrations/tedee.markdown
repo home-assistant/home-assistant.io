@@ -11,11 +11,12 @@ ha_config_flow: true
 ha_domain: tedee
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - lock
   - sensor
 ha_codeowners:
-  - '@zweckj'
   - '@patrickhilker'
+  - '@zweckj'
 ha_integration_type: integration
 ---
 
@@ -25,6 +26,7 @@ This integration interacts with your [Tedee](https://tedee.com) locks by communi
 
 - You will need the bridge to add your locks using this integration.
 - You need to have the local API enabled.
+- The bridge firmware needs to be at least version `2.2.18086` for push updates to work without errors.
 
 If you do not own the bridge, you can still add your locks to Home Assistant through the [HomeKit device integration](/integrations/homekit_controller.markdown). Communication will happen over Bluetooth in that case, and features will be limited.
 
@@ -47,4 +49,4 @@ We have three binary sensors: One that indicates whether the battery is currentl
 
 ## Sensors
 
-The integration currently offers two sensors: A battery sensor, indicating the charge of your lock, and a "pull spring duration" sensor, indicating how long (in seconds) your latch will stay pulled after a pull operation (if supported). 
+The integration currently offers two sensors: A battery sensor, indicating the charge of your lock, and a "pull spring duration" sensor, indicating how long (in seconds) your latch will stay pulled after a pull operation (if supported).

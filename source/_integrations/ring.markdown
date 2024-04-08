@@ -3,6 +3,7 @@ title: Ring
 description: Instructions on how to integrate your Ring.com devices within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Camera
   - Doorbell
   - Light
@@ -12,9 +13,11 @@ ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: ring
+ha_quality_scale: silver
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
   - diagnostics
   - light
@@ -31,9 +34,12 @@ The Ring integration allows you to integrate your [Ring.com](https://ring.com/) 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Camera](#camera)
+  - [Saving the videos captured by your Ring Door Bell](#saving-the-videos-captured-by-your-ring-door-bell)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Light](#light)
 
 <p class='note'>
 This integration does NOT allow for live viewing of your Ring camera within Home Assistant.
@@ -45,6 +51,10 @@ This integration does NOT allow for live viewing of your Ring camera within Home
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Currently, it supports doorbell, external chimes and stickup cameras.
 
+## Button
+
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the button platform. Currently, it supports intercom to open the door.
+
 ## Camera
 
 <div class='note'>
@@ -53,7 +63,7 @@ Please note that downloading and playing Ring video will require a Ring Protect 
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform. Currently, it supports doorbell and stickup cameras.
 
-## Saving the videos captured by your Ring Door Bell
+### Saving the videos captured by your Ring Door Bell
 
 You can save locally the latest video captured by your Ring Door Bell using the [downloader](/integrations/downloader) along with either an [automation](/integrations/automation) or [python_script](/integrations/python_script). First, enable the [downloader](/integrations/downloader) integration in your configuration by adding the following to your `configuration.yaml`.
 

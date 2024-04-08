@@ -1,6 +1,6 @@
 ---
 title: DTE Energy Bridge
-description: Instructions on how to setup DTE Energy Bridge with Home Assistant.
+description: Setup early-model DTE Energy Bridge with Home Assistant.
 ha_category:
   - Energy
 ha_release: 0.21
@@ -11,17 +11,19 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-A sensor platform for the [DTE](https://www.newlook.dteenergy.com/) Energy Bridge. To find out which version of the DTE Energy Bridge sensor you have, find the status LED on your box.
+A sensor platform for [DTE](https://www.newlook.dteenergy.com/) using an early model of the Energy Bridge. To find out which version of the DTE Energy Bridge you have, find the status LED on your box.
 
  - If the status LED is on the top, you have a v1.
  - If the status LED is on the front, you have a v2.
 
 <div class='note'>
 
-The firmware of the DTE v2 bridges that started shipping circa mid-2020 will not work with this integration.
+The firmware of the DTE v2 bridges that started shipping circa mid-2020 will not work with this integration. This includes the model containing integrated Wi-Fi.
 
 You can check if your firmware is still supported by trying accessing `http://{ip_address}:8888/zigbee/se/instantaneousdemand`, and see if
 you get a response.
+
+Later model DTE Energy Bridge hardware uses [MQTT](https://www.home-assistant.io/integrations/mqtt/) to communicate your energy data with Home Assistant.
 
 </div>
 

@@ -122,7 +122,7 @@ See [supported engines](/integrations/recorder/#custom-database-engines) for whi
 
 The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified.
 
-There is no explicit configuration required for attributes. The integration will set all additional columns returned by the query as attributes. 
+There is no explicit configuration required for attributes. The integration will set all columns returned by the query as attributes.
 
 Note that in all cases only the first row returned will be used.
 

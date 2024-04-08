@@ -68,7 +68,7 @@ This service will play the Lost iPhone sound on your iDevice. It will still ring
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `account`                 |       no | E-mail address of the iCloud account                    |
+| `account`                 |       no | Email address of the iCloud account                    |
 | `device_name`             |       no | Human Friendly device name like Bob's iPhone            |
 
 ### Service `icloud.display_message`

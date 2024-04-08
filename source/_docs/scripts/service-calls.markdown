@@ -28,7 +28,7 @@ Instead of targeting an entity, you can also target an {% term area %} or {% ter
 This is done with the `target` key.
 
 A `target` is a map that contains at least one of the following: `area_id`, `device_id`, `entity_id`.
-Each of these can be a list.
+Each of these can be a list. The values should be lower-cased.
 
 The following example uses a single service call to turn on the lights in the
 living room area, 2 additional light devices and 2 additional light entities:
@@ -80,7 +80,7 @@ entity_id: switch.ac
 ### Using the Services Developer Tool
 
 You can use the Services Developer Tool to test data to pass in a service call.
-For example, you may test turning on or off a 'group' (See [groups] for more info)
+For example, you may test turning on or off a 'group' (See [groups](/integrations/group/) for more info)
 
 To turn a group on or off, pass the following info:
 

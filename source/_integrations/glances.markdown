@@ -18,26 +18,16 @@ The `glances` integration allows you to monitor the system information provided 
 
 ## Setup
 
+<div class='note warning'>
+
+  Support for Glances api version 2 is deprecated. It is recommended to upgrade your Glances server to version 3. Once upgraded, reload the integration to connect again.
+
+</div>
+
 These sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3.
-To start a Glances RESTful API server on its default port 61208 then test you can use the following command:
-
-```bash
-$ sudo glances -w
-Glances web server started on http://0.0.0.0:61208/
-```
-
-Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/3`. Don't use `-s` as this will start the XML-RPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
-
-The details about your memory usage is provided as a JSON response. If so, you are good to proceed.
-
-```bash
-$ curl -X GET http://IP_ADDRESS:61208/api/3/mem/free
-{"free": 203943936}
-```
-
-If this doesn't work, try changing the `3` to `2`, if you don't have the latest version of Glances installed.
 
 For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).  
+
 
 {% include integrations/config_flow.md %}
 
@@ -73,5 +63,6 @@ Glances integration will add the following sensors if available in the platform:
   - processor_use: The load on the GPU processor in percent.
   - temperature: The temperature that the GPU reports, in degrees Celsius.
   - fan_speed: The speed of the GPU fan, in percent.
+- uptime: The server uptime.
 
 Not all platforms are able to provide all metrics. For instance the GPU sensors require installing the py3nvml Python package, and the cpu temp sensor requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.

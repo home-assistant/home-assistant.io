@@ -12,6 +12,7 @@ ha_codeowners:
   - '@erwindouna'
 ha_domain: fastdotcom
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

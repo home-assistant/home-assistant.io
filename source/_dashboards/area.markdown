@@ -5,7 +5,7 @@ sidebar_label: Area
 description: "The area card gives control of your entities in a specified area."
 ---
 
-The area card lets you control and monitor an individual area.
+The area card lets you control and monitor an individual {% term area %}.
 
 <p class='img'>
   <img src='/images/dashboards/area-card.png' alt='Screenshot of the area card'>
@@ -16,9 +16,9 @@ The area card lets you control and monitor an individual area.
 
 All options for this card can be configured via the user interface.
 
-Buttons will appear on the card for the entities in the area including fan, light and switch. A motion sensor icon will appear in the top left if a motion sensor is in the area and motion is detected by the motion sensor.
+Buttons will appear on the card for the {% term entities %} in the area including fan, light, and switch. A motion sensor icon will appear in the top left if a motion sensor is in the area and if motion is detected by the motion sensor.
 
-If a camera is added to the area you can show the camera feed instead of the area picture.
+If a camera is added to the {% term area %} you can show the camera feed instead of the area picture.
 
 ## YAML configuration
 
@@ -56,6 +56,16 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+alert_classes:
+  required: false
+  type: list
+  default: "moisture, motion"
+  description: A list of binary sensor device classes which will populate alert icons in the card when the state is on.
+sensor_classes:
+  required: false
+  type: list
+  default: "temperature, humidity"
+  description: A list of sensor device classes which will display their averaged sensor readings for the area. 
 {% endconfiguration %}
 
 ### Example
@@ -76,3 +86,8 @@ navigation_path: my_bedroom
 show_camera: true
 theme: green
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

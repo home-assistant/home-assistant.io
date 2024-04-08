@@ -267,3 +267,9 @@ state_image:
   "off": /local/living_room_off.png
 entity: group.living.room
 ```
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

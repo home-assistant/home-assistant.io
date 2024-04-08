@@ -34,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Button](#button)
 - [Image](#image)
 - [Presence detection](#presence-detection)
+- [Services](#services)
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
@@ -72,13 +73,16 @@ Use the **Power cycle PoE** button entity to power cycle one specific PoE port t
 
 Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch, the PoE supply is not affected.
 
+### WLAN regenerate password
+Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **It will be randomly generated with 20 characters, consisting of lowercase letters, uppercase letters, and digits.**
+
 ## Image
 
 Provides QR Code images that can be scanned to easily join a specific WLAN. Entities are disabled by default. This feature requires admin privileges.
 
 ## Presence detection
 
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://ui.com/consoles) application. By default devices are marked as away 300 seconds after they were last seen.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://ui.com/cloud-gateways) application. By default devices are marked as away 300 seconds after they were last seen.
 
 ### Troubleshooting and Time Synchronization
 
@@ -151,6 +155,13 @@ Get entities reporting the general temperature of a UniFi Network device.
 ### Device state
 
 Get entities reporting the current state of a UniFi Network device.
+
+### WLAN password sensor
+
+Provides the current password for a specific WLAN. It allows users to access the password for various purposes, such as sharing with guests or configuring devices manually. As this exposes the password in clear text it is only recommended to utilize this in scenarios where the QR Code is not sufficient. 
+
+- Entity is disabled by default.
+- This feature requires admin privileges.
 
 ## Firmware updates
 

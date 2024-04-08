@@ -7,11 +7,13 @@ no_toc: true
 
 Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script integration] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
 
-When the script is executed within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
+When the script is executed within an {% term automation %}, the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
-The script syntax basic structure is a list of key/value maps that contain actions. If a script contains only 1 action, the wrapping list can be omitted.
+## Script syntax
 
-All actions support an optional `alias`.
+The script syntax basic structure is a list of key/value maps that contain {% term actions %}. If a script contains only 1 {% term action %}, the wrapping list can be omitted.
+
+All {% term actions %} support an optional `alias`.
 
 ```yaml
 # Example script integration containing script syntax
@@ -31,9 +33,9 @@ script:
 
 {{ page.content | markdownify | toc_only }}
 
-## Call a Service
+## Call a service
 
-The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
+The most important one is the action to call a {% term service %}. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
 
 ```yaml
 - alias: "Bedroom lights on"
@@ -44,9 +46,9 @@ The most important one is the action to call a service. This can be done in vari
     brightness: 100
 ```
 
-### Activate a Scene
+### Activate a scene
 
-Scripts may also use a shortcut syntax for activating scenes instead of calling the `scene.turn_on` service.
+Scripts may also use a shortcut syntax for activating {% term scenes %} instead of calling the `scene.turn_on` service.
 
 ```yaml
 - scene: scene.morning_living_room
@@ -54,7 +56,7 @@ Scripts may also use a shortcut syntax for activating scenes instead of calling 
 
 ## Variables
 
-The variables action allows you to set/override variables that will be accessible by templates in actions after it. See also [script variables] for how to define variables accessible in the entire script.
+The variables {% term action %} allows you to set/override variables that will be accessible by templates in {% term action %} after it. See also [script variables] for how to define variables accessible in the entire script.
 
 {% raw %}
 
@@ -91,11 +93,11 @@ Variables can be templated.
 
 {% endraw %}
 
-### Scope of Variables
+### Scope of variables
 
 Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
 
-Inside the `if` sequence the `variables` action will only alter the `people` variable for that sequence.
+Inside the `if` sequence the `variables` {% term action %} will only alter the `people` variable for that sequence.
 
 {% raw %}
 
@@ -125,13 +127,13 @@ sequence:
 
 {% endraw %}
 
-## Test a Condition
+## Test a condition
 
-While executing a script you can add a condition in the main sequence to stop further execution. When a condition does not return `true`, the script will stop executing. There are many different conditions which are documented at the [conditions page].
+While executing a script you can add a condition in the main sequence to stop further execution. When a condition does not return `true`, the script will stop executing. For documentation on the many different conditions refer to the [conditions page].
 
 <div class='note'>
 
-The `condition` action only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#choose-a-group-of-actions) action, only the actions within that `choose` will stop.
+The `condition` {% term action %} only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#choose-a-group-of-actions) action, only the {% term actions %} within that `choose` will stop.
 
 </div>
 
@@ -204,11 +206,11 @@ All forms accept templates.
 
 ## Wait
 
-These actions allow a script to wait for entities in the system to be in a certain state as specified by a template, or some event to happen as expressed by one or more triggers.
+These {% term actions %} allow a script to wait for entities in the system to be in a certain state as specified by a template, or some event to happen as expressed by one or more triggers.
 
 ### Wait for a template
 
-This action evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
+This {% term action %} evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
 
 The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) integration that will update minutely or daily.
 
@@ -224,7 +226,7 @@ The template is re-evaluated whenever an entity ID that it references changes st
 
 ### Wait for a trigger
 
-This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires. All previously defined [trigger variables](/docs/automation/trigger#trigger-variables), [variables](#variables) and [script variables] are passed to the trigger.
+This {% term action %} can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires. All previously defined [trigger variables](/docs/automation/trigger#trigger-variables), [variables](#variables) and [script variables] are passed to the trigger.
 {% raw %}
 
 ```yaml
@@ -324,9 +326,9 @@ This can be used to take different actions based on whether or not the condition
 ```
 {% endraw %}
 
-## Fire an Event
+## Fire an event
 
-This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the logbook.
+This {% term action %} allows you to fire an event. Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the logbook.
 
 ```yaml
 - alias: "Fire LOGBOOK_ENTRY event"
@@ -356,7 +358,7 @@ The `event_data` accepts templates.
 
 ### Raise and Consume Custom Events
 
-The following automation example shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
+The following {% term automation %} example shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The {% term action %} part could be inside a script or an {% term automation %}.
 
 ```yaml
 - alias: "Fire Event"
@@ -370,7 +372,7 @@ The following automation example shows how to raise a custom event called `event
         state: "on"
 ```
 
-The following automation example shows how to capture the custom event `event_light_state_changed` with an [Event Automation Trigger](/docs/automation/trigger#event-trigger), and retrieve corresponding `entity_id` that was passed as the event trigger data, see [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data) for more details.
+The following {% term automation %} example shows how to capture the custom event `event_light_state_changed` with an [Event Automation Trigger](/docs/automation/trigger#event-trigger), and retrieve corresponding `entity_id` that was passed as the event trigger data, see [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data) for more details.
 
 {% raw %}
 
@@ -389,7 +391,7 @@ The following automation example shows how to capture the custom event `event_li
 
 ## Repeat a group of actions
 
-This action allows you to repeat a sequence of other actions. Nesting is fully supported.
+This {% term action %} allows you to repeat a sequence of other {% term actions %}. Nesting is fully supported.
 There are three ways to control how many times the sequence will be run.
 
 ### Counted repeat
@@ -566,7 +568,7 @@ For example:
 
 ### Repeat loop variable
 
-A variable named `repeat` is defined within the repeat action (i.e., it is available inside `sequence`, `while` & `until`.)
+A variable named `repeat` is defined within the repeat {% term action %} (i.e., it is available inside `sequence`, `while` & `until`.)
 It contains the following fields:
 
 field | description
@@ -577,7 +579,7 @@ field | description
 
 ## If-then
 
-This action allow you to conditionally (`if`) run a sequence of actions (`then`)
+This {% term action %} allow you to conditionally (`if`) run a sequence of actions (`then`)
 and optionally supports running other sequence when the condition didn't
 pass (`else`).
 
@@ -600,13 +602,13 @@ script:
           message: "Skipped cleaning, someone is home!"
 ```
 
-This action supports nesting, however, if you find yourself using nested if-then
+This {% term action %} supports nesting, however, if you find yourself using nested if-then
 actions in the `else` part, you may want to consider using
 [choose](#choose-a-group-of-actions) instead.
 
-## Choose a Group of Actions
+## Choose a group of actions
 
-This action allows you to select a sequence of other actions from a list of sequences.
+This {% term action %} allows you to select a sequence of other {% term actions %} from a list of sequences.
 Nesting is fully supported.
 
 Each sequence is paired with a list of conditions. (See the [conditions page] for available options and how multiple conditions are handled.) The first sequence whose conditions are all true will be run.
@@ -614,7 +616,7 @@ An _optional_ `default` sequence can be included which will be run only if none 
 
 An _optional_ `alias` can be added to each of the sequences, excluding the `default` sequence.
 
-The `choose` action can be used like an "if/then/elseif/then.../else" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
+The `choose` {% term action %} can be used like an "if/then/elseif/then.../else" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
 
 {% raw %}
 
@@ -696,7 +698,7 @@ automation:
 
 More `choose` can be used together. This is the case of an IF-IF.
 
-The following example shows how a single automation can control entities that aren't related to each other but have in common the same trigger.
+The following example shows how a single {% term automation %} can control entities that aren't related to each other but have in common the same trigger.
 
 When the sun goes below the horizon, the `porch` and `garden` lights must turn on. If someone is watching the TV in the living room, there is a high chance that someone is in that room, therefore the living room lights have to turn on too. The same concept applies to the `studio` room.
 
@@ -753,13 +755,13 @@ automation:
 
 ## Parallelizing actions
 
-By default, all sequences of actions in Home Assistant run sequentially. This
-means the next action is started after the current action has been completed.
+By default, all sequences of {% term actions %} in Home Assistant run sequentially. This
+means the next {% term action %} is started after the current action has been completed.
 
 This is not always needed, for example, if the sequence of actions doesn't rely
 on each other and order doesn't matter. For those cases, the `parallel` action
-can be used to run the actions in the sequence in parallel, meaning all
-the actions are started at the same time.
+can be used to run the {% term actions %} in the sequence in parallel, meaning all
+the {% term actions %} are started at the same time.
 
 The following example shows sending messages out at the same time (in parallel):
 
@@ -802,32 +804,32 @@ script:
 
 <div class='note'>
 
-Running actions in parallel can be helpful in many cases, but use it with
+Running {% term actions %} in parallel can be helpful in many cases, but use it with
 caution and only if you need it.
 
 There are some caveats (see below) when using parallel actions.
 
 While it sounds attractive to parallelize, most of the time, just the regular
-sequential actions will work just fine.
+sequential {% term actions %} will work just fine.
 
 </div>
 
-Some of the caveats of running actions in parallel:
+Some of the caveats of running {% term actions %} in parallel:
 
-- There is no order guarantee. The actions will be started in parallel, but
+- There is no order guarantee. The {% term actions %} will be started in parallel, but
   there is no guarantee that they will be completed in the same order.
-- If one action fails or errors, the other actions will keep running until
+- If one {% term action %} fails or errors, the other {% term actions %} will keep running until
   they too have finished or errored.
-- Variables created/modified in one parallelized action are not available
-  in another parallelized action. Each step in a parallelized has its own scope.
+- Variables created/modified in one parallelized {% term action %} are not available
+  in another parallelized {% term action %}. Each step in a parallelized has its own scope.
 
 ## Stopping a script sequence
 
 It is possible to halt a script sequence at any point and return script responses
-using the `stop` action.
+using the `stop` {% term action %}.
 
-The `stop` action takes a text as input explaining the reason for halting the
-sequence. This text will be logged and shows up in the automations and
+The `stop` {% term action %} takes a text as input explaining the reason for halting the
+sequence. This text will be logged and shows up in the {% term automations %} and
 script traces.
 
 `stop` can be useful to halt a script halfway through a sequence when,
@@ -847,7 +849,7 @@ response data must contains a mapping of key/value pairs.
 ```
 
 There is also an `error` option, to indicate we are stopping because of
-an unexpected error. It stops the sequence as well, but marks the automation
+an unexpected error. It stops the sequence as well, but marks the {% term automation %}
 or script as failed to run.
 
 ```yaml
@@ -857,20 +859,20 @@ or script as failed to run.
 
 ## Continuing on error
 
-By default, a sequence of actions will be halted when one of the actions in
-that sequence encounters an error. The automation or script will be halted,
-an error is logged, and the automation or script run is marked as errored.
+By default, a sequence of {% term actions %} will be halted when one of the {% term actions %} in
+that sequence encounters an error. The {% term automation %} or script will be halted,
+an error is logged, and the {% term automation %} or script run is marked as errored.
 
 Sometimes these errors are expected, for example, because you know the service
 you call can be problematic at times, and it doesn't matter if it fails.
-You can set `continue_on_error` for those cases on such an action.
+You can set `continue_on_error` for those cases on such an {% term action %}.
 
-The `continue_on_error` is available on all actions and is set to
-`false`. You can set it to `true` if you'd like to continue the action
-sequence, regardless of whether that action encounters an error.
+The `continue_on_error` is available on all {% term actions %} and is set to
+`false`. You can set it to `true` if you'd like to continue the {% term action %}
+sequence, regardless of whether that {% term action %} encounters an error.
 
-The example below shows the `continue_on_error` set on the first action. If
-it encounters an error; it will continue to the next action.
+The example below shows the `continue_on_error` set on the first {% term action %}. If
+it encounters an error; it will continue to the next {% term action %}.
 
 ```yaml
 - alias: "If this one fails..."
@@ -891,8 +893,8 @@ or errors that Home Assistant does not handle.
 
 ## Disabling an action
 
-Every individual action in a sequence can be disabled, without removing it.
-To do so, add `enabled: false` to the action. For example:
+Every individual {% term action %} in a sequence can be disabled, without removing it.
+To do so, add `enabled: false` to the {% term action %}. For example:
 
 ```yaml
 # Example script with a disabled action
@@ -913,6 +915,36 @@ script:
         target:
           entity_id: light.ceiling
 ```
+
+## Respond to a conversation
+
+The `set_conversation_response` script {% term action %} allows returning a custom response
+when an {% term automation %} is triggered by a conversation engine, for example a voice
+assistant. The conversation response can be templated.
+
+{% raw %}
+
+```yaml
+# Example of a templated conversation response resulting in "Testing 123"
+- variables:
+    my_var: "123"
+- set_conversation_response: "{{ 'Testing ' + my_var }}":
+```
+
+{% endraw %}
+
+The response is handed to the conversation engine when the {% term automation %} finishes. If
+the `set_conversation_response` is executed multiple times, the most recent
+response will be handed to the conversation engine. To clear the response, set it
+to `None`:
+
+```yaml
+# Example of a clearing a conversation response
+set_conversation_response: ~
+```
+
+If the {% term automation %} was not triggered by a conversation engine, the response
+will not be used by anything.
 
 [Script integration]: /integrations/script/
 [automations]: /docs/automation/action/
