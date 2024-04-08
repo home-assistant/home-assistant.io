@@ -112,7 +112,7 @@ Known supported devices:
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list by clicking on the **Edit** link at the bottom of this page.
 
-If you are using VLANs, the Home Assistant needs access to the following port on the AVR: 23, 8080 and 60006 (all TCP).
+If you are using VLANs, Home Assistant needs access to the following ports on the AVR: 23, 8080 and 60006 (all TCP).
 
 <div class='note warning'>
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
