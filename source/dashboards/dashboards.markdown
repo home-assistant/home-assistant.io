@@ -70,6 +70,15 @@ This will leave the default dashboard intact.
      - To continue, in the dialog, select the three dots menu, then select **Take control**.
 7. You can now [add a card](/dashboards/cards/#adding-cards-to-your-dashboard) or [add a view](/dashboards/views/#adding-a-view-to-a-dashboard).
 
+## Deleting a dashboard
+
+If you do not use one of the predefined dashboards, or created a dashboard you no longer need, you can delete that dashboard. It will then no longer show in the sidebar.
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+2. From the list of dashboards, select the dashboard you want to delete.
+3. In the dialog, select **Delete**.
+   ![Deleting a dashboard](/images/dashboards/delete_dashboard.png)
+
 ## Using YAML for the Overview dashboard
 
 To change the **Overview** dashboard, create a new file `ui-lovelace.yaml` in your configuration directory and add the following section to your `configuration.yaml` and restart Home Assistant:
