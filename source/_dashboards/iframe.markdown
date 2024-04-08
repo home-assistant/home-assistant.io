@@ -7,6 +7,8 @@ description: "The webpage card allows you to embed your favorite webpage right i
 
 The webpage card allows you to embed your favorite webpage right into Home Assistant. You can also embed files stored in your `<config-directory>/www` folder and reference them using `/local/<file>`.
 
+The webpage card is used on the [Webpage dashboard](/dashboards/dashboards/#webpage-dashboard).
+
 <p class='img'>
   <img width="500" src='/images/dashboards/iframe.png' alt='Windy weather radar as Webpage'>
   Windy weather radar as webpage.
@@ -60,3 +62,4 @@ aspect_ratio: 75%
 ## Related topics
 
 - [Dashboard cards](/dashboards/cards/)
+- [Webpage dashboard](/dashboards/dashboards/#webpage-dashboard)
