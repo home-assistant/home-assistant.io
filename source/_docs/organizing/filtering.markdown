@@ -17,6 +17,8 @@ When working with tables, you can select multiple elements to apply an action on
 
 ## Filtering items in a table
 
+You can filter a table so that only items matching certain criteria are shown.
+
 1. In the top left corner above the table, select the **Filters** button.
 
     ![Select the filter button](/images/organizing/filters_01.png)
@@ -24,7 +26,17 @@ When working with tables, you can select multiple elements to apply an action on
 2. In the filters panel, select your filter criteria.
    - You can filter for [floors](/docs/organzing/floors/), [areas](/docs/organzing/areas/), [labels](/docs/organzing/labels/) and [categories](/docs/organzing/categories/) if you have previously defined them.
 
-  ![Screenshots showing the filter panel that tables can have, allowing you to easily find what you are looking for](/images/blog/2024-04/filter-panel.png)
+    ![Screenshots showing the filter panel that tables can have, allowing you to easily find what you are looking for](/images/organizing/filter-panel.png)
+
+## Grouping items in a table
+
+You can group items in a table according to certain criteria. The number of shown items stays the same. No items will be hidden.
+
+1. In the top left corner above the table, select the **Group by** button.
+2. The items will be grouped according to the criteria you chose.
+   - In the example, the items are grouped by manufacturer.
+
+    ![Select the Group by button](/images/organizing/table_group_01.png)
 
 ## Related topics
 
