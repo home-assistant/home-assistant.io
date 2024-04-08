@@ -220,7 +220,6 @@ LIMIT
 Replace `-1 day` with the target offset, for example, `-1 hour`.
 Use `state` as column for value.
 
-
 Keep in mind that, depending on the update frequency of your sensor and other factors, this may not be a 100% accurate reflection of the actual situation you are measuring. Since your database won’t necessarily have a value saved exactly 24 hours ago, use “>=” or “<=” to get one of the closest values.
 
 #### MariaDB
