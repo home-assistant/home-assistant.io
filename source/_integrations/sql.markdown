@@ -220,24 +220,17 @@ LIMIT
 Replace `-1 day` with the target offset, for example, `-1 hour`.
 Use `state` as column for value.
 
-#### for MariaDB
-Since the ```strftime``` function doesn't exist in MariaDB you need to use the following query
+#### MariaDB
+
+On MariaDB the following where clause can be used to compare the timestamp:
+
 ```sql
-SELECT
-  states.state
-FROM
-  states
-  INNER JOIN states_meta ON
-    states.metadata_id = states_meta.metadata_id
-WHERE
-  states_meta.entity_id = 'sensor.temperature_in'
-  AND last_updated_ts <= (UNIX_TIMESTAMP() - 24 * 3600)
-ORDER BY
-  last_updated_ts DESC
-LIMIT
-  1;
+...
+  AND last_updated_ts <= UNIX_TIMESTAMP(NOW() - INTERVAL 1 DAY)
+...
 ```
 
+Replace `- INTERVAL 1 DAY` with the target offset, for example, `- INTERVAL 1 HOUR`.
 Keep in mind that, depending on the update frequency of your sensor and other factors, this may not be a 100% accurate reflection of the actual situation you are measuring. Since your database won’t necessarily have a value saved exactly 24 hours ago, use “>=” or “<=” to get one of the closest values.
 
 ### Database size
