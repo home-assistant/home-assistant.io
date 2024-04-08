@@ -198,7 +198,7 @@ When these services are used in an automation, make sure the right triggers and 
 
 ## Example - post-processing
 
-The example below filters the event trigger by `entry_id`, fetches the message and stores it in `message_text` and then and marks the message in the event as seen, finally it adds a notification with the subject of the message. The `seen` service `entry_id` can be a template or literal string. In UI mode you can select the desired entry from a list as well.
+The example below filters the event trigger by `entry_id`, fetches the message and stores it in `message_text`. It then marks the message in the event as seen and finally, it adds a notification with the subject of the message. The `seen` service `entry_id` can be a template or literal string. In UI mode you can select the desired entry from a list as well.
 
 {% raw %}
 
