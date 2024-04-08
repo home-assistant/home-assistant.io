@@ -28,15 +28,17 @@ You can filter a table so that only items matching certain criteria are shown.
 
     ![Screenshots showing the filter panel that tables can have, allowing you to easily find what you are looking for](/images/organizing/filter-panel.png)
 
-## Grouping items in a table
+## Grouping and sorting items in a table
 
 You can group items in a table according to certain criteria. The number of shown items stays the same. No items will be hidden.
 
-1. In the top left corner above the table, select the **Group by** button.
+1. In the top right above the table, select the **Group by** button.
 2. The items will be grouped according to the criteria you chose.
    - In the example, the items are grouped by manufacturer.
 
     ![Select the Group by button](/images/organizing/table_group_01.png)
+
+3. To sort the items, select the **Sort by** button.
 
 ## Related topics
 
