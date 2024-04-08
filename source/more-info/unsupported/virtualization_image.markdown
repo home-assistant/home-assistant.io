@@ -1,5 +1,5 @@
 ---
-title: "Virtualized-Image"
+title: "Incorrect image for virtualization"
 description: "More information on why virtualized image marks the installation as unsupported."
 ---
 
