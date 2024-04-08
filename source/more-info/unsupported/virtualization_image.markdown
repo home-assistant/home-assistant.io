@@ -1,6 +1,6 @@
 ---
 title: "Incorrect image for virtualization"
-description: "More information on why virtualized image marks the installation as unsupported."
+description: "More information on why virtualization image marks the installation as unsupported."
 ---
 
 ## The issue
