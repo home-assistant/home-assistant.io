@@ -68,6 +68,11 @@ Yahoo also requires the character set `US-ASCII`.
 
 </div>
 
+
+### Selecting message data to include in the imap event (advanced mode)
+
+By default the IMAP event won't include neither `text` nor `headers` message data. If you want either to be included (`text` or `headers` or both) you have to manually select them in the option flow.
+
 ### Selecting an alternate SSL cipher list or disabling SSL verification (advanced mode)
 
 If the default IMAP server settings do not work, you might try to set an alternate SSL cipher list.
