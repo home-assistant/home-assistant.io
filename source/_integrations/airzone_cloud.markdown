@@ -99,4 +99,4 @@ For each Airzone WebServer (HVAC Wi-Fi controller), the following *sensors* are 
 
 ## Water heater
 
-For each Airzone device a *water heater entity* is created if supported.
+For each Airzone device, a *water heater entity* is created if supported.
