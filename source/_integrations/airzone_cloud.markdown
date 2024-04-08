@@ -5,6 +5,7 @@ ha_release: 2023.6
 ha_category:
   - Binary sensor
   - Sensor
+  - Water heater
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: airzone_cloud
@@ -13,6 +14,7 @@ ha_platforms:
   - climate
   - diagnostics
   - sensor
+  - water_heater
 ha_codeowners:
   - '@Noltari'
 ha_integration_type: integration
@@ -94,3 +96,7 @@ For each Airzone WebServer (HVAC Wi-Fi controller), the following *sensors* are 
 | Condition           | Description                                        |
 | :------------------ | :------------------------------------------------- |
 | rssi                | Wi-Fi RSSI.                                        |
+
+## Water heater
+
+For each Airzone device, a *water heater entity* is created if supported.
