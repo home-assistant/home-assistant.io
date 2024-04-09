@@ -222,6 +222,18 @@ Use `state` as column for value.
 
 Keep in mind that, depending on the update frequency of your sensor and other factors, this may not be a 100% accurate reflection of the actual situation you are measuring. Since your database won’t necessarily have a value saved exactly 24 hours ago, use “>=” or “<=” to get one of the closest values.
 
+#### MariaDB
+
+On MariaDB the following where clause can be used to compare the timestamp:
+
+```sql
+...
+  AND last_updated_ts <= UNIX_TIMESTAMP(NOW() - INTERVAL 1 DAY)
+...
+```
+
+Replace `- INTERVAL 1 DAY` with the target offset, for example, `- INTERVAL 1 HOUR`.
+
 ### Database size
 
 #### Postgres

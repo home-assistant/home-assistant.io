@@ -21,15 +21,16 @@ You can group cards without using horizontal or vertical stack cards.
 
 1. If you have multiple dashboards, in the left sidebar, select the dashboard to which you want to add the sections view.
 2. [Add a new view](/dashboards/views/#adding-a-view-to-a-dashboard) and under **View type**, select **Sections**.
-3. To add a card, select the **Add card** button.
+3. Select the number of columns you want to see in the new view. Select **Save**.
+4. To add a card, select the **Add card** button.
    - Follow the [steps on adding cards](/dashboards/cards/#adding-cards-to-your-dashboard).
 
     ![Add Section button](/images/dashboards/sections_view_add-card-or-section.png)
 
-4. To add a section, select the **Create section** button.
-5. To edit the section title, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button.
+5. To add a section, select the **Create section** button.
+6. To edit the section title, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button.
    - If you leave the section title empty, this line will be hidden.
-6. To delete a section, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-trash.png" alt="Delete icon"/> button.
+7. To delete a section, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-trash.png" alt="Delete icon"/> button.
 
 ## Rearranging sections and cards
 
