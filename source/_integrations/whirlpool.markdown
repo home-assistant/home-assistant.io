@@ -28,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Supported hardware
 
-The following air conditioners are confirmed to be working, but other models that use the 6th Sense Live application may also work:
+The following appliances are confirmed to be working, but other models that use the 6th Sense Live application may also work:
 
 Climate:
 
@@ -38,6 +38,7 @@ Climate:
 Washer:
 
 - WTW6120HW2
+- MHW8630HW0
 
 Dryer:
 
