@@ -8,17 +8,17 @@ blueprint:
   domain: automation
   author: ludeeus
   homeassistant:
-    min_version: 2024.2.0
+    min_version: 2024.5.0
   input:
     devices:
-      name: Devices
-      description: The Traccar device(s) trackers you want to act upon
+      name: Device geofences
+      description: The Traccar sensor that holds the geofence you want to act upon
       selector:
         entity:
           multiple: true
           filter:
             integration: "traccar_server"
-            domain: "device_tracker"
+            domain: "sensor"
     geofence:
       name: Geofence
       description: The name of the geofence
@@ -46,7 +46,6 @@ blueprint:
 trigger:
   - platform: state
     entity_id: !input devices
-    attribute: geofence
     to: !input geofence
 condition: !input conditions
 action: !input actions
