@@ -18,6 +18,10 @@ The webpage card is used on the [Webpage dashboard](/dashboards/dashboards/#webp
 
 All options for this card can be configured via the user interface.
 
+Note that not every webpage can be embedded due to security restrictions that
+some sites have in place. These restrictions are enforced by your browser and prevent
+embedding them into a Home Assistant dashboard.
+
 <div class='note warning'>
 You can't embed sites using HTTP if you are using HTTPS for your Home Assistant.
 </div>
