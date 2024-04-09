@@ -110,10 +110,10 @@ Happy printing!
 
 ## Entities
 
-Every card is automatically creating an `event` entity which is useful for automations or to put on dashboards to see when the card was latest scanned.
+Every card automatically creates an `event` entity. This is useful for automations or for showing on dashboards to see when the card was last scanned.
 
 State is the last datetime when the card was scanned.
-`tag_id` and `device_id` is set as attributes on the entity.
+`tag_id` and `device_id` are set as attributes on the entity.
 
 ## Tag scanned events
 
