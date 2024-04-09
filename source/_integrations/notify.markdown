@@ -62,7 +62,7 @@ To test the entity platform service select the `notify.send_message` service, se
 
 Under {% my developer_services title="**Developer Tools** > **Services**" %}, select the **Notifications: Send a notification message** action. Select some target entity's using the entity selectors, enter a message and test sending it.
 
-If you switch to view the YAML data under **Developer Tools**, it will appear as below. The same {% term action %} can be chosen in {% term automation %} actions %, whose YAML will appear the same:
+If you switch to view the YAML data under **Developer Tools**, it will appear as below. The same {% term action %} can be chosen in {% term automation %}. The YAML will appear the same:
 
 {% raw %}
 
