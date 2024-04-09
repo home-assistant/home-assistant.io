@@ -3,6 +3,7 @@ title: D-Link Wi-Fi Smart Plugs
 description: Instructions on how to integrate D-Link switches into Home Assistant.
 ha_category:
   - Switch
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.14
 ha_config_flow: true
@@ -10,6 +11,7 @@ ha_dhcp: true
 ha_domain: dlink
 ha_platforms:
   - switch
+  - sensor
 ha_codeowners:
   - '@tkdrob'
 ha_integration_type: device
