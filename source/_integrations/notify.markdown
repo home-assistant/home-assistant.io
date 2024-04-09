@@ -56,7 +56,7 @@ Notifications can also be sent using [Notify groups](https://www.home-assistant.
 
 After you setup a [notifier](/integrations/#notifications), a simple way to test if you have set up your notify platform correctly is to open {% my developer_services title="**Developer tools** > **Services**" %}** tab from the sidebar. Choose your service from the **Service** dropdown menu depending on the integration you want to test, such as **Notifications: Send a persistent notification** or **Notifications: Send a notification via mobile_app_your_phone_name**. Enter your message into the **message** field, and select the **CALL SERVICE** button.
 
-To test the entity platform service select the `notify.send_message` service, select one or more of `entity`, `device`, `area` or `label` and supply a `message`.
+To test the entity platform service, select the `notify.send_message` service, and select one or more of `entity`, `device`, `area`, or `label`. Then, supply a `message`.
 
 ### Example with the entity platform notify service
 
