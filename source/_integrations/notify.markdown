@@ -44,7 +44,7 @@ Integrations can also implement the notify entity platform. Entity platform impl
 
 ## Companion app notifications
 
-A common notification integration is via the companion app for Android or iPhone. This can be chosen with the action "Send a notification via mobile_app_your_phone_name" which uses the service `notify.mobile_app_your_phone_name`. See the [companion app documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic) for lots of customization options.
+A common notification integration is via the Home Assistant Companion app for Android or iPhone. This can be chosen with the action "Send a notification via mobile_app_your_phone_name", which uses the service `notify.mobile_app_your_phone_name`. Refer to the [Companion app documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic) for lots of customization options.
 
 With any of these integrations, the `message` data input in the automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional `data` or `target` information to customize the action. For more details, refer to their integration documentation.
 
