@@ -36,7 +36,7 @@ One notification integration is automatically included, the Persistent Notificat
 
 ## Notify entity service
 
-Integrations can also implement the notify entity platform. Entity platform implementations will replace the legacy notify service in time. There is an entity platform service `sens_message` to allow you to send notification messages to multiple notify entities.
+Integrations can also implement the notify entity platform. Entity platform implementations will replace the legacy notify service in time. There is an entity platform service `send_message` which allows you to send notification messages to multiple notify entities.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
