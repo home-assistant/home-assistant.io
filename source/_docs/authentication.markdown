@@ -23,12 +23,12 @@ For the moment, other user accounts will have the same access as the owner accou
 </div>
 
 <div class="note">
-If you want to manage users and you're an owner but you do not see "Users" in your main configuration menu, make sure that "Advanced Mode" is enabled for your user in your profile.
+If you want to manage users and you're an owner but you do not see "Users" in your main configuration menu, make sure that **Advanced Mode** is enabled for your user in your profile.
 </div>
 
 ### Your account profile
 
-Once you're logged in, you can see the details of your account at the _Profile_ page by clicking on the circular at the very bottom of the sidebar.
+Once you're logged in, you can see the details of your account on the {% my profile title="**User profile**" %} page by selecting on the circular at the very bottom of the sidebar.
 
 <img src='/images/docs/authentication/profile.png' alt='Screenshot of the profile page' style='border: 0;box-shadow: none;'>
 
@@ -38,6 +38,7 @@ You can:
 - Enable or disable [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 - Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
 - Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) so scripts can securely interact with Home Assistant.
+- Define language and other locale settings.
 - Log out of Home Assistant.
 
 <div class="note">
