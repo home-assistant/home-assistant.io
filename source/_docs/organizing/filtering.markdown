@@ -24,7 +24,7 @@ You can filter a table so that only items matching certain criteria are shown.
     ![Select the filter button](/images/organizing/filters_01.png)
 
 2. In the filters panel, select your filter criteria.
-   - You can filter for [floors](/docs/organzing/floors/), [areas](/docs/organzing/areas/), [labels](/docs/organzing/labels/) and [categories](/docs/organzing/categories/) if you have previously defined them.
+   - You can filter for [floors](/docs/organizing/floors/), [areas](/docs/organizing/areas/), [labels](/docs/organizing/labels/) and [categories](/docs/organizing/categories/) if you have previously defined them.
 
     ![Screenshots showing the filter panel that tables can have, allowing you to easily find what you are looking for](/images/organizing/filter-panel.png)
 
