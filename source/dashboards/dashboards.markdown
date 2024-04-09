@@ -49,7 +49,7 @@ The predefined **To-do lists** dashboard is powered by the [To-do integration](/
 
 Another available (but not default) dashboard is the webpage dashboard. The webpage dashboard allows you to add and embed a webpage to your dashboard.
 This could be a web page from the internet or a local web page from a local
-machine or device like your router or NAS.
+machine or device like your router or NAS. The webpage dashboard uses the [webpage card](/dashboards/iframe/).
 
 <img class="no-shadow" src='/images/blog/2024-04/dashboard-webpage.png' alt='Screenshots showing addition of a new webpage dashboard to Home Assistant, embedding the Home Assistant website.'>
 
