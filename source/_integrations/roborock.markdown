@@ -156,7 +156,7 @@ We are working on adding a lot of features to the core integration. We have reve
 ### How can I clean a specific room?
 We plan to make the process simpler in the future, but for now, it is a multi-step process.
 1. Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
-2. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Roborock: Get maps**" %}. Select your vacuum as the entity. Note that room ids and names are only updated on the currently selected map, so if you don't see the rooms you expect, you should select the other map through your app or through the `load_multi_map` service.
+2. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Roborock: Get maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map. If you don't see the rooms you expect, you should select the other map through your app or through the `load_multi_map` service.
 You will get a response like this:
 ```json
 vacuum.s7_roborock:
