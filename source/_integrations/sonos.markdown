@@ -272,6 +272,13 @@ Removes an item from the queue.
 | `entity_id` | yes | String or list of `entity_id`s that will remove an item from the queue. It must be the coordinator if targeting a group.
 | `queue_position` | yes | Position in the queue to remove.
 
+### Service `sonos.partymode`
+
+Joins all Sonos speaker in the network to one group. Target Sonos device become coordinator of group.
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | The Sonos device that will become the partymode group coordinator
+
 {% raw %}
 
 ```yaml
