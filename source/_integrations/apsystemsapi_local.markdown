@@ -9,9 +9,7 @@ ha_category:
   - Energy
 ha_domain: apsystemsapi_local
 ha_platforms:
-  - number
   - sensor
-  - switch
 ha_integration_type: device
 ---
 
