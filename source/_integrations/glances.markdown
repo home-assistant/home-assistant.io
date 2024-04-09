@@ -61,7 +61,7 @@ Glances integration will add the following sensors if available in the platform:
 - For each detected raid the following sensors will be created:
   - raid_available: The number of available devices for the raid.
   - raid_used: The number of devices used by the raid.
-- For each detected network interface the following sensors will be created:
+- For each detected network interface, the following sensors will be created:
   - network_rx: Average rate of data received since last update in Megabits per second.
   - network_tx: Average rate of data sent since last update in Megabits per second.
 - For each detected GPU (video card) the following sensors will be created:
