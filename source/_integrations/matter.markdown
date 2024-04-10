@@ -138,8 +138,8 @@ This guide describes how to add a new device. This will use the Bluetooth connec
 
 1. Open The Home Assistant app on your phone.
 2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. On the **Devices** tab, select the **Add device** button.
-4. Select **Add Matter device**.
+3. On the **Devices** tab, select the **Add device** button, and select **Add Matter device**.
+4. In the dialog, select **No, it's new.**.
 5. Scan the QR-code of the Matter device with your phone camera or select **More options...** to manually enter the Commission code.
 6. Select **Add to Home Assistant**.
    - This starts the commissioning process which may take a few minutes.
@@ -150,8 +150,6 @@ This guide describes how to add a new device. This will use the Bluetooth connec
    - After entering a name, select **Continue**.
 9. Once the process is complete, select **Done**.
    - You are now redirected to the device page within Home Assistant. It is ready for use.
-
-<lite-youtube videoid="8y79Kq3QfCQ" videotitle="Add Matter device via iOS app in Home Assistant"></lite-youtube>
 
 ### To add a new device using the Android Companion app
 
@@ -166,8 +164,8 @@ This guide describes how to add a new device. This will use the Bluetooth connec
    - When prompted to **Choose an app**, make sure to select Home Assistant.
    - Once the process is complete, select **Done**, then select **Add device**.
 4. If you did not see a pop-up, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-   - On the **Devices** tab, select the **Add device** button.
-   - Select **Add Matter device**.
+   - On the **Devices** tab, select the **Add device** button, and select **Add Matter device**.
+   - In the dialog, select **No, it's new.**.
    - Scan the QR-code of the Matter device with your phone camera or select **Setup without QR-code** to manually enter the commission code.
       - This starts the commissioning process which may take a few minutes.
    - If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
@@ -177,7 +175,10 @@ This guide describes how to add a new device. This will use the Bluetooth connec
    ![image](/images/integrations/matter/matter-android-rename.png)
 7. Your device is now ready to use.
 
-<lite-youtube videoid="Fk0n0r0eKcE" videotitle="Add Matter device via Android app in Home Assistant"></lite-youtube>
+<p class='img'>
+    <img width="300" src="/images/integrations/matter/matter_android_connect_new.webp" alt="Screencast showing how to add a new Matter device to Home Assistant."/>
+    Screencast showing how to add a new Matter device to Home Assistant.
+</p>
 
 ### Troubleshooting the installation
 
