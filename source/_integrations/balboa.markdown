@@ -15,7 +15,7 @@ ha_platforms:
   - climate
   - fan
   - light
-  - switch
+  - select
 ha_codeowners:
   - '@garbled1'
   - '@natekspencer'
@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - Climate
 - Fan (Pumps/Jets)
 - Light
-- Switch (Temperature range)
+- Select (Temperature range)
 
 ## Compatible hardware
 
