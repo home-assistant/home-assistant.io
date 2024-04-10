@@ -6,8 +6,6 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.88
 ha_domain: rejseplanen
-ha_codeowners:
-  - '@DarkFox'
 ha_platforms:
   - sensor
 ha_integration_type: integration

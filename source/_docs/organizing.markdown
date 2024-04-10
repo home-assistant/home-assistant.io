@@ -5,24 +5,49 @@ description: "Organizing and grouping your assets makes it easier to find them a
 
 Once you have more devices, you may want to target entire groups of devices in automations. It also becomes more challenging to find items in lists. There are a few tools to organize your assets: [Areas](#areas), [floors](#floors), [labels](#labels), and [categories](#categories).
 
-## Areas
+| Taxonomy | Automation target | Entity can have multiple |
+| -------- | ----------------- | ------------------------ |
+| Area     | ✅                 | ❌                        |
+| Floor    | ✅                 | ❌                        |
+| Label    | ✅                 | ✅                        |
+| Category | ❌                 | ❌                        |
 
-An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world of your home. For example, the "Living room" area groups devices and entities in your living room. Areas allow you to target an entire group of devices with a service call. For example, turning off all the lights in the living room.
-Areas can be assigned to floors. Areas can also be used to automatically generate cards, such as the [Area card](/dashboards/area/).
+## Area
 
-## Floors
+- Groups {% term devices %} and {% term entities %}.
+- Can be assigned to one floor.
+- Reflects a physical area (or room) in your home.
+- Can be used in automations: Allows targeting an entire group of devices with a service call. For example, turning off all the lights in the living room.
 
-A floor in Home Assistant is a logical grouping of areas that are meant to match the physical floors in your home. {% term Devices %} and {% term entities %} cannot be assigned to floors directly but to areas. A floor has properties such as: Floor ID, name, aliases (for use in assistants), an icon, and a floor level. Some of these properties are optional. The floor level number can be negative to reflect floors below the basement. Floors can be used in automations and scripts as a target for actions. For example, to turn off all the lights on the downstairs floor when you go to bed.
+- Areas can also be used to automatically generate cards, such as the [Area card](/dashboards/area/).
+
+## Floor
+
+- Groups areas.
+- {% term Devices %} and {% term entities %} cannot be assigned to floors, but to areas only.
+- Can have multiple areas.
+- Can be used in automations and scripts as a target for actions. For example, to turn off all the lights on the downstairs floor when you go to bed.
+
+<img class="no-shadow" src='/images/organizing/floors.png' alt='Screenshots showing areas settings page, which now also shows the areas grouped by floor.'>
 
 ## Labels
 
-Labels in Home Assistant allow grouping elements irrespective of their physical location or type. Labels can be assigned to areas, devices, entities, automations, scripts, and helpers. Labels can be used in automations and scripts as a target for actions and services. Labels can also be used to filter data. For example, you can filter the list of devices to show only devices with the label `heavy energy usage` or turn these devices off when there is not a lot of solar energy available.
+- Can be assigned to areas, devices, entities, automations, scenes, scripts, and helpers.
+- Can be used in automations and scripts as a target for actions and services.
+- Labels can also be used to filter data in tables. For example, you can filter the list of devices to show only devices with the label `heavy energy usage` or turn these devices off when there is not a lot of solar energy available.
 
-## Categories
+<img class="no-shadow" src='/images/organizing/labels.png' alt='Screenshots showing the new labels assigned to automations.'>
 
-Categories allow grouping items in a table. Like labels, categories allow grouping irrespective of the items physical location. For example, on the automations page, you can create the categories “Notifications” or “NFC tags” to view your automations grouped or filtered. These categories group automations on the automation page, but have no effect anywhere else. Categories are unique for each table. The automations page can have different categories than the scene, scripts, or helpers settings page.
+## Category
+
+- Groups items in a table.
+- Categories are unique for each table. The automations page can have different categories than the scene, scripts, or helpers settings page.
+
+<img class="no-shadow" src='/images/organizing/categories.png' alt='Screenshots the new categories. Automations are grouped into their categories, making it easier to get an overview or to filter them.'>
 
 ## Related topics
 
 - [Areas](/docs/organzing/areas/)
 - [Floors](/docs/organzing/floors/)
+- [Labels](/docs/organzing/labels/)
+- [Categories](/docs/organzing/categories/)
