@@ -70,7 +70,7 @@ Water shortage - States if the water box is low on water - 'Ok' if it has not de
 
 ### Sensor
 
-Current room - What room your vacuum is currently in according to the last map update. It gives your vacuums last known location in your current selected map similar to the app.
+Current room—The room your vacuum is currently in according to the last map update. Similar to the app, this gives your vacuum's last known location in your current selected map.
 
 Cleaning area - How much area the vacuum has cleaned in its current run.  If the vacuum is not currently cleaning, how much area it has cleaned during its last run.
 
