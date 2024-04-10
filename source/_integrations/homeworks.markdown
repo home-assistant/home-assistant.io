@@ -28,3 +28,14 @@ Homeworks keypad buttons are momentary switches.  The button is pressed and rele
 {% include integrations/config_flow.md %}
 
 The protocol for automatically extracting device information from the controller isn't documented. Lights and keypads need to be added manually. This is done by configuring the integration after it has been added.
+
+## Services
+
+### Service `send_command`
+
+Send a custom command to the Lutron Homeworks controller.
+
+| Service data attribute | Optional | Example                 | Description                                         |
+| ---------------------- | -------- | ----------------------- | --------------------------------------------------- |
+| `controller_id`        | No       | `homeworks`             | The controller to which the command should be sent to. |
+| `command`              | No       | `KBP, [02:08:02:01], 1` | The command you want to send. This can either be a single command or a list of commands. |

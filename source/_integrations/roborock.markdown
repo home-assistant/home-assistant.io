@@ -156,14 +156,18 @@ We are working on adding a lot of features to the core integration. We have reve
 ### How can I clean a specific room?
 We plan to make the process simpler in the future, but for now, it is a multi-step process.
 1. Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
-2. [Enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) for this integration and reload it.
-3. Search your logs for 'Got home data' and find the attribute rooms.
-4. Write the rooms down; they have a name and 6 digit ID.
-5. Make sure the map you want the room IDs for is selected in your app. Room IDs are non-unique and will repeat if you have multiple maps.
-6. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %}. Select your vacuum as the entity and `get_room_mapping` as the command.
-7. Go back to your logs and look at the response to `get_room_mapping`. This is a list of the 6-digit IDs you saw earlier to 2-digit IDs (use the first number, for instance `16` in `[16, '14000663', 12]` ([internal room id, unique room id, room type])). In your original list of room names and 6-digit IDs, replace the 6-digit ID with its pairing 2-digit ID.
-8. Now, you have the 2-digit ID that your vacuum uses to describe a room.
-9. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
+2. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Roborock: Get maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map. If you don't see the rooms you expect, you should select the other map through your app or through the `load_multi_map` service.
+You will get a response like this:
+```json
+vacuum.s7_roborock:
+  maps:
+    - flag: 0
+      name: Downstairs
+      rooms:
+        "16": Kitchen
+        "17": Living room
+```
+3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 
 Example:
 ```yaml

@@ -15,6 +15,7 @@ ha_platforms:
   - climate
   - diagnostics
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -25,6 +26,7 @@ If your system is compatible with this integration, then you will be able access
 - [Supported hardware](#supported-hardware)
 - [Climate](#climate)
 - [Sensor](#sensor)
+- [Switch](#switch)
 
 {% include integrations/config_flow.md %}
 
@@ -61,3 +63,12 @@ This integration will add Home Assistant sensors for the following:
 |Outdoor humidity | Average humidity of all Honeywell Wireless Outdoor Sensors|
 |Indoor temperature | Current temperature as measured at the specific thermostat|
 |Indoor humidity | Current humidity as measured at the specific thermostat|
+
+## Switch
+
+The switch entity integrates the emergency heat option for each device.  If the thermostat supports emergency heat, the switch entity will be created.
+
+This integration will add a switch for the following:
+|Switch|Value|
+--- | ---
+|Emergency Heat | Activates second stage heat source as primary heat|
