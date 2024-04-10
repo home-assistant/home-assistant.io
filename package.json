@@ -13,7 +13,7 @@
     "remark-lint-ordered-list-marker-style": "^3.1.2",
     "remark-lint-ordered-list-marker-value": "^3.1.2",
     "remark-lint-prohibited-strings": "^4.0.0",
-    "remark-lint-unordered-list-marker-style": "^3.1.2",
+    "remark-lint-unordered-list-marker-style": "^4.0.0",
     "remark-stringify": "^11.0.0",
     "textlint": "^14.0.4",
     "textlint-filter-rule-comments": "^1.2.2",
