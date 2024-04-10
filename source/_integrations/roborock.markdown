@@ -135,7 +135,7 @@ You can see all the maps within your Roborock account. Keep in mind that they ar
 
 ## Dyad Entities
 
-Roborock wet/dry vacuums currently expose some entities through a Mqtt connection - it is currently cloud dependent.
+Roborock wet/dry vacuums currently expose some entities through a MQTT connection - it is currently cloud dependent.
 
 ### Sensor
 
