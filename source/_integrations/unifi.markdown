@@ -167,6 +167,18 @@ Provides the current password for a specific WLAN. It allows users to access the
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
 
+
+## Removing devices
+
+By default Home Assistant does not remove old device configurations, even if they are not present in Unifi network anymore. This can lead to an accumulation of older network clients.
+
+To manually remove a device, go to the Device Info page and select "Delete" from the Device Info menu.
+
+Only devices which have not been seen since the startup or reload of the Unifi integration can be removed.
+
+![4d4ca937-17bb-4902-9949-2ea83e3c2c0c](https://github.com/home-assistant/home-assistant.io/assets/21991867/c926f5c7-18af-47b5-b888-30cc8511d76a)
+
+
 ## Debugging integration
 
 If you have problems with the UniFi Network application or {% term integration %} you can add debug prints to the log.
