@@ -216,7 +216,7 @@ Use one of these methods if your Matter device was added to Apple Home or Google
 
 ### To share a device from Apple or Google Home
 
-To allow Home Assistant to control the Matter device that has previously been added to Google Home, follow these steps:
+To allow Home Assistant to control the Matter device that has already been added to another Matter controller, like Google Home, follow these steps:
 
 1. Open the Home Assistant app on your phone.
 2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
