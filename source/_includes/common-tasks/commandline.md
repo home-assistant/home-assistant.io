@@ -1,10 +1,5 @@
 ## Home Assistant via the command line
 
-<p class='img'>
-<img src='/images/hassio/screenshots/ssh-upgrade.png'>
-Home Assistant upgrade process from the SSH command line
-</p>
-
 On the SSH command line, you can use the `ha` command to retrieve logs, check the details of connected hardware, and more.
 
 ### Home Assistant
