@@ -38,8 +38,7 @@ If you can't see your integration listed there, you will need to restart Home As
 
 </div>
 
-## Migrating to a new system
+## Related topics
 
-The preferred way of migrating to a new system is by {% my supervisor_backups title="making a backup" %}. Once you have created the backup on the old system, you can download it to the system that is running the Home Assistant frontend. When setting up the new system, you may use the backup. Alternatively, you can upload it to your new system using the _Upload backup_ menu option of the _Backups_ menu. Then, a restore of the uploaded backup on the new system concludes the migration.
-
-If you run the container or core installation methods, you will need to manually make a backup of your configuration folder. Be aware that some of the files you need start with `.`, which is hidden by default from both `ls` (in SSH), in Windows Explorer, and macOS Finder. You'll need to ensure that you're viewing all files before you copy them.
+- [Creating and restoring backups](/common-tasks/os/#backups)
+- [Creating backups for Home Assistant Container and Core](/integrations/backup)
