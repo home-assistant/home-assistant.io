@@ -183,5 +183,5 @@ Allows to group media players together for synchronous playback. Only works on s
 The way media players are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for media players:
 
 - `tv`: Device is a television type device.
-- `speaker`: Device is speaker or stereo type device.
-- `receiver`: Device is audio video receiver type device taking audio and outputting to speakers and video to some display.
+- `speaker`: Device is a speaker or stereo type device.
+- `receiver`: Device is an audio video receiver type device taking audio and outputting to speakers and video to some displays.
