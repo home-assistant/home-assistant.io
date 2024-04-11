@@ -41,7 +41,7 @@ Once you log in with your Roborock account, the integration will automatically d
 {% include integrations/config_flow.md %}
 
 
-## Robovac Entities
+## Robovac entities
 
 Roborock devices have a variety of features that are supported on some devices but not on others. Only entities that your device supports will be added to your integration.
 
@@ -133,9 +133,9 @@ Reset air filter - The air filter is expected to be replaced every 150 hours.
 You can see all the maps within your Roborock account. Keep in mind that they are device-specific. The maps require the cloud API to communicate as the maps are seemingly stored on the cloud. If someone can figure out a way around this - contributions are always welcome.
 
 
-## Dyad Entities
+## Dyad entities
 
-Roborock wet/dry vacuums currently expose some entities through a MQTT connection - it is currently cloud dependent.
+Roborock wet/dry vacuums currently expose some entities through an MQTT connection - it is currently cloud dependent.
 
 ### Sensor
 
@@ -143,13 +143,13 @@ Status - The current status of your vacuum. This typically describes the action 
 
 Battery - The current charge of your device.
 
-Filter time left - how long until Roborock recommends cleaning/replacing your filter
+Filter time left - how long until Roborock recommends cleaning/replacing your filter.
 
-Brush time left - how long until Roborock recommends cleaning/replacing your brush
+Brush time left - how long until Roborock recommends cleaning/replacing your brush.
 
 Error - the current error of the device - if one exists - "None" otherwise.
 
-Total cleaning time - how long you have cleaned with your wet/dry vac
+Total cleaning time - how long you have cleaned with your wet/dry vacuum.
 
 
 ## FAQ
