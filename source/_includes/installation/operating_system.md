@@ -166,7 +166,7 @@ Use this method only if Method 1 does not work for you.
 
       If you are using a [Home Assistant Blue](/blue) or ODROID-N2+, you can [attach your device directly](/installation/odroid#flashing-an-odroid-n2).
 
-      If you are using an ODROID-M1S, you need to follow this guide to [boot your device into UMS mode](/common-tasks/os/#flashing-an-odroid-m1s).
+      If you are using an ODROID-M1S, you need to follow this guide to [boot your device into UMS mode](/installation/odroid#flashing-an-odroid-m1s).
     {% endif %}
 3. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
 4. Download the image to your computer.
