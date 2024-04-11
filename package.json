@@ -5,7 +5,7 @@
   "devDependencies": {
     "remark-cli": "^12.0.0",
     "remark-frontmatter": "^5.0.0",
-    "remark-lint": "^9.1.2",
+    "remark-lint": "^10.0.0",
     "remark-lint-fenced-code-flag": "^3.1.2",
     "remark-lint-heading-increment": "^3.1.2",
     "remark-lint-heading-style": "^4.0.0",
