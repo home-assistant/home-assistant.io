@@ -9,7 +9,7 @@
     "remark-lint-fenced-code-flag": "^3.1.2",
     "remark-lint-heading-increment": "^3.1.2",
     "remark-lint-heading-style": "^4.0.0",
-    "remark-lint-no-shell-dollars": "^3.1.2",
+    "remark-lint-no-shell-dollars": "^4.0.0",
     "remark-lint-ordered-list-marker-style": "^4.0.0",
     "remark-lint-ordered-list-marker-value": "^4.0.0",
     "remark-lint-prohibited-strings": "^4.0.0",
