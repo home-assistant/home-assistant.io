@@ -1,6 +1,6 @@
 ## Backups
 
-Backup of your Home Assistant, add-on data, and configuration. Backups are used to [restore](#restoring-a-backup) a system or parts of it if a rollback is needed or to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating Home Assistant.
+Backup of your Home Assistant, add-on data, and configuration. Backups are used to [restore](#restoring-a-backup) a system or parts of it if a rollback is needed or to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
 
 Backups are made from the backups panel under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. There is also a service available that allows you to trigger the creation of a backup from an automation. Backups are stored in a compressed archive file (.tar) and by default, stored locally in the `/backup` directory. 
 
