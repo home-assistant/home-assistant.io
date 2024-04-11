@@ -8,7 +8,7 @@
     "remark-lint": "^9.1.2",
     "remark-lint-fenced-code-flag": "^3.1.2",
     "remark-lint-heading-increment": "^3.1.2",
-    "remark-lint-heading-style": "^3.1.2",
+    "remark-lint-heading-style": "^4.0.0",
     "remark-lint-no-shell-dollars": "^3.1.2",
     "remark-lint-ordered-list-marker-style": "^3.1.2",
     "remark-lint-ordered-list-marker-value": "^3.1.2",
