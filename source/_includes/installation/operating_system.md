@@ -164,7 +164,7 @@ Use this method only if Method 1 does not work for you.
     {% if page.installation_type == 'odroid' %}
       If you are using ODROID-M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
 
-      If you are using a [Home Assistant Blue](/blue) or ODROID-N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
+      If you are using a [Home Assistant Blue](/blue) or ODROID-N2+, you can [attach your device directly](/installation/odroid#flashing-an-odroid-n2).
 
       If you are using an ODROID-M1S, you need to follow this guide to [boot your device into UMS mode](/common-tasks/os/#flashing-an-odroid-m1s).
     {% endif %}
@@ -184,9 +184,9 @@ Use this method only if Method 1 does not work for you.
     ```
 
     {% if variant.key == "odroid-n2" %}
-    [Guide: Flashing ODROID-N2 using OTG-USB](/hassio/flashing_n2_otg/)
+    [Guide: Flashing ODROID-N2 using OTG-USB](/installation/odroid#flashing-an-odroid-n2)
     {% elsif variant.key == "odroid-m1s" %}
-    [Guide: Flashing ODROID-M1S using OTG-USB](/hassio/flashing_m1s_otg/)
+    [Guide: Flashing ODROID-M1S using OTG-USB](/installation/odroid#flashing-an-odroid-m1s)
     {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
       *(64-bit is recommended)*
     {% endif %}
@@ -471,6 +471,13 @@ Minimum recommended assignments:
 With the Home Assistant Operating System installed and accessible, you can continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
+
+{% if page.installation_type == 'odroid' %}
+
+{% include common-tasks/flashing_n2_otg.md %}
+{% include common-tasks/flashing_m1s_otg.md %}
+
+{% endif %}
 
 [generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
