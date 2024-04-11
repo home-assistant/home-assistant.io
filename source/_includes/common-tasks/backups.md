@@ -31,7 +31,6 @@ A partial backup consists of any number of the above default directories and ins
 4. Choose **Full backup** or **Partial backup**.
    - If you choose **Partial backup**, make sure to select Home Assistant and all the folders and add-ons you want to backup or migrate.
    - Note that the number of add-ons increases the size of the backup as well as the time it takes to restore from that backup.
-   - If you did not backup an add-on, you can always reinstall it later.
 5. Optionally, enable password protection.
 6. Select **Create** to begin the backup.
 
