@@ -357,6 +357,8 @@ layout: null
 /topics/state_object /docs/configuration/state_object
 /topics/templating /docs/configuration/templating
 /common-tasks /common-tasks/os
+/common-tasks/os/#flashing-an-odroid-m1s /installation/odroid#flashing-an-odroid-m1s
+/common-tasks/os/#flashing-an-odroid-n2 /installation/odroid#flashing-an-odroid-n2
 /docs/installation /installation
 /docs/installation/docker /installation
 /docs/installation/raspberry-pi /installation
