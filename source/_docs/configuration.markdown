@@ -41,3 +41,4 @@ If you can't see your integration listed there, you will need to restart Home As
 ## Related topics
 
 - [Creating and restoring backups](/common-tasks/os/#backups)
+- [Creating backups for Home Assistant Container and Core](/integrations/backup)
