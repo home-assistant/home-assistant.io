@@ -11,7 +11,7 @@
     "remark-lint-heading-style": "^4.0.0",
     "remark-lint-no-shell-dollars": "^3.1.2",
     "remark-lint-ordered-list-marker-style": "^4.0.0",
-    "remark-lint-ordered-list-marker-value": "^3.1.2",
+    "remark-lint-ordered-list-marker-value": "^4.0.0",
     "remark-lint-prohibited-strings": "^4.0.0",
     "remark-lint-unordered-list-marker-style": "^4.0.0",
     "remark-stringify": "^11.0.0",
