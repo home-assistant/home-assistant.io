@@ -1,6 +1,8 @@
 ## Backups
 
-Backup of your Home Assistant and add-on data and configuration. They are stored in a compressed archive file (.tar). Backups are made from the backups panel under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. There is also a service available that allows you to trigger the creation of a backup from an automation. By default, backups are stored locally in the `/backup` directory.
+Backup of your Home Assistant and add-on data and configuration. Backups are used to [restore](#restoring-a-backup) a system or parts of it if a rollback is needed or to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating Home Assistant.
+
+Backups are stored in a compressed archive file (.tar). Backups are made from the backups panel under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. There is also a service available that allows you to trigger the creation of a backup from an automation. By default, backups are stored locally in the `/backup` directory.
 
 A full backup includes the following directories:
 
@@ -26,7 +28,10 @@ A partial backup consists of any number of the above default directories and ins
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} in the UI.
 2. Select the **Create backup** button in the lower right.
 3. Provide a name for the backup.
-4. Choose full or partial.
+4. Choose **Full backup** or **Partial backup**.
+   - If you choose **Partial backup**, make sure to select Home Assistant and all the folders and add-ons you want to backup or migrate.
+   - Note that the number of add-ons increases the size of the backup as well as the time it takes to restore from that backup.
+   - If you did not backup an add-on, you can always reinstall it later.
 5. Optionally, enable password protection.
 6. Select **Create** to begin the backup.
 
