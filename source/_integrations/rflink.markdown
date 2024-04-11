@@ -89,10 +89,12 @@ rflink:
 
 TCP mode allows you to connect to an RFLink device over a TCP/IP network. This is useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).
 
-To expose the USB/serial interface over TCP on a different host (Linux) the following command can be used:
+To expose the USB/serial interface over TCP on a different host (Linux) the following command can be used. The arguments are separated by spaces, further info on all arguments can be found for example [on the debian manpages](https://manpages.debian.org/stretch/socat/socat.1.en.html).
+- `/dev/ttyACM0,b57600,rawer` specifies the device location, a `b57600` 57600 baud rate and `rawer` causes socat to ignore control sequences sent via the port (i.e. it makes socat pass all information 'rawest form', rather than picking up control characters such as control-C which would close socat).
+- `TCP-LISTEN:1234,reuseaddr` listens on IPV4 on the specified port (1234, change as suits your needs), the details behind the `reuseaddr` option [are fairly complex](https://stackoverflow.com/a/3233022/1049701) but it allows faster reconnects from the client (home assistant) in case of connection drops. An important security option is `range=192.168.0.0/16`, which specifies that socat should only accept connections from a certain range of IP adresses - the /16 subnet mask specifies a range from 192.168.0.0 to 192.168.255.255. Change this as required for your LAN network. 
 
 ```bash
-socat /dev/ttyACM0,b57600,rawer TCP-LISTEN:1234,reuseaddr
+socat /dev/ttyACM0,b57600,rawer TCP-LISTEN:1234,reuseaddr,range=192.168.0.0/16
 ```
 
 Other methods of exposing the serial interface over TCP are possible (eg: ESP8266 or using Arduino Wifi shield). Essentially the serial stream should be directly mapped to the TCP stream.
