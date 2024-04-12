@@ -200,7 +200,7 @@
   link: /installation/#advanced-installation-methods
 - term: Home Assistant Core
   definition: >-
-    Home Assistant Core is the Python program at the heart of Home Assistant. It is part of all of the four installation types and can be run on various operating systems. It can be installed standalone (without Home Assistant Supervisor), using a Virtual Environment (typically referred to as Home Assistant Core installation method) or as a Container using Docker (typically referred to as Home Assistant Container installation method).
+    Home Assistant Core is the Python program at the heart of Home Assistant. It is part of all of the four installation types and can be run on various operating systems. It can be installed standalone (without Home Assistant Supervisor), using a Virtual Environment (typically referred to as Home Assistant Core installation method) or as a container using Docker (typically referred to as Home Assistant Container installation method).
   link: /installation/#advanced-installation-methods
   excerpt: >
     Home Assistant Core is the heart of Home Assistant itself. It is a Python
