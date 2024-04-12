@@ -65,7 +65,7 @@ The steps on recovering from a backup depend on the installation type and use ca
    - The restore functionality is already built-in.
    - Follow the steps described in [Restoring a backup](/common-tasks/os/#restoring-a-backup).
 2. If you use a {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %} installation:
-   - A Home Assistant backup is just a tar file of the `/config` directory, plus some metadata.
+   - A Home Assistant backup is just a tar file of the [configuration directory](/docs/configuration/#editing-configurationyaml), plus some metadata.
    - To manually restore a backup, use the following command:
 
      ```shell
