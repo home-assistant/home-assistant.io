@@ -271,7 +271,7 @@ assist_pipeline:
 ## Backup location selector
 
 This can only be used on an installation with a Supervisor (Operating System or
-Supervised). For installations of type {% term "Home Assistant Core" %} or Container, an error
+Supervised). For installations of type {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}, an error
 will be displayed.
 
 The backup location selector shows a list of places a backup could go, depending
