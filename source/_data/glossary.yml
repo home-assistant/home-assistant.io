@@ -207,7 +207,7 @@
     Core does not use the Home Assistant Supervisor.
   link: /installation/#advanced-installation-methods
   excerpt: >
-    Home Assistant Core is the hart of Home Assistant itself. It is a Python
+    Home Assistant Core is the heart of Home Assistant itself. It is a Python
     program that powers every installation type, but can be installed standalone.
 - term: Home Assistant Supervised
   definition: >-
