@@ -1645,6 +1645,69 @@ For a summary in a more readable format:
 [@oyvindwe]: https://github.com/oyvindwe
 [@rappenze]: https://github.com/rappenze
 
+## Release 2024.4.3 - April 12
+
+- Bump aiohttp to 3.9.4 ([@bdraco] - [#110730])
+- Add support for adopt data disk repair ([@mdegat01] - [#114891])
+- Improve Risco exception logging ([@OnFreund] - [#115232])
+- Configurable maximum concurrency in Risco local ([@OnFreund] - [#115226])
+- Fix misssing timeout in caldav ([@bdraco] - [#115247])
+- Fix Google Tasks parsing of remove responses ([@allenporter] - [#115258])
+- Bump forecast-solar lib to v3.1.0 ([@klaasnicolaas] - [#115272])
+- Support backup of add-ons with hyphens ([@agners] - [#115274])
+- Bump pymodbus v3.6.7 ([@janiversen] - [#115279])
+- Bump yt-dlp to 2024.04.09 ([@joostlek] - [#115295])
+- Fix Aranet failure when the Bluetooth proxy is not providing a device name ([@thecode] - [#115298])
+- Bump zha-quirks to 0.0.114 ([@TheJulianJES] - [#115299])
+- Ensure automations do not execute from a trigger if they are disabled ([@bdraco] - [#115305])
+- Bump bleak-retry-connector 3.5.0 ([@bdraco] - [#115328])
+- Secure against resetting a non active modbus ([@janiversen] - [#115364])
+- Solve modbus test problem ([@janiversen] - [#115376])
+- Fix deadlock in holidays dynamic loading ([@bdraco] - [#115385])
+- Bump whirlpool-sixth-sense to 0.18.8 ([@NodeJSmith] - [#115393])
+- Fix bug in rainbird switch when turning off a switch that is already off ([@allenporter] - [#115421])
+- Bump pybotvac to 0.0.25 ([@Santobert] - [#115435])
+- Update frontend to 20240404.2 ([@bramkragten] - [#115460])
+
+[#110730]: https://github.com/home-assistant/core/pull/110730
+[#114764]: https://github.com/home-assistant/core/pull/114764
+[#114891]: https://github.com/home-assistant/core/pull/114891
+[#114934]: https://github.com/home-assistant/core/pull/114934
+[#115186]: https://github.com/home-assistant/core/pull/115186
+[#115226]: https://github.com/home-assistant/core/pull/115226
+[#115232]: https://github.com/home-assistant/core/pull/115232
+[#115247]: https://github.com/home-assistant/core/pull/115247
+[#115258]: https://github.com/home-assistant/core/pull/115258
+[#115272]: https://github.com/home-assistant/core/pull/115272
+[#115274]: https://github.com/home-assistant/core/pull/115274
+[#115279]: https://github.com/home-assistant/core/pull/115279
+[#115295]: https://github.com/home-assistant/core/pull/115295
+[#115298]: https://github.com/home-assistant/core/pull/115298
+[#115299]: https://github.com/home-assistant/core/pull/115299
+[#115305]: https://github.com/home-assistant/core/pull/115305
+[#115328]: https://github.com/home-assistant/core/pull/115328
+[#115364]: https://github.com/home-assistant/core/pull/115364
+[#115376]: https://github.com/home-assistant/core/pull/115376
+[#115385]: https://github.com/home-assistant/core/pull/115385
+[#115393]: https://github.com/home-assistant/core/pull/115393
+[#115421]: https://github.com/home-assistant/core/pull/115421
+[#115435]: https://github.com/home-assistant/core/pull/115435
+[#115460]: https://github.com/home-assistant/core/pull/115460
+[@NodeJSmith]: https://github.com/NodeJSmith
+[@OnFreund]: https://github.com/OnFreund
+[@Santobert]: https://github.com/Santobert
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@agners]: https://github.com/agners
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@joostlek]: https://github.com/joostlek
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@mdegat01]: https://github.com/mdegat01
+[@thecode]: https://github.com/thecode
+
 [#100055]: https://github.com/home-assistant/core/pull/100055
 [#102333]: https://github.com/home-assistant/core/pull/102333
 [#102884]: https://github.com/home-assistant/core/pull/102884
