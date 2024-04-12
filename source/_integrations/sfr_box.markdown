@@ -29,6 +29,6 @@ This integration provides the following platforms:
 
 ## compatibility
 
-The integration uses the REST API, which is known to be working on models `NB4`, `NB5`, `NB6`, `NB6V` and `NB6VAC`.
+The integration uses the REST API, which is known to be available on models `NB4`, `NB5`, `NB6`, `NB6V` and `NB6VAC`.
 
 However, `NCC` models do not appear to expose this REST API, and are therefore unsupported by the integration.
