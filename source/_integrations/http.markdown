@@ -86,6 +86,11 @@ ssl_profile:
   required: false
   type: string
   default: modern
+strict_connection:
+  description: Specifies the strict connection mode. Please read the section ["Strict connection mode"](#strict-connection-mode) before changing this value. Can be one of `disabled`, `static_page` or `drop_connection`.
+  required: false
+  type: string
+  default: disabled
 {% endconfiguration %}
 
 The sample below shows a configuration entry with possible values:
@@ -120,6 +125,33 @@ http:
     - 10.0.0.200      # Add the IP address of the proxy server
     - 172.30.33.0/24  # You may also provide the subnet mask
 ```
+
+## Strict connection mode
+
+The strict connection mode specifies how the HA instance should react to unauthenticated requests.
+ **Requests from private networks are always allowed.** Make sure to set up the reverse proxy correctly; otherwise, this feature will be useless.
+
+The following modes are supported:
+- `disabled`: Strict connection mode is disabled, and all unauthenticated requests are allowed (Same as before `2024.5`).
+- `static_page`: HA will answer any unauthenticated requests with a static page, informing the user about the strict connection mode.
+- `drop_connection`: HA will drop/close the connection for any unauthenticated requests, similar to when no HA instance is running.
+
+If activated, HA will not even show the login page. To log in on a new device, the user needs to ask the instance admin for a temporary link. The instance admin can generate the link by calling the service `http.create_temporary_strict_connection_url`.
+
+### Service `http.create_temporary_strict_connection_url`
+
+This service can be used to generate a temporary link with a validity of one hour to log in on a new device when strict connection is enabled.
+It has no arguments and can only called by admins.
+
+This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+with two URLs described in detail below. 
+
+| Response data | Description | Example |
+| ---------------------- | ----------- | -------- |
+| `url` | Temporary url pointing to `login.home-assistant.io` | `https://login.home-assistant.io?u=https%3A%2F%2Fexample.com%2Fauth%2Fstrict...`
+| `direct_url` | Temporary url pointing directly to your instance | `'https://example.com/auth/strict...`
+
+We recommend using the `url` response value so the user gets a generic help page when, for example, the token is expired. Especially when the mode is set to `drop_connection`, the user will get no feedback and will not know if there is a general problem or if, for example, the token is expired.
 
 ## APIs
 
