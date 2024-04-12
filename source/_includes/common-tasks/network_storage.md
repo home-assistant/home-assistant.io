@@ -13,7 +13,7 @@ To list all your currently connected network storages, go to **{% my storage tit
 
 <div class='note'>
 
-  You need to make sure you run a supported Home Assistant Supervised installation with the latest version of the [os-agent](https://github.com/home-assistant/os-agent). Make sure that your supervisor uses [slave bind propagation](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation) for the data volume.
+  You need to make sure you run a supported {% term "Home Assistant Supervised" %} installation with the latest version of the [os-agent](https://github.com/home-assistant/os-agent). Make sure that your supervisor uses [slave bind propagation](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation) for the data volume.
 
 </div>
 

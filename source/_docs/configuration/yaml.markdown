@@ -65,8 +65,8 @@ sensor:
 
 ### Environment variables
 
-On Home Assistant Core installations, you can include values from your system's environment variables with `!env_var`.
-Note that this will only work for Home Assistant Core installations, in a scenario where it is possible to specify these.
+On {% term "Home Assistant Core" %}  installations, you can include values from your system's environment variables with `!env_var`.
+Note that this will only work for {% term "Home Assistant Core" %}  installations, in a scenario where it is possible to specify these.
 Regular Home Assistant users are recommended to use `!include` statements instead.
 
 ```yaml

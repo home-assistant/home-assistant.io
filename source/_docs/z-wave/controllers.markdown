@@ -89,8 +89,8 @@ On Raspberry Pi 3 and 4, you need to disable the on-board Bluetooth since the bo
 
 For both processes below you will need to insert your SD card into your PC and open the configuration file with your favorite text editor.
 
-- If you are using Home Assistant Operating System, once you mounted the disk, you will see the `config.txt` directly in the root directory.
-- If you are using Home Assistant Supervised, the config file is stored in the boot folder: `/boot/config.txt`.
+- If you are using {% term "Home Assistant Operating System" %}, once you mounted the disk, you will see the `config.txt` directly in the root directory.
+- If you are using {% term "Home Assistant Supervised" %}, the config file is stored in the boot folder: `/boot/config.txt`.
 
 #### Raspberry Pi 5 procedure
 
