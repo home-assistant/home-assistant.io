@@ -74,20 +74,6 @@ The steps on recovering from a backup depend on the installation type and use ca
 3. If you migrate from a {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %} installation to {% term "Home Assistant Operating System" %}:
    - You can use these backup files during [onboarding](/getting-started/onboarding/) to recover your installation from backup.
 
-## Manual configuration
-
-The backup integration is enabled by default. If you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration, the backup functionality won't be available. Follow these steps to re-enable the backup integration.
-
-1. In your [configuration file](/docs/configuration/), re-add the following entry:
-
-    ```yaml
-    # Example configuration.yaml entry
-    backup:
-    ```
-
-2. Go to {% my system_dashboard title="**Settings**" %} and in the top right corner, select the three dots menu and select **Restart** > **Restart Home Assistant**.
-   - **Result**: When it has started up again, you will find a new **Backup** entry under ({% my backup title="**Settings** > **System** > **Backups**" %}**).
-   - The backup files are stored in a new **backups** subdirectory in the root of your configuration directory, `/config/backups/`.
 
 ## Related topics
 
