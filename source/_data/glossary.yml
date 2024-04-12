@@ -200,7 +200,7 @@
   link: /installation/#advanced-installation-methods
 - term: Home Assistant Core
   definition: >-
-    Home Assistant Core is the Python program at the heart of Home Assistant. It is part of all of the four installation types and can be run on various operating systems. Home Assistant Core is also the name of an installation method. It can be installed standalone (without Home Assistant Supervisor), using a Virtual Environment or Docker.
+    Home Assistant Core is the Python program at the heart of Home Assistant. It is part of all of the four installation types and can be run on various operating systems. It can be installed standalone (without Home Assistant Supervisor), using a Virtual Environment (typically referred to as Home Assistant Core installation method) or as a Container using Docker (typically referred to as Home Assistant Container installation method).
   link: /installation/#advanced-installation-methods
   excerpt: >
     Home Assistant Core is the heart of Home Assistant itself. It is a Python
@@ -208,7 +208,7 @@
 - term: Home Assistant Supervised
   definition: >-
     Home Assistant Supervised is a full UI managed home automation ecosystem that runs the Home Assistant Core program, the Home Assistant Supervisor and add-ons. It comes
-    pre-installed on Home Assistant OS, but can be installed standalone on any Linux system. 
+    pre-installed on Home Assistant OS, but can be installed standalone on Debian Linux systems.
     It leverages Docker, which is managed by the Home Assistant Supervisor.
   excerpt: >
     Home Assistant Supervised is the full Home Assistant ecosystem, without the
