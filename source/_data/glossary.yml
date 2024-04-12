@@ -196,7 +196,7 @@
   link: /hassio/installation/
 - term: Home Assistant Container
   definition: >-
-    Home Assistant Container is a standalone container-based installation of Home Assistant Core.
+    Home Assistant Container is a standalone container-based installation of Home Assistant Core. Any [OCI](https://opencontainers.org/) compatible runtime can be used, but the documentation focus is on Docker.
   link: /installation/#advanced-installation-methods
 - term: Home Assistant Core
   definition: >-
