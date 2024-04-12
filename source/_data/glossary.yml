@@ -22,7 +22,8 @@
     When triggered, the action calls a service.
   aliases:
     - actions
-  link: /docs/automation/action/ excerpt: >
+  link: /docs/automation/action/
+  excerpt: >
     Actions are used in several places in Home Assistant. As part of a script or
     automation, actions define what is going to happen once a trigger is
     activated. In scripts, an action is called *sequence*.
@@ -63,7 +64,8 @@
   excerpt: >-
     Automations in Home Assistant allow you to automatically respond to things
     that happen in and around your home.
-  link: /docs/automation/ aliases:
+  link: /docs/automation/
+  aliases:
     - automations
 - term: Backup
   definition: >-
@@ -71,7 +73,8 @@
     of your configuration. This can be used to restore your Home Assistant as
     well as migrate to a new system. The backup feature is available on some
     installation types.
-  link: /integrations/backup/ excerpt: >-
+  link: /integrations/backup/
+  excerpt: >-
     Home Assistant has built-in functionality to create files containing a copy
     of your configurations. This is available on certain installation types.
   aliases:
@@ -90,7 +93,8 @@
     the [blueprints
     exchange](https://community.home-assistant.io/c/blueprints-exchange/53) in
     the forum.
-  link: /docs/blueprint/ excerpt: >-
+  link: /docs/blueprint/
+  excerpt: >-
     A blueprint is a script or automation configuration with certain parts
     marked as configurable. This allows users to create multiple scripts or
     automations based on the same blueprint, with each having its own
@@ -119,7 +123,8 @@
     the controller downloads the device's capabilities, such as the supported
     commands and the available attributes. The controller also downloads the
     device's configuration, such as the device's name and location.
-  link: /integrations/matter/ aliases:
+  link: /integrations/matter/
+  aliases:
     - commission
   excerpt: >
     In the context of Matter devices, *commissioning* is the process of adding a
@@ -132,7 +137,8 @@
   definition: >-
     Conditions are an optional part of an automation that will prevent an action
     from firing if they are not met.
-  link: /docs/scripts/conditions/ aliases:
+  link: /docs/scripts/conditions/
+  aliases:
     - conditions
 - term: Cover
   definition: >-
@@ -203,7 +209,8 @@
     properties of entities are related to the state. Entities have optional
     attributes such as friendly name, unit of measurement, and an icon or
     picture that can be displayed in the frontend.
-  link: /docs/configuration/state_object/ excerpt: >
+  link: /docs/configuration/state_object/
+  excerpt: >
     An entity represents a sensor, actor, or function in Home Assistant.
     Entities are used to monitor physical properties or to control other
     entities. An entity is usually part of a device or a service.
@@ -212,7 +219,8 @@
 - term: Event
   definition: >-
     An event is when something happens.
-  link: /docs/configuration/events/ aliases:
+  link: /docs/configuration/events/
+  aliases:
     - events
 - term: Floor
   definition: >-
@@ -240,7 +248,8 @@
 - term: Group
   definition: >-
     Groups are a way to organize your entities into a single unit.
-  link: /integrations/group/ aliases:
+  link: /integrations/group/
+  aliases:
     - groups
 - term: HASS
   definition: >-
@@ -264,7 +273,8 @@
     Supervisor), using a Virtual Environment (typically referred to as Home
     Assistant Core installation method) or as a container using Docker
     (typically referred to as Home Assistant Container installation method).
-  link: /installation/#advanced-installation-methods excerpt: >
+  link: /installation/#advanced-installation-methods
+  excerpt: >
     Home Assistant Core is the heart of Home Assistant itself. It is a Python
     program that powers every installation type, but can be installed
     standalone.
@@ -314,7 +324,8 @@
     A device that participates in your network. If asked for the host, enter
     either the device's IP address or host name. If you don't know those, check
     the list of hosts in your router.
-  link: https://en.wikipedia.org/wiki/Host_(network) aliases:
+  link: https://en.wikipedia.org/wiki/Host_(network)
+  aliases:
     - hosts
 - term: Integration
   definition: >-
@@ -329,7 +340,8 @@
   excerpt: >
     Integrations connect and integrate Home Assistant with your devices,
     services, and more.
-  link: /integrations/ aliases:
+  link: /integrations/
+  aliases:
     - integrations
 - term: Intent
   definition: >-
@@ -343,7 +355,8 @@
     Intent is a term used with voice assistants. The intent is what Home
     Assistant thinks you want it to do when it extracts a command from your
     voice or text utterance.
-  link: https://developers.home-assistant.io/docs/intent_builtin aliases:
+  link: https://developers.home-assistant.io/docs/intent_builtin
+  aliases:
     - Intents
 - term: Label
   definition: >-
@@ -353,7 +366,7 @@
     automations and scripts as a target for actions and services. Labels can
     also be used to filter data. For example, you can filter the list of devices
     to show only devices with the label `heavy energy usage` or turn these
-    devices off when there is not a lot of solar energy available. 
+    devices off when there is not a lot of solar energy available.
   excerpt: >-
     Labels in Home Assistant allow grouping elements irrespective of their
     physical location or type. Labels can be assigned to areas, devices,
@@ -388,12 +401,14 @@
 - term: Notification
   definition: >-
     You can use notifications to send messages, pictures, and more, to devices.
-  link: /integrations/#notifications aliases:
+  link: /integrations/#notifications
+  aliases:
     - notifications
 - term: Package
   definition: >
     Packages allow you to bundle different component configurations together.
-  link: /docs/configuration/packages/ aliases:
+  link: /docs/configuration/packages/
+  aliases:
     - packages
 - term: Platform
   definition: >-
@@ -405,7 +420,8 @@
   excerpt: >
     Platforms are building blocks provided by some integrations to be used by
     other integrations.
-  link: /docs/configuration/platform_options/ aliases:
+  link: /docs/configuration/platform_options/
+  aliases:
     - platforms
 - term: Reload
   definition: >-
@@ -426,20 +442,23 @@
     Scenes capture the states you want certain entities to be. For example, a
     scene can specify that light A should be turned on and light B should be
     bright red.
-  link: /integrations/scene/ aliases:
+  link: /integrations/scene/
+  aliases:
     - scenes
 
 - term: Script
   definition: >
     Scripts are components that allow users to specify a sequence of actions to
     be executed by Home Assistant when turned on.
-  link: /docs/scripts/ aliases:
+  link: /docs/scripts/
+  aliases:
     - scripts
 - term: Sensor
   definition: >-
     Sensors return information about a thing, for instance the level of water in
     a tank.
-  link: /integrations/sensor/ aliases:
+  link: /integrations/sensor/
+  aliases:
     - sensors
 - term: Selector
   definition: >-
@@ -450,7 +469,8 @@
   excerpt: >
     Selectors are components for the user interface. Like toggle, dropdown, and
     more.
-  link: /docs/blueprint/selectors/ aliases:
+  link: /docs/blueprint/selectors/
+  aliases:
     - selectors
 - term: Service
   definition: |-
@@ -474,7 +494,8 @@
     A service carries out one specific task, for example: turn on the light in
     the living room. A service has targets and data and can be called by
     actions, a dashboard, or via voice command.
-  link: /docs/scripts/service-calls/ aliases:
+  link: /docs/scripts/service-calls/
+  aliases:
     - services
 - term: State
   definition: |-
@@ -487,8 +508,9 @@
     the state of a light is _on_, and the related state attributes could be its
     current brightness and color values. State changes can be used as the source
     of triggers. The current state can be used in conditions.
-    
-  link: /docs/configuration/state_object/ aliases:
+
+  link: /docs/configuration/state_object/
+  aliases:
     - states
   excerpt: >
     The state holds the information of interest of an entity, for example, if a
@@ -505,7 +527,8 @@
     A template is an automation definition that can include variables for the
     service or data from the trigger values. This allows automations to generate
     dynamic actions.
-  link: /docs/automation/templating/ aliases:
+  link: /docs/automation/templating/
+  aliases:
     - templates
 
 - term: Thread
@@ -517,8 +540,9 @@
     Thread uses the same radio frequency (RF) technology as Zigbee, but provides
     IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread does not specify how
     to control devices. How Thread-enabled devices are controlled is specified
-    in a higher level protocol such as HomeKit or Matter. 
-  link: /integrations/thread/ excerpt: >
+    in a higher level protocol such as HomeKit or Matter.
+  link: /integrations/thread/
+  excerpt: >
     Thread is a low-power mesh networking standard that is specifically designed
     for smart home applications. It is a protocol that defines how devices
     communicate.
@@ -533,20 +557,21 @@
     Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod
     mini, and the Home Assistant SkyConnect together with the OpenThread Border
     Router add-on.
-  link: /integrations/thread/#about-thread-border-routers aliases:
+  link: /integrations/thread/#about-thread-border-routers
+  aliases:
     - Thread border routers
 - term: Trigger
   definition: >-
     A trigger is a set of values or conditions of a platform that are defined to
     cause an automation to run.
-  link: /docs/automation/trigger/ aliases:
+  link: /docs/automation/trigger/
+  aliases:
     - triggers
 
 - term: TTS
   definition: >-
     TTS (text-to-speech) allows Home Assistant to talk to you.
   link: /integrations/tts/
-
 
 - term: Valve
   definition: >-
@@ -563,5 +588,6 @@
 - term: Zone
   definition: >-
     Zones are areas that can be used for presence detection.
-  link: /integrations/zone/ aliases:
+  link: /integrations/zone/
+  aliases:
     - zones
