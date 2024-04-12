@@ -56,7 +56,7 @@ automation:
 
 ## Restoring a backup
 
-Backups created via the **Backup** integration are located in your `/config/backups` directory.
+Backups created via the **Backup** integration are located in your a subdirectory named `backups` which are located in your [configuration directory](/docs/configuration/#editing-configurationyaml).
 The {% term "Home Assistant Container" %} installation typically mounts this directory via `docker-compose.yml` or `docker run` to a directory of your choice.
 
 The steps on recovering from a backup depend on the installation type and use case. Follow one of these steps:
