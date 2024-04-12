@@ -329,7 +329,6 @@ layout: null
 /getting-started/automation-trigger /docs/automation/trigger
 /getting-started/automation-templating /docs/automation/templating
 /getting-started/basic /docs/configuration/basic
-/getting-started/browsers /docs/frontend/browsers
 /getting-started/customizing-devices /docs/configuration/customizing-devices
 /getting-started/installation /docs/installation
 /getting-started/installation-docker /docs/installation/docker
