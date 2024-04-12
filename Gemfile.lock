@@ -123,7 +123,7 @@ GEM
     ruby2_keywords (0.0.5)
     safe_yaml (1.0.5)
     sass (3.4.25)
-    sass-embedded (1.74.1-x86_64-linux-gnu)
+    sass-embedded (1.75.0-x86_64-linux-gnu)
       google-protobuf (>= 3.25, < 5.0)
     sass-globbing (1.1.5)
       sass (>= 3.1)
