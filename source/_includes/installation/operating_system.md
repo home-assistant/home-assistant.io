@@ -46,7 +46,7 @@ Variants without pre-installed Home Assistant:
 <div class='note'>
 <b>Prerequisites</b>
 
-This guide assumes that you have a dedicated {{ site.installation.types[page.installation_type].board }} PC to exclusively run the Home Assistant Operating System.
+This guide assumes that you have a dedicated {{ site.installation.types[page.installation_type].board }} PC to exclusively run the {% term "Home Assistant Operating System" %}.
 
 - This is typically an Intel or AMD-based system.
 - The system must be 64-bit capable and be able to boot using UEFI.
@@ -55,7 +55,7 @@ This guide assumes that you have a dedicated {{ site.installation.types[page.ins
 <b>Summary</b>
 
 1. First, you will need to configure your {{ site.installation.types[page.installation_type].board }} PC to use UEFI boot mode.
-2. Then, write the Home Assistant Operating System disk image to your boot medium.
+2. Then, write the {% term "Home Assistant Operating System" %} disk image to your boot medium.
 
 </div>
 
@@ -88,7 +88,7 @@ Typically, an internal medium like S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non
 
 To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 different methods:
 
-  **Method 1 (recommended)**: Boot Ubuntu from a USB flash drive and install the Home Assistant Operating System from there. It also works on laptops and PCs with internal hard disks.
+  **Method 1 (recommended)**: Boot Ubuntu from a USB flash drive and install the {% term "Home Assistant Operating System" %} from there. It also works on laptops and PCs with internal hard disks.
 
   **Method 2**: With this method, you write the Home Assistant Operating disk image directly onto a boot medium from your regular computer. The steps are a bit more complex. If you have non-removable internal mediums (for example because you are using a laptop) or do not have the necessary adapter (for example an USB to S-ATA adapter) use method 1 instead.
 
@@ -97,13 +97,13 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 #### Required material
 
 - Computer
-- The target x86-64 hardware, on which you want to install the Home Assistant Operating System (HAOS)
+- The target x86-64 hardware, on which you want to install the {% term "Home Assistant Operating System" %} (HAOS)
 - USB flash drive (USB thumb drive is sufficient, it should be at least 4&nbsp;GB in size)
 - Internet connection
 
 #### To install HAOS via Ubuntu from a USB flash drive
 
-1. **Notice**: This procedure will write the Home Assistant Operating System onto your device.
+1. **Notice**: This procedure will write the {% term "Home Assistant Operating System" %} onto your device.
    - This means you will lose all the data as well as the previously installed operating system.
    - Back up your data before carrying out this procedure.
 2. Create a *live operating system* on a USB flash drive:
@@ -145,7 +145,7 @@ Use this method only if Method 1 does not work for you.
 #### Required material
 
 - Computer
-- The target x86-64 hardware, on which you want to install the Home Assistant Operating System (HAOS)
+- The target x86-64 hardware, on which you want to install the {% term "Home Assistant Operating System" %} (HAOS)
 - Boot medium
 - Internet connection
 
@@ -157,7 +157,7 @@ Use this method only if Method 1 does not work for you.
 
 {% endif %}
 
-1. **Notice**: This procedure will write the Home Assistant Operating System onto your device.
+1. **Notice**: This procedure will write the {% term "Home Assistant Operating System" %} onto your device.
    - This means you will lose all the data as well as the previously installed operating system.
    - Back up your data before continuing with the next step.
 2. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.

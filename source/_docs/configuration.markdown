@@ -20,11 +20,11 @@ The path to your configuration directory can be found in the Home Assistant {% t
 Right under the version you are running, you will find what path Home Assistant has loaded the configuration from.
 ![Screenshot showing the top of the system information panel](/images/screenshots/System_information.png)
 
-_If you use Home Assistant Container, you can find `configuration.yaml` in the config folder that you mounted in your container._
+_If you use {% term "Home Assistant Container" %}, you can find `configuration.yaml` in the config folder that you mounted in your container._
 
-_If you use Home Assistant Operating System, you can find `configuration.yaml` in the `/config` folder of the installation._
+_If you use {% term "Home Assistant Operating System" %}, you can find `configuration.yaml` in the `/config` folder of the installation._
 
-_If you use Home Assistant Core, you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeassistant`)._
+_If you use {% term "Home Assistant Core" %} , you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeassistant`)._
 
 ## Reloading changes
 

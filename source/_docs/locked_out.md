@@ -9,7 +9,7 @@ or need to recover your data.
 ## Forgot user name
 
 If you’ve forgotten your username, ask the owner to help you.
-If you are using the Home Assistant Operating System and have access to the Home Assistant server, you can connect a terminal and enter the `auth list` command. This command lists all users that are registered on your Home Assistant.
+If you are using the {% term "Home Assistant Operating System" %} and have access to the Home Assistant server, you can connect a terminal and enter the `auth list` command. This command lists all users that are registered on your Home Assistant.
 
 ## Forgot password
 
