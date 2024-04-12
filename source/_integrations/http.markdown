@@ -149,7 +149,7 @@ with two URLs described in detail below.
 | Response data | Description | Example |
 | ---------------------- | ----------- | -------- |
 | `url` | Temporary url pointing to `login.home-assistant.io` | `https://login.home-assistant.io?u=https...`
-| `direct_url` | Temporary url pointing directly to your instance | `'https://example.com/auth/strict...`
+| `direct_url` | Temporary url pointing directly to your instance | `https://example.com/auth/strict...`
 
 We recommend using the `url` response value so the user gets a generic help page when, for example, the token is expired. Especially when the mode is set to `drop_connection`, the user will get no feedback and will not know if there is a general problem or if, for example, the token is expired.
 
