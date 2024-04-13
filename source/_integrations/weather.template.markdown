@@ -21,7 +21,7 @@ Output will be converted according to the user's unit system or {% term entity %
 
 To enable a Template Weather provider in your installation, add the following to your `configuration.yaml` file:
 
-(Note, be sure to update my_region in the condition and forecast templates to an appropriate value for your setup).
+(Note, be sure to update my_region in the condition of the template weather configuration and in the template sensor configuration to an appropriate value for your setup).
 
 {% raw %}
 
@@ -34,9 +34,36 @@ weather:
     temperature_template: "{{ states('sensor.temperature') | float }}"
     temperature_unit: "°C"
     humidity_template: "{{ states('sensor.humidity') | float }}"
-    forecast_daily_template: "{{ state_attr('weather.my_region', 'forecast') }}"
+    forecast_daily_template: "{{ state_attr('sensor.daily_weather_forecast', 'forecast') }}"
 ```
 
+{% endraw %}
+
+If you want to use the forecast of another weather integration, you'll need to create a trigger based template sensor and store the forecast in an attribute.
+This is an example on how you can create such a sensor which will update every 3 hours.
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: "/3"
+    action:
+      - service: weather.get_forecasts
+        target:
+          entity_id: weather.my_region
+        data:
+          type: daily
+        response_variable: forecast
+    sensor:
+       - unique_id: daily_weather_forecast_template_sensor
+         name: Daily Weather Forecast
+         state: "{{ now() }}"
+         attributes:
+           forecast: "{{ forecast['weather.my_region'].forecast }}"
+```
 {% endraw %}
 
 {% configuration %}
@@ -116,10 +143,6 @@ visibility_unit:
   description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
   required: false
   type: string
-forecast_template:
-  description: Forecast data.
-  required: false
-  type: template
 forecast_daily_template:
   description: Daily forecast data.
   required: false
