@@ -15,6 +15,8 @@ When working with tables, you can select multiple elements to apply an action on
 
    ![Selecting multiple elements in a list](/images/organizing/multiselect_01.png)
 
+3. You can now apply changes to all selected elements, such as [applying labels](/docs/organzing/labels/) or [enabling or disabling entities and automations](/common-tasks/general/).
+
 ## Filtering items in a table
 
 You can filter a table so that only items matching certain criteria are shown.
@@ -24,7 +26,7 @@ You can filter a table so that only items matching certain criteria are shown.
     ![Select the filter button](/images/organizing/filters_01.png)
 
 2. In the filters panel, select your filter criteria.
-   - You can filter for [floors](/docs/organizing/floors/), [areas](/docs/organizing/areas/), [labels](/docs/organizing/labels/) and [categories](/docs/organizing/categories/) if you have previously defined them.
+   - You can filter for [floors](/docs/organizing/floors/), [areas](/docs/organizing/areas/), [labels](/docs/organizing/labels/), and [categories](/docs/organizing/categories/) if you have previously defined them.
 
     ![Screenshots showing the filter panel that tables can have, allowing you to easily find what you are looking for](/images/organizing/filter-panel.png)
 
@@ -47,3 +49,4 @@ You can group items in a table according to certain criteria. The number of show
 - [Areas](/docs/organzing/areas/)
 - [Categories](/docs/organzing/categories/)
 - [Grouping your assets](/docs/organizing/)
+- [Enabling or disabling entities and automations](/common-tasks/general/)
