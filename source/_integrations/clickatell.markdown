@@ -24,33 +24,6 @@ Go to your [Clickatell SMS Platform Portal](https://portal.clickatell.com/#/) se
 5. Be aware of the international number format option as this impacts the structure of the phone numbers you provide.
 6. Once you have completed entering your details an API key is generated. Copy the API key.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add Clickatell to your installation, add the following to your Home Assistant `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - platform: clickatell
-    name: USER_DEFINED_NAME
-    api_key: CLICKATELL_API_KEY
-    recipient: PHONE_NO
-```
-
-{% configuration %}
-name:
-  description: Setting the optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME.
-  required: false
-  default: clickatell
-  type: string
-api_key:
-  description: Your Clicktell API key.
-  required: true
-  type: string
-recipient:
-  description: Your phone number. This is where you want to send your notification SMS messages. e.g., `61444333444`.
-  required: true
-  type: string
-{% endconfiguration %}
-
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+ Notifications can be send by using the `notify.send_message` service. To use notifications, please see the [getting started with automation page](/getting-started/automation/).
