@@ -40,11 +40,11 @@ _Consumption sensors require your Envoy to be properly configured with consumpti
 
 For Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (CT), additional features are available:
 
-- Production and consumption sensors for each phase, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
 - Sensors for net production (grid export) and net consumption (grid import) if the consumption <abbr title="current transformers">CT</abbr> is a net-consumption <abbr title="current transformers">CT</abbr>.
 - Disabled sensors for:
   
-  - Phase net production and net consumption.
+  - Production and consumption sensors for each phase, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
+  - Phase net production and net consumption, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
   - Frequency net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).
   - Voltage net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).[^1]
   - Metering status for net consumption and production <abbr title="current transformers">CT</abbr> (`normal` | `not-metering` | `check-wiring`) (aggregate and phase).
