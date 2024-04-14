@@ -59,3 +59,16 @@ Controller versions 5.1.0 and later are supported.
 - WAN Port Connect/Disconnect switches
 - LAN Port PoE activity sensor
 - Firmware Update
+
+### Device Trackers
+
+The integration can track Wi-Fi devices connected to access points managed by the TP-Link Omada controller.
+This feature is disabled by default. Use the Options panel to enable Device Trackers. You can select which
+clients to track from the list of known clients.
+
+Two types of trackers are supported:
+
+- Scanners - Track presence based on network connectivity.
+- Trackers - Track an approximate location based on the name of the nearest Wi-Fi access point.
+
+Note that the TP-Link Omada controller takes a few minutes to detect when a client disconnects from the Wi-Fi network.
