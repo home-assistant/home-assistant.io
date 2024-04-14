@@ -184,4 +184,4 @@ The way media players are displayed in the frontend can be modified in the [cust
 
 - `tv`: Device is a television type device.
 - `speaker`: Device is a speaker or stereo type device.
-- `receiver`: Device is an audio video receiver type device taking audio and outputting to speakers and video to some displays.
+- `receiver`: Device is an audio/video receiver type device taking audio and outputting to speakers and video to displays.
