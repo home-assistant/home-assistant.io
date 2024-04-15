@@ -50,6 +50,11 @@ title:
   required: false
   description: The card title.
   type: string
+allow:
+  required: false
+  description: The [Permissions Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy#iframes) of the iframe, that is, the value of the [`allow`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#allow) attribute.
+  type: string
+  default: "fullscreen"
 {% endconfiguration %}
 
 ### Examples
