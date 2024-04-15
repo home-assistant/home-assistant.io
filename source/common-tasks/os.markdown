@@ -41,7 +41,7 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
   content: |
 
     ```bash
-    ha os update --version 12.0
+    ha os update
     ```
 
     _This updates to the latest version. If you want to update to a specific version instead, use  `ha os update --version 12.0`._
