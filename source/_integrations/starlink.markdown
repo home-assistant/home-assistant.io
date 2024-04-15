@@ -2,12 +2,13 @@
 title: Starlink
 description: Instructions on how to integrate Starlink into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
-  - Device Tracker
+  - Device tracker
   - Network
   - Sensor
   - Switch
+  - Time
 ha_release: 2023.2
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -21,6 +22,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - switch
+  - time
 ha_integration_type: integration
 ha_quality_scale: silver
 ---
@@ -41,7 +43,7 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 - Downlink throughput - The amount of data being downloaded through Starlink
 - Last boot time - The time Starlink was last turned on
 
-### Binary Sensor
+### Binary sensor
 
 - Update available - Whether there is an update pending install
 - Obstructed - Whether Dishy is currently obstructed
@@ -61,7 +63,13 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 ### Switch
 
 - Stowed - Controls whether Dishy is stowed
+- Sleep schedule - Controls whether Starlink will enter a power-saving sleep mode at a predefined schedule
 
-### Device Tracker
+### Device tracker
 
 - Device location - Tracks the location of Dishy. Note you need to allow location access on the local network via the Starlink app for this to work. This is disabled by default in the Starlink app and is thus disabled by default in Home Assistant.
+
+### Time
+
+- Sleep start - The time at which Starlink will enter sleep mode, if "Sleep Schedule" is enabled
+- Sleep end - The time at which Starlink will exit sleep mode, if "Sleep Schedule" is enabled

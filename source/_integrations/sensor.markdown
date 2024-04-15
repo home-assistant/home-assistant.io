@@ -15,7 +15,7 @@ Sensors are a basic integration in Home Assistant. They monitor the states and c
 
 Some of these sensors are built-in to Home Assistant, some are created automatically when you add an integration (see this [list](/integrations/#sensor)), and some can be created manually. The [Statistics](/integrations/statistics) and [Template](/integrations/template) sensors are two examples of the last case.
 
-## Device Class
+## Device class
 
 The type of data a sensor returns impacts how it is displayed in the frontend. This is controlled by the sensor's device class designation. Built-in sensors and many created from an integration will have this designation predefined. Those can be modified in the [customize section](/docs/configuration/customizing-devices/). When manually creating a new sensor the device class may be optionally assigned. A full list of available sensor device classes is below:
 
@@ -66,10 +66,11 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
 - **voltage**: Voltage in V, mV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
+- **volume_flow_rate**: Volume flow rate in m³/h, ft³/min, L/min, gal/min
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
-- **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
+- **wind_speed**: Wind speed in Beaufort, ft/s, km/h, kn, m/s, or mph
 
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />

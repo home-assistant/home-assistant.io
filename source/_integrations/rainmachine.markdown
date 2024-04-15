@@ -2,7 +2,7 @@
 title: RainMachine
 description: Instructions on how to integrate RainMachine units within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Irrigation
   - Sensor
   - Switch
@@ -30,7 +30,7 @@ The RainMachine integration is the main integration to integrate all platforms r
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Button
 - Sensor
 - [Switch](#switch)
@@ -39,7 +39,7 @@ Note that some entities are disabled by default. If you are missing a sensor or 
 
 {% include integrations/config_flow.md %}
 
-## Configuaration Options
+## Configuration Options
 
 The integration has two configuration options: 
 

@@ -84,7 +84,7 @@ collections:
 
 #Search
 algolia:
-  api_key: "ae96d94b201c5444c8a443093edf3efb"
+  api_key: "ba6f7e6d97b3d3d2f778978c742a47c6"
 
 # Twitter
 twitter_user: balloob
@@ -108,10 +108,10 @@ social:
     account: "https://fosstodon.org/@homeassistant"
 
 # Home Assistant release details
-current_major_version: 2023
-current_minor_version: 10
+current_major_version: 2024
+current_minor_version: 4
 current_patch_version: 1
-date_released: 2023-10-06
+date_released: 2024-04-05
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -195,7 +195,7 @@ toc:
 installation:
   container: "ghcr.io/home-assistant/home-assistant"
   versions:
-    python: "3.11"
+    python: "3.12"
   types:
     odroid:
       board: ODROID
@@ -211,22 +211,19 @@ installation:
           key: "odroid-c4"
         - name: "ODROID-M1"
           key: "odroid-m1"
+        - name: "ODROID-M1S"
+          key: "odroid-m1s"
 
     raspberrypi:
       board: Raspberry Pi
       installation_media: "SD card"
       variants:
+        - name: "Raspberry Pi 5"
+          key: "rpi5-64"
         - name: "Raspberry Pi 4"
           key: "rpi4-64"
         - name: "Raspberry Pi 3"
           key: "rpi3-64"
-
-    tinkerboard:
-      board: ASUS Tinkerboard
-      installation_media: "eMMC module or SD card"
-      variants:
-        - name: "ASUS Tinkerboard"
-          key: "tinker"
 
     generic-x86-64:
       board: Generic x86-64

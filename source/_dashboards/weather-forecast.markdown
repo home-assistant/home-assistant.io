@@ -1,20 +1,20 @@
 ---
 type: card
-title: "Weather Forecast Card"
-sidebar_label: Weather Forecast
-description: "The Weather Forecast card displays the weather. Very useful to include on interfaces that people display on the wall."
+title: "Weather forecast card"
+sidebar_label: Weather forecast
+description: "The weather forecast card displays the weather. Very useful to include on interfaces that people display on the wall."
 ---
 
-The Weather Forecast card displays the weather. Very useful to include on interfaces that people display on the wall.
+The weather forecast card displays the weather. This card is particularly useful on wall-mounted displays.
 
 <p class='img'>
   <img src='/images/dashboards/weather.png' alt='Screenshot of the weather card'>
-  Screenshot of the Weather card.
+  Screenshot of the weather card.
 </p>
 
-To add the Weather card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
-## Card Settings
+## Card settings
 
 {% configuration_basic %}
 Entity:
@@ -39,9 +39,9 @@ Theme:
 
 </div>
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -102,7 +102,7 @@ forecast_type: daily
 
 ### Advanced
 
-#### Themeable Icons
+#### Themeable icons
 
 The default weather icons are themable via a [theme](/integrations/frontend/#themes). Theme variables include:
 
@@ -123,7 +123,7 @@ Example theme configuration:
 --weather-icon-rain-color: purple
 ```
 
-#### Personal Icons
+#### Personal icons
 
 Weather icons can be overwritten with your own personal images via a [theme](/integrations/frontend/#themes). Theme variables include:
 
@@ -153,3 +153,8 @@ Example theme configuration:
 ```yaml
 --weather-icon-sunny: url("/local/sunny.png")
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

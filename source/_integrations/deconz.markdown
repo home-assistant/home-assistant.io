@@ -3,7 +3,7 @@ title: deCONZ
 description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Fan
   - Hub
@@ -45,8 +45,8 @@ ha_integration_type: hub
 
 There is currently support for the following device types within Home Assistant:
 
-- [Alarm Control Panel](#alarm-control-panel)
-- [Binary Sensor](#binary-sensor)
+- [Alarm control panel](#alarm-control-panel)
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
@@ -67,7 +67,7 @@ See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/
 
 {% include integrations/config_flow.md %}
 
-Running a stand-alone instance of deCONZ (non add-on installation) requires a pairing between the deCONZ gateway and Home Assistant. To allow Home Assistant to connect with deCONZ go to the Phoscon **UI click Settings -> Gateway -> Advanced** and press the "Authenticate app" button. This same information is also shown during the config flow of the deCONZ integration.
+Running a stand-alone instance of deCONZ (non add-on installation) requires a pairing between the deCONZ gateway and Home Assistant. To allow Home Assistant to connect with deCONZ go to the Phoscon UI select **Settings** > **Gateway** > **Advanced** and select the **Authenticate app** button. This same information is also shown during the config flow of the deCONZ integration.
 
 ## Debugging integration
 
@@ -87,7 +87,7 @@ If you are having issues and want to report a problem, always start with making 
 
 ### No state updates
 
-If the state of entities are only reflected in Home Assistant when the integration is loaded (during restart, reload, setup) you probably have an issue with the WebSocket configuration where your deCONZ instance is running. The deCONZ integration uses the WebSocket port provided by the deCONZ REST API. If you're running the deCONZ Docker container make sure that it properly configures the WebSocket port so deCONZ can report what port is exposed outside of the containerized environment. Also, make sure to review firewall rules that might block communication over certain ports.
+If the state of {% term entities %} are only reflected in Home Assistant when the {% term integration %} is loaded (during restart, reload, setup) you probably have an issue with the WebSocket configuration where your deCONZ instance is running. The deCONZ integration uses the WebSocket port provided by the deCONZ REST API. If you're running the deCONZ Docker container make sure that it properly configures the WebSocket port so deCONZ can report what port is exposed outside of the containerized environment. Also, make sure to review firewall rules that might block communication over certain ports.
 
 ## Device services
 
@@ -125,13 +125,13 @@ Either `entity` or `field` must be provided. If both are present, `field` will b
 
 Refresh with devices added to deCONZ after Home Assistants latest restart.
 
-Note: deCONZ automatically signals Home Assistant when new sensors are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this service or a restart of Home Assistant.
+Note: deCONZ automatically signals Home Assistant when new {% term sensors %} are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this service or a restart of Home Assistant.
 
 ### Service `deconz.remove_orphaned_entries`
 
-Remove entries from entity and device registry which are no longer provided by deCONZ.
+Remove entries from {% term entity %} and device registry which are no longer provided by deCONZ.
 
-Note: it is recommended to use this service after a restart of Home Assistant Core in order to have deCONZ integration properly mirrored to deCONZ.
+Note: it is recommended to use this {% term service %} after a restart of Home Assistant Core in order to have deCONZ integration properly mirrored to deCONZ.
 
 ## Remote control devices
 
@@ -312,14 +312,14 @@ automation:
 
 The `entity_id` name will be `platform.device_name`, where `device_name` is defined in deCONZ.
 
-### Alarm Control Panel
+### Alarm control panel
 
 The entity of a physical keypad. Can be in 4 different modes (`arm_away`, `arm_home`, `arm_night` or `disarmed`). Changing the state will do an audible notification from the keypad.
 
-The Device also exposes a new event type `deconz_alarm_event` which reflects signals not supported within the Alarm Control Panel platform.
+The Device also exposes a new event type `deconz_alarm_event` which reflects signals not supported within the alarm control panel platform.
 The Payload consists of an event (`emergency`, `fire`, `invalid_code` or `panic`).
 
-### Binary Sensor
+### Binary sensor
 
 The following sensor types are supported:
 
@@ -362,7 +362,7 @@ The `entity_id` name will be `scene.group_scene_name`, where `group` is which gr
 
 The following sensor types are supported:
 
-- Air Quality sensor
+- Air quality sensor
 - Battery sensor
 - Consumption sensor
 - Daylight

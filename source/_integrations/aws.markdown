@@ -102,7 +102,7 @@ context:
   type: string
 {% endconfiguration %}
 
-## Lambda Notify Usage
+## Lambda notify usage
 
 AWS Lambda is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will invoke a Lambda for all targets given in the notification payload. A target can be formatted as a function name, an entire ARN ([Amazon Resource Name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html)) or a partial ARN. For more information, please see the [botocore documentation](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke.html).
 
@@ -130,7 +130,7 @@ The context will look like this:
 }
 ```
 
-## SNS Notify Usage
+## SNS notify usage
 
 AWS SNS is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will publish a message to all targets given in the notification payload. A target must be a SNS topic or endpoint ARN ([Amazon Resource Name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html)). For more information, please see the [botocore documentation](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/sns/client/publish.html).
 

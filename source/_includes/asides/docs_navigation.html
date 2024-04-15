@@ -8,14 +8,26 @@
         <b>{% active_link /docs/glossary/ Glossary %}</b>
       </li>
       <li>
-        <b>{% active_link /getting-started Getting Started %}</b>
+        <b>Getting started</b>
         <ul>
           <li>{% active_link /installation Installation %}</li>
-          <li>{% active_link /common-tasks/os/ Common Tasks %}</li>
+          <li>{% active_link /getting-started Getting started & onboarding %}</li>
+          <li>{% active_link /dashboards Dashboards & views %}</li>
+          <li>{% active_link /common-tasks/os/ Common tasks %}</li>
           <li>
-            {% active_link /docs/troubleshooting/ Troubleshooting
+            {% active_link /docs/troubleshooting/ Troubleshooting installation
             %}
           </li>
+          <li>
+            {% active_link /docs/troubleshooting_general/ General troubleshooting %}
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>{% active_link /docs/frontend/ Frontend %}</b>
+        <ul>
+          <li>{% active_link /docs/organizing/ Organizing %}</li>
+          <li>{% active_link /docs/frontend/icons/ Icons%}</li>
         </ul>
       </li>
       <li>
@@ -30,11 +42,10 @@
             entities %}
           </li>
           <li>
-            {% active_link /docs/configuration/troubleshooting/ Troubleshooting
-            %}
+            {% active_link /docs/configuration/troubleshooting/ Troubleshooting configuration %}
           </li>
           <li>
-            {% active_link /docs/configuration/securing/ Security Check Points
+            {% active_link /docs/configuration/securing/ Security check points
             %}
           </li>
         </ul>
@@ -42,14 +53,14 @@
       <li>
         <b>{% active_link /docs/energy/ Home Energy Management %}</b>
         <ul>
-          <li>{% active_link /docs/energy/electricity-grid/ Electricity Grid %}</li>
-          <li>{% active_link /docs/energy/solar-panels/ Solar Panels %}</li>
-          <li>{% active_link /docs/energy/individual-devices/ Individual Devices %}</li>
+          <li>{% active_link /docs/energy/electricity-grid/ Electricity grid %}</li>
+          <li>{% active_link /docs/energy/solar-panels/ Solar panels %}</li>
+          <li>{% active_link /docs/energy/individual-devices/ Individual devices %}</li>
           <li>{% active_link /docs/energy/faq/ FAQ %}</li>
         </ul>
       </li>
       <li>
-        Advanced Configuration
+        Advanced configuration
         <ul>
           <li>{% active_link /docs/configuration/remote/ Remote access %}</li>
           <li>
@@ -58,7 +69,7 @@
           </li>
           <li>{% active_link /docs/configuration/packages/ Packages %}</li>
           <li>
-            {% active_link /docs/configuration/secrets/ Storing Secrets %}
+            {% active_link /docs/configuration/secrets/ Storing secrets %}
           </li>
           <li>{% active_link /docs/configuration/templating/ Templating %}</li>
           <li>
@@ -71,11 +82,14 @@
         <b>{% active_link /docs/authentication/ Authentication %}</b>
         <ul>
           <li>
-            {% active_link /docs/authentication/providers/ Auth Providers %}
+            {% active_link /docs/authentication/providers/ Auth providers %}
           </li>
           <li>
-            {% active_link /docs/authentication/multi-factor-auth/ Multi Factor
-            Auth %}
+            {% active_link /docs/authentication/multi-factor-auth/ Multi factor
+            auth %}
+          </li>
+          <li>
+            {% active_link /docs/locked_out/ I'm locked out %}
           </li>
         </ul>
       </li>
@@ -84,25 +98,25 @@
         <ul>
           <li>{% active_link /docs/configuration/events/ Events %}</li>
           <li>
-            {% active_link /docs/configuration/state_object/ State Objects %}
+            {% active_link /docs/configuration/state_object/ State objects %}
           </li>
         </ul>
       </li>
       <li>
         <b>{% active_link /docs/automation/ Automation %}</b>
         <ul>
-          <li>{% active_link /docs/automation/using_blueprints/ Using Automation Blueprints %}</li>
-          <li>{% active_link /docs/automation/basics/ Automation Basics %}</li>
+          <li>{% active_link /docs/automation/using_blueprints/ Using automation blueprints %}</li>
+          <li>{% active_link /docs/automation/basics/ Automation basics %}</li>
           <li>{% active_link /docs/automation/editor/ Editor %}</li>
           <li>{% active_link /docs/automation/trigger/ Triggers %}</li>
           <li>{% active_link /docs/automation/condition/ Conditions %}</li>
           <li>{% active_link /docs/automation/action/ Actions %}</li>
-          <li>{% active_link /docs/automation/modes/ Run Modes %}</li>
+          <li>{% active_link /docs/automation/modes/ Run modes %}</li>
           <li>{% active_link /docs/automation/services/ Services %}</li>
           <li>{% active_link /docs/automation/templating/ Templates %}</li>
           <li>{% active_link /docs/automation/yaml/ YAML %}</li>
           <li>
-            {% active_link /docs/automation/troubleshooting/ Troubleshooting %}
+            {% active_link /docs/automation/troubleshooting/ Troubleshooting automation %}
           </li>
         </ul>
       </li>
@@ -115,16 +129,6 @@
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/frontend/ Frontend %}</b>
-        <ul>
-          <li>
-            {% active_link /docs/frontend/browsers/ Browser Compatibility List %}
-          </li>
-          <li>{% active_link /dashboards Dashboards %}</li>
-          <li>{% active_link /docs/frontend/icons/ Icons%}</li>
-        </ul>
-      </li>
-      <li>
         <b>{% active_link /docs/backend/ Backend %}</b>
         <ul>
           <li>{% active_link /docs/backend/database/ Database %}</li>
@@ -133,7 +137,7 @@
       <li>
         <b>{% active_link /docs/scripts/ Scripts %}</b>
         <ul>
-          <li>{% active_link /docs/scripts/service-calls/ Service Calls %}</li>
+          <li>{% active_link /docs/scripts/service-calls/ Service calls %}</li>
           <li>{% active_link /docs/scripts/conditions/ Conditions %}</li>
         </ul>
       </li>
@@ -144,10 +148,10 @@
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/tools/ Tools and Helpers %}</b>
+        <b>{% active_link /docs/tools/ Tools and helpers %}</b>
         <ul>
-          <li>{% active_link /docs/tools/dev-tools/ Developer Tools %}</li>
-          <li>{% active_link /docs/tools/quick-bar/ Quick Bar %}</li>
+          <li>{% active_link /docs/tools/dev-tools/ Developer tools %}</li>
+          <li>{% active_link /docs/tools/quick-bar/ Quick bar %}</li>
           <li>{% active_link /docs/tools/hass/ hass %}</li>
           <li>{% active_link /docs/tools/check_config/ check_config %}</li>
         </ul>

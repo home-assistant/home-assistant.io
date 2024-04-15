@@ -140,6 +140,11 @@ max_age:
   description: Maximum age of source sensor measurements stored. Setting this to a time period will cause older values to be discarded. If omitted, the number of considered source sensor measurements is limited by `sampling_size` only. Set both parameters appropriately to create suited limits for your use case. The sensor value will become `unknown` if the source sensor is not updated within the time period. A statistics sensor requires `sampling_size`, `max_age`, or both to be defined.
   required: false
   type: time
+keep_last_sample:
+  description: Defines whether the most recent sampled value should be preserved regardless of the `max_age` setting. 
+  required: false
+  default: false
+  type: boolean
 percentile:
   description: Only relevant in combination with the `percentile` characteristic. Must be a value between 1 and 99. The value defines the percentile value to consider. The 25th percentile is also known as the first quartile, the 50th percentile as the median.
   required: false
@@ -158,6 +163,6 @@ unique_id:
 
 ### An important note on `max_age` and `sampling_size`
 
-If both `max_age` and `sampling_size` are given, the considered samples are those within the `max_age` time window but limited to the number of `sample_size` newest samples.  Specify a wide-enough `sampling_size` if using an extended `max_age` (e.g., when looking for `max_age` 1 hour, a sensor that produces one measurement per minute should have at least a `sampling_size` of 60 to use all samples within the `max_age` timeframe.)
+If both `max_age` and `sampling_size` are given, the considered samples are those within the `max_age` time window but limited to the number of `sampling_size` newest samples.  Specify a wide-enough `sampling_size` if using an extended `max_age` (e.g., when looking for `max_age` 1 hour, a sensor that produces one measurement per minute should have at least a `sampling_size` of 60 to use all samples within the `max_age` timeframe.)
 
-If only `sample_size` is given there is no time limit. If only `max_age` is given the considered number of samples is unlimited.
+If only `sampling_size` is given there is no time limit. If only `max_age` is given the considered number of samples is unlimited.

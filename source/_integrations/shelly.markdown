@@ -2,14 +2,17 @@
 title: Shelly
 description: Integrate Shelly devices
 ha_category:
-  - Binary Sensor
+  - Binary sensor
+  - Climate
   - Cover
   - Energy
+  - Event
   - Light
   - Number
   - Sensor
   - Switch
   - Update
+  - Valve
 ha_release: 0.115
 ha_codeowners:
   - '@balloob'
@@ -34,23 +37,24 @@ ha_platforms:
   - sensor
   - switch
   - update
+  - valve
 ha_integration_type: device
 ha_quality_scale: platinum
 ---
 
-Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
+Integrate [Shelly devices](https://shelly.com) into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
 ## Shelly device generations
 
-There are two generations of devices. Both generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
+There are three generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
 ## Shelly device configuration (generation 1)
 
-Generation 1 devices use the `CoIoT` protocol to communicate with the integration. For Shelly firmware 1.10.0 or newer, `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
+Generation 1 devices use the `CoIoT` protocol to communicate with the integration. `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** > **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
 
-We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. **This is mandatory for battery operated devices**. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
+We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. **This is mandatory for battery operated devices** (even if USB connected). After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
 
 Home Assistant will display a repair issue for the Shelly device if push updates from this device do not reach the Home Assistant server.
 
@@ -63,11 +67,12 @@ The list below will help you diagnose and fix the problem:
 - The missing push updates may be related to the WiFi network range. If using a WiFi network with several access points, enable **Internet & Security** >> **WiFi Client AP Roaming** option. Consider moving Shelly device closer to the WiFi access point. Consider adding another WiFi access point, which will improve the connection quality with the device.
 - If you think your Shelly devices are working correctly and don't want to change your network/configuration, you can ignore the repair issue. Still, you must know you are giving up the best experience of using first-generation Shelly devices with Home Assistant.
 
-## Shelly device configuration (generation 2)
+## Shelly device configuration (generation 2 and 3)
 
-Generation 2 devices use the `RPC` protocol to communicate with the integration. **Battery powered devices** need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
+Generation 2 and 3 devices use the `RPC` protocol to communicate with the integration. **Battery operated devices** (even if USB connected) need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
 
 `ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
+In case your installation is set up to use SSL encryption (HTTP**S** with certificate), an additional `s` needs to be added to the WebSocket protocol, too, so that it reads `wss://` (for example: `wss://192.168.1.100:8123/api/shelly/ws`).
 
 <div class="note">
 Integration is communicating directly with the device; cloud connection is not needed.
@@ -75,9 +80,15 @@ Integration is communicating directly with the device; cloud connection is not n
 
 ## Bluetooth Support
 
-Shelly generation 2 devices running firmware 0.12 or later can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
+Shelly generation 2 and 3 devices not battery-powered can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
 
 {% include integrations/option_flow.md %}
+
+## Range Extender Support
+
+Shelly generation 2 and 3 devices that are not battery-powered can act as a Range Extender.
+Devices of the same generations can be configured via those Range Extenders specifying a custom TCP port during the configuration flow.
+Currently, only static IP or DHCP reserved IP are supported for the main device.
 
 ## Entity naming (generation 1)
 
@@ -105,7 +116,7 @@ Names are set from the device web page:
 - Channel name for single-channel devices can be set in **Settings** >> **CHANNEL NAME**
 - Channel name for multi-channel devices can be set in **Settings** >> **CHANNEL NAME** after selecting the channel, by clicking on the channel name.
 
-## Entity naming (generation 2)
+## Entity naming (generation 2 and 3)
 
 The integration uses the following strategy to name its entities:
 
@@ -118,15 +129,15 @@ The integration uses the following strategy to name its entities:
 
 Depending on how a device's button type is configured, the integration will create binary sensors corresponding to those inputs. binary sensors are not created when the button type is `momentary` or `momentary_on_release`, for these types you need to use events for your automations.
 
-### Binary input sensors (generation 2)
+### Binary input sensors (generation 2 and 3)
 
-For generation 2 hardware it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
+For generation 2 and 3 hardware it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
 
 ## Event entities (generation 1)
 
 If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
-## Event entities (generation 2)
+## Event entities (generation 2 and 3)
 
 If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
@@ -213,7 +224,7 @@ You can also create automations using YAML, for example:
 | `SL`               | `single_long` |
 | `LS`               | `long_single` |
 
-Generation 2 devices use the values `btn_down`, `btn_up`, `single_push`, `double_push`, `triple_push` and `long_push` as `click_type`.
+Generation 2 and 3 devices use the values `btn_down`, `btn_up`, `single_push`, `double_push`, `triple_push` and `long_push` as `click_type`.
 
 <div class="note">
 
@@ -223,17 +234,11 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 ## Appliance type (generation 1)
 
-Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if the device uses firmware version 1.9.0 or newer and the **Settings** >> **APPLIANCE TYPE** value is set to `light`.
+Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **Settings** >> **APPLIANCE TYPE** value is set to `light`.
 
-## Consumption type (generation 2)
+## Consumption type (generation 2 and 3)
 
 Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **EXTERNAL CONSUMPTION TYPE** value is set to `light`.
-
-<div class="note">
-
-Firmware 1.0.0 or later is required.
-
-</div>
 
 ## Light transition
 
@@ -245,12 +250,6 @@ Shelly lights supporting light transition:
 - Shelly Dimmer 2
 - Shelly RGBW2
 - Shelly Vintage
-
-<div class="note">
-
-Firmware 1.11 or later is required.
-
-</div>
 
 <div class="note">
 
@@ -293,7 +292,7 @@ As soon as you change the temperature, it gets enabled again.
 
 ## Shelly Gas with Valve add-on
 
-If you have Valve add-on connected to Shelly Gas, the integration will create two entities for the valve. The `switch` entity allows you to control the valve, the `sensor` entity shows exact states of the valve.
+If you have Valve add-on connected to Shelly Gas, the integration will create three entities for the valve. The `switch` and `valve` entities allow you to control the valve, the `sensor` entity shows exact states of the valve. The `switch` entity is deprecated and will be removed in a future version of Home Assistant.
 
 <div class="note">
 
@@ -320,9 +319,16 @@ Please check from the device Web UI that the configured server is reachable.
 
 ## Known issues and limitations
 
-- Only supports firmware 1.8 and later for generation 1 devices
-- Only supports firmware 0.8 and later for generation 2 devices
+- Only supports firmware 1.9 and later for generation 1 devices
+- Only supports firmware 1.0 and later for generation 2 devices
+- The following generation 1 devices only support firmware 1.11 and later (due to incompatible API):
+  - Shelly DUO
+  - Shelly Bulb RGBW
+  - Shelly Dimmer
+  - Shelly Dimmer 2
+  - Shelly RGBW2
+  - Shelly Vintage
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
-- Frequency sensors for generation 2 energy monitoring devices are supported by firmware 1.0.0 beta 6 or later.
+- Using the `homeassistant.update_entity` service for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).

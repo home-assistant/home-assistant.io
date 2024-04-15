@@ -1,24 +1,24 @@
 ---
 type: card
-title: "Glance Card"
+title: "Glance card"
 sidebar_label: Glance
-description: "The Glance card is useful to group multiple sensors in a compact overview."
+description: "The glance card is useful to group multiple sensors in a compact overview."
 ---
 
-The Glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/dashboards/entity-filter/) cards to create dynamic cards.
+The glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/dashboards/entity-filter/) cards to create dynamic cards.
 
 <p class='img'>
 <img src='/images/dashboards/glance_card.png' alt='Screenshot of the glance card'>
-Screenshot of the Glance card.
+Screenshot of the glance card.
 </p>
 
-To add the Glance card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -63,7 +63,7 @@ state_color:
   default: true
 {% endconfiguration %}
 
-### Options For Entities
+### Options for entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -108,7 +108,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-### Options For Exemptions
+### Options for exemptions
 
 {% configuration badges %}
 user:
@@ -157,3 +157,9 @@ entities:
     tap_action:
       action: toggle
 ```
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

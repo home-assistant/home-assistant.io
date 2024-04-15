@@ -25,6 +25,7 @@ ha_platforms:
   - fan
   - humidifier
   - image
+  - lawn_mower
   - light
   - lock
   - number
@@ -37,6 +38,7 @@ ha_platforms:
   - text
   - update
   - vacuum
+  - valve
   - water_heater
 ha_integration_type: integration
 ha_quality_scale: gold
@@ -46,9 +48,74 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 {% include integrations/config_flow.md %}
 
+<a name="configuration-via-mqtt-discovery"></a>
+{% details "Configuration of MQTT components via MQTT discovery" %}
+
+- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
+- [Binary sensor](/integrations/binary_sensor.mqtt/)
+- [Button](/integrations/button.mqtt/)
+- [Camera](/integrations/camera.mqtt/)
+- [Cover](/integrations/cover.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
+- [Device trigger](/integrations/device_trigger.mqtt/)
+- [Event](/integrations/event.mqtt/)
+- [Fan](/integrations/fan.mqtt/)
+- [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
+- [Climate/HVAC](/integrations/climate.mqtt/)
+- [Lawn mower](/integrations/lawn_mower.mqtt/)
+- [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
+- [Number](/integrations/number.mqtt/)
+- [Scene](/integrations/scene.mqtt/)
+- [Select](/integrations/select.mqtt/)
+- [Sensor](/integrations/sensor.mqtt/)
+- [Siren](/integrations/siren.mqtt/)
+- [Switch](/integrations/switch.mqtt/)
+- [Update](/integrations/update.mqtt/)
+- [Tag scanner](/integrations/tag.mqtt/)
+- [Text](/integrations/text.mqtt/)
+- [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
+
+{% enddetails %}
+
+<a name="configuration-via-yaml"></a>
+{% details "Configuration of MQTT components via YAML" %}
+
+- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
+- [Binary sensor](/integrations/binary_sensor.mqtt/)
+- [Button](/integrations/button.mqtt/)
+- [Camera](/integrations/camera.mqtt/)
+- [Cover](/integrations/cover.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
+- [Event](/integrations/event.mqtt/)
+- [Fan](/integrations/fan.mqtt/)
+- [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
+- [Climate/HVACs](/integrations/climate.mqtt/)
+- [Lawn mower](/integrations/lawn_mower.mqtt/)
+- [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
+- [Number](/integrations/number.mqtt/)
+- [Scene](/integrations/scene.mqtt/)
+- [Select](/integrations/select.mqtt/)
+- [Sensor](/integrations/sensor.mqtt/)
+- [Siren](/integrations/siren.mqtt/)
+- [Switch](/integrations/switch.mqtt/)
+- [Text](/integrations/text.mqtt/)
+- [Update](/integrations/update.mqtt/)
+- [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
+
+{% enddetails %}
+
+
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
-## Choose a MQTT broker
+## Choose an MQTT broker
 
 ### Run your own
 
@@ -78,9 +145,7 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 3. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
-
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
-
 </div>
 
 ### Advanced broker configuration
@@ -202,7 +267,7 @@ For every configured MQTT entity Home Assistant automatically assigns a unique `
 If the `object_id` option is set, then this will be used to generate the `entity_id`.
 If, for example, we have configured a `sensor`, and we have set `object_id` to `test`, then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will append it with a suffix to make it unique, for example, `sensor.test_2`.
 
-This means any MQTT entity which is part of a device will [automatically have it's `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
+This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
 
 Unnamed `binary_sensor`, `button`, `number` and `sensor` entities will now be named by their device class instead of being named "MQTT binary sensor" etc.
 It's allowed to set an MQTT entity's name to `None` (use `null` in YAML) to mark it as the main feature of a device.
@@ -213,39 +278,14 @@ Note that on each MQTT entity, the `has_entity_name` attribute will be set to `T
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
 
-{% details "Entity integrations supported by MQTT discovery" %}
-
-- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
-- [Binary sensor](/integrations/binary_sensor.mqtt/)
-- [Button](/integrations/button.mqtt/)
-- [Camera](/integrations/camera.mqtt/)
-- [Cover](/integrations/cover.mqtt/)
-- [Device Tracker](/integrations/device_tracker.mqtt/)
-- [Device Trigger](/integrations/device_trigger.mqtt/)
-- [Event](/integrations/event.mqtt/)
-- [Fan](/integrations/fan.mqtt/)
-- [Humidifier](/integrations/humidifier.mqtt/)
-- [Image](/integrations/image.mqtt/)
-- [Climate/HVAC](/integrations/climate.mqtt/)
-- [Lawn Mower](/integrations/lawn_mower.mqtt/)
-- [Light](/integrations/light.mqtt/)
-- [Lock](/integrations/lock.mqtt/)
-- [Number](/integrations/number.mqtt/)
-- [Scene](/integrations/scene.mqtt/)
-- [Select](/integrations/select.mqtt/)
-- [Sensor](/integrations/sensor.mqtt/)
-- [Siren](/integrations/siren.mqtt/)
-- [Switch](/integrations/switch.mqtt/)
-- [Update](/integrations/update.mqtt/)
-- [Tag Scanner](/integrations/tag.mqtt/)
-- [Text](/integrations/text.mqtt/)
-- [Vacuum](/integrations/vacuum.mqtt/)
-- [Water Heater](/integrations/water_heater.mqtt/)
-
-{% enddetails %}
-
 MQTT discovery is enabled by default, but can be disabled. The prefix for the discovery topic (default `homeassistant`) can be changed.
 See the [MQTT Options sections](#configure-mqtt-options)
+
+<div class='note info'>
+
+Documentation on the MQTT components that support MQTT discovery [can be found here](/integrations/mqtt/#configuration-via-mqtt-discovery).
+
+</div>
 
 ### Discovery messages
 
@@ -277,7 +317,7 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
-It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can abbreviated to `o`) to the discovery payload. Note that these options also support abbreviations. Information of the origin will be logged to the core event log when an item is discovered or updated.
+It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can be abbreviated to `o`) to the discovery payload. Note that these options also support abbreviations. Information of the origin will be logged to the core event log when an item is discovered or updated.
 
 {% configuration_basic %}
 name:
@@ -296,16 +336,16 @@ support_url:
     'act_tpl':             'action_template',
     'atype':               'automation_type',
     'aux_cmd_t':           'aux_command_topic',
-    'aux_stat_tpl':        'aux_state_template',
     'aux_stat_t':          'aux_state_topic',
+    'aux_stat_tpl':        'aux_state_template',
     'av_tones':            'available_tones',
     'avty':                'availability',
     'avty_mode':           'availability_mode',
     'avty_t':              'availability_topic',
     'avty_tpl':            'availability_template',
     'away_mode_cmd_t':     'away_mode_command_topic',
-    'away_mode_stat_tpl':  'away_mode_state_template',
     'away_mode_stat_t':    'away_mode_state_topic',
+    'away_mode_stat_tpl':  'away_mode_state_template',
     'b_tpl':               'blue_template',
     'bri_cmd_t':           'brightness_command_topic',
     'bri_cmd_tpl':         'brightness_command_template',
@@ -314,10 +354,6 @@ support_url:
     'bri_tpl':             'brightness_template',
     'bri_val_tpl':         'brightness_value_template',
     'clr_temp_cmd_tpl':    'color_temp_command_template',
-    'bat_lev_t':           'battery_level_topic',
-    'bat_lev_tpl':         'battery_level_template',
-    'chrg_t':              'charging_topic',
-    'chrg_tpl':            'charging_template',
     'clr_temp_cmd_t':      'color_temp_command_topic',
     'clr_temp_stat_t':     'color_temp_state_topic',
     'clr_temp_tpl':        'color_temp_template',
@@ -325,8 +361,6 @@ support_url:
     'clrm':                'color_mode',
     'clrm_stat_t':         'color_mode_state_topic',
     'clrm_val_tpl':        'color_mode_value_template',
-    'cln_t':               'cleaning_topic',
-    'cln_tpl':             'cleaning_template',
     'cmd_off_tpl':         'command_off_template',
     'cmd_on_tpl':          'command_on_template',
     'cmd_t':               'command_topic',
@@ -343,17 +377,12 @@ support_url:
     'dir_cmd_tpl':         'direction_command_template',
     'dir_stat_t':          'direction_state_topic',
     'dir_val_tpl':         'direction_value_template',
-    'dock_t':              'docked_topic',
-    'dock_tpl':            'docked_template',
     'e':                   'encoding',
     'en':                  'enabled_by_default',
     'ent_cat':             'entity_category',
     'ent_pic':             'entity_picture',
-    'err_t':               'error_topic',
-    'err_tpl':             'error_template',
     'evt_typ':             'event_types',
-    'fanspd_t':            'fan_speed_topic',
-    'fanspd_tpl':          'fan_speed_template',
+    'exp_aft':             'expire_after',
     'fanspd_lst':          'fan_speed_list',
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
@@ -363,11 +392,10 @@ support_url:
     'fx_stat_t':           'effect_state_topic',
     'fx_tpl':              'effect_template',
     'fx_val_tpl':          'effect_value_template',
-    'exp_aft':             'expire_after',
-    'fan_mode_cmd_tpl':    'fan_mode_command_template',
     'fan_mode_cmd_t':      'fan_mode_command_topic',
-    'fan_mode_stat_tpl':   'fan_mode_state_template',
+    'fan_mode_cmd_tpl':    'fan_mode_command_template',
     'fan_mode_stat_t':     'fan_mode_state_topic',
+    'fan_mode_stat_tpl':   'fan_mode_state_template',
     'frc_upd':             'force_update',
     'g_tpl':               'green_template',
     'hs_cmd_t':            'hs_command_topic',
@@ -390,18 +418,18 @@ support_url:
     'lrst_t':              'last_reset_topic',
     'lrst_val_tpl':        'last_reset_value_template',
     'max':                 'max',
-    'min':                 'min',
-    'max_mirs':            'max_mireds',
-    'min_mirs':            'min_mireds',
-    'max_temp':            'max_temp',
-    'min_temp':            'min_temp',
     'max_hum':             'max_humidity',
+    'max_mirs':            'max_mireds',
+    'max_temp':            'max_temp',
+    'min':                 'min',
     'min_hum':             'min_humidity',
+    'min_mirs':            'min_mireds',
+    'min_temp':            'min_temp',
     'mode':                'mode',
-    'mode_cmd_tpl':        'mode_command_template',
     'mode_cmd_t':          'mode_command_topic',
-    'mode_stat_tpl':       'mode_state_template',
+    'mode_cmd_tpl':        'mode_command_template',
     'mode_stat_t':         'mode_state_topic',
+    'mode_stat_tpl':       'mode_state_template',
     'modes':               'modes',
     'name':                'name',
     'o':                   'origin',
@@ -418,25 +446,22 @@ support_url:
     'pct_cmd_tpl':         'percentage_command_template',
     'pct_stat_t':          'percentage_state_topic',
     'pct_val_tpl':         'percentage_value_template',
-    'ptrn':                'pattern',
     'pl':                  'payload',
     'pl_arm_away':         'payload_arm_away',
-    'pl_arm_home':         'payload_arm_home',
     'pl_arm_custom_b':     'payload_arm_custom_bypass',
+    'pl_arm_home':         'payload_arm_home',
     'pl_arm_nite':         'payload_arm_night',
     'pl_arm_vacation':     'payload_arm_vacation',
-    'pl_prs':              'payload_press',
-    'pl_rst':              'payload_reset',
     'pl_avail':            'payload_available',
     'pl_cln_sp':           'payload_clean_spot',
     'pl_cls':              'payload_close',
-    'pl_disarm':           'payload_disarm',
     'pl_dir_fwd':          'payload_direction_forward',
     'pl_dir_rev':          'payload_direction_reverse',
+    'pl_disarm':           'payload_disarm',
     'pl_home':             'payload_home',
     'pl_inst':             'payload_install',
-    'pl_lock':             'payload_lock',
     'pl_loc':              'payload_locate',
+    'pl_lock':             'payload_lock',
     'pl_not_avail':        'payload_not_available',
     'pl_not_home':         'payload_not_home',
     'pl_off':              'payload_off',
@@ -447,16 +472,21 @@ support_url:
     'pl_paus':             'payload_pause',
     'pl_stop':             'payload_stop',
     'pl_strt':             'payload_start',
-    'pl_stpa':             'payload_start_pause',
+    'pl_prs':              'payload_press',
     'pl_ret':              'payload_return_to_base',
+    'pl_rst':              'payload_reset',
     'pl_rst_hum':          'payload_reset_humidity',
     'pl_rst_mode':         'payload_reset_mode',
     'pl_rst_pct':          'payload_reset_percentage',
     'pl_rst_pr_mode':      'payload_reset_preset_mode',
+    'pl_stop':             'payload_stop',
+    'pl_stpa':             'payload_start_pause',
+    'pl_strt':             'payload_start',
     'pl_toff':             'payload_turn_off',
     'pl_ton':              'payload_turn_on',
     'pl_trig':             'payload_trigger',
     'pl_unlk':             'payload_unlock',
+    'pos':                 'reports_position',
     'pos_clsd':            'position_closed',
     'pos_open':            'position_open',
     'pr_mode_cmd_t':       'preset_mode_command_topic',
@@ -464,6 +494,7 @@ support_url:
     'pr_mode_stat_t':      'preset_mode_state_topic',
     'pr_mode_val_tpl':     'preset_mode_value_template',
     'pr_modes':            'preset_modes',
+    'ptrn':                'pattern',
     'r_tpl':               'red_template',
     'rel_s':               'release_summary',
     'rel_u':               'release_url',
@@ -483,26 +514,26 @@ support_url:
     'send_cmd_t':          'send_command_topic',
     'send_if_off':         'send_if_off',
     'set_fan_spd_t':       'set_fan_speed_topic',
-    'set_pos_tpl':         'set_position_template',
     'set_pos_t':           'set_position_topic',
+    'set_pos_tpl':         'set_position_template',
     'pos_t':               'position_topic',
     'pos_tpl':             'position_template',
     'spd_rng_min':         'speed_range_min',
     'spd_rng_max':         'speed_range_max',
     'src_type':            'source_type',
     'stat_cla':            'state_class',
-    'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',
+    'stat_clsd':           'state_closed',
     'stat_jam':            'state_jammed',
+    'stat_locked':         'state_locked',
+    'stat_locking':        'state_locking',
     'stat_off':            'state_off',
     'stat_on':             'state_on',
     'stat_open':           'state_open',
     'stat_opening':        'state_opening',
     'stat_stopped':        'state_stopped',
-    'stat_locked':         'state_locked',
-    'stat_locking':         'state_locking',
     'stat_unlocked':       'state_unlocked',
-    'stat_unlocking':       'state_unlocking',
+    'stat_unlocking':      'state_unlocking',
     'stat_t':              'state_topic',
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
@@ -513,22 +544,23 @@ support_url:
     'sup_dur':             'support_duration',
     'sup_vol':             'support_volume_set',
     'sup_feat':            'supported_features',
-    'swing_mode_cmd_tpl':  'swing_mode_command_template',
     'swing_mode_cmd_t':    'swing_mode_command_topic',
-    'swing_mode_stat_tpl': 'swing_mode_state_template',
+    'swing_mode_cmd_tpl':  'swing_mode_command_template',
     'swing_mode_stat_t':   'swing_mode_state_topic',
-    'temp_cmd_tpl':        'temperature_command_template',
+    'swing_mode_stat_tpl': 'swing_mode_state_template',
+    't':                   'topic',
     'temp_cmd_t':          'temperature_command_topic',
-    'temp_hi_cmd_tpl':     'temperature_high_command_template',
+    'temp_cmd_tpl':        'temperature_command_template',
     'temp_hi_cmd_t':       'temperature_high_command_topic',
-    'temp_hi_stat_tpl':    'temperature_high_state_template',
+    'temp_hi_cmd_tpl':     'temperature_high_command_template',
     'temp_hi_stat_t':      'temperature_high_state_topic',
-    'temp_lo_cmd_tpl':     'temperature_low_command_template',
+    'temp_hi_stat_tpl':    'temperature_high_state_template',
     'temp_lo_cmd_t':       'temperature_low_command_topic',
-    'temp_lo_stat_tpl':    'temperature_low_state_template',
+    'temp_lo_cmd_tpl':     'temperature_low_command_template',
     'temp_lo_stat_t':      'temperature_low_state_topic',
-    'temp_stat_tpl':       'temperature_state_template',
+    'temp_lo_stat_tpl':    'temperature_low_state_template',
     'temp_stat_t':         'temperature_state_topic',
+    'temp_stat_tpl':       'temperature_state_template',
     'temp_unit':           'temperature_unit',
     'tilt_clsd_val':       'tilt_closed_value',
     'tilt_cmd_t':          'tilt_command_topic',
@@ -540,7 +572,6 @@ support_url:
     'tilt_status_t':       'tilt_status_topic',
     'tilt_status_tpl':     'tilt_status_template',
     'tit':                 'title',
-    't':                   'topic',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
     'url_t':               'url_topic',
@@ -567,6 +598,7 @@ support_url:
     'hw':                  'hw_version',
     'sw':                  'sw_version',
     'sa':                  'suggested_area',
+    'sn':                  'serial_number',
 ```
 {% enddetails %}
 {% details "Supported abbreviations for origin info" %}
@@ -578,21 +610,120 @@ support_url:
 ```
 {% enddetails %}
 
+### How to use discovery messages
+
+When MQTT discovery is set up, and a device or service sends a discovery message,
+an MQTT entity, tag, or device automation will be set up directly after receiving the message.
+When Home Assistant is restarting, discovered MQTT items with a unique ID will be unavailable until a new
+discovery message is received. MQTT items without a unique ID will not be added at startup.
+So a device or service using MQTT discovery must make sure a configuration message is offered
+after the **MQTT** integration has been (re)started. There are 2 common approaches to make sure the
+discovered items are set up at startup:
+
+1. Using Birth and Will messages to trigger setup
+2. Using retained messages
+
+Finally, it is a best practice to publish your device or service availability status.
+
+#### Use the Birth and Will messages to trigger discovery
+
+When the **MQTT** integration starts, a birth message is published at `homeassistant/status` by default.
+A device or service connected to the shared `mqtt` broker can subscribe to this topic and use an `online` message
+to trigger discovery messages. See also the [birth and last will messages](/integrations/mqtt/#birth-and-last-will-messages)
+section. After the configs have been published, the state topics will need an update, so they need to be republished.
+
+#### Using retained config messages
+
+An alternative method for a device or service is to publish discovery messages with a `retain` flag. This will make sure
+discovery messages are replayed when the **MQTT** integration connects to the broker.
+After the configs have been published, the state topics will need an update.
+
+#### Using retained state messages
+
+State updates also need to be re-published after a config as been processed.
+This can also be done by publishing `retained` messages. As soon as a config is received (or replayed from a retained message),
+the setup will subscribe any state topics. If a retained message is available at a state topic,
+ this message will be replayed so that the state can be restored for this topic.
+
+<div class='note warning'>
+
+A disadvantage of using retained messages is that these messages retain at the broker,
+even when the device or service stops working. They are retained even after the system or broker has been restarted.
+Retained messages can create ghost entities that keep coming back.
+<br><br>
+Especially when you have many entities, (unneeded) discovery messages can cause excessive system load. For this reason, use discovery messages with caution.
+
+</div>
+
+### Using Availability topics
+
+A device or service can announce its availability by publishing a Birth message and set a Will message at the broker.
+When the device or service loses connection to the broker, the broker will publish the Will message.
+This allows the **MQTT** integration to make an entity unavailable.
+
+Platform specific availability settings are available for `mqtt` entity platforms only.
+
+{% details "Platform specific availability settings" %}
+
+{% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
+  required: false
+  type: string
+availability_mode:
+   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+   required: false
+   type: string
+   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
+{% endconfiguration %}  
+
+{% enddetails %}
+
 ### Support by third-party tools
 
 The following software has built-in support for MQTT discovery:
 
 - [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
+- [ble2mqtt](https://github.com/devbis/ble2mqtt)
+- [digitalstrom-mqtt](https://github.com/gaetancollaud/digitalstrom-mqtt)
 - [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
 - [EMS-ESP32 (and EMS-ESP)](https://github.com/emsesp/EMS-ESP32)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
+- [go-iotdevice](https://github.com/koestler/go-iotdevice)
 - [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
-- [MyElectricalData](https://github.com/MyElectricalData/myelectricaldata#english)
+- [MyElectricalData](https://github.com/MyElectricalData/myelectricaldata_import#english)
 - [Nuki Hub](https://github.com/technyon/nuki_hub)
 - [Nuki Smart Lock 3.0 Pro](https://support.nuki.io/hc/articles/12947926779409-MQTT-support), [more info](https://developer.nuki.io/t/mqtt-api-specification-v1-3/17626)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
@@ -609,7 +740,6 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
-- [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 
 ### Discovery examples
 
@@ -619,12 +749,43 @@ A motion detection device which can be represented by a [binary sensor](/integra
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
-- Configuration payload with derived device name:  `{"name": null, "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
+- Configuration payload with derived device name:
+
+```json
+{
+   "name":null,
+   "device_class":"motion",
+   "state_topic":"homeassistant/binary_sensor/garden/state",
+   "unique_id":"motion01ad",
+   "device":{
+      "identifiers":[
+         "01ad"
+      ],
+      "name":"Garden"
+   }
+}
+```
+
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 It is also a good idea to add a `unique_id` to allow changes to the entity and a `device` mapping so we can group all sensors of a device together. We can set "name" to `null` if we want to inherit the device name for the entity. If we set an entity name, the `friendly_name` will be a combination of the device and entity name. If `name` is left away and a `device_class` is set, the entity name part will be derived from the `device_class`.
 
-- Example configuration payload with no name set and derived `device_class` name: `{"device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state", "unique_id": "motion01ad", "device": {"identifiers": ["01ad"], "name": "Garden" }}`
+- Example configuration payload with no name set and derived `device_class` name:
+
+```json
+{
+   "name":null,
+   "device_class":"motion",
+   "state_topic":"homeassistant/binary_sensor/garden/state",
+   "unique_id":"motion01ad",
+   "device":{
+      "identifiers":[
+         "01ad"
+      ],
+      "name":"Garden"
+   }
+}
+```
 
 If no name is set, a default name will be set by MQTT ([see the MQTT platform documentation](#mqtt-discovery)).
 
@@ -653,10 +814,63 @@ For more details please refer to the [MQTT testing section](/integrations/mqtt/#
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
 - Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: `{"device_class": "temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}","unique_id": "temp01ae",  "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" }}`
+- Configuration payload no1:
+
+```json
+{
+   "device_class":"temperature",
+   "state_topic":"homeassistant/sensor/sensorBedroom/state",
+   "unit_of_measurement":"°C",
+   "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+   "unique_id":"temp01ae",
+   "device":{
+      "identifiers":[
+          "bedroom01ae"
+      ],
+      "name":"Bedroom",
+      "manufacturer": "Example sensors Ltd.",
+      "model": "K9",
+      "serial_number": "12AE3010545",
+      "hw_version": "1.01a",
+      "sw_version": "2024.1.0",
+      "configuration_url": "https://example.com/sensor_portal/config"
+   }
+}
+
+```
+
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: `{"device_class": "humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}","unique_id": "hum01ae", "device": {"identifiers": ["bedroom01ae"], "name": "Bedroom" } }`
-- Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
+- Configuration payload no2:
+
+```json
+{
+   "device_class":"humidity",
+   "state_topic":"homeassistant/sensor/sensorBedroom/state",
+   "unit_of_measurement":"%",
+   "value_template":"{% raw %}{{ value_json.humidity}}{% endraw %}",
+   "unique_id":"hum01ae",
+   "device":{
+      "identifiers":[
+         "bedroom01ae"
+      ]
+   }
+}
+```
+
+The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows to set up multiple entities that share the same device.
+
+<p class='note info'>
+If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.
+</p>
+
+A common state payload that can be parsed with the `value_template` in the sensor configs:
+
+```json
+{
+   "temperature":23.20,
+   "humidity":43.70
+}
+```
 
 #### Entities with command topics
 
@@ -665,12 +879,28 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
-- Payload:  `{"name": "Irrigation", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}`
+- Payload:  
+
+```json
+{
+   "name":"Irrigation",
+   "command_topic":"homeassistant/switch/irrigation/set",
+   "state_topic":"homeassistant/switch/irrigation/state",
+   "unique_id":"irr01ad",
+   "device":{
+      "identifiers":[
+         "garden01ad"
+      ],
+      "name":"Garden"
+   }
+}
+```
+
 - Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 ```bash
 mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
-  -m '{"name": "Irrigation", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}}'
+  -m '{"name": "Irrigation", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state", "unique_id": "irr01ad", "device": {"identifiers": ["garden01ad"], "name": "Garden" }}'
 ```
 
 Set the state:
@@ -686,7 +916,16 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - Command topic: `homeassistant/switch/irrigation/set`
 - State topic: `homeassistant/switch/irrigation/state`
-- Configuration payload: `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", "stat_t": "~/state"}`
+- Configuration payload:
+
+```json
+{
+   "~":"homeassistant/switch/irrigation",
+   "name":"garden",
+   "cmd_t":"~/set",
+   "stat_t":"~/state"
+}
+```
 
 #### Another example using abbreviations topic name and base topic
 
@@ -726,6 +965,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "mf": "Bla electronics",
       "mdl": "xya",
       "sw": "1.0",
+      "sn": "ea334450945afc",
       "hw": "1.0rev2",
     },
     "o": {
@@ -786,36 +1026,13 @@ mqtt:
       ...
 ```
 
-{% details "MQTT components that support setup via YAML" %}
+If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
-- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
-- [Binary sensor](/integrations/binary_sensor.mqtt/)
-- [Button](/integrations/button.mqtt/)
-- [Camera](/integrations/camera.mqtt/)
-- [Cover](/integrations/cover.mqtt/)
-- [Device Tracker](/integrations/device_tracker.mqtt/)
-- [Event](/integrations/event.mqtt/)
-- [Fan](/integrations/fan.mqtt/)
-- [Humidifier](/integrations/humidifier.mqtt/)
-- [Image](/integrations/image.mqtt/)
-- [Climate/HVACs](/integrations/climate.mqtt/)
-- [Lawn Mower](/integrations/lawn_mower.mqtt/)
-- [Light](/integrations/light.mqtt/)
-- [Lock](/integrations/lock.mqtt/)
-- [Number](/integrations/number.mqtt/)
-- [Scene](/integrations/scene.mqtt/)
-- [Select](/integrations/select.mqtt/)
-- [Sensor](/integrations/sensor.mqtt/)
-- [Siren](/integrations/siren.mqtt/)
-- [Switch](/integrations/switch.mqtt/)
-- [Text](/integrations/text.mqtt/)
-- [Update](/integrations/update.mqtt/)
-- [Vacuum](/integrations/vacuum.mqtt/)
-- [Water Heater](/integrations/water_heater.mqtt/)
+<div class='note info'>
 
-{% enddetails %}
+Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
 
-If you have a lot of manual configured items you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+</div>
 
 ## Using Templates
 
@@ -828,7 +1045,12 @@ The MQTT notification support is different than for the other [notification](/in
 **Call Service** section from **Developer Tools** -> **Services** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
 ```json
-{"payload": "Test message from HA", "topic": "home/notification", "qos": 0, "retain": 0}
+{
+   "~":"homeassistant/switch/irrigation",
+   "name":"garden",
+   "cmd_t":"~/set",
+   "stat_t":"~/state"
+}
 ```
 
 <p class='img'>
@@ -991,7 +1213,7 @@ Listen to the specified topic matcher and dumps all received messages within a s
 | `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
 
 ```yaml
-topic: openzwave/#
+topic: zigbee2mqtt/#
 ```
 
 ## Logging

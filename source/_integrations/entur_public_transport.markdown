@@ -59,7 +59,7 @@ line_whitelist:
   required: false
   type: list
 omit_non_boarding:
-  description: If the sensors should remove resulting departures that doesn't take new passangers, or is at last stop.
+  description: If the sensors should remove resulting departures that doesn't take new passengers, or is at last stop.
   required: false
   type: boolean
   default: true

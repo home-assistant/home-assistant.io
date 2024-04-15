@@ -16,12 +16,12 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The `Ambient Weather Station` integration retrieves local weather information
+The **Ambient Weather Station** {% term integration %} retrieves local weather information
 via personal weather stations from [Ambient Weather](https://ambientweather.net).
 
 ## Prerequisites
 
-Using this integration requires both an Application Key and an API Key. To
+Using this {% term integration %} requires both an Application Key and an API Key. To
 generate both, simply utilize the profile section of
 [your Ambient Weather dashboard](https://dashboard.ambientweather.net).
 

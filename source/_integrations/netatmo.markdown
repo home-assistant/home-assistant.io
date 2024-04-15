@@ -2,13 +2,15 @@
 title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
 ha_category:
+  - Binary sensor
   - Camera
   - Climate
   - Cover
   - Environment
+  - Fan
   - Hub
   - Light
-  - Media Source
+  - Media source
   - Sensor
   - Switch
   - Weather
@@ -20,10 +22,12 @@ ha_config_flow: true
 ha_domain: netatmo
 ha_homekit: true
 ha_platforms:
+  - binary_sensor
   - camera
   - climate
   - cover
   - diagnostics
+  - fan
   - light
   - select
   - sensor
@@ -35,9 +39,11 @@ The Netatmo integration platform is the main integration to integrate all Netatm
 
 There is currently support for the following device types within Home Assistant:
 
+- [Binary sensor](#binary-sensor)
 - [Camera](#camera)
 - [Climate](#climate)
 - [Cover](#cover)
+- [Fan](#fan)
 - [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -53,6 +59,10 @@ In the dialog, it is possible to create, edit and remove public weather sensors.
 
 To edit an existing area, enter its name and follow the dialog.
 
+## Binary sensor
+
+The `netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
+
 ## Camera
 
 The `netatmo` camera platform is consuming the information provided by a [Netatmo Smart Indoor](https://www.netatmo.com/smart-indoor-camera), [Outdoor](https://www.netatmo.com/smart-outdoor-camera) and [Netatmo Smart Video Doorbell](https://www.netatmo.com/smart-video-doorbell) camera. This integration allows you to view the current live stream created by the camera (exception: video doorbell).
@@ -66,6 +76,10 @@ The `netatmo` thermostat platform is consuming the information provided by a [Ne
 ## Cover
 
 The `netatmo` cover platform provides support for Bubendorff shutters. 
+
+## Fan
+
+The `netatmo` fan plaform provides support for Legrand centralized ventilation control.
 
 ## Light
 
@@ -87,19 +101,60 @@ The `netatmo` switch platform provides support for Legrand/BTicino switches and 
 
 `set_camera_light_mode`
 
-Set the outdoor camera light mode. This requires an entity id and a valid state.
+Set the outdoor camera light mode.
+
+| Service data attribute | Required | Description                |
+| ---------------------- | -------- | -------------------------- |
+| `camera_light_mode`    | Yes      | Outdoor camera light mode. |
 
 ### Set Schedule
 
 `set_schedule`
 
-Set the heating schedule. This requires an entity id and a schedule name.
+Set the heating schedule.
 
-### Set preset mode with end datetime
+| Service data attribute | Required | Description                           |
+| ---------------------- | -------- | ------------------------------------- |
+| `schedule_name`        | Yes      | The name of the schedule to activate. |
+
+### Set preset mode with end date & time
 
 `set_preset_mode_with_end_datetime`
 
 Set the preset mode for a Netatmo climate device. The preset mode must match a preset mode configured at Netatmo.
+
+| Service data attribute | Required | Description                                                |
+| ---------------------- | -------- | ---------------------------------------------------------- |
+| `preset_mode`          | Yes      | Climate preset mode such as Schedule, Away, or Frost Guard. |
+| `end_datetime`         | Yes      | Date & time until which the preset will be active.               |
+
+### Set temperature with end date & time
+
+`set_temperature_with_end_datetime`
+
+Sets the target temperature for a Netatmo climate device with an end date & time.
+
+| Service data attribute | Required | Description                                              |
+| ---------------------- | -------- | -------------------------------------------------------- |
+| `target_temperature`   | Yes      | The target temperature for the device.                   |
+| `end_datetime`         | Yes      | Date & time the target temperature will be active until. |
+
+### Set temperature with time period
+
+`set_temperature_with_time_period`
+
+Sets the target temperature for a Netatmo climate device as well as the time period during which this target temperature applies.
+
+| Service data attribute | Required | Description                                            |
+| ---------------------- | -------- | ------------------------------------------------------ |
+| `target_temperature`   | Yes      | The target temperature for the device.                 |
+| `time_period`          | Yes      | Time period during which the target temperature is applied. |
+
+### Clear temperature setting
+
+`clear_temperature_setting`
+
+Clears any temperature setting for a Netatmo climate device reverting it to the current preset or schedule.
 
 ### Set Person Home
 
@@ -107,11 +162,19 @@ Set the preset mode for a Netatmo climate device. The preset mode must match a p
 
 Set a list of persons as at home. Person's name must match a name known by the Netatmo Smart Indoor Camera.
 
+| Service data attribute | Required | Description    |
+| ---------------------- | -------- | -------------- |
+| `persons`              | Yes      | List of names. |
+
 ### Set Person Away
 
 `set_person_away`
 
 Set a person away. If no person is set the home will be marked as empty. Person's name must match a name known by the Netatmo Smart Indoor Camera.
+
+| Service data attribute | Required | Description    |
+| ---------------------- | -------- | -------------- |
+| `person`               | Yes      | Person's name. |
 
 ### (Un-)Register Webhooks
 

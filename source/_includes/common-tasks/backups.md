@@ -44,7 +44,8 @@ You might need a backup in case your system has crashed. If you only store them 
 
 There are multiple ways to store the backup on another device:
 
-- **Option 1**: Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select the backup from the list.
+- **Option 1**: Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, on the list, single-click or tap the backup of interest.
+  - **Result**: The backup dialog opens.
   - In the dialog, select the three dots menu and select **Download backup**.
   - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
 - **Option 2**: If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/{{page.installation}}/#configuring-access-to-files), using one of the methods listed there.

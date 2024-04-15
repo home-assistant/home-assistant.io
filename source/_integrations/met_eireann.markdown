@@ -24,10 +24,10 @@ The Met Éireann API will only provide data for Ireland, the UK and a small part
 
 {% include integrations/config_flow.md %}
 
-## Data License
+## Data license
 
 The data provided by Met Éireann is licensed under the Met Éireann Open Data Custom License (similar to a Creative Commons CC BY 4.0 license). A license summary and the full license are available [here](https://data.gov.ie/dataset/met-eireann-weather-forecast-api/resource/027da6d5-d819-48d1-9b16-331dba169bd1). In short, if you distribute, broadcast or make Met Éireann data available on the public internet you must give credit to Met Éireann and display their weather warnings.
 
-## Data Changes
+## Data changes
 
 The only changes made to the data gathered from the API are the condition descriptions which are mapped to the weather conditions supported by Home Assistant.

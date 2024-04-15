@@ -1,17 +1,17 @@
 ---
 type: card
-title: "Entities Card"
+title: "Entities card"
 sidebar_label: Entities
-description: "The Entities card is the most common type of card. It groups items together into lists."
+description: "The entities card is the most common type of card. It groups items together into lists."
 ---
 
-The Entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
+The entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
 
-To add the Entities card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -54,7 +54,7 @@ footer:
   type: map
 {% endconfiguration %}
 
-## Options For Entities
+## Options for entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration.
 
@@ -110,9 +110,9 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Special Row Elements
+## Special row elements
 
-Rather than only displaying an entity's state as a text output, the Entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
+Rather than only displaying an entity's state as a text output, the entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
 
 ### Attribute
 
@@ -292,30 +292,13 @@ type:
   type: string
 conditions:
   required: true
-  description: List of entity IDs and matching states.
+  description: List of conditions to check. See [available conditions](/dashboards/conditional/#card-conditions).
   type: list
-  keys:
-    entity:
-      required: true
-      description: Entity ID.
-      type: string
-    state:
-      required: false
-      description: Entity state is equal to this value.*
-      type: string
-    state_not:
-      required: false
-      description: Entity state is unequal to this value.*
-      type: string
 row:
   required: true
   description: Row to display if all conditions match. Can be any of the various supported rows described on this page.
   type: map
 {% endconfiguration %}
-
-*one is required (`state` or `state_not`)
-
-Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
 
 ### Divider
 
@@ -473,3 +456,9 @@ entities:
         text: Are you sure you want to restart?
       service: script.libreelec_power_cycle
 ```
+
+## Related topics
+
+- [Card actions](/dashboards/actions/)
+- [Card header and footer](/dashboards/header-footer/)
+- [Dashboard cards](/dashboards/cards/)

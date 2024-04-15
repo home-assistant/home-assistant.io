@@ -42,7 +42,7 @@ api_key:
   required: true
   type: string
 sender:
-  description: The e-mail address of the sender.
+  description: The email address of the sender.
   required: true
   type: string
 sender_name:
