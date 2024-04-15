@@ -55,5 +55,3 @@ Select **Finish**.
 You’ve now got Home Assistant up and running.
 
 {% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}
-Untitled-1.md
-md@michaelditullo.comDisplaying Untitled-1.md.
