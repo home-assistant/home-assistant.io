@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - Climate
 - Fan (Pumps/Jets)
 - Light
-- Select (Low/High temperature range)
+- Select (Low/high temperature range)
 
 ## Compatible hardware
 
