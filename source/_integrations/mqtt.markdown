@@ -28,6 +28,7 @@ ha_platforms:
   - lawn_mower
   - light
   - lock
+  - notify
   - number
   - scene
   - select
@@ -66,6 +67,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
+- [Notify](/integrations/notify.mqtt/)
 - [Number](/integrations/number.mqtt/)
 - [Scene](/integrations/scene.mqtt/)
 - [Select](/integrations/select.mqtt/)
@@ -98,6 +100,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
+- [Notify](/integrations/number.mqtt/)
 - [Number](/integrations/number.mqtt/)
 - [Scene](/integrations/scene.mqtt/)
 - [Select](/integrations/select.mqtt/)
