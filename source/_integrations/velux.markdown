@@ -30,6 +30,15 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+## Configuration
+
+During configuration of this component you will be asked for a hostname and password:
+
+* Hostname: enter the IP address of the KLF 200 gateway
+* Password: enter the password of the gateway's wireless access point (printed on the underside - **not** the web logon password)
+
+**NB** You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway, while the access point is still available.
+
 ## Services
 
 ### Service `velux.reboot_gateway`
