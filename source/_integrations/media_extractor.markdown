@@ -77,6 +77,15 @@ This will download the file from the given URL.
 | `media_content_id`     | no       | The ID of the content to play. Platform dependent.                                                        |
 | `media_content_type`   | no       | The type of the content to play. Must be one of MUSIC, TVSHOW, VIDEO, EPISODE, CHANNEL or PLAYLIST MUSIC. |
 
+### Extract media url service
+
+There is also a service that will directly return the URL in the response of the service.
+
+| Service data attribute | Optional | Description                                                                                               |
+|-----------------------| -------- |-----------------------------------------------------------------------------------------------------------|
+| `url`                 | no       | The url of the media to extract.                                                                          |
+| `format_query`        | yes      | The query that will be used to select the right media.                                                    |
+
 ### Cookies
 
 Some supported video services provide a better experience when you are logged in. For example, if you use Twitch Turbo or are subscribed to a Twitch streamer, logging in prevents the video stream from showing an "An ad is currently playing. Come back after the break." message until the ad is over. Other examples are private or purchased YouTube videos which you can only watch while logged in.
