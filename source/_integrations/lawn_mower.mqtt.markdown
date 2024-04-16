@@ -210,7 +210,7 @@ The example below shows how to use a single command topic with a command templat
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - alarm_control_panel:
+  - lawn_mower:
       name: "Lawn Mower Plus"
       activity_state_topic: "lawn_mower_plus/state"
       activity_value_template: "{{ value_json.activity }}" 
