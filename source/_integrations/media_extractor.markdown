@@ -83,7 +83,7 @@ There is also a service that will directly return the URL in the response of the
 
 | Service data attribute | Optional | Description                                                                                               |
 |-----------------------| -------- |-----------------------------------------------------------------------------------------------------------|
-| `url`                 | no       | The url of the media to extract.                                                                          |
+| `url`                 | no       | The URL of the media to extract.                                                                          |
 | `format_query`        | yes      | The query that will be used to select the right media.                                                    |
 
 ### Cookies
