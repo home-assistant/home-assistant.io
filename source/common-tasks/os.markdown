@@ -63,7 +63,7 @@ You can manually define that the previous boot slot is used. This can be useful 
     ```
 
 2. To change the boot slot, enter the following command:
-   - This allows you to boot into the other (previous) OS version.
+   - This will boot into the other (previous) OS version.
 
     ```bash
     ha os boot-slot other
