@@ -50,13 +50,13 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
 #### About boot slots used during the update
 
-The {% term "Home Assistant Operating System" %} uses two boot slots. On first installation, boot slot A is used. After that, for each update, the other boot slot is updated. On reboot, the system boots from the other boot slot (A ➝ B ➝ A,...). When booting fails, the system automatically uses the other boot slot, so that it boots from the last working operating system.
+The {% term "Home Assistant Operating System" %} uses two boot slots. On first installation, boot slot A is used. After that, on each Operating System update, the other boot slot is updated and reboot is triggered. On that reboot, the system boots from the other boot slot (A ➝ B ➝ A,...). When booting fails, the system automatically uses the previous boot slot, so that it boots from the last working operating system.
 
-#### Changing the boot slot used during the update
+#### Changing the boot slot used
 
 You can manually define that the previous boot slot is used. This can be useful in cases where the system boots but something still seems wrong. For example, when the device is no longer correctly detected or you see another issue that might be related to the latest update of the operating system.
 
-1. To check which boot slot is currently in use, in the Home Assistant command line, enter the following command:
+1. To check which boot slot is currently in use and what OS versions are installed in the individual slots, in the Home Assistant command line, enter the following command:
 
     ```bash
     ha os info
