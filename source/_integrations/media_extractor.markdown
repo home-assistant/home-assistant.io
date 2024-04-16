@@ -77,7 +77,7 @@ This will download the file from the given URL.
 | `media_content_id`     | no       | The ID of the content to play. Platform dependent.                                                        |
 | `media_content_type`   | no       | The type of the content to play. Must be one of MUSIC, TVSHOW, VIDEO, EPISODE, CHANNEL or PLAYLIST MUSIC. |
 
-### Extract media url service
+### Extract media URL service
 
 There is also a service that will directly return the URL in the response of the service.
 
