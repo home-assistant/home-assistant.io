@@ -107,10 +107,10 @@ sensor:
 
 ## Track
 
-If you use the `track` filter it's important to put correct track number() or else the sensor will not work at all.
+If you use the `track` filter, it's important to put the correct track number(); otherwise, the sensor will not work at all.
 
-- Replace YOUR_STOP_ID with the id for your stop and go to [http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID](http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID)
-- The values under `rtTrack` is the ones you need to put under `track`.
+- Replace YOUR_STOP_ID with the ID for your stop and go to [http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID](http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID).
+- The values under `rtTrack` are the ones you need to put under `track`.
 
 A working example on how to use this sensor with track:
 
@@ -124,7 +124,7 @@ sensor:
 
 ## Route
 
-If you use the `route` filter it's important to put correct route name(s) or else the sensor will not work at all.
+If you use the `route` filter, it's important to put the correct route name(s); otherwise, the sensor will not work at all.
 
 - Replace YOUR_STOP_ID with the id for your stop and go to [http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID](http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID)
 - The values under `Departure name` is the ones you need to put under `route`. Make sure you use the exact name.
