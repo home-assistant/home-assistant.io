@@ -46,6 +46,10 @@ departure_type:
   description: List of departure types to filter by.
   required: false
   type: [string, list]
+track:
+  description: List of tracks to filter by.
+  required: false
+  type: [string, list]
 {% endconfiguration %}
 
 ## stop_id
@@ -101,9 +105,26 @@ sensor:
       - 'Skanderborg Busterminal (Skanderborg Kom)'
 ```
 
+## Track
+
+If you use the `track` filter it's important to put correct track number() or else the sensor will not work at all.
+
+- Replace YOUR_STOP_ID with the id for your stop and go to [http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID](http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID)
+- The values under `rtTrack` is the ones you need to put under `track`.
+
+A working example on how to use this sensor with track:
+
+```yaml
+# Example configuration.yaml entry with the correct use of direction.
+sensor:
+  - platform: rejseplanen
+    stop_id: "8600704"
+    track: 1
+```
+
 ## Route
 
-If you use the `route` filter it's important to put correct route name(s) or else the sensor will not work at all. 
+If you use the `route` filter it's important to put correct route name(s) or else the sensor will not work at all.
 
 - Replace YOUR_STOP_ID with the id for your stop and go to [http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID](http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID)
 - The values under `Departure name` is the ones you need to put under `route`. Make sure you use the exact name.
