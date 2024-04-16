@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` notify platform lets you send an MQTT message when the `send_message` service is called. This can be used to expose some service of a remote device, that allows to process a message, e.g. to show it on a screen.
+The **MQTT notify** platform lets you send an MQTT message when the `send_message` service is called. This can be used to expose a service of a remote device that allows processing a message, such as showing it on a screen.
 
 ## Configuration
 
@@ -40,7 +40,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -65,7 +65,7 @@ command_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this notify entity is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this notify entity is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of the identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -74,7 +74,7 @@ device:
       required: false
       type: string
     connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example, the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
     hw_version:
@@ -82,7 +82,7 @@ device:
       required: false
       type: string
     identifiers:
-      description: A list of IDs that uniquely identify the device. For example a serial number.
+      description: A list of IDs that uniquely identify the device. For example, a serial number.
       required: false
       type: [string, list]
     manufacturer:
