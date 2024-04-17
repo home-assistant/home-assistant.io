@@ -143,3 +143,7 @@ With all these indents and rules, it is easy to make a mistake. The best way to 
 - [`configuration.yaml` file](/docs/configuration/)
 - [Troubleshooting the configuration files](/docs/configuration/troubleshooting/)
 - [Storing private data in separate file](/docs/configuration/secrets/)
+
+### Automation
+
+- [Automation.yaml](/docs/automation/yaml/)
