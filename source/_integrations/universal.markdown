@@ -332,10 +332,10 @@ media_player:
 This media player combines the media players provided by the [Denon AVR](/integrations/denonavr/) and [HEOS](/integrations/heos/) integrations. 
 
 Features:
-* Volume control via Denon entity (might be more fine-granular than HEOS volume control)
-* ON/OFF button via Denon entity (not provided by HEOS media player)
-* Sound mode selector via Denon entity (not provided by HEOS media player)
-* Album art & Metadata via HEOS entity (not provided by Denon media player)
+- Volume control via Denon entity (might be more fine-granular than HEOS volume control)
+- ON/OFF button via Denon entity (not provided by HEOS media player)
+- Sound mode selector via Denon entity (not provided by HEOS media player)
+- Album art & Metadata via HEOS entity (not provided by Denon media player)
 
 The complete configuration is:
 
