@@ -1,13 +1,13 @@
 ---
-title: "YAML"
-description: "Details about YAML to configure Home Assistant."
+title: "YAML syntax"
+description: "Details about the YAML syntax used to configure Home Assistant."
 ---
 
-Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. YAML might take a while to get used to but is powerful in allowing you to express complex configurations.
+Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. While most integrations can be configured through the UI, some integrations require you to edit your [`configuration.yaml`](/docs/configuration/) file to specify its settings.
 
-While more and more integrations are configured through the UI, for some, you will add code in your [`configuration.yaml`](/docs/configuration/) file to specify its settings.
+This page gives a high-level introduction to the YAML syntax used in Home Assistant. For a more detailed description and usage examples refer to the [YAML Style Guide for Home Assistant developers](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/).
 
-The following example entry assumes that you would like to set up the [notify integration](/integrations/notify) with the [pushbullet platform](/integrations/pushbullet).
+The following YAML example entry assumes that you would like to set up the [notify integration](/integrations/notify) with the [pushbullet platform](/integrations/pushbullet).
 
 ```yaml
 notify:
@@ -25,7 +25,7 @@ In YAML, indentation is important for specifying relationships. Indented lines a
 
 Getting the right indentation can be tricky if you're not using an editor with a fixed-width font. Tabs are not allowed to be used for indentation. The convention is to use 2 spaces for each level of indentation.
 
-To check if your YAML syntax is correct before loading it into Home Assistant, you can use the third-party service [YAML Validator](https://codebeautify.org/yaml-validator/) (not maintained by the Home Assistant community).
+To check if your YAML syntax is correct before loading it into Home Assistant, you can use the third-party service [YAML Validator](https://codebeautify.org/yaml-validator/) (not maintained by the Home Assistant community). If you edit the YAML files directly in Home Assistant, you can also [validate the YAML]() files from within Home Assistant.
 
 <div class='note'>
 
@@ -120,3 +120,8 @@ Not quoting the value may generate an error such as:
 ```txt
 not a valid value for dictionary value @ data
 ```
+
+## Related topics
+
+- [YAML syntax](https://yaml.org/)
+- [YAML Style Guide for Home Assistant developers](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/)

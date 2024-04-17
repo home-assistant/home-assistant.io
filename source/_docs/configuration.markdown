@@ -26,19 +26,36 @@ _If you use {% term "Home Assistant Operating System" %}, you can find `configur
 
 _If you use {% term "Home Assistant Core" %} , you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeassistant`)._
 
-## Reloading changes
+## Reloading configuration changes
 
-Most integrations in Home Assistant that do not interact with {% term devices %} or {% term services %} can reload changes made to their configuration in `configuration.yaml`. To do this, go to {% my server_controls title="Developer Tools > YAML" %} and scroll down to the YAML configuration reloading section (alternatively, hit "c" anywhere in the UI and search for it).
+Most integrations in Home Assistant that do not interact with {% term devices %} or {% term services %} can reload changes made to their configuration in `configuration.yaml`.
 
-If you can't see your integration listed there, you will need to restart Home Assistant for changes to take effect.
+1. To reload configuration changes, go to {% my server_controls title="**Developer Tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit "c" anywhere in the UI and search for it).
+   - You are presented with a list of integrations, such as **Automations** or **Conversation**.
 
-<div class='note'>
+    ![Reload configuration changes](/images/docs/configuration/reloading_config.png)
 
-  To test any changes to your configuration files from the command line, check out the common tasks for [operating system](/common-tasks/os/#configuration-check), [supervised](/common-tasks/supervised/#configuration-check), [container](/common-tasks/container/#configuration-check), [core](/common-tasks/core/#configuration-check) for how to do that. Configuration changes can also be tested using the UI by navigating to {% my server_controls title="Developer Tools > YAML" %} and clicking "Check Configuration". For the button to be visible, you must enable "Advanced Mode" on your {% my profile title="User Profile" %}.
+2. If the integration is listed, select it to reload the settings.
+3. If integration is not listed, you need to restart Home Assistant for changes to take effect:
+   - [Validate the configuration](#validating-the-configuration). Then, select the **Restart** button.
 
-</div>
+## Validating the configuration
+
+After changing configuration or automation files, check if the configuration is valid.
+
+The method for running a configuration check depends on your [installation type](/installation/#advanced-installation-methods). Check the common tasks for your installation type:
+
+- [Configuration check on Operating System](/common-tasks/os/#configuration-check)
+- [Configuration check on Supervised](/common-tasks/supervised/#configuration-check)
+- [Configuration check on Container](/common-tasks/container/#configuration-check)
+- [Configuration check on Core](/common-tasks/core/#configuration-check)
 
 ## Related topics
+
+- [YAML syntax](/docs/configuration/yaml/)
+- [Configuration check on Operating System](/common-tasks/os/#configuration-check)
+
+### Backups
 
 - [Creating and restoring backups](/common-tasks/os/#backups)
 - [Creating backups for Home Assistant Container and Core](/integrations/backup)
