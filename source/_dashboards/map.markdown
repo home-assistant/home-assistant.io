@@ -58,7 +58,7 @@ default_zoom:
   default: 14 (or whatever zoom level is required to fit all visible markers)
 theme_mode:
   required: false
-  description: 'Override the theme to force the map to display in either a light mode (`theme_mode: light`) or a dark mode (`theme_mode: dark`). Default (`theme_mode: auto`) will follow the theme settings.
+  description: 'Override the theme to force the map to display in either a light mode (`theme_mode: light`) or a dark mode (`theme_mode: dark`). Default (`theme_mode: auto`) will follow the theme settings.'
   type: string
   default: 'auto'
 hours_to_show:
