@@ -29,4 +29,4 @@ One weather entity is created for each entry in the configuration. Hourly and da
 
 Details about the API are available in the [NWS API documentation](https://www.weather.gov/documentation/services-web-api). The [pynws](https://github.com/MatthewFlamm/pynws) library is used to retrieve data.
 
-Details about the `weather.get_forecasts` service are available in the [`weather` documentation](https://www.home-assistant.io/integrations/weather/).
+Details about the `weather.get_forecasts` service are available in the [`weather` documentation](/integrations/weather/).
