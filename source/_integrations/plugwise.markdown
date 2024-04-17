@@ -229,3 +229,14 @@ Stretch (power switches):
 
  - v3.x
  - v2.x
+
+### Thermostat target temerature step size
+
+By default, the step size for Plugwise thermostats is set to 0.1. However, the hardware buttons on those thermostats use a step size of 0.5. This means that, if you press `+` on the thermostat in the Home Assistant UI, it will increase the target temperature with 0.1, but if you press `+` on the device itself, it will increase the target temperature with 0.5. If you don't like this, you can change the step size by adding the following snippet to your `configuration.yaml` _for each thermostat_:
+
+```yaml
+homeassistant:
+  customize:
+    climate.your_thermostat_name:
+      target_temp_step: 0.5
+```
