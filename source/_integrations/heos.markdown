@@ -144,6 +144,7 @@ For removing a HEOS player from a group you can use the `media_player.unjoin` se
 ## Notes
 
 - Receivers with multiple zones are represented as a single media player. They will be turned on when playback is started, but cannot be turned off by the integration at this time.
+- Denon and [HEOS](/integrations/heos/) media players can be combined in a [Universal Remote](/integrations/universal/#denon-avr--heos)
 
 ## Troubleshooing
 
