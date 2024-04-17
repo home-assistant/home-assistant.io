@@ -84,7 +84,7 @@ You must [restart Home Assistant](/docs/configuration/#reloading-changes) for th
 
 ## Notifications
 
-The `ecobee` notify platform allows you to send notifications to an ecobee thermostat. For each thermostat found a `notify` entity will be added.
+The `ecobee` notify platform allows you to send notifications to an ecobee thermostat. For each thermostat found, a `notify` entity will be added.
 
 Example service call:
 
