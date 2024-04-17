@@ -30,7 +30,7 @@ _If you use {% term "Home Assistant Core" %} , you can find `configuration.yaml`
 
 Most integrations in Home Assistant that do not interact with {% term devices %} or {% term services %} can reload changes made to their configuration in `configuration.yaml`.
 
-1. To reload configuration changes, go to {% my server_controls title="**Developer Tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit "c" anywhere in the UI and search for it).
+1. To reload configuration changes, go to {% my server_controls title="**Developer Tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit "c" anywhere in the UI and search for "reload").
    - You are presented with a list of integrations, such as **Automations** or **Conversation**.
 
     ![Reload configuration changes](/images/docs/configuration/reloading_config.png)
