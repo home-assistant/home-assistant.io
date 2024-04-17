@@ -1376,6 +1376,15 @@ entity_category:
   default: None
 {% endconfiguration %}
 
+### Example service call
+
+```yaml
+service: notify.send_message
+data:
+  message: "Hello from HA!"
+  entity_id: notify.alarm
+```
+
 ## Number
 
 The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
