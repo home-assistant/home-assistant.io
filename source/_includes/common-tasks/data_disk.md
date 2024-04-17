@@ -78,7 +78,7 @@ The aim is to migrate the data from system 1 to system 2. One way to do this is 
 
 #### Prerequisites
 
-- Home Assistant Operating System 13.0 or later
+- Home Assistant Core 2024.5.0 or later
 - 1 Home Assistant instance using an external data disk (system 1)
 - 1 Home Assistant instance to which you want to move the external data disk (system 2)
 
