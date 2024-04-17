@@ -26,6 +26,7 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Once the add-ons are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & Services**" %}.
      - You should now see Piper and Whisper being discovered by the [Wyoming integration](/integrations/wyoming/).
        ![Whisper and Piper integrations](/images/assist/piper-whisper-install-new-02.png)
+     - If they aren't being discovered, you may need to reboot your system.
    - For each integration, select **Configure**.
      - Once the setup is complete, you should see both Piper and Whisper (and, optionally, also openWakeword) in one integration.
    
