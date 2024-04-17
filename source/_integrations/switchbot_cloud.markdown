@@ -44,7 +44,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 By default, each individual sensor will poll the SwitchBot Cloud API for a status update every 10 minutes (600 seconds). You can request more frequent updates by lowering the `Scan interval (seconds)` in the initial integration setup.
 
 <div class='note warning'>
-The SwitchBot Cloud API limits users to 10,000 requests per day so please be cautious when lowering the scan interval.
+The SwitchBot Cloud API limits users to 10,000 requests per day. Please be cautious when lowering the scan interval.
 </div>
 
 <div class='note warning'>
