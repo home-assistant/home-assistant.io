@@ -116,7 +116,8 @@ Devices not listed below may work but if you encounter issues submit a bug repor
 
 - L510B
 - L530E
-
+- TS135
+  
 #### Light strips
 
 - L900-5
