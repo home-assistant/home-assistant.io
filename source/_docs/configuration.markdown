@@ -26,10 +26,6 @@ _If you use {% term "Home Assistant Operating System" %}, you can find `configur
 
 _If you use {% term "Home Assistant Core" %} , you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeassistant`)._
 
-### Do not store private data in your configuration.yaml file
-
-Avoid storing private data (passwords, API keys, etc.) directly in your `configuration.yaml` file. Private data can be stored in either a [separate file](/docs/configuration/secrets/) or in [environmental variables](/docs/configuration/yaml/#using-environment-variables), which circumvents this security problem.
-
 ## Reloading configuration changes
 
 Most integrations in Home Assistant that do not interact with {% term devices %} or {% term services %} can reload changes made to their configuration in `configuration.yaml`.
@@ -58,6 +54,7 @@ The method for running a configuration check depends on your [installation type]
 
 - [YAML syntax](/docs/configuration/yaml/)
 - [Configuration check on Operating System](/common-tasks/os/#configuration-check)
+- [Storing credentials in `secrets.yaml` file](/docs/configuration/secrets)
 
 ### Backups
 
