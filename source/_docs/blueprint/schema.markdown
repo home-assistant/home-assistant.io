@@ -1,6 +1,11 @@
 ---
 title: "About the blueprint schema"
 description: "Introduction to the blueprint schema."
+tags:
+  - blueprint
+links:
+  - title: "Blueprint community forum"
+    url: /get-blueprints
 ---
 
 ## The blueprint schema
@@ -201,12 +206,4 @@ action:
     target: !input light_target
 ```
 
-### Related information
-- [About blueprints](/docs/blueprint/)
-- [Blueprint selectors](/docs/blueprint/selectors/)
-- [Using blueprints in automations](/docs/automation/using_blueprints/)
-- [Tutorial: Create an automation blueprint &raquo;](/docs/blueprint/tutorial/)
-- [Blueprint community forum][blueprint-forums]
-
 [blueprint-built-in]: https://github.com/home-assistant/core/tree/dev/homeassistant/components/automation/blueprints
-[blueprint-forums]: /get-blueprints

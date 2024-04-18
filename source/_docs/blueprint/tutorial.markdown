@@ -1,6 +1,10 @@
 ---
 title: "Creating an automation blueprint"
 description: "Tutorial on creating an automation blueprint."
+tags:
+  - yaml
+  - blueprint
+  - script
 ---
 
 <div class='note'>
@@ -269,17 +273,3 @@ For this tutorial, we're going to share it on GitHub Gists. This is a good optio
 ### Share on the Blueprint Exchange
 
 If you follow the [Rules and format for posting](/get-blueprints), you can share your blueprint on the Home Assistant Blueprint Exchange forum. This option is accessible to the general Home Assistant community but recommended only for your original blueprints. Please don't post this tutorial to the Blueprint Exchange, but instead, remember this as an option for releasing your real blueprints.
-
-## Related topics
-
-**Prerequisites**
-- [Editing the configuration file](/docs/configuration/)
-- [YAML](/docs/configuration/yaml/), and specifically, [YAML used in automations](/docs/automation/yaml/)
-- [Scripts](/docs/scripts/)
-
-**Blueprints**
-
-- [Blueprint selectors](/docs/blueprint/selectors/)
-- [Blueprint schema](/docs/blueprint/schema/)
-- [About blueprints](/docs/blueprint/)
-- [Using automation blueprints](/docs/automation/using_blueprints/)

@@ -1,0 +1,30 @@
+{% if page.tags and page.tags.size != 0 %}
+<div class="text related-topics" id="related-topics">
+  <h2>Related topics</h2>
+  <ul>
+    {% assign docs_collection_sorted = site.docs | sort: "title" %}
+    {% for doc in docs_collection_sorted %}
+    {% for tag in page.tags %}
+    {% if doc.tags and doc.tags contains tag and doc.path != page.path %}
+    <li><a href="{{ doc.url | relative_url }}" class="tag">{{ doc.title }}</a></li>
+    <!-- Break the loop after the first match, 
+      to not add the same doc multiple times 
+      if the have several matching tags -->
+    {% break %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{% if page.links and page.links.size != 0 %}
+{% assign sorted_links = page.links | sort: "title" %}
+<div class="text related-links" id="related-links">
+  <h2>Related links</h2>
+  <ul>
+    {% for link in sorted_links %}
+    <li><a href="{{ link.url }}" class="link" target="_blank">{{ link.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
