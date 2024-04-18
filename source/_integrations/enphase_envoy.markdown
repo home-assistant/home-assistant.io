@@ -95,7 +95,7 @@ The default polling interval is 60 seconds. To customize the polling interval, r
 
 This integration supports updating the Envoy configuration through a `reconfigure` menu option. The reconfiguration allows for changing the Envoy IP address, username, and/or password. Use this menu option if your Enlighten credentials or the device's IP address has changed and needs to be manually updated. The latter is typically automatically detected and updated. 
 
-Use this menu option also when an Envoy firmware upgrade requires a switch from local Envoy username/password to token based authentication with Enlighten username/password (refer to [authentication requirements](#envoy-authentication-requirements)).
+Use this menu option also when an Envoy firmware upgrade requires a switch from local Envoy username/password to token-based authentication with Enlighten username/password (refer to [authentication requirements](#envoy-authentication-requirements)).
 
 ## Energy dashboard
 
