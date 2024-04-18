@@ -3,37 +3,64 @@ title: "Setup basic information"
 description: "Setting up the basic info of Home Assistant."
 ---
 
-As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a unit system and time zone based on this location. You may adjust this during onboarding, or afterwards at {% my general title="Settings > System > General" %}, network related configuration is found under {% my network title="Settings > System > Network" %}.
+As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a unit system and time zone based on this location. If you didn't adjust this directly during onboarding, you can do it later.
 
-If you prefer YAML, you can add the following information to your `configuration.yaml`:
+<p class='img'>
+    <img class="no-shadow" src='/images/docs/configuration/general-settings.png' alt='Screenshot showing General settings page'>
+    Screenshot showing the General settings page.
+</p>
 
-```yaml
-homeassistant:
-  name: Home
-  latitude: 32.87336
-  longitude: 117.22743
-  elevation: 430
-  unit_system: metric
-  currency: USD
-  country: US
-  time_zone: "America/Los_Angeles"
-  external_url: "https://www.example.com"
-  internal_url: "http://homeassistant.local:8123"
-  allowlist_external_dirs:
-    - "/usr/var/dumping-ground"
-    - "/tmp"
-  allowlist_external_urls:
-    - "http://images.com/image1.png"
-  media_dirs:
-    media: "/media"
-    recordings: "/mnt/recordings"
-```
+## Editing the general settings
 
-<div class='note'>
+To change the general settings that were defined during onboarding, follow these steps:
 
-  You will not be able to edit anything in {% my general title="Settings > System > General" %} in the UI if you are using YAML configuration for any of the following: name, latitude, longitude, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url, country, currency. Additionally, some options are only visible after "Advanced Mode" is enabled on your {% my profile title="User Profile" %}.
+1. Go to {% my general title="**Settings** > **System** > **General**" %} and make your changes.
+2. To change network-related configuration, such as the network name, go to {% my network title="**Settings** > **System** > **Network**" %}.
+3. If some of the settings are not visible, you may need to enable **Advanced mode**.
+   - In the bottom left, select your user name to go to your {% my profile title="**User profile**" %}, and enable **Advanced mode**.
+4. **Troubleshooting**: If any of the settings are grayed out and can't be edited, this is because they are defined in the [`configuration.yaml` file](/docs/configuration/).
+   - If you prefer editing the settings in the UI, you have to delete these entries from the [`configuration.yaml` file](/docs/configuration/).
 
-</div>
+    ![Setting fields are grayed out because the configuration settings stored in configuration.yaml file](/images/docs/configuration/general-settings-stored-in-config-yaml.png)
+
+## Editing the general settings in YAML
+
+If you prefer YAML, you can define your general settings in the [`configuration.yaml` file](/docs/configuration/).
+Note that for some of the settings, these can't be edited from the UI if they were defined in YAML. They will be grayed out or inaccessible.
+
+<p class='img'>
+    <img class="no-shadow" src='/images/docs/configuration/coordinates-defined-in-yaml.png' alt='Screenshot showing coordinates cannot be edited because they are defined in configuration.yaml file'>
+    Screenshot showing coordinates cannot be edited because they are defined in configuration.yaml file.
+</p>
+
+To get started with the general settings in YAML, follow these steps:
+
+1. Copy the following information to your [`configuration.yaml` file](/docs/configuration/).
+
+    ```yaml
+    homeassistant:
+      name: Home
+      latitude: 32.87336
+      longitude: 117.22743
+      elevation: 430
+      unit_system: metric
+      currency: USD
+      country: US
+      time_zone: "America/Los_Angeles"
+      external_url: "https://www.example.com"
+      internal_url: "http://homeassistant.local:8123"
+      allowlist_external_dirs:
+        - "/usr/var/dumping-ground"
+        - "/tmp"
+      allowlist_external_urls:
+        - "http://images.com/image1.png"
+      media_dirs:
+        media: "/media"
+        recordings: "/mnt/recordings"
+    ```
+
+2. Edit each entry to fit your home.
+
 
 {% configuration %}
 name:
@@ -115,3 +142,7 @@ country:
 ## Reload core service
 
 Home Assistant offers a service to reload the core configuration while Home Assistant is running called {% my developer_call_service service="homeassistant.reload_core_config" %}. This allows you to change any of the above sections and see it being applied without having to restart Home Assistant. To call this service, go to the "{% my developer_services %}" tab under {% my developer_services title="Developer Tools" %}, select the {% my developer_call_service service="homeassistant.reload_core_config" %} service and click the "CALL SERVICE" button. Alternatively, you can press the "Location & Customizations" button under {% my server_controls title="Developer Tools > YAML" %}.
+
+## Related topics
+
+- [`configuration.yaml` file](/docs/configuration/)
