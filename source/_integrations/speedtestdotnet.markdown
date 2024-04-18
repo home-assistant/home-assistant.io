@@ -3,7 +3,7 @@ title: Speedtest.net
 description: How to integrate Speedtest.net within Home Assistant.
 ha_category:
   - Sensor
-  - System Monitor
+  - System monitor
 ha_release: 0.13
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -26,7 +26,7 @@ By default, a speed test will be run every hour. You can disable polling using s
 
 {% include common-tasks/define_custom_polling.md %}
 
-## Integration Sensors
+## Integration sensors
 
 The following sensors are added by the integration:
 

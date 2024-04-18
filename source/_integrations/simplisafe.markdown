@@ -26,10 +26,10 @@ The `simplisafe` integration integrates [SimpliSafe home security](https://simpl
 
 There is currently support for the following device types within Home Assistant:
 
-- **Alarm Control Panel**: reports on the current alarm status and can be used to arm and disarm the system.
-- **CO Detector**: reports on the carbon monoxide sensor status*.
-- **Entry Sensor**: reports on the current entry sensor status*.
-- **Freeze Sensor**: reports on the freeze sensor temperature*.
+- **Alarm control panel**: reports on the current alarm status and can be used to arm and disarm the system.
+- **CO detector**: reports on the carbon monoxide sensor status*.
+- **Entry sensor**: reports on the current entry sensor status*.
+- **Freeze sensor**: reports on the freeze sensor temperature*.
 - **Glass Break Sensor**: reports on the glass breakage sensor status*.
 - **Lock**: reports on `Door Locks` and can be used to lock and unlock a lock.
 - **Motion Sensor**: reports on motion detected*.
@@ -42,7 +42,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## SimpliSafe Plans
 
-SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/articles/alarm-events-monitoring/what-are-the-service-plan-options/6344794a013ba90af0bce6a4). Currently, only the Standard and Fast Protect are known to work with this integration; if you find otherwise, please consider updating this documentation.
+SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/articles/alarm-events-monitoring/what-are-the-service-plan-options/6344794a013ba90af0bce6a4). All plans (including the free plan) should work with this integration.  
 
 {% include integrations/config_flow.md %}
 

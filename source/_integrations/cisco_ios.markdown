@@ -2,7 +2,7 @@
 title: Cisco IOS
 description: Instructions on how to integrate Cisco IOS routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.33
 ha_iot_class: Local Polling
 ha_codeowners:

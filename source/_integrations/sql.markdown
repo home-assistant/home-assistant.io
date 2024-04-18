@@ -122,7 +122,7 @@ See [supported engines](/integrations/recorder/#custom-database-engines) for whi
 
 The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified.
 
-There is no explicit configuration required for attributes. The integration will set all additional columns returned by the query as attributes. 
+There is no explicit configuration required for attributes. The integration will set all columns returned by the query as attributes.
 
 Note that in all cases only the first row returned will be used.
 
@@ -221,6 +221,18 @@ Replace `-1 day` with the target offset, for example, `-1 hour`.
 Use `state` as column for value.
 
 Keep in mind that, depending on the update frequency of your sensor and other factors, this may not be a 100% accurate reflection of the actual situation you are measuring. Since your database won’t necessarily have a value saved exactly 24 hours ago, use “>=” or “<=” to get one of the closest values.
+
+#### MariaDB
+
+On MariaDB the following where clause can be used to compare the timestamp:
+
+```sql
+...
+  AND last_updated_ts <= UNIX_TIMESTAMP(NOW() - INTERVAL 1 DAY)
+...
+```
+
+Replace `- INTERVAL 1 DAY` with the target offset, for example, `- INTERVAL 1 HOUR`.
 
 ### Database size
 

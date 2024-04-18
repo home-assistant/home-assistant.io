@@ -1,8 +1,8 @@
 ---
 title: Raspberry Pi Remote GPIO
-description: Instructions on how to integrate the GPIO capability of a Remote Raspberry Pi into Home Assistant.
+description: Instructions on how to integrate the GPIO capability of a remote Raspberry Pi into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - DIY
   - Switch
 ha_release: 0.94
@@ -14,19 +14,19 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections.
+The `remote_rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections.
 
-The remote Raspberry Pi and the control computer where Home Assistant is running must be prepared to run remote_rpi_gpio, see details [here](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html).
+The remote Raspberry Pi, and the control computer where Home Assistant is running must be configured to be able to run `remote_rpi_gpio`, see [Configuring Remote GPIO](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html) for more details.
 
-Note that for virtual environments you may need to set an environment variable when starting the environment to set the pin factory, example:
+Note that for virtual environments, you may need to set an environment variable when starting the environment to set the pin factory, for example:
 
-`Environment =  GPIOZERO_PIN_FACTORY=pigpio PIGPIO_ADDR=YOUR_RPi_IP_ADDRESS`
+`Environment = GPIOZERO_PIN_FACTORY=pigpio PIGPIO_ADDR=YOUR_RPi_IP_ADDRESS`
 
-## Binary Sensor
+## Binary sensor
 
-The `remote_rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of a [Remote Raspberry Pi](https://www.raspberrypi.org/).
+The `remote_rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of a remote [Raspberry Pi](https://www.raspberrypi.org/).
 
-To use your Remote Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
+To use your remote Raspberry Pi's GPIO in your installation, add the following to your [`configuration.yaml`](/docs/configuration/) file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -61,7 +61,7 @@ pull_mode:
   description: >
     Type of internal pull resistor to use.
     Options are `UP` - pull-up resistor and `DOWN` - pull-down resistor.
-    Pull-Up defaults to active LOW and Pull-down defaults to active HIGH.  This can be adjusted with invert_logic
+    Pull-Up defaults to active LOW and Pull-down defaults to active HIGH. This can be adjusted with invert_logic
   required: false
   type: string
   default: "`UP`"
@@ -73,7 +73,7 @@ For more details about the GPIO layout, visit the Wikipedia [article](https://en
 
 The `remote_rpi_gpio` switch platform allows you to control the GPIOs of a [Remote Raspberry Pi](https://www.raspberrypi.org/).
 
-To use your Remote Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
+To use your remote Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -96,7 +96,7 @@ ports:
   type: list
   keys:
     port:
-      description:  Port numbers and corresponding names (GPIO #).
+      description: Port numbers and corresponding names (GPIO #).
       required: true
       type: [integer, string]
 invert_logic:
@@ -112,7 +112,7 @@ For more details about the GPIO layout, visit the Wikipedia [article](https://en
 Note that a pin managed by Home Assistant is expected to be exclusive to Home Assistant.
 </div>
 
-A common question is what does port refer to, this number is the actual GPIO #, not the pin #.
+A common question is what does port refer to? This number is the actual GPIO #, not the pin #.
 For example, if you have a relay connected to pin 11 its GPIO # is 17.
 
 ```yaml
@@ -126,4 +126,4 @@ switch:
 
 ### Troubleshooting
 
-If you receive an error such as `gpiozero.exc.BadPinFactory: Unable to load any default pin factory!` try changing the pinfactory from `pigpio` to `mock`, this addresses a [known issue](https://forums.raspberrypi.com/viewtopic.php?p=1417922).
+If you receive an error such as `gpiozero.exc.BadPinFactory: Unable to load any default pin factory!` try changing the `GPIOZERO_PIN_FACTORY` environment variable from `pigpio` to `mock`, as this addresses a [known issue](https://forums.raspberrypi.com/viewtopic.php?p=1417922).

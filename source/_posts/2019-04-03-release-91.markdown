@@ -196,7 +196,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __Z-Wave__ - The usb_path in configuration.yaml now overrides config entry usb_path. This is potentially a breaking change if people have a stale usb_path setting in configuration.yaml that's no longer accurate. This should help reduce the number of people that need to manually edit the storage/core.config_entries file if their usb_path changes. ([@cgarwood] - [#22038]) ([zwave docs])
 

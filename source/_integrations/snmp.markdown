@@ -3,7 +3,7 @@ title: SNMP
 description: Instructions on how to integrate SNMP into Home Assistant.
 ha_category:
   - Network
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Switch
 ha_iot_class: Local Polling
@@ -20,7 +20,7 @@ A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Manage
 
 There is currently support for the following device types within Home Assistant:
 
-- [Presence Detection](#presence-detection)
+- [Presence detection](#presence-detection)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -28,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
 </div>
 
-## Presence Detection
+## Presence detection
 
 The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker integration page](/integrations/device_tracker/) than desirable. It is recommended to use [Ping](/integrations/ping) or [Nmap](/integrations/nmap_tracker) instead.
 

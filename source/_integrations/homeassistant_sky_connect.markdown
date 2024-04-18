@@ -8,6 +8,7 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant_sky_connect
 ha_integration_type: hardware
+ha_config_flow: true
 ---
 
 The Home Assistant SkyConnect integration provides hardware information for the hardware configuration page.

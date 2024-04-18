@@ -2,7 +2,7 @@
 title: Pilight
 description: Instructions on how to setup Pilight within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - DIY
   - Sensor
   - Switch
@@ -27,7 +27,7 @@ The received and supported RF codes are put on the event bus of Home Assistant a
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Light](#light)
@@ -81,7 +81,7 @@ pilight:
       - 42
 ```
 
-## Binary Sensor
+## Binary sensor
 
 The `pilight` binary sensor platform implements the [pilight hub](#configuration) binary sensor functionality. There are two types of Pilight binary sensor configuration: a normal sensor which sends the on and off cyclical state and a trigger sensor which sends only a trigger when an event happened (for example lots of cheap PIR motion detectors).
 
@@ -152,7 +152,7 @@ binary_sensor:
 
 This `pilight` sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g., _uuid_) can be set to distinguish between multiple pilight devices. To use a pilight sensor the pilight Home Assistant hub has to be set up.
 
-To use your sensor via pilight, make sure it is [supported](https://wiki.pilight.org/protocols) and add the following to your `configuration.yaml` file:
+To use your sensor via pilight, make sure it is [supported](https://manual.pilight.org/protocols/index.html) and add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

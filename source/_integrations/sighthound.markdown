@@ -2,7 +2,7 @@
 title: Sighthound
 description: Detect people with Sighthound Cloud.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_release: 0.105
 ha_iot_class: Cloud Polling
 ha_codeowners:

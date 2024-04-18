@@ -2,7 +2,7 @@
 title: Xiaomi TV
 description: Instructions on how to integrate a Xiaomi TV into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.64
 ha_iot_class: Assumed State
 ha_codeowners:

@@ -1,7 +1,6 @@
 ---
 title: "RFLink Light"
 description: "Instructions on how to integrate RFLink lights into Home Assistant."
-logo: rflink.png
 ha_category:
   - Light
 ha_iot_class: Assumed State

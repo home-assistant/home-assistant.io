@@ -2,7 +2,7 @@
 title: Sonos
 description: Instructions on how to integrate Sonos devices into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Sensor
 featured: true
 ha_release: 0.7.3
@@ -10,7 +10,6 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: sonos
 ha_codeowners:
-  - '@cgtobi'
   - '@jjlawren'
 ha_ssdp: true
 ha_platforms:
@@ -36,7 +35,7 @@ Speaker-level controls are exposed as `number` or `switch` entities. Additionall
 
 - **All devices**: Alarms, Bass, Treble, Loudness, Crossfade, Status Light, Touch Controls
 - **Home theater devices**: Audio Delay ("Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled, Surround Music Full Volume ("Full/Ambient"), Surround Level ("TV Level"), Music Surround Level
-- **When paired with a sub**: Subwoofer Enabled, Subwoofer Gain
+- **When paired with a sub**: Subwoofer Enabled, Subwoofer Gain, Subwoofer Crossover Frequency (Sonos Amp only)
 
 ### Sensors
 
@@ -188,7 +187,7 @@ data:
 
 ## Services
 
-The Sonos integration makes various custom services available in addition to the [standard Media Player services](/integrations/media_player/#services).
+The Sonos integration makes various custom services available in addition to the [standard media player services](/integrations/media_player/#services).
 
 ### Service `sonos.snapshot`
 

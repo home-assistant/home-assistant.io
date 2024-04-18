@@ -1,22 +1,22 @@
 ---
 type: card
-title: "Media Control Card"
-sidebar_label: Media Control
-description: "The Media Control card is used to display media player entities on an interface with easy to use controls."
+title: "Media control card"
+sidebar_label: Media control
+description: "The media control card is used to display media player entities on an interface with easy to use controls."
 ---
 
-The Media Control card is used to display [Media Player](/integrations/#media-player) entities on an interface with easy to use controls.
+The media control card is used to display [media player](/integrations/#media-player) entities on an interface with easy to use controls.
 
 <p class='img'>
 <img src='/images/dashboards/mediaplayer.png' alt='Screenshot of the media player control card'>
-Screenshot of the Media Control card.
+Screenshot of the media control card.
 </p>
 
-To add the Media Control card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -46,3 +46,8 @@ Basic example:
 type: media-control
 entity: media_player.lounge_room
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

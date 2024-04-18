@@ -25,7 +25,7 @@ Entities are generated, updated and removed automatically with each update from 
   <img src='/images/screenshots/nsw-rural-fire-service-feed-map.png' />
 </p>
 
-The entity's information can be used for example if a bush fire that produces smoke or embers is reported close to your home, and you want to automatically close windows, turn on a sprinkler system or simply send yourself a reminder to clean the gutters from dry leaves.
+For example, you can use the entity's information to trigger actions based on the proximity and severity of a fire incident. You can set up automations to close windows, activate sprinklers or remind yourself to clean the gutters if there is a fire in your area.
 
 The data is updated every 5 minutes.
 

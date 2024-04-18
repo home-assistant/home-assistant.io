@@ -17,15 +17,15 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-This integration allows integrating the sensors, provided by your [air-Q](https://www.air-q.com/) device, into Home Assistant.
+The **air-Q** {% term integration %} allows integrating the sensors, provided by your [air-Q](https://www.air-q.com/) device, into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-During the configuration, the user is prompted for the IP address of the device or the first 5 characters of the serial number, as well as the device password.
+During the configuration, the user is prompted for the IP address of the {% term device %} or the first 5 characters of the serial number, as well as the device password.
 
 For this integration to communicate with the device, both must be connected to the same Wi-Fi network.
 
-After the setup, separate entities will be created for each of the sensors, found in your device.
+After the setup, separate {% term entities %} will be created for each of the {% term sensors %}, found in your {% term device %}.
 
 ## Sensors
 

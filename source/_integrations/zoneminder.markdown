@@ -2,7 +2,7 @@
 title: ZoneMinder
 description: How to integrate ZoneMinder into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Hub
   - Sensor
@@ -11,6 +11,7 @@ ha_release: 0.31
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@rohankapoorcom'
+  - '@nabbi'
 ha_domain: zoneminder
 ha_platforms:
   - binary_sensor
@@ -24,7 +25,7 @@ The `zoneminder` integration sets up Home Assistant with your [ZoneMinder](https
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Camera](#camera)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -105,7 +106,7 @@ action:
     name: Home
 ```
 
-## Binary Sensor
+## Binary sensor
 
 The `zoneminder` binary sensor platform lets you monitor the availability of your [ZoneMinder](https://www.zoneminder.com) install.
 

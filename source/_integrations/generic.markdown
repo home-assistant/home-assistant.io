@@ -63,7 +63,7 @@ In this section, you find some real-life examples of how to use this camera plat
 
 - Still Image URL: `https://www.yr.no/en/content/1-72837/meteogram.svg`
 
-Instructions on how to locate the SVG for your location are available at [developer.yr.no](https://developer.yr.no/doc/guides/deprecating-old-widgets/)
+Instructions on how to locate the SVG for your location are available at [developer.yr.no](https://developer.yr.no/doc/guides/available-widgets/)
 
 ### Local image
 

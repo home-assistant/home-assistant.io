@@ -2,7 +2,7 @@
 title: Z-Wave.Me
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave.Me Z-Way.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
@@ -38,7 +38,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way](https://z-wave.me/z-way/). It combines the performance and the power of the diagnostics tools built-in Z-Way with the flexibility of Home Assistant. The integration brings all Z-Way devices in Home Assistant (Z-Wave, EnOcean, HTTP based, and others).
+This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way](https://z-wave.me/z-way/). It combines the performance and the power of the diagnostics tools built-in Z-Way with the flexibility of Home Assistant. The integration brings all Z-Way devices in Home Assistant (Z-Wave, Zigbee, EnOcean, HTTP based, and others).
 
 {% include integrations/config_flow.md %}
 
@@ -77,7 +77,7 @@ Example of connecting to Z-Way via remote access find.z-wave.me:
 </div>
 
 
-<div class='note warning'>
+<div class='note info'>
 
   You can use Z-Wave.Me UI with its enhanced Z-Wave network diagnostics tools together with the Home Assistant UI.
 
@@ -87,10 +87,11 @@ Example of connecting to Z-Way via remote access find.z-wave.me:
 
 Z-Wave.Me Z-Way requires Z-Wave.Me hardware:
  - [RaZberry 7](https://z-wave.me/products/razberry/) and [RaZberry 7 Pro](https://z-wave.me/products/razberry/)
+ - [Wiren Board 7](https://z-wave.me/products/wirenboard-7/)
  - [Z-Station](https://z-wave.me/products/z-station/)
  - [Z-Wave & Zigbee mPCIe](https://z-wave.me/products/mpcie/)
- - [RaZberry](https://z-wave.me/products/razberry-old/)
- - [UZB1](https://z-wave.me/products/uzb/ )
+ - [RaZberry (old)](https://z-wave.me/products/razberry-old/)
+ - [UZB1](https://z-wave.me/products/uzb/)
  - [Hub1](https://z-wave.me/products/hub/)
  - or any other Z-Wave.Me based controller.
 

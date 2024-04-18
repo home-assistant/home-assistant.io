@@ -2,7 +2,7 @@
 title: Keba Charging Station
 description: Instructions on how to setup your Keba charging station with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Lock
   - Notifications
   - Sensor
@@ -19,11 +19,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `keba` integrates your Keba charging station/BMW Wallbox into your Home Assistant instance using the UDP Smart Home Interface ([manual](https://www.keba.com/web/downloads/e-mobility/KeContact_P20_P30_UDP_ProgrGuide_en.pdf)). The fetching interval to the charging station is set to 5 seconds, same as in the official mobile app. In order to use the integration, enable the UDP Smart Home Interface by adjusting the DIP switches within the charging station according to the [installation manual](https://www.keba.com/file/downloads/e-mobility/KeContact_KCP20_30_ih_en.pdf).
+The `keba` integrates your Keba charging station/BMW Wallbox into your Home Assistant instance using the UDP Smart Home Interface ([manual](https://www.ifix-solar.shop/wp-content/uploads/shop/Dokumente/KEBA/KeContact_P20_P30_UDP_ProgrGuide_en.pdf)). The fetching interval to the charging station is set to 5 seconds, same as in the official mobile app. In order to use the integration, enable the UDP Smart Home Interface by adjusting the DIP switches within the charging station according to the [installation manual](https://www.keba.com/file/downloads/e-mobility/KeContact_KCP20_30_ih_en.pdf).
 
 This integration provides the following platforms:
 
-- Binary Sensors: Online state, plug state, Charging state and failsafe mode state.
+- Binary sensors: Online state, plug state, charging state and failsafe mode state.
 - Lock: Authorization (like with the RFID card).
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
 - Services: authorize, deauthorize, set energy target, set the maximum allowed current and manually update the states. More details can be found [here](/integrations/keba/#services).

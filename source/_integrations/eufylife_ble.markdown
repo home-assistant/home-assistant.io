@@ -18,11 +18,11 @@ The EufyLife integration allows you to integrate Eufy smart scales with Home Ass
 
 ## Supported devices
 
-- [Smart Scale (T9140)](https://www.eufy.com/products/t9140)
-- [Smart Scale C1 (T9146)](https://www.eufy.com/products/t9146)
-- [Smart Scale P1 (T9147)](https://www.eufy.com/products/t9147)
-- [Smart Scale P2 (T9148)](https://www.eufy.com/products/t9148)
-- [Smart Scale P2 Pro (T9149)](https://www.eufy.com/products/t9149111)
+- [Smart Scale (T9140)](https://support.eufy.com/s/product/a085g000000Nm5FAAS/smart-scale(t9140))
+- [Smart Scale C1 (T9146)](https://us.eufy.com/products/t9146)
+- [Smart Scale P1 (T9147)](https://us.eufy.com/products/t9147)
+- [Smart Scale P2 (T9148)](https://us.eufy.com/products/t9148)
+- [Smart Scale P2 Pro (T9149)](https://us.eufy.com/products/t9149111)
 
 <div class='note'>
 

@@ -2,13 +2,14 @@
 title: Ruckus Unleashed
 description: Instructions on how to integrate your Ruckus Unleashed device into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@gabe565'
   - '@lanrat'
+  - '@ms264556'
+  - '@gabe565'
 ha_domain: ruckus_unleashed
 ha_platforms:
   - device_tracker
@@ -19,7 +20,7 @@ This platform allows you to connect to a [Ruckus Unleashed](https://support.ruck
 
 There is currently support for the following device types within Home Assistant:
 
-- **Presence Detection** - The platform will look at devices connected to the access point and will create a `device_tracker` for each discovered device.
+- **Presence detection** - The platform will look at devices connected to the access point and will create a `device_tracker` for each discovered device.
 
 ## Configuration
 

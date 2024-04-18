@@ -37,7 +37,7 @@ sensor:
     entity_id: light.my_lamp
     state: "on"
     type: time
-    start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    start: "{{ today_at() }}"
     end: "{{ now() }}"
 ```
 
@@ -133,7 +133,7 @@ duration:
 
 </div>
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how you can use history stats. It also shows how you can create a daily bar chart graph to visualize things such as occupancy, or how long the lights are on in a particular room.
 
 <lite-youtube videoid="BMlU4SynQBY" videotitle="How To Master Graphs to Monitor Occupancy and Device Usage in Home Assistant" posterquality="maxresdefault"></lite-youtube>
@@ -147,7 +147,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    start: "{{ today_at() }}"
     end: "{{ now() }}"
 ```
 
@@ -158,7 +158,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ today_at() }}"
     duration:
       hours: 24
 ```
@@ -170,7 +170,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: "{{ now().replace(hour=6, minute=0, second=0, microsecond=0) }}"
+    start: "{{ today_at('06:00') }}"
     duration:
       hours: 5
 ```
@@ -179,12 +179,12 @@ Here are some examples of periods you could work with, and what to write in your
 
 **Current week**: starts last Monday at 00:00, ends right now.
 
-Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekday (86400 is the number of seconds in one day, the weekday is 0 on Monday, 6 on Sunday).
+Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0 on Monday, 6 on Sunday).
 
 {% raw %}
 
 ```yaml
-    start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0, microsecond=0) ) - now().weekday() * 86400 }}"
+    start: "{{ today_at() - timedelta(days=now().weekday()) }}"
     end: "{{ now() }}"
 ```
 
@@ -195,7 +195,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    start: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0 ) }}"
+    start: "{{ today_at().replace(day=1) }}"
     end: "{{ now() }}"
 ```
 
@@ -206,8 +206,8 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    start: "{{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}"
-    end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
+    start: "{{ (today_at().replace(day=1) - timedelta(days=1)).replace(day=1) }}"
+    end: "{{ today_at().replace(day=1) }}"
 ```
 
 {% endraw %}
@@ -217,7 +217,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    end: "{{ (now().replace(minute=0, second=0, microsecond=0) + timedelta(hours=8)).replace(hour=16) }}"
+    end: "{{ (now() + timedelta(hours=8)).replace(hour=16, minute=0, second=0, microsecond=0) }}"
     duration:
         hours: 24
 ```
@@ -229,7 +229,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ today_at() }}"
     duration:
       days: 30
 ```

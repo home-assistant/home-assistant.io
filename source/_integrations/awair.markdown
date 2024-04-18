@@ -33,7 +33,7 @@ This integration refreshes once every 5 minutes, based on the [default per-devic
 
 {% include integrations/config_flow.md %}
 
-## Available Sensors
+## Available sensors
 
 The integration will fetch data from each device. The following sensors are supported:
 

@@ -1,5 +1,5 @@
 ---
-title: "MQTT Button"
+title: "MQTT button"
 description: "Instructions on how to integrate MQTT buttons into Home Assistant."
 ha_category:
   - Button
@@ -11,8 +11,6 @@ ha_domain: mqtt
 The `mqtt` button platform lets you send an MQTT message when the button is pressed in the frontend or the button press service is called. This can be used to expose some service of a remote device, for example reboot.
 
 ## Configuration
-
-<a id='new_format'></a>
 
 ```yaml
 # Example configuration.yaml entry
@@ -99,6 +97,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -114,9 +116,7 @@ device:
 device_class:
   description: The [type/class](/integrations/button/#device-class) of the button to set the icon in the frontend. The `device_class` can be `null`.
   required: false
-  default: None
   type: device_class
-  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -131,7 +131,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false

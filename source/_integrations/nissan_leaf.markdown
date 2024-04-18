@@ -16,10 +16,18 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `nissan_leaf` integration offers integration with the [NissanConnect EV](https://www.nissan.co.uk/dashboard.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:
+The `nissan_leaf` integration offers integration with the [NissanConnect EV](https://www.nissan.co.uk/dashboard.html) cloud service. NissanConnect EV was previously known as Nissan Carwings.
 
-- sensors for the battery status, range and charging status
-- a switch to start and stop the climate control
+<div class='note info'>
+
+Please be aware that the `nissan_leaf` integration only works with Nissan vehicles from before 2019. Newer vehicles will not work with this integration.
+
+</div>
+
+The integration offers offers:
+
+- sensors for the battery status, range and charging status.
+- a switch to start and stop the climate control.
 - a button to request the car starts charging.
 - service to request updates from the car.
 

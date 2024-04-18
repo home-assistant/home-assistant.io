@@ -7,7 +7,6 @@ ha_category:
 ha_release: 0.94
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@MTrab'
   - '@ShadowBr0ther'
 ha_domain: repetier
 ha_platforms:

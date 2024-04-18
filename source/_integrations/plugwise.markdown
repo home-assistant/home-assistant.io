@@ -2,7 +2,7 @@
 title: Plugwise
 description: Plugwise Smile platform integration.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Number
   - Select
@@ -29,16 +29,16 @@ ha_integration_type: hub
 ---
 
 This enables [Plugwise](https://www.plugwise.com) integrations with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
-The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and the [Stretch](https://www.plugwise.com/nl_NL/het-systeem) products. See below list for more details.
+The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and the Stretch products (not in sale). See below list for more details.
 
 Platforms available - depending on your Smile and setup include:
 
- - `climate` (for the Anna and Lisa products, or a single Tom)
+ - `climate` (for the Anna, Jip and Lisa products, or a single Tom)
  - `sensor` (for all relevant products including the Smile P1)
  - `binary_sensor` (for showing the status of e.g. domestic hot water heating or secondary heater)
- - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
- - `select` (for changing a thermostat schedule)
- - `number` (for changing a boiler setpoint)
+ - `switch` (for Plugs connected to Adam, or Circles and Stealths connected to a Stretch)
+ - `select` (for changing a thermostat schedule, a regulation mode (Adam only))
+ - `number` (for changing a boiler setpoint, Circlesa temperature offset)
 
 The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
@@ -82,17 +82,26 @@ script:
           entity_id: climate.anna
 ```
 
-#### Set HVAC mode (limited to schedule active / not active)
+#### Set HVAC mode
 
 Service: `climate.set_hvac_mode`
 
-Available options include `auto`, `heat`, and `cool` (only when there is a cooling option available). The meaning of `auto` is that a schedule is active and the thermostat will change presets accordingly. The meaning of `heat/cool` is that there is no schedule active, i.e., the active preset or manually set temperature is used to control the climate in your house or rooms.
+Available options include `off` (Adam only) `auto`, `cool`, `heat`, and `heat_cool` (Anna with Elga only).
+
+The meaning of `off` is that the Adam regulation is set to off. This means that the connected HVAC-system does not heat or cool, only the domestic hot water heating function, when available, is active.
+
+The meaning of `cool` or `heat` is that there is no schedule active. For example, if the system is manually set to cooling- or heating-mode, the system will be active if the room temperature is above/below the thermostat setpoint.
+
+The meaning of `heat/cool` is that there is no schedule active. For example, if the system is in automatic cooling- or heating-mode, the active preset or manually set temperature is used to control the HVAC system.
+
+The meaning of `auto` is that a schedule is active and the thermostat will change presets/setpoints accordingly.
+
 The last schedule that was active is determined the same way long-tapping the top of Anna works.
 
 Example:
 
 ```yaml
-# Example script set hvac_mode to auto = schedule active
+# Example script climate.set_hvac_mode to auto = schedule active
 script:
   lisa_reactivate_last_schedule:
     sequence:
@@ -101,6 +110,25 @@ script:
           entity_id: climate.lisa_bios
         data:
           hvac_mode: auto
+```
+
+#### Turn on / turn off
+
+Service: `climate.turn_off`, `climate.turn_on` (Adam only)
+
+These services will switch the Adam regulation mode (= HVAC system mode) to off or on, affecting the operation of all connected thermostats.
+`climate.turn_on` will activate the previously selected heating or cooling mode.
+
+Example:
+
+```yaml
+# Example script climate.turn_off
+script:
+  turn_heating_on:
+    sequence:
+      - service: climate.turn_off
+        target:
+          entity_id: climate.lisa_bios
 ```
 
 #### Change climate schedule

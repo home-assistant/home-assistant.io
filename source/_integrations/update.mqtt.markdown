@@ -73,7 +73,7 @@ device:
       required: false
       type: string
     connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
     hw_version:
@@ -96,6 +96,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -110,10 +114,8 @@ device:
       type: string
 device_class:
   description: The [type/class](/integrations/update/#device-classes) of the update to set the icon in the frontend. The `device_class` can be `null`.
-  default: None
   required: false
   type: device_class
-  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -128,7 +130,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 entity_picture:
   description: "Picture URL for the entity."
   required: false

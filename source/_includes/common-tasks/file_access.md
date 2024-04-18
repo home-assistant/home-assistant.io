@@ -55,6 +55,12 @@ There is no configuration required for editing files within your `/config` direc
 
 ### Installing and using the File Editor add-on
 
-A more basic and light weight alternative to Visual Studio Code, the File Editor add-on provides access through Hass-Configurator, which is a web-based filesystem-browser and text-editor. YAML files are automatically checked for syntax errors while editing. This add-on can be installed via the add-on store from the official add-on repository.
+The File Editor add-on is a web-based file system browser and text editor. It is a more basic and light weight alternative to Visual Studio Code. YAML files are automatically checked for syntax errors while editing. To install and use the File Editor in Home Assistant, follow these steps:
 
-There is no configuration required for editing files within your `/config` directory. In order to enable access to further directories, editing the add-on configuration is required. See the add-on documentation for details.
+1. To install the add-on, go to {% my supervisor_addon title="**Settings** > **Add-ons** > **File editor**" addon="core_configurator" %}.
+   - Once you have the add-on installed, you can edit files within your `/config` directory.
+2. If you want to be able to access directories outside the `/config` directory, in the add-on, open the **Configuration** tab and disable the **Enforce basepath** option.
+   - Note: The **Enforce basepath** option is intended to protect you from inadvertently making changes to settings files.
+3. For information on other configuration settings, open the **Documentation** tab.
+4. To confirm your changes, select **Save**.
+5. To start browsing, on the **Info** tab, select **Open Web UI**.

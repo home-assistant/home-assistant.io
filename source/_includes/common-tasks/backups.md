@@ -1,6 +1,8 @@
 ## Backups
 
-Backup of your Home Assistant and add-on data and configuration. They are stored in a compressed archive file (.tar). Backups are made from the backups panel under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. There is also a service available that allows you to trigger the creation of a backup from an automation. By default, backups are stored locally in the `/backup` directory.
+Backup of your Home Assistant, add-on data, and configuration. Backups are used to [restore](#restoring-a-backup) a system or parts of it if a rollback is needed or to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
+
+Backups are made from the backups panel under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. There is also a [service](/integrations/hassio/#service-hassiobackup_full) available that allows you to trigger the creation of a backup from an automation. Backups are stored in a compressed archive file (.tar) and by default, stored locally in the `/backup` directory. 
 
 A full backup includes the following directories:
 
@@ -26,7 +28,9 @@ A partial backup consists of any number of the above default directories and ins
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} in the UI.
 2. Select the **Create backup** button in the lower right.
 3. Provide a name for the backup.
-4. Choose full or partial.
+4. Choose **Full backup** or **Partial backup**.
+   - If you choose **Partial backup**, make sure to select Home Assistant and all the folders and add-ons you want to backup or migrate.
+   - Note that the number of add-ons increases the size of the backup as well as the time it takes to restore from that backup.
 5. Optionally, enable password protection.
 6. Select **Create** to begin the backup.
 
@@ -44,7 +48,8 @@ You might need a backup in case your system has crashed. If you only store them 
 
 There are multiple ways to store the backup on another device:
 
-- **Option 1**: Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select the backup from the list.
+- **Option 1**: Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, on the list, single-click or tap the backup of interest.
+  - **Result**: The backup dialog opens.
   - In the dialog, select the three dots menu and select **Download backup**.
   - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
 - **Option 2**: If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/{{page.installation}}/#configuring-access-to-files), using one of the methods listed there.
@@ -85,12 +90,13 @@ You can use a backup during the onboarding process to restore your configuration
 
 - This procedure assumes you have already completed the [installation](/installation/) procedure on your target device and are now viewing the welcome screen as part of the [onboarding](/getting-started/onboarding/).
 - The login credentials of the device from which you made the backup.
-- If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
+- **Required storage capacity**: If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
    - Before migrating, on the old system, check how much storage you used.
      - Go to **{% my system_health title="Settings > System > Repairs -> ... -> System Information" %}**, and under **Home Assistant Supervisor**, look at the **Disk used** value.
      - The target device must have more free space than the source device.
         - If your target device is a Home Assistant Yellow, note that it is the size of the eMMC that is relevant.
         - The restore process mainly uses the eMMC, not the NVMe.
+        - The size of the backup file is no indication of the size of your installation. To know the size of your installation, you need to check the **Disk used** value mentioned above.
 - If you are migrating to a new device:
    - You do not need to transfer the backup to a USB or SD card to bring it to your device.
    - You will be able to upload the backup file from the device you are accessing the onboarding from.

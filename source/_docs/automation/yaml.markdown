@@ -5,7 +5,7 @@ tags:
   - yaml
 ---
 
-Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an automation, select the automation, click on the menu button in the top right then on **Edit in YAML**.
+Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an {% term automation %}, select the automation, click on the menu button in the top right then on **Edit in YAML**.
 
 The UI will write your automations to `automations.yaml`. This file is managed by the UI and should not be edited manually.
 
@@ -72,7 +72,7 @@ trigger_variables:
       description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/configuration/templating/#limited-templates) can be used."
       type: any
 mode:
-  description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation Modes](#automation-modes)."
+  description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation modes](#automation-modes)."
   required: false
   type: string
   default: single
@@ -114,7 +114,7 @@ action:
   type: list
 {% endconfiguration %}
 
-### Automation Modes
+### Automation modes
 
 Mode | Description
 -|-
@@ -128,8 +128,7 @@ Mode | Description
 </p>
 
 
-
-## YAML Example
+## YAML example
 
 Example of a YAML based automation that you can add to `configuration.yaml`.
 
@@ -264,9 +263,9 @@ If you want to migrate your manual automations to use the editor, you'll have to
 
 {% endraw %}
 
-### Deleting Automations
+### Deleting automations
 
-When automations remain visible in the Home Assistant Dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
+When automations remain visible in the Home Assistant dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
 
 To delete them completely, go to UI **{% my entities title="Settings -> Devices & Services -> Entities" %}** and find the automation in the search field or by scrolling down.
 

@@ -3,26 +3,34 @@ title: Blink
 description: Instructions for how to integrate Blink camera/security system within Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Hub
   - Sensor
+  - Switch
 ha_release: '0.40'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fronzbot'
+  - '@mkmer'
 ha_domain: blink
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - camera
+  - diagnostics
   - sensor
+  - switch
 ha_dhcp: true
 ha_integration_type: integration
 ---
 
-The `blink` integration lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.
+The **Blink** {% term integration %}  lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.
+
+<p class='note'>
+This integration does NOT allow for live viewing of your Blink camera within Home Assistant.
+</p>
 
 ## Setup
 
@@ -44,26 +52,19 @@ Once Home Assistant starts and you authenticate access, the `blink` integration 
 - A `camera` for each camera linked to your Blink sync module.
 - A `sensor` per camera for temperature and Wi-Fi strength.
 - A `binary_sensor` motion detection, camera armed status, and battery status.
+- A `switch` per camera to enable/disable motion detection
 
-Since the cameras are battery operated, setting the `scan_interval` must be done with care so as to not drain the battery too quickly, or hammer Blink's servers with too many API requests.  The cameras can be manually updated via the `trigger_camera` service which will ignore the throttling caused by `scan_interval`.  As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
+Since the cameras are battery operated, polling must be done with care so as to not drain the battery too quickly, or hammer Blink's servers with too many API requests.  If an alternate polling rate is desired, disable the "enable poll for updates" option in the Blink integration system options and poll with `homeassistant.update_entity` service.  The cameras can be also manually updated via the `trigger_camera` service.  As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
 
 Please note that each camera reports two different states: one as `sensor.blink_<camera_name>_status` and the other as `binary_sensor.blink_<camera_name>_motion_enabled`. The `motion_enabled` property reports if the `camera` is ready to detect motion **regardless if the system is actually armed**.
 
 ## Services
 
-Any sequential calls to services relating to blink should have a minimum of a 5 second delay in between them to prevent the calls from being throttled and ignored.
-
-### `blink.blink_update`
-
-Force a refresh of the Blink system.
+Any sequential calls to {% term services %} relating to blink should have a minimum of a 5 second delay in between them to prevent the calls from being throttled and ignored. The services that act on a camera needs a target parameter.
 
 ### `blink.trigger_camera`
 
 Trigger a camera to take a new still image.
-
-| Service Data Attribute | Optional | Description                            |
-| ---------------------- | -------- | -------------------------------------- |
-| `entity_id`            | yes      | Camera entity to take picture with.    |
 
 ### `blink.save_video`
 
@@ -71,7 +72,6 @@ Save the last recorded video of a camera to a local file. Note that in most case
 
 | Service Data Attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `name`                 | no       | Name of camera containing video to save. |
 | `filename`             | no       | Location of save file.                   |
 
 ```yaml
@@ -80,6 +80,13 @@ homeassistant:
     - '/tmp'
     - '/path/to/whitelist'
 ```
+### `blink.save_recent_clips`
+
+Save the recent video clips of a camera to a local file in the pattern `%Y%m%d_%H%M%S_{name}.mp4`. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your `configuration.yaml` file.
+
+| Service Data Attribute | Optional | Description                              |
+| ---------------------- | -------- | ---------------------------------------- |
+| `file_path`            | no       | Location of save files.                  |
 
 ### `blink.send_pin`
 
@@ -87,17 +94,18 @@ Send a new pin to blink.  Since Blink's 2FA implementation is new and changing, 
 
 | Service Data Attribute | Optional | Description                  |
 | ---------------------- | -------- | ---------------------------- |
+| `config_entry_id`      | no       | Blink config to send pin to. |
 | `pin`                  | no       | 2FA Pin received from blink. |
 
-### Other Services
+### Other services
 
-In addition to the services mentioned above, there are generic `camera` and `alarm_control_panel` services available for use as well. The `camera.enable_motion_detection` and `camera.disable_motion_detection` services allow for individual cameras to be enabled and disabled, respectively, within the Blink system. The `alarm_control_panel.alarm_arm_away` and `alarm_control_panel.alarm_disarm` services allow for the whole system to be armed and disarmed, respectively.  Blink Mini cameras linked to an existing sync module cannot be armed/disarmed individually via Home Assistant.
+In addition to the services mentioned above, there are generic `camera`, `alarm_control_panel`, and `homeassistant` services available. The `camera.enable_motion_detection` and `camera.disable_motion_detection` services allow for individual cameras to be enabled and disabled, respectively, within the Blink system. The `alarm_control_panel.alarm_arm_away` and `alarm_control_panel.alarm_disarm` services allow for the whole system to be armed and disarmed, respectively. The `homeassistant.update_entity` service will force an update of the blink system. Blink Mini cameras linked to an existing sync module cannot be armed/disarmed individually via Home Assistant.
 
 ## Examples
 
 The following are some examples showing how to correctly make service calls using Blink:
 
-### Snap Picture and Save Locally
+### Snap picture and save locally
 
 This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in Home Assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example makes use of services found in the [camera integration](/integrations/camera#service-snapshot)
 
@@ -107,8 +115,6 @@ sequence:
   - service: blink.trigger_camera
     target:
       entity_id: camera.blink_my_camera
-  - delay: 00:00:05
-  - service: blink.blink_update
   - service: camera.snapshot
     target:
       entity_id: camera.blink_my_camera
@@ -116,7 +122,7 @@ sequence:
       filename: /tmp/my_image.jpg
 ```
 
-### Arm Blink When Away
+### Arm Blink when away
 
 This example automation will arm your blink sync module to detect motion on any of your blink cameras that have motion detection enabled.  By default, Blink enables motion detection on all cameras so, unless you've changed anything in your app, you're all set.  If you want to manually enable motion detection for individual cameras, you can utilize the [appropriate camera service](/integrations/camera#service-enable_motion_detection) but please note that motion will only be captured if the sync module is armed.
 
@@ -135,7 +141,7 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
       entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
-### Disarm Blink When Home
+### Disarm Blink when home
 
 Similar to the previous example, this automation will disarm blink when arriving home.
 
@@ -152,7 +158,7 @@ Similar to the previous example, this automation will disarm blink when arriving
       entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
-### Save Most Recent Video Locally When Motion Detected
+### Save most recent video locally when motion detected
 
 When motion is detected, you can use the Blink Home Assistant integration to save the last recorded video locally, rather than relying on Blink's servers to save your data.
 
@@ -168,15 +174,16 @@ The following example assumes your camera's name (in the Blink app) is `My Camer
     entity_id: binary_sensor.blink_my_camera_motion_detected
     to: "on"
   action:
-    service: blink.save_video
-    data:
-      name: "My Camera"
-      filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
+    -  service: blink.save_video
+       target:
+         entity_id: camera.blink_my_camera
+       data:
+         filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
 ```
 
 {% endraw %}
 
-### Save All Recent Clips Locally on a Schedule
+### Save all recent clips locally on a schedule
 
 A list of all the recent video clips is updated at each refresh of the Blink system.
 The video clips are available in a download list (per camera) for up to an hour,
@@ -196,7 +203,8 @@ The file name of the downloaded video file is not configurable.
       minutes: /3
   action:
     - service: blink.save_recent_clips
+      target:
+        entity_id: camera.my_camera
       data:
-        name: My Camera
         file_path: /tmp/videos
 ```

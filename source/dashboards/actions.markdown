@@ -5,18 +5,18 @@ description: "Define what an object does when interacted with."
 
 Some cards have support for tap actions. These actions define what will happen when you tap or hold on an object within a card.
 
-Actions can be enabled on:
+Actions can be enabled on the following cards:
 
 - [Button](/dashboards/button/)
 - [Entities](/dashboards/entities/)
 - [Glance](/dashboards/glance/)
 - [Light](/dashboards/light/)
 - [Picture](/dashboards/picture/)
-- [Picture Element](/dashboards/picture-elements/)
-- [Picture Entity](/dashboards/picture-entity/)
-- [Picture Glance](/dashboards/picture-glance/)
+- [Picture element](/dashboards/picture-elements/)
+- [Picture entity](/dashboards/picture-entity/)
+- [Picture glance](/dashboards/picture-glance/)
 
-## Tap-Action
+## Tap action
 
 Action that will be performed when an object on a card is tapped.
 
@@ -40,6 +40,11 @@ tap_action:
       required: false
       description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
+      default: none
+    navigation_replace:
+      required: false
+      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      type: boolean
       default: none
     url_path:
       required: false
@@ -73,7 +78,7 @@ tap_action:
       default: none
 {% endconfiguration %}
 
-## Hold Action
+## Hold action
 
 Action that will be performed when an object on a card is tapped, held for at least half a second and then released. Action will only be triggered once, not continuously during hold.
 
@@ -98,6 +103,11 @@ hold_action:
       description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
       default: none
+    navigation_replace:
+      required: false
+      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      type: boolean
+      default: none
     url_path:
       required: false
       description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
@@ -130,7 +140,7 @@ hold_action:
       default: none
 {% endconfiguration %}
 
-## Double-Tap Action
+## Double tap action
 
 Action that will be performed when an object on a card is double-tapped.
 
@@ -155,6 +165,11 @@ double_tap_action:
       description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
       default: none
+    navigation_replace:
+      required: false
+      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      type: boolean
+      default: none
     url_path:
       required: false
       description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
@@ -187,7 +202,7 @@ double_tap_action:
       default: none
 {% endconfiguration %}
 
-## Options For Confirmation
+## Options for confirmation
 
 If you define confirmation as an object instead of boolean, you can add more customization and configurations.
 
@@ -214,7 +229,7 @@ exemptions:
   type: list
 {% endconfiguration %}
 
-## Options For Exemptions
+## Options for exemptions
 
 {% configuration exemptions %}
 user:
@@ -249,3 +264,14 @@ hold_action:
 ## Limitations
 
 It is not possible to use templates for actions. But calling a [script](/docs/scripts/) is a good alternative.
+
+## Related topics
+
+- [Button card](/dashboards/button/)
+- [Entities card](/dashboards/entities/)
+- [Glance card](/dashboards/glance/)
+- [Light card](/dashboards/light/)
+- [Picture card](/dashboards/picture/)
+- [Picture element card](/dashboards/picture-elements/)
+- [Picture entity card](/dashboards/picture-entity/)
+- [Picture glance card](/dashboards/picture-glance/)

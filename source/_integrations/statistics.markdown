@@ -52,6 +52,7 @@ The following are supported for `sensor` source sensors `state_characteristic`:
 | `distance_99_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 99% of all stored values fall into a range of returned size.
 | `distance_absolute` | The difference or "spread" between the extreme values of measurements. Equals `value_max` minus `value_min`.
 | `mean` | The average value computed for all measurements. Be aware that this does not take into account uneven time intervals between measurements.
+| `mean_circular` | The [circular mean](https://en.wikipedia.org/wiki/Circular_mean) for angular measurements (_e.g._ wind direction). Assumes that measurements are expressed in degrees (_e.g._, 180° or -90°), and outputs the mean in positive degrees (0-360°).
 | `median` | The [median](https://en.wikipedia.org/wiki/Mode_(statistics)#Comparison_of_mean,_median_and_mode) value computed for all measurements.
 | `noisiness` | A simplified version of a signal-to-noise ratio. A high value indicates a quickly changing source sensor value, a small value will be seen for a steady source sensor. The absolute change between subsequent source sensor measurement values is summed up and divided by the number of intervals.
 | `percentile` | [Percentiles](https://en.wikipedia.org/wiki/Percentile) divide the range of a distribution of all considered source sensor measurements into 100 continuous intervals of equal probability. The characteristic calculates the value for which a given percentage of source sensor measurements are smaller in value. The 20th percentile is the value below which 20 percent of the measurements may be found. The additional configuration parameters `percentile` is needed, see below.
@@ -139,6 +140,11 @@ max_age:
   description: Maximum age of source sensor measurements stored. Setting this to a time period will cause older values to be discarded. If omitted, the number of considered source sensor measurements is limited by `sampling_size` only. Set both parameters appropriately to create suited limits for your use case. The sensor value will become `unknown` if the source sensor is not updated within the time period. A statistics sensor requires `sampling_size`, `max_age`, or both to be defined.
   required: false
   type: time
+keep_last_sample:
+  description: Defines whether the most recent sampled value should be preserved regardless of the `max_age` setting. 
+  required: false
+  default: false
+  type: boolean
 percentile:
   description: Only relevant in combination with the `percentile` characteristic. Must be a value between 1 and 99. The value defines the percentile value to consider. The 25th percentile is also known as the first quartile, the 50th percentile as the median.
   required: false
@@ -157,6 +163,6 @@ unique_id:
 
 ### An important note on `max_age` and `sampling_size`
 
-If both `max_age` and `sampling_size` are given, the considered samples are those within the `max_age` time window but limited to the number of `sample_size` newest samples.  Specify a wide-enough `sampling_size` if using an extended `max_age` (e.g., when looking for `max_age` 1 hour, a sensor that produces one measurement per minute should have at least a `sampling_size` of 60 to use all samples within the `max_age` timeframe.)
+If both `max_age` and `sampling_size` are given, the considered samples are those within the `max_age` time window but limited to the number of `sampling_size` newest samples.  Specify a wide-enough `sampling_size` if using an extended `max_age` (e.g., when looking for `max_age` 1 hour, a sensor that produces one measurement per minute should have at least a `sampling_size` of 60 to use all samples within the `max_age` timeframe.)
 
-If only `sample_size` is given there is no time limit. If only `max_age` is given the considered number of samples is unlimited.
+If only `sampling_size` is given there is no time limit. If only `max_age` is given the considered number of samples is unlimited.

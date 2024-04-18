@@ -43,7 +43,7 @@ longitude:
   type: integer
 diaspora:
   required: false
-  description: Consider the location as diaspora or not for calculation of the weekly portion and holidays.
+  description: Consider the location as diaspora (חוץ לארץ) for calculation of the weekly portion and holidays. By default it will consider the location as Israel (One day Yom Tov), setting it to true will show a second day Yom Tov.
   default: false
   type: string
 candle_lighting_minutes_before_sunset:

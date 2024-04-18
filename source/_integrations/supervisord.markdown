@@ -2,7 +2,7 @@
 title: Supervisord
 description: Instructions on how to integrate Supervisord within Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_release: '0.20'
 ha_iot_class: Local Polling
 ha_domain: supervisord
@@ -20,7 +20,7 @@ It required that you enable the HTTP feature in the `/etc/supervisord.conf` conf
 port=127.0.0.1:9001
 ```
 
-After a restart of `supervisord` you should be able to access the web interface. If needed then this could be added as an [iFrame panel](/integrations/panel_iframe/).
+After a restart of `supervisord` you should be able to access the web interface. If needed then this could be added as an [webpage dashboard](/dashboards/dashboards/#webpage-dashboard).
 
 <p class='img'>
   <img src='/images/screenshots/supervisor.png' />

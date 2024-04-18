@@ -2,8 +2,8 @@
 title: iBeacon Tracker
 description: Instructions on how to integrate iBeacon devices into Home Assistant.
 ha_category:
-  - Device Tracker
-  - Presence Detection
+  - Device tracker
+  - Presence detection
   - Sensor
 ha_release: '2022.10'
 ha_iot_class: Local Push
@@ -40,6 +40,12 @@ Consider setting up your iBeacons with a schema similar to the following:
 - uuid=UUID major=3000 minor=1000 Attic
 
 iBeacon devices that do not have stable Major and Minor values are not supported. The system automatically removes iBeacon devices with unstable Major and Minor values once ten (10) or more Major and Minor values have been seen with the same UUID from an iBeacon device with a fixed MAC address.
+
+The system will not automatically create iBeacon devices for beacons that do not broadcast their name to avoid inundating your system with transient devices.
+
+To explicitly allow a list of UUIDs to be added even with an empty device name, add them via the integration options.
+
+{% include integrations/option_flow.md %}
 
 ## Considering an iBeacon Away
 

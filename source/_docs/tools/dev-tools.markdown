@@ -1,13 +1,13 @@
 ---
-title: "Developer Tools"
-description: "Description of the Developer Tools."
+title: "Developer tools"
+description: "Description of the developer tools."
 ---
 
-The frontend contains a section called **Developer Tools**.
+The dashboard contains a section called **Developer tools**.
 
 <p class='img'>
 <img src='/images/screenshots/developer-tools.png' />
-Screenshot of Home Assistant's Developer Tools.
+Screenshot of Home Assistant's developer tools.
 </p>
 
 | Section    |Description                                                          |
@@ -58,9 +58,9 @@ brightness: 255
 rgb_color: [255, 0, 0]
 ```
 
-## Template Editor
+## Template editor
 
-The Template Editor provides a way to quickly test templates prior to placing them into automations and scripts. A code editor is on the left side and your real-time output is displayed in the preview on the right side.
+The template editor provides a way to quickly test templates prior to placing them into automations and scripts. A code editor is on the left side and your real-time output is displayed in the preview on the right side.
 
 By default, this will contain sample code that illustrates how templates can be written and tested. This sample code can be removed and replaced with your own. You can restore the default example by pressing the "Reset to Demo Template" button beneath the code editor.
 

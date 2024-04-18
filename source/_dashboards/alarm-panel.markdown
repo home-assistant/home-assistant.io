@@ -1,24 +1,24 @@
 ---
 type: card
-title: "Alarm Panel Card"
-sidebar_label: Alarm Panel
-description: "The Alarm Panel card allows you to arm and disarm your alarm control panel integrations."
+title: "Alarm panel card"
+sidebar_label: Alarm panel
+description: "The alarm panel card allows you to arm and disarm your alarm control panel integrations."
 ---
 
-The Alarm Panel card allows you to arm and disarm your [alarm control panel](/integrations/#alarm) integrations.
+The alarm panel card allows you to arm and disarm your [alarm control panel](/integrations/#alarm) {% term integrations %}.
 
 <p class='img'>
 <img src='/images/dashboards/alarm_panel_card.gif' alt='Screenshot of the alarm panel card'>
-Screenshot of the Alarm Panel card.
+Screenshot of the alarm panel card.
 </p>
 
-To add the Alarm Panel card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -66,7 +66,7 @@ entity: alarm_control_panel.alarm
 
 <p class='img'>
 <img src='/images/dashboards/alarm_panel_title_card.gif' alt='Screenshot of the alarm panel card'>
-Screenshot of the Alarm Panel card.
+Screenshot of the alarm panel card.
 </p>
 
 Define the state list:
@@ -81,3 +81,8 @@ states:
   - arm_night
   - armed_custom_bypass
 ```
+
+## Related topics
+
+- [Themes](/integrations/frontend/)
+- [Dashboard cards](/dashboards/cards/)

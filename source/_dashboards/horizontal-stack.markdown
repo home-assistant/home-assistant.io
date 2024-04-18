@@ -1,17 +1,17 @@
 ---
 type: card
-title: "Horizontal Stack Card"
-sidebar_label: Horizontal Stack
-description: "The Horizontal Stack card allows you to stack together multiple cards, so they always sit next to each other in the space of one column."
+title: "Horizontal stack card"
+sidebar_label: Horizontal stack
+description: "The horizontal stack card allows you to stack together multiple cards, so they always sit next to each other in the space of one column."
 ---
 
-The Horizontal Stack card allows you to stack together multiple cards, so they always sit next to each other in the space of one column.
+The horizontal stack card allows you to stack together multiple cards, so they always sit next to each other in the space of one column.
 
-To add the Horizontal Stack card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -44,5 +44,9 @@ cards:
 
 <p class='img'>
   <img src='/images/dashboards/horizontal_stack.png' alt='Two picture cards in a horizontal stack card'>
-  Two Picture cards in a Horizontal Stack card.
+  Two picture cards in a horizontal stack card.
 </p>
+
+## Related topics
+
+- [Dashboard cards](/dashboards/cards/)

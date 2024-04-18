@@ -104,7 +104,7 @@ If you want to know the namespaces in your own environment then check your log f
 You will see INFO log messages from homeassistant.loader stating `loaded <component> from <namespace>`.
 Those are the namespaces available for you to set a `log level` against.
 
-### Log Levels
+### Log levels
 
 Possible log severity levels, listed in order from most severe to least severe, are:
 
@@ -117,7 +117,7 @@ Possible log severity levels, listed in order from most severe to least severe, 
 - debug
 - notset
 
-### Log Filters
+### Log filters
 
 Service-specific Regular Expression filters for logs. A message is omitted if it matches the Regular Expression.
 
@@ -130,7 +130,7 @@ logger:
   logs:
     custom_components.my_integration: critical
   filters:
-    custom_component.my_integration:
+    custom_components.my_integration:
       - "HTTP 429" # Filter all HTTP 429 errors
       - "Request to .*unreliable.com.* Timed Out"
     homeassistant.components.nws:

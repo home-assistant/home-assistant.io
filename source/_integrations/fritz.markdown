@@ -2,9 +2,9 @@
 title: AVM FRITZ!Box Tools
 description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Image
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Update
 ha_release: '0.10'
@@ -56,7 +56,7 @@ Currently supported services are Platform specific:
 
 - `fritz.cleanup`
 
-### Platform Services
+### Platform services
 
 #### Service `fritz.cleanup`
 
@@ -95,11 +95,11 @@ Parental control switches can be used to enable and disable internet access of i
 
 Parental control switches are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
 
-### Device Tracker
+### Device tracker
 
 **Note**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.
 
-### Port Forward
+### Port forward
 
 Due to security reasons, AVM implemented the ability to enable/disable a port forward rule only from the host involved in the rule.
 As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.
@@ -139,11 +139,11 @@ automation:
 
 ```
 
-### Automation: Phone notification with Wi-fi credentials when guest Wi-fi is created
+### Automation: Phone notification with Wi-Fi credentials when guest Wi-Fi is created
 
 ```yaml
 automation:
-  - alias: "Guests Wi-fi Turned On -> Send Password To Phone"
+  - alias: "Guests Wi-Fi Turned On -> Send Password To Phone"
     trigger:
       - platform: state
         entity_id: switch.fritzbox_7530_wifi_myssid

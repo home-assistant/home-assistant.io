@@ -20,6 +20,6 @@ This integration connects with a [Read Your Meter Pro](https://rym-pro.com/) acc
 
 {% include integrations/config_flow.md %}
 
-## Supported Platforms:
+## Supported platforms:
 
 - [Sensor](/integrations/sensor/)

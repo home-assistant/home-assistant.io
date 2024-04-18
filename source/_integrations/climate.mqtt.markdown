@@ -12,8 +12,6 @@ The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
 
 ## Configuration
 
-<a id='new_format'></a>
-
 To enable this climate platform in your installation, first add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -120,6 +118,10 @@ device:
       description: 'The name of the device.'
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -146,7 +148,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 fan_mode_command_template:
   description: A template to render the value sent to the `fan_mode_command_topic` with.
   required: false
@@ -187,7 +188,7 @@ json_attributes_topic:
 max_humidity:
   description: The minimum target humidity percentage that can be set.
   required: false
-  type: integer
+  type: float
   default: 99
 max_temp:
   description: Maximum set point available. The default value depends on the temperature unit, and will be 35°C or 95°F.
@@ -196,7 +197,7 @@ max_temp:
 min_humidity:
   description: The maximum target humidity percentage that can be set.
   required: false
-  type: integer
+  type: float
   default: 30
 min_temp:
   description: Minimum set point available. The default value depends on the temperature unit, and will be 7°C or 44.6°F.
@@ -409,7 +410,7 @@ value_template:
 
 If a property works in *optimistic mode* (when the corresponding state topic is not set), Home Assistant will assume that any state changes published to the command topics did work and change the internal state of the entity immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the entity is only updated when the requested update is confirmed by the device through the state topic. You can enforce optimistic mode by setting the `optimistic` option to `true`. When set, the internal state will always be updated, even when a state topic is defined.
 
-## Using Templates
+## Using templates
 
 For all `*_state_topic`s, a template can be specified that will be used to render the incoming payloads on these topics. Also, a default template that applies to all state topics can be specified as `value_template`. This can be useful if you received payloads are e.g., in JSON format. Since in JSON, a quoted string (e.g., `"foo"`) is just a string, this can also be used for unquoting.
 

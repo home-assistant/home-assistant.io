@@ -3,13 +3,13 @@ title: Hive
 description: Instructions on how to integrate Hive devices with Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Hub
   - Light
   - Sensor
   - Switch
-  - Water Heater
+  - Water heater
 ha_release: 0.59
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -123,7 +123,7 @@ script:
 
 ## Platforms
 
-### Alarm Control Panel
+### Alarm control panel
 
 The `hive` alarm control panel integration integrates your Hive alarm into Home Assistant.
 
@@ -131,7 +131,7 @@ The platform supports the following Hive devices:
 
 - Hive Home Shield
 
-### Binary Sensor
+### Binary sensor
 
 The `hive` binary sensor integration integrates your Hive sensors into Home Assistant.
 
@@ -185,7 +185,7 @@ The platform supports the following Hive products:
 - Hive Active Plug
 - Hive Heat on Demand
 
-### Water Heater
+### Water heater
 
 The `hive` water heater platform integrates your Hive hot water into Home Assistant, enabling control of setting the **mode**.
 

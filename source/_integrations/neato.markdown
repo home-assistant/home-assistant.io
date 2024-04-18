@@ -11,7 +11,6 @@ ha_iot_class: Cloud Polling
 ha_release: 0.33
 ha_config_flow: true
 ha_codeowners:
-  - '@dshokouhi'
   - '@Santobert'
 ha_domain: neato
 ha_platforms:
@@ -100,7 +99,7 @@ And a specific Platform Service:
 
 - `neato.custom_cleaning`
 
-### Platform Services
+### Platform services
 
 #### Service `neato.custom_cleaning`
 

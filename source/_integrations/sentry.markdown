@@ -2,7 +2,7 @@
 title: Sentry
 description: Record errors to Sentry.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_iot_class: Cloud Polling
 ha_release: 0.104
 ha_config_flow: true

@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: honeywell
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
@@ -46,6 +47,8 @@ Other devices like Security systems are not currently supported by this integrat
 The climate platform integrates Honeywell US-based thermostats into Home Assistant, allowing control of the thermostat through the user interface. The current inside temperature, operating mode, and fan state are also displayed on the thermostat card.
 
 All [climate services](/integrations/climate) are supported except set_swing_mode.
+
+There is a "known" issue related to setting the temperature from Home Assistant with some thermostats. If your instance receives errors when setting the temperature above or below some value, go to the Honeywell web page and set the temperature to the max or min for the mode you are using, then adjust from Home Assistant.
 
 ## Sensor
 

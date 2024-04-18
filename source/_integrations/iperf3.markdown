@@ -3,7 +3,7 @@ title: Iperf3
 description: How to use Iperf3 within Home Assistant to measure your network bandwidth.
 ha_category:
   - Sensor
-  - System Monitor
+  - System monitor
 ha_release: 0.71
 ha_iot_class: Local Polling
 ha_codeowners:

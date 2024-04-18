@@ -2,7 +2,7 @@
 title: DLNA Digital Media Renderer
 description: Instructions on how to integrate a DLNA DMR device into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.76
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -16,7 +16,7 @@ ha_ssdp: true
 ha_integration_type: integration
 ---
 
-The `dlna_dmr` platform allows you to control a [DLNA Digital Media Renderer](https://www.dlna.org/), such as DLNA enabled TVs or radios.
+The **DLNA Digital Media Renderer** {% term integration %} allows you to control a [DLNA Digital Media Renderer](https://www.dlna.org/), such as DLNA enabled TVs or radios.
 
 Please note that some devices, such as Samsung TVs, are rather picky about the source used to play from. The TTS service might not work in combination with these devices. If the play_media service does not work, please try playing from a DLNA/DMS (such as [MiniDLNA](https://sourceforge.net/projects/minidlna/)).
 
@@ -24,7 +24,7 @@ Please note that some devices, such as Samsung TVs, are rather picky about the s
 
 ## Options
 
-Options for DLNA DMR devices can be set going to **Settings** -> **Devices & Services** -> **DLNA Digital Media Renderer** -> **Configuration**.
+Options for DLNA DMR devices can be set going to **Settings** > **Devices & Services** > **DLNA Digital Media Renderer** > **Configuration**.
 
 {% configuration_basic %}
 Event listener port:
@@ -59,4 +59,4 @@ Most DLNA DMR devices can play media from local HTTP servers. For best results, 
 
 ### Media sources
 
-The DLNA Digital Media Renderer integration can browse any configured [Media Source](/integrations/media_source/). Displayed media will be filtered based on the capabilities of the DLNA DMR device.
+The DLNA Digital Media Renderer integration can browse any configured [media source](/integrations/media_source/). Displayed media will be filtered based on the capabilities of the DLNA DMR device.

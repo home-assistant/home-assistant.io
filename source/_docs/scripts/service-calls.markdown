@@ -1,9 +1,9 @@
 ---
-title: "Service Calls"
+title: "Service calls"
 description: "Instructions on how to call services in Home Assistant."
 ---
 
-Various integrations allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script, a dashboard or via voice command devices such as Amazon Echo.
+Various integrations allow calling {% term services %} when a certain event occurs. The most common one is calling a service when an automation {% term trigger %} happens. But a service can also be called from a {% term script %}, a dashboard or via voice command devices such as Amazon Echo.
 
 The configuration options to call a configuration are the same between all integrations and are described on this page.
 
@@ -15,7 +15,7 @@ Use the "Services" tab under Developer Tools to discover available services.
 
 ### The basics
 
-Call the service `homeassistant.turn_on` on the entity `group.living_room`. This will turn all members of `group.living_room` on. You can also use `entity_id: all` and it will turn on all possible entities.
+Call the service `homeassistant.turn_on` on the {% term entity %} `group.living_room`. This will turn all members of `group.living_room` on. You can also use `entity_id: all` and it will turn on all possible entities.
 
 ```yaml
 service: homeassistant.turn_on
@@ -24,11 +24,11 @@ entity_id: group.living_room
 
 ### Targeting areas and devices
 
-Instead of targeting an entity, you can also target an area or device. Or a combination of these.
+Instead of targeting an entity, you can also target an {% term area %} or {% term device %}. Or a combination of these.
 This is done with the `target` key.
 
 A `target` is a map that contains at least one of the following: `area_id`, `device_id`, `entity_id`.
-Each of these can be a list.
+Each of these can be a list. The values should be lower-cased.
 
 The following example uses a single service call to turn on the lights in the
 living room area, 2 additional light devices and 2 additional light entities:
@@ -80,7 +80,7 @@ entity_id: switch.ac
 ### Using the Services Developer Tool
 
 You can use the Services Developer Tool to test data to pass in a service call.
-For example, you may test turning on or off a 'group' (See [groups] for more info)
+For example, you may test turning on or off a 'group' (See [groups](/integrations/group/) for more info)
 
 To turn a group on or off, pass the following info:
 
@@ -133,13 +133,12 @@ Examples of service response data are upcoming calendar events for the next week
 
 Templates can also be used for handling response data. The service call can specify
 a `response_variable`. This is the [variable](/docs/scripts/#variables)
-that contains the response data. You can define any name for your `response_variable`. This example calls a service and stores the response in 
-the variable called `agenda`.
+that contains the response data. You can define any name for your `response_variable`. This example calls a service and stores the response in the variable called `agenda`.
 
 {% raw %}
 
 ```yaml
-service: calendar.list_events
+service: calendar.get_events
 target:
   entity_id: calendar.school
 data:
@@ -168,7 +167,7 @@ data:
   message: >-
     Your agenda for today:
     <p>
-    {% for event in agenda.events %}
+    {% for event in agenda['calendar.school'].events %}
     {{ event.start}}: {{ event.summary }}<br>
     {% endfor %}
     </p>

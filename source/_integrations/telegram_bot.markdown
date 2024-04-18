@@ -60,6 +60,7 @@ Send a photo.
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+| `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 
 ### Service `telegram_bot.send_video`
 
@@ -82,6 +83,7 @@ Send a video.
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
+| `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 
 ### Service `telegram_bot.send_animation`
 
@@ -105,6 +107,7 @@ Send an animation.
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+| `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 
 ### Service `telegram_bot.send_voice`
 
@@ -127,6 +130,7 @@ Send a voice message.
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+| `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 
 ### Service `telegram_bot.send_sticker`
 
@@ -149,6 +153,7 @@ Send a sticker.
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+| `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 
 ### Service `telegram_bot.send_document`
 
@@ -172,6 +177,7 @@ Send a document.
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+| `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 
 ### Service `telegram_bot.send_location`
 
@@ -188,6 +194,7 @@ Send a location.
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+| `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 
 ### Service `telegram_bot.send_poll`
 
@@ -203,6 +210,7 @@ Send a poll.
 | `open_period`             | yes      | Amount of time in seconds the poll will be active after creation, 5-600.                                                                                                       |
 | `disable_notification`    | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `timeout`                 | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                            |
+| `reply_to_message_id`     | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %} |
 
 ### Service `telegram_bot.edit_message`
 
@@ -295,6 +303,7 @@ from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
 chat_id: "<origin chat id>"
 chat: "<chat info>"
+date: "<message timestamp>"
 ```
 
 Any other message not starting with `/` will be processed as simple text, firing a `telegram_text` event on the event bus with the following `event_data`:
@@ -306,6 +315,7 @@ from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
 chat_id: "<origin chat id>"
 chat: "<chat info>"
+date: "<message timestamp>"
 ```
 
 If the message is sent from a [press from an inline button](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), for example, a callback query is received, and Home Assistant will fire a `telegram_callback` event with:

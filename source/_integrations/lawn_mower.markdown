@@ -1,11 +1,11 @@
 ---
-title: Lawn Mower
+title: Lawn mower
 description: Instructions on how to setup and use lawn mowers in Home Assistant.
 ha_release: 2023.9
 ha_domain: lawn_mower
 ha_quality_scale: internal
 ha_category:
-  - Lawn Mower
+  - Lawn mower
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
@@ -13,7 +13,7 @@ ha_integration_type: entity
 
 The lawn mower integration allows the control of robotic lawn mowers to be reflected within Home Assistant.
 
-Please note, the lawn mower integration cannot be directly used; you cannot create your own lawn mower entities using this integration. This integration is a building block for other integrations to use, enabling them to create lawn mower entities for you.
+{% include integrations/building_block_integration.md %}
 
 ## Services
 

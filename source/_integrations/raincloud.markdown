@@ -2,7 +2,7 @@
 title: Melnor RainCloud
 description: Instructions on how to integrate your Melnor Raincloud sprinkler system within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Irrigation
   - Sensor
   - Switch
@@ -22,7 +22,7 @@ The `raincloud` integration allows you to integrate your [Melnor RainCloud](http
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -48,7 +48,7 @@ password:
   type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
 

@@ -45,7 +45,7 @@ password:
 
 Once Home Assistant is started, you will have access to any thermostats registered with your account.
 
-### Supported Features
+### Supported features
 
 Currently, this integration supports the following features:
 

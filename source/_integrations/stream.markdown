@@ -57,7 +57,7 @@ stream:
 ```
 
 
-## Technical Details
+## Technical details
 
 The integration currently supports proxying H.264 and H.265 source streams to the HLS (and LL-HLS) protocol.
 

@@ -104,7 +104,7 @@ navigating you around this release.
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [Release 0.115.1 - September 18](#release-01151---september-18)
 - [Release 0.115.2 - September 19](#release-01152---september-19)
@@ -879,7 +879,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change

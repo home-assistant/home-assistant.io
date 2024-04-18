@@ -2,7 +2,7 @@
 title: Toon
 description: Instructions on how to integrate Eneco Toon/Engie Electrabel Boxx/Viesgo within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Energy
   - Sensor
@@ -39,7 +39,7 @@ and a Toon API developer account.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -91,7 +91,7 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% enddetails %}
 
-## Binary Sensor
+## Binary sensor
 
 The Toon integration provides the following binary sensors:
 

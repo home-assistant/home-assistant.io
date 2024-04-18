@@ -23,7 +23,7 @@ The data is updated every 5 minutes.
 
 {% include integrations/config_flow.md %}
 
-## State Attributes
+## State attributes
 
 The following state attributes are available for each entity in addition to the standard ones:
 

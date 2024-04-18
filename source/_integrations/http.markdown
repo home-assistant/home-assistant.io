@@ -16,7 +16,7 @@ The `http` integration serves all files and data required for the Home Assistant
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
 <div class='note'>
@@ -131,7 +131,7 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use those kind of [sensors](#sensor) or [binary sensors](#binary-sensor) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
-Create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI at the bottom of your profile if you want to use HTTP sensors.
+If you want to use HTTP sensors, create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI in the **Security** section of your {% my profile title="**User profile**" %} page.
 
 All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
@@ -162,7 +162,7 @@ If you want to use Home Assistant to host or serve static files then create a di
 
 </div>
 
-## Binary Sensor
+## Binary sensor
 
 The HTTP binary sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
 
@@ -289,4 +289,4 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
 }
 ```
 
-For more examples please visit the [HTTP Binary Sensor](#examples) page.
+For more examples please visit the [HTTP binary sensor](#examples) page.

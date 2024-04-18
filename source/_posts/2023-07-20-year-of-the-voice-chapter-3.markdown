@@ -46,7 +46,6 @@ Starting in Chapter 3, Assist is now natively supported through the [Home Assist
 Assist on Android is built-in to the Android app and uses the speech-to-text from Home Assistant
 </p>
 
-
 Have a [Home Assistant Cloud subscription]? You can now control your smart home via voice from anywhere in the world without giving up your privacy. [Multiple Home Assistant servers are supported], so you can just as easily talk to your parent's house:
 
 <p class='img'>
@@ -171,6 +170,7 @@ binary_sensor:
           else:
             - voice_assistant.start_continuous:
 ```
+
 [ESPHome Voice Assistant documentation](https://esphome.io/components/voice_assistant.html#click-to-converse)
 
 ### Silence detection
@@ -196,7 +196,7 @@ If you want to help fund our work on voice and further development of Home Assis
 
 After three chapters in the Year of Voice, the message from Home Assistant users and creators is loud and clear: we want a wake word for Assist!
 
-In Chapter 4, our focus will be on delivering the foundation for wake word detection. As a part of the [Open Home], this foundation will keep in line with our values: privacy, choice, and durability. Stay tuned!
+In Chapter 4, our focus will be on delivering the foundation for wake word detection. As a part of the [Open Home], this foundation will keep in line with our values: privacy, choice, and sustainability. Stay tuned!
 
 [Joris Pelgröm]: https://github.com/jpelgrom
 [Open Home]: https://www.home-assistant.io/blog/2021/12/23/the-open-home/?ref=building.open-home.io

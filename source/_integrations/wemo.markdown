@@ -2,7 +2,7 @@
 title: Belkin WeMo
 description: Instructions on how to integrate Belkin WeMo devices into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Fan
   - Hub
   - Light
@@ -24,11 +24,11 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `wemo` integration is the main integration to integrate various [Belkin WeMo](https://www.belkin.com/products/wemo-smart-home/) devices with Home Assistant.
+The **Belkin WeMo** {% term integration %} is the main {% term integration %} to integrate various [Belkin WeMo](https://www.belkin.com/products/wemo-smart-home/) devices with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor (Belkin WeMo Motion Sensor)
+- Binary sensor (Belkin WeMo Motion Sensor)
 - Fan (Belkin WeMo (Holmes) Smart Humidifier)
 - Light (Belkin WeMo LED lights and Smart Dimmer Switch)
 - Switch ([Belkin WeMo Switches](https://www.belkin.com/products/wemo-smart-home/) and includes support for WeMo enabled [Mr. Coffee](https://www.mrcoffee.com/) smart coffee makers.)
@@ -73,9 +73,9 @@ Note that if you use static device entries, you may want to set up your router (
 
 If the device doesn't seem to work and all you see is the state "unavailable" on your dashboard, check that your firewall doesn't block incoming requests on port 8989, since this is the port to which the WeMo devices send their updates.
 
-### Device Options
+### Device options
 
-Clicking the **Configure** button on the WeMo integration will bring up some additional options that can be configured for WeMo devices.
+Selecting the **Configure** button on the WeMo {% term integration %} will bring up some additional options that can be configured for WeMo devices.
 
 ![Device Options](/images/integrations/wemo/device_options.png)
 
@@ -107,7 +107,7 @@ wemo:
 
 The `wemo` platform allows you to control your Belkin WeMo humidifiers from within Home Assistant. This includes support for the Holmes Smart Humidifier.
 
-WeMo devices are automatically discovered if the `discovery` integration is enabled.
+WeMo devices are automatically discovered if the `discovery` {% term integration %} is enabled.
 
 ### Attributes
 
@@ -135,7 +135,7 @@ There are several services which can be used for automations and control of the 
 | `wemo.set_humidity` | Calling this service will set the desired relative humidity setting on the device (entity_id is a required list of 1 or more entities to set humidity on, and target_humidity is a required float value between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 60, or 100 that are supported by the WeMo humidifier)).
 | `wemo.reset_filter_life` | Calling this service will reset the humdifier's filter lifetime back to 100% (entity_id is a required list of 1 or more entities to reset the filter lifetime on). Call this service when you change the filter on your humidifier.
 
-## Long Press Events and Triggers
+## Long press events and triggers
 
 For WeMo Light Switches and Dimmers, pressing the button on the device for two seconds will activate a long press event. The long-press can trigger an automation
 either by using an `event` trigger or a `device` trigger. For an `event` trigger the `event_type` will be `wemo_subscription_event`. The event data will have a `type` parameter

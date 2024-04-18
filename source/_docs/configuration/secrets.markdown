@@ -12,25 +12,27 @@ The workflow for moving private information to `secrets.yaml` is very similar to
 The entries for password and API keys in the `configuration.yaml` file usually looks like the example below.
 
 ```yaml
-homeassistant:
-  auth_providers:
-   - type: legacy_api_password
-     api_password: YOUR_PASSWORD
+rest:
+  - authentication: basic
+    username: "admin"
+    password: "YOUR_PASSWORD"
+    ...
 ```
 
 Those entries need to be replaced with `!secret` and an identifier.
 
 ```yaml
-homeassistant:
-  auth_providers:
-   - type: legacy_api_password
-     api_password: !secret http_password
+rest:
+  - authentication: basic
+    username: "admin"
+    password: !secret rest_password
+    ...
 ```
 
 The `secrets.yaml` file contains the corresponding password assigned to the identifier.
 
 ```yaml
-http_password: "YOUR_PASSWORD"
+rest_password: "YOUR_PASSWORD"
 ```
 
 ## Debugging secrets
@@ -40,7 +42,7 @@ When you start splitting your configuration into multiple files, you might end u
 - A `secrets.yaml` located in the same folder as the YAML file referencing the secret,
 - next, parent folders will be searched for a `secrets.yaml` file with the secret, stopping at the folder with the main `configuration.yaml`.
 
-To see where secrets are being loaded from, you can either add an option to your `secrets.yaml` file or use the `check_config` script. The latter is only available for Home Assistant Core installations given it's available through [`hass`](/docs/tools/hass/).
+To see where secrets are being loaded from, you can either add an option to your `secrets.yaml` file or use the `check_config` script. The latter is only available for {% term "Home Assistant Core" %} installations given it's available through [`hass`](/docs/tools/hass/).
 
 *Option 1*: Print where secrets are retrieved from to the Home Assistant log by adding the following to `secrets.yaml`:
 
