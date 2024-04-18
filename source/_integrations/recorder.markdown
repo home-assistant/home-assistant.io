@@ -216,12 +216,12 @@ Note that purging will not immediately decrease disk space usage but it will sig
 
 ### Service `purge_entities`
 
-Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains` and `entity_globs` fields. Leaving all three parameters empty will result in all entities being selected for purging.
+Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains` and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
 
 | Service data attribute | Optional | Description                                                                                                                                                                                              |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes<sup>*</sup>      | A list of entity_ids that should be purged from the recorder database. |
-| `domains`               | yes      | A list of domains that should be purged from the recorder database. |
+| `entity_id`            | yes      | A list of entity_ids that should be purged from the recorder database. |
+| `domains`              | yes      | A list of domains that should be purged from the recorder database. |
 | `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database. |
 | `keep_days`            | yes      | Number of history days to keep in the database of matching rows. The default of 0 days will remove all matching rows. |
 
@@ -240,7 +240,6 @@ action:
   - service: recorder.purge_entities
     data:
       keep_days: 5
-    target:
       entity_id: sensor.power_sensor_0
 mode: single
 ```
