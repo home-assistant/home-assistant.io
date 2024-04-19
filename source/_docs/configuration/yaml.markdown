@@ -1,8 +1,6 @@
 ---
 title: "YAML"
 description: "Details about YAML to configure Home Assistant."
-tags:
-  - yaml
 ---
 
 Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. YAML might take a while to get used to but is powerful in allowing you to express complex configurations.

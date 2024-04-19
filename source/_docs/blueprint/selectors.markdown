@@ -1,11 +1,6 @@
 ---
 title: "Selectors"
 description: "Documentation on available selectors."
-tags:
-  - blueprint
-links:
-  - title: "Blueprint community forum"
-    url: /get-blueprints
 ---
 
 Selectors can be used to specify what values are accepted for a blueprint

@@ -1,10 +1,17 @@
 ---
 title: "Creating an automation blueprint"
 description: "Tutorial on creating an automation blueprint."
-tags:
-  - yaml
-  - blueprint
-  - script
+related:
+  - docs: /docs/configuration/
+  - docs: /docs/configuration/yaml/
+  - docs: /docs/automation/yaml/
+  - docs: /docs/docs/scripts/
+  - docs: /docs/blueprint/selectors/
+  - docs: /docs/blueprint/schema/
+  - docs: /docs/blueprint/
+  - docs: /docs/automation/using_blueprints/
+  - title: "Blueprint community forum"
+    url: /get-blueprints
 ---
 
 <div class='note'>

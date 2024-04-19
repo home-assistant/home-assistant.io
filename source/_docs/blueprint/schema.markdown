@@ -1,9 +1,11 @@
 ---
 title: "About the blueprint schema"
 description: "Introduction to the blueprint schema."
-tags:
-  - blueprint
-links:
+related:
+  - docs: /docs/blueprint/
+  - docs: /docs/blueprint/selectors/
+  - docs: /docs/automation/using_blueprints/
+  - docs: /docs/blueprint/tutorial/
   - title: "Blueprint community forum"
     url: /get-blueprints
 ---

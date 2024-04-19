@@ -1,8 +1,6 @@
 ---
 title: "Automation YAML"
 description: "How to use the automation integration with YAML."
-tags:
-  - yaml
 ---
 
 Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an {% term automation %}, select the automation, click on the menu button in the top right then on **Edit in YAML**.
