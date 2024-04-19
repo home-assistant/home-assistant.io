@@ -44,7 +44,7 @@ When the Insert is blinking green, it is in *Discovery* mode and ready to be pai
 
 Swidget Inserts must be running firmware V1.4 or later in order to support local control.
 
-Firmware can be found at https://homeassistant.swidget.com
+Firmware can be found at http://homeassistant.swidget.com
 
 To check and/or update the firmware, connect a wi-fi enabled computer to the Swidget SSID being broadcast by the Swidget Insert.
 
@@ -93,13 +93,24 @@ USB Outlet
 ### Entities
 
 
-|                                 | Air Pressure | Air Quality | Carbon dioxide | Humidity | Motion | Plug 0 Current Consumption | Plug 1 Current Consumption | Signal Strength | Temperature | Volatile Organic Compounds |
-| ------------------------------- | ------------ | ----------- | -------------- | -------- | ------ | -------------------------- | -------------------------- | --------------- | ----------- | -------------------------- |
-| Control                         |              |             |                |          |        | √                          | √                          | √ 	      	        |             |                            |
-| USB                             |              |             |                |          |        | √                          | √                          | √               |             |                            |
-| Guide Light                     |              |             |                |          |        | √                          | √                          | √               |             |                            |
-| Power Out Light                 |              |             |                |          |        | √                          | √                          | √               |             |                            |
-| Motion                          |              |             |                |          | √      | √                          | √                          | √               |             |                            |
-| Temperature & Humidity          |              |             |                | √        |        | √                          | √                          | √               | √           |                            |
-| Temperature, Humidity, & Motion |              |             |                | √        | √      | √                          | √                          | √               | √           |                            |
-| Air Quality                     | √            | √           | √              | √        |        | √                          | √                          | √               | √           | √                          |
+|                                 | Air Pressure | Air Quality | Carbon dioxide | Humidity | Motion | Signal Strength |
+| ------------------------------- | ------------ | ----------- | -------------- | -------- | ------ | --------------- |
+| Control                         |              |             |                |          |        | √               |
+| USB                             |              |             |                |          |        | √               |
+| Guide Light                     |              |             |                |          |        | √               |
+| Power Out Light                 |              |             |                |          |        | √               |
+| Motion                          |              |             |                |          | √      | √               |
+| Temperature & Humidity          |              |             |                | √        |        | √               |
+| Temperature, Humidity, & Motion |              |             |                | √        | √      | √               |
+| Air Quality                     | √            | √           | √              | √        |        | √               |
+
+|                                 |Plug 0 Current Consumption | Plug 1 Current Consumption |  Temperature | Volatile Organic Compounds |
+| ------------------------------- |-------------------------- | -------------------------- |  ----------- | -------------------------- |
+| Control                         |√                          | √                          |              |                            |
+| USB                             |√                          | √                          |              |                            |
+| Guide Light                     |√                          | √                          |              |                            |
+| Power Out Light                 |√                          | √                          |              |                            |
+| Motion                          |√                          | √                          |              |                            |
+| Temperature & Humidity          |√                          | √                          |  √           |                            |
+| Temperature, Humidity, & Motion |√                          | √                          |  √           |                            |
+| Air Quality                     |√                          | √                          |  √           | √                          |
