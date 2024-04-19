@@ -216,7 +216,7 @@ Note that purging will not immediately decrease disk space usage but it will sig
 
 ### Service `purge_entities`
 
-Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains` and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
+Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains`, and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
 
 | Service data attribute | Optional | Description                                                                                                                                                                                              |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
