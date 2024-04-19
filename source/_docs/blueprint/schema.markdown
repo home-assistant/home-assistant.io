@@ -3,9 +3,13 @@ title: "About the blueprint schema"
 description: "Introduction to the blueprint schema."
 related:
   - docs: /docs/blueprint/
+    title: About blueprints
   - docs: /docs/blueprint/selectors/
+    title: Blueprint selectors
   - docs: /docs/automation/using_blueprints/
+    title: Using blueprints in automations
   - docs: /docs/blueprint/tutorial/
+    title: "Tutorial: Create an automation blueprint"
   - title: "Blueprint community forum"
     url: /get-blueprints
 ---

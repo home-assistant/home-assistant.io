@@ -3,15 +3,20 @@ title: "Creating an automation blueprint"
 description: "Tutorial on creating an automation blueprint."
 related:
   - docs: /docs/configuration/
+    title: "Editing the configuration file"
   - docs: /docs/configuration/yaml/
   - docs: /docs/automation/yaml/
-  - docs: /docs/docs/scripts/
+    title: "YAML used in automations"
+  - docs: /docs/scripts/
+    title: Scripts
   - docs: /docs/blueprint/selectors/
+    title: Blueprint selectors
   - docs: /docs/blueprint/schema/
+    title: Blueprint schema
   - docs: /docs/blueprint/
+    title: About blueprints
   - docs: /docs/automation/using_blueprints/
-  - title: "Blueprint community forum"
-    url: /get-blueprints
+    title: Using automation blueprints
 ---
 
 <div class='note'>
