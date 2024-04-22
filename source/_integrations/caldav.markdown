@@ -12,6 +12,13 @@ ha_platforms:
   - todo
 ha_integration_type: integration
 ha_config_flow: true
+related:
+- docs: /integrations/todo
+  title: To-do list integration documentation
+- docs: /integrations/#to-do-list
+  title: List of to-do list integrations
+- docs: /dashboards/todo-list/
+  title: To-do list card
 ---
 
 The **CalDAV** integration allows you to connect your WebDAV calendar to Home Assistant
