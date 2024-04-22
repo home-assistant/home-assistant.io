@@ -3,6 +3,20 @@ type: view
 title: Sections (experimental)
 sidebar_label: Sections (experimental)
 description: "Lets you organize your cards in sections on a grid."
+description: "The panel view shows a single card in the full width of the screen."
+related:
+- docs: /dashboards/masonry/
+  title: Masonry view
+- docs: /dashboards/sidebar/
+  title: Sidebar view
+- docs: /dashboards/panel/
+  title: Panel view
+- docs: /blog/2024/03/04/dashboard-chapter-1/
+  title: Dashboard chapter 1 blog post
+- docs: /dashboards/cards/#adding-cards-to-your-dashboard
+  title: Adding cards to a view
+- docs: /dashboards/views/#adding-a-view-to-a-dashboard
+  title: Adding a new view
 ---
 
 The sections view lets you organize your cards in sections on a grid.
@@ -69,12 +83,3 @@ type:
   description: "`sections`"
   type: string
 {% endconfiguration %}
-
-## Related topics
-
-- [Masonry view](/dashboards/masonry/)
-- [Panel view](/dashboards/panel/)
-- [Sidebar view](/dashboards/sidebar/)
-- [Dashboard chapter 1 blog post](/blog/2024/03/04/dashboard-chapter-1/)
-- [Adding cards to a view](/dashboards/cards/#adding-cards-to-your-dashboard)
-- [Adding a new view](/dashboards/views/#adding-a-view-to-a-dashboard)
