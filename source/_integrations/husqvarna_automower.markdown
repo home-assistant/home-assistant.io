@@ -16,6 +16,7 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - lawn_mower
   - select
   - sensor

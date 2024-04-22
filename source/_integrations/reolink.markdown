@@ -266,6 +266,7 @@ The following models have been tested and confirmed to work:
 - [RLC-822A](https://reolink.com/product/rlc-822a/)
 - [RLC-823A](https://reolink.com/product/rlc-823a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
+- [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - [RLC-1224A](https://reolink.com/product/rlc-1224a/)
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)

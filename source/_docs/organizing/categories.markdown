@@ -30,7 +30,8 @@ Follow these steps to create a new category.
    - From the list, select all the items to which you want to apply a category.
    - In the top right corner, select **Move to category**.
    - Then, select the category from the list.
-4. Once categories are applied, table items can be grouped by category.
+4. Once categories are applied, the table items are grouped by those categories.
+   - The example shows 2 categories: Coffee and housekeeping. 
 
     ![Group table items by category](/images/organizing/category_02.png)
 

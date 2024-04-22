@@ -20,7 +20,7 @@ Follow these steps to create a new area from the **Areas** view.
      - This number can later be used for sorting.
    - Add an image representing that area.
    - Add an **Alias**.
-     - Aliases are alternative names used in [voice assistants](/voice_control/aliases/) to refer to this floor.
+     - Aliases are alternative names used in [voice assistants](/voice_control/aliases/) to refer to an area, entity, or floor.
 
     ![Create area dialog](/images/organizing/create_area_01.png)
 3. Select **Add**.

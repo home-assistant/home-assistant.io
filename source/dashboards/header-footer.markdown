@@ -13,7 +13,7 @@ Header and footer can be used on the following cards:
 
 - [Entity](/dashboards/entity/)
 - [Entities](/dashboards/entities/)
-- [Statictis](/dashboards/statistics/)
+- [Statistics](/dashboards/statistics/)
 
 ## Picture header & footer
 
@@ -151,5 +151,5 @@ hours_to_show:
 
 - [Entity](/dashboards/entity/)
 - [Entities](/dashboards/entities/)
-- [Statictis](/dashboards/statistics/)
+- [statistics](/dashboards/statistics/)
 - [Card actions](/dashboards/actions/)

@@ -15,7 +15,6 @@ ha_iot_class: Local Push
 ha_release: 0.23
 ha_codeowners:
   - '@pvizeli'
-  - '@danielperna84'
 ha_domain: homematic
 ha_platforms:
   - binary_sensor

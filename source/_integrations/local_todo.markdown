@@ -1,5 +1,5 @@
 ---
-title: Local to-do
+title: Local To-do
 description: Instructions on how to use local to-do lists in Home Assistant.
 ha_category:
   - To-do list
