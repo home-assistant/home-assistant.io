@@ -37,7 +37,7 @@ Send a custom command to the Lutron Homeworks controller.
 | Service data attribute | Optional | Example                 | Description                                         |
 | ---------------------- | -------- | ----------------------- | --------------------------------------------------- |
 | `controller_id`        | No       | `homeworks`             | The controller to which the command should be sent to. |
-| `command`              | No       | `KBP, [02:08:02:01], 1` | The command you want to send. This can either be a single command or a list of commands. In addition to the commands supported by the controller, the special command `DELAY <ms>` is supported, where ms is the number of milliseconds to sleep. |
+| `command`              | No       | `KBP, [02:08:02:01], 1` | The command you want to send. This can either be a single command or a list of commands. In addition to the [commands supported by the controller](https://assets.lutron.com/a/documents/hwi%20rs232%20protocol.pdf), the special command `DELAY <ms>` is supported, where ms is the number of milliseconds to sleep. |
 
 #### Sending a list of commands 
 
