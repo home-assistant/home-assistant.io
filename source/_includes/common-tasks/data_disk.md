@@ -90,8 +90,8 @@ To migrate an external data disk from one system to another, follow these steps:
 3. Make sure system 2 is up and running an has the required version of operating system installed.
 4. Make sure system 2 has completed the basic [onboarding](/getting-started/onboarding/) steps, including the last steps where devices are discovered automatically.
 5. Plug the external disk into system 2 and go to the **Settings** > **System**. Select the three dots menu, and **Restart Home Assistant** > **Reboot system**.
-   **Result**: After reboot, a repair issue is displayed **Multiple data disks detected**.
-   - The repair issue comes up because system 2 now sees two file systems with an identical name. After a reboot, there is a name conflict and it is undefined which file system should be used. This can lead to system instabilities.
+   **Result**: A repair issue is displayed **Multiple data disks detected**.
+   - The repair issue comes up because system 2 now sees two file systems with an identical name. During a reboot, there is a name conflict and it is undefined which file system should be used. This can lead to system instabilities.
 6. Open the repair issue and choose one of the options:
    - Select **Use the detected data disk instead of the current system**.
      - This will override the current file system of system 2 and use your external data disk instead.
