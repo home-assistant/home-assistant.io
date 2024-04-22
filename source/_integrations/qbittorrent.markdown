@@ -54,7 +54,7 @@ data:
 response_variable: torrents
 ```
 
-The response data contains the field `torrents` which contains a dictionary of torrents. The name of the torrents are the keys.
+The response data contains the field `torrents` which contains a dictionary of torrents. The names of the torrents are the keys.
 
 ### Service `qbittorrent.get_all_torrents`
 
@@ -72,4 +72,4 @@ data:
 response_variable: all_torrents
 ```
 
-The response data contains the field `all_torrents` which contains a dictionary of integrations, which each contain an dictionary of torrents. The name of the torrents are the keys.
+The response data contains the field `all_torrents`, which contains a dictionary of integrations, which each contains a dictionary of torrents. The names of the torrents are the keys.
