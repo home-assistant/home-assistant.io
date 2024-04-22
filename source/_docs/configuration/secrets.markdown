@@ -59,3 +59,8 @@ hass --script check_config --secrets
 ```
 
 This will print all your secrets.
+
+### Related topics
+
+- [`configuration.yaml` file](/docs/configuration/)
+- [Splitting the configuration](/docs/configuration/splitting_configuration/)
