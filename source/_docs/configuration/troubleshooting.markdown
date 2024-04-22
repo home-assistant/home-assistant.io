@@ -126,7 +126,7 @@ After you download logs, you will also want to download the diagnostics for the 
 
 ### Handling unexpected restarts or crashes
 
-If you find that Home Assistant unexpectedly restarts or crashes, its likely that you have a misbehaving integration that is impacting system stability. Home Assistant has a built-in debug option that can help find implementation errors. It can block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use. To enable debug, add the following to your `configuration.yaml`:
+Suppose you find that Home Assistant unexpectedly restarts or crashes; it's likely that you have a misbehaving integration impacting system stability. Home Assistant has a built-in debug option that can help find implementation errors. It can also block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use. To enable debug, add the following to your `configuration.yaml`:
 
 ```yaml
 homeassistant:
