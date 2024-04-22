@@ -115,6 +115,7 @@ debug:
   description: Enable Home Assistant's built-in debug, which can help locate misbehaving integrations by enabling run-time checks for implementation errors. It can block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use.
   required: false
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ## Reload core service
