@@ -54,6 +54,7 @@ The method for running a configuration check depends on your [installation type]
 
 - [YAML syntax](/docs/configuration/yaml/)
 - [Configuration check on Operating System](/common-tasks/os/#configuration-check)
+- [Storing credentials in `secrets.yaml` file](/docs/configuration/secrets)
 
 ### Backups
 
