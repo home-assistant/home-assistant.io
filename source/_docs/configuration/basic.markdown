@@ -27,6 +27,7 @@ homeassistant:
   media_dirs:
     media: "/media"
     recordings: "/mnt/recordings"
+  debug: false
 ```
 
 <div class='note'>
@@ -110,6 +111,10 @@ country:
   description: "Country in which Home Assistant is running. This may, for example, influence radio settings to comply with local regulations. The country should be specified as an ISO 3166.1 alpha-2 code. Pick your country from the column **Code** of [Wikipedia's list of ISO 31661 alpha-2 officially assigned code codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)"
   required: false
   type: string
+debug:
+  description: Enable Home Assistant's built-in debug, which can help locate misbehaving integrations by enabling run-time checks for implementation errors. It can block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use.
+  required: false
+  type: boolean
 {% endconfiguration %}
 
 ## Reload core service
