@@ -132,3 +132,5 @@ Suppose you find that Home Assistant unexpectedly restarts or crashes; it's like
 homeassistant:
   debug: true
 ```
+
+Once debug is enabled, periodically check [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs) for new messages.
