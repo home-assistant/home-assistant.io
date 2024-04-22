@@ -1,6 +1,9 @@
 ---
 title: "Setup basic information"
 description: "Setting up the basic info of Home Assistant."
+related:
+- docs: /integrations/homeassistant/
+- docs: /docs/configuration/
 ---
 
 As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a unit system and time zone based on this location. If you didn't adjust this directly during onboarding, you can do it later.
@@ -20,129 +23,11 @@ To change the general settings that were defined during onboarding, follow these
    - In the bottom left, select your user name to go to your {% my profile title="**User profile**" %}, and enable **Advanced mode**.
 4. **Troubleshooting**: If any of the settings are grayed out and can't be edited, this is because they are defined in the [`configuration.yaml` file](/docs/configuration/).
    - If you prefer editing the settings in the UI, you have to delete these entries from the [`configuration.yaml` file](/docs/configuration/).
+   - For more information about the general settings in YAML, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).
 
     ![Setting fields are grayed out because the configuration settings stored in configuration.yaml file](/images/docs/configuration/general-settings-stored-in-config-yaml.png)
-
-## Editing the general settings in YAML
-
-If you prefer YAML, you can define your general settings in the [`configuration.yaml` file](/docs/configuration/).
-Note that for some of the settings, these can't be edited from the UI if they were defined in YAML. They will be grayed out or inaccessible.
-
-<p class='img'>
-    <img class="no-shadow" src='/images/docs/configuration/coordinates-defined-in-yaml.png' alt='Screenshot showing coordinates cannot be edited because they are defined in configuration.yaml file'>
-    Screenshot showing coordinates cannot be edited because they are defined in configuration.yaml file.
-</p>
-
-To get started with the general settings in YAML, follow these steps:
-
-1. Copy the following information to your [`configuration.yaml` file](/docs/configuration/).
-
-    ```yaml
-    homeassistant:
-      name: Home
-      latitude: 32.87336
-      longitude: 117.22743
-      elevation: 430
-      unit_system: metric
-      currency: USD
-      country: US
-      time_zone: "America/Los_Angeles"
-      external_url: "https://www.example.com"
-      internal_url: "http://homeassistant.local:8123"
-      allowlist_external_dirs:
-        - "/usr/var/dumping-ground"
-        - "/tmp"
-      allowlist_external_urls:
-        - "http://images.com/image1.png"
-      media_dirs:
-        media: "/media"
-        recordings: "/mnt/recordings"
-    ```
-
-2. Edit each entry to fit your home.
-
-
-{% configuration %}
-name:
-  description: Name of the location where Home Assistant is running.
-  required: false
-  type: string
-latitude:
-  description: Latitude of your location required to calculate the time the sun rises and sets.
-  required: false
-  type: float
-longitude:
-  description: Longitude of your location required to calculate the time the sun rises and sets.
-  required: false
-  type: float
-elevation:
-  description: Altitude above sea level in meters. Impacts sunrise data.
-  required: false
-  type: integer
-unit_system:
-  description: "`metric` for Metric, `us_customary` for US Customary. This also sets temperature_unit, Celsius for Metric and Fahrenheit for US Customary"
-  required: false
-  type: string
-temperature_unit:
-  description: "Override temperature unit set by unit_system. `C` for Celsius, `F` for Fahrenheit."
-  required: false
-  type: string
-time_zone:
-  description: "Pick your time zone from the column **TZ** of [Wikipedia's list of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
-  required: false
-  type: string
-currency:
-  description: "Pick your currency code from the column **Code** of [Wikipedia's list of ISO 4217 active codes](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)"
-  required: false
-  type: string
-  default: "EUR"
-external_url:
-  description: "The URL that Home Assistant is available on from the internet. For example: `https://example.duckdns.org:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
-  required: false
-  type: string
-internal_url:
-  description: "The URL that Home Assistant is available on from your local network. For example: `http://homeassistant.local:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
-  required: false
-  type: string
-customize:
-  description: "[Customize](/docs/configuration/customizing-devices/) entities."
-  required: false
-  type: string
-customize_domain:
-  description: "[Customize](/docs/configuration/customizing-devices/) all entities in a domain."
-  required: false
-  type: string
-customize_glob:
-  description: "[Customize](/docs/configuration/customizing-devices/) entities matching a pattern."
-  required: false
-  type: string
-allowlist_external_dirs:
-  description: List of folders that can be used as sources for sending files.
-  required: false
-  type: list
-allowlist_external_urls:
-  description: List of external URLs that can be fetched. URLs can match specific resources (e.g., `http://10.10.10.12/images/image1.jpg`) or a relative path that allows access to resources within it (e.g., `http://10.10.10.12/images` would allow access to anything under that path)
-  required: false
-  type: list
-media_dirs:
-  description: A mapping of local media sources and their paths on disk.
-  required: false
-  type: map
-language:
-  description: "Default language used by Home Assistant. This may, for example, influence the language used by voice assistants. The language should be specified as an RFC 5646 language tag, and must be a language which Home Assistant is translated to."
-  required: false
-  type: string
-  default: "en"
-country:
-  description: "Country in which Home Assistant is running. This may, for example, influence radio settings to comply with local regulations. The country should be specified as an ISO 3166.1 alpha-2 code. Pick your country from the column **Code** of [Wikipedia's list of ISO 31661 alpha-2 officially assigned code codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)"
-  required: false
-  type: string
-{% endconfiguration %}
 
 ## Reload core service
 
 Home Assistant offers a service to reload the core configuration while Home Assistant is running called {% my developer_call_service service="homeassistant.reload_core_config" %}. This allows you to change any of the above sections and see it being applied without having to restart Home Assistant. To call this service, go to the "{% my developer_services %}" tab under {% my developer_services title="Developer Tools" %}, select the {% my developer_call_service service="homeassistant.reload_core_config" %} service and click the "CALL SERVICE" button. Alternatively, you can press the "Location & Customizations" button under {% my server_controls title="Developer Tools > YAML" %}.
 
-## Related topics
-
-- [`configuration.yaml` file](/docs/configuration/)
