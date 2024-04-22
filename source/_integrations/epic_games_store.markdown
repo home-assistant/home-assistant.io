@@ -24,7 +24,7 @@ The integration adds calendars to follow [discounts & free games](https://store.
 
 ## Calendars
 
-The following calendars will be created :
+The following calendars will be created:
 
 |Entity|Description|
 |------|-----------|
