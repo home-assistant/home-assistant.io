@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-Integrates [Epic Games Store](https://store.epicgames.com/) service into Home Assistant.
+The **Epic Games Store** {% term integration %} integrates the [Epic Games Store](https://store.epicgames.com/) service into Home Assistant.
 
 The integration adds calendars to follow [discounts & free games](https://store.epicgames.com/free-games).
 
