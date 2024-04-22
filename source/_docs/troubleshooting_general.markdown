@@ -1,6 +1,13 @@
 ---
 title: "General troubleshooting"
 description: "General troubleshooting information"
+related:
+- docs: /docs/configuration/#editing-configurationyaml
+  title: Editing your configuration
+- docs: /integrations/recovery_mode/
+  title: Recovery mode integration
+- docs: /docs/locked_out/
+  title: Resetting your password
 ---
 
 This page provides some information about more generic troubleshooting topics.
@@ -35,9 +42,3 @@ If your Home Assistant is acting up and you cannot identify a root cause, you ca
 Safe mode loads Home Assistant Core, but no custom integrations, no custom cards, and no custom themes. If the issue does not persist in Safe mode, the issue is not with Home Assistant Core. Before reporting an issue, check if the issue persists in Safe mode.
 
 To enable Safe mode, go to **Settings** > **System** > **Restart Home Assistant** (top right) > **Restart Home Assistant in safe mode**.
-
-## Related topics
-
-- [Editing your configuration](/docs/configuration/#editing-configurationyaml)
-- [Recovery mode integration](/integrations/recovery_mode/)
-- [Resetting your password](/docs/locked_out/)

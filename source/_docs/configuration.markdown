@@ -1,6 +1,15 @@
 ---
 title: "Configuration.yaml"
 description: "Configuring Home Assistant via text files."
+related:
+- docs: /docs/configuration/yaml/
+  title: YAML syntax
+- docs: /docs/configuration/secrets
+  title: Storing credentials in `secrets.yaml` file
+- docs: /common-tasks/os/#backups
+  title: Creating and restoring backups
+- docs: /integrations/backup
+  title: Creating backups for Home Assistant Container and Core
 ---
 
 While you can configure most of Home Assistant directly from the user interface under {% my config %}, some parts need you to edit `configuration.yaml`. This file contains {% term integrations %} to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
@@ -49,14 +58,3 @@ The method for running a configuration check depends on your [installation type]
 - [Configuration check on Supervised](/common-tasks/supervised/#configuration-check)
 - [Configuration check on Container](/common-tasks/container/#configuration-check)
 - [Configuration check on Core](/common-tasks/core/#configuration-check)
-
-## Related topics
-
-- [YAML syntax](/docs/configuration/yaml/)
-- [Configuration check on Operating System](/common-tasks/os/#configuration-check)
-- [Storing credentials in `secrets.yaml` file](/docs/configuration/secrets)
-
-### Backups
-
-- [Creating and restoring backups](/common-tasks/os/#backups)
-- [Creating backups for Home Assistant Container and Core](/integrations/backup)
