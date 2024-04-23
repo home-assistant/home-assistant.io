@@ -54,8 +54,3 @@ If you select a time frame that exceeds 10 days, the data is taken from the long
 
 The history information is also available through the
 [RESTful API](/developers/rest_api/#get-apihistory).
-
-## Related topics
-
-- [Recorder integration](/integrations/recorder/)
-- [Home Assistant Data Science Portal](https://data.home-assistant.io)

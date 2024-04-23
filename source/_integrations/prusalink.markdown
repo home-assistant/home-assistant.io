@@ -51,8 +51,3 @@ Firmware update guides can be found here:
 
 {% include integrations/config_flow.md %}
 
-## Related topics
-
-- [PrusaLink documentation](https://help.prusa3d.com/article/prusa-connect-and-prusalink-explained_302608)
-- [PrusaLink installation guide for Prusa MK3 with Raspberry Pi Zero W](https://help.prusa3d.com/guide/prusalink-and-prusa-connect-setup-mk3-s-_221744)
-- [PrusaLink installation guide for Prusa MK2.5/MK3 with Raspberry Pi 3/4](https://help.prusa3d.com/guide/prusalink-prusa-connect-with-rpi-3-4-usb-mk2-5-s-mk3-s-_469341)

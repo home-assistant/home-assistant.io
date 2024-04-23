@@ -19,6 +19,8 @@ related:
   title: List of to-do list integrations
 - docs: /dashboards/todo-list/
   title: To-do list card
+- docs: /integrations/calendar
+  title: Calendar
 ---
 
 The **CalDAV** integration allows you to connect your WebDAV calendar to Home Assistant
@@ -210,13 +212,3 @@ to generate a new password for use by Home Assistant to avoid sharing your iClou
 password.
 
 {% enddetails %}
-
-## Related topics
-
-- [Calendar](/integrations/calendar)
-
-### To-do list
-
-- [To-do list integration documentation](/integrations/todo)
-- [List of to-do list integrations](/integrations/#to-do-list)
-- [To-do list card](/dashboards/todo-list/)
