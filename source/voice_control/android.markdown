@@ -1,12 +1,12 @@
 ---
 title: "Assist on Android"
 related:
-   - docs: /voice_control/voice_remote_expose_devices/
-     title: Exposing devices to Assist
-   - docs: /voice_control/start_assist_from_dashboard/
-     title: Starting Assist from your dashboard
-   - url: https://companion.home-assistant.io/docs/getting_started/
-     title: Home Assistant Companion App
+  - docs: /voice_control/voice_remote_expose_devices/
+    title: Exposing devices to Assist
+  - docs: /voice_control/start_assist_from_dashboard/
+    title: Starting Assist from your dashboard
+  - url: https://companion.home-assistant.io/docs/getting_started/
+    title: Home Assistant Companion App
 ---
 
 ## Assist on Android phones

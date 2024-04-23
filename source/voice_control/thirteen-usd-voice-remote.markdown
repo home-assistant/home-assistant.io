@@ -4,20 +4,20 @@ product_name: ATOM Echo
 device_name_entry: M5Stack Atom Echo a61920
 config_link: /voice_control/thirteen-usd-voice-remote/#to-delete-the-atom-echo-configuration-from-esphome
 related:
-   - docs: /voice_control/install_wake_word_add_on/
-     title: Enable a wake word
-   - docs: /voice_control/create_wake_word/
-     title: Create your own wake words
-   - docs: /voice_control/voice_remote_cloud_assistant/
-     title: Creating a Cloud assistant
-   - docs: /voice_control/troubleshooting/
-     title: General troubleshooting section for Assist
-   - docs: /voice_control/voice_remote_local_assistant
-     title: Manually configured Assist pipeline
-   - docs: /voice_control/custom_sentences/
-     title: Using a sentence trigger
-   - docs: /common-tasks/os/#configuring-access-to-files
-     title: Access to your configuration files
+  - docs: /voice_control/install_wake_word_add_on/
+    title: Enable a wake word
+  - docs: /voice_control/create_wake_word/
+    title: Create your own wake words
+  - docs: /voice_control/voice_remote_cloud_assistant/
+    title: Creating a Cloud assistant
+  - docs: /voice_control/troubleshooting/
+    title: General troubleshooting section for Assist
+  - docs: /voice_control/voice_remote_local_assistant
+    title: Manually configured Assist pipeline
+  - docs: /voice_control/custom_sentences/
+    title: Using a sentence trigger
+  - docs: /common-tasks/os/#configuring-access-to-files
+    title: Access to your configuration files
 ---
 
 This tutorial will guide you to turn an ATOM Echo into the
