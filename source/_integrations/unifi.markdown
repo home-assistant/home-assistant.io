@@ -158,11 +158,11 @@ Get entities reporting the current state of a UniFi Network device.
 
 ### Device CPU
 
-Get entities reporting the the current CPU utilization of a UniFi Network device.
+Get entities reporting the current CPU utilization of a UniFi Network device.
 
 ### Device memory
 
-Get entities reporting the the current memory utilization of a UniFi Network device.
+Get entities reporting the current memory utilization of a UniFi Network device.
 
 ### Port Bandwidth sensor
 
