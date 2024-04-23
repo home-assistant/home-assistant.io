@@ -4,10 +4,10 @@ title: "Plant status card"
 sidebar_label: Plant status
 description: "The plant status card is for all the lovely botanists out there."
 related:
-- docs: /integrations/frontend/
-  title: Themes
-- docs: /dashboards/cards/
-  title: Dashboard cards
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The plant status card is for all the lovely botanists out there.

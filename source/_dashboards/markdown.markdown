@@ -4,10 +4,10 @@ title: "Markdown card"
 sidebar_label: Markdown
 description: "The Markdown card is used to render Markdown"
 related:
-- docs: /integrations/frontend/
-  title: Themes
-- docs: /dashboards/cards/
-  title: Dashboard cards
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The Markdown card is used to render [Markdown](https://commonmark.org/help/).

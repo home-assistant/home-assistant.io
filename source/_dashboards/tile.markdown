@@ -4,12 +4,12 @@ title: "Tile card"
 sidebar_label: Tile
 description: "The tile card gives you a quick overview of your entity. The card allows you to toggle the entity, show the more-info dialog, or custom actions."
 related:
-- docs: /dashboards/actions/
-  title: Card actions
-- docs:  /dashboards/features
-  title: Card features
-- docs: /dashboards/cards/
-  title: Dashboard cards
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs:  /dashboards/features
+    title: Card features
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The tile card gives you a quick overview of your {% term entity %}. The card allows you to toggle the {% term entity %} and show the more info dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.

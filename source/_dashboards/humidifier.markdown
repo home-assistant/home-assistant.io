@@ -4,10 +4,10 @@ title: "Humidifier card"
 sidebar_label: Humidifier
 description: "The humidifier card gives control of your humidifier entity, allowing you to change the target humidity and mode of the entity."
 related:
-- docs: /integrations/frontend/
-  title: Themes
-- docs: /dashboards/cards/
-  title: Dashboard cards
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The humidifier card lets you control and monitor humidifiers, dehumidifiers, and hygrostat devices.
