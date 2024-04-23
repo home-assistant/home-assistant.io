@@ -15,7 +15,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Squeezebox integration allows you to control a [Logitech Squeezebox](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29) music player from Home Assistant. This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like [Squeezelite](https://github.com/ralph-irving/squeezelite), [SoftSqueeze](http://softsqueeze.sourceforge.net/), [SqueezePlayer](https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer) and [SqueezeSlave](https://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released).
+The Squeezebox integration allows you to control a [Logitech Squeezebox](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29) music player from Home Assistant. Today, the Logitech Media Server is also known as the [Lyrion Music Server](https://lyrion.org/).  
+
+This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and software players like [Squeezelite](https://github.com/ralph-irving/squeezelite), [SoftSqueeze](http://softsqueeze.sourceforge.net/), [SqueezePlayer](https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer) and [SqueezeSlave](https://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released).
 
 {% include integrations/config_flow.md %}
 
@@ -70,7 +72,7 @@ This can work with title search and basically any thing. The same wouldn't have 
 
 ### Service `call_query`
 
-Call a custom Squeezebox JSON-RPC API. The result of the query will be stored in the 'query_result' attribute of the player.
+Call a custom Squeezebox JSON-RPC API. The result of the query will be stored in the 'query_result' attribute of the player as an object, and in the 'query_result_json' attribute as a json string.  The 'query_result_json' attribute may be useful when, for example, calling this service from the [Home Assistant REST API](https://developers.home-assistant.io/docs/api/rest/)
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Logitech Media Server.
 
