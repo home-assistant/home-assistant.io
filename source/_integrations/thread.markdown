@@ -13,22 +13,22 @@ ha_platforms:
   - diagnostics
 ha_zeroconf: true
 related:
-- docs: /yellow/
-  title: Home Assistant Yellow - hub
-- docs: /skyconnect/
-  title: Home Assistant SkyConnect - Zigbee/Thread USB stick
-- docs: /integrations/matter/
-  title: Matter
-- docs: /integrations/homekit_controller/
-  title: HomeKit
-- docs: /integrations/matter/#adding-a-matter-device-to-home-assistant
-  title: Adding a Matter device to Home Assistant
-- docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
-  title: Adding an Apple HomeKit device through Thread
-- url: https://skyconnect.home-assistant.io/procedures/enable-thread/
-  title: Enabling Thread on SkyConnect
-- url: https://yellow.home-assistant.io/procedures/enable-thread/
-  title: Enabling Thread on Yellow
+  - docs: /yellow/
+    title: Home Assistant Yellow - hub
+  - docs: /skyconnect/
+    title: Home Assistant SkyConnect - Zigbee/Thread USB stick
+  - docs: /integrations/matter/
+    title: Matter
+  - docs: /integrations/homekit_controller/
+    title: HomeKit
+  - docs: /integrations/matter/#adding-a-matter-device-to-home-assistant
+    title: Adding a Matter device to Home Assistant
+  - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
+    title: Adding an Apple HomeKit device through Thread
+  - url: https://skyconnect.home-assistant.io/procedures/enable-thread/
+    title: Enabling Thread on SkyConnect
+  - url: https://yellow.home-assistant.io/procedures/enable-thread/
+    title: Enabling Thread on Yellow
 ---
 
 The Thread integration helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password). The Thread integration in Home Assistant is currently still a work in progress.

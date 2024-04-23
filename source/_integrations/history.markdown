@@ -10,10 +10,10 @@ ha_codeowners:
 ha_domain: history
 ha_integration_type: system
 related:
-- docs: /integrations/recorder/
-  title: Recorder integration
-- url: https://data.home-assistant.io
-  title: Home Assistant Data Science Portal
+  - docs: /integrations/recorder/
+    title: Recorder integration
+  - url: https://data.home-assistant.io
+    title: Home Assistant Data Science Portal
 ---
 
 The **History** integration tracks everything that is going on within Home

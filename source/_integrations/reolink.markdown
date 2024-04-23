@@ -25,10 +25,10 @@ ha_platforms:
 ha_integration_type: integration
 ha_dhcp: true
 related:
-- docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
-  title: Controlling the camera from the dashboard
-- url: https://reolink.com/
-  title: Reolink product page
+  - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
+    title: Controlling the camera from the dashboard
+  - url: https://reolink.com/
+    title: Reolink product page
 ---
 
 The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras.

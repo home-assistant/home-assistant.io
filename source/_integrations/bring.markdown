@@ -14,14 +14,14 @@ ha_integration_type: service
 ha_platforms:
   - todo
 related:
-- docs: /integrations/todo
-  title: To-do list integration documentation
-- docs: /integrations/#to-do-list
-  title: List of to-do list integrations
-- docs: /dashboards/todo-list/
-  title: To-do list card
-- url: https://www.getbring.com/
-  title: Bring!
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - url: https://www.getbring.com/
+    title: Bring!
 ---
 
 The **Bring!** integration allows you to interact with your [Bring!](https://www.getbring.com/) shopping lists within Home Assistant.

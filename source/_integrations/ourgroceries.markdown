@@ -13,14 +13,14 @@ ha_platforms:
   - todo
 ha_integration_type: integration
 related:
-- docs: /integrations/todo
-  title: To-do list integration documentation
-- docs: /integrations/#to-do-list
-  title: List of to-do list integrations
-- docs: /dashboards/todo-list/
-  title: To-do list card
-- url: https://www.ourgroceries.com/
-  title: OurGroceries
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - url: https://www.ourgroceries.com/
+    title: OurGroceries
 ---
 
 This integration connects with an [OurGroceries](https://www.ourgroceries.com/) account and integrates your shopping lists into Home Assistant.

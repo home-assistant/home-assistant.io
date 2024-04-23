@@ -10,10 +10,10 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
 related:
-- docs: /integrations/local_todo
-  title: Local to-do list integration documentation
-- docs: /dashboards/todo-list/
-  title: To-do list card
+  - docs: /integrations/local_todo
+    title: Local to-do list integration documentation
+  - docs: /dashboards/todo-list/
+    title: To-do list card
 ---
 
 The **To-do list** {% term integration %} provides to-do list {% term entities %}, allowing other integrations

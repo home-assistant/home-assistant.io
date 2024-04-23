@@ -9,8 +9,8 @@ ha_domain: recovery_mode
 ha_quality_scale: internal
 ha_integration_type: system
 related:
-- docs: /docs/troubleshooting_general/
-  title: General troubleshooting
+  - docs: /docs/troubleshooting_general/
+    title: General troubleshooting
 ---
 
 The **Recovery mode** integration is an internal integration used by the

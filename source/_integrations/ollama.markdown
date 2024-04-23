@@ -11,10 +11,10 @@ ha_codeowners:
 ha_domain: ollama
 ha_integration_type: service
 related:
-- docs: /docs/configuration/templating/
-  title: Home Assistant Templating
-- docs: /docs/automation/trigger/#sentence-trigger
-  title: Sentence trigger
+  - docs: /docs/configuration/templating/
+    title: Home Assistant Templating
+  - docs: /docs/automation/trigger/#sentence-trigger
+    title: Sentence trigger
 ---
 
 The **Ollama** {% term integration %} adds a conversation agent in Home Assistant powered by a local [Ollama](https://ollama.com/) server.
