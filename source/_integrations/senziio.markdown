@@ -2,7 +2,6 @@
 title: Senziio
 description: Instructions on how to integrate Senziio devices into Home Assistant.
 ha_category:
-  - Binary sensor
   - Sensor
 ha_release: 2024.4
 ha_iot_class: Local Push
@@ -10,7 +9,6 @@ ha_domain: senziio
 ha_zeroconf: true
 ha_config_flow: true
 ha_platforms:
-  - binary_sensor
   - sensor
 ha_codeowners:
   - '@pmiguez'
@@ -109,23 +107,11 @@ Integrating Senziio devices with Home Assistant adds the following sensor
 {% term entities %}, enriching your smart home ecosystem with detailed
 environmental information:
 
-- **Presence detector**: Detects human presence, enabling automation
-  for lighting, security, and energy-saving scenarios.
-
 - **Person counter**: Counts the number of persons in an area, perfect
   for managing room occupancy and air quality control.
 
-- **Motion detector**: Identifies human movement, useful for security alerts,
-  lighting control, and activity monitoring.
-
 - **Temperature**: Measures ambient temperature, allowing for precise climate
   control to enhance comfort and save energy.
-
-- **Humidity**: Monitors air moisture levels, essential for maintaining
-  optimal indoor air quality and comfort.
-
-- **Atmospheric pressure**: Monitors atmospheric pressure, useful for advanced
-  weather monitoring and predicting changes in weather patterns.
 
 - **CO2**: Tracks carbon dioxide concentration, critical for ensuring
   healthy indoor air quality and ventilation.
