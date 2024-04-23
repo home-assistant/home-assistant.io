@@ -2,11 +2,11 @@
 title: "Create a personality with OpenAI"
 related:
    - docs: /voice_control/voice_remote_cloud_assistant/
-   title: Cloud assistant pipeline
+     title: Cloud assistant pipeline
    - docs: /voice_control/voice_remote_local_assistant/
-   title: Local assistant pipeline
+     title: Local assistant pipeline
    - url: https://www.nabucasa.com
-   title: Home Assistant Cloud
+     title: Home Assistant Cloud
 ---
 
 You can give your voice assistant personality by using OpenAI. This requires an OpenAI account. For what we do in this tutorial, the free trial option is sufficient. No need to leave your credit card information.

@@ -4,21 +4,21 @@ product_name: ESP32-S3-BOX-3
 device_name_entry: ESP32-S3-BOX-3
 related:
    - docs: /voice_control/voice_remote_cloud_assistant/
-   title: Home Assistant Cloud
+     title: Home Assistant Cloud
    - docs: /voice_control/voice_remote_local_assistant
-   title: Assist Pipeline
+     title: Assist Pipeline
    - docs: /voice_control/s3_box_voice_assistant/
-   title: ESP32-S3-BOX-3 voice assistant
+     title: ESP32-S3-BOX-3 voice assistant
    - docs: /voice_control/troubleshooting/
-   title: General troubleshooting section for Assist
+     title: General troubleshooting section for Assist
    - docs: /voice_control/troubleshooting_the_s3_box/
-   title: Troubleshooting the ESP32-S3-BOX-3
+     title: Troubleshooting the ESP32-S3-BOX-3
    - docs: /common-tasks/os/#configuring-access-to-files
-   title: Access to your configuration files
+     title: Access to your configuration files
    - url: https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/tree/main
-   title: Community image repository
+     title: Community image repository
    - url: https://github.com/kahrendt/microWakeWord
-   title: microWakeWord
+     title: microWakeWord
 ---
 
 ## Customize the S3-BOX-3 with your own illustrations

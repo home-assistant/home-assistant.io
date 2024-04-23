@@ -2,13 +2,13 @@
 title: "World's most private voice assistant"
 related:
    - docs: /voice_control/voice_remote_cloud_assistant/
-   title: Creating a Cloud assistant
+     title: Creating a Cloud assistant
    - docs: /voice_control/voice_remote_local_assistant/
-   title: Creating a local assistant
+     title: Creating a local assistant
    - url: https://amzn.to/40k7mRa
-   title: Grandstream HT801
+     title: Grandstream HT801
    - url: https://www.nabucasa.com
-   title: Home Assistant Cloud
+     title: Home Assistant Cloud
 ---
 
 This tutorial will guide you to turn your old landline phone into the

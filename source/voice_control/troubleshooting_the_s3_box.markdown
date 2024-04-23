@@ -2,9 +2,9 @@
 title: "Troubleshooting the ESP32-S3-BOX-3"
 related:
    - docs: /voice_control/s3_box_voice_assistant/
-   title: Creating a ESP32-S3-BOX-3 voice assistant
+     title: Creating a ESP32-S3-BOX-3 voice assistant
    - url: https://esphome.io/projects/index.html
-   title: ESPHome projects website
+     title: ESPHome projects website
 ---
 
 This section provides troubleshooting steps for the ESP32-S3-BOX-3 by Espressif.
