@@ -26,6 +26,13 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+- docs: /integrations/thread/
+  title: Thread
+- docs: /integrations/homekit_controller/
+  title: HomeKit
+- docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
+  title: Adding an Apple HomeKit device through Thread
 ---
 
 The Matter integration allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
@@ -356,14 +363,3 @@ Also see this [extended troubleshooting guide](https://developers.home.google.co
 The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use Wi-Fi (including Thread border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use {% term Thread %} must be joined to {% term Thread %} networks for which there is at least one border router connected to the Home Assistant LAN.
 
 If you experience any issues with discovering devices (for example, if the initial {% term commissioning %} keeps failing or if devices become unavailable randomly), investigate your network topology. For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and may not integrate well with enterprise networking solutions like VLANs, Multicast filtering, and (malfunctioning) IGMP snooping. To avoid issues, try to keep your network topology as simple and flat as possible.
-
-## Related topics
-
-### Related integrations
-
-- [Thread](/integrations/thread/)
-- [HomeKit](/integrations/homekit_controller/)
-
-### Related guides
-
-- [Adding an Apple HomeKit device through Thread](/integrations/homekit_controller/#adding-a-homekit-device-through-thread)

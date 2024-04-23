@@ -1,6 +1,19 @@
 ---
 title: "Filtering your assets"
 description: "Filter for items in tables."
+related:
+- docs: /docs/organizing/floors/
+  title: Floors
+- docs: /docs/organizing/labels/
+  title: Labels
+- docs: /docs/organizing/areas/
+  title: Areas
+- docs: /docs/organizing/categories/
+  title: Categories
+- docs: /docs/organizing/
+  title: Grouping your assets
+- docs: /common-tasks/general/
+  title: Enabling or disabling entities and automations
 ---
 
 When working with tables, you can select multiple elements to apply an action on multiple items at once. If you have [grouped](/docs/organizing/) your assets by assigning them to floors, areas, labels, or directories you can also filter your data accordingly.
@@ -41,12 +54,3 @@ You can group items in a table according to certain criteria. The number of show
     ![Select the Group by button](/images/organizing/table_group_01.png)
 
 3. To sort the items, select the **Sort by** button.
-
-## Related topics
-
-- [Floors](/docs/organzing/floors/)
-- [Labels](/docs/organzing/labels/)
-- [Areas](/docs/organzing/areas/)
-- [Categories](/docs/organzing/categories/)
-- [Grouping your assets](/docs/organizing/)
-- [Enabling or disabling entities and automations](/common-tasks/general/)

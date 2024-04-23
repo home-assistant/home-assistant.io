@@ -1,6 +1,19 @@
 ---
 title: "YAML syntax"
 description: "Details about the YAML syntax used to configure Home Assistant."
+related:
+- docs: /docs/configuration/
+  title: `configuration.yaml` file
+- docs: /docs/configuration/secrets/
+  title: Storing private data in separate file
+- docs: /docs/automation/yaml/
+  title: Automation.yaml
+- docs: /docs/configuration/troubleshooting/
+  title: Troubleshooting the configuration files
+- docs: /docs/configuration/#validating-the-configuration
+  title: Validating the configuration
+- url: https://developers.home-assistant.io/docs/documenting/yaml-style-guide/
+  title: YAML Style Guide for Home Assistant developers
 ---
 
 Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. While most integrations can be configured through the UI, some integrations require you to edit your [`configuration.yaml`](/docs/configuration/) file to specify its settings.
@@ -130,20 +143,3 @@ not a valid value for dictionary value @ data
 With all these indents and rules, it is easy to make a mistake. The best way to check if your YAML syntax is correct (validate) depends on the editor you use. We can't list them all here.
 
 - If you edit the files directly in Home Assistant, refer to the section: [Validating the configuration](/docs/configuration/#validating-the-configuration)
-
-## Related topics
-
-### YAML
-
-- [YAML Style Guide for Home Assistant developers](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/)
-- [Validating the configuration](/docs/configuration/#validating-the-configuration)
-
-### Related configuration topics
-
-- [`configuration.yaml` file](/docs/configuration/)
-- [Troubleshooting the configuration files](/docs/configuration/troubleshooting/)
-- [Storing private data in separate file](/docs/configuration/secrets/)
-
-### Automation
-
-- [Automation.yaml](/docs/automation/yaml/)
