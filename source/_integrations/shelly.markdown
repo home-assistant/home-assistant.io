@@ -5,8 +5,8 @@ ha_category:
   - Binary sensor
   - Climate
   - Cover
-  - Event
   - Energy
+  - Event
   - Light
   - Number
   - Sensor

@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: seventeentrack
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The seventeentrack {% term integration %} allows users to get package data tied to their [17track.net](https://www.17track.net) account. The integration creates both summary sensors, which show the number of packages in a current state (e.g., "In Transit"), as well as individual sensors for each package within the account.

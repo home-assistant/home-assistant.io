@@ -81,6 +81,7 @@ These device representations in Home Assistant will have [entities](#entities) a
 The traccar server integration will create entities in with the following domains:
 
 - [Device Tracker](/integrations/device_tracker)
+- [Sensor](/integrations/sensor)
 
 For more details about each of these, see the sections below.
 
@@ -104,20 +105,10 @@ State:
 In addition to the custom attributes you can define in the Traccar Server integration options, the device tracker entity will have the following attributes:
 
 {% configuration_basic %}
-Address:
-  description: If a position update has an address associated with it, this will be the address.
-Altitude:
-  description: The altitude of the position update.
-Battery Level:
-  description: The battery level of the device if defined.
 Category:
   description: The category of the device in Traccar if defined.
-Geofence:
-  description: The name of the geofence the device is located in.
 Motion:
   description: If the device is moving or not.
-Speed:
-  description: The speed of the device.
 Status:
   description: The status of the device in Traccar.
 Traccar ID:
@@ -127,6 +118,101 @@ Tracker:
 {% endconfiguration_basic %}
 
 {% enddetails %}
+
+### Sensor - Address
+
+The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the address reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Address. If your device is named "Millennium Falcon", this will be "Millennium Falcon Address".
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `position_address`.
+State:
+  description: This will be the address reported by the Traccar Server, if geo detection is not configured this will be unknown`.
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
+
+### Sensor - Altitude
+
+The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the altitude reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Altitude. If your device is named "Millennium Falcon", this will be "Millennium Falcon Altitude".
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `position_altitude`.
+State:
+  description: This will be the altitude in meters. You can select a different unit in the entity options if you want.
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
+
+### Sensor - Battery
+
+The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the remaining battery percentage reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Battery. If your device is named "Millennium Falcon", this will be "Millennium Falcon Battery".
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `position_attributes.batteryLevel`.
+State:
+  description: This will be the battery percentage (level) as reported by the tracked device, if the device does not have a battery this will be unknown.
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
+
+### Sensor - Geofence
+
+The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the geofence reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Geofence. If your device is named "Millennium Falcon", this will be "Millennium Falcon Geofence".
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `geofence_geofence`.
+State:
+  description: This will be geofence that the device is in, if you have overlapping geofences it will show the first one as reported by the Traccar Server.
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
+
+### Sensor - Speed
+
+The Traccar Server integration will create a [sensor](/integrations/sensor) entity for each device registered in Traccar Server to show the speed reported by the Traccar Server.
+
+This entity is disabled by default.
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor will be set to what you have named it in Traccar Server followed by Speed. If your device is named "Millennium Falcon", this will be "Millennium Falcon Speed".
+Entity ID:
+  description: This will be a slugified version of the name.
+Unique ID:
+  description: This will be the unique ID of the device tracker in Traccar Server followed by `position_speed`.
+State:
+  description: This will be the speed of the device in knots. You can select a different unit in the entity options if you want.
+{% endconfiguration_basic %}
+
+This entity does not have any attributes.
 
 ## Examples
 
@@ -138,7 +224,7 @@ In this section you will find some example automations that you can use to get s
 
 #### Do something when a device enters a geofence
 
-The allows you to do something when the device `device_tracker.millennium_falcon` enters the defined geofence.
+The allows you to do something when the device "Millennium Falcon" enters the defined geofence.
 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/traccar_server_device_enter_geofence.yaml" %}
 
@@ -147,8 +233,7 @@ The allows you to do something when the device `device_tracker.millennium_falcon
 ```yaml
 trigger:
   - platform: state
-    entity_id: device_tracker.millennium_falcon
-    attribute: geofence
+    entity_id: sensor.millennium_falcon_geofence
     to: 'Tatooine'
 action:
   ...
@@ -158,7 +243,7 @@ action:
 
 #### Do something when a device are speeding
 
-The allows you to do something when the device `device_tracker.millennium_falcon` exceeds a defined speed.
+The allows you to do something when the device "Millennium Falcon" exceeds a defined speed.
 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/traccar_server_device_speed_limit.yaml" %}
 
@@ -167,14 +252,13 @@ The allows you to do something when the device `device_tracker.millennium_falcon
 ```yaml
 trigger:
   - platform: numeric_state
-    entity_id: device_tracker.millennium_falcon
-    attribute: speed
+    entity_id: sensor.millennium_falcon_speed
     above: 1337
 action:
   ...
 ```
 
-If you want to include the speed in a notification, you can use the `{{ trigger.to_state.attributes.speed }}` template.
+If you want to include the speed in a notification, you can use the `{{ trigger.to_state.state }}` template.
 
 Partial example:
 
@@ -184,7 +268,7 @@ trigger:
 action:
   - service: notify.notify
     data:
-      message: "The current speed of the Millennium falcon is {{ trigger.to_state.attributes.speed }}!"
+      message: "The current speed of the Millennium falcon is {{ trigger.to_state.state }}!"
 ```
 
 {% enddetails %}

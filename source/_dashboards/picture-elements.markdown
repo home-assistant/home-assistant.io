@@ -3,6 +3,13 @@ type: card
 title: "Picture elements card"
 sidebar_label: Picture elements
 description: "The picture elements card is one of the most versatile types of cards. The cards allow you to position icons or text and even services! On an image based on coordinates."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The picture elements card is one of the most versatile types of cards.
@@ -573,9 +580,3 @@ elements:
           top: 47%
           left: 42%
 ```
-
-## Related topics
-
-- [Card actions](/dashboards/actions/)
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

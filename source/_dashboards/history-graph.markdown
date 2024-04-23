@@ -3,6 +3,11 @@ type: card
 title: "History graph card"
 sidebar_label: History graph
 description: "The history graph card allows you to display a graph for each of the entities listed."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The history graph card allows you to display a graph for each of up to eight entities.
@@ -107,8 +112,3 @@ entities:
   - entity: sensor.attic_temperature
     name: "Attic"
 ```
-
-## Related topics
-
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

@@ -1,5 +1,5 @@
 ---
-title: Motionblinds BLE
+title: Motionblinds Bluetooth
 description: Instructions on how to integrate Motionblinds Bluetooth motors into Home Assistant.
 ha_category:
   - Cover
@@ -14,7 +14,7 @@ ha_platforms:
   - button
   - cover
   - select
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 This {% term integration %} adds support for [Motionblinds](https://motionblinds.com/) Bluetooth motors. Want to motorize your existing blinds? This can be done with Motionblinds motor CMD-03. Made-to-measure window coverings with Motionblinds are available through a worldwide reseller network.
@@ -37,7 +37,7 @@ During the setup of a Motionblinds Bluetooth motor, you will be asked what kind 
 
 ## Entities
 
-The following entities are available for a Motionblinds BLE device:
+The following entities are available for a Motionblinds Bluetooth device:
 
 - [Cover](https://www.home-assistant.io/integrations/cover/) entity: depending on the blind that was chosen during the setup, this entity has a slider that makes it possible to change position and tilt, and buttons that allow you to open the blind, close the blind, tilt it open, tilt it closed and stop it.
 - [Button](https://www.home-assistant.io/integrations/button/) entities:
@@ -54,7 +54,7 @@ Since Motionblinds Bluetooth motors require a Bluetooth connection to control th
 This can also be automated using a YAML automation. For instance, the following automation connects to your Motionblind every 24 hours to update its state in Home Assistant:
 
 ```yaml
-alias: Motionblinds BLE polling automation
+alias: Motionblinds Bluetooth polling automation
 mode: single
 trigger:
   - platform: time_pattern

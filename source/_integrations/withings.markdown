@@ -57,6 +57,8 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 
 {% enddetails %}
 
+Note: You will only need one developer account; the same account and credentials are used for each Withings configuration.
+
 {% include integrations/config_flow.md %}
 
 ## Data updates
