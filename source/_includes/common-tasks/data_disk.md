@@ -1,6 +1,6 @@
 ## Using external data disk
 
-Home Assistant Operating System supports storing most data on an external storage medium, such as an USB attached SSD or HDD. This data disk contains not only user data but also most of the Home Assistant software as well (Core, Supervisor, etc.). This means a fast data disk will make the system overall much faster.
+{% term "Home Assistant Operating System" %} supports storing most data on an external storage medium, such as an USB attached SSD or HDD. This data disk contains not only user data but also most of the Home Assistant software as well (Core, Supervisor, etc.). This means a fast data disk will make the system overall much faster.
 
 ![Graphics showing the architecture of the data disk feature](/images/haos/usb-data-disk.png)
 
@@ -20,7 +20,7 @@ The data disk feature can be used on an existing installation without losing dat
 
 <div class='note'>
 
-  If you have been using a data disk previously with Home Assistant Operating System, you need to use your host computer to delete all partitions *before* using it as a data disk again.
+  If you have been using a data disk previously with {% term "Home Assistant Operating System" %}, you need to use your host computer to delete all partitions *before* using it as a data disk again.
 
 </div>
 

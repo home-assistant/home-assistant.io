@@ -1581,6 +1581,209 @@ For a summary in a more readable format:
 [@tronikos]: https://github.com/tronikos
 [@xeniter]: https://github.com/xeniter
 
+## Release 2024.4.2 - April 8
+
+- Fix hang in SNMP device_tracker implementation ([@nmaggioni] - [#112815])
+- Fix missing if statement in homematic ([@bbr111] - [#114832])
+- Bump pylitterbot to 2023.4.11 ([@natekspencer] - [#114918])
+- Fix Snapcast Config flow ([@joostlek] - [#114952])
+- Bump axis to v61 ([@Kane610] - [#114964])
+- Filter out fuzzy translations from Lokalise ([@joostlek] - [#114968])
+- Upgrade to pynobo 1.8.1 ([@oyvindwe] - [#114982])
+- Fix dictionary changed size during iteration in prometheus ([@bdraco] - [#115005])
+- Bump `brother` to version 4.1.0 ([@bieniu] - [#115021])
+- Bump yolink-api to 0.4.2 ([@matrixd2] - [#115026])
+- Update xknxproject to 3.7.1 ([@farmio] - [#115053])
+- Fix synology_dsm availablity ([@bdraco] - [#115073])
+- Downgrade hass-nabucasa from 0.80.0 to 0.78.0 ([@ludeeus] - [#115078])
+- Bump velbus-aio to 2024.4.1 ([@Cereal2nd] - [#115109])
+- Terminate scripts with until and while conditions that execute more than 10000 times ([@bdraco] - [#115110])
+- improve handling of incorrect values in fyta integration ([@dontinelli] - [#115134])
+- Bump fyta_cli to 0.3.5 ([@dontinelli] - [#115143])
+- Fix fibaro sensor additional sensor lookup ([@rappenze] - [#115148])
+- Write timer entity state before firing events ([@bdraco] - [#115151])
+- Avoid checking for polling if an entity fails to add ([@bdraco] - [#115159])
+- Only reset requested utility meter with no tariff ([@gibwar] - [#115170])
+
+[#112815]: https://github.com/home-assistant/core/pull/112815
+[#114764]: https://github.com/home-assistant/core/pull/114764
+[#114832]: https://github.com/home-assistant/core/pull/114832
+[#114918]: https://github.com/home-assistant/core/pull/114918
+[#114934]: https://github.com/home-assistant/core/pull/114934
+[#114952]: https://github.com/home-assistant/core/pull/114952
+[#114964]: https://github.com/home-assistant/core/pull/114964
+[#114968]: https://github.com/home-assistant/core/pull/114968
+[#114982]: https://github.com/home-assistant/core/pull/114982
+[#115005]: https://github.com/home-assistant/core/pull/115005
+[#115021]: https://github.com/home-assistant/core/pull/115021
+[#115026]: https://github.com/home-assistant/core/pull/115026
+[#115053]: https://github.com/home-assistant/core/pull/115053
+[#115073]: https://github.com/home-assistant/core/pull/115073
+[#115078]: https://github.com/home-assistant/core/pull/115078
+[#115109]: https://github.com/home-assistant/core/pull/115109
+[#115110]: https://github.com/home-assistant/core/pull/115110
+[#115134]: https://github.com/home-assistant/core/pull/115134
+[#115143]: https://github.com/home-assistant/core/pull/115143
+[#115148]: https://github.com/home-assistant/core/pull/115148
+[#115151]: https://github.com/home-assistant/core/pull/115151
+[#115159]: https://github.com/home-assistant/core/pull/115159
+[#115170]: https://github.com/home-assistant/core/pull/115170
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@Kane610]: https://github.com/Kane610
+[@bbr111]: https://github.com/bbr111
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@dontinelli]: https://github.com/dontinelli
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gibwar]: https://github.com/gibwar
+[@joostlek]: https://github.com/joostlek
+[@ludeeus]: https://github.com/ludeeus
+[@matrixd2]: https://github.com/matrixd2
+[@natekspencer]: https://github.com/natekspencer
+[@nmaggioni]: https://github.com/nmaggioni
+[@oyvindwe]: https://github.com/oyvindwe
+[@rappenze]: https://github.com/rappenze
+
+## Release 2024.4.3 - April 12
+
+- Bump aiohttp to 3.9.4 ([@bdraco] - [#110730])
+- Add support for adopt data disk repair ([@mdegat01] - [#114891])
+- Improve Risco exception logging ([@OnFreund] - [#115232])
+- Configurable maximum concurrency in Risco local ([@OnFreund] - [#115226])
+- Fix misssing timeout in caldav ([@bdraco] - [#115247])
+- Fix Google Tasks parsing of remove responses ([@allenporter] - [#115258])
+- Bump forecast-solar lib to v3.1.0 ([@klaasnicolaas] - [#115272])
+- Support backup of add-ons with hyphens ([@agners] - [#115274])
+- Bump pymodbus v3.6.7 ([@janiversen] - [#115279])
+- Bump yt-dlp to 2024.04.09 ([@joostlek] - [#115295])
+- Fix Aranet failure when the Bluetooth proxy is not providing a device name ([@thecode] - [#115298])
+- Bump zha-quirks to 0.0.114 ([@TheJulianJES] - [#115299])
+- Ensure automations do not execute from a trigger if they are disabled ([@bdraco] - [#115305])
+- Bump bleak-retry-connector 3.5.0 ([@bdraco] - [#115328])
+- Secure against resetting a non active modbus ([@janiversen] - [#115364])
+- Solve modbus test problem ([@janiversen] - [#115376])
+- Fix deadlock in holidays dynamic loading ([@bdraco] - [#115385])
+- Bump whirlpool-sixth-sense to 0.18.8 ([@NodeJSmith] - [#115393])
+- Fix bug in rainbird switch when turning off a switch that is already off ([@allenporter] - [#115421])
+- Bump pybotvac to 0.0.25 ([@Santobert] - [#115435])
+- Update frontend to 20240404.2 ([@bramkragten] - [#115460])
+
+[#110730]: https://github.com/home-assistant/core/pull/110730
+[#114764]: https://github.com/home-assistant/core/pull/114764
+[#114891]: https://github.com/home-assistant/core/pull/114891
+[#114934]: https://github.com/home-assistant/core/pull/114934
+[#115186]: https://github.com/home-assistant/core/pull/115186
+[#115226]: https://github.com/home-assistant/core/pull/115226
+[#115232]: https://github.com/home-assistant/core/pull/115232
+[#115247]: https://github.com/home-assistant/core/pull/115247
+[#115258]: https://github.com/home-assistant/core/pull/115258
+[#115272]: https://github.com/home-assistant/core/pull/115272
+[#115274]: https://github.com/home-assistant/core/pull/115274
+[#115279]: https://github.com/home-assistant/core/pull/115279
+[#115295]: https://github.com/home-assistant/core/pull/115295
+[#115298]: https://github.com/home-assistant/core/pull/115298
+[#115299]: https://github.com/home-assistant/core/pull/115299
+[#115305]: https://github.com/home-assistant/core/pull/115305
+[#115328]: https://github.com/home-assistant/core/pull/115328
+[#115364]: https://github.com/home-assistant/core/pull/115364
+[#115376]: https://github.com/home-assistant/core/pull/115376
+[#115385]: https://github.com/home-assistant/core/pull/115385
+[#115393]: https://github.com/home-assistant/core/pull/115393
+[#115421]: https://github.com/home-assistant/core/pull/115421
+[#115435]: https://github.com/home-assistant/core/pull/115435
+[#115460]: https://github.com/home-assistant/core/pull/115460
+[@NodeJSmith]: https://github.com/NodeJSmith
+[@OnFreund]: https://github.com/OnFreund
+[@Santobert]: https://github.com/Santobert
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@agners]: https://github.com/agners
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@joostlek]: https://github.com/joostlek
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@mdegat01]: https://github.com/mdegat01
+[@thecode]: https://github.com/thecode
+
+## Release 2024.4.4 - April 23
+
+- Bump slixmpp version to 1.8.5 ([@ravermeister] - [#114448])
+- Make Withings recoverable after internet outage ([@joostlek] - [#115124])
+- Fix Hyperion light not updating state ([@avee87] - [#115389])
+- Add scheduled mode to renault charge mode ([@slyoldfox] - [#115427])
+- Bump zeroconf to 0.132.1 ([@bdraco] - [#115501])
+- Bump zeroconf to 0.132.2 ([@bdraco] - [#115505])
+- Update pillow to 10.3.0 ([@cdce8p] - [#115524])
+- Fix race in TimestampDataUpdateCoordinator ([@bdraco] - [#115542])
+- Fix Teslemetry sensor values ([@Bre77] - [#115571])
+- Modbus: Bump pymodbus v3.6.8 ([@janiversen] - [#115574])
+- Fix sensor entity description in Teslemetry ([@Bre77] - [#115614])
+- Bump httpcore to 1.0.5 ([@bdraco] - [#115672])
+- Bump sqlparse to 0.5.0 ([@bdraco] - [#115681])
+- Bump aiohttp to 3.9.5 ([@bdraco] - [#115727])
+- Bump renault-api to 0.2.2 ([@epenet] - [#115738])
+- Fix homeworks import flow ([@emontnemery] - [#115761])
+- Allow [##:##:##] type keypad address in homeworks ([@emontnemery] - [#115762])
+- Add missing media_player features to Samsung TV ([@chemelli74] - [#115788])
+- Bump aiounifi to v75 ([@Kane610] - [#115819])
+- Ensure scripts with timeouts of zero timeout immediately ([@bdraco] - [#115830])
+- Fix KeyError error when fetching sensors (Airthings) ([@LaStrada] - [#115844])
+- Bump plexapi to 4.15.12 ([@jjlawren] - [#115872])
+- Bump ical to 8.0.0 ([@allenporter] - [#115907])
+- Fix geo location attributes of Tankerkoenig sensors ([@mib1185] - [#115914])
+- Use start helper in squeezebox for server discovery ([@rajlaud] - [#115978])
+
+[#114448]: https://github.com/home-assistant/core/pull/114448
+[#114764]: https://github.com/home-assistant/core/pull/114764
+[#114934]: https://github.com/home-assistant/core/pull/114934
+[#115124]: https://github.com/home-assistant/core/pull/115124
+[#115186]: https://github.com/home-assistant/core/pull/115186
+[#115389]: https://github.com/home-assistant/core/pull/115389
+[#115427]: https://github.com/home-assistant/core/pull/115427
+[#115463]: https://github.com/home-assistant/core/pull/115463
+[#115501]: https://github.com/home-assistant/core/pull/115501
+[#115505]: https://github.com/home-assistant/core/pull/115505
+[#115524]: https://github.com/home-assistant/core/pull/115524
+[#115542]: https://github.com/home-assistant/core/pull/115542
+[#115571]: https://github.com/home-assistant/core/pull/115571
+[#115574]: https://github.com/home-assistant/core/pull/115574
+[#115614]: https://github.com/home-assistant/core/pull/115614
+[#115672]: https://github.com/home-assistant/core/pull/115672
+[#115681]: https://github.com/home-assistant/core/pull/115681
+[#115727]: https://github.com/home-assistant/core/pull/115727
+[#115738]: https://github.com/home-assistant/core/pull/115738
+[#115761]: https://github.com/home-assistant/core/pull/115761
+[#115762]: https://github.com/home-assistant/core/pull/115762
+[#115788]: https://github.com/home-assistant/core/pull/115788
+[#115819]: https://github.com/home-assistant/core/pull/115819
+[#115830]: https://github.com/home-assistant/core/pull/115830
+[#115844]: https://github.com/home-assistant/core/pull/115844
+[#115872]: https://github.com/home-assistant/core/pull/115872
+[#115907]: https://github.com/home-assistant/core/pull/115907
+[#115914]: https://github.com/home-assistant/core/pull/115914
+[#115978]: https://github.com/home-assistant/core/pull/115978
+[@Bre77]: https://github.com/Bre77
+[@Kane610]: https://github.com/Kane610
+[@LaStrada]: https://github.com/LaStrada
+[@allenporter]: https://github.com/allenporter
+[@avee87]: https://github.com/avee87
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@chemelli74]: https://github.com/chemelli74
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@jjlawren]: https://github.com/jjlawren
+[@joostlek]: https://github.com/joostlek
+[@mib1185]: https://github.com/mib1185
+[@rajlaud]: https://github.com/rajlaud
+[@ravermeister]: https://github.com/ravermeister
+[@slyoldfox]: https://github.com/slyoldfox
+
 [#100055]: https://github.com/home-assistant/core/pull/100055
 [#102333]: https://github.com/home-assistant/core/pull/102333
 [#102884]: https://github.com/home-assistant/core/pull/102884

@@ -14,6 +14,19 @@ ha_platforms:
   - todo
 ha_integration_type: integration
 ha_config_flow: true
+related:
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - docs: /dashboards/dashboards/
+    title: Dashboards
+  - docs: /integrations/calendar/
+    title: Calendar
+  - url: https://todoist.com
+    title: Todoist projects
 ---
 
 This platform allows you to connect to your [Todoist projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every 15 minutes.
@@ -194,15 +207,3 @@ Here are two example JSON payloads resulting in the same task:
   Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
 
 - **reminder_date** (*Optional*): When should the user be reminded of this task, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format (in UTC timezone). Mutually exclusive with `reminder_date_string`.
-
-## Related topics
-
-- [Todoist projects](https://todoist.com)
-- [Calendar](/integrations/calendar/)
-
-## To-do list
-
-- [To-do list integration documentation](/integrations/todo)
-- [List of to-do list integrations](/integrations/#to-do-list)
-- [To-do list card](/dashboards/todo-list/)- 
-- [Dashboards](/dashboards/dashboards/)

@@ -12,6 +12,23 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
 ha_zeroconf: true
+related:
+  - docs: /yellow/
+    title: Home Assistant Yellow - hub
+  - docs: /skyconnect/
+    title: Home Assistant SkyConnect - Zigbee/Thread USB stick
+  - docs: /integrations/matter/
+    title: Matter
+  - docs: /integrations/homekit_controller/
+    title: HomeKit
+  - docs: /integrations/matter/#adding-a-matter-device-to-home-assistant
+    title: Adding a Matter device to Home Assistant
+  - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
+    title: Adding an Apple HomeKit device through Thread
+  - url: https://skyconnect.home-assistant.io/procedures/enable-thread/
+    title: Enabling Thread on SkyConnect
+  - url: https://yellow.home-assistant.io/procedures/enable-thread/
+    title: Enabling Thread on Yellow
 ---
 
 The Thread integration helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password). The Thread integration in Home Assistant is currently still a work in progress.
@@ -226,21 +243,3 @@ You can only set a Thread network as preferred if the credentials are known.
 
 In the current implementation, having multiple <abbr title="Thread border routers">TBRs</abbr> from different vendors results in separate networks using different credentials. This prevents devices from roaming between the Thread networks. In theory, it would be better to join all Thread networks into a single network to increase the size of the mesh network. A dense mesh network should lead to better <abbr title="radio frequency">RF</abbr> coverage and better link quality, which lowers transmission latencies, making communication faster.
 
-## Related topics
-
-### Related hardware
-
-- [Home Assistant Yellow](/yellow/) hub
-- [Home Assistant SkyConnect](/skyconnect/) Zigbee/Thread USB stick
-
-### Related integrations for smart home standards
-
-- [Matter](/integrations/matter/)
-- [HomeKit](/integrations/homekit_controller/)
-
-### Related guides
-
-- [Adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant)
-- [Adding an Apple HomeKit device through Thread](/integrations/homekit_controller/#adding-a-homekit-device-through-thread)
-- [Enabling Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
-- [Enabling Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)

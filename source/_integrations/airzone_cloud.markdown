@@ -4,6 +4,7 @@ description: Instructions on how to integrate Airzone Cloud within Home Assistan
 ha_release: 2023.6
 ha_category:
   - Binary sensor
+  - Climate
   - Select
   - Sensor
   - Water heater

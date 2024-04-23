@@ -1,6 +1,16 @@
 ---
 title: "Floors"
 description: "Group your areas per floor"
+related:
+  - docs: /docs/organizing/areas/
+    title: Areas
+  - docs: /docs/organizing/
+  - docs: /docs/organizing/labels/
+    title: Labels
+  - docs: /docs/configuration/templating/#floors
+    title: Using floors in templates
+  - docs: /voice_control/aliases/
+    title: Using floor alias for voice assistants
 ---
 
 A floor in Home Assistant is a logical grouping of areas meant to match your home's physical floors. Devices and entities
@@ -27,9 +37,3 @@ Follow these steps to create a new floor.
 
     ![Create floor dialog](/images/organizing/create_floor_02.png)
 4. You can now [assign areas to that floor](/docs/organizing/areas/#assigning-areas-to-floors-and-add-labels).
-
-## Related topics
-
-- [Alias for voice assistants](/voice_control/aliases/)
-- [Areas](/docs/organizing/areas/)
-- [Using floors in templates](/docs/configuration/templating/#floors)

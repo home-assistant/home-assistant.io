@@ -3,6 +3,13 @@ type: card
 title: "Map card"
 sidebar_label: Map
 description: "The map card that allows you to display entities on a map"
+related:
+  - docs: /dashboards/dashboards/#map-dashboard
+    title: Map dashboard
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The map card that allows you to display entities on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
@@ -134,9 +141,3 @@ entities:
     focus: false
 hours_to_show: 48
 ```
-
-## Related topics
-
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)
-- [Map dashboard](/dashboards/dashboards/#map-dashboard)

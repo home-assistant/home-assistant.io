@@ -1,5 +1,12 @@
 ---
 title: "Assist - entity, area, and floor aliases"
+related:
+  - docs: /docs/organizing/areas/
+    title: Areas
+  - docs: /docs/organizing/floors/
+    title: Floors
+  - docs: /voice_control/custom_sentences/
+    title: Assist - custom sentences
 ---
 
 Assist will use the names of your entities, areas and floors, as well as any aliases you've configured. The configured aliases are not only used by Assist, but can also be used by Google Assistant, if you have set that up.
@@ -29,9 +36,3 @@ There are multliple ways to add an alias of an entity:
 2. Next to the floor of interest, select the three-dot menu, then select **Edit floor**.
 3. Select **Add alias** and enter the alias you want to use for that floor.
 4. **Save** your changes.
-
-## Related topics
-
-- [Areas](/docs/organizing/areas/)
-- [Floors](/docs/organizing/floors/)
-- [Assist - custom sentences](/voice_control/custom_sentences/)
