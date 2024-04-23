@@ -1,12 +1,12 @@
 ---
 title: "Assist - entity, area, and floor aliases"
 related:
-- docs: /docs/organizing/areas/
-  title: Areas
-- docs: /docs/organizing/floors/
-  title: Floors
-- docs: /voice_control/custom_sentences/
-  title: Assist - custom sentences
+  - docs: /docs/organizing/areas/
+    title: Areas
+  - docs: /docs/organizing/floors/
+    title: Floors
+  - docs: /voice_control/custom_sentences/
+    title: Assist - custom sentences
 ---
 
 Assist will use the names of your entities, areas and floors, as well as any aliases you've configured. The configured aliases are not only used by Assist, but can also be used by Google Assistant, if you have set that up.

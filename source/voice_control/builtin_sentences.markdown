@@ -1,20 +1,20 @@
 ---
 title: "Assist - default sentences"
 related:
-- docs: /voice_control/aliases/
-  title: Create aliases
-- docs: /voice_control/custom_sentences/
-  title: Create your own sentences
-- docs: /voice_control/troubleshooting/
-  title: Sentence troubleshooting
-- url: https://github.com/home-assistant/intents/tree/main/sentences
-  title: Built-in sentence definitions
-- url: https://github.com/home-assistant/intents/tree/main/responses
-  title: Built-in response definitions
-- url: https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/
-  title: Template sentence syntax documentation
-- url: https://github.com/home-assistant/intents/tree/main/sentences
-  title: Sentence test cases
+  - docs: /voice_control/aliases/
+    title: Create aliases
+  - docs: /voice_control/custom_sentences/
+    title: Create your own sentences
+  - docs: /voice_control/troubleshooting/
+    title: Sentence troubleshooting
+  - url: https://github.com/home-assistant/intents/tree/main/sentences
+    title: Built-in sentence definitions
+  - url: https://github.com/home-assistant/intents/tree/main/responses
+    title: Built-in response definitions
+  - url: https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/
+    title: Template sentence syntax documentation
+  - url: https://github.com/home-assistant/intents/tree/main/sentences
+    title: Sentence test cases
 ---
 
 Home Assistant comes with [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) contributed by the community for [dozens of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
