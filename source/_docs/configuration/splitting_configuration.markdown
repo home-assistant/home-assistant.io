@@ -3,7 +3,7 @@ title: "Splitting up the configuration"
 description: "Splitting the configuration.yaml into several files."
 related:
   - docs: /docs/configuration/
-    title: `configuration.yaml` file
+    title: configuration.yaml file
   - docs: /examples/#example-configurationyaml
     title: Example configuration files by the community
   - docs: /docs/configuration/packages

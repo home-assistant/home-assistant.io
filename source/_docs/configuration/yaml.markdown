@@ -3,7 +3,7 @@ title: "YAML syntax"
 description: "Details about the YAML syntax used to configure Home Assistant."
 related:
   - docs: /docs/configuration/
-    title: `configuration.yaml` file
+    title: configuration.yaml file
   - docs: /docs/configuration/secrets/
     title: Storing private data in separate file
   - docs: /docs/automation/yaml/
